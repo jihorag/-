@@ -229,8 +229,9 @@ const QuestionItem = ({ q }) => {
 
 const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
+  const [taxonomyData, setTaxonomyData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [viewMode, setViewMode] = useState('exam'); // 'exam' | 'subject' | 'year'
+  const [viewMode, setViewMode] = useState('exam'); // 'exam' | 'subject' | 'year' | 'chapter'
   const [currentView, setCurrentView] = useState('dashboard');
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [selectedExam, setSelectedExam] = useState(null);
@@ -239,13 +240,21 @@ const App = () => {
   const [selectedUnit, setSelectedUnit] = useState(null);
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedYearSubject, setSelectedYearSubject] = useState(null);
+  
+  // taxonomy states
+  const [taxSubject, setTaxSubject] = useState(null);
+  const [taxSubSubject, setTaxSubSubject] = useState(null);
+  const [taxChapter, setTaxChapter] = useState(null);
 
   // 데이터 불러오기
   useEffect(() => {
-    fetch('/data/questions_db.json')
-      .then(res => res.json())
-      .then(data => {
-        setQuestionsData(data);
+    Promise.all([
+      fetch('/data/questions_db.json').then(res => res.json()),
+      fetch('/data/taxonomy.json').then(res => res.json())
+    ])
+      .then(([qData, tData]) => {
+        setQuestionsData(qData);
+        setTaxonomyData(tData);
         setLoading(false);
       })
       .catch(err => {
@@ -573,10 +582,135 @@ const App = () => {
     return Object.values(groups).sort((a, b) => a.title.localeCompare(b.title));
   }, [processedData, selectedExam]);
 
+  // View: 단원별 - 과목 목록
+  const taxSubjectGroups = useMemo(() => {
+    if (!taxonomyData) return [];
+    return Object.keys(taxonomyData).map(subj => {
+      const filtered = processedData.filter(q => q.unifiedSubject === subj);
+      return {
+        type: 'tax_subject',
+        title: subj,
+        subtitle: '단원별 학습',
+        total: filtered.length,
+        weak: false,
+        tag: '과목'
+      };
+    });
+  }, [taxonomyData, processedData]);
+
+  // View: 단원별 - 세부 과목 또는 장(Chapter) 목록
+  const taxSubSubjectGroups = useMemo(() => {
+    if (!taxonomyData || !taxSubject) return [];
+    const subjData = taxonomyData[taxSubject];
+    const filtered = processedData.filter(q => q.unifiedSubject === taxSubject);
+    
+    const groups = [];
+    groups.push({
+      type: 'play_all_tax',
+      title: `${taxSubject} 전체 풀기`,
+      subtitle: '전체',
+      total: filtered.length,
+      weak: false,
+      tag: '전체',
+      filterFn: (item) => item.unifiedSubject === taxSubject
+    });
+
+    if (subjData.has_subjects) {
+      Object.keys(subjData.subjects).forEach(subSubj => {
+        groups.push({
+          type: 'tax_sub_subject',
+          title: subSubj,
+          subtitle: taxSubject,
+          total: '목차 탐색',
+          weak: false,
+          tag: '세부과목'
+        });
+      });
+    } else {
+      subjData.chapters.forEach(ch => {
+        const chFiltered = filtered.filter(q => q.unit === ch.name || q.category === ch.name || q.tags?.sub_unit === ch.name);
+        groups.push({
+          type: 'tax_chapter',
+          title: ch.name,
+          subtitle: taxSubject,
+          total: chFiltered.length || '탐색',
+          weak: false,
+          tag: 'PART/장',
+          filterFn: (item) => item.unifiedSubject === taxSubject && (item.unit === ch.name || item.category === ch.name || item.tags?.sub_unit === ch.name)
+        });
+      });
+    }
+    return groups;
+  }, [taxonomyData, taxSubject, processedData]);
+
+  // View: 단원별 - 장(Chapter) 목록 (세부 과목이 있는 경우)
+  const taxChapterGroups = useMemo(() => {
+    if (!taxonomyData || !taxSubject || !taxSubSubject) return [];
+    const subjData = taxonomyData[taxSubject];
+    const chapters = subjData.subjects[taxSubSubject] || [];
+    const filtered = processedData.filter(q => q.unifiedSubject === taxSubject);
+    
+    const groups = [];
+    chapters.forEach(ch => {
+      const chFiltered = filtered.filter(q => q.unit === ch.name || q.category === ch.name || q.tags?.sub_unit === ch.name);
+      groups.push({
+        type: 'tax_chapter',
+        title: ch.name,
+        subtitle: taxSubSubject,
+        total: chFiltered.length || '탐색',
+        weak: false,
+        tag: 'PART/장',
+        filterFn: (item) => item.unifiedSubject === taxSubject && (item.unit === ch.name || item.category === ch.name || item.tags?.sub_unit === ch.name)
+      });
+    });
+    return groups;
+  }, [taxonomyData, taxSubject, taxSubSubject, processedData]);
+
+  // View: 단원별 - 절(Section) 목록
+  const taxSectionGroups = useMemo(() => {
+    if (!taxonomyData || !taxSubject || !taxChapter) return [];
+    const subjData = taxonomyData[taxSubject];
+    let chapters = [];
+    if (subjData.has_subjects && taxSubSubject) {
+      chapters = subjData.subjects[taxSubSubject];
+    } else if (!subjData.has_subjects) {
+      chapters = subjData.chapters;
+    }
+    const chapterData = chapters.find(c => c.name === taxChapter);
+    if (!chapterData || !chapterData.sections) return [];
+    
+    const filtered = processedData.filter(q => q.unifiedSubject === taxSubject && (q.unit === taxChapter || q.category === taxChapter || q.tags?.sub_unit === taxChapter));
+    
+    const groups = [];
+    groups.push({
+      type: 'play_all_tax',
+      title: `${taxChapter} 전체 풀기`,
+      subtitle: '전체',
+      total: filtered.length,
+      weak: false,
+      tag: '전체',
+      filterFn: (item) => item.unifiedSubject === taxSubject && (item.unit === taxChapter || item.category === taxChapter || item.tags?.sub_unit === taxChapter)
+    });
+
+    chapterData.sections.forEach(sec => {
+      groups.push({
+        type: 'play_all_tax',
+        title: sec.name,
+        subtitle: taxChapter,
+        total: '문제 풀기',
+        weak: false,
+        tag: '절',
+        filterFn: (item) => item.unifiedSubject === taxSubject && (item.concept === sec.name || item.tags?.sub_sub_unit === sec.name)
+      });
+    });
+    return groups;
+  }, [taxonomyData, taxSubject, taxSubSubject, taxChapter, processedData]);
+
   let activeGroups = [];
   if (viewMode === 'subject') activeGroups = subjectGroups;
   else if (viewMode === 'year') activeGroups = yearGroups;
   else if (viewMode === 'exam') activeGroups = examGroups;
+  else if (viewMode === 'chapter') activeGroups = taxSubjectGroups;
 
   const totalQuestions = processedData.length;
 
@@ -605,6 +739,18 @@ const App = () => {
       setSelectedUnit(group.title);
       setCurrentView('subject_concepts');
       window.scrollTo(0, 0);
+    } else if (group.type === 'tax_subject') {
+      setTaxSubject(group.title);
+      setCurrentView('tax_sub_subjects');
+      window.scrollTo(0, 0);
+    } else if (group.type === 'tax_sub_subject') {
+      setTaxSubSubject(group.title);
+      setCurrentView('tax_chapters');
+      window.scrollTo(0, 0);
+    } else if (group.type === 'tax_chapter') {
+      setTaxChapter(group.title);
+      setCurrentView('tax_sections');
+      window.scrollTo(0, 0);
     } else {
       setSelectedGroup(group);
       setCurrentView('question_list');
@@ -619,8 +765,20 @@ const App = () => {
       } else if (selectedGroup?.type === 'year_subject_exam') {
         setCurrentView('year_subject_exams');
       } else if (selectedGroup?.type?.startsWith('play_all_')) {
-        const typeMap = { 'play_all_subject': 'subject_categories', 'play_all_category': 'subject_units', 'play_all_unit': 'subject_concepts', 'play_all_year': 'year_subjects', 'play_all_year_subject': 'year_subject_exams' };
-        setCurrentView(typeMap[selectedGroup.type]);
+        let taxReturnView = 'dashboard';
+        if (taxChapter) taxReturnView = 'tax_sections';
+        else if (taxSubSubject) taxReturnView = 'tax_chapters';
+        else if (taxSubject) taxReturnView = 'tax_sub_subjects';
+        
+        const typeMap = { 
+          'play_all_subject': 'subject_categories', 
+          'play_all_category': 'subject_units', 
+          'play_all_unit': 'subject_concepts', 
+          'play_all_year': 'year_subjects', 
+          'play_all_year_subject': 'year_subject_exams',
+          'play_all_tax': taxReturnView
+        };
+        setCurrentView(typeMap[selectedGroup.type] || 'dashboard');
       } else if (selectedGroup?.type === 'subject_concept') {
         setCurrentView('subject_concepts');
       } else {
@@ -645,6 +803,15 @@ const App = () => {
     } else if (currentView === 'subject_concepts') {
       setCurrentView('subject_units');
       setSelectedUnit(null);
+    } else if (currentView === 'tax_sub_subjects') {
+      setCurrentView('dashboard');
+      setTaxSubject(null);
+    } else if (currentView === 'tax_chapters') {
+      setCurrentView('tax_sub_subjects');
+      setTaxSubSubject(null);
+    } else if (currentView === 'tax_sections') {
+      setCurrentView('tax_chapters');
+      setTaxChapter(null);
     }
   };
 
@@ -753,6 +920,11 @@ const App = () => {
   if (currentView === 'year_subjects' && selectedYear) return renderStudyGrid(`${selectedYear}년 기출`, '연도별 과목 목록', yearSubjectGroups);
   if (currentView === 'year_subject_exams' && selectedYearSubject) return renderStudyGrid(selectedYearSubject, `${selectedYear}년 자격시험 목록`, yearSubjectExamGroups);
 
+  // Taxonomy Views
+  if (currentView === 'tax_sub_subjects' && taxSubject) return renderStudyGrid(taxSubject, '목차 학습', taxSubSubjectGroups);
+  if (currentView === 'tax_chapters' && taxSubSubject) return renderStudyGrid(taxSubSubject, '장(Chapter) 선택', taxChapterGroups);
+  if (currentView === 'tax_sections' && taxChapter) return renderStudyGrid(taxChapter, '절(Section) 선택', taxSectionGroups);
+
   // Dashboard View
 
   if (loading) {
@@ -822,19 +994,25 @@ const App = () => {
           <div className="view-toggle">
             <button 
               className={viewMode === 'exam' ? 'active' : ''} 
-              onClick={() => { setViewMode('exam'); setSelectedExam(null); setSelectedSubject(null); setSelectedYear(null); setSelectedYearSubject(null); setSelectedCategory(null); setSelectedUnit(null); }}
+              onClick={() => { setViewMode('exam'); setSelectedExam(null); setSelectedSubject(null); setSelectedYear(null); setSelectedYearSubject(null); setSelectedCategory(null); setSelectedUnit(null); setTaxSubject(null); setTaxSubSubject(null); setTaxChapter(null); }}
             >
               시험별
             </button>
             <button 
               className={viewMode === 'subject' ? 'active' : ''} 
-              onClick={() => { setViewMode('subject'); setSelectedSubject(null); setSelectedCategory(null); setSelectedUnit(null); setSelectedExam(null); setSelectedYear(null); setSelectedYearSubject(null); }}
+              onClick={() => { setViewMode('subject'); setSelectedSubject(null); setSelectedCategory(null); setSelectedUnit(null); setSelectedExam(null); setSelectedYear(null); setSelectedYearSubject(null); setTaxSubject(null); setTaxSubSubject(null); setTaxChapter(null); }}
             >
               과목별
             </button>
             <button 
+              className={viewMode === 'chapter' ? 'active' : ''} 
+              onClick={() => { setViewMode('chapter'); setCurrentView('dashboard'); setSelectedSubject(null); setSelectedCategory(null); setSelectedUnit(null); setSelectedExam(null); setSelectedYear(null); setSelectedYearSubject(null); setTaxSubject(null); setTaxSubSubject(null); setTaxChapter(null); }}
+            >
+              단원별
+            </button>
+            <button 
               className={viewMode === 'year' ? 'active' : ''} 
-              onClick={() => { setViewMode('year'); setSelectedSubject(null); setSelectedCategory(null); setSelectedUnit(null); setSelectedExam(null); setSelectedYear(null); setSelectedYearSubject(null); }}
+              onClick={() => { setViewMode('year'); setSelectedSubject(null); setSelectedCategory(null); setSelectedUnit(null); setSelectedExam(null); setSelectedYear(null); setSelectedYearSubject(null); setTaxSubject(null); setTaxSubSubject(null); setTaxChapter(null); }}
             >
               연도별
             </button>
