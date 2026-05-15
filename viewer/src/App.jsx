@@ -850,9 +850,9 @@ const App = () => {
                 <div className="card-progress-fill" style={{ width: '0%' }}></div>
               </div>
               
-              <div className="card-progress-stats">
+              <div className="progress-stats" style={{ marginBottom: '0' }}>
                 <span>학습한 문제 <span className="stat-bold">0/{group.total}</span></span>
-                <span>0%</span>
+                <span style={{ color: 'var(--primary)', fontWeight: '700' }}>0%</span>
               </div>
               
               <div className="play-btn">Q</div>
