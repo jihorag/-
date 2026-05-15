@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-Df0bYHIDjURWR9H15W2uP66TAIfWk",
+  "object": "chat.completion",
+  "created": 1778666144,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"results\": [\n    {\n      \"number\": 1,\n      \"question\": \"직접세와 간접세에 관한 설명으로 옳은 것을 모두 고른 것은?\",\n      \"options\": [\n        \"가. 직접세는 법적 납세의무자와 부담자가 일치한다.\",\n        \"나. 간접세는 직접세에 비해 조세저항이 작고 정세비용이 적게 소요된다.\",\n        \"다. 수직적 공평 측면에서 간접세가 직접세보다 우월하다.\",\n        \"라. 직접세이면서 물(in rem tax)의 예는 재산세와 증여세이다.\",\n        \"마. \"\n      ],\n      \"answer\": \"1, 2, 3\",\n      \"explanation\": \"직접세는 납세의무자와 부담자가 일치하며 간접세는 이러한 특성을 가지지 않는다.\"\n    },\n    {\n      \"number\": 2,\n      \"question\": \"조세 부담액(T)과 소득(Y) 간에 T = -300 + 0.3Y와 같은 관계가 성립하는 경우, 옳지 않은 것은?\",\n      \"options\": [\n        \"① 소득세가 선형이다.\",\n        \"② 소득 규모의 관계체계에 일관성이 없다.\",\n        \"③ 소득 증가시 평균세율이 증가한다.\",\n        \"④ 평균세율은 한계세율보다 항상 높다.\",\n        \"⑤ 세수탄력성이 1보다 큰 값을 가진다.\"\n      ],\n      \"answer\": \"2\",\n      \"explanation\": \"선형 관계에서는 소득세가 일정하게 증가하기 때문에 관계체계가 일관된 것이다.\"\n    },\n    {\n      \"number\": 3,\n      \"question\": \"알링햄-샌드모드(M.G. Allingham and A. Sandmo)의 탈세 모형에 관한 설명으로 옳은 것을 모두 고른 것은?\",\n      \"options\": [\n        \"가. 납세자가 절대위험회피도 체감의 특성을 가진다고 가정한다.\",\n        \"나. 감사받을 확률의 증가와 벌금률의 증가가 탈루소득을 줄인다는 결과가 도출되었다.\",\n        \"다. 세율 상승의 소득효과과 대체효과가 같은 방향으로 작용하므로 탈루소득을 더 크게 만든다.\",\n        \"라. 샌드몬드는 세율을 합리적인 수준으로 유지하고 감사받을 확률과 벌금률 조정을 탈세 방지의 수단으로 활용하는 것이 바람직하다고 주장한다.\",\n        \"마. \"\n      ],\n      \"answer\": \"1, 2, 3\",\n      \"explanation\": \"각 설명은 알링햄-샌드모드 모형의 주요 내용을 반영하고 있다.\"\n    }\n  ]\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 36973,
+    "completion_tokens": 623,
+    "total_tokens": 37596,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_5feb5fe6c2"
+}

@@ -1,0 +1,20 @@
+# Dependency directories
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Large assets (optional, but keep for now if space allows)
+# 만약 이미지가 너무 많아 업로드가 실패하면 나중에 제외하겠습니다.
