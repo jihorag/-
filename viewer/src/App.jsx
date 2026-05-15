@@ -290,7 +290,7 @@ const App = () => {
         isWeak: q.tags?.difficulty === 3 || q.tags?.difficulty === 4 || q.tags?.difficulty === 5 || parseInt(q.number, 10) % 5 === 0 
       };
     });
-  }, []);
+  }, [loading, questionsData]);
 
   // View: 과목별 (5과목 등)
   const subjectGroups = useMemo(() => {
