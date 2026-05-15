@@ -13,9 +13,9 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 20 * 1024 * 1024 // 20MB까지 허용
       },
       manifest: {
-        name: '감정평가사 기출문제 정복',
+        name: '감정평가사 1차 기출정복',
         short_name: '감평기출',
-        description: '감정평가사 및 전문직 시험 기출문제 학습 웹앱',
+        description: '감정평가사 1차 합격을 위한 기출문제 정복 PWA',
         theme_color: '#000000',
         icons: [
           {

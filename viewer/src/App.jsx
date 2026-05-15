@@ -782,15 +782,25 @@ const App = () => {
 
       <div className="banner">
         <div className="banner-content">
-          <div className="banner-subtitle">CBT BANK</div>
-          <div className="banner-title">통합 기출문제 데이터베이스</div>
+          <div className="banner-subtitle">PROFESSIONAL APPRAISER EXAM</div>
+          <div className="banner-title">감정평가사 1차 기출 완전정복</div>
+          <p style={{ marginTop: '12px', opacity: 0.8, fontSize: '1rem', fontWeight: '500' }}>
+            합격을 위한 최단기 기출 반복 학습 솔루션
+          </p>
         </div>
       </div>
 
       <main className="main-content">
         <section className="overview-card">
-          <h2 className="overview-title">모든 문제 카드</h2>
-          <p className="overview-subtitle">전체 수집된 기출문제</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <h2 className="overview-title">나의 학습 통계</h2>
+              <p className="overview-subtitle">전체 {totalQuestions}개 문항 중 현재 학습 진행 현황</p>
+            </div>
+            <div style={{ background: 'var(--primary-light)', padding: '8px 16px', borderRadius: '12px', color: 'var(--primary)', fontWeight: '700', fontSize: '0.9rem' }}>
+              D-DAY 준비 중
+            </div>
+          </div>
           
           <div className="progress-bar-container">
             <div className="progress-bar-fill" style={{ width: '0%' }}></div>
