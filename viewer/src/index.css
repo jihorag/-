@@ -166,11 +166,12 @@ body {
 }
 
 .progress-stats {
-  display: flex;
-  justify-content: space-between;
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100%;
   font-size: 0.95rem;
   color: var(--text-sub);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   align-items: center;
 }
 
