@@ -347,3 +347,11 @@ body {
   .main-content { padding: 0 16px 40px; margin-top: -40px; }
   .overview-card { padding: 24px; }
 }
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

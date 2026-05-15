@@ -1,6 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { ChevronLeft, ArrowLeft } from 'lucide-react';
-import questionsData from './data/questions_db.json';
+import React, { useState, useMemo, useEffect } from 'react';
+import { ChevronLeft, ArrowLeft, Loader2 } from 'lucide-react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
@@ -229,6 +228,8 @@ const QuestionItem = ({ q }) => {
 };
 
 const App = () => {
+  const [questionsData, setQuestionsData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState('exam'); // 'exam' | 'subject' | 'year'
   const [currentView, setCurrentView] = useState('dashboard');
   const [selectedGroup, setSelectedGroup] = useState(null);
@@ -239,8 +240,23 @@ const App = () => {
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedYearSubject, setSelectedYearSubject] = useState(null);
 
+  // 데이터 불러오기
+  useEffect(() => {
+    fetch('/data/questions_db.json')
+      .then(res => res.json())
+      .then(data => {
+        setQuestionsData(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("데이터 로딩 실패:", err);
+        setLoading(false);
+      });
+  }, []);
+
   // Process data
   const processedData = useMemo(() => {
+    if (loading || !questionsData) return [];
     return questionsData.map(q => {
       let displaySubject = q.subject || q.tags?.subject || getSubject(q.number, q.period || '2', q.exam);
       
@@ -738,6 +754,23 @@ const App = () => {
   if (currentView === 'year_subject_exams' && selectedYearSubject) return renderStudyGrid(selectedYearSubject, `${selectedYear}년 자격시험 목록`, yearSubjectExamGroups);
 
   // Dashboard View
+
+  if (loading) {
+    return (
+      <div style={{ 
+        height: '100vh', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        background: '#f8fafc',
+        color: '#3b82f6'
+      }}>
+        <Loader2 size={48} className="animate-spin" style={{ marginBottom: '16px' }} />
+        <div style={{ fontWeight: '700', fontSize: '1.25rem' }}>데이터를 불러오는 중입니다...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="app-container">

@@ -9,6 +9,9 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+      workbox: {
+        maximumFileSizeToCacheInBytes: 20 * 1024 * 1024 // 20MB까지 허용
+      },
       manifest: {
         name: '감정평가사 기출문제 정복',
         short_name: '감평기출',
