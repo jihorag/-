@@ -18,3 +18,6 @@ venv/
 
 # Large assets (optional, but keep for now if space allows)
 # 만약 이미지가 너무 많아 업로드가 실패하면 나중에 제외하겠습니다.
+
+# Claude Code 내부 워크트리 (커밋 금지)
+.claude/worktrees/
