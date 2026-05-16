@@ -713,8 +713,9 @@ const App = () => {
     const chapterData = chapters.find(c => c.name === taxChapter);
     if (!chapterData || !chapterData.sections) return [];
     
-    const filtered = processedData.filter(q => q.unifiedSubject === taxSubject && (q.unit === taxChapter || q.category === taxChapter || q.tags?.sub_unit === taxChapter));
-    
+    const filtered = processedData.filter(q =>
+      q.isClassified && q.taxSubjectName === taxSubject && q.taxChapterName === taxChapter);
+
     const groups = [];
     groups.push({
       type: 'play_all_tax',
@@ -723,18 +724,20 @@ const App = () => {
       total: filtered.length,
       weak: false,
       tag: '전체',
-      filterFn: (item) => item.unifiedSubject === taxSubject && (item.unit === taxChapter || item.category === taxChapter || item.tags?.sub_unit === taxChapter)
+      filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject && item.taxChapterName === taxChapter
     });
 
     chapterData.sections.forEach(sec => {
+      const secCount = filtered.filter(q => q.taxSectionName === sec.name).length;
+      if (secCount === 0) return;
       groups.push({
         type: 'play_all_tax',
         title: sec.name,
         subtitle: taxChapter,
-        total: '문제 풀기',
+        total: secCount,
         weak: false,
         tag: '절',
-        filterFn: (item) => item.unifiedSubject === taxSubject && (item.concept === sec.name || item.tags?.sub_sub_unit === sec.name)
+        filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject && item.taxSectionName === sec.name
       });
     });
     return groups;
