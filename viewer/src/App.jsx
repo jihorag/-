@@ -618,12 +618,12 @@ const App = () => {
     }).filter(g => g.total > 0);
   }, [taxonomyData, processedData]);
 
-  // View: 단원별 - 세부 과목 또는 장(Chapter) 목록
+  // View: 단원별 - 세부 과목 또는 장(Chapter) 목록 (분류 문제만)
   const taxSubSubjectGroups = useMemo(() => {
     if (!taxonomyData || !taxSubject) return [];
     const subjData = taxonomyData[taxSubject];
-    const filtered = processedData.filter(q => q.unifiedSubject === taxSubject);
-    
+    const filtered = processedData.filter(q => q.isClassified && q.taxSubjectName === taxSubject);
+
     const groups = [];
     groups.push({
       type: 'play_all_tax',
@@ -632,31 +632,34 @@ const App = () => {
       total: filtered.length,
       weak: false,
       tag: '전체',
-      filterFn: (item) => item.unifiedSubject === taxSubject
+      filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject
     });
 
     if (subjData.has_subjects) {
       Object.keys(subjData.subjects).forEach(subSubj => {
+        const ssCount = filtered.filter(q => q.taxSubSubjectName === subSubj).length;
+        if (ssCount === 0) return;
         groups.push({
           type: 'tax_sub_subject',
           title: subSubj,
           subtitle: taxSubject,
-          total: '목차 탐색',
+          total: ssCount,
           weak: false,
           tag: '세부과목'
         });
       });
     } else {
       subjData.chapters.forEach(ch => {
-        const chFiltered = filtered.filter(q => q.unit === ch.name || q.category === ch.name || q.tags?.sub_unit === ch.name);
+        const chFiltered = filtered.filter(q => q.taxChapterName === ch.name);
+        if (chFiltered.length === 0) return;
         groups.push({
           type: 'tax_chapter',
           title: ch.name,
           subtitle: taxSubject,
-          total: chFiltered.length || '탐색',
+          total: chFiltered.length,
           weak: false,
           tag: 'PART/장',
-          filterFn: (item) => item.unifiedSubject === taxSubject && (item.unit === ch.name || item.category === ch.name || item.tags?.sub_unit === ch.name)
+          filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject && item.taxChapterName === ch.name
         });
       });
     }
