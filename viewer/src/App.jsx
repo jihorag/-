@@ -602,11 +602,11 @@ const App = () => {
     return Object.values(groups).sort((a, b) => a.title.localeCompare(b.title));
   }, [processedData, selectedExam]);
 
-  // View: 단원별 - 과목 목록
+  // View: 단원별 - 과목 목록 (Gemini/Claude로 분류된 문제만)
   const taxSubjectGroups = useMemo(() => {
     if (!taxonomyData) return [];
     return Object.keys(taxonomyData).map(subj => {
-      const filtered = processedData.filter(q => q.unifiedSubject === subj);
+      const filtered = processedData.filter(q => q.isClassified && q.taxSubjectName === subj);
       return {
         type: 'tax_subject',
         title: subj,
@@ -615,7 +615,7 @@ const App = () => {
         weak: false,
         tag: '과목'
       };
-    });
+    }).filter(g => g.total > 0);
   }, [taxonomyData, processedData]);
 
   // View: 단원별 - 세부 과목 또는 장(Chapter) 목록
