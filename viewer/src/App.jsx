@@ -666,24 +666,35 @@ const App = () => {
     return groups;
   }, [taxonomyData, taxSubject, processedData]);
 
-  // View: 단원별 - 장(Chapter) 목록 (세부 과목이 있는 경우)
+  // View: 단원별 - 장(Chapter) 목록 (세부 과목이 있는 경우, 분류 문제만)
   const taxChapterGroups = useMemo(() => {
     if (!taxonomyData || !taxSubject || !taxSubSubject) return [];
     const subjData = taxonomyData[taxSubject];
     const chapters = subjData.subjects[taxSubSubject] || [];
-    const filtered = processedData.filter(q => q.unifiedSubject === taxSubject);
-    
+    const filtered = processedData.filter(q =>
+      q.isClassified && q.taxSubjectName === taxSubject && q.taxSubSubjectName === taxSubSubject);
+
     const groups = [];
+    groups.push({
+      type: 'play_all_tax',
+      title: `${taxSubSubject} 전체 풀기`,
+      subtitle: '전체',
+      total: filtered.length,
+      weak: false,
+      tag: '전체',
+      filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject && item.taxSubSubjectName === taxSubSubject
+    });
     chapters.forEach(ch => {
-      const chFiltered = filtered.filter(q => q.unit === ch.name || q.category === ch.name || q.tags?.sub_unit === ch.name);
+      const chFiltered = filtered.filter(q => q.taxChapterName === ch.name);
+      if (chFiltered.length === 0) return;
       groups.push({
         type: 'tax_chapter',
         title: ch.name,
         subtitle: taxSubSubject,
-        total: chFiltered.length || '탐색',
+        total: chFiltered.length,
         weak: false,
         tag: 'PART/장',
-        filterFn: (item) => item.unifiedSubject === taxSubject && (item.unit === ch.name || item.category === ch.name || item.tags?.sub_unit === ch.name)
+        filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject && item.taxChapterName === ch.name
       });
     });
     return groups;
