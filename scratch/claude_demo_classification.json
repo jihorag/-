@@ -1,0 +1,118 @@
+{
+  "_meta": {
+    "purpose": "Claude 직접(이미지 판독) 분류 시범 - 회계사 기출 8문항",
+    "scope_authority": "taxonomy_v4.json (회계학=중급재무회계+원가관리회계, 경제학원론=미시/거시/국제/재정)",
+    "note": "in_scope=false 면 mapped_taxonomy=null. questions_db.json 미수정(실행중 PID 2966 충돌 방지).",
+    "processed_by": "claude-sonnet-4-6 (demo, image-read)"
+  },
+  "results": [
+    {
+      "id": "cpa_2022_acc_35",
+      "subject_orig": "회계학",
+      "in_scope": false,
+      "mapped_taxonomy": null,
+      "difficulty": 5,
+      "reason": "이자율스왑을 이용한 차입금 공정가치위험회피회계(파생상품·위험회피회계). taxonomy_v4 회계학(중급 재무회계+원가관리회계)에 파생상품/위험회피회계 단원이 없음 → 고급회계, 감정평가사 범위 밖.",
+      "flags": ["out_of_scope_고급회계"]
+    },
+    {
+      "id": "cpa_2023_acc_35",
+      "subject_orig": "회계학",
+      "in_scope": false,
+      "mapped_taxonomy": null,
+      "difficulty": 4,
+      "reason": "K-IFRS 1021 환율변동효과 중 해외사업장 기능통화·표시통화 환산이 핵심. taxonomy의 'Chapter 23 > 3절 외화자산·부채의 환산'은 기초 외화환산만 포함하며 해외사업장 재무제표 환산은 미포함 → 경계 사례이나 범위 밖으로 판정.",
+      "flags": ["boundary", "out_of_scope_고급회계"]
+    },
+    {
+      "id": "cpa_2022_acc_17",
+      "subject_orig": "회계학",
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "회계학",
+        "sub_subject": "재무회계",
+        "chapter": "제5장 수익과 비용",
+        "section": "Chapter 15 주식기준보상",
+        "item": "1절 주식결제형 주식기준보상"
+      },
+      "difficulty": 4,
+      "reason": "K-IFRS 1102 주식기준보상 전반(주식결제형·현금결제형·선택형) 옳지않은것 찾기. taxonomy 회계학>재무회계>Chapter 15 주식기준보상에 직접 대응. 챕터 전반을 다루나 대표 항목으로 1절 지정.",
+      "flags": ["chapter_level_concept"]
+    },
+    {
+      "id": "cpa_2026_회계학_1",
+      "subject_orig": "회계학",
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "회계학",
+        "sub_subject": "재무회계",
+        "chapter": "제1장 회계의 기초",
+        "section": "Chapter 01 개념체계",
+        "item": "4절 유용한 재무정보의 질적 특성"
+      },
+      "difficulty": 3,
+      "reason": "재무보고를 위한 개념체계(질적특성·목적적합성·표현충실성·보고기업) 옳지않은것 모두 고르기. taxonomy Chapter 01 개념체계에 대응. ★기존 파이프라인은 [IMAGE: cpa_2026_회계학_1_body.png] 경로를 <root>/파일명 으로 잘못 해석해 이미지 미발견 → Gemini 오분류. Claude는 실제 이미지 판독으로 정상 분류.",
+      "flags": ["pipeline_path_bug_2026", "image_only"]
+    },
+    {
+      "id": "cpa_2025_회계학_9",
+      "subject_orig": "회계학",
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "회계학",
+        "sub_subject": "재무회계",
+        "chapter": "제1장 회계의 기초",
+        "section": "Chapter 01 개념체계",
+        "item": "3절 일반목적재무보고"
+      },
+      "difficulty": 3,
+      "reason": "개념체계(일반목적재무보고서·보고기업 전체 관점·측정 사용가치/이행가치) 옳지않은것. taxonomy Chapter 01 개념체계 대응. 측정(8절)도 일부 걸치나 대표는 3절 일반목적재무보고. ★2025 회계학도 동일한 이미지 경로 버그 대상.",
+      "flags": ["pipeline_path_bug_2025", "image_only"]
+    },
+    {
+      "id": "cpa_2025_econ_13",
+      "subject_orig": "경제학",
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "재정학",
+        "chapter": "제2장 외부성, 공공재, 공공선택이론",
+        "section": "제4절 공공재이론",
+        "item": "제2관 공공재의 최적공급 (린달균형·사뮤엘슨 조건)"
+      },
+      "difficulty": 4,
+      "reason": "10명 주민·단위당 편익 10·두 공장 비용함수로 최적 공공재 생산량 계산. 사뮤엘슨 조건(ΣMB=MC) 응용. 미시 제8장 공공재로도 가능하나 '최적공급' 계산이 핵심이라 재정학 제4절 제2관이 더 정밀.",
+      "flags": ["cross_node_미시_재정학"]
+    },
+    {
+      "id": "cpa_2022_econ_21",
+      "subject_orig": "경제학",
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "국제경제학",
+        "chapter": "제2장 국제금융론",
+        "section": "제3절 환율, 환율결정이론, 환율제도",
+        "item": "제3관 이자율평가설 (IRP)"
+      },
+      "difficulty": 4,
+      "reason": "원/달러 예상환율·달러예금이자율·원화예금이자율로 자산접근법 균형환율 산정. 이자율평가설(UIP) 계산문제 → 국제금융론 환율결정 제3관 IRP에 정확 대응.",
+      "flags": []
+    },
+    {
+      "id": "cpa_2022_econ_39",
+      "subject_orig": "경제학",
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "거시경제학",
+        "chapter": "제4장 총수요·총공급이론",
+        "section": "제10절 재정정책과 금융정책",
+        "item": "제4관 정책혼합 (policy mix)"
+      },
+      "difficulty": 4,
+      "reason": "공급충격(설비파괴)+재정지출 증가+중앙은행 국채 전량매입(부채의 화폐화) 동시 발생을 IS-LM·AD-AS로 분석. 재정·금융 정책혼합이 핵심 → 제10절 제4관 정책혼합. 공급충격(제11절 제4관)도 부수적으로 관련.",
+      "flags": ["cross_node_정책혼합_공급충격"]
+    }
+  ]
+}

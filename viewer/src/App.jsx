@@ -301,10 +301,13 @@ const App = () => {
     });
   }, [loading, questionsData]);
 
-  // View: 과목별 (5과목 등)
+  // View: 과목별 (5과목 등) - 새롭게 정밀 분류된 문제만 필터링
   const subjectGroups = useMemo(() => {
     const groups = {};
     processedData.forEach(q => {
+      // V4 파이프라인으로 1회 이상 재분류된 문제만 통과
+      if (!q.indexing_v4_count || q.indexing_v4_count < 1) return;
+
       const key = q.unifiedSubject;
       if (!groups[key]) {
         groups[key] = {
@@ -313,8 +316,8 @@ const App = () => {
           subtitle: '과목',
           total: 0,
           weak: false,
-          tag: '과목별 학습',
-          filterFn: (item) => item.unifiedSubject === q.unifiedSubject
+          tag: '정밀분류 완료',
+          filterFn: (item) => item.unifiedSubject === q.unifiedSubject && item.indexing_v4_count >= 1
         };
       }
       groups[key].total += 1;
