@@ -284,7 +284,18 @@ const App = () => {
 
       const unit = q.tags?.sub_unit || getMockUnit(q.number);
       const category = q.tags?.unit || unifiedSubject;
-      
+
+      // V4 분류 정보: Gemini(gemini-2.5-flash) 또는 Claude(claude-sonnet-4-6)로
+      // 분류되어 mapped_taxonomy가 있는 문제만 단원별 탭에 노출한다.
+      // (Gemini는 in_scope 필드가 없어 null → 통과, Claude는 in_scope===false면 제외)
+      const iv = q.indexing_v4;
+      const mt = iv && iv.mapped_taxonomy;
+      const isClassified = !!(
+        iv && mt && mt.subject &&
+        (iv.processed_by === 'gemini-2.5-flash' || iv.processed_by === 'claude-sonnet-4-6') &&
+        iv.in_scope !== false
+      );
+
       return {
         ...q,
         year: q.year || '2025',
@@ -294,9 +305,15 @@ const App = () => {
         unifiedSubject: unifiedSubject,
         category: category,
         unit: unit,
-        concept: (q.tags?.concept && q.tags?.concept.trim() !== '') ? q.tags.concept : 
+        concept: (q.tags?.concept && q.tags?.concept.trim() !== '') ? q.tags.concept :
                  ((q.tags?.sub_sub_unit && q.tags?.sub_sub_unit.trim() !== '') ? q.tags.sub_sub_unit : '기본 개념'),
-        isWeak: q.tags?.difficulty === 3 || q.tags?.difficulty === 4 || q.tags?.difficulty === 5 || parseInt(q.number, 10) % 5 === 0 
+        isWeak: q.tags?.difficulty === 3 || q.tags?.difficulty === 4 || q.tags?.difficulty === 5 || parseInt(q.number, 10) % 5 === 0,
+        // 단원별 탭 전용 분류 필드 (mapped_taxonomy 기반)
+        isClassified,
+        taxSubjectName: isClassified ? mt.subject : null,
+        taxSubSubjectName: isClassified ? (mt.sub_subject || null) : null,
+        taxChapterName: isClassified ? (mt.chapter || null) : null,
+        taxSectionName: isClassified ? (mt.section || null) : null,
       };
     });
   }, [loading, questionsData]);
