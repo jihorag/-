@@ -1,6 +1,6 @@
 [
-{"id":"cem20130629-9","in_scope":false,"difficulty":3,"mapped_taxonomy":{"subject":"감정평가관계법규","sub_subject":"","chapter":"","section":"","item":""},"reason":"회계학(투자부동산 분류변경) 문항이 감정평가관계법규로 오분류됨 - 과목 범위 외","flags":["오분류"]},
-{"id":"cem20130629-16","in_scope":false,"difficulty":3,"mapped_taxonomy":{"subject":"감정평가관계법규","sub_subject":"","chapter":"","section":"","item":""},"reason":"회계학(매도가능금융자산평가손익) 문항이 감정평가관계법규로 오분류됨 - 과목 범위 외","flags":["오분류"]},
+{"id":"cem20130629-9","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"회계학(투자부동산 분류변경) 문항이 감정평가관계법규로 오분류됨 - 과목 범위 외","flags":["오분류"]},
+{"id":"cem20130629-16","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"회계학(매도가능금융자산평가손익) 문항이 감정평가관계법규로 오분류됨 - 과목 범위 외","flags":["오분류"]},
 {"id":"cem20150627-1","in_scope":true,"difficulty":3,"mapped_taxonomy":{"subject":"감정평가관계법규","sub_subject":"","chapter":"PART 01 국토의 계획 및 이용에 관한 법률","section":"Chapter 01 총칙","item":""},"reason":"국토계획법 일반(기반시설·개발밀도관리구역)","flags":["이론"]},
 {"id":"cem20150627-2","in_scope":true,"difficulty":3,"mapped_taxonomy":{"subject":"감정평가관계법규","sub_subject":"","chapter":"PART 01 국토의 계획 및 이용에 관한 법률","section":"Chapter 03 도시·군기본계획","item":""},"reason":"도시·군기본계획 내용","flags":["이론"]},
 {"id":"cem20150627-3","in_scope":true,"difficulty":3,"mapped_taxonomy":{"subject":"감정평가관계법규","sub_subject":"","chapter":"PART 01 국토의 계획 및 이용에 관한 법률","section":"Chapter 04 도시·군관리계획","item":""},"reason":"입지규제최소구역 지정","flags":["이론"]},
