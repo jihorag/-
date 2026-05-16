@@ -1,0 +1,8 @@
+{
+  "name": "appraisal-quiz-root",
+  "private": true,
+  "description": "Vercel가 호환 Node 버전을 선택하도록 하는 루트 매니페스트 (실제 앱은 viewer/). 빌드는 vercel.json이 viewer를 빌드.",
+  "engines": {
+    "node": "22.x"
+  }
+}
