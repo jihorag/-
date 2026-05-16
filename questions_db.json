@@ -128665,7 +128665,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제4장 용익물권",
+        "section": "제2절 지역권",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "지역권(부종성·불가분성·수선의무 승계)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-22",
@@ -128695,7 +128711,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제4장 용익물권",
+        "section": "제3절 전세권",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "전세권(법정갱신·존속기간·소멸청구)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-23",
@@ -128725,7 +128757,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제4장 용익물권",
+        "section": "제3절 전세권",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "전세권에 관한 설명 중 옳은 것 모두 고르기.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-24",
@@ -128755,7 +128803,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제5장 담보물권",
+        "section": "제2절 유치권",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "유치권(소멸시효·경매 대항력·간접점유)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-25",
@@ -128785,7 +128849,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제3장 소유권",
+        "section": "제3절 소유권의 취득",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "부동산 등기부취득시효의 요건이 아닌 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-26",
@@ -128815,7 +128895,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제5장 담보물권",
+        "section": "제4절 저당권",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "저당권(일괄경매·물상대위·제3취득자·담보보충)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-27",
@@ -128845,7 +128941,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제3절 부동산 물권변동",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "미등기 무허가건물·등기 효력·구분지상권·공유 처분 등에 관한 설명 중 옳은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-28",
@@ -128875,7 +128987,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제3장 소유권",
+        "section": "제5절 소유권에 기한 물권적 청구권",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "소유권에 기한 물권적 청구권에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-29",
@@ -128905,7 +129033,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제3절 부동산 물권변동",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "법률행위에 의하지 않은 물권변동(법정저당권·판결·경매·상속)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-30",
@@ -128935,7 +129079,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제4절 동산 물권 변동",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "임차물 무단매도 사례에서 선의취득 성립 여부에 관한 설명 중 옳은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-31",
@@ -128965,7 +129125,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제3절 부동산 물권변동",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "부동산등기(멸실등기 유용·중복보존등기·추정력)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-32",
@@ -128995,7 +129171,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제2장 점유권",
+        "section": "제3절 점유권의 효력 · 제4절 준점유",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "점유(추정·하자승계·간접점유·선의패소)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-33",
@@ -129025,7 +129217,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제2장 점유권",
+        "section": "제3절 점유권의 효력 · 제4절 준점유",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "점유보호청구권(출소기간·점유보조자·간접점유·공사방해)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-34",
@@ -129055,7 +129263,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제3장 소유권",
+        "section": "제1절 총설",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "토지소유권(상하 범위·포락·등기 면적·경계)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-35",
@@ -129085,7 +129309,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제3장 소유권",
+        "section": "제3절 소유권의 취득",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "부동산 점유취득시효(부당이득·기산점·손해배상)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-36",
@@ -129115,7 +129355,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제3장 소유권",
+        "section": "제6절 공동소유",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "공동소유(총유·공유지분 포기·합유·공유물분할)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-37",
@@ -129145,7 +129401,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제3장 소유권",
+        "section": "제7절 명의신탁",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "명의신탁의 대상이 될 수 있는 것을 모두 고르는 문제.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-38",
@@ -129175,7 +129447,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제4장 용익물권",
+        "section": "제1절 지상권",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "지상권(임대·원상회복·지료연체·담보지상권)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-39",
@@ -129205,7 +129493,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제4장 용익물권",
+        "section": "제1절 지상권",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "법정지상권·관습상 법정지상권의 성립요건에 관한 설명 중 옳은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-40",
@@ -129235,7 +129539,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제5장 담보물권",
+        "section": "제3절 질권",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "동산질권(선의취득·유질계약·순위·간이변제충당)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20180303-81",
@@ -146955,7 +147275,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제1장 민법 서론",
+        "section": "",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "민법의 법원(法源) - 관습법·분묘기지권·판례·헌재결정에 관한 설명 중 옳은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-2",
@@ -146985,7 +147321,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제2장 법률관계와 신의성실의 원칙",
+        "section": "제1절 법률관계와 권리·의무",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "민법상 권리(기대권·청구권·형성권·항변권)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-3",
@@ -147015,7 +147367,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제2장 법률관계와 신의성실의 원칙",
+        "section": "제2절 신의성실의 원칙",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "신의칙과 권리남용(사정변경·법인격남용·소멸시효 항변)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-4",
@@ -147045,7 +147413,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제3장 권리의 주체",
+        "section": "제1절 자연인",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "18세 미성년자가 단독으로 유효하게 할 수 있는 행위가 아닌 것(행위능력).",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-5",
@@ -147075,7 +147459,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제3장 권리의 주체",
+        "section": "제1절 자연인",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "권리능력(사망·동시사망·태아·인정사망)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-6",
@@ -147105,7 +147505,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제3장 권리의 주체",
+        "section": "제1절 자연인",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "선박침몰 실종선고 사례(특별실종·사망간주·취소 효과)에 관한 설명 중 옳은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-7",
@@ -147135,7 +147551,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제3장 권리의 주체",
+        "section": "제2절 법인",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "민법상 법인에 관한 설명 중 옳은 것 모두 고르기.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-8",
@@ -147165,7 +147597,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제3장 권리의 주체",
+        "section": "제2절 법인",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "법인 아닌 사단(총유·등기능력·총회결의)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-9",
@@ -147195,7 +147643,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제4장 권리의 객체",
+        "section": "",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "물건(자연력·주물종물·농작물·집합물)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-10",
@@ -147225,7 +147689,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제5장 권리의 변동",
+        "section": "제2절 법률행위",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "선량한 풍속 기타 사회질서 위반(민법 제103조)으로 무효가 아닌 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-11",
@@ -147255,7 +147735,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제5장 권리의 변동",
+        "section": "제3절 의사표시",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "통정허위표시(제3자 보호·은닉행위·전득자)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-12",
@@ -147285,7 +147781,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제5장 권리의 변동",
+        "section": "제3절 의사표시",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "표시상 착오(점포 매매대금 오표시) 사례에 관한 설명 중 옳은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-13",
@@ -147315,7 +147827,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제5장 권리의 변동",
+        "section": "제3절 의사표시",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "의사표시의 효력발생(도달·발신 후 사망·수령능력)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-14",
@@ -147345,7 +147873,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제5장 권리의 변동",
+        "section": "제4절 법률행위의 대리",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "대리(불법행위·대리권 남용·하자·복대리)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-15",
@@ -147375,7 +147919,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제5장 권리의 변동",
+        "section": "제4절 법률행위의 대리",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "무권대리(대리인 사칭) 사례의 추인·철회·최고·책임에 관한 설명 중 옳은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-16",
@@ -147405,7 +147965,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제5장 권리의 변동",
+        "section": "제5절 법률행위의 무효와 취소",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "법률행위의 취소(승계인·추인·반환범위·행사기간)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-17",
@@ -147435,7 +148011,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제5장 권리의 변동",
+        "section": "제6절 법률행위의 부관",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "조건과 기한(소급효·불능조건·기한이익)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-18",
@@ -147465,7 +148057,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제6장 기간",
+        "section": "",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "기간의 계산에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-19",
@@ -147495,7 +148103,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제7장 소멸시효",
+        "section": "제5절 제척기간",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "소멸시효와 제척기간의 비교(소급효·포기·직권조사·중단·정지)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-20",
@@ -147525,7 +148149,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "민법총칙",
+        "chapter": "제7장 소멸시효",
+        "section": "제1절 총설 · 제2절 소멸시효의 요건",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "소멸시효의 기산점(법률상 장애·부작위채권·정지조건부권리)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-21",
@@ -147555,7 +148195,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제1절 물권법 일반 · 제2절 물권변동",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "물권법정주의에 관한 설명 중 옳은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-22",
@@ -147585,7 +148241,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제1절 물권법 일반 · 제2절 물권변동",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "물권적 청구권에 관한 설명 중 옳은 것 모두 고르기.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-23",
@@ -147615,7 +148287,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제3절 부동산 물권변동",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "부동산 물권변동을 위해 등기가 필요한 것을 고르는 문제.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-24",
@@ -147645,7 +148333,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제3절 부동산 물권변동",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "무효등기의 유용에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-25",
@@ -147675,7 +148379,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제3절 부동산 물권변동",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "등기의 추정력에 관한 설명 중 옳은 것 모두 고르기.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-26",
@@ -147705,7 +148425,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제4절 동산 물권 변동",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "선의취득(자동차·입주권·경매·점유개정)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-27",
@@ -147735,7 +148471,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 4,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제1장 물권법 총설",
+        "section": "제5절 물권의 소멸",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "물권의 소멸(물상대위·소멸시효·합유지분 포기·혼동)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-28",
@@ -147765,7 +148517,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제2장 점유권",
+        "section": "제2절 점유권의 취득과 소멸",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "간접점유자에 해당하는 자를 고르는 문제.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-29",
@@ -147795,7 +148563,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제2장 점유권",
+        "section": "제3절 점유권의 효력 · 제4절 준점유",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "점유권의 효력(권리적법추정·점유보호청구권)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-30",
@@ -147825,7 +148609,23 @@
       "system_note": "완벽경로매핑V2"
     },
     "subject": "민법",
-    "exam": "감정평가사"
+    "exam": "감정평가사",
+    "indexing_v4": {
+      "difficulty": 3,
+      "in_scope": true,
+      "mapped_taxonomy": {
+        "subject": "민법",
+        "sub_subject": "물권법",
+        "chapter": "제2장 점유권",
+        "section": "제3절 점유권의 효력 · 제4절 준점유",
+        "item": ""
+      },
+      "needs_higher_ai": false,
+      "reason": "점유자와 회복자의 관계(과실·멸실책임·비용상환)에 관한 설명 중 옳지 않은 것.",
+      "flags": [],
+      "processed_by": "claude-sonnet-4-6"
+    },
+    "indexing_v4_count": 1
   },
   {
     "id": "cek20190302-31",
