@@ -25,12 +25,13 @@ def already_classified(q):
     iv = q.get("indexing_v4")
     if not isinstance(iv, dict):
         return False
+    if iv.get("processed_by") not in ("gemini-2.5-flash", "claude-sonnet-4-6"):
+        return False
+    # out-of-scope 처리 완료(in_scope=False)도 다시 뽑지 않음
+    if iv.get("in_scope") is False:
+        return True
     mt = iv.get("mapped_taxonomy")
-    return bool(
-        mt and mt.get("subject")
-        and iv.get("processed_by") in ("gemini-2.5-flash", "claude-sonnet-4-6")
-        and iv.get("in_scope") is not False
-    )
+    return bool(mt and mt.get("subject"))
 
 
 def is_text(q):
