@@ -1336,6 +1336,61 @@ const App = () => {
     );
   }
 
+  if (currentView === 'today') {
+    const fmtDate = (ms) => {
+      const d = new Date(ms), t = new Date(); t.setHours(0, 0, 0, 0);
+      const diff = Math.round((new Date(ms).setHours(0, 0, 0, 0) - t.getTime()) / DAY);
+      const label = diff <= 0 ? '오늘' : diff === 1 ? '내일' : `${diff}일 후`;
+      return `${d.getMonth() + 1}/${d.getDate()} (${label})`;
+    };
+    return (
+      <div className="app-container">
+        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
+          <button className="back-btn" onClick={() => setCurrentView('dashboard')}>
+            <ArrowLeft size={24} style={{ marginRight: '8px' }} />
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
+          </button>
+        </header>
+        <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>📅 오늘 복습</h1>
+          <div style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '4px' }}>
+            기억 곡선에 따라 오늘 복습할 {srs.due.length}문제 · 맞히면 간격이 늘어 더 나중에 다시 나옵니다
+          </div>
+        </div>
+        <main className="main-content" style={{ marginTop: '20px' }}>
+          {srs.due.length === 0 ? (
+            <div style={{ textAlign: 'center', color: '#6b7280', padding: '40px' }}>
+              오늘 복습할 문제가 없습니다 🎉
+              {srs.nextDue != null && <div style={{ marginTop: '8px', fontSize: '0.9rem' }}>다음 복습 예정: <b>{fmtDate(srs.nextDue)}</b></div>}
+            </div>
+          ) : (
+            <div className="study-grid">
+              <div className="study-card"
+                onClick={() => startReview(srs.due.map(qid), '오늘 복습 전체', 'today')}
+                style={{ background: '#eff6ff', borderColor: '#bfdbfe', cursor: 'pointer' }}>
+                <div className="card-badge" style={{ background: '#3b82f6', color: '#fff', border: 'none' }}>전체</div>
+                <h3 className="card-title" style={{ fontSize: '1.1rem' }}>오늘 복습 전체</h3>
+                <div className="card-total">총 {srs.due.length} 문제</div>
+                <div className="play-btn" style={{ background: '#3b82f6', color: '#fff' }}>시작</div>
+              </div>
+              {srs.groups.map((g) => (
+                <div key={g.subj} className="study-card"
+                  onClick={() => startReview(g.ids, `${g.subj} 오늘 복습`, 'today')}
+                  style={{ cursor: 'pointer' }}>
+                  <div className="card-badge">과목</div>
+                  <div className="card-subtitle">오늘 복습</div>
+                  <h3 className="card-title" style={{ fontSize: '1.1rem' }}>{g.subj}</h3>
+                  <div className="card-total">{g.count} 문제</div>
+                  <div className="play-btn">시작</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </main>
+      </div>
+    );
+  }
+
   if (currentView === 'review') {
     // 현재 스코프(전체 또는 선택 과목)의 오답 집합
     const scopeWrong = reviewSubject
