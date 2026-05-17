@@ -751,6 +751,22 @@ const App = () => {
     [processedData]
   );
 
+  // 오답(채점 결과 false) 집합 + 과목별 그룹
+  const wrongList = useMemo(
+    () => classifiedList.filter(q => { const p = progress[qid(q)]; return p && p.correct === false; }),
+    [classifiedList, progress]
+  );
+  const reviewGroups = useMemo(() => {
+    const by = {};
+    for (const q of wrongList) {
+      const k = q.taxSubjectName || '기타';
+      (by[k] || (by[k] = [])).push(q);
+    }
+    return Object.entries(by)
+      .map(([subj, qs]) => ({ subj, ids: qs.map(qid), count: qs.length }))
+      .sort((a, b) => b.count - a.count);
+  }, [wrongList]);
+
   // 복합 필터 선택지
   const filterOptions = useMemo(() => {
     const exams = new Set(), subjects = new Set(), years = new Set();
