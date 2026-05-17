@@ -380,6 +380,11 @@ const App = () => {
     }
   }, [viewMode, currentView, taxScope, taxSubject, taxSubSubject, taxChapter, taxSection]);
 
+  // 검색·필터 영속화: 변경 시 localStorage 저장 (새로고침 후 복원)
+  useEffect(() => {
+    try { localStorage.setItem(FILTERS_KEY, JSON.stringify(filters)); } catch { /* quota/SSR */ }
+  }, [filters]);
+
   // Process data
   const processedData = useMemo(() => {
     if (loading || !questionsData) return [];
