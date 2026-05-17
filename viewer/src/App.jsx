@@ -12,6 +12,19 @@ const DIFFICULTY_META = {
   5: { label: '난이도 5 · 매우어려움', bg: '#fef2f2', fg: '#b91c1c' },
 };
 
+// 정답 정규화: 원문자/공백 처리 후 1..optCount 범위의 숫자 문자열만 유효, 아니면 null
+const CIRCLED = { '①': '1', '②': '2', '③': '3', '④': '4', '⑤': '5', '⑥': '6', '⑦': '7', '⑧': '8', '⑨': '9', '⑩': '10' };
+const normAnswer = (raw, optCount) => {
+  if (raw == null) return null;
+  let s = String(raw).trim();
+  if (CIRCLED[s]) s = CIRCLED[s];
+  if (!/^\d+$/.test(s)) return null;            // 빈값·'정답없음'·서술형 센티넬 등
+  const n = parseInt(s, 10);
+  if (n < 1) return null;                        // '0' 등
+  if (optCount && n > optCount) return null;     // 범위 초과
+  return String(n);
+};
+
 // ===== 학습 진행률 (localStorage) =====
 const PROGRESS_KEY = 'quiz-progress-v1';
 const qid = (q) => q.id || `${q.exam}_${q.year}_${q.number}`;
