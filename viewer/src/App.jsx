@@ -1363,8 +1363,8 @@ const App = () => {
     );
     return shell(
       <div className="app-container">
-        <div style={{ padding: '20px 20px 0' }}>
-          <h1 style={{ fontSize: '1.4rem', fontWeight: 700 }}>🔍 검색</h1>
+        <div className="screen-head">
+          <h1 className="screen-title">🔍 검색</h1>
         </div>
         <div style={{ padding: '20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
           <input
