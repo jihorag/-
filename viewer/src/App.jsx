@@ -1213,6 +1213,12 @@ const App = () => {
         <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
           {q ? (
             <>
+              {selectedGroup.resumeIdx > 0 && studyIdx === selectedGroup.resumeIdx && (
+                <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', color: '#1d4ed8',
+                  borderRadius: '10px', padding: '10px 14px', marginBottom: '12px', fontSize: '0.85rem', fontWeight: 600 }}>
+                  ⏯️ 이어서 풀기 — {studyIdx + 1}번째 문제부터
+                </div>
+              )}
               <QuestionItem
                 key={`${qid(q)}-${studyNonce}`}
                 q={q}
