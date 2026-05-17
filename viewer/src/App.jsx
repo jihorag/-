@@ -245,6 +245,9 @@ const App = () => {
   const [taxSubject, setTaxSubject] = useState(null);
   const [taxSubSubject, setTaxSubSubject] = useState(null);
   const [taxChapter, setTaxChapter] = useState(null);
+  const [taxSection, setTaxSection] = useState(null);
+  // 시험별/연도별 진입 시 적용되는 분류 스코프: null | {kind:'exam'|'year', value, label}
+  const [taxScope, setTaxScope] = useState(null);
 
   // 데이터 불러오기
   useEffect(() => {
