@@ -427,6 +427,23 @@ const App = () => {
     });
   }, [loading, questionsData]);
 
+  // 가이드 학습: 키보드 ← 이전 / → · Enter 다음
+  useEffect(() => {
+    if (currentView !== 'study' || !selectedGroup) return;
+    const onKey = (e) => {
+      const tag = e.target && e.target.tagName;
+      if (tag && /^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return;
+      if (e.key === 'ArrowLeft') {
+        setStudyIdx(i => Math.max(0, i - 1)); window.scrollTo(0, 0);
+      } else if (e.key === 'ArrowRight' || e.key === 'Enter') {
+        const n = processedData.filter(selectedGroup.filterFn).length;
+        setStudyIdx(i => Math.min(Math.max(0, n - 1), i + 1)); window.scrollTo(0, 0);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [currentView, selectedGroup, processedData]);
+
   // ===== 단일 v4 분류축 엔진 =====
   // 모든 탭(시험별/과목별/단원별/연도별)이 동일한 mapped_taxonomy 분류축을 공유한다.
   // taxScope: null(과목별/단원별) | {kind:'exam'|'year', value, label} (시험별/연도별 진입 시)
