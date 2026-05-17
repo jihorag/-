@@ -375,7 +375,7 @@ const App = () => {
   // 새로고침/딥링크 복원: 최초 렌더에서 URL 해시를 1회 파싱해 초기 상태로 사용
   const [bootNav] = useState(() => parseNav(typeof window !== 'undefined' ? window.location.hash : ''));
   const bootView = (() => {
-    if (!bootNav) return 'dashboard';
+    if (!bootNav) return 'home';
     let cv = bootNav.currentView;
     if (cv === 'question_list' || cv === 'study') {
       if (bootNav.taxSection) cv = 'tax_items';
