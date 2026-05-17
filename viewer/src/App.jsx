@@ -1034,8 +1034,14 @@ const App = () => {
       setCurrentView('tax_items');
       window.scrollTo(0, 0);
     } else {
-      setSelectedGroup(group);
-      setStudyIdx(0);
+      // 개념 단위 안정 키 → 이어풀기 위치 복원
+      const posKey = [taxScope && taxScope.kind, taxScope && taxScope.value,
+        taxSubject, taxSubSubject, taxChapter, taxSection, group.type, group.title]
+        .map(x => x || '').join('|');
+      const saved = loadPos()[posKey];
+      setSelectedGroup({ ...group, posKey });
+      setStudyIdx(Number.isInteger(saved) && saved > 0 ? saved : 0);
+      setStudyNonce(n => n + 1);
       setCurrentView('study');
       window.scrollTo(0, 0);
     }
