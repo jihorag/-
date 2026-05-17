@@ -416,11 +416,14 @@ const App = () => {
         iv.in_scope !== false
       );
 
+      const opts = q.options || q.choices || [];
       return {
         ...q,
         year: q.year || '2025',
         exam: q.exam || '감정평가사',
-        options: q.options || q.choices, // options / choices 통일
+        options: opts, // options / choices 통일
+        // 정답 정규화: 원문자(①②③..)→숫자, 1..보기수 범위만 유효, 그 외(빈/센티넬)는 null
+        answerNorm: normAnswer(q.answer, opts.length),
         // 실제 v4 난이도(1~5). 분류 전이면 null. 4 이상을 '취약'으로 간주.
         difficulty: (iv && typeof iv.difficulty === 'number') ? iv.difficulty : null,
         isWeak: !!(iv && typeof iv.difficulty === 'number' && iv.difficulty >= 4),
