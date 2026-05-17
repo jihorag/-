@@ -1251,16 +1251,11 @@ const App = () => {
 
   const renderStudyGrid = (title, subtitle, groups) => (
     <div className="app-container">
-      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
-        <button className="back-btn" onClick={handleBack}>
-          <ArrowLeft size={24} style={{ marginRight: '8px' }} />
-          <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
-        </button>
-      </header>
-      
-      <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
+      {drillHeader()}
+
+      <div className="drill-head">
         <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '4px' }}>{subtitle}</div>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: '700' }}>{title}</h1>
+        <h1 className="screen-title">{title}</h1>
       </div>
       
       <main className="main-content" style={{ marginTop: '20px' }}>
