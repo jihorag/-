@@ -263,27 +263,8 @@ const App = () => {
   const processedData = useMemo(() => {
     if (loading || !questionsData) return [];
     return questionsData.map(q => {
-      let displaySubject = q.subject || q.tags?.subject || getSubject(q.number, q.period || '2', q.exam);
-      
-      // 세무사 시험 과목명 정규화
-      if (q.exam === '세무사') {
-        if (displaySubject === '회계학' || displaySubject === '회계학개론') displaySubject = '회계학개론';
-        if (displaySubject === '민법' || displaySubject === '민법총칙') displaySubject = '민법';
-      }
-      
-      let unifiedSubject = displaySubject;
-      if (displaySubject.includes('민법')) unifiedSubject = '민법';
-      else if (displaySubject.includes('경제학') || displaySubject === '재정학') unifiedSubject = '경제학';
-      else if (displaySubject.includes('부동산학')) unifiedSubject = '부동산학개론';
-      else if (displaySubject.includes('회계학') || displaySubject.includes('회계원리')) unifiedSubject = '회계학';
-      else if (displaySubject.includes('관계법규') || displaySubject.includes('공법') || displaySubject.includes('중개사법') || displaySubject.includes('공시세법')) unifiedSubject = '감정평가관계법규';
-
-      const unit = q.tags?.sub_unit || getMockUnit(q.number);
-      const category = q.tags?.unit || unifiedSubject;
-
-      // V4 분류 정보: Gemini(gemini-2.5-flash) 또는 Claude(claude-sonnet-4-6)로
-      // 분류되어 mapped_taxonomy가 있는 문제만 단원별 탭에 노출한다.
-      // (Gemini는 in_scope 필드가 없어 null → 통과, Claude는 in_scope===false면 제외)
+      // V4 분류 정보: Gemini 또는 Claude로 분류되어 mapped_taxonomy가 있고
+      // in_scope!==false 인 문제만 전 탭(시험/과목/단원/연도)에 노출.
       const iv = q.indexing_v4;
       const mt = iv && iv.mapped_taxonomy;
       const isClassified = !!(
@@ -296,13 +277,7 @@ const App = () => {
         ...q,
         year: q.year || '2025',
         exam: q.exam || '감정평가사',
-        options: q.options || q.choices, // Unify options and choices
-        subject: displaySubject,
-        unifiedSubject: unifiedSubject,
-        category: category,
-        unit: unit,
-        concept: (q.tags?.concept && q.tags?.concept.trim() !== '') ? q.tags.concept :
-                 ((q.tags?.sub_sub_unit && q.tags?.sub_sub_unit.trim() !== '') ? q.tags.sub_sub_unit : '기본 개념'),
+        options: q.options || q.choices, // options / choices 통일
         // 실제 v4 난이도(1~5). 분류 전이면 null. 4 이상을 '취약'으로 간주.
         difficulty: (iv && typeof iv.difficulty === 'number') ? iv.difficulty : null,
         isWeak: !!(iv && typeof iv.difficulty === 'number' && iv.difficulty >= 4),
