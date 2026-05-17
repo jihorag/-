@@ -398,8 +398,28 @@ body {
   color: #9ca3af;
   cursor: pointer;
 }
-.bottom-nav button .nav-ico { font-size: 1.15rem; line-height: 1; }
+.bottom-nav button {
+  position: relative;
+  transition: color 0.15s ease;
+}
+.bottom-nav button .nav-ico {
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: transform 0.15s ease;
+}
 .bottom-nav button.active { color: var(--primary, #2563eb); }
+.bottom-nav button.active .nav-ico { transform: scale(1.15); }
+.bottom-nav button.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--primary, #2563eb);
+}
 .bottom-nav button .nav-badge {
   position: absolute;
   transform: translate(14px, -10px);
