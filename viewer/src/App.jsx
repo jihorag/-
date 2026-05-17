@@ -873,7 +873,7 @@ const App = () => {
         <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
           {q ? (
             <>
-              <QuestionItem key={qid(q)} q={q} prior={progress[qid(q)]} onAnswer={recordAnswer} />
+              <QuestionItem key={`${qid(q)}-${studyNonce}`} q={q} prior={progress[qid(q)]} onAnswer={recordAnswer} />
               <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', marginTop: '8px' }}>
                 <button
                   onClick={() => { setStudyIdx(Math.max(0, idx - 1)); window.scrollTo(0, 0); }}
