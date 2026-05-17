@@ -932,10 +932,19 @@ const App = () => {
     const ordered = processedData
       .filter(selectedGroup.filterFn)
       .sort((a, b) => {
-        const da = a.difficulty ?? 99, db = b.difficulty ?? 99;
-        if (da !== db) return da - db;                 // 쉬운 문제부터
+        if (selectedGroup.review) {
+          // 복습: 여러 번 틀린 것 먼저, 그다음 어려운 것 먼저
+          const ra = (progress[qid(a)] && progress[qid(a)].reviewed) || 0;
+          const rb = (progress[qid(b)] && progress[qid(b)].reviewed) || 0;
+          if (ra !== rb) return rb - ra;
+          const dda = a.difficulty ?? 0, ddb = b.difficulty ?? 0;
+          if (dda !== ddb) return ddb - dda;
+        } else {
+          const da = a.difficulty ?? 99, db = b.difficulty ?? 99;
+          if (da !== db) return da - db;               // 학습: 쉬운 문제부터
+        }
         const ya = parseInt(a.year, 10), yb = parseInt(b.year, 10);
-        if (ya !== yb) return yb - ya;                  // 같은 난이도면 최신 연도
+        if (ya !== yb) return yb - ya;                  // 최신 연도
         return parseInt(a.number, 10) - parseInt(b.number, 10);
       });
     const total = ordered.length;
