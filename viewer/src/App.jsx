@@ -888,7 +888,7 @@ const App = () => {
   // 기억곡선 스케줄: 오늘(이전 포함) 복습 도래분 + 다음 예정일
   const srs = useMemo(() => {
     const now = nowTs;
-    const due = [];
+    const dueAllPairs = [];   // [{q, dueAt}]
     let next = null;          // 가장 이른 미래 복습일(ms)
     for (const q of classifiedList) {
       const p = progress[qid(q)];
@@ -897,22 +897,27 @@ const App = () => {
       const s = p.srs || (p.correct === false ? { due: 0 } : null);
       if (!s || s.graduated) continue;
       if (s.due == null) continue;
-      if (s.due <= now) due.push(q);
+      if (s.due <= now) dueAllPairs.push({ q, dueAt: s.due });
       else if (next == null || s.due < next) next = s.due;
     }
+    // 하루 상한: 가장 오래 밀린 것부터 cap개, 초과분은 다음 기회로 이월
+    dueAllPairs.sort((a, b) => a.dueAt - b.dueAt);
+    const cap = (SRS_MODES[srsMode] || SRS_MODES.normal).cap;
+    const dueTotal = dueAllPairs.length;
+    const due = dueAllPairs.slice(0, cap === Infinity ? dueTotal : cap).map(x => x.q);
     const bysubj = {};
     for (const q of due) {
       const k = q.taxSubjectName || '기타';
       (bysubj[k] || (bysubj[k] = [])).push(q);
     }
     return {
-      due,
+      due, dueTotal, capped: dueTotal > due.length,
       groups: Object.entries(bysubj)
         .map(([subj, qs]) => ({ subj, ids: qs.map(qid), count: qs.length }))
         .sort((a, b) => b.count - a.count),
       nextDue: next,
     };
-  }, [classifiedList, progress, nowTs]);
+  }, [classifiedList, progress, nowTs, srsMode]);
 
   // 앱 열 때 알림: 권한 허용 + 옵트인 + 오늘 도래분 있음 + 당일 1회만.
   // (앱이 닫힌 상태의 백그라운드 푸시는 별도 서버/푸시 인프라 필요 → 범위 밖)
