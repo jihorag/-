@@ -949,7 +949,9 @@ const App = () => {
                 <div style={{ marginTop: '20px', padding: '20px', background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '12px', textAlign: 'center' }}>
                   <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '6px' }}>이 개념 학습 완료 🎉</div>
                   <div style={{ color: '#374151', marginBottom: '14px' }}>
-                    {total}문제 중 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b> · 오답 <b style={{ color: '#dc2626' }}>{s.answered - s.correct}</b>
+                    {total}문제 중 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b> · 오답 <b style={{ color: '#dc2626' }}>{s.scored - s.correct}</b>
+                    {s.answered > s.scored && <> · 채점제외 <b style={{ color: '#6b7280' }}>{s.answered - s.scored}</b></>}
+                    {s.accuracy !== null && <> · 정답률 <b>{s.accuracy}%</b></>}
                   </div>
                   <button onClick={() => {
                       clearMany(ordered.map(qid));   // 이 개념 진행 초기화 → 재측정
