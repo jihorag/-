@@ -451,7 +451,7 @@ const App = () => {
       });
     }
     return groups;
-  }, [taxonomyData, taxSubject, scopedClassified, taxScope]);
+  }, [taxonomyData, taxSubject, scopedClassified, baseFilter]);
 
   // 장(Chapter) 목록 (세부과목이 있는 경우, scope 반영)
   const taxChapterGroups = useMemo(() => {
@@ -485,7 +485,7 @@ const App = () => {
       });
     });
     return groups;
-  }, [taxonomyData, taxSubject, taxSubSubject, scopedClassified, taxScope]);
+  }, [taxonomyData, taxSubject, taxSubSubject, scopedClassified, baseFilter]);
 
   // 절(Section) 목록 — 절은 클릭 시 관(item) 목록으로 진입 (scope 반영)
   const taxSectionGroups = useMemo(() => {
@@ -531,7 +531,7 @@ const App = () => {
       });
     });
     return groups;
-  }, [taxonomyData, taxSubject, taxSubSubject, taxChapter, scopedClassified, taxScope]);
+  }, [taxonomyData, taxSubject, taxSubSubject, taxChapter, scopedClassified, baseFilter]);
 
   // 관(item) 목록 — 최저 분류 단위 (scope 반영)
   const taxItemGroups = useMemo(() => {
@@ -575,7 +575,7 @@ const App = () => {
       });
     });
     return groups;
-  }, [taxonomyData, taxSubject, taxSubSubject, taxChapter, taxSection, scopedClassified, taxScope]);
+  }, [taxonomyData, taxSubject, taxSubSubject, taxChapter, taxSection, scopedClassified, baseFilter]);
 
   // 4개 탭 모두 동일 v4 분류축 사용. 시험별/연도별은 picker → 스코프 설정 후 동일 엔진.
   let activeGroups = [];
