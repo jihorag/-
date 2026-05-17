@@ -1156,17 +1156,20 @@ const App = () => {
           {activeGroups.map((group, idx) => {
             const s = progressStats(cardQuestions(group), progress);
             const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
+            const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
             return (
             <div key={idx} className="study-card" onClick={() => handleGroupClick(group)}>
-              {group.weak ? (
-                <div className="card-badge weak">취약</div>
+              {dm ? (
+                <div className="card-badge" style={{ background: dm.bg, color: dm.fg, border: 'none' }}>
+                  난이도 {s.avgDiff.toFixed(1)}
+                </div>
               ) : (
                 <div className="card-badge">기본</div>
               )}
 
               <div className="card-subtitle">{group.subtitle}</div>
               <h3 className="card-title">{group.title}</h3>
-              <div className="card-total">총 {group.total} 문제</div>
+              <div className="card-total">총 {group.total} 문제 · 평균 {s.avgDiff ? s.avgDiff.toFixed(1) : '-'}</div>
 
               <div className="card-tag">{group.tag}</div>
 
