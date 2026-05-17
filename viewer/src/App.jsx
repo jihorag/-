@@ -24,6 +24,18 @@ const loadProgress = () => {
   }
 };
 
+// 검색·필터 영속화 (새로고침/딥링크 시 유지)
+const FILTERS_KEY = 'quiz-filters-v1';
+const EMPTY_FILTERS = { exams: [], subjects: [], years: [], diffs: [], kw: '' };
+const loadFilters = () => {
+  try {
+    const f = JSON.parse(localStorage.getItem(FILTERS_KEY) || 'null');
+    return f && typeof f === 'object' ? { ...EMPTY_FILTERS, ...f } : { ...EMPTY_FILTERS };
+  } catch {
+    return { ...EMPTY_FILTERS };
+  }
+};
+
 // 진행률 상태 + 영속화 훅. record(q, sel) 로 기록, reset() 으로 초기화.
 const useProgress = () => {
   const [progress, setProgress] = useState(loadProgress);
