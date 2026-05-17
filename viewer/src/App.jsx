@@ -276,7 +276,7 @@ const App = () => {
   const bootView = (() => {
     if (!bootNav) return 'dashboard';
     let cv = bootNav.currentView;
-    if (cv === 'question_list') {
+    if (cv === 'question_list' || cv === 'study') {
       if (bootNav.taxSection) cv = 'tax_items';
       else if (bootNav.taxChapter) cv = 'tax_sections';
       else if (bootNav.taxSubSubject) cv = 'tax_chapters';
@@ -290,6 +290,7 @@ const App = () => {
   const [viewMode, setViewMode] = useState(bootNav?.viewMode || 'exam'); // 'exam' | 'subject' | 'year' | 'chapter'
   const [currentView, setCurrentView] = useState(bootView);
   const [selectedGroup, setSelectedGroup] = useState(null);
+  const [studyIdx, setStudyIdx] = useState(0); // 가이드 학습 모드 현재 문항 인덱스
   const { progress, record: recordAnswer, reset: resetProgress } = useProgress();
   // 복합 검색·필터 상태
   const [filters, setFilters] = useState({ exams: [], subjects: [], years: [], diffs: [], kw: '' });
@@ -333,7 +334,7 @@ const App = () => {
     setSelectedGroup(null);
     // 문제목록은 filterFn 직렬화가 불가 → 가장 가까운 상위 목록으로 복원
     let cv = n.currentView;
-    if (cv === 'question_list') {
+    if (cv === 'question_list' || cv === 'study') {
       if (n.taxSection) cv = 'tax_items';
       else if (n.taxChapter) cv = 'tax_sections';
       else if (n.taxSubSubject) cv = 'tax_chapters';
