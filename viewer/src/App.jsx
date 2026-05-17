@@ -1472,12 +1472,12 @@ const App = () => {
       return Object.entries(by).map(([sec, qs]) => ({ sec, ids: qs.map(qid), count: qs.length }))
         .sort((a, b) => b.count - a.count);
     })();
-    return (
+    return shell(
       <div className="app-container">
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
-          <button className="back-btn" onClick={() => reviewSubject ? setReviewSubject(null) : setCurrentView('dashboard')}>
+          <button className="back-btn" onClick={() => reviewSubject ? setReviewSubject(null) : setCurrentView('reviewHome')}>
             <ArrowLeft size={24} style={{ marginRight: '8px' }} />
-            <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>{reviewSubject ? '뒤로가기' : '복습 홈'}</span>
           </button>
         </header>
         <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
