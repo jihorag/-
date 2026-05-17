@@ -828,29 +828,32 @@ const App = () => {
         </div>
 
         <div className="study-grid">
-          {activeGroups.map((group, idx) => (
+          {activeGroups.map((group, idx) => {
+            const s = progressStats(cardQuestions(group), progress);
+            const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
+            return (
             <div key={idx} className="study-card" onClick={() => handleGroupClick(group)}>
               {group.weak ? (
                 <div className="card-badge weak">취약</div>
               ) : (
                 <div className="card-badge">기본</div>
               )}
-              
+
               <div className="card-subtitle">{group.subtitle}</div>
               <h3 className="card-title">{group.title}</h3>
               <div className="card-total">총 {group.total} 문제</div>
-              
+
               <div className="card-tag">{group.tag}</div>
-              
+
               <div className="card-progress-container">
-                <div className="card-progress-fill" style={{ width: '0%' }}></div>
+                <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
               </div>
-              
+
               <div className="progress-stats" style={{ marginBottom: '0' }}>
-                <span>학습한 문제 <span className="stat-bold">0/{group.total}</span></span>
-                <span style={{ color: 'var(--primary)', fontWeight: '700' }}>0%</span>
+                <span>학습한 문제 <span className="stat-bold">{s.answered}/{s.total}</span></span>
+                <span style={{ color: 'var(--primary)', fontWeight: '700' }}>{pct}%</span>
               </div>
-              
+
               <div className="play-btn">Q</div>
             </div>
           ))}
