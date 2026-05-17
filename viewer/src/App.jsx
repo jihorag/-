@@ -477,10 +477,11 @@ const App = () => {
     return [allGroup, ...Object.values(groups).sort((a, b) => a.title.localeCompare(b.title))];
   }, [processedData, selectedSubject, selectedCategory, selectedUnit]);
 
-  // View: 연도별 (Level 1: Years)
+  // Level 0: 연도 목록 (연도별 탭) — 분류 완료 문항만 집계
   const yearGroups = useMemo(() => {
     const groups = {};
     processedData.forEach(q => {
+      if (!q.isClassified) return;
       const key = q.year;
       if (!groups[key]) {
         groups[key] = {
@@ -496,8 +497,6 @@ const App = () => {
       groups[key].total += 1;
       if (q.isWeak) groups[key].weak = true;
     });
-    
-    // Sort descending by year
     return Object.values(groups).sort((a, b) => parseInt(b.rawValue) - parseInt(a.rawValue));
   }, [processedData]);
 
