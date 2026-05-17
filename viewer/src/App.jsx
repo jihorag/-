@@ -897,13 +897,16 @@ const App = () => {
                 <button
                   onClick={() => { setStudyIdx(Math.max(0, idx - 1)); window.scrollTo(0, 0); }}
                   disabled={idx === 0}
-                  style={{ flex: 1, padding: '14px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', cursor: idx === 0 ? 'default' : 'pointer', color: idx === 0 ? '#d1d5db' : '#374151', fontWeight: 600 }}
+                  style={{ flex: 1, padding: '14px', minHeight: '48px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', cursor: idx === 0 ? 'default' : 'pointer', color: idx === 0 ? '#d1d5db' : '#374151', fontWeight: 600 }}
                 >← 이전</button>
                 <button
                   onClick={() => { setStudyIdx(Math.min(total - 1, idx + 1)); window.scrollTo(0, 0); }}
                   disabled={idx >= total - 1}
-                  style={{ flex: 2, padding: '14px', borderRadius: '10px', border: 'none', background: idx >= total - 1 ? '#e5e7eb' : '#3b82f6', color: idx >= total - 1 ? '#9ca3af' : '#fff', cursor: idx >= total - 1 ? 'default' : 'pointer', fontWeight: 700 }}
+                  style={{ flex: 2, padding: '14px', minHeight: '48px', borderRadius: '10px', border: 'none', background: idx >= total - 1 ? '#e5e7eb' : '#3b82f6', color: idx >= total - 1 ? '#9ca3af' : '#fff', cursor: idx >= total - 1 ? 'default' : 'pointer', fontWeight: 700 }}
                 >다음 문제 →</button>
+              </div>
+              <div style={{ textAlign: 'center', fontSize: '0.75rem', color: '#9ca3af', marginTop: '8px' }}>
+                키보드 <b>←</b> 이전 · <b>→</b> 또는 <b>Enter</b> 다음
               </div>
               {done && (
                 <div style={{ marginTop: '20px', padding: '20px', background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '12px', textAlign: 'center' }}>
