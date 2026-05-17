@@ -1775,17 +1775,28 @@ const App = () => {
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {analytics.weak.map(w => (
-                  <button key={w.name}
-                    onClick={() => startConcept(w.name, `${w.name} 집중 학습`)}
-                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                      border: '1px solid #fecaca', background: '#fef2f2', color: '#7f1d1d',
-                      borderRadius: '10px', padding: '12px 14px', cursor: 'pointer', textAlign: 'left' }}>
-                    <span>
+                  <div key={w.name}
+                    style={{ border: '1px solid #fecaca', background: '#fef2f2',
+                      borderRadius: '10px', padding: '12px 14px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#7f1d1d' }}>
                       <b>{w.name}</b>
-                      {w.weakSection && <span style={{ fontSize: '0.78rem', color: '#9a3412' }}> · 약한 절: {w.weakSection.nm}</span>}
-                    </span>
-                    <span style={{ fontWeight: 800, color: '#dc2626', whiteSpace: 'nowrap' }}>{w.acc}%</span>
-                  </button>
+                      <span style={{ fontWeight: 800, color: '#dc2626' }}>{w.acc}%</span>
+                    </div>
+                    <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
+                      <button onClick={() => startConcept(w.name, `${w.name} 집중 학습`)}
+                        style={{ flex: 1, border: 'none', background: '#ef4444', color: '#fff', fontWeight: 700,
+                          borderRadius: '8px', padding: '9px', cursor: 'pointer', fontSize: '0.85rem' }}>
+                        과목 전체 학습
+                      </button>
+                      {w.weakSection && (
+                        <button onClick={() => startReview(w.weakSection.ids, `${w.weakSection.nm} 집중`, 'home')}
+                          style={{ flex: 1, border: '1px solid #fecaca', background: '#fff', color: '#b91c1c', fontWeight: 700,
+                            borderRadius: '8px', padding: '9px', cursor: 'pointer', fontSize: '0.85rem' }}>
+                          약한 절: {w.weakSection.nm}
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 ))}
               </div>
             )}
