@@ -896,13 +896,14 @@ const App = () => {
   };
 
   // 오답 복습 시작: 진입 시점의 오답 id를 스냅샷 → 세션 중 목록 안정, 가이드 학습 재사용
-  const startReview = (ids, title) => {
+  const startReview = (ids, title, backView = 'review') => {
     const set = new Set(ids);
     setSelectedGroup({
       type: 'play_all_review',
       review: true,
+      backView,                       // 학습 종료 후 복귀할 화면(review | today)
       title,
-      subtitle: '오답 복습',
+      subtitle: backView === 'today' ? '오늘 복습' : '오답 복습',
       filterFn: (q) => set.has(qid(q)),
     });
     setStudyIdx(0);
