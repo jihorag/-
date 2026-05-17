@@ -1035,30 +1035,15 @@ const App = () => {
         <div className="section-header">
           <h3 className="section-title">학습 목록</h3>
           <div className="view-toggle">
-            <button 
-              className={viewMode === 'exam' ? 'active' : ''} 
-              onClick={() => { setViewMode('exam'); setSelectedExam(null); setSelectedSubject(null); setSelectedYear(null); setSelectedYearSubject(null); setSelectedCategory(null); setSelectedUnit(null); setTaxSubject(null); setTaxSubSubject(null); setTaxChapter(null); }}
-            >
-              시험별
-            </button>
-            <button 
-              className={viewMode === 'subject' ? 'active' : ''} 
-              onClick={() => { setViewMode('subject'); setSelectedSubject(null); setSelectedCategory(null); setSelectedUnit(null); setSelectedExam(null); setSelectedYear(null); setSelectedYearSubject(null); setTaxSubject(null); setTaxSubSubject(null); setTaxChapter(null); }}
-            >
-              과목별
-            </button>
-            <button 
-              className={viewMode === 'chapter' ? 'active' : ''} 
-              onClick={() => { setViewMode('chapter'); setCurrentView('dashboard'); setSelectedSubject(null); setSelectedCategory(null); setSelectedUnit(null); setSelectedExam(null); setSelectedYear(null); setSelectedYearSubject(null); setTaxSubject(null); setTaxSubSubject(null); setTaxChapter(null); }}
-            >
-              단원별
-            </button>
-            <button 
-              className={viewMode === 'year' ? 'active' : ''} 
-              onClick={() => { setViewMode('year'); setSelectedSubject(null); setSelectedCategory(null); setSelectedUnit(null); setSelectedExam(null); setSelectedYear(null); setSelectedYearSubject(null); setTaxSubject(null); setTaxSubSubject(null); setTaxChapter(null); }}
-            >
-              연도별
-            </button>
+            {[['exam','시험별'],['subject','과목별'],['chapter','단원별'],['year','연도별']].map(([mode,label]) => (
+              <button
+                key={mode}
+                className={viewMode === mode ? 'active' : ''}
+                onClick={() => switchTab(mode)}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </div>
 
