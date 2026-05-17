@@ -50,6 +50,43 @@ const progressStats = (questions, progress) => {
   return { answered, correct, total: questions.length };
 };
 
+// ===== URL 라우팅 (해시 동기화) =====
+// 네비게이션 계층을 #/seg/seg.. 로 직렬화. 빈 값은 '-'.
+const NAV_KEYS = ['viewMode', 'currentView', 'scope', 'taxSubject', 'taxSubSubject', 'taxChapter', 'taxSection'];
+const enc = (v) => (v == null || v === '' ? '-' : encodeURIComponent(v));
+const dec = (v) => (v == null || v === '-' ? null : decodeURIComponent(v));
+
+const serializeNav = (s) => {
+  const scope = s.taxScope ? `${s.taxScope.kind}~${s.taxScope.value}` : null;
+  const parts = [s.viewMode, s.currentView, scope, s.taxSubject, s.taxSubSubject, s.taxChapter, s.taxSection];
+  return '#/' + parts.map(enc).join('/');
+};
+
+const parseNav = (hash) => {
+  if (!hash || !hash.startsWith('#/')) return null;
+  const segs = hash.slice(2).split('/');
+  if (segs.length < 2) return null;
+  const obj = {};
+  NAV_KEYS.forEach((k, i) => { obj[k] = dec(segs[i]); });
+  let taxScope = null;
+  if (obj.scope) {
+    const [kind, ...rest] = obj.scope.split('~');
+    const value = rest.join('~');
+    if (kind === 'exam' || kind === 'year') {
+      taxScope = { kind, value, label: kind === 'year' ? `${value}년` : value };
+    }
+  }
+  return {
+    viewMode: obj.viewMode || 'exam',
+    currentView: obj.currentView || 'dashboard',
+    taxScope,
+    taxSubject: obj.taxSubject,
+    taxSubSubject: obj.taxSubSubject,
+    taxChapter: obj.taxChapter,
+    taxSection: obj.taxSection,
+  };
+};
+
 // Component to parse and render text with inline images and math
 const ParsedText = ({ text }) => {
   if (!text) return null;
