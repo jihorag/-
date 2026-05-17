@@ -1,22 +1,162 @@
 [
- {"id": "actuary_48_econ_4", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제3장 소비자이론", "section": "제7절 무차별곡선이론", "item": "제3관 가격효과·대체효과·소득효과"}, "reason": "기펜재의 특성(열등재·우상향 수요·소득효과 우세) 적부 판별", "flags": []},
- {"id": "actuary_48_econ_5", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제2장 수요·공급의 이론", "section": "제4절 수요와 공급의 탄력성", "item": "제1관 수요의 가격탄력성"}, "reason": "평행 수요곡선상 점 A·B·C의 가격탄력성 크기 비교", "flags": []},
- {"id": "actuary_48_econ_6", "in_scope": true, "difficulty": 4, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제2장 수요·공급의 이론", "section": "제5절 수요·공급이론의 응용", "item": "제1관 가격통제 (최고가격제·최저가격제)"}, "reason": "풍년으로 공급 증가 후 가격하한제 설정 시 자중손실 계산", "flags": []},
- {"id": "actuary_48_econ_7", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제3장 소비자이론", "section": "제10절 기대효용이론", "item": "제3관 위험프리미엄과 보험"}, "reason": "기대효용 기준 최대 지불용의 보험료 계산", "flags": []},
- {"id": "actuary_48_econ_8", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제3장 소비자이론", "section": "제10절 기대효용이론", "item": "제2관 위험에 대한 태도"}, "reason": "효용함수의 오목성으로 위험회피적 효용함수 판별", "flags": []},
- {"id": "actuary_48_econ_9", "in_scope": true, "difficulty": 4, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제8장 시장실패와 정보경제학", "section": "제23절 시장실패", "item": "제2관 외부성"}, "reason": "외부불경제하 한계피해·시장균형 비교로 자중손실 계산", "flags": []},
- {"id": "actuary_48_econ_10", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제5장 시장이론", "section": "제17절 게임이론", "item": "제1관 전략형 게임과 내쉬균형"}, "reason": "보수행렬 파라미터별 우월전략·내쉬균형 판별", "flags": []},
- {"id": "actuary_48_econ_11", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제5장 시장이론", "section": "제13절 완전경쟁시장", "item": "제2관 단기 이윤극대화"}, "reason": "총비용함수에서 평균가변비용 최소(단기 조업중단가격) 계산", "flags": []},
- {"id": "actuary_48_econ_12", "in_scope": true, "difficulty": 4, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제4장 생산자이론", "section": "제12절 비용이론", "item": "제3관 장기비용함수와 규모의 경제"}, "reason": "R&D 투자로 생산함수 변경 시 생산비 절감과 투자비용 비교 의사결정", "flags": []},
- {"id": "actuary_48_econ_13", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제8장 시장실패와 정보경제학", "section": "제23절 시장실패", "item": "제3관 공공재"}, "reason": "공공재 최적공급 조건(ΣMRS=MRT)과 비교한 공급 조정 방향", "flags": []},
- {"id": "actuary_48_econ_14", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제2장 수요·공급의 이론", "section": "제4절 수요와 공급의 탄력성", "item": "제1관 수요의 가격탄력성"}, "reason": "개별수요 합산 시장수요의 중간점 가격탄력성 판별", "flags": []},
- {"id": "actuary_48_econ_15", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제5장 시장이론", "section": "제16절 과점시장", "item": "제2관 쿠르노·베르트랑·슈타켈베르크 모형"}, "reason": "슈타켈버그(A 선도) 모형의 시장가격 계산", "flags": []},
- {"id": "actuary_48_econ_16", "in_scope": true, "difficulty": 2, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제5장 시장이론", "section": "제14절 독점시장", "item": "제2관 독점기업의 이윤극대화"}, "reason": "독점기업 이윤극대화 생산량·가격으로 이윤 계산", "flags": []},
- {"id": "actuary_48_econ_17", "in_scope": true, "difficulty": 4, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제8장 시장실패와 정보경제학", "section": "제24절 정보경제학과 행동경제학", "item": "제1관 비대칭정보 (역선택·도덕적해이)"}, "reason": "공적·민영 건강보험 도입에 따른 의료비·보험료·재정수지 분석", "flags": []},
- {"id": "actuary_48_econ_18", "in_scope": true, "difficulty": 4, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제7장 일반균형이론 및 후생경제학", "section": "제22절 후생경제학", "item": "제2관 사회후생함수"}, "reason": "공리주의·롤스주의 기준으로 소득재분배 바람직성 판단", "flags": []},
- {"id": "actuary_48_econ_19", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제8장 시장실패와 정보경제학", "section": "제23절 시장실패", "item": "제2관 외부성"}, "reason": "오염배출 피구세 부과 시 오염 감소량 계산", "flags": []},
- {"id": "actuary_48_econ_20", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "미시경제학", "chapter": "제4장 생산자이론", "section": "제12절 비용이론", "item": "제3관 장기비용함수와 규모의 경제"}, "reason": "장기총비용함수로 생산량별 규모의 경제·한계비용 추세 판별", "flags": []},
- {"id": "actuary_48_econ_21", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제1장 국민소득결정이론", "section": "제2절 국민소득의 측정과 경제구조", "item": "제3관 국민소득 3면 등가의 원칙"}, "reason": "정부·해외 포함 경제의 저축·투자·경상수지 항등식 판별", "flags": []},
- {"id": "actuary_48_econ_22", "in_scope": true, "difficulty": 2, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제5장 인플레이션과 실업", "section": "제12절 물가와 인플레이션", "item": "제1관 물가지수 (CPI·PPI·GDP 디플레이터)"}, "reason": "소비자물가지수와 실질임금 변화로 전년도 명목임금 역산", "flags": []},
- {"id": "actuary_48_econ_23", "in_scope": true, "difficulty": 3, "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제1장 국민소득결정이론", "section": "제3절 고전학파의 국민소득결정이론", "item": "제1관 세이의 법칙"}, "reason": "고전학파 거시이론(화폐중립성·세이의 법칙·가격신축성) 적부 판별", "flags": []}
+  {
+    "id": "actuary_48_econ_24",
+    "in_scope": true,
+    "difficulty": 2,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제1장 국민소득결정이론", "section": "제4절 케인즈의 국민소득결정이론", "item": "제2관 케인즈의 단순모형 (45도선)"},
+    "reason": "폐쇄경제 Y=C+I+G 모형에서 재화시장 균형을 만족하는 균형실질금리 계산",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_25",
+    "in_scope": true,
+    "difficulty": 2,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제1장 국민소득결정이론", "section": "제4절 케인즈의 국민소득결정이론", "item": "제3관 승수효과"},
+    "reason": "잠재 국민소득 달성을 위한 추가 정부지출을 정부지출승수로 계산",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_26",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제4장 총수요·총공급이론", "section": "제9절 IS-LM모형", "item": "제3관 IS-LM 균형"},
+    "reason": "IS-LM 모형에서 정부지출 변화가 균형생산량에 더 큰 영향을 미치는 조건",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_27",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제4장 총수요·총공급이론", "section": "제9절 IS-LM모형", "item": "제1관 IS곡선의 도출과 이동"},
+    "reason": "거시모형에서 IS곡선이 평탄해지는(기울기 완만) 파라미터 조건 판별",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_28",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제4장 총수요·총공급이론", "section": "제11절 총수요·총공급", "item": "제4관 수요충격·공급충격"},
+    "reason": "AD-AS 분석에서 경기안정과 물가안정을 동시에 달성할 수 없는 충격 유형",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_29",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제4장 총수요·총공급이론", "section": "제11절 총수요·총공급", "item": "제3관 AD-AS 균형"},
+    "reason": "폐쇄경제모형에서 총수요와 총공급(r=4+0.5π) 연립으로 균형 Y와 π 계산",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_30",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제4장 총수요·총공급이론", "section": "제11절 총수요·총공급", "item": "제4관 수요충격·공급충격"},
+    "reason": "부정적 수요충격과 단기 총공급충격 동시 발생 시 장기 균형 생산량·인플레이션 영향",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_31",
+    "in_scope": true,
+    "difficulty": 2,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제3장 화폐금융론", "section": "제7절 금융제도와 화폐공급", "item": "제2관 본원통화와 통화승수"},
+    "reason": "중앙은행 대차대조표 구성(본원통화·지급준비금·화폐발행액) 옳지 않은 설명 판별",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_32",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제3장 화폐금융론", "section": "제8절 화폐수요와 금융정책", "item": "제2관 케인즈의 유동성선호설"},
+    "reason": "수익률곡선 기대가설로 미래 1년 만기 기대수익률 계산(이자율 기간구조)",
+    "flags": ["taxonomy_uncertain"]
+  },
+  {
+    "id": "actuary_48_econ_33",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제3장 화폐금융론", "section": "제7절 금융제도와 화폐공급", "item": "제4관 중앙은행의 통화정책 수단"},
+    "reason": "거시건전성정책 수단(경기대응 완충자본금·담보할인율·은행세·DSR)의 올바른 활용 방식",
+    "flags": ["taxonomy_uncertain"]
+  },
+  {
+    "id": "actuary_48_econ_34",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제6장 거시경제학파와 안정화정책", "section": "제16절 새고전학파·새케인즈학파", "item": "제1관 새고전학파 (합리적기대·실물경기변동)"},
+    "reason": "새고전학파 이론(정책무력성·합리적기대·시장청산·RBC)에 대한 설명 판별",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_35",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제7장 경기변동과 경제성장", "section": "제19절 경제성장론", "item": "제3관 황금률 (Golden Rule)"},
+    "reason": "솔로우 성장모형 균제상태의 황금률 자본량 특성에 대한 설명 판별",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_36",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제7장 경기변동과 경제성장", "section": "제19절 경제성장론", "item": "제2관 솔로우 성장모형"},
+    "reason": "솔로우 성장모형 균제상태에서 L/Y의 성장률 도출",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_37",
+    "in_scope": true,
+    "difficulty": 2,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제7장 경기변동과 경제성장", "section": "제19절 경제성장론", "item": "제2관 솔로우 성장모형"},
+    "reason": "콥-더글라스 생산함수에서 총요소생산성(z)의 성격에 대한 설명 판별",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_38",
+    "in_scope": true,
+    "difficulty": 2,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "거시경제학", "chapter": "제7장 경기변동과 경제성장", "section": "제18절 경기변동론", "item": "제1관 경기변동의 특징과 측정"},
+    "reason": "경기변동의 특징(투자 경기순응성·신용스프레드·소비변동성·RBC) 설명 판별",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_39",
+    "in_scope": true,
+    "difficulty": 2,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "국제경제학", "chapter": "제2장 국제금융론", "section": "제4절 국제수지론", "item": "제1관 국제수지표의 구조"},
+    "reason": "경상수지 흑자 요인에 해당하는 거래 식별(국제수지표 구조)",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_econ_40",
+    "in_scope": true,
+    "difficulty": 4,
+    "mapped_taxonomy": {"subject": "경제학원론", "sub_subject": "국제경제학", "chapter": "제2장 국제금융론", "section": "제4절 국제수지론", "item": "제4관 먼델-플레밍 모형"},
+    "reason": "관세정책의 장기적 영향에 대한 먼델-플레밍 모형의 예측(환율제도별)",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_acc_1",
+    "in_scope": true,
+    "difficulty": 2,
+    "mapped_taxonomy": {"subject": "회계학", "sub_subject": "재무회계", "chapter": "제1장 회계의 기초", "section": "Chapter 01 개념체계", "item": "3절 일반목적재무보고"},
+    "reason": "자본시장과 회계정보의 관련성·자발적 공시·감사의견의 의미에 대한 설명 판별",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_acc_2",
+    "in_scope": true,
+    "difficulty": 2,
+    "mapped_taxonomy": {"subject": "회계학", "sub_subject": "재무회계", "chapter": "제1장 회계의 기초", "section": "Chapter 01 개념체계", "item": "1절 목적"},
+    "reason": "단식부기 대비 복식부기 체계의 특징(자기검증·업무분장·시점별 재무상태)에 대한 설명 판별",
+    "flags": []
+  },
+  {
+    "id": "actuary_48_acc_3",
+    "in_scope": true,
+    "difficulty": 3,
+    "mapped_taxonomy": {"subject": "회계학", "sub_subject": "재무회계", "chapter": "제1장 회계의 기초", "section": "Chapter 01 개념체계", "item": "10절 자본과 자본유지개념"},
+    "reason": "재무자본유지·실물자본유지 개념과 자본유지조정에 대한 설명 판별(K-IFRS)",
+    "flags": []
+  }
 ]
