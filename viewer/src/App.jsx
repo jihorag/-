@@ -892,7 +892,12 @@ const App = () => {
                   <div style={{ color: '#374151', marginBottom: '14px' }}>
                     {total}문제 중 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b> · 오답 <b style={{ color: '#dc2626' }}>{s.answered - s.correct}</b>
                   </div>
-                  <button onClick={() => { setStudyIdx(0); window.scrollTo(0, 0); }}
+                  <button onClick={() => {
+                      clearMany(ordered.map(qid));   // 이 개념 진행 초기화 → 재측정
+                      setStudyIdx(0);
+                      setStudyNonce(n => n + 1);      // 카드 강제 리마운트(이전 응답 표시 제거)
+                      window.scrollTo(0, 0);
+                    }}
                     style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: '#3b82f6', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
                     처음부터 다시 풀기
                   </button>
