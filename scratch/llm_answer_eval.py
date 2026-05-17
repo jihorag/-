@@ -12,9 +12,9 @@ for line in open(os.path.join(BASE, ".env")):
     if "=" in line and not line.strip().startswith("#"):
         k, v = line.strip().split("=", 1); os.environ.setdefault(k, v)
 
-import google.generativeai as genai
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-MODEL = genai.GenerativeModel("gemini-2.5-flash")
+from openai import OpenAI
+CLIENT = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+MODEL_NAME = os.environ.get("EVAL_MODEL", "gpt-4o-mini")
 
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 30
 db = json.load(open(os.path.join(BASE, "questions_db.json")))
