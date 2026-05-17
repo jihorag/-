@@ -1,287 +1,26 @@
 [
   {
-    "id": "cpa_2024_econ_17",
+    "id": "cpa_2024_econ_37",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_17.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_37.png"
     ],
     "missing_images": [],
     "options": [
-      "28",
-      "36",
-      "40",
-      "48",
-      "56"
+      "일인당 생산량 불변",
+      "일인당 자본량 점차 증가",
+      "일인당 투자 일시 증가 후 원래 수준 회복",
+      "콥-더글라스 함수 시 총생산량 증가",
+      "저축률 감소 시 원래 균제상태 즉시 회복"
     ]
   },
   {
-    "id": "cpa_2024_econ_18",
+    "id": "cpa_2024_econ_38",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_18.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "(외국 명목이자율, 1년 후 환율 순)",
-      "4%, 99",
-      "4%, 101",
-      "4%, 102",
-      "5%, 101",
-      "5%, 102"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_19",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_19.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "생산가능곡선 기울기 절댓값 B > A",
-      "A의 생산가능영역은 B의 2배",
-      "교역 시 A의 무역이득 작아짐",
-      "B국은 Y재 수출, X재 수입",
-      "1:1 교환 시 B국 무역이득 없음"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_20",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_20.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "가",
-      "나",
-      "가, 다",
-      "나, 다",
-      "가, 나, 다"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_21",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_21.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "생산자잉여 a+b+c 개선",
-      "순후생 b+d+c+f+g 악화",
-      "수출보조금 지급총액 b+c+d+e+f+g",
-      "교역조건 악화 손실 e+f+g",
-      "d+g는 소비 왜곡 손실"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_22",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_22.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "E 0 <E 2 <E 1",
-      "E 0 =E 2 <E 1",
-      "E 1 <E 0 <E 2",
-      "E 2 <E 1 <E 0",
-      "E 1 <E 0 =E 2"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_23",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_23.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "2024년 미국 순수출 증가, GDP 불변",
-      "2024년 중국 순수출, GDP 증가",
-      "2023년 중국 순수출, 투자 증가",
-      "한국 GDP 2023년 감소, 2024년 증가",
-      "2024년 한국 소비 증가, 순수출 감소"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_24",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_24.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "3.0%",
-      "3.5%",
-      "4.0%",
-      "4.5%",
-      "5.7%"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_25",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_25.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "(물가상승률, 통화증가율 순)",
-      "2%, 5%",
-      "2%, 7%",
-      "3%, 3%",
-      "3%, 5%",
-      "3%, 7%"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_26",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_26.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "15%",
-      "20%",
-      "30%",
-      "35%",
-      "45%"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_27",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_27.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "(정책 I, 정책 II 순)",
-      "2조원, 1조원",
-      "4조원, 2조원",
-      "4조원, 3조원",
-      "5조원, 2조원",
-      "5조원, 4조원"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_28",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_28.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "가",
-      "나",
-      "가, 다",
-      "나, 다",
-      "가, 나, 다"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_29",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_29.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "IS 수평, 통화정책 효과",
-      "LM 수직, 통화정책 효과",
-      "총수요 수직, 재정정책 효과",
-      "단기총공급 수평, 자기조정과정",
-      "장기총공급 수직, 재정정책 효과"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_30",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_30.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "가, 다",
-      "가, 라",
-      "나, 다",
-      "나, 라",
-      "나, 다, 라"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_31",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_31.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_32",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_32.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "(I, II 순)",
-      "인상, 유지",
-      "인상, 인하",
-      "인하, 인상",
-      "인하, 유지",
-      "유지, 인하"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_33",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_33.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "(정책, 결과 순)",
-      "정부지출 증가, 총생산 증가",
-      "조세 증가, 실업률 상승",
-      "정책금리 인하, 실업률 하락",
-      "통화량 축소, 물가수준 상승",
-      "지급준비율 인상, 물가수준 상승"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_34",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_34.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_38.png"
     ],
     "missing_images": [],
     "options": [
@@ -289,39 +28,299 @@
       "나",
       "다",
       "가, 나",
-      "나, 다"
+      "가, 나, 다"
     ]
   },
   {
-    "id": "cpa_2024_econ_35",
+    "id": "cpa_2024_econ_39",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_35.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_39.png"
     ],
     "missing_images": [],
     "options": [
-      "50",
-      "200",
-      "300",
-      "2,100",
-      "5,400"
+      "가",
+      "나",
+      "다",
+      "가, 다",
+      "가, 나, 다"
     ]
   },
   {
-    "id": "cpa_2024_econ_36",
+    "id": "cpa_2024_econ_40",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_36.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_40.png"
     ],
     "missing_images": [],
     "options": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
+      "(자본량, 생산량 순)",
+      "감소, 감소",
+      "감소, 증가",
+      "증가, 불변",
+      "증가, 증가",
+      "불변, 감소"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_1",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_1.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "비연결재무제표 정의",
+      "일반목적재무보고 주요이용자",
+      "보강적 질적특성 역할",
+      "계속기업가정 작성",
+      "개념체계 일탈 회계기준"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_2",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_2.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "₩70,000",
+      "₩74,000",
+      "₩78,000",
+      "₩82,000",
+      "₩100,000"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_3",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_3.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "₩20,000",
+      "₩37,500",
+      "₩124,500",
+      "₩162,000",
+      "₩180,000"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_4",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_4.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "₩980,000 감소",
+      "₩1,020,000 감소",
+      "₩1,300,000 감소",
+      "₩1,450,000 감소",
+      "₩2,000,000 감소"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_5",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_5.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "물리적 형체 자산의 무형자산 요소",
+      "법적 권리 보호와 효익 통제",
+      "미래유입 가능성 시장참여자 추정치 근거",
+      "사업결합 취득 원가 공정가치",
+      "연구/개발단계 구분 불가 시 연구단계 처리"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_6",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_6.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "부수적 용역 경미 시 투자부동산 분류",
+      "호텔 경영 시 자가사용부동산 분류",
+      "공정가치 변동 당기손익 반영",
+      "공정가치 계속 신뢰성 측정 추정",
+      "신뢰성 측정 어려울 시 원가 측정 중단"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_7",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_7.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "₩900,000",
+      "₩1,000,000",
+      "₩1,200,000",
+      "₩1,300,000",
+      "₩1,400,000"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_8",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_8.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "제거 조건 충족 시 장부금액 배분",
+      "영업 유의 활동 시작/중단 시 사업모형 변경",
+      "통제 보유 시 지속적 관여 정도 인식",
+      "기대신용손실 측정 방식",
+      "금융자산 재분류 시 소급법/전진법 적용"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_9",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_9.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "₩50,755 증가",
+      "₩120,755 증가",
+      "₩399,755 증가",
+      "₩417,218 증가",
+      "₩427,218 증가"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_10",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_10.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "(조건변경이익, 이자비용 순)",
+      "₩324,150, ₩121,131",
+      "₩324,150, ₩131,131",
+      "₩334,150, ₩131,131",
+      "₩334,150, ₩151,131",
+      "₩354,150, ₩151,131"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_11",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_11.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "(전환사채 장부금액, 전환권대가 장부금액 순)",
+      "₩383,700, ₩8,038",
+      "₩385,719, ₩12,038",
+      "₩387,267, ₩12,038",
+      "₩401,396, ₩14,197",
+      "₩407,390, ₩14,197"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_12",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_12.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "₩15,431",
+      "₩22,431",
+      "₩23,286",
+      "₩24,286",
+      "₩28,431"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_13",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_13.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "₩11,900",
+      "₩13,900",
+      "₩14,900",
+      "₩16,900",
+      "₩18,900"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_14",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_14.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "₩267,800",
+      "₩282,200",
+      "₩299,000",
+      "₩300,000",
+      "₩320,000"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_15",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_15.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "(전기이월이익잉여금, 당기순이익 순)",
+      "₩98,627 증가, ₩115,000 감소",
+      "₩115,000 감소, ₩115,000 감소",
+      "₩161,627 증가, ₩166,714 감소",
+      "₩166,714 감소, ₩166,714 감소",
+      "₩193,413 증가, ₩175,857 감소"
+    ]
+  },
+  {
+    "id": "cpa_2024_acc_16",
+    "subject": "회계학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_acc_16.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "₩900,000",
+      "₩920,000",
+      "₩950,000",
+      "₩1,150,000",
+      "₩1,900,000"
     ]
   }
 ]
