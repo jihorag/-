@@ -42,12 +42,18 @@ const useProgress = () => {
 
 // 문항 배열에 대한 진행 통계
 const progressStats = (questions, progress) => {
-  let answered = 0, correct = 0;
+  let answered = 0, correct = 0, dSum = 0, dCnt = 0;
   for (const q of questions) {
+    if (typeof q.difficulty === 'number') { dSum += q.difficulty; dCnt++; }
     const p = progress[qid(q)];
     if (p) { answered++; if (p.correct) correct++; }
   }
-  return { answered, correct, total: questions.length };
+  // avgDiff: 그룹의 평균 난이도(1~5), level: 색/라벨용 반올림값
+  const avgDiff = dCnt ? dSum / dCnt : null;
+  return {
+    answered, correct, total: questions.length,
+    avgDiff, level: avgDiff ? Math.round(avgDiff) : null,
+  };
 };
 
 // ===== URL 라우팅 (해시 동기화) =====
