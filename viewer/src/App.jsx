@@ -58,9 +58,9 @@ const saveProgress = (next) => {
 const useProgress = () => {
   const [progress, setProgress] = useState(loadProgress);
   // 함수형 업데이트로 직전 상태 기준 병합 → 빠른 연속 응답에도 기록 유실 없음
-  const record = (q, correct) => {
+  const record = (q, sel, correct) => {
     const id = qid(q);
-    setProgress(prev => (prev[id] ? prev : saveProgress({ ...prev, [id]: { correct, ts: Date.now() } })));
+    setProgress(prev => (prev[id] ? prev : saveProgress({ ...prev, [id]: { sel, correct, ts: Date.now() } })));
   };
   const reset = () => setProgress(saveProgress({}));
   const clearMany = (ids) => {
