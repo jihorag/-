@@ -1094,18 +1094,14 @@ const App = () => {
     const done = total > 0 && s.answered >= total;
     return (
       <div className="app-container">
-        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', justifyContent: 'space-between' }}>
-          <button className="back-btn" onClick={handleBack}>
-            <ArrowLeft size={24} style={{ marginRight: '8px' }} />
-            <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
-          </button>
+        {drillHeader(
           <button onClick={() => setCurrentView('question_list')}
             style={{ border: 'none', background: 'transparent', color: '#3b82f6', fontWeight: 600, cursor: 'pointer', padding: '0 16px' }}>
             전체 목록 ▦
           </button>
-        </header>
+        )}
 
-        <div style={{ padding: '20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
+        <div className="drill-head">
           <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>{selectedGroup.title}</div>
           {pathParts.length > 0 && (
             <div style={{ fontSize: '0.85rem', color: '#374151', margin: '6px 0', fontWeight: 600 }}>
