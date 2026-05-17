@@ -49,7 +49,27 @@ const loadFilters = () => {
   }
 };
 
-// 진행률 상태 + 영속화 훅. record(q, sel) 로 기록, reset() 으로 초기화.
+// ===== 기억 곡선(간격 반복) =====
+// Leitner 간격(일): 맞히면 다음 칸으로, 틀리면 1칸으로. 끝까지 가면 graduated.
+const SRS_LADDER = [1, 3, 7, 16, 35, 70];
+const DAY = 86400000;
+const dayStart = (t) => { const d = new Date(t); d.setHours(0, 0, 0, 0); return d.getTime(); };
+// prevSrs + 정오답 → 다음 srs. due는 해당 날짜 0시(ms). graduated면 due=null.
+const nextSrs = (prevSrs, correct) => {
+  const lapses = (prevSrs && prevSrs.lapses) || 0;
+  const reps = (prevSrs && prevSrs.reps) || 0;
+  if (!correct) {
+    return { box: 0, reps: reps + 1, lapses: lapses + 1,
+             due: dayStart(Date.now()) + SRS_LADDER[0] * DAY };
+  }
+  const box = ((prevSrs && typeof prevSrs.box === 'number') ? prevSrs.box : -1) + 1;
+  if (box >= SRS_LADDER.length) {
+    return { box, reps: reps + 1, lapses, due: null, graduated: true };
+  }
+  return { box, reps: reps + 1, lapses, due: dayStart(Date.now()) + SRS_LADDER[box] * DAY };
+};
+
+// 진행률 상태 + 영속화 훅. record(q,sel,correct) 최초기록, update() 복습 재채점.
 const saveProgress = (next) => {
   try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(next)); } catch { /* quota/SSR */ }
   return next;
@@ -57,18 +77,30 @@ const saveProgress = (next) => {
 
 const useProgress = () => {
   const [progress, setProgress] = useState(loadProgress);
-  // 함수형 업데이트로 직전 상태 기준 병합 → 빠른 연속 응답에도 기록 유실 없음
+  // 함수형 업데이트로 직전 상태 기준 병합 → 빠른 연속 응답에도 기록 유실 없음.
+  // 최초 응답이 오답(채점됨)이면 즉시 복습 스케줄(srs) 부여.
   const record = (q, sel, correct) => {
     const id = qid(q);
-    setProgress(prev => (prev[id] ? prev : saveProgress({ ...prev, [id]: { sel, correct, ts: Date.now() } })));
+    setProgress(prev => {
+      if (prev[id]) return prev;
+      const entry = { sel, correct, ts: Date.now() };
+      if (correct === false) entry.srs = nextSrs(null, false);
+      return saveProgress({ ...prev, [id]: entry });
+    });
   };
-  // 복습 재채점: 기존 기록을 덮어씀(오답→정답 승격). reviewed 횟수 누적.
+  // 복습 재채점: 기존 기록 덮어씀 + 기억곡선 재스케줄. reviewed 누적.
   const update = (q, sel, correct) => {
     const id = qid(q);
-    setProgress(prev => saveProgress({
-      ...prev,
-      [id]: { sel, correct, ts: Date.now(), reviewed: ((prev[id] && prev[id].reviewed) || 0) + 1 },
-    }));
+    setProgress(prev => {
+      const p = prev[id] || {};
+      const srs = (correct === null || correct === undefined)
+        ? p.srs                                   // 채점불가는 스케줄 변경 안 함
+        : nextSrs(p.srs, correct === true);
+      return saveProgress({
+        ...prev,
+        [id]: { sel, correct, ts: Date.now(), reviewed: (p.reviewed || 0) + 1, srs },
+      });
+    });
   };
   const reset = () => setProgress(saveProgress({}));
   const clearMany = (ids) => {
