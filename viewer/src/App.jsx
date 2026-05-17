@@ -321,8 +321,25 @@ const App = () => {
     });
   }, [loading, questionsData]);
 
-  // View: 과목별 (5과목 등) - 새롭게 정밀 분류된 문제만 필터링
-  const subjectGroups = useMemo(() => {
+  // ===== 단일 v4 분류축 엔진 =====
+  // 모든 탭(시험별/과목별/단원별/연도별)이 동일한 mapped_taxonomy 분류축을 공유한다.
+  // taxScope: null(과목별/단원별) | {kind:'exam'|'year', value, label} (시험별/연도별 진입 시)
+  const scopeOk = useMemo(() => {
+    if (!taxScope) return () => true;
+    if (taxScope.kind === 'exam') return (q) => q.exam === taxScope.value;
+    if (taxScope.kind === 'year') return (q) => String(q.year) === String(taxScope.value);
+    return () => true;
+  }, [taxScope]);
+
+  const baseFilter = (item) => item.isClassified && scopeOk(item);
+
+  const scopedClassified = useMemo(
+    () => processedData.filter(baseFilter),
+    [processedData, scopeOk]
+  );
+
+  // (레거시 보관용) 사용하지 않는 과목별 mock 엔진 자리
+  const _legacySubjectGroups = useMemo(() => {
     const groups = {};
     processedData.forEach(q => {
       // V4 파이프라인으로 1회 이상 재분류된 문제만 통과
