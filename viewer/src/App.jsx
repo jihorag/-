@@ -97,8 +97,8 @@ const ParsedText = ({ text }) => {
         const imgMatch = part.match(/\[IMAGE:\s*(.*?)\]/);
         if (imgMatch) {
           const rawName = imgMatch[1].split('/').pop();
-          // PNG는 빌드시 WebP로 변환됨(파일명 동일, 확장자만). GIF 등은 원본 유지.
-          const imageName = rawName.replace(/\.png$/i, '.webp');
+          // PNG/GIF는 빌드 시 동일 파일명의 WebP로 변환됨(확장자만 교체).
+          const imageName = rawName.replace(/\.(png|gif)$/i, '.webp');
           return (
             <img
               key={i}
@@ -106,6 +106,13 @@ const ParsedText = ({ text }) => {
               alt="content"
               loading="lazy"
               decoding="async"
+              onError={(e) => {
+                // 원본 소실 이미지: 깨진 아이콘 대신 안내로 대체
+                const ph = document.createElement('span');
+                ph.textContent = '[이미지 없음]';
+                ph.style.cssText = 'display:inline-block;color:#9ca3af;font-size:0.85rem;padding:8px 0';
+                e.currentTarget.replaceWith(ph);
+              }}
               style={{ maxWidth: '100%', display: 'block', margin: '12px auto', borderRadius: '4px' }}
             />
           );
