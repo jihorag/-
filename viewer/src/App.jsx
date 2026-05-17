@@ -125,7 +125,7 @@ const useProgress = () => {
       const p = prev[id] || {};
       const srs = (correct === null || correct === undefined)
         ? p.srs                                   // 채점불가는 스케줄 변경 안 함
-        : nextSrs(p.srs, correct === true);
+        : nextSrs(p.srs, correct === true, srsMode);
       return saveProgress({
         ...prev,
         [id]: { sel, correct, ts: Date.now(), reviewed: (p.reviewed || 0) + 1, srs },
@@ -141,7 +141,7 @@ const useProgress = () => {
       return saveProgress(next);
     });
   };
-  return { progress, record, update, reset, clearMany };
+  return { progress, record, update, reset, clearMany, srsMode, setSrsMode };
 };
 
 // 문항 북마크(중요/헷갈림) — 정오답과 무관, 별도 영속
