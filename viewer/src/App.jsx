@@ -1361,14 +1361,11 @@ const App = () => {
         </div>
       </div>
     );
-    return (
+    return shell(
       <div className="app-container">
-        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
-          <button className="back-btn" onClick={() => setCurrentView('dashboard')}>
-            <ArrowLeft size={24} style={{ marginRight: '8px' }} />
-            <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
-          </button>
-        </header>
+        <div style={{ padding: '20px 20px 0' }}>
+          <h1 style={{ fontSize: '1.4rem', fontWeight: 700 }}>🔍 검색</h1>
+        </div>
         <div style={{ padding: '20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
           <input
             value={filters.kw}
