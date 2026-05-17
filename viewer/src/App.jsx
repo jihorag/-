@@ -234,13 +234,7 @@ const App = () => {
   const [viewMode, setViewMode] = useState('exam'); // 'exam' | 'subject' | 'year' | 'chapter'
   const [currentView, setCurrentView] = useState('dashboard');
   const [selectedGroup, setSelectedGroup] = useState(null);
-  const [selectedExam, setSelectedExam] = useState(null);
-  const [selectedSubject, setSelectedSubject] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedUnit, setSelectedUnit] = useState(null);
-  const [selectedYear, setSelectedYear] = useState(null);
-  const [selectedYearSubject, setSelectedYearSubject] = useState(null);
-  
+
   // taxonomy states
   const [taxSubject, setTaxSubject] = useState(null);
   const [taxSubSubject, setTaxSubSubject] = useState(null);
