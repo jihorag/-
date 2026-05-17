@@ -49,7 +49,7 @@ const loadPos = () => {
 const savePos = (map) => {
   try { localStorage.setItem(POS_KEY, JSON.stringify(map)); } catch { /* quota/SSR */ }
 };
-const EMPTY_FILTERS = { exams: [], subjects: [], years: [], diffs: [], kw: '' };
+const EMPTY_FILTERS = { exams: [], subjects: [], years: [], diffs: [], kw: '', cleanOnly: false };
 const loadFilters = () => {
   try {
     const f = JSON.parse(localStorage.getItem(FILTERS_KEY) || 'null');
@@ -889,8 +889,8 @@ const App = () => {
 
   // 복합 필터 결과 (AND 결합, 키워드는 문제/보기/해설 OR 매칭)
   const filteredResults = useMemo(() => {
-    const { exams, subjects, years, diffs, kw } = filters;
-    const active = exams.length || subjects.length || years.length || diffs.length || kw.trim();
+    const { exams, subjects, years, diffs, kw, cleanOnly } = filters;
+    const active = exams.length || subjects.length || years.length || diffs.length || kw.trim() || cleanOnly;
     if (!active) return [];
     const k = kw.trim().toLowerCase();
     return classifiedList.filter(q => {
@@ -898,6 +898,10 @@ const App = () => {
       if (subjects.length && !subjects.includes(q.taxSubjectName)) return false;
       if (years.length && !years.includes(String(q.year))) return false;
       if (diffs.length && !diffs.includes(q.difficulty)) return false;
+      if (cleanOnly) {
+        const dq = q.data_quality || {};
+        if (dq.no_answer || dq.no_options) return false;   // 채점 가능 문항만
+      }
       if (k) {
         const hay = `${q.question || ''} ${(q.options || []).join(' ')} ${q.explanation || ''}`.toLowerCase();
         if (!hay.includes(k)) return false;
