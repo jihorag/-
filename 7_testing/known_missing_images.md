@@ -33,3 +33,25 @@ PY
 
 ## 후속(미결정)
 해당 문항의 `[IMAGE:]` 태그 제거 또는 대체 캡션 삽입은 데이터 보정 작업으로 보류.
+
+---
+
+# 데이터 품질 보정 결과 (2026-05-17)
+
+`questions_db.json` `data_quality` 필드로 플래그됨. 앱은 런타임에서 우아하게 degrade
+(무효정답=채점제외, 보기없음=안내, 해설없음=판정만). 백업: `6_db_utils/backup/questions_db.*pre_quality.json`.
+
+분류 노출 10,360문항 기준:
+- **정상 채점 가능 9,657**
+- `answer_normalized` 40 — 원문자 정답 ①②③ → 숫자 (1단계, 영구 보정 완료)
+- `no_answer` 703 — 정답 무효/빈/센티넬 (채점 제외)
+- `no_options` 298 — 보기 없음
+- `no_explanation` 1,399 — 해설 없음 (노출은 유지, 판정만 표시)
+
+**왜 자동 복구 안 했나**: 2단계(재수집) — 결손 문항은 cbtbank 소스코드/`source_url`
+없고 PDF 추출 출처라 회수 0. 3단계(LLM 재도출) — gpt-4o-mini/gpt-4o/gpt-5-mini/o4-mini
+4개 측정, 최고 gpt-4o **54%@high** (랜덤 20% 대비 무의미 수준, 그림·계산 의존 문항이
+다수). 학습 DB에 50%대 정답 주입은 플래그보다 해로워 **3단계 비채택**.
+
+재집계: `python3 6_db_utils/flag_quality.py` / 원문자 정규화: `normalize_answers.py`.
+개별 문항을 사람이 풀어 정답을 채우는 수작업 보정만 추가로 가능(고비용·범위 외).
