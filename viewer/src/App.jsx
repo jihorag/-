@@ -577,10 +577,11 @@ const App = () => {
     return [allGroup, ...Object.values(groups).sort((a, b) => a.title.localeCompare(b.title))];
   }, [processedData, selectedYear, selectedYearSubject]);
 
-  // View: 시험별 (Exams)
+  // Level 0: 시험 목록 (시험별 탭) — 분류 완료 문항만 집계
   const examGroups = useMemo(() => {
     const groups = {};
     processedData.forEach(q => {
+      if (!q.isClassified) return;
       const key = q.exam;
       if (!groups[key]) {
         groups[key] = {
