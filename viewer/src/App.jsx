@@ -1095,9 +1095,8 @@ const App = () => {
     return (
       <div className="app-container">
         {drillHeader(
-          <button onClick={() => setCurrentView('question_list')}
-            style={{ border: 'none', background: 'transparent', color: '#3b82f6', fontWeight: 600, cursor: 'pointer', padding: '0 16px' }}>
-            전체 목록 ▦
+          <button className="drill-action" onClick={() => setCurrentView('question_list')}>
+            ▦ 목록
           </button>
         )}
 
