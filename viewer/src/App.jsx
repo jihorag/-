@@ -79,7 +79,7 @@ const useProgress = () => {
       return saveProgress(next);
     });
   };
-  return { progress, record, reset, clearMany };
+  return { progress, record, update, reset, clearMany };
 };
 
 // 문항 배열에 대한 진행 통계
@@ -361,7 +361,7 @@ const App = () => {
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [studyIdx, setStudyIdx] = useState(0); // 가이드 학습 모드 현재 문항 인덱스
   const [studyNonce, setStudyNonce] = useState(0); // 재학습 시 문항 카드 강제 리마운트
-  const { progress, record: recordAnswer, reset: resetProgress, clearMany } = useProgress();
+  const { progress, record: recordAnswer, update: updateAnswer, reset: resetProgress, clearMany } = useProgress();
   // 복합 검색·필터 상태
   const [filters, setFilters] = useState(loadFilters);
 
