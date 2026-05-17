@@ -1421,9 +1421,14 @@ const App = () => {
         </div>
         <main className="main-content" style={{ marginTop: '20px' }}>
           {srs.due.length === 0 ? (
-            <div style={{ textAlign: 'center', color: '#6b7280', padding: '40px' }}>
-              오늘 복습할 문제가 없습니다 🎉
-              {srs.nextDue != null && <div style={{ marginTop: '8px', fontSize: '0.9rem' }}>다음 복습 예정: <b>{fmtDate(srs.nextDue)}</b></div>}
+            <div className="empty-state">
+              <span className="emoji">🎉</span>
+              <div className="title">오늘 복습할 문제가 없어요</div>
+              <div className="sub">
+                {srs.nextDue != null
+                  ? <>다음 복습 예정: <b>{fmtDate(srs.nextDue)}</b></>
+                  : '문제를 풀다 틀리면 복습 일정이 생겨요'}
+              </div>
             </div>
           ) : (
             <div className="study-grid">
