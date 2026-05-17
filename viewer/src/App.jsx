@@ -226,6 +226,7 @@ const App = () => {
   const [viewMode, setViewMode] = useState('exam'); // 'exam' | 'subject' | 'year' | 'chapter'
   const [currentView, setCurrentView] = useState('dashboard');
   const [selectedGroup, setSelectedGroup] = useState(null);
+  const { progress, record: recordAnswer, reset: resetProgress } = useProgress();
 
   // taxonomy states
   const [taxSubject, setTaxSubject] = useState(null);
