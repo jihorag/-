@@ -1532,6 +1532,44 @@ const App = () => {
           })()}
         </section>
 
+        <div
+          onClick={() => srs.due.length && setCurrentView('today')}
+          style={{ width: '100%', padding: '16px', margin: '4px 0 12px', borderRadius: '12px',
+            border: `1px solid ${srs.due.length ? '#bfdbfe' : '#e5e7eb'}`,
+            background: srs.due.length ? '#eff6ff' : '#fff',
+            cursor: srs.due.length ? 'pointer' : 'default',
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}
+        >
+          <div>
+            <div style={{ fontWeight: 700, fontSize: '1rem', color: srs.due.length ? '#1d4ed8' : '#6b7280' }}>
+              📅 오늘 복습 {srs.due.length > 0 ? `${srs.due.length}문제` : '없음'}
+            </div>
+            <div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: '2px' }}>
+              {srs.due.length > 0
+                ? '기억 곡선에 따라 오늘 풀 차례예요'
+                : (srs.nextDue != null
+                    ? `다음 복습: ${new Date(srs.nextDue).getMonth() + 1}/${new Date(srs.nextDue).getDate()}`
+                    : '틀린 문제가 쌓이면 복습 일정이 생겨요')}
+            </div>
+          </div>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              if (typeof Notification === 'undefined') return;
+              if (Notification.permission === 'granted') {
+                setNotifPref(p => !p);
+              } else {
+                Notification.requestPermission().then(r => setNotifPref(r === 'granted'));
+              }
+            }}
+            style={{ flexShrink: 0, border: '1px solid #d1d5db', background: '#fff', borderRadius: '8px',
+              padding: '8px 12px', fontSize: '0.8rem', cursor: 'pointer',
+              color: notifPref ? '#1d4ed8' : '#6b7280', fontWeight: 600 }}
+          >
+            {notifPref ? '🔔 알림 켜짐' : '🔔 알림 받기'}
+          </button>
+        </div>
+
         <button
           onClick={() => setCurrentView('search')}
           style={{ width: '100%', textAlign: 'left', padding: '14px 16px', margin: '4px 0 12px', border: '1px solid #d1d5db', borderRadius: '12px', background: '#fff', color: '#6b7280', fontSize: '0.95rem', cursor: 'pointer' }}
