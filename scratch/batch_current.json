@@ -1,10 +1,59 @@
 [
   {
-    "id": "cpa_2025_econ_29",
+    "id": "cpa_2024_econ_17",
     "subject": "경제학",
-    "year": "2025",
+    "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2025_econ_29.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_17.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "28",
+      "36",
+      "40",
+      "48",
+      "56"
+    ]
+  },
+  {
+    "id": "cpa_2024_econ_18",
+    "subject": "경제학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_18.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "(외국 명목이자율, 1년 후 환율 순)",
+      "4%, 99",
+      "4%, 101",
+      "4%, 102",
+      "5%, 101",
+      "5%, 102"
+    ]
+  },
+  {
+    "id": "cpa_2024_econ_19",
+    "subject": "경제학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_19.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "생산가능곡선 기울기 절댓값 B > A",
+      "A의 생산가능영역은 B의 2배",
+      "교역 시 A의 무역이득 작아짐",
+      "B국은 Y재 수출, X재 수입",
+      "1:1 교환 시 B국 무역이득 없음"
+    ]
+  },
+  {
+    "id": "cpa_2024_econ_20",
+    "subject": "경제학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_20.png"
     ],
     "missing_images": [],
     "options": [
@@ -16,310 +65,263 @@
     ]
   },
   {
-    "id": "cpa_2025_econ_30",
-    "subject": "경제학",
-    "year": "2025",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2025_econ_30.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "6%",
-      "7%",
-      "8%",
-      "9%",
-      "10%"
-    ]
-  },
-  {
-    "id": "cpa_2025_econ_31",
-    "subject": "경제학",
-    "year": "2025",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2025_econ_31.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "(A, B, C 순)",
-      "하락, 을국 순유입, 하락",
-      "하락, 을국 순유출, 하락",
-      "불변, 을국 순유입, 상승",
-      "상승, 을국 순유출, 불변",
-      "상승, 을국 순유입, 하락"
-    ]
-  },
-  {
-    "id": "cpa_2025_econ_32",
-    "subject": "경제학",
-    "year": "2025",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2025_econ_32.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "가, 나",
-      "가, 다",
-      "나, 다",
-      "나, 라",
-      "다, 라"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_1",
+    "id": "cpa_2024_econ_21",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_1.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_21.png"
     ],
     "missing_images": [],
     "options": [
-      "범위의 경제",
-      "규모의 경제",
-      "규모수익 체증",
-      "한계비용 체감",
-      "한계기술대체율 체감"
+      "생산자잉여 a+b+c 개선",
+      "순후생 b+d+c+f+g 악화",
+      "수출보조금 지급총액 b+c+d+e+f+g",
+      "교역조건 악화 손실 e+f+g",
+      "d+g는 소비 왜곡 손실"
     ]
   },
   {
-    "id": "cpa_2024_econ_2",
+    "id": "cpa_2024_econ_22",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_2.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_22.png"
     ],
     "missing_images": [],
     "options": [
-      "200",
-      "300",
-      "400",
-      "600",
-      "1,000"
+      "E 0 <E 2 <E 1",
+      "E 0 =E 2 <E 1",
+      "E 1 <E 0 <E 2",
+      "E 2 <E 1 <E 0",
+      "E 1 <E 0 =E 2"
     ]
   },
   {
-    "id": "cpa_2024_econ_3",
+    "id": "cpa_2024_econ_23",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_3.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_23.png"
     ],
     "missing_images": [],
     "options": [
-      "없음",
-      "가, 나",
-      "다, 라",
-      "가, 나, 다",
-      "가, 나, 다, 라"
+      "2024년 미국 순수출 증가, GDP 불변",
+      "2024년 중국 순수출, GDP 증가",
+      "2023년 중국 순수출, 투자 증가",
+      "한국 GDP 2023년 감소, 2024년 증가",
+      "2024년 한국 소비 증가, 순수출 감소"
     ]
   },
   {
-    "id": "cpa_2024_econ_4",
+    "id": "cpa_2024_econ_24",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_4.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_24.png"
     ],
     "missing_images": [],
     "options": [
-      "가, 나",
-      "가, 다",
-      "가, 라",
-      "나, 다",
-      "다, 라"
+      "3.0%",
+      "3.5%",
+      "4.0%",
+      "4.5%",
+      "5.7%"
     ]
   },
   {
-    "id": "cpa_2024_econ_5",
+    "id": "cpa_2024_econ_25",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_5.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_25.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "(물가상승률, 통화증가율 순)",
+      "2%, 5%",
+      "2%, 7%",
+      "3%, 3%",
+      "3%, 5%",
+      "3%, 7%"
+    ]
+  },
+  {
+    "id": "cpa_2024_econ_26",
+    "subject": "경제학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_26.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "15%",
+      "20%",
+      "30%",
+      "35%",
+      "45%"
+    ]
+  },
+  {
+    "id": "cpa_2024_econ_27",
+    "subject": "경제학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_27.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "(정책 I, 정책 II 순)",
+      "2조원, 1조원",
+      "4조원, 2조원",
+      "4조원, 3조원",
+      "5조원, 2조원",
+      "5조원, 4조원"
+    ]
+  },
+  {
+    "id": "cpa_2024_econ_28",
+    "subject": "경제학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_28.png"
     ],
     "missing_images": [],
     "options": [
       "가",
       "나",
-      "가, 나",
       "가, 다",
-      "나, 다"
+      "나, 다",
+      "가, 나, 다"
     ]
   },
   {
-    "id": "cpa_2024_econ_6",
+    "id": "cpa_2024_econ_29",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_6.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_29.png"
     ],
     "missing_images": [],
     "options": [
-      "36",
-      "35",
-      "32",
-      "27",
-      "20"
+      "IS 수평, 통화정책 효과",
+      "LM 수직, 통화정책 효과",
+      "총수요 수직, 재정정책 효과",
+      "단기총공급 수평, 자기조정과정",
+      "장기총공급 수직, 재정정책 효과"
     ]
   },
   {
-    "id": "cpa_2024_econ_7",
+    "id": "cpa_2024_econ_30",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_7.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_30.png"
     ],
     "missing_images": [],
     "options": [
-      "20",
-      "30",
-      "40",
-      "50",
-      "60"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_8",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_8.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "8",
-      "12",
-      "24",
-      "29",
-      "36"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_9",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_9.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "30",
-      "35",
-      "40",
-      "45",
-      "50"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_10",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_10.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "(공리주의 A, B / 롤즈 A, B 순)",
-      "30, 70 / 80, 20",
-      "30, 70 / 20, 80",
-      "20, 80 / 20, 80",
-      "80, 20 / 30, 70",
-      "80, 20 / 20, 80"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_11",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_11.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "0개월 < E < 1개월",
-      "1개월 < E < 2개월",
-      "1.5개월 < E < 3.5개월",
-      "2개월 < E < 4개월",
-      "E > 4개월"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_12",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_12.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "(p, q 순)",
-      "1, 0",
-      "2/3, 1/3",
-      "0, 1",
-      "1/3, 2/3",
-      "1/2, 1/2"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_13",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_13.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "C(Q)=Qmin[w 1 w 2 ,2w 3 w 4 ]",
-      "C(Q)=Qmin[w 1 ,4w 2 ]+Qmin[2w 3 ,5w 4 ]",
-      "C(Q)=Qmin[ 4 1 w 1 +w 2 , 5 2 w 3 + 2 5 w 4 ]",
-      "C(Q)=Qmin[ 4 1 w 1 ,w 2 ]+Qmin[ 5 2 w 3 , 2 5 w 4 ]",
-      "C(Q)=Q( 4 1 w 1 +w 2 + 5 2 w 3 + 2 5 w 4 )"
-    ]
-  },
-  {
-    "id": "cpa_2024_econ_14",
-    "subject": "경제학",
-    "year": "2024",
-    "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_14.png"
-    ],
-    "missing_images": [],
-    "options": [
-      "가, 나",
+      "가, 다",
       "가, 라",
-      "다, 라",
-      "가, 나, 다",
+      "나, 다",
+      "나, 라",
       "나, 다, 라"
     ]
   },
   {
-    "id": "cpa_2024_econ_15",
+    "id": "cpa_2024_econ_31",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_15.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_31.png"
     ],
     "missing_images": [],
     "options": [
-      "40",
-      "50",
-      "60",
-      "70",
-      "80"
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
     ]
   },
   {
-    "id": "cpa_2024_econ_16",
+    "id": "cpa_2024_econ_32",
     "subject": "경제학",
     "year": "2024",
     "image_paths": [
-      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_16.png"
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_32.png"
     ],
     "missing_images": [],
     "options": [
-      "0.1",
-      "0.2",
-      "0.3",
-      "0.4",
-      "0.5"
+      "(I, II 순)",
+      "인상, 유지",
+      "인상, 인하",
+      "인하, 인상",
+      "인하, 유지",
+      "유지, 인하"
+    ]
+  },
+  {
+    "id": "cpa_2024_econ_33",
+    "subject": "경제학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_33.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "(정책, 결과 순)",
+      "정부지출 증가, 총생산 증가",
+      "조세 증가, 실업률 상승",
+      "정책금리 인하, 실업률 하락",
+      "통화량 축소, 물가수준 상승",
+      "지급준비율 인상, 물가수준 상승"
+    ]
+  },
+  {
+    "id": "cpa_2024_econ_34",
+    "subject": "경제학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_34.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "가",
+      "나",
+      "다",
+      "가, 나",
+      "나, 다"
+    ]
+  },
+  {
+    "id": "cpa_2024_econ_35",
+    "subject": "경제학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_35.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "50",
+      "200",
+      "300",
+      "2,100",
+      "5,400"
+    ]
+  },
+  {
+    "id": "cpa_2024_econ_36",
+    "subject": "경제학",
+    "year": "2024",
+    "image_paths": [
+      "/Users/jiho/감정평가사 기출문제/images/cpa_2024_econ_36.png"
+    ],
+    "missing_images": [],
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
     ]
   }
 ]
