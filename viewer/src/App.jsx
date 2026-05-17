@@ -3,6 +3,15 @@ import { ChevronLeft, ArrowLeft, Loader2 } from 'lucide-react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
+// v4 난이도(1~5) 배지 메타: 색/라벨
+const DIFFICULTY_META = {
+  1: { label: '난이도 1 · 매우쉬움', bg: '#ecfdf5', fg: '#047857' },
+  2: { label: '난이도 2 · 쉬움', bg: '#f0fdf4', fg: '#15803d' },
+  3: { label: '난이도 3 · 보통', bg: '#fefce8', fg: '#a16207' },
+  4: { label: '난이도 4 · 어려움', bg: '#fff7ed', fg: '#c2410c' },
+  5: { label: '난이도 5 · 매우어려움', bg: '#fef2f2', fg: '#b91c1c' },
+};
+
 // Component to parse and render text with inline images and math
 const ParsedText = ({ text }) => {
   if (!text) return null;
