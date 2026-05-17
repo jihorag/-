@@ -812,7 +812,7 @@ const App = () => {
       border: on ? '1px solid #3b82f6' : '1px solid #d1d5db',
       background: on ? '#3b82f6' : '#fff', color: on ? '#fff' : '#374151',
     });
-    const Group = ({ label, items, sel, k, fmt }) => (
+    const groupChips = (label, items, sel, k, fmt) => (
       <div style={{ marginBottom: '14px' }}>
         <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280', marginBottom: '6px' }}>{label}</div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -839,10 +839,10 @@ const App = () => {
             placeholder="문제·보기·해설 키워드 검색"
             style={{ width: '100%', padding: '12px 14px', fontSize: '1rem', border: '1px solid #d1d5db', borderRadius: '10px', marginBottom: '16px', boxSizing: 'border-box' }}
           />
-          <Group label="시험" items={filterOptions.exams} sel={filters.exams} k="exams" />
-          <Group label="과목" items={filterOptions.subjects} sel={filters.subjects} k="subjects" />
-          <Group label="연도" items={filterOptions.years} sel={filters.years} k="years" fmt={(y) => `${y}년`} />
-          <Group label="난이도" items={filterOptions.diffs} sel={filters.diffs} k="diffs" fmt={(d) => `난이도 ${d}`} />
+          {groupChips('시험', filterOptions.exams, filters.exams, 'exams')}
+          {groupChips('과목', filterOptions.subjects, filters.subjects, 'subjects')}
+          {groupChips('연도', filterOptions.years, filters.years, 'years', (y) => `${y}년`)}
+          {groupChips('난이도', filterOptions.diffs, filters.diffs, 'diffs', (d) => `난이도 ${d}`)}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
             <span style={{ fontWeight: 700 }}>{activeCount ? `${filteredResults.length}문제` : '필터를 선택하세요'}</span>
             {activeCount > 0 && (
