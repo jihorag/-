@@ -1538,14 +1538,10 @@ const App = () => {
     );
   }
 
-  return (
+  // ===== 홈 탭: 학습 통계 + 오늘 복습 배너 =====
+  if (currentView === 'home') {
+    return shell(
     <div className="app-container">
-      <header className="top-nav">
-        <button className="back-btn">
-          <ChevronLeft size={24} />
-        </button>
-      </header>
-
       <div className="banner">
         <div className="banner-content">
           <div className="banner-subtitle">PROFESSIONAL APPRAISER EXAM</div>
