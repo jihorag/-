@@ -1016,7 +1016,7 @@ const App = () => {
       review: true,
       backView,                       // 학습 종료 후 복귀할 화면(review | today)
       title,
-      subtitle: backView === 'today' ? '오늘 복습' : '오답 복습',
+      subtitle: backView === 'today' ? '오늘 복습' : backView === 'search' ? '검색 학습' : '오답 복습',
       filterFn: (q) => set.has(qid(q)),
     });
     setStudyIdx(0);
