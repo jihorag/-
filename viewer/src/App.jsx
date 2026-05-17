@@ -1266,6 +1266,8 @@ const App = () => {
                 q={q}
                 prior={selectedGroup.review ? undefined : progress[qid(q)]}
                 onAnswer={selectedGroup.review ? updateAnswer : recordAnswer}
+                bookmarked={!!bm[qid(q)]}
+                onToggleBookmark={toggleBookmark}
               />
               <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', marginTop: '8px' }}>
                 <button
