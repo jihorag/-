@@ -303,19 +303,24 @@ const QuestionItem = ({ q, prior, onAnswer }) => {
         })}
       </div>
       
-      {isRevealed && q.explanation && (
-        <div style={{ padding: '16px', background: '#f3f4f6', borderRadius: '8px', borderLeft: '4px solid #3b82f6', animation: 'fadeIn 0.3s ease-in-out' }}>
-          <div style={{ fontWeight: '700', marginBottom: '8px', fontSize: '0.95rem', display: 'flex', justifyContent: 'space-between' }}>
-            <span>해설</span>
-            <span style={{ color: selectedOpt === q.answer ? '#16a34a' : '#ef4444' }}>
-              {selectedOpt === q.answer ? '정답입니다!' : '오답입니다.'}
-            </span>
+      {isRevealed && (() => {
+        // 채점 결과: 정답 정보 없으면 중립 안내, 있으면 정/오답
+        const correct = hasAnswer && selectedOpt === q.answerNorm;
+        const accent = !hasAnswer ? '#6b7280' : (correct ? '#16a34a' : '#ef4444');
+        return (
+          <div style={{ padding: '16px', background: '#f3f4f6', borderRadius: '8px', borderLeft: `4px solid ${accent}`, animation: 'fadeIn 0.3s ease-in-out' }}>
+            <div style={{ fontWeight: '700', marginBottom: q.explanation ? '8px' : '0', fontSize: '0.95rem', display: 'flex', justifyContent: 'space-between' }}>
+              <span>{q.explanation ? '해설' : '결과'}</span>
+              <span style={{ color: accent }}>
+                {!hasAnswer ? '정답 정보 없음 (채점 제외)' : (correct ? '정답입니다!' : '오답입니다.')}
+              </span>
+            </div>
+            {q.explanation
+              ? <div style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#4b5563' }}><ParsedText text={q.explanation} /></div>
+              : (hasAnswer && <div style={{ fontSize: '0.9rem', color: '#6b7280' }}>정답: {q.answerNorm}번</div>)}
           </div>
-          <div style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#4b5563' }}>
-            <ParsedText text={q.explanation} />
-          </div>
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 };
