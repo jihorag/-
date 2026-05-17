@@ -64,19 +64,31 @@ const loadFilters = () => {
 const SRS_LADDER = [1, 3, 7, 16, 35, 70];
 const DAY = 86400000;
 const dayStart = (t) => { const d = new Date(t); d.setHours(0, 0, 0, 0); return d.getTime(); };
+// 복습 강도: 간격 배율 + 하루 복습 상한
+const SRS_MODES = {
+  hard:   { label: '빡세게', factor: 0.6, cap: Infinity },
+  normal: { label: '보통',   factor: 1,   cap: 40 },
+  easy:   { label: '여유',   factor: 1.7, cap: 20 },
+};
+const SRS_MODE_KEY = 'quiz-srs-mode';
+const ladderFor = (mode) => {
+  const f = (SRS_MODES[mode] || SRS_MODES.normal).factor;
+  return SRS_LADDER.map(d => Math.max(1, Math.round(d * f)));
+};
 // prevSrs + 정오답 → 다음 srs. due는 해당 날짜 0시(ms). graduated면 due=null.
-const nextSrs = (prevSrs, correct) => {
+const nextSrs = (prevSrs, correct, mode = 'normal') => {
+  const ladder = ladderFor(mode);
   const lapses = (prevSrs && prevSrs.lapses) || 0;
   const reps = (prevSrs && prevSrs.reps) || 0;
   if (!correct) {
     return { box: 0, reps: reps + 1, lapses: lapses + 1,
-             due: dayStart(Date.now()) + SRS_LADDER[0] * DAY };
+             due: dayStart(Date.now()) + ladder[0] * DAY };
   }
   const box = ((prevSrs && typeof prevSrs.box === 'number') ? prevSrs.box : -1) + 1;
-  if (box >= SRS_LADDER.length) {
+  if (box >= ladder.length) {
     return { box, reps: reps + 1, lapses, due: null, graduated: true };
   }
-  return { box, reps: reps + 1, lapses, due: dayStart(Date.now()) + SRS_LADDER[box] * DAY };
+  return { box, reps: reps + 1, lapses, due: dayStart(Date.now()) + ladder[box] * DAY };
 };
 
 // 진행률 상태 + 영속화 훅. record(q,sel,correct) 최초기록, update() 복습 재채점.
