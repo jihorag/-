@@ -800,6 +800,35 @@ const App = () => {
       .sort((a, b) => b.count - a.count);
   }, [wrongList]);
 
+  // 기억곡선 스케줄: 오늘(이전 포함) 복습 도래분 + 다음 예정일
+  const srs = useMemo(() => {
+    const now = Date.now();
+    const due = [];
+    let next = null;          // 가장 이른 미래 복습일(ms)
+    for (const q of classifiedList) {
+      const p = progress[qid(q)];
+      if (!p) continue;
+      // 레거시: 오답인데 srs 없으면 즉시 복습 대상으로 간주
+      const s = p.srs || (p.correct === false ? { due: 0 } : null);
+      if (!s || s.graduated) continue;
+      if (s.due == null) continue;
+      if (s.due <= now) due.push(q);
+      else if (next == null || s.due < next) next = s.due;
+    }
+    const bysubj = {};
+    for (const q of due) {
+      const k = q.taxSubjectName || '기타';
+      (bysubj[k] || (bysubj[k] = [])).push(q);
+    }
+    return {
+      due,
+      groups: Object.entries(bysubj)
+        .map(([subj, qs]) => ({ subj, ids: qs.map(qid), count: qs.length }))
+        .sort((a, b) => b.count - a.count),
+      nextDue: next,
+    };
+  }, [classifiedList, progress]);
+
   // 복합 필터 선택지
   const filterOptions = useMemo(() => {
     const exams = new Set(), subjects = new Set(), years = new Set();
