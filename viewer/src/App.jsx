@@ -1486,12 +1486,29 @@ const App = () => {
           {groupChips('과목', filterOptions.subjects, filters.subjects, 'subjects')}
           {groupChips('연도', filterOptions.years, filters.years, 'years', (y) => `${y}년`)}
           {groupChips('난이도', filterOptions.diffs, filters.diffs, 'diffs', (d) => `난이도 ${d}`)}
+          <div style={{ marginBottom: '10px' }}>
+            <span
+              style={chip(filters.cleanOnly)}
+              onClick={() => setFilters(f => ({ ...f, cleanOnly: !f.cleanOnly }))}
+            >
+              ✓ 정답·보기 있는 문항만
+            </span>
+          </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
             <span style={{ fontWeight: 700 }}>{activeCount ? `${filteredResults.length}문제` : '필터를 선택하세요'}</span>
             {activeCount > 0 && (
               <button onClick={clearFilters} style={{ border: 'none', background: '#f3f4f6', padding: '6px 12px', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem' }}>필터 초기화</button>
             )}
           </div>
+          {filteredResults.length > 0 && (
+            <button
+              onClick={() => startReview(filteredResults.map(qid), `검색 결과 학습 (${filteredResults.length})`, 'search')}
+              style={{ width: '100%', marginTop: '14px', padding: '14px', border: 'none', borderRadius: '12px',
+                background: 'var(--primary)', color: '#fff', fontWeight: 800, fontSize: '0.95rem', cursor: 'pointer' }}
+            >
+              ▶ 이 결과로 가이드 학습 시작 ({filteredResults.length}문제)
+            </button>
+          )}
         </div>
         <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
           {shown.map(q => (
