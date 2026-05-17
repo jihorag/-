@@ -347,23 +347,6 @@ const App = () => {
       });
   }, []);
 
-  // 가이드 학습: 키보드 ← 이전 / → · Enter 다음
-  useEffect(() => {
-    if (currentView !== 'study' || !selectedGroup) return;
-    const onKey = (e) => {
-      const tag = e.target && e.target.tagName;
-      if (tag && /^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return;
-      if (e.key === 'ArrowLeft') {
-        setStudyIdx(i => Math.max(0, i - 1)); window.scrollTo(0, 0);
-      } else if (e.key === 'ArrowRight' || e.key === 'Enter') {
-        const n = processedData.filter(selectedGroup.filterFn).length;
-        setStudyIdx(i => Math.min(Math.max(0, n - 1), i + 1)); window.scrollTo(0, 0);
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [currentView, selectedGroup, processedData]);
-
   // ----- URL 라우팅: 해시 ↔ 네비게이션 상태 동기 -----
   const hydratedRef = useRef(false);
 
