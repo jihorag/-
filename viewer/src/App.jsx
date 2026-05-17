@@ -1628,21 +1628,64 @@ const App = () => {
           </button>
         </div>
 
-        <button
-          onClick={() => setCurrentView('search')}
-          style={{ width: '100%', textAlign: 'left', padding: '14px 16px', margin: '4px 0 12px', border: '1px solid #d1d5db', borderRadius: '12px', background: '#fff', color: '#6b7280', fontSize: '0.95rem', cursor: 'pointer' }}
-        >
-          🔍 통합 검색·필터 (시험·과목·연도·난이도·키워드)
-        </button>
+      </main>
+    </div>
+    );
+  }
 
-        <button
-          onClick={() => { setReviewSubject(null); setCurrentView('review'); }}
-          disabled={wrongList.length === 0}
-          style={{ width: '100%', textAlign: 'left', padding: '14px 16px', margin: '0 0 20px', border: `1px solid ${wrongList.length ? '#fecaca' : '#e5e7eb'}`, borderRadius: '12px', background: wrongList.length ? '#fef2f2' : '#fff', color: wrongList.length ? '#b91c1c' : '#9ca3af', fontSize: '0.95rem', fontWeight: 600, cursor: wrongList.length ? 'pointer' : 'default' }}
+  // ===== 복습 탭: 오늘 복습 / 오답 복습 진입 =====
+  if (currentView === 'reviewHome') {
+    return shell(
+    <div className="app-container">
+      <div style={{ padding: '20px 20px 0' }}>
+        <h1 style={{ fontSize: '1.4rem', fontWeight: 700 }}>🔁 복습</h1>
+        <p style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '4px' }}>기억 곡선 복습과 누적 오답을 한곳에서</p>
+      </div>
+      <main className="main-content" style={{ marginTop: '16px' }}>
+        <div
+          onClick={() => srs.due.length && setCurrentView('today')}
+          style={{ padding: '18px', marginBottom: '12px', borderRadius: '12px',
+            border: `1px solid ${srs.due.length ? '#bfdbfe' : '#e5e7eb'}`,
+            background: srs.due.length ? '#eff6ff' : '#fff',
+            cursor: srs.due.length ? 'pointer' : 'default' }}
         >
-          🔁 오답 복습 {wrongList.length > 0 ? `(${wrongList.length}문제)` : '— 틀린 문제가 없습니다'}
-        </button>
+          <div style={{ fontWeight: 700, fontSize: '1.05rem', color: srs.due.length ? '#1d4ed8' : '#6b7280' }}>
+            📅 오늘 복습 {srs.due.length > 0 ? `${srs.due.length}문제` : '없음'}
+          </div>
+          <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: '4px' }}>
+            {srs.due.length > 0
+              ? '기억 곡선에 따라 오늘 풀 차례예요 →'
+              : (srs.nextDue != null
+                  ? `다음 복습 예정: ${new Date(srs.nextDue).getMonth() + 1}/${new Date(srs.nextDue).getDate()}`
+                  : '틀린 문제가 쌓이면 복습 일정이 생겨요')}
+          </div>
+        </div>
+        <div
+          onClick={() => wrongList.length && (setReviewSubject(null), setCurrentView('review'))}
+          style={{ padding: '18px', borderRadius: '12px',
+            border: `1px solid ${wrongList.length ? '#fecaca' : '#e5e7eb'}`,
+            background: wrongList.length ? '#fef2f2' : '#fff',
+            cursor: wrongList.length ? 'pointer' : 'default' }}
+        >
+          <div style={{ fontWeight: 700, fontSize: '1.05rem', color: wrongList.length ? '#b91c1c' : '#9ca3af' }}>
+            🔁 오답 복습 {wrongList.length > 0 ? `${wrongList.length}문제` : '없음'}
+          </div>
+          <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: '4px' }}>
+            {wrongList.length > 0 ? '틀린 문제를 과목·절별로 다시 풀기 →' : '아직 틀린 문제가 없어요'}
+          </div>
+        </div>
+      </main>
+    </div>
+    );
+  }
 
+  // ===== 둘러보기 탭: 시험/과목/단원/연도 =====
+  return shell(
+    <div className="app-container">
+      <div style={{ padding: '20px 20px 0' }}>
+        <h1 style={{ fontSize: '1.4rem', fontWeight: 700 }}>📚 둘러보기</h1>
+      </div>
+      <main className="main-content" style={{ marginTop: '16px' }}>
         <div className="section-header">
           <h3 className="section-title">학습 목록</h3>
           <div className="view-toggle">
