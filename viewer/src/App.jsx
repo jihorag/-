@@ -836,6 +836,21 @@ const App = () => {
     };
   }, [classifiedList, progress]);
 
+  // 앱 열 때 알림: 권한 허용 + 옵트인 + 오늘 도래분 있음 + 당일 1회만.
+  // (앱이 닫힌 상태의 백그라운드 푸시는 별도 서버/푸시 인프라 필요 → 범위 밖)
+  useEffect(() => {
+    if (!notifPref || loading || srs.due.length === 0) return;
+    if (typeof Notification === 'undefined' || Notification.permission !== 'granted') return;
+    const today = new Date().toDateString();
+    try {
+      if (localStorage.getItem('quiz-notif-last') === today) return;
+      localStorage.setItem('quiz-notif-last', today);
+    } catch { /* SSR */ }
+    try {
+      new Notification('오늘의 복습', { body: `기억 곡선에 따라 복습할 ${srs.due.length}문제가 있어요.` });
+    } catch { /* 일부 브라우저는 SW 필요 */ }
+  }, [notifPref, loading, srs.due.length]);
+
   // 복합 필터 선택지
   const filterOptions = useMemo(() => {
     const exams = new Set(), subjects = new Set(), years = new Set();
