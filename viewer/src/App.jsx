@@ -789,17 +789,77 @@ const App = () => {
 
   if (loading) {
     return (
-      <div style={{ 
-        height: '100vh', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center', 
+      <div style={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
         justifyContent: 'center',
         background: '#f8fafc',
         color: '#3b82f6'
       }}>
         <Loader2 size={48} className="animate-spin" style={{ marginBottom: '16px' }} />
         <div style={{ fontWeight: '700', fontSize: '1.25rem' }}>데이터를 불러오는 중입니다...</div>
+      </div>
+    );
+  }
+
+  if (currentView === 'search') {
+    const activeCount = filters.exams.length + filters.subjects.length + filters.years.length + filters.diffs.length + (filters.kw.trim() ? 1 : 0);
+    const shown = filteredResults.slice(0, 200);
+    const chip = (on) => ({
+      padding: '6px 12px', borderRadius: '999px', fontSize: '0.85rem', cursor: 'pointer',
+      border: on ? '1px solid #3b82f6' : '1px solid #d1d5db',
+      background: on ? '#3b82f6' : '#fff', color: on ? '#fff' : '#374151',
+    });
+    const Group = ({ label, items, sel, k, fmt }) => (
+      <div style={{ marginBottom: '14px' }}>
+        <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280', marginBottom: '6px' }}>{label}</div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+          {items.map(it => (
+            <span key={String(it)} style={chip(sel.includes(it))} onClick={() => toggleFilter(k, it)}>
+              {fmt ? fmt(it) : it}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+    return (
+      <div className="app-container">
+        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
+          <button className="back-btn" onClick={() => setCurrentView('dashboard')}>
+            <ArrowLeft size={24} style={{ marginRight: '8px' }} />
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
+          </button>
+        </header>
+        <div style={{ padding: '20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
+          <input
+            value={filters.kw}
+            onChange={(e) => setFilters(f => ({ ...f, kw: e.target.value }))}
+            placeholder="문제·보기·해설 키워드 검색"
+            style={{ width: '100%', padding: '12px 14px', fontSize: '1rem', border: '1px solid #d1d5db', borderRadius: '10px', marginBottom: '16px', boxSizing: 'border-box' }}
+          />
+          <Group label="시험" items={filterOptions.exams} sel={filters.exams} k="exams" />
+          <Group label="과목" items={filterOptions.subjects} sel={filters.subjects} k="subjects" />
+          <Group label="연도" items={filterOptions.years} sel={filters.years} k="years" fmt={(y) => `${y}년`} />
+          <Group label="난이도" items={filterOptions.diffs} sel={filters.diffs} k="diffs" fmt={(d) => `난이도 ${d}`} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
+            <span style={{ fontWeight: 700 }}>{activeCount ? `${filteredResults.length}문제` : '필터를 선택하세요'}</span>
+            {activeCount > 0 && (
+              <button onClick={clearFilters} style={{ border: 'none', background: '#f3f4f6', padding: '6px 12px', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem' }}>필터 초기화</button>
+            )}
+          </div>
+        </div>
+        <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+          {shown.map(q => (
+            <QuestionItem key={qid(q)} q={q} prior={progress[qid(q)]} onAnswer={recordAnswer} />
+          ))}
+          {filteredResults.length > shown.length && (
+            <div style={{ textAlign: 'center', color: '#6b7280', padding: '16px' }}>
+              상위 {shown.length}개만 표시 중 (총 {filteredResults.length}개) — 필터를 좁혀주세요
+            </div>
+          )}
+        </main>
       </div>
     );
   }
