@@ -744,13 +744,14 @@ const App = () => {
       window.scrollTo(0, 0);
     } else {
       setSelectedGroup(group);
-      setCurrentView('question_list');
+      setStudyIdx(0);
+      setCurrentView('study');
       window.scrollTo(0, 0);
     }
   };
 
   const handleBack = () => {
-    if (currentView === 'question_list') {
+    if (currentView === 'question_list' || currentView === 'study') {
       // play_all_tax: 진입했던 가장 깊은 tax 레벨로 복귀
       if (taxSection) setCurrentView('tax_items');
       else if (taxChapter) setCurrentView('tax_sections');
