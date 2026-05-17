@@ -1048,8 +1048,9 @@ const App = () => {
         taxSubject, taxSubSubject, taxChapter, taxSection, group.type, group.title]
         .map(x => x || '').join('|');
       const saved = loadPos()[posKey];
-      setSelectedGroup({ ...group, posKey });
-      setStudyIdx(Number.isInteger(saved) && saved > 0 ? saved : 0);
+      const resumeIdx = Number.isInteger(saved) && saved > 0 ? saved : 0;
+      setSelectedGroup({ ...group, posKey, resumeIdx });
+      setStudyIdx(resumeIdx);
       setStudyNonce(n => n + 1);
       setCurrentView('study');
       window.scrollTo(0, 0);
