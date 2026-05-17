@@ -1637,8 +1637,8 @@ const App = () => {
   if (currentView === 'reviewHome') {
     return shell(
     <div className="app-container">
-      <div style={{ padding: '20px 20px 0' }}>
-        <h1 style={{ fontSize: '1.4rem', fontWeight: 700 }}>🔁 복습</h1>
+      <div className="screen-head">
+        <h1 className="screen-title">🔁 복습</h1>
         <p style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '4px' }}>기억 곡선 복습과 누적 오답을 한곳에서</p>
       </div>
       <main className="main-content" style={{ marginTop: '16px' }}>
@@ -1682,8 +1682,8 @@ const App = () => {
   // ===== 둘러보기 탭: 시험/과목/단원/연도 =====
   return shell(
     <div className="app-container">
-      <div style={{ padding: '20px 20px 0' }}>
-        <h1 style={{ fontSize: '1.4rem', fontWeight: 700 }}>📚 둘러보기</h1>
+      <div className="screen-head">
+        <h1 className="screen-title">📚 둘러보기</h1>
       </div>
       <main className="main-content" style={{ marginTop: '16px' }}>
         <div className="section-header">
