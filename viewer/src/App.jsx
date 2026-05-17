@@ -547,6 +547,47 @@ const App = () => {
     () => processedData.filter(q => q.isClassified),
     [processedData]
   );
+
+  // 복합 필터 선택지
+  const filterOptions = useMemo(() => {
+    const exams = new Set(), subjects = new Set(), years = new Set();
+    for (const q of classifiedList) {
+      exams.add(q.exam);
+      if (q.taxSubjectName) subjects.add(q.taxSubjectName);
+      years.add(String(q.year));
+    }
+    return {
+      exams: [...exams].sort(),
+      subjects: [...subjects].sort(),
+      years: [...years].sort((a, b) => Number(b) - Number(a)),
+      diffs: [1, 2, 3, 4, 5],
+    };
+  }, [classifiedList]);
+
+  // 복합 필터 결과 (AND 결합, 키워드는 문제/보기/해설 OR 매칭)
+  const filteredResults = useMemo(() => {
+    const { exams, subjects, years, diffs, kw } = filters;
+    const active = exams.length || subjects.length || years.length || diffs.length || kw.trim();
+    if (!active) return [];
+    const k = kw.trim().toLowerCase();
+    return classifiedList.filter(q => {
+      if (exams.length && !exams.includes(q.exam)) return false;
+      if (subjects.length && !subjects.includes(q.taxSubjectName)) return false;
+      if (years.length && !years.includes(String(q.year))) return false;
+      if (diffs.length && !diffs.includes(q.difficulty)) return false;
+      if (k) {
+        const hay = `${q.question || ''} ${(q.options || []).join(' ')} ${q.explanation || ''}`.toLowerCase();
+        if (!hay.includes(k)) return false;
+      }
+      return true;
+    });
+  }, [classifiedList, filters]);
+
+  const toggleFilter = (key, val) => setFilters(f => {
+    const arr = f[key];
+    return { ...f, [key]: arr.includes(val) ? arr.filter(x => x !== val) : [...arr, val] };
+  });
+  const clearFilters = () => setFilters({ exams: [], subjects: [], years: [], diffs: [], kw: '' });
   const totalQuestions = classifiedList.length;
   const overall = useMemo(
     () => progressStats(classifiedList, progress),
