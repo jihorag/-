@@ -321,17 +321,13 @@ const App = () => {
   // ===== 단일 v4 분류축 엔진 =====
   // 모든 탭(시험별/과목별/단원별/연도별)이 동일한 mapped_taxonomy 분류축을 공유한다.
   // taxScope: null(과목별/단원별) | {kind:'exam'|'year', value, label} (시험별/연도별 진입 시)
-  const scopeOk = useMemo(() => {
-    if (!taxScope) return () => true;
-    if (taxScope.kind === 'exam') return (q) => q.exam === taxScope.value;
-    if (taxScope.kind === 'year') return (q) => String(q.year) === String(taxScope.value);
-    return () => true;
+  const baseFilter = useCallback((item) => {
+    if (!item.isClassified) return false;
+    if (!taxScope) return true;
+    if (taxScope.kind === 'exam') return item.exam === taxScope.value;
+    if (taxScope.kind === 'year') return String(item.year) === String(taxScope.value);
+    return true;
   }, [taxScope]);
-
-  const baseFilter = useCallback(
-    (item) => item.isClassified && scopeOk(item),
-    [scopeOk]
-  );
 
   const scopedClassified = useMemo(
     () => processedData.filter(baseFilter),
