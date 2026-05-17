@@ -835,7 +835,7 @@ const App = () => {
         .sort((a, b) => b.count - a.count),
       nextDue: next,
     };
-  }, [classifiedList, progress]);
+  }, [classifiedList, progress, nowTs]);
 
   // 앱 열 때 알림: 권한 허용 + 옵트인 + 오늘 도래분 있음 + 당일 1회만.
   // (앱이 닫힌 상태의 백그라운드 푸시는 별도 서버/푸시 인프라 필요 → 범위 밖)
