@@ -356,3 +356,62 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* ===== 모바일 앱 셸 + 하단 탭바 ===== */
+.app-shell {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  background: var(--bg-color);
+}
+.app-shell .app-container {
+  max-width: none;
+  min-height: auto;
+}
+.app-shell.with-nav {
+  padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  z-index: 50;
+}
+.bottom-nav button {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 8px 4px 10px;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #9ca3af;
+  cursor: pointer;
+}
+.bottom-nav button .nav-ico { font-size: 1.15rem; line-height: 1; }
+.bottom-nav button.active { color: var(--primary, #2563eb); }
+.bottom-nav button .nav-badge {
+  position: absolute;
+  transform: translate(14px, -10px);
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1px 5px;
+  min-width: 16px;
+}
