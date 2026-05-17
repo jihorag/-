@@ -1239,6 +1239,52 @@ const App = () => {
     );
   }
 
+  if (currentView === 'review') {
+    return (
+      <div className="app-container">
+        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
+          <button className="back-btn" onClick={() => setCurrentView('dashboard')}>
+            <ArrowLeft size={24} style={{ marginRight: '8px' }} />
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
+          </button>
+        </header>
+        <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>오답 복습</h1>
+          <div style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '4px' }}>
+            틀린 {wrongList.length}문제 · 다시 풀어 맞히면 목록에서 사라집니다
+          </div>
+        </div>
+        <main className="main-content" style={{ marginTop: '20px' }}>
+          {wrongList.length === 0 ? (
+            <div style={{ textAlign: 'center', color: '#6b7280', padding: '40px' }}>
+              복습할 오답이 없습니다. 잘하고 있어요! 🎉
+            </div>
+          ) : (
+            <div className="study-grid">
+              <div className="study-card" onClick={() => startReview(wrongList.map(qid), '전체 오답 복습')}
+                style={{ background: '#fef2f2', borderColor: '#fecaca', cursor: 'pointer' }}>
+                <div className="card-badge" style={{ background: '#ef4444', color: '#fff', border: 'none' }}>전체</div>
+                <h3 className="card-title" style={{ fontSize: '1.1rem' }}>전체 오답 복습</h3>
+                <div className="card-total">총 {wrongList.length} 문제</div>
+                <div className="play-btn" style={{ background: '#ef4444', color: '#fff' }}>복습</div>
+              </div>
+              {reviewGroups.map((g) => (
+                <div key={g.subj} className="study-card" onClick={() => startReview(g.ids, `${g.subj} 오답`)}
+                  style={{ cursor: 'pointer' }}>
+                  <div className="card-badge">과목</div>
+                  <div className="card-subtitle">오답 복습</div>
+                  <h3 className="card-title" style={{ fontSize: '1.1rem' }}>{g.subj}</h3>
+                  <div className="card-total">오답 {g.count} 문제</div>
+                  <div className="play-btn">복습</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="app-container">
       <header className="top-nav">
