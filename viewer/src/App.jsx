@@ -311,7 +311,7 @@ const App = () => {
   const [studyIdx, setStudyIdx] = useState(0); // 가이드 학습 모드 현재 문항 인덱스
   const { progress, record: recordAnswer, reset: resetProgress } = useProgress();
   // 복합 검색·필터 상태
-  const [filters, setFilters] = useState({ exams: [], subjects: [], years: [], diffs: [], kw: '' });
+  const [filters, setFilters] = useState(loadFilters);
 
   // taxonomy states
   const [taxSubject, setTaxSubject] = useState(bootNav?.taxSubject || null);
@@ -712,7 +712,7 @@ const App = () => {
     const arr = f[key];
     return { ...f, [key]: arr.includes(val) ? arr.filter(x => x !== val) : [...arr, val] };
   });
-  const clearFilters = () => setFilters({ exams: [], subjects: [], years: [], diffs: [], kw: '' });
+  const clearFilters = () => setFilters({ ...EMPTY_FILTERS });
   const totalQuestions = classifiedList.length;
   const overall = useMemo(
     () => progressStats(classifiedList, progress),
