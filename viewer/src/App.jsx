@@ -1221,7 +1221,7 @@ const App = () => {
 
           {(() => {
             const pct = totalQuestions ? Math.round((overall.answered / totalQuestions) * 100) : 0;
-            const acc = overall.answered ? Math.round((overall.correct / overall.answered) * 100) : 0;
+            const acc = overall.accuracy; // scored 기준 정답률(null=채점분 없음)
             return (
               <>
                 <div className="progress-bar-container">
@@ -1231,7 +1231,7 @@ const App = () => {
                   <div>
                     <span className="stat-dot"></span>
                     학습한 문제 <span className="stat-bold">{overall.answered}/{totalQuestions}</span>
-                    {overall.answered > 0 && <> · 정답률 <span className="stat-bold" style={{ color: '#16a34a' }}>{acc}%</span></>}
+                    {acc !== null && <> · 정답률 <span className="stat-bold" style={{ color: '#16a34a' }}>{acc}%</span></>}
                   </div>
                   <div>{pct}%</div>
                 </div>
