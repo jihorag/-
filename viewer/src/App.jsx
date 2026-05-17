@@ -145,7 +145,6 @@ const QuestionItem = ({ q }) => {
           
           let bgColor = '#f9fafb';
           let borderColor = '#e5e7eb';
-          let textColor = '#4b5563';
           let badgeBg = '#fff';
           let badgeColor = '#4b5563';
           let badgeBorder = '1px solid #d1d5db';
