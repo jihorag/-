@@ -462,3 +462,17 @@ body {
   background: #fff;
   border-bottom: 1px solid #e5e7eb;
 }
+
+/* 로딩 스켈레톤 */
+.skeleton {
+  background: linear-gradient(100deg, #e9eef5 30%, #f4f7fb 50%, #e9eef5 70%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.3s ease-in-out infinite;
+}
+@keyframes skeletonShimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+}
