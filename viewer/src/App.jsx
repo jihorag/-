@@ -1062,6 +1062,28 @@ const App = () => {
     );
   }
 
+  if (loadError) {
+    return (
+      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', color: '#374151', padding: '24px', textAlign: 'center' }}>
+        <div style={{ fontWeight: 700, fontSize: '1.2rem', marginBottom: '8px' }}>데이터를 불러오지 못했습니다</div>
+        <div style={{ color: '#6b7280', marginBottom: '20px' }}>네트워크 상태를 확인한 뒤 다시 시도해 주세요.</div>
+        <button onClick={() => window.location.reload()}
+          style={{ padding: '12px 22px', borderRadius: '10px', border: 'none', background: '#3b82f6', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
+          다시 시도
+        </button>
+      </div>
+    );
+  }
+
+  if (totalQuestions === 0) {
+    return (
+      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', color: '#6b7280', padding: '24px', textAlign: 'center' }}>
+        <div style={{ fontWeight: 700, fontSize: '1.2rem', color: '#374151', marginBottom: '8px' }}>표시할 분류된 문제가 없습니다</div>
+        <div>데이터가 비어 있거나 분류가 아직 반영되지 않았습니다.</div>
+      </div>
+    );
+  }
+
   if (currentView === 'search') {
     const activeCount = filters.exams.length + filters.subjects.length + filters.years.length + filters.diffs.length + (filters.kw.trim() ? 1 : 0);
     const shown = filteredResults.slice(0, 200);
