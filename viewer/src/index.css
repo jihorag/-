@@ -411,3 +411,29 @@ body {
   padding: 1px 5px;
   min-width: 16px;
 }
+
+/* ===== 페이지 전환 / 화면 타이틀 / 빈 상태 ===== */
+@keyframes viewIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.app-container { animation: viewIn 0.18s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .app-container { animation: none; }
+}
+.screen-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+.screen-head {
+  padding: 20px 20px 0;
+}
+.empty-state {
+  text-align: center;
+  color: #6b7280;
+  padding: 56px 24px;
+}
+.empty-state .emoji { font-size: 2.4rem; display: block; margin-bottom: 12px; }
+.empty-state .title { font-size: 1.05rem; font-weight: 700; color: #374151; margin-bottom: 6px; }
+.empty-state .sub { font-size: 0.9rem; }
