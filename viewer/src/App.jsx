@@ -163,7 +163,7 @@ const parseNav = (hash) => {
   }
   return {
     viewMode: obj.viewMode || 'exam',
-    currentView: obj.currentView || 'dashboard',
+    currentView: obj.currentView || 'home',
     taxScope,
     taxSubject: obj.taxSubject,
     taxSubSubject: obj.taxSubSubject,
