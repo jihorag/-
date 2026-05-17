@@ -961,9 +961,17 @@ const App = () => {
             const isAll = group.type && group.type.startsWith('play_all');
             const s = progressStats(cardQuestions(group), progress);
             const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
+            const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
             return (
               <div key={idx} className="study-card" onClick={() => handleGroupClick(group)} style={isAll ? { background: '#eff6ff', borderColor: '#bfdbfe' } : {}}>
-                <div className="card-badge" style={isAll ? { background: '#3b82f6', color: '#fff', border: 'none' } : {}}>{group.tag}</div>
+                <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                  <div className="card-badge" style={isAll ? { background: '#3b82f6', color: '#fff', border: 'none' } : {}}>{group.tag}</div>
+                  {dm && (
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '2px 8px', borderRadius: '999px', background: dm.bg, color: dm.fg }}>
+                      난이도 {s.avgDiff.toFixed(1)}
+                    </span>
+                  )}
+                </div>
                 <div className="card-subtitle">{group.subtitle}</div>
                 <h3 className="card-title" style={{ fontSize: '1.1rem' }}>{group.title}</h3>
                 <div className="card-total">총 {group.total} 문제 {s.answered > 0 && <span style={{ color: 'var(--primary)', fontWeight: 700 }}>· {pct}%</span>}</div>
