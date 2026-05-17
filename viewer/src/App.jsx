@@ -541,10 +541,25 @@ const App = () => {
   else if (viewMode === 'year') activeGroups = yearGroups;
   else if (viewMode === 'exam') activeGroups = examGroups;
 
-  const totalQuestions = useMemo(
-    () => processedData.filter(q => q.isClassified).length,
+  const classifiedList = useMemo(
+    () => processedData.filter(q => q.isClassified),
     [processedData]
   );
+  const totalQuestions = classifiedList.length;
+  const overall = useMemo(
+    () => progressStats(classifiedList, progress),
+    [classifiedList, progress]
+  );
+
+  // 카드 한 장이 대표하는 문항 집합 (filterFn 없으면 타입별 추론)
+  const cardQuestions = (group) => {
+    if (group.filterFn) return processedData.filter(group.filterFn);
+    if (group.type === 'exam') return classifiedList.filter(q => q.exam === group.title);
+    if (group.type === 'year_group') return classifiedList.filter(q => String(q.year) === String(group.rawValue));
+    if (group.type === 'tax_subject') return scopedClassified.filter(q => q.taxSubjectName === group.title);
+    if (group.type === 'tax_sub_subject') return scopedClassified.filter(q => q.taxSubjectName === taxSubject && q.taxSubSubjectName === group.title);
+    return [];
+  };
 
   const enterTaxScope = (scope) => {
     setTaxScope(scope);
