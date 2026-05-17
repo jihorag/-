@@ -1929,6 +1929,20 @@ const App = () => {
             {wrongList.length > 0 ? '틀린 문제를 과목·절별로 다시 풀기 →' : '아직 틀린 문제가 없어요'}
           </div>
         </div>
+        <div
+          onClick={() => bookmarkedList.length && startReview(bookmarkedList.map(qid), '북마크 문항', 'reviewHome')}
+          style={{ padding: '18px', marginTop: '12px', borderRadius: '12px',
+            border: `1px solid ${bookmarkedList.length ? '#fde68a' : '#e5e7eb'}`,
+            background: bookmarkedList.length ? '#fffbeb' : '#fff',
+            cursor: bookmarkedList.length ? 'pointer' : 'default' }}
+        >
+          <div style={{ fontWeight: 700, fontSize: '1.05rem', color: bookmarkedList.length ? '#b45309' : '#9ca3af' }}>
+            ★ 북마크 {bookmarkedList.length > 0 ? `${bookmarkedList.length}문제` : '없음'}
+          </div>
+          <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: '4px' }}>
+            {bookmarkedList.length > 0 ? '표시해 둔 문항만 모아 학습 →' : '문제 풀 때 ☆를 눌러 북마크하세요'}
+          </div>
+        </div>
       </main>
     </div>
     );
