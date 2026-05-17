@@ -63,16 +63,21 @@ const useProgress = () => {
 
 // 문항 배열에 대한 진행 통계
 const progressStats = (questions, progress) => {
-  let answered = 0, correct = 0, dSum = 0, dCnt = 0;
+  let answered = 0, correct = 0, scored = 0, dSum = 0, dCnt = 0;
   for (const q of questions) {
     if (typeof q.difficulty === 'number') { dSum += q.difficulty; dCnt++; }
     const p = progress[qid(q)];
-    if (p) { answered++; if (p.correct) correct++; }
+    if (p) {
+      answered++;
+      if (p.correct === true) correct++;
+      if (p.correct !== null && p.correct !== undefined) scored++; // 정답 정보 있는 채점 대상
+    }
   }
-  // avgDiff: 그룹의 평균 난이도(1~5), level: 색/라벨용 반올림값
   const avgDiff = dCnt ? dSum / dCnt : null;
+  // accuracy: 채점 가능한(scored) 문항 기준 정답률
   return {
-    answered, correct, total: questions.length,
+    answered, correct, scored, total: questions.length,
+    accuracy: scored ? Math.round((correct / scored) * 100) : null,
     avgDiff, level: avgDiff ? Math.round(avgDiff) : null,
   };
 };
