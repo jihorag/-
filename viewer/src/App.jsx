@@ -62,6 +62,14 @@ const useProgress = () => {
     const id = qid(q);
     setProgress(prev => (prev[id] ? prev : saveProgress({ ...prev, [id]: { sel, correct, ts: Date.now() } })));
   };
+  // 복습 재채점: 기존 기록을 덮어씀(오답→정답 승격). reviewed 횟수 누적.
+  const update = (q, sel, correct) => {
+    const id = qid(q);
+    setProgress(prev => saveProgress({
+      ...prev,
+      [id]: { sel, correct, ts: Date.now(), reviewed: ((prev[id] && prev[id].reviewed) || 0) + 1 },
+    }));
+  };
   const reset = () => setProgress(saveProgress({}));
   const clearMany = (ids) => {
     const set = new Set(ids);
