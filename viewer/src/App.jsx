@@ -103,7 +103,7 @@ const ParsedText = ({ text }) => {
                 output: 'html' // Only output HTML to prevent duplicate text when copy-pasting
               });
               return <span key={`${i}-${j}`} dangerouslySetInnerHTML={{ __html: html }} />;
-            } catch (e) {
+            } catch {
               return <span key={`${i}-${j}`}>{mathPart}</span>;
             }
           }
