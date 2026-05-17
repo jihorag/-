@@ -59,11 +59,13 @@ for q in sample:
     opts = "\n".join(lines)
     qt = IMG.sub("(그림)", str(q.get("question") or ""))
     try:
-        r = MODEL.generate_content(PROMPT.format(q=qt[:4000], opts=opts[:4000]))
-        m = re.search(r'\{.*\}', r.text, re.S)
-        d = json.loads(m.group(0))
+        r = CLIENT.chat.completions.create(
+            model=MODEL_NAME,
+            messages=[{"role": "user", "content": PROMPT.format(q=qt[:4000], opts=opts[:4000])}],
+            response_format={"type": "json_object"}, temperature=0, max_tokens=200)
+        d = json.loads(r.choices[0].message.content)
         pred, conf = str(d.get("answer")), d.get("confidence")
-    except Exception as e:
+    except Exception:
         pred, conf = "?", "err"
     truth = str(q.get("answer")).strip()
     good = pred == truth
