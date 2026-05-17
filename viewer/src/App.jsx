@@ -96,13 +96,17 @@ const ParsedText = ({ text }) => {
       {parts.map((part, i) => {
         const imgMatch = part.match(/\[IMAGE:\s*(.*?)\]/);
         if (imgMatch) {
-          const imageName = imgMatch[1].split('/').pop();
+          const rawName = imgMatch[1].split('/').pop();
+          // PNG는 빌드시 WebP로 변환됨(파일명 동일, 확장자만). GIF 등은 원본 유지.
+          const imageName = rawName.replace(/\.png$/i, '.webp');
           return (
-            <img 
-              key={i} 
+            <img
+              key={i}
               src={`/images/${imageName}`}
-              alt="content" 
-              style={{ maxWidth: '100%', display: 'block', margin: '12px auto', borderRadius: '4px' }} 
+              alt="content"
+              loading="lazy"
+              decoding="async"
+              style={{ maxWidth: '100%', display: 'block', margin: '12px auto', borderRadius: '4px' }}
             />
           );
         }
