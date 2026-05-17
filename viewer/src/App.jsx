@@ -1208,9 +1208,8 @@ const App = () => {
     return (
       <div className="app-container">
         {drillHeader(
-          <button onClick={() => { setStudyIdx(0); setCurrentView('study'); window.scrollTo(0, 0); }}
-            style={{ border: 'none', background: 'transparent', color: '#3b82f6', fontWeight: 600, cursor: 'pointer', padding: '0 16px' }}>
-            📚 가이드 학습
+          <button className="drill-action" onClick={() => { setStudyIdx(0); setCurrentView('study'); window.scrollTo(0, 0); }}>
+            📚 학습
           </button>
         )}
 
