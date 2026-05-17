@@ -1208,20 +1208,16 @@ const App = () => {
     
     return (
       <div className="app-container">
-        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', justifyContent: 'space-between' }}>
-          <button className="back-btn" onClick={handleBack}>
-            <ArrowLeft size={24} style={{ marginRight: '8px' }} />
-            <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
-          </button>
+        {drillHeader(
           <button onClick={() => { setStudyIdx(0); setCurrentView('study'); window.scrollTo(0, 0); }}
             style={{ border: 'none', background: 'transparent', color: '#3b82f6', fontWeight: 600, cursor: 'pointer', padding: '0 16px' }}>
             📚 가이드 학습
           </button>
-        </header>
+        )}
 
-        <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
+        <div className="drill-head">
           <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '4px' }}>{selectedGroup.subtitle}</div>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: '700' }}>{selectedGroup.title} ({filteredQuestions.length}문제)</h1>
+          <h1 className="screen-title">{selectedGroup.title} ({filteredQuestions.length}문제)</h1>
           {(() => {
             const s = progressStats(filteredQuestions, progress);
             const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
