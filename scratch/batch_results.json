@@ -1,52 +1,502 @@
 [
-{"id":"g220141026-1","in_scope":false,"difficulty":2,"mapped_taxonomy":null,"reason":"공인중개사법령 용어 - 공인중개사법 세부조문으로 감정평가사 범위 외","flags":["범위외"]},
-{"id":"g220141026-2","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"공인중개사법령 중개대상물 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-3","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"공인중개사법령 내용 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-4","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"공인중개사법령 중개업 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-5","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"중개사무소 개설등록 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-6","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"개설등록 결격사유 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-7","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"분사무소 설치 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-8","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"법인 중개업자 업무범위 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-9","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"중개보조원 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-10","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"인장등록 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-11","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"사무소 간판 철거 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-12","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"휴업·폐업 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-13","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"중개계약(전속중개계약 등) - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-14","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"중개대상물확인·설명서 작성 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-15","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"확인·설명서 세부확인사항 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-16","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"부동산거래신고 - 부동산거래신고법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-17","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"손해배상책임 보장 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-18","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"중개업자 금지행위 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-19","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"중개업자등 교육 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-20","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"자격취소·자격정지 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-21","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"공인중개사협회 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-22","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"개설등록 취소사유 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-23","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"업무정지처분 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-24","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"협회 공제사업 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-25","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"포상금 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-26","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"공제사업 개선조치 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-27","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"수수료 납부 사유 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-28","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"벌칙 법정형 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-29","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"확인·설명서 작성방법 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-30","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"거래계약서 작성 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-31","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"부동산거래계약 신고서 작성 - 부동산거래신고법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-32","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"중개수수료 계산 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-33","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"매수신청대리인 등록규칙 - 공인중개사법 관련 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-34","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"부동산경매 절차(민사집행법) - 감정평가사 범위 외","flags":["범위외"]},
-{"id":"g220141026-35","in_scope":true,"difficulty":3,"mapped_taxonomy":{"subject":"민법","sub_subject":"물권법","chapter":"제4장 용익물권","section":"제1절 지상권","item":""},"reason":"법정지상권·지상권·전세권 - 민법 물권법 범위 내","flags":[]},
-{"id":"g220141026-36","in_scope":true,"difficulty":3,"mapped_taxonomy":{"subject":"민법","sub_subject":"물권법","chapter":"제4장 용익물권","section":"제1절 지상권","item":""},"reason":"분묘기지권 - 관습법상 지상권으로 민법 물권법 범위 내","flags":[]},
-{"id":"g220141026-37","in_scope":true,"difficulty":3,"mapped_taxonomy":{"subject":"민법","sub_subject":"물권법","chapter":"제3장 소유권","section":"제7절 명의신탁","item":""},"reason":"부동산 실권리자명의 등기(명의신탁) - 민법 물권법 명의신탁 범위 내","flags":[]},
-{"id":"g220141026-38","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"임대차 존속기간(채권법·주택임대차보호법) - 감정평가사 민법 범위 외","flags":["범위외"]},
-{"id":"g220141026-39","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"주택임대차계약 - 민사특별법으로 범위 외","flags":["범위외"]},
-{"id":"g220141026-40","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"상가건물 임대차보호법 - 민사특별법으로 범위 외","flags":["범위외"]},
-{"id":"g220151024-1","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"공인중개사법령 용어 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220151024-2","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"공인중개사법령 중개대상 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220151024-3","in_scope":false,"difficulty":2,"mapped_taxonomy":null,"reason":"자격증·등록증 교부 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220151024-4","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"법인 중개사무소 등록기준 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220151024-5","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"개설등록 결격사유 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220151024-6","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"중개사무소 설치 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220151024-7","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"법인 겸업 가능 업무 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220151024-8","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"고용인 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220151024-9","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"자격증·등록증 대여 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]},
-{"id":"g220151024-10","in_scope":false,"difficulty":3,"mapped_taxonomy":null,"reason":"중개사무소 이전 - 공인중개사법 세부조문으로 범위 외","flags":["범위외"]}
+ {
+  "id": "g220151024-11",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-12",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-13",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-14",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-15",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-16",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-17",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-18",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-19",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-20",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-21",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-22",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-23",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-24",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-25",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-26",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-27",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-28",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-29",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-30",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-31",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-32",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-33",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-34",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-35",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-36",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-37",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-38",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-39",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220151024-40",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-1",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-2",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-3",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-4",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-5",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-6",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-7",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-8",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-9",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-10",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-11",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-12",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-13",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-14",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-15",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-16",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-17",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-18",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-19",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ },
+ {
+  "id": "g220161029-20",
+  "in_scope": false,
+  "difficulty": 3,
+  "mapped_taxonomy": null,
+  "reason": "공인중개사법령·부동산거래신고법·민사특별법 세부조문으로 감정평가사 범위 외",
+  "flags": [
+   "범위외"
+  ]
+ }
 ]
