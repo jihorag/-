@@ -227,6 +227,8 @@ const App = () => {
   const [currentView, setCurrentView] = useState('dashboard');
   const [selectedGroup, setSelectedGroup] = useState(null);
   const { progress, record: recordAnswer, reset: resetProgress } = useProgress();
+  // 복합 검색·필터 상태
+  const [filters, setFilters] = useState({ exams: [], subjects: [], years: [], diffs: [], kw: '' });
 
   // taxonomy states
   const [taxSubject, setTaxSubject] = useState(null);
