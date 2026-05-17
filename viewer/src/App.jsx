@@ -1025,7 +1025,7 @@ const App = () => {
                         여전히 틀린 {stillWrong.length}개 다시 풀기
                       </button>
                     ) : (
-                      <button onClick={() => { setSelectedGroup(null); setCurrentView('review'); window.scrollTo(0, 0); }}
+                      <button onClick={() => { setSelectedGroup(null); setReviewSubject(null); setCurrentView('review'); window.scrollTo(0, 0); }}
                         style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: '#16a34a', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
                         오답 복습 목록으로
                       </button>
