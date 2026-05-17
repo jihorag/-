@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { ChevronLeft, ArrowLeft, Loader2 } from 'lucide-react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
