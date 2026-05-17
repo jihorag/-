@@ -124,6 +124,26 @@ const useProgress = () => {
   return { progress, record, update, reset, clearMany };
 };
 
+// 문항 북마크(중요/헷갈림) — 정오답과 무관, 별도 영속
+const BM_KEY = 'quiz-bookmarks-v1';
+const loadBookmarks = () => {
+  try { return JSON.parse(localStorage.getItem(BM_KEY) || '{}') || {}; }
+  catch { return {}; }
+};
+const useBookmarks = () => {
+  const [bm, setBm] = useState(loadBookmarks);
+  const toggleBookmark = (q) => {
+    const id = qid(q);
+    setBm(prev => {
+      const next = { ...prev };
+      if (next[id]) delete next[id]; else next[id] = 1;
+      try { localStorage.setItem(BM_KEY, JSON.stringify(next)); } catch { /* quota/SSR */ }
+      return next;
+    });
+  };
+  return { bm, toggleBookmark };
+};
+
 // 문항 배열에 대한 진행 통계
 const progressStats = (questions, progress) => {
   let answered = 0, correct = 0, scored = 0, dSum = 0, dCnt = 0;
