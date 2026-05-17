@@ -880,6 +880,12 @@ const App = () => {
 
   const handleBack = () => {
     if (currentView === 'question_list' || currentView === 'study') {
+      // 오답 복습에서 진입한 경우 복습 화면으로 복귀
+      if (selectedGroup && selectedGroup.review) {
+        setCurrentView('review');
+        setSelectedGroup(null);
+        return;
+      }
       // play_all_tax: 진입했던 가장 깊은 tax 레벨로 복귀
       if (taxSection) setCurrentView('tax_items');
       else if (taxChapter) setCurrentView('tax_sections');
