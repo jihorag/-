@@ -714,12 +714,17 @@ const App = () => {
         <div className="study-grid">
           {groups.map((group, idx) => {
             const isAll = group.type && group.type.startsWith('play_all');
+            const s = progressStats(cardQuestions(group), progress);
+            const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
             return (
               <div key={idx} className="study-card" onClick={() => handleGroupClick(group)} style={isAll ? { background: '#eff6ff', borderColor: '#bfdbfe' } : {}}>
                 <div className="card-badge" style={isAll ? { background: '#3b82f6', color: '#fff', border: 'none' } : {}}>{group.tag}</div>
                 <div className="card-subtitle">{group.subtitle}</div>
                 <h3 className="card-title" style={{ fontSize: '1.1rem' }}>{group.title}</h3>
-                <div className="card-total">총 {group.total} 문제</div>
+                <div className="card-total">총 {group.total} 문제 {s.answered > 0 && <span style={{ color: 'var(--primary)', fontWeight: 700 }}>· {pct}%</span>}</div>
+                <div className="card-progress-container">
+                  <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
+                </div>
                 <div className="play-btn" style={isAll ? { background: '#3b82f6', color: '#fff' } : {}}>선택</div>
               </div>
             );
