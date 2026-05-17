@@ -1302,17 +1302,27 @@ const App = () => {
 
   if (loading) {
     return (
-      <div style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: '#f8fafc',
-        color: '#3b82f6'
-      }}>
-        <Loader2 size={48} className="animate-spin" style={{ marginBottom: '16px' }} />
-        <div style={{ fontWeight: '700', fontSize: '1.25rem' }}>데이터를 불러오는 중입니다...</div>
+      <div className="app-shell">
+        <div className="app-container">
+          <div className="banner" style={{ height: 200 }}>
+            <div className="banner-content">
+              <div className="banner-subtitle">PROFESSIONAL APPRAISER EXAM</div>
+              <div className="banner-title">감정평가사 1차 기출 완전정복</div>
+            </div>
+          </div>
+          <main className="main-content">
+            <div className="skeleton" style={{ height: 140, borderRadius: 16, marginBottom: 20 }} />
+            <div className="skeleton" style={{ height: 72, borderRadius: 12, marginBottom: 12 }} />
+            <div className="skeleton" style={{ height: 56, borderRadius: 12, marginBottom: 24 }} />
+            <div className="skeleton" style={{ height: 20, width: '40%', borderRadius: 6, marginBottom: 16 }} />
+            {[0, 1, 2].map(i => (
+              <div key={i} className="skeleton" style={{ height: 120, borderRadius: 16, marginBottom: 16 }} />
+            ))}
+            <div style={{ textAlign: 'center', color: '#94a3b8', fontSize: '0.85rem', marginTop: 8 }}>
+              기출 데이터를 불러오는 중…
+            </div>
+          </main>
+        </div>
       </div>
     );
   }
