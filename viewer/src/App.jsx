@@ -1055,6 +1055,17 @@ const App = () => {
     </div>
   );
 
+  // 드릴 화면 공통 상단바: 좌측 뒤로가기 + 우측 액션(옵션)
+  const drillHeader = (rightAction = null) => (
+    <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', justifyContent: 'space-between' }}>
+      <button className="back-btn" onClick={handleBack}>
+        <ArrowLeft size={24} style={{ marginRight: '8px' }} />
+        <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
+      </button>
+      {rightAction}
+    </header>
+  );
+
   // 가이드 학습 모드: 한 개념의 문제를 난이도↑ 순으로 한 문제씩, 해설로 누적 학습
   if (currentView === 'study' && selectedGroup) {
     const ordered = processedData
