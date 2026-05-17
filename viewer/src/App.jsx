@@ -307,13 +307,16 @@ const App = () => {
         unit: unit,
         concept: (q.tags?.concept && q.tags?.concept.trim() !== '') ? q.tags.concept :
                  ((q.tags?.sub_sub_unit && q.tags?.sub_sub_unit.trim() !== '') ? q.tags.sub_sub_unit : '기본 개념'),
-        isWeak: q.tags?.difficulty === 3 || q.tags?.difficulty === 4 || q.tags?.difficulty === 5 || parseInt(q.number, 10) % 5 === 0,
-        // 단원별 탭 전용 분류 필드 (mapped_taxonomy 기반)
+        // 실제 v4 난이도(1~5). 분류 전이면 null. 4 이상을 '취약'으로 간주.
+        difficulty: (iv && typeof iv.difficulty === 'number') ? iv.difficulty : null,
+        isWeak: !!(iv && typeof iv.difficulty === 'number' && iv.difficulty >= 4),
+        // v4 mapped_taxonomy 기반 분류 필드 (모든 탭이 공유하는 단일 분류축)
         isClassified,
         taxSubjectName: isClassified ? mt.subject : null,
         taxSubSubjectName: isClassified ? (mt.sub_subject || null) : null,
         taxChapterName: isClassified ? (mt.chapter || null) : null,
         taxSectionName: isClassified ? (mt.section || null) : null,
+        taxItemName: isClassified ? (mt.item || null) : null,
       };
     });
   }, [loading, questionsData]);
