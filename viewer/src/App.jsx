@@ -1451,7 +1451,7 @@ const App = () => {
   }
 
   if (currentView === 'search') {
-    const activeCount = filters.exams.length + filters.subjects.length + filters.years.length + filters.diffs.length + (filters.kw.trim() ? 1 : 0);
+    const activeCount = filters.exams.length + filters.subjects.length + filters.years.length + filters.diffs.length + (filters.kw.trim() ? 1 : 0) + (filters.cleanOnly ? 1 : 0);
     const shown = filteredResults.slice(0, 200);
     const chip = (on) => ({
       padding: '6px 12px', borderRadius: '999px', fontSize: '0.85rem', cursor: 'pointer',
