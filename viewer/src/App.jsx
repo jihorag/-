@@ -12,6 +12,44 @@ const DIFFICULTY_META = {
   5: { label: '난이도 5 · 매우어려움', bg: '#fef2f2', fg: '#b91c1c' },
 };
 
+// ===== 학습 진행률 (localStorage) =====
+const PROGRESS_KEY = 'quiz-progress-v1';
+const qid = (q) => q.id || `${q.exam}_${q.year}_${q.number}`;
+
+const loadProgress = () => {
+  try {
+    return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}') || {};
+  } catch {
+    return {};
+  }
+};
+
+// 진행률 상태 + 영속화 훅. record(q, sel) 로 기록, reset() 으로 초기화.
+const useProgress = () => {
+  const [progress, setProgress] = useState(loadProgress);
+  const persist = (next) => {
+    setProgress(next);
+    try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(next)); } catch { /* quota/SSR */ }
+  };
+  const record = (q, sel) => {
+    const id = qid(q);
+    if (progress[id]) return; // 최초 응답만 진행률에 반영
+    persist({ ...progress, [id]: { sel, correct: sel === q.answer, ts: Date.now() } });
+  };
+  const reset = () => persist({});
+  return { progress, record, reset };
+};
+
+// 문항 배열에 대한 진행 통계
+const progressStats = (questions, progress) => {
+  let answered = 0, correct = 0;
+  for (const q of questions) {
+    const p = progress[qid(q)];
+    if (p) { answered++; if (p.correct) correct++; }
+  }
+  return { answered, correct, total: questions.length };
+};
+
 // Component to parse and render text with inline images and math
 const ParsedText = ({ text }) => {
   if (!text) return null;
@@ -55,13 +93,15 @@ const ParsedText = ({ text }) => {
 };
 
 // Interactive Question Component
-const QuestionItem = ({ q }) => {
-  const [selectedOpt, setSelectedOpt] = useState(null);
+const QuestionItem = ({ q, prior, onAnswer }) => {
+  const [selectedOpt, setSelectedOpt] = useState(prior ? prior.sel : null);
   const isRevealed = selectedOpt !== null;
 
   const handleOptionClick = (optIdx) => {
     if (isRevealed) return; // Prevent changing answer after revealed
-    setSelectedOpt(String(optIdx + 1));
+    const sel = String(optIdx + 1);
+    setSelectedOpt(sel);
+    if (onAnswer) onAnswer(q, sel);
   };
 
   return (
