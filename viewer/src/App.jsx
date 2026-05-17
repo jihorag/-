@@ -1082,14 +1082,14 @@ const App = () => {
                       복습 {total}개 · 해결 <b style={{ color: '#16a34a' }}>{cleared}</b> · 여전히 오답 <b style={{ color: '#dc2626' }}>{stillWrong.length}</b>
                     </div>
                     {stillWrong.length > 0 ? (
-                      <button onClick={() => startReview(stillWrong.map(qid), selectedGroup.title)}
+                      <button onClick={() => startReview(stillWrong.map(qid), selectedGroup.title, selectedGroup.backView)}
                         style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: '#ef4444', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
                         여전히 틀린 {stillWrong.length}개 다시 풀기
                       </button>
                     ) : (
-                      <button onClick={() => { setSelectedGroup(null); setReviewSubject(null); setCurrentView('review'); window.scrollTo(0, 0); }}
+                      <button onClick={() => { const bv = selectedGroup.backView || 'review'; setSelectedGroup(null); setReviewSubject(null); setCurrentView(bv); window.scrollTo(0, 0); }}
                         style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: '#16a34a', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
-                        오답 복습 목록으로
+                        {/* today면 오늘 복습으로 */}목록으로
                       </button>
                     )}
                   </div>
