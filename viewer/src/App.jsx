@@ -1277,15 +1277,28 @@ const App = () => {
                     {s.answered > s.scored && <> · 채점제외 <b style={{ color: '#6b7280' }}>{s.answered - s.scored}</b></>}
                     {s.accuracy !== null && <> · 정답률 <b>{s.accuracy}%</b></>}
                   </div>
-                  <button onClick={() => {
-                      clearMany(ordered.map(qid));   // 이 개념 진행 초기화 → 재측정
-                      setStudyIdx(0);
-                      setStudyNonce(n => n + 1);      // 카드 강제 리마운트(이전 응답 표시 제거)
-                      window.scrollTo(0, 0);
-                    }}
-                    style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: '#3b82f6', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
-                    처음부터 다시 풀기
-                  </button>
+                  {(() => {
+                    const wrongNow = ordered.filter(x => { const p = progress[qid(x)]; return p && p.correct === false; });
+                    return (
+                      <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                        {wrongNow.length > 0 && (
+                          <button onClick={() => startReview(wrongNow.map(qid), `${selectedGroup.title} 오답`, 'dashboard')}
+                            style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: '#ef4444', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
+                            틀린 {wrongNow.length}개만 다시
+                          </button>
+                        )}
+                        <button onClick={() => {
+                            clearMany(ordered.map(qid));   // 이 개념 진행 초기화 → 재측정
+                            setStudyIdx(0);
+                            setStudyNonce(n => n + 1);     // 카드 강제 리마운트(이전 응답 표시 제거)
+                            window.scrollTo(0, 0);
+                          }}
+                          style={{ padding: '12px 20px', borderRadius: '10px', border: '1px solid #bfdbfe', background: '#fff', color: '#1d4ed8', fontWeight: 700, cursor: 'pointer' }}>
+                          처음부터 다시
+                        </button>
+                      </div>
+                    );
+                  })()}
                 </div>
               )}
             </>
