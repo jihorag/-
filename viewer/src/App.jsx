@@ -1670,6 +1670,62 @@ const App = () => {
           })()}
         </section>
 
+        {overall.answered > 0 && (
+          <section style={{ background: '#fff', borderRadius: '16px', padding: '20px', boxShadow: 'var(--shadow-md)', marginBottom: '20px' }}>
+            <h2 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '4px' }}>학습 분석</h2>
+            <p style={{ fontSize: '0.85rem', color: '#6b7280', marginBottom: '16px' }}>
+              🔥 연속 <b style={{ color: '#ea580c' }}>{analytics.streak}일</b> · 오늘 <b>{analytics.todayCount}</b>문제 · 학습일 {analytics.studiedDays}일
+            </p>
+
+            <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280', marginBottom: '8px' }}>난이도별 정답률</div>
+            <div style={{ display: 'flex', gap: '6px', marginBottom: '18px' }}>
+              {analytics.diffAcc.map(({ d, acc }) => {
+                const m = DIFFICULTY_META[d] || {};
+                return (
+                  <div key={d} style={{ flex: 1, textAlign: 'center' }}>
+                    <div style={{ height: '52px', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
+                      <div style={{
+                        width: '70%', borderRadius: '4px 4px 0 0',
+                        height: `${acc == null ? 3 : Math.max(4, acc * 0.5)}px`,
+                        background: acc == null ? '#e5e7eb' : (m.fg || '#3b82f6'),
+                      }} />
+                    </div>
+                    <div style={{ fontSize: '0.65rem', color: '#6b7280', marginTop: '4px' }}>난{d}</div>
+                    <div style={{ fontSize: '0.7rem', fontWeight: 700, color: acc == null ? '#9ca3af' : '#374151' }}>
+                      {acc == null ? '–' : `${acc}%`}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280', marginBottom: '8px' }}>
+              집중 학습 추천 (정답률 낮은 과목)
+            </div>
+            {analytics.weak.length === 0 ? (
+              <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>
+                더 풀면 약점 과목이 분석돼요 (과목당 5문제 이상 채점 시)
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {analytics.weak.map(w => (
+                  <button key={w.name}
+                    onClick={() => startConcept(w.name, `${w.name} 집중 학습`)}
+                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                      border: '1px solid #fecaca', background: '#fef2f2', color: '#7f1d1d',
+                      borderRadius: '10px', padding: '12px 14px', cursor: 'pointer', textAlign: 'left' }}>
+                    <span>
+                      <b>{w.name}</b>
+                      {w.weakSection && <span style={{ fontSize: '0.78rem', color: '#9a3412' }}> · 약한 절: {w.weakSection.nm}</span>}
+                    </span>
+                    <span style={{ fontWeight: 800, color: '#dc2626', whiteSpace: 'nowrap' }}>{w.acc}%</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </section>
+        )}
+
         <div
           onClick={() => srs.due.length && setCurrentView('today')}
           style={{ width: '100%', padding: '16px', margin: '4px 0 12px', borderRadius: '12px',
