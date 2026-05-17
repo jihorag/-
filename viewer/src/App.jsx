@@ -1405,12 +1405,12 @@ const App = () => {
       const label = diff <= 0 ? '오늘' : diff === 1 ? '내일' : `${diff}일 후`;
       return `${d.getMonth() + 1}/${d.getDate()} (${label})`;
     };
-    return (
+    return shell(
       <div className="app-container">
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
-          <button className="back-btn" onClick={() => setCurrentView('dashboard')}>
+          <button className="back-btn" onClick={() => setCurrentView('reviewHome')}>
             <ArrowLeft size={24} style={{ marginRight: '8px' }} />
-            <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>복습 홈</span>
           </button>
         </header>
         <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
