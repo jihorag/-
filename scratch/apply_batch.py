@@ -72,6 +72,14 @@ def main():
     ins = sum(1 for a in applied if a["in_scope"])
     print(f"applied={len(applied)} in_scope={ins} out={len(applied)-ins} | progress_total={len(log)}")
 
+    # Keep the viewer app data in sync so the deployed UI reflects new work.
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import sync_db
+        sync_db.main()
+    except Exception as e:  # never let a sync issue mask a successful merge
+        print(f"WARN sync_db failed (run scratch/sync_db.py manually): {e}")
+
 
 if __name__ == "__main__":
     main()
