@@ -252,11 +252,7 @@ body {
   }
 }
 
-@media (min-width: 1024px) {
-  .study-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+/* 600px 셸 기준: 2열 초과는 카드가 좁아져 2열로 상한 */
 
 /* Study Card */
 .study-card {
