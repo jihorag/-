@@ -99,6 +99,14 @@ const saveProgress = (next) => {
 
 const useProgress = () => {
   const [progress, setProgress] = useState(loadProgress);
+  const [srsMode, setSrsModeState] = useState(() => {
+    try { return SRS_MODES[localStorage.getItem(SRS_MODE_KEY)] ? localStorage.getItem(SRS_MODE_KEY) : 'normal'; }
+    catch { return 'normal'; }
+  });
+  const setSrsMode = (m) => {
+    setSrsModeState(m);
+    try { localStorage.setItem(SRS_MODE_KEY, m); } catch { /* SSR */ }
+  };
   // 함수형 업데이트로 직전 상태 기준 병합 → 빠른 연속 응답에도 기록 유실 없음.
   // 최초 응답이 오답(채점됨)이면 즉시 복습 스케줄(srs) 부여.
   const record = (q, sel, correct) => {
