@@ -292,6 +292,50 @@ const App = () => {
       });
   }, []);
 
+  // ----- URL 라우팅: 해시 ↔ 네비게이션 상태 동기 -----
+  const hydratedRef = useRef(false);
+
+  const applyNav = useCallback((n) => {
+    if (!n) return;
+    setViewMode(n.viewMode);
+    setTaxScope(n.taxScope);
+    setTaxSubject(n.taxSubject);
+    setTaxSubSubject(n.taxSubSubject);
+    setTaxChapter(n.taxChapter);
+    setTaxSection(n.taxSection);
+    setSelectedGroup(null);
+    // 문제목록은 filterFn 직렬화가 불가 → 가장 가까운 상위 목록으로 복원
+    let cv = n.currentView;
+    if (cv === 'question_list') {
+      if (n.taxSection) cv = 'tax_items';
+      else if (n.taxChapter) cv = 'tax_sections';
+      else if (n.taxSubSubject) cv = 'tax_chapters';
+      else if (n.taxSubject) cv = 'tax_sub_subjects';
+      else if (n.taxScope) cv = 'tax_subjects';
+      else cv = 'dashboard';
+    }
+    setCurrentView(cv);
+  }, []);
+
+  // 최초 1회: 해시 파싱 → 상태 적용, popstate(브라우저 뒤로/앞으로) 구독
+  useEffect(() => {
+    const fromHash = parseNav(window.location.hash);
+    if (fromHash) applyNav(fromHash);
+    hydratedRef.current = true;
+    const onPop = () => applyNav(parseNav(window.location.hash));
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, [applyNav]);
+
+  // 네비게이션 상태 변경 → 해시 push (딥링크/뒤로가기 지원)
+  useEffect(() => {
+    if (!hydratedRef.current) return;
+    const hash = serializeNav({ viewMode, currentView, taxScope, taxSubject, taxSubSubject, taxChapter, taxSection });
+    if (hash !== window.location.hash) {
+      window.history.pushState(null, '', hash);
+    }
+  }, [viewMode, currentView, taxScope, taxSubject, taxSubSubject, taxChapter, taxSection]);
+
   // Process data
   const processedData = useMemo(() => {
     if (loading || !questionsData) return [];
