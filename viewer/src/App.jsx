@@ -1007,7 +1007,32 @@ const App = () => {
               <div style={{ textAlign: 'center', fontSize: '0.75rem', color: '#9ca3af', marginTop: '8px' }}>
                 키보드 <b>←</b> 이전 · <b>→</b> 또는 <b>Enter</b> 다음
               </div>
-              {done && (
+              {done && selectedGroup.review && (() => {
+                const stillWrong = ordered.filter(x => { const p = progress[qid(x)]; return p && p.correct === false; });
+                const cleared = total - stillWrong.length;
+                return (
+                  <div style={{ marginTop: '20px', padding: '20px', background: stillWrong.length ? '#fef2f2' : '#ecfdf5', border: `1px solid ${stillWrong.length ? '#fecaca' : '#a7f3d0'}`, borderRadius: '12px', textAlign: 'center' }}>
+                    <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '6px' }}>
+                      {stillWrong.length ? '복습 1회전 완료' : '오답 전부 해결 🎉'}
+                    </div>
+                    <div style={{ color: '#374151', marginBottom: '14px' }}>
+                      복습 {total}개 · 해결 <b style={{ color: '#16a34a' }}>{cleared}</b> · 여전히 오답 <b style={{ color: '#dc2626' }}>{stillWrong.length}</b>
+                    </div>
+                    {stillWrong.length > 0 ? (
+                      <button onClick={() => startReview(stillWrong.map(qid), selectedGroup.title)}
+                        style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: '#ef4444', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
+                        여전히 틀린 {stillWrong.length}개 다시 풀기
+                      </button>
+                    ) : (
+                      <button onClick={() => { setSelectedGroup(null); setCurrentView('review'); window.scrollTo(0, 0); }}
+                        style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: '#16a34a', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
+                        오답 복습 목록으로
+                      </button>
+                    )}
+                  </div>
+                );
+              })()}
+              {done && !selectedGroup.review && (
                 <div style={{ marginTop: '20px', padding: '20px', background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '12px', textAlign: 'center' }}>
                   <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '6px' }}>이 개념 학습 완료 🎉</div>
                   <div style={{ color: '#374151', marginBottom: '14px' }}>
