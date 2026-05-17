@@ -650,11 +650,30 @@ const App = () => {
         <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
           <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '4px' }}>{selectedGroup.subtitle}</div>
           <h1 style={{ fontSize: '1.5rem', fontWeight: '700' }}>{selectedGroup.title} ({filteredQuestions.length}문제)</h1>
+          {(() => {
+            const s = progressStats(filteredQuestions, progress);
+            const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
+            return (
+              <div style={{ marginTop: '12px' }}>
+                <div style={{ height: '8px', background: '#e5e7eb', borderRadius: '999px', overflow: 'hidden' }}>
+                  <div style={{ width: `${pct}%`, height: '100%', background: '#3b82f6', transition: 'width .3s' }} />
+                </div>
+                <div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: '6px' }}>
+                  푼 문제 <b>{s.answered}/{s.total}</b> · 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b>
+                </div>
+              </div>
+            );
+          })()}
         </div>
-        
+
         <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-          {filteredQuestions.map((q, idx) => (
-            <QuestionItem key={idx} q={q} />
+          {filteredQuestions.map((q) => (
+            <QuestionItem
+              key={qid(q)}
+              q={q}
+              prior={progress[qid(q)]}
+              onAnswer={recordAnswer}
+            />
           ))}
         </main>
       </div>
