@@ -945,7 +945,7 @@ const App = () => {
     if (currentView === 'question_list' || currentView === 'study') {
       // 오답 복습에서 진입한 경우 복습 화면으로 복귀
       if (selectedGroup && selectedGroup.review) {
-        setCurrentView('review');
+        setCurrentView(selectedGroup.backView || 'review');
         setSelectedGroup(null);
         return;
       }
