@@ -51,16 +51,17 @@ def convert_one(name):
 
 def main():
     args = set(sys.argv[1:])
-    pngs = sorted(f for f in os.listdir(IMG) if f.lower().endswith(".png"))
+    SRC_EXT = (".png", ".gif")
+    pngs = sorted(f for f in os.listdir(IMG) if f.lower().endswith(SRC_EXT))
 
     if "--prune-unused" in args:
         ref = referenced_names()
         removed = 0
         for f in list(os.listdir(IMG)):
-            if f not in ref and (f.lower().endswith(".png") or f.lower().endswith(".gif")):
+            if f not in ref and f.lower().endswith(SRC_EXT):
                 os.remove(os.path.join(IMG, f)); removed += 1
         print(f"pruned unused: {removed}")
-        pngs = sorted(f for f in os.listdir(IMG) if f.lower().endswith(".png"))
+        pngs = sorted(f for f in os.listdir(IMG) if f.lower().endswith(SRC_EXT))
 
     stats = {"ok": 0, "skip": 0, "fail": 0}
     fails = []
@@ -76,10 +77,10 @@ def main():
     if "--drop-png" in args and not fails:
         dropped = 0
         for png in pngs:
-            wp = os.path.join(IMG, png[:-4] + ".webp")
+            wp = os.path.join(IMG, png.rsplit(".", 1)[0] + ".webp")
             if os.path.exists(wp):
                 os.remove(os.path.join(IMG, png)); dropped += 1
-        print(f"dropped png from public: {dropped} (originals kept in repo-root images/)")
+        print(f"dropped source images from public: {dropped} (originals kept in repo-root images/)")
 
 
 if __name__ == "__main__":
