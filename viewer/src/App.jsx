@@ -960,16 +960,13 @@ const App = () => {
     </div>
   );
 
-  if (currentView === 'subject_categories' && selectedSubject) return renderStudyGrid(selectedSubject, '과목별 파트 목록', subjectCategoryGroups);
-  if (currentView === 'subject_units' && selectedCategory) return renderStudyGrid(selectedCategory, '단원(Chapter) 목록', subjectUnitGroups);
-  if (currentView === 'subject_concepts' && selectedUnit) return renderStudyGrid(selectedUnit, '개념(절) 목록', subjectConceptGroups);
-  if (currentView === 'year_subjects' && selectedYear) return renderStudyGrid(`${selectedYear}년 기출`, '연도별 과목 목록', yearSubjectGroups);
-  if (currentView === 'year_subject_exams' && selectedYearSubject) return renderStudyGrid(selectedYearSubject, `${selectedYear}년 자격시험 목록`, yearSubjectExamGroups);
-
-  // Taxonomy Views
-  if (currentView === 'tax_sub_subjects' && taxSubject) return renderStudyGrid(taxSubject, '목차 학습', taxSubSubjectGroups);
-  if (currentView === 'tax_chapters' && taxSubSubject) return renderStudyGrid(taxSubSubject, '장(Chapter) 선택', taxChapterGroups);
-  if (currentView === 'tax_sections' && taxChapter) return renderStudyGrid(taxChapter, '절(Section) 선택', taxSectionGroups);
+  // ===== 단일 v4 분류축 뷰 (시험별/과목별/단원별/연도별 공용) =====
+  const scopePrefix = taxScope ? `${taxScope.label} · ` : '';
+  if (currentView === 'tax_subjects') return renderStudyGrid(taxScope ? taxScope.label : '과목 선택', taxScope ? `${taxScope.label} 과목별` : '단원별 학습', taxSubjectGroups);
+  if (currentView === 'tax_sub_subjects' && taxSubject) return renderStudyGrid(`${scopePrefix}${taxSubject}`, '세부과목 / 장 선택', taxSubSubjectGroups);
+  if (currentView === 'tax_chapters' && taxSubSubject) return renderStudyGrid(`${scopePrefix}${taxSubSubject}`, '장(Chapter) 선택', taxChapterGroups);
+  if (currentView === 'tax_sections' && taxChapter) return renderStudyGrid(`${scopePrefix}${taxChapter}`, '절(Section) 선택', taxSectionGroups);
+  if (currentView === 'tax_items' && taxSection) return renderStudyGrid(`${scopePrefix}${taxSection}`, '관(Item) 선택', taxItemGroups);
 
   // Dashboard View
 
