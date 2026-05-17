@@ -833,6 +833,22 @@ const App = () => {
     window.scrollTo(0, 0);
   };
 
+  // 오답 복습 시작: 진입 시점의 오답 id를 스냅샷 → 세션 중 목록 안정, 가이드 학습 재사용
+  const startReview = (ids, title) => {
+    const set = new Set(ids);
+    setSelectedGroup({
+      type: 'play_all_review',
+      review: true,
+      title,
+      subtitle: '오답 복습',
+      filterFn: (q) => set.has(qid(q)),
+    });
+    setStudyIdx(0);
+    setStudyNonce(n => n + 1);
+    setCurrentView('study');
+    window.scrollTo(0, 0);
+  };
+
   const handleGroupClick = (group) => {
     if (group.type === 'exam') {
       enterTaxScope({ kind: 'exam', value: group.title, label: group.title });
