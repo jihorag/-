@@ -892,6 +892,19 @@ const App = () => {
     }
   };
 
+  // 탭 전환: 모든 드릴다운 상태를 초기화하고 대시보드로
+  const switchTab = (mode) => {
+    setViewMode(mode);
+    setCurrentView('dashboard');
+    setTaxScope(null);
+    setTaxSubject(null);
+    setTaxSubSubject(null);
+    setTaxChapter(null);
+    setTaxSection(null);
+    setSelectedGroup(null);
+    window.scrollTo(0, 0);
+  };
+
   if (currentView === 'question_list' && selectedGroup) {
     // 필터링된 문제를 연도 내림차순, 문제 번호 오름차순으로 정렬
     const filteredQuestions = processedData
