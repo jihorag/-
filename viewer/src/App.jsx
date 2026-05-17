@@ -1423,7 +1423,7 @@ const App = () => {
         </button>
 
         <button
-          onClick={() => setCurrentView('review')}
+          onClick={() => { setReviewSubject(null); setCurrentView('review'); }}
           disabled={wrongList.length === 0}
           style={{ width: '100%', textAlign: 'left', padding: '14px 16px', margin: '0 0 20px', border: `1px solid ${wrongList.length ? '#fecaca' : '#e5e7eb'}`, borderRadius: '12px', background: wrongList.length ? '#fef2f2' : '#fff', color: wrongList.length ? '#b91c1c' : '#9ca3af', fontSize: '0.95rem', fontWeight: 600, cursor: wrongList.length ? 'pointer' : 'default' }}
         >
