@@ -114,7 +114,7 @@ const useProgress = () => {
     setProgress(prev => {
       if (prev[id]) return prev;
       const entry = { sel, correct, ts: Date.now() };
-      if (correct === false) entry.srs = nextSrs(null, false);
+      if (correct === false) entry.srs = nextSrs(null, false, srsMode);
       return saveProgress({ ...prev, [id]: entry });
     });
   };
