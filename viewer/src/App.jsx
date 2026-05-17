@@ -187,14 +187,17 @@ const ParsedText = ({ text }) => {
 
 // Interactive Question Component
 const QuestionItem = ({ q, prior, onAnswer }) => {
-  const [selectedOpt, setSelectedOpt] = useState(prior ? prior.sel : null);
+  const [selectedOpt, setSelectedOpt] = useState(prior ? (prior.sel ?? null) : null);
   const isRevealed = selectedOpt !== null;
+  const hasAnswer = !!q.answerNorm;          // 정답 정보가 유효한 문항인가
+  const noOptions = !q.options || q.options.length === 0;
 
   const handleOptionClick = (optIdx) => {
-    if (isRevealed) return; // Prevent changing answer after revealed
+    if (isRevealed) return; // 응답 후 변경 방지
     const sel = String(optIdx + 1);
     setSelectedOpt(sel);
-    if (onAnswer) onAnswer(q, sel);
+    // correct: 정답 있으면 boolean, 없으면 null(채점 제외)
+    if (onAnswer) onAnswer(q, sel, hasAnswer ? sel === q.answerNorm : null);
   };
 
   return (
