@@ -1181,7 +1181,7 @@ const App = () => {
               )}
             </>
           ) : (
-            <div style={{ textAlign: 'center', color: '#6b7280', padding: '40px' }}>문제가 없습니다.</div>
+            <div className="empty-state"><span className="emoji">📭</span><div className="title">문제가 없습니다</div></div>
           )}
         </main>
       </div>
