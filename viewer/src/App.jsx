@@ -37,23 +37,26 @@ const loadFilters = () => {
 };
 
 // 진행률 상태 + 영속화 훅. record(q, sel) 로 기록, reset() 으로 초기화.
+const saveProgress = (next) => {
+  try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(next)); } catch { /* quota/SSR */ }
+  return next;
+};
+
 const useProgress = () => {
   const [progress, setProgress] = useState(loadProgress);
-  const persist = (next) => {
-    setProgress(next);
-    try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(next)); } catch { /* quota/SSR */ }
-  };
-  const record = (q, sel) => {
+  // 함수형 업데이트로 직전 상태 기준 병합 → 빠른 연속 응답에도 기록 유실 없음
+  const record = (q, correct) => {
     const id = qid(q);
-    if (progress[id]) return; // 최초 응답만 진행률에 반영
-    persist({ ...progress, [id]: { sel, correct: sel === q.answer, ts: Date.now() } });
+    setProgress(prev => (prev[id] ? prev : saveProgress({ ...prev, [id]: { correct, ts: Date.now() } })));
   };
-  const reset = () => persist({});
+  const reset = () => setProgress(saveProgress({}));
   const clearMany = (ids) => {
     const set = new Set(ids);
-    const next = {};
-    for (const k in progress) if (!set.has(k)) next[k] = progress[k];
-    persist(next);
+    setProgress(prev => {
+      const next = {};
+      for (const k in prev) if (!set.has(k)) next[k] = prev[k];
+      return saveProgress(next);
+    });
   };
   return { progress, record, reset, clearMany };
 };
