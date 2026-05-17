@@ -781,24 +781,35 @@ const App = () => {
               <h2 className="overview-title">나의 학습 통계</h2>
               <p className="overview-subtitle">전체 {totalQuestions}개 문항 중 현재 학습 진행 현황</p>
             </div>
-            <div style={{ background: 'var(--primary-light)', padding: '8px 16px', borderRadius: '12px', color: 'var(--primary)', fontWeight: '700', fontSize: '0.9rem' }}>
-              D-DAY 준비 중
-            </div>
+            {overall.answered > 0 && (
+              <button
+                onClick={() => { if (window.confirm('학습 진행률을 모두 초기화할까요?')) resetProgress(); }}
+                style={{ background: 'var(--primary-light)', padding: '8px 16px', borderRadius: '12px', color: 'var(--primary)', fontWeight: '700', fontSize: '0.9rem', border: 'none', cursor: 'pointer' }}
+              >
+                진행률 초기화
+              </button>
+            )}
           </div>
-          
-          <div className="progress-bar-container">
-            <div className="progress-bar-fill" style={{ width: '0%' }}></div>
-          </div>
-          
-          <div className="progress-stats">
-            <div>
-              <span className="stat-dot"></span>
-              학습한 콘텐츠 <span className="stat-bold">0/{totalQuestions}</span>
-            </div>
-            <div>0%</div>
-          </div>
-          
-          <button className="btn-primary">모든 문제 풀기</button>
+
+          {(() => {
+            const pct = totalQuestions ? Math.round((overall.answered / totalQuestions) * 100) : 0;
+            const acc = overall.answered ? Math.round((overall.correct / overall.answered) * 100) : 0;
+            return (
+              <>
+                <div className="progress-bar-container">
+                  <div className="progress-bar-fill" style={{ width: `${pct}%` }}></div>
+                </div>
+                <div className="progress-stats">
+                  <div>
+                    <span className="stat-dot"></span>
+                    학습한 문제 <span className="stat-bold">{overall.answered}/{totalQuestions}</span>
+                    {overall.answered > 0 && <> · 정답률 <span className="stat-bold" style={{ color: '#16a34a' }}>{acc}%</span></>}
+                  </div>
+                  <div>{pct}%</div>
+                </div>
+              </>
+            );
+          })()}
         </section>
 
         <div className="section-header">
