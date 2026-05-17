@@ -334,11 +334,14 @@ const App = () => {
     return () => true;
   }, [taxScope]);
 
-  const baseFilter = (item) => item.isClassified && scopeOk(item);
+  const baseFilter = useCallback(
+    (item) => item.isClassified && scopeOk(item),
+    [scopeOk]
+  );
 
   const scopedClassified = useMemo(
     () => processedData.filter(baseFilter),
-    [processedData, scopeOk]
+    [processedData, baseFilter]
   );
 
   // Level 0: 연도 목록 (연도별 탭) — 분류 완료 문항만 집계
