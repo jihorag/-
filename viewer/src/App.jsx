@@ -844,6 +844,11 @@ const App = () => {
     [processedData]
   );
 
+  const bookmarkedList = useMemo(
+    () => classifiedList.filter(q => bm[qid(q)]),
+    [classifiedList, bm]
+  );
+
   // 오답(채점 결과 false) 집합 + 과목별 그룹
   const wrongList = useMemo(
     () => classifiedList.filter(q => { const p = progress[qid(q)]; return p && p.correct === false; }),
