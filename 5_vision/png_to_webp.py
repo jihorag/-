@@ -36,14 +36,17 @@ def referenced_names():
     return names
 
 
-def convert_one(png):
-    src = os.path.join(IMG, png)
-    dst = src[:-4] + ".webp"
+def convert_one(name):
+    src = os.path.join(IMG, name)
+    dst = src.rsplit(".", 1)[0] + ".webp"
     if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src):
-        return ("skip", png)
-    r = subprocess.run(["cwebp", "-quiet", "-q", Q, "-m", M, src, "-o", dst],
-                        capture_output=True)
-    return ("ok" if r.returncode == 0 else "fail", png)
+        return ("skip", name)
+    if name.lower().endswith(".gif"):
+        cmd = ["gif2webp", "-quiet", "-q", Q, src, "-o", dst]
+    else:
+        cmd = ["cwebp", "-quiet", "-q", Q, "-m", M, src, "-o", dst]
+    r = subprocess.run(cmd, capture_output=True)
+    return ("ok" if r.returncode == 0 else "fail", name)
 
 
 def main():
