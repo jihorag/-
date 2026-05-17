@@ -394,6 +394,13 @@ const App = () => {
   const [studyIdx, setStudyIdx] = useState(0); // 가이드 학습 모드 현재 문항 인덱스
   const [studyNonce, setStudyNonce] = useState(0); // 재학습 시 문항 카드 강제 리마운트
   const [reviewSubject, setReviewSubject] = useState(null); // 오답 복습 2단계 드릴(과목 선택)
+  const [notifPref, setNotifPref] = useState(() => {
+    try { return localStorage.getItem('quiz-notif') === '1' && typeof Notification !== 'undefined' && Notification.permission === 'granted'; }
+    catch { return false; }
+  });
+  useEffect(() => {
+    try { localStorage.setItem('quiz-notif', notifPref ? '1' : '0'); } catch { /* SSR */ }
+  }, [notifPref]);
   const { progress, record: recordAnswer, update: updateAnswer, reset: resetProgress, clearMany } = useProgress();
   // 복합 검색·필터 상태
   const [filters, setFilters] = useState(loadFilters);
