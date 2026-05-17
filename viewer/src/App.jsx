@@ -260,20 +260,36 @@ const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
   const [taxonomyData, setTaxonomyData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [viewMode, setViewMode] = useState('exam'); // 'exam' | 'subject' | 'year' | 'chapter'
-  const [currentView, setCurrentView] = useState('dashboard');
+  // 새로고침/딥링크 복원: 최초 렌더에서 URL 해시를 1회 파싱해 초기 상태로 사용
+  const bootNav = useRef(parseNav(typeof window !== 'undefined' ? window.location.hash : '')).current;
+  const bootView = (() => {
+    if (!bootNav) return 'dashboard';
+    let cv = bootNav.currentView;
+    if (cv === 'question_list') {
+      if (bootNav.taxSection) cv = 'tax_items';
+      else if (bootNav.taxChapter) cv = 'tax_sections';
+      else if (bootNav.taxSubSubject) cv = 'tax_chapters';
+      else if (bootNav.taxSubject) cv = 'tax_sub_subjects';
+      else if (bootNav.taxScope) cv = 'tax_subjects';
+      else cv = 'dashboard';
+    }
+    return cv;
+  })();
+
+  const [viewMode, setViewMode] = useState(bootNav?.viewMode || 'exam'); // 'exam' | 'subject' | 'year' | 'chapter'
+  const [currentView, setCurrentView] = useState(bootView);
   const [selectedGroup, setSelectedGroup] = useState(null);
   const { progress, record: recordAnswer, reset: resetProgress } = useProgress();
   // 복합 검색·필터 상태
   const [filters, setFilters] = useState({ exams: [], subjects: [], years: [], diffs: [], kw: '' });
 
   // taxonomy states
-  const [taxSubject, setTaxSubject] = useState(null);
-  const [taxSubSubject, setTaxSubSubject] = useState(null);
-  const [taxChapter, setTaxChapter] = useState(null);
-  const [taxSection, setTaxSection] = useState(null);
+  const [taxSubject, setTaxSubject] = useState(bootNav?.taxSubject || null);
+  const [taxSubSubject, setTaxSubSubject] = useState(bootNav?.taxSubSubject || null);
+  const [taxChapter, setTaxChapter] = useState(bootNav?.taxChapter || null);
+  const [taxSection, setTaxSection] = useState(bootNav?.taxSection || null);
   // 시험별/연도별 진입 시 적용되는 분류 스코프: null | {kind:'exam'|'year', value, label}
-  const [taxScope, setTaxScope] = useState(null);
+  const [taxScope, setTaxScope] = useState(bootNav?.taxScope || null);
 
   // 데이터 불러오기
   useEffect(() => {
@@ -317,10 +333,8 @@ const App = () => {
     setCurrentView(cv);
   }, []);
 
-  // 최초 1회: 해시 파싱 → 상태 적용, popstate(브라우저 뒤로/앞으로) 구독
+  // popstate(브라우저 뒤로/앞으로) 구독. 초기 상태는 이미 해시에서 복원됨.
   useEffect(() => {
-    const fromHash = parseNav(window.location.hash);
-    if (fromHash) applyNav(fromHash);
     hydratedRef.current = true;
     const onPop = () => applyNav(parseNav(window.location.hash));
     window.addEventListener('popstate', onPop);
