@@ -57,10 +57,23 @@ const QuestionItem = ({ q }) => {
 
   return (
     <div style={{ background: '#fff', borderRadius: '12px', padding: '24px', marginBottom: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
-        <span style={{ fontWeight: '700', fontSize: '1.125rem', color: '#2563eb' }}>Q. {q.number}</span>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', gap: '8px' }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span style={{ fontWeight: '700', fontSize: '1.125rem', color: '#2563eb' }}>Q. {q.number}</span>
+          {typeof q.difficulty === 'number' && (() => {
+            const m = DIFFICULTY_META[q.difficulty] || DIFFICULTY_META[3];
+            return (
+              <span style={{
+                fontSize: '0.75rem', fontWeight: 700, padding: '2px 8px', borderRadius: '999px',
+                background: m.bg, color: m.fg
+              }}>
+                {m.label}
+              </span>
+            );
+          })()}
+        </span>
         <span style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
-          ({q.year}) {q.exam} {q.year}년 {q.number}번
+          {q.exam} {q.year}년 {q.number}번
         </span>
       </div>
       
