@@ -8,15 +8,45 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+      includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       workbox: {
-        maximumFileSizeToCacheInBytes: 20 * 1024 * 1024 // 20MB까지 허용
+        // 빌드 자산만 프리캐시. 거대 데이터(24MB)·이미지는 런타임 캐시로 처리해
+        // 설치형/오프라인에서도 데이터가 비지 않게 함.
+        globPatterns: ['**/*.{js,css,html,woff2,svg}'],
+        globIgnores: ['**/data/**', '**/images/**'],
+        navigateFallbackDenylist: [/^\/data\//, /^\/images\//],
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/data/'),
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'quiz-data',
+              expiration: { maxEntries: 4, maxAgeSeconds: 60 * 60 * 24 * 30 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/images/'),
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'quiz-images',
+              expiration: { maxEntries: 4000, maxAgeSeconds: 60 * 60 * 24 * 60 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+        ],
       },
       manifest: {
         name: '감정평가사 1차 기출정복',
         short_name: '감평기출',
         description: '감정평가사 1차 합격을 위한 기출문제 정복 PWA',
-        theme_color: '#000000',
+        lang: 'ko',
+        start_url: '/',
+        scope: '/',
+        display: 'standalone',
+        orientation: 'portrait',
+        theme_color: '#1e293b',
+        background_color: '#f1f5f9',
         icons: [
           {
             src: 'pwa-192x192.png',
