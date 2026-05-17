@@ -638,11 +638,11 @@ const App = () => {
     }).filter(g => g.total > 0);
   }, [taxonomyData, scopedClassified, taxScope]);
 
-  // View: 단원별 - 세부 과목 또는 장(Chapter) 목록 (분류 문제만)
+  // 세부과목 또는 장(Chapter) 목록 (scope 반영)
   const taxSubSubjectGroups = useMemo(() => {
     if (!taxonomyData || !taxSubject) return [];
     const subjData = taxonomyData[taxSubject];
-    const filtered = processedData.filter(q => q.isClassified && q.taxSubjectName === taxSubject);
+    const filtered = scopedClassified.filter(q => q.taxSubjectName === taxSubject);
 
     const groups = [];
     groups.push({
@@ -650,21 +650,21 @@ const App = () => {
       title: `${taxSubject} 전체 풀기`,
       subtitle: '전체',
       total: filtered.length,
-      weak: false,
+      weak: filtered.some(q => q.isWeak),
       tag: '전체',
-      filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject
+      filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject
     });
 
     if (subjData.has_subjects) {
       Object.keys(subjData.subjects).forEach(subSubj => {
-        const ssCount = filtered.filter(q => q.taxSubSubjectName === subSubj).length;
-        if (ssCount === 0) return;
+        const sub = filtered.filter(q => q.taxSubSubjectName === subSubj);
+        if (sub.length === 0) return;
         groups.push({
           type: 'tax_sub_subject',
           title: subSubj,
           subtitle: taxSubject,
-          total: ssCount,
-          weak: false,
+          total: sub.length,
+          weak: sub.some(q => q.isWeak),
           tag: '세부과목'
         });
       });
@@ -677,22 +677,22 @@ const App = () => {
           title: ch.name,
           subtitle: taxSubject,
           total: chFiltered.length,
-          weak: false,
+          weak: chFiltered.some(q => q.isWeak),
           tag: 'PART/장',
-          filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject && item.taxChapterName === ch.name
+          filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxChapterName === ch.name
         });
       });
     }
     return groups;
-  }, [taxonomyData, taxSubject, processedData]);
+  }, [taxonomyData, taxSubject, scopedClassified, taxScope]);
 
-  // View: 단원별 - 장(Chapter) 목록 (세부 과목이 있는 경우, 분류 문제만)
+  // 장(Chapter) 목록 (세부과목이 있는 경우, scope 반영)
   const taxChapterGroups = useMemo(() => {
     if (!taxonomyData || !taxSubject || !taxSubSubject) return [];
     const subjData = taxonomyData[taxSubject];
     const chapters = subjData.subjects[taxSubSubject] || [];
-    const filtered = processedData.filter(q =>
-      q.isClassified && q.taxSubjectName === taxSubject && q.taxSubSubjectName === taxSubSubject);
+    const filtered = scopedClassified.filter(q =>
+      q.taxSubjectName === taxSubject && q.taxSubSubjectName === taxSubSubject);
 
     const groups = [];
     groups.push({
@@ -700,9 +700,9 @@ const App = () => {
       title: `${taxSubSubject} 전체 풀기`,
       subtitle: '전체',
       total: filtered.length,
-      weak: false,
+      weak: filtered.some(q => q.isWeak),
       tag: '전체',
-      filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject && item.taxSubSubjectName === taxSubSubject
+      filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxSubSubjectName === taxSubSubject
     });
     chapters.forEach(ch => {
       const chFiltered = filtered.filter(q => q.taxChapterName === ch.name);
@@ -712,15 +712,15 @@ const App = () => {
         title: ch.name,
         subtitle: taxSubSubject,
         total: chFiltered.length,
-        weak: false,
+        weak: chFiltered.some(q => q.isWeak),
         tag: 'PART/장',
-        filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject && item.taxChapterName === ch.name
+        filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxChapterName === ch.name
       });
     });
     return groups;
-  }, [taxonomyData, taxSubject, taxSubSubject, processedData]);
+  }, [taxonomyData, taxSubject, taxSubSubject, scopedClassified, taxScope]);
 
-  // View: 단원별 - 절(Section) 목록
+  // 절(Section) 목록 — 절은 클릭 시 관(item) 목록으로 진입 (scope 반영)
   const taxSectionGroups = useMemo(() => {
     if (!taxonomyData || !taxSubject || !taxChapter) return [];
     const subjData = taxonomyData[taxSubject];
@@ -732,9 +732,9 @@ const App = () => {
     }
     const chapterData = chapters.find(c => c.name === taxChapter);
     if (!chapterData || !chapterData.sections) return [];
-    
-    const filtered = processedData.filter(q =>
-      q.isClassified && q.taxSubjectName === taxSubject && q.taxChapterName === taxChapter);
+
+    const filtered = scopedClassified.filter(q =>
+      q.taxSubjectName === taxSubject && q.taxChapterName === taxChapter);
 
     const groups = [];
     groups.push({
@@ -742,26 +742,73 @@ const App = () => {
       title: `${taxChapter} 전체 풀기`,
       subtitle: '전체',
       total: filtered.length,
-      weak: false,
+      weak: filtered.some(q => q.isWeak),
       tag: '전체',
-      filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject && item.taxChapterName === taxChapter
+      filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxChapterName === taxChapter
     });
 
     chapterData.sections.forEach(sec => {
-      const secCount = filtered.filter(q => q.taxSectionName === sec.name).length;
-      if (secCount === 0) return;
+      const secQs = filtered.filter(q => q.taxSectionName === sec.name);
+      if (secQs.length === 0) return;
+      const hasItems = (sec.items || []).some(it =>
+        secQs.some(q => q.taxItemName === it.name));
       groups.push({
-        type: 'play_all_tax',
+        // 관(item) 단위 분류가 있으면 진입형(tax_section), 없으면 바로 풀기(play_all_tax)
+        type: hasItems ? 'tax_section' : 'play_all_tax',
         title: sec.name,
         subtitle: taxChapter,
-        total: secCount,
-        weak: false,
+        total: secQs.length,
+        weak: secQs.some(q => q.isWeak),
         tag: '절',
-        filterFn: (item) => item.isClassified && item.taxSubjectName === taxSubject && item.taxSectionName === sec.name
+        filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxSectionName === sec.name
       });
     });
     return groups;
-  }, [taxonomyData, taxSubject, taxSubSubject, taxChapter, processedData]);
+  }, [taxonomyData, taxSubject, taxSubSubject, taxChapter, scopedClassified, taxScope]);
+
+  // 관(item) 목록 — 최저 분류 단위 (scope 반영)
+  const taxItemGroups = useMemo(() => {
+    if (!taxonomyData || !taxSubject || !taxChapter || !taxSection) return [];
+    const subjData = taxonomyData[taxSubject];
+    let chapters = [];
+    if (subjData.has_subjects && taxSubSubject) {
+      chapters = subjData.subjects[taxSubSubject];
+    } else if (!subjData.has_subjects) {
+      chapters = subjData.chapters;
+    }
+    const chapterData = chapters.find(c => c.name === taxChapter);
+    const sectionData = chapterData && (chapterData.sections || []).find(s => s.name === taxSection);
+    if (!sectionData) return [];
+
+    const filtered = scopedClassified.filter(q =>
+      q.taxSubjectName === taxSubject && q.taxSectionName === taxSection);
+
+    const groups = [];
+    groups.push({
+      type: 'play_all_tax',
+      title: `${taxSection} 전체 풀기`,
+      subtitle: '전체',
+      total: filtered.length,
+      weak: filtered.some(q => q.isWeak),
+      tag: '전체',
+      filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxSectionName === taxSection
+    });
+
+    (sectionData.items || []).forEach(it => {
+      const itQs = filtered.filter(q => q.taxItemName === it.name);
+      if (itQs.length === 0) return;
+      groups.push({
+        type: 'play_all_tax',
+        title: it.name,
+        subtitle: taxSection,
+        total: itQs.length,
+        weak: itQs.some(q => q.isWeak),
+        tag: '관',
+        filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxSectionName === taxSection && item.taxItemName === it.name
+      });
+    });
+    return groups;
+  }, [taxonomyData, taxSubject, taxSubSubject, taxChapter, taxSection, scopedClassified, taxScope]);
 
   let activeGroups = [];
   if (viewMode === 'subject') activeGroups = subjectGroups;
