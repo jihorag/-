@@ -856,7 +856,8 @@ const App = () => {
 
               <div className="play-btn">Q</div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </main>
     </div>
