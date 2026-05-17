@@ -289,8 +289,20 @@ const QuestionItem = ({ q, prior, onAnswer, bookmarked, onToggleBookmark }) => {
             );
           })()}
         </span>
-        <span style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
-          {q.exam} {q.year}년 {q.number}번
+        <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
+            {q.exam} {q.year}년 {q.number}번
+          </span>
+          {onToggleBookmark && (
+            <button
+              onClick={() => onToggleBookmark(q)}
+              aria-label="북마크"
+              style={{ border: 'none', background: 'none', cursor: 'pointer', fontSize: '1.2rem',
+                lineHeight: 1, padding: 0, color: bookmarked ? '#f59e0b' : '#d1d5db' }}
+            >
+              {bookmarked ? '★' : '☆'}
+            </button>
+          )}
         </span>
       </div>
       
