@@ -1013,6 +1013,48 @@ const App = () => {
     window.scrollTo(0, 0);
   };
 
+  // 하단 탭바: 루트 화면에서만 노출(드릴/풀이는 전체화면)
+  const navTab =
+    currentView === 'home' ? 'home'
+    : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'review'
+    : currentView === 'search' ? 'search'
+    : 'browse'; // dashboard + tax_*
+  const goTab = (t) => {
+    if (t === 'home') setCurrentView('home');
+    else if (t === 'browse') setCurrentView('dashboard');
+    else if (t === 'review') { setReviewSubject(null); setCurrentView('reviewHome'); }
+    else if (t === 'search') setCurrentView('search');
+    window.scrollTo(0, 0);
+  };
+  const NAV_ITEMS = [
+    ['home', '🏠', '홈'],
+    ['browse', '📚', '둘러보기'],
+    ['review', '🔁', '복습'],
+    ['search', '🔍', '검색'],
+  ];
+  const bottomNav = (
+    <nav className="bottom-nav">
+      {NAV_ITEMS.map(([t, ico, label]) => (
+        <button key={t} className={navTab === t ? 'active' : ''} onClick={() => goTab(t)}>
+          <span className="nav-ico" style={{ position: 'relative' }}>
+            {ico}
+            {t === 'review' && srs.due.length > 0 && (
+              <span className="nav-badge">{srs.due.length > 99 ? '99+' : srs.due.length}</span>
+            )}
+          </span>
+          {label}
+        </button>
+      ))}
+    </nav>
+  );
+  // 루트 화면을 셸(스크롤 영역 + 고정 탭바)로 감싼다
+  const shell = (content) => (
+    <div className="app-shell with-nav">
+      {content}
+      {bottomNav}
+    </div>
+  );
+
   // 가이드 학습 모드: 한 개념의 문제를 난이도↑ 순으로 한 문제씩, 해설로 누적 학습
   if (currentView === 'study' && selectedGroup) {
     const ordered = processedData
