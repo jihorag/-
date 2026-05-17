@@ -39,6 +39,16 @@ const loadProgress = () => {
 
 // 검색·필터 영속화 (새로고침/딥링크 시 유지)
 const FILTERS_KEY = 'quiz-filters-v1';
+
+// 가이드 학습 세션 이어풀기: 개념별 마지막 위치(localStorage)
+const POS_KEY = 'quiz-pos-v1';
+const loadPos = () => {
+  try { return JSON.parse(localStorage.getItem(POS_KEY) || '{}') || {}; }
+  catch { return {}; }
+};
+const savePos = (map) => {
+  try { localStorage.setItem(POS_KEY, JSON.stringify(map)); } catch { /* quota/SSR */ }
+};
 const EMPTY_FILTERS = { exams: [], subjects: [], years: [], diffs: [], kw: '' };
 const loadFilters = () => {
   try {
