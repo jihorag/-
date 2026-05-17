@@ -52,8 +52,12 @@ ok = okhi = hi = n = 0
 by_exam = {}
 for q in sample:
     o = q.get("options") or q.get("choices") or []
-    opts = "\n".join(f"{i+1}. {re.sub(r'\\[IMAGE:[^\\]]+\\]', '(그림)', str(x))}" for i, x in enumerate(o))
-    qt = re.sub(r"\[IMAGE:[^\]]+\]", "(그림)", str(q.get("question") or ""))
+    IMG = re.compile(r"\[IMAGE:[^\]]+\]")
+    lines = []
+    for i, x in enumerate(o):
+        lines.append(str(i + 1) + ". " + IMG.sub("(그림)", str(x)))
+    opts = "\n".join(lines)
+    qt = IMG.sub("(그림)", str(q.get("question") or ""))
     try:
         r = MODEL.generate_content(PROMPT.format(q=qt[:4000], opts=opts[:4000]))
         m = re.search(r'\{.*\}', r.text, re.S)
