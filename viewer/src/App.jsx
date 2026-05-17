@@ -813,39 +813,32 @@ const App = () => {
     return groups;
   }, [taxonomyData, taxSubject, taxSubSubject, taxChapter, taxSection, scopedClassified, taxScope]);
 
+  // 4개 탭 모두 동일 v4 분류축 사용. 시험별/연도별은 picker → 스코프 설정 후 동일 엔진.
   let activeGroups = [];
-  if (viewMode === 'subject') activeGroups = subjectGroups;
+  if (viewMode === 'subject' || viewMode === 'chapter') activeGroups = taxSubjectGroups;
   else if (viewMode === 'year') activeGroups = yearGroups;
   else if (viewMode === 'exam') activeGroups = examGroups;
-  else if (viewMode === 'chapter') activeGroups = taxSubjectGroups;
 
-  const totalQuestions = processedData.length;
+  const totalQuestions = useMemo(
+    () => processedData.filter(q => q.isClassified).length,
+    [processedData]
+  );
+
+  const enterTaxScope = (scope) => {
+    setTaxScope(scope);
+    setTaxSubject(null);
+    setTaxSubSubject(null);
+    setTaxChapter(null);
+    setTaxSection(null);
+    setCurrentView('tax_subjects');
+    window.scrollTo(0, 0);
+  };
 
   const handleGroupClick = (group) => {
     if (group.type === 'exam') {
-      setSelectedExam(group.title);
-      setCurrentView('exam_subjects');
-      window.scrollTo(0, 0);
-    } else if (group.type === 'unified_subject') {
-      setSelectedSubject(group.title);
-      setCurrentView('subject_categories');
-      window.scrollTo(0, 0);
+      enterTaxScope({ kind: 'exam', value: group.title, label: group.title });
     } else if (group.type === 'year_group') {
-      setSelectedYear(group.rawValue);
-      setCurrentView('year_subjects');
-      window.scrollTo(0, 0);
-    } else if (group.type === 'year_subject') {
-      setSelectedYearSubject(group.title);
-      setCurrentView('year_subject_exams');
-      window.scrollTo(0, 0);
-    } else if (group.type === 'subject_category') {
-      setSelectedCategory(group.title);
-      setCurrentView('subject_units');
-      window.scrollTo(0, 0);
-    } else if (group.type === 'subject_unit') {
-      setSelectedUnit(group.title);
-      setCurrentView('subject_concepts');
-      window.scrollTo(0, 0);
+      enterTaxScope({ kind: 'year', value: group.rawValue, label: `${group.rawValue}년` });
     } else if (group.type === 'tax_subject') {
       setTaxSubject(group.title);
       setCurrentView('tax_sub_subjects');
@@ -858,6 +851,10 @@ const App = () => {
       setTaxChapter(group.title);
       setCurrentView('tax_sections');
       window.scrollTo(0, 0);
+    } else if (group.type === 'tax_section') {
+      setTaxSection(group.title);
+      setCurrentView('tax_items');
+      window.scrollTo(0, 0);
     } else {
       setSelectedGroup(group);
       setCurrentView('question_list');
@@ -867,58 +864,31 @@ const App = () => {
 
   const handleBack = () => {
     if (currentView === 'question_list') {
-      if (selectedGroup?.type === 'subject') {
-        setCurrentView('exam_subjects');
-      } else if (selectedGroup?.type === 'year_subject_exam') {
-        setCurrentView('year_subject_exams');
-      } else if (selectedGroup?.type?.startsWith('play_all_')) {
-        let taxReturnView = 'dashboard';
-        if (taxChapter) taxReturnView = 'tax_sections';
-        else if (taxSubSubject) taxReturnView = 'tax_chapters';
-        else if (taxSubject) taxReturnView = 'tax_sub_subjects';
-        
-        const typeMap = { 
-          'play_all_subject': 'subject_categories', 
-          'play_all_category': 'subject_units', 
-          'play_all_unit': 'subject_concepts', 
-          'play_all_year': 'year_subjects', 
-          'play_all_year_subject': 'year_subject_exams',
-          'play_all_tax': taxReturnView
-        };
-        setCurrentView(typeMap[selectedGroup.type] || 'dashboard');
-      } else if (selectedGroup?.type === 'subject_concept') {
-        setCurrentView('subject_concepts');
-      } else {
-        setCurrentView('dashboard');
-      }
+      // play_all_tax: 진입했던 가장 깊은 tax 레벨로 복귀
+      if (taxSection) setCurrentView('tax_items');
+      else if (taxChapter) setCurrentView('tax_sections');
+      else if (taxSubSubject) setCurrentView('tax_chapters');
+      else if (taxSubject) setCurrentView('tax_sub_subjects');
+      else if (taxScope) setCurrentView('tax_subjects');
+      else setCurrentView('dashboard');
       setSelectedGroup(null);
-    } else if (currentView === 'exam_subjects') {
-      setCurrentView('dashboard');
-      setSelectedExam(null);
-    } else if (currentView === 'year_subjects') {
-      setCurrentView('dashboard');
-      setSelectedYear(null);
-    } else if (currentView === 'year_subject_exams') {
-      setCurrentView('year_subjects');
-      setSelectedYearSubject(null);
-    } else if (currentView === 'subject_categories') {
-      setCurrentView('dashboard');
-      setSelectedSubject(null);
-    } else if (currentView === 'subject_units') {
-      setCurrentView('subject_categories');
-      setSelectedCategory(null);
-    } else if (currentView === 'subject_concepts') {
-      setCurrentView('subject_units');
-      setSelectedUnit(null);
-    } else if (currentView === 'tax_sub_subjects') {
-      setCurrentView('dashboard');
-      setTaxSubject(null);
-    } else if (currentView === 'tax_chapters') {
-      setCurrentView('tax_sub_subjects');
-      setTaxSubSubject(null);
+    } else if (currentView === 'tax_items') {
+      setCurrentView('tax_sections');
+      setTaxSection(null);
     } else if (currentView === 'tax_sections') {
       setCurrentView('tax_chapters');
       setTaxChapter(null);
+    } else if (currentView === 'tax_chapters') {
+      setCurrentView('tax_sub_subjects');
+      setTaxSubSubject(null);
+    } else if (currentView === 'tax_sub_subjects') {
+      setCurrentView(taxScope ? 'tax_subjects' : 'dashboard');
+      setTaxSubject(null);
+    } else if (currentView === 'tax_subjects') {
+      setCurrentView('dashboard');
+      setTaxScope(null);
+    } else {
+      setCurrentView('dashboard');
     }
   };
 
