@@ -476,3 +476,21 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .skeleton { animation: none; }
 }
+
+/* 드릴 헤더 우측 액션 (아이콘+라벨 알약) */
+.drill-action {
+  border: 1px solid var(--primary-light);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: transform 0.12s ease, background 0.15s ease;
+}
+.drill-action:active { transform: scale(0.96); }
+
+/* 탭 피드백: 누를 때 살짝 눌림 */
+.study-card:active { transform: scale(0.985); }
+.bottom-nav button:active .nav-ico { transform: scale(0.9); }
