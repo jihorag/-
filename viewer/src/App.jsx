@@ -793,6 +793,90 @@ const App = () => {
     window.scrollTo(0, 0);
   };
 
+  // 가이드 학습 모드: 한 개념의 문제를 난이도↑ 순으로 한 문제씩, 해설로 누적 학습
+  if (currentView === 'study' && selectedGroup) {
+    const ordered = processedData
+      .filter(selectedGroup.filterFn)
+      .sort((a, b) => {
+        const da = a.difficulty ?? 99, db = b.difficulty ?? 99;
+        if (da !== db) return da - db;                 // 쉬운 문제부터
+        const ya = parseInt(a.year, 10), yb = parseInt(b.year, 10);
+        if (ya !== yb) return yb - ya;                  // 같은 난이도면 최신 연도
+        return parseInt(a.number, 10) - parseInt(b.number, 10);
+      });
+    const total = ordered.length;
+    const idx = Math.min(studyIdx, Math.max(0, total - 1));
+    const q = ordered[idx];
+    const s = progressStats(ordered, progress);
+    const pathParts = q ? [q.taxSubjectName, q.taxSubSubjectName, q.taxChapterName, q.taxSectionName, q.taxItemName].filter(Boolean) : [];
+    const done = total > 0 && s.answered >= total;
+    return (
+      <div className="app-container">
+        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', justifyContent: 'space-between' }}>
+          <button className="back-btn" onClick={handleBack}>
+            <ArrowLeft size={24} style={{ marginRight: '8px' }} />
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
+          </button>
+          <button onClick={() => setCurrentView('question_list')}
+            style={{ border: 'none', background: 'transparent', color: '#3b82f6', fontWeight: 600, cursor: 'pointer', padding: '0 16px' }}>
+            전체 목록 ▦
+          </button>
+        </header>
+
+        <div style={{ padding: '20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
+          <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>{selectedGroup.title}</div>
+          {pathParts.length > 0 && (
+            <div style={{ fontSize: '0.85rem', color: '#374151', margin: '6px 0', fontWeight: 600 }}>
+              {pathParts.join(' ▸ ')}
+            </div>
+          )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '8px' }}>
+            <div style={{ flex: 1, height: '8px', background: '#e5e7eb', borderRadius: '999px', overflow: 'hidden' }}>
+              <div style={{ width: `${total ? Math.round((s.answered / total) * 100) : 0}%`, height: '100%', background: '#3b82f6', transition: 'width .3s' }} />
+            </div>
+            <span style={{ fontSize: '0.8rem', color: '#6b7280', whiteSpace: 'nowrap' }}>
+              {idx + 1} / {total} · 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b>
+            </span>
+          </div>
+        </div>
+
+        <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+          {q ? (
+            <>
+              <QuestionItem key={qid(q)} q={q} prior={progress[qid(q)]} onAnswer={recordAnswer} />
+              <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', marginTop: '8px' }}>
+                <button
+                  onClick={() => { setStudyIdx(Math.max(0, idx - 1)); window.scrollTo(0, 0); }}
+                  disabled={idx === 0}
+                  style={{ flex: 1, padding: '14px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', cursor: idx === 0 ? 'default' : 'pointer', color: idx === 0 ? '#d1d5db' : '#374151', fontWeight: 600 }}
+                >← 이전</button>
+                <button
+                  onClick={() => { setStudyIdx(Math.min(total - 1, idx + 1)); window.scrollTo(0, 0); }}
+                  disabled={idx >= total - 1}
+                  style={{ flex: 2, padding: '14px', borderRadius: '10px', border: 'none', background: idx >= total - 1 ? '#e5e7eb' : '#3b82f6', color: idx >= total - 1 ? '#9ca3af' : '#fff', cursor: idx >= total - 1 ? 'default' : 'pointer', fontWeight: 700 }}
+                >다음 문제 →</button>
+              </div>
+              {done && (
+                <div style={{ marginTop: '20px', padding: '20px', background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '12px', textAlign: 'center' }}>
+                  <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '6px' }}>이 개념 학습 완료 🎉</div>
+                  <div style={{ color: '#374151', marginBottom: '14px' }}>
+                    {total}문제 중 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b> · 오답 <b style={{ color: '#dc2626' }}>{s.answered - s.correct}</b>
+                  </div>
+                  <button onClick={() => { setStudyIdx(0); window.scrollTo(0, 0); }}
+                    style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: '#3b82f6', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
+                    처음부터 다시 풀기
+                  </button>
+                </div>
+              )}
+            </>
+          ) : (
+            <div style={{ textAlign: 'center', color: '#6b7280', padding: '40px' }}>문제가 없습니다.</div>
+          )}
+        </main>
+      </div>
+    );
+  }
+
   if (currentView === 'question_list' && selectedGroup) {
     // 필터링된 문제를 연도 내림차순, 문제 번호 오름차순으로 정렬
     const filteredQuestions = processedData
