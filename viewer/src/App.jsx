@@ -49,7 +49,13 @@ const useProgress = () => {
     persist({ ...progress, [id]: { sel, correct: sel === q.answer, ts: Date.now() } });
   };
   const reset = () => persist({});
-  return { progress, record, reset };
+  const clearMany = (ids) => {
+    const set = new Set(ids);
+    const next = {};
+    for (const k in progress) if (!set.has(k)) next[k] = progress[k];
+    persist(next);
+  };
+  return { progress, record, reset, clearMany };
 };
 
 // 문항 배열에 대한 진행 통계
