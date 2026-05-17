@@ -920,6 +920,13 @@ const App = () => {
           })()}
         </section>
 
+        <button
+          onClick={() => setCurrentView('search')}
+          style={{ width: '100%', textAlign: 'left', padding: '14px 16px', margin: '4px 0 20px', border: '1px solid #d1d5db', borderRadius: '12px', background: '#fff', color: '#6b7280', fontSize: '0.95rem', cursor: 'pointer' }}
+        >
+          🔍 통합 검색·필터 (시험·과목·연도·난이도·키워드)
+        </button>
+
         <div className="section-header">
           <h3 className="section-title">학습 목록</h3>
           <div className="view-toggle">
