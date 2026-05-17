@@ -898,6 +898,73 @@ const App = () => {
     [classifiedList, progress]
   );
 
+  // 학습 분석: 과목·절별 성취도, 난이도별 정답률, 연속 학습일, 약점 도출
+  const analytics = useMemo(() => {
+    const subj = {};   // subjectName -> {total,scored,correct, sec:{secName:{scored,correct,ids[]}}}
+    const diff = {};   // 1..5 -> {scored,correct}
+    const days = new Set();
+    let todayCount = 0;
+    const todayStr = new Date().toDateString();
+    for (const q of classifiedList) {
+      const sName = q.taxSubjectName || '기타';
+      const s = subj[sName] || (subj[sName] = { total: 0, scored: 0, correct: 0, sec: {} });
+      s.total++;
+      const p = progress[qid(q)];
+      if (!p) continue;
+      if (p.ts) {
+        days.add(new Date(p.ts).toDateString());
+        if (new Date(p.ts).toDateString() === todayStr) todayCount++;
+      }
+      if (p.correct === true || p.correct === false) {
+        s.scored++; if (p.correct === true) s.correct++;
+        const secName = q.taxSectionName || q.taxChapterName || '기타';
+        const sc = s.sec[secName] || (s.sec[secName] = { scored: 0, correct: 0, ids: [] });
+        sc.scored++; if (p.correct === true) sc.correct++; sc.ids.push(qid(q));
+        if (typeof q.difficulty === 'number') {
+          const d = diff[q.difficulty] || (diff[q.difficulty] = { scored: 0, correct: 0 });
+          d.scored++; if (p.correct === true) d.correct++;
+        }
+      }
+    }
+    // 연속 학습일(오늘 또는 어제부터 역순으로 끊김 없이)
+    let streak = 0;
+    const cur = new Date(); cur.setHours(0, 0, 0, 0);
+    if (!days.has(cur.toDateString())) cur.setDate(cur.getDate() - 1); // 오늘 안 했으면 어제부터
+    while (days.has(cur.toDateString())) { streak++; cur.setDate(cur.getDate() - 1); }
+
+    const subjects = Object.entries(subj).map(([name, v]) => ({
+      name, total: v.total, scored: v.scored, correct: v.correct,
+      acc: v.scored ? Math.round((v.correct / v.scored) * 100) : null,
+      // 가장 약한 절(채점 3+ & 정답률 최저)
+      weakSection: Object.entries(v.sec)
+        .filter(([, c]) => c.scored >= 3)
+        .map(([nm, c]) => ({ nm, acc: c.correct / c.scored, ids: c.ids }))
+        .sort((a, b) => a.acc - b.acc)[0] || null,
+      allWrongUnseenIds: [], // 채워짐(아래)
+    }));
+    // 약점 과목: 채점 5+ 중 정답률 낮은 순
+    const weak = subjects.filter(s => s.scored >= 5 && s.acc != null)
+      .sort((a, b) => a.acc - b.acc).slice(0, 3);
+    const diffAcc = [1, 2, 3, 4, 5].map(d => {
+      const v = diff[d];
+      return { d, scored: v ? v.scored : 0, acc: v && v.scored ? Math.round((v.correct / v.scored) * 100) : null };
+    });
+    return { subjects, weak, diffAcc, streak, todayCount, studiedDays: days.size };
+  }, [classifiedList, progress]);
+
+  // 한 과목을 집중 연습: 오답·미응답 우선(없으면 전체) 가이드 학습
+  const startConcept = (subjectName, title) => {
+    const ids = [];
+    for (const q of classifiedList) {
+      if ((q.taxSubjectName || '기타') !== subjectName) continue;
+      const p = progress[qid(q)];
+      if (!p || p.correct === false) ids.push(qid(q));   // 미응답 또는 오답 우선
+    }
+    const finalIds = ids.length ? ids
+      : classifiedList.filter(q => (q.taxSubjectName || '기타') === subjectName).map(qid);
+    startReview(finalIds, title, 'home');
+  };
+
   // 카드 한 장이 대표하는 문항 집합 (filterFn 없으면 타입별 추론)
   const cardQuestions = (group) => {
     if (group.filterFn) return processedData.filter(group.filterFn);
