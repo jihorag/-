@@ -1505,8 +1505,10 @@ const App = () => {
         </div>
         <main className="main-content" style={{ marginTop: '20px' }}>
           {scopeWrong.length === 0 ? (
-            <div style={{ textAlign: 'center', color: '#6b7280', padding: '40px' }}>
-              {reviewSubject ? '이 과목의 오답이 모두 해결되었습니다 🎉' : '복습할 오답이 없습니다. 잘하고 있어요! 🎉'}
+            <div className="empty-state">
+              <span className="emoji">🎉</span>
+              <div className="title">{reviewSubject ? '이 과목 오답을 모두 해결했어요' : '복습할 오답이 없어요'}</div>
+              <div className="sub">{reviewSubject ? '다른 과목도 확인해 보세요' : '잘하고 있어요! 계속 풀어볼까요?'}</div>
             </div>
           ) : (
             <div className="study-grid">
