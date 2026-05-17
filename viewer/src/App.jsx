@@ -226,12 +226,17 @@ const QuestionItem = ({ q, prior, onAnswer }) => {
         <ParsedText text={q.question} />
       </h3>
       
+      {noOptions && (
+        <div style={{ padding: '16px', background: '#fff7ed', border: '1px solid #fed7aa', borderRadius: '8px', color: '#9a3412', fontSize: '0.9rem', marginBottom: '24px' }}>
+          보기가 제공되지 않은 문항입니다. (원본 데이터 누락)
+        </div>
+      )}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
-        {q.options && q.options.map((opt, optIdx) => {
+        {!noOptions && q.options.map((opt, optIdx) => {
           const optNumber = String(optIdx + 1);
-          const isCorrectAnswer = q.answer === optNumber;
+          const isCorrectAnswer = hasAnswer && q.answerNorm === optNumber;
           const isSelected = selectedOpt === optNumber;
-          
+
           let bgColor = '#f9fafb';
           let borderColor = '#e5e7eb';
           let badgeBg = '#fff';
