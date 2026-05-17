@@ -1275,40 +1275,79 @@ const App = () => {
   }
 
   if (currentView === 'review') {
+    // 현재 스코프(전체 또는 선택 과목)의 오답 집합
+    const scopeWrong = reviewSubject
+      ? wrongList.filter(q => (q.taxSubjectName || '기타') === reviewSubject)
+      : wrongList;
+    // 난이도 오답 분포 (1~5)
+    const dist = [1, 2, 3, 4, 5].map(d => scopeWrong.filter(q => q.difficulty === d).length);
+    const distMax = Math.max(1, ...dist);
+    // 과목 선택 시 절(section) 단위 그룹
+    const sectionGroups = (() => {
+      if (!reviewSubject) return [];
+      const by = {};
+      for (const q of scopeWrong) {
+        const k = q.taxSectionName || q.taxChapterName || q.taxSubSubjectName || '기타';
+        (by[k] || (by[k] = [])).push(q);
+      }
+      return Object.entries(by).map(([sec, qs]) => ({ sec, ids: qs.map(qid), count: qs.length }))
+        .sort((a, b) => b.count - a.count);
+    })();
     return (
       <div className="app-container">
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
-          <button className="back-btn" onClick={() => setCurrentView('dashboard')}>
+          <button className="back-btn" onClick={() => reviewSubject ? setReviewSubject(null) : setCurrentView('dashboard')}>
             <ArrowLeft size={24} style={{ marginRight: '8px' }} />
             <span style={{ fontSize: '1rem', fontWeight: '600' }}>뒤로가기</span>
           </button>
         </header>
         <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>오답 복습</h1>
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>
+            {reviewSubject ? `${reviewSubject} 오답` : '오답 복습'}
+          </h1>
           <div style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '4px' }}>
-            틀린 {wrongList.length}문제 · 다시 풀어 맞히면 목록에서 사라집니다
+            {reviewSubject ? '절 단위로 약점을 좁혀 복습하세요' : '여러 번 틀린·어려운 문제부터 우선 출제됩니다'}
           </div>
+          {scopeWrong.length > 0 && (
+            <div style={{ display: 'flex', gap: '6px', alignItems: 'flex-end', marginTop: '14px', height: '44px' }}>
+              {dist.map((c, i) => (
+                <div key={i} style={{ flex: 1, textAlign: 'center' }}>
+                  <div style={{ height: `${Math.round((c / distMax) * 32)}px`, background: (DIFFICULTY_META[i + 1] || {}).fg || '#9ca3af', borderRadius: '3px 3px 0 0', minHeight: c ? '3px' : '0' }} />
+                  <div style={{ fontSize: '0.65rem', color: '#9ca3af', marginTop: '3px' }}>난{i + 1}·{c}</div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <main className="main-content" style={{ marginTop: '20px' }}>
-          {wrongList.length === 0 ? (
+          {scopeWrong.length === 0 ? (
             <div style={{ textAlign: 'center', color: '#6b7280', padding: '40px' }}>
-              복습할 오답이 없습니다. 잘하고 있어요! 🎉
+              {reviewSubject ? '이 과목의 오답이 모두 해결되었습니다 🎉' : '복습할 오답이 없습니다. 잘하고 있어요! 🎉'}
             </div>
           ) : (
             <div className="study-grid">
-              <div className="study-card" onClick={() => startReview(wrongList.map(qid), '전체 오답 복습')}
+              <div className="study-card"
+                onClick={() => startReview(scopeWrong.map(qid), reviewSubject ? `${reviewSubject} 오답` : '전체 오답 복습')}
                 style={{ background: '#fef2f2', borderColor: '#fecaca', cursor: 'pointer' }}>
-                <div className="card-badge" style={{ background: '#ef4444', color: '#fff', border: 'none' }}>전체</div>
-                <h3 className="card-title" style={{ fontSize: '1.1rem' }}>전체 오답 복습</h3>
-                <div className="card-total">총 {wrongList.length} 문제</div>
+                <div className="card-badge" style={{ background: '#ef4444', color: '#fff', border: 'none' }}>{reviewSubject ? '과목 전체' : '전체'}</div>
+                <h3 className="card-title" style={{ fontSize: '1.1rem' }}>{reviewSubject ? `${reviewSubject} 전체 오답` : '전체 오답 복습'}</h3>
+                <div className="card-total">총 {scopeWrong.length} 문제</div>
                 <div className="play-btn" style={{ background: '#ef4444', color: '#fff' }}>복습</div>
               </div>
-              {reviewGroups.map((g) => (
-                <div key={g.subj} className="study-card" onClick={() => startReview(g.ids, `${g.subj} 오답`)}
-                  style={{ cursor: 'pointer' }}>
+              {!reviewSubject && reviewGroups.map((g) => (
+                <div key={g.subj} className="study-card" onClick={() => setReviewSubject(g.subj)} style={{ cursor: 'pointer' }}>
                   <div className="card-badge">과목</div>
-                  <div className="card-subtitle">오답 복습</div>
+                  <div className="card-subtitle">절 단위로 좁히기 →</div>
                   <h3 className="card-title" style={{ fontSize: '1.1rem' }}>{g.subj}</h3>
+                  <div className="card-total">오답 {g.count} 문제</div>
+                  <div className="play-btn">선택</div>
+                </div>
+              ))}
+              {reviewSubject && sectionGroups.map((g) => (
+                <div key={g.sec} className="study-card" onClick={() => startReview(g.ids, `${g.sec} 오답`)} style={{ cursor: 'pointer' }}>
+                  <div className="card-badge">절</div>
+                  <div className="card-subtitle">{reviewSubject}</div>
+                  <h3 className="card-title" style={{ fontSize: '1.05rem' }}>{g.sec}</h3>
                   <div className="card-total">오답 {g.count} 문제</div>
                   <div className="play-btn">복습</div>
                 </div>
