@@ -810,7 +810,7 @@ const App = () => {
 
   // 기억곡선 스케줄: 오늘(이전 포함) 복습 도래분 + 다음 예정일
   const srs = useMemo(() => {
-    const now = Date.now();
+    const now = nowTs;
     const due = [];
     let next = null;          // 가장 이른 미래 복습일(ms)
     for (const q of classifiedList) {
