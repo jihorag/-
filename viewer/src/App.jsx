@@ -479,6 +479,14 @@ const App = () => {
     setAutoNextState(v);
     try { localStorage.setItem('quiz-autonext', v ? '1' : '0'); } catch { /* SSR */ }
   };
+  const [autoSec, setAutoSecState] = useState(() => {
+    const n = parseInt(localStorage.getItem('quiz-autosec'), 10);
+    return [3, 5, 8].includes(n) ? n : 5;
+  });
+  const setAutoSec = (n) => {
+    setAutoSecState(n);
+    try { localStorage.setItem('quiz-autosec', String(n)); } catch { /* SSR */ }
+  };
   const autoTimerRef = useRef(null);
   const clearAutoTimer = () => { if (autoTimerRef.current) { clearTimeout(autoTimerRef.current); autoTimerRef.current = null; } };
   const [autoPending, setAutoPending] = useState(false); // 자동 다음 대기 표시
