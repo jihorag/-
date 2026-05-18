@@ -1310,6 +1310,15 @@ const App = () => {
               {idx + 1} / {total} · 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b>
             </span>
           </div>
+          {!selectedGroup.review && (
+            <button
+              onClick={() => { setStudyOrder(studyOrder === 'random' ? 'difficulty' : 'random'); setStudyIdx(0); setStudyNonce(n => n + 1); window.scrollTo(0, 0); }}
+              style={{ marginTop: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#374151',
+                borderRadius: '999px', padding: '6px 12px', fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer' }}
+            >
+              {studyOrder === 'random' ? '🔀 무작위 순서' : '↕ 난이도순'} · 탭하여 전환
+            </button>
+          )}
         </div>
 
         <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
