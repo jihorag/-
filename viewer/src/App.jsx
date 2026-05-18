@@ -490,7 +490,7 @@ const App = () => {
     try { localStorage.setItem('quiz-notif', notifPref ? '1' : '0'); } catch { /* SSR */ }
   }, [notifPref]);
   const { progress, record: recordAnswer, update: updateAnswer, reset: resetProgress, clearMany, srsMode, setSrsMode } = useProgress();
-  const { bm, toggleBookmark } = useBookmarks();
+  const { bm, cycleBookmark } = useBookmarks();
   // 복합 검색·필터 상태
   const [filters, setFilters] = useState(loadFilters);
 
