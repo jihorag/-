@@ -514,6 +514,14 @@ const App = () => {
   const [reviewSubject, setReviewSubject] = useState(null); // 오답 복습 2단계 드릴(과목 선택)
   const [nowTs] = useState(() => Date.now()); // 세션 기준 현재시각(렌더 순수성)
   const [trendDays, setTrendDays] = useState(7); // 학습 추이 기간(7|30)
+  const [dailyGoal, setDailyGoalState] = useState(() => {
+    try { const n = parseInt(localStorage.getItem('quiz-daily-goal'), 10); return [10, 20, 30, 50].includes(n) ? n : 20; }
+    catch { return 20; }
+  });
+  const setDailyGoal = (n) => {
+    setDailyGoalState(n);
+    try { localStorage.setItem('quiz-daily-goal', String(n)); } catch { /* SSR */ }
+  };
   const [notifPref, setNotifPref] = useState(() => {
     try { return localStorage.getItem('quiz-notif') === '1' && typeof Notification !== 'undefined' && Notification.permission === 'granted'; }
     catch { return false; }
