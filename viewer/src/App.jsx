@@ -472,6 +472,16 @@ const App = () => {
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [studyIdx, setStudyIdx] = useState(0); // 가이드 학습 모드 현재 문항 인덱스
   const [studyNonce, setStudyNonce] = useState(0); // 재학습 시 문항 카드 강제 리마운트
+  const [autoNext, setAutoNextState] = useState(() => {
+    try { return localStorage.getItem('quiz-autonext') === '1'; } catch { return false; }
+  });
+  const setAutoNext = (v) => {
+    setAutoNextState(v);
+    try { localStorage.setItem('quiz-autonext', v ? '1' : '0'); } catch { /* SSR */ }
+  };
+  const autoTimerRef = useRef(null);
+  const clearAutoTimer = () => { if (autoTimerRef.current) { clearTimeout(autoTimerRef.current); autoTimerRef.current = null; } };
+  const [autoPending, setAutoPending] = useState(false); // 자동 다음 대기 표시
   const [studyOrder, setStudyOrderState] = useState(() => {
     try { return localStorage.getItem('quiz-study-order') === 'random' ? 'random' : 'difficulty'; }
     catch { return 'difficulty'; }
