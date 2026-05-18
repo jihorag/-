@@ -1890,14 +1890,27 @@ const App = () => {
               🔥 연속 <b style={{ color: '#ea580c' }}>{analytics.streak}일</b> · 오늘 <b>{analytics.todayCount}</b>문제 · 학습일 {analytics.studiedDays}일
             </p>
 
-            <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280', marginBottom: '8px' }}>최근 7일</div>
-            <div style={{ display: 'flex', gap: '6px', alignItems: 'flex-end', marginBottom: '18px', height: '70px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280' }}>
+                최근 {trendDays}일 · 합계 {analytics.trendSum}문제
+              </span>
+              <span style={{ display: 'flex', gap: '4px' }}>
+                {[7, 30].map(d => (
+                  <button key={d} onClick={() => setTrendDays(d)}
+                    style={{ border: 'none', borderRadius: '6px', padding: '4px 10px', fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer',
+                      background: trendDays === d ? 'var(--primary)' : '#f1f5f9', color: trendDays === d ? '#fff' : '#6b7280' }}>
+                    {d}일
+                  </button>
+                ))}
+              </span>
+            </div>
+            <div style={{ display: 'flex', gap: trendDays > 7 ? '2px' : '6px', alignItems: 'flex-end', marginBottom: '18px', height: '70px' }}>
               {analytics.trend.map((t, i) => (
                 <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%' }}>
-                  <div style={{ fontSize: '0.6rem', color: '#9ca3af', marginBottom: '2px' }}>{t.count || ''}</div>
-                  <div style={{
-                    width: '100%', borderRadius: '4px 4px 0 0',
-                    height: `${t.count ? Math.max(6, (t.count / analytics.trendMax) * 44) : 3}px`,
+                  {trendDays <= 7 && <div style={{ fontSize: '0.6rem', color: '#9ca3af', marginBottom: '2px' }}>{t.count || ''}</div>}
+                  <div title={`${t.count}문제${t.acc != null ? ` · 정답률 ${t.acc}%` : ''}`} style={{
+                    width: '100%', borderRadius: trendDays > 7 ? '2px 2px 0 0' : '4px 4px 0 0',
+                    height: `${t.count ? Math.max(4, (t.count / analytics.trendMax) * 44) : 3}px`,
                     background: t.count ? (t.isToday ? 'var(--primary)' : '#93c5fd') : '#e5e7eb',
                   }} />
                   <div style={{ fontSize: '0.65rem', marginTop: '4px', fontWeight: t.isToday ? 700 : 500, color: t.isToday ? 'var(--primary)' : '#9ca3af' }}>{t.label}</div>
