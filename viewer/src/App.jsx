@@ -1066,21 +1066,23 @@ const App = () => {
       const v = diff[d];
       return { d, scored: v ? v.scored : 0, acc: v && v.scored ? Math.round((v.correct / v.scored) * 100) : null };
     });
-    // 최근 7일 학습 추이(문항의 최신 활동일 기준)
+    // 최근 N일 학습 추이(문항의 최신 활동일 기준)
     const trend = [];
-    for (let i = 6; i >= 0; i--) {
+    for (let i = trendDays - 1; i >= 0; i--) {
       const dt = new Date(); dt.setHours(0, 0, 0, 0); dt.setDate(dt.getDate() - i);
       const a = dayAgg[dt.toDateString()] || { count: 0, scored: 0, correct: 0 };
       trend.push({
-        label: ['일', '월', '화', '수', '목', '금', '토'][dt.getDay()],
+        // 7일이면 요일, 30일이면 라벨 생략(범위는 별도 표기)
+        label: trendDays <= 7 ? ['일', '월', '화', '수', '목', '금', '토'][dt.getDay()] : '',
         isToday: i === 0,
         count: a.count,
         acc: a.scored ? Math.round((a.correct / a.scored) * 100) : null,
       });
     }
     const trendMax = Math.max(1, ...trend.map(t => t.count));
-    return { subjects, weak, diffAcc, streak, todayCount, studiedDays: days.size, trend, trendMax };
-  }, [classifiedList, progress]);
+    const trendSum = trend.reduce((n, t) => n + t.count, 0);
+    return { subjects, weak, diffAcc, streak, todayCount, studiedDays: days.size, trend, trendMax, trendSum };
+  }, [classifiedList, progress, trendDays]);
 
   // 한 과목을 집중 연습: 오답·미응답 우선(없으면 전체) 가이드 학습
   const startConcept = (subjectName, title) => {
