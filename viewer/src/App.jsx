@@ -1691,6 +1691,12 @@ const App = () => {
     );
     return shell(
       <div className="app-container">
+        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
+          <button className="back-btn" onClick={() => setCurrentView('dashboard')}>
+            <ArrowLeft size={24} style={{ marginRight: '8px' }} />
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>둘러보기</span>
+          </button>
+        </header>
         <div className="screen-head">
           <h1 className="screen-title">🔍 검색</h1>
         </div>
