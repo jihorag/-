@@ -1653,7 +1653,7 @@ const App = () => {
         </div>
         <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
           {shown.map(q => (
-            <QuestionItem key={qid(q)} q={q} prior={progress[qid(q)]} onAnswer={recordAnswer} bookmarked={!!bm[qid(q)]} onToggleBookmark={toggleBookmark} />
+            <QuestionItem key={qid(q)} q={q} prior={progress[qid(q)]} onAnswer={recordAnswer} bmReason={bmReasonOf(bm[qid(q)])} onToggleBookmark={cycleBookmark} />
           ))}
           {filteredResults.length > shown.length && (
             <div style={{ textAlign: 'center', color: '#6b7280', padding: '16px' }}>
