@@ -1181,6 +1181,7 @@ const App = () => {
   };
 
   const handleBack = () => {
+    clearAutoTimer();
     if (currentView === 'question_list' || currentView === 'study') {
       // 오답 복습에서 진입한 경우 복습 화면으로 복귀
       if (selectedGroup && selectedGroup.review) {
