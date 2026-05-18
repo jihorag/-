@@ -2157,98 +2157,17 @@ const App = () => {
         </section>
 
         {overall.answered > 0 && (
-          <section style={{ background: '#fff', borderRadius: '16px', padding: '20px', boxShadow: 'var(--shadow-md)', marginBottom: '20px' }}>
-            <h2 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '4px' }}>학습 분석</h2>
-            <p style={{ fontSize: '0.85rem', color: '#6b7280', marginBottom: '16px' }}>
-              🔥 연속 <b style={{ color: '#ea580c' }}>{analytics.streak}일</b> · 오늘 <b>{analytics.todayCount}</b>문제 · 학습일 {analytics.studiedDays}일
-            </p>
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280' }}>
-                최근 {trendDays}일 · 합계 {analytics.trendSum}문제
-              </span>
-              <span style={{ display: 'flex', gap: '4px' }}>
-                {[7, 30].map(d => (
-                  <button key={d} onClick={() => setTrendDays(d)}
-                    style={{ border: 'none', borderRadius: '6px', padding: '4px 10px', fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer',
-                      background: trendDays === d ? 'var(--primary)' : '#f1f5f9', color: trendDays === d ? '#fff' : '#6b7280' }}>
-                    {d}일
-                  </button>
-                ))}
-              </span>
+          <button
+            onClick={() => setCurrentView("status")}
+            style={{ width: "100%", textAlign: "left", padding: "16px", marginBottom: "20px", borderRadius: "16px",
+              border: "1px solid #bfdbfe", background: "#eff6ff", color: "#1d4ed8", cursor: "pointer",
+              boxShadow: "var(--shadow-sm)" }}
+          >
+            <div style={{ fontWeight: 800, fontSize: "1.05rem" }}>📊 학습 현황 보기</div>
+            <div style={{ fontSize: "0.82rem", color: "#3b6fb5", marginTop: "4px" }}>
+              연속 {analytics.streak}일 · 정답률 {overall.accuracy == null ? "–" : overall.accuracy + "%"} · 약점·추세·시험별 진척 한눈에 →
             </div>
-            <div style={{ display: 'flex', gap: trendDays > 7 ? '2px' : '6px', alignItems: 'flex-end', marginBottom: '18px', height: '70px' }}>
-              {analytics.trend.map((t, i) => (
-                <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%' }}>
-                  {trendDays <= 7 && <div style={{ fontSize: '0.6rem', color: '#9ca3af', marginBottom: '2px' }}>{t.count || ''}</div>}
-                  <div title={`${t.count}문제${t.acc != null ? ` · 정답률 ${t.acc}%` : ''}`} style={{
-                    width: '100%', borderRadius: trendDays > 7 ? '2px 2px 0 0' : '4px 4px 0 0',
-                    height: `${t.count ? Math.max(4, (t.count / analytics.trendMax) * 44) : 3}px`,
-                    background: t.count ? (t.isToday ? 'var(--primary)' : '#93c5fd') : '#e5e7eb',
-                  }} />
-                  <div style={{ fontSize: '0.65rem', marginTop: '4px', fontWeight: t.isToday ? 700 : 500, color: t.isToday ? 'var(--primary)' : '#9ca3af' }}>{t.label}</div>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280', marginBottom: '8px' }}>난이도별 정답률</div>
-            <div style={{ display: 'flex', gap: '6px', marginBottom: '18px' }}>
-              {analytics.diffAcc.map(({ d, acc }) => {
-                const m = DIFFICULTY_META[d] || {};
-                return (
-                  <div key={d} style={{ flex: 1, textAlign: 'center' }}>
-                    <div style={{ height: '52px', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-                      <div style={{
-                        width: '70%', borderRadius: '4px 4px 0 0',
-                        height: `${acc == null ? 3 : Math.max(4, acc * 0.5)}px`,
-                        background: acc == null ? '#e5e7eb' : (m.fg || '#3b82f6'),
-                      }} />
-                    </div>
-                    <div style={{ fontSize: '0.65rem', color: '#6b7280', marginTop: '4px' }}>난{d}</div>
-                    <div style={{ fontSize: '0.7rem', fontWeight: 700, color: acc == null ? '#9ca3af' : '#374151' }}>
-                      {acc == null ? '–' : `${acc}%`}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280', marginBottom: '8px' }}>
-              집중 학습 추천 (정답률 낮은 과목)
-            </div>
-            {analytics.weak.length === 0 ? (
-              <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>
-                더 풀면 약점 과목이 분석돼요 (과목당 5문제 이상 채점 시)
-              </div>
-            ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {analytics.weak.map(w => (
-                  <div key={w.name}
-                    style={{ border: '1px solid #fecaca', background: '#fef2f2',
-                      borderRadius: '10px', padding: '12px 14px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#7f1d1d' }}>
-                      <b>{w.name}</b>
-                      <span style={{ fontWeight: 800, color: '#dc2626' }}>{w.acc}%</span>
-                    </div>
-                    <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
-                      <button onClick={() => startConcept(w.name, `${w.name} 집중 학습`)}
-                        style={{ flex: 1, border: 'none', background: '#ef4444', color: '#fff', fontWeight: 700,
-                          borderRadius: '8px', padding: '9px', cursor: 'pointer', fontSize: '0.85rem' }}>
-                        과목 전체 학습
-                      </button>
-                      {w.weakSection && (
-                        <button onClick={() => startReview(w.weakSection.ids, `${w.weakSection.nm} 집중`, 'home')}
-                          style={{ flex: 1, border: '1px solid #fecaca', background: '#fff', color: '#b91c1c', fontWeight: 700,
-                            borderRadius: '8px', padding: '9px', cursor: 'pointer', fontSize: '0.85rem' }}>
-                          약한 절: {w.weakSection.nm}
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
+          </button>
         )}
 
         <div
