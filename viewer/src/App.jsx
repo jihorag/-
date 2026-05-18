@@ -1446,7 +1446,7 @@ const App = () => {
                 >다음 문제 →</button>
               </div>
               <div style={{ textAlign: 'center', fontSize: '0.75rem', color: '#9ca3af', marginTop: '8px' }}>
-                키보드 <b>←</b> 이전 · <b>→</b> 또는 <b>Enter</b> 다음
+                키보드 <b>1~5</b> 보기 · <b>←</b> 이전 · <b>→</b>·<b>Enter</b> 다음
               </div>
               {done && selectedGroup.review && (() => {
                 const stillWrong = ordered.filter(x => { const p = progress[qid(x)]; return p && p.correct === false; });
