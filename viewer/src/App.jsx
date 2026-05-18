@@ -482,6 +482,7 @@ const App = () => {
   };
   const [reviewSubject, setReviewSubject] = useState(null); // 오답 복습 2단계 드릴(과목 선택)
   const [nowTs] = useState(() => Date.now()); // 세션 기준 현재시각(렌더 순수성)
+  const [trendDays, setTrendDays] = useState(7); // 학습 추이 기간(7|30)
   const [notifPref, setNotifPref] = useState(() => {
     try { return localStorage.getItem('quiz-notif') === '1' && typeof Notification !== 'undefined' && Notification.permission === 'granted'; }
     catch { return false; }
