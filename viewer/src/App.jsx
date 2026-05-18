@@ -2202,7 +2202,7 @@ const App = () => {
           >
             <div style={{ fontWeight: 800, fontSize: "1.05rem" }}>📊 학습 현황 보기</div>
             <div style={{ fontSize: "0.82rem", color: "#3b6fb5", marginTop: "4px" }}>
-              연속 {analytics.streak}일 · 정답률 {overall.accuracy == null ? "–" : overall.accuracy + "%"} · 약점·추세·시험별 진척 한눈에 →
+              오늘 {analytics.todayCount}/{dailyGoal} · 연속 {analytics.streak}일 · 정답률 {overall.accuracy == null ? "–" : overall.accuracy + "%"} · 한눈에 →
             </div>
           </button>
         )}
