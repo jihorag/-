@@ -1481,8 +1481,8 @@ const App = () => {
               q={q}
               prior={progress[qid(q)]}
               onAnswer={recordAnswer}
-              bookmarked={!!bm[qid(q)]}
-              onToggleBookmark={toggleBookmark}
+              bmReason={bmReasonOf(bm[qid(q)])}
+              onToggleBookmark={cycleBookmark}
             />
           ))}
         </main>
