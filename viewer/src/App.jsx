@@ -1791,7 +1791,7 @@ const App = () => {
     ];
     const learnedPct = cv.total ? Math.round(((cv.learned + cv.mastered + cv.review) / cv.total) * 100) : 0;
     const backlog = Math.max(0, srs.dueTotal - srs.due.length);
-    const Kpi = ({ v, sub, color }) => (
+    const kpi = (v, sub, color) => (
       <div style={{ flex: 1, background: '#fff', borderRadius: '12px', padding: '14px 10px', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
         <div style={{ fontSize: '1.25rem', fontWeight: 800, color: color || '#111827' }}>{v}</div>
         <div style={{ fontSize: '0.72rem', color: '#6b7280', marginTop: '2px' }}>{sub}</div>
