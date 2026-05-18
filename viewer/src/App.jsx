@@ -1781,6 +1781,166 @@ const App = () => {
     );
   }
 
+  if (currentView === 'status') {
+    const cv = coverage;
+    const segs = [
+      { k: 'learned', label: '정답·학습', n: cv.learned, c: '#3b82f6' },
+      { k: 'mastered', label: '마스터', n: cv.mastered, c: '#16a34a' },
+      { k: 'review', label: '복습필요', n: cv.review, c: '#ef4444' },
+      { k: 'unseen', label: '미응답', n: cv.unseen, c: '#e5e7eb' },
+    ];
+    const learnedPct = cv.total ? Math.round(((cv.learned + cv.mastered + cv.review) / cv.total) * 100) : 0;
+    const backlog = Math.max(0, srs.dueTotal - srs.due.length);
+    const Kpi = ({ v, sub, color }) => (
+      <div style={{ flex: 1, background: '#fff', borderRadius: '12px', padding: '14px 10px', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
+        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: color || '#111827' }}>{v}</div>
+        <div style={{ fontSize: '0.72rem', color: '#6b7280', marginTop: '2px' }}>{sub}</div>
+      </div>
+    );
+    return shell(
+      <div className="app-container">
+        <div className="screen-head"><h1 className="screen-title">📊 학습 현황</h1></div>
+        <main className="main-content" style={{ marginTop: '16px' }}>
+          {/* 핵심 KPI */}
+          <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+            <Kpi v={`${learnedPct}%`} sub={`학습 ${cv.total - cv.unseen}/${cv.total}`} color="#2563eb" />
+            <Kpi v={overall.accuracy == null ? '–' : `${overall.accuracy}%`} sub="정답률" color="#16a34a" />
+            <Kpi v={`${analytics.streak}일`} sub="연속 학습" color="#ea580c" />
+            <Kpi v={srs.due.length} sub="오늘 복습" color="#7c3aed" />
+          </div>
+
+          {/* 커버리지 스택바 */}
+          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
+            <div style={{ fontWeight: 800, marginBottom: '12px' }}>전체 커버리지 ({cv.total}문항)</div>
+            <div style={{ display: 'flex', height: '14px', borderRadius: '999px', overflow: 'hidden', marginBottom: '12px' }}>
+              {segs.map(s => s.n > 0 && (
+                <div key={s.k} title={`${s.label} ${s.n}`} style={{ width: `${(s.n / cv.total) * 100}%`, background: s.c }} />
+              ))}
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px 14px' }}>
+              {segs.map(s => (
+                <div key={s.k} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#374151' }}>
+                  <span style={{ width: 10, height: 10, borderRadius: 3, background: s.c, flexShrink: 0 }} />
+                  {s.label} <b style={{ marginLeft: 'auto' }}>{s.n}</b>
+                  <span style={{ color: '#9ca3af', minWidth: 38, textAlign: 'right' }}>{cv.pct(s.n)}%</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* 복습 현황 */}
+          <section onClick={() => srs.due.length && setCurrentView('today')}
+            style={{ background: srs.due.length ? '#eff6ff' : '#fff', border: `1px solid ${srs.due.length ? '#bfdbfe' : '#e5e7eb'}`,
+              borderRadius: '16px', padding: '18px', marginBottom: '16px', cursor: srs.due.length ? 'pointer' : 'default' }}>
+            <div style={{ fontWeight: 800, marginBottom: '8px' }}>🔁 복습 현황</div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', fontSize: '0.85rem', color: '#374151' }}>
+              <span>오늘 <b style={{ color: '#1d4ed8' }}>{srs.due.length}</b></span>
+              <span>밀림 <b style={{ color: backlog ? '#dc2626' : '#374151' }}>{backlog}</b></span>
+              <span>마스터 <b style={{ color: '#16a34a' }}>{cv.mastered}</b></span>
+              <span style={{ color: '#6b7280' }}>
+                다음 예정 {srs.nextDue != null ? `${new Date(srs.nextDue).getMonth() + 1}/${new Date(srs.nextDue).getDate()}` : '–'}
+              </span>
+            </div>
+            {srs.due.length > 0 && <div style={{ fontSize: '0.8rem', color: '#1d4ed8', marginTop: '8px' }}>오늘 복습 시작 →</div>}
+          </section>
+
+          {/* 추세 */}
+          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+              <span style={{ fontWeight: 800 }}>최근 {trendDays}일 · {analytics.trendSum}문제</span>
+              <span style={{ display: 'flex', gap: '4px' }}>
+                {[7, 30].map(d => (
+                  <button key={d} onClick={() => setTrendDays(d)}
+                    style={{ border: 'none', borderRadius: '6px', padding: '4px 10px', fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer',
+                      background: trendDays === d ? 'var(--primary)' : '#f1f5f9', color: trendDays === d ? '#fff' : '#6b7280' }}>{d}일</button>
+                ))}
+              </span>
+            </div>
+            <div style={{ display: 'flex', gap: trendDays > 7 ? '2px' : '6px', alignItems: 'flex-end', height: '64px' }}>
+              {analytics.trend.map((t, i) => (
+                <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%' }}>
+                  <div title={`${t.count}문제${t.acc != null ? ` · ${t.acc}%` : ''}`} style={{
+                    width: '100%', borderRadius: '3px 3px 0 0',
+                    height: `${t.count ? Math.max(4, (t.count / analytics.trendMax) * 44) : 3}px`,
+                    background: t.count ? (t.isToday ? 'var(--primary)' : '#93c5fd') : '#eee',
+                  }} />
+                  <div style={{ fontSize: '0.6rem', marginTop: '3px', color: t.isToday ? 'var(--primary)' : '#9ca3af', fontWeight: t.isToday ? 700 : 500 }}>{t.label}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* 약점 */}
+          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
+            <div style={{ fontWeight: 800, marginBottom: '10px' }}>약점 진단</div>
+            <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#6b7280', marginBottom: '6px' }}>난이도별 정답률</div>
+            <div style={{ display: 'flex', gap: '6px', marginBottom: '14px' }}>
+              {analytics.diffAcc.map(({ d, acc }) => {
+                const m = DIFFICULTY_META[d] || {};
+                return (
+                  <div key={d} style={{ flex: 1, textAlign: 'center' }}>
+                    <div style={{ height: '40px', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
+                      <div style={{ width: '64%', borderRadius: '3px 3px 0 0', height: `${acc == null ? 3 : Math.max(4, acc * 0.38)}px`, background: acc == null ? '#e5e7eb' : (m.fg || '#3b82f6') }} />
+                    </div>
+                    <div style={{ fontSize: '0.62rem', color: '#9ca3af', marginTop: '3px' }}>난{d}</div>
+                    <div style={{ fontSize: '0.68rem', fontWeight: 700, color: acc == null ? '#9ca3af' : '#374151' }}>{acc == null ? '–' : `${acc}%`}</div>
+                  </div>
+                );
+              })}
+            </div>
+            {analytics.weak.length === 0 ? (
+              <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>과목당 5문제 이상 풀면 약점이 분석돼요</div>
+            ) : analytics.weak.map(w => (
+              <div key={w.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                border: '1px solid #fecaca', background: '#fef2f2', borderRadius: '10px', padding: '10px 12px', marginBottom: '6px',
+                cursor: 'pointer' }} onClick={() => startConcept(w.name, `${w.name} 집중 학습`)}>
+                <span style={{ color: '#7f1d1d', fontSize: '0.88rem' }}><b>{w.name}</b>{w.weakSection && <span style={{ fontSize: '0.75rem', color: '#9a3412' }}> · {w.weakSection.nm}</span>}</span>
+                <span style={{ fontWeight: 800, color: '#dc2626' }}>{w.acc}%</span>
+              </div>
+            ))}
+          </section>
+
+          {/* 시험별 진척 */}
+          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
+            <div style={{ fontWeight: 800, marginBottom: '10px' }}>시험별 진척</div>
+            {cv.exams.map(e => (
+              <div key={e.name} style={{ marginBottom: '10px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginBottom: '4px' }}>
+                  <span style={{ fontWeight: 600 }}>{e.name}</span>
+                  <span style={{ color: '#6b7280' }}>{e.answered}/{e.total} · {e.acc == null ? '–' : `정답 ${e.acc}%`}</span>
+                </div>
+                <div style={{ height: '7px', background: '#f1f5f9', borderRadius: '999px', overflow: 'hidden' }}>
+                  <div style={{ width: `${e.coverPct}%`, height: '100%', background: 'var(--primary)' }} />
+                </div>
+              </div>
+            ))}
+          </section>
+
+          {/* 북마크 요약 */}
+          {bookmarkedList.length > 0 && (
+            <section style={{ background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '16px', padding: '18px', marginBottom: '8px' }}>
+              <div style={{ fontWeight: 800, marginBottom: '10px', color: '#b45309' }}>★ 북마크 {bookmarkedList.length}</div>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                {BM_REASONS.map(r => {
+                  const ids = bookmarkedList.filter(q => bmReasonOf(bm[qid(q)]) === r).map(qid);
+                  if (!ids.length) return null;
+                  const m = BM_META[r];
+                  return (
+                    <button key={r} onClick={() => startReview(ids, `북마크 · ${m.label}`, 'status')}
+                      style={{ border: `1px solid ${m.color}`, background: '#fff', color: m.color, borderRadius: '999px',
+                        padding: '7px 13px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
+                      {m.icon} {m.label} {ids.length}
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+        </main>
+      </div>
+    );
+  }
+
   if (currentView === 'today') {
     const fmtDate = (ms) => {
       const d = new Date(ms), t = new Date(); t.setHours(0, 0, 0, 0);
