@@ -1237,6 +1237,7 @@ const App = () => {
     : currentView === 'search' ? 'search'
     : 'browse'; // dashboard + tax_*
   const goTab = (t) => {
+    clearAutoTimer();
     if (t === 'home') setCurrentView('home');
     else if (t === 'browse') setCurrentView('dashboard');
     else if (t === 'review') { setReviewSubject(null); setCurrentView('reviewHome'); }
