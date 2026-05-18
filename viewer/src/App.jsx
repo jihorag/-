@@ -1356,15 +1356,25 @@ const App = () => {
               {idx + 1} / {total} · 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b>
             </span>
           </div>
-          {!selectedGroup.review && (
+          <div style={{ display: 'flex', gap: '8px', marginTop: '10px', flexWrap: 'wrap' }}>
+            {!selectedGroup.review && (
+              <button
+                onClick={() => { setStudyOrder(studyOrder === 'random' ? 'difficulty' : 'random'); setStudyIdx(0); setStudyNonce(n => n + 1); window.scrollTo(0, 0); }}
+                style={{ border: '1px solid #d1d5db', background: '#fff', color: '#374151',
+                  borderRadius: '999px', padding: '6px 12px', fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer' }}
+              >
+                {studyOrder === 'random' ? '🔀 무작위 순서' : '↕ 난이도순'}
+              </button>
+            )}
             <button
-              onClick={() => { setStudyOrder(studyOrder === 'random' ? 'difficulty' : 'random'); setStudyIdx(0); setStudyNonce(n => n + 1); window.scrollTo(0, 0); }}
-              style={{ marginTop: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#374151',
+              onClick={() => { const v = !autoNext; setAutoNext(v); if (!v) { clearAutoTimer(); setAutoPending(false); } }}
+              style={{ border: `1px solid ${autoNext ? 'var(--primary)' : '#d1d5db'}`,
+                background: autoNext ? 'var(--primary)' : '#fff', color: autoNext ? '#fff' : '#374151',
                 borderRadius: '999px', padding: '6px 12px', fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer' }}
             >
-              {studyOrder === 'random' ? '🔀 무작위 순서' : '↕ 난이도순'} · 탭하여 전환
+              ⏩ 자동 다음 {autoNext ? 'ON' : 'OFF'}
             </button>
-          )}
+          </div>
         </div>
 
         <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
