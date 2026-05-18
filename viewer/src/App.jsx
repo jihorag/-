@@ -289,7 +289,7 @@ const ParsedText = ({ text }) => {
 };
 
 // Interactive Question Component
-const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark }) => {
+const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard }) => {
   const [selectedOpt, setSelectedOpt] = useState(prior ? (prior.sel ?? null) : null);
   const isRevealed = selectedOpt !== null;
   const hasAnswer = !!q.answerNorm;          // 정답 정보가 유효한 문항인가
@@ -302,6 +302,19 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark }) => {
     // correct: 정답 있으면 boolean, 없으면 null(채점 제외)
     if (onAnswer) onAnswer(q, sel, hasAnswer ? sel === q.answerNorm : null);
   };
+
+  // 가이드 학습: 숫자키 1~9로 보기 선택(단일 문항 표시 화면에서만)
+  useEffect(() => {
+    if (!keyboard || isRevealed || noOptions) return;
+    const onKey = (e) => {
+      const tag = e.target && e.target.tagName;
+      if (tag && /^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return;
+      const n = parseInt(e.key, 10);
+      if (n >= 1 && n <= q.options.length) handleOptionClick(n - 1);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [keyboard, isRevealed, noOptions, q]);
 
   return (
     <div style={{ background: '#fff', borderRadius: '12px', padding: '24px', marginBottom: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
