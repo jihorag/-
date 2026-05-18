@@ -324,16 +324,22 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark }) => {
           <span style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
             {q.exam} {q.year}년 {q.number}번
           </span>
-          {onToggleBookmark && (
-            <button
-              onClick={() => onToggleBookmark(q)}
-              aria-label="북마크"
-              style={{ border: 'none', background: 'none', cursor: 'pointer', fontSize: '1.2rem',
-                lineHeight: 1, padding: 0, color: bookmarked ? '#f59e0b' : '#d1d5db' }}
-            >
-              {bookmarked ? '★' : '☆'}
-            </button>
-          )}
+          {onToggleBookmark && (() => {
+            const m = bmReason ? BM_META[bmReason] : null;
+            return (
+              <button
+                onClick={() => onToggleBookmark(q)}
+                aria-label="북마크"
+                title={m ? `북마크: ${m.label} (탭하여 변경)` : '북마크 (중요→헷갈림→실수)'}
+                style={{ border: 'none', background: 'none', cursor: 'pointer', display: 'flex',
+                  alignItems: 'center', gap: '3px', padding: 0, lineHeight: 1,
+                  color: m ? m.color : '#d1d5db' }}
+              >
+                <span style={{ fontSize: '1.2rem' }}>{m ? m.icon : '☆'}</span>
+                {m && <span style={{ fontSize: '0.7rem', fontWeight: 700 }}>{m.label}</span>}
+              </button>
+            );
+          })()}
         </span>
       </div>
       
