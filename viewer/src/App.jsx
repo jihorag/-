@@ -2046,19 +2046,36 @@ const App = () => {
             {wrongList.length > 0 ? '틀린 문제를 과목·절별로 다시 풀기 →' : '아직 틀린 문제가 없어요'}
           </div>
         </div>
-        <div
-          onClick={() => bookmarkedList.length && startReview(bookmarkedList.map(qid), '북마크 문항', 'reviewHome')}
-          style={{ padding: '18px', marginTop: '12px', borderRadius: '12px',
-            border: `1px solid ${bookmarkedList.length ? '#fde68a' : '#e5e7eb'}`,
-            background: bookmarkedList.length ? '#fffbeb' : '#fff',
-            cursor: bookmarkedList.length ? 'pointer' : 'default' }}
-        >
-          <div style={{ fontWeight: 700, fontSize: '1.05rem', color: bookmarkedList.length ? '#b45309' : '#9ca3af' }}>
-            ★ 북마크 {bookmarkedList.length > 0 ? `${bookmarkedList.length}문제` : '없음'}
+        <div style={{ padding: '18px', marginTop: '12px', borderRadius: '12px',
+          border: `1px solid ${bookmarkedList.length ? '#fde68a' : '#e5e7eb'}`,
+          background: bookmarkedList.length ? '#fffbeb' : '#fff' }}>
+          <div
+            onClick={() => bookmarkedList.length && startReview(bookmarkedList.map(qid), '북마크 전체', 'reviewHome')}
+            style={{ cursor: bookmarkedList.length ? 'pointer' : 'default' }}
+          >
+            <div style={{ fontWeight: 700, fontSize: '1.05rem', color: bookmarkedList.length ? '#b45309' : '#9ca3af' }}>
+              ★ 북마크 {bookmarkedList.length > 0 ? `${bookmarkedList.length}문제` : '없음'}
+            </div>
+            <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: '4px' }}>
+              {bookmarkedList.length > 0 ? '전체 모아 학습 →' : '문제 풀 때 ☆를 눌러 북마크(중요·헷갈림·실수)'}
+            </div>
           </div>
-          <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: '4px' }}>
-            {bookmarkedList.length > 0 ? '표시해 둔 문항만 모아 학습 →' : '문제 풀 때 ☆를 눌러 북마크하세요'}
-          </div>
+          {bookmarkedList.length > 0 && (
+            <div style={{ display: 'flex', gap: '8px', marginTop: '12px', flexWrap: 'wrap' }}>
+              {BM_REASONS.map(r => {
+                const ids = bookmarkedList.filter(q => bmReasonOf(bm[qid(q)]) === r).map(qid);
+                if (ids.length === 0) return null;
+                const m = BM_META[r];
+                return (
+                  <button key={r} onClick={() => startReview(ids, `북마크 · ${m.label}`, 'reviewHome')}
+                    style={{ border: `1px solid ${m.color}`, background: '#fff', color: m.color,
+                      borderRadius: '999px', padding: '7px 13px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
+                    {m.icon} {m.label} {ids.length}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       </main>
     </div>
