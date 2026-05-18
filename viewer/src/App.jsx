@@ -144,24 +144,35 @@ const useProgress = () => {
   return { progress, record, update, reset, clearMany, srsMode, setSrsMode };
 };
 
-// 문항 북마크(중요/헷갈림) — 정오답과 무관, 별도 영속
+// 문항 북마크 — 사유 태그(중요/헷갈림/실수). 정오답과 무관, 별도 영속
 const BM_KEY = 'quiz-bookmarks-v1';
+// 탭 시 사유 순환: 없음→중요→헷갈림→실수→없음
+const BM_REASONS = ['important', 'confusing', 'mistake'];
+const BM_META = {
+  important: { label: '중요', icon: '★', color: '#f59e0b' },
+  confusing: { label: '헷갈림', icon: '★', color: '#8b5cf6' },
+  mistake:   { label: '실수', icon: '★', color: '#ef4444' },
+};
+const bmReasonOf = (v) => (typeof v === 'string' && BM_META[v]) ? v : (v ? 'important' : null); // 레거시(1)→중요
 const loadBookmarks = () => {
   try { return JSON.parse(localStorage.getItem(BM_KEY) || '{}') || {}; }
   catch { return {}; }
 };
 const useBookmarks = () => {
   const [bm, setBm] = useState(loadBookmarks);
-  const toggleBookmark = (q) => {
+  const cycleBookmark = (q) => {
     const id = qid(q);
     setBm(prev => {
+      const cur = bmReasonOf(prev[id]);
+      const i = cur ? BM_REASONS.indexOf(cur) : -1;
+      const nextReason = BM_REASONS[i + 1]; // 마지막 다음은 undefined → 해제
       const next = { ...prev };
-      if (next[id]) delete next[id]; else next[id] = 1;
+      if (nextReason) next[id] = nextReason; else delete next[id];
       try { localStorage.setItem(BM_KEY, JSON.stringify(next)); } catch { /* quota/SSR */ }
       return next;
     });
   };
-  return { bm, toggleBookmark };
+  return { bm, cycleBookmark };
 };
 
 // 문항 배열에 대한 진행 통계
