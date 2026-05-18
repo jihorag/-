@@ -1424,6 +1424,7 @@ const App = () => {
                 onAnswer={handleAnswer}
                 bmReason={bmReasonOf(bm[qid(q)])}
                 onToggleBookmark={cycleBookmark}
+                keyboard
               />
               {autoPending && (
                 <div onClick={() => { clearAutoTimer(); setAutoPending(false); }}
