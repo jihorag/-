@@ -1844,6 +1844,21 @@ const App = () => {
                 <div style={{ height: '10px', background: '#f1f5f9', borderRadius: '999px', overflow: 'hidden', marginBottom: '12px' }}>
                   <div style={{ width: `${pct}%`, height: '100%', background: met ? '#16a34a' : 'var(--primary)', transition: 'width .3s' }} />
                 </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '0.85rem', color: '#374151' }}>
+                    🔥 목표 연속 <b style={{ color: '#ea580c' }}>{analytics.goalStreak}일</b>
+                  </span>
+                  <span style={{ display: 'flex', gap: '5px' }}>
+                    {analytics.weekMet.map((w, i) => (
+                      <span key={i} title={w.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                        <span style={{ width: 14, height: 14, borderRadius: '50%',
+                          background: w.met ? '#16a34a' : '#e5e7eb',
+                          outline: w.isToday ? '2px solid var(--primary)' : 'none', outlineOffset: '1px' }} />
+                        <span style={{ fontSize: '0.55rem', color: '#9ca3af' }}>{w.label}</span>
+                      </span>
+                    ))}
+                  </span>
+                </div>
                 <div style={{ display: 'flex', gap: '6px' }}>
                   {[10, 20, 30, 50].map(g => (
                     <button key={g} onClick={() => setDailyGoal(g)}
