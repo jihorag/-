@@ -1380,18 +1380,25 @@ const App = () => {
                 key={`${qid(q)}-${studyNonce}`}
                 q={q}
                 prior={selectedGroup.review ? undefined : progress[qid(q)]}
-                onAnswer={selectedGroup.review ? updateAnswer : recordAnswer}
+                onAnswer={handleAnswer}
                 bmReason={bmReasonOf(bm[qid(q)])}
                 onToggleBookmark={cycleBookmark}
               />
+              {autoPending && (
+                <div onClick={() => { clearAutoTimer(); setAutoPending(false); }}
+                  style={{ marginTop: '10px', padding: '10px 14px', borderRadius: '10px', cursor: 'pointer',
+                    background: '#eff6ff', border: '1px solid #bfdbfe', color: '#1d4ed8', fontSize: '0.85rem', fontWeight: 600, textAlign: 'center' }}>
+                  ⏩ 잠시 후 다음 문제로… (탭하여 멈춤)
+                </div>
+              )}
               <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', marginTop: '8px' }}>
                 <button
-                  onClick={() => { setStudyIdx(Math.max(0, idx - 1)); window.scrollTo(0, 0); }}
+                  onClick={goPrev}
                   disabled={idx === 0}
                   style={{ flex: 1, padding: '14px', minHeight: '48px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', cursor: idx === 0 ? 'default' : 'pointer', color: idx === 0 ? '#d1d5db' : '#374151', fontWeight: 600 }}
                 >← 이전</button>
                 <button
-                  onClick={() => { setStudyIdx(Math.min(total - 1, idx + 1)); window.scrollTo(0, 0); }}
+                  onClick={goNext}
                   disabled={idx >= total - 1}
                   style={{ flex: 2, padding: '14px', minHeight: '48px', borderRadius: '10px', border: 'none', background: idx >= total - 1 ? '#e5e7eb' : '#3b82f6', color: idx >= total - 1 ? '#9ca3af' : '#fff', cursor: idx >= total - 1 ? 'default' : 'pointer', fontWeight: 700 }}
                 >다음 문제 →</button>
