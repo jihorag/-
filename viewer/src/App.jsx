@@ -1844,6 +1844,21 @@ const App = () => {
               🔥 연속 <b style={{ color: '#ea580c' }}>{analytics.streak}일</b> · 오늘 <b>{analytics.todayCount}</b>문제 · 학습일 {analytics.studiedDays}일
             </p>
 
+            <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280', marginBottom: '8px' }}>최근 7일</div>
+            <div style={{ display: 'flex', gap: '6px', alignItems: 'flex-end', marginBottom: '18px', height: '70px' }}>
+              {analytics.trend.map((t, i) => (
+                <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%' }}>
+                  <div style={{ fontSize: '0.6rem', color: '#9ca3af', marginBottom: '2px' }}>{t.count || ''}</div>
+                  <div style={{
+                    width: '100%', borderRadius: '4px 4px 0 0',
+                    height: `${t.count ? Math.max(6, (t.count / analytics.trendMax) * 44) : 3}px`,
+                    background: t.count ? (t.isToday ? 'var(--primary)' : '#93c5fd') : '#e5e7eb',
+                  }} />
+                  <div style={{ fontSize: '0.65rem', marginTop: '4px', fontWeight: t.isToday ? 700 : 500, color: t.isToday ? 'var(--primary)' : '#9ca3af' }}>{t.label}</div>
+                </div>
+              ))}
+            </div>
+
             <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280', marginBottom: '8px' }}>난이도별 정답률</div>
             <div style={{ display: 'flex', gap: '6px', marginBottom: '18px' }}>
               {analytics.diffAcc.map(({ d, acc }) => {
