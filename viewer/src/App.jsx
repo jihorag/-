@@ -1803,10 +1803,10 @@ const App = () => {
         <main className="main-content" style={{ marginTop: '16px' }}>
           {/* 핵심 KPI */}
           <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
-            <Kpi v={`${learnedPct}%`} sub={`학습 ${cv.total - cv.unseen}/${cv.total}`} color="#2563eb" />
-            <Kpi v={overall.accuracy == null ? '–' : `${overall.accuracy}%`} sub="정답률" color="#16a34a" />
-            <Kpi v={`${analytics.streak}일`} sub="연속 학습" color="#ea580c" />
-            <Kpi v={srs.due.length} sub="오늘 복습" color="#7c3aed" />
+            {kpi(`${learnedPct}%`, `학습 ${cv.total - cv.unseen}/${cv.total}`, '#2563eb')}
+            {kpi(overall.accuracy == null ? '–' : `${overall.accuracy}%`, '정답률', '#16a34a')}
+            {kpi(`${analytics.streak}일`, '연속 학습', '#ea580c')}
+            {kpi(srs.due.length, '오늘 복습', '#7c3aed')}
           </div>
 
           {/* 커버리지 스택바 */}
