@@ -480,8 +480,8 @@ const App = () => {
     try { localStorage.setItem('quiz-autonext', v ? '1' : '0'); } catch { /* SSR */ }
   };
   const [autoSec, setAutoSecState] = useState(() => {
-    const n = parseInt(localStorage.getItem('quiz-autosec'), 10);
-    return [3, 5, 8].includes(n) ? n : 5;
+    try { const n = parseInt(localStorage.getItem('quiz-autosec'), 10); return [3, 5, 8].includes(n) ? n : 5; }
+    catch { return 5; }
   });
   const setAutoSec = (n) => {
     setAutoSecState(n);
