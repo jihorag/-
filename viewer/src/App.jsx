@@ -1384,6 +1384,14 @@ const App = () => {
             >
               ⏩ 자동 다음 {autoNext ? 'ON' : 'OFF'}
             </button>
+            {autoNext && [3, 5, 8].map(sec => (
+              <button key={sec} onClick={() => setAutoSec(sec)}
+                style={{ border: `1px solid ${autoSec === sec ? 'var(--primary)' : '#d1d5db'}`,
+                  background: autoSec === sec ? '#eff6ff' : '#fff', color: autoSec === sec ? 'var(--primary)' : '#6b7280',
+                  borderRadius: '999px', padding: '6px 10px', fontSize: '0.74rem', fontWeight: 700, cursor: 'pointer' }}>
+                {sec}초
+              </button>
+            ))}
           </div>
         </div>
 
