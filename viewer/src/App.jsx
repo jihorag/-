@@ -1817,6 +1817,35 @@ const App = () => {
             {kpi(srs.due.length, '오늘 복습', '#7c3aed')}
           </div>
 
+          {/* 오늘 학습 목표 */}
+          {(() => {
+            const done = analytics.todayCount;
+            const pct = Math.min(100, Math.round((done / dailyGoal) * 100));
+            const met = done >= dailyGoal;
+            return (
+              <section style={{ background: met ? '#ecfdf5' : '#fff', border: `1px solid ${met ? '#a7f3d0' : '#e5e7eb'}`,
+                borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <span style={{ fontWeight: 800 }}>🎯 오늘 목표 {met && <span style={{ color: '#16a34a' }}>달성!</span>}</span>
+                  <span style={{ fontSize: '0.9rem', color: '#374151' }}><b>{done}</b> / {dailyGoal}문제</span>
+                </div>
+                <div style={{ height: '10px', background: '#f1f5f9', borderRadius: '999px', overflow: 'hidden', marginBottom: '12px' }}>
+                  <div style={{ width: `${pct}%`, height: '100%', background: met ? '#16a34a' : 'var(--primary)', transition: 'width .3s' }} />
+                </div>
+                <div style={{ display: 'flex', gap: '6px' }}>
+                  {[10, 20, 30, 50].map(g => (
+                    <button key={g} onClick={() => setDailyGoal(g)}
+                      style={{ flex: 1, padding: '7px', borderRadius: '8px', fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer',
+                        border: dailyGoal === g ? '1px solid var(--primary)' : '1px solid #d1d5db',
+                        background: dailyGoal === g ? 'var(--primary)' : '#fff', color: dailyGoal === g ? '#fff' : '#6b7280' }}>
+                      {g}문제
+                    </button>
+                  ))}
+                </div>
+              </section>
+            );
+          })()}
+
           {/* 커버리지 스택바 */}
           <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
             <div style={{ fontWeight: 800, marginBottom: '12px' }}>전체 커버리지 ({cv.total}문항)</div>
