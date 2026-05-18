@@ -1317,6 +1317,22 @@ const App = () => {
     const s = progressStats(ordered, progress);
     const pathParts = q ? [q.taxSubjectName, q.taxSubSubjectName, q.taxChapterName, q.taxSectionName, q.taxItemName].filter(Boolean) : [];
     const done = total > 0 && s.answered >= total;
+    const goPrev = () => { clearAutoTimer(); setAutoPending(false); setStudyIdx(Math.max(0, idx - 1)); window.scrollTo(0, 0); };
+    const goNext = () => { clearAutoTimer(); setAutoPending(false); setStudyIdx(Math.min(total - 1, idx + 1)); window.scrollTo(0, 0); };
+    const baseAnswer = selectedGroup.review ? updateAnswer : recordAnswer;
+    const handleAnswer = (qq, sel, correct) => {
+      baseAnswer(qq, sel, correct);
+      if (autoNext && idx < total - 1) {
+        clearAutoTimer();
+        setAutoPending(true);
+        autoTimerRef.current = setTimeout(() => {
+          autoTimerRef.current = null;
+          setAutoPending(false);
+          setStudyIdx(i => Math.min(total - 1, i + 1));
+          window.scrollTo(0, 0);
+        }, 4500);
+      }
+    };
     return (
       <div className="app-container">
         {drillHeader(
