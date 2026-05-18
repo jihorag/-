@@ -1254,9 +1254,18 @@ const App = () => {
 
   // 가이드 학습 모드: 한 개념의 문제를 난이도↑ 순으로 한 문제씩, 해설로 누적 학습
   if (currentView === 'study' && selectedGroup) {
+    const shuffleMode = !selectedGroup.review && studyOrder === 'random';
+    // 세션 내 안정 셔플: qid+studyNonce 해시 → 같은 세션에선 순서 고정
+    const seededRank = (q) => {
+      let h = studyNonce * 2654435761 >>> 0;
+      const id = qid(q);
+      for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+      return h;
+    };
     const ordered = processedData
       .filter(selectedGroup.filterFn)
       .sort((a, b) => {
+        if (shuffleMode) return seededRank(a) - seededRank(b);
         if (selectedGroup.review) {
           // 복습: 여러 번 틀린 것 먼저, 그다음 어려운 것 먼저
           const ra = (progress[qid(a)] && progress[qid(a)].reviewed) || 0;
