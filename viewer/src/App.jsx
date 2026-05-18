@@ -455,6 +455,14 @@ const App = () => {
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [studyIdx, setStudyIdx] = useState(0); // 가이드 학습 모드 현재 문항 인덱스
   const [studyNonce, setStudyNonce] = useState(0); // 재학습 시 문항 카드 강제 리마운트
+  const [studyOrder, setStudyOrderState] = useState(() => {
+    try { return localStorage.getItem('quiz-study-order') === 'random' ? 'random' : 'difficulty'; }
+    catch { return 'difficulty'; }
+  });
+  const setStudyOrder = (o) => {
+    setStudyOrderState(o);
+    try { localStorage.setItem('quiz-study-order', o); } catch { /* SSR */ }
+  };
   const [reviewSubject, setReviewSubject] = useState(null); // 오답 복습 2단계 드릴(과목 선택)
   const [nowTs] = useState(() => Date.now()); // 세션 기준 현재시각(렌더 순수성)
   const [notifPref, setNotifPref] = useState(() => {
