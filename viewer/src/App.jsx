@@ -289,7 +289,7 @@ const ParsedText = ({ text }) => {
 };
 
 // Interactive Question Component
-const QuestionItem = ({ q, prior, onAnswer, bookmarked, onToggleBookmark }) => {
+const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark }) => {
   const [selectedOpt, setSelectedOpt] = useState(prior ? (prior.sel ?? null) : null);
   const isRevealed = selectedOpt !== null;
   const hasAnswer = !!q.answerNorm;          // 정답 정보가 유효한 문항인가
