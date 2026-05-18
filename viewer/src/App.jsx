@@ -1340,7 +1340,7 @@ const App = () => {
           setAutoPending(false);
           setStudyIdx(i => Math.min(total - 1, i + 1));
           window.scrollTo(0, 0);
-        }, 4500);
+        }, autoSec * 1000);
       }
     };
     return (
