@@ -1255,21 +1255,21 @@ const App = () => {
   const navTab =
     currentView === 'home' ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'review'
-    : currentView === 'search' ? 'search'
-    : 'browse'; // dashboard + tax_*
+    : currentView === 'status' ? 'status'
+    : 'browse'; // dashboard + tax_* + search(둘러보기 흡수)
   const goTab = (t) => {
     clearAutoTimer();
     if (t === 'home') setCurrentView('home');
     else if (t === 'browse') setCurrentView('dashboard');
     else if (t === 'review') { setReviewSubject(null); setCurrentView('reviewHome'); }
-    else if (t === 'search') setCurrentView('search');
+    else if (t === 'status') setCurrentView('status');
     window.scrollTo(0, 0);
   };
   const NAV_ITEMS = [
     ['home', '🏠', '홈'],
     ['browse', '📚', '둘러보기'],
     ['review', '🔁', '복습'],
-    ['search', '🔍', '검색'],
+    ['status', '📊', '현황'],
   ];
   const bottomNav = (
     <nav className="bottom-nav">
