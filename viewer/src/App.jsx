@@ -1622,7 +1622,23 @@ const App = () => {
         <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>📅 오늘 복습</h1>
           <div style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '4px' }}>
-            기억 곡선에 따라 오늘 복습할 {srs.due.length}문제 · 맞히면 간격이 늘어 더 나중에 다시 나옵니다
+            오늘 복습 {srs.due.length}문제
+            {srs.capped && <> · 전체 {srs.dueTotal}개 중 (나머지는 다음에)</>}
+            · 맞히면 간격이 늘어 더 나중에 나와요
+          </div>
+          <div style={{ display: 'flex', gap: '6px', marginTop: '12px' }}>
+            {Object.entries(SRS_MODES).map(([m, cfg]) => (
+              <button key={m} onClick={() => setSrsMode(m)}
+                style={{ flex: 1, padding: '8px', borderRadius: '8px', cursor: 'pointer', fontSize: '0.82rem', fontWeight: 700,
+                  border: srsMode === m ? '1px solid var(--primary)' : '1px solid #d1d5db',
+                  background: srsMode === m ? 'var(--primary)' : '#fff',
+                  color: srsMode === m ? '#fff' : '#374151' }}>
+                {cfg.label}
+                <span style={{ display: 'block', fontWeight: 500, fontSize: '0.68rem', opacity: 0.8 }}>
+                  하루 {cfg.cap === Infinity ? '무제한' : `${cfg.cap}개`}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
         <main className="main-content" style={{ marginTop: '20px' }}>
