@@ -989,6 +989,7 @@ const App = () => {
     const subj = {};   // subjectName -> {total,scored,correct, sec:{secName:{scored,correct,ids[]}}}
     const diff = {};   // 1..5 -> {scored,correct}
     const days = new Set();
+    const dayAgg = {};  // dateString -> {count, scored, correct}
     let todayCount = 0;
     const todayStr = new Date().toDateString();
     for (const q of classifiedList) {
@@ -998,8 +999,12 @@ const App = () => {
       const p = progress[qid(q)];
       if (!p) continue;
       if (p.ts) {
-        days.add(new Date(p.ts).toDateString());
-        if (new Date(p.ts).toDateString() === todayStr) todayCount++;
+        const ds = new Date(p.ts).toDateString();
+        days.add(ds);
+        if (ds === todayStr) todayCount++;
+        const da = dayAgg[ds] || (dayAgg[ds] = { count: 0, scored: 0, correct: 0 });
+        da.count++;
+        if (p.correct === true || p.correct === false) { da.scored++; if (p.correct === true) da.correct++; }
       }
       if (p.correct === true || p.correct === false) {
         s.scored++; if (p.correct === true) s.correct++;
@@ -1035,7 +1040,20 @@ const App = () => {
       const v = diff[d];
       return { d, scored: v ? v.scored : 0, acc: v && v.scored ? Math.round((v.correct / v.scored) * 100) : null };
     });
-    return { subjects, weak, diffAcc, streak, todayCount, studiedDays: days.size };
+    // 최근 7일 학습 추이(문항의 최신 활동일 기준)
+    const trend = [];
+    for (let i = 6; i >= 0; i--) {
+      const dt = new Date(); dt.setHours(0, 0, 0, 0); dt.setDate(dt.getDate() - i);
+      const a = dayAgg[dt.toDateString()] || { count: 0, scored: 0, correct: 0 };
+      trend.push({
+        label: ['일', '월', '화', '수', '목', '금', '토'][dt.getDay()],
+        isToday: i === 0,
+        count: a.count,
+        acc: a.scored ? Math.round((a.correct / a.scored) * 100) : null,
+      });
+    }
+    const trendMax = Math.max(1, ...trend.map(t => t.count));
+    return { subjects, weak, diffAcc, streak, todayCount, studiedDays: days.size, trend, trendMax };
   }, [classifiedList, progress]);
 
   // 한 과목을 집중 연습: 오답·미응답 우선(없으면 전체) 가이드 학습
