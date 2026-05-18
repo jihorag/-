@@ -1115,6 +1115,38 @@ const App = () => {
     return { subjects, weak, diffAcc, streak, todayCount, studiedDays: days.size, trend, trendMax, trendSum };
   }, [classifiedList, progress, trendDays]);
 
+  // 커버리지: 전체 대비 미응답/정답/복습필요/마스터 + 시험별 진척
+  const coverage = useMemo(() => {
+    let unseen = 0, learned = 0, review = 0, mastered = 0;
+    const byExam = {};
+    for (const q of classifiedList) {
+      const ex = q.exam || '기타';
+      const e = byExam[ex] || (byExam[ex] = { total: 0, answered: 0, scored: 0, correct: 0, mastered: 0 });
+      e.total++;
+      const p = progress[qid(q)];
+      if (!p) { unseen++; continue; }
+      e.answered++;
+      const grad = p.srs && p.srs.graduated;
+      if (grad) { mastered++; e.mastered++; }
+      else if (p.correct === false) review++;
+      else learned++;                     // 정답 또는 채점불가 응답(=학습함)
+      if (p.correct === true || p.correct === false) { e.scored++; if (p.correct === true) e.correct++; }
+    }
+    const total = classifiedList.length || 1;
+    const exams = Object.entries(byExam)
+      .map(([name, v]) => ({
+        name, ...v,
+        coverPct: Math.round((v.answered / (v.total || 1)) * 100),
+        acc: v.scored ? Math.round((v.correct / v.scored) * 100) : null,
+      }))
+      .sort((a, b) => b.total - a.total);
+    return {
+      total: classifiedList.length, unseen, learned, review, mastered,
+      pct: (n) => Math.round((n / total) * 100),
+      exams,
+    };
+  }, [classifiedList, progress]);
+
   // 한 과목을 집중 연습: 오답·미응답 우선(없으면 전체) 가이드 학습
   const startConcept = (subjectName, title) => {
     const ids = [];
