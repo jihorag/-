@@ -1088,6 +1088,18 @@ const App = () => {
     if (!days.has(cur.toDateString())) cur.setDate(cur.getDate() - 1); // 오늘 안 했으면 어제부터
     while (days.has(cur.toDateString())) { streak++; cur.setDate(cur.getDate() - 1); }
 
+    // 목표 달성: 일별 count >= dailyGoal
+    const metDay = (d) => ((dayAgg[d.toDateString()] || {}).count || 0) >= dailyGoal;
+    let goalStreak = 0;
+    const gc = new Date(); gc.setHours(0, 0, 0, 0);
+    if (!metDay(gc)) gc.setDate(gc.getDate() - 1);   // 오늘 미달이면 어제까지로 연속 판정
+    while (metDay(gc)) { goalStreak++; gc.setDate(gc.getDate() - 1); }
+    const weekMet = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - i);
+      weekMet.push({ label: ['일', '월', '화', '수', '목', '금', '토'][d.getDay()], met: metDay(d), isToday: i === 0 });
+    }
+
     const subjects = Object.entries(subj).map(([name, v]) => ({
       name, total: v.total, scored: v.scored, correct: v.correct,
       acc: v.scored ? Math.round((v.correct / v.scored) * 100) : null,
@@ -1120,8 +1132,8 @@ const App = () => {
     }
     const trendMax = Math.max(1, ...trend.map(t => t.count));
     const trendSum = trend.reduce((n, t) => n + t.count, 0);
-    return { subjects, weak, diffAcc, streak, todayCount, studiedDays: days.size, trend, trendMax, trendSum };
-  }, [classifiedList, progress, trendDays]);
+    return { subjects, weak, diffAcc, streak, goalStreak, weekMet, todayCount, studiedDays: days.size, trend, trendMax, trendSum };
+  }, [classifiedList, progress, trendDays, dailyGoal]);
 
   // 커버리지: 전체 대비 미응답/정답/복습필요/마스터 + 시험별 진척
   const coverage = useMemo(() => {
