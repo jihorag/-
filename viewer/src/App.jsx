@@ -3022,30 +3022,21 @@ const App = () => {
             const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
             return (
             <div key={idx} className="study-card" onClick={() => handleGroupClick(group)}>
-              {dm ? (
+              {dm && (
                 <div className="card-badge" style={{ background: dm.bg, color: dm.fg, border: 'none' }}>
                   난이도 {s.avgDiff.toFixed(1)}
                 </div>
-              ) : (
-                <div className="card-badge">기본</div>
               )}
-
-              <div className="card-subtitle">{group.subtitle}</div>
               <h3 className="card-title">{group.title}</h3>
-              <div className="card-total">총 {group.total} 문제 · 평균 {s.avgDiff ? s.avgDiff.toFixed(1) : '-'}</div>
-
-              <div className="card-tag">{group.tag}</div>
+              <div className="card-total">
+                {group.total}문제{s.answered > 0 && <> · 학습 {s.answered}<span style={{ color: '#9ca3af' }}>/{s.total}</span></>}
+              </div>
 
               <div className="card-progress-container">
                 <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
               </div>
 
-              <div className="progress-stats" style={{ marginBottom: '0' }}>
-                <span>학습한 문제 <span className="stat-bold">{s.answered}/{s.total}</span></span>
-                <span style={{ color: 'var(--primary)', fontWeight: '700' }}>{pct}%</span>
-              </div>
-
-              <div className="play-btn">Q</div>
+              <div className="play-btn">풀기</div>
             </div>
             );
           })}
