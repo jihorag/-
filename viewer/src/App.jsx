@@ -368,8 +368,14 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
     if (isRevealed) return; // 응답 후 변경 방지
     const sel = String(optIdx + 1);
     setSelectedOpt(sel);
+    const correct = hasAnswer ? sel === q.answerNorm : null;
+    // 햅틱: 정답 짧게, 오답 패턴 진동 (지원 기기에서만)
+    try {
+      if (correct === true && navigator.vibrate) navigator.vibrate(18);
+      else if (correct === false && navigator.vibrate) navigator.vibrate([35, 30, 35]);
+    } catch { /* 미지원 */ }
     // correct: 정답 있으면 boolean, 없으면 null(채점 제외)
-    if (onAnswer) onAnswer(q, sel, hasAnswer ? sel === q.answerNorm : null);
+    if (onAnswer) onAnswer(q, sel, correct);
   };
 
   // 가이드 학습: 숫자키 1~9로 보기 선택(단일 문항 표시 화면에서만)
@@ -425,7 +431,7 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
         </span>
       </div>
       
-      <h3 style={{ fontSize: '1.125rem', lineHeight: '1.6', marginBottom: '20px', fontWeight: '600' }}>
+      <h3 className="q-text" style={{ lineHeight: '1.6', marginBottom: '20px', fontWeight: '600' }}>
         <ParsedText text={q.question} />
       </h3>
       
