@@ -569,6 +569,72 @@ body {
 }
 .boot-retry:active { transform: scale(0.97); }
 
+/* ===== 첫 사용자 환영(빈 상태 활성화) ===== */
+.welcome {
+  min-height: calc(100dvh - 64px - env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 24px calc(40px + env(safe-area-inset-top, 0px));
+}
+.welcome-mark {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+.welcome-title {
+  font-size: 2rem;
+  line-height: 1.25;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+.welcome-sub {
+  font-size: 1rem;
+  color: var(--text-sub);
+  margin-top: 14px;
+  margin-bottom: 30px;
+}
+.welcome-cta {
+  width: 100%;
+  padding: 17px;
+  border-radius: 14px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.5);
+  transition: transform 0.12s ease;
+}
+.welcome-cta:active { transform: scale(0.985); }
+.welcome-2nd {
+  width: 100%;
+  margin-top: 12px;
+  padding: 13px;
+  border: none;
+  background: none;
+  color: var(--text-sub);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.welcome-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 40px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border-color);
+}
+.welcome-bullet {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 /* ===== B1. 본문 글자 크기 스케일 ===== */
 .q-text { font-size: calc(1.125rem * var(--q-fs)); }
 .q-opt  { font-size: calc(0.95rem  * var(--q-fs)); }
