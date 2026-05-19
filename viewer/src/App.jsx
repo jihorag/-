@@ -1706,7 +1706,17 @@ const App = () => {
           </div>
         </div>
 
-        <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+        <main
+          style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}
+          onTouchStart={(e) => { const t = e.changedTouches[0]; swipe.x = t.clientX; swipe.y = t.clientY; }}
+          onTouchEnd={(e) => {
+            const t = e.changedTouches[0];
+            const dx = t.clientX - swipe.x, dy = t.clientY - swipe.y;
+            if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return; // 가로 스와이프만
+            if (dx < 0 && idx < total - 1) goNext();
+            else if (dx > 0 && idx > 0) goPrev();
+          }}
+        >
           {q ? (
             <>
               {selectedGroup.resumeIdx > 0 && studyIdx === selectedGroup.resumeIdx && (
