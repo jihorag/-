@@ -1332,6 +1332,46 @@ const App = () => {
     return { subjects, weak, diffAcc, streak, goalStreak, weekMet, todayCount, studiedDays: days.size, trend, trendMax, trendSum };
   }, [classifiedList, progress, trendDays, dailyGoal]);
 
+  // 합격 코치: 데이터를 "지금 뭘 해야 합격에 가까워지나"로 번역
+  const COACH_TARGET = 70; // 목표 정답률(%)
+  const coach = useMemo(() => {
+    let sumCorrect = 0, sumScored = 0, sumTotal = 0;
+    const rows = analytics.subjects
+      .filter(s => s.total >= 8) // 표본 너무 작은 분류축 제외
+      .map(s => {
+        sumCorrect += s.correct; sumScored += s.scored; sumTotal += s.total;
+        const acc = s.scored >= 5 ? Math.round((s.correct / s.scored) * 100) : null;
+        const cov = Math.round((s.scored / s.total) * 100);
+        let tier;
+        if (acc == null) tier = 'unknown';
+        else if (acc >= COACH_TARGET) tier = 'safe';
+        else if (acc >= 50) tier = 'warn';
+        else tier = 'risk';
+        // 임팩트: 목표까지 끌어올릴 때 기대 점수 기여(문항수 × 부족분), 데이터 없으면 미학습량
+        const gap = acc == null ? COACH_TARGET : Math.max(0, COACH_TARGET - acc);
+        const impact = acc == null ? s.total * 0.5 : (s.total * gap) / 100;
+        return { name: s.name, total: s.total, scored: s.scored, acc, cov, tier, impact,
+          weakSection: s.weakSection };
+      })
+      .sort((a, b) => b.impact - a.impact);
+    // 실력 추정(채점분 기준) + 커버리지로 신뢰 보정
+    const skillAcc = sumScored ? Math.round((sumCorrect / sumScored) * 100) : null;
+    const coverage = sumTotal ? Math.round((sumScored / sumTotal) * 100) : 0;
+    // 합격 준비도: 실력 × 커버리지 신뢰(미학습이 많으면 보수적으로)
+    const readiness = skillAcc == null ? null
+      : Math.round(skillAcc * (0.4 + 0.6 * Math.min(1, coverage / 60)));
+    const riskCount = rows.filter(r => r.tier === 'risk').length;
+    const warnCount = rows.filter(r => r.tier === 'warn').length;
+    const topFix = rows.find(r => r.tier === 'risk' || r.tier === 'warn') || rows[0] || null;
+    let verdict;
+    if (readiness == null) verdict = '데이터를 조금만 더 쌓으면 진단할 수 있어요';
+    else if (readiness >= COACH_TARGET) verdict = '합격선 안정권 — 페이스 유지';
+    else if (readiness >= 55) verdict = '합격선 근접 — 약한 단원만 잡으면 됩니다';
+    else if (readiness >= 40) verdict = '기초 보강 구간 — 약점부터 좁히세요';
+    else verdict = '지금부터 약점 위주로 차근차근';
+    return { rows, skillAcc, coverage, readiness, riskCount, warnCount, topFix, verdict };
+  }, [analytics.subjects]);
+
   // A4: 오늘 목표 도달 시 컨페티 1회(하루 1번만)
   useEffect(() => {
     if (analytics.todayCount < dailyGoal) return;
