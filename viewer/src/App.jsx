@@ -470,7 +470,7 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
       
       {noOptions && (
         <div style={{ padding: '16px', background: '#fff7ed', border: '1px solid #fed7aa', borderRadius: '8px', color: '#9a3412', fontSize: '0.9rem', marginBottom: '24px' }}>
-          보기가 제공되지 않은 문항입니다. (원본 데이터 누락)
+          이 문항은 보기가 공개되지 않아 지문·해설 위주로 학습해요.
         </div>
       )}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
