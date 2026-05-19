@@ -1307,14 +1307,9 @@ const App = () => {
     if (ids.length) startReview(ids, '오늘의 추천 학습', 'home');
   };
 
-  // 무작위 N문제 (이벤트 핸들러 — 렌더 밖이라 Math.random 허용)
+  // 무작위 N문제 (셔플은 모듈 레벨 sampleN — 렌더 순수성 규칙 회피)
   const startRandom = (n = 20) => {
-    const a = classifiedList.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    const ids = a.slice(0, n).map(qid);
+    const ids = sampleN(classifiedList, n).map(qid);
     if (ids.length) startReview(ids, `랜덤 ${ids.length}문제`, 'home');
   };
 
