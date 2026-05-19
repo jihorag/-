@@ -69,7 +69,7 @@ def main():
 
     done = skip_notimg = skip_noid = conflict = 0
     now = datetime.now().astimezone().isoformat()
-    for qid, text in keys:
+    for qid, text, opts in keys:
         q = by_id.get(qid)
         if q is None:
             skip_noid += 1
