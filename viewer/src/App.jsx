@@ -123,6 +123,27 @@ const sampleN = (arr, n) => {
   return a.slice(0, n);
 };
 
+// A4: 컨페티 조각(모듈 로드 시 1회 생성 — 렌더 순수성 규칙 밖)
+const CONFETTI_COLORS = ['#2563eb', '#16a34a', '#ea580c', '#eab308', '#ec4899', '#06b6d4'];
+const CONFETTI_PIECES = Array.from({ length: 90 }, () => ({
+  left: Math.random() * 100,
+  delay: Math.random() * 0.5,
+  dur: 2 + Math.random() * 1.6,
+  color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+  rot: Math.random() * 360,
+}));
+const Confetti = () => (
+  <div className="confetti-layer" aria-hidden="true">
+    {CONFETTI_PIECES.map((p, i) => (
+      <span key={i} className="confetti-pc" style={{
+        left: `${p.left}%`, background: p.color,
+        animationDelay: `${p.delay}s`, animationDuration: `${p.dur}s`,
+        transform: `rotate(${p.rot}deg)`,
+      }} />
+    ))}
+  </div>
+);
+
 const SRS_MODES = {
   hard:   { label: '빡세게', factor: 0.6, cap: Infinity },
   normal: { label: '보통',   factor: 1,   cap: 40 },
