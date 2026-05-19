@@ -2845,6 +2845,8 @@ const App = () => {
             [[10, '10문제'], [20, '20문제'], [30, '30문제'], [50, '50문제']], dailyGoal, setDailyGoal)}
           {segRow('학습 순서', '가이드 학습에서 문제가 나오는 순서예요.',
             [['difficulty', '난이도순'], ['random', '무작위']], studyOrder, setStudyOrder)}
+          {segRow('글자 크기', '문제·보기·해설 본문 크기예요.',
+            [[0.9, '작게'], [1, '보통'], [1.18, '크게']], fontScale, setFontScale)}
           {segRow('자동 다음', '정답 확인 후 다음 문제로 자동 이동할지 정해요.',
             [[true, '켜기'], [false, '끄기']], autoNext, setAutoNext)}
           {autoNext && segRow('자동 다음 대기', '자동 이동 전 해설을 볼 시간이에요.',
