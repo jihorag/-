@@ -595,8 +595,10 @@ const App = () => {
   const cloudAuth = async (mode) => {
     setCloudMsg('처리 중…');
     try {
-      const fn = mode === 'signup' ? supabase.auth.signUp : supabase.auth.signInWithPassword;
-      const { error } = await fn({ email: cloudEmail.trim(), password: cloudPw });
+      const creds = { email: cloudEmail.trim(), password: cloudPw };
+      const { error } = mode === 'signup'
+        ? await supabase.auth.signUp(creds)
+        : await supabase.auth.signInWithPassword(creds);
       if (error) throw error;
       setCloudPw('');
       setCloudMsg(mode === 'signup' ? '가입 완료. 로그인되었어요.' : '로그인되었어요.');
