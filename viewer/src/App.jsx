@@ -1550,24 +1550,27 @@ const App = () => {
     window.scrollTo(0, 0);
   };
   const NAV_ITEMS = [
-    ['home', '🏠', '홈'],
-    ['browse', '📚', '둘러보기'],
-    ['review', '🔁', '복습'],
-    ['status', '📊', '현황'],
+    ['home', House, '홈'],
+    ['browse', Compass, '둘러보기'],
+    ['review', RotateCcw, '복습'],
+    ['status', ChartColumn, '현황'],
   ];
   const bottomNav = (
     <nav className="bottom-nav">
-      {NAV_ITEMS.map(([t, ico, label]) => (
-        <button key={t} className={navTab === t ? 'active' : ''} onClick={() => goTab(t)}>
-          <span className="nav-ico" style={{ position: 'relative' }}>
-            {ico}
-            {t === 'review' && srs.due.length > 0 && (
-              <span className="nav-badge">{srs.due.length > 99 ? '99+' : srs.due.length}</span>
-            )}
-          </span>
-          {label}
-        </button>
-      ))}
+      {NAV_ITEMS.map(([t, Ico, label]) => {
+        const active = navTab === t;
+        return (
+          <button key={t} className={active ? 'active' : ''} onClick={() => goTab(t)}>
+            <span className="nav-ico" style={{ position: 'relative' }}>
+              <Ico size={22} strokeWidth={active ? 2.4 : 1.9} />
+              {t === 'review' && srs.due.length > 0 && (
+                <span className="nav-badge">{srs.due.length > 99 ? '99+' : srs.due.length}</span>
+              )}
+            </span>
+            {label}
+          </button>
+        );
+      })}
     </nav>
   );
   // 첫 사용자는 모달 대신 빈 상태 히어로로 가치를 먼저 보여준다(아래 home 분기).
