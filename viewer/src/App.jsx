@@ -590,6 +590,18 @@ const App = () => {
   // 클라우드 동기화(선택)
   const [authUser, setAuthUser] = useState(null);
   const [cloudMsg, setCloudMsg] = useState('');
+  const [cloudEmail, setCloudEmail] = useState('');
+  const [cloudPw, setCloudPw] = useState('');
+  const cloudAuth = async (mode) => {
+    setCloudMsg('처리 중…');
+    try {
+      const fn = mode === 'signup' ? supabase.auth.signUp : supabase.auth.signInWithPassword;
+      const { error } = await fn({ email: cloudEmail.trim(), password: cloudPw });
+      if (error) throw error;
+      setCloudPw('');
+      setCloudMsg(mode === 'signup' ? '가입 완료. 로그인되었어요.' : '로그인되었어요.');
+    } catch (e) { setCloudMsg((e.message || String(e))); }
+  };
   useEffect(() => {
     if (!supabase) return;
     supabase.auth.getSession().then(({ data }) => setAuthUser(data?.session?.user || null));
