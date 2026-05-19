@@ -347,9 +347,9 @@ body {
 
 @media (max-width: 640px) {
   .top-nav { padding: 0 16px; }
-  .banner { height: 220px; padding: 40px 16px; }
-  .banner-title { font-size: 1.75rem; }
-  .main-content { padding: 0 16px 40px; margin-top: -40px; }
+  .banner { min-height: 150px; padding: 24px 16px 64px; padding-top: calc(22px + env(safe-area-inset-top, 0px)); }
+  .banner-title { font-size: 1.45rem; }
+  .main-content { padding: 0 16px 40px; margin-top: -44px; }
   .overview-card { padding: 24px; }
 }
 
