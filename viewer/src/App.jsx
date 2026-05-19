@@ -2421,6 +2421,22 @@ const App = () => {
     return shell(
     <div className="app-container">
       <div className="banner">
+        <div style={{ position: 'absolute', right: '16px',
+          top: 'calc(env(safe-area-inset-top, 0px) + 14px)', zIndex: 10,
+          display: 'flex', gap: '10px' }}>
+          <button aria-label="프로필" onClick={() => setCurrentView('profile')}
+            style={{ width: 40, height: 40, borderRadius: '50%', border: 'none', cursor: 'pointer',
+              background: 'rgba(255,255,255,0.18)', color: '#fff', fontSize: '1.1rem',
+              display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            👤
+          </button>
+          <button aria-label="설정" onClick={() => setCurrentView('settings')}
+            style={{ width: 40, height: 40, borderRadius: '50%', border: 'none', cursor: 'pointer',
+              background: 'rgba(255,255,255,0.18)', color: '#fff', fontSize: '1.1rem',
+              display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            ⚙️
+          </button>
+        </div>
         <div className="banner-content">
           <div className="banner-subtitle">PROFESSIONAL APPRAISER EXAM</div>
           <div className="banner-title">감정평가사 1차 기출 완전정복</div>
