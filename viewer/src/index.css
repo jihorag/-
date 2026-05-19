@@ -452,6 +452,7 @@ body {
 }
 .screen-head {
   padding: 20px 20px 0;
+  padding-top: calc(20px + env(safe-area-inset-top, 0px));
 }
 .empty-state {
   text-align: center;
