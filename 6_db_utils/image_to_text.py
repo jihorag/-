@@ -84,8 +84,15 @@ def main():
             print(f"  [건너뜀-이미지전용아님] id={qid} body={body[:40]!r}")
             continue
         dq = q.setdefault("data_quality", {})
-        if dq.get("image_extracted") and not force:
+        if (dq.get("image_extracted") or dq.get("image_kept")) and not force:
             conflict += 1
+            continue
+        # 표/그래프/도형 — 텍스트화 불가, 이미지 유지로 표시(재집계 제외)
+        if text == "__FIGURE__":
+            if not dry:
+                dq["image_kept"] = source
+                dq["image_kept_at"] = now
+            kept += 1
             continue
         if not dry:
             dq["orig_image"] = imgs[0] if imgs else None
