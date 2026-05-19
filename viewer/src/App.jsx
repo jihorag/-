@@ -294,18 +294,29 @@ const parseNav = (hash) => {
 // 소실 이미지를 깨진 아이콘 대신 안내로 표시 (React 상태로 안전 처리)
 const SafeImage = ({ src }) => {
   const [errored, setErrored] = useState(false);
+  const [zoom, setZoom] = useState(false);
   if (errored) {
     return <span style={{ display: 'inline-block', color: '#9ca3af', fontSize: '0.85rem', padding: '8px 0' }}>[이미지 없음]</span>;
   }
   return (
-    <img
-      src={src}
-      alt="content"
-      loading="lazy"
-      decoding="async"
-      onError={() => setErrored(true)}
-      style={{ maxWidth: '100%', display: 'block', margin: '12px auto', borderRadius: '4px' }}
-    />
+    <>
+      <img
+        src={src}
+        alt="content"
+        loading="lazy"
+        decoding="async"
+        className="q-img"
+        onClick={() => setZoom(true)}
+        onError={() => setErrored(true)}
+        style={{ maxWidth: '100%', display: 'block', margin: '12px auto', borderRadius: '4px' }}
+      />
+      {zoom && (
+        <div className="lightbox" role="dialog" aria-label="이미지 확대" onClick={() => setZoom(false)}>
+          <button className="lightbox-close" aria-label="닫기" onClick={() => setZoom(false)}>✕</button>
+          <img src={src} alt="확대 이미지" onClick={(e) => e.stopPropagation()} />
+        </div>
+      )}
+    </>
   );
 };
 
