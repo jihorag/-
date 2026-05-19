@@ -266,7 +266,7 @@ body {
 .study-card {
   background: var(--card-bg);
   border-radius: var(--radius);
-  padding: 28px;
+  padding: 24px 24px 70px;
   box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
