@@ -755,34 +755,6 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-/* ===== C3. 첫 실행 온보딩 ===== */
-.onb {
-  position: fixed;
-  inset: 0;
-  z-index: 9997;
-  background: rgba(15, 23, 42, 0.6);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-.onb-card {
-  background: #fff;
-  width: 100%;
-  max-width: 600px;
-  border-radius: 20px 20px 0 0;
-  padding: 28px 24px calc(24px + env(safe-area-inset-bottom, 0px));
-  animation: onbUp 0.26s ease-out;
-}
-@keyframes onbUp {
-  from { transform: translateY(40px); opacity: 0.6; }
-  to   { transform: translateY(0); opacity: 1; }
-}
-.onb-dots { display: flex; gap: 6px; justify-content: center; margin: 18px 0; }
-.onb-dots i {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: #d1d5db; display: inline-block;
-}
-.onb-dots i.on { background: var(--primary); width: 18px; border-radius: 4px; }
 @media (prefers-reduced-motion: reduce) {
-  .onb-card, .lightbox { animation: none; }
+  .lightbox { animation: none; }
 }
