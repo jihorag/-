@@ -113,6 +113,16 @@ const SRS_LADDER = [1, 3, 7, 16, 35, 70];
 const DAY = 86400000;
 const dayStart = (t) => { const d = new Date(t); d.setHours(0, 0, 0, 0); return d.getTime(); };
 // 복습 강도: 간격 배율 + 하루 복습 상한
+// 배열에서 무작위 n개(Fisher-Yates 부분 셔플). 모듈 레벨이라 렌더 순수성 규칙 밖.
+const sampleN = (arr, n) => {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a.slice(0, n);
+};
+
 const SRS_MODES = {
   hard:   { label: '빡세게', factor: 0.6, cap: Infinity },
   normal: { label: '보통',   factor: 1,   cap: 40 },
