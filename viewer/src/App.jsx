@@ -1566,10 +1566,26 @@ const App = () => {
     </nav>
   );
   // 루트 화면을 셸(스크롤 영역 + 고정 탭바)로 감싼다
+  const finishOnboarding = () => {
+    try { localStorage.setItem('quiz-onboarded', '1'); } catch { /* SSR */ }
+    setOnbStep(-1);
+  };
+  const onbNext = () => {
+    if (onbStep >= ONB_SLIDES.length - 1) finishOnboarding();
+    else setOnbStep(s => s + 1);
+  };
+  // 전역 오버레이(컨페티·온보딩) — 루트/드릴 양쪽에 삽입
+  const overlays = (
+    <>
+      {confetti && <Confetti />}
+      {onbStep >= 0 && <OnboardingOverlay step={onbStep} onNext={onbNext} onSkip={finishOnboarding} />}
+    </>
+  );
   const shell = (content) => (
     <div className="app-shell with-nav">
       {content}
       {bottomNav}
+      {overlays}
     </div>
   );
 
