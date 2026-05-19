@@ -2544,6 +2544,42 @@ const App = () => {
   }
 
   // ===== 홈 탭: 학습 통계 + 오늘 복습 배너 =====
+  if (currentView === 'home' && overall.answered === 0) {
+    // 첫 사용자: 0의 벽 대신 단일 가치 행동으로 착지
+    return shell(
+      <div className="app-container">
+        <div style={{ position: 'absolute', right: 16, top: 'calc(env(safe-area-inset-top,0px) + 14px)',
+          zIndex: 10, display: 'flex', gap: 10 }}>
+          <button aria-label="설정" onClick={() => setCurrentView('settings')}
+            style={{ width: 38, height: 38, borderRadius: '50%', border: '1px solid #e5e7eb',
+              background: '#fff', color: '#6b7280', cursor: 'pointer' }}>⚙️</button>
+        </div>
+        <main className="welcome">
+          <div className="welcome-mark">감정평가사 1차 기출</div>
+          <h1 className="welcome-title">기출 12,000제,<br />풀면서 개념까지.</h1>
+          <p className="welcome-sub">시험에 나온 문제로 바로 시작하세요. 가입 없이.</p>
+          <button className="welcome-cta" onClick={startFirstTaste}>
+            30초 안에 첫 문제 풀어보기
+          </button>
+          <button className="welcome-2nd" onClick={() => setCurrentView('dashboard')}>
+            시험·과목별로 골라 보기 →
+          </button>
+          <div className="welcome-bullets">
+            {ONB_BULLETS.map((b, i) => (
+              <div key={i} className="welcome-bullet">
+                <span style={{ fontSize: '1.3rem' }}>{b.emoji}</span>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#374151' }}>{b.t}</div>
+                  <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>{b.d}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   if (currentView === 'home') {
     return shell(
     <div className="app-container">
