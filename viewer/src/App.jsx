@@ -2709,25 +2709,19 @@ const App = () => {
           );
         })()}
 
-        {/* 빠른 시작 */}
+        {/* 다른 방법으로 — 보조 경로(시각 비중↓, 선택 부담 분산 방지) */}
         <section style={{ marginBottom: '14px' }}>
-          <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#374151', margin: '0 2px 10px' }}>빠른 시작</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+          <div style={{ display: 'flex', gap: '8px' }}>
             {[
-              { ico: '🎯', t: '오늘의 추천', s: `약점·미학습 ${dailyGoal}문제`, on: startRecommended, hot: true },
-              { ico: '📅', t: '오늘 복습', s: srs.due.length ? `${srs.due.length}문제 도래` : '복습 없음',
-                on: () => srs.due.length && setCurrentView('today'), dim: !srs.due.length },
-              { ico: '🎲', t: '랜덤 20문제', s: '무작위로 풀기', on: () => startRandom(20) },
-              { ico: '📚', t: '둘러보기', s: '시험·과목·연도별', on: () => setCurrentView('dashboard') },
+              { t: '둘러보기', on: () => setCurrentView('dashboard') },
+              { t: '랜덤 20', on: () => startRandom(20) },
+              { t: '검색', on: () => setCurrentView('search') },
             ].map((b, i) => (
-              <button key={i} onClick={b.on} disabled={b.dim}
-                style={{ textAlign: 'left', padding: '15px 14px', borderRadius: '14px', cursor: b.dim ? 'default' : 'pointer',
-                  border: b.hot ? '1px solid #2563eb' : '1px solid #e5e7eb',
-                  background: b.hot ? '#eff6ff' : '#fff', opacity: b.dim ? 0.55 : 1,
-                  boxShadow: 'var(--shadow-sm)' }}>
-                <div style={{ fontSize: '1.4rem' }}>{b.ico}</div>
-                <div style={{ fontWeight: 700, fontSize: '0.95rem', color: b.hot ? '#1d4ed8' : '#374151', marginTop: '6px' }}>{b.t}</div>
-                <div style={{ fontSize: '0.75rem', color: '#9ca3af', marginTop: '2px' }}>{b.s}</div>
+              <button key={i} onClick={b.on}
+                style={{ flex: 1, padding: '11px 8px', borderRadius: '10px', cursor: 'pointer',
+                  border: '1px solid #e5e7eb', background: '#fff', color: '#374151',
+                  fontSize: '0.85rem', fontWeight: 600 }}>
+                {b.t}
               </button>
             ))}
           </div>
