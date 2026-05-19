@@ -1368,7 +1368,7 @@ const App = () => {
 
   // 하단 탭바: 루트 화면에서만 노출(드릴/풀이는 전체화면)
   const navTab =
-    currentView === 'home' ? 'home'
+    (currentView === 'home' || currentView === 'profile') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'review'
     : currentView === 'status' ? 'status'
     : 'browse'; // dashboard + tax_* + search(둘러보기 흡수)
