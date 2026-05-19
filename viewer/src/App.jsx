@@ -1269,6 +1269,19 @@ const App = () => {
     return { subjects, weak, diffAcc, streak, goalStreak, weekMet, todayCount, studiedDays: days.size, trend, trendMax, trendSum };
   }, [classifiedList, progress, trendDays, dailyGoal]);
 
+  // A4: 오늘 목표 도달 시 컨페티 1회(하루 1번만)
+  useEffect(() => {
+    if (analytics.todayCount < dailyGoal) return;
+    const today = new Date().toDateString();
+    let last = null;
+    try { last = localStorage.getItem('quiz-confetti-date'); } catch { /* SSR */ }
+    if (last === today) return;
+    try { localStorage.setItem('quiz-confetti-date', today); } catch { /* SSR */ }
+    setConfetti(true);
+    const t = setTimeout(() => setConfetti(false), 2600);
+    return () => clearTimeout(t);
+  }, [analytics.todayCount, dailyGoal]);
+
   // 커버리지: 전체 대비 미응답/정답/복습필요/마스터 + 시험별 진척
   const coverage = useMemo(() => {
     let unseen = 0, learned = 0, review = 0, mastered = 0;
