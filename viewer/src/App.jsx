@@ -1864,6 +1864,86 @@ const App = () => {
     );
   }
 
+  if (currentView === 'profile') {
+    const prof = loadProfile();
+    let firstTs = null;
+    for (const k in progress) { const t = progress[k] && progress[k].ts; if (t && (firstTs == null || t < firstTs)) firstTs = t; }
+    const fmt = (iso) => { const d = new Date(iso); return `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`; };
+    const daysAgo = prof.lastBackup ? Math.floor((Date.now() - new Date(prof.lastBackup).getTime()) / 86400000) : null;
+    const stale = overall.answered > 0 && (daysAgo == null || daysAgo >= 7);
+    return shell(
+      <div className="app-container">
+        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
+          <button className="back-btn" onClick={() => setCurrentView('home')}>
+            <ArrowLeft size={24} style={{ marginRight: '8px' }} />
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>홈</span>
+          </button>
+        </header>
+        <div className="screen-head"><h1 className="screen-title">👤 내 프로필</h1></div>
+        <main className="main-content" style={{ marginTop: '16px' }}>
+          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
+            <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280' }}>닉네임</label>
+            <input
+              value={nickname}
+              onChange={(e) => setNickname(e.target.value)}
+              placeholder="학습자 이름"
+              style={{ width: '100%', padding: '11px 14px', marginTop: '6px', fontSize: '1rem',
+                border: '1px solid #d1d5db', borderRadius: '10px', boxSizing: 'border-box' }}
+            />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '16px' }}>
+              {[
+                ['학습 시작', firstTs ? fmt(firstTs) : '–'],
+                ['총 학습', `${overall.answered}문제`],
+                ['정답률', overall.accuracy == null ? '–' : `${overall.accuracy}%`],
+                ['연속 학습', `${analytics.streak}일`],
+              ].map(([k, v]) => (
+                <div key={k} style={{ background: '#f8fafc', borderRadius: '10px', padding: '12px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '1.05rem', fontWeight: 800 }}>{v}</div>
+                  <div style={{ fontSize: '0.72rem', color: '#6b7280', marginTop: '2px' }}>{k}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section style={{ background: stale ? '#fffbeb' : '#fff', border: `1px solid ${stale ? '#fde68a' : '#e5e7eb'}`,
+            borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
+            <div style={{ fontWeight: 800, marginBottom: '4px' }}>데이터 백업</div>
+            <div style={{ fontSize: '0.82rem', color: '#6b7280', marginBottom: '12px' }}>
+              학습 기록은 이 기기에만 저장돼요. 백업 파일을 보관하면 기기를 바꿔도 그대로 복원할 수 있어요.
+              {prof.lastBackup
+                ? <> 마지막 백업: <b>{daysAgo === 0 ? '오늘' : `${daysAgo}일 전`}</b>.</>
+                : <> <b>아직 백업한 적 없어요.</b></>}
+              {stale && <span style={{ color: '#b45309' }}> 백업을 권장합니다.</span>}
+            </div>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <button onClick={exportUserData}
+                style={{ flex: 1, minWidth: 110, padding: '12px', borderRadius: '10px', border: 'none',
+                  background: 'var(--primary)', color: '#fff', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>
+                ⬇ 백업 내보내기
+              </button>
+              <button onClick={() => fileRef.current && fileRef.current.click()}
+                style={{ flex: 1, minWidth: 110, padding: '12px', borderRadius: '10px', border: '1px solid #d1d5db',
+                  background: '#fff', color: '#374151', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>
+                ⬆ 백업 가져오기
+              </button>
+            </div>
+            <button onClick={() => { if (window.confirm('모든 학습 기록을 삭제할까요? 되돌릴 수 없습니다.')) { resetUserData(); window.location.reload(); } }}
+              style={{ width: '100%', marginTop: '8px', padding: '11px', borderRadius: '10px', border: '1px solid #fecaca',
+                background: '#fef2f2', color: '#b91c1c', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer' }}>
+              전체 초기화
+            </button>
+            <input ref={fileRef} type="file" accept="application/json,.json" onChange={onImportFile} style={{ display: 'none' }} />
+          </section>
+
+          <div style={{ fontSize: '0.75rem', color: '#9ca3af', textAlign: 'center', padding: '0 8px' }}>
+            여러 기기에서 자동으로 이어 보는 로그인 동기화는 준비 중이에요.
+            지금은 백업 파일로 안전하게 옮길 수 있어요.
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   if (currentView === 'status') {
     const cv = coverage;
     const segs = [
