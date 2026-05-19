@@ -2696,6 +2696,33 @@ const App = () => {
           );
         })()}
 
+        {/* 합격 준비도 — 목표 대비 현재 위치(코치) */}
+        {coach.readiness != null && (
+          <button onClick={() => setCurrentView('status')} className="coach-card">
+            <div className="coach-card-top">
+              <span>🎯 합격 준비도 <b style={{ color: 'var(--primary)' }}>추정</b></span>
+              <span style={{ color: 'var(--text-sub)', fontSize: '0.78rem' }}>자세히 →</span>
+            </div>
+            <div className="coach-gauge">
+              <div className="coach-gauge-fill" style={{
+                width: `${Math.min(100, Math.round((coach.readiness / COACH_TARGET) * 100))}%`,
+                background: coach.readiness >= COACH_TARGET ? 'var(--success)' : 'var(--primary)' }} />
+              <span className="coach-gauge-target" style={{ left: '100%' }} />
+            </div>
+            <div className="coach-card-row">
+              <span><b style={{ fontSize: '1.15rem' }}>{coach.readiness}%</b> <span style={{ color: 'var(--text-sub)', fontSize: '0.78rem' }}>/ 목표 {COACH_TARGET}%</span></span>
+              {(coach.riskCount > 0 || coach.warnCount > 0) && (
+                <span style={{ fontSize: '0.78rem', color: coach.riskCount ? 'var(--danger)' : 'var(--warn)', fontWeight: 700 }}>
+                  {coach.riskCount > 0 && `위험 ${coach.riskCount}`}
+                  {coach.riskCount > 0 && coach.warnCount > 0 && ' · '}
+                  {coach.warnCount > 0 && `주의 ${coach.warnCount}`} 단원
+                </span>
+              )}
+            </div>
+            <div className="coach-verdict">{coach.verdict}</div>
+          </button>
+        )}
+
         {/* 다음 목표(마일스톤) — 단일 진행 지표 */}
         {(() => {
           const ms = [50, 100, 300, 500, 1000, 2000, 3000, 5000];
