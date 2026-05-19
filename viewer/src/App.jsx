@@ -2406,6 +2406,16 @@ const App = () => {
           </button>
         )}
 
+        <button
+          onClick={() => setCurrentView('profile')}
+          style={{ width: '100%', textAlign: 'left', padding: '14px 16px', marginBottom: '12px', borderRadius: '12px',
+            border: '1px solid #d1d5db', background: '#fff', color: '#374151', cursor: 'pointer',
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+        >
+          <span style={{ fontWeight: 700 }}>👤 {nickname ? nickname : '내 프로필'}</span>
+          <span style={{ fontSize: '0.8rem', color: '#9ca3af' }}>백업·데이터 관리 →</span>
+        </button>
+
         <div
           onClick={() => srs.due.length && setCurrentView('today')}
           style={{ width: '100%', padding: '16px', margin: '4px 0 12px', borderRadius: '12px',
