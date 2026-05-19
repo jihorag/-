@@ -564,6 +564,51 @@ body {
 }
 .boot-retry:active { transform: scale(0.97); }
 
+/* ===== 합격 코치 카드(홈 요약) ===== */
+.coach-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.coach-card:active { transform: scale(0.995); }
+.coach-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+.coach-gauge {
+  position: relative;
+  height: 8px;
+  background: #eef2f7;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.coach-gauge-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.coach-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.coach-verdict {
+  font-size: 0.82rem;
+  color: var(--text-sub);
+  margin-top: 8px;
+}
+
 /* ===== 홈: 오늘 할 일(단일 다음 행동) + 마일스톤 ===== */
 .todo-hero {
   display: flex;
