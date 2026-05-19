@@ -2601,10 +2601,9 @@ const App = () => {
           </button>
         </div>
         <div className="banner-content">
-          <div className="banner-subtitle">PROFESSIONAL APPRAISER EXAM</div>
-          <div className="banner-title">감정평가사 1차 기출 완전정복</div>
-          <p style={{ marginTop: '12px', opacity: 0.8, fontSize: '1rem', fontWeight: '500' }}>
-            합격을 위한 최단기 기출 반복 학습 솔루션
+          <div className="banner-title">감정평가사 1차 기출</div>
+          <p style={{ marginTop: '6px', opacity: 0.85, fontSize: '0.9rem', fontWeight: 500 }}>
+            {nickname ? `${nickname}님, 오늘도 한 걸음 더` : '오늘도 한 걸음 더'}
           </p>
         </div>
       </div>
