@@ -1,10 +1,14 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 
 :root {
-  --primary: #1e3a8a;
-  --primary-dark: #1e3a8a;
-  --primary-light: #dbeafe;
+  /* 브랜드 컬러 — 전 화면에서 쓰던 인라인 #2563eb 계열로 토큰 통일 */
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #eff6ff;
   --accent: #b45309;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warn: #ea580c;
   --bg-color: #f1f5f9;
   --card-bg: rgba(255, 255, 255, 0.95);
   --text-main: #0f172a;
@@ -14,6 +18,8 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --radius: 16px;
+  /* 본문 글자 크기 배율(설정에서 변경) */
+  --q-fs: 1;
 }
 
 * {
