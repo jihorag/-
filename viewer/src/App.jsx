@@ -1346,9 +1346,9 @@ const App = () => {
     try { last = localStorage.getItem('quiz-confetti-date'); } catch { /* SSR */ }
     if (last === today) return;
     try { localStorage.setItem('quiz-confetti-date', today); } catch { /* SSR */ }
-    setConfetti(true);
-    const t = setTimeout(() => setConfetti(false), 2600);
-    return () => clearTimeout(t);
+    const t1 = setTimeout(() => setConfetti(true), 60);
+    const t2 = setTimeout(() => setConfetti(false), 2700);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, [analytics.todayCount, dailyGoal]);
 
   // 커버리지: 전체 대비 미응답/정답/복습필요/마스터 + 시험별 진척
