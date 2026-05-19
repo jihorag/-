@@ -506,6 +506,69 @@ body {
 .study-card:active { transform: scale(0.985); }
 .bottom-nav button:active .nav-ico { transform: scale(0.9); }
 
+/* ===== 콜드 스타트 / 오류 부트 화면 ===== */
+.boot {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+  background: var(--bg-color);
+}
+.boot-mark {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+.boot-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 28px;
+}
+.boot-bar {
+  width: 100%;
+  max-width: 280px;
+  height: 6px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+.boot-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+.boot-pct {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 12px;
+}
+.boot-note {
+  font-size: 0.82rem;
+  color: var(--text-sub);
+  margin-top: 14px;
+  max-width: 300px;
+  line-height: 1.55;
+}
+.boot-retry {
+  padding: 13px 26px;
+  border-radius: 12px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.boot-retry:active { transform: scale(0.97); }
+
 /* ===== B1. 본문 글자 크기 스케일 ===== */
 .q-text { font-size: calc(1.125rem * var(--q-fs)); }
 .q-opt  { font-size: calc(0.95rem  * var(--q-fs)); }

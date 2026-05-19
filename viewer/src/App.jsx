@@ -1979,11 +1979,13 @@ const App = () => {
 
   if (loadError) {
     return (
-      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', color: '#374151', padding: '24px', textAlign: 'center' }}>
-        <div style={{ fontWeight: 700, fontSize: '1.2rem', marginBottom: '8px' }}>데이터를 불러오지 못했습니다</div>
-        <div style={{ color: '#6b7280', marginBottom: '20px' }}>네트워크 상태를 확인한 뒤 다시 시도해 주세요.</div>
-        <button onClick={() => window.location.reload()}
-          style={{ padding: '12px 22px', borderRadius: '10px', border: 'none', background: '#3b82f6', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
+      <div className="boot">
+        <div className="boot-mark">감정평가사 기출</div>
+        <div className="boot-title" style={{ marginBottom: 8 }}>잠깐 연결이 끊겼어요</div>
+        <div className="boot-note" style={{ marginBottom: 22 }}>
+          네트워크를 확인하고 다시 시도해 주세요. 데이터는 안전합니다.
+        </div>
+        <button onClick={() => window.location.reload()} className="boot-retry">
           다시 시도
         </button>
       </div>
