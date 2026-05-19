@@ -75,11 +75,13 @@ body {
 
 /* Banner */
 .banner {
-  height: 280px;
+  min-height: 280px;
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
   position: relative;
   overflow: hidden;
   padding: 60px 24px;
+  padding-top: calc(48px + env(safe-area-inset-top, 0px));
+  box-sizing: border-box;
   color: white;
 }
 
