@@ -106,7 +106,7 @@ def main():
                 q["options"] = opts
         done += 1
 
-    print(f"\n치환 {done} · 이미지전용아님 {skip_notimg} · 미매칭 {skip_noid} · 이미처리 {conflict}")
+    print(f"\n치환 {done} · 도형유지 {kept} · 이미지전용아님 {skip_notimg} · 미매칭 {skip_noid} · 이미처리 {conflict}")
     if dry:
         print("--dry-run: 파일 미수정")
         return
