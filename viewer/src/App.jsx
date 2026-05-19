@@ -2474,25 +2474,119 @@ const App = () => {
       </div>
 
       <main className="main-content">
+        {/* 오늘의 목표 */}
+        {(() => {
+          const goal = dailyGoal;
+          const done = analytics.todayCount;
+          const gpct = Math.min(100, Math.round((done / (goal || 1)) * 100));
+          const reached = done >= goal;
+          return (
+            <section style={{ background: '#fff', borderRadius: '16px', padding: '18px',
+              boxShadow: 'var(--shadow-md)', marginBottom: '14px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#111827' }}>
+                  {reached ? '🎉 오늘 목표 달성!' : '🎯 오늘의 목표'}
+                </div>
+                <div style={{ fontSize: '0.85rem', color: '#6b7280', fontWeight: 600 }}>
+                  <span style={{ color: reached ? '#16a34a' : '#1d4ed8', fontWeight: 800 }}>{done}</span> / {goal}문제
+                </div>
+              </div>
+              <div className="progress-bar-container" style={{ marginTop: '12px' }}>
+                <div className="progress-bar-fill" style={{ width: `${gpct}%`,
+                  background: reached ? '#16a34a' : undefined }}></div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '14px' }}>
+                <div style={{ display: 'flex', gap: '6px' }}>
+                  {analytics.weekMet.map((w, i) => (
+                    <div key={i} title={w.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+                      <div style={{ width: 22, height: 22, borderRadius: '50%',
+                        background: w.met ? '#16a34a' : '#e5e7eb',
+                        color: w.met ? '#fff' : '#9ca3af', fontSize: '0.7rem',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        outline: w.isToday ? '2px solid #1d4ed8' : 'none', outlineOffset: '1px' }}>
+                        {w.met ? '✓' : ''}
+                      </div>
+                      <span style={{ fontSize: '0.68rem', color: '#9ca3af' }}>{w.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ textAlign: 'right' }}>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ea580c' }}>
+                    🔥 {analytics.streak}일
+                  </div>
+                  <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>연속 학습</div>
+                </div>
+              </div>
+            </section>
+          );
+        })()}
+
+        {/* 빠른 시작 */}
+        <section style={{ marginBottom: '14px' }}>
+          <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#374151', margin: '0 2px 10px' }}>빠른 시작</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+            {[
+              { ico: '🎯', t: '오늘의 추천', s: `약점·미학습 ${dailyGoal}문제`, on: startRecommended, hot: true },
+              { ico: '📅', t: '오늘 복습', s: srs.due.length ? `${srs.due.length}문제 도래` : '복습 없음',
+                on: () => srs.due.length && setCurrentView('today'), dim: !srs.due.length },
+              { ico: '🎲', t: '랜덤 20문제', s: '무작위로 풀기', on: () => startRandom(20) },
+              { ico: '📚', t: '둘러보기', s: '시험·과목·연도별', on: () => setCurrentView('dashboard') },
+            ].map((b, i) => (
+              <button key={i} onClick={b.on} disabled={b.dim}
+                style={{ textAlign: 'left', padding: '15px 14px', borderRadius: '14px', cursor: b.dim ? 'default' : 'pointer',
+                  border: b.hot ? '1px solid #2563eb' : '1px solid #e5e7eb',
+                  background: b.hot ? '#eff6ff' : '#fff', opacity: b.dim ? 0.55 : 1,
+                  boxShadow: 'var(--shadow-sm)' }}>
+                <div style={{ fontSize: '1.4rem' }}>{b.ico}</div>
+                <div style={{ fontWeight: 700, fontSize: '0.95rem', color: b.hot ? '#1d4ed8' : '#374151', marginTop: '6px' }}>{b.t}</div>
+                <div style={{ fontSize: '0.75rem', color: '#9ca3af', marginTop: '2px' }}>{b.s}</div>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* 약점 집중 */}
+        {analytics.weak.length > 0 && (
+          <section style={{ marginBottom: '14px' }}>
+            <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#374151', margin: '0 2px 10px' }}>
+              📉 약점 집중
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {analytics.weak.map((w) => (
+                <button key={w.name} onClick={() => startConcept(w.name, `${w.name} 집중 학습`)}
+                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px',
+                    padding: '13px 15px', borderRadius: '12px', cursor: 'pointer',
+                    border: '1px solid #fecaca', background: '#fef2f2', textAlign: 'left' }}>
+                  <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#374151' }}>{w.name}</span>
+                  <span style={{ fontSize: '0.82rem', color: '#dc2626', fontWeight: 700, flexShrink: 0 }}>
+                    정답률 {w.acc}% · 보강 →
+                  </span>
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 학습 진행 요약 */}
         <section className="overview-card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
-              <h2 className="overview-title">나의 학습 통계</h2>
-              <p className="overview-subtitle">전체 {totalQuestions}개 문항 중 현재 학습 진행 현황</p>
+              <h2 className="overview-title">나의 학습 진행</h2>
+              <p className="overview-subtitle">전체 {totalQuestions}개 문항 중 현재 진행 현황</p>
             </div>
             {overall.answered > 0 && (
               <button
                 onClick={() => { if (window.confirm('학습 진행률을 모두 초기화할까요?')) resetProgress(); }}
                 style={{ background: 'var(--primary-light)', padding: '8px 16px', borderRadius: '12px', color: 'var(--primary)', fontWeight: '700', fontSize: '0.9rem', border: 'none', cursor: 'pointer' }}
               >
-                진행률 초기화
+                초기화
               </button>
             )}
           </div>
 
           {(() => {
             const pct = totalQuestions ? Math.round((overall.answered / totalQuestions) * 100) : 0;
-            const acc = overall.accuracy; // scored 기준 정답률(null=채점분 없음)
+            const acc = overall.accuracy;
             return (
               <>
                 <div className="progress-bar-container">
@@ -2509,57 +2603,83 @@ const App = () => {
               </>
             );
           })()}
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', marginTop: '16px' }}>
+            {[
+              ['미응답', coverage.unseen, '#6b7280', '#f3f4f6'],
+              ['학습', coverage.learned, '#1d4ed8', '#eff6ff'],
+              ['복습필요', coverage.review, '#dc2626', '#fef2f2'],
+              ['마스터', coverage.mastered, '#16a34a', '#f0fdf4'],
+            ].map(([lbl, n, c, bg]) => (
+              <div key={lbl} style={{ background: bg, borderRadius: '10px', padding: '10px 6px', textAlign: 'center' }}>
+                <div style={{ fontSize: '1.05rem', fontWeight: 800, color: c }}>{n}</div>
+                <div style={{ fontSize: '0.7rem', color: '#6b7280', marginTop: '2px' }}>{lbl}</div>
+              </div>
+            ))}
+          </div>
+
+          {overall.answered > 0 && (
+            <button
+              onClick={() => setCurrentView('status')}
+              style={{ width: '100%', textAlign: 'center', padding: '12px', marginTop: '14px', borderRadius: '12px',
+                border: '1px solid #bfdbfe', background: '#eff6ff', color: '#1d4ed8', cursor: 'pointer',
+                fontWeight: 700, fontSize: '0.9rem' }}
+            >
+              📊 학습 현황 자세히 보기 →
+            </button>
+          )}
         </section>
 
-        {overall.answered > 0 && (
-          <button
-            onClick={() => setCurrentView("status")}
-            style={{ width: "100%", textAlign: "left", padding: "16px", marginBottom: "20px", borderRadius: "16px",
-              border: "1px solid #bfdbfe", background: "#eff6ff", color: "#1d4ed8", cursor: "pointer",
-              boxShadow: "var(--shadow-sm)" }}
-          >
-            <div style={{ fontWeight: 800, fontSize: "1.05rem" }}>📊 학습 현황 보기</div>
-            <div style={{ fontSize: "0.82rem", color: "#3b6fb5", marginTop: "4px" }}>
-              오늘 {analytics.todayCount}/{dailyGoal} · 연속 {analytics.streak}일 · 정답률 {overall.accuracy == null ? "–" : overall.accuracy + "%"} · 한눈에 →
+        {/* 시험별 진척 */}
+        {coverage.exams.length > 0 && (
+          <section style={{ marginBottom: '14px' }}>
+            <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#374151', margin: '0 2px 10px' }}>
+              📋 시험별 진척
             </div>
-          </button>
+            <div style={{ background: '#fff', borderRadius: '14px', padding: '14px', boxShadow: 'var(--shadow-sm)',
+              display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {coverage.exams.slice(0, 4).map((e) => (
+                <button key={e.name} onClick={() => enterTaxScope({ kind: 'exam', value: e.name, label: e.name })}
+                  style={{ border: 'none', background: 'transparent', cursor: 'pointer', textAlign: 'left', padding: 0 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '5px' }}>
+                    <span style={{ fontWeight: 700, color: '#374151' }}>{e.name}</span>
+                    <span style={{ color: '#6b7280' }}>
+                      {e.coverPct}%{e.acc != null && <> · 정답 {e.acc}%</>}
+                    </span>
+                  </div>
+                  <div className="progress-bar-container" style={{ height: '7px' }}>
+                    <div className="progress-bar-fill" style={{ width: `${e.coverPct}%` }}></div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </section>
         )}
 
-        <div
-          onClick={() => srs.due.length && setCurrentView('today')}
-          style={{ width: '100%', padding: '16px', margin: '4px 0 12px', borderRadius: '12px',
-            border: `1px solid ${srs.due.length ? '#bfdbfe' : '#e5e7eb'}`,
-            background: srs.due.length ? '#eff6ff' : '#fff',
-            cursor: srs.due.length ? 'pointer' : 'default',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}
-        >
+        {/* 복습 알림 */}
+        <div style={{ width: '100%', padding: '14px 16px', marginBottom: '8px', borderRadius: '12px',
+          border: '1px solid #e5e7eb', background: '#fff',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
           <div>
-            <div style={{ fontWeight: 700, fontSize: '1rem', color: srs.due.length ? '#1d4ed8' : '#6b7280' }}>
-              📅 오늘 복습 {srs.due.length > 0 ? `${srs.due.length}문제` : '없음'}
-            </div>
-            <div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: '2px' }}>
-              {srs.due.length > 0
-                ? '기억 곡선에 따라 오늘 풀 차례예요'
-                : (srs.nextDue != null
-                    ? `다음 복습: ${new Date(srs.nextDue).getMonth() + 1}/${new Date(srs.nextDue).getDate()}`
-                    : '틀린 문제가 쌓이면 복습 일정이 생겨요')}
+            <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#374151' }}>🔔 복습 알림</div>
+            <div style={{ fontSize: '0.78rem', color: '#9ca3af', marginTop: '2px' }}>
+              {srs.nextDue != null && !srs.due.length
+                ? `다음 복습 ${new Date(srs.nextDue).getMonth() + 1}/${new Date(srs.nextDue).getDate()}`
+                : '복습할 게 생기면 알려드려요'}
             </div>
           </div>
           <button
-            onClick={(e) => {
-              e.stopPropagation();
+            onClick={() => {
               if (typeof Notification === 'undefined') return;
-              if (Notification.permission === 'granted') {
-                setNotifPref(p => !p);
-              } else {
-                Notification.requestPermission().then(r => setNotifPref(r === 'granted'));
-              }
+              if (Notification.permission === 'granted') setNotifPref(p => !p);
+              else Notification.requestPermission().then(r => setNotifPref(r === 'granted'));
             }}
-            style={{ flexShrink: 0, border: '1px solid #d1d5db', background: '#fff', borderRadius: '8px',
-              padding: '8px 12px', fontSize: '0.8rem', cursor: 'pointer',
+            style={{ flexShrink: 0, border: notifPref ? '1px solid #2563eb' : '1px solid #d1d5db',
+              background: notifPref ? '#eff6ff' : '#fff', borderRadius: '8px',
+              padding: '8px 14px', fontSize: '0.8rem', cursor: 'pointer',
               color: notifPref ? '#1d4ed8' : '#6b7280', fontWeight: 600 }}
           >
-            {notifPref ? '🔔 알림 켜짐' : '🔔 알림 받기'}
+            {notifPref ? '켜짐' : '받기'}
           </button>
         </div>
 
