@@ -578,6 +578,7 @@ const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
   const [taxonomyData, setTaxonomyData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loadPct, setLoadPct] = useState(0);
   const [loadError, setLoadError] = useState(false);
   // 새로고침/딥링크 복원: 최초 렌더에서 URL 해시를 1회 파싱해 초기 상태로 사용
   const [bootNav] = useState(() => parseNav(typeof window !== 'undefined' ? window.location.hash : ''));
@@ -745,22 +746,49 @@ const App = () => {
   // 시험별/연도별 진입 시 적용되는 분류 스코프: null | {kind:'exam'|'year', value, label}
   const [taxScope, setTaxScope] = useState(bootNav?.taxScope || null);
 
-  // 데이터 불러오기
+  // 데이터 불러오기 — 큰 questions_db는 스트리밍해 실제 진행률 표시
   useEffect(() => {
-    Promise.all([
-      fetch('/data/questions_db.json').then(res => res.json()),
-      fetch('/data/taxonomy.json').then(res => res.json())
-    ])
-      .then(([qData, tData]) => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const [qRes, tData] = await Promise.all([
+          fetch('/data/questions_db.json'),
+          fetch('/data/taxonomy.json').then(r => r.json()),
+        ]);
+        if (!qRes.ok) throw new Error('questions_db ' + qRes.status);
+        const total = parseInt(qRes.headers.get('content-length') || '0', 10);
+        let qData;
+        if (qRes.body && total > 0) {
+          const reader = qRes.body.getReader();
+          const chunks = [];
+          let received = 0;
+          for (;;) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            chunks.push(value);
+            received += value.length;
+            if (!cancelled) setLoadPct(Math.min(99, Math.round((received / total) * 100)));
+          }
+          const buf = new Uint8Array(received);
+          let off = 0;
+          for (const c of chunks) { buf.set(c, off); off += c.length; }
+          qData = JSON.parse(new TextDecoder().decode(buf));
+        } else {
+          qData = await qRes.json(); // content-length 없으면(캐시/압축) 일반 파싱
+        }
+        if (cancelled) return;
+        setLoadPct(100);
         setQuestionsData(qData);
         setTaxonomyData(tData);
         setLoading(false);
-      })
-      .catch(err => {
-        console.error("데이터 로딩 실패:", err);
+      } catch (err) {
+        console.error('데이터 로딩 실패:', err);
+        if (cancelled) return;
         setLoadError(true);
         setLoading(false);
-      });
+      }
+    })();
+    return () => { cancelled = true; };
   }, []);
 
   // ----- URL 라우팅: 해시 ↔ 네비게이션 상태 동기 -----
