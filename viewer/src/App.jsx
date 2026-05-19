@@ -1747,8 +1747,11 @@ const App = () => {
                   style={{ flex: 2, padding: '14px', minHeight: '48px', borderRadius: '10px', border: 'none', background: idx >= total - 1 ? '#e5e7eb' : 'var(--primary)', color: idx >= total - 1 ? '#9ca3af' : '#fff', cursor: idx >= total - 1 ? 'default' : 'pointer', fontWeight: 700 }}
                 >다음 문제 →</button>
               </div>
-              <div style={{ textAlign: 'center', fontSize: '0.75rem', color: '#9ca3af', marginTop: '8px' }}>
+              <div className="kbd-hint" style={{ textAlign: 'center', fontSize: '0.75rem', color: '#9ca3af', marginTop: '8px' }}>
                 키보드 <b>1~5</b> 보기 · <b>←</b> 이전 · <b>→</b>·<b>Enter</b> 다음
+              </div>
+              <div className="swipe-hint" style={{ textAlign: 'center', fontSize: '0.75rem', color: '#9ca3af', marginTop: '8px' }}>
+                ← 좌우로 밀어 이전·다음 →
               </div>
               {done && selectedGroup.review && (() => {
                 const stillWrong = ordered.filter(x => { const p = progress[qid(x)]; return p && p.correct === false; });
