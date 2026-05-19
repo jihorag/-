@@ -446,68 +446,45 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
           const isCorrectAnswer = hasAnswer && q.answerNorm === optNumber;
           const isSelected = selectedOpt === optNumber;
 
-          let bgColor = '#f9fafb';
-          let borderColor = '#e5e7eb';
-          let badgeBg = '#fff';
-          let badgeColor = '#4b5563';
-          let badgeBorder = '1px solid #d1d5db';
+          const showCorrect = isRevealed && isCorrectAnswer;
+          const showWrong = isRevealed && isSelected && !isCorrectAnswer;
 
-          if (isRevealed) {
-            if (isCorrectAnswer) {
-              bgColor = '#eff6ff';
-              borderColor = '#bfdbfe';
-              badgeBg = '#3b82f6';
-              badgeColor = '#fff';
-              badgeBorder = 'none';
-            } else if (isSelected && !isCorrectAnswer) {
-              bgColor = '#fef2f2';
-              borderColor = '#fecaca';
-              badgeBg = '#ef4444';
-              badgeColor = '#fff';
-              badgeBorder = 'none';
-            }
+          let bgColor, borderColor, badgeBg = '#fff', badgeColor = '#4b5563', badgeBorder = '1.5px solid #d1d5db';
+          let anim = '';
+          if (showCorrect) {
+            bgColor = '#eff6ff'; borderColor = '#93c5fd'; badgeBg = '#2563eb'; badgeColor = '#fff'; badgeBorder = 'none';
+            anim = 'opt-correct';
+          } else if (showWrong) {
+            bgColor = '#fef2f2'; borderColor = '#fca5a5'; badgeBg = '#dc2626'; badgeColor = '#fff'; badgeBorder = 'none';
+            anim = 'opt-wrong';
           } else {
-            if (isSelected) {
-              // Hover or active state could be added here if we wanted
-            }
+            bgColor = '#f9fafb'; borderColor = '#e5e7eb';
+            if (isRevealed) { bgColor = '#fff'; }
           }
 
           return (
-            <div 
-              key={optIdx} 
+            <button
+              key={optIdx}
+              type="button"
+              className={`opt-btn ${anim}`.trim()}
               onClick={() => handleOptionClick(optIdx)}
-              style={{ 
-                padding: '12px 16px', 
-                borderRadius: '8px', 
-                background: bgColor,
-                border: borderColor,
-                display: 'flex',
-                alignItems: 'flex-start',
-                cursor: isRevealed ? 'default' : 'pointer',
-                transition: 'all 0.2s'
-              }}
+              disabled={isRevealed}
+              aria-pressed={isSelected}
+              aria-label={`${optIdx + 1}번 보기${showCorrect ? ' (정답)' : showWrong ? ' (오답·내 선택)' : ''}`}
+              style={{ background: bgColor, borderColor }}
             >
-              <span style={{ 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                justifyContent: 'center', 
-                width: '24px', 
-                height: '24px', 
-                borderRadius: '50%', 
-                background: badgeBg,
-                color: badgeColor,
-                border: badgeBorder,
-                marginRight: '12px',
-                fontSize: '0.875rem',
-                fontWeight: '600',
-                flexShrink: 0
+              <span style={{
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                width: '26px', height: '26px', borderRadius: '50%',
+                background: badgeBg, color: badgeColor, border: badgeBorder,
+                fontSize: '0.875rem', fontWeight: '700', flexShrink: 0
               }}>
-                {optIdx + 1}
+                {showCorrect ? '✓' : showWrong ? '✕' : optIdx + 1}
               </span>
-              <div style={{ fontSize: '0.95rem', lineHeight: '1.5', color: '#1f2937' }}>
+              <span className="q-opt" style={{ lineHeight: '1.5', color: '#1f2937' }}>
                 <ParsedText text={opt} />
-              </div>
-            </div>
+              </span>
+            </button>
           );
         })}
       </div>
@@ -517,15 +494,15 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
         const correct = hasAnswer && selectedOpt === q.answerNorm;
         const accent = !hasAnswer ? '#6b7280' : (correct ? '#16a34a' : '#ef4444');
         return (
-          <div style={{ padding: '16px', background: '#f3f4f6', borderRadius: '8px', borderLeft: `4px solid ${accent}`, animation: 'fadeIn 0.3s ease-in-out' }}>
+          <div className="result-box" style={{ padding: '16px', background: '#f3f4f6', borderRadius: '8px', borderLeft: `4px solid ${accent}` }}>
             <div style={{ fontWeight: '700', marginBottom: q.explanation ? '8px' : '0', fontSize: '0.95rem', display: 'flex', justifyContent: 'space-between' }}>
               <span>{q.explanation ? '해설' : '결과'}</span>
               <span style={{ color: accent }}>
-                {!hasAnswer ? '정답 정보 없음 (채점 제외)' : (correct ? '정답입니다!' : '오답입니다.')}
+                {!hasAnswer ? 'ℹ 정답 정보 없음 (채점 제외)' : (correct ? '✓ 정답입니다!' : '✕ 오답입니다.')}
               </span>
             </div>
             {q.explanation
-              ? <div style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#4b5563' }}><ParsedText text={q.explanation} /></div>
+              ? <div className="q-exp" style={{ lineHeight: '1.6', color: '#4b5563' }}><ParsedText text={q.explanation} /></div>
               : (hasAnswer && <div style={{ fontSize: '0.9rem', color: '#6b7280' }}>정답: {q.answerNorm}번</div>)}
           </div>
         );
