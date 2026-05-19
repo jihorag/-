@@ -1869,7 +1869,7 @@ const App = () => {
     let firstTs = null;
     for (const k in progress) { const t = progress[k] && progress[k].ts; if (t && (firstTs == null || t < firstTs)) firstTs = t; }
     const fmt = (iso) => { const d = new Date(iso); return `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`; };
-    const daysAgo = prof.lastBackup ? Math.floor((Date.now() - new Date(prof.lastBackup).getTime()) / 86400000) : null;
+    const daysAgo = prof.lastBackup ? Math.floor((nowTs - new Date(prof.lastBackup).getTime()) / 86400000) : null;
     const stale = overall.answered > 0 && (daysAgo == null || daysAgo >= 7);
     return shell(
       <div className="app-container">
