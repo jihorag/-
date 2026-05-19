@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, House, Compass, RotateCcw, ChartColumn } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
