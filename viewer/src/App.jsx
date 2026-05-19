@@ -2144,34 +2144,13 @@ const App = () => {
             </section>
           )}
 
-          {/* 데이터 관리 */}
-          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '8px' }}>
-            <div style={{ fontWeight: 800, marginBottom: '4px' }}>데이터 관리</div>
-            <div style={{ fontSize: '0.8rem', color: '#6b7280', marginBottom: '12px' }}>
-              학습 기록은 이 기기에만 저장돼요. 백업해 두면 기기를 바꿔도 복원할 수 있어요.
-            </div>
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-              <button onClick={exportUserData}
-                style={{ flex: 1, minWidth: 110, padding: '11px', borderRadius: '10px', border: '1px solid #d1d5db',
-                  background: '#fff', color: '#374151', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer' }}>
-                ⬇ 내보내기
-              </button>
-              <button onClick={() => fileRef.current && fileRef.current.click()}
-                style={{ flex: 1, minWidth: 110, padding: '11px', borderRadius: '10px', border: '1px solid #d1d5db',
-                  background: '#fff', color: '#374151', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer' }}>
-                ⬆ 가져오기
-              </button>
-              <button onClick={() => { if (window.confirm('모든 학습 기록을 삭제할까요? 되돌릴 수 없습니다.')) { resetUserData(); window.location.reload(); } }}
-                style={{ flex: 1, minWidth: 110, padding: '11px', borderRadius: '10px', border: '1px solid #fecaca',
-                  background: '#fef2f2', color: '#b91c1c', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer' }}>
-                전체 초기화
-              </button>
-            </div>
-            <input ref={fileRef} type="file" accept="application/json,.json" onChange={onImportFile} style={{ display: 'none' }} />
-            <div style={{ fontSize: '0.75rem', color: '#9ca3af', marginTop: '10px' }}>
-              계정 로그인 동기화는 준비 중 — 지금은 파일 백업으로 안전하게 보관하세요.
-            </div>
-          </section>
+          <button onClick={() => setCurrentView('profile')}
+            style={{ width: '100%', textAlign: 'left', padding: '14px 16px', borderRadius: '12px', marginBottom: '8px',
+              border: '1px solid #d1d5db', background: '#fff', color: '#374151', cursor: 'pointer',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontWeight: 700 }}>👤 프로필 · 데이터 백업</span>
+            <span style={{ fontSize: '0.8rem', color: '#9ca3af' }}>관리 →</span>
+          </button>
         </main>
       </div>
     );
