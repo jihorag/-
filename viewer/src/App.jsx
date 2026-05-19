@@ -1604,22 +1604,14 @@ const App = () => {
       ))}
     </nav>
   );
-  // 루트 화면을 셸(스크롤 영역 + 고정 탭바)로 감싼다
-  const finishOnboarding = () => {
+  // 첫 사용자는 모달 대신 빈 상태 히어로로 가치를 먼저 보여준다(아래 home 분기).
+  const startFirstTaste = () => {
     try { localStorage.setItem('quiz-onboarded', '1'); } catch { /* SSR */ }
-    setOnbStep(-1);
+    const ids = sampleN(classifiedList, 10).map(qid);
+    if (ids.length) startReview(ids, '맛보기 10문제', 'home');
   };
-  const onbNext = () => {
-    if (onbStep >= ONB_SLIDES.length - 1) finishOnboarding();
-    else setOnbStep(s => s + 1);
-  };
-  // 전역 오버레이(컨페티·온보딩) — 루트/드릴 양쪽에 삽입
-  const overlays = (
-    <>
-      {confetti && <Confetti />}
-      {onbStep >= 0 && <OnboardingOverlay step={onbStep} onNext={onbNext} onSkip={finishOnboarding} />}
-    </>
-  );
+  // 전역 오버레이(컨페티) — 루트/드릴 양쪽에 삽입
+  const overlays = <>{confetti && <Confetti />}</>;
   const shell = (content) => (
     <div className="app-shell with-nav">
       {content}
