@@ -413,12 +413,13 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
 
   // 가이드 학습: 숫자키 1~9로 보기 선택(단일 문항 표시 화면에서만)
   useEffect(() => {
-    if (!keyboard || isRevealed || noOptions) return;
+    if (!keyboard || isRevealed) return;
+    const optCount = noOptions ? 4 : q.options.length;
     const onKey = (e) => {
       const tag = e.target && e.target.tagName;
       if (tag && /^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return;
       const n = parseInt(e.key, 10);
-      if (n >= 1 && n <= q.options.length) handleOptionClick(n - 1);
+      if (n >= 1 && n <= optCount) handleOptionClick(n - 1);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
