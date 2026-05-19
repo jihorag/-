@@ -125,6 +125,8 @@ const sampleN = (arr, n) => {
 
 // B4: 스와이프 추적(렌더와 무관한 전역 트랜션트 상태)
 const swipe = { x: 0, y: 0 };
+// C2: 문항 목록 스크롤 위치 기억(목록↔학습 왕복 시 복원)
+const scrollMem = { qlist: 0 };
 
 // A4: 컨페티 조각(모듈 로드 시 1회 생성 — 렌더 순수성 규칙 밖)
 const CONFETTI_COLORS = ['#2563eb', '#16a34a', '#ea580c', '#eab308', '#ec4899', '#06b6d4'];
@@ -1837,7 +1839,7 @@ const App = () => {
     return (
       <div className="app-container">
         {drillHeader(
-          <button className="drill-action" onClick={() => { setStudyIdx(0); setCurrentView('study'); window.scrollTo(0, 0); }}>
+          <button className="drill-action" onClick={() => { scrollMem.qlist = window.scrollY; setStudyIdx(0); setCurrentView('study'); window.scrollTo(0, 0); }}>
             📚 학습
           </button>
         )}
