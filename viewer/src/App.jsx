@@ -586,6 +586,39 @@ const App = () => {
     setNicknameState(v);
     saveProfile({ ...loadProfile(), nickname: v });
   };
+
+  // 클라우드 동기화(선택)
+  const [authUser, setAuthUser] = useState(null);
+  const [cloudMsg, setCloudMsg] = useState('');
+  useEffect(() => {
+    if (!supabase) return;
+    supabase.auth.getSession().then(({ data }) => setAuthUser(data?.session?.user || null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => setAuthUser(session?.user || null));
+    return () => sub?.subscription?.unsubscribe();
+  }, []);
+  const cloudPush = useCallback(async (silent) => {
+    try {
+      const at = await pushState(collectUserData());
+      saveProfile({ ...loadProfile(), lastCloud: at });
+      if (!silent) setCloudMsg('클라우드에 백업했어요.');
+    } catch (e) { if (!silent) setCloudMsg('백업 실패: ' + (e.message || e)); }
+  }, []);
+  const cloudPull = useCallback(async () => {
+    try {
+      const row = await pullState();
+      if (!row || !row.data) { setCloudMsg('클라우드에 저장된 기록이 없어요.'); return; }
+      if (!window.confirm('클라우드 기록으로 이 기기를 덮어쓸까요? 현재 진행은 사라집니다.')) return;
+      importUserData(JSON.stringify(row.data));
+      window.location.reload();
+    } catch (e) { setCloudMsg('불러오기 실패: ' + (e.message || e)); }
+  }, []);
+  // 로그인 중이면 앱이 백그라운드로 갈 때 자동 백업
+  useEffect(() => {
+    if (!supabase || !authUser) return;
+    const onHide = () => { if (document.visibilityState === 'hidden') cloudPush(true); };
+    document.addEventListener('visibilitychange', onHide);
+    return () => document.removeEventListener('visibilitychange', onHide);
+  }, [authUser, cloudPush]);
   const [notifPref, setNotifPref] = useState(() => {
     try { return localStorage.getItem('quiz-notif') === '1' && typeof Notification !== 'undefined' && Notification.permission === 'granted'; }
     catch { return false; }
