@@ -383,7 +383,16 @@ const ParsedText = ({ text }) => {
               return <span key={`${i}-${j}`}>{mathPart}</span>;
             }
           }
-          return <span key={`${i}-${j}`}>{mathPart}</span>;
+          if (mathPart.indexOf('\n') === -1) return <span key={`${i}-${j}`}>{mathPart}</span>;
+          // 이미지→텍스트 변환 문항의 줄바꿈(ㄱ/ㄴ/ㄷ 보기 등) 보존
+          const lines = mathPart.split('\n');
+          return (
+            <span key={`${i}-${j}`}>
+              {lines.map((ln, k) => (
+                <span key={k}>{ln}{k < lines.length - 1 && <br />}</span>
+              ))}
+            </span>
+          );
         });
       })}
     </>
