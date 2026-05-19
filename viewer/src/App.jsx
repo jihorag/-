@@ -13,7 +13,16 @@ const collectUserData = () => {
   }
   return { version: 1, exportedAt: new Date().toISOString(), data };
 };
+const loadProfile = () => {
+  try { return JSON.parse(localStorage.getItem('quiz-profile') || '{}') || {}; }
+  catch { return {}; }
+};
+const saveProfile = (p) => {
+  try { localStorage.setItem('quiz-profile', JSON.stringify(p)); } catch { /* SSR */ }
+};
 const exportUserData = () => {
+  // 백업 시각 기록(백업 후 수집되도록 먼저 저장)
+  saveProfile({ ...loadProfile(), lastBackup: new Date().toISOString() });
   const blob = new Blob([JSON.stringify(collectUserData(), null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
