@@ -1291,6 +1291,33 @@ const App = () => {
     startReview(finalIds, title, 'home');
   };
 
+  // 오늘의 추천: 오답 → 미응답 순, 약점 과목 가중, 일일 목표 수만큼
+  const startRecommended = () => {
+    const weakNames = new Set(analytics.weak.map(w => w.name));
+    const w = (q) => (weakNames.has(q.taxSubjectName || '기타') ? 0 : 1);
+    const wrong = [], unseen = [];
+    for (const q of classifiedList) {
+      const p = progress[qid(q)];
+      if (!p) unseen.push(q);
+      else if (p.correct === false) wrong.push(q);
+    }
+    wrong.sort((a, b) => w(a) - w(b));
+    unseen.sort((a, b) => w(a) - w(b));
+    const ids = [...wrong, ...unseen].slice(0, dailyGoal).map(qid);
+    if (ids.length) startReview(ids, '오늘의 추천 학습', 'home');
+  };
+
+  // 무작위 N문제 (이벤트 핸들러 — 렌더 밖이라 Math.random 허용)
+  const startRandom = (n = 20) => {
+    const a = classifiedList.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    const ids = a.slice(0, n).map(qid);
+    if (ids.length) startReview(ids, `랜덤 ${ids.length}문제`, 'home');
+  };
+
   // 카드 한 장이 대표하는 문항 집합 (filterFn 없으면 타입별 추론)
   const cardQuestions = (group) => {
     if (group.filterFn) return processedData.filter(group.filterFn);
