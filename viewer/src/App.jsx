@@ -1818,6 +1818,7 @@ const App = () => {
             <div className="empty-state"><span className="emoji">📭</span><div className="title">문제가 없습니다</div></div>
           )}
         </main>
+        {overlays}
       </div>
     );
   }
