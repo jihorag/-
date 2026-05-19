@@ -67,7 +67,7 @@ def main():
     qs = json.loads(DB.read_text(encoding="utf-8"))
     by_id = {str(q.get("id")): q for q in qs}
 
-    done = skip_notimg = skip_noid = conflict = 0
+    done = skip_notimg = skip_noid = conflict = kept = 0
     now = datetime.now().astimezone().isoformat()
     for qid, text, opts in keys:
         q = by_id.get(qid)
