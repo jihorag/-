@@ -93,6 +93,10 @@ def main():
             dq["image_extracted"] = source
             dq["image_extracted_at"] = now
             q["question"] = text
+            # 보기가 비어 있고(또는 --force) opts 주어지면 options 복원
+            if opts and (not q.get("options") or force):
+                dq["orig_options"] = q.get("options")
+                q["options"] = opts
         done += 1
 
     print(f"\n치환 {done} · 이미지전용아님 {skip_notimg} · 미매칭 {skip_noid} · 이미처리 {conflict}")
