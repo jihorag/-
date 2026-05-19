@@ -719,6 +719,12 @@ const App = () => {
   useEffect(() => {
     try { document.documentElement.style.setProperty('--q-fs', String(fontScale)); } catch { /* SSR */ }
   }, [fontScale]);
+  // C2: 문항 목록으로 돌아오면 직전 스크롤 위치 복원
+  useEffect(() => {
+    if (currentView !== 'question_list') return;
+    const y = scrollMem.qlist;
+    if (y > 0) requestAnimationFrame(() => window.scrollTo(0, y));
+  }, [currentView]);
   // C3: 첫 실행 온보딩
   const [onbStep, setOnbStep] = useState(() => {
     try { return localStorage.getItem('quiz-onboarded') === '1' ? -1 : 0; } catch { return -1; }
