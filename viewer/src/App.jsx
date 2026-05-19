@@ -2256,6 +2256,68 @@ const App = () => {
             {kpi(srs.due.length, '오늘 복습', '#7c3aed')}
           </div>
 
+          {/* 합격 코치 — 진단 + 처방 */}
+          {coach.readiness != null && (
+            <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+              padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <span style={{ fontWeight: 800, fontSize: '1.05rem' }}>🎯 합격 코치</span>
+                <span style={{ fontSize: '0.78rem', color: '#9ca3af' }}>실력 {coach.skillAcc}% · 학습범위 {coach.coverage}%</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', margin: '12px 0 6px' }}>
+                <span style={{ fontSize: '2rem', fontWeight: 800, color: coach.readiness >= COACH_TARGET ? '#16a34a' : 'var(--primary)' }}>
+                  {coach.readiness}%
+                </span>
+                <span style={{ fontSize: '0.85rem', color: '#6b7280' }}>합격 준비도(추정) · 목표 {COACH_TARGET}%</span>
+              </div>
+              <div className="coach-gauge">
+                <div className="coach-gauge-fill" style={{
+                  width: `${Math.min(100, Math.round((coach.readiness / COACH_TARGET) * 100))}%`,
+                  background: coach.readiness >= COACH_TARGET ? 'var(--success)' : 'var(--primary)' }} />
+              </div>
+              <div style={{ fontSize: '0.86rem', color: '#374151', margin: '10px 0 4px', fontWeight: 600 }}>
+                {coach.verdict}
+              </div>
+
+              {coach.topFix && (
+                <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '12px',
+                  padding: '14px', margin: '14px 0 6px' }}>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--primary)', fontWeight: 800 }}>다음 한 수</div>
+                  <div style={{ fontWeight: 700, margin: '4px 0 10px', color: '#111827' }}>
+                    {coach.topFix.name} {coach.topFix.acc != null ? `정답률 ${coach.topFix.acc}%` : '미진단'} — 여기부터 잡으면 합격선에 가장 빨리 가까워져요
+                  </div>
+                  <button onClick={() => startConcept(coach.topFix.name, `${coach.topFix.name} 집중 보강`)}
+                    style={{ width: '100%', padding: '12px', borderRadius: '10px', border: 'none',
+                      background: 'var(--primary)', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+                    {coach.topFix.name} 집중 보강 시작 →
+                  </button>
+                </div>
+              )}
+
+              <div style={{ marginTop: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {coach.rows.slice(0, 8).map(r => {
+                  const tone = r.tier === 'risk' ? { c: '#dc2626', bg: '#fef2f2', t: '위험' }
+                    : r.tier === 'warn' ? { c: '#ea580c', bg: '#fff7ed', t: '주의' }
+                    : r.tier === 'safe' ? { c: '#16a34a', bg: '#f0fdf4', t: '안정' }
+                    : { c: '#6b7280', bg: '#f3f4f6', t: '표본부족' };
+                  return (
+                    <button key={r.name} onClick={() => startConcept(r.name, `${r.name} 보강`)}
+                      style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '11px 13px',
+                        borderRadius: '10px', border: '1px solid #e5e7eb', background: '#fff',
+                        cursor: 'pointer', textAlign: 'left', width: '100%' }}>
+                      <span style={{ flex: 1, fontWeight: 700, fontSize: '0.88rem', color: '#374151' }}>{r.name}</span>
+                      <span style={{ fontSize: '0.78rem', color: '#9ca3af' }}>
+                        {r.acc == null ? `학습 ${r.cov}%` : `정답률 ${r.acc}%`}
+                      </span>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 800, color: tone.c, background: tone.bg,
+                        padding: '3px 9px', borderRadius: '999px' }}>{tone.t}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
           {/* 오늘 학습 목표 */}
           {(() => {
             const done = analytics.todayCount;
