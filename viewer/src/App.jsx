@@ -531,7 +531,7 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
             <div style={{ fontWeight: '700', marginBottom: q.explanation ? '8px' : '0', fontSize: '0.95rem', display: 'flex', justifyContent: 'space-between' }}>
               <span>{q.explanation ? '해설' : '결과'}</span>
               <span style={{ color: accent }}>
-                {!hasAnswer ? 'ℹ 정답 정보 없음 (채점 제외)' : (correct ? '✓ 정답입니다!' : '✕ 오답입니다.')}
+                {!hasAnswer ? 'ℹ 공식 정답 미공개 · 해설로 학습' : (correct ? '✓ 정답입니다!' : '✕ 오답입니다.')}
               </span>
             </div>
             {q.explanation
