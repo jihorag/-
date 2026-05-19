@@ -1416,7 +1416,7 @@ const App = () => {
 
   // 하단 탭바: 루트 화면에서만 노출(드릴/풀이는 전체화면)
   const navTab =
-    (currentView === 'home' || currentView === 'profile') ? 'home'
+    (currentView === 'home' || currentView === 'profile' || currentView === 'settings') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'review'
     : currentView === 'status' ? 'status'
     : 'browse'; // dashboard + tax_* + search(둘러보기 흡수)
@@ -2497,16 +2497,6 @@ const App = () => {
             </div>
           </button>
         )}
-
-        <button
-          onClick={() => setCurrentView('profile')}
-          style={{ width: '100%', textAlign: 'left', padding: '14px 16px', marginBottom: '12px', borderRadius: '12px',
-            border: '1px solid #d1d5db', background: '#fff', color: '#374151', cursor: 'pointer',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-        >
-          <span style={{ fontWeight: 700 }}>👤 {nickname ? nickname : '내 프로필'}</span>
-          <span style={{ fontSize: '0.8rem', color: '#9ca3af' }}>백업·데이터 관리 →</span>
-        </button>
 
         <div
           onClick={() => srs.due.length && setCurrentView('today')}
