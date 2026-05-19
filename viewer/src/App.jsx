@@ -539,6 +539,17 @@ const App = () => {
     try { localStorage.setItem('quiz-autosec', String(n)); } catch { /* SSR */ }
   };
   const autoTimerRef = useRef(null);
+  const fileRef = useRef(null);
+  const onImportFile = (e) => {
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = () => {
+      try { importUserData(String(r.result)); alert('가져오기 완료. 새로고침합니다.'); window.location.reload(); }
+      catch (err) { alert('가져오기 실패: ' + err.message); }
+    };
+    r.readAsText(f);
+  };
   const clearAutoTimer = () => { if (autoTimerRef.current) { clearTimeout(autoTimerRef.current); autoTimerRef.current = null; } };
   const [autoPending, setAutoPending] = useState(false); // 자동 다음 대기 표시
   const [studyOrder, setStudyOrderState] = useState(() => {
