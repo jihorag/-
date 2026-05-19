@@ -580,6 +580,11 @@ const App = () => {
     setDailyGoalState(n);
     try { localStorage.setItem('quiz-daily-goal', String(n)); } catch { /* SSR */ }
   };
+  const [nickname, setNicknameState] = useState(() => loadProfile().nickname || '');
+  const setNickname = (v) => {
+    setNicknameState(v);
+    saveProfile({ ...loadProfile(), nickname: v });
+  };
   const [notifPref, setNotifPref] = useState(() => {
     try { return localStorage.getItem('quiz-notif') === '1' && typeof Notification !== 'undefined' && Notification.permission === 'granted'; }
     catch { return false; }
