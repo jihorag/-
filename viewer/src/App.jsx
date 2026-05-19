@@ -469,12 +469,12 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
       </h3>
       
       {noOptions && (
-        <div style={{ padding: '16px', background: '#fff7ed', border: '1px solid #fed7aa', borderRadius: '8px', color: '#9a3412', fontSize: '0.9rem', marginBottom: '24px' }}>
-          이 문항은 보기가 공개되지 않아 지문·해설 위주로 학습해요.
+        <div style={{ fontSize: '0.82rem', color: '#9ca3af', marginBottom: '12px' }}>
+          보기 텍스트는 미공개 — 번호로 정답만 선택해 채점해요.
         </div>
       )}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
-        {!noOptions && q.options.map((opt, optIdx) => {
+        {(noOptions ? ['', '', '', ''] : q.options).map((opt, optIdx) => {
           const optNumber = String(optIdx + 1);
           const isCorrectAnswer = hasAnswer && q.answerNorm === optNumber;
           const isSelected = selectedOpt === optNumber;
@@ -514,9 +514,9 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
               }}>
                 {showCorrect ? '✓' : showWrong ? '✕' : optIdx + 1}
               </span>
-              <span className="q-opt" style={{ lineHeight: '1.5', color: '#1f2937' }}>
-                <ParsedText text={opt} />
-              </span>
+              {opt
+                ? <span className="q-opt" style={{ lineHeight: '1.5', color: '#1f2937' }}><ParsedText text={opt} /></span>
+                : <span className="q-opt" style={{ color: '#6b7280' }}>{optIdx + 1}번</span>}
             </button>
           );
         })}
