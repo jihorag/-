@@ -1430,19 +1430,33 @@ const App = () => {
     startReview(finalIds, title, 'home');
   };
 
-  // 오늘의 추천: 오답 → 미응답 순, 약점 과목 가중, 일일 목표 수만큼
+  // 오늘의 추천(적응형): 합격 임팩트 큰 약점 절 → 약점 과목 오답 → 그 외 오답 → 약점 미학습 → 그 외 미학습
   const startRecommended = () => {
-    const weakNames = new Set(analytics.weak.map(w => w.name));
-    const w = (q) => (weakNames.has(q.taxSubjectName || '기타') ? 0 : 1);
-    const wrong = [], unseen = [];
-    for (const q of classifiedList) {
-      const p = progress[qid(q)];
-      if (!p) unseen.push(q);
-      else if (p.correct === false) wrong.push(q);
+    const weakNames = new Set(coach.rows.filter(r => r.tier === 'risk' || r.tier === 'warn').map(r => r.name));
+    const prioritySec = new Set(); // 정답률 최저 절(임팩트순)의 문항 id
+    for (const r of coach.rows) {
+      if ((r.tier === 'risk' || r.tier === 'warn') && r.weakSection) {
+        for (const id of r.weakSection.ids) prioritySec.add(id);
+      }
     }
-    wrong.sort((a, b) => w(a) - w(b));
-    unseen.sort((a, b) => w(a) - w(b));
-    const ids = [...wrong, ...unseen].slice(0, dailyGoal).map(qid);
+    const isWeakSubj = (q) => weakNames.has(q.taxSubjectName || '기타');
+    const rank = (q) => {
+      const id = qid(q);
+      const p = progress[id];
+      const wrong = p && p.correct === false;
+      const unseen = !p;
+      if (!wrong && !unseen) return 99;          // 이미 맞힘 → 제외 대상
+      if (prioritySec.has(id)) return 0;          // 약점 절 최우선
+      if (wrong && isWeakSubj(q)) return 1;
+      if (wrong) return 2;
+      if (unseen && isWeakSubj(q)) return 3;
+      return 4;                                   // 그 외 미학습
+    };
+    const pool = classifiedList
+      .map(q => ({ q, r: rank(q) }))
+      .filter(x => x.r < 99)
+      .sort((a, b) => a.r - b.r);
+    const ids = pool.slice(0, dailyGoal).map(x => qid(x.q));
     if (ids.length) startReview(ids, '오늘의 추천 학습', 'home');
   };
 
