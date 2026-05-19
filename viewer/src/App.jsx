@@ -2615,6 +2615,53 @@ const App = () => {
       </div>
 
       <main className="main-content">
+        {/* 오늘 할 일 — 단일 다음 행동(선택 부담 제거: Duolingo path 원칙) */}
+        {(() => {
+          const w0 = analytics.weak[0];
+          let act;
+          if (srs.due.length > 0) {
+            act = { tag: '복습', title: `오늘 복습 ${srs.due.length}문제`,
+              desc: '기억 곡선이 도래했어요 · 지금이 가장 잘 외워질 때',
+              go: () => setCurrentView('today') };
+          } else if (w0) {
+            act = { tag: '약점 보강', title: `${w0.name} 집중`,
+              desc: `현재 정답률 ${w0.acc}% — 약한 곳부터 끌어올려요`,
+              go: () => startConcept(w0.name, `${w0.name} 집중 학습`) };
+          } else {
+            act = { tag: '추천', title: `오늘의 추천 ${dailyGoal}문제`,
+              desc: '미학습 위주로 골라 담았어요 · 한 번에 시작',
+              go: startRecommended };
+          }
+          return (
+            <button onClick={act.go} className="todo-hero">
+              <span className="todo-tag">{act.tag}</span>
+              <span className="todo-title">{act.title}</span>
+              <span className="todo-desc">{act.desc}</span>
+              <span className="todo-cta">바로 시작하기 →</span>
+            </button>
+          );
+        })()}
+
+        {/* 다음 목표(마일스톤) — 단일 진행 지표 */}
+        {(() => {
+          const ms = [50, 100, 300, 500, 1000, 2000, 3000, 5000];
+          const next = ms.find(m => overall.answered < m);
+          if (!next) return null;
+          const prev = ms[ms.indexOf(next) - 1] || 0;
+          const p = Math.round(((overall.answered - prev) / (next - prev)) * 100);
+          return (
+            <div className="milestone">
+              <div className="milestone-row">
+                <span>🏁 다음 목표 <b>{next}문제</b></span>
+                <span style={{ color: 'var(--text-sub)' }}>{next - overall.answered}문제 남음</span>
+              </div>
+              <div className="progress-bar-container" style={{ marginTop: 8, height: 6 }}>
+                <div className="progress-bar-fill" style={{ width: `${p}%` }} />
+              </div>
+            </div>
+          );
+        })()}
+
         {/* 오늘의 목표 */}
         {(() => {
           const goal = dailyGoal;
