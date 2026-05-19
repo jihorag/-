@@ -1665,7 +1665,7 @@ const App = () => {
           )}
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '8px' }}>
             <div style={{ flex: 1, height: '8px', background: '#e5e7eb', borderRadius: '999px', overflow: 'hidden' }}>
-              <div style={{ width: `${total ? Math.round((s.answered / total) * 100) : 0}%`, height: '100%', background: '#3b82f6', transition: 'width .3s' }} />
+              <div style={{ width: `${total ? Math.round((s.answered / total) * 100) : 0}%`, height: '100%', background: 'var(--primary)', transition: 'width .3s' }} />
             </div>
             <span style={{ fontSize: '0.8rem', color: '#6b7280', whiteSpace: 'nowrap' }}>
               {idx + 1} / {total} · 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b>
@@ -1744,7 +1744,7 @@ const App = () => {
                 <button
                   onClick={goNext}
                   disabled={idx >= total - 1}
-                  style={{ flex: 2, padding: '14px', minHeight: '48px', borderRadius: '10px', border: 'none', background: idx >= total - 1 ? '#e5e7eb' : '#3b82f6', color: idx >= total - 1 ? '#9ca3af' : '#fff', cursor: idx >= total - 1 ? 'default' : 'pointer', fontWeight: 700 }}
+                  style={{ flex: 2, padding: '14px', minHeight: '48px', borderRadius: '10px', border: 'none', background: idx >= total - 1 ? '#e5e7eb' : 'var(--primary)', color: idx >= total - 1 ? '#9ca3af' : '#fff', cursor: idx >= total - 1 ? 'default' : 'pointer', fontWeight: 700 }}
                 >다음 문제 →</button>
               </div>
               <div style={{ textAlign: 'center', fontSize: '0.75rem', color: '#9ca3af', marginTop: '8px' }}>
@@ -1845,7 +1845,7 @@ const App = () => {
             return (
               <div style={{ marginTop: '12px' }}>
                 <div style={{ height: '8px', background: '#e5e7eb', borderRadius: '999px', overflow: 'hidden' }}>
-                  <div style={{ width: `${pct}%`, height: '100%', background: '#3b82f6', transition: 'width .3s' }} />
+                  <div style={{ width: `${pct}%`, height: '100%', background: 'var(--primary)', transition: 'width .3s' }} />
                 </div>
                 <div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: '6px' }}>
                   푼 문제 <b>{s.answered}/{s.total}</b> · 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b>
@@ -1891,7 +1891,7 @@ const App = () => {
             return (
               <div key={idx} className="study-card" onClick={() => handleGroupClick(group)} style={isAll ? { background: '#eff6ff', borderColor: '#bfdbfe' } : {}}>
                 <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                  <div className="card-badge" style={isAll ? { background: '#3b82f6', color: '#fff', border: 'none' } : {}}>{group.tag}</div>
+                  <div className="card-badge" style={isAll ? { background: 'var(--primary)', color: '#fff', border: 'none' } : {}}>{group.tag}</div>
                   {dm && (
                     <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '2px 8px', borderRadius: '999px', background: dm.bg, color: dm.fg }}>
                       난이도 {s.avgDiff.toFixed(1)}
@@ -1904,7 +1904,7 @@ const App = () => {
                 <div className="card-progress-container">
                   <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
                 </div>
-                <div className="play-btn" style={isAll ? { background: '#3b82f6', color: '#fff' } : {}}>선택</div>
+                <div className="play-btn" style={isAll ? { background: 'var(--primary)', color: '#fff' } : {}}>선택</div>
               </div>
             );
           })}
@@ -1964,8 +1964,8 @@ const App = () => {
     const shown = filteredResults.slice(0, 200);
     const chip = (on) => ({
       padding: '6px 12px', borderRadius: '999px', fontSize: '0.85rem', cursor: 'pointer',
-      border: on ? '1px solid #3b82f6' : '1px solid #d1d5db',
-      background: on ? '#3b82f6' : '#fff', color: on ? '#fff' : '#374151',
+      border: on ? '1px solid var(--primary)' : '1px solid #d1d5db',
+      background: on ? 'var(--primary)' : '#fff', color: on ? '#fff' : '#374151',
     });
     const groupChips = (label, items, sel, k, fmt) => (
       <div style={{ marginBottom: '14px' }}>
@@ -2171,7 +2171,7 @@ const App = () => {
   if (currentView === 'status') {
     const cv = coverage;
     const segs = [
-      { k: 'learned', label: '정답·학습', n: cv.learned, c: '#3b82f6' },
+      { k: 'learned', label: '정답·학습', n: cv.learned, c: 'var(--primary)' },
       { k: 'mastered', label: '마스터', n: cv.mastered, c: '#16a34a' },
       { k: 'review', label: '복습필요', n: cv.review, c: '#ef4444' },
       { k: 'unseen', label: '미응답', n: cv.unseen, c: '#e5e7eb' },
@@ -2311,7 +2311,7 @@ const App = () => {
                 return (
                   <div key={d} style={{ flex: 1, textAlign: 'center' }}>
                     <div style={{ height: '40px', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-                      <div style={{ width: '64%', borderRadius: '3px 3px 0 0', height: `${acc == null ? 3 : Math.max(4, acc * 0.38)}px`, background: acc == null ? '#e5e7eb' : (m.fg || '#3b82f6') }} />
+                      <div style={{ width: '64%', borderRadius: '3px 3px 0 0', height: `${acc == null ? 3 : Math.max(4, acc * 0.38)}px`, background: acc == null ? '#e5e7eb' : (m.fg || 'var(--primary)') }} />
                     </div>
                     <div style={{ fontSize: '0.62rem', color: '#9ca3af', marginTop: '3px' }}>난{d}</div>
                     <div style={{ fontSize: '0.68rem', fontWeight: 700, color: acc == null ? '#9ca3af' : '#374151' }}>{acc == null ? '–' : `${acc}%`}</div>
@@ -2433,10 +2433,10 @@ const App = () => {
               <div className="study-card"
                 onClick={() => startReview(srs.due.map(qid), '오늘 복습 전체', 'today')}
                 style={{ background: '#eff6ff', borderColor: '#bfdbfe', cursor: 'pointer' }}>
-                <div className="card-badge" style={{ background: '#3b82f6', color: '#fff', border: 'none' }}>전체</div>
+                <div className="card-badge" style={{ background: 'var(--primary)', color: '#fff', border: 'none' }}>전체</div>
                 <h3 className="card-title" style={{ fontSize: '1.1rem' }}>오늘 복습 전체</h3>
                 <div className="card-total">총 {srs.due.length} 문제</div>
-                <div className="play-btn" style={{ background: '#3b82f6', color: '#fff' }}>시작</div>
+                <div className="play-btn" style={{ background: 'var(--primary)', color: '#fff' }}>시작</div>
               </div>
               {srs.groups.map((g) => (
                 <div key={g.subj} className="study-card"
