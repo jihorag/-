@@ -35,13 +35,17 @@ def parse_keys(path):
         if "\t" not in line:
             print(f"  [무시] {ln}행 탭 없음")
             continue
-        qid, text = line.split("\t", 1)
-        qid = qid.strip()
-        text = text.replace("\\n", "\n").strip()
+        parts = line.split("\t")
+        qid = parts[0].strip()
+        text = parts[1].replace("\\n", "\n").strip() if len(parts) > 1 else ""
+        # 3번째 필드(선택): 보기. ' ||| ' 로 구분
+        opts = None
+        if len(parts) > 2 and parts[2].strip():
+            opts = [o.strip() for o in parts[2].split(" ||| ") if o.strip()]
         if not qid or not text:
             print(f"  [무시] {ln}행 qid/text 비어있음")
             continue
-        rows.append((qid, text))
+        rows.append((qid, text, opts))
     return rows
 
 
