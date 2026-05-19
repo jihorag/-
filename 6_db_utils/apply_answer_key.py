@@ -71,6 +71,10 @@ def main():
     key_path = args[0]
     force = "--force" in flags
     dry = "--dry-run" in flags
+    source = "official"
+    for a in sys.argv[1:]:
+        if a.startswith("--source="):
+            source = a.split("=", 1)[1]
 
     keyrows = parse_key(key_path)
     print(f"정답표 유효 행: {len(keyrows)}")
@@ -110,7 +114,7 @@ def main():
         if not dry:
             q["answer"] = r["answer"]
             dq = q.setdefault("data_quality", {})
-            dq["answer_source"] = "official"
+            dq["answer_source"] = source
             dq["answer_filled_at"] = now
             dq["answer_key_file"] = Path(key_path).name
         filled += 1
