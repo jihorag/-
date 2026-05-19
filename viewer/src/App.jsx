@@ -1662,7 +1662,7 @@ const App = () => {
           </button>
         )}
 
-        <div className="drill-head">
+        <div className="drill-head sticky">
           <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>{selectedGroup.title}</div>
           {pathParts.length > 0 && (
             <div style={{ fontSize: '0.85rem', color: '#374151', margin: '6px 0', fontWeight: 600 }}>
