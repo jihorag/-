@@ -633,6 +633,13 @@ body {
   gap: 12px;
 }
 
+/* ===== C4. 입력 힌트: 기기에 맞는 것만 노출 ===== */
+.swipe-hint { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .kbd-hint { display: none; }
+  .swipe-hint { display: block; }
+}
+
 /* ===== B1. 본문 글자 크기 스케일 ===== */
 .q-text { font-size: calc(1.125rem * var(--q-fs)); }
 .q-opt  { font-size: calc(0.95rem  * var(--q-fs)); }
