@@ -644,6 +644,25 @@ const App = () => {
   useEffect(() => {
     try { localStorage.setItem('quiz-notif', notifPref ? '1' : '0'); } catch { /* SSR */ }
   }, [notifPref]);
+  // B1: 본문 글자 크기(작게 0.9 / 보통 1 / 크게 1.18). --q-fs CSS 변수로 반영.
+  const [fontScale, setFontScaleState] = useState(() => {
+    try { const n = parseFloat(localStorage.getItem('quiz-fontscale')); return [0.9, 1, 1.18].includes(n) ? n : 1; }
+    catch { return 1; }
+  });
+  const setFontScale = (n) => {
+    setFontScaleState(n);
+    try { localStorage.setItem('quiz-fontscale', String(n)); } catch { /* SSR */ }
+  };
+  useEffect(() => {
+    try { document.documentElement.style.setProperty('--q-fs', String(fontScale)); } catch { /* SSR */ }
+  }, [fontScale]);
+  // C3: 첫 실행 온보딩
+  const [onbStep, setOnbStep] = useState(() => {
+    try { return localStorage.getItem('quiz-onboarded') === '1' ? -1 : 0; } catch { return -1; }
+  });
+  // A4: 목표 달성 컨페티(하루 1회)
+  const [confetti, setConfetti] = useState(false);
+
   const { progress, record: recordAnswer, update: updateAnswer, reset: resetProgress, clearMany, srsMode, setSrsMode } = useProgress();
   const { bm, cycleBookmark } = useBookmarks();
   // 복합 검색·필터 상태
