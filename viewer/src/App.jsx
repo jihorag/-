@@ -149,42 +149,12 @@ const Confetti = () => (
   </div>
 );
 
-// C3: 첫 실행 온보딩 3컷
-const ONB_SLIDES = [
-  { emoji: '👋', title: '기출로 개념까지', body: '단순 채점이 아니라, 풀면서 해설로 개념을 익히는 학습 앱이에요. 시험·과목·연도별로 골라 학습할 수 있어요.' },
-  { emoji: '🔁', title: '틀린 건 기억 곡선으로', body: '틀린 문제는 망각 곡선에 맞춰 복습일이 자동 배정돼요. “복습” 탭에서 오늘 복습할 문제를 풀면 장기 기억으로 굳어집니다.' },
-  { emoji: '📊', title: '약점은 현황에서', body: '“현황” 탭에서 약점 과목·진척을 한눈에 보고, 홈의 추천 학습으로 바로 보강하세요. 글자 크기·알림은 설정에서 바꿀 수 있어요.' },
+// 첫 화면 가치 설명(모달 아님 — 빈 상태 히어로에 인라인)
+const ONB_BULLETS = [
+  { emoji: '✍️', t: '풀면서 이해', d: '해설로 개념까지' },
+  { emoji: '🔁', t: '틀린 건 기억곡선', d: '복습일 자동 배정' },
+  { emoji: '📊', t: '약점 한눈에', d: '현황·추천으로 보강' },
 ];
-const OnboardingOverlay = ({ step, onNext, onSkip }) => {
-  const s = ONB_SLIDES[step];
-  const last = step >= ONB_SLIDES.length - 1;
-  return (
-    <div className="onb" role="dialog" aria-label="앱 소개">
-      <div className="onb-card">
-        <div style={{ fontSize: '2.6rem', textAlign: 'center' }}>{s.emoji}</div>
-        <h2 style={{ textAlign: 'center', fontSize: '1.25rem', fontWeight: 800, color: '#111827', marginTop: '12px' }}>{s.title}</h2>
-        <p style={{ textAlign: 'center', fontSize: '0.95rem', color: '#4b5563', lineHeight: 1.6, marginTop: '10px' }}>{s.body}</p>
-        <div className="onb-dots">
-          {ONB_SLIDES.map((_, i) => <i key={i} className={i === step ? 'on' : ''} />)}
-        </div>
-        <div style={{ display: 'flex', gap: '10px' }}>
-          {!last && (
-            <button onClick={onSkip}
-              style={{ flex: 1, padding: '13px', borderRadius: '12px', border: '1px solid #d1d5db',
-                background: '#fff', color: '#6b7280', fontWeight: 700, cursor: 'pointer' }}>
-              건너뛰기
-            </button>
-          )}
-          <button onClick={onNext}
-            style={{ flex: 2, padding: '13px', borderRadius: '12px', border: 'none',
-              background: 'var(--primary)', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
-            {last ? '시작하기' : '다음'}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const SRS_MODES = {
   hard:   { label: '빡세게', factor: 0.6, cap: Infinity },
@@ -726,10 +696,6 @@ const App = () => {
     const y = scrollMem.qlist;
     if (y > 0) requestAnimationFrame(() => window.scrollTo(0, y));
   }, [currentView]);
-  // C3: 첫 실행 온보딩
-  const [onbStep, setOnbStep] = useState(() => {
-    try { return localStorage.getItem('quiz-onboarded') === '1' ? -1 : 0; } catch { return -1; }
-  });
   // A4: 목표 달성 컨페티(하루 1회)
   const [confetti, setConfetti] = useState(false);
 
