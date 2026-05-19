@@ -564,6 +564,50 @@ body {
 }
 .boot-retry:active { transform: scale(0.97); }
 
+/* ===== 홈: 오늘 할 일(단일 다음 행동) + 마일스톤 ===== */
+.todo-hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  gap: 6px;
+  padding: 20px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 16px;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -8px rgba(37, 99, 235, 0.55);
+  transition: transform 0.12s ease;
+}
+.todo-hero:active { transform: scale(0.99); }
+.todo-tag {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.22);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.todo-title { font-size: 1.25rem; font-weight: 800; line-height: 1.25; margin-top: 4px; }
+.todo-desc { font-size: 0.85rem; opacity: 0.9; line-height: 1.5; }
+.todo-cta { font-size: 0.88rem; font-weight: 700; margin-top: 8px; }
+.milestone {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 13px 15px;
+  margin-bottom: 14px;
+}
+.milestone-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
 /* ===== 첫 사용자 환영(빈 상태 활성화) ===== */
 .welcome {
   min-height: calc(100dvh - 64px - env(safe-area-inset-bottom, 0px));
