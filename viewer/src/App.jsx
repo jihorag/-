@@ -1983,9 +1983,58 @@ const App = () => {
             <input ref={fileRef} type="file" accept="application/json,.json" onChange={onImportFile} style={{ display: 'none' }} />
           </section>
 
+          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '12px' }}>
+            <div style={{ fontWeight: 800, marginBottom: '4px' }}>☁ 클라우드 동기화</div>
+            {!cloudEnabled ? (
+              <div style={{ fontSize: '0.82rem', color: '#9ca3af' }}>설정되지 않음 (파일 백업만 사용)</div>
+            ) : authUser ? (
+              <>
+                <div style={{ fontSize: '0.82rem', color: '#6b7280', marginBottom: '12px' }}>
+                  로그인: <b>{authUser.email}</b>
+                  {loadProfile().lastCloud && <> · 마지막 동기화 {new Date(loadProfile().lastCloud).toLocaleString('ko-KR')}</>}
+                  <br />다른 기기에서도 같은 계정으로 로그인하면 이어집니다. (앱을 닫을 때 자동 백업)
+                </div>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  <button onClick={() => cloudPush(false)}
+                    style={{ flex: 1, minWidth: 120, padding: '12px', borderRadius: '10px', border: 'none', background: 'var(--primary)', color: '#fff', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>
+                    ☁⬆ 클라우드에 백업
+                  </button>
+                  <button onClick={cloudPull}
+                    style={{ flex: 1, minWidth: 120, padding: '12px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#374151', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>
+                    ☁⬇ 클라우드에서 복원
+                  </button>
+                </div>
+                <button onClick={async () => { await supabase.auth.signOut(); setCloudMsg('로그아웃되었어요.'); }}
+                  style={{ width: '100%', marginTop: '8px', padding: '10px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#6b7280', fontWeight: 700, fontSize: '0.82rem', cursor: 'pointer' }}>
+                  로그아웃
+                </button>
+              </>
+            ) : (
+              <>
+                <div style={{ fontSize: '0.82rem', color: '#6b7280', marginBottom: '12px' }}>
+                  이메일로 로그인하면 여러 기기에서 학습 기록이 자동으로 이어져요.
+                </div>
+                <input value={cloudEmail} onChange={(e) => setCloudEmail(e.target.value)} placeholder="이메일" type="email"
+                  style={{ width: '100%', padding: '11px 14px', marginBottom: '8px', border: '1px solid #d1d5db', borderRadius: '10px', boxSizing: 'border-box' }} />
+                <input value={cloudPw} onChange={(e) => setCloudPw(e.target.value)} placeholder="비밀번호(6자 이상)" type="password"
+                  style={{ width: '100%', padding: '11px 14px', marginBottom: '10px', border: '1px solid #d1d5db', borderRadius: '10px', boxSizing: 'border-box' }} />
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button onClick={() => cloudAuth('signin')}
+                    style={{ flex: 1, padding: '12px', borderRadius: '10px', border: 'none', background: 'var(--primary)', color: '#fff', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>
+                    로그인
+                  </button>
+                  <button onClick={() => cloudAuth('signup')}
+                    style={{ flex: 1, padding: '12px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#374151', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>
+                    회원가입
+                  </button>
+                </div>
+              </>
+            )}
+            {cloudMsg && <div style={{ fontSize: '0.8rem', color: '#1d4ed8', marginTop: '10px' }}>{cloudMsg}</div>}
+          </section>
+
           <div style={{ fontSize: '0.75rem', color: '#9ca3af', textAlign: 'center', padding: '0 8px' }}>
-            여러 기기에서 자동으로 이어 보는 로그인 동기화는 준비 중이에요.
-            지금은 백업 파일로 안전하게 옮길 수 있어요.
+            파일 백업도 함께 쓰면 가장 안전해요.
           </div>
         </main>
       </div>
