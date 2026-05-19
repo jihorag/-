@@ -110,7 +110,7 @@ def main():
     if dry:
         print("--dry-run: 파일 미수정")
         return
-    if done == 0:
+    if done == 0 and kept == 0:
         print("변경 없음")
         return
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
