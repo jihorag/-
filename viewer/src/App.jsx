@@ -3,6 +3,44 @@ import { ArrowLeft } from 'lucide-react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
+// ===== 사용자 데이터 관리 (백업/복원/초기화) =====
+// 모든 학습 상태는 localStorage 의 quiz-* 키에 저장됨. 계정 동기화의 단일 레이어.
+const collectUserData = () => {
+  const data = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith('quiz-')) data[k] = localStorage.getItem(k);
+  }
+  return { version: 1, exportedAt: new Date().toISOString(), data };
+};
+const exportUserData = () => {
+  const blob = new Blob([JSON.stringify(collectUserData(), null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `gampyeong-backup-${new Date().toISOString().slice(0, 10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+};
+const importUserData = (text) => {
+  const parsed = JSON.parse(text);
+  const data = parsed && parsed.data;
+  if (!data || typeof data !== 'object') throw new Error('형식이 올바르지 않은 백업 파일입니다.');
+  for (let i = localStorage.length - 1; i >= 0; i--) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith('quiz-')) localStorage.removeItem(k);
+  }
+  for (const k in data) {
+    if (k.startsWith('quiz-') && typeof data[k] === 'string') localStorage.setItem(k, data[k]);
+  }
+};
+const resetUserData = () => {
+  for (let i = localStorage.length - 1; i >= 0; i--) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith('quiz-')) localStorage.removeItem(k);
+  }
+};
+
 // v4 난이도(1~5) 배지 메타: 색/라벨
 const DIFFICULTY_META = {
   1: { label: '난이도 1 · 매우쉬움', bg: '#ecfdf5', fg: '#047857' },
