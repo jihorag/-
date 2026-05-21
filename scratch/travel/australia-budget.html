@@ -566,25 +566,31 @@ function buildExpenseSheet(city){
     const cityTag = city==="pre"?"tag-pre":city==="syd"?"tag-syd":city==="mel"?"tag-mel":"tag-gc";
 
     const tr = document.createElement("tr");
+    tr.dataset.ri = ri;
     tr.innerHTML = `
       <td class="row">${rowNum}</td>
       <td class="cell ${cityTag}"><input type="text" data-f="0" value="${(r[0]||"").replace(/"/g,"&quot;")}"></td>
       <td class="cell"><input type="text" data-f="1" value="${(r[1]||"").replace(/"/g,"&quot;")}"></td>
       <td class="cell num"><input type="number" step="${isPre?'1':'0.01'}" data-f="2" value="${unit}"></td>
       <td class="cell num"><input type="number" step="1" data-f="3" value="${qty}"></td>
-      <td class="calc">${isPre ? fmtKRW(sub) : fmtAUD(sub)}</td>
-      <td class="calc muted">${isPre ? fmtAUD(subOther) : fmtKRW(subOther)}</td>
+      <td class="calc calc-sub">${isPre ? fmtKRW(sub) : fmtAUD(sub)}</td>
+      <td class="calc muted calc-other">${isPre ? fmtAUD(subOther) : fmtKRW(subOther)}</td>
       <td class="cell center"><input type="checkbox" data-f="4" ${r[4]?"checked":""}></td>
       <td class="delcell"><button title="행 삭제">×</button></td>
     `;
     tr.querySelectorAll("input").forEach(inp=>{
-      inp.addEventListener("change", ()=>{
+      const handler = ()=>{
         const f=+inp.dataset.f;
         if(inp.type==="checkbox") state.tables[city][ri][f]=inp.checked;
         else if(inp.type==="number") state.tables[city][ri][f]=parseFloat(inp.value)||0;
         else state.tables[city][ri][f]=inp.value;
-        save(); buildExpenseSheet(city); recalcSummary();
-      });
+        save();
+        updateRow(city, ri);
+        updateFooter(city);
+        updateStatusBar();
+      };
+      inp.addEventListener("input", handler);
+      inp.addEventListener("change", handler);
     });
     tr.querySelector(".delcell button").addEventListener("click", ()=>{
       if (!confirm("이 행을 삭제할까요?")) return;
