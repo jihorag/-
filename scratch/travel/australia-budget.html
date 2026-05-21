@@ -607,8 +607,8 @@ function buildExpenseSheet(city){
   subTr.innerHTML = `
     <td class="row">${rowNum}</td>
     <td colspan="4" style="padding:8px 12px;">📌 소계 합계 ( =SUM(F:F) )</td>
-    <td class="num">${isPre ? fmtKRW(t.krw) : fmtAUD(t.aud)}</td>
-    <td class="num">${isPre ? fmtAUD(t.krw/state.fx) : fmtKRW(t.aud*state.fx)}</td>
+    <td class="num foot-sub">${isPre ? fmtKRW(t.krw) : fmtAUD(t.aud)}</td>
+    <td class="num foot-other">${isPre ? fmtAUD(t.krw/state.fx) : fmtKRW(t.aud*state.fx)}</td>
     <td></td><td></td>
   `;
   tbody.appendChild(subTr);
@@ -619,12 +619,44 @@ function buildExpenseSheet(city){
     krwTr.className = "grand";
     krwTr.innerHTML = `
       <td class="row">${rowNum+1}</td>
-      <td colspan="5" style="padding:10px 12px;">💰 원화 환산 합계 (= F × ${state.fx})</td>
-      <td class="num">${fmtKRW(t.aud*state.fx)}</td>
+      <td colspan="5" style="padding:10px 12px;" class="foot-fx-label">💰 원화 환산 합계 (= F × ${state.fx})</td>
+      <td class="num foot-krw">${fmtKRW(t.aud*state.fx)}</td>
       <td></td><td></td>
     `;
     tbody.appendChild(krwTr);
   }
+}
+
+/* ===================== IN-PLACE UPDATE ===================== */
+function updateRow(city, ri){
+  const r = state.tables[city][ri];
+  if (!r || r[0]==="__SEC__") return;
+  const isPre = city === "pre";
+  const sub = (+r[2]||0) * (+r[3]||0);
+  const subOther = isPre ? sub/state.fx : sub*state.fx;
+  const tr = document.querySelector(`#tbl-${city} tr[data-ri="${ri}"]`);
+  if (!tr) return;
+  tr.querySelector(".calc-sub").textContent   = isPre ? fmtKRW(sub) : fmtAUD(sub);
+  tr.querySelector(".calc-other").textContent = isPre ? fmtAUD(subOther) : fmtKRW(subOther);
+}
+function updateFooter(city){
+  const t = tableTotal(city);
+  const isPre = city === "pre";
+  const tbl = document.getElementById("tbl-"+city);
+  const sub = tbl.querySelector(".foot-sub");
+  const oth = tbl.querySelector(".foot-other");
+  const krw = tbl.querySelector(".foot-krw");
+  if (sub) sub.textContent = isPre ? fmtKRW(t.krw) : fmtAUD(t.aud);
+  if (oth) oth.textContent = isPre ? fmtAUD(t.krw/state.fx) : fmtKRW(t.aud*state.fx);
+  if (krw) krw.textContent = fmtKRW(t.aud*state.fx);
+}
+function updateStatusBar(){
+  const preT=tableTotal("pre"), sydT=tableTotal("syd"), melT=tableTotal("mel"), gcT=tableTotal("gc");
+  const totalKRW = preT.krw + (sydT.aud+melT.aud+gcT.aud)*state.fx;
+  $("#stTotal").textContent   = fmtKRW(totalKRW);
+  $("#stPer").textContent     = fmtKRW(totalKRW/state.people);
+  $("#stDay").textContent     = fmtKRW(totalKRW/15);
+  $("#stReserve").textContent = fmtKRW(totalKRW*0.1);
 }
 
 /* ===================== ITINERARY ===================== */
