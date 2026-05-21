@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>호주 여행 예산안 · 시드니 · 멜버른 · 골드코스트 (6/25–7/9)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", system-ui, sans-serif; }
+  .tab-active { background:#0f172a; color:#fff; }
+  table input { background:transparent; width:100%; padding:4px 6px; border-radius:6px; }
+  table input:focus { background:#fff; outline:2px solid #0ea5e9; }
+  .city-syd { border-left:4px solid #0ea5e9; }
+  .city-mel { border-left:4px solid #8b5cf6; }
+  .city-gc  { border-left:4px solid #f59e0b; }
+  .chip { display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:600; }
+  .chip-syd { background:#e0f2fe; color:#075985; }
+  .chip-mel { background:#ede9fe; color:#5b21b6; }
+  .chip-gc  { background:#fef3c7; color:#92400e; }
+  .chip-pre { background:#dcfce7; color:#166534; }
+  .num { font-variant-numeric: tabular-nums; }
+  details > summary { cursor:pointer; }
+  .hide-print { }
+  @media print { .hide-print { display:none; } body { background:#fff; } }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<header class="bg-gradient-to-r from-sky-600 via-indigo-600 to-amber-500 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="text-sm opacity-90">AUSTRALIA TRIP · 15 DAYS</p>
+        <h1 class="text-3xl md:text-4xl font-bold mt-1">🇦🇺 호주 여행 예산안</h1>
+        <p class="mt-2 opacity-95">2026.06.25 (목) → 2026.07.09 (목) · 시드니 6박 + 멜버른 4박 + 골드코스트 4박</p>
+      </div>
+      <div class="flex items-center gap-3 text-sm">
+        <label class="flex items-center gap-2 bg-white/15 rounded-xl px-3 py-2 backdrop-blur">
+          <span>1 AUD =</span>
+          <input id="fxRate" type="number" step="1" class="w-20 text-right bg-white/20 rounded px-2 py-1 num" />
+          <span>원</span>
+        </label>
+        <div class="flex gap-2">
+          <button id="exportBtn" class="bg-white text-slate-800 hover:bg-slate-100 rounded-xl px-3 py-2 text-sm font-medium">내보내기</button>
+          <button id="importBtn" class="bg-white/20 hover:bg-white/30 rounded-xl px-3 py-2 text-sm font-medium">가져오기</button>
+          <button id="resetBtn" class="bg-white/20 hover:bg-white/30 rounded-xl px-3 py-2 text-sm font-medium">초기화</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- summary cards -->
+<section class="max-w-7xl mx-auto px-6 mt-6 grid grid-cols-2 md:grid-cols-5 gap-3">
+  <div class="bg-white rounded-2xl p-4 shadow-sm">
+    <p class="text-xs text-slate-500">총 예산 (KRW)</p>
+    <p id="totalKRW" class="text-2xl font-bold mt-1 num">-</p>
+    <p id="totalAUD" class="text-xs text-slate-500 num">-</p>
+  </div>
+  <div class="bg-white rounded-2xl p-4 shadow-sm">
+    <p class="text-xs text-slate-500">1인당 예산</p>
+    <p id="perPerson" class="text-2xl font-bold mt-1 num">-</p>
+    <p class="text-xs text-slate-500">인원: <input id="people" type="number" min="1" class="w-12 text-center num border-b">명</p>
+  </div>
+  <div class="bg-white rounded-2xl p-4 shadow-sm">
+    <p class="text-xs text-slate-500">일평균 (현지)</p>
+    <p id="dailyAvg" class="text-2xl font-bold mt-1 num">-</p>
+    <p class="text-xs text-slate-500">15일 기준</p>
+  </div>
+  <div class="bg-white rounded-2xl p-4 shadow-sm">
+    <p class="text-xs text-slate-500">사용액</p>
+    <p id="spent" class="text-2xl font-bold mt-1 num text-rose-600">-</p>
+    <p class="text-xs text-slate-500">잔액: <span id="remaining" class="num font-semibold">-</span></p>
+  </div>
+  <div class="bg-white rounded-2xl p-4 shadow-sm">
+    <p class="text-xs text-slate-500">예비비 권장 (10%)</p>
+    <p id="reserve" class="text-2xl font-bold mt-1 num">-</p>
+    <p class="text-xs text-slate-500">긴급/환차손 대비</p>
+  </div>
+</section>
+
+<!-- tabs -->
+<nav class="max-w-7xl mx-auto px-6 mt-6">
+  <div class="bg-white rounded-2xl shadow-sm p-1 inline-flex flex-wrap gap-1 text-sm">
+    <button data-tab="dashboard" class="tab-btn px-4 py-2 rounded-xl tab-active">대시보드</button>
+    <button data-tab="pretrip" class="tab-btn px-4 py-2 rounded-xl">출국 전</button>
+    <button data-tab="sydney"  class="tab-btn px-4 py-2 rounded-xl">시드니 (6/25–7/1)</button>
+    <button data-tab="melbourne" class="tab-btn px-4 py-2 rounded-xl">멜버른 (7/1–7/5)</button>
+    <button data-tab="goldcoast" class="tab-btn px-4 py-2 rounded-xl">골드코스트 (7/5–7/9)</button>
+    <button data-tab="itinerary" class="tab-btn px-4 py-2 rounded-xl">일정표</button>
+    <button data-tab="checklist" class="tab-btn px-4 py-2 rounded-xl">체크리스트</button>
+  </div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-6 my-6">
+
+<!-- ========== DASHBOARD ========== -->
+<section data-pane="dashboard" class="pane">
+  <div class="grid md:grid-cols-3 gap-4">
+    <div class="bg-white rounded-2xl p-5 shadow-sm md:col-span-2">
+      <h3 class="font-semibold mb-3">카테고리별 비중</h3>
+      <canvas id="chartCat" height="120"></canvas>
+    </div>
+    <div class="bg-white rounded-2xl p-5 shadow-sm">
+      <h3 class="font-semibold mb-3">도시별 비중</h3>
+      <canvas id="chartCity" height="120"></canvas>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 gap-4 mt-4">
+    <div class="bg-white rounded-2xl p-5 shadow-sm">
+      <h3 class="font-semibold mb-3">도시별 소계</h3>
+      <table class="w-full text-sm">
+        <thead class="text-slate-500 text-left">
+          <tr><th class="py-1">구분</th><th class="text-right">박</th><th class="text-right">AUD</th><th class="text-right">KRW</th></tr>
+        </thead>
+        <tbody id="citySummary"></tbody>
+      </table>
+    </div>
+    <div class="bg-white rounded-2xl p-5 shadow-sm">
+      <h3 class="font-semibold mb-3">메모 · 가정</h3>
+      <ul class="text-sm text-slate-600 space-y-1 list-disc pl-5">
+        <li>한국→시드니, 시드니→멜버른, 멜버른→골드코스트, 골드코스트(브리즈번)→한국 동선 가정 (오픈조).</li>
+        <li>현지 통화는 호주달러(AUD). 환율은 좌상단에서 변경 가능 (기본 ₩930/AUD).</li>
+        <li>2인 기준으로 숙소·차량 항목 기본값이 잡혀 있음. 인원 변경 시 자동 분배 X — 셀에서 직접 수정.</li>
+        <li>모든 숫자는 셀 클릭 후 직접 편집. 브라우저에 자동 저장되며 <b>초기화</b>로 되돌릴 수 있음.</li>
+        <li>6/25~7/9는 호주 겨울 시즌. 시드니/멜버른은 10–18℃, 골드코스트는 14–22℃ 예상. 보온/가벼운 우비 필요.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRETRIP ========== -->
+<section data-pane="pretrip" class="pane hidden">
+  <div class="bg-white rounded-2xl shadow-sm p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-lg font-bold">출국 전 비용 <span class="chip chip-pre">PRE</span></h2>
+      <button class="addRow text-sm bg-slate-900 text-white rounded-lg px-3 py-1.5" data-city="pre">+ 행 추가</button>
+    </div>
+    <table class="w-full text-sm" data-table="pre">
+      <thead class="text-slate-500 text-left border-b">
+        <tr>
+          <th class="py-2 w-44">항목</th>
+          <th>설명</th>
+          <th class="text-right w-24">단가(원)</th>
+          <th class="text-right w-16">수량</th>
+          <th class="text-right w-28">소계(KRW)</th>
+          <th class="text-right w-24">소계(AUD)</th>
+          <th class="text-center w-14">확정</th>
+          <th class="w-10"></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot class="font-semibold border-t">
+        <tr><td colspan="4" class="py-2 text-right">소계</td>
+          <td class="text-right num" data-foot="krw">-</td>
+          <td class="text-right num" data-foot="aud">-</td>
+          <td colspan="2"></td></tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+
+<!-- ========== SYDNEY ========== -->
+<section data-pane="sydney" class="pane hidden">
+  <div class="bg-white rounded-2xl shadow-sm p-5 city-syd">
+    <div class="flex items-center justify-between mb-1">
+      <h2 class="text-lg font-bold">시드니 <span class="chip chip-syd">SYD · 6박 7일</span></h2>
+      <button class="addRow text-sm bg-slate-900 text-white rounded-lg px-3 py-1.5" data-city="syd">+ 행 추가</button>
+    </div>
+    <p class="text-xs text-slate-500 mb-3">2026.06.25(목) 도착 → 2026.07.01(수) 멜버른 이동. 오페라하우스·하버브리지·본다이비치·블루마운틴·타롱가 동물원.</p>
+    <table class="w-full text-sm" data-table="syd">
+      <thead class="text-slate-500 text-left border-b">
+        <tr><th class="py-2 w-44">항목</th><th>설명</th>
+          <th class="text-right w-24">단가(AUD)</th>
+          <th class="text-right w-16">수량</th>
+          <th class="text-right w-28">소계(AUD)</th>
+          <th class="text-right w-28">소계(KRW)</th>
+          <th class="text-center w-14">확정</th>
+          <th class="w-10"></th></tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot class="font-semibold border-t">
+        <tr><td colspan="4" class="py-2 text-right">소계</td>
+          <td class="text-right num" data-foot="aud">-</td>
+          <td class="text-right num" data-foot="krw">-</td>
+          <td colspan="2"></td></tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+
+<!-- ========== MELBOURNE ========== -->
+<section data-pane="melbourne" class="pane hidden">
+  <div class="bg-white rounded-2xl shadow-sm p-5 city-mel">
+    <div class="flex items-center justify-between mb-1">
+      <h2 class="text-lg font-bold">멜버른 <span class="chip chip-mel">MEL · 4박 5일</span></h2>
+      <button class="addRow text-sm bg-slate-900 text-white rounded-lg px-3 py-1.5" data-city="mel">+ 행 추가</button>
+    </div>
+    <p class="text-xs text-slate-500 mb-3">2026.07.01(수) 도착 → 2026.07.05(일) 골드코스트 이동. 그레이트오션로드(1박), 야라밸리 와이너리, 시티 트램 무료 구간.</p>
+    <table class="w-full text-sm" data-table="mel">
+      <thead class="text-slate-500 text-left border-b">
+        <tr><th class="py-2 w-44">항목</th><th>설명</th>
+          <th class="text-right w-24">단가(AUD)</th>
+          <th class="text-right w-16">수량</th>
+          <th class="text-right w-28">소계(AUD)</th>
+          <th class="text-right w-28">소계(KRW)</th>
+          <th class="text-center w-14">확정</th>
+          <th class="w-10"></th></tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot class="font-semibold border-t">
+        <tr><td colspan="4" class="py-2 text-right">소계</td>
+          <td class="text-right num" data-foot="aud">-</td>
+          <td class="text-right num" data-foot="krw">-</td>
+          <td colspan="2"></td></tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+
+<!-- ========== GOLD COAST ========== -->
+<section data-pane="goldcoast" class="pane hidden">
+  <div class="bg-white rounded-2xl shadow-sm p-5 city-gc">
+    <div class="flex items-center justify-between mb-1">
+      <h2 class="text-lg font-bold">골드코스트 <span class="chip chip-gc">OOL · 4박 5일</span></h2>
+      <button class="addRow text-sm bg-slate-900 text-white rounded-lg px-3 py-1.5" data-city="gc">+ 행 추가</button>
+    </div>
+    <p class="text-xs text-slate-500 mb-3">2026.07.05(일) 도착 → 2026.07.09(목) 출국. 서퍼스파라다이스, 무비월드/씨월드, 탬버린마운틴, 바이런베이 당일치기.</p>
+    <table class="w-full text-sm" data-table="gc">
+      <thead class="text-slate-500 text-left border-b">
+        <tr><th class="py-2 w-44">항목</th><th>설명</th>
+          <th class="text-right w-24">단가(AUD)</th>
+          <th class="text-right w-16">수량</th>
+          <th class="text-right w-28">소계(AUD)</th>
+          <th class="text-right w-28">소계(KRW)</th>
+          <th class="text-center w-14">확정</th>
+          <th class="w-10"></th></tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot class="font-semibold border-t">
+        <tr><td colspan="4" class="py-2 text-right">소계</td>
+          <td class="text-right num" data-foot="aud">-</td>
+          <td class="text-right num" data-foot="krw">-</td>
+          <td colspan="2"></td></tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+
+<!-- ========== ITINERARY ========== -->
+<section data-pane="itinerary" class="pane hidden">
+  <div class="bg-white rounded-2xl shadow-sm p-5">
+    <h2 class="text-lg font-bold mb-3">일자별 일정 & 일일 한도</h2>
+    <p class="text-xs text-slate-500 mb-4">예산 한도(AUD)는 해당 도시의 일평균(숙박·교통·식비·액티비티)으로 자동 계산됩니다. 실사용액은 직접 입력하세요.</p>
+    <table class="w-full text-sm" id="dayTable">
+      <thead class="text-slate-500 text-left border-b">
+        <tr>
+          <th class="py-2 w-12">D</th>
+          <th class="w-28">날짜</th>
+          <th class="w-24">도시</th>
+          <th>일정 / 메모</th>
+          <th class="text-right w-28">한도(AUD)</th>
+          <th class="text-right w-28">실사용(AUD)</th>
+          <th class="text-right w-28">차액(AUD)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== CHECKLIST ========== -->
+<section data-pane="checklist" class="pane hidden">
+  <div class="grid md:grid-cols-2 gap-4">
+    <div class="bg-white rounded-2xl shadow-sm p-5">
+      <h3 class="font-semibold mb-3">📄 서류 · 결제</h3>
+      <ul id="docList" class="space-y-1 text-sm"></ul>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm p-5">
+      <h3 class="font-semibold mb-3">🧳 짐 (겨울 시즌 기준)</h3>
+      <ul id="bagList" class="space-y-1 text-sm"></ul>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm p-5">
+      <h3 class="font-semibold mb-3">📱 앱 · 예약 사이트</h3>
+      <ul class="text-sm text-slate-700 space-y-1.5 list-disc pl-5">
+        <li><b>Opal Travel</b> — 시드니 대중교통 카드 (탭온/탭오프, 일·주 한도 자동 적용)</li>
+        <li><b>PTV</b> — 멜버른 Myki 카드 / 트램·전철</li>
+        <li><b>TransLink Go Card</b> — 골드코스트 G:link 트램 + 버스</li>
+        <li><b>13cabs / DiDi / Uber</b> — 호주 전국 택시·차량 호출</li>
+        <li><b>Booking.com / Airbnb / Agoda</b> — 숙소</li>
+        <li><b>Klook / KKday / GetYourGuide</b> — 그레이트오션로드·블루마운틴·테마파크 티켓</li>
+        <li><b>Qantas / Virgin Australia / Jetstar</b> — 국내선 (SYD→MEL→OOL)</li>
+        <li><b>BOM Weather</b> — 호주 기상청 날씨</li>
+      </ul>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm p-5">
+      <h3 class="font-semibold mb-3">💳 결제 · 통신 팁</h3>
+      <ul class="text-sm text-slate-700 space-y-1.5 list-disc pl-5">
+        <li>호주는 카드 결제 천국. <b>트래블월렛/트래블로그</b> 체크카드로 ATM 인출+결제 모두 커버.</li>
+        <li>현금은 100–200 AUD 정도만 비상용. 팁 문화 거의 없음(레스토랑 10%는 선택).</li>
+        <li><b>주말·공휴일·심야</b> 카페·레스토랑은 10–15% Surcharge 자동 부과되는 곳 多.</li>
+        <li>유심: <b>Optus / Telstra / Vodafone</b> 30일 40 AUD 내외 (또는 e-SIM Airalo 20 AUD).</li>
+        <li>한국 ↔ 호주 시차: 시드니/멜버른 +1h, 골드코스트(QLD) +1h (호주 동부 표준시 동일, QLD는 서머타임 없음).</li>
+        <li>ETA(전자비자) 필수: <b>AUD 20</b> · 모바일 앱 "AustralianETA"에서 신청, 보통 즉시~24h 승인.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<input type="file" id="importFile" class="hidden" accept="application/json" />
+<footer class="text-center text-xs text-slate-400 py-6">자동 저장 · 브라우저 LocalStorage · v1</footer>
+
+<script>
+/* =====================================================================
+ *  DATA
+ * =====================================================================*/
+const DEFAULT_FX = 930; // 1 AUD = 930 KRW (수정 가능)
+const PEOPLE_DEFAULT = 2;
+
+// 항목: name, desc, unit(AUD or KRW), qty, confirmed, category
+const SEED = {
+  pre: [
+    ["국제선 항공권", "ICN ↔ SYD / OOL 오픈조 (이코노미)",  1650000, 2, false, "항공"],
+    ["여행자보험",   "15일 / 1인 (질병 포함)",                 80000, 2, false, "보험"],
+    ["호주 ETA 비자","앱 신청 · 1인 AUD 20",                   18600, 2, true,  "비자"],
+    ["유심/이심",    "30일 데이터 25GB · 1인",                  35000, 2, false, "통신"],
+    ["환전·트래블카드 발급비", "수수료/카드 제작비",              5000, 1, true,  "결제"],
+    ["국제운전면허증","경찰서 발급 (그레이트오션로드 렌터카용)",   8500, 2, false, "교통"],
+    ["여행용품(파우치·어댑터 등)", "Type I 어댑터, 보조배터리",   40000, 1, false, "기타"],
+  ],
+  // 시드니 (단가 AUD)
+  syd: [
+    ["숙소 (CBD)",    "Pyrmont/Darling Harbour · 2인실 6박",   240, 6, false, "숙박"],
+    ["공항 ↔ 시내",   "Airport Link 편도 22.5 · 왕복 2인",      22.5, 4, false, "교통"],
+    ["대중교통 (Opal)","주간 한도 50/인 · 2인 × 1주",            50,  2, false, "교통"],
+    ["식비 (조식·캐주얼)", "카페·푸드코트 · 2인",                25,  14, false,"식비"],
+    ["식비 (점·저녁)","로컬 레스토랑 평균 35 · 2인 × 12끼",      35,  24, false,"식비"],
+    ["오페라하우스 투어","가이드 백스테이지 1인 45",              45,  2, false, "관광"],
+    ["하버브리지 클라임","Bridge Climb Dawn · 1인 388",         388, 2, false, "액티비티"],
+    ["블루마운틴 1일투어","Klook 한국어 투어 · 1인 145",         145, 2, false, "투어"],
+    ["타롱가 동물원","입장+페리 패키지 · 1인 55",                55,  2, false, "관광"],
+    ["본다이→쿠지 코스트워크","무료 트래킹 (간식·물)",            15,  2, false, "식비"],
+    ["페리·왓슨스베이","Manly/Watsons Bay 페리+피쉬앤칩스",      35,  2, false, "관광"],
+    ["QVB·쇼핑",     "기념품·소소한 쇼핑 예산",                 100, 2, false, "쇼핑"],
+    ["국내선 SYD→MEL","Jetstar/Virgin 편도 · 1인",              130, 2, false, "항공"],
+  ],
+  // 멜버른
+  mel: [
+    ["숙소 (CBD)",   "Southbank/Flinders · 2인실 4박",         220, 4, false, "숙박"],
+    ["공항 ↔ 시내",  "SkyBus 편도 23.9 · 왕복 2인",             23.9,4, false, "교통"],
+    ["Myki 카드+충전","CBD 트램 무료 / 외곽 이동",              30,  2, false, "교통"],
+    ["식비 (조식·캐주얼)", "Brunch 천국 · 2인",                  28,  10, false,"식비"],
+    ["식비 (점·저녁)","로컬 레스토랑 · 2인 × 8끼",                40,  16, false,"식비"],
+    ["그레이트오션로드 1일투어","12사도+코알라 · 1인 165",       165, 2, false, "투어"],
+    ["야라밸리 와이너리 투어","와이너리 4곳+점심 · 1인 195",     195, 2, false, "투어"],
+    ["필립아일랜드 펭귄퍼레이드","Klook 한국어 · 1인 175",        175, 2, false, "투어"],
+    ["퀸빅토리아 마켓","스트릿푸드 + 장보기",                    50,  2, false, "식비"],
+    ["유레카 스카이덱","Edge Experience · 1인 30",              30,  2, false, "관광"],
+    ["멜버른 → 골드코스트 항공","MEL→OOL 편도 · 1인",            155, 2, false, "항공"],
+  ],
+  // 골드코스트
+  gc: [
+    ["숙소 (서퍼스파라다이스)","오션뷰 아파트 4박 · 2인",        260, 4, false, "숙박"],
+    ["공항 ↔ 시내",  "OOL Shuttle / G:link · 2인 왕복",         25,  2, false, "교통"],
+    ["G:link + 버스","Go Card 충전",                            40,  2, false, "교통"],
+    ["식비 (조식)",  "아파트 키친 활용 · 마트",                   60,  4, false, "식비"],
+    ["식비 (점·저녁)","해변가 레스토랑 · 2인 × 8끼",              45,  16, false,"식비"],
+    ["무비월드",     "Warner Bros · 1인 119",                   119, 2, false, "테마파크"],
+    ["씨월드",       "Sea World · 1인 109",                     109, 2, false, "테마파크"],
+    ["커럼빈 야생동물원","코알라 안기+조식 · 1인 65",             65,  2, false, "관광"],
+    ["탬버린 마운틴","Skywalk + 와이너리 데이트립 · 1인 95",      95,  2, false, "투어"],
+    ["바이런베이 당일","등대+서핑 비치 (렌터카 1일)",             140, 1, false, "투어"],
+    ["서핑 강습",    "1인 1시간 그룹 강습",                       75,  2, false, "액티비티"],
+    ["쇼핑·기념품",  "Pacific Fair 등",                          120, 2, false, "쇼핑"],
+  ],
+};
+
+// 일자별 일정 (도시·하이라이트)
+const DAYS = [
+  {n: 1, date:"6/25 목", city:"이동/SYD", note:"인천 출발 → 시드니 야간 도착, 호텔 체크인"},
+  {n: 2, date:"6/26 금", city:"SYD", note:"오페라하우스 + Royal Botanic Garden + Circular Quay"},
+  {n: 3, date:"6/27 토", city:"SYD", note:"본다이→쿠지 코스트워크, 저녁 달링하버"},
+  {n: 4, date:"6/28 일", city:"SYD", note:"블루마운틴 1일 투어 (Three Sisters, Scenic World)"},
+  {n: 5, date:"6/29 월", city:"SYD", note:"하버브리지 클라임 / 록스 마켓, 야경"},
+  {n: 6, date:"6/30 화", city:"SYD", note:"타롱가 동물원 + 맨리/왓슨스베이 페리"},
+  {n: 7, date:"7/1 수",  city:"이동/MEL", note:"SYD→MEL 국내선, 멜버른 체크인, 페더레이션 스퀘어"},
+  {n: 8, date:"7/2 목",  city:"MEL", note:"그레이트오션로드 1일 투어 (12사도)"},
+  {n: 9, date:"7/3 금",  city:"MEL", note:"야라밸리 와이너리 + 힐스빌 보호구역"},
+  {n:10, date:"7/4 토",  city:"MEL", note:"퀸빅토리아 마켓 + 유레카 스카이덱, 저녁 필립아일랜드"},
+  {n:11, date:"7/5 일",  city:"이동/GC", note:"MEL→OOL, 서퍼스파라다이스 비치 산책"},
+  {n:12, date:"7/6 월",  city:"GC", note:"무비월드 (테마파크 풀데이)"},
+  {n:13, date:"7/7 화",  city:"GC", note:"씨월드 + 커럼빈 야생동물원"},
+  {n:14, date:"7/8 수",  city:"GC", note:"바이런베이 당일치기 (등대·서핑)"},
+  {n:15, date:"7/9 목",  city:"이동", note:"OOL→ICN 귀국"},
+];
+
+const CITY_DAYS = { syd:7, mel:4, gc:4 };  // 일평균 계산용 (시드니는 도착일 포함 7일)
+
+const DOC_ITEMS = [
+  "여권 (잔여 유효기간 6개월 이상)",
+  "호주 ETA (앱 발급, 출국 24h 전 확정)",
+  "전자항공권 e-Ticket (모바일+인쇄본)",
+  "숙소 예약 바우처 (도시별)",
+  "여행자보험 증서 · 영문 영수증",
+  "국제운전면허증 + 한국 운전면허증",
+  "백업용 신용카드 1장 + 트래블 체크카드",
+  "현금 100–200 AUD",
+  "비상연락처 · 대사관 번호 (Canberra +61-2-6270-4100)",
+];
+const BAG_ITEMS = [
+  "겨울 자켓 / 패딩 (시드니·멜버른 새벽 5–8℃)",
+  "가벼운 우비 / 접이식 우산",
+  "운동화 (코스트워크용) + 슬리퍼",
+  "수영복 + 래쉬가드 (골드코스트 호텔 풀)",
+  "선크림 SPF50+ / 모자 / 선글라스",
+  "Type I 어댑터 (2개 이상)",
+  "보조배터리 ≤100Wh (기내반입 OK)",
+  "상비약 (감기·해열·소화제·밴드)",
+  "지퍼백·압축팩 · 빨래망",
+];
+
+/* =====================================================================
+ *  STATE & PERSISTENCE
+ * =====================================================================*/
+const LS_KEY = "auTrip_v1";
+function loadState() {
+  try {
+    const s = JSON.parse(localStorage.getItem(LS_KEY));
+    if (s && s.tables) return s;
+  } catch(e){}
+  return null;
+}
+function saveState() { localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+
+let state = loadState() || {
+  fx: DEFAULT_FX, people: PEOPLE_DEFAULT,
+  tables: structuredClone(SEED),
+  dayUsage: Array(15).fill(0),
+  checks: { docs:{}, bag:{} },
+};
+state.dayUsage = state.dayUsage || Array(15).fill(0);
+state.checks   = state.checks   || {docs:{}, bag:{}};
+
+/* =====================================================================
+ *  HELPERS
+ * =====================================================================*/
+const fmt   = (n) => Math.round(n).toLocaleString("ko-KR");
+const fmtAUD= (n) => "A$" + (Math.round(n*100)/100).toLocaleString("en-AU", {minimumFractionDigits:0, maximumFractionDigits:2});
+const fmtKRW= (n) => "₩" + fmt(n);
+const $ = (s, el=document) => el.querySelector(s);
+const $$= (s, el=document) => [...el.querySelectorAll(s)];
+
+function tableTotal(city) {
+  return state.tables[city].reduce((acc, r) => {
+    const v = (+r[2] || 0) * (+r[3] || 0);
+    if (city === "pre") acc.krw += v; else acc.aud += v;
+    return acc;
+  }, {aud:0, krw:0});
+}
+function categoryTotals() {
+  const t = {};
+  for (const [city, rows] of Object.entries(state.tables)) {
+    for (const r of rows) {
+      const cat = r[5] || "기타";
+      const v = (+r[2]||0) * (+r[3]||0);
+      const krw = (city === "pre") ? v : v * state.fx;
+      t[cat] = (t[cat] || 0) + krw;
+    }
+  }
+  return t;
+}
+
+/* =====================================================================
+ *  RENDER TABLES
+ * =====================================================================*/
+function renderTable(city) {
+  const tbody = $(`table[data-table="${city}"] tbody`);
+  tbody.innerHTML = "";
+  const rows = state.tables[city];
+  rows.forEach((r, i) => {
+    const tr = document.createElement("tr");
+    tr.className = "border-b last:border-0 hover:bg-slate-50";
+    const isPre = city === "pre";
+    const unit  = +r[2] || 0;
+    const qty   = +r[3] || 0;
+    const sub   = unit * qty;
+    const subAUD= isPre ? sub / state.fx : sub;
+    const subKRW= isPre ? sub : sub * state.fx;
+    tr.innerHTML = `
+      <td class="py-1.5"><input value="${r[0] ?? ""}" data-f="0"></td>
+      <td><input value="${r[1] ?? ""}" data-f="1"></td>
+      <td class="text-right"><input class="text-right num" type="number" step="${isPre?'1':'0.01'}" value="${r[2] ?? 0}" data-f="2"></td>
+      <td class="text-right"><input class="text-right num" type="number" step="1" value="${r[3] ?? 0}" data-f="3"></td>
+      <td class="text-right num">${isPre ? fmtKRW(subKRW) : fmtAUD(subAUD)}</td>
+      <td class="text-right num text-slate-500">${isPre ? fmtAUD(subAUD) : fmtKRW(subKRW)}</td>
+      <td class="text-center"><input type="checkbox" data-f="4" ${r[4]?"checked":""}></td>
+      <td class="text-center"><button class="delRow text-slate-300 hover:text-rose-500" title="삭제">×</button></td>
+    `;
+    tr.querySelectorAll("input").forEach(inp => {
+      inp.addEventListener("input", () => {
+        const f = +inp.dataset.f;
+        if (inp.type === "checkbox") r[f] = inp.checked;
+        else if (inp.type === "number") r[f] = parseFloat(inp.value) || 0;
+        else r[f] = inp.value;
+        saveState(); recalcAll();
+      });
+    });
+    tr.querySelector(".delRow").addEventListener("click", () => {
+      rows.splice(i,1); saveState(); renderTable(city); recalcAll();
+    });
+    tbody.appendChild(tr);
+  });
+
+  const t = tableTotal(city);
+  const foot = $(`table[data-table="${city}"] tfoot`);
+  if (city === "pre") {
+    foot.querySelector('[data-foot="krw"]').textContent = fmtKRW(t.krw);
+    foot.querySelector('[data-foot="aud"]').textContent = fmtAUD(t.krw / state.fx);
+  } else {
+    foot.querySelector('[data-foot="aud"]').textContent = fmtAUD(t.aud);
+    foot.querySelector('[data-foot="krw"]').textContent = fmtKRW(t.aud * state.fx);
+  }
+}
+
+function renderAll() {
+  for (const c of ["pre","syd","mel","gc"]) renderTable(c);
+  renderDays(); renderChecklists(); recalcAll();
+}
+
+/* =====================================================================
+ *  ADD ROW / RESET
+ * =====================================================================*/
+$$(".addRow").forEach(b => {
+  b.addEventListener("click", () => {
+    const c = b.dataset.city;
+    const isPre = c === "pre";
+    state.tables[c].push(["새 항목","", 0, 1, false, isPre?"기타":"기타"]);
+    saveState(); renderTable(c); recalcAll();
+  });
+});
+
+$("#resetBtn").addEventListener("click", () => {
+  if (!confirm("모든 값을 기본값으로 되돌릴까요?")) return;
+  localStorage.removeItem(LS_KEY);
+  location.reload();
+});
+
+/* =====================================================================
+ *  CHART & DASHBOARD
+ * =====================================================================*/
+let chartCat, chartCity;
+function recalcAll() {
+  const preT = tableTotal("pre");
+  const sydT = tableTotal("syd");
+  const melT = tableTotal("mel");
+  const gcT  = tableTotal("gc");
+
+  const totalKRW = preT.krw + (sydT.aud + melT.aud + gcT.aud) * state.fx;
+  const totalAUD = totalKRW / state.fx;
+
+  $("#totalKRW").textContent = fmtKRW(totalKRW);
+  $("#totalAUD").textContent = "≈ " + fmtAUD(totalAUD);
+  $("#perPerson").textContent= fmtKRW(totalKRW / Math.max(1, state.people));
+  $("#dailyAvg").textContent = fmtAUD( (sydT.aud + melT.aud + gcT.aud) / 15 );
+  const spent = (state.dayUsage || []).reduce((a,b)=>a+(+b||0),0);
+  $("#spent").textContent = fmtAUD(spent);
+  $("#remaining").textContent = fmtAUD( (sydT.aud + melT.aud + gcT.aud) - spent );
+  $("#reserve").textContent = fmtKRW(totalKRW * 0.10);
+
+  // 도시별 소계 표
+  const cs = $("#citySummary");
+  cs.innerHTML = `
+    <tr><td class="py-1">출국 전</td><td class="text-right num">-</td>
+        <td class="text-right num">${fmtAUD(preT.krw/state.fx)}</td>
+        <td class="text-right num">${fmtKRW(preT.krw)}</td></tr>
+    <tr><td class="py-1">시드니</td><td class="text-right num">6</td>
+        <td class="text-right num">${fmtAUD(sydT.aud)}</td>
+        <td class="text-right num">${fmtKRW(sydT.aud*state.fx)}</td></tr>
+    <tr><td class="py-1">멜버른</td><td class="text-right num">4</td>
+        <td class="text-right num">${fmtAUD(melT.aud)}</td>
+        <td class="text-right num">${fmtKRW(melT.aud*state.fx)}</td></tr>
+    <tr><td class="py-1">골드코스트</td><td class="text-right num">4</td>
+        <td class="text-right num">${fmtAUD(gcT.aud)}</td>
+        <td class="text-right num">${fmtKRW(gcT.aud*state.fx)}</td></tr>
+    <tr class="font-bold border-t"><td class="py-1">합계</td><td class="text-right num">14박</td>
+        <td class="text-right num">${fmtAUD(totalAUD)}</td>
+        <td class="text-right num">${fmtKRW(totalKRW)}</td></tr>`;
+
+  // 카테고리 차트
+  const cats = categoryTotals();
+  const labels = Object.keys(cats);
+  const data = labels.map(l => cats[l]);
+  const palette = ["#0ea5e9","#8b5cf6","#f59e0b","#10b981","#ef4444","#6366f1","#14b8a6","#f43f5e","#22c55e","#a855f7","#64748b","#0891b2"];
+  if (!chartCat) {
+    chartCat = new Chart($("#chartCat"), {
+      type:"bar",
+      data:{labels, datasets:[{data, backgroundColor: palette}]},
+      options:{
+        plugins:{legend:{display:false}, tooltip:{callbacks:{label:(c)=>fmtKRW(c.parsed.y)}}},
+        scales:{y:{ticks:{callback:(v)=>fmt(v/10000)+"만"}}}
+      }
+    });
+  } else {
+    chartCat.data.labels = labels;
+    chartCat.data.datasets[0].data = data;
+    chartCat.update();
+  }
+
+  // 도시 차트
+  const cityLabels = ["출국 전","시드니","멜버른","골드코스트"];
+  const cityData   = [preT.krw, sydT.aud*state.fx, melT.aud*state.fx, gcT.aud*state.fx];
+  if (!chartCity) {
+    chartCity = new Chart($("#chartCity"), {
+      type:"doughnut",
+      data:{labels:cityLabels, datasets:[{data:cityData, backgroundColor:["#10b981","#0ea5e9","#8b5cf6","#f59e0b"]}]},
+      options:{plugins:{legend:{position:"bottom"}, tooltip:{callbacks:{label:(c)=>c.label+" "+fmtKRW(c.parsed)}}}}
+    });
+  } else {
+    chartCity.data.datasets[0].data = cityData;
+    chartCity.update();
+  }
+
+  // 일정 표 새로고침
+  renderDayTotals(sydT.aud, melT.aud, gcT.aud);
+}
+
+/* =====================================================================
+ *  ITINERARY
+ * =====================================================================*/
+function renderDays() {
+  const tb = $("#dayTable tbody"); tb.innerHTML = "";
+  DAYS.forEach((d, i) => {
+    const tr = document.createElement("tr");
+    tr.className = "border-b last:border-0 hover:bg-slate-50";
+    const cityChip = d.city.includes("SYD") ? "chip chip-syd" :
+                     d.city.includes("MEL") ? "chip chip-mel" :
+                     d.city.includes("GC")  ? "chip chip-gc"  : "chip bg-slate-200 text-slate-700";
+    tr.innerHTML = `
+      <td class="py-2 font-semibold num">${d.n}</td>
+      <td>${d.date}</td>
+      <td><span class="${cityChip}">${d.city}</span></td>
+      <td class="text-slate-600">${d.note}</td>
+      <td class="text-right num" data-cap>-</td>
+      <td class="text-right"><input type="number" step="0.01" class="text-right num w-24 border-b" value="${state.dayUsage[i]||0}" data-day="${i}"></td>
+      <td class="text-right num" data-diff>-</td>
+    `;
+    tr.querySelector("input").addEventListener("input", e => {
+      state.dayUsage[i] = parseFloat(e.target.value) || 0;
+      saveState(); recalcAll();
+    });
+    tb.appendChild(tr);
+  });
+}
+
+function renderDayTotals(syd, mel, gc) {
+  // 도시별 일평균 (출국 전 제외, 도시별 비용에서 항공/공항이동/숙박/식비/관광 합 ÷ 도시 일수)
+  const cap = { SYD: syd / CITY_DAYS.syd, MEL: mel / CITY_DAYS.mel, GC: gc / CITY_DAYS.gc };
+  $$("#dayTable tbody tr").forEach((tr, i) => {
+    const d = DAYS[i];
+    let c = d.city.includes("SYD") ? cap.SYD : d.city.includes("MEL") ? cap.MEL : d.city.includes("GC") ? cap.GC : 0;
+    if (d.city.startsWith("이동")) c = c || 0;
+    const used = +state.dayUsage[i] || 0;
+    tr.querySelector("[data-cap]").textContent  = c ? fmtAUD(c) : "—";
+    const diff = c - used;
+    const dcell = tr.querySelector("[data-diff]");
+    dcell.textContent = c ? fmtAUD(diff) : "—";
+    dcell.className = "text-right num " + (diff < 0 ? "text-rose-600 font-semibold" : "text-emerald-600");
+  });
+}
+
+/* =====================================================================
+ *  CHECKLISTS
+ * =====================================================================*/
+function renderChecklists() {
+  const make = (ul, items, key) => {
+    ul.innerHTML = "";
+    items.forEach((it, i) => {
+      const id = `${key}_${i}`;
+      const li = document.createElement("li");
+      li.innerHTML = `<label class="flex items-start gap-2 cursor-pointer">
+        <input type="checkbox" class="mt-1" ${state.checks[key][i]?"checked":""}>
+        <span class="${state.checks[key][i]?'line-through text-slate-400':''}">${it}</span></label>`;
+      li.querySelector("input").addEventListener("change", e => {
+        state.checks[key][i] = e.target.checked;
+        saveState(); renderChecklists();
+      });
+      ul.appendChild(li);
+    });
+  };
+  make($("#docList"), DOC_ITEMS, "docs");
+  make($("#bagList"), BAG_ITEMS, "bag");
+}
+
+/* =====================================================================
+ *  TABS
+ * =====================================================================*/
+$$(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    $$(".tab-btn").forEach(b => b.classList.remove("tab-active"));
+    btn.classList.add("tab-active");
+    const t = btn.dataset.tab;
+    $$(".pane").forEach(p => p.classList.toggle("hidden", p.dataset.pane !== t));
+  });
+});
+
+/* =====================================================================
+ *  TOP CONTROLS
+ * =====================================================================*/
+const fxInput = $("#fxRate"); fxInput.value = state.fx;
+fxInput.addEventListener("input", () => {
+  state.fx = parseFloat(fxInput.value) || DEFAULT_FX;
+  saveState(); renderAll();
+});
+const peopleInput = $("#people"); peopleInput.value = state.people;
+peopleInput.addEventListener("input", () => {
+  state.people = parseInt(peopleInput.value) || 1;
+  saveState(); recalcAll();
+});
+
+$("#exportBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(state, null, 2)], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = `australia_budget_${new Date().toISOString().slice(0,10)}.json`;
+  a.click(); URL.revokeObjectURL(url);
+});
+$("#importBtn").addEventListener("click", () => $("#importFile").click());
+$("#importFile").addEventListener("change", async (e) => {
+  const f = e.target.files[0]; if (!f) return;
+  const txt = await f.text();
+  try {
+    const s = JSON.parse(txt);
+    if (!s.tables) throw new Error("invalid");
+    state = s; saveState(); location.reload();
+  } catch(err) { alert("불러오기 실패: " + err.message); }
+});
+
+renderAll();
+</script>
+</body>
+</html>
