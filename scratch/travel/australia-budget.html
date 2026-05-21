@@ -316,7 +316,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
 /* ===================== DATA ===================== */
-const DEFAULT_FX = 930, PEOPLE_DEFAULT = 2;
+const DEFAULT_FX = 1070, PEOPLE_DEFAULT = 2;
 
 const SEED = {
   pre: [
@@ -449,7 +449,7 @@ const CHK = [
 const CITY_LABEL = { pre:"🇰🇷 한국", syd:"🇦🇺 시드니", mel:"🇦🇺 멜버른", gc:"🇦🇺 골드코스트" };
 
 /* ===================== STATE ===================== */
-const LS = "auTrip_xlsx_v3";
+const LS = "auTrip_xlsx_v4";
 function loadState(){ try{const s=JSON.parse(localStorage.getItem(LS)); if(s&&s.tables)return s;}catch(e){} return null; }
 function save(){ localStorage.setItem(LS, JSON.stringify(state)); }
 let state = loadState() || {
