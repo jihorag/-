@@ -689,15 +689,16 @@ function buildItinerary(){
 
   let totalCap=0, totalUse=0;
   DAYS.forEach((d, i)=>{
-    const tag = d[2]==="SYD"||d[2]==="→MEL" ? "tag-syd"
-              : d[2]==="MEL"||d[2]==="→GC"  ? "tag-mel"
-              : d[2]==="GC" ? "tag-gc" : "tag-move";
+    const code = d[2];
+    const tag = code==="SYD"||code==="→MEL" ? "tag-syd"
+              : code==="MEL"||code==="→GC"  ? "tag-mel"
+              : code==="GC" ? "tag-gc" : "tag-move";
     let c = 0;
-    if (d[2]==="SYD") c = cap.SYD;
-    else if (d[2]==="MEL") c = cap.MEL;
-    else if (d[2]==="GC")  c = cap.GC;
-    else if (d[2]==="→MEL") c = cap.MEL;
-    else if (d[2]==="→GC")  c = cap.GC;
+    if      (code==="SYD")  c = cap.SYD;
+    else if (code==="MEL")  c = cap.MEL;
+    else if (code==="GC")   c = cap.GC;
+    else if (code==="→MEL") c = cap.MEL;
+    else if (code==="→GC")  c = cap.GC;
     const use = +state.dayUse[i]||0;
     const diff = c - use;
     totalCap+=c; totalUse+=use;
@@ -706,20 +707,26 @@ function buildItinerary(){
       <td class="row">${i+2}</td>
       <td class="cell center" style="font-weight:600">${d[0]}</td>
       <td class="cell center">${d[1]}</td>
-      <td class="cell center ${tag}" style="font-weight:700">${d[2]}</td>
-      <td class="cell"><input type="text" data-i="${i}" data-f="note" value="${d[3].replace(/"/g,"&quot;")}"></td>
+      <td class="cell center ${tag}" style="font-weight:700">${d[3]}</td>
+      <td class="cell"><input type="text" data-i="${i}" data-f="note" value="${d[4].replace(/"/g,"&quot;")}"></td>
       <td class="calc muted">${c?fmtAUD(c):"—"}</td>
       <td class="cell num"><input type="number" step="0.01" data-i="${i}" value="${use}"></td>
       <td class="calc" style="color:${diff<0?'#cc0000':'#0f7b3d'}">${c?fmtAUD(diff):"—"}</td>
     `;
-    tr.querySelector('input[type="number"]').addEventListener("change", e=>{
+    const useInput = tr.querySelector('input[type="number"]');
+    const useHandler = e=>{
       state.dayUse[i] = parseFloat(e.target.value)||0;
-      save(); buildItinerary(); recalcSummary();
-    });
+      save();
+      const c2 = c, d2 = c2 - (parseFloat(e.target.value)||0);
+      const diffCell = tr.children[7];
+      diffCell.textContent = c2 ? fmtAUD(d2) : "—";
+      diffCell.style.color = d2<0 ? "#cc0000" : "#0f7b3d";
+      updateStatusBar();
+    };
+    useInput.addEventListener("input", useHandler);
+    useInput.addEventListener("change", useHandler);
     const noteInput = tr.querySelector('input[data-f="note"]');
-    noteInput.addEventListener("change", e=>{
-      DAYS[i][3] = e.target.value;
-    });
+    noteInput.addEventListener("change", e=>{ DAYS[i][4] = e.target.value; });
     tbody.appendChild(tr);
   });
 
