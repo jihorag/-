@@ -6,85 +6,108 @@
 <title>호주여행 예산.xlsx — 시드니·멜버른·골드코스트 (6/25–7/9)</title>
 <style>
   :root{
-    --bg:#f3f3f3; --panel:#fff; --grid:#d4d4d4; --grid-strong:#b0b0b0;
-    --header-bg:#f9fafb; --col-bg:#e7eaed; --row-bg:#e7eaed;
-    --sel:#1a73e8; --sel-bg:#e8f0fe; --sel-soft:#c7d8f7;
+    --bg:#f3f3f3; --grid:#c4c4c4; --grid-strong:#9a9a9a;
+    --col-bg:#e7eaed; --row-bg:#e7eaed;
+    --sel:#1a73e8; --sel-bg:#fff9d6;
     --ribbon:#217346; --ribbon-dark:#185a36;
-    --text:#202124; --muted:#5f6368;
+    --text:#202124;
   }
   html,body{margin:0;background:var(--bg);color:var(--text);
     font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-    font-size:13px;}
-  .ribbon{background:var(--ribbon);color:#fff;padding:6px 12px;display:flex;align-items:center;gap:10px;
-    border-bottom:2px solid var(--ribbon-dark);font-size:12px;}
-  .ribbon .title{font-weight:600;letter-spacing:.2px}
-  .ribbon .menu{display:flex;gap:14px;opacity:.95}
-  .ribbon .menu span{cursor:default;padding:2px 6px;border-radius:3px}
-  .ribbon .menu span:hover{background:rgba(255,255,255,.12)}
+    font-size:14px;}
+
+  /* ribbon */
+  .ribbon{background:var(--ribbon);color:#fff;padding:7px 14px;display:flex;align-items:center;gap:12px;
+    border-bottom:2px solid var(--ribbon-dark);font-size:13px;}
+  .ribbon .title{font-weight:600}
   .ribbon .spacer{flex:1}
-  .ribbon button{background:#fff;color:var(--ribbon-dark);border:none;border-radius:3px;
-    padding:3px 10px;font-size:12px;cursor:pointer;font-weight:600}
-  .ribbon button.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+  .ribbon button{background:#fff;color:var(--ribbon-dark);border:none;border-radius:4px;
+    padding:5px 12px;font-size:13px;cursor:pointer;font-weight:600}
+  .ribbon button.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6)}
   .ribbon button:hover{filter:brightness(.96)}
 
-  /* formula bar */
-  .formula{display:flex;align-items:center;background:#fff;border-bottom:1px solid var(--grid-strong);
-    padding:3px 6px;gap:6px;font-family:"Consolas","Menlo",monospace;font-size:12px;}
-  .formula .namebox{min-width:90px;border:1px solid var(--grid);padding:2px 8px;border-radius:2px;background:#fff;font-weight:600;color:#202124}
-  .formula .fx{color:#888;font-style:italic;width:18px;text-align:center;border-right:1px solid var(--grid);padding-right:6px}
-  .formula .input{flex:1;border:1px solid var(--grid);padding:2px 6px;background:#fff;min-height:18px;color:#202124;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-
-  /* toolbar (cheat strip) */
+  /* toolbar */
   .toolbar{background:#f1f3f4;border-bottom:1px solid var(--grid-strong);
-    padding:4px 8px;display:flex;gap:14px;align-items:center;font-size:12px;color:var(--muted)}
-  .toolbar .group{display:flex;gap:6px;align-items:center}
-  .toolbar input[type=number]{width:64px;border:1px solid var(--grid);border-radius:2px;padding:2px 4px;font-family:inherit;font-size:12px;text-align:right}
-  .toolbar .kbd{font-family:"Consolas",monospace;background:#fff;border:1px solid var(--grid);border-bottom-width:2px;border-radius:3px;padding:0 4px;font-size:11px}
+    padding:8px 14px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:13px}
+  .toolbar input[type=number]{width:80px;border:1px solid var(--grid);border-radius:4px;padding:4px 6px;font-size:13px;text-align:right}
+  .toolbar .hint{color:#666;font-size:12px;margin-left:auto}
 
-  /* sheet area */
-  .sheet-wrap{height:calc(100vh - 122px);overflow:auto;background:var(--bg);position:relative}
-  table.sheet{border-collapse:separate;border-spacing:0;background:#fff;table-layout:fixed;}
-  table.sheet td, table.sheet th{
+  /* sheet header strip */
+  .sheet-head{padding:10px 14px;background:#fff;border-bottom:1px solid var(--grid-strong);
+    display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .sheet-head h2{margin:0;font-size:16px;font-weight:700}
+  .sheet-head .sub{color:#666;font-size:12px;margin-top:2px}
+  .sheet-head .actions{display:flex;gap:6px}
+  .sheet-head button{background:#217346;color:#fff;border:none;border-radius:4px;
+    padding:6px 12px;font-size:13px;cursor:pointer;font-weight:600}
+  .sheet-head button.sec{background:#fff;color:#217346;border:1px solid #217346}
+  .sheet-head button:hover{filter:brightness(.95)}
+
+  /* main */
+  .sheet-wrap{height:calc(100vh - 180px);overflow:auto;background:var(--bg);position:relative}
+
+  table.sheet{border-collapse:separate;border-spacing:0;background:#fff;table-layout:fixed;width:100%;min-width:1100px}
+  table.sheet th, table.sheet td{
     border-right:1px solid var(--grid); border-bottom:1px solid var(--grid);
-    padding:0; height:22px; vertical-align:middle; overflow:hidden; white-space:nowrap;
+    padding:0; vertical-align:middle; overflow:hidden;
   }
-  /* corner */
   table.sheet thead th.corner{
-    background:linear-gradient(135deg, #eceff1 50%, #cfd2d4 50%);
-    position:sticky;top:0;left:0;z-index:5;width:38px;
-    border-right:1px solid var(--grid-strong); border-bottom:1px solid var(--grid-strong);
+    background:linear-gradient(135deg, #eceff1 50%, #b0b3b5 50%);
+    position:sticky;top:0;left:0;z-index:5;width:42px;height:28px;
+    border-bottom:1px solid var(--grid-strong); border-right:1px solid var(--grid-strong);
   }
-  /* column letters */
   table.sheet thead th.col{
-    background:var(--col-bg); text-align:center; font-weight:500; color:#444;
-    position:sticky; top:0; z-index:3; border-bottom:1px solid var(--grid-strong);
-    font-size:11px; user-select:none;
+    background:var(--col-bg); text-align:center; font-weight:600; color:#202124;
+    position:sticky; top:0; z-index:3;
+    border-bottom:1px solid var(--grid-strong);
+    font-size:12px; user-select:none; height:28px;
   }
-  /* row numbers */
   table.sheet td.row{
-    background:var(--row-bg); text-align:center; font-weight:500; color:#444;
+    background:var(--row-bg); text-align:center; font-weight:600; color:#444;
     position:sticky; left:0; z-index:2; border-right:1px solid var(--grid-strong);
-    font-size:11px; user-select:none; width:38px;
+    font-size:12px; user-select:none; width:42px;
   }
-  /* cells */
-  table.sheet td.cell{padding:2px 6px;cursor:cell;background:#fff;}
-  table.sheet td.cell.num{text-align:right;font-variant-numeric:tabular-nums;font-family:"Segoe UI",sans-serif}
-  table.sheet td.cell.center{text-align:center}
-  table.sheet td.cell.bold{font-weight:600}
-  table.sheet td.cell.hdr{background:#fafafa;font-weight:600;border-bottom:2px solid #888;text-align:center;color:#202124}
-  table.sheet td.cell.section{background:#fff2cc;font-weight:700;color:#7f6000}
-  table.sheet td.cell.total{background:#d9ead3;font-weight:700;border-top:2px solid #6aa84f;border-bottom:2px solid #6aa84f;}
-  table.sheet td.cell.grand{background:#fce5cd;font-weight:700;border-top:3px double #cc4125;border-bottom:3px double #cc4125;color:#cc4125}
-  table.sheet td.cell.muted{color:#888;font-size:11.5px}
-  table.sheet td.cell.dimmed{background:#f6f6f6}
-  table.sheet td.cell.formula{background:#eef7fc}
-  table.sheet td.cell.selected{outline:2px solid var(--sel);outline-offset:-2px;background:var(--sel-bg)!important;z-index:1;position:relative}
-  table.sheet td.cell input{
-    width:100%;height:100%;border:none;background:transparent;outline:none;
-    padding:0;font:inherit;color:inherit;text-align:inherit;font-variant-numeric:tabular-nums;
+
+  /* === EDIT-FIRST cells === */
+  /* every editable cell uses input fields that look like text but are always editable */
+  table.sheet td.cell { padding:0; background:#fff; height:34px;}
+  table.sheet td.cell > input,
+  table.sheet td.cell > textarea{
+    display:block; width:100%; height:34px; border:none; outline:none; background:transparent;
+    padding:6px 8px; font:inherit; color:inherit; box-sizing:border-box;
+    font-variant-numeric:tabular-nums;
   }
-  table.sheet td.cell input[type=checkbox]{width:14px;height:14px;cursor:pointer}
-  table.sheet td.cell.note{color:#222}
+  table.sheet td.cell.num > input { text-align:right; }
+  table.sheet td.cell.num { text-align:right; }
+  table.sheet td.cell > input:hover,
+  table.sheet td.cell > textarea:hover { background:#f6fbff;}
+  table.sheet td.cell > input:focus,
+  table.sheet td.cell > textarea:focus{
+    background:#fff; box-shadow: inset 0 0 0 2px var(--sel);
+    position:relative; z-index:4;
+  }
+  table.sheet td.calc{
+    text-align:right; padding:6px 10px; background:#eef7fc; font-weight:600;
+    font-variant-numeric:tabular-nums;
+  }
+  table.sheet td.calc.muted{ color:#666; font-weight:500; background:#f6f6f6}
+  table.sheet td.center{ text-align:center }
+  table.sheet td.center > input[type=checkbox]{ width:16px; height:16px; margin:9px auto; display:block }
+  table.sheet td.delcell{ text-align:center; background:#fafafa; padding:0; cursor:pointer }
+  table.sheet td.delcell button{ all:unset; cursor:pointer; color:#bbb; font-size:18px; font-weight:bold; width:100%; height:100%; line-height:34px }
+  table.sheet td.delcell button:hover{ color:#fff; background:#cc4125 }
+
+  table.sheet tr.section td{ background:#fff2cc; padding:7px 12px; font-weight:700; color:#7f6000; height:32px }
+  table.sheet tr.total td{ background:#d9ead3; font-weight:700; border-top:2px solid #6aa84f }
+  table.sheet tr.total td.num{ padding:8px 10px; text-align:right; font-size:14px; }
+  table.sheet tr.grand td{ background:#fce5cd; font-weight:800; color:#cc4125; border-top:3px double #cc4125;
+    padding:10px 10px; font-size:15px }
+  table.sheet tr.grand td.num{ text-align:right }
+
+  table.sheet tr.title td{ background:#f4f4f4; padding:8px 12px; font-weight:700; font-size:14px; color:#185a36; height:32px }
+  table.sheet tr.hdr td { background:#374151; color:#fff; text-align:center; font-weight:600; padding:7px 8px; font-size:12.5px; height:32px}
+  table.sheet tr.hdr td.left { text-align:left }
+  table.sheet tr.hdr td.num { text-align:right }
 
   /* color tags */
   .tag-syd{background:#cfe2f3 !important}
@@ -93,148 +116,184 @@
   .tag-pre{background:#d9ead3 !important}
   .tag-move{background:#f4cccc !important}
 
-  /* sheet tabs */
+  /* tabs */
   .tabbar{background:#f1f3f4;border-top:1px solid var(--grid-strong);display:flex;align-items:end;gap:0;
-    padding:0 6px;height:30px;overflow-x:auto;position:sticky;bottom:0}
-  .tabbar .tab{padding:5px 14px;font-size:12px;background:#e3e5e8;color:#444;
-    border:1px solid var(--grid-strong);border-bottom:none;border-radius:0 0 4px 4px;cursor:pointer;
-    margin-top:4px;white-space:nowrap;display:flex;align-items:center;gap:5px}
-  .tabbar .tab.active{background:#fff;color:#185a36;font-weight:600;margin-top:0;padding-top:9px;border-top:3px solid var(--ribbon)}
-  .tabbar .tab .dot{width:8px;height:8px;border-radius:50%}
+    padding:0 8px;height:34px;overflow-x:auto;position:sticky;bottom:0;z-index:9}
+  .tabbar .tab{padding:7px 16px;font-size:13px;background:#e3e5e8;color:#444;
+    border:1px solid var(--grid-strong);border-bottom:none;border-radius:0 0 5px 5px;cursor:pointer;
+    margin-top:5px;white-space:nowrap;display:flex;align-items:center;gap:6px;font-weight:500}
+  .tabbar .tab.active{background:#fff;color:#185a36;font-weight:700;margin-top:0;padding-top:12px;border-top:3px solid var(--ribbon)}
+  .tabbar .tab .dot{width:9px;height:9px;border-radius:50%}
   .dot-pre{background:#6aa84f}.dot-syd{background:#3d85c6}.dot-mel{background:#8e7cc3}
   .dot-gc{background:#e69138}.dot-iti{background:#666}.dot-sum{background:#cc4125}.dot-chk{background:#999}
 
-  /* status bar */
-  .status{background:#f1f3f4;border-top:1px solid var(--grid-strong);padding:3px 12px;
-    display:flex;justify-content:space-between;font-size:11px;color:var(--muted);height:22px;align-items:center}
-  .status .right{display:flex;gap:18px}
-  .status .pill{background:#fff;border:1px solid var(--grid);padding:1px 8px;border-radius:3px;font-variant-numeric:tabular-nums}
+  /* status */
+  .status{background:#f1f3f4;border-top:1px solid var(--grid-strong);padding:5px 14px;
+    display:flex;justify-content:space-between;font-size:12px;color:#555;align-items:center;flex-wrap:wrap;gap:8px}
+  .status .pill{background:#fff;border:1px solid var(--grid);padding:2px 8px;border-radius:4px;font-variant-numeric:tabular-nums;font-weight:600;color:#202124}
 
   /* widths */
-  col.w-a{width:38px}
-  col.w-b{width:200px}
-  col.w-c{width:300px}
-  col.w-d{width:100px}
-  col.w-e{width:70px}
-  col.w-f{width:120px}
-  col.w-g{width:120px}
-  col.w-h{width:70px}
-  col.w-i{width:90px}
-  col.w-j{width:90px}
+  col.w-num{width:42px}
+  col.w-item{width:230px}
+  col.w-desc{width:340px}
+  col.w-price{width:110px}
+  col.w-qty{width:70px}
+  col.w-sub{width:135px}
+  col.w-other{width:130px}
+  col.w-ok{width:70px}
+  col.w-del{width:42px}
+
+  /* charts */
+  .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff}
+  .chart-card{padding:14px;border-right:1px solid var(--grid);border-bottom:1px solid var(--grid)}
+  .chart-card h4{margin:0 0 8px;font-size:13px;color:#444;font-weight:600}
 
   .pane{display:none}
   .pane.active{display:block}
 
-  /* charts in summary */
-  .chart-card{background:#fff;border:1px solid var(--grid-strong);padding:10px;margin:8px}
-  .chart-card h4{margin:0 0 6px;font-size:12px;color:#444}
+  /* checklist styling */
+  .chk-list{padding:16px;background:#fff}
+  .chk-group{margin-bottom:18px}
+  .chk-group h3{margin:0 0 8px;font-size:14px;color:#185a36;border-bottom:2px solid #d9ead3;padding-bottom:5px}
+  .chk-item{display:flex;align-items:center;gap:10px;padding:6px 4px;border-bottom:1px solid #f0f0f0;font-size:13px}
+  .chk-item input[type=checkbox]{width:18px;height:18px;cursor:pointer}
+  .chk-item.done span{text-decoration:line-through;color:#999}
 
-  ::selection{background:var(--sel-soft)}
+  /* memo panel inside summary */
+  .memo-box{padding:12px 16px;background:#fff8e1;border-top:1px solid var(--grid);border-bottom:1px solid var(--grid);
+    font-size:13px;line-height:1.7;color:#5a4a00}
+  .memo-box h4{margin:0 0 6px;color:#7f6000;font-size:13px}
+  .memo-box ul{margin:0;padding-left:20px}
 </style>
 </head>
 <body>
 
-<!-- ribbon -->
 <div class="ribbon">
   <div class="title">📊 호주여행_예산.xlsx</div>
-  <div class="menu">
-    <span>파일</span><span>홈</span><span>삽입</span><span>수식</span><span>데이터</span><span>검토</span><span>보기</span>
-  </div>
   <div class="spacer"></div>
-  <button id="exportBtn">📤 내보내기</button>
-  <button id="importBtn" class="ghost">📥 가져오기</button>
+  <button id="exportBtn">💾 저장(JSON)</button>
+  <button id="importBtn" class="ghost">📥 불러오기</button>
   <button id="resetBtn" class="ghost">⟲ 초기화</button>
   <input type="file" id="importFile" hidden accept="application/json" />
 </div>
 
-<!-- formula bar -->
-<div class="formula">
-  <div class="namebox" id="nameBox">A1</div>
-  <div class="fx">ƒx</div>
-  <div class="input" id="formulaInput">호주여행 통합 예산서 · 2026.06.25 – 2026.07.09</div>
-</div>
-
-<!-- mini toolbar -->
 <div class="toolbar">
-  <div class="group">환율 <span style="font-weight:600">1 AUD</span> = <input id="fxRate" type="number" step="1" /> KRW</div>
-  <div class="group">인원 <input id="people" type="number" min="1" step="1" /> 명</div>
-  <div class="group" id="cellStat">선택: <b>—</b></div>
-  <div style="flex:1"></div>
-  <div class="group muted">셀 더블클릭 → 편집 · <span class="kbd">Enter</span> 다음행 · <span class="kbd">Tab</span> 오른쪽</div>
+  <div>💱 환율 <b>1 AUD</b> = <input id="fxRate" type="number" step="1" /> KRW</div>
+  <div>👥 인원 <input id="people" type="number" min="1" step="1" /> 명</div>
+  <div class="hint">💡 셀을 한 번 클릭하고 바로 입력하세요 · 마지막 ✕ 버튼으로 행 삭제</div>
 </div>
 
-<!-- main sheet area -->
 <div class="sheet-wrap" id="sheetWrap">
 
-  <!-- ============ PRE ============ -->
-  <section data-pane="pre" class="pane">
-    <table class="sheet" id="tbl-pre">
-      <colgroup>
-        <col class="w-a"><col class="w-b"><col class="w-c"><col class="w-d"><col class="w-e">
-        <col class="w-f"><col class="w-g"><col class="w-h">
-      </colgroup>
-    </table>
-  </section>
-
-  <section data-pane="syd" class="pane">
-    <table class="sheet" id="tbl-syd">
-      <colgroup>
-        <col class="w-a"><col class="w-b"><col class="w-c"><col class="w-d"><col class="w-e">
-        <col class="w-f"><col class="w-g"><col class="w-h">
-      </colgroup>
-    </table>
-  </section>
-
-  <section data-pane="mel" class="pane">
-    <table class="sheet" id="tbl-mel">
-      <colgroup>
-        <col class="w-a"><col class="w-b"><col class="w-c"><col class="w-d"><col class="w-e">
-        <col class="w-f"><col class="w-g"><col class="w-h">
-      </colgroup>
-    </table>
-  </section>
-
-  <section data-pane="gc" class="pane">
-    <table class="sheet" id="tbl-gc">
-      <colgroup>
-        <col class="w-a"><col class="w-b"><col class="w-c"><col class="w-d"><col class="w-e">
-        <col class="w-f"><col class="w-g"><col class="w-h">
-      </colgroup>
-    </table>
-  </section>
-
-  <section data-pane="iti" class="pane">
-    <table class="sheet" id="tbl-iti">
-      <colgroup>
-        <col class="w-a"><col class="w-d"><col class="w-d"><col class="w-c"><col class="w-f"><col class="w-f"><col class="w-f">
-      </colgroup>
-    </table>
-  </section>
-
+  <!-- 요약 -->
   <section data-pane="sum" class="pane active">
+    <div class="sheet-head">
+      <div>
+        <h2>🇦🇺 호주 여행 통합 예산 요약</h2>
+        <div class="sub">2026.06.25 (목) → 2026.07.09 (목) · 14박 15일 · 시드니 6박 + 멜버른 4박 + 골드코스트 4박</div>
+      </div>
+    </div>
     <table class="sheet" id="tbl-sum">
       <colgroup>
-        <col class="w-a"><col class="w-c"><col class="w-d"><col class="w-d"><col class="w-f"><col class="w-f">
+        <col class="w-num"><col style="width:280px"><col style="width:140px"><col class="w-sub"><col class="w-sub"><col style="width:100px">
       </colgroup>
     </table>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
-      <div class="chart-card"><h4>카테고리별 비중 (KRW)</h4><canvas id="chartCat" height="160"></canvas></div>
-      <div class="chart-card"><h4>도시별 비중 (KRW)</h4><canvas id="chartCity" height="160"></canvas></div>
+    <div class="chart-grid">
+      <div class="chart-card"><h4>📊 카테고리별 비중 (KRW)</h4><canvas id="chartCat" height="180"></canvas></div>
+      <div class="chart-card"><h4>🥧 도시별 비중 (KRW)</h4><canvas id="chartCity" height="180"></canvas></div>
+    </div>
+    <div class="memo-box">
+      <h4>📝 가정 & 메모</h4>
+      <ul>
+        <li>오픈조 항공편 가정 (ICN→SYD / OOL→ICN). 단일 왕복 시 항공권 단가 조정.</li>
+        <li>호주 6–7월은 겨울. 시드니·멜버른 5–18℃, 골드코스트 14–22℃. 보온 필수.</li>
+        <li>환율 ±5% 변동 시 총액 약 ±25만원 차이. 트래블월렛/트래블로그 체크카드 권장.</li>
+        <li>테마파크 콤보 패스 (Movie+Sea World) 1인 ≈ AUD 210 → 약 19 AUD 절약.</li>
+        <li>그레이트오션로드는 1박2일 렌터카가 더 저렴하나 일정상 1일 투어 가정.</li>
+      </ul>
     </div>
   </section>
 
+  <!-- 출국전 -->
+  <section data-pane="pre" class="pane">
+    <div class="sheet-head">
+      <div>
+        <h2>🇰🇷 출국 전 비용 (한국 결제 · KRW 기준)</h2>
+        <div class="sub">항공권 · 보험 · 비자 · 통신 · 준비물</div>
+      </div>
+      <div class="actions">
+        <button class="addRow" data-city="pre">➕ 행 추가</button>
+        <button class="addSection sec" data-city="pre">📂 섹션 추가</button>
+      </div>
+    </div>
+    <table class="sheet" id="tbl-pre"></table>
+  </section>
+
+  <section data-pane="syd" class="pane">
+    <div class="sheet-head">
+      <div>
+        <h2>🇦🇺 시드니 (6박 7일)</h2>
+        <div class="sub">2026.06.25(목) → 07.01(수) · 오페라하우스 · 하버브리지 · 본다이 · 블루마운틴</div>
+      </div>
+      <div class="actions">
+        <button class="addRow" data-city="syd">➕ 행 추가</button>
+        <button class="addSection sec" data-city="syd">📂 섹션 추가</button>
+      </div>
+    </div>
+    <table class="sheet" id="tbl-syd"></table>
+  </section>
+
+  <section data-pane="mel" class="pane">
+    <div class="sheet-head">
+      <div>
+        <h2>🇦🇺 멜버른 (4박 5일)</h2>
+        <div class="sub">2026.07.01(수) → 07.05(일) · 그레이트오션로드 · 야라밸리 · 필립아일랜드</div>
+      </div>
+      <div class="actions">
+        <button class="addRow" data-city="mel">➕ 행 추가</button>
+        <button class="addSection sec" data-city="mel">📂 섹션 추가</button>
+      </div>
+    </div>
+    <table class="sheet" id="tbl-mel"></table>
+  </section>
+
+  <section data-pane="gc" class="pane">
+    <div class="sheet-head">
+      <div>
+        <h2>🇦🇺 골드코스트 (4박 5일)</h2>
+        <div class="sub">2026.07.05(일) → 07.09(목) · 서퍼스파라다이스 · 무비월드 · 씨월드 · 바이런베이</div>
+      </div>
+      <div class="actions">
+        <button class="addRow" data-city="gc">➕ 행 추가</button>
+        <button class="addSection sec" data-city="gc">📂 섹션 추가</button>
+      </div>
+    </div>
+    <table class="sheet" id="tbl-gc"></table>
+  </section>
+
+  <section data-pane="iti" class="pane">
+    <div class="sheet-head">
+      <div>
+        <h2>📅 일자별 일정 & 한도</h2>
+        <div class="sub">한도(AUD)는 각 도시의 일평균으로 자동 계산 · 실사용액은 직접 입력</div>
+      </div>
+    </div>
+    <table class="sheet" id="tbl-iti"></table>
+  </section>
+
   <section data-pane="chk" class="pane">
-    <table class="sheet" id="tbl-chk">
-      <colgroup>
-        <col class="w-a"><col class="w-d"><col class="w-b"><col style="width:600px">
-      </colgroup>
-    </table>
+    <div class="sheet-head">
+      <div>
+        <h2>✅ 출국 체크리스트</h2>
+        <div class="sub">서류·짐·앱 준비물</div>
+      </div>
+    </div>
+    <div class="chk-list" id="chkList"></div>
   </section>
 
 </div>
 
-<!-- sheet tabs -->
-<div class="tabbar" id="tabbar">
+<div class="tabbar">
   <div class="tab" data-tab="sum"><span class="dot dot-sum"></span>요약</div>
   <div class="tab" data-tab="pre"><span class="dot dot-pre"></span>출국전</div>
   <div class="tab" data-tab="syd"><span class="dot dot-syd"></span>시드니</div>
@@ -244,15 +303,13 @@
   <div class="tab" data-tab="chk"><span class="dot dot-chk"></span>체크리스트</div>
 </div>
 
-<!-- status bar -->
 <div class="status">
-  <div>준비 · 2026.06.25 → 2026.07.09 · 15일 · 시드니 6박 + 멜버른 4박 + 골드코스트 4박</div>
-  <div class="right">
-    <span>합계 <b class="pill" id="stTotal">—</b></span>
+  <div>준비 · 2026.06.25 → 2026.07.09</div>
+  <div style="display:flex;gap:14px;flex-wrap:wrap">
+    <span>총 예산 <b class="pill" id="stTotal">—</b></span>
     <span>1인 <b class="pill" id="stPer">—</b></span>
     <span>일평균 <b class="pill" id="stDay">—</b></span>
-    <span>예비비 <b class="pill" id="stReserve">—</b></span>
-    <span>줌 100%</span>
+    <span>예비비(10%) <b class="pill" id="stReserve">—</b></span>
   </div>
 </div>
 
@@ -261,7 +318,6 @@
 /* ===================== DATA ===================== */
 const DEFAULT_FX = 930, PEOPLE_DEFAULT = 2;
 
-// row: [항목, 설명, 단가, 수량, 확정, 카테고리]
 const SEED = {
   pre: [
     ["국제선 항공권 (ICN↔호주)", "Qantas/Korean Air · 이코노미 · 1인", 1650000, 2, false, "항공"],
@@ -269,7 +325,7 @@ const SEED = {
     ["호주 ETA (전자비자)",        "앱 신청 · AUD 20/인",                   18600, 2, true,  "비자"],
     ["유심/이심 (30일)",          "Optus 또는 Airalo eSIM · 1인",          35000, 2, false, "통신"],
     ["환전·트래블카드 발급",       "트래블월렛/로그 발급비",                  5000, 1, true,  "결제"],
-    ["국제운전면허증",            "경찰서 발급 (그레이트오션로드용)",        8500, 2, false, "교통"],
+    ["국제운전면허증",            "경찰서 발급",                            8500, 2, false, "교통"],
     ["여행용품",                  "Type I 어댑터·보조배터리·압축팩",        40000, 1, false, "기타"],
   ],
   syd: [
@@ -353,7 +409,7 @@ const DAYS = [
 const CHK = [
   ["📄 서류 · 결제", [
     "여권 (유효기간 6개월 이상)",
-    "호주 ETA — 앱 'AustralianETA' · AUD 20",
+    "호주 ETA (앱 AustralianETA · AUD 20)",
     "전자항공권 e-Ticket (모바일+인쇄본)",
     "숙소 예약 바우처 (3도시)",
     "여행자보험 증서 (영문)",
@@ -377,21 +433,23 @@ const CHK = [
     "PTV (멜버른 Myki)",
     "TransLink (골드코스트 Go Card)",
     "DiDi / Uber / 13cabs",
-    "Klook · KKday · GetYourGuide (투어 예약)",
-    "Booking.com / Airbnb / Agoda (숙소)",
+    "Klook · KKday · GetYourGuide",
+    "Booking.com / Airbnb / Agoda",
     "BOM Weather (호주 기상청)",
   ]],
   ["💡 현지 팁", [
     "주말·심야 카페·식당 10–15% Surcharge 자주 있음",
     "팁 문화 거의 없음 (좋은 서비스 시 10% 선택)",
-    "시차: 시드니/멜버른 +1h, QLD(GC) +1h (모두 동일)",
+    "시차: 시드니/멜버른 +1h, QLD(GC) +1h",
     "콘센트 Type I (3핀 八자형)",
     "버스·트램 탑승 시 반드시 탭온/탭오프",
   ]],
 ];
 
+const CITY_LABEL = { pre:"🇰🇷 한국", syd:"🇦🇺 시드니", mel:"🇦🇺 멜버른", gc:"🇦🇺 골드코스트" };
+
 /* ===================== STATE ===================== */
-const LS = "auTrip_xlsx_v2";
+const LS = "auTrip_xlsx_v3";
 function loadState(){ try{const s=JSON.parse(localStorage.getItem(LS)); if(s&&s.tables)return s;}catch(e){} return null; }
 function save(){ localStorage.setItem(LS, JSON.stringify(state)); }
 let state = loadState() || {
@@ -407,14 +465,10 @@ if(!state.checks) state.checks = {};
 /* ===================== UTILS ===================== */
 const $=(s,el=document)=>el.querySelector(s);
 const $$=(s,el=document)=>[...el.querySelectorAll(s)];
-const fmt=(n)=>Math.round(n).toLocaleString("ko-KR");
+const fmt=(n)=>Math.round(n||0).toLocaleString("ko-KR");
 const fmtKRW=(n)=>"₩"+fmt(n);
-const fmtAUD=(n)=>"A$"+(Math.round(n*100)/100).toLocaleString("en-AU",{minimumFractionDigits:0,maximumFractionDigits:2});
-const COL = (i)=>{ // 0->A, 25->Z, 26->AA
-  let s=""; i=i+1;
-  while(i>0){ const r=(i-1)%26; s=String.fromCharCode(65+r)+s; i=Math.floor((i-1)/26); }
-  return s;
-};
+const fmtAUD=(n)=>"A$"+(Math.round((n||0)*100)/100).toLocaleString("en-AU",{minimumFractionDigits:0,maximumFractionDigits:2});
+
 function tableTotal(city){
   return state.tables[city].reduce((a,r)=>{
     if(r[0]==="__SEC__") return a;
@@ -436,366 +490,313 @@ function categoryTotals(){
   return t;
 }
 
-/* ===================== CELL SELECTION ===================== */
-let selected = null; // {tableId, row, col}
-function selectCell(td){
-  if(selected) {
-    const old = document.querySelector(`#${selected.tableId} .selected`);
-    if(old) old.classList.remove("selected");
-  }
-  td.classList.add("selected");
-  const tableId = td.closest("table").id;
-  const row = +td.dataset.r, col = +td.dataset.c;
-  selected = {tableId, row, col};
-  $("#nameBox").textContent = COL(col) + (row+1);
-  const txt = td.dataset.raw ?? td.textContent.trim();
-  $("#formulaInput").textContent = txt;
-  $("#cellStat").innerHTML = `선택: <b>${COL(col)}${row+1}</b> · ${td.dataset.label || ""}`;
-}
-
-/* ===================== TABLE BUILDERS ===================== */
-function buildExpenseSheet(tableId, city, headerLabel) {
-  const tbl = $("#"+tableId);
+/* ===================== EXPENSE SHEET ===================== */
+function buildExpenseSheet(city){
+  const tbl = $("#tbl-"+city);
   tbl.innerHTML = "";
   const isPre = city === "pre";
   const cur   = isPre ? "KRW" : "AUD";
   const other = isPre ? "AUD" : "KRW";
-  const COLS = ["#","항목","설명",`단가(${cur})`,"수량",`소계(${cur})`,`소계(${other})`,"확정"];
 
-  // thead with corner + col letters
+  // colgroup
+  const cg = document.createElement("colgroup");
+  cg.innerHTML = `
+    <col class="w-num">
+    <col class="w-item">
+    <col class="w-desc">
+    <col class="w-price">
+    <col class="w-qty">
+    <col class="w-sub">
+    <col class="w-other">
+    <col class="w-ok">
+    <col class="w-del">
+  `;
+  tbl.appendChild(cg);
+
+  // thead: corner + col letters A B C..
   const thead = document.createElement("thead");
-  const tr1 = document.createElement("tr");
-  tr1.innerHTML = `<th class="corner"></th>` + COLS.map((_,i)=>`<th class="col">${COL(i)}</th>`).join("");
-  thead.appendChild(tr1);
+  thead.innerHTML = `<tr>
+    <th class="corner"></th>
+    <th class="col">A</th><th class="col">B</th><th class="col">C</th><th class="col">D</th>
+    <th class="col">E</th><th class="col">F</th><th class="col">G</th><th class="col">H</th>
+  </tr>`;
   tbl.appendChild(thead);
 
   const tbody = document.createElement("tbody");
   tbl.appendChild(tbody);
 
-  let rIdx = 0;
-  const push = (cells, cls="") => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td class="row">${rIdx+1}</td>` + cells.map((c,ci)=>{
-      const cellCls = (c.cls||"") + " " + cls;
-      return `<td class="cell ${cellCls}" data-r="${rIdx}" data-c="${ci}" data-label="${c.label||''}" ${c.raw!==undefined?`data-raw="${String(c.raw).replace(/"/g,'&quot;')}"`:""}>${c.html ?? c.v ?? ""}</td>`;
-    }).join("");
-    tbody.appendChild(tr);
-    rIdx++;
-    return tr;
-  };
+  // header row (column titles)
+  const headerTr = document.createElement("tr");
+  headerTr.className = "hdr";
+  headerTr.innerHTML = `
+    <td class="row">1</td>
+    <td class="left">항목명</td>
+    <td class="left">설명 / 메모</td>
+    <td class="num">단가(${cur})</td>
+    <td class="num">수량</td>
+    <td class="num">소계(${cur})</td>
+    <td class="num">소계(${other})</td>
+    <td>확정</td>
+    <td>삭제</td>
+  `;
+  tbody.appendChild(headerTr);
 
-  // Title row
-  push([
-    {v: headerLabel, cls:"bold", label:"sheet title"},
-    {v:""},{v:""},{v:""},{v:""},{v:""},{v:""},{v:""},
-  ]);
-  // header row
-  push(COLS.map(h => ({v:h, cls:"hdr", label:"header"})), "");
-
-  // data
-  let runningAUD = 0, runningKRW = 0;
+  let rowNum = 2;
   state.tables[city].forEach((r, ri) => {
     if (r[0] === "__SEC__") {
-      push([
-        {v:"", cls:"section"},
-        {v:r[1], cls:"section bold", label:"section"},
-        {v:"", cls:"section"},{v:"", cls:"section"},{v:"", cls:"section"},
-        {v:"", cls:"section"},{v:"", cls:"section"},{v:"", cls:"section"},
-      ]);
+      const tr = document.createElement("tr");
+      tr.className = "section";
+      tr.innerHTML = `
+        <td class="row">${rowNum}</td>
+        <td colspan="6">${r[1]}</td>
+        <td></td>
+        <td class="delcell"><button data-del="${ri}" title="섹션 삭제">×</button></td>
+      `;
+      tr.querySelector("button").addEventListener("click", ()=>{
+        if (!confirm("이 섹션을 삭제할까요?")) return;
+        state.tables[city].splice(ri,1); save(); buildExpenseSheet(city); recalcSummary();
+      });
+      tbody.appendChild(tr);
+      rowNum++;
       return;
     }
     const unit = +r[2]||0, qty=+r[3]||0;
     const sub  = unit*qty;
     const subOther = isPre ? sub/state.fx : sub*state.fx;
-    if(isPre) runningKRW += sub; else runningAUD += sub;
-
     const cityTag = city==="pre"?"tag-pre":city==="syd"?"tag-syd":city==="mel"?"tag-mel":"tag-gc";
 
-    const idx = ri+1;
-    const tr = push([
-      {v: idx, cls:"center muted"},
-      {html:`<input type="text" value="${r[0]||""}" data-i="${ri}" data-f="0">`, cls: cityTag.replace("tag-","tag-"), label:"item", raw:r[0]||""},
-      {html:`<input type="text" value="${r[1]||""}" data-i="${ri}" data-f="1">`, label:"desc", raw:r[1]||""},
-      {html:`<input type="number" step="${isPre?'1':'0.01'}" value="${unit}" data-i="${ri}" data-f="2">`, cls:"num", label:"unit price", raw:unit},
-      {html:`<input type="number" step="1" value="${qty}" data-i="${ri}" data-f="3">`, cls:"num", label:"qty", raw:qty},
-      {v: isPre ? fmtKRW(sub) : fmtAUD(sub), cls:"num formula bold", label:"=C*D", raw:`=${COL(3)}${rIdx}*${COL(4)}${rIdx}`},
-      {v: isPre ? fmtAUD(subOther) : fmtKRW(subOther), cls:"num muted", label:`환산`, raw:`=F${rIdx}${isPre?"/":"*"}FX`},
-      {html:`<input type="checkbox" data-i="${ri}" data-f="4" ${r[4]?"checked":""}>`, cls:"center", label:"확정"},
-    ]);
-    // bind inputs
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="row">${rowNum}</td>
+      <td class="cell ${cityTag}"><input type="text" data-f="0" value="${(r[0]||"").replace(/"/g,"&quot;")}"></td>
+      <td class="cell"><input type="text" data-f="1" value="${(r[1]||"").replace(/"/g,"&quot;")}"></td>
+      <td class="cell num"><input type="number" step="${isPre?'1':'0.01'}" data-f="2" value="${unit}"></td>
+      <td class="cell num"><input type="number" step="1" data-f="3" value="${qty}"></td>
+      <td class="calc">${isPre ? fmtKRW(sub) : fmtAUD(sub)}</td>
+      <td class="calc muted">${isPre ? fmtAUD(subOther) : fmtKRW(subOther)}</td>
+      <td class="cell center"><input type="checkbox" data-f="4" ${r[4]?"checked":""}></td>
+      <td class="delcell"><button title="행 삭제">×</button></td>
+    `;
     tr.querySelectorAll("input").forEach(inp=>{
       inp.addEventListener("change", ()=>{
-        const i=+inp.dataset.i, f=+inp.dataset.f;
-        if(inp.type==="checkbox") state.tables[city][i][f]=inp.checked;
-        else if(inp.type==="number") state.tables[city][i][f]=parseFloat(inp.value)||0;
-        else state.tables[city][i][f]=inp.value;
-        save(); renderSheet(city, tableId, headerLabel); recalcSummary();
+        const f=+inp.dataset.f;
+        if(inp.type==="checkbox") state.tables[city][ri][f]=inp.checked;
+        else if(inp.type==="number") state.tables[city][ri][f]=parseFloat(inp.value)||0;
+        else state.tables[city][ri][f]=inp.value;
+        save(); buildExpenseSheet(city); recalcSummary();
       });
-      inp.addEventListener("focus", e=>{ selectCell(e.target.closest("td")); });
     });
+    tr.querySelector(".delcell button").addEventListener("click", ()=>{
+      if (!confirm("이 행을 삭제할까요?")) return;
+      state.tables[city].splice(ri,1); save(); buildExpenseSheet(city); recalcSummary();
+    });
+    tbody.appendChild(tr);
+    rowNum++;
   });
 
-  // 합계
+  // 소계
   const t = tableTotal(city);
-  push([
-    {v:"", cls:"total"},
-    {v:"📌 소계 (SUM)", cls:"total bold"},
-    {v:"", cls:"total"},
-    {v:"", cls:"total"},
-    {v:"", cls:"total"},
-    {v: isPre ? fmtKRW(t.krw) : fmtAUD(t.aud), cls:"total num", raw:`=SUM(${COL(5)}3:${COL(5)}${rIdx-1})`},
-    {v: isPre ? fmtAUD(t.krw/state.fx) : fmtKRW(t.aud*state.fx), cls:"total num"},
-    {v:"", cls:"total"},
-  ]);
+  const subTr = document.createElement("tr");
+  subTr.className = "total";
+  subTr.innerHTML = `
+    <td class="row">${rowNum}</td>
+    <td colspan="4" style="padding:8px 12px;">📌 소계 합계 ( =SUM(F:F) )</td>
+    <td class="num">${isPre ? fmtKRW(t.krw) : fmtAUD(t.aud)}</td>
+    <td class="num">${isPre ? fmtAUD(t.krw/state.fx) : fmtKRW(t.aud*state.fx)}</td>
+    <td></td><td></td>
+  `;
+  tbody.appendChild(subTr);
 
-  // 합계(원화 환산)
+  // 환산 합계 (도시만)
   if (!isPre) {
-    push([
-      {v:"", cls:"grand"},
-      {v:"💰 원화 환산 합계", cls:"grand bold"},
-      {v:"", cls:"grand"},
-      {v:"", cls:"grand"},
-      {v:"", cls:"grand"},
-      {v:"", cls:"grand"},
-      {v: fmtKRW(t.aud*state.fx), cls:"grand num"},
-      {v:"", cls:"grand"},
-    ]);
+    const krwTr = document.createElement("tr");
+    krwTr.className = "grand";
+    krwTr.innerHTML = `
+      <td class="row">${rowNum+1}</td>
+      <td colspan="5" style="padding:10px 12px;">💰 원화 환산 합계 (= F × ${state.fx})</td>
+      <td class="num">${fmtKRW(t.aud*state.fx)}</td>
+      <td></td><td></td>
+    `;
+    tbody.appendChild(krwTr);
   }
-
-  // 셀 클릭 핸들러
-  tbl.querySelectorAll("td.cell").forEach(td=>{
-    td.addEventListener("click", e=>{
-      if (e.target.tagName === "INPUT") return;
-      selectCell(td);
-    });
-    td.addEventListener("dblclick", e=>{
-      const inp = td.querySelector("input");
-      if (inp) { inp.focus(); inp.select?.(); }
-    });
-  });
 }
 
-function renderSheet(city, tableId, headerLabel){
-  buildExpenseSheet(tableId, city, headerLabel);
-}
-
-/* ===================== ITINERARY SHEET ===================== */
+/* ===================== ITINERARY ===================== */
 function buildItinerary(){
   const tbl = $("#tbl-iti"); tbl.innerHTML="";
-  const COLS = ["#","Day","날짜","도시","일정","한도(AUD)","실사용(AUD)","차액"];
-  const thead=document.createElement("thead");
-  thead.innerHTML = `<tr><th class="corner"></th>${COLS.map((_,i)=>`<th class="col">${COL(i)}</th>`).join("")}</tr>`;
-  tbl.appendChild(thead);
-  const tbody=document.createElement("tbody"); tbl.appendChild(tbody);
-  let r=0;
-  const push=(cells)=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML = `<td class="row">${r+1}</td>` + cells.map((c,ci)=>`<td class="cell ${c.cls||''}" data-r="${r}" data-c="${ci}" data-label="${c.label||''}" ${c.raw!==undefined?`data-raw="${String(c.raw).replace(/"/g,'&quot;')}"`:""}>${c.html ?? c.v ?? ""}</td>`).join("");
-    tbody.appendChild(tr); r++; return tr;
-  };
-  push([{v:"호주 15일 일정 & 일일 한도", cls:"bold"},{v:""},{v:""},{v:""},{v:""},{v:""},{v:""}]);
-  push(COLS.map(h=>({v:h,cls:"hdr"})));
+  tbl.innerHTML = `
+    <colgroup>
+      <col class="w-num"><col style="width:80px"><col style="width:110px"><col style="width:90px">
+      <col><col class="w-sub"><col class="w-sub"><col class="w-sub">
+    </colgroup>
+    <thead><tr>
+      <th class="corner"></th>
+      <th class="col">A</th><th class="col">B</th><th class="col">C</th><th class="col">D</th>
+      <th class="col">E</th><th class="col">F</th><th class="col">G</th>
+    </tr></thead>
+  `;
+  const tbody = document.createElement("tbody"); tbl.appendChild(tbody);
+
+  const hdr = document.createElement("tr"); hdr.className = "hdr";
+  hdr.innerHTML = `
+    <td class="row">1</td>
+    <td>Day</td><td>날짜</td><td>도시</td><td class="left">일정 / 메모</td>
+    <td class="num">한도(AUD)</td><td class="num">실사용(AUD)</td><td class="num">차액</td>
+  `;
+  tbody.appendChild(hdr);
 
   const sydT=tableTotal("syd"), melT=tableTotal("mel"), gcT=tableTotal("gc");
   const cap = { SYD:sydT.aud/7, MEL:melT.aud/5, GC:gcT.aud/5 };
 
+  let totalCap=0, totalUse=0;
   DAYS.forEach((d, i)=>{
-    const cityCls = d[2]==="SYD"||d[2]==="→MEL" ? "tag-syd" :
-                    d[2]==="MEL"||d[2]==="→GC"  ? "tag-mel" :
-                    d[2]==="GC" ? "tag-gc" : "tag-move";
-    const isMoveDay = d[2].startsWith("→");
+    const tag = d[2]==="SYD"||d[2]==="→MEL" ? "tag-syd"
+              : d[2]==="MEL"||d[2]==="→GC"  ? "tag-mel"
+              : d[2]==="GC" ? "tag-gc" : "tag-move";
     let c = 0;
-    if (d[2].includes("SYD")) c = cap.SYD;
-    else if (d[2].includes("MEL") || d[2]==="→MEL") c = cap.MEL;
-    else if (d[2].includes("GC")  || d[2]==="→GC")  c = cap.GC;
+    if (d[2]==="SYD") c = cap.SYD;
+    else if (d[2]==="MEL") c = cap.MEL;
+    else if (d[2]==="GC")  c = cap.GC;
+    else if (d[2]==="→MEL") c = cap.MEL;
+    else if (d[2]==="→GC")  c = cap.GC;
     const use = +state.dayUse[i]||0;
     const diff = c - use;
-    const tr = push([
-      {v:d[0], cls:"center bold"},
-      {v:d[1], cls:"center"},
-      {v:d[2], cls:`center bold ${cityCls}`},
-      {v:d[3], cls:"note"},
-      {v:c?fmtAUD(c):"—", cls:"num muted"},
-      {html:`<input type="number" step="0.01" value="${use}" data-i="${i}">`, cls:"num formula"},
-      {v:c?fmtAUD(diff):"—", cls:`num bold ${diff<0?'':''}`},
-    ]);
-    if (c) {
-      const dcell = tr.children[7];
-      dcell.style.color = diff < 0 ? "#cc0000" : "#0f7b3d";
-    }
-    tr.querySelector("input")?.addEventListener("change", e=>{
+    totalCap+=c; totalUse+=use;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="row">${i+2}</td>
+      <td class="cell center" style="font-weight:600">${d[0]}</td>
+      <td class="cell center">${d[1]}</td>
+      <td class="cell center ${tag}" style="font-weight:700">${d[2]}</td>
+      <td class="cell"><input type="text" data-i="${i}" data-f="note" value="${d[3].replace(/"/g,"&quot;")}"></td>
+      <td class="calc muted">${c?fmtAUD(c):"—"}</td>
+      <td class="cell num"><input type="number" step="0.01" data-i="${i}" value="${use}"></td>
+      <td class="calc" style="color:${diff<0?'#cc0000':'#0f7b3d'}">${c?fmtAUD(diff):"—"}</td>
+    `;
+    tr.querySelector('input[type="number"]').addEventListener("change", e=>{
       state.dayUse[i] = parseFloat(e.target.value)||0;
       save(); buildItinerary(); recalcSummary();
     });
-  });
-
-  const totalUse = state.dayUse.reduce((a,b)=>a+(+b||0),0);
-  const totalCap = sydT.aud + melT.aud + gcT.aud;
-  push([
-    {v:"", cls:"total"},
-    {v:"", cls:"total"},
-    {v:"📌 합계", cls:"total bold center"},
-    {v:"15일", cls:"total"},
-    {v:fmtAUD(totalCap), cls:"total num"},
-    {v:fmtAUD(totalUse), cls:"total num"},
-    {v:fmtAUD(totalCap-totalUse), cls:"total num"},
-  ]);
-
-  tbl.querySelectorAll("td.cell").forEach(td=>{
-    td.addEventListener("click", e=>{
-      if(e.target.tagName==="INPUT") return;
-      selectCell(td);
+    const noteInput = tr.querySelector('input[data-f="note"]');
+    noteInput.addEventListener("change", e=>{
+      DAYS[i][3] = e.target.value;
     });
+    tbody.appendChild(tr);
   });
+
+  const sumTr = document.createElement("tr"); sumTr.className="grand";
+  sumTr.innerHTML = `
+    <td class="row">${DAYS.length+2}</td>
+    <td colspan="4" style="padding:10px 12px;">📌 15일 합계</td>
+    <td class="num">${fmtAUD(totalCap)}</td>
+    <td class="num">${fmtAUD(totalUse)}</td>
+    <td class="num">${fmtAUD(totalCap-totalUse)}</td>
+  `;
+  tbody.appendChild(sumTr);
 }
 
-/* ===================== SUMMARY SHEET ===================== */
+/* ===================== SUMMARY ===================== */
 function buildSummary(){
   const tbl = $("#tbl-sum"); tbl.innerHTML="";
-  const COLS=["#","구분","박/일","AUD","KRW","비중%"];
-  const thead=document.createElement("thead");
-  thead.innerHTML=`<tr><th class="corner"></th>${COLS.map((_,i)=>`<th class="col">${COL(i)}</th>`).join("")}</tr>`;
-  tbl.appendChild(thead);
-  const tbody=document.createElement("tbody"); tbl.appendChild(tbody);
-  let r=0;
-  const push=(cells)=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td class="row">${r+1}</td>`+cells.map((c,ci)=>`<td class="cell ${c.cls||''}" data-r="${r}" data-c="${ci}" data-label="${c.label||''}">${c.v ?? ""}</td>`).join("");
-    tbody.appendChild(tr); r++; return tr;
-  };
-  push([{v:"🇦🇺 호주 여행 통합 예산 요약", cls:"bold"},{v:""},{v:""},{v:""},{v:""},{v:""}]);
-  push(COLS.map(h=>({v:h,cls:"hdr"})));
+  tbl.innerHTML = `
+    <colgroup>
+      <col class="w-num"><col style="width:280px"><col style="width:140px">
+      <col class="w-sub"><col class="w-sub"><col style="width:100px">
+    </colgroup>
+    <thead><tr>
+      <th class="corner"></th>
+      <th class="col">A</th><th class="col">B</th><th class="col">C</th><th class="col">D</th><th class="col">E</th>
+    </tr></thead>
+  `;
+  const tbody = document.createElement("tbody"); tbl.appendChild(tbody);
+
+  const hdr = document.createElement("tr"); hdr.className="hdr";
+  hdr.innerHTML = `<td class="row">1</td><td class="left">구분</td><td>기간</td>
+                   <td class="num">AUD</td><td class="num">KRW</td><td class="num">비중</td>`;
+  tbody.appendChild(hdr);
 
   const preT=tableTotal("pre"), sydT=tableTotal("syd"), melT=tableTotal("mel"), gcT=tableTotal("gc");
   const totalKRW = preT.krw + (sydT.aud+melT.aud+gcT.aud)*state.fx;
-  const row = (label, days, aud, krw, cls="") => {
+
+  let rn = 2;
+  const row = (cls, label, days, aud, krw) => {
     const pct = totalKRW ? (krw/totalKRW*100).toFixed(1) : "0";
-    push([
-      {v:"", cls},
-      {v:label, cls:"bold "+cls},
-      {v:days||"—", cls:"center "+cls},
-      {v:aud?fmtAUD(aud):"—", cls:"num "+cls},
-      {v:fmtKRW(krw), cls:"num "+cls},
-      {v:pct+"%", cls:"num "+cls},
-    ]);
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="row">${rn++}</td>
+      <td class="cell ${cls}" style="padding:8px 12px;font-weight:700">${label}</td>
+      <td class="cell center ${cls}">${days||"—"}</td>
+      <td class="calc">${aud?fmtAUD(aud):"—"}</td>
+      <td class="calc">${fmtKRW(krw)}</td>
+      <td class="calc">${pct}%</td>
+    `;
+    tbody.appendChild(tr);
   };
-  row("✈️ 출국 전 (한국)",          "—", preT.krw/state.fx, preT.krw, "tag-pre");
-  row("🇦🇺 시드니",                  "6박 7일", sydT.aud, sydT.aud*state.fx, "tag-syd");
-  row("🇦🇺 멜버른",                  "4박 5일", melT.aud, melT.aud*state.fx, "tag-mel");
-  row("🇦🇺 골드코스트",              "4박 5일", gcT.aud,  gcT.aud*state.fx,  "tag-gc");
-  push([
-    {v:"", cls:"grand"},
-    {v:"💰 총 합계", cls:"grand bold"},
-    {v:"14박 15일", cls:"grand center"},
-    {v:fmtAUD((preT.krw/state.fx)+sydT.aud+melT.aud+gcT.aud), cls:"grand num"},
-    {v:fmtKRW(totalKRW), cls:"grand num"},
-    {v:"100.0%", cls:"grand num"},
-  ]);
-  push([
-    {v:"", cls:""},
-    {v:"👤 1인당", cls:"bold"},
-    {v:state.people+"명 분할", cls:"center muted"},
-    {v:fmtAUD(((preT.krw/state.fx)+sydT.aud+melT.aud+gcT.aud)/state.people), cls:"num"},
-    {v:fmtKRW(totalKRW/state.people), cls:"num bold"},
-    {v:"", cls:""},
-  ]);
-  push([
-    {v:"", cls:""},
-    {v:"📅 일평균 (15일)", cls:"bold"},
-    {v:"15일", cls:"center muted"},
-    {v:fmtAUD((sydT.aud+melT.aud+gcT.aud)/15), cls:"num"},
-    {v:fmtKRW(totalKRW/15), cls:"num"},
-    {v:"", cls:""},
-  ]);
-  push([
-    {v:"", cls:""},
-    {v:"🛡️ 예비비 권장 (10%)", cls:"bold"},
-    {v:"비상금", cls:"center muted"},
-    {v:fmtAUD(totalKRW*0.1/state.fx), cls:"num"},
-    {v:fmtKRW(totalKRW*0.1), cls:"num"},
-    {v:"", cls:""},
-  ]);
-  push([
-    {v:"", cls:""},
-    {v:"💵 최종 준비금 (합계 + 예비비)", cls:"bold formula"},
-    {v:"", cls:""},
-    {v:fmtAUD(((preT.krw/state.fx)+sydT.aud+melT.aud+gcT.aud)*1.1), cls:"num formula bold"},
-    {v:fmtKRW(totalKRW*1.1), cls:"num formula bold"},
-    {v:"110%", cls:"num formula"},
-  ]);
+  row("tag-pre","✈️ 출국 전 (한국)", "—", preT.krw/state.fx, preT.krw);
+  row("tag-syd","🇦🇺 시드니", "6박 7일", sydT.aud, sydT.aud*state.fx);
+  row("tag-mel","🇦🇺 멜버른", "4박 5일", melT.aud, melT.aud*state.fx);
+  row("tag-gc","🇦🇺 골드코스트", "4박 5일", gcT.aud, gcT.aud*state.fx);
 
-  // 가정/메모
-  push([{v:"",cls:""},{v:"",cls:""},{v:"",cls:""},{v:"",cls:""},{v:"",cls:""},{v:"",cls:""}]);
-  push([{v:"📝 메모", cls:"hdr"},{v:"",cls:"hdr"},{v:"",cls:"hdr"},{v:"",cls:"hdr"},{v:"",cls:"hdr"},{v:"",cls:"hdr"}]);
-  const memos = [
-    "오픈조 항공편 가정 (ICN→SYD / OOL→ICN). 단일 왕복일 경우 항공권 단가 조정 필요.",
-    "환율 변동 ±5% 시 총액 약 ±25만원 차이. 트래블 체크카드 권장.",
-    "호주 6–7월은 겨울. 시드니·멜버른 새벽 5–8℃, 골드코스트 14–22℃. 보온 필수.",
-    "테마파크 2개 패스(Movie+Sea World) 콤보 시 1인 ≈ AUD 210 → 약 19 AUD 절약.",
-    "그레이트오션로드는 1박2일 렌터카가 더 저렴하나 일정상 1일 투어 가정.",
-  ];
-  memos.forEach((m,i)=>push([
-    {v:"", cls:""},{v:`메모 ${i+1}`, cls:"muted center"},{v:"", cls:""},{v:"", cls:""},{v:m, cls:"note muted"},{v:"", cls:""},
-  ]));
+  const grand = document.createElement("tr"); grand.className="grand";
+  grand.innerHTML = `
+    <td class="row">${rn++}</td>
+    <td style="padding:10px 12px;">💰 총 합계</td>
+    <td style="text-align:center">14박 15일</td>
+    <td class="num">${fmtAUD((preT.krw/state.fx)+sydT.aud+melT.aud+gcT.aud)}</td>
+    <td class="num">${fmtKRW(totalKRW)}</td>
+    <td class="num">100%</td>
+  `;
+  tbody.appendChild(grand);
 
-  tbl.querySelectorAll("td.cell").forEach(td=>{
-    td.addEventListener("click", ()=>selectCell(td));
-  });
+  const per = document.createElement("tr");
+  per.innerHTML = `
+    <td class="row">${rn++}</td>
+    <td class="cell" style="padding:8px 12px;font-weight:600">👤 1인당</td>
+    <td class="cell center">${state.people}명 분할</td>
+    <td class="calc">${fmtAUD(((preT.krw/state.fx)+sydT.aud+melT.aud+gcT.aud)/state.people)}</td>
+    <td class="calc">${fmtKRW(totalKRW/state.people)}</td>
+    <td class="calc">—</td>
+  `;
+  tbody.appendChild(per);
 
-  // status bar
+  const day = document.createElement("tr");
+  day.innerHTML = `
+    <td class="row">${rn++}</td>
+    <td class="cell" style="padding:8px 12px;font-weight:600">📅 일평균</td>
+    <td class="cell center">15일</td>
+    <td class="calc">${fmtAUD((sydT.aud+melT.aud+gcT.aud)/15)}</td>
+    <td class="calc">${fmtKRW(totalKRW/15)}</td>
+    <td class="calc">—</td>
+  `;
+  tbody.appendChild(day);
+
+  const rsv = document.createElement("tr");
+  rsv.innerHTML = `
+    <td class="row">${rn++}</td>
+    <td class="cell" style="padding:8px 12px;font-weight:600">🛡️ 예비비 (10%)</td>
+    <td class="cell center">비상금</td>
+    <td class="calc">${fmtAUD(totalKRW*0.1/state.fx)}</td>
+    <td class="calc">${fmtKRW(totalKRW*0.1)}</td>
+    <td class="calc">10%</td>
+  `;
+  tbody.appendChild(rsv);
+
+  const finalRow = document.createElement("tr"); finalRow.className="grand";
+  finalRow.innerHTML = `
+    <td class="row">${rn++}</td>
+    <td style="padding:10px 12px;">💵 최종 준비금 (합계 + 예비비)</td>
+    <td style="text-align:center">110%</td>
+    <td class="num">${fmtAUD(((preT.krw/state.fx)+sydT.aud+melT.aud+gcT.aud)*1.1)}</td>
+    <td class="num">${fmtKRW(totalKRW*1.1)}</td>
+    <td class="num">—</td>
+  `;
+  tbody.appendChild(finalRow);
+
   $("#stTotal").textContent = fmtKRW(totalKRW);
   $("#stPer").textContent   = fmtKRW(totalKRW/state.people);
   $("#stDay").textContent   = fmtKRW(totalKRW/15);
   $("#stReserve").textContent = fmtKRW(totalKRW*0.1);
-
   drawCharts(preT, sydT, melT, gcT, totalKRW);
-}
-
-/* ===================== CHECKLIST SHEET ===================== */
-function buildChecklist(){
-  const tbl=$("#tbl-chk"); tbl.innerHTML="";
-  const COLS=["#","✔","카테고리","항목"];
-  const thead=document.createElement("thead");
-  thead.innerHTML=`<tr><th class="corner"></th>${COLS.map((_,i)=>`<th class="col">${COL(i)}</th>`).join("")}</tr>`;
-  tbl.appendChild(thead);
-  const tbody=document.createElement("tbody"); tbl.appendChild(tbody);
-  let r=0;
-  const push=(cells)=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td class="row">${r+1}</td>`+cells.map((c,ci)=>`<td class="cell ${c.cls||''}" data-r="${r}" data-c="${ci}">${c.html ?? c.v ?? ""}</td>`).join("");
-    tbody.appendChild(tr); r++; return tr;
-  };
-  push([{v:"체크리스트 · Pre-departure",cls:"bold"},{v:""},{v:""},{v:""}]);
-  push(COLS.map(h=>({v:h,cls:"hdr"})));
-
-  let n=0;
-  CHK.forEach(([cat, items])=>{
-    push([{v:"",cls:"section"},{v:"",cls:"section"},{v:cat,cls:"section bold"},{v:"",cls:"section"}]);
-    items.forEach(it=>{
-      const key = `${cat}|${it}`;
-      const checked = !!state.checks[key];
-      const tr = push([
-        {v:"", cls:"muted center"},
-        {html:`<input type="checkbox" ${checked?"checked":""} data-k="${key}">`, cls:"center"},
-        {v:cat, cls:"muted"},
-        {v:it, cls:"note " + (checked?'muted':''), html: checked? `<s>${it}</s>` : it},
-      ]);
-      tr.querySelector("input").addEventListener("change", e=>{
-        state.checks[key]=e.target.checked; save(); buildChecklist();
-      });
-      n++;
-    });
-  });
-
-  const done = Object.values(state.checks).filter(Boolean).length;
-  push([
-    {v:"", cls:"total"},
-    {v:"", cls:"total"},
-    {v:"진행률", cls:"total bold"},
-    {v:`${done} / ${n}  (${n? Math.round(done/n*100):0}%)`, cls:"total bold"},
-  ]);
-
-  tbl.querySelectorAll("td.cell").forEach(td=>td.addEventListener("click",()=>selectCell(td)));
 }
 
 /* ===================== CHARTS ===================== */
@@ -825,23 +826,67 @@ function drawCharts(preT, sydT, melT, gcT, totalKRW){
   } else { cCity.data.datasets[0].data=cityData; cCity.update(); }
 }
 
+/* ===================== CHECKLIST ===================== */
+function buildChecklist(){
+  const root = $("#chkList"); root.innerHTML = "";
+  let total = 0, done = 0;
+  CHK.forEach(([title, items])=>{
+    const g = document.createElement("div"); g.className="chk-group";
+    g.innerHTML = `<h3>${title}</h3>`;
+    items.forEach(it=>{
+      total++;
+      const key = `${title}|${it}`;
+      const checked = !!state.checks[key];
+      if (checked) done++;
+      const row = document.createElement("label");
+      row.className = "chk-item" + (checked?" done":"");
+      row.innerHTML = `<input type="checkbox" ${checked?"checked":""}><span>${it}</span>`;
+      row.querySelector("input").addEventListener("change", e=>{
+        state.checks[key]=e.target.checked; save(); buildChecklist();
+      });
+      g.appendChild(row);
+    });
+    root.appendChild(g);
+  });
+  const summary = document.createElement("div");
+  summary.style.cssText = "padding:12px;background:#fff8e1;border-radius:6px;font-weight:600;text-align:center;color:#7f6000;margin-top:10px";
+  summary.textContent = `진행률 ${done} / ${total} (${total?Math.round(done/total*100):0}%)`;
+  root.appendChild(summary);
+}
+
 /* ===================== TABS ===================== */
 function activateTab(name){
   state.activeTab = name; save();
   $$(".tab").forEach(t=>t.classList.toggle("active", t.dataset.tab===name));
   $$(".pane").forEach(p=>p.classList.toggle("active", p.dataset.pane===name));
-  // re-render dynamic
   if(name==="iti") buildItinerary();
   if(name==="sum") buildSummary();
   if(name==="chk") buildChecklist();
 }
 $$(".tab").forEach(t=>t.addEventListener("click",()=>activateTab(t.dataset.tab)));
 
+/* ===================== ROW/SECTION ADD ===================== */
+$$(".addRow").forEach(b=>b.addEventListener("click", ()=>{
+  const c = b.dataset.city;
+  const isPre = c==="pre";
+  state.tables[c].push(["새 항목","설명 입력", 0, 1, false, isPre?"기타":"기타"]);
+  save(); buildExpenseSheet(c); recalcSummary();
+  // 새 행으로 스크롤
+  const wrap = $("#sheetWrap"); wrap.scrollTop = wrap.scrollHeight;
+}));
+$$(".addSection").forEach(b=>b.addEventListener("click", ()=>{
+  const c = b.dataset.city;
+  const name = prompt("섹션 이름을 입력하세요", "🆕 새 섹션");
+  if (!name) return;
+  state.tables[c].push(["__SEC__", name]);
+  save(); buildExpenseSheet(c); recalcSummary();
+  const wrap = $("#sheetWrap"); wrap.scrollTop = wrap.scrollHeight;
+}));
+
 /* ===================== RECALC ===================== */
 function recalcSummary(){
   if($(`.pane[data-pane="sum"]`).classList.contains("active")) buildSummary();
   if($(`.pane[data-pane="iti"]`).classList.contains("active")) buildItinerary();
-  // status always update
   const preT=tableTotal("pre"), sydT=tableTotal("syd"), melT=tableTotal("mel"), gcT=tableTotal("gc");
   const totalKRW = preT.krw + (sydT.aud+melT.aud+gcT.aud)*state.fx;
   $("#stTotal").textContent = fmtKRW(totalKRW);
@@ -850,7 +895,7 @@ function recalcSummary(){
   $("#stReserve").textContent = fmtKRW(totalKRW*0.1);
 }
 
-/* ===================== CONTROLS ===================== */
+/* ===================== TOP CONTROLS ===================== */
 $("#fxRate").value = state.fx;
 $("#people").value = state.people;
 $("#fxRate").addEventListener("change", e=>{
@@ -880,28 +925,12 @@ $("#importFile").addEventListener("change", async e=>{
   }catch(err){ alert("불러오기 실패: "+err.message); }
 });
 
-/* ===================== KEYBOARD NAV ===================== */
-document.addEventListener("keydown", e=>{
-  if(!selected) return;
-  if(["INPUT","TEXTAREA"].includes(document.activeElement.tagName)) return;
-  const tbl = document.getElementById(selected.tableId);
-  let {row, col} = selected;
-  if(e.key==="ArrowDown") row++;
-  else if(e.key==="ArrowUp") row--;
-  else if(e.key==="ArrowRight"||e.key==="Tab") col++;
-  else if(e.key==="ArrowLeft") col--;
-  else return;
-  e.preventDefault();
-  const next = tbl.querySelector(`td.cell[data-r="${row}"][data-c="${col}"]`);
-  if(next) selectCell(next);
-});
-
-/* ===================== INITIAL RENDER ===================== */
+/* ===================== INIT ===================== */
 function renderAll(){
-  renderSheet("pre","tbl-pre", "🇰🇷 출국 전 비용 (한국 결제 · KRW 기준)");
-  renderSheet("syd","tbl-syd", "🇦🇺 시드니 (6박 7일 · AUD 기준)");
-  renderSheet("mel","tbl-mel", "🇦🇺 멜버른 (4박 5일 · AUD 기준)");
-  renderSheet("gc", "tbl-gc",  "🇦🇺 골드코스트 (4박 5일 · AUD 기준)");
+  buildExpenseSheet("pre");
+  buildExpenseSheet("syd");
+  buildExpenseSheet("mel");
+  buildExpenseSheet("gc");
   buildItinerary();
   buildSummary();
   buildChecklist();
