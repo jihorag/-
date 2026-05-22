@@ -208,7 +208,7 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
   const [queue, setQueue] = useState([]);
   const [idx, setIdx] = useState(0);
   const [revealed, setRevealed] = useState(false);
-  const [streak, setStreak] = useState(0);
+  const [combo, setCombo] = useState(0);
   const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0, mastered: 0 });
 
   // swipe transient (렌더용 offset만 state)
