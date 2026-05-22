@@ -570,23 +570,41 @@ function buildExpenseSheet(city){
     tr.dataset.ri = ri;
     tr.innerHTML = `
       <td class="row">${rowNum}</td>
-      <td class="cell ${cityTag}"><input type="text" data-f="0" value="${(r[0]||"").replace(/"/g,"&quot;")}"></td>
-      <td class="cell"><input type="text" data-f="1" value="${(r[1]||"").replace(/"/g,"&quot;")}"></td>
-      <td class="cell num"><input type="number" step="${isPre?'1':'0.01'}" data-f="2" value="${unit}"></td>
-      <td class="cell num"><input type="number" step="1" data-f="3" value="${qty}"></td>
-      <td class="calc calc-sub">${isPre ? fmtKRW(sub) : fmtAUD(sub)}</td>
-      <td class="calc muted calc-other">${isPre ? fmtAUD(subOther) : fmtKRW(subOther)}</td>
-      <td class="cell center"><input type="checkbox" data-f="4" ${r[4]?"checked":""}></td>
+      <td class="cell ${cityTag}"><input type="text" data-f="name" value="${escapeAttr(r[0])}"></td>
+      <td class="cell"><input type="text" data-f="desc" value="${escapeAttr(r[1])}"></td>
+      <td class="cell num"><input type="number" step="any" inputmode="decimal" data-f="unit" value="${unit}"></td>
+      <td class="cell num"><input type="number" step="any" inputmode="decimal" data-f="qty" value="${qty}"></td>
+      <td class="cell num"><input type="number" step="any" inputmode="decimal" data-f="subPri" value="${roundN(sub, isPre?0:2)}"></td>
+      <td class="cell num"><input type="number" step="any" inputmode="decimal" data-f="subOther" value="${roundN(subOther, isPre?2:0)}"></td>
+      <td class="cell center"><input type="checkbox" data-f="ok" ${r[4]?"checked":""}></td>
       <td class="delcell"><button title="행 삭제">×</button></td>
     `;
     tr.querySelectorAll("input").forEach(inp=>{
+      const f = inp.dataset.f;
       const handler = ()=>{
-        const f=+inp.dataset.f;
-        if(inp.type==="checkbox") state.tables[city][ri][f]=inp.checked;
-        else if(inp.type==="number") state.tables[city][ri][f]=parseFloat(inp.value)||0;
-        else state.tables[city][ri][f]=inp.value;
+        const row = state.tables[city][ri];
+        if (f === "name")      row[0] = inp.value;
+        else if (f === "desc") row[1] = inp.value;
+        else if (f === "ok")   row[4] = inp.checked;
+        else {
+          const v = parseFloat(inp.value);
+          const num = isNaN(v) ? 0 : v;
+          if      (f === "unit") row[2] = num;
+          else if (f === "qty")  row[3] = num;
+          else if (f === "subPri") {
+            let q = +row[3] || 0;
+            if (q === 0) { q = 1; row[3] = 1; }
+            row[2] = num / q;
+          }
+          else if (f === "subOther") {
+            let q = +row[3] || 0;
+            if (q === 0) { q = 1; row[3] = 1; }
+            const newPri = isPre ? num * state.fx : num / state.fx;
+            row[2] = newPri / q;
+          }
+        }
         save();
-        updateRow(city, ri);
+        refreshRow(city, ri, f);
         updateFooter(city);
         updateStatusBar();
       };
