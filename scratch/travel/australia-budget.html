@@ -450,7 +450,7 @@ const CHK = [
 const CITY_LABEL = { pre:"🇰🇷 한국", syd:"🇦🇺 시드니", mel:"🇦🇺 멜버른", gc:"🇦🇺 골드코스트" };
 
 /* ===================== STATE ===================== */
-const LS = "auTrip_xlsx_v4";
+const LS = "auTrip_xlsx_v5";
 function loadState(){ try{const s=JSON.parse(localStorage.getItem(LS)); if(s&&s.tables)return s;}catch(e){} return null; }
 function save(){ localStorage.setItem(LS, JSON.stringify(state)); }
 let state = loadState() || {
