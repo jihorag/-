@@ -169,7 +169,15 @@ function buildDefinitionCards(para, path) {
   let m;
   DEF_RE.lastIndex = 0;
   while ((m = DEF_RE.exec(para)) !== null) {
-    const term = m[1].trim().replace(/^[(,\.\s]+|[(,\.\s]+$/g, '');
+    let term = m[1].trim().replace(/^[(,\.\s]+|[(,\.\s]+$/g, '');
+    // "1. 고의 고의" 처럼 헤딩 라벨이 본문에 흡수돼 같은 단어가 두 번 나오면 한 번으로 정규화
+    const half = Math.floor(term.length / 2);
+    const halfStr = term.slice(0, half).trim();
+    if (halfStr && halfStr.length >= 2 && term.endsWith(halfStr)) {
+      term = halfStr;
+    }
+    // 선행 번호/괄호 라벨 제거 ("1. 고의" → "고의", "(가) 형식적..." → "형식적...")
+    term = term.replace(/^(?:\([가-힣]\)|\d+\.|[가-힣]\.)\s*/, '').trim();
     const def  = m[2].trim();
     if (term.length < 2 || term.length > 30 || def.length < 4 || def.length > 200) continue;
     // 용어 → 정의
