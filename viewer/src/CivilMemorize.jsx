@@ -361,6 +361,7 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     setCombo(prev => correct ? prev + 1 : 0);
     setRevealed(false);
     setSwipeOff(0); setSwipeOut(null);
+    setExpandSource(false);
     if (idx + 1 >= queue.length) setView('done');
     else setIdx(idx + 1);
   }, [queue, idx, srs, daily, haptic]);
@@ -774,6 +775,15 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
               </div>
             )}
           </div>
+
+          {/* 출처 본문 패널 */}
+          {expandSource && (
+            <SourcePanel
+              card={card}
+              data={data}
+              onClose={() => setExpandSource(false)}
+            />
+          )}
 
           {revealed && (
             <>
