@@ -249,7 +249,7 @@ export default function CivilMemorize({ onBack, isTabRoot = false }) {
   if (view === 'home') {
     return (
       <div className="civil-root">
-        <CivilHeader title="민법 통암기" onBack={onBack} />
+        <CivilHeader title="통암기" onBack={isTabRoot ? null : onBack} />
         <main className="civil-main">
           <div className="civil-hero">
             <div className="civil-hero-tag">김묘엽 「위패스 마이」 교재 통암기</div>
@@ -447,9 +447,11 @@ export default function CivilMemorize({ onBack, isTabRoot = false }) {
 function CivilHeader({ title, onBack }) {
   return (
     <header className="civil-header">
-      <button className="civil-back" onClick={onBack} aria-label="뒤로">‹</button>
+      {onBack
+        ? <button className="civil-back" onClick={onBack} aria-label="뒤로">‹</button>
+        : <div style={{ width: 40 }} />}
       <div className="civil-header-title">{title}</div>
-      <div style={{ width: 32 }} />
+      <div style={{ width: 40 }} />
     </header>
   );
 }
