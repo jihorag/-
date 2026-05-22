@@ -731,6 +731,18 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
           <div className="mem-card-meta">
             <span className="mem-type-tag" style={{ color: meta.color, background: meta.bg }}>{meta.label}</span>
             <BoxDots box={curBox} />
+            <div className="mem-card-actions">
+              <button className={`mem-card-action ${bookmarks[card.id] ? 'is-active' : ''}`}
+                onClick={(e) => { e.stopPropagation(); toggleBookmark(card.id); }}
+                aria-label="북마크">
+                {bookmarks[card.id] ? '★' : '☆'}
+              </button>
+              <button className={`mem-card-action ${expandSource ? 'is-active' : ''}`}
+                onClick={(e) => { e.stopPropagation(); setExpandSource(v => !v); }}
+                aria-label="출처 본문 보기">
+                📖
+              </button>
+            </div>
             <span className="mem-card-path">{card.chapterTitle}</span>
           </div>
 
