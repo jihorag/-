@@ -1,134 +1,202 @@
-// 민법 통암기 — 김묘엽 「위패스 마이」 민법총칙/물권법
-// 데이터: viewer/public/data/civil/{civil_total.json, civil_cards.json, civil_curated.json?}
-// SRS: localStorage 'civil-srs' — 기출과 분리된 자체 박스(같은 [1,3,7,16,35,70]일 사다리)
+// 통암기 — 감정평가사 1차 교재 기반 cloze + SRS
+// 다과목 지원: SUBJECTS 메타 + /data/<subject>/{civil_total,civil_cards,civil_curated}.json
+// (민법은 기존 /data/civil/ 경로 유지)
+//
+// SRS: localStorage 'mem-srs:<cardId>' — 기출과 분리된 자체 박스
+// localStorage keys:
+//   mem-srs          : { [cardId]: { box, due, reps, lapses, last } }
+//   mem-howto-seen   : '1' (가이드 본 이력)
+//   mem-session-size : 10|20|30|50 (기본 20)
+//   mem-fs           : 0.9|1|1.15|1.3 (글자 배율)
+//   mem-haptic       : '1'|'0' (햅틱 토글)
+//   mem-daily        : { [YYYY-MM-DD]: { correct, wrong, mastered } }
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 
-const STORAGE_KEY = 'civil-srs';
+// ─── 과목 메타 ────────────────────────────────────────────────
+// 다과목 확장: 새 과목 추가 시 entry만 늘리면 됨. dataDir 안에 동일한 파일명 규약.
+const SUBJECTS = [
+  { id: 'civil', title: '민법', subtitle: '민법총칙 + 물권법', icon: '⚖️',
+    dataDir: '/data/civil',
+    files: { total: 'civil_total.json', cards: 'civil_cards.json', curated: 'civil_curated.json' },
+    color: { primary: '#4f46e5', light: '#eef2ff', dark: '#3730a3', accent: '#818cf8' },
+    comingSoon: false },
+  { id: 'accounting', title: '회계학', subtitle: '재무회계 + 원가회계', icon: '💰',
+    dataDir: '/data/accounting',
+    files: { total: 'total.json', cards: 'cards.json', curated: 'curated.json' },
+    color: { primary: '#f59e0b', light: '#fffbeb', dark: '#b45309', accent: '#fbbf24' },
+    comingSoon: true },
+  { id: 'realestate', title: '부동산학원론', subtitle: '국승옥 강의 기반', icon: '🏘️',
+    dataDir: '/data/realestate',
+    files: { total: 'total.json', cards: 'cards.json', curated: 'curated.json' },
+    color: { primary: '#10b981', light: '#ecfdf5', dark: '#047857', accent: '#34d399' },
+    comingSoon: true },
+  { id: 'law', title: '감정평가관계법규', subtitle: '관련 법령 통암기', icon: '📜',
+    dataDir: '/data/law',
+    files: { total: 'total.json', cards: 'cards.json', curated: 'curated.json' },
+    color: { primary: '#dc2626', light: '#fef2f2', dark: '#991b1b', accent: '#f87171' },
+    comingSoon: true },
+];
+
+// ─── SRS ─────────────────────────────────────────────────────
+const SRS_KEY = 'mem-srs';
+const HOWTO_KEY = 'mem-howto-seen';
+const SIZE_KEY = 'mem-session-size';
+const FS_KEY = 'mem-fs';
+const HAPTIC_KEY = 'mem-haptic';
+const DAILY_KEY = 'mem-daily';
 const LADDER = [1, 3, 7, 16, 35, 70]; // 일
 const DAY_MS = 86400000;
-const SESSION_SIZE = 20;
 
-function loadSrs() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') || {}; }
-  catch { return {}; }
+const TYPE_META = {
+  statute:    { label: '조문',  color: '#2563eb', bg: '#eff6ff' },
+  definition: { label: '정의',  color: '#7c3aed', bg: '#f5f3ff' },
+  bold:       { label: '핵심어', color: '#0891b2', bg: '#ecfeff' },
+  mnemonic:   { label: '두문자', color: '#ea580c', bg: '#fff7ed' },
+  curated:    { label: '핵심',  color: '#16a34a', bg: '#f0fdf4' },
+};
+
+// 모듈 레벨 — React Compiler가 렌더 중 setState/Math.random을 막아서 swipe transient는 여기에
+const swipeState = { startX: 0, startY: 0, active: false, sid: null };
+
+function lsLoad(key, def) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return def;
+    if (typeof def === 'object') return JSON.parse(raw);
+    if (typeof def === 'number') return parseFloat(raw) || def;
+    return raw;
+  } catch { return def; }
 }
-function saveSrs(s) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch { /* SSR */ }
+function lsSave(key, v) {
+  try {
+    localStorage.setItem(key, typeof v === 'object' ? JSON.stringify(v) : String(v));
+  } catch { /* SSR */ }
 }
 
 function startOfDayMs(ts = Date.now()) {
-  const d = new Date(ts);
-  d.setHours(0, 0, 0, 0);
-  return d.getTime();
+  const d = new Date(ts); d.setHours(0, 0, 0, 0); return d.getTime();
+}
+function todayKey() {
+  const d = new Date();
+  const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), dd = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${dd}`;
 }
 
-// (prev, correct) → next srs entry
 function nextSrs(prev, correct, now = Date.now()) {
   const cur = prev || { box: -1, due: 0, reps: 0, lapses: 0, last: 0 };
   if (correct) {
-    const nextBox = Math.min(LADDER.length, cur.box + 1);
-    if (nextBox >= LADDER.length) {
+    const nb = Math.min(LADDER.length, cur.box + 1);
+    if (nb >= LADDER.length) {
       return { box: LADDER.length, due: null, reps: cur.reps + 1, lapses: cur.lapses, last: now };
     }
     return {
-      box: nextBox,
-      due: startOfDayMs(now) + LADDER[nextBox] * DAY_MS,
-      reps: cur.reps + 1,
-      lapses: cur.lapses,
-      last: now,
+      box: nb, due: startOfDayMs(now) + LADDER[nb] * DAY_MS,
+      reps: cur.reps + 1, lapses: cur.lapses, last: now,
     };
   }
-  // 오답: 박스 0으로 리셋, 내일 다시
   return {
-    box: 0,
-    due: startOfDayMs(now) + LADDER[0] * DAY_MS,
-    reps: cur.reps,
-    lapses: cur.lapses + 1,
-    last: now,
+    box: 0, due: startOfDayMs(now) + LADDER[0] * DAY_MS,
+    reps: cur.reps, lapses: cur.lapses + 1, last: now,
   };
 }
 
+// 셔플은 모듈 레벨 (React Compiler 회피)
 function shuffleArr(arr) {
-  const out = arr.slice();
-  for (let i = out.length - 1; i > 0; i--) {
+  const o = arr.slice();
+  for (let i = o.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
+    [o[i], o[j]] = [o[j], o[i]];
   }
-  return out;
+  return o;
 }
 
-// 카드 큐 구성: due → fresh → in-progress 순서, 셔플 후 N장
-function buildQueue(pool, srs, n = SESSION_SIZE) {
+function buildQueue(pool, srs, size) {
   const now = Date.now();
   const due = [], fresh = [], inProg = [];
   for (const c of pool) {
     const s = srs[c.id];
     if (!s) fresh.push(c);
-    else if (s.box >= LADDER.length) continue; // graduated
+    else if (s.box >= LADDER.length) continue;
     else if (s.due == null || s.due <= now) due.push(c);
     else inProg.push(c);
   }
-  let q = shuffleArr(due).slice(0, n);
-  if (q.length < n) q = q.concat(shuffleArr(fresh).slice(0, n - q.length));
-  if (q.length < n) q = q.concat(shuffleArr(inProg).slice(0, n - q.length));
+  let q = shuffleArr(due).slice(0, size);
+  if (q.length < size) q = q.concat(shuffleArr(fresh).slice(0, size - q.length));
+  if (q.length < size) q = q.concat(shuffleArr(inProg).slice(0, size - q.length));
   return q;
 }
 
-// 챕터 필터: chapterTitle prefix로 매칭
-function filterByChapter(cards, bookId, chapterTitle) {
-  if (!chapterTitle) return cards.filter(c => c.bookId === bookId);
-  return cards.filter(c => c.bookId === bookId && c.chapterTitle.includes(chapterTitle));
-}
+// ─── 메인 ─────────────────────────────────────────────────────
+export default function MemorizeApp({ isTabRoot = false, onBack }) {
+  // ── 상태
+  const [view, setView] = useState('subjects');         // 과목 picker
+  const [subjectId, setSubjectId] = useState(null);
+  const subject = useMemo(() => SUBJECTS.find(s => s.id === subjectId), [subjectId]);
 
-const CARD_TYPE_LABEL = {
-  statute: '조문',
-  definition: '정의',
-  bold: '핵심어',
-  mnemonic: '두문자',
-  curated: '핵심',
-};
-
-export default function CivilMemorize({ onBack, isTabRoot = false }) {
   const [data, setData] = useState(null);
   const [autoCards, setAutoCards] = useState(null);
   const [curated, setCurated] = useState([]);
   const [loadErr, setLoadErr] = useState(null);
-  const [srs, setSrs] = useState(loadSrs);
+  const [loading, setLoading] = useState(false);
 
-  // 화면 상태: 'home' | 'session' | 'done' | 'browse'
-  const [view, setView] = useState('home');
-  const [bookId, setBookId] = useState(null);     // 'chongchik' | 'mulgwon'
+  const [srs, setSrs] = useState(() => lsLoad(SRS_KEY, {}));
+  const [daily, setDaily] = useState(() => lsLoad(DAILY_KEY, {}));
+  const [howtoSeen, setHowtoSeen] = useState(() => lsLoad(HOWTO_KEY, '') === '1');
+  const [sessionSize, setSessionSize] = useState(() => {
+    const n = lsLoad(SIZE_KEY, 20);
+    return [10, 20, 30, 50].includes(n) ? n : 20;
+  });
+  const [fs, setFs] = useState(() => {
+    const n = lsLoad(FS_KEY, 1);
+    return [0.9, 1, 1.15, 1.3].includes(n) ? n : 1;
+  });
+  const [haptic, setHaptic] = useState(() => lsLoad(HAPTIC_KEY, '1') === '1');
+
+  // book / chapter / filter
+  const [bookId, setBookId] = useState(null);
   const [chapterTitle, setChapterTitle] = useState(null);
-  const [filterType, setFilterType] = useState('all'); // 'all' | 'statute' | 'definition' | 'mnemonic' | 'curated'
+  const [filterType, setFilterType] = useState('all');  // 'all' | type id
 
+  // session
   const [queue, setQueue] = useState([]);
   const [idx, setIdx] = useState(0);
   const [revealed, setRevealed] = useState(false);
-  const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0 });
-  const [expandSource, setExpandSource] = useState(false);
+  const [streak, setStreak] = useState(0);
+  const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0, mastered: 0 });
 
-  // 데이터 로드 (한 번)
+  // swipe transient (렌더용 offset만 state)
+  const [swipeOff, setSwipeOff] = useState(0);
+  const [swipeOut, setSwipeOut] = useState(null); // 'left'|'right'|null
+  const cardRef = useRef(null);
+
+  // ── 데이터 로드 (과목 선택 시)
   useEffect(() => {
+    if (!subject) return;
     let alive = true;
+    setLoading(true);
+    setLoadErr(null);
+    setData(null); setAutoCards(null); setCurated([]);
     (async () => {
       try {
         const [r1, r2] = await Promise.all([
-          fetch('/data/civil/civil_total.json'),
-          fetch('/data/civil/civil_cards.json'),
+          fetch(`${subject.dataDir}/${subject.files.total}`),
+          fetch(`${subject.dataDir}/${subject.files.cards}`),
         ]);
         if (!alive) return;
-        if (!r1.ok || !r2.ok) throw new Error(`fetch failed: ${r1.status}/${r2.status}`);
-        const total = await r1.json();
-        const cards = await r2.json();
+        if (!r1.ok || !r2.ok) throw new Error(`fetch ${r1.status}/${r2.status}`);
+        const tot = await r1.json();
+        const crd = await r2.json();
         if (!alive) return;
-        setData(total);
-        setAutoCards(cards.cards || []);
+        setData(tot);
+        setAutoCards(crd.cards || []);
       } catch (e) {
         if (alive) setLoadErr(e.message || String(e));
+      } finally {
+        if (alive) setLoading(false);
       }
       try {
-        const r = await fetch('/data/civil/civil_curated.json');
+        const r = await fetch(`${subject.dataDir}/${subject.files.curated}`);
         if (r.ok) {
           const j = await r.json();
           if (alive) setCurated((j.cards || []).map(c => ({ ...c, type: c.type || 'curated' })));
@@ -136,34 +204,46 @@ export default function CivilMemorize({ onBack, isTabRoot = false }) {
       } catch { /* optional */ }
     })();
     return () => { alive = false; };
-  }, []);
+  }, [subject]);
 
-  // 통합 카드 풀
-  const allCards = useMemo(() => {
-    if (!autoCards) return [];
-    return autoCards.concat(curated);
-  }, [autoCards, curated]);
+  const allCards = useMemo(() => (autoCards || []).concat(curated), [autoCards, curated]);
+
+  // 과목 진척 (picker에 표시)
+  const subjectProgress = useMemo(() => {
+    const map = {};
+    for (const c of allCards) {
+      const sid = subjectId;
+      if (!map[sid]) map[sid] = { total: 0, mastered: 0, due: 0 };
+      map[sid].total++;
+      const s = srs[c.id];
+      if (s && s.box >= LADDER.length) map[sid].mastered++;
+      else if (s && (s.due == null || s.due <= Date.now())) map[sid].due++;
+    }
+    return map;
+  }, [allCards, subjectId, srs]);
 
   // 책별 진척
   const bookProgress = useMemo(() => {
-    if (!data) return [];
+    if (!data || !data.books) return [];
     const now = Date.now();
     return data.books.map(b => {
       const pool = allCards.filter(c => c.bookId === b.id);
       let learned = 0, mastered = 0, due = 0;
+      const boxDist = Array.from({ length: LADDER.length + 1 }, () => 0); // 0..6
+      let unseen = 0;
       for (const c of pool) {
         const s = srs[c.id];
-        if (s && s.box >= LADDER.length) mastered++;
-        else if (s) {
+        if (!s) { unseen++; continue; }
+        if (s.box >= LADDER.length) { mastered++; boxDist[LADDER.length]++; }
+        else {
           learned++;
+          boxDist[Math.max(0, s.box)]++;
           if (s.due == null || s.due <= now) due++;
         }
       }
       return {
         id: b.id, title: b.title,
-        total: pool.length,
-        fresh: pool.length - learned - mastered,
-        learned, mastered, due,
+        total: pool.length, unseen, learned, mastered, due, boxDist,
         chapters: (b.tree?.children || []).map(ch => {
           const cPool = pool.filter(c => c.chapterTitle.includes(ch.title));
           let cMast = 0, cLearn = 0, cDue = 0;
@@ -181,171 +261,309 @@ export default function CivilMemorize({ onBack, isTabRoot = false }) {
     });
   }, [data, allCards, srs]);
 
-  // 카드 풀(현재 선택된 책 + 챕터 + 타입)
+  // 현재 풀
   const currentPool = useMemo(() => {
     if (!bookId) return [];
-    let pool = filterByChapter(allCards, bookId, chapterTitle);
-    if (filterType !== 'all') pool = pool.filter(c => c.type === filterType);
-    return pool;
+    let p = allCards.filter(c => c.bookId === bookId);
+    if (chapterTitle) p = p.filter(c => c.chapterTitle.includes(chapterTitle));
+    if (filterType !== 'all') p = p.filter(c => c.type === filterType);
+    return p;
   }, [allCards, bookId, chapterTitle, filterType]);
 
-  // 세션 시작
-  const startSession = useCallback(() => {
-    const q = buildQueue(currentPool, srs);
+  // ── 세션 시작
+  const startSession = useCallback((overridePool = null) => {
+    const pool = overridePool || currentPool;
+    const q = buildQueue(pool, srs, sessionSize);
     if (!q.length) return;
     setQueue(q);
     setIdx(0);
     setRevealed(false);
-    setExpandSource(false);
-    setSessionStats({ correct: 0, wrong: 0 });
+    setStreak(0);
+    setSwipeOff(0); setSwipeOut(null);
+    setSessionStats({ correct: 0, wrong: 0, mastered: 0 });
     setView('session');
-  }, [currentPool, srs]);
+  }, [currentPool, srs, sessionSize]);
 
-  // 답 처리
-  const onJudge = (correct) => {
+  // ── 답 처리
+  const commitJudge = useCallback((correct) => {
     const card = queue[idx];
     if (!card) return;
-    const updated = { ...srs, [card.id]: nextSrs(srs[card.id], correct) };
+    const prev = srs[card.id];
+    const ns = nextSrs(prev, correct);
+    const newlyMastered = ns.box >= LADDER.length && (!prev || prev.box < LADDER.length);
+    const updated = { ...srs, [card.id]: ns };
     setSrs(updated);
-    saveSrs(updated);
-    setSessionStats(s => ({ correct: s.correct + (correct ? 1 : 0), wrong: s.wrong + (correct ? 0 : 1) }));
+    lsSave(SRS_KEY, updated);
+
+    const today = todayKey();
+    const d = { ...daily };
+    const slot = d[today] || { correct: 0, wrong: 0, mastered: 0 };
+    if (correct) slot.correct++; else slot.wrong++;
+    if (newlyMastered) slot.mastered++;
+    d[today] = slot;
+    setDaily(d);
+    lsSave(DAILY_KEY, d);
+
+    if (haptic && typeof navigator !== 'undefined' && navigator.vibrate) {
+      navigator.vibrate(correct ? 18 : [10, 30, 10]);
+    }
+    setSessionStats(s => ({
+      correct: s.correct + (correct ? 1 : 0),
+      wrong: s.wrong + (correct ? 0 : 1),
+      mastered: s.mastered + (newlyMastered ? 1 : 0),
+    }));
+    setStreak(prev => correct ? prev + 1 : 0);
     setRevealed(false);
-    setExpandSource(false);
+    setSwipeOff(0); setSwipeOut(null);
     if (idx + 1 >= queue.length) setView('done');
     else setIdx(idx + 1);
+  }, [queue, idx, srs, daily, haptic]);
+
+  // 스와이프 → 슬라이드 아웃 → 채점
+  const handleSwipeJudge = (correct) => {
+    setSwipeOut(correct ? 'right' : 'left');
+    // 애니메이션 후 채점. setTimeout으로 effect setState 회피.
+    setTimeout(() => commitJudge(correct), 220);
   };
 
-  // 키보드 단축키: 스페이스(공개), O/X(채점)
+  // ── 스와이프 핸들러 (revealed일 때만)
+  const onTouchStart = (e) => {
+    if (!revealed) return;
+    const t = e.touches[0];
+    swipeState.active = true;
+    swipeState.startX = t.clientX;
+    swipeState.startY = t.clientY;
+  };
+  const onTouchMove = (e) => {
+    if (!revealed || !swipeState.active) return;
+    const t = e.touches[0];
+    const dx = t.clientX - swipeState.startX;
+    const dy = t.clientY - swipeState.startY;
+    if (Math.abs(dy) > Math.abs(dx) * 1.5) return; // 수직 스크롤
+    setSwipeOff(dx);
+  };
+  const onTouchEnd = () => {
+    if (!swipeState.active) return;
+    swipeState.active = false;
+    const off = swipeOff;
+    if (Math.abs(off) > 80) {
+      handleSwipeJudge(off > 0);
+    } else {
+      setSwipeOff(0);
+    }
+  };
+
+  // 키보드
   useEffect(() => {
     if (view !== 'session') return;
     const onKey = (e) => {
       if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); if (!revealed) setRevealed(true); }
-      else if ((e.key === 'o' || e.key === 'O') && revealed) onJudge(true);
-      else if ((e.key === 'x' || e.key === 'X') && revealed) onJudge(false);
+      else if ((e.key === 'o' || e.key === 'O' || e.key === '1') && revealed) handleSwipeJudge(true);
+      else if ((e.key === 'x' || e.key === 'X' || e.key === '2') && revealed) handleSwipeJudge(false);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [view, revealed, idx, queue]); // eslint-disable-line
+  }, [view, revealed, queue, idx]); // eslint-disable-line
 
-  if (loadErr) {
+  // ── 글자 배율 CSS 변수
+  useEffect(() => { document.documentElement.style.setProperty('--mem-fs', fs); }, [fs]);
+
+  // ── 헤더 빌더
+  const memHeader = (title, backHandler) => (
+    <header className="mem-header">
+      {backHandler
+        ? <button className="mem-icon-btn" onClick={backHandler} aria-label="뒤로">‹</button>
+        : <div className="mem-icon-btn" />}
+      <div className="mem-header-title">{title}</div>
+      <button className="mem-icon-btn" onClick={() => setView('options')} aria-label="옵션">⚙</button>
+    </header>
+  );
+
+  // ─── VIEW: subjects (과목 picker) ────────────────────────────
+  if (view === 'subjects') {
     return (
-      <div className="civil-root">
-        <CivilHeader title="민법 통암기" onBack={onBack} />
-        <div style={{ padding: 24, color: 'var(--danger)' }}>
-          데이터 로드 실패: {loadErr}
-        </div>
+      <div className="mem-root">
+        {memHeader('통암기', isTabRoot ? null : onBack)}
+        <main className="mem-main">
+          <div className="mem-hero-min">
+            <div className="mem-hero-eyebrow">감정평가사 1차 · 교재 통째 외우기</div>
+            <h1 className="mem-hero-h1">어떤 과목부터?</h1>
+          </div>
+
+          <div className="mem-subject-grid">
+            {SUBJECTS.map(sub => {
+              const enabled = !sub.comingSoon;
+              return (
+                <button
+                  key={sub.id}
+                  className={`mem-subject-card ${enabled ? '' : 'is-soon'}`}
+                  disabled={!enabled}
+                  onClick={() => { if (enabled) { setSubjectId(sub.id); setView('home'); } }}
+                  style={{
+                    '--c-primary': sub.color.primary,
+                    '--c-light': sub.color.light,
+                    '--c-dark': sub.color.dark,
+                    '--c-accent': sub.color.accent,
+                  }}
+                >
+                  <div className="mem-subject-icon">{sub.icon}</div>
+                  <div className="mem-subject-info">
+                    <div className="mem-subject-title">{sub.title}</div>
+                    <div className="mem-subject-sub">{sub.subtitle}</div>
+                  </div>
+                  {enabled
+                    ? <div className="mem-subject-arrow">→</div>
+                    : <div className="mem-subject-soon">곧 출시</div>}
+                </button>
+              );
+            })}
+          </div>
+
+          {!howtoSeen && (
+            <div className="mem-section">
+              <div className="mem-section-title">통암기란?</div>
+              <ul className="mem-howto">
+                <li><b>스페이스</b>·탭 → 정답 공개</li>
+                <li>좌/우 스와이프, <b>O</b>·<b>X</b> 키, 버튼 → 자가 채점</li>
+                <li>맞히면 <b>1·3·7·16·35·70일</b> 간격으로 재출제 (Leitner 6박스)</li>
+                <li>6번 연속 정답 = <b>마스터</b>, 더 이상 안 나옴</li>
+              </ul>
+              <button className="mem-text-btn"
+                onClick={() => { setHowtoSeen(true); lsSave(HOWTO_KEY, '1'); }}>
+                알겠어요 — 이 안내 숨기기
+              </button>
+            </div>
+          )}
+        </main>
       </div>
     );
   }
-  if (!data || !autoCards) {
+
+  if (loadErr) {
     return (
-      <div className="civil-root">
-        <CivilHeader title="민법 통암기" onBack={onBack} />
+      <div className="mem-root">
+        {memHeader(subject?.title || '통암기', () => setView('subjects'))}
+        <div style={{ padding: 24, color: 'var(--danger)' }}>데이터 로드 실패: {loadErr}</div>
+      </div>
+    );
+  }
+  if (loading || !data || !autoCards) {
+    return (
+      <div className="mem-root">
+        {memHeader(subject?.title || '통암기', () => setView('subjects'))}
         <div style={{ padding: 24, color: 'var(--text-sub)' }}>불러오는 중…</div>
       </div>
     );
   }
 
+  // ─── VIEW: home (책 선택) ─────────────────────────────────────
   if (view === 'home') {
+    const sp = subjectProgress[subjectId] || { total: 0, mastered: 0, due: 0 };
+    const pct = sp.total ? Math.round((sp.mastered / sp.total) * 100) : 0;
     return (
-      <div className="civil-root">
-        <CivilHeader title="통암기" onBack={isTabRoot ? null : onBack} />
-        <main className="civil-main">
-          <div className="civil-hero">
-            <div className="civil-hero-tag">김묘엽 「위패스 마이」 교재 통암기</div>
-            <div className="civil-hero-stats">
-              자동 cloze {autoCards.length.toLocaleString()}장
-              {curated.length > 0 && ` · 큐레이팅 ${curated.length}장`}
-              <span className="civil-divider">·</span>
-              <b>{Object.keys(srs).length}</b>장 학습 시작
+      <div className="mem-root" style={{ '--c-primary': subject.color.primary, '--c-light': subject.color.light, '--c-dark': subject.color.dark, '--c-accent': subject.color.accent }}>
+        {memHeader(subject.title, () => setView('subjects'))}
+        <main className="mem-main">
+          <div className="mem-summary">
+            <div className="mem-summary-row">
+              <span className="mem-summary-icon">{subject.icon}</span>
+              <span className="mem-summary-meta">
+                전체 <b>{sp.total.toLocaleString()}</b>장
+                {sp.mastered > 0 && <> · 마스터 <b style={{ color: '#16a34a' }}>{sp.mastered}</b></>}
+                {sp.due > 0 && <> · <span style={{ color: '#b45309', fontWeight: 700 }}>오늘 복습 {sp.due}</span></>}
+              </span>
             </div>
+            <div className="mem-summary-bar">
+              <div className="mem-summary-bar-fill" style={{ width: `${pct}%` }} />
+            </div>
+            <div className="mem-summary-pct">마스터 {pct}%</div>
           </div>
 
-          <div className="civil-book-grid">
+          <div className="mem-section-title">교재 선택</div>
+          <div className="mem-book-grid">
             {bookProgress.map(b => {
-              const pct = b.total ? Math.round((b.mastered / b.total) * 100) : 0;
+              const bpct = b.total ? Math.round((b.mastered / b.total) * 100) : 0;
               return (
-                <button key={b.id} className="civil-book-card"
-                  onClick={() => { setBookId(b.id); setChapterTitle(null); setView('browse'); }}>
-                  <div className="civil-book-title">{b.title}</div>
-                  <div className="civil-book-meta">
-                    카드 {b.total}장 · 마스터 {b.mastered} · 학습중 {b.learned}
-                    {b.due > 0 && <span className="civil-pill civil-pill-due">오늘 복습 {b.due}</span>}
+                <button key={b.id} className="mem-book-card"
+                  onClick={() => { setBookId(b.id); setChapterTitle(null); setFilterType('all'); setView('browse'); }}>
+                  <div className="mem-book-title">{b.title}</div>
+                  <div className="mem-book-meta">
+                    {b.total}장
+                    <span className="mem-divider">·</span>
+                    {b.learned > 0 && <>학습중 {b.learned}</>}
+                    {b.mastered > 0 && <span className="mem-pill mem-pill-mast">⭐ {b.mastered}</span>}
+                    {b.due > 0 && <span className="mem-pill mem-pill-due">오늘 {b.due}</span>}
                   </div>
-                  <div className="civil-book-bar">
-                    <div className="civil-book-bar-fill" style={{ width: `${pct}%` }} />
-                  </div>
-                  <div className="civil-book-pct">마스터 {pct}%</div>
+                  <BoxDistChart dist={b.boxDist} unseen={b.unseen} primary={subject.color.primary} />
+                  <div className="mem-book-pct">마스터 {bpct}%</div>
                 </button>
               );
             })}
           </div>
-
-          <section className="civil-section">
-            <div className="civil-section-title">통암기란?</div>
-            <ul className="civil-howto">
-              <li><b>스페이스</b> 또는 카드 탭 → 정답 공개</li>
-              <li><b>O</b> = 맞춤 / <b>X</b> = 틀림 (자가 채점)</li>
-              <li>틀리면 내일 다시, 맞히면 1·3·7·16·35·70일 간격으로 재출제 (Leitner)</li>
-              <li>6번 연속 맞히면 <b>마스터</b> 처리, 더 이상 출제 X</li>
-            </ul>
-          </section>
         </main>
       </div>
     );
   }
 
+  // ─── VIEW: browse (단원 선택) ─────────────────────────────────
   if (view === 'browse') {
     const book = bookProgress.find(b => b.id === bookId);
     if (!book) return null;
+    const filterChips = ['all', 'statute', 'definition', 'mnemonic', 'curated'];
     return (
-      <div className="civil-root">
-        <CivilHeader title={book.title} onBack={() => setView('home')} />
-        <main className="civil-main">
-          <div className="civil-quick">
-            <button className="civil-btn-primary"
+      <div className="mem-root" style={{ '--c-primary': subject.color.primary, '--c-light': subject.color.light, '--c-dark': subject.color.dark, '--c-accent': subject.color.accent }}>
+        {memHeader(book.title, () => setView('home'))}
+        <main className="mem-main">
+          <div className="mem-quick">
+            <button className="mem-btn-primary"
               disabled={book.total === 0}
-              onClick={() => { setChapterTitle(null); setFilterType('all'); setTimeout(startSession, 0); }}>
-              📚 전 단원 통째로 {SESSION_SIZE}장
+              onClick={() => { setChapterTitle(null); setTimeout(() => startSession(), 0); }}>
+              <span>📚 전 단원 통째로</span>
+              <span className="mem-btn-sub">{sessionSize}장 셔플</span>
             </button>
             {book.due > 0 && (
-              <button className="civil-btn-secondary"
+              <button className="mem-btn-secondary"
                 onClick={() => {
-                  setChapterTitle(null); setFilterType('all');
-                  // due만 모은 풀
+                  setChapterTitle(null);
                   const now = Date.now();
                   const duePool = allCards.filter(c => c.bookId === book.id).filter(c => {
                     const s = srs[c.id]; return s && s.due != null && s.due <= now && s.box < LADDER.length;
                   });
-                  const q = shuffleArr(duePool).slice(0, SESSION_SIZE);
-                  if (q.length) {
-                    setQueue(q); setIdx(0); setRevealed(false);
-                    setSessionStats({ correct: 0, wrong: 0 }); setView('session');
-                  }
+                  if (duePool.length) startSession(duePool);
                 }}>
-                🔁 오늘 복습 {book.due}장
+                <span>🔁 오늘 복습</span>
+                <span className="mem-btn-sub">{book.due}장 도래</span>
               </button>
             )}
           </div>
 
-          <div className="civil-section-title">단원별</div>
-          <div className="civil-ch-list">
+          <div className="mem-section-title">카드 유형</div>
+          <div className="mem-chips">
+            {filterChips.map(t => (
+              <button key={t}
+                className={`mem-chip ${filterType === t ? 'is-active' : ''}`}
+                onClick={() => setFilterType(t)}>
+                {t === 'all' ? '전체' : (TYPE_META[t]?.label || t)}
+              </button>
+            ))}
+          </div>
+
+          <div className="mem-section-title" style={{ marginTop: 28 }}>단원별</div>
+          <div className="mem-ch-list">
             {book.chapters.map(ch => {
               const pct = ch.total ? Math.round((ch.mastered / ch.total) * 100) : 0;
+              const tone = pct >= 80 ? 'mast' : pct >= 40 ? 'mid' : ch.learned > 0 ? 'low' : 'fresh';
               return (
-                <button key={ch.id} className="civil-ch-row"
+                <button key={ch.id} className={`mem-ch-row tone-${tone}`}
                   disabled={ch.total === 0}
-                  onClick={() => {
-                    setChapterTitle(ch.title); setFilterType('all');
-                    setTimeout(startSession, 0);
-                  }}>
-                  <div className="civil-ch-name">{ch.title}</div>
-                  <div className="civil-ch-meta">
+                  onClick={() => { setChapterTitle(ch.title); setTimeout(() => startSession(), 0); }}>
+                  <div className="mem-ch-name">{ch.title}</div>
+                  <div className="mem-ch-meta">
                     {ch.total}장
-                    {ch.due > 0 && <span className="civil-pill civil-pill-due">{ch.due}</span>}
-                    {ch.mastered > 0 && <span className="civil-pill civil-pill-mast">⭐ {ch.mastered}</span>}
+                    {ch.due > 0 && <span className="mem-pill mem-pill-due">{ch.due}</span>}
+                    {ch.mastered > 0 && <span className="mem-pill mem-pill-mast">⭐ {ch.mastered}</span>}
                   </div>
-                  <div className="civil-ch-bar"><div className="civil-ch-bar-fill" style={{ width: `${pct}%` }} /></div>
+                  <div className="mem-ch-bar"><div className="mem-ch-bar-fill" style={{ width: `${pct}%` }} /></div>
                 </button>
               );
             })}
@@ -355,84 +573,191 @@ export default function CivilMemorize({ onBack, isTabRoot = false }) {
     );
   }
 
+  // ─── VIEW: session (카드 큐) ──────────────────────────────────
   if (view === 'session') {
     const card = queue[idx];
     if (!card) {
       return (
-        <div className="civil-root">
-          <CivilHeader title="통암기" onBack={() => setView('browse')} />
+        <div className="mem-root">
+          {memHeader('통암기', () => setView('browse'))}
           <div style={{ padding: 24 }}>카드가 없습니다.</div>
         </div>
       );
     }
+    const meta = TYPE_META[card.type] || { label: card.type, color: '#6b7280', bg: '#f3f4f6' };
+    const sCur = srs[card.id];
+    const curBox = sCur ? sCur.box : -1;
+    const nextBoxIfO = curBox < 0 ? 0 : Math.min(LADDER.length, curBox + 1);
+    const dueInDays = nextBoxIfO < LADDER.length ? LADDER[nextBoxIfO] : null;
+    const sessionAcc = sessionStats.correct + sessionStats.wrong > 0
+      ? Math.round((sessionStats.correct / (sessionStats.correct + sessionStats.wrong)) * 100) : 0;
+
+    let transform;
+    if (swipeOut === 'right') transform = 'translateX(120%) rotate(8deg)';
+    else if (swipeOut === 'left') transform = 'translateX(-120%) rotate(-8deg)';
+    else transform = `translateX(${swipeOff}px) rotate(${swipeOff / 50}deg)`;
+
     return (
-      <div className="civil-root">
-        <CivilHeader title={`${idx + 1}/${queue.length}`} onBack={() => {
-          if (sessionStats.correct + sessionStats.wrong > 0 && !window.confirm('세션을 종료할까요? 지금까지 진행은 저장됐어요.')) return;
-          setView('browse');
-        }} />
-        <div className="civil-progress-bar">
-          <div className="civil-progress-fill" style={{ width: `${((idx) / queue.length) * 100}%` }} />
-        </div>
-        <main className="civil-main civil-session">
-          <div className="civil-card-meta">
-            <span className="civil-pill">{CARD_TYPE_LABEL[card.type] || card.type}</span>
-            <span className="civil-card-path">{card.chapterTitle}</span>
+      <div className="mem-root" style={{ '--c-primary': subject.color.primary, '--c-light': subject.color.light, '--c-dark': subject.color.dark, '--c-accent': subject.color.accent }}>
+        <header className="mem-header">
+          <button className="mem-icon-btn" onClick={() => {
+            if (sessionStats.correct + sessionStats.wrong > 0 && !window.confirm('세션 종료할까요? 진행은 저장됐어요.')) return;
+            setView('browse');
+          }} aria-label="뒤로">‹</button>
+          <div className="mem-header-title">
+            <span>{idx + 1} / {queue.length}</span>
+            {streak >= 3 && <span className="mem-streak">🔥 {streak}</span>}
           </div>
-          <div className="civil-card" onClick={() => !revealed && setRevealed(true)}>
-            <div className="civil-q">
-              <CardText text={card.q} />
+          <div className="mem-icon-btn" />
+        </header>
+        <div className="mem-progress-bar">
+          <div className="mem-progress-fill" style={{ width: `${((idx) / queue.length) * 100}%` }} />
+        </div>
+
+        <main className="mem-main mem-session">
+          <div className="mem-card-meta">
+            <span className="mem-type-tag" style={{ color: meta.color, background: meta.bg }}>{meta.label}</span>
+            <BoxDots box={curBox} />
+            <span className="mem-card-path">{card.chapterTitle}</span>
+          </div>
+
+          <div
+            ref={cardRef}
+            className={`mem-card ${revealed ? 'is-revealed' : ''}`}
+            style={{ transform, transition: swipeState.active ? 'none' : 'transform 0.2s ease' }}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+            onClick={() => !revealed && setRevealed(true)}
+          >
+            <div className="mem-q"><CardText text={card.q} /></div>
+            <div className={`mem-reveal-zone ${revealed ? '' : 'is-hidden'}`}>
+              <div className="mem-divider-line" />
+              <div className="mem-a"><CardText text={card.a} /></div>
+              {card.note && <div className="mem-note">💡 {card.note}</div>}
             </div>
-            {revealed && (
-              <>
-                <div className="civil-divider-line" />
-                <div className="civil-a">
-                  <CardText text={card.a} />
-                </div>
-                {card.note && <div className="civil-note">💡 {card.note}</div>}
-              </>
+            {!revealed && (
+              <div className="mem-card-hint">
+                <span>탭 또는 <kbd>Space</kbd> → 정답</span>
+              </div>
             )}
-            {!revealed && <div className="civil-hint-tap">탭하거나 스페이스 → 정답</div>}
+
+            {/* 스와이프 인디케이터 (드래그 중) */}
+            {Math.abs(swipeOff) > 30 && (
+              <div className={`mem-swipe-ind ${swipeOff > 0 ? 'right' : 'left'}`}>
+                {swipeOff > 0 ? '✓ 맞춤' : '✗ 틀림'}
+              </div>
+            )}
           </div>
 
           {revealed && (
-            <div className="civil-judge">
-              <button className="civil-btn-x" onClick={() => onJudge(false)}>
-                <span style={{ fontSize: 22 }}>✗</span><span>틀림 (X)</span>
-              </button>
-              <button className="civil-btn-o" onClick={() => onJudge(true)}>
-                <span style={{ fontSize: 22 }}>✓</span><span>맞춤 (O)</span>
-              </button>
-            </div>
+            <>
+              <div className="mem-judge">
+                <button className="mem-judge-x" onClick={() => handleSwipeJudge(false)}>
+                  <span className="mem-judge-emoji">✗</span>
+                  <span className="mem-judge-label">틀림</span>
+                  <span className="mem-judge-hint">내일 다시</span>
+                </button>
+                <button className="mem-judge-o" onClick={() => handleSwipeJudge(true)}>
+                  <span className="mem-judge-emoji">✓</span>
+                  <span className="mem-judge-label">맞춤</span>
+                  <span className="mem-judge-hint">
+                    {dueInDays ? `+${dueInDays}일 후` : '⭐ 마스터'}
+                  </span>
+                </button>
+              </div>
+              <div className="mem-kbd-hint">
+                <kbd>O</kbd>·<kbd>1</kbd> 맞춤 &nbsp;·&nbsp; <kbd>X</kbd>·<kbd>2</kbd> 틀림 &nbsp;·&nbsp; 좌/우 스와이프
+              </div>
+            </>
           )}
 
-          <div className="civil-session-stats">
-            맞춤 {sessionStats.correct} · 틀림 {sessionStats.wrong}
-            {srs[card.id] && (
-              <span> · 박스 {srs[card.id].box >= LADDER.length ? '⭐ 졸업' : `${srs[card.id].box}/${LADDER.length - 1}`}</span>
-            )}
+          <div className="mem-session-stats">
+            세션 {idx + 1}/{queue.length} · 맞춤 {sessionStats.correct} · 틀림 {sessionStats.wrong}
+            {sessionStats.correct + sessionStats.wrong > 0 && <> · {sessionAcc}%</>}
           </div>
         </main>
       </div>
     );
   }
 
+  // ─── VIEW: done (세션 완료 미니 리포트) ────────────────────────
   if (view === 'done') {
-    const acc = sessionStats.correct + sessionStats.wrong > 0
-      ? Math.round((sessionStats.correct / (sessionStats.correct + sessionStats.wrong)) * 100) : 0;
+    const total = sessionStats.correct + sessionStats.wrong;
+    const acc = total > 0 ? Math.round((sessionStats.correct / total) * 100) : 0;
+    const tier = acc >= 90 ? { emoji: '🏆', t: '완벽!' } : acc >= 70 ? { emoji: '🎯', t: '잘했어요' } : acc >= 50 ? { emoji: '💪', t: '계속 가요' } : { emoji: '🌱', t: '한 번 더!' };
     return (
-      <div className="civil-root">
-        <CivilHeader title="세션 완료" onBack={() => setView('browse')} />
-        <main className="civil-main civil-done">
-          <div className="civil-done-emoji">🎯</div>
-          <div className="civil-done-title">{queue.length}장 끝!</div>
-          <div className="civil-done-stats">
-            맞춤 <b>{sessionStats.correct}</b> · 틀림 <b style={{ color: 'var(--danger)' }}>{sessionStats.wrong}</b>
-            <div style={{ marginTop: 4, fontSize: '0.9rem', color: 'var(--text-sub)' }}>정답률 {acc}%</div>
+      <div className="mem-root" style={{ '--c-primary': subject.color.primary, '--c-light': subject.color.light, '--c-dark': subject.color.dark, '--c-accent': subject.color.accent }}>
+        {memHeader('세션 완료', () => setView('browse'))}
+        <main className="mem-main mem-done">
+          <div className="mem-done-emoji">{tier.emoji}</div>
+          <div className="mem-done-title">{tier.t}</div>
+          <div className="mem-done-sub">{queue.length}장 끝!</div>
+
+          <div className="mem-report">
+            <div className="mem-report-row">
+              <div className="mem-report-cell"><span>맞춤</span><b style={{ color: '#16a34a' }}>{sessionStats.correct}</b></div>
+              <div className="mem-report-cell"><span>틀림</span><b style={{ color: '#dc2626' }}>{sessionStats.wrong}</b></div>
+              <div className="mem-report-cell"><span>정답률</span><b>{acc}%</b></div>
+            </div>
+            {sessionStats.mastered > 0 && (
+              <div className="mem-report-mast">⭐ <b>{sessionStats.mastered}</b>장 마스터 도달!</div>
+            )}
           </div>
-          <div className="civil-quick" style={{ marginTop: 24 }}>
-            <button className="civil-btn-primary" onClick={startSession}>한 세션 더 ({SESSION_SIZE}장)</button>
-            <button className="civil-btn-secondary" onClick={() => setView('browse')}>단원 선택</button>
+
+          <div className="mem-quick">
+            <button className="mem-btn-primary" onClick={() => startSession()}>한 세션 더</button>
+            <button className="mem-btn-secondary" onClick={() => setView('browse')}>단원 선택</button>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  // ─── VIEW: options ───────────────────────────────────────────
+  if (view === 'options') {
+    return (
+      <div className="mem-root" style={subject ? { '--c-primary': subject.color.primary, '--c-light': subject.color.light, '--c-dark': subject.color.dark, '--c-accent': subject.color.accent } : undefined}>
+        {memHeader('통암기 옵션', () => setView(subjectId ? 'home' : 'subjects'))}
+        <main className="mem-main">
+          <div className="mem-opt-section">
+            <div className="mem-opt-label">한 세션 카드 수</div>
+            <div className="mem-opt-row">
+              {[10, 20, 30, 50].map(n => (
+                <button key={n}
+                  className={`mem-chip ${sessionSize === n ? 'is-active' : ''}`}
+                  onClick={() => { setSessionSize(n); lsSave(SIZE_KEY, n); }}>
+                  {n}장
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="mem-opt-section">
+            <div className="mem-opt-label">글자 크기</div>
+            <div className="mem-opt-row">
+              {[[0.9, '작게'], [1, '보통'], [1.15, '크게'], [1.3, '매우 크게']].map(([v, l]) => (
+                <button key={v}
+                  className={`mem-chip ${fs === v ? 'is-active' : ''}`}
+                  onClick={() => { setFs(v); lsSave(FS_KEY, v); }}>
+                  {l}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="mem-opt-section">
+            <div className="mem-opt-label">햅틱 (모바일 진동)</div>
+            <div className="mem-opt-row">
+              <button className={`mem-chip ${haptic ? 'is-active' : ''}`}
+                onClick={() => { setHaptic(true); lsSave(HAPTIC_KEY, '1'); }}>켜기</button>
+              <button className={`mem-chip ${!haptic ? 'is-active' : ''}`}
+                onClick={() => { setHaptic(false); lsSave(HAPTIC_KEY, '0'); }}>끄기</button>
+            </div>
+          </div>
+          <div className="mem-opt-section">
+            <div className="mem-opt-label">가이드</div>
+            <button className="mem-chip" onClick={() => { setHowtoSeen(false); lsSave(HOWTO_KEY, ''); }}>
+              사용법 다시 보기
+            </button>
           </div>
         </main>
       </div>
@@ -442,36 +767,53 @@ export default function CivilMemorize({ onBack, isTabRoot = false }) {
   return null;
 }
 
-// ─── 작은 부품들 ─────────────────────────────────────────────
+// ─── 작은 부품 ───────────────────────────────────────────────
 
-function CivilHeader({ title, onBack }) {
+// 박스 분포 가로 막대 (책 카드용)
+function BoxDistChart({ dist, unseen, primary }) {
+  // dist[0..6], 6 = mastered
+  const total = unseen + dist.reduce((a, b) => a + b, 0);
+  if (total === 0) return null;
+  const seg = (n, color) => n > 0 && (
+    <div className="mem-bdc-seg" style={{ width: `${(n / total) * 100}%`, background: color }} />
+  );
+  // 색: unseen=회색, box 0~5=primary alpha 그라데, mastered=초록
+  const stops = ['rgba(0,0,0,0.10)', '#dbeafe', '#bfdbfe', '#93c5fd', '#60a5fa', '#3b82f6'];
   return (
-    <header className="civil-header">
-      {onBack
-        ? <button className="civil-back" onClick={onBack} aria-label="뒤로">‹</button>
-        : <div style={{ width: 40 }} />}
-      <div className="civil-header-title">{title}</div>
-      <div style={{ width: 40 }} />
-    </header>
+    <div className="mem-bdc" title={`미학습 ${unseen} / 박스별 ${dist.slice(0, 6).join('·')} / 마스터 ${dist[6]}`}>
+      {seg(unseen, '#e5e7eb')}
+      {dist.slice(0, 6).map((n, i) => (
+        <div key={i} className="mem-bdc-seg"
+          style={{ width: `${(n / total) * 100}%`, background: stops[i] || primary }} />
+      ))}
+      {seg(dist[6] || 0, '#16a34a')}
+    </div>
   );
 }
 
-// 줄바꿈/마크다운 light 렌더 (`**bold**`, 빈칸 `___`)
+// 카드 상단 박스 도트 (현재 박스 진행 시각화)
+function BoxDots({ box }) {
+  const dots = [];
+  for (let i = 0; i < 6; i++) {
+    dots.push(<span key={i} className={`mem-dot ${i <= box ? 'on' : ''}`} />);
+  }
+  if (box >= 6) {
+    return <span className="mem-box-graduated">⭐ 졸업</span>;
+  }
+  return <span className="mem-dots">{dots}</span>;
+}
+
+// 본문 라이트 마크다운 (**bold**, ___, 줄바꿈)
 function CardText({ text }) {
   if (!text) return null;
   const parts = text.split(/(\n)/);
   return (
     <>
-      {parts.map((p, i) => {
-        if (p === '\n') return <br key={i} />;
-        return <span key={i}>{renderInline(p)}</span>;
-      })}
+      {parts.map((p, i) => p === '\n' ? <br key={i} /> : <span key={i}>{renderInline(p)}</span>)}
     </>
   );
 }
-
 function renderInline(s) {
-  // 토큰화: **bold**, ___ (blank), 일반
   const out = [];
   let cur = '';
   let i = 0;
@@ -488,7 +830,7 @@ function renderInline(s) {
     }
     if (s.startsWith('___', i)) {
       push();
-      out.push(<span key={out.length} className="civil-blank">＿＿＿</span>);
+      out.push(<span key={out.length} className="mem-blank">_ _ _ _ _</span>);
       i += 3;
       continue;
     }
