@@ -373,11 +373,12 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
   const currentPool = useMemo(() => {
     if (!bookId) return [];
     let p = allCards.filter(c => c.bookId === bookId);
-    if (chapterTitle) p = p.filter(c => c.chapterTitle.includes(chapterTitle));
+    // 인터리빙 ON이면 단원 잠금 해제 — 책 전체에서 셔플
+    if (chapterTitle && !interleave) p = p.filter(c => c.chapterTitle.includes(chapterTitle));
     if (filterType === 'bookmark') p = p.filter(c => bookmarks[c.id]);
     else if (filterType !== 'all') p = p.filter(c => c.type === filterType);
     return p;
-  }, [allCards, bookId, chapterTitle, filterType, bookmarks]);
+  }, [allCards, bookId, chapterTitle, filterType, bookmarks, interleave]);
 
   // ── 세션 시작
   const startSession = useCallback((overridePool = null) => {
