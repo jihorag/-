@@ -972,22 +972,73 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
 
           {revealed && (
             <>
-              <div className="mem-judge">
-                <button className="mem-judge-x" onClick={() => handleSwipeJudge(false)}>
-                  <span className="mem-judge-emoji">✗</span>
-                  <span className="mem-judge-label">틀림</span>
-                  <span className="mem-judge-hint">내일 다시</span>
-                </button>
-                <button className="mem-judge-o" onClick={() => handleSwipeJudge(true)}>
-                  <span className="mem-judge-emoji">✓</span>
-                  <span className="mem-judge-label">맞춤</span>
-                  <span className="mem-judge-hint">
-                    {dueInDays ? `+${dueInDays}일 후` : '⭐ 마스터'}
-                  </span>
-                </button>
+              {respMode === 'simple' ? (
+                <div className="mem-judge">
+                  <button className="mem-judge-x" onClick={() => handleSwipeJudge(false)}>
+                    <span className="mem-judge-emoji">✗</span>
+                    <span className="mem-judge-label">틀림</span>
+                    <span className="mem-judge-hint">내일 다시</span>
+                  </button>
+                  <button className="mem-judge-o" onClick={() => handleSwipeJudge(true)}>
+                    <span className="mem-judge-emoji">✓</span>
+                    <span className="mem-judge-label">맞춤</span>
+                    <span className="mem-judge-hint">
+                      {dueInDays ? `+${dueInDays}일 후` : '⭐ 마스터'}
+                    </span>
+                  </button>
+                </div>
+              ) : (
+                <div className="mem-grade">
+                  {GRADE_LABELS.map((label, g) => {
+                    const d = previewDays(sCur, g);
+                    return (
+                      <button key={g}
+                        className={`mem-grade-btn grade-${g}`}
+                        style={{ '--g-color': GRADE_COLORS[g] }}
+                        onClick={() => commitGrade(g)}>
+                        <span className="mem-grade-label">{label}</span>
+                        <span className="mem-grade-hint">
+                          {d == null ? '⭐' : `+${d}일`}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* 자기 설명 노트 */}
+              <div className="mem-note-area">
+                {!showNote ? (
+                  <button className="mem-note-toggle" onClick={() => setShowNote(true)}>
+                    📝 자기 설명 메모 {notes[card.id] ? '(저장됨 — 수정)' : '추가'}
+                  </button>
+                ) : (
+                  <>
+                    <textarea
+                      className="mem-note-input"
+                      value={noteDraft}
+                      onChange={(e) => setNoteDraft(e.target.value)}
+                      placeholder="왜 그런지 한 줄로 적어보세요 — 다음 카드에서 자동 저장"
+                      rows={2}
+                      autoFocus
+                    />
+                    <div className="mem-note-actions">
+                      <button className="mem-text-btn" onClick={() => { setShowNote(false); }}>접기</button>
+                      {notes[card.id] && (
+                        <button className="mem-text-btn"
+                          onClick={() => { const n = { ...notes }; delete n[card.id]; setNotes(n); lsSave(NOTES_KEY, n); setNoteDraft(''); }}>
+                          삭제
+                        </button>
+                      )}
+                    </div>
+                  </>
+                )}
               </div>
+
               <div className="mem-kbd-hint">
-                <kbd>O</kbd>·<kbd>1</kbd> 맞춤 &nbsp;·&nbsp; <kbd>X</kbd>·<kbd>2</kbd> 틀림 &nbsp;·&nbsp; 좌/우 스와이프
+                {respMode === 'simple'
+                  ? <><kbd>O</kbd> 맞춤 · <kbd>X</kbd> 틀림 · 좌/우 스와이프</>
+                  : <><kbd>1</kbd> 다시 · <kbd>2</kbd> 어려움 · <kbd>3</kbd> 좋음 · <kbd>4</kbd> 쉬움</>}
               </div>
             </>
           )}
