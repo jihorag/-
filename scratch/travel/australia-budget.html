@@ -647,16 +647,27 @@ function buildExpenseSheet(city){
 }
 
 /* ===================== IN-PLACE UPDATE ===================== */
-function updateRow(city, ri){
-  const r = state.tables[city][ri];
-  if (!r || r[0]==="__SEC__") return;
+function escapeAttr(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
+function roundN(n, d){ const p=Math.pow(10, d||0); return Math.round((+n||0)*p)/p; }
+
+function refreshRow(city, ri, skipField){
+  const row = state.tables[city][ri];
+  if (!row || row[0]==="__SEC__") return;
   const isPre = city === "pre";
-  const sub = (+r[2]||0) * (+r[3]||0);
+  const unit = +row[2]||0, qty = +row[3]||0;
+  const sub = unit * qty;
   const subOther = isPre ? sub/state.fx : sub*state.fx;
   const tr = document.querySelector(`#tbl-${city} tr[data-ri="${ri}"]`);
   if (!tr) return;
-  tr.querySelector(".calc-sub").textContent   = isPre ? fmtKRW(sub) : fmtAUD(sub);
-  tr.querySelector(".calc-other").textContent = isPre ? fmtAUD(subOther) : fmtKRW(subOther);
+  const setVal = (field, val) => {
+    if (field === skipField) return;
+    const inp = tr.querySelector(`input[data-f="${field}"]`);
+    if (inp && document.activeElement !== inp) inp.value = val;
+  };
+  setVal("unit",     roundN(unit,     isPre?0:2));
+  setVal("qty",      roundN(qty,      0));
+  setVal("subPri",   roundN(sub,      isPre?0:2));
+  setVal("subOther", roundN(subOther, isPre?2:0));
 }
 function updateFooter(city){
   const t = tableTotal(city);
