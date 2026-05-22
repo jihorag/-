@@ -1092,6 +1092,42 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
         {memHeader('통암기 옵션', () => setView(subjectId ? 'home' : 'subjects'))}
         <main className="mem-main">
           <div className="mem-opt-section">
+            <div className="mem-opt-label">응답 모드 <span className="mem-opt-hint">— 학습 깊이 조절</span></div>
+            <div className="mem-opt-row">
+              {[
+                ['simple', '간단 (O/X)', '가장 빠름 · 기본'],
+                ['sm2', '4등급', '카드별 간격 자동 조정 (SM-2)'],
+                ['type', '직접 적기', '능동 회상 — 효과 강력'],
+                ['choice', '4지선다', '시험 시뮬레이션'],
+              ].map(([v, l, d]) => (
+                <button key={v}
+                  className={`mem-chip mem-mode-chip ${respMode === v ? 'is-active' : ''}`}
+                  onClick={() => { setRespMode(v); lsSave(MODE_KEY, v); }}
+                  title={d}>
+                  {l}
+                </button>
+              ))}
+            </div>
+            <div className="mem-opt-desc">
+              {respMode === 'simple' && '맞췄으면 O, 틀렸으면 X. 가장 빠른 흐름.'}
+              {respMode === 'sm2' && '다시/어려움/좋음/쉬움 4단계로 카드별 망각 곡선을 정밀하게 학습.'}
+              {respMode === 'type' && '답을 직접 입력 → 정답 확인 → 자가 채점. 능동 회상이 강력합니다.'}
+              {respMode === 'choice' && '같은 절 다른 카드 답에서 오답 3개를 자동 추출 → 시험장 변별력 훈련.'}
+            </div>
+          </div>
+          <div className="mem-opt-section">
+            <div className="mem-opt-label">인터리빙</div>
+            <div className="mem-opt-row">
+              <button className={`mem-chip ${!interleave ? 'is-active' : ''}`}
+                onClick={() => { setInterleave(false); lsSave(INTERLEAVE_KEY, '0'); }}>단원 잠금</button>
+              <button className={`mem-chip ${interleave ? 'is-active' : ''}`}
+                onClick={() => { setInterleave(true); lsSave(INTERLEAVE_KEY, '1'); }}>전체 셔플</button>
+            </div>
+            <div className="mem-opt-desc">
+              전체 셔플은 한 단원 안에서만 풀지 않고 책 전체 카드를 섞어 출제 — 변별력 강화 (Bjork 인터리빙 효과).
+            </div>
+          </div>
+          <div className="mem-opt-section">
             <div className="mem-opt-label">한 세션 카드 수</div>
             <div className="mem-opt-row">
               {[10, 20, 30, 50].map(n => (
