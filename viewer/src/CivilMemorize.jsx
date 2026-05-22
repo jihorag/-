@@ -623,7 +623,7 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
   if (view === 'browse') {
     const book = bookProgress.find(b => b.id === bookId);
     if (!book) return null;
-    const filterChips = ['all', 'statute', 'definition', 'mnemonic', 'curated'];
+    const filterChips = ['all', 'bookmark', 'statute', 'definition', 'mnemonic', 'curated'];
     return (
       <div className="mem-root" style={{ '--c-primary': subject.color.primary, '--c-light': subject.color.light, '--c-dark': subject.color.dark, '--c-accent': subject.color.accent }}>
         {memHeader(book.title, () => setView('home'))}
