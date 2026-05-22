@@ -1244,3 +1244,195 @@ body {
 }
 .mem-opt-label { font-weight: 800; font-size: 0.95rem; color: #334155; margin-bottom: 12px; }
 .mem-opt-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ── 스트릭 카드 + sparkline ───────────────────────────── */
+.mem-streak-card {
+  display: flex; align-items: center; gap: 16px;
+  background: #fff; border-radius: 18px; padding: 18px 20px;
+  border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+  margin-bottom: 16px;
+}
+.mem-streak-icon {
+  font-size: 2.2rem; line-height: 1;
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.15));
+}
+.mem-streak-body { flex: 0 0 auto; }
+.mem-streak-num {
+  font-size: 1.8rem; font-weight: 800; color: #0f172a; line-height: 1;
+}
+.mem-streak-num span {
+  font-size: 0.9rem; font-weight: 600; color: #64748b; margin-left: 4px;
+}
+.mem-streak-label {
+  font-size: 0.78rem; color: #64748b; margin-top: 4px;
+}
+.mem-spark {
+  flex: 1; min-width: 0;
+  display: flex; align-items: flex-end; gap: 2px;
+  height: 38px; padding-left: 8px;
+}
+.mem-spark-bar {
+  flex: 1; min-width: 2px;
+  border-radius: 2px; background: var(--c-primary);
+  transition: background 0.2s;
+}
+.mem-spark-bar.is-zero { background: #e2e8f0; }
+.mem-spark-bar.is-today { background: var(--c-dark); box-shadow: 0 0 0 1px var(--c-dark); }
+
+/* ── 북마크 빠른 진입 ───────────────────────────────────── */
+.mem-bookmark-row {
+  display: flex; align-items: center; gap: 12px;
+  background: #fef3c7; border: 1px solid #fde68a; border-radius: 14px;
+  padding: 14px 18px; margin-bottom: 24px;
+  cursor: pointer; text-align: left; width: 100%;
+  transition: transform 0.1s ease;
+}
+.mem-bookmark-row:hover { transform: translateY(-1px); }
+.mem-bookmark-ico { font-size: 1.4rem; }
+.mem-bookmark-text { flex: 1; color: #92400e; font-weight: 700; font-size: 0.95rem; }
+.mem-bookmark-text b { color: #78350f; font-size: 1.05rem; }
+.mem-bookmark-arrow { color: #b45309; font-weight: 800; }
+
+/* ── 카드 우상단 액션 (북마크/본문) ──────────────────── */
+.mem-card-actions {
+  margin-left: auto;
+  display: flex; gap: 4px;
+}
+.mem-card-action {
+  width: 32px; height: 32px; border-radius: 8px; border: none;
+  background: transparent; color: #94a3b8; cursor: pointer;
+  font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.mem-card-action:hover { background: #f1f5f9; color: #475569; }
+.mem-card-action.is-active { color: #ea580c; background: #fff7ed; }
+
+/* ── 출처 본문 패널 ────────────────────────────────────── */
+.mem-source {
+  margin-top: 14px;
+  background: #fefce8; border: 1px solid #fde68a; border-radius: 16px;
+  overflow: hidden;
+}
+.mem-source-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 14px 12px 18px;
+  background: #fef3c7; color: #78350f; font-weight: 800; font-size: 0.9rem;
+  border-bottom: 1px solid #fde68a;
+}
+.mem-source-body {
+  padding: 14px 18px; max-height: 320px; overflow-y: auto;
+}
+.mem-source-p {
+  font-size: calc(0.88rem * var(--mem-fs, 1));
+  line-height: 1.75; color: #422006;
+  margin-bottom: 10px; white-space: pre-wrap;
+}
+.mem-source-p.is-quote {
+  padding: 10px 14px; background: #fff; border-left: 3px solid #d97706;
+  border-radius: 0 8px 8px 0; font-style: italic;
+}
+.mem-source-empty {
+  padding: 18px; color: #92400e; font-size: 0.85rem; text-align: center;
+}
+.mem-source-hint {
+  padding: 8px 14px 12px; font-size: 0.72rem; color: #b45309; text-align: center;
+}
+
+/* ── 다크 모드 (data-mem-theme="dark") ─────────────────── */
+[data-mem-theme="dark"] .mem-root { background: #0f172a; }
+[data-mem-theme="dark"] .mem-header,
+[data-mem-theme="dark"] .mem-summary,
+[data-mem-theme="dark"] .mem-book-card,
+[data-mem-theme="dark"] .mem-ch-row,
+[data-mem-theme="dark"] .mem-card,
+[data-mem-theme="dark"] .mem-streak-card,
+[data-mem-theme="dark"] .mem-opt-section,
+[data-mem-theme="dark"] .mem-report,
+[data-mem-theme="dark"] .mem-howto {
+  background: #1e293b; border-color: #334155;
+  box-shadow: 0 4px 20px -6px rgb(0 0 0 / 0.4), 0 1px 3px rgb(0 0 0 / 0.2);
+}
+[data-mem-theme="dark"] .mem-header { box-shadow: none; }
+[data-mem-theme="dark"] .mem-header-title,
+[data-mem-theme="dark"] .mem-hero-h1,
+[data-mem-theme="dark"] .mem-subject-title,
+[data-mem-theme="dark"] .mem-book-title,
+[data-mem-theme="dark"] .mem-ch-name,
+[data-mem-theme="dark"] .mem-summary-meta b,
+[data-mem-theme="dark"] .mem-streak-num,
+[data-mem-theme="dark"] .mem-done-title,
+[data-mem-theme="dark"] .mem-q,
+[data-mem-theme="dark"] .mem-report-cell b,
+[data-mem-theme="dark"] .mem-opt-label { color: #f1f5f9; }
+[data-mem-theme="dark"] .mem-hero-eyebrow,
+[data-mem-theme="dark"] .mem-subject-sub,
+[data-mem-theme="dark"] .mem-summary-meta,
+[data-mem-theme="dark"] .mem-book-meta,
+[data-mem-theme="dark"] .mem-ch-meta,
+[data-mem-theme="dark"] .mem-section-title,
+[data-mem-theme="dark"] .mem-card-path,
+[data-mem-theme="dark"] .mem-card-hint,
+[data-mem-theme="dark"] .mem-kbd-hint,
+[data-mem-theme="dark"] .mem-session-stats,
+[data-mem-theme="dark"] .mem-done-sub,
+[data-mem-theme="dark"] .mem-streak-label,
+[data-mem-theme="dark"] .mem-report-cell span,
+[data-mem-theme="dark"] .mem-howto,
+[data-mem-theme="dark"] .mem-icon-btn { color: #94a3b8; }
+[data-mem-theme="dark"] .mem-icon-btn:hover { background: #334155; }
+[data-mem-theme="dark"] .mem-divider { color: #475569; }
+[data-mem-theme="dark"] .mem-subject-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+[data-mem-theme="dark"] .mem-subject-card.is-soon { background: #1e293b; }
+[data-mem-theme="dark"] .mem-a { color: #6ee7b7; }
+[data-mem-theme="dark"] .mem-a b { color: #a7f3d0; }
+[data-mem-theme="dark"] .mem-q b { color: #93c5fd; }
+[data-mem-theme="dark"] .mem-divider-line { background: linear-gradient(90deg, transparent, #475569, transparent); }
+[data-mem-theme="dark"] .mem-summary-bar,
+[data-mem-theme="dark"] .mem-progress-bar,
+[data-mem-theme="dark"] .mem-ch-bar,
+[data-mem-theme="dark"] .mem-bdc { background: #334155; }
+[data-mem-theme="dark"] .mem-spark-bar.is-zero { background: #334155; }
+[data-mem-theme="dark"] .mem-chip {
+  background: #1e293b; border-color: #334155; color: #cbd5e1;
+}
+[data-mem-theme="dark"] .mem-chip:hover { border-color: var(--c-primary); }
+[data-mem-theme="dark"] .mem-chip.is-active { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+[data-mem-theme="dark"] .mem-judge-x {
+  background: #1e293b; color: #f87171; border-color: #7f1d1d;
+}
+[data-mem-theme="dark"] .mem-judge-x:hover { background: #2d1b1b; }
+[data-mem-theme="dark"] .mem-note {
+  background: #422006; color: #fde68a;
+}
+[data-mem-theme="dark"] .mem-source,
+[data-mem-theme="dark"] .mem-bookmark-row {
+  background: #1c1917; border-color: #44403c;
+}
+[data-mem-theme="dark"] .mem-source-head { background: #292524; color: #fde68a; border-color: #44403c; }
+[data-mem-theme="dark"] .mem-source-p { color: #fef3c7; }
+[data-mem-theme="dark"] .mem-source-p.is-quote { background: #1e293b; }
+[data-mem-theme="dark"] .mem-bookmark-text { color: #fde68a; }
+[data-mem-theme="dark"] .mem-bookmark-text b { color: #fef3c7; }
+[data-mem-theme="dark"] .mem-card-action:hover { background: #334155; color: #cbd5e1; }
+[data-mem-theme="dark"] .mem-card-action.is-active { background: #422006; color: #fbbf24; }
+[data-mem-theme="dark"] .mem-blank {
+  background: rgb(255 255 255 / 0.06);
+  border-bottom-color: var(--c-accent);
+  color: var(--c-accent);
+}
+[data-mem-theme="dark"] .mem-report-mast { background: #422006; color: #fde68a; }
+[data-mem-theme="dark"] .mem-report-mast b { color: #fef3c7; }
+[data-mem-theme="dark"] .mem-streak {
+  background: #422006; color: #fbbf24;
+}
+[data-mem-theme="dark"] .mem-pill-due { background: #422006; color: #fbbf24; }
+[data-mem-theme="dark"] .mem-pill-mast { background: #14532d; color: #86efac; }
+[data-mem-theme="dark"] .mem-type-tag { opacity: 0.95; }
+[data-mem-theme="dark"] .mem-card-hint kbd,
+[data-mem-theme="dark"] .mem-kbd-hint kbd {
+  background: #334155; border-color: #475569; color: #cbd5e1;
+}
+[data-mem-theme="dark"] .mem-ch-row.tone-mast { background: #052e1a; border-color: #14532d; }
+[data-mem-theme="dark"] .mem-ch-row.tone-mid  { background: #1e293b; border-color: var(--c-primary); }
+[data-mem-theme="dark"] .mem-ch-row.tone-low,
+[data-mem-theme="dark"] .mem-ch-row.tone-fresh { background: #1e293b; border-color: #334155; }
