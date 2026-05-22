@@ -12,6 +12,9 @@
 //   mem-daily        : { [YYYY-MM-DD]: { correct, wrong, mastered } }
 //   mem-bookmarks    : { [cardId]: true } — 어려운 카드 모음
 //   mem-theme        : 'auto'|'light'|'dark'
+//   mem-mode         : 'simple'|'sm2'|'type'|'choice' (응답 모드, 기본 simple)
+//   mem-interleave   : '1'|'0' (단원 잠금 해제, 책 전체 셔플)
+//   mem-notes        : { [cardId]: text } — 자기 설명 노트
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 
@@ -49,6 +52,16 @@ const HAPTIC_KEY = 'mem-haptic';
 const DAILY_KEY = 'mem-daily';
 const BOOKMARK_KEY = 'mem-bookmarks';
 const THEME_KEY = 'mem-theme';
+const MODE_KEY = 'mem-mode';
+const INTERLEAVE_KEY = 'mem-interleave';
+const NOTES_KEY = 'mem-notes';
+
+const EASE_DEFAULT = 2.5;
+const EASE_MIN = 1.3;
+const EASE_MAX = 2.7;
+// 4버튼 등급: 0=다시, 1=어려움, 2=좋음, 3=쉬움
+const GRADE_LABELS = ['다시', '어려움', '좋음', '쉬움'];
+const GRADE_COLORS = ['#dc2626', '#ea580c', '#16a34a', '#0891b2'];
 const LADDER = [1, 3, 7, 16, 35, 70]; // 일
 const DAY_MS = 86400000;
 const SPARKLINE_DAYS = 30;
