@@ -312,9 +312,10 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     if (!bookId) return [];
     let p = allCards.filter(c => c.bookId === bookId);
     if (chapterTitle) p = p.filter(c => c.chapterTitle.includes(chapterTitle));
-    if (filterType !== 'all') p = p.filter(c => c.type === filterType);
+    if (filterType === 'bookmark') p = p.filter(c => bookmarks[c.id]);
+    else if (filterType !== 'all') p = p.filter(c => c.type === filterType);
     return p;
-  }, [allCards, bookId, chapterTitle, filterType]);
+  }, [allCards, bookId, chapterTitle, filterType, bookmarks]);
 
   // ── 세션 시작
   const startSession = useCallback((overridePool = null) => {
@@ -653,13 +654,20 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
 
           <div className="mem-section-title">카드 유형</div>
           <div className="mem-chips">
-            {filterChips.map(t => (
-              <button key={t}
-                className={`mem-chip ${filterType === t ? 'is-active' : ''}`}
-                onClick={() => setFilterType(t)}>
-                {t === 'all' ? '전체' : (TYPE_META[t]?.label || t)}
-              </button>
-            ))}
+            {filterChips.map(t => {
+              const label = t === 'all' ? '전체'
+                : t === 'bookmark' ? `⭐ 북마크${bookmarkCount > 0 ? ` ${bookmarkCount}` : ''}`
+                : (TYPE_META[t]?.label || t);
+              const disabled = t === 'bookmark' && bookmarkCount === 0;
+              return (
+                <button key={t}
+                  className={`mem-chip ${filterType === t ? 'is-active' : ''}`}
+                  disabled={disabled}
+                  onClick={() => setFilterType(t)}>
+                  {label}
+                </button>
+              );
+            })}
           </div>
 
           <div className="mem-section-title" style={{ marginTop: 28 }}>단원별</div>
