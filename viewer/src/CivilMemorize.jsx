@@ -192,6 +192,12 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     return [0.9, 1, 1.15, 1.3].includes(n) ? n : 1;
   });
   const [haptic, setHaptic] = useState(() => lsLoad(HAPTIC_KEY, '1') === '1');
+  const [bookmarks, setBookmarks] = useState(() => lsLoad(BOOKMARK_KEY, {}));
+  const [theme, setTheme] = useState(() => {
+    const t = lsLoad(THEME_KEY, 'auto');
+    return ['auto', 'light', 'dark'].includes(t) ? t : 'auto';
+  });
+  const [expandSource, setExpandSource] = useState(false);
 
   // book / chapter / filter
   const [bookId, setBookId] = useState(null);
