@@ -486,17 +486,32 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     }
   };
 
-  // 키보드
+  // 키보드 — 모드별 다른 단축키
   useEffect(() => {
     if (view !== 'session') return;
     const onKey = (e) => {
-      if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); if (!revealed) setRevealed(true); }
-      else if ((e.key === 'o' || e.key === 'O' || e.key === '1') && revealed) handleSwipeJudge(true);
-      else if ((e.key === 'x' || e.key === 'X' || e.key === '2') && revealed) handleSwipeJudge(false);
+      // 타이핑 모드에서 input 안에 있으면 인터셉트하지 않음 (Enter 제외)
+      const tgt = e.target;
+      const inInput = tgt && (tgt.tagName === 'INPUT' || tgt.tagName === 'TEXTAREA');
+      if (inInput && e.key !== 'Escape') return;
+
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        if (!revealed) setRevealed(true);
+      } else if (revealed) {
+        if (respMode === 'simple') {
+          if (e.key === 'o' || e.key === 'O') handleSwipeJudge(true);
+          else if (e.key === 'x' || e.key === 'X') handleSwipeJudge(false);
+        } else {
+          // sm2/type/choice → 1~4
+          const map = { '1': 0, '2': 1, '3': 2, '4': 3 };
+          if (map[e.key] != null) commitGrade(map[e.key]);
+        }
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [view, revealed, queue, idx]); // eslint-disable-line
+  }, [view, revealed, queue, idx, respMode]); // eslint-disable-line
 
   // ── 글자 배율 CSS 변수
   useEffect(() => { document.documentElement.style.setProperty('--mem-fs', fs); }, [fs]);
