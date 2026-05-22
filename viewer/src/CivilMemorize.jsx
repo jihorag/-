@@ -568,6 +568,30 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
             <div className="mem-summary-pct">마스터 {pct}%</div>
           </div>
 
+          {/* 스트릭 + sparkline */}
+          <div className="mem-streak-card">
+            <div className="mem-streak-icon">{streak > 0 ? '🔥' : '🌱'}</div>
+            <div className="mem-streak-body">
+              <div className="mem-streak-num">{streak}<span>일</span></div>
+              <div className="mem-streak-label">{streak > 0 ? '연속 학습 중' : '오늘 시작!'}</div>
+            </div>
+            <Sparkline data={sparkData} />
+          </div>
+
+          {/* 북마크 빠른 진입 */}
+          {bookmarkCount > 0 && (
+            <button className="mem-bookmark-row"
+              onClick={() => {
+                const ids = Object.keys(bookmarks);
+                const pool = allCards.filter(c => ids.includes(c.id));
+                if (pool.length) startSession(pool);
+              }}>
+              <span className="mem-bookmark-ico">⭐</span>
+              <span className="mem-bookmark-text">북마크 <b>{bookmarkCount}</b>장 풀기</span>
+              <span className="mem-bookmark-arrow">→</span>
+            </button>
+          )}
+
           <div className="mem-section-title">교재 선택</div>
           <div className="mem-book-grid">
             {bookProgress.map(b => {
