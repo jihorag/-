@@ -980,6 +980,68 @@ function CardText({ text }) {
     </>
   );
 }
+// 30일 학습량 sparkline
+function Sparkline({ data }) {
+  if (!data || !data.length) return null;
+  const max = Math.max(1, ...data.map(d => d.total));
+  return (
+    <div className="mem-spark" title="지난 30일 학습량">
+      {data.map((d, i) => {
+        const h = d.total === 0 ? 6 : 6 + Math.round((d.total / max) * 30);
+        const isToday = i === data.length - 1;
+        const cls = d.total === 0 ? 'is-zero' : isToday ? 'is-today' : '';
+        return (
+          <div key={d.k} className={`mem-spark-bar ${cls}`}
+            style={{ height: `${h}px` }}
+            title={`${d.k}: ${d.total}장${d.mastered ? ` · ⭐${d.mastered}` : ''}`} />
+        );
+      })}
+    </div>
+  );
+}
+
+// 카드 출처 본문 패널 — civil_total 트리에서 leafId로 노드 찾고 본문 단락 표시
+function SourcePanel({ card, data, onClose }) {
+  const node = useMemo(() => {
+    if (!card?.leafId || !data?.books) return null;
+    for (const b of data.books) {
+      const f = findNodeById(b.tree, card.leafId);
+      if (f) return f;
+    }
+    return null;
+  }, [card, data]);
+
+  if (!node) {
+    return (
+      <div className="mem-source">
+        <div className="mem-source-head">
+          <span>📖 출처 본문</span>
+          <button className="mem-icon-btn" onClick={onClose} aria-label="닫기">×</button>
+        </div>
+        <div className="mem-source-empty">본문을 찾을 수 없습니다. (leafId: {card.leafId})</div>
+      </div>
+    );
+  }
+  const paras = node.paragraphs || [];
+  return (
+    <div className="mem-source">
+      <div className="mem-source-head">
+        <span>📖 {node.title}</span>
+        <button className="mem-icon-btn" onClick={onClose} aria-label="닫기">×</button>
+      </div>
+      {paras.length === 0 && <div className="mem-source-empty">이 항목엔 본문이 없습니다.</div>}
+      <div className="mem-source-body">
+        {paras.map((p, i) => (
+          <div key={i} className={`mem-source-p ${p.kind === 'quote' ? 'is-quote' : ''}`}>
+            <CardText text={p.text} />
+          </div>
+        ))}
+      </div>
+      <div className="mem-source-hint">교재 OCR 본문 그대로 — 일부 줄바꿈 오류가 있을 수 있어요.</div>
+    </div>
+  );
+}
+
 function renderInline(s) {
   const out = [];
   let cur = '';
