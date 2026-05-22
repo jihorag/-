@@ -12,6 +12,9 @@ export default defineConfig({
       workbox: {
         // 빌드 자산만 프리캐시. 거대 데이터(24MB)·이미지는 런타임 캐시로 처리해
         // 설치형/오프라인에서도 데이터가 비지 않게 함.
+        // 새 SW 즉시 활성화(skipWaiting/clientsClaim) — 사용자가 탭 다시 안 닫아도 갱신.
+        skipWaiting: true,
+        clientsClaim: true,
         globPatterns: ['**/*.{js,css,html,woff2,svg}'],
         globIgnores: ['**/data/**', '**/images/**'],
         navigateFallbackDenylist: [/^\/data\//, /^\/images\//],
@@ -21,7 +24,7 @@ export default defineConfig({
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'quiz-data',
-              expiration: { maxEntries: 4, maxAgeSeconds: 60 * 60 * 24 * 30 },
+              expiration: { maxEntries: 8, maxAgeSeconds: 60 * 60 * 24 * 30 },
               cacheableResponse: { statuses: [0, 200] },
             },
           },
