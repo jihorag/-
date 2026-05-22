@@ -324,7 +324,7 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     setQueue(q);
     setIdx(0);
     setRevealed(false);
-    setStreak(0);
+    setCombo(0);
     setSwipeOff(0); setSwipeOut(null);
     setSessionStats({ correct: 0, wrong: 0, mastered: 0 });
     setView('session');
@@ -358,7 +358,7 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
       wrong: s.wrong + (correct ? 0 : 1),
       mastered: s.mastered + (newlyMastered ? 1 : 0),
     }));
-    setStreak(prev => correct ? prev + 1 : 0);
+    setCombo(prev => correct ? prev + 1 : 0);
     setRevealed(false);
     setSwipeOff(0); setSwipeOut(null);
     if (idx + 1 >= queue.length) setView('done');
@@ -695,7 +695,7 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
           }} aria-label="뒤로">‹</button>
           <div className="mem-header-title">
             <span>{idx + 1} / {queue.length}</span>
-            {streak >= 3 && <span className="mem-streak">🔥 {streak}</span>}
+            {combo >= 3 && <span className="mem-streak">🔥 {combo}</span>}
           </div>
           <div className="mem-icon-btn" />
         </header>
