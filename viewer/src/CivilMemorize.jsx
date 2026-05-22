@@ -414,6 +414,49 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
   // ── 글자 배율 CSS 변수
   useEffect(() => { document.documentElement.style.setProperty('--mem-fs', fs); }, [fs]);
 
+  // ── 테마: auto면 OS prefers-color-scheme 반응, 아니면 강제
+  useEffect(() => {
+    const apply = () => {
+      let effective = theme;
+      if (theme === 'auto') {
+        effective = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      if (effective === 'dark') document.documentElement.setAttribute('data-mem-theme', 'dark');
+      else document.documentElement.removeAttribute('data-mem-theme');
+    };
+    apply();
+    if (theme === 'auto' && window.matchMedia) {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      const onChange = () => apply();
+      mq.addEventListener?.('change', onChange);
+      return () => mq.removeEventListener?.('change', onChange);
+    }
+  }, [theme]);
+
+  // ── 북마크 토글
+  const toggleBookmark = (cardId) => {
+    const next = { ...bookmarks };
+    if (next[cardId]) delete next[cardId]; else next[cardId] = true;
+    setBookmarks(next);
+    lsSave(BOOKMARK_KEY, next);
+  };
+
+  // 일별 학습량 (sparkline용) — 지난 N일
+  const sparkData = useMemo(() => {
+    const arr = [];
+    const d = new Date();
+    for (let i = SPARKLINE_DAYS - 1; i >= 0; i--) {
+      const day = new Date(d); day.setDate(d.getDate() - i);
+      const k = dateKey(day);
+      const slot = daily[k] || { correct: 0, wrong: 0, mastered: 0 };
+      arr.push({ k, total: slot.correct + slot.wrong, correct: slot.correct, mastered: slot.mastered });
+    }
+    return arr;
+  }, [daily]);
+
+  const streak = useMemo(() => computeStreak(daily), [daily]);
+  const bookmarkCount = useMemo(() => Object.keys(bookmarks).length, [bookmarks]);
+
   // ── 헤더 빌더
   const memHeader = (title, backHandler) => (
     <header className="mem-header">
