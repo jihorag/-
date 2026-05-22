@@ -1665,6 +1665,16 @@ const App = () => {
     </header>
   );
 
+  // 민법 통암기 — 자체 헤더/네비 사용, 드릴 화면처럼 전체화면
+  if (currentView === 'civil') {
+    return (
+      <>
+        <CivilMemorize onBack={() => { setCurrentView('home'); window.scrollTo(0, 0); }} />
+        {overlays}
+      </>
+    );
+  }
+
   // 가이드 학습 모드: 한 개념의 문제를 난이도↑ 순으로 한 문제씩, 해설로 누적 학습
   if (currentView === 'study' && selectedGroup) {
     const shuffleMode = !selectedGroup.review && studyOrder === 'random';
