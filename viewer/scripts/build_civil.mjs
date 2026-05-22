@@ -135,7 +135,7 @@ function pushCard(c) {
 }
 
 // T1: 인용 조문 카드. `**제N조 (제목)**` 헤더 + 본문 → 양방향 두 장
-const STATUTE_HEAD = /\*\*\s*제\s*(\d+(?:조의\d+|조))\s*(?:\(([^)]*)\))?\s*\*\*/;
+const STATUTE_HEAD = /\*\*\s*제\s*(\d+(?:조의\d+)?)\s*조\s*(?:\(([^)]*)\))?\s*\*\*/;
 
 function buildStatuteCards(quote, path) {
   const m = STATUTE_HEAD.exec(quote);
@@ -220,9 +220,9 @@ function buildBoldCards(para, path) {
   }
 }
 
-// T4: 두문자/대조 점·중점 토큰 (3개 이상)
-// 예: "사용·수익권" (2토큰)은 제외, "불·상·대·유·유·인" (6)은 채택
-const MNEMONIC_RE = /([가-힣A-Za-z][가-힣A-Za-z]{0,4}(?:\s*[·•・∙]\s*[가-힣A-Za-z][가-힣A-Za-z]{0,4}){2,})/g;
+// T4: 진짜 두문자(1글자 토큰 4개 이상) — "불·상·대·유·유·인" 같은 시험 두문자만 채택.
+// "농업·임업·어업" 류 단순 열거는 제외하기 위해 토큰 길이=1로 한정.
+const MNEMONIC_RE = /([가-힣](?:\s*[·•・∙]\s*[가-힣]){3,})/g;
 
 function buildMnemonicCards(para, path) {
   MNEMONIC_RE.lastIndex = 0;
@@ -233,7 +233,8 @@ function buildMnemonicCards(para, path) {
     if (seen.has(phrase)) continue;
     seen.add(phrase);
     const tokens = phrase.split(/[·•・∙]/).filter(Boolean);
-    if (tokens.length < 3 || tokens.length > 12) continue;
+    if (tokens.length < 4 || tokens.length > 12) continue;
+    if (tokens.some(t => t.length !== 1)) continue;
     // 카드: 토큰 수와 첫 글자 힌트만 노출
     const hint = tokens.map(t => t[0] + '_'.repeat(Math.max(0, t.length - 1))).join('·');
     pushCard({
