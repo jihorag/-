@@ -272,6 +272,15 @@ function walkAndBuild(node, ancestry, bookTitle) {
 
 // ─── 메인 ────────────────────────────────────────────────────
 function run() {
+  // 소스 .md가 하나라도 있어야 진행 — 모두 없으면 git에 커밋된 기존 JSON 보존하고 종료.
+  // (Vercel 빌드 환경엔 사용자 `~/Documents/...` 폴더가 없어 모든 소스가 없음. 그때
+  //  빈 JSON으로 덮어쓰면 배포본에서 카드 0장이 됨.)
+  const anySource = SOURCES.some(s => findSource(s.files[0]));
+  if (!anySource) {
+    console.log('[build_civil] no source .md found — keep existing public/data/civil/* as-is');
+    return;
+  }
+
   mkdirSync(destDir, { recursive: true });
   const total = { books: [], built_at: new Date().toISOString() };
   const cardsByBook = {};
