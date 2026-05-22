@@ -394,12 +394,16 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     setView('session');
   }, [currentPool, srs, sessionSize]);
 
-  // ── 답 처리
-  const commitJudge = useCallback((correct) => {
+  // ── 답 처리 (모든 응답 모드 통합)
+  // grade: 0=다시, 1=어려움, 2=좋음, 3=쉬움 (simple은 X→0 / O→2로 매핑)
+  const commitGrade = useCallback((grade) => {
     const card = queue[idx];
     if (!card) return;
+    const correct = grade >= 1;
     const prev = srs[card.id];
-    const ns = nextSrs(prev, correct);
+    const ns = (respMode === 'sm2' || respMode === 'type' || respMode === 'choice')
+      ? nextSrsSm2(prev, grade)
+      : nextSrs(prev, correct);
     const newlyMastered = ns.box >= LADDER.length && (!prev || prev.box < LADDER.length);
     const updated = { ...srs, [card.id]: ns };
     setSrs(updated);
@@ -414,6 +418,13 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     setDaily(d);
     lsSave(DAILY_KEY, d);
 
+    // 노트 draft 자동 저장
+    if (noteDraft.trim()) {
+      const nx = { ...notes, [card.id]: noteDraft.trim() };
+      setNotes(nx);
+      lsSave(NOTES_KEY, nx);
+    }
+
     if (haptic && typeof navigator !== 'undefined' && navigator.vibrate) {
       navigator.vibrate(correct ? 18 : [10, 30, 10]);
     }
@@ -426,16 +437,27 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     setRevealed(false);
     setSwipeOff(0); setSwipeOut(null);
     setExpandSource(false);
+    setTypedAnswer(''); setChoicePicked(null);
+    setShowNote(false); setNoteDraft('');
     if (idx + 1 >= queue.length) setView('done');
     else setIdx(idx + 1);
-  }, [queue, idx, srs, daily, haptic]);
+  }, [queue, idx, srs, daily, haptic, respMode, notes, noteDraft]);
 
-  // 스와이프 → 슬라이드 아웃 → 채점
+  // 스와이프 → 슬라이드 아웃 → 채점 (simple/sm2에서 좌(X=다시) 우(O=좋음))
   const handleSwipeJudge = (correct) => {
     setSwipeOut(correct ? 'right' : 'left');
-    // 애니메이션 후 채점. setTimeout으로 effect setState 회피.
-    setTimeout(() => commitJudge(correct), 220);
+    setTimeout(() => commitGrade(correct ? 2 : 0), 220);
   };
+
+  // 카드 전환 시 노트 초기 로드
+  useEffect(() => {
+    const c = queue[idx];
+    if (c && notes[c.id]) {
+      setNoteDraft(notes[c.id]);
+    } else {
+      setNoteDraft('');
+    }
+  }, [idx, queue, notes]);
 
   // ── 스와이프 핸들러 (revealed일 때만)
   const onTouchStart = (e) => {
