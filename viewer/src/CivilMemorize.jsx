@@ -89,7 +89,7 @@ const CARD_TYPE_LABEL = {
   curated: '핵심',
 };
 
-export default function CivilMemorize({ onBack }) {
+export default function CivilMemorize({ onBack, isTabRoot = false }) {
   const [data, setData] = useState(null);
   const [autoCards, setAutoCards] = useState(null);
   const [curated, setCurated] = useState([]);

@@ -2777,16 +2777,6 @@ const App = () => {
           );
         })()}
 
-        {/* 민법 통암기 — 교재 기반 cloze + SRS */}
-        <button onClick={() => setCurrentView('civil')} className="civil-entry">
-          <span className="civil-entry-icon">📖</span>
-          <span className="civil-entry-body">
-            <span className="civil-entry-title">민법 통암기</span>
-            <span className="civil-entry-desc">「위패스 마이」 교재 cloze 카드로 통째 외우기</span>
-          </span>
-          <span className="civil-entry-arrow">→</span>
-        </button>
-
         {/* 합격 준비도 — 목표 대비 현재 위치(코치) */}
         {coach.readiness != null && (
           <button onClick={() => setCurrentView('status')} className="coach-card">
