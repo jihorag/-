@@ -137,21 +137,58 @@ function findNodeById(root, id) {
 }
 
 function nextSrs(prev, correct, now = Date.now()) {
-  const cur = prev || { box: -1, due: 0, reps: 0, lapses: 0, last: 0 };
+  const cur = prev || { box: -1, due: 0, reps: 0, lapses: 0, last: 0, ease: EASE_DEFAULT };
   if (correct) {
     const nb = Math.min(LADDER.length, cur.box + 1);
     if (nb >= LADDER.length) {
-      return { box: LADDER.length, due: null, reps: cur.reps + 1, lapses: cur.lapses, last: now };
+      return { ...cur, box: LADDER.length, due: null, reps: cur.reps + 1, last: now };
     }
     return {
-      box: nb, due: startOfDayMs(now) + LADDER[nb] * DAY_MS,
-      reps: cur.reps + 1, lapses: cur.lapses, last: now,
+      ...cur, box: nb, due: startOfDayMs(now) + LADDER[nb] * DAY_MS,
+      reps: cur.reps + 1, last: now,
     };
   }
   return {
-    box: 0, due: startOfDayMs(now) + LADDER[0] * DAY_MS,
+    ...cur, box: 0, due: startOfDayMs(now) + LADDER[0] * DAY_MS,
     reps: cur.reps, lapses: cur.lapses + 1, last: now,
   };
+}
+
+// SM-2 변형: 4등급 + ease factor. interval은 box 사다리 + ease 곱.
+// grade 0=다시, 1=어려움, 2=좋음, 3=쉬움
+function nextSrsSm2(prev, grade, now = Date.now()) {
+  const cur = prev || { box: -1, due: 0, reps: 0, lapses: 0, last: 0, ease: EASE_DEFAULT };
+  const ease = Math.max(EASE_MIN, Math.min(EASE_MAX, (cur.ease ?? EASE_DEFAULT)
+    + (grade === 0 ? -0.20 : grade === 1 ? -0.15 : grade === 3 ? +0.15 : 0)));
+
+  if (grade === 0) {
+    // 다시: 박스 리셋, 내일 다시
+    return {
+      box: 0, due: startOfDayMs(now) + LADDER[0] * DAY_MS,
+      reps: cur.reps, lapses: cur.lapses + 1, last: now, ease,
+    };
+  }
+
+  let nb = cur.box + (grade === 3 ? 2 : 1);
+  nb = Math.min(LADDER.length, Math.max(0, nb));
+  if (nb >= LADDER.length) {
+    return { box: LADDER.length, due: null, reps: cur.reps + 1, lapses: cur.lapses, last: now, ease };
+  }
+  // 어려움이면 사다리 간격을 0.6배(다음 단계 너무 멀어지지 않게)
+  const baseDays = LADDER[nb];
+  const mult = grade === 1 ? 0.6 : grade === 3 ? 1.3 : 1.0;
+  const days = Math.max(1, Math.round(baseDays * mult * (ease / EASE_DEFAULT)));
+  return {
+    box: nb, due: startOfDayMs(now) + days * DAY_MS,
+    reps: cur.reps + 1, lapses: cur.lapses, last: now, ease,
+  };
+}
+
+// 등급별 예상 다음 도래 일수 (UI 미리보기용, 실제 적용 없이 시뮬레이션)
+function previewDays(prev, grade) {
+  const ns = nextSrsSm2(prev, grade);
+  if (ns.due == null) return null;
+  return Math.max(1, Math.round((ns.due - startOfDayMs()) / DAY_MS));
 }
 
 // 셔플은 모듈 레벨 (React Compiler 회피)
