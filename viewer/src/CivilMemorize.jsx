@@ -10,6 +10,8 @@
 //   mem-fs           : 0.9|1|1.15|1.3 (글자 배율)
 //   mem-haptic       : '1'|'0' (햅틱 토글)
 //   mem-daily        : { [YYYY-MM-DD]: { correct, wrong, mastered } }
+//   mem-bookmarks    : { [cardId]: true } — 어려운 카드 모음
+//   mem-theme        : 'auto'|'light'|'dark'
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 
