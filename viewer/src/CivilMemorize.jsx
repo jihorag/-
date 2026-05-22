@@ -114,8 +114,8 @@ export default function CivilMemorize({ onBack }) {
     (async () => {
       try {
         const [r1, r2] = await Promise.all([
-          fetch('data/civil/civil_total.json'),
-          fetch('data/civil/civil_cards.json'),
+          fetch('/data/civil/civil_total.json'),
+          fetch('/data/civil/civil_cards.json'),
         ]);
         if (!alive) return;
         if (!r1.ok || !r2.ok) throw new Error(`fetch failed: ${r1.status}/${r2.status}`);
@@ -128,7 +128,7 @@ export default function CivilMemorize({ onBack }) {
         if (alive) setLoadErr(e.message || String(e));
       }
       try {
-        const r = await fetch('data/civil/civil_curated.json');
+        const r = await fetch('/data/civil/civil_curated.json');
         if (r.ok) {
           const j = await r.json();
           if (alive) setCurated((j.cards || []).map(c => ({ ...c, type: c.type || 'curated' })));
