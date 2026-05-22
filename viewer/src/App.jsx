@@ -3,6 +3,7 @@ import { ArrowLeft, House, Compass, RotateCcw, ChartColumn } from 'lucide-react'
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import CivilMemorize from './CivilMemorize';
 
 // ===== 사용자 데이터 관리 (백업/복원/초기화) =====
 // 모든 학습 상태는 localStorage 의 quiz-* 키에 저장됨. 계정 동기화의 단일 레이어.
