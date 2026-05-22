@@ -82,10 +82,45 @@ function lsSave(key, v) {
 function startOfDayMs(ts = Date.now()) {
   const d = new Date(ts); d.setHours(0, 0, 0, 0); return d.getTime();
 }
-function todayKey() {
-  const d = new Date();
+function dateKey(d) {
   const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), dd = String(d.getDate()).padStart(2, '0');
   return `${y}-${m}-${dd}`;
+}
+function todayKey() { return dateKey(new Date()); }
+
+// 연속 학습일 (오늘부터 거꾸로 셈)
+function computeStreak(daily) {
+  if (!daily) return 0;
+  let streak = 0;
+  const d = new Date();
+  for (let i = 0; i < 365; i++) {
+    const k = dateKey(d);
+    const slot = daily[k];
+    if (slot && (slot.correct + slot.wrong) > 0) {
+      streak++;
+    } else if (i === 0) {
+      // 오늘 학습 안 했음 → 어제까지의 streak 보존 (=어제 streak 유지)
+      // 다만 어제도 안 했으면 끊김. 어제부터 보자.
+    } else {
+      break;
+    }
+    d.setDate(d.getDate() - 1);
+  }
+  // 보정: 어제까지만 학습했고 오늘 안 했으면 streak는 어제까지 카운트.
+  // 위 알고리즘: 오늘 0, 어제 1, 그제 1 → streak=2. 오늘 안 한 만큼 break는 어제 끝까지 갈 때.
+  return streak;
+}
+
+// 트리에서 leafId로 노드 찾기
+function findNodeById(root, id) {
+  if (!root) return null;
+  if (root.id === id) return root;
+  if (!root.children) return null;
+  for (const c of root.children) {
+    const f = findNodeById(c, id);
+    if (f) return f;
+  }
+  return null;
 }
 
 function nextSrs(prev, correct, now = Date.now()) {
