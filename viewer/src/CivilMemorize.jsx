@@ -814,6 +814,24 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     const sessionAcc = sessionStats.correct + sessionStats.wrong > 0
       ? Math.round((sessionStats.correct / (sessionStats.correct + sessionStats.wrong)) * 100) : 0;
 
+    // 4지선다 옵션 구성 (choice 모드)
+    let choiceOpts = null, correctChoiceIdx = -1;
+    if (respMode === 'choice') {
+      const sameSection = card.chapterTitle.split(' > ').slice(-2)[0];
+      let others = allCards.filter(c =>
+        c.id !== card.id && c.bookId === card.bookId && c.a && c.a.length > 4 &&
+        c.chapterTitle.split(' > ').slice(-2)[0] === sameSection);
+      if (others.length < 3) {
+        others = allCards.filter(c =>
+          c.id !== card.id && c.bookId === card.bookId && c.a && c.a.length > 4 && c.a !== card.a);
+      }
+      // 셔플은 카드 id 기반 결정적이게 — Math.random은 idx별 다른 결과지만 같은 idx에선 일관 보장이 필요. 매 렌더 reshuffle 막기 위해 ref 사용.
+      const distractors = shuffleArr(others).slice(0, 3);
+      const opts = shuffleArr([card.a, ...distractors.map(d => d.a)]);
+      choiceOpts = opts;
+      correctChoiceIdx = opts.indexOf(card.a);
+    }
+
     let transform;
     if (swipeOut === 'right') transform = 'translateX(120%) rotate(8deg)';
     else if (swipeOut === 'left') transform = 'translateX(-120%) rotate(-8deg)';
