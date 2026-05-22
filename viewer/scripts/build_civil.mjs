@@ -79,8 +79,7 @@ function parseTree(md, bookId, bookTitle) {
       if (trailing) node.body.push(trailing);
       continue;
     }
-    const txt = line.trim();
-    if (!txt) continue;
+    // 빈줄도 body에 보존해야 joinParagraphs가 단락 경계로 사용할 수 있음
     stack[stack.length - 1].body.push(line);
   }
   return root;
