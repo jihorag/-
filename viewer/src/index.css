@@ -1436,3 +1436,137 @@ body {
 [data-mem-theme="dark"] .mem-ch-row.tone-mid  { background: #1e293b; border-color: var(--c-primary); }
 [data-mem-theme="dark"] .mem-ch-row.tone-low,
 [data-mem-theme="dark"] .mem-ch-row.tone-fresh { background: #1e293b; border-color: #334155; }
+
+/* ── 4등급 채점 (sm2/type/choice 모드) ─────────────────── */
+.mem-grade {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 8px; margin-top: 22px;
+}
+.mem-grade-btn {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 14px 6px; border-radius: 14px; cursor: pointer;
+  background: #fff; border: 2px solid #e5e7eb;
+  color: #475569; font-weight: 800;
+  transition: transform 0.1s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.mem-grade-btn:hover {
+  border-color: var(--g-color); color: var(--g-color);
+  background: color-mix(in srgb, var(--g-color) 8%, #fff);
+}
+.mem-grade-btn:active { transform: scale(0.96); }
+.mem-grade-label { font-size: 0.92rem; }
+.mem-grade-hint  { font-size: 0.72rem; font-weight: 600; opacity: 0.7; }
+
+/* ── 타이핑 모드 ─────────────────────────────────────── */
+.mem-type-area {
+  margin-top: auto; padding-top: 24px;
+  display: flex; gap: 8px;
+}
+.mem-type-input {
+  flex: 1; padding: 12px 14px; border-radius: 10px;
+  border: 1.5px solid #cbd5e1; background: #f8fafc;
+  font-size: calc(1rem * var(--mem-fs, 1));
+  outline: none; transition: border-color 0.15s ease;
+  font-family: inherit; color: #0f172a;
+}
+.mem-type-input:focus { border-color: var(--c-primary); background: #fff; }
+.mem-type-confirm {
+  padding: 12px 20px; border-radius: 10px; border: none;
+  background: var(--c-primary); color: #fff;
+  font-weight: 800; cursor: pointer; font-size: 0.95rem;
+}
+.mem-type-result {
+  margin-bottom: 12px; padding: 10px 14px;
+  background: #f1f5f9; border-radius: 10px;
+  font-size: 0.9rem; color: #475569;
+}
+.mem-type-yours { display: flex; flex-direction: column; gap: 2px; }
+.mem-type-yours span { font-size: 0.75rem; font-weight: 600; color: #64748b; }
+.mem-type-yours b { color: #0f172a; font-size: 0.98rem; font-weight: 600; }
+
+/* ── 4지선다 모드 ─────────────────────────────────────── */
+.mem-choice-list {
+  margin-top: 20px; display: flex; flex-direction: column; gap: 8px;
+}
+.mem-choice-opt {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 16px; border-radius: 12px; border: 1.5px solid #e5e7eb;
+  background: #fff; cursor: pointer; text-align: left;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.mem-choice-opt:hover { border-color: var(--c-primary); background: var(--c-light); }
+.mem-choice-opt.is-picked { border-color: var(--c-primary); background: var(--c-light); }
+.mem-choice-label {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--c-light); color: var(--c-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.85rem;
+}
+.mem-choice-text {
+  flex: 1; font-size: 0.92rem; line-height: 1.55; color: #0f172a;
+  white-space: pre-wrap; word-break: keep-all;
+}
+.mem-choice-result {
+  margin-bottom: 12px; padding: 10px 14px; border-radius: 10px;
+  font-size: 0.92rem; font-weight: 700;
+}
+.mem-choice-result.ok { background: #f0fdf4; color: #15803d; }
+.mem-choice-result.no { background: #fef2f2; color: #b91c1c; }
+.mem-choice-result b { font-weight: 800; }
+
+/* ── 자기 설명 노트 ────────────────────────────────────── */
+.mem-note-area { margin-top: 14px; }
+.mem-note-toggle {
+  width: 100%; background: transparent; border: 1px dashed #cbd5e1;
+  border-radius: 12px; padding: 10px 14px;
+  color: #64748b; font-size: 0.86rem; font-weight: 600;
+  cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease;
+}
+.mem-note-toggle:hover { border-color: var(--c-primary); color: var(--c-primary); }
+.mem-note-input {
+  width: 100%; box-sizing: border-box;
+  padding: 12px 14px; border-radius: 12px;
+  border: 1.5px solid #cbd5e1; background: #fffef7;
+  font-size: 0.92rem; font-family: inherit; color: #0f172a;
+  resize: vertical; min-height: 56px; outline: none;
+}
+.mem-note-input:focus { border-color: var(--c-primary); }
+.mem-note-actions {
+  display: flex; gap: 12px; margin-top: 6px; justify-content: flex-end;
+}
+
+/* ── 옵션 화면 보강 ────────────────────────────────────── */
+.mem-opt-hint { color: #94a3b8; font-weight: 500; font-size: 0.78rem; }
+.mem-opt-desc {
+  margin-top: 10px; padding: 10px 14px;
+  background: #f1f5f9; border-radius: 10px;
+  color: #475569; font-size: 0.82rem; line-height: 1.6;
+}
+.mem-mode-chip { padding: 8px 14px; }
+
+/* 다크 모드 보강 */
+[data-mem-theme="dark"] .mem-grade-btn {
+  background: #1e293b; border-color: #334155; color: #cbd5e1;
+}
+[data-mem-theme="dark"] .mem-grade-btn:hover {
+  background: color-mix(in srgb, var(--g-color) 16%, #1e293b);
+}
+[data-mem-theme="dark"] .mem-type-input,
+[data-mem-theme="dark"] .mem-note-input {
+  background: #0f172a; border-color: #334155; color: #f1f5f9;
+}
+[data-mem-theme="dark"] .mem-type-input:focus,
+[data-mem-theme="dark"] .mem-note-input:focus { background: #0f172a; }
+[data-mem-theme="dark"] .mem-type-result { background: #1e293b; color: #cbd5e1; }
+[data-mem-theme="dark"] .mem-type-yours b { color: #f1f5f9; }
+[data-mem-theme="dark"] .mem-type-yours span { color: #94a3b8; }
+[data-mem-theme="dark"] .mem-choice-opt {
+  background: #1e293b; border-color: #334155;
+}
+[data-mem-theme="dark"] .mem-choice-opt:hover,
+[data-mem-theme="dark"] .mem-choice-opt.is-picked { background: #334155; }
+[data-mem-theme="dark"] .mem-choice-text { color: #f1f5f9; }
+[data-mem-theme="dark"] .mem-choice-result.ok { background: #052e1a; color: #6ee7b7; }
+[data-mem-theme="dark"] .mem-choice-result.no { background: #2d1b1b; color: #fca5a5; }
+[data-mem-theme="dark"] .mem-note-toggle { border-color: #334155; color: #94a3b8; }
+[data-mem-theme="dark"] .mem-opt-desc { background: #1e293b; color: #cbd5e1; }
