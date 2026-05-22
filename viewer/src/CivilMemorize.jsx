@@ -248,6 +248,18 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     return ['auto', 'light', 'dark'].includes(t) ? t : 'auto';
   });
   const [expandSource, setExpandSource] = useState(false);
+  const [respMode, setRespMode] = useState(() => {
+    const m = lsLoad(MODE_KEY, 'simple');
+    return ['simple', 'sm2', 'type', 'choice'].includes(m) ? m : 'simple';
+  });
+  const [interleave, setInterleave] = useState(() => lsLoad(INTERLEAVE_KEY, '0') === '1');
+  const [notes, setNotes] = useState(() => lsLoad(NOTES_KEY, {}));
+
+  // 세션 내 타이핑 input / 4지선다 선택 transient
+  const [typedAnswer, setTypedAnswer] = useState('');
+  const [choicePicked, setChoicePicked] = useState(null); // 'A'|'B'|'C'|'D'|null
+  const [showNote, setShowNote] = useState(false);
+  const [noteDraft, setNoteDraft] = useState('');
 
   // book / chapter / filter
   const [bookId, setBookId] = useState(null);
