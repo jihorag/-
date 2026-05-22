@@ -888,6 +888,18 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
             </div>
           </div>
           <div className="mem-opt-section">
+            <div className="mem-opt-label">테마</div>
+            <div className="mem-opt-row">
+              {[['auto', '시스템'], ['light', '라이트'], ['dark', '다크']].map(([v, l]) => (
+                <button key={v}
+                  className={`mem-chip ${theme === v ? 'is-active' : ''}`}
+                  onClick={() => { setTheme(v); lsSave(THEME_KEY, v); }}>
+                  {l}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="mem-opt-section">
             <div className="mem-opt-label">햅틱 (모바일 진동)</div>
             <div className="mem-opt-row">
               <button className={`mem-chip ${haptic ? 'is-active' : ''}`}
@@ -895,6 +907,18 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
               <button className={`mem-chip ${!haptic ? 'is-active' : ''}`}
                 onClick={() => { setHaptic(false); lsSave(HAPTIC_KEY, '0'); }}>끄기</button>
             </div>
+          </div>
+          <div className="mem-opt-section">
+            <div className="mem-opt-label">북마크 ({bookmarkCount}장)</div>
+            <button className="mem-chip"
+              disabled={bookmarkCount === 0}
+              onClick={() => {
+                if (window.confirm(`북마크 ${bookmarkCount}장을 모두 해제할까요?`)) {
+                  setBookmarks({}); lsSave(BOOKMARK_KEY, {});
+                }
+              }}>
+              모두 해제
+            </button>
           </div>
           <div className="mem-opt-section">
             <div className="mem-opt-label">가이드</div>
