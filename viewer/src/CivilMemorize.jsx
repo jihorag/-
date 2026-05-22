@@ -880,24 +880,80 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
             ref={cardRef}
             className={`mem-card ${revealed ? 'is-revealed' : ''}`}
             style={{ transform, transition: swipeState.active ? 'none' : 'transform 0.2s ease' }}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-            onClick={() => !revealed && setRevealed(true)}
+            onTouchStart={respMode === 'simple' || respMode === 'sm2' ? onTouchStart : undefined}
+            onTouchMove={respMode === 'simple' || respMode === 'sm2' ? onTouchMove : undefined}
+            onTouchEnd={respMode === 'simple' || respMode === 'sm2' ? onTouchEnd : undefined}
+            onClick={(e) => {
+              // 입력 모드에선 카드 탭으로 reveal 막기 (input 사용 유도)
+              if (revealed) return;
+              if (respMode === 'type' || respMode === 'choice') return;
+              setRevealed(true);
+            }}
           >
             <div className="mem-q"><CardText text={card.q} /></div>
+
+            {/* 타이핑 모드 입력 영역 */}
+            {!revealed && respMode === 'type' && (
+              <div className="mem-type-area">
+                <input
+                  className="mem-type-input"
+                  type="text"
+                  value={typedAnswer}
+                  onChange={(e) => setTypedAnswer(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); setRevealed(true); } }}
+                  placeholder="답을 직접 입력하세요 — Enter로 확인"
+                  autoFocus
+                />
+                <button className="mem-type-confirm" onClick={() => setRevealed(true)}>
+                  확인
+                </button>
+              </div>
+            )}
+
+            {/* 4지선다 옵션 */}
+            {!revealed && respMode === 'choice' && choiceOpts && (
+              <div className="mem-choice-list">
+                {choiceOpts.map((opt, i) => (
+                  <button key={i}
+                    className={`mem-choice-opt ${choicePicked === i ? 'is-picked' : ''}`}
+                    onClick={(e) => { e.stopPropagation(); setChoicePicked(i); setRevealed(true); }}>
+                    <span className="mem-choice-label">{String.fromCharCode(65 + i)}</span>
+                    <span className="mem-choice-text"><CardText text={opt} /></span>
+                  </button>
+                ))}
+              </div>
+            )}
+
             <div className={`mem-reveal-zone ${revealed ? '' : 'is-hidden'}`}>
               <div className="mem-divider-line" />
+
+              {/* 타이핑 결과: 내가 적은 것 vs 정답 */}
+              {respMode === 'type' && typedAnswer && (
+                <div className="mem-type-result">
+                  <div className="mem-type-yours"><span>내가 적은 답</span><b>{typedAnswer}</b></div>
+                </div>
+              )}
+
+              {/* 4지선다 결과 */}
+              {respMode === 'choice' && choicePicked != null && (
+                <div className={`mem-choice-result ${choicePicked === correctChoiceIdx ? 'ok' : 'no'}`}>
+                  {choicePicked === correctChoiceIdx
+                    ? <span>✓ 정답! ({String.fromCharCode(65 + correctChoiceIdx)})</span>
+                    : <span>✗ 정답은 <b>{String.fromCharCode(65 + correctChoiceIdx)}</b></span>}
+                </div>
+              )}
+
               <div className="mem-a"><CardText text={card.a} /></div>
               {card.note && <div className="mem-note">💡 {card.note}</div>}
             </div>
-            {!revealed && (
+
+            {!revealed && respMode !== 'type' && respMode !== 'choice' && (
               <div className="mem-card-hint">
                 <span>탭 또는 <kbd>Space</kbd> → 정답</span>
               </div>
             )}
 
-            {/* 스와이프 인디케이터 (드래그 중) */}
+            {/* 스와이프 인디케이터 (drag 중) */}
             {Math.abs(swipeOff) > 30 && (
               <div className={`mem-swipe-ind ${swipeOff > 0 ? 'right' : 'left'}`}>
                 {swipeOff > 0 ? '✓ 맞춤' : '✗ 틀림'}
