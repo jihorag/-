@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import { ArrowLeft, House, Compass, RotateCcw, ChartColumn } from 'lucide-react';
+import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
@@ -1605,18 +1605,21 @@ const App = () => {
     (currentView === 'home' || currentView === 'profile' || currentView === 'settings') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'review'
     : currentView === 'status' ? 'status'
+    : currentView === 'civil' ? 'memorize'
     : 'browse'; // dashboard + tax_* + search(둘러보기 흡수)
   const goTab = (t) => {
     clearAutoTimer();
     if (t === 'home') setCurrentView('home');
     else if (t === 'browse') setCurrentView('dashboard');
     else if (t === 'review') { setReviewSubject(null); setCurrentView('reviewHome'); }
+    else if (t === 'memorize') setCurrentView('civil');
     else if (t === 'status') setCurrentView('status');
     window.scrollTo(0, 0);
   };
   const NAV_ITEMS = [
     ['home', House, '홈'],
     ['browse', Compass, '둘러보기'],
+    ['memorize', BookOpen, '암기'],
     ['review', RotateCcw, '복습'],
     ['status', ChartColumn, '현황'],
   ];
