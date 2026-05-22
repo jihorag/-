@@ -8,9 +8,10 @@
   },
   "scripts": {
     "sync-data": "node scripts/sync-data.mjs",
-    "predev": "node scripts/sync-data.mjs",
+    "build-civil": "node scripts/build_civil.mjs",
+    "predev": "node scripts/sync-data.mjs && node scripts/build_civil.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/sync-data.mjs",
+    "prebuild": "node scripts/sync-data.mjs && node scripts/build_civil.mjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
