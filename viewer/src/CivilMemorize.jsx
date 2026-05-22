@@ -47,8 +47,11 @@ const SIZE_KEY = 'mem-session-size';
 const FS_KEY = 'mem-fs';
 const HAPTIC_KEY = 'mem-haptic';
 const DAILY_KEY = 'mem-daily';
+const BOOKMARK_KEY = 'mem-bookmarks';
+const THEME_KEY = 'mem-theme';
 const LADDER = [1, 3, 7, 16, 35, 70]; // 일
 const DAY_MS = 86400000;
+const SPARKLINE_DAYS = 30;
 
 const TYPE_META = {
   statute:    { label: '조문',  color: '#2563eb', bg: '#eff6ff' },
