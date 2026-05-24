@@ -780,15 +780,37 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
             <div className="mem-summary-pct">마스터 {pct}%</div>
           </div>
 
-          {/* 스트릭 + sparkline */}
+          {/* D-DAY + 일일 권장 (시험일 설정된 경우) */}
+          {ddays != null && ddays >= 0 && (
+            <div className="mem-dday-card">
+              <div className="mem-dday-num">D-{ddays}</div>
+              <div className="mem-dday-body">
+                <div className="mem-dday-label">시험까지</div>
+                <div className="mem-dday-goal">오늘 권장 <b>{autoGoal}</b>장</div>
+              </div>
+              <button className="mem-dday-edit" onClick={() => setView('options')}>설정</button>
+            </div>
+          )}
+
+          {/* 스트릭 + 주간 히트맵 */}
           <div className="mem-streak-card">
             <div className="mem-streak-icon">{streak > 0 ? '🔥' : '🌱'}</div>
             <div className="mem-streak-body">
               <div className="mem-streak-num">{streak}<span>일</span></div>
-              <div className="mem-streak-label">{streak > 0 ? '연속 학습 중' : '오늘 시작!'}</div>
+              <div className="mem-streak-label">
+                {streak > 0 ? '연속 학습 중' : '오늘 시작!'}
+                {streakInfo.freezeUsedToday && <span className="mem-freeze-tag" title="결석한 어제를 freeze 토큰으로 메웠어요">❄️ freeze</span>}
+              </div>
+              {freeze?.tokens > 0 && (
+                <div className="mem-freeze-stock">❄️ {freeze.tokens}장 보유</div>
+              )}
             </div>
             <Sparkline data={sparkData} />
           </div>
+
+          {/* 주간 히트맵 (28일) */}
+          <WeekHeatmap daily={daily} />
+
 
           {/* 북마크 빠른 진입 */}
           {bookmarkCount > 0 && (
