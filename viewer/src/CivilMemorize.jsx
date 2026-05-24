@@ -15,6 +15,11 @@
 //   mem-mode         : 'simple'|'sm2'|'type'|'choice' (응답 모드, 기본 simple)
 //   mem-interleave   : '1'|'0' (단원 잠금 해제, 책 전체 셔플)
 //   mem-notes        : { [cardId]: text } — 자기 설명 노트
+//   mem-exam-date    : 'YYYY-MM-DD' — D-DAY 시험일
+//   mem-daily-goal   : 10|20|30|50|null — 일일 목표(없으면 D-DAY로 자동)
+//   mem-hidden       : { [cardId]: true } — 신고로 숨긴 카드
+//   mem-freeze       : { lastFreezeKey: 'YYYY-MM-DD', tokens: N } — 스트릭 보호
+//   mem-byok         : string — Claude API 키 (BYOK)
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 
@@ -55,6 +60,11 @@ const THEME_KEY = 'mem-theme';
 const MODE_KEY = 'mem-mode';
 const INTERLEAVE_KEY = 'mem-interleave';
 const NOTES_KEY = 'mem-notes';
+const EXAM_DATE_KEY = 'mem-exam-date';
+const DAILY_GOAL_KEY = 'mem-daily-goal';
+const HIDDEN_KEY = 'mem-hidden';
+const FREEZE_KEY = 'mem-freeze';
+const BYOK_KEY = 'mem-byok';
 
 const EASE_DEFAULT = 2.5;
 const EASE_MIN = 1.3;
