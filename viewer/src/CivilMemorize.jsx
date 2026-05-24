@@ -111,27 +111,71 @@ function dateKey(d) {
 }
 function todayKey() { return dateKey(new Date()); }
 
-// 연속 학습일 (오늘부터 거꾸로 셈)
-function computeStreak(daily) {
-  if (!daily) return 0;
+// 연속 학습일 (오늘부터 거꾸로 셈) — freeze 토큰 적용
+// freeze 토큰: 주 1회 자동 회복. 1일 결석을 메워 streak 유지.
+function computeStreak(daily, freezeData) {
+  if (!daily) return { streak: 0, freezeUsedToday: false };
   let streak = 0;
+  let freezeUsedToday = false;
+  let availableFreezes = freezeData?.tokens || 0;
   const d = new Date();
   for (let i = 0; i < 365; i++) {
     const k = dateKey(d);
     const slot = daily[k];
-    if (slot && (slot.correct + slot.wrong) > 0) {
+    const hasStudy = slot && (slot.correct + slot.wrong) > 0;
+    if (hasStudy) {
       streak++;
     } else if (i === 0) {
-      // 오늘 학습 안 했음 → 어제까지의 streak 보존 (=어제 streak 유지)
-      // 다만 어제도 안 했으면 끊김. 어제부터 보자.
+      // 오늘 — 그냥 건너뛰기 (어제부터 카운트)
+    } else if (availableFreezes > 0) {
+      // freeze 사용 — streak 유지
+      availableFreezes--;
+      if (i === 1) freezeUsedToday = true;
+      streak++;
     } else {
       break;
     }
     d.setDate(d.getDate() - 1);
   }
-  // 보정: 어제까지만 학습했고 오늘 안 했으면 streak는 어제까지 카운트.
-  // 위 알고리즘: 오늘 0, 어제 1, 그제 1 → streak=2. 오늘 안 한 만큼 break는 어제 끝까지 갈 때.
-  return streak;
+  return { streak, freezeUsedToday };
+}
+
+// 주 1회 freeze 토큰 회복 (월요일 마다 +1, 최대 2개)
+function refreshFreezeTokens(prev) {
+  const today = new Date();
+  const todayK = dateKey(today);
+  if (prev?.lastCheck === todayK) return prev || { tokens: 1, lastCheck: todayK };
+  // 마지막 회복 후 7일+ 지났으면 토큰 +1
+  let tokens = prev?.tokens ?? 1;
+  const last = prev?.lastRefresh ? new Date(prev.lastRefresh) : null;
+  if (!last || (today - last) / DAY_MS >= 7) {
+    tokens = Math.min(2, tokens + 1);
+    return { tokens, lastRefresh: todayK, lastCheck: todayK };
+  }
+  return { ...prev, tokens, lastCheck: todayK };
+}
+
+// D-DAY 계산
+function daysToExam(examDate) {
+  if (!examDate) return null;
+  const ex = new Date(examDate);
+  if (isNaN(ex)) return null;
+  ex.setHours(0, 0, 0, 0);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return Math.round((ex - today) / DAY_MS);
+}
+
+// 자동 일일 권장량 = (미학습 + 학습중) ÷ (D-DAY 1일 전까지 남은 일수, 최소 14일)
+function computeDailyGoal(totalCards, srs, examDate, manualGoal) {
+  if (manualGoal != null && manualGoal > 0) return manualGoal;
+  if (!examDate) return 20;
+  const days = daysToExam(examDate);
+  if (days == null) return 20;
+  const usable = Math.max(14, days - 7); // 시험 1주 전부턴 복습만
+  const learning = totalCards - Object.values(srs).filter(s => s.box >= LADDER.length).length;
+  const goal = Math.ceil(learning / usable);
+  return Math.max(10, Math.min(100, goal));
 }
 
 // 트리에서 leafId로 노드 찾기
