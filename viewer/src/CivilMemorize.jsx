@@ -376,7 +376,20 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     return () => { alive = false; };
   }, [subject]);
 
-  const allCards = useMemo(() => (autoCards || []).concat(curated), [autoCards, curated]);
+  const allCards = useMemo(() => {
+    const merged = (autoCards || []).concat(curated);
+    return merged.filter(c => !hidden[c.id]);
+  }, [autoCards, curated, hidden]);
+
+  const hideCard = (cardId) => {
+    const next = { ...hidden, [cardId]: true };
+    setHidden(next);
+    lsSave(HIDDEN_KEY, next);
+  };
+  const restoreAllHidden = () => {
+    setHidden({});
+    lsSave(HIDDEN_KEY, {});
+  };
 
   // 과목 진척 (picker에 표시)
   const subjectProgress = useMemo(() => {
@@ -618,8 +631,25 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     return arr;
   }, [daily]);
 
-  const streak = useMemo(() => computeStreak(daily), [daily]);
+  const streakInfo = useMemo(() => computeStreak(daily, freeze), [daily, freeze]);
+  const streak = streakInfo.streak;
   const bookmarkCount = useMemo(() => Object.keys(bookmarks).length, [bookmarks]);
+  const hiddenCount = useMemo(() => Object.keys(hidden).length, [hidden]);
+  const ddays = useMemo(() => daysToExam(examDate), [examDate]);
+  const autoGoal = useMemo(() => {
+    const total = (autoCards || []).length + curated.length;
+    return computeDailyGoal(total, srs, examDate, dailyGoal);
+  }, [autoCards, curated, srs, examDate, dailyGoal]);
+
+  // freeze 토큰 1일 1회 자동 갱신
+  useEffect(() => {
+    const refreshed = refreshFreezeTokens(freeze);
+    if (refreshed.lastCheck !== freeze?.lastCheck || refreshed.tokens !== freeze?.tokens) {
+      setFreeze(refreshed);
+      lsSave(FREEZE_KEY, refreshed);
+    }
+    // eslint-disable-next-line
+  }, []);
 
   // 4지선다 옵션: 카드 id 기반 안정적 — 같은 카드에서 매 렌더 reshuffle 방지
   const choiceData = useMemo(() => {
