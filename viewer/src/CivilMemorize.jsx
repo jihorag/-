@@ -534,6 +534,38 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
     }
   }, [idx, queue, notes]);
 
+  // ── AI 해설 (BYOK)
+  const [aiExplain, setAiExplain] = useState({}); // {cardId: text|null|'loading'|'error'}
+  const requestAiExplain = useCallback(async (card) => {
+    if (!byok || !card) return;
+    setAiExplain(s => ({ ...s, [card.id]: 'loading' }));
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': byok,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true',
+        },
+        body: JSON.stringify({
+          model: 'claude-haiku-4-5-20251001',
+          max_tokens: 400,
+          messages: [{
+            role: 'user',
+            content: `감정평가사 1차 ${subject?.title || ''} 학습 카드입니다. 정답이 왜 이렇게 되는지 3~5문장으로 간결히 해설해 주세요. 출처는 김묘엽 「위패스 마이」.\n\n[문제]\n${card.q}\n\n[정답]\n${card.a}\n\n[단원]\n${card.chapterTitle}`,
+          }],
+        }),
+      });
+      if (!res.ok) throw new Error(`API ${res.status}`);
+      const j = await res.json();
+      const text = j?.content?.[0]?.text || '응답이 비어 있습니다.';
+      setAiExplain(s => ({ ...s, [card.id]: text }));
+    } catch (e) {
+      setAiExplain(s => ({ ...s, [card.id]: `오류: ${e.message || e}` }));
+    }
+  }, [byok, subject]);
+
   // ── 스와이프 핸들러 (revealed일 때만)
   const onTouchStart = (e) => {
     if (!revealed) return;
@@ -1072,6 +1104,26 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
 
               <div className="mem-a"><CardText text={card.a} /></div>
               {card.note && <div className="mem-note">💡 {card.note}</div>}
+
+              {/* AI 해설 (BYOK) */}
+              {byok && (
+                <div className="mem-ai-area">
+                  {!aiExplain[card.id] && (
+                    <button className="mem-ai-btn" onClick={(e) => { e.stopPropagation(); requestAiExplain(card); }}>
+                      ✨ AI 해설 요청
+                    </button>
+                  )}
+                  {aiExplain[card.id] === 'loading' && (
+                    <div className="mem-ai-loading">AI 응답 생성 중…</div>
+                  )}
+                  {typeof aiExplain[card.id] === 'string' && aiExplain[card.id] !== 'loading' && (
+                    <div className={`mem-ai-result ${aiExplain[card.id].startsWith('오류') ? 'is-error' : ''}`}>
+                      <div className="mem-ai-head">✨ AI 해설</div>
+                      <div className="mem-ai-body">{aiExplain[card.id]}</div>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             {!revealed && respMode !== 'type' && respMode !== 'choice' && (
