@@ -1485,6 +1485,50 @@ function CardText({ text }) {
     </>
   );
 }
+// 4주(28일) 학습 히트맵 — GitHub contribution 스타일
+function WeekHeatmap({ daily }) {
+  // 오늘 포함 28일을 4주 × 7일 그리드 (가로축 = 요일)
+  const today = new Date();
+  const cells = [];
+  const max = Math.max(1, ...Object.values(daily || {}).map(s => (s.correct || 0) + (s.wrong || 0)));
+  for (let w = 3; w >= 0; w--) {
+    for (let dow = 0; dow < 7; dow++) {
+      const d = new Date(today);
+      d.setDate(today.getDate() - (w * 7 + (6 - dow)));
+      const k = dateKey(d);
+      const slot = (daily || {})[k] || { correct: 0, wrong: 0 };
+      const total = (slot.correct || 0) + (slot.wrong || 0);
+      const level = total === 0 ? 0
+        : total < max * 0.25 ? 1
+        : total < max * 0.5 ? 2
+        : total < max * 0.75 ? 3 : 4;
+      const isToday = k === dateKey(today);
+      cells.push({ k, total, level, isToday, dow });
+    }
+  }
+  const dowLabels = ['일', '월', '화', '수', '목', '금', '토'];
+  return (
+    <div className="mem-heatmap">
+      <div className="mem-heatmap-title">최근 4주 학습</div>
+      <div className="mem-heatmap-grid">
+        {dowLabels.map((l, i) => <div key={`h-${i}`} className="mem-heatmap-dow">{l}</div>)}
+        {cells.map((c, i) => (
+          <div key={c.k}
+            className={`mem-heatmap-cell level-${c.level} ${c.isToday ? 'is-today' : ''}`}
+            title={`${c.k}: ${c.total}장`} />
+        ))}
+      </div>
+      <div className="mem-heatmap-legend">
+        적음 <span className="mem-heatmap-cell level-0" />
+        <span className="mem-heatmap-cell level-1" />
+        <span className="mem-heatmap-cell level-2" />
+        <span className="mem-heatmap-cell level-3" />
+        <span className="mem-heatmap-cell level-4" /> 많음
+      </div>
+    </div>
+  );
+}
+
 // 30일 학습량 sparkline
 function Sparkline({ data }) {
   if (!data || !data.length) return null;
