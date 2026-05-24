@@ -986,6 +986,19 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
                 aria-label="출처 본문 보기">
                 📖
               </button>
+              <button className="mem-card-action"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (window.confirm('이 카드를 숨길까요? (이상한 카드 신고용 — 옵션에서 복원 가능)')) {
+                    hideCard(card.id);
+                    // 즉시 다음 카드로
+                    if (idx + 1 >= queue.length) setView('done');
+                    else setIdx(idx + 1);
+                  }
+                }}
+                aria-label="카드 신고/숨김">
+                ⚠
+              </button>
             </div>
             <span className="mem-card-path">{card.chapterTitle}</span>
           </div>
