@@ -1255,6 +1255,38 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
             </div>
           </div>
           <div className="mem-opt-section">
+            <div className="mem-opt-label">시험일 (D-DAY) <span className="mem-opt-hint">— 일일 권장량 자동 계산</span></div>
+            <div className="mem-opt-row" style={{ alignItems: 'center', gap: 10 }}>
+              <input
+                type="date"
+                className="mem-date-input"
+                value={examDate}
+                onChange={(e) => { setExamDate(e.target.value); lsSave(EXAM_DATE_KEY, e.target.value); }}
+              />
+              {examDate && (
+                <button className="mem-text-btn"
+                  onClick={() => { setExamDate(''); lsSave(EXAM_DATE_KEY, ''); }}>해제</button>
+              )}
+              {ddays != null && <span className="mem-opt-desc" style={{ background: 'transparent', padding: 0, color: 'var(--c-primary)', fontWeight: 700 }}>
+                D-{ddays} · 권장 {autoGoal}장/일
+              </span>}
+            </div>
+            <div className="mem-opt-desc">시험일 입력 시 잔여 카드 ÷ 남은 일수로 매일 권장량 자동 계산. (시험 1주 전부터는 복습 위주로 가정)</div>
+          </div>
+          <div className="mem-opt-section">
+            <div className="mem-opt-label">일일 목표 수동 설정 <span className="mem-opt-hint">— 자동 계산 무시</span></div>
+            <div className="mem-opt-row">
+              <button className={`mem-chip ${dailyGoal == null ? 'is-active' : ''}`}
+                onClick={() => { setDailyGoal(null); lsSave(DAILY_GOAL_KEY, ''); }}>자동</button>
+              {[10, 20, 30, 50, 100].map(n => (
+                <button key={n} className={`mem-chip ${dailyGoal === n ? 'is-active' : ''}`}
+                  onClick={() => { setDailyGoal(n); lsSave(DAILY_GOAL_KEY, n); }}>
+                  {n}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="mem-opt-section">
             <div className="mem-opt-label">한 세션 카드 수</div>
             <div className="mem-opt-row">
               {[10, 20, 30, 50].map(n => (
