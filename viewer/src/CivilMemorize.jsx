@@ -1344,6 +1344,36 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
             </button>
           </div>
           <div className="mem-opt-section">
+            <div className="mem-opt-label">숨김 카드 ({hiddenCount}장) <span className="mem-opt-hint">— ⚠로 신고한 카드</span></div>
+            <button className="mem-chip"
+              disabled={hiddenCount === 0}
+              onClick={() => {
+                if (window.confirm(`숨김 ${hiddenCount}장을 모두 복원할까요?`)) restoreAllHidden();
+              }}>
+              모두 복원
+            </button>
+          </div>
+          <div className="mem-opt-section">
+            <div className="mem-opt-label">AI 해설 (BYOK) <span className="mem-opt-hint">— Anthropic API 키 직접 입력</span></div>
+            <input type="password"
+              className="mem-date-input"
+              style={{ width: '100%', maxWidth: 360 }}
+              placeholder="sk-ant-..."
+              value={byok}
+              onChange={(e) => { setByok(e.target.value); lsSave(BYOK_KEY, e.target.value); }}
+            />
+            <div className="mem-opt-desc">
+              사용자의 API 키로 직접 Anthropic Claude 호출. 키는 브라우저에만 저장 (서버 송신 X). 카드의 ✨ 아이콘으로 해설 요청.
+              {byok && <> · 현재 키 입력됨</>}
+            </div>
+          </div>
+          <div className="mem-opt-section">
+            <div className="mem-opt-label">스트릭 보호 토큰</div>
+            <div className="mem-opt-desc">
+              현재 ❄️ <b>{freeze?.tokens || 0}</b>장 보유 · 7일마다 1장 회복(최대 2장). 결석한 어제를 자동으로 메워 연속 학습일 유지.
+            </div>
+          </div>
+          <div className="mem-opt-section">
             <div className="mem-opt-label">가이드</div>
             <button className="mem-chip" onClick={() => { setHowtoSeen(false); lsSave(HOWTO_KEY, ''); }}>
               사용법 다시 보기
