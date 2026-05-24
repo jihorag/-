@@ -1570,3 +1570,132 @@ body {
 [data-mem-theme="dark"] .mem-choice-result.no { background: #2d1b1b; color: #fca5a5; }
 [data-mem-theme="dark"] .mem-note-toggle { border-color: #334155; color: #94a3b8; }
 [data-mem-theme="dark"] .mem-opt-desc { background: #1e293b; color: #cbd5e1; }
+
+/* ── D-DAY 카드 ───────────────────────────────────────── */
+.mem-dday-card {
+  display: flex; align-items: center; gap: 16px;
+  background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-dark) 100%);
+  color: #fff;
+  border-radius: 18px; padding: 18px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 16px -6px var(--c-primary);
+}
+.mem-dday-num {
+  font-size: 2rem; font-weight: 800; letter-spacing: -0.02em;
+  line-height: 1;
+}
+.mem-dday-body { flex: 1; }
+.mem-dday-label { font-size: 0.78rem; opacity: 0.85; }
+.mem-dday-goal { font-size: 0.92rem; margin-top: 4px; }
+.mem-dday-goal b { font-size: 1.1rem; }
+.mem-dday-edit {
+  background: rgb(255 255 255 / 0.2); color: #fff; border: none;
+  padding: 6px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 700;
+  cursor: pointer;
+}
+.mem-dday-edit:hover { background: rgb(255 255 255 / 0.3); }
+
+/* ── 스트릭 보강 (freeze) ─────────────────────────────── */
+.mem-freeze-tag {
+  display: inline-block; margin-left: 8px;
+  font-size: 0.7rem; font-weight: 700;
+  background: #e0f2fe; color: #075985;
+  padding: 2px 8px; border-radius: 999px;
+}
+.mem-freeze-stock {
+  font-size: 0.72rem; color: #0369a1; font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ── 주간 히트맵 ───────────────────────────────────────── */
+.mem-heatmap {
+  background: #fff; border-radius: 16px; padding: 16px 18px;
+  border: 1px solid #e5e7eb; margin-bottom: 28px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+}
+.mem-heatmap-title {
+  font-size: 0.82rem; font-weight: 700; color: #64748b;
+  margin-bottom: 10px;
+}
+.mem-heatmap-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.mem-heatmap-dow {
+  font-size: 0.66rem; color: #94a3b8; text-align: center; font-weight: 600;
+  padding-bottom: 2px;
+}
+.mem-heatmap-cell {
+  aspect-ratio: 1; border-radius: 4px;
+  background: #f1f5f9;
+}
+.mem-heatmap-cell.level-1 { background: color-mix(in srgb, var(--c-primary) 22%, #f1f5f9); }
+.mem-heatmap-cell.level-2 { background: color-mix(in srgb, var(--c-primary) 45%, #f1f5f9); }
+.mem-heatmap-cell.level-3 { background: color-mix(in srgb, var(--c-primary) 70%, #f1f5f9); }
+.mem-heatmap-cell.level-4 { background: var(--c-primary); }
+.mem-heatmap-cell.is-today { outline: 2px solid var(--c-dark); outline-offset: 1px; }
+.mem-heatmap-legend {
+  display: flex; align-items: center; gap: 4px;
+  margin-top: 10px; font-size: 0.7rem; color: #94a3b8;
+}
+.mem-heatmap-legend .mem-heatmap-cell {
+  width: 12px; aspect-ratio: 1;
+}
+
+/* ── 날짜 input ───────────────────────────────────────── */
+.mem-date-input {
+  padding: 8px 12px; border-radius: 8px;
+  border: 1.5px solid #cbd5e1; background: #fff;
+  font-size: 0.9rem; font-family: inherit; color: #0f172a;
+  outline: none;
+}
+.mem-date-input:focus { border-color: var(--c-primary); }
+
+/* ── AI 해설 ──────────────────────────────────────────── */
+.mem-ai-area { margin-top: 18px; }
+.mem-ai-btn {
+  width: 100%; padding: 12px;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  color: #fff; border: none; border-radius: 12px;
+  font-weight: 800; font-size: 0.92rem; cursor: pointer;
+  box-shadow: 0 4px 12px -4px #6366f1;
+  transition: transform 0.1s ease;
+}
+.mem-ai-btn:active { transform: scale(0.98); }
+.mem-ai-loading {
+  padding: 12px; text-align: center;
+  background: #f5f3ff; color: #6d28d9;
+  border-radius: 12px; font-size: 0.88rem; font-weight: 600;
+}
+.mem-ai-result {
+  margin-top: 4px; padding: 14px 16px;
+  background: #faf5ff; border: 1px solid #e9d5ff;
+  border-radius: 12px;
+}
+.mem-ai-result.is-error { background: #fef2f2; border-color: #fecaca; }
+.mem-ai-head {
+  font-size: 0.82rem; font-weight: 800; color: #6d28d9;
+  margin-bottom: 8px;
+}
+.mem-ai-result.is-error .mem-ai-head { color: #b91c1c; }
+.mem-ai-body {
+  font-size: 0.9rem; line-height: 1.75; color: #4c1d95;
+  white-space: pre-wrap;
+}
+.mem-ai-result.is-error .mem-ai-body { color: #991b1b; }
+
+/* 다크 모드 보강 */
+[data-mem-theme="dark"] .mem-heatmap { background: #1e293b; border-color: #334155; }
+[data-mem-theme="dark"] .mem-heatmap-cell { background: #334155; }
+[data-mem-theme="dark"] .mem-date-input {
+  background: #0f172a; border-color: #334155; color: #f1f5f9;
+}
+[data-mem-theme="dark"] .mem-ai-loading { background: #2e1065; color: #c4b5fd; }
+[data-mem-theme="dark"] .mem-ai-result { background: #1e1b4b; border-color: #4c1d95; }
+[data-mem-theme="dark"] .mem-ai-result.is-error { background: #2d1b1b; border-color: #7f1d1d; }
+[data-mem-theme="dark"] .mem-ai-head { color: #c4b5fd; }
+[data-mem-theme="dark"] .mem-ai-body { color: #ddd6fe; }
+[data-mem-theme="dark"] .mem-ai-result.is-error .mem-ai-head { color: #fca5a5; }
+[data-mem-theme="dark"] .mem-ai-result.is-error .mem-ai-body { color: #fecaca; }
+[data-mem-theme="dark"] .mem-freeze-tag { background: #082f49; color: #7dd3fc; }
+[data-mem-theme="dark"] .mem-freeze-stock { color: #38bdf8; }
