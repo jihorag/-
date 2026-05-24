@@ -314,6 +314,14 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
   const [choicePicked, setChoicePicked] = useState(null); // 'A'|'B'|'C'|'D'|null
   const [showNote, setShowNote] = useState(false);
   const [noteDraft, setNoteDraft] = useState('');
+  const [examDate, setExamDate] = useState(() => lsLoad(EXAM_DATE_KEY, ''));
+  const [dailyGoal, setDailyGoal] = useState(() => {
+    const v = lsLoad(DAILY_GOAL_KEY, null);
+    return v && !isNaN(parseInt(v)) ? parseInt(v) : null;
+  });
+  const [hidden, setHidden] = useState(() => lsLoad(HIDDEN_KEY, {}));
+  const [freeze, setFreeze] = useState(() => refreshFreezeTokens(lsLoad(FREEZE_KEY, null)));
+  const [byok, setByok] = useState(() => lsLoad(BYOK_KEY, ''));
 
   // book / chapter / filter
   const [bookId, setBookId] = useState(null);
