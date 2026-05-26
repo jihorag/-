@@ -2897,31 +2897,84 @@ const App = () => {
           );
         })()}
 
-        {/* 합격 준비도 — 목표 대비 현재 위치(코치) */}
-        {coach.readiness != null && (
-          <button onClick={() => setCurrentView('status')} className="coach-card">
-            <div className="coach-card-top">
-              <span>🎯 합격 준비도 <b style={{ color: 'var(--primary)' }}>추정</b></span>
-              <span style={{ color: 'var(--text-sub)', fontSize: '0.78rem' }}>자세히 →</span>
+        {/* 합격 준비도 — 3 시험 동시 multi-gauge. 행 탭 시 그 모드로 전환 + 상세로 이동 */}
+        {(coach.readiness != null || TARGET_EXAMS.some(e => coachByExam[e].readiness != null)) && (
+          <section style={{ background: '#fff', borderRadius: 16, padding: 16,
+            boxShadow: 'var(--shadow-md)', marginBottom: 14 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between',
+              alignItems: 'baseline', marginBottom: 12 }}>
+              <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827' }}>
+                🎯 합격 준비도 <b style={{ color: 'var(--primary)', fontSize: '0.78rem' }}>추정</b>
+              </span>
+              <span style={{ fontSize: '0.72rem', color: '#9ca3af' }}>
+                목표 {COACH_TARGET}% · 시험별 →
+              </span>
             </div>
-            <div className="coach-gauge">
-              <div className="coach-gauge-fill" style={{
-                width: `${Math.min(100, Math.round((coach.readiness / COACH_TARGET) * 100))}%`,
-                background: coach.readiness >= COACH_TARGET ? 'var(--success)' : 'var(--primary)' }} />
-              <span className="coach-gauge-target" style={{ left: '100%' }} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
+              {TARGET_EXAMS.map(exam => {
+                const c = coachByExam[exam];
+                const d = daysUntil(examDates[exam]);
+                const has = c.readiness != null;
+                const pct = has ? Math.min(100, Math.round((c.readiness / COACH_TARGET) * 100)) : 0;
+                const color = !has ? '#d1d5db'
+                  : c.readiness >= COACH_TARGET ? '#16a34a'
+                  : c.readiness >= 55 ? '#2563eb'
+                  : c.readiness >= 40 ? '#ea580c'
+                  : '#dc2626';
+                const verdict = !has ? '학습 시작 →'
+                  : c.readiness >= COACH_TARGET ? '안정권'
+                  : c.readiness >= 55 ? '근접'
+                  : c.readiness >= 40 ? '보강 필요'
+                  : '집중 학습';
+                return (
+                  <button key={exam}
+                    onClick={() => { setBrowseExam(exam); setCurrentView('status'); }}
+                    style={{ display: 'flex', alignItems: 'center', gap: 10,
+                      padding: '8px 10px', borderRadius: 10,
+                      border: browseExam === exam ? '1px solid #93c5fd' : '1px solid transparent',
+                      background: browseExam === exam ? '#eff6ff' : 'transparent',
+                      cursor: 'pointer', textAlign: 'left' }}>
+                    <div style={{ minWidth: 92 }}>
+                      <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#374151' }}>
+                        {exam}
+                      </div>
+                      <div style={{ fontSize: '0.7rem',
+                        color: d != null && d <= 30 ? '#dc2626' : '#9ca3af',
+                        fontWeight: d != null && d <= 30 ? 700 : 500, marginTop: 1 }}>
+                        {d != null ? fmtDday(d) : '일정 미입력'}
+                      </div>
+                    </div>
+                    <div style={{ flex: 1, position: 'relative' }}>
+                      <div style={{ height: 8, background: '#f3f4f6',
+                        borderRadius: 4, overflow: 'hidden' }}>
+                        <div style={{ width: `${pct}%`, height: '100%',
+                          background: color, transition: 'width 0.3s' }} />
+                      </div>
+                      <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: 3 }}>
+                        {verdict}
+                        {has && c.riskCount > 0 && (
+                          <span style={{ marginLeft: 6, color: '#dc2626', fontWeight: 700 }}>
+                            · 위험 {c.riskCount}
+                          </span>
+                        )}
+                        {has && c.warnCount > 0 && c.riskCount === 0 && (
+                          <span style={{ marginLeft: 6, color: '#ea580c', fontWeight: 700 }}>
+                            · 주의 {c.warnCount}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div style={{ minWidth: 48, textAlign: 'right' }}>
+                      <div style={{ fontWeight: 800, fontSize: '1.05rem', color }}>
+                        {has ? `${c.readiness}` : '—'}
+                        {has && <span style={{ fontSize: '0.7rem', fontWeight: 600 }}>%</span>}
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
-            <div className="coach-card-row">
-              <span><b style={{ fontSize: '1.15rem' }}>{coach.readiness}%</b> <span style={{ color: 'var(--text-sub)', fontSize: '0.78rem' }}>/ 목표 {COACH_TARGET}%</span></span>
-              {(coach.riskCount > 0 || coach.warnCount > 0) && (
-                <span style={{ fontSize: '0.78rem', color: coach.riskCount ? 'var(--danger)' : 'var(--warn)', fontWeight: 700 }}>
-                  {coach.riskCount > 0 && `위험 ${coach.riskCount}`}
-                  {coach.riskCount > 0 && coach.warnCount > 0 && ' · '}
-                  {coach.warnCount > 0 && `주의 ${coach.warnCount}`} 단원
-                </span>
-              )}
-            </div>
-            <div className="coach-verdict">{coach.verdict}</div>
-          </button>
+          </section>
         )}
 
         {/* 다음 목표(마일스톤) — 단일 진행 지표 */}
