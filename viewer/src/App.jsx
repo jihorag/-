@@ -1367,6 +1367,46 @@ const App = () => {
     return { rows, skillAcc, coverage, readiness, riskCount, warnCount, topFix, verdict };
   }, [analytics.subjects]);
 
+  // 시험별 합격 준비도 — 홈 multi-gauge용. classifiedList를 시험별로 필터해 같은 공식 적용.
+  // analytics를 재사용하지 않는 이유: analytics는 전체 데이터 기반(과목별 합산).
+  // 시험별로는 같은 과목(예: 민법)이 시험마다 별도 통계를 가져야 함.
+  const coachByExam = useMemo(() => {
+    const out = {};
+    for (const targetExam of TARGET_EXAMS) {
+      const subj = {};
+      for (const q of classifiedList) {
+        if (q.exam !== targetExam) continue;
+        const sName = q.taxSubjectName || '기타';
+        const s = subj[sName] || (subj[sName] = { total: 0, scored: 0, correct: 0 });
+        s.total++;
+        const p = progress[qid(q)];
+        if (!p) continue;
+        if (p.correct === true || p.correct === false) {
+          s.scored++; if (p.correct === true) s.correct++;
+        }
+      }
+      let sumCorrect = 0, sumScored = 0, sumTotal = 0;
+      let riskCount = 0, warnCount = 0;
+      for (const name in subj) {
+        const v = subj[name];
+        if (v.total < 8) continue;
+        sumCorrect += v.correct; sumScored += v.scored; sumTotal += v.total;
+        const acc = v.scored >= 5 ? (v.correct / v.scored) * 100 : null;
+        if (acc != null) {
+          if (acc < 50) riskCount++;
+          else if (acc < COACH_TARGET) warnCount++;
+        }
+      }
+      const skillAcc = sumScored ? Math.round((sumCorrect / sumScored) * 100) : null;
+      const coverage = sumTotal ? Math.round((sumScored / sumTotal) * 100) : 0;
+      const readiness = skillAcc == null ? null
+        : Math.round(skillAcc * (0.4 + 0.6 * Math.min(1, coverage / 60)));
+      out[targetExam] = { readiness, skillAcc, coverage, riskCount, warnCount,
+        totalQ: sumTotal, scoredQ: sumScored };
+    }
+    return out;
+  }, [classifiedList, progress]);
+
   // A4: 오늘 목표 도달 시 컨페티 1회(하루 1번만)
   useEffect(() => {
     if (analytics.todayCount < dailyGoal) return;
