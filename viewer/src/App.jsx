@@ -2598,12 +2598,14 @@ const App = () => {
             </div>
           </section>
 
-          {/* 약점 */}
+          {/* 약점 — 모드 적용 (분류 + 난이도별 정답률 모두) */}
           <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
-            <div style={{ fontWeight: 800, marginBottom: '10px' }}>약점 진단</div>
+            <div style={{ fontWeight: 800, marginBottom: '10px' }}>
+              약점 진단{browseExam && ` · ${browseExam}`}
+            </div>
             <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#6b7280', marginBottom: '6px' }}>난이도별 정답률</div>
             <div style={{ display: 'flex', gap: '6px', marginBottom: '14px' }}>
-              {analytics.diffAcc.map(({ d, acc }) => {
+              {analyticsUsed.diffAcc.map(({ d, acc }) => {
                 const m = DIFFICULTY_META[d] || {};
                 return (
                   <div key={d} style={{ flex: 1, textAlign: 'center' }}>
@@ -2616,12 +2618,13 @@ const App = () => {
                 );
               })}
             </div>
-            {analytics.weak.length === 0 ? (
+            {analyticsUsed.weak.length === 0 ? (
               <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>과목당 5문제 이상 풀면 약점이 분석돼요</div>
-            ) : analytics.weak.map(w => (
+            ) : analyticsUsed.weak.map(w => (
               <div key={w.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                 border: '1px solid #fecaca', background: '#fef2f2', borderRadius: '10px', padding: '10px 12px', marginBottom: '6px',
-                cursor: 'pointer' }} onClick={() => startConcept(w.name, `${w.name} 집중 학습`)}>
+                cursor: 'pointer' }} onClick={() => startConcept(w.name,
+                  `${browseExam ? browseExam + ' · ' : ''}${w.name} 집중 학습`, browseExam || null)}>
                 <span style={{ color: '#7f1d1d', fontSize: '0.88rem' }}><b>{w.name}</b>{w.weakSection && <span style={{ fontSize: '0.75rem', color: '#9a3412' }}> · {w.weakSection.nm}</span>}</span>
                 <span style={{ fontWeight: 800, color: '#dc2626' }}>{w.acc}%</span>
               </div>
@@ -3160,15 +3163,16 @@ const App = () => {
           </div>
         </section>
 
-        {/* 약점 집중 */}
-        {analytics.weak.length > 0 && (
+        {/* 약점 집중 — 모드 적용 */}
+        {(modeAnalytics ? modeAnalytics.weak : analytics.weak).length > 0 && (
           <section style={{ marginBottom: '14px' }}>
             <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#374151', margin: '0 2px 10px' }}>
-              📉 약점 집중
+              📉 약점 집중{browseExam && ` · ${browseExam}`}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {analytics.weak.map((w) => (
-                <button key={w.name} onClick={() => startConcept(w.name, `${w.name} 집중 학습`)}
+              {(modeAnalytics ? modeAnalytics.weak : analytics.weak).map((w) => (
+                <button key={w.name} onClick={() => startConcept(w.name,
+                  `${browseExam ? browseExam + ' · ' : ''}${w.name} 집중 학습`, browseExam || null)}
                   style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px',
                     padding: '13px 15px', borderRadius: '12px', cursor: 'pointer',
                     border: '1px solid #fecaca', background: '#fef2f2', textAlign: 'left' }}>
