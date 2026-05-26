@@ -1469,55 +1469,36 @@ const App = () => {
   }, [analytics.todayCount, dailyGoal]);
 
   // 커버리지: 전체 대비 미응답/정답/복습필요/마스터 + 시험별 진척
-  const coverage = useMemo(() => {
-    let unseen = 0, learned = 0, review = 0, mastered = 0;
-    const byExam = {};
-    for (const q of classifiedList) {
-      const ex = q.exam || '기타';
-      const e = byExam[ex] || (byExam[ex] = { total: 0, answered: 0, scored: 0, correct: 0, mastered: 0 });
-      e.total++;
-      const p = progress[qid(q)];
-      if (!p) { unseen++; continue; }
-      e.answered++;
-      const grad = p.srs && p.srs.graduated;
-      if (grad) { mastered++; e.mastered++; }
-      else if (p.correct === false) review++;
-      else learned++;                     // 정답 또는 채점불가 응답(=학습함)
-      if (p.correct === true || p.correct === false) { e.scored++; if (p.correct === true) e.correct++; }
-    }
-    const total = classifiedList.length || 1;
-    const exams = Object.entries(byExam)
-      .map(([name, v]) => ({
-        name, ...v,
-        coverPct: Math.round((v.answered / (v.total || 1)) * 100),
-        acc: v.scored ? Math.round((v.correct / v.scored) * 100) : null,
-      }))
-      .sort((a, b) => b.total - a.total);
-    return {
-      total: classifiedList.length, unseen, learned, review, mastered,
-      pct: (n) => Math.round((n / total) * 100),
-      exams,
-    };
-  }, [classifiedList, progress]);
+  const coverage = useMemo(() => buildCoverage(classifiedList, progress), [classifiedList, progress]);
+  // 모드별 커버리지 (status 탭의 스택바)
+  const modeCoverage = useMemo(
+    () => browseExam ? buildCoverage(modeClassifiedList, progress) : null,
+    [browseExam, modeClassifiedList, progress]
+  );
 
   // 한 과목을 집중 연습: 오답·미응답 우선(없으면 전체) 가이드 학습
-  const startConcept = (subjectName, title) => {
+  // examFilter set이면 그 시험의 그 과목만 (모드 인지 학습)
+  const startConcept = (subjectName, title, examFilter = null) => {
     const ids = [];
     for (const q of classifiedList) {
       if ((q.taxSubjectName || '기타') !== subjectName) continue;
+      if (examFilter && q.exam !== examFilter) continue;
       const p = progress[qid(q)];
       if (!p || p.correct === false) ids.push(qid(q));   // 미응답 또는 오답 우선
     }
     const finalIds = ids.length ? ids
-      : classifiedList.filter(q => (q.taxSubjectName || '기타') === subjectName).map(qid);
+      : classifiedList.filter(q => (q.taxSubjectName || '기타') === subjectName
+        && (!examFilter || q.exam === examFilter)).map(qid);
     startReview(finalIds, title, 'home');
   };
 
   // 오늘의 추천(적응형): 합격 임팩트 큰 약점 절 → 약점 과목 오답 → 그 외 오답 → 약점 미학습 → 그 외 미학습
-  const startRecommended = () => {
-    const weakNames = new Set(coach.rows.filter(r => r.tier === 'risk' || r.tier === 'warn').map(r => r.name));
+  // examFilter set이면 그 시험 안에서만 추천 (modeCoach 기준)
+  const startRecommended = (examFilter = null) => {
+    const usedCoach = examFilter && modeCoach ? modeCoach : coach;
+    const weakNames = new Set(usedCoach.rows.filter(r => r.tier === 'risk' || r.tier === 'warn').map(r => r.name));
     const prioritySec = new Set(); // 정답률 최저 절(임팩트순)의 문항 id
-    for (const r of coach.rows) {
+    for (const r of usedCoach.rows) {
       if ((r.tier === 'risk' || r.tier === 'warn') && r.weakSection) {
         for (const id of r.weakSection.ids) prioritySec.add(id);
       }
@@ -1535,7 +1516,8 @@ const App = () => {
       if (unseen && isWeakSubj(q)) return 3;
       return 4;                                   // 그 외 미학습
     };
-    const pool = classifiedList
+    const sourceList = examFilter ? classifiedList.filter(q => q.exam === examFilter) : classifiedList;
+    const pool = sourceList
       .map(q => ({ q, r: rank(q) }))
       .filter(x => x.r < 99)
       .sort((a, b) => a.r - b.r);
