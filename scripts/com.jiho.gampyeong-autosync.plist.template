@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  설치: scripts/install-autosync.sh
+  수동 적용:
+    REPO=$(pwd) envsubst < scripts/com.jiho.gampyeong-autosync.plist.template > ~/Library/LaunchAgents/com.jiho.gampyeong-autosync.plist
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jiho.gampyeong-autosync.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.jiho.gampyeong-autosync</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>__REPO__/scripts/auto-sync.sh</string>
+  </array>
+
+  <key>StartInterval</key>
+  <integer>60</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>__HOME__/Library/Logs/gampyeong-autosync.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>__HOME__/Library/Logs/gampyeong-autosync.log</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>LANG</key>
+    <string>ko_KR.UTF-8</string>
+    <key>HOME</key>
+    <string>__HOME__</string>
+    <key>REPO_PATH</key>
+    <string>__REPO__</string>
+  </dict>
+</dict>
+</plist>
