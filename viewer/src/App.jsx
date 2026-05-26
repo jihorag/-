@@ -286,6 +286,157 @@ const useBookmarks = () => {
   return { bm, cycleBookmark };
 };
 
+// ===== 분석/코치/커버리지 빌더 (모드별 재사용을 위해 모듈 레벨 순수 함수) =====
+const COACH_TARGET = 70; // 목표 정답률(%)
+
+// classifiedList → 과목·난이도·일별 집계 + 약점·연속학습 등
+function buildAnalytics(list, progress, trendDays, dailyGoal) {
+  const subj = {};
+  const diff = {};
+  const days = new Set();
+  const dayAgg = {};
+  let todayCount = 0;
+  const todayStr = new Date().toDateString();
+  for (const q of list) {
+    const sName = q.taxSubjectName || '기타';
+    const s = subj[sName] || (subj[sName] = { total: 0, scored: 0, correct: 0, sec: {} });
+    s.total++;
+    const p = progress[qid(q)];
+    if (!p) continue;
+    if (p.ts) {
+      const ds = new Date(p.ts).toDateString();
+      days.add(ds);
+      if (ds === todayStr) todayCount++;
+      const da = dayAgg[ds] || (dayAgg[ds] = { count: 0, scored: 0, correct: 0 });
+      da.count++;
+      if (p.correct === true || p.correct === false) { da.scored++; if (p.correct === true) da.correct++; }
+    }
+    if (p.correct === true || p.correct === false) {
+      s.scored++; if (p.correct === true) s.correct++;
+      const secName = q.taxSectionName || q.taxChapterName || '기타';
+      const sc = s.sec[secName] || (s.sec[secName] = { scored: 0, correct: 0, ids: [] });
+      sc.scored++; if (p.correct === true) sc.correct++; sc.ids.push(qid(q));
+      if (typeof q.difficulty === 'number') {
+        const d = diff[q.difficulty] || (diff[q.difficulty] = { scored: 0, correct: 0 });
+        d.scored++; if (p.correct === true) d.correct++;
+      }
+    }
+  }
+  let streak = 0;
+  const cur = new Date(); cur.setHours(0, 0, 0, 0);
+  if (!days.has(cur.toDateString())) cur.setDate(cur.getDate() - 1);
+  while (days.has(cur.toDateString())) { streak++; cur.setDate(cur.getDate() - 1); }
+
+  const metDay = (d) => ((dayAgg[d.toDateString()] || {}).count || 0) >= dailyGoal;
+  let goalStreak = 0;
+  const gc = new Date(); gc.setHours(0, 0, 0, 0);
+  if (!metDay(gc)) gc.setDate(gc.getDate() - 1);
+  while (metDay(gc)) { goalStreak++; gc.setDate(gc.getDate() - 1); }
+  const weekMet = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - i);
+    weekMet.push({ label: ['일', '월', '화', '수', '목', '금', '토'][d.getDay()], met: metDay(d), isToday: i === 0 });
+  }
+
+  const subjects = Object.entries(subj).map(([name, v]) => ({
+    name, total: v.total, scored: v.scored, correct: v.correct,
+    acc: v.scored ? Math.round((v.correct / v.scored) * 100) : null,
+    weakSection: Object.entries(v.sec)
+      .filter(([, c]) => c.scored >= 3)
+      .map(([nm, c]) => ({ nm, acc: c.correct / c.scored, ids: c.ids }))
+      .sort((a, b) => a.acc - b.acc)[0] || null,
+    allWrongUnseenIds: [],
+  }));
+  const weak = subjects.filter(s => s.scored >= 5 && s.acc != null)
+    .sort((a, b) => a.acc - b.acc).slice(0, 3);
+  const diffAcc = [1, 2, 3, 4, 5].map(d => {
+    const v = diff[d];
+    return { d, scored: v ? v.scored : 0, acc: v && v.scored ? Math.round((v.correct / v.scored) * 100) : null };
+  });
+  const trend = [];
+  for (let i = trendDays - 1; i >= 0; i--) {
+    const dt = new Date(); dt.setHours(0, 0, 0, 0); dt.setDate(dt.getDate() - i);
+    const a = dayAgg[dt.toDateString()] || { count: 0, scored: 0, correct: 0 };
+    trend.push({
+      label: trendDays <= 7 ? ['일', '월', '화', '수', '목', '금', '토'][dt.getDay()] : '',
+      isToday: i === 0,
+      count: a.count,
+      acc: a.scored ? Math.round((a.correct / a.scored) * 100) : null,
+    });
+  }
+  const trendMax = Math.max(1, ...trend.map(t => t.count));
+  const trendSum = trend.reduce((n, t) => n + t.count, 0);
+  return { subjects, weak, diffAcc, streak, goalStreak, weekMet, todayCount, studiedDays: days.size, trend, trendMax, trendSum };
+}
+
+// analytics.subjects → 합격 준비도·약점 우선순위·verdict
+function buildCoach(analyticsSubjects) {
+  let sumCorrect = 0, sumScored = 0, sumTotal = 0;
+  const rows = analyticsSubjects
+    .filter(s => s.total >= 8)
+    .map(s => {
+      sumCorrect += s.correct; sumScored += s.scored; sumTotal += s.total;
+      const acc = s.scored >= 5 ? Math.round((s.correct / s.scored) * 100) : null;
+      const cov = Math.round((s.scored / s.total) * 100);
+      let tier;
+      if (acc == null) tier = 'unknown';
+      else if (acc >= COACH_TARGET) tier = 'safe';
+      else if (acc >= 50) tier = 'warn';
+      else tier = 'risk';
+      const gap = acc == null ? COACH_TARGET : Math.max(0, COACH_TARGET - acc);
+      const impact = acc == null ? s.total * 0.5 : (s.total * gap) / 100;
+      return { name: s.name, total: s.total, scored: s.scored, acc, cov, tier, impact,
+        weakSection: s.weakSection };
+    })
+    .sort((a, b) => b.impact - a.impact);
+  const skillAcc = sumScored ? Math.round((sumCorrect / sumScored) * 100) : null;
+  const coverage = sumTotal ? Math.round((sumScored / sumTotal) * 100) : 0;
+  const readiness = skillAcc == null ? null
+    : Math.round(skillAcc * (0.4 + 0.6 * Math.min(1, coverage / 60)));
+  const riskCount = rows.filter(r => r.tier === 'risk').length;
+  const warnCount = rows.filter(r => r.tier === 'warn').length;
+  const topFix = rows.find(r => r.tier === 'risk' || r.tier === 'warn') || rows[0] || null;
+  let verdict;
+  if (readiness == null) verdict = '데이터를 조금만 더 쌓으면 진단할 수 있어요';
+  else if (readiness >= COACH_TARGET) verdict = '합격선 안정권 — 페이스 유지';
+  else if (readiness >= 55) verdict = '합격선 근접 — 약한 단원만 잡으면 됩니다';
+  else if (readiness >= 40) verdict = '기초 보강 구간 — 약점부터 좁히세요';
+  else verdict = '지금부터 약점 위주로 차근차근';
+  return { rows, skillAcc, coverage, readiness, riskCount, warnCount, topFix, verdict };
+}
+
+// classifiedList → 커버리지(미응답·학습·복습필요·마스터) + 시험별 진척
+function buildCoverage(list, progress) {
+  let unseen = 0, learned = 0, review = 0, mastered = 0;
+  const byExam = {};
+  for (const q of list) {
+    const ex = q.exam || '기타';
+    const e = byExam[ex] || (byExam[ex] = { total: 0, answered: 0, scored: 0, correct: 0, mastered: 0 });
+    e.total++;
+    const p = progress[qid(q)];
+    if (!p) { unseen++; continue; }
+    e.answered++;
+    const grad = p.srs && p.srs.graduated;
+    if (grad) { mastered++; e.mastered++; }
+    else if (p.correct === false) review++;
+    else learned++;
+    if (p.correct === true || p.correct === false) { e.scored++; if (p.correct === true) e.correct++; }
+  }
+  const total = list.length || 1;
+  const exams = Object.entries(byExam)
+    .map(([name, v]) => ({
+      name, ...v,
+      coverPct: Math.round((v.answered / (v.total || 1)) * 100),
+      acc: v.scored ? Math.round((v.correct / v.scored) * 100) : null,
+    }))
+    .sort((a, b) => b.total - a.total);
+  return {
+    total: list.length, unseen, learned, review, mastered,
+    pct: (n) => Math.round((n / total) * 100),
+    exams,
+  };
+}
+
 // 문항 배열에 대한 진행 통계
 const progressStats = (questions, progress) => {
   let answered = 0, correct = 0, scored = 0, dSum = 0, dCnt = 0;
