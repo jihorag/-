@@ -150,7 +150,8 @@ function passProb(subjectCounts, accMap) {
 
 // ─────────────────────────────────────────────────────────────────────
 const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
-                    onNavigate, onStartReview, fontScale }) => {
+                    onNavigate, onStartReview, fontScale,
+                    browseExam, examDate }) => {
   // mode: 'mock' | 'mockSession' | 'mockResult'
   const [current, setCurrent] = useState(() => loadCurrent());
   const [history, setHistory] = useState(() => loadHistory());
@@ -169,6 +170,8 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
   const [confirmSubmit, setConfirmSubmit] = useState(false);
   // 결과 화면: 무엇을 표시할지 (마지막 완료 항목 or 선택)
   const [resultId, setResultId] = useState(null);
+  // history 필터: '' = 전체, 'mode' = 현재 모드 시험만
+  const [historyFilter, setHistoryFilter] = useState('mode');
 
   // 1초 틱(세션 모드일 때만 활성)
   useEffect(() => {
@@ -187,7 +190,22 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
     if (mode === 'mockResult' && !history.length) onNavigate('mock');
   }, [mode, current, history, resultId, onNavigate]);
 
-  const picker = useMemo(() => buildPicker(classifiedList), [classifiedList]);
+  const pickerRaw = useMemo(() => buildPicker(classifiedList), [classifiedList]);
+  // browseExam이 set이면 그 시험을 picker 최상단으로
+  const picker = useMemo(() => {
+    if (!browseExam) return pickerRaw;
+    return [...pickerRaw].sort((a, b) => {
+      const aMatch = a.exam === browseExam ? 0 : 1;
+      const bMatch = b.exam === browseExam ? 0 : 1;
+      if (aMatch !== bMatch) return aMatch - bMatch;
+      return b.year.localeCompare(a.year);
+    });
+  }, [pickerRaw, browseExam]);
+  // history filter — 모드 필터링 + 모드 미설정 시 자동 전체
+  const filteredHistory = useMemo(() => {
+    if (!browseExam || historyFilter !== 'mode') return history;
+    return history.filter(r => r.exam === browseExam);
+  }, [history, browseExam, historyFilter]);
   // 문항 id → 객체 맵 — 12k 엔트리를 1초 틱마다 재구축하지 않도록 캐시
   const qById = useMemo(() => {
     const m = new Map();
