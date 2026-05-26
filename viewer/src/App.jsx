@@ -813,24 +813,29 @@ const App = () => {
   // ===== 단일 v4 분류축 엔진 =====
   // 모든 탭(시험별/과목별/단원별/연도별)이 동일한 mapped_taxonomy 분류축을 공유한다.
   // taxScope: null(과목별/단원별) | {kind:'exam'|'year', value, label} (시험별/연도별 진입 시)
+  // browseExam: 둘러보기 상단 모드 픽커 — taxScope 없을 때만 작동(taxScope가 더 구체적)
   const baseFilter = useCallback((item) => {
     if (!item.isClassified) return false;
-    if (!taxScope) return true;
-    if (taxScope.kind === 'exam') return item.exam === taxScope.value;
-    if (taxScope.kind === 'year') return String(item.year) === String(taxScope.value);
+    if (taxScope) {
+      if (taxScope.kind === 'exam') return item.exam === taxScope.value;
+      if (taxScope.kind === 'year') return String(item.year) === String(taxScope.value);
+      return true;
+    }
+    if (browseExam && item.exam !== browseExam) return false;
     return true;
-  }, [taxScope]);
+  }, [taxScope, browseExam]);
 
   const scopedClassified = useMemo(
     () => processedData.filter(baseFilter),
     [processedData, baseFilter]
   );
 
-  // Level 0: 연도 목록 (연도별 탭) — 분류 완료 문항만 집계
+  // Level 0: 연도 목록 (연도별 탭) — 분류 완료 문항만 집계 + browseExam 적용
   const yearGroups = useMemo(() => {
     const groups = {};
     processedData.forEach(q => {
       if (!q.isClassified) return;
+      if (browseExam && q.exam !== browseExam) return;
       const key = q.year;
       if (!groups[key]) {
         groups[key] = {
@@ -847,13 +852,15 @@ const App = () => {
       if (q.isWeak) groups[key].weak = true;
     });
     return Object.values(groups).sort((a, b) => parseInt(b.rawValue) - parseInt(a.rawValue));
-  }, [processedData]);
+  }, [processedData, browseExam]);
 
   // Level 0: 시험 목록 (시험별 탭) — 분류 완료 문항만 집계
+  // browseExam이 set이면 의미 없음(1개 시험뿐) → UI에서 viewMode='exam' 자체를 숨김
   const examGroups = useMemo(() => {
     const groups = {};
     processedData.forEach(q => {
       if (!q.isClassified) return;
+      if (browseExam && q.exam !== browseExam) return;
       const key = q.exam;
       if (!groups[key]) {
         groups[key] = {
@@ -869,7 +876,7 @@ const App = () => {
       if (q.isWeak) groups[key].weak = true;
     });
     return Object.values(groups).sort((a, b) => b.total - a.total);
-  }, [processedData]);
+  }, [processedData, browseExam]);
 
   // 과목(taxonomy subject) 목록 — 시험별/과목별/단원별/연도별 공용 (scope 반영)
   const taxSubjectGroups = useMemo(() => {
@@ -1518,6 +1525,22 @@ const App = () => {
     } else {
       setCurrentView('dashboard');
     }
+  };
+
+  // 둘러보기 모드 변경 — 드릴다운 리셋 + 시험별 viewMode면 자동 전환
+  const setBrowseExam = (v) => {
+    const next = v || '';
+    setBrowseExamState(next);
+    try { localStorage.setItem('quiz-browse-exam', next); } catch { /* SSR */ }
+    setTaxScope(null);
+    setTaxSubject(null);
+    setTaxSubSubject(null);
+    setTaxChapter(null);
+    setTaxSection(null);
+    setSelectedGroup(null);
+    // 모드 set 시 시험별은 의미 없음(1개 시험뿐) → 과목별로 자연 전환
+    if (next && viewMode === 'exam') setViewMode('subject');
+    window.scrollTo(0, 0);
   };
 
   // 탭 전환: 모든 드릴다운 상태를 초기화하고 대시보드로
