@@ -546,6 +546,14 @@ const App = () => {
     setStudyOrderState(o);
     try { localStorage.setItem('quiz-study-order', o); } catch { /* SSR */ }
   };
+  // 둘러보기 시험 모드 — 분류·연도·과목 픽커가 이 시험에 맞춰짐
+  // ''/null = 전체 (모든 시험), '감정평가사'|'세무사'|'공인중개사' = 모드
+  const [browseExam, setBrowseExamState] = useState(() => {
+    try {
+      const v = localStorage.getItem('quiz-browse-exam');
+      return v == null ? '감정평가사' : v;   // 첫 진입 기본값
+    } catch { return '감정평가사'; }
+  });
   const [reviewSubject, setReviewSubject] = useState(null); // 오답 복습 2단계 드릴(과목 선택)
   const [nowTs] = useState(() => Date.now()); // 세션 기준 현재시각(렌더 순수성)
   const [trendDays, setTrendDays] = useState(7); // 학습 추이 기간(7|30)
