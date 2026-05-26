@@ -2776,7 +2776,7 @@ const App = () => {
           </button>
         </div>
         <div className="banner-content">
-          <div className="banner-title">감정평가사 1차 기출</div>
+          <div className="banner-title">{browseExam || '감정평가사'} 1차 기출</div>
           <p style={{ marginTop: '6px', opacity: 0.85, fontSize: '0.9rem', fontWeight: 500 }}>
             {nickname ? `${nickname}님, 오늘도 한 걸음 더` : '오늘도 한 걸음 더'}
           </p>
@@ -2784,6 +2784,49 @@ const App = () => {
       </div>
 
       <main className="main-content">
+        {/* 시험 모드 빠른 전환 + D-DAY 통합 — 3시험 동시 준비자용 */}
+        {(() => {
+          const haveAnyDate = TARGET_EXAMS.some(e => examDates[e]);
+          return (
+            <section style={{ marginBottom: '14px', display: 'flex', gap: 8,
+              overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+              {TARGET_EXAMS.map(exam => {
+                const on = browseExam === exam;
+                const d = daysUntil(examDates[exam]);
+                const ddayColor = d == null ? '#9ca3af' : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
+                return (
+                  <button key={exam} onClick={() => { setBrowseExam(exam); setCurrentView('dashboard'); }}
+                    style={{ flex: '1 0 auto', minWidth: 100, padding: '10px 12px',
+                      border: on ? '2px solid #2563eb' : '1px solid #e5e7eb',
+                      background: on ? '#eff6ff' : '#fff',
+                      borderRadius: 12, cursor: 'pointer', textAlign: 'left' }}>
+                    <div style={{ fontWeight: 800, fontSize: '0.85rem',
+                      color: on ? '#1d4ed8' : '#374151' }}>{exam}</div>
+                    <div style={{ fontWeight: 800, fontSize: '0.95rem',
+                      color: ddayColor, marginTop: 2 }}>
+                      {d != null ? fmtDday(d) : '일정 미입력'}
+                    </div>
+                  </button>
+                );
+              })}
+              <button onClick={() => { setBrowseExam(''); setCurrentView('dashboard'); }}
+                style={{ flex: '0 0 auto', padding: '10px 12px',
+                  border: browseExam === '' ? '2px solid #2563eb' : '1px solid #e5e7eb',
+                  background: browseExam === '' ? '#eff6ff' : '#fff',
+                  color: browseExam === '' ? '#1d4ed8' : '#6b7280',
+                  borderRadius: 12, cursor: 'pointer',
+                  fontWeight: 700, fontSize: '0.82rem' }}>
+                🌐<br />전체
+              </button>
+              {!haveAnyDate && (
+                <button onClick={() => setCurrentView('settings')}
+                  style={{ position: 'absolute', display: 'none' }}>
+                  일정 입력
+                </button>
+              )}
+            </section>
+          );
+        })()}
         {/* 오늘 할 일 — 단일 다음 행동(선택 부담 제거: Duolingo path 원칙) */}
         {(() => {
           const w0 = analytics.weak[0];
@@ -3128,6 +3171,38 @@ const App = () => {
             [[3, '3초'], [5, '5초'], [8, '8초']], autoSec, setAutoSec)}
           {segRow('학습 추세 기간', '현황 화면 추세 그래프의 기간이에요.',
             [[7, '7일'], [30, '30일']], trendDays, setTrendDays)}
+
+          {/* 시험 일정 — 3시험 동시 준비: D-DAY, 일일 권장량 자동 계산용 */}
+          <section style={{ background: '#fff', borderRadius: '14px', padding: '16px',
+            boxShadow: 'var(--shadow-sm)', marginBottom: '12px' }}>
+            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#374151' }}>📅 시험 일정 (D-DAY)</div>
+            <div style={{ fontSize: '0.78rem', color: '#9ca3af', marginTop: '3px' }}>
+              각 시험 날짜를 입력하면 홈에 D-DAY와 일일 권장 학습량이 표시돼요.
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 14 }}>
+              {TARGET_EXAMS.map(exam => {
+                const d = daysUntil(examDates[exam]);
+                const color = d == null ? '#9ca3af' : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
+                return (
+                  <div key={exam} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <span style={{ minWidth: 90, fontWeight: 700, fontSize: '0.88rem', color: '#374151' }}>
+                      {exam}
+                    </span>
+                    <input type="date" value={examDates[exam] || ''}
+                      onChange={(e) => setExamDate(exam, e.target.value)}
+                      style={{ flex: 1, padding: '8px 10px', borderRadius: 8,
+                        border: '1px solid #d1d5db', fontSize: '0.88rem',
+                        fontFamily: 'inherit' }} />
+                    <span style={{ minWidth: 60, textAlign: 'right',
+                      fontWeight: 800, fontSize: '0.9rem', color }}>
+                      {fmtDday(d)}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
           <section style={{ background: '#fff', borderRadius: '14px', padding: '16px', boxShadow: 'var(--shadow-sm)', marginBottom: '12px',
             display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
             <div>
