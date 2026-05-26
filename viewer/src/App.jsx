@@ -1392,131 +1392,28 @@ const App = () => {
     [classifiedList, progress]
   );
 
-  // 학습 분석: 과목·절별 성취도, 난이도별 정답률, 연속 학습일, 약점 도출
-  const analytics = useMemo(() => {
-    const subj = {};   // subjectName -> {total,scored,correct, sec:{secName:{scored,correct,ids[]}}}
-    const diff = {};   // 1..5 -> {scored,correct}
-    const days = new Set();
-    const dayAgg = {};  // dateString -> {count, scored, correct}
-    let todayCount = 0;
-    const todayStr = new Date().toDateString();
-    for (const q of classifiedList) {
-      const sName = q.taxSubjectName || '기타';
-      const s = subj[sName] || (subj[sName] = { total: 0, scored: 0, correct: 0, sec: {} });
-      s.total++;
-      const p = progress[qid(q)];
-      if (!p) continue;
-      if (p.ts) {
-        const ds = new Date(p.ts).toDateString();
-        days.add(ds);
-        if (ds === todayStr) todayCount++;
-        const da = dayAgg[ds] || (dayAgg[ds] = { count: 0, scored: 0, correct: 0 });
-        da.count++;
-        if (p.correct === true || p.correct === false) { da.scored++; if (p.correct === true) da.correct++; }
-      }
-      if (p.correct === true || p.correct === false) {
-        s.scored++; if (p.correct === true) s.correct++;
-        const secName = q.taxSectionName || q.taxChapterName || '기타';
-        const sc = s.sec[secName] || (s.sec[secName] = { scored: 0, correct: 0, ids: [] });
-        sc.scored++; if (p.correct === true) sc.correct++; sc.ids.push(qid(q));
-        if (typeof q.difficulty === 'number') {
-          const d = diff[q.difficulty] || (diff[q.difficulty] = { scored: 0, correct: 0 });
-          d.scored++; if (p.correct === true) d.correct++;
-        }
-      }
-    }
-    // 연속 학습일(오늘 또는 어제부터 역순으로 끊김 없이)
-    let streak = 0;
-    const cur = new Date(); cur.setHours(0, 0, 0, 0);
-    if (!days.has(cur.toDateString())) cur.setDate(cur.getDate() - 1); // 오늘 안 했으면 어제부터
-    while (days.has(cur.toDateString())) { streak++; cur.setDate(cur.getDate() - 1); }
+  // 학습 분석: 모듈-레벨 buildAnalytics에 위임 (전체 + 모드별 재사용)
+  const analytics = useMemo(
+    () => buildAnalytics(classifiedList, progress, trendDays, dailyGoal),
+    [classifiedList, progress, trendDays, dailyGoal]
+  );
+  // 합격 코치: 전체 데이터 기반 (현황 탭 default + startRecommended 입력)
+  const coach = useMemo(() => buildCoach(analytics.subjects), [analytics.subjects]);
 
-    // 목표 달성: 일별 count >= dailyGoal
-    const metDay = (d) => ((dayAgg[d.toDateString()] || {}).count || 0) >= dailyGoal;
-    let goalStreak = 0;
-    const gc = new Date(); gc.setHours(0, 0, 0, 0);
-    if (!metDay(gc)) gc.setDate(gc.getDate() - 1);   // 오늘 미달이면 어제까지로 연속 판정
-    while (metDay(gc)) { goalStreak++; gc.setDate(gc.getDate() - 1); }
-    const weekMet = [];
-    for (let i = 6; i >= 0; i--) {
-      const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - i);
-      weekMet.push({ label: ['일', '월', '화', '수', '목', '금', '토'][d.getDay()], met: metDay(d), isToday: i === 0 });
-    }
-
-    const subjects = Object.entries(subj).map(([name, v]) => ({
-      name, total: v.total, scored: v.scored, correct: v.correct,
-      acc: v.scored ? Math.round((v.correct / v.scored) * 100) : null,
-      // 가장 약한 절(채점 3+ & 정답률 최저)
-      weakSection: Object.entries(v.sec)
-        .filter(([, c]) => c.scored >= 3)
-        .map(([nm, c]) => ({ nm, acc: c.correct / c.scored, ids: c.ids }))
-        .sort((a, b) => a.acc - b.acc)[0] || null,
-      allWrongUnseenIds: [], // 채워짐(아래)
-    }));
-    // 약점 과목: 채점 5+ 중 정답률 낮은 순
-    const weak = subjects.filter(s => s.scored >= 5 && s.acc != null)
-      .sort((a, b) => a.acc - b.acc).slice(0, 3);
-    const diffAcc = [1, 2, 3, 4, 5].map(d => {
-      const v = diff[d];
-      return { d, scored: v ? v.scored : 0, acc: v && v.scored ? Math.round((v.correct / v.scored) * 100) : null };
-    });
-    // 최근 N일 학습 추이(문항의 최신 활동일 기준)
-    const trend = [];
-    for (let i = trendDays - 1; i >= 0; i--) {
-      const dt = new Date(); dt.setHours(0, 0, 0, 0); dt.setDate(dt.getDate() - i);
-      const a = dayAgg[dt.toDateString()] || { count: 0, scored: 0, correct: 0 };
-      trend.push({
-        // 7일이면 요일, 30일이면 라벨 생략(범위는 별도 표기)
-        label: trendDays <= 7 ? ['일', '월', '화', '수', '목', '금', '토'][dt.getDay()] : '',
-        isToday: i === 0,
-        count: a.count,
-        acc: a.scored ? Math.round((a.correct / a.scored) * 100) : null,
-      });
-    }
-    const trendMax = Math.max(1, ...trend.map(t => t.count));
-    const trendSum = trend.reduce((n, t) => n + t.count, 0);
-    return { subjects, weak, diffAcc, streak, goalStreak, weekMet, todayCount, studiedDays: days.size, trend, trendMax, trendSum };
-  }, [classifiedList, progress, trendDays, dailyGoal]);
-
-  // 합격 코치: 데이터를 "지금 뭘 해야 합격에 가까워지나"로 번역
-  const COACH_TARGET = 70; // 목표 정답률(%)
-  const coach = useMemo(() => {
-    let sumCorrect = 0, sumScored = 0, sumTotal = 0;
-    const rows = analytics.subjects
-      .filter(s => s.total >= 8) // 표본 너무 작은 분류축 제외
-      .map(s => {
-        sumCorrect += s.correct; sumScored += s.scored; sumTotal += s.total;
-        const acc = s.scored >= 5 ? Math.round((s.correct / s.scored) * 100) : null;
-        const cov = Math.round((s.scored / s.total) * 100);
-        let tier;
-        if (acc == null) tier = 'unknown';
-        else if (acc >= COACH_TARGET) tier = 'safe';
-        else if (acc >= 50) tier = 'warn';
-        else tier = 'risk';
-        // 임팩트: 목표까지 끌어올릴 때 기대 점수 기여(문항수 × 부족분), 데이터 없으면 미학습량
-        const gap = acc == null ? COACH_TARGET : Math.max(0, COACH_TARGET - acc);
-        const impact = acc == null ? s.total * 0.5 : (s.total * gap) / 100;
-        return { name: s.name, total: s.total, scored: s.scored, acc, cov, tier, impact,
-          weakSection: s.weakSection };
-      })
-      .sort((a, b) => b.impact - a.impact);
-    // 실력 추정(채점분 기준) + 커버리지로 신뢰 보정
-    const skillAcc = sumScored ? Math.round((sumCorrect / sumScored) * 100) : null;
-    const coverage = sumTotal ? Math.round((sumScored / sumTotal) * 100) : 0;
-    // 합격 준비도: 실력 × 커버리지 신뢰(미학습이 많으면 보수적으로)
-    const readiness = skillAcc == null ? null
-      : Math.round(skillAcc * (0.4 + 0.6 * Math.min(1, coverage / 60)));
-    const riskCount = rows.filter(r => r.tier === 'risk').length;
-    const warnCount = rows.filter(r => r.tier === 'warn').length;
-    const topFix = rows.find(r => r.tier === 'risk' || r.tier === 'warn') || rows[0] || null;
-    let verdict;
-    if (readiness == null) verdict = '데이터를 조금만 더 쌓으면 진단할 수 있어요';
-    else if (readiness >= COACH_TARGET) verdict = '합격선 안정권 — 페이스 유지';
-    else if (readiness >= 55) verdict = '합격선 근접 — 약한 단원만 잡으면 됩니다';
-    else if (readiness >= 40) verdict = '기초 보강 구간 — 약점부터 좁히세요';
-    else verdict = '지금부터 약점 위주로 차근차근';
-    return { rows, skillAcc, coverage, readiness, riskCount, warnCount, topFix, verdict };
-  }, [analytics.subjects]);
+  // 모드(browseExam) 컨텍스트 — set일 때 analytics/coach/coverage를 그 시험만으로 재계산
+  // status 탭에서 모드 인지 표시, home의 todo-hero 약점 추천이 그 시험 중심이 되도록.
+  const modeClassifiedList = useMemo(
+    () => browseExam ? classifiedList.filter(q => q.exam === browseExam) : classifiedList,
+    [classifiedList, browseExam]
+  );
+  const modeAnalytics = useMemo(
+    () => browseExam ? buildAnalytics(modeClassifiedList, progress, trendDays, dailyGoal) : null,
+    [browseExam, modeClassifiedList, progress, trendDays, dailyGoal]
+  );
+  const modeCoach = useMemo(
+    () => browseExam && modeAnalytics ? buildCoach(modeAnalytics.subjects) : null,
+    [browseExam, modeAnalytics]
+  );
 
   // 시험별 합격 준비도 — 홈 multi-gauge용. classifiedList를 시험별로 필터해 같은 공식 적용.
   // analytics를 재사용하지 않는 이유: analytics는 전체 데이터 기반(과목별 합산).
