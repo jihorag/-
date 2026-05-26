@@ -748,6 +748,11 @@ const App = () => {
     try { localStorage.setItem(FILTERS_KEY, JSON.stringify(filters)); } catch { /* quota/SSR */ }
   }, [filters]);
 
+  // 모드 set + 시험별 viewMode 불일치 정규화 (구버전 hash로 진입한 경우 등)
+  useEffect(() => {
+    if (browseExam && viewMode === 'exam') setViewMode('subject');
+  }, [browseExam, viewMode]);
+
   // Process data
   const processedData = useMemo(() => {
     if (loading || !questionsData) return [];
@@ -3195,12 +3200,42 @@ const App = () => {
   }
 
   // ===== 둘러보기 탭: 시험/과목/단원/연도 =====
+  // 시험 모드(상단 pill) — 분류·연도·과목 픽커가 그 시험에 맞춰짐
+  const BROWSE_MODES = [
+    { id: '감정평가사', label: '감정평가사' },
+    { id: '세무사', label: '세무사' },
+    { id: '공인중개사', label: '공인중개사' },
+    { id: '', label: '전체' },
+  ];
+  // browseExam이 set이면 시험별 viewMode는 1개 시험뿐이라 무의미 → 숨김
+  const viewModeTabs = browseExam
+    ? [['subject','과목별'],['chapter','단원별'],['year','연도별']]
+    : [['exam','시험별'],['subject','과목별'],['chapter','단원별'],['year','연도별']];
   return shell(
     <div className="app-container">
       <div className="screen-head">
         <h1 className="screen-title">📚 둘러보기</h1>
       </div>
       <main className="main-content" style={{ marginTop: '16px' }}>
+        {/* 시험 모드 선택 — 분류를 해당 시험에 맞춰 표시 */}
+        <div style={{ display: 'flex', gap: '6px', marginBottom: '16px',
+          overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+          {BROWSE_MODES.map(m => {
+            const on = browseExam === m.id;
+            return (
+              <button key={m.id || '_all'} onClick={() => setBrowseExam(m.id)}
+                style={{ flex: '1 0 auto', padding: '10px 14px', whiteSpace: 'nowrap',
+                  border: on ? '1px solid #2563eb' : '1px solid #d1d5db',
+                  background: on ? '#eff6ff' : '#fff',
+                  color: on ? '#1d4ed8' : '#374151',
+                  borderRadius: '10px', fontWeight: on ? 800 : 600,
+                  fontSize: '0.85rem', cursor: 'pointer' }}>
+                {m.label}
+              </button>
+            );
+          })}
+        </div>
+
         <button
           onClick={() => setCurrentView('search')}
           style={{ width: '100%', textAlign: 'left', padding: '14px 16px', marginBottom: '20px',
@@ -3210,9 +3245,11 @@ const App = () => {
           🔍 통합 검색·필터 (시험·과목·연도·난이도·키워드)
         </button>
         <div className="section-header">
-          <h3 className="section-title">학습 목록</h3>
+          <h3 className="section-title">
+            학습 목록{browseExam && <span style={{ fontSize: '0.78rem', color: '#6b7280', fontWeight: 600, marginLeft: 6 }}>· {browseExam}</span>}
+          </h3>
           <div className="view-toggle">
-            {[['exam','시험별'],['subject','과목별'],['chapter','단원별'],['year','연도별']].map(([mode,label]) => (
+            {viewModeTabs.map(([mode,label]) => (
               <button
                 key={mode}
                 className={viewMode === mode ? 'active' : ''}
