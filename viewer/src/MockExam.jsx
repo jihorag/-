@@ -17,10 +17,18 @@ const PASS_AVG = 60;
 const LIMITS = [
   { ms: 60 * 60 * 1000, label: '60분' },
   { ms: 90 * 60 * 1000, label: '90분' },
+  { ms: 100 * 60 * 1000, label: '100분' },
   { ms: 120 * 60 * 1000, label: '120분' },
+  { ms: 240 * 60 * 1000, label: '240분' },
   { ms: 0, label: '무제한' },
 ];
 const DEFAULT_LIMIT_MS = 120 * 60 * 1000;
+// 시험별 1차 표준 시간(ms) — picker에 "권장" 힌트
+const EXAM_STD_TIME = {
+  '감정평가사': 120 * 60 * 1000,
+  '세무사': 240 * 60 * 1000,
+  '공인중개사': 100 * 60 * 1000,
+};
 
 const loadCurrent = () => {
   try { return JSON.parse(localStorage.getItem(CUR_KEY) || 'null'); }

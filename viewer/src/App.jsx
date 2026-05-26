@@ -1686,6 +1686,8 @@ const App = () => {
         onNavigate={(v) => { setCurrentView(v); window.scrollTo(0, 0); }}
         onStartReview={startReview}
         fontScale={fontScale}
+        browseExam={browseExam}
+        examDate={browseExam ? examDates[browseExam] : null}
       />
     );
   }
@@ -1701,6 +1703,8 @@ const App = () => {
           onNavigate={(v) => { setCurrentView(v); window.scrollTo(0, 0); }}
           onStartReview={startReview}
           fontScale={fontScale}
+          browseExam={browseExam}
+          examDate={browseExam ? examDates[browseExam] : null}
         />
         {overlays}
       </div>
@@ -2785,48 +2789,47 @@ const App = () => {
 
       <main className="main-content">
         {/* 시험 모드 빠른 전환 + D-DAY 통합 — 3시험 동시 준비자용 */}
-        {(() => {
-          const haveAnyDate = TARGET_EXAMS.some(e => examDates[e]);
-          return (
-            <section style={{ marginBottom: '14px', display: 'flex', gap: 8,
-              overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
-              {TARGET_EXAMS.map(exam => {
-                const on = browseExam === exam;
-                const d = daysUntil(examDates[exam]);
-                const ddayColor = d == null ? '#9ca3af' : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
-                return (
-                  <button key={exam} onClick={() => { setBrowseExam(exam); setCurrentView('dashboard'); }}
-                    style={{ flex: '1 0 auto', minWidth: 100, padding: '10px 12px',
-                      border: on ? '2px solid #2563eb' : '1px solid #e5e7eb',
-                      background: on ? '#eff6ff' : '#fff',
-                      borderRadius: 12, cursor: 'pointer', textAlign: 'left' }}>
-                    <div style={{ fontWeight: 800, fontSize: '0.85rem',
-                      color: on ? '#1d4ed8' : '#374151' }}>{exam}</div>
-                    <div style={{ fontWeight: 800, fontSize: '0.95rem',
-                      color: ddayColor, marginTop: 2 }}>
-                      {d != null ? fmtDday(d) : '일정 미입력'}
-                    </div>
-                  </button>
-                );
-              })}
-              <button onClick={() => { setBrowseExam(''); setCurrentView('dashboard'); }}
-                style={{ flex: '0 0 auto', padding: '10px 12px',
-                  border: browseExam === '' ? '2px solid #2563eb' : '1px solid #e5e7eb',
-                  background: browseExam === '' ? '#eff6ff' : '#fff',
-                  color: browseExam === '' ? '#1d4ed8' : '#6b7280',
-                  borderRadius: 12, cursor: 'pointer',
-                  fontWeight: 700, fontSize: '0.82rem' }}>
-                🌐<br />전체
-              </button>
-              {!haveAnyDate && (
-                <button onClick={() => setCurrentView('settings')}
-                  style={{ position: 'absolute', display: 'none' }}>
-                  일정 입력
+        <section style={{ marginBottom: '14px' }}>
+          <div style={{ display: 'flex', gap: 8, overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch' }}>
+            {TARGET_EXAMS.map(exam => {
+              const on = browseExam === exam;
+              const d = daysUntil(examDates[exam]);
+              const ddayColor = d == null ? '#9ca3af' : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
+              return (
+                <button key={exam} onClick={() => { setBrowseExam(exam); setCurrentView('dashboard'); }}
+                  style={{ flex: '1 0 auto', minWidth: 100, padding: '10px 12px',
+                    border: on ? '2px solid #2563eb' : '1px solid #e5e7eb',
+                    background: on ? '#eff6ff' : '#fff',
+                    borderRadius: 12, cursor: 'pointer', textAlign: 'left' }}>
+                  <div style={{ fontWeight: 800, fontSize: '0.85rem',
+                    color: on ? '#1d4ed8' : '#374151' }}>{exam}</div>
+                  <div style={{ fontWeight: 800, fontSize: '0.95rem',
+                    color: ddayColor, marginTop: 2 }}>
+                    {d != null ? fmtDday(d) : '일정 미입력'}
+                  </div>
                 </button>
-              )}
-            </section>
-          );
-        })()}
+              );
+            })}
+            <button onClick={() => { setBrowseExam(''); setCurrentView('dashboard'); }}
+              style={{ flex: '0 0 auto', padding: '10px 12px',
+                border: browseExam === '' ? '2px solid #2563eb' : '1px solid #e5e7eb',
+                background: browseExam === '' ? '#eff6ff' : '#fff',
+                color: browseExam === '' ? '#1d4ed8' : '#6b7280',
+                borderRadius: 12, cursor: 'pointer',
+                fontWeight: 700, fontSize: '0.82rem', whiteSpace: 'nowrap' }}>
+              🌐 전체
+            </button>
+          </div>
+          {!TARGET_EXAMS.some(e => examDates[e]) && (
+            <button onClick={() => setCurrentView('settings')}
+              style={{ marginTop: 6, fontSize: '0.75rem', color: '#6b7280',
+                background: 'none', border: 'none', cursor: 'pointer',
+                padding: '4px 0' }}>
+              📅 시험 날짜 입력하기 (설정) →
+            </button>
+          )}
+        </section>
         {/* 오늘 할 일 — 단일 다음 행동(선택 부담 제거: Duolingo path 원칙) */}
         {(() => {
           const w0 = analytics.weak[0];
