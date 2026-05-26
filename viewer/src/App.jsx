@@ -1522,7 +1522,7 @@ const App = () => {
       .filter(x => x.r < 99)
       .sort((a, b) => a.r - b.r);
     const ids = pool.slice(0, dailyGoal).map(x => qid(x.q));
-    if (ids.length) startReview(ids, '오늘의 추천 학습', 'home');
+    if (ids.length) startReview(ids, examFilter ? `${examFilter} 추천 학습` : '오늘의 추천 학습', 'home');
   };
 
   // 무작위 N문제 (셔플은 모듈 레벨 sampleN — 렌더 순수성 규칙 회피)
@@ -2356,7 +2356,10 @@ const App = () => {
   }
 
   if (currentView === 'status') {
-    const cv = coverage;
+    // 모드 set 시 cv/coachUsed/analyticsUsed가 그 시험 데이터만 사용
+    const cv = modeCoverage || coverage;
+    const coachUsed = modeCoach || coach;
+    const analyticsUsed = modeAnalytics || analytics;
     const segs = [
       { k: 'learned', label: '정답·학습', n: cv.learned, c: 'var(--primary)' },
       { k: 'mastered', label: '마스터', n: cv.mastered, c: '#16a34a' },
@@ -2373,8 +2376,46 @@ const App = () => {
     );
     return shell(
       <div className="app-container">
-        <div className="screen-head"><h1 className="screen-title">📊 학습 현황</h1></div>
+        <div className="screen-head">
+          <h1 className="screen-title">
+            📊 학습 현황
+            {browseExam && (
+              <span style={{ marginLeft: 8, fontSize: '0.78rem', color: '#1d4ed8',
+                fontWeight: 700, padding: '3px 9px', background: '#eff6ff',
+                borderRadius: 999, verticalAlign: 'middle' }}>
+                {browseExam} 모드
+              </span>
+            )}
+          </h1>
+        </div>
         <main className="main-content" style={{ marginTop: '16px' }}>
+          {/* 모드 pill — status 통계의 범위를 시험별로 전환 */}
+          <div style={{ display: 'flex', gap: 6, marginBottom: 14,
+            overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+            {TARGET_EXAMS.map(exam => {
+              const on = browseExam === exam;
+              return (
+                <button key={exam} onClick={() => setBrowseExam(exam)}
+                  style={{ flex: '1 0 auto', padding: '8px 10px', whiteSpace: 'nowrap',
+                    border: on ? '1px solid #2563eb' : '1px solid #d1d5db',
+                    background: on ? '#eff6ff' : '#fff',
+                    color: on ? '#1d4ed8' : '#374151',
+                    borderRadius: 8, fontWeight: on ? 800 : 600,
+                    fontSize: '0.82rem', cursor: 'pointer' }}>
+                  {exam}
+                </button>
+              );
+            })}
+            <button onClick={() => setBrowseExam('')}
+              style={{ flex: '0 0 auto', padding: '8px 12px',
+                border: !browseExam ? '1px solid #2563eb' : '1px solid #d1d5db',
+                background: !browseExam ? '#eff6ff' : '#fff',
+                color: !browseExam ? '#1d4ed8' : '#6b7280',
+                borderRadius: 8, fontWeight: !browseExam ? 800 : 600,
+                fontSize: '0.82rem', cursor: 'pointer' }}>
+              🌐 전체
+            </button>
+          </div>
           {/* 핵심 KPI */}
           <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
             {kpi(`${learnedPct}%`, `학습 ${cv.total - cv.unseen}/${cv.total}`, '#2563eb')}
@@ -2900,22 +2941,26 @@ const App = () => {
             </button>
           )}
         </section>
-        {/* 오늘 할 일 — 단일 다음 행동(선택 부담 제거: Duolingo path 원칙) */}
+        {/* 오늘 할 일 — 단일 다음 행동(선택 부담 제거: Duolingo path 원칙)
+            browseExam set이면 그 시험 안에서 약점·추천. 복습(SRS)은 모드 무관 — 도래시각 기반. */}
         {(() => {
-          const w0 = analytics.weak[0];
+          const modeWeak = modeAnalytics ? modeAnalytics.weak[0] : null;
+          const w0 = modeWeak || analytics.weak[0];
           let act;
           if (srs.due.length > 0) {
             act = { tag: '복습', title: `오늘 복습 ${srs.due.length}문제`,
               desc: '기억 곡선이 도래했어요 · 지금이 가장 잘 외워질 때',
               go: () => setCurrentView('today') };
           } else if (w0) {
-            act = { tag: '약점 보강', title: `${w0.name} 집중`,
+            const prefix = browseExam ? `${browseExam} · ` : '';
+            act = { tag: '약점 보강', title: `${prefix}${w0.name} 집중`,
               desc: `현재 정답률 ${w0.acc}% — 약한 곳부터 끌어올려요`,
-              go: () => startConcept(w0.name, `${w0.name} 집중 학습`) };
+              go: () => startConcept(w0.name, `${prefix}${w0.name} 집중 학습`, browseExam || null) };
           } else {
-            act = { tag: '추천', title: `오늘의 추천 ${dailyGoal}문제`,
+            const prefix = browseExam ? `${browseExam} ` : '오늘의 ';
+            act = { tag: '추천', title: `${prefix}추천 ${dailyGoal}문제`,
               desc: '미학습 위주로 골라 담았어요 · 한 번에 시작',
-              go: startRecommended };
+              go: () => startRecommended(browseExam || null) };
           }
           return (
             <button onClick={act.go} className="todo-hero">
