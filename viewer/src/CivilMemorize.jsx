@@ -22,6 +22,8 @@
 //   mem-byok         : string — Claude API 키 (BYOK)
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import katex from 'katex';
+import 'katex/dist/katex.min.css';
 
 // ─── 과목 메타 ────────────────────────────────────────────────
 // 다과목 확장: 새 과목 추가 시 entry만 늘리면 됨. dataDir 안에 동일한 파일명 규약.
@@ -1611,6 +1613,22 @@ function renderInline(s) {
       out.push(<span key={out.length} className="mem-blank">_ _ _ _ _</span>);
       i += 3;
       continue;
+    }
+    // KaTeX 인라인 수식 ($...$) — 수동 카드(formula/manual)용
+    if (s[i] === '$') {
+      const end = s.indexOf('$', i + 1);
+      if (end > i + 1) {
+        const math = s.slice(i + 1, end);
+        push();
+        try {
+          const html = katex.renderToString(math, { throwOnError: false, output: 'html' });
+          out.push(<span key={out.length} dangerouslySetInnerHTML={{ __html: html }} />);
+        } catch {
+          out.push(<span key={out.length}>{`$${math}$`}</span>);
+        }
+        i = end + 1;
+        continue;
+      }
     }
     cur += s[i++];
   }

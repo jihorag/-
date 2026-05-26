@@ -24,7 +24,8 @@ export default defineConfig({
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'quiz-data',
-              expiration: { maxEntries: 8, maxAgeSeconds: 60 * 60 * 24 * 30 },
+              // manifest + 시험별 chunk(13) + taxonomy + 통암기(과목별 3) 등 — 여유 있게
+              expiration: { maxEntries: 40, maxAgeSeconds: 60 * 60 * 24 * 30 },
               cacheableResponse: { statuses: [0, 200] },
             },
           },

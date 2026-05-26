@@ -10,6 +10,8 @@
 //   T2. definition  — 정의문(`X이란 Y을 말한다`) 양방향
 //   T3. bold        — 본문 안 `**용어**` 빈칸
 //   T4. mnemonic    — 점·중점으로 연결된 두문자(1글자 토큰 4개+)
+//   T5. manual      — manual_cards.md 의 Q:/A: 수동 카드 (KaTeX `$...$` 지원)
+//                     자동 패턴이 약한 표·공식·다이어그램용 큐레이팅 카드
 //
 // 소스 .md가 모두 없으면 — git에 커밋된 기존 JSON을 보존하고 종료
 // (Vercel 빌드 환경엔 사용자 `~/Documents/...` 폴더가 없음. 기존 JSON 유지 안전망.)
@@ -241,13 +243,82 @@ function makeCardBuilder(subjectId) {
   return { cards, walk };
 }
 
+// ─── 수동 카드 파서 (manual_cards.md) ─────────────────────
+// 포맷:
+//   ## Chapter title          (필수, 카드의 소속 단원)
+//   ### Sub-section           (선택, 트리 깊이)
+//   Q: 질문 본문 (여러 줄 가능, 다음 Q:/A:/heading/빈줄/--- 까지)
+//   A: 답 본문 (여러 줄 가능)
+//   Type: formula             (선택, 'formula'|'concept'|'table'... 기본 'manual')
+//   Tags: 태그1, 태그2         (선택)
+//   ---                       (선택, 명시적 카드 구분)
+//
+// 빈 줄과 `---` 는 카드 경계로 작동(이전 카드 flush). KaTeX는 `$...$` 그대로 보존.
+function parseManualCards(md, subjectId) {
+  const lines = md.split('\n');
+  const out = [];
+  const stack = []; // [{level, title}]
+  let q = null, a = null, type = 'manual', tags = null, mode = null;
+
+  const flush = () => {
+    if (q && a) {
+      const qText = q.trim();
+      const aText = a.trim();
+      if (qText.length >= 2 && aText.length >= 1) {
+        const chapterTitle = stack.length ? stack.map(s => s.title).join(' > ') : 'manual';
+        const leafId = shortId(`${subjectId}/manual/${chapterTitle}/${qText}`);
+        out.push({
+          id: shortId(`${subjectId}|manual|${qText}|${aText}`),
+          type, q: qText, a: aText,
+          chapterTitle, leafId, bookId: 'manual',
+          ...(tags ? { tags } : {}),
+        });
+      }
+    }
+    q = null; a = null; type = 'manual'; tags = null; mode = null;
+  };
+
+  for (const raw of lines) {
+    const line = raw.replace(/\r$/, '');
+    const h = /^(#{2,4})\s+(.+)$/.exec(line);
+    if (h) {
+      flush();
+      const level = h[1].length;
+      const title = h[2].trim();
+      while (stack.length && stack[stack.length - 1].level >= level) stack.pop();
+      stack.push({ level, title });
+      continue;
+    }
+    if (/^---+\s*$/.test(line) || (!line.trim() && (q !== null || a !== null))) {
+      // 빈 줄: Q는 시작했지만 A 진입 전이면 카드 미완성 → 그냥 다음 줄로
+      if (!line.trim() && a === null) continue;
+      flush();
+      continue;
+    }
+    const qm = /^Q[:.]\s*(.*)$/.exec(line);
+    if (qm) { flush(); q = qm[1] || ''; mode = 'q'; continue; }
+    const am = /^A[:.]\s*(.*)$/.exec(line);
+    if (am) { a = am[1] || ''; mode = 'a'; continue; }
+    const tm = /^Type[:.]\s*([A-Za-z가-힣_]+)\s*$/.exec(line);
+    if (tm) { type = tm[1].toLowerCase(); continue; }
+    const gm = /^Tags?[:.]\s*(.+)$/.exec(line);
+    if (gm) { tags = gm[1].split(/[,，]/).map(s => s.trim()).filter(Boolean); continue; }
+    if (mode === 'q') q = (q === null ? '' : q + '\n') + line;
+    else if (mode === 'a') a = (a === null ? '' : a + '\n') + line;
+  }
+  flush();
+  return out;
+}
+
 // ─── 메인 ────────────────────────────────────────────────
 function runSubject(sub) {
-  const anySource = sub.books.some(b => findInDirs(sub.sourceDirs, b.file));
-  if (!anySource) {
+  const anyBookSource = sub.books.some(b => findInDirs(sub.sourceDirs, b.file));
+  const manualPath = findInDirs(sub.sourceDirs, 'manual_cards.md');
+  if (!anyBookSource && !manualPath) {
     console.log(`[build_memorize] ${sub.id}: no source .md — keep existing as-is`);
     return { id: sub.id, status: 'skipped' };
   }
+  const anySource = anyBookSource || !!manualPath;
 
   mkdirSync(sub.outDir, { recursive: true });
   const total = { books: [], built_at: new Date().toISOString() };
@@ -268,11 +339,29 @@ function runSubject(sub) {
     console.log(`[build_memorize] ${sub.id}/${book.title}: ${made} cards, ${tree.children.length} top chapters`);
   }
 
+  // 수동 카드 (KaTeX 공식·표 등 자동 패턴이 약한 영역용)
+  if (manualPath) {
+    const md = readFileSync(manualPath, 'utf8');
+    const manualCards = parseManualCards(md, sub.id);
+    builder.cards.push(...manualCards);
+    if (manualCards.length) {
+      // 트리에 가벼운 placeholder book — picker UI에서 보이도록
+      total.books.push({
+        id: 'manual', title: '수동 카드',
+        source: manualPath,
+        tree: { id: 'manual', title: '수동 카드', level: 0, children: [], body: [] },
+      });
+    }
+    console.log(`[build_memorize] ${sub.id}/manual: ${manualCards.length} cards`);
+  }
+
   for (const c of builder.cards) {
-    c.bookId = c.chapterPath?.[0]?.id || 'unknown';
-    c.chapterTitle = c.chapterPath.map(n => n.title).join(' > ');
-    c.leafId = c.chapterPath[c.chapterPath.length - 1].id;
-    delete c.chapterPath;
+    if (c.chapterPath) {
+      c.bookId = c.chapterPath[0]?.id || 'unknown';
+      c.chapterTitle = c.chapterPath.map(n => n.title).join(' > ');
+      c.leafId = c.chapterPath[c.chapterPath.length - 1].id;
+      delete c.chapterPath;
+    }
   }
 
   writeFileSync(join(sub.outDir, sub.outFiles.total), JSON.stringify(total));

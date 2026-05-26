@@ -1,9 +1,9 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
-import katex from 'katex';
-import 'katex/dist/katex.min.css';
 import CivilMemorize from './CivilMemorize';
+import MockExam from './MockExam';
+import { ParsedText } from './ParsedText';
 
 // ===== 사용자 데이터 관리 (백업/복원/초기화) =====
 // 모든 학습 상태는 localStorage 의 quiz-* 키에 저장됨. 계정 동기화의 단일 레이어.
@@ -325,80 +325,7 @@ const parseNav = (hash) => {
   };
 };
 
-// 소실 이미지를 깨진 아이콘 대신 안내로 표시 (React 상태로 안전 처리)
-const SafeImage = ({ src }) => {
-  const [errored, setErrored] = useState(false);
-  const [zoom, setZoom] = useState(false);
-  if (errored) {
-    return <span style={{ display: 'inline-block', color: '#9ca3af', fontSize: '0.85rem', padding: '8px 0' }}>[이미지 없음]</span>;
-  }
-  return (
-    <>
-      <img
-        src={src}
-        alt="content"
-        loading="lazy"
-        decoding="async"
-        className="q-img"
-        onClick={() => setZoom(true)}
-        onError={() => setErrored(true)}
-        style={{ maxWidth: '100%', display: 'block', margin: '12px auto', borderRadius: '4px' }}
-      />
-      {zoom && (
-        <div className="lightbox" role="dialog" aria-label="이미지 확대" onClick={() => setZoom(false)}>
-          <button className="lightbox-close" aria-label="닫기" onClick={() => setZoom(false)}>✕</button>
-          <img src={src} alt="확대 이미지" onClick={(e) => e.stopPropagation()} />
-        </div>
-      )}
-    </>
-  );
-};
-
-// Component to parse and render text with inline images and math
-const ParsedText = ({ text }) => {
-  if (!text) return null;
-  const parts = text.split(/(\[IMAGE:\s*.*?\])/g);
-  return (
-    <>
-      {parts.map((part, i) => {
-        const imgMatch = part.match(/\[IMAGE:\s*(.*?)\]/);
-        if (imgMatch) {
-          const rawName = imgMatch[1].split('/').pop();
-          // PNG/GIF는 빌드 시 동일 파일명의 WebP로 변환됨(확장자만 교체).
-          const imageName = rawName.replace(/\.(png|gif)$/i, '.webp');
-          return <SafeImage key={i} src={`/images/${imageName}`} />;
-        }
-        
-        // Render math in the text part
-        const mathParts = part.split(/(\$[\s\S]*?\$)/g);
-        return mathParts.map((mathPart, j) => {
-          if (mathPart.startsWith('$') && mathPart.endsWith('$')) {
-            const math = mathPart.slice(1, -1);
-            try {
-              const html = katex.renderToString(math, { 
-                throwOnError: false,
-                output: 'html' // Only output HTML to prevent duplicate text when copy-pasting
-              });
-              return <span key={`${i}-${j}`} dangerouslySetInnerHTML={{ __html: html }} />;
-            } catch {
-              return <span key={`${i}-${j}`}>{mathPart}</span>;
-            }
-          }
-          if (mathPart.indexOf('\n') === -1) return <span key={`${i}-${j}`}>{mathPart}</span>;
-          // 이미지→텍스트 변환 문항의 줄바꿈(ㄱ/ㄴ/ㄷ 보기 등) 보존
-          const lines = mathPart.split('\n');
-          return (
-            <span key={`${i}-${j}`}>
-              {lines.map((ln, k) => (
-                <span key={k}>{ln}{k < lines.length - 1 && <br />}</span>
-              ))}
-            </span>
-          );
-        });
-      })}
-    </>
-  );
-};
+// SafeImage / ParsedText — './ParsedText' 모듈에서 import (모의고사도 동일 렌더 공유)
 
 // Interactive Question Component
 const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard }) => {
@@ -723,37 +650,35 @@ const App = () => {
   // 시험별/연도별 진입 시 적용되는 분류 스코프: null | {kind:'exam'|'year', value, label}
   const [taxScope, setTaxScope] = useState(bootNav?.taxScope || null);
 
-  // 데이터 불러오기 — 큰 questions_db는 스트리밍해 실제 진행률 표시
+  // 데이터 불러오기 — manifest → 시험별 chunk 병렬 fetch (E2 chunk loading)
+  // 단일 24MB 파일 대신 13개 chunk를 HTTP/2 병렬로 받아 첫 로드 체감 속도와
+  // 캐시 granularity 개선. 진행률은 chunk 완료 누적 가중치.
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const [qRes, tData] = await Promise.all([
-          fetch('/data/questions_db.json'),
+        const [manifestRes, tData] = await Promise.all([
+          fetch('/data/manifest.json').then(r => {
+            if (!r.ok) throw new Error('manifest ' + r.status);
+            return r.json();
+          }),
           fetch('/data/taxonomy.json').then(r => r.json()),
         ]);
-        if (!qRes.ok) throw new Error('questions_db ' + qRes.status);
-        const total = parseInt(qRes.headers.get('content-length') || '0', 10);
-        let qData;
-        if (qRes.body && total > 0) {
-          const reader = qRes.body.getReader();
-          const chunks = [];
-          let received = 0;
-          for (;;) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            chunks.push(value);
-            received += value.length;
-            if (!cancelled) setLoadPct(Math.min(99, Math.round((received / total) * 100)));
-          }
-          const buf = new Uint8Array(received);
-          let off = 0;
-          for (const c of chunks) { buf.set(c, off); off += c.length; }
-          qData = JSON.parse(new TextDecoder().decode(buf));
-        } else {
-          qData = await qRes.json(); // content-length 없으면(캐시/압축) 일반 파싱
-        }
         if (cancelled) return;
+        const exams = manifestRes.exams || [];
+        const totalBytes = exams.reduce((s, e) => s + (e.sizeBytes || 1), 0);
+        let receivedBytes = 0;
+        const chunkPromises = exams.map(async (e) => {
+          const r = await fetch(`/data/exams/${e.file}`);
+          if (!r.ok) throw new Error(`chunk ${e.file} ${r.status}`);
+          const arr = await r.json();
+          receivedBytes += (e.sizeBytes || 0);
+          if (!cancelled) setLoadPct(Math.min(99, Math.round((receivedBytes / totalBytes) * 100)));
+          return arr;
+        });
+        const chunks = await Promise.all(chunkPromises);
+        if (cancelled) return;
+        const qData = chunks.flat();
         setLoadPct(100);
         setQuestionsData(qData);
         setTaxonomyData(tData);
@@ -1602,7 +1527,8 @@ const App = () => {
 
   // 하단 탭바: 루트 화면에서만 노출(드릴/풀이는 전체화면)
   const navTab =
-    (currentView === 'home' || currentView === 'profile' || currentView === 'settings') ? 'home'
+    (currentView === 'home' || currentView === 'profile' || currentView === 'settings'
+      || currentView === 'mock' || currentView === 'mockResult') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'review'
     : currentView === 'status' ? 'status'
     : currentView === 'civil' ? 'memorize'
@@ -1671,6 +1597,39 @@ const App = () => {
   // 통암기(암기 탭) — 하단 탭바 노출되는 루트 화면. 내부 뒤로가기는 컴포넌트가 처리.
   if (currentView === 'civil') {
     return shell(<CivilMemorize isTabRoot />);
+  }
+
+  // 모의고사: picker/result는 하단 탭 유지, session은 집중 모드(no shell).
+  if (currentView === 'mock' || currentView === 'mockResult') {
+    return shell(
+      <MockExam
+        mode={currentView}
+        classifiedList={classifiedList}
+        progress={progress}
+        recordAnswer={recordAnswer}
+        qidFn={qid}
+        onNavigate={(v) => { setCurrentView(v); window.scrollTo(0, 0); }}
+        onStartReview={startReview}
+        fontScale={fontScale}
+      />
+    );
+  }
+  if (currentView === 'mockSession') {
+    return (
+      <div className="app-shell">
+        <MockExam
+          mode={currentView}
+          classifiedList={classifiedList}
+          progress={progress}
+          recordAnswer={recordAnswer}
+          qidFn={qid}
+          onNavigate={(v) => { setCurrentView(v); window.scrollTo(0, 0); }}
+          onStartReview={startReview}
+          fontScale={fontScale}
+        />
+        {overlays}
+      </div>
+    );
   }
 
   // 가이드 학습 모드: 한 개념의 문제를 난이도↑ 순으로 한 문제씩, 해설로 누적 학습
@@ -2870,6 +2829,22 @@ const App = () => {
             </section>
           );
         })()}
+
+        {/* 모의고사 진입 — 실전 시간제한 풀이 */}
+        <button onClick={() => setCurrentView('mock')}
+          style={{ width: '100%', display: 'flex', alignItems: 'center',
+            justifyContent: 'space-between', padding: '14px 16px', marginBottom: '12px',
+            borderRadius: 12, border: '1px solid #fde68a', background: '#fffbeb',
+            color: '#92400e', cursor: 'pointer', textAlign: 'left' }}>
+          <span>
+            <span style={{ fontWeight: 800, fontSize: '0.95rem' }}>🎯 모의고사</span>
+            <span style={{ display: 'block', fontSize: '0.78rem',
+              color: '#a16207', marginTop: 2 }}>
+              실전처럼 시간 제한 풀이 · 자동 채점 · 합격 추정
+            </span>
+          </span>
+          <span style={{ fontSize: '0.85rem', fontWeight: 700 }}>시작 →</span>
+        </button>
 
         {/* 다른 방법으로 — 보조 경로(시각 비중↓, 선택 부담 분산 방지) */}
         <section style={{ marginBottom: '14px' }}>
