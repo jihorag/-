@@ -406,8 +406,24 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
           </div>
         </section>
 
-        <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#374151', margin: '18px 2px 10px' }}>
-          이용 가능한 회차
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+          margin: '18px 2px 10px' }}>
+          <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#374151' }}>
+            이용 가능한 회차
+            {browseExam && (
+              <span style={{ marginLeft: 6, fontSize: '0.78rem', color: '#1d4ed8', fontWeight: 700 }}>
+                · {browseExam} 우선
+              </span>
+            )}
+          </div>
+          {browseExam && EXAM_STD_TIME[browseExam] && EXAM_STD_TIME[browseExam] !== limitChoice && (
+            <button onClick={() => setLimitChoice(EXAM_STD_TIME[browseExam])}
+              style={{ fontSize: '0.72rem', color: '#1d4ed8', background: '#eff6ff',
+                border: '1px solid #93c5fd', borderRadius: 8, padding: '4px 8px',
+                fontWeight: 700, cursor: 'pointer' }}>
+              {browseExam} 표준 {Math.round(EXAM_STD_TIME[browseExam] / 60000)}분으로 →
+            </button>
+          )}
         </div>
         {picker.length === 0 && (
           <div style={{ background: '#fff', borderRadius: 12, padding: 18,
@@ -418,14 +434,23 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {picker.map(p => {
             const subjs = Object.entries(p.subjects).sort((a, b) => b[1] - a[1]);
+            const isCurMode = browseExam && p.exam === browseExam;
             return (
               <button key={`${p.exam}-${p.year}`} onClick={() => startMock(p.exam, p.year)}
                 style={{ background: '#fff', borderRadius: 12, padding: 16,
-                  border: '1px solid #e5e7eb', textAlign: 'left', cursor: 'pointer',
+                  border: isCurMode ? '2px solid #2563eb' : '1px solid #e5e7eb',
+                  textAlign: 'left', cursor: 'pointer',
                   boxShadow: 'var(--shadow-sm)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                   <div style={{ fontWeight: 800, fontSize: '1rem', color: '#111827' }}>
                     {p.exam} · {p.year}년
+                    {isCurMode && (
+                      <span style={{ marginLeft: 6, fontSize: '0.7rem', fontWeight: 700,
+                        background: '#dbeafe', color: '#1e40af', padding: '2px 7px',
+                        borderRadius: 999 }}>
+                        현재 모드
+                      </span>
+                    )}
                   </div>
                   <div style={{ fontSize: '0.75rem', color: '#2563eb', fontWeight: 700 }}>시작 →</div>
                 </div>
@@ -447,11 +472,24 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
 
         {history.length > 0 && (
           <>
-            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#374151', margin: '24px 2px 10px' }}>
-              이전 기록
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              margin: '24px 2px 10px' }}>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#374151' }}>
+                이전 기록 {browseExam && historyFilter === 'mode'
+                  ? `(${browseExam} ${filteredHistory.length}건)`
+                  : `(전체 ${history.length}건)`}
+              </div>
+              {browseExam && (
+                <button onClick={() => setHistoryFilter(historyFilter === 'mode' ? '' : 'mode')}
+                  style={{ fontSize: '0.72rem', color: '#6b7280', background: 'none',
+                    border: '1px solid #d1d5db', borderRadius: 8, padding: '4px 10px',
+                    fontWeight: 600, cursor: 'pointer' }}>
+                  {historyFilter === 'mode' ? '전체 보기' : `${browseExam}만`}
+                </button>
+              )}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {[...history].reverse().slice(0, 10).map(r => (
+              {[...filteredHistory].reverse().slice(0, 10).map(r => (
                 <button key={r.id} onClick={() => { setResultId(r.id); onNavigate('mockResult'); }}
                   style={{ background: '#fff', borderRadius: 10, padding: '12px 14px',
                     border: '1px solid #e5e7eb', textAlign: 'left', cursor: 'pointer',
@@ -473,13 +511,32 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
                   </div>
                 </button>
               ))}
+              {filteredHistory.length === 0 && (
+                <div style={{ fontSize: '0.82rem', color: '#9ca3af', padding: '12px 0' }}>
+                  이 모드에서 푼 회차가 없어요.
+                </div>
+              )}
             </div>
           </>
         )}
 
         <div style={{ marginTop: 20, padding: 12, borderRadius: 10,
           background: '#fafafa', border: '1px solid #e5e7eb', fontSize: '0.78rem', color: '#6b7280' }}>
-          합격 기준: 매 과목 {PASS_SUBJ}점 이상 + 평균 {PASS_AVG}점 이상 (감정평가사 1차 기준).
+          합격 기준: 매 과목 {PASS_SUBJ}점 이상 + 평균 {PASS_AVG}점 이상.
+          {browseExam && examDate && (() => {
+            const d = (() => {
+              const dt = new Date(examDate + 'T00:00:00');
+              if (isNaN(dt)) return null;
+              const t = new Date(); t.setHours(0,0,0,0);
+              return Math.ceil((dt - t) / 86400000);
+            })();
+            if (d == null) return null;
+            return (
+              <div style={{ marginTop: 4, color: d <= 30 ? '#dc2626' : '#1d4ed8', fontWeight: 700 }}>
+                📅 {browseExam} D-{d}일 남음 — 시험 시뮬레이션 추천
+              </div>
+            );
+          })()}
         </div>
       </main>
     </>);
