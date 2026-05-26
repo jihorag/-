@@ -1261,17 +1261,6 @@ const App = () => {
     [processedData]
   );
 
-  // 과목 → 그 과목이 등장하는 시험 집합. 둘러보기 카드의 "N시험 공통" 배지에 사용.
-  // (예: 민법은 감정평가사·세무사·공인중개사 모두에 나옴 → 1개 풀면 3개 도움 표시)
-  const subjectExamMap = useMemo(() => {
-    const m = {};
-    for (const q of classifiedList) {
-      if (!q.taxSubjectName) continue;
-      (m[q.taxSubjectName] || (m[q.taxSubjectName] = new Set())).add(q.exam);
-    }
-    return m;
-  }, [classifiedList]);
-
   const bookmarkedList = useMemo(
     () => classifiedList.filter(q => bm[qid(q)]),
     [classifiedList, bm]
@@ -3562,10 +3551,6 @@ const App = () => {
             const s = progressStats(cardQuestions(group), progress);
             const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
             const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
-            // 과목 카드만 — 이 과목이 몇 시험에 공통 출제되는지 (3개 target 시험 기준)
-            const subjExams = group.type === 'tax_subject' && subjectExamMap[group.title]
-              ? TARGET_EXAMS.filter(e => subjectExamMap[group.title].has(e))
-              : [];
             return (
             <div key={idx} className="study-card" onClick={() => handleGroupClick(group)}>
               {dm && (
@@ -3574,15 +3559,6 @@ const App = () => {
                 </div>
               )}
               <h3 className="card-title">{group.title}</h3>
-              {subjExams.length >= 2 && (
-                <div style={{ marginTop: 4, fontSize: '0.72rem', fontWeight: 700,
-                  color: subjExams.length >= 3 ? '#7c2d12' : '#92400e',
-                  background: subjExams.length >= 3 ? '#fff7ed' : '#fffbeb',
-                  border: `1px solid ${subjExams.length >= 3 ? '#fed7aa' : '#fde68a'}`,
-                  display: 'inline-block', padding: '2px 8px', borderRadius: 999 }}>
-                  🔗 {subjExams.length}시험 공통 · {subjExams.join('/')}
-                </div>
-              )}
               <div className="card-total">
                 {group.total}문제{s.answered > 0 && <> · 학습 {s.answered}<span style={{ color: '#9ca3af' }}>/{s.total}</span></>}
               </div>
