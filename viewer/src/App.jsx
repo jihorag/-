@@ -74,6 +74,25 @@ const normAnswer = (raw, optCount) => {
   return String(n);
 };
 
+// ===== 다중 시험 준비 메타 =====
+// 3 시험(감정평가사·세무사·공인중개사) 동시 준비 워크플로우.
+const TARGET_EXAMS = ['감정평가사', '세무사', '공인중개사'];
+// 시험별 1차 표준 시간(분) — MockExam 시간 권장값. 실제와 차이 있을 수 있음.
+const EXAM_DEFAULT_MIN = { '감정평가사': 120, '세무사': 240, '공인중개사': 100 };
+const daysUntil = (yyyymmdd) => {
+  if (!yyyymmdd) return null;
+  const d = new Date(yyyymmdd + 'T00:00:00');
+  if (isNaN(d.getTime())) return null;
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  return Math.ceil((d - today) / 86400000);
+};
+const fmtDday = (n) => n == null ? '' : n === 0 ? 'D-DAY' : n > 0 ? `D-${n}` : `+${-n}일`;
+const EXAM_DATES_KEY = 'quiz-exam-dates';
+const loadExamDates = () => {
+  try { return JSON.parse(localStorage.getItem(EXAM_DATES_KEY) || '{}') || {}; }
+  catch { return {}; }
+};
+
 // ===== 학습 진행률 (localStorage) =====
 const PROGRESS_KEY = 'quiz-progress-v1';
 const qid = (q) => q.id || `${q.exam}_${q.year}_${q.number}`;
@@ -554,6 +573,15 @@ const App = () => {
       return v == null ? '감정평가사' : v;   // 첫 진입 기본값
     } catch { return '감정평가사'; }
   });
+  // 시험 일정 — 3시험 동시 준비 시 D-DAY 표시·일일 권장량 계산용
+  const [examDates, setExamDatesState] = useState(loadExamDates);
+  const setExamDate = (exam, date) => {
+    const next = { ...examDates };
+    if (date) next[exam] = date;
+    else delete next[exam];
+    setExamDatesState(next);
+    try { localStorage.setItem(EXAM_DATES_KEY, JSON.stringify(next)); } catch { /* SSR */ }
+  };
   const [reviewSubject, setReviewSubject] = useState(null); // 오답 복습 2단계 드릴(과목 선택)
   const [nowTs] = useState(() => Date.now()); // 세션 기준 현재시각(렌더 순수성)
   const [trendDays, setTrendDays] = useState(7); // 학습 추이 기간(7|30)
@@ -1081,6 +1109,17 @@ const App = () => {
     () => processedData.filter(q => q.isClassified),
     [processedData]
   );
+
+  // 과목 → 그 과목이 등장하는 시험 집합. 둘러보기 카드의 "N시험 공통" 배지에 사용.
+  // (예: 민법은 감정평가사·세무사·공인중개사 모두에 나옴 → 1개 풀면 3개 도움 표시)
+  const subjectExamMap = useMemo(() => {
+    const m = {};
+    for (const q of classifiedList) {
+      if (!q.taxSubjectName) continue;
+      (m[q.taxSubjectName] || (m[q.taxSubjectName] = new Set())).add(q.exam);
+    }
+    return m;
+  }, [classifiedList]);
 
   const bookmarkedList = useMemo(
     () => classifiedList.filter(q => bm[qid(q)]),
@@ -3266,6 +3305,10 @@ const App = () => {
             const s = progressStats(cardQuestions(group), progress);
             const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
             const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
+            // 과목 카드만 — 이 과목이 몇 시험에 공통 출제되는지 (3개 target 시험 기준)
+            const subjExams = group.type === 'tax_subject' && subjectExamMap[group.title]
+              ? TARGET_EXAMS.filter(e => subjectExamMap[group.title].has(e))
+              : [];
             return (
             <div key={idx} className="study-card" onClick={() => handleGroupClick(group)}>
               {dm && (
@@ -3274,6 +3317,15 @@ const App = () => {
                 </div>
               )}
               <h3 className="card-title">{group.title}</h3>
+              {subjExams.length >= 2 && (
+                <div style={{ marginTop: 4, fontSize: '0.72rem', fontWeight: 700,
+                  color: subjExams.length >= 3 ? '#7c2d12' : '#92400e',
+                  background: subjExams.length >= 3 ? '#fff7ed' : '#fffbeb',
+                  border: `1px solid ${subjExams.length >= 3 ? '#fed7aa' : '#fde68a'}`,
+                  display: 'inline-block', padding: '2px 8px', borderRadius: 999 }}>
+                  🔗 {subjExams.length}시험 공통 · {subjExams.join('/')}
+                </div>
+              )}
               <div className="card-total">
                 {group.total}문제{s.answered > 0 && <> · 학습 {s.answered}<span style={{ color: '#9ca3af' }}>/{s.total}</span></>}
               </div>
