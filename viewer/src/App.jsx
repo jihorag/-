@@ -2416,60 +2416,65 @@ const App = () => {
               🌐 전체
             </button>
           </div>
-          {/* 핵심 KPI */}
+          {/* 핵심 KPI — 모드별 정답률 (overall은 mode 무관, accuracy는 mode 분 사용) */}
           <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
             {kpi(`${learnedPct}%`, `학습 ${cv.total - cv.unseen}/${cv.total}`, '#2563eb')}
-            {kpi(overall.accuracy == null ? '–' : `${overall.accuracy}%`, '정답률', '#16a34a')}
+            {kpi(coachUsed.skillAcc == null ? '–' : `${coachUsed.skillAcc}%`, '정답률', '#16a34a')}
             {kpi(`${analytics.streak}일`, '연속 학습', '#ea580c')}
             {kpi(srs.due.length, '오늘 복습', '#7c3aed')}
           </div>
 
-          {/* 합격 코치 — 진단 + 처방 */}
-          {coach.readiness != null && (
+          {/* 합격 코치 — 진단 + 처방 (모드 적용) */}
+          {coachUsed.readiness != null && (
             <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
               padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                <span style={{ fontWeight: 800, fontSize: '1.05rem' }}>🎯 합격 코치</span>
-                <span style={{ fontSize: '0.78rem', color: '#9ca3af' }}>실력 {coach.skillAcc}% · 학습범위 {coach.coverage}%</span>
+                <span style={{ fontWeight: 800, fontSize: '1.05rem' }}>
+                  🎯 합격 코치{browseExam && ` · ${browseExam}`}
+                </span>
+                <span style={{ fontSize: '0.78rem', color: '#9ca3af' }}>실력 {coachUsed.skillAcc}% · 학습범위 {coachUsed.coverage}%</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', margin: '12px 0 6px' }}>
-                <span style={{ fontSize: '2rem', fontWeight: 800, color: coach.readiness >= COACH_TARGET ? '#16a34a' : 'var(--primary)' }}>
-                  {coach.readiness}%
+                <span style={{ fontSize: '2rem', fontWeight: 800, color: coachUsed.readiness >= COACH_TARGET ? '#16a34a' : 'var(--primary)' }}>
+                  {coachUsed.readiness}%
                 </span>
                 <span style={{ fontSize: '0.85rem', color: '#6b7280' }}>합격 준비도(추정) · 목표 {COACH_TARGET}%</span>
               </div>
               <div className="coach-gauge">
                 <div className="coach-gauge-fill" style={{
-                  width: `${Math.min(100, Math.round((coach.readiness / COACH_TARGET) * 100))}%`,
-                  background: coach.readiness >= COACH_TARGET ? 'var(--success)' : 'var(--primary)' }} />
+                  width: `${Math.min(100, Math.round((coachUsed.readiness / COACH_TARGET) * 100))}%`,
+                  background: coachUsed.readiness >= COACH_TARGET ? 'var(--success)' : 'var(--primary)' }} />
               </div>
               <div style={{ fontSize: '0.86rem', color: '#374151', margin: '10px 0 4px', fontWeight: 600 }}>
-                {coach.verdict}
+                {coachUsed.verdict}
               </div>
 
-              {coach.topFix && (
+              {coachUsed.topFix && (
                 <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '12px',
                   padding: '14px', margin: '14px 0 6px' }}>
                   <div style={{ fontSize: '0.78rem', color: 'var(--primary)', fontWeight: 800 }}>다음 한 수</div>
                   <div style={{ fontWeight: 700, margin: '4px 0 10px', color: '#111827' }}>
-                    {coach.topFix.name} {coach.topFix.acc != null ? `정답률 ${coach.topFix.acc}%` : '미진단'} — 여기부터 잡으면 합격선에 가장 빨리 가까워져요
+                    {coachUsed.topFix.name} {coachUsed.topFix.acc != null ? `정답률 ${coachUsed.topFix.acc}%` : '미진단'} — 여기부터 잡으면 합격선에 가장 빨리 가까워져요
                   </div>
-                  <button onClick={() => startConcept(coach.topFix.name, `${coach.topFix.name} 집중 보강`)}
+                  <button onClick={() => startConcept(coachUsed.topFix.name,
+                    `${browseExam ? browseExam + ' · ' : ''}${coachUsed.topFix.name} 집중 보강`,
+                    browseExam || null)}
                     style={{ width: '100%', padding: '12px', borderRadius: '10px', border: 'none',
                       background: 'var(--primary)', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
-                    {coach.topFix.name} 집중 보강 시작 →
+                    {coachUsed.topFix.name} 집중 보강 시작 →
                   </button>
                 </div>
               )}
 
               <div style={{ marginTop: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {coach.rows.slice(0, 8).map(r => {
+                {coachUsed.rows.slice(0, 8).map(r => {
                   const tone = r.tier === 'risk' ? { c: '#dc2626', bg: '#fef2f2', t: '위험' }
                     : r.tier === 'warn' ? { c: '#ea580c', bg: '#fff7ed', t: '주의' }
                     : r.tier === 'safe' ? { c: '#16a34a', bg: '#f0fdf4', t: '안정' }
                     : { c: '#6b7280', bg: '#f3f4f6', t: '표본부족' };
                   return (
-                    <button key={r.name} onClick={() => startConcept(r.name, `${r.name} 보강`)}
+                    <button key={r.name} onClick={() => startConcept(r.name,
+                      `${browseExam ? browseExam + ' · ' : ''}${r.name} 보강`, browseExam || null)}
                       style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '11px 13px',
                         borderRadius: '10px', border: '1px solid #e5e7eb', background: '#fff',
                         cursor: 'pointer', textAlign: 'left', width: '100%' }}>
@@ -2530,9 +2535,11 @@ const App = () => {
             );
           })()}
 
-          {/* 커버리지 스택바 */}
+          {/* 커버리지 스택바 — 모드 적용 시 그 시험만 */}
           <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
-            <div style={{ fontWeight: 800, marginBottom: '12px' }}>전체 커버리지 ({cv.total}문항)</div>
+            <div style={{ fontWeight: 800, marginBottom: '12px' }}>
+              {browseExam ? `${browseExam} 커버리지` : '전체 커버리지'} ({cv.total}문항)
+            </div>
             <div style={{ display: 'flex', height: '14px', borderRadius: '999px', overflow: 'hidden', marginBottom: '12px' }}>
               {segs.map(s => s.n > 0 && (
                 <div key={s.k} title={`${s.label} ${s.n}`} style={{ width: `${(s.n / cv.total) * 100}%`, background: s.c }} />
@@ -2565,7 +2572,7 @@ const App = () => {
             {srs.due.length > 0 && <div style={{ fontSize: '0.8rem', color: '#1d4ed8', marginTop: '8px' }}>오늘 복습 시작 →</div>}
           </section>
 
-          {/* 추세 */}
+          {/* 추세 — 학습 행동은 시험과 무관해 항상 overall analytics 사용 */}
           <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
               <span style={{ fontWeight: 800 }}>최근 {trendDays}일 · {analytics.trendSum}문제</span>
