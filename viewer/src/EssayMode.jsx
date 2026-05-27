@@ -464,14 +464,71 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       return true;
     });
 
+    // 학습 통계 + 추천
+    const stats = computeStats(cd.questions, progress);
+    const recommendations = recommendNext(cd.questions, progress);
+
     return shell(<>
       {header(`단원 ${chapter}`, '단원 목록', 'essay_chapters')}
       <div className="screen-head"><h1 className="screen-title">{meta?.title || chapter}</h1>
         <p style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
-          기출 {cd.officialCount}문항{cd.generatedCount > 0 && <> · 🤖 AI 생성 {cd.generatedCount}문항</>}
+          기출 {cd.officialCount}문항{cd.generatedCount > 0 && <> · 🤖 AI/큐레이션 {cd.generatedCount}문항</>}
+          {stats.attempted > 0 && (
+            <> · 풀이 <b style={{ color: '#1d4ed8' }}>{stats.attempted}</b>
+              · 평균 <b style={{ color: '#16a34a' }}>{stats.avgScore}점</b>
+              {stats.avgKeyword != null && (
+                <> · 키워드 적중 <b style={{ color: '#7c3aed' }}>{stats.avgKeyword}%</b></>
+              )}
+            </>
+          )}
         </p>
       </div>
       <main className="main-content" style={{ marginTop: 16 }}>
+        {/* 추천 학습 카드 — 약점 sub-concept 우선 미풀이 */}
+        {recommendations.length > 0 && (
+          <section style={{ background: '#eff6ff', borderRadius: 12, padding: 14,
+            border: '1px solid #bfdbfe', marginBottom: 14 }}>
+            <div style={{ fontWeight: 800, fontSize: '0.9rem', color: '#1d4ed8',
+              marginBottom: 8 }}>
+              💡 다음 추천 학습
+              {stats.attempted > 0 && stats.subArr.filter(s => s.avgScore != null).length > 0 && (
+                <span style={{ marginLeft: 6, fontSize: '0.72rem', fontWeight: 600,
+                  color: '#6b7280' }}>
+                  (약점 영역 우선)
+                </span>
+              )}
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {recommendations.map(q => (
+                <button key={q.id}
+                  onClick={() => { setQuestionId(q.id); onNavigate('essay_write'); }}
+                  style={{ background: '#fff', border: '1px solid #bfdbfe',
+                    borderRadius: 8, padding: '8px 12px', cursor: 'pointer',
+                    textAlign: 'left', display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 700,
+                    color: '#1d4ed8', minWidth: 30 }}>
+                    {q.difficulty ? '★'.repeat(q.difficulty) : ''}
+                  </span>
+                  <span style={{ flex: 1, fontSize: '0.82rem', color: '#374151',
+                    overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {q.subconcept || q.topic ||
+                      `${q.round ? `${q.round}회 ${q.questionNum}번` : '문제'}`}
+                  </span>
+                  <span style={{ fontSize: '0.72rem', color: '#9ca3af' }}>
+                    {q.points}점 →
+                  </span>
+                </button>
+              ))}
+            </div>
+            {stats.subArr.filter(s => s.avgScore != null && s.avgScore < 60).length > 0 && (
+              <div style={{ marginTop: 10, fontSize: '0.72rem', color: '#6b7280' }}>
+                ⚠ 약점: {stats.subArr.filter(s => s.avgScore != null && s.avgScore < 60)
+                  .slice(0, 2).map(s => `${s.sub} (${s.avgScore}점)`).join(', ')}
+              </div>
+            )}
+          </section>
+        )}
+
         {/* source 필터 chip */}
         {filterChips.length > 1 && (
           <div style={{ display: 'flex', gap: 6, marginBottom: 8, overflowX: 'auto',
