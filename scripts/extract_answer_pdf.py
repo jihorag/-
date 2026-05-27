@@ -37,16 +37,47 @@ def extract_pages(pdf_path):
 
 
 def find_round_starts(pages):
-    """각 페이지에서 "제N회" 등장 여부 → 회차 시작 페이지 매핑.
-    Returns list of (page_idx, round_num) for pages that start a new round.
+    """회차 시작 페이지 찾기.
+    전략: "제N회" 라벨 명시되어 있으면 그것 우선, 없으면 [문제1] 첫 등장으로 추정.
+    회차 번호는 첫 발견 회차에서 시작해 [문제1] 등장마다 +1.
     """
-    starts = []
+    explicit = []   # [(page_idx, round_num)]
+    problem1_pages = []  # 페이지 안에 [문제1]이 등장하는 인덱스
     for i, page_text in enumerate(pages):
-        # 페이지 본문에서 "제N회" 단독 라인 찾기 (회차 시작 표시는 보통 페이지 상단)
         m = ROUND_RE.search(page_text)
         if m:
-            round_num = int(m.group(1))
-            starts.append((i, round_num))
+            explicit.append((i, int(m.group(1))))
+        # [문제1] 등장하면서 그 이전 라인에 다른 [문제N] 안 보일 때 = 페이지 첫 머리에 등장
+        # 단순화: 페이지 내 첫 PROBLEM_RE 매치가 [문제1]이면 회차 시작 추정
+        first_problem = PROBLEM_RE.search(page_text)
+        if first_problem and int(first_problem.group(1)) == 1:
+            problem1_pages.append(i)
+
+    # explicit 회차들을 anchor로 사용. 그 사이를 [문제1] 페이지로 보간.
+    # 가장 명확한 케이스: explicit에 (page=0, round=11), (page=20, round=12) 있으면
+    # 13회 시작은 그 다음 [문제1] 등장 페이지 (page > 20).
+    starts = []
+    if not problem1_pages:
+        return explicit
+
+    # 회차 번호 추정: 첫 explicit anchor (보통 11회) 기준으로 [문제1] 페이지 순서대로 +1
+    if explicit:
+        anchor_page, anchor_round = explicit[0]
+    else:
+        anchor_page, anchor_round = problem1_pages[0], 11
+
+    # 첫 anchor 이후의 [문제1] 페이지들을 순차적으로 12회, 13회, ... 로 매핑
+    # 단, 같은 페이지에 [문제1]이 2번 나오면 중복 제거됨 (set 사용)
+    valid_starts = [p for p in problem1_pages if p >= anchor_page]
+    # 너무 가까이 있는 [문제1] 은 같은 회차의 사례·문제 번호 재시작일 수 있음 (보통 5-15 페이지 간격)
+    filtered = []
+    for p in valid_starts:
+        if not filtered or p - filtered[-1] >= 3:  # 최소 3페이지 간격
+            filtered.append(p)
+
+    # 회차 번호 부여: 첫 회차 = anchor_round, 이후 +1
+    for idx, p in enumerate(filtered):
+        starts.append((p, anchor_round + idx))
     return starts
 
 
