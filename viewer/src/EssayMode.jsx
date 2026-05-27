@@ -71,6 +71,30 @@ const fmtDate = (ts) => {
   return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
 };
 
+// 키워드 매칭 — 공백 무시·소문자·약어 변형 허용으로 너무 빡빡하지 않게
+const normalize = (s) => (s || '').toLowerCase().replace(/\s+/g, '').replace(/[·•・∙]/g, '');
+const keywordVariants = (kp) => {
+  // "감칙 제14조" → ["감칙제14조", "감칙14조", "감정평가에관한규칙제14조"]
+  const base = normalize(kp);
+  const variants = new Set([base]);
+  // "제N조" → "N조"
+  variants.add(base.replace(/제(\d+)조/g, '$1조'));
+  // "감칙" → "감정평가에관한규칙"
+  variants.add(base.replace(/감칙/g, '감정평가에관한규칙'));
+  variants.add(base.replace(/감칙/g, '감정평가규칙'));
+  // "토지보상법" → 약어
+  variants.add(base.replace(/토지보상법/g, '보상법'));
+  return [...variants].filter(v => v.length >= 2);
+};
+const matchKeyword = (answerText, kp) => {
+  const norm = normalize(answerText);
+  return keywordVariants(kp).some(v => norm.includes(v));
+};
+const matchAll = (answerText, keyPoints) => {
+  if (!keyPoints || !keyPoints.length) return null;
+  return keyPoints.map(kp => ({ kp, matched: matchKeyword(answerText, kp) }));
+};
+
 const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuestionId, fontScale }) => {
   const [manifest, setManifest] = useState(null);
   const [manifestErr, setManifestErr] = useState(null);
@@ -112,6 +136,72 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     })();
     return () => { cancelled = true; };
   }, []);
+
+  // ─────────── 통계 계산 헬퍼 ───────────
+  // questions 배열을 받아 sub-concept별·난이도별 학습 통계 도출
+  const computeStats = (questions, progressMap) => {
+    const subStats = {};   // subconcept → {total, attempted, avgScore, avgKeyword}
+    const diffStats = {};  // difficulty → {total, attempted, avgScore}
+    let totalAttempted = 0;
+    let totalScoreSum = 0;
+    let totalKeywordHitSum = 0, totalKeywordTotalSum = 0;
+    for (const q of questions) {
+      const sub = q.subconcept || '(미분류)';
+      const diff = q.difficulty || 0;
+      subStats[sub] = subStats[sub] || { total: 0, attempted: 0, scoreSum: 0, kwHit: 0, kwTotal: 0 };
+      subStats[sub].total++;
+      diffStats[diff] = diffStats[diff] || { total: 0, attempted: 0, scoreSum: 0 };
+      diffStats[diff].total++;
+      const prog = progressMap[q.id];
+      if (prog && prog.attempts && prog.attempts.length) {
+        const lastAttempt = prog.attempts[prog.attempts.length - 1];
+        subStats[sub].attempted++;
+        diffStats[diff].attempted++;
+        subStats[sub].scoreSum += lastAttempt.selfScore || 0;
+        diffStats[diff].scoreSum += lastAttempt.selfScore || 0;
+        totalAttempted++;
+        totalScoreSum += lastAttempt.selfScore || 0;
+        if (lastAttempt.keywordHit) {
+          subStats[sub].kwHit += lastAttempt.keywordHit.hit;
+          subStats[sub].kwTotal += lastAttempt.keywordHit.total;
+          totalKeywordHitSum += lastAttempt.keywordHit.hit;
+          totalKeywordTotalSum += lastAttempt.keywordHit.total;
+        }
+      }
+    }
+    // 평균 계산 + 약점 정렬
+    const subArr = Object.entries(subStats).map(([k, v]) => ({
+      sub: k, total: v.total, attempted: v.attempted,
+      avgScore: v.attempted ? Math.round(v.scoreSum / v.attempted) : null,
+      kwPct: v.kwTotal ? Math.round((v.kwHit / v.kwTotal) * 100) : null,
+    })).sort((a, b) => (a.avgScore ?? 999) - (b.avgScore ?? 999));
+    const diffArr = Object.entries(diffStats).map(([k, v]) => ({
+      diff: parseInt(k), total: v.total, attempted: v.attempted,
+      avgScore: v.attempted ? Math.round(v.scoreSum / v.attempted) : null,
+    })).sort((a, b) => a.diff - b.diff);
+    return {
+      subArr, diffArr,
+      total: questions.length,
+      attempted: totalAttempted,
+      avgScore: totalAttempted ? Math.round(totalScoreSum / totalAttempted) : null,
+      avgKeyword: totalKeywordTotalSum ? Math.round((totalKeywordHitSum / totalKeywordTotalSum) * 100) : null,
+    };
+  };
+
+  // 다음 추천 문제 — 미풀이 + 가장 약한 sub-concept 우선
+  const recommendNext = (questions, progressMap) => {
+    const stats = computeStats(questions, progressMap);
+    const weakSubs = stats.subArr.filter(s => s.avgScore != null).slice(0, 3).map(s => s.sub);
+    // 미풀이 문제 중 약점 subconcept 우선
+    const candidates = questions.filter(q => !progressMap[q.id]?.attempts?.length);
+    candidates.sort((a, b) => {
+      const aWeak = weakSubs.includes(a.subconcept);
+      const bWeak = weakSubs.includes(b.subconcept);
+      if (aWeak !== bWeak) return aWeak ? -1 : 1;
+      return (a.difficulty || 99) - (b.difficulty || 99);  // 쉬운 것부터
+    });
+    return candidates.slice(0, 3);
+  };
 
   // ─────────── chapter 데이터 lazy fetch (official + generated 병합) ───────────
   const ensureChapter = useCallback(async (id) => {
@@ -191,6 +281,16 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       const got = RUBRIC_DEFAULT.reduce((s, r) => s + (rubric[r.id] ? r.weight : 0), 0);
       selfScore = Math.round((got / total) * 100);
     }
+    // 키워드 적중률 자동 계산 (attempts 누적 통계용)
+    let keywordHit = null;
+    if (currentQuestion.keyPoints && currentQuestion.keyPoints.length) {
+      const matches = matchAll(submittedAnswer, currentQuestion.keyPoints);
+      keywordHit = {
+        hit: matches.filter(m => m.matched).length,
+        total: matches.length,
+        missed: matches.filter(m => !m.matched).map(m => m.kp),
+      };
+    }
     const attempt = {
       ts: Date.now(),
       answer: submittedAnswer,
@@ -199,6 +299,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       rubric: tierMode === 'detail' ? { ...rubric } : null,
       notes: notes.trim() || null,
       durationMs: submittedDurationMs,
+      keywordHit,
     };
     setProgressState(prev => {
       const cur = prev[currentQuestion.id] || { attempts: [] };
@@ -676,6 +777,44 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             {submittedAnswer.length}자
           </div>
         </section>
+
+        {/* 키워드 매칭 — 자기채점 객관성 보조 */}
+        {currentQuestion.keyPoints && currentQuestion.keyPoints.length > 0 && (() => {
+          const matches = matchAll(submittedAnswer, currentQuestion.keyPoints);
+          const hitCount = matches.filter(m => m.matched).length;
+          const total = matches.length;
+          const pct = total ? Math.round((hitCount / total) * 100) : 0;
+          const color = pct >= 80 ? '#16a34a' : pct >= 60 ? '#2563eb' : pct >= 40 ? '#ea580c' : '#dc2626';
+          return (
+            <section style={{ background: '#fff', borderRadius: 12, padding: 16,
+              boxShadow: 'var(--shadow-sm)', marginBottom: 14 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <div style={{ fontWeight: 800, fontSize: '0.92rem', color: '#111827' }}>
+                  🎯 핵심 키워드 적중
+                </div>
+                <div style={{ fontWeight: 800, fontSize: '1.05rem', color }}>
+                  {hitCount} / {total} ({pct}%)
+                </div>
+              </div>
+              <div style={{ fontSize: '0.72rem', color: '#9ca3af', marginTop: 2, marginBottom: 10 }}>
+                답안 텍스트에서 자동 검색. 누락된 키워드는 학습 보강 필요.
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                {matches.map((m, i) => (
+                  <span key={i} style={{
+                    padding: '4px 10px', borderRadius: 999,
+                    fontSize: '0.75rem', fontWeight: 600,
+                    background: m.matched ? '#f0fdf4' : '#fef2f2',
+                    color: m.matched ? '#15803d' : '#b91c1c',
+                    border: `1px solid ${m.matched ? '#bbf7d0' : '#fecaca'}`,
+                  }}>
+                    {m.matched ? '✓' : '✗'} {m.kp}
+                  </span>
+                ))}
+              </div>
+            </section>
+          );
+        })()}
 
         {currentQuestion.modelAnswer ? (
           <section style={{ background: '#fff', borderRadius: 12, padding: 16,
