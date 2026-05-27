@@ -468,10 +468,18 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                         원본: {q.seedQuestionId.replace('v3-', '').replace(/-/g, ' ')}
                       </span>
                     )}
-                    {isAI && q.genMode === 'new' && q.topic && (
+                    {isAI && q.genMode === 'new' && q.topic && !q.subconcept && (
                       <span style={{ color: '#7c3aed', fontWeight: 600, maxWidth: 260,
                         overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {q.topic}
+                      </span>
+                    )}
+                    {q.subconcept && (
+                      <span style={{ color: '#92400e', background: '#fffbeb',
+                        padding: '1px 7px', borderRadius: 999, fontWeight: 700,
+                        maxWidth: 280, overflow: 'hidden', textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap' }}>
+                        📚 {q.subconcept}
                       </span>
                     )}
                     {!hasAnswer && (
@@ -543,6 +551,20 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                 ` (원본 대비: ${currentQuestion.changedFromOriginal})`}
               {currentQuestion.genMode === 'new' && currentQuestion.topic &&
                 ` 논점: ${currentQuestion.topic}`}
+            </div>
+          )}
+          {(currentQuestion.subconcept || currentQuestion.learningGoal) && (
+            <div style={{ fontSize: '0.75rem', background: '#fffbeb',
+              border: '1px solid #fde68a', borderRadius: 8, padding: '8px 12px',
+              marginBottom: 10, color: '#92400e' }}>
+              {currentQuestion.subconcept && (
+                <div style={{ fontWeight: 800 }}>📚 학습 주제: {currentQuestion.subconcept}</div>
+              )}
+              {currentQuestion.learningGoal && (
+                <div style={{ marginTop: 4, color: '#a16207' }}>
+                  💡 이 문제로 배우는 것: {currentQuestion.learningGoal}
+                </div>
+              )}
             </div>
           )}
           {/* 문제 본문 — 폰트 사이즈 줄임 (q-text 클래스 대신 직접 0.92rem) */}
