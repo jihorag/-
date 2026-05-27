@@ -523,17 +523,15 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
         <div style={{ marginTop: 20, padding: 12, borderRadius: 10,
           background: '#fafafa', border: '1px solid #e5e7eb', fontSize: '0.78rem', color: '#6b7280' }}>
           합격 기준: 매 과목 {PASS_SUBJ}점 이상 + 평균 {PASS_AVG}점 이상.
-          {browseExam && examDate && (() => {
-            const d = (() => {
-              const dt = new Date(examDate + 'T00:00:00');
-              if (isNaN(dt)) return null;
-              const t = new Date(); t.setHours(0,0,0,0);
-              return Math.ceil((dt - t) / 86400000);
-            })();
-            if (d == null) return null;
+          {/* 모드 시험의 D-DAY 안내 (이 모드 시험을 푸는 게 추천된다는 신호) */}
+          {browseExam && examDates && examDates[browseExam] && (() => {
+            const dt = new Date(examDates[browseExam] + 'T00:00:00');
+            if (isNaN(dt)) return null;
+            const t = new Date(); t.setHours(0,0,0,0);
+            const d = Math.ceil((dt - t) / 86400000);
             return (
               <div style={{ marginTop: 4, color: d <= 30 ? '#dc2626' : '#1d4ed8', fontWeight: 700 }}>
-                📅 {browseExam} D-{d}일 남음 — 시험 시뮬레이션 추천
+                📅 {browseExam} D-{d}일 남음 — 같은 시험 회차 시뮬레이션 추천
               </div>
             );
           })()}
