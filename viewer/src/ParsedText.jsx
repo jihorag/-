@@ -41,52 +41,155 @@ const isPipeRow = (l) => {
 const splitCells = (l) => l.trim().slice(1, -1).split('|').map(c => c.trim());
 
 const renderTableInlines = (cell) => {
-  // 셀 내 KaTeX 정도만 빠르게 처리 (이미지·줄바꿈은 표에선 무시)
-  const parts = cell.split(/(\$[\s\S]*?\$)/g);
-  return parts.map((p, i) => {
-    if (p.startsWith('$') && p.endsWith('$') && p.length > 2) {
-      const math = p.slice(1, -1);
-      try {
-        const html = katex.renderToString(math, { throwOnError: false, output: 'html' });
-        return <span key={i} dangerouslySetInnerHTML={{ __html: html }} />;
-      } catch { return <span key={i}>{p}</span>; }
-    }
-    return <span key={i}>{p}</span>;
+  // 셀 내 KaTeX + bold(**...**) + <br> 처리 (셀 안 줄바꿈은 <br>로 명시)
+  if (cell == null) return null;
+  // <br> 분리 후 각 chunk를 다시 math/bold 처리
+  const brChunks = String(cell).split(/<br\s*\/?>/i);
+  return brChunks.map((chunk, ci) => {
+    const mathParts = chunk.split(/(\$[\s\S]*?\$)/g);
+    const inner = [];
+    mathParts.forEach((p, i) => {
+      if (p.startsWith('$') && p.endsWith('$') && p.length > 2) {
+        const math = p.slice(1, -1);
+        try {
+          const html = katex.renderToString(math, { throwOnError: false, output: 'html' });
+          inner.push(<span key={`${ci}-${i}-m`} dangerouslySetInnerHTML={{ __html: html }} />);
+        } catch { inner.push(<span key={`${ci}-${i}-m`}>{p}</span>); }
+        return;
+      }
+      const boldParts = p.split(/(\*\*[^*]+\*\*)/g);
+      boldParts.forEach((bp, k) => {
+        if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
+          inner.push(<strong key={`${ci}-${i}-b${k}`}>{bp.slice(2, -2)}</strong>);
+        } else if (bp) {
+          inner.push(<span key={`${ci}-${i}-t${k}`}>{bp}</span>);
+        }
+      });
+    });
+    return (
+      <span key={ci}>
+        {inner}
+        {ci < brChunks.length - 1 && <br />}
+      </span>
+    );
   });
 };
 
-const renderTextBlock = (text, keyPrefix) => {
-  // 이미지·KaTeX·줄바꿈 처리 (기존 ParsedText 로직)
-  const parts = text.split(/(\[IMAGE:\s*.*?\])/g);
-  return parts.map((part, i) => {
+// 인라인 마크다운 (** ** bold, $ $ math, [IMAGE: ...]) 처리
+const renderInlines = (text, keyPrefix) => {
+  if (text == null || text === '') return null;
+  // 1) 이미지 분리
+  const imgParts = String(text).split(/(\[IMAGE:\s*.*?\])/g);
+  const out = [];
+  imgParts.forEach((part, i) => {
     const imgMatch = part.match(/\[IMAGE:\s*(.*?)\]/);
     if (imgMatch) {
       const rawName = imgMatch[1].split('/').pop();
       const imageName = rawName.replace(/\.(png|gif)$/i, '.webp');
-      return <SafeImage key={`${keyPrefix}-${i}`} src={`/images/${imageName}`} />;
+      out.push(<SafeImage key={`${keyPrefix}-img-${i}`} src={`/images/${imageName}`} />);
+      return;
     }
+    // 2) 수식 + bold 분리 (math를 먼저 처리해서 ** 가 수식 안에 있어도 깨지지 않게)
     const mathParts = part.split(/(\$[\s\S]*?\$)/g);
-    return mathParts.map((mathPart, j) => {
-      if (mathPart.startsWith('$') && mathPart.endsWith('$') && mathPart.length > 2) {
-        const math = mathPart.slice(1, -1);
+    mathParts.forEach((mp, j) => {
+      if (mp.startsWith('$') && mp.endsWith('$') && mp.length > 2) {
+        const math = mp.slice(1, -1);
         try {
           const html = katex.renderToString(math, { throwOnError: false, output: 'html' });
-          return <span key={`${keyPrefix}-${i}-${j}`} dangerouslySetInnerHTML={{ __html: html }} />;
+          out.push(<span key={`${keyPrefix}-${i}-${j}-m`} dangerouslySetInnerHTML={{ __html: html }} />);
         } catch {
-          return <span key={`${keyPrefix}-${i}-${j}`}>{mathPart}</span>;
+          out.push(<span key={`${keyPrefix}-${i}-${j}-m`}>{mp}</span>);
         }
+        return;
       }
-      if (mathPart.indexOf('\n') === -1) return <span key={`${keyPrefix}-${i}-${j}`}>{mathPart}</span>;
-      const lines = mathPart.split('\n');
-      return (
-        <span key={`${keyPrefix}-${i}-${j}`}>
-          {lines.map((ln, k) => (
-            <span key={k}>{ln}{k < lines.length - 1 && <br />}</span>
-          ))}
-        </span>
-      );
+      // 3) bold (**text**) 분리
+      const boldParts = mp.split(/(\*\*[^*]+\*\*)/g);
+      boldParts.forEach((bp, k) => {
+        if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
+          out.push(<strong key={`${keyPrefix}-${i}-${j}-b${k}`}>{bp.slice(2, -2)}</strong>);
+        } else if (bp) {
+          out.push(<span key={`${keyPrefix}-${i}-${j}-t${k}`}>{bp}</span>);
+        }
+      });
     });
   });
+  return out;
+};
+
+const renderTextBlock = (text, keyPrefix) => {
+  // 라인 단위로 ## 헤더, --- 수평선, - 리스트, 빈줄 단락 분리, 일반 단락 처리
+  const rawLines = text.split('\n');
+  const elements = [];
+  let i = 0;
+  while (i < rawLines.length) {
+    const ln = rawLines[i];
+    const trimmed = ln.trim();
+    // 수평선
+    if (/^(---+|___+|\*\*\*+)$/.test(trimmed)) {
+      elements.push(<hr key={`${keyPrefix}-hr-${i}`} style={{ border: 0, borderTop: '1px solid #e5e7eb', margin: '12px 0' }} />);
+      i++;
+      continue;
+    }
+    // 헤더 — ##/### 등
+    const hMatch = trimmed.match(/^(#{1,4})\s+(.+)$/);
+    if (hMatch) {
+      const level = hMatch[1].length;
+      const content = hMatch[2];
+      const fontSize = level === 1 ? '1.1em' : level === 2 ? '1.05em' : level === 3 ? '0.98em' : '0.92em';
+      const color = level <= 2 ? '#111827' : '#374151';
+      const marginTop = level <= 2 ? 12 : 8;
+      elements.push(
+        <div key={`${keyPrefix}-h-${i}`} style={{ fontWeight: 700, fontSize, color, margin: `${marginTop}px 0 4px` }}>
+          {renderInlines(content, `${keyPrefix}-h-${i}`)}
+        </div>
+      );
+      i++;
+      continue;
+    }
+    // 리스트 항목 — 연속된 - / * 라인 묶기
+    if (/^\s*[-*]\s+/.test(ln)) {
+      const items = [];
+      while (i < rawLines.length && /^\s*[-*]\s+/.test(rawLines[i])) {
+        const content = rawLines[i].replace(/^\s*[-*]\s+/, '');
+        items.push(content);
+        i++;
+      }
+      elements.push(
+        <ul key={`${keyPrefix}-ul-${i}`} style={{ margin: '4px 0 4px 0', paddingLeft: 20 }}>
+          {items.map((it, k) => (
+            <li key={k} style={{ margin: '2px 0' }}>{renderInlines(it, `${keyPrefix}-li-${k}`)}</li>
+          ))}
+        </ul>
+      );
+      continue;
+    }
+    // 빈 줄 → 단락 구분
+    if (trimmed === '') {
+      elements.push(<div key={`${keyPrefix}-br-${i}`} style={{ height: 6 }} />);
+      i++;
+      continue;
+    }
+    // 일반 라인 — 연속된 일반 라인 묶어서 단락으로
+    const paraLines = [];
+    while (i < rawLines.length) {
+      const cur = rawLines[i];
+      const ct = cur.trim();
+      if (ct === '' || /^(---+|___+|\*\*\*+)$/.test(ct) || /^(#{1,4})\s+/.test(ct) || /^\s*[-*]\s+/.test(cur)) break;
+      paraLines.push(cur);
+      i++;
+    }
+    elements.push(
+      <div key={`${keyPrefix}-p-${i}`} style={{ margin: '2px 0' }}>
+        {paraLines.map((pl, k) => (
+          <span key={k}>
+            {renderInlines(pl, `${keyPrefix}-p-${i}-${k}`)}
+            {k < paraLines.length - 1 && <br />}
+          </span>
+        ))}
+      </div>
+    );
+  }
+  return elements;
 };
 
 export const ParsedText = ({ text }) => {
@@ -162,8 +265,8 @@ export const ParsedText = ({ text }) => {
             </div>
           );
         }
-        // text block
-        return <span key={idx}>{renderTextBlock(b.content, idx)}</span>;
+        // text block (block-level 요소 — div·ul·hr 등 — 반환)
+        return <div key={idx}>{renderTextBlock(b.content, idx)}</div>;
       })}
     </>
   );
