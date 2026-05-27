@@ -3,6 +3,7 @@ import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen } from 'luc
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import CivilMemorize from './CivilMemorize';
 import MockExam from './MockExam';
+import EssayMode from './EssayMode';
 import { ParsedText } from './ParsedText';
 
 // ===== 사용자 데이터 관리 (백업/복원/초기화) =====
@@ -725,6 +726,10 @@ const App = () => {
       return v == null ? '' : v;
     } catch { return ''; }
   });
+  // 2차 essay 모드 — 단원/문항 선택 상태 (URL에는 미반영, 세션 내 navigation 용)
+  const [essayChapter, setEssayChapter] = useState(null);
+  const [essayQuestionId, setEssayQuestionId] = useState(null);
+
   // 시험 일정 — 3시험 동시 준비 시 D-DAY 표시·일일 권장량 계산용
   const [examDates, setExamDatesState] = useState(loadExamDates);
   const setExamDate = (exam, date) => {
@@ -1667,7 +1672,9 @@ const App = () => {
   // 하단 탭바: 루트 화면에서만 노출(드릴/풀이는 전체화면)
   const navTab =
     (currentView === 'home' || currentView === 'profile' || currentView === 'settings'
-      || currentView === 'mock' || currentView === 'mockResult') ? 'home'
+      || currentView === 'mock' || currentView === 'mockResult'
+      || currentView === 'essay_subjects' || currentView === 'essay_chapters'
+      || currentView === 'essay_questions' || currentView === 'essay_result') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'review'
     : currentView === 'status' ? 'status'
     : currentView === 'civil' ? 'memorize'
@@ -1816,6 +1823,39 @@ const App = () => {
           fontScale={fontScale}
           browseExam={browseExam}
           examDates={examDates}
+        />
+        {overlays}
+      </div>
+    );
+  }
+
+  // 2차 essay 모드 — 5 sub-view (subjects/chapters/questions/write/result)
+  // write는 집중 모드(no shell), 나머지는 하단 nav 유지
+  if (currentView === 'essay_subjects' || currentView === 'essay_chapters'
+      || currentView === 'essay_questions' || currentView === 'essay_result') {
+    return shell(
+      <EssayMode
+        mode={currentView}
+        chapter={essayChapter}
+        questionId={essayQuestionId}
+        setChapter={setEssayChapter}
+        setQuestionId={setEssayQuestionId}
+        onNavigate={(v) => { setCurrentView(v); window.scrollTo(0, 0); }}
+        fontScale={fontScale}
+      />
+    );
+  }
+  if (currentView === 'essay_write') {
+    return (
+      <div className="app-shell">
+        <EssayMode
+          mode={currentView}
+          chapter={essayChapter}
+          questionId={essayQuestionId}
+          setChapter={setEssayChapter}
+          setQuestionId={setEssayQuestionId}
+          onNavigate={(v) => { setCurrentView(v); window.scrollTo(0, 0); }}
+          fontScale={fontScale}
         />
         {overlays}
       </div>
@@ -3194,21 +3234,33 @@ const App = () => {
           );
         })()}
 
-        {/* 모의고사 진입 — 실전 시간제한 풀이 */}
-        <button onClick={() => setCurrentView('mock')}
-          style={{ width: '100%', display: 'flex', alignItems: 'center',
-            justifyContent: 'space-between', padding: '14px 16px', marginBottom: '12px',
-            borderRadius: 12, border: '1px solid #fde68a', background: '#fffbeb',
-            color: '#92400e', cursor: 'pointer', textAlign: 'left' }}>
-          <span>
-            <span style={{ fontWeight: 800, fontSize: '0.95rem' }}>🎯 모의고사</span>
-            <span style={{ display: 'block', fontSize: '0.78rem',
-              color: '#a16207', marginTop: 2 }}>
-              실전처럼 시간 제한 풀이 · 자동 채점 · 합격 추정
+        {/* 모의고사 + 2차 진입 — 감정평가사 또는 전체 모드일 때 2차도 노출 */}
+        <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+          <button onClick={() => setCurrentView('mock')}
+            style={{ flex: 1, display: 'flex', flexDirection: 'column',
+              padding: '14px', borderRadius: 12,
+              border: '1px solid #fde68a', background: '#fffbeb',
+              color: '#92400e', cursor: 'pointer', textAlign: 'left' }}>
+            <span style={{ fontWeight: 800, fontSize: '0.9rem' }}>🎯 1차 모의고사</span>
+            <span style={{ fontSize: '0.74rem', color: '#a16207', marginTop: 2,
+              lineHeight: 1.4 }}>
+              시간 제한 풀이 · 자동 채점
             </span>
-          </span>
-          <span style={{ fontSize: '0.85rem', fontWeight: 700 }}>시작 →</span>
-        </button>
+          </button>
+          {(!browseExam || browseExam === '감정평가사') && (
+            <button onClick={() => { setEssayChapter(null); setEssayQuestionId(null); setCurrentView('essay_subjects'); }}
+              style={{ flex: 1, display: 'flex', flexDirection: 'column',
+                padding: '14px', borderRadius: 12,
+                border: '1px solid #ddd6fe', background: '#f5f3ff',
+                color: '#5b21b6', cursor: 'pointer', textAlign: 'left' }}>
+              <span style={{ fontWeight: 800, fontSize: '0.9rem' }}>📝 2차 준비</span>
+              <span style={{ fontSize: '0.74rem', color: '#6d28d9', marginTop: 2,
+                lineHeight: 1.4 }}>
+                논술 기출 · 자기 채점
+              </span>
+            </button>
+          )}
+        </div>
 
         {/* 약점 집중 — 모드 적용. 보강 권유는 주황 톤(긴급 X)으로 — 빨강은 D-30 등 진짜 임박용 */}
         {(modeAnalytics ? modeAnalytics.weak : analytics.weak).length > 0 && (
