@@ -14,6 +14,14 @@ const PROGRESS_KEY = 'quiz-essay-progress';
 const DRAFT_PREFIX = 'quiz-essay-draft:';
 const SELF_TIER_KEY = 'quiz-essay-tier-mode'; // 'simple' | 'detail'
 
+const DIFF_META = {
+  1: { label: '★☆☆☆☆', name: '입문',   color: '#16a34a', bg: '#f0fdf4' },
+  2: { label: '★★☆☆☆', name: '기초',   color: '#0891b2', bg: '#ecfeff' },
+  3: { label: '★★★☆☆', name: '표준',   color: '#2563eb', bg: '#eff6ff' },
+  4: { label: '★★★★☆', name: '응용',   color: '#ea580c', bg: '#fff7ed' },
+  5: { label: '★★★★★', name: '고난도', color: '#dc2626', bg: '#fef2f2' },
+};
+
 const TIER_OPTIONS = [
   { id: 'great', label: '잘함', subLabel: '80점+ 수준', color: '#16a34a', bg: '#f0fdf4', score: 85 },
   { id: 'ok',    label: '보통', subLabel: '60-79점',   color: '#2563eb', bg: '#eff6ff', score: 70 },
@@ -70,6 +78,8 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
   const [progress, setProgressState] = useState(() => loadProgress());
   // 문제 목록 source 필터: 'all' | 'official' | 'ai-vary' | 'ai-new'
   const [sourceFilter, setSourceFilter] = useState('all');
+  // 난이도 필터: null | 1 | 2 | 3 | 4 | 5
+  const [diffFilter, setDiffFilter] = useState(null);
 
   // 작성 화면 상태
   const [draft, setDraft] = useState('');
@@ -340,11 +350,16 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       { id: 'ai-new',   label: '🤖 신규',  count: counts['ai-new'] },
     ].filter(c => c.count > 0);
 
+    // 난이도별 카운트
+    const diffCounts = {};
+    [1,2,3,4,5].forEach(d => { diffCounts[d] = cd.questions.filter(q => q.difficulty === d).length; });
+    const hasDiff = [1,2,3,4,5].some(d => diffCounts[d] > 0);
+
     const visible = cd.questions.filter(q => {
-      if (sourceFilter === 'all') return true;
-      if (sourceFilter === 'official') return q.source !== 'ai-generated';
-      if (sourceFilter === 'ai-vary') return q.source === 'ai-generated' && q.genMode === 'vary';
-      if (sourceFilter === 'ai-new') return q.source === 'ai-generated' && q.genMode === 'new';
+      if (sourceFilter === 'official' && q.source === 'ai-generated') return false;
+      if (sourceFilter === 'ai-vary' && !(q.source === 'ai-generated' && q.genMode === 'vary')) return false;
+      if (sourceFilter === 'ai-new' && !(q.source === 'ai-generated' && q.genMode === 'new')) return false;
+      if (diffFilter !== null && q.difficulty !== diffFilter) return false;
       return true;
     });
 
@@ -358,19 +373,49 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       <main className="main-content" style={{ marginTop: 16 }}>
         {/* source 필터 chip */}
         {filterChips.length > 1 && (
-          <div style={{ display: 'flex', gap: 6, marginBottom: 14, overflowX: 'auto',
+          <div style={{ display: 'flex', gap: 6, marginBottom: 8, overflowX: 'auto',
             WebkitOverflowScrolling: 'touch' }}>
             {filterChips.map(c => {
               const on = sourceFilter === c.id;
               return (
                 <button key={c.id} onClick={() => setSourceFilter(c.id)}
-                  style={{ flex: '0 0 auto', padding: '7px 12px', whiteSpace: 'nowrap',
+                  style={{ flex: '0 0 auto', padding: '6px 11px', whiteSpace: 'nowrap',
                     border: on ? '1.5px solid #2563eb' : '1px solid #d1d5db',
                     background: on ? '#eff6ff' : '#fff',
                     color: on ? '#1d4ed8' : '#374151',
                     borderRadius: 999, fontWeight: on ? 800 : 600,
-                    fontSize: '0.82rem', cursor: 'pointer' }}>
+                    fontSize: '0.78rem', cursor: 'pointer' }}>
                   {c.label} {c.count}
+                </button>
+              );
+            })}
+          </div>
+        )}
+        {/* 난이도 필터 chip */}
+        {hasDiff && (
+          <div style={{ display: 'flex', gap: 6, marginBottom: 14, overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch' }}>
+            <button onClick={() => setDiffFilter(null)}
+              style={{ flex: '0 0 auto', padding: '5px 10px', whiteSpace: 'nowrap',
+                border: diffFilter === null ? '1.5px solid #6b7280' : '1px solid #d1d5db',
+                background: diffFilter === null ? '#f3f4f6' : '#fff',
+                color: diffFilter === null ? '#111827' : '#6b7280',
+                borderRadius: 999, fontWeight: diffFilter === null ? 800 : 600,
+                fontSize: '0.75rem', cursor: 'pointer' }}>
+              난이도 전체
+            </button>
+            {[1,2,3,4,5].filter(d => diffCounts[d] > 0).map(d => {
+              const on = diffFilter === d;
+              const m = DIFF_META[d];
+              return (
+                <button key={d} onClick={() => setDiffFilter(on ? null : d)}
+                  style={{ flex: '0 0 auto', padding: '5px 10px', whiteSpace: 'nowrap',
+                    border: on ? `1.5px solid ${m.color}` : '1px solid #d1d5db',
+                    background: on ? m.bg : '#fff',
+                    color: on ? m.color : '#6b7280',
+                    borderRadius: 999, fontWeight: on ? 800 : 600,
+                    fontSize: '0.75rem', cursor: 'pointer' }}>
+                  {m.label} {m.name} {diffCounts[d]}
                 </button>
               );
             })}
@@ -407,9 +452,16 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                     {q.body.slice(0, 200).replace(/\n/g, ' ')}
                   </div>
                   <div style={{ marginTop: 6, display: 'flex', gap: 8, flexWrap: 'wrap',
-                    fontSize: '0.72rem' }}>
+                    fontSize: '0.72rem', alignItems: 'center' }}>
                     {q.points && (
                       <span style={{ color: '#1d4ed8', fontWeight: 700 }}>{q.points}점</span>
+                    )}
+                    {q.difficulty && DIFF_META[q.difficulty] && (
+                      <span style={{ color: DIFF_META[q.difficulty].color,
+                        background: DIFF_META[q.difficulty].bg,
+                        padding: '1px 7px', borderRadius: 999, fontWeight: 700 }}>
+                        {DIFF_META[q.difficulty].label} {DIFF_META[q.difficulty].name}
+                      </span>
                     )}
                     {isAI && q.genMode === 'vary' && q.seedQuestionId && (
                       <span style={{ color: '#7c3aed', fontWeight: 600 }}>
@@ -625,8 +677,8 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
               </button>
             </div>
             {showModel && (
-              <div style={{ marginTop: 10, fontSize: '0.85rem', lineHeight: 1.7,
-                color: '#374151', whiteSpace: 'pre-wrap' }}>
+              <div style={{ marginTop: 10, fontSize: '0.83rem', lineHeight: 1.7,
+                color: '#374151' }}>
                 <ParsedText text={currentQuestion.modelAnswer} />
               </div>
             )}

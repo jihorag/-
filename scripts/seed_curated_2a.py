@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 QUESTIONS = [
-    # ─────────── 문제 1: 공시지가기준법 종합 (40점) ───────────
+    # ─────────── 문제 1: 공시지가기준법 종합 (40점, 난이도 4) ───────────
     {
         "id": "manual-2a-001",
         "subject": "감정평가실무",
@@ -20,6 +20,7 @@ QUESTIONS = [
         "round": None,
         "questionNum": None,
         "points": 40,
+        "difficulty": 4,
         "topic": "공시지가기준법 종합 + 시점수정·지역요인·개별요인·그 밖의 요인",
         "modelAnswerSource": "ai-generated",
         "body": """감정평가사 K는 일반거래 목적으로 다음 부동산의 감정평가를 의뢰받았다. 주어진 자료를 활용하여 아래 물음에 답하시오. (40점)
@@ -152,6 +153,7 @@ QUESTIONS = [
         "round": None,
         "questionNum": None,
         "points": 30,
+        "difficulty": 3,
         "topic": "거래사례비교법 + 사정보정 (특수관계 거래) + 시점·요인 비교",
         "modelAnswerSource": "ai-generated",
         "body": """감정평가사 L은 다음 부동산의 일반거래 목적 감정평가를 의뢰받고, 거래사례비교법을 적용하고자 한다. 자료를 바탕으로 물음에 답하시오. (30점)
@@ -258,6 +260,7 @@ QUESTIONS = [
         "round": None,
         "questionNum": None,
         "points": 25,
+        "difficulty": 2,
         "topic": "원가법 — 조성토지 매입 + 조성공사비 시점수정 + 부대비용",
         "modelAnswerSource": "ai-generated",
         "body": """감정평가사 P는 다음 조성완료 택지에 대한 감정평가 의뢰를 받고 원가법을 적용하고자 한다. 자료를 활용하여 물음에 답하시오. (25점)
@@ -361,6 +364,7 @@ QUESTIONS = [
         "round": None,
         "questionNum": None,
         "points": 25,
+        "difficulty": 3,
         "topic": "도시계획시설 저촉 토지 평가 (부분 저촉 + 저촉 부분 감가율)",
         "modelAnswerSource": "ai-generated",
         "body": """감정평가사 H는 도시계획도로에 일부가 저촉되는 다음 토지에 대한 일반거래 목적 감정평가를 의뢰받았다. 자료를 활용하여 물음에 답하시오. (25점)
