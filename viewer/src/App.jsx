@@ -1732,6 +1732,53 @@ const App = () => {
     </header>
   );
 
+  // 시험 모드 픽커 — 홈/둘러보기/현황에서 일관된 디자인으로 사용
+  // withDday=true: 각 pill에 D-DAY 표기 (홈 용)
+  const renderModePicker = ({ withDday = false } = {}) => {
+    const pillStyle = (on) => ({
+      flex: '1 0 auto',
+      minWidth: withDday ? 96 : 'auto',
+      padding: withDday ? '10px 12px' : '8px 12px',
+      whiteSpace: 'nowrap',
+      border: on ? '1.5px solid #2563eb' : '1px solid #d1d5db',
+      background: on ? '#eff6ff' : '#fff',
+      color: on ? '#1d4ed8' : '#374151',
+      borderRadius: 10,
+      fontWeight: on ? 800 : 600,
+      fontSize: '0.85rem',
+      cursor: 'pointer',
+      textAlign: withDday ? 'left' : 'center',
+    });
+    return (
+      <div style={{ display: 'flex', gap: 6, overflowX: 'auto',
+        WebkitOverflowScrolling: 'touch' }}>
+        {TARGET_EXAMS.map(exam => {
+          const on = browseExam === exam;
+          const d = withDday ? daysUntil(examDates[exam]) : null;
+          const dColor = d == null ? '#9ca3af' : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
+          return (
+            <button key={exam} onClick={() => setBrowseExam(exam)} style={pillStyle(on)}>
+              <div>{exam}</div>
+              {withDday && (
+                <div style={{ fontSize: '0.78rem', fontWeight: 700,
+                  color: dColor, marginTop: 2 }}>
+                  {d != null ? fmtDday(d) : '일정 미입력'}
+                </div>
+              )}
+            </button>
+          );
+        })}
+        <button onClick={() => setBrowseExam('')} style={{
+          ...pillStyle(!browseExam),
+          flex: '0 0 auto',
+          color: !browseExam ? '#1d4ed8' : '#6b7280',
+        }}>
+          🌐 전체
+        </button>
+      </div>
+    );
+  };
+
   // 통암기(암기 탭) — 하단 탭바 노출되는 루트 화면. 내부 뒤로가기는 컴포넌트가 처리.
   if (currentView === 'civil') {
     return shell(<CivilMemorize isTabRoot />);
@@ -2400,32 +2447,7 @@ const App = () => {
         </div>
         <main className="main-content" style={{ marginTop: '16px' }}>
           {/* 모드 pill — status 통계의 범위를 시험별로 전환 */}
-          <div style={{ display: 'flex', gap: 6, marginBottom: 14,
-            overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
-            {TARGET_EXAMS.map(exam => {
-              const on = browseExam === exam;
-              return (
-                <button key={exam} onClick={() => setBrowseExam(exam)}
-                  style={{ flex: '1 0 auto', padding: '8px 10px', whiteSpace: 'nowrap',
-                    border: on ? '1px solid #2563eb' : '1px solid #d1d5db',
-                    background: on ? '#eff6ff' : '#fff',
-                    color: on ? '#1d4ed8' : '#374151',
-                    borderRadius: 8, fontWeight: on ? 800 : 600,
-                    fontSize: '0.82rem', cursor: 'pointer' }}>
-                  {exam}
-                </button>
-              );
-            })}
-            <button onClick={() => setBrowseExam('')}
-              style={{ flex: '0 0 auto', padding: '8px 12px',
-                border: !browseExam ? '1px solid #2563eb' : '1px solid #d1d5db',
-                background: !browseExam ? '#eff6ff' : '#fff',
-                color: !browseExam ? '#1d4ed8' : '#6b7280',
-                borderRadius: 8, fontWeight: !browseExam ? 800 : 600,
-                fontSize: '0.82rem', cursor: 'pointer' }}>
-              🌐 전체
-            </button>
-          </div>
+          <div style={{ marginBottom: 14 }}>{renderModePicker()}</div>
           {/* 핵심 KPI — 모드별 정답률 (overall은 mode 무관, accuracy는 mode 분 사용) */}
           <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
             {kpi(`${learnedPct}%`, `학습 ${cv.total - cv.unseen}/${cv.total}`, '#2563eb')}
@@ -2919,39 +2941,9 @@ const App = () => {
       </div>
 
       <main className="main-content">
-        {/* 시험 모드 빠른 전환 + D-DAY 통합 — 3시험 동시 준비자용 */}
+        {/* 시험 모드 + D-DAY — 3시험 동시 준비자용 (통일된 ModePicker, D-DAY 표시 모드) */}
         <section style={{ marginBottom: '14px' }}>
-          <div style={{ display: 'flex', gap: 8, overflowX: 'auto',
-            WebkitOverflowScrolling: 'touch' }}>
-            {TARGET_EXAMS.map(exam => {
-              const on = browseExam === exam;
-              const d = daysUntil(examDates[exam]);
-              const ddayColor = d == null ? '#9ca3af' : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
-              return (
-                <button key={exam} onClick={() => { setBrowseExam(exam); setCurrentView('dashboard'); }}
-                  style={{ flex: '1 0 auto', minWidth: 100, padding: '10px 12px',
-                    border: on ? '2px solid #2563eb' : '1px solid #e5e7eb',
-                    background: on ? '#eff6ff' : '#fff',
-                    borderRadius: 12, cursor: 'pointer', textAlign: 'left' }}>
-                  <div style={{ fontWeight: 800, fontSize: '0.85rem',
-                    color: on ? '#1d4ed8' : '#374151' }}>{exam}</div>
-                  <div style={{ fontWeight: 800, fontSize: '0.95rem',
-                    color: ddayColor, marginTop: 2 }}>
-                    {d != null ? fmtDday(d) : '일정 미입력'}
-                  </div>
-                </button>
-              );
-            })}
-            <button onClick={() => { setBrowseExam(''); setCurrentView('dashboard'); }}
-              style={{ flex: '0 0 auto', padding: '10px 12px',
-                border: browseExam === '' ? '2px solid #2563eb' : '1px solid #e5e7eb',
-                background: browseExam === '' ? '#eff6ff' : '#fff',
-                color: browseExam === '' ? '#1d4ed8' : '#6b7280',
-                borderRadius: 12, cursor: 'pointer',
-                fontWeight: 700, fontSize: '0.82rem', whiteSpace: 'nowrap' }}>
-              🌐 전체
-            </button>
-          </div>
+          {renderModePicker({ withDday: true })}
           {!TARGET_EXAMS.some(e => examDates[e]) && (
             <button onClick={() => setCurrentView('settings')}
               style={{ marginTop: 6, fontSize: '0.75rem', color: '#6b7280',
@@ -3506,13 +3498,6 @@ const App = () => {
   }
 
   // ===== 둘러보기 탭: 시험/과목/단원/연도 =====
-  // 시험 모드(상단 pill) — 분류·연도·과목 픽커가 그 시험에 맞춰짐
-  const BROWSE_MODES = [
-    { id: '감정평가사', label: '감정평가사' },
-    { id: '세무사', label: '세무사' },
-    { id: '공인중개사', label: '공인중개사' },
-    { id: '', label: '전체' },
-  ];
   // browseExam이 set이면 시험별 viewMode는 1개 시험뿐이라 무의미 → 숨김
   const viewModeTabs = browseExam
     ? [['subject','과목별'],['chapter','단원별'],['year','연도별']]
@@ -3523,24 +3508,8 @@ const App = () => {
         <h1 className="screen-title">📚 둘러보기</h1>
       </div>
       <main className="main-content" style={{ marginTop: '16px' }}>
-        {/* 시험 모드 선택 — 분류를 해당 시험에 맞춰 표시 */}
-        <div style={{ display: 'flex', gap: '6px', marginBottom: '16px',
-          overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
-          {BROWSE_MODES.map(m => {
-            const on = browseExam === m.id;
-            return (
-              <button key={m.id || '_all'} onClick={() => setBrowseExam(m.id)}
-                style={{ flex: '1 0 auto', padding: '10px 14px', whiteSpace: 'nowrap',
-                  border: on ? '1px solid #2563eb' : '1px solid #d1d5db',
-                  background: on ? '#eff6ff' : '#fff',
-                  color: on ? '#1d4ed8' : '#374151',
-                  borderRadius: '10px', fontWeight: on ? 800 : 600,
-                  fontSize: '0.85rem', cursor: 'pointer' }}>
-                {m.label}
-              </button>
-            );
-          })}
-        </div>
+        {/* 시험 모드 (통일된 ModePicker) — 분류·연도·과목 픽커가 그 시험에 맞춰짐 */}
+        <div style={{ marginBottom: '16px' }}>{renderModePicker()}</div>
 
         <button
           onClick={() => setCurrentView('search')}
