@@ -66,8 +66,10 @@ const fmtDate = (ts) => {
 const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuestionId, fontScale }) => {
   const [manifest, setManifest] = useState(null);
   const [manifestErr, setManifestErr] = useState(null);
-  const [chapterCache, setChapterCache] = useState({});  // { [id]: chapterData }
+  const [chapterCache, setChapterCache] = useState({});  // { [id]: chapterData (questions merged official+generated) }
   const [progress, setProgressState] = useState(() => loadProgress());
+  // 문제 목록 source 필터: 'all' | 'official' | 'ai-vary' | 'ai-new'
+  const [sourceFilter, setSourceFilter] = useState('all');
 
   // 작성 화면 상태
   const [draft, setDraft] = useState('');
@@ -100,15 +102,24 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     return () => { cancelled = true; };
   }, []);
 
-  // ─────────── chapter 데이터 lazy fetch ───────────
+  // ─────────── chapter 데이터 lazy fetch (official + generated 병합) ───────────
   const ensureChapter = useCallback(async (id) => {
     if (chapterCache[id]) return chapterCache[id];
     try {
-      const r = await fetch(`/data/essay/practice/${id}.json`);
-      if (!r.ok) throw new Error(`chapter ${id} ${r.status}`);
-      const data = await r.json();
-      setChapterCache(prev => ({ ...prev, [id]: data }));
-      return data;
+      const [official, generated] = await Promise.all([
+        fetch(`/data/essay/practice/${id}.json`).then(r => r.ok ? r.json() : null),
+        fetch(`/data/essay/practice/${id}-generated.json`).then(r => r.ok ? r.json() : null),
+      ]);
+      if (!official) throw new Error(`chapter ${id} not found`);
+      const genQ = generated?.questions || [];
+      const merged = {
+        ...official,
+        questions: [...official.questions, ...genQ],
+        officialCount: official.questions.length,
+        generatedCount: genQ.length,
+      };
+      setChapterCache(prev => ({ ...prev, [id]: merged }));
+      return merged;
     } catch (e) {
       console.error('essay chapter fetch failed', e);
       return null;
@@ -312,29 +323,80 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     const cd = chapter ? chapterCache[chapter] : null;
     const meta = chapter ? manifest.chapters.find(c => c.id === chapter) : null;
     if (!cd) return shell(<div style={{ padding: 24, color: '#9ca3af' }}>단원 데이터 불러오는 중…</div>);
+
+    // source별 카운트
+    const counts = {
+      all: cd.questions.length,
+      official: cd.questions.filter(q => q.source !== 'ai-generated').length,
+      'ai-vary': cd.questions.filter(q => q.source === 'ai-generated' && q.genMode === 'vary').length,
+      'ai-new': cd.questions.filter(q => q.source === 'ai-generated' && q.genMode === 'new').length,
+    };
+    const filterChips = [
+      { id: 'all',      label: '전체',     count: counts.all },
+      { id: 'official', label: '실문제',   count: counts.official },
+      { id: 'ai-vary',  label: '🤖 변형',  count: counts['ai-vary'] },
+      { id: 'ai-new',   label: '🤖 신규',  count: counts['ai-new'] },
+    ].filter(c => c.count > 0);
+
+    const visible = cd.questions.filter(q => {
+      if (sourceFilter === 'all') return true;
+      if (sourceFilter === 'official') return q.source !== 'ai-generated';
+      if (sourceFilter === 'ai-vary') return q.source === 'ai-generated' && q.genMode === 'vary';
+      if (sourceFilter === 'ai-new') return q.source === 'ai-generated' && q.genMode === 'new';
+      return true;
+    });
+
     return shell(<>
       {header(`단원 ${chapter}`, '단원 목록', 'essay_chapters')}
       <div className="screen-head"><h1 className="screen-title">{meta?.title || chapter}</h1>
         <p style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
-          {cd.count}문항 · 답안 있는 문항 {cd.matchedAnswer}개
+          기출 {cd.officialCount}문항{cd.generatedCount > 0 && <> · 🤖 AI 생성 {cd.generatedCount}문항</>}
         </p>
       </div>
       <main className="main-content" style={{ marginTop: 16 }}>
+        {/* source 필터 chip */}
+        {filterChips.length > 1 && (
+          <div style={{ display: 'flex', gap: 6, marginBottom: 14, overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch' }}>
+            {filterChips.map(c => {
+              const on = sourceFilter === c.id;
+              return (
+                <button key={c.id} onClick={() => setSourceFilter(c.id)}
+                  style={{ flex: '0 0 auto', padding: '7px 12px', whiteSpace: 'nowrap',
+                    border: on ? '1.5px solid #2563eb' : '1px solid #d1d5db',
+                    background: on ? '#eff6ff' : '#fff',
+                    color: on ? '#1d4ed8' : '#374151',
+                    borderRadius: 999, fontWeight: on ? 800 : 600,
+                    fontSize: '0.82rem', cursor: 'pointer' }}>
+                  {c.label} {c.count}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {cd.questions.map(q => {
+          {visible.map(q => {
             const prog = progress[q.id];
             const attemptCount = prog?.attempts?.length || 0;
             const lastScore = attemptCount ? prog.attempts[attemptCount - 1].selfScore : null;
             const hasAnswer = !!q.modelAnswer;
+            const isAI = q.source === 'ai-generated';
             return (
               <button key={q.id}
                 onClick={() => { setQuestionId(q.id); onNavigate('essay_write'); }}
                 style={{ background: '#fff', borderRadius: 10, padding: '14px 16px',
-                  border: '1px solid #e5e7eb', textAlign: 'left', cursor: 'pointer',
+                  border: isAI ? '1px solid #ddd6fe' : '1px solid #e5e7eb',
+                  textAlign: 'left', cursor: 'pointer',
                   display: 'flex', alignItems: 'flex-start', gap: 12 }}>
                 <div style={{ minWidth: 56, fontSize: '0.78rem', color: '#9ca3af', fontWeight: 700 }}>
-                  {q.round}회<br />
-                  <span style={{ color: '#374151', fontSize: '0.85rem' }}>{q.questionNum}번</span>
+                  {isAI ? (
+                    <>🤖<br /><span style={{ color: '#7c3aed', fontSize: '0.72rem' }}>
+                      {q.genMode === 'new' ? '신규' : '변형'}
+                    </span></>
+                  ) : (
+                    <>{q.round}회<br /><span style={{ color: '#374151', fontSize: '0.85rem' }}>{q.questionNum}번</span></>
+                  )}
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: '0.88rem', color: '#374151', lineHeight: 1.5,
@@ -346,6 +408,17 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                     fontSize: '0.72rem' }}>
                     {q.points && (
                       <span style={{ color: '#1d4ed8', fontWeight: 700 }}>{q.points}점</span>
+                    )}
+                    {isAI && q.genMode === 'vary' && q.seedQuestionId && (
+                      <span style={{ color: '#7c3aed', fontWeight: 600 }}>
+                        원본: {q.seedQuestionId.replace('v3-', '').replace(/-/g, ' ')}
+                      </span>
+                    )}
+                    {isAI && q.genMode === 'new' && q.topic && (
+                      <span style={{ color: '#7c3aed', fontWeight: 600, maxWidth: 260,
+                        overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {q.topic}
+                      </span>
                     )}
                     {!hasAnswer && (
                       <span style={{ color: '#9ca3af' }}>답안 없음</span>
@@ -360,6 +433,12 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
               </button>
             );
           })}
+          {visible.length === 0 && (
+            <div style={{ padding: 30, textAlign: 'center', color: '#9ca3af',
+              background: '#fafafa', borderRadius: 12, fontSize: '0.88rem' }}>
+              해당 source 문제가 없어요.
+            </div>
+          )}
         </div>
       </main>
     </>);
@@ -387,7 +466,13 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
           boxShadow: '0 2px 8px rgba(0,0,0,0.05)', marginBottom: 14 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
             <span style={{ fontWeight: 700, fontSize: '0.85rem', color: '#9ca3af' }}>
-              {currentQuestion.round}회 · {currentQuestion.questionNum}번
+              {currentQuestion.source === 'ai-generated' ? (
+                <span style={{ color: '#7c3aed' }}>
+                  🤖 AI {currentQuestion.genMode === 'new' ? '신규' : '변형'} 문제
+                </span>
+              ) : (
+                <>{currentQuestion.round}회 · {currentQuestion.questionNum}번</>
+              )}
             </span>
             {currentQuestion.points && (
               <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#1d4ed8' }}>
@@ -395,6 +480,17 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
               </span>
             )}
           </div>
+          {currentQuestion.source === 'ai-generated' && (
+            <div style={{ fontSize: '0.72rem', color: '#7c3aed', background: '#f5f3ff',
+              border: '1px solid #ddd6fe', borderRadius: 8, padding: '6px 10px',
+              marginBottom: 10 }}>
+              AI 생성 문제입니다. 모범답안도 AI가 작성한 것이므로 학습 시 비판적으로 검토하세요.
+              {currentQuestion.genMode === 'vary' && currentQuestion.changedFromOriginal &&
+                ` (원본 대비: ${currentQuestion.changedFromOriginal})`}
+              {currentQuestion.genMode === 'new' && currentQuestion.topic &&
+                ` 논점: ${currentQuestion.topic}`}
+            </div>
+          )}
           <div className="q-text" style={{ lineHeight: 1.6, fontWeight: 500,
             whiteSpace: 'pre-wrap', color: '#111827' }}>
             <ParsedText text={currentQuestion.body} />
@@ -479,8 +575,15 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
           <section style={{ background: '#fff', borderRadius: 12, padding: 16,
             border: '1px solid #e5e7eb', marginBottom: 14 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-              <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#16a34a' }}>
-                ✅ 모범답안 {currentQuestion.modelAnswerSource === 'round' && '(회차 전체)'}
+              <div style={{ fontWeight: 700, fontSize: '0.9rem',
+                color: currentQuestion.modelAnswerSource === 'ai-generated' ? '#7c3aed' : '#16a34a' }}>
+                {currentQuestion.modelAnswerSource === 'ai-generated' ? '🤖 AI 모범답안' : '✅ 모범답안'}
+                {currentQuestion.modelAnswerSource === 'round' && ' (회차 전체)'}
+                {currentQuestion.modelAnswerSource === 'ai-generated' && (
+                  <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#9ca3af', marginLeft: 6 }}>
+                    검증 필요
+                  </span>
+                )}
               </div>
               <button onClick={() => setShowModel(s => !s)}
                 style={{ border: '1px solid #d1d5db', background: '#fff',
