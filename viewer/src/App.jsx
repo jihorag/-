@@ -1332,9 +1332,11 @@ const App = () => {
   }, [notifPref, loading, srs.due.length]);
 
   // 복합 필터 선택지
+  // 모드 set 시 chip 옵션도 그 시험에 맞춰 좁힘 — 다른 시험 chip이 안 보임
   const filterOptions = useMemo(() => {
     const exams = new Set(), subjects = new Set(), years = new Set();
     for (const q of classifiedList) {
+      if (browseExam && q.exam !== browseExam) continue;
       exams.add(q.exam);
       if (q.taxSubjectName) subjects.add(q.taxSubjectName);
       years.add(String(q.year));
@@ -1345,15 +1347,17 @@ const App = () => {
       years: [...years].sort((a, b) => Number(b) - Number(a)),
       diffs: [1, 2, 3, 4, 5],
     };
-  }, [classifiedList]);
+  }, [classifiedList, browseExam]);
 
   // 복합 필터 결과 (AND 결합, 키워드는 문제/보기/해설 OR 매칭)
+  // 모드 set이면 자동으로 그 시험 필터링 (chip 미선택이어도 적용)
   const filteredResults = useMemo(() => {
     const { exams, subjects, years, diffs, kw, cleanOnly } = filters;
     const active = exams.length || subjects.length || years.length || diffs.length || kw.trim() || cleanOnly;
     if (!active) return [];
     const k = kw.trim().toLowerCase();
     return classifiedList.filter(q => {
+      if (browseExam && q.exam !== browseExam) return false;
       if (exams.length && !exams.includes(q.exam)) return false;
       if (subjects.length && !subjects.includes(q.taxSubjectName)) return false;
       if (years.length && !years.includes(String(q.year))) return false;
@@ -1368,7 +1372,7 @@ const App = () => {
       }
       return true;
     });
-  }, [classifiedList, filters]);
+  }, [classifiedList, filters, browseExam]);
 
   const toggleFilter = (key, val) => setFilters(f => {
     const arr = f[key];
@@ -1746,7 +1750,7 @@ const App = () => {
         onStartReview={startReview}
         fontScale={fontScale}
         browseExam={browseExam}
-        examDate={browseExam ? examDates[browseExam] : null}
+        examDates={examDates}
       />
     );
   }
@@ -1763,7 +1767,7 @@ const App = () => {
           onStartReview={startReview}
           fontScale={fontScale}
           browseExam={browseExam}
-          examDate={browseExam ? examDates[browseExam] : null}
+          examDates={examDates}
         />
         {overlays}
       </div>
@@ -2164,7 +2168,16 @@ const App = () => {
           </button>
         </header>
         <div className="screen-head">
-          <h1 className="screen-title">🔍 검색</h1>
+          <h1 className="screen-title">
+            🔍 검색
+            {browseExam && (
+              <span style={{ marginLeft: 8, fontSize: '0.78rem', color: '#1d4ed8',
+                fontWeight: 700, padding: '3px 9px', background: '#eff6ff',
+                borderRadius: 999, verticalAlign: 'middle' }}>
+                {browseExam} 모드
+              </span>
+            )}
+          </h1>
         </div>
         <div style={{ padding: '20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
           <input

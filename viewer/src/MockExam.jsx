@@ -151,7 +151,7 @@ function passProb(subjectCounts, accMap) {
 // ─────────────────────────────────────────────────────────────────────
 const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
                     onNavigate, onStartReview, fontScale,
-                    browseExam, examDate }) => {
+                    browseExam, examDates }) => {
   // mode: 'mock' | 'mockSession' | 'mockResult'
   const [current, setCurrent] = useState(() => loadCurrent());
   const [history, setHistory] = useState(() => loadHistory());
