@@ -512,7 +512,11 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   <span style={{ flex: 1, fontSize: '0.82rem', color: '#374151',
                     overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {q.subconcept || q.topic ||
-                      `${q.round ? `${q.round}회 ${q.questionNum}번` : '문제'}`}
+                      (q.gsRound
+                        ? `GS ${q.gsRound} ${q.questionNum}번`
+                        : q.round
+                          ? `${q.round}회 ${q.questionNum}번`
+                          : '문제')}
                   </span>
                   <span style={{ fontSize: '0.72rem', color: '#9ca3af' }}>
                     {q.points}점 →
@@ -599,6 +603,8 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                     <>🤖<br /><span style={{ color: '#7c3aed', fontSize: '0.72rem' }}>
                       {q.genMode === 'new' ? '신규' : '변형'}
                     </span></>
+                  ) : q.gsRound ? (
+                    <><span style={{ color: '#0891b2', fontSize: '0.7rem' }}>GS</span><br /><span style={{ color: '#374151', fontSize: '0.78rem' }}>{q.gsRound}</span><br /><span style={{ color: '#9ca3af', fontSize: '0.72rem' }}>{q.questionNum}번</span></>
                   ) : (
                     <>{q.round}회<br /><span style={{ color: '#374151', fontSize: '0.85rem' }}>{q.questionNum}번</span></>
                   )}
@@ -689,6 +695,15 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
               {currentQuestion.source === 'ai-generated' ? (
                 <span style={{ color: '#7c3aed' }}>
                   🤖 AI {currentQuestion.genMode === 'new' ? '신규' : '변형'} 문제
+                </span>
+              ) : currentQuestion.gsRound ? (
+                <span style={{ color: '#0891b2' }}>
+                  📝 GS {currentQuestion.gsRound} · {currentQuestion.questionNum}번
+                  {currentQuestion.sourceRound && currentQuestion.sourceQNum && (
+                    <span style={{ color: '#9ca3af', marginLeft: 6, fontSize: '0.75rem' }}>
+                      (← {currentQuestion.sourceRound}회 {currentQuestion.sourceQNum}번 변형)
+                    </span>
+                  )}
                 </span>
               ) : (
                 <>{currentQuestion.round}회 · {currentQuestion.questionNum}번</>
@@ -811,10 +826,17 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         <section style={{ background: '#fff', borderRadius: 12, padding: 16,
           boxShadow: 'var(--shadow-sm)', marginBottom: 14 }}>
           <div style={{ fontSize: '0.78rem', color: '#9ca3af', fontWeight: 700 }}>
-            {currentQuestion.round}회 · {currentQuestion.questionNum}번
+            {currentQuestion.gsRound
+              ? `GS ${currentQuestion.gsRound} · ${currentQuestion.questionNum}번`
+              : `${currentQuestion.round}회 · ${currentQuestion.questionNum}번`}
             {currentQuestion.points && ` · ${currentQuestion.points}점`}
             · 소요 {fmtClock(submittedDurationMs)}
           </div>
+          {currentQuestion.sourceRound && currentQuestion.sourceQNum && (
+            <div style={{ marginTop: 4, fontSize: '0.72rem', color: '#0891b2', fontWeight: 600 }}>
+              📚 출처: {currentQuestion.sourceRound}회 {currentQuestion.sourceQNum}번 기출문제 변형
+            </div>
+          )}
           <div style={{ marginTop: 10, fontWeight: 700, fontSize: '0.88rem', color: '#374151' }}>📝 문제</div>
           <div style={{ marginTop: 6, fontSize: '0.83rem', lineHeight: 1.6,
             color: '#111827', maxHeight: 280, overflow: 'auto',
