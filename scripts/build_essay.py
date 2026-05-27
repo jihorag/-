@@ -135,20 +135,20 @@ def parse_chapter(md_text: str, chapter_id: str, source_file: str):
             points = int(pts_m.group(1)) if pts_m else None
             problems[n] = {'body': body, 'points': points}
 
-        # 답안 split — 같은 답안 섹션에 다음 회차 답안이 섞여 있을 수 있어 round-aware하게 처리
-        # 패턴: (?:(\d+)회)?\[문제#(\d+)\] — 회차 번호가 있으면 그 회차의 답안 시작
+        # 답안 split — 같은 답안 섹션에 다음 회차 답안이 섞여 있을 수 있음
+        # (예: 18회 답안 섹션 끝에 19회 [문제#1] (40점) 가 그대로 붙어옴)
+        # 해결: 같은 번호가 또 나오면 첫 번째만 keep (다음 회차로 추정, skip).
+        # 단, 18회 답안에서 [문제#5]→[문제#1]로 번호가 줄면 transition으로 보고 그 이후는 모두 skip.
         answers = {}
+        max_seen = 0
         ans_iter = list(ANSWER_MARK_RE.finditer(answer_text))
-        current_round = round_num  # 시작 회차
         for j, am in enumerate(ans_iter):
-            mark_round = int(am.group(1)) if am.group(1) else None
-            if mark_round is not None:
-                current_round = mark_round
             n = int(am.group(2))
             ans_pts = int(am.group(3)) if am.group(3) else None
-            # 다른 회차의 답안은 무시 (이 round_num의 답안만 수집)
-            if current_round != round_num:
-                continue
+            # 다음 회차 transition 감지: 번호가 이미 본 max보다 작거나 같은 번호가 중복
+            if n in answers or n < max_seen:
+                break  # transition — 이 이후는 모두 다음 회차
+            max_seen = max(max_seen, n)
             body_start = am.end()
             body_end = ans_iter[j+1].start() if j+1 < len(ans_iter) else len(answer_text)
             body = enhance_answer(answer_text[body_start:body_end])
