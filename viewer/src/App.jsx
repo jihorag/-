@@ -2104,9 +2104,65 @@ const App = () => {
   }
 
 
+  // Drill-down 위치 표시 — 마지막은 굵게(현재), 나머지는 탭하면 그 단계로 복귀
+  const renderBreadcrumb = () => {
+    const crumbs = [];
+    if (taxScope) {
+      crumbs.push({ label: taxScope.label, onClick: () => {
+        setTaxSubject(null); setTaxSubSubject(null); setTaxChapter(null); setTaxSection(null);
+        setCurrentView('tax_subjects');
+      }});
+    } else if (browseExam) {
+      crumbs.push({ label: browseExam, onClick: () => {
+        setTaxSubject(null); setTaxSubSubject(null); setTaxChapter(null); setTaxSection(null);
+        setCurrentView('dashboard');
+      }});
+    }
+    if (taxSubject) {
+      crumbs.push({ label: taxSubject, onClick: () => {
+        setTaxSubSubject(null); setTaxChapter(null); setTaxSection(null);
+        setCurrentView('tax_sub_subjects');
+      }});
+    }
+    if (taxSubSubject) {
+      crumbs.push({ label: taxSubSubject, onClick: () => {
+        setTaxChapter(null); setTaxSection(null);
+        setCurrentView('tax_chapters');
+      }});
+    }
+    if (taxChapter) {
+      crumbs.push({ label: taxChapter, onClick: () => {
+        setTaxSection(null); setCurrentView('tax_sections');
+      }});
+    }
+    if (taxSection) {
+      crumbs.push({ label: taxSection, onClick: () => setCurrentView('tax_items') });
+    }
+    if (crumbs.length <= 1) return null;  // 1단계뿐이면 안 보임
+    return (
+      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center',
+        padding: '10px 20px 0', fontSize: '0.78rem', color: '#6b7280' }}>
+        {crumbs.map((c, i) => (
+          <span key={i} style={{ display: 'inline-flex', alignItems: 'center' }}>
+            {i > 0 && <span style={{ margin: '0 6px', color: '#d1d5db' }}>›</span>}
+            {i === crumbs.length - 1 ? (
+              <span style={{ color: '#111827', fontWeight: 700 }}>{c.label}</span>
+            ) : (
+              <button onClick={c.onClick} style={{
+                border: 'none', background: 'none', padding: 0, cursor: 'pointer',
+                color: '#1d4ed8', fontSize: 'inherit', fontWeight: 600
+              }}>{c.label}</button>
+            )}
+          </span>
+        ))}
+      </div>
+    );
+  };
+
   const renderStudyGrid = (title, subtitle, groups) => (
     <div className="app-container">
       {drillHeader()}
+      {renderBreadcrumb()}
 
       <div className="drill-head">
         <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '4px' }}>{subtitle}</div>
@@ -2918,7 +2974,13 @@ const App = () => {
       <div className="banner">
         <div style={{ position: 'absolute', right: '16px',
           top: 'calc(env(safe-area-inset-top, 0px) + 14px)', zIndex: 10,
-          display: 'flex', gap: '10px' }}>
+          display: 'flex', gap: '8px' }}>
+          <button aria-label="검색" onClick={() => setCurrentView('search')}
+            style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
+              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
+              display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            🔍
+          </button>
           <button aria-label="프로필" onClick={() => setCurrentView('profile')}
             style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
               background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
@@ -3217,7 +3279,8 @@ const App = () => {
             {[
               ['미응답', coverage.unseen, '#6b7280', '#f3f4f6'],
               ['학습', coverage.learned, '#1d4ed8', '#eff6ff'],
-              ['복습필요', coverage.review, '#dc2626', '#fef2f2'],
+              // 복습필요는 통계라 차분한 주황 (위험 X)
+              ['복습필요', coverage.review, '#c2410c', '#fff7ed'],
               ['마스터', coverage.mastered, '#16a34a', '#f0fdf4'],
             ].map(([lbl, n, c, bg]) => (
               <div key={lbl} style={{ background: bg, borderRadius: '10px', padding: '10px 6px', textAlign: 'center' }}>
