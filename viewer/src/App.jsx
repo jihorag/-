@@ -1781,7 +1781,7 @@ const App = () => {
 
   // 통암기(암기 탭) — 하단 탭바 노출되는 루트 화면. 내부 뒤로가기는 컴포넌트가 처리.
   if (currentView === 'civil') {
-    return shell(<CivilMemorize isTabRoot />);
+    return shell(<CivilMemorize isTabRoot browseExam={browseExam} />);
   }
 
   // 모의고사: picker/result는 하단 탭 유지, session은 집중 모드(no shell).
@@ -2920,14 +2920,14 @@ const App = () => {
           top: 'calc(env(safe-area-inset-top, 0px) + 14px)', zIndex: 10,
           display: 'flex', gap: '10px' }}>
           <button aria-label="프로필" onClick={() => setCurrentView('profile')}
-            style={{ width: 40, height: 40, borderRadius: '50%', border: 'none', cursor: 'pointer',
-              background: 'rgba(255,255,255,0.18)', color: '#fff', fontSize: '1.1rem',
+            style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
+              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             👤
           </button>
           <button aria-label="설정" onClick={() => setCurrentView('settings')}
-            style={{ width: 40, height: 40, borderRadius: '50%', border: 'none', cursor: 'pointer',
-              background: 'rgba(255,255,255,0.18)', color: '#fff', fontSize: '1.1rem',
+            style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
+              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             ⚙️
           </button>

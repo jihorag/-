@@ -274,7 +274,14 @@ function buildQueue(pool, srs, size) {
 }
 
 // ─── 메인 ─────────────────────────────────────────────────────
-export default function MemorizeApp({ isTabRoot = false, onBack }) {
+// 모드별 관련 과목 — 3시험 동시 준비 시 추천 과목 강조 + 비추천 dim
+const EXAM_SUBJECT_RELEVANCE = {
+  '감정평가사': ['civil', 'accounting', 'realestate', 'law'],
+  '세무사': ['civil', 'accounting'],
+  '공인중개사': ['civil', 'realestate'],
+};
+
+export default function MemorizeApp({ isTabRoot = false, onBack, browseExam = '' }) {
   // ── 상태
   const [view, setView] = useState('subjects');         // 과목 picker
   const [subjectId, setSubjectId] = useState(null);
@@ -716,18 +723,27 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
 
   // ─── VIEW: subjects (과목 picker) ────────────────────────────
   if (view === 'subjects') {
+    const relevant = browseExam ? EXAM_SUBJECT_RELEVANCE[browseExam] || [] : null;
     return (
       <div className="mem-root">
         {memHeader('통암기', isTabRoot ? null : onBack)}
         <main className="mem-main">
           <div className="mem-hero-min">
-            <div className="mem-hero-eyebrow">감정평가사 1차 · 교재 통째 외우기</div>
+            <div className="mem-hero-eyebrow">
+              {browseExam || '감정평가사'} 1차 · 교재 통째 외우기
+            </div>
             <h1 className="mem-hero-h1">어떤 과목부터?</h1>
+            {browseExam && (
+              <div style={{ fontSize: '0.78rem', color: '#6b7280', marginTop: 6 }}>
+                {browseExam} 모드 — 시험 출제 과목 강조 표시
+              </div>
+            )}
           </div>
 
           <div className="mem-subject-grid">
             {SUBJECTS.map(sub => {
               const enabled = !sub.comingSoon;
+              const inMode = !relevant || relevant.includes(sub.id);
               return (
                 <button
                   key={sub.id}
@@ -739,11 +755,20 @@ export default function MemorizeApp({ isTabRoot = false, onBack }) {
                     '--c-light': sub.color.light,
                     '--c-dark': sub.color.dark,
                     '--c-accent': sub.color.accent,
+                    opacity: inMode ? 1 : 0.45,
                   }}
                 >
                   <div className="mem-subject-icon">{sub.icon}</div>
                   <div className="mem-subject-info">
-                    <div className="mem-subject-title">{sub.title}</div>
+                    <div className="mem-subject-title">
+                      {sub.title}
+                      {browseExam && !inMode && (
+                        <span style={{ marginLeft: 6, fontSize: '0.7rem',
+                          color: '#9ca3af', fontWeight: 500 }}>
+                          (출제 없음)
+                        </span>
+                      )}
+                    </div>
                     <div className="mem-subject-sub">{sub.subtitle}</div>
                   </div>
                   {enabled
