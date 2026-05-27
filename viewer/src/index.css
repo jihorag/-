@@ -726,6 +726,11 @@ body {
   .swipe-hint { display: block; }
 }
 
+/* 학습 화면 키보드 단축키 안내 — 데스크탑(정밀 포인터)에서만 표시 */
+@media (hover: hover) and (pointer: fine) {
+  .study-kbd-hint { display: block !important; }
+}
+
 /* ===== B1. 본문 글자 크기 스케일 ===== */
 .q-text { font-size: calc(1.125rem * var(--q-fs)); }
 .q-opt  { font-size: calc(0.95rem  * var(--q-fs)); }
