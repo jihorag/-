@@ -1875,6 +1875,11 @@ const App = () => {
               </button>
             ))}
           </div>
+          {/* 키보드 단축키 안내 — desktop pointer:fine 환경에서만 (모바일엔 숨김) */}
+          <div className="study-kbd-hint" style={{ marginTop: 8, fontSize: '0.7rem',
+            color: '#9ca3af', display: 'none' }}>
+            ⌨ 단축키: <b>1-9</b> 보기 선택 · <b>← →</b> 이전/다음 · <b>Enter</b> 다음
+          </div>
         </div>
 
         <main
