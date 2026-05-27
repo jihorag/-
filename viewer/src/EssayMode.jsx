@@ -74,6 +74,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
   // 작성 화면 상태
   const [draft, setDraft] = useState('');
   const [startedAt, setStartedAt] = useState(null);
+  const [previewModelInWrite, setPreviewModelInWrite] = useState(false);
   const [tierMode, setTierMode] = useState(() => {
     try { return localStorage.getItem(SELF_TIER_KEY) || 'simple'; }
     catch { return 'simple'; }
@@ -139,6 +140,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     setSelectedTier(null);
     setRubric({});
     setNotes('');
+    setPreviewModelInWrite(false);
   }, [mode, questionId]);
 
   // ─────────── auto-save 매 10초 ───────────
@@ -491,13 +493,43 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                 ` 논점: ${currentQuestion.topic}`}
             </div>
           )}
-          <div className="q-text" style={{ lineHeight: 1.6, fontWeight: 500,
-            whiteSpace: 'pre-wrap', color: '#111827' }}>
+          {/* 문제 본문 — 폰트 사이즈 줄임 (q-text 클래스 대신 직접 0.92rem) */}
+          <div style={{ lineHeight: 1.6, fontWeight: 400, color: '#111827',
+            fontSize: 'calc(0.92rem * var(--q-fs, 1))' }}>
             <ParsedText text={currentQuestion.body} />
           </div>
         </div>
 
-        <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#374151', marginBottom: 6 }}>
+        {/* 모범답안 미리보기 (제출 전 확인) */}
+        {currentQuestion.modelAnswer && (
+          <div style={{ marginBottom: 14 }}>
+            <button onClick={() => setPreviewModelInWrite(p => !p)}
+              style={{ width: '100%', padding: '10px 14px', borderRadius: 10,
+                border: `1px dashed ${previewModelInWrite ? '#16a34a' : '#d1d5db'}`,
+                background: previewModelInWrite ? '#f0fdf4' : '#fff',
+                color: previewModelInWrite ? '#15803d' : '#6b7280',
+                fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', textAlign: 'left',
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span>💡 모범답안 미리 보기 {previewModelInWrite ? '(보는 중)' : ''}</span>
+              <span style={{ fontSize: '0.72rem', fontWeight: 600 }}>
+                {previewModelInWrite ? '▲ 닫기' : '▼ 펼치기'}
+              </span>
+            </button>
+            {previewModelInWrite && (
+              <div style={{ marginTop: 8, padding: 14, background: '#f9fafb',
+                borderRadius: 10, border: '1px solid #e5e7eb',
+                fontSize: 'calc(0.85rem * var(--q-fs, 1))', lineHeight: 1.65,
+                color: '#374151' }}>
+                <ParsedText text={currentQuestion.modelAnswer} />
+                <div style={{ marginTop: 8, fontSize: '0.7rem', color: '#9ca3af', fontStyle: 'italic' }}>
+                  ※ 답안을 보고도 작성·자기채점 가능. 본격 학습은 가리고 풀이 권장.
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#374151', marginBottom: 6 }}>
           ✍ 내 답안
         </div>
         <textarea value={draft} onChange={(e) => setDraft(e.target.value)}
@@ -551,9 +583,9 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             {currentQuestion.points && ` · ${currentQuestion.points}점`}
             · 소요 {fmtClock(submittedDurationMs)}
           </div>
-          <div style={{ marginTop: 10, fontWeight: 700, fontSize: '0.9rem', color: '#374151' }}>📝 문제</div>
-          <div style={{ marginTop: 6, fontSize: '0.88rem', lineHeight: 1.6,
-            color: '#111827', whiteSpace: 'pre-wrap', maxHeight: 220, overflow: 'auto',
+          <div style={{ marginTop: 10, fontWeight: 700, fontSize: '0.88rem', color: '#374151' }}>📝 문제</div>
+          <div style={{ marginTop: 6, fontSize: '0.83rem', lineHeight: 1.6,
+            color: '#111827', maxHeight: 280, overflow: 'auto',
             padding: 10, background: '#f9fafb', borderRadius: 8 }}>
             <ParsedText text={currentQuestion.body} />
           </div>
@@ -561,8 +593,8 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
 
         <section style={{ background: '#eff6ff', borderRadius: 12, padding: 16,
           border: '1px solid #bfdbfe', marginBottom: 14 }}>
-          <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#1d4ed8' }}>✍ 내 답안</div>
-          <div style={{ marginTop: 6, fontSize: '0.88rem', lineHeight: 1.7,
+          <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#1d4ed8' }}>✍ 내 답안</div>
+          <div style={{ marginTop: 6, fontSize: '0.83rem', lineHeight: 1.7,
             color: '#111827', whiteSpace: 'pre-wrap' }}>
             {submittedAnswer || '(답안 없음)'}
           </div>
