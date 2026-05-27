@@ -782,6 +782,19 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
             <span style={{ marginLeft: 6, color: r.passAvg ? '#16a34a' : '#dc2626', fontWeight: 700 }}>
               평균 {r.passAvg ? '✓' : '✕'}
             </span>
+            {/* 푼 시험의 D-DAY (browseExam과 무관 — r.exam 기준) */}
+            {examDates && examDates[r.exam] && (() => {
+              const dt = new Date(examDates[r.exam] + 'T00:00:00');
+              if (isNaN(dt)) return null;
+              const t = new Date(); t.setHours(0,0,0,0);
+              const d = Math.ceil((dt - t) / 86400000);
+              return (
+                <div style={{ marginTop: 6, fontSize: '0.78rem',
+                  color: d <= 30 ? '#dc2626' : '#6b7280', fontWeight: d <= 30 ? 700 : 500 }}>
+                  📅 {r.exam} 시험까지 D-{d}일
+                </div>
+              );
+            })()}
           </div>
         </section>
 

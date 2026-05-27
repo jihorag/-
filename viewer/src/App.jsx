@@ -2104,12 +2104,15 @@ const App = () => {
   // Dashboard View
 
   if (loading) {
+    const stage = loadPct < 5 ? '시험 목록 확인 중'
+      : loadPct < 100 ? `기출문제 ${loadPct}% 받는 중 (13시험 동시 다운로드)`
+      : '정리하는 중…';
     return (
       <div className="boot">
         <div className="boot-mark">감정평가사 기출</div>
         <div className="boot-title">1차 기출 12,000+ 문제</div>
         <div className="boot-bar"><div className="boot-fill" style={{ width: `${Math.max(4, loadPct)}%` }} /></div>
-        <div className="boot-pct">{loadPct < 100 ? `${loadPct}%` : '거의 다 됐어요…'}</div>
+        <div className="boot-pct" style={{ fontSize: '0.85rem' }}>{stage}</div>
         <div className="boot-note">최초 1회만 받으면 다음부터 오프라인에서도 바로 열려요</div>
       </div>
     );
