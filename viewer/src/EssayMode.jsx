@@ -878,12 +878,23 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             border: '1px solid #e5e7eb', marginBottom: 14 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <div style={{ fontWeight: 700, fontSize: '0.9rem',
-                color: currentQuestion.modelAnswerSource === 'ai-generated' ? '#7c3aed' : '#16a34a' }}>
-                {currentQuestion.modelAnswerSource === 'ai-generated' ? '🤖 AI 모범답안' : '✅ 모범답안'}
+                color: currentQuestion.modelAnswerSource === 'ai-direct-note' ? '#0891b2'
+                  : currentQuestion.modelAnswerSource === 'ai-generated' ? '#7c3aed'
+                  : currentQuestion.modelAnswerSource === 'ai-direct' ? '#2563eb'
+                  : '#16a34a' }}>
+                {currentQuestion.modelAnswerSource === 'ai-direct-note' ? '📚 학습 안내 (자기채점)'
+                  : currentQuestion.modelAnswerSource === 'ai-generated' ? '🤖 AI 모범답안'
+                  : currentQuestion.modelAnswerSource === 'ai-direct' ? '🧠 LLM 풀이 (학습용)'
+                  : '✅ 모범답안'}
                 {currentQuestion.modelAnswerSource === 'round' && ' (회차 전체)'}
                 {currentQuestion.modelAnswerSource === 'ai-generated' && (
                   <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#9ca3af', marginLeft: 6 }}>
                     검증 필요
+                  </span>
+                )}
+                {currentQuestion.modelAnswerSource === 'ai-direct' && (
+                  <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#9ca3af', marginLeft: 6 }}>
+                    핵심산식·법규 위주 · 수치는 가정
                   </span>
                 )}
               </div>
