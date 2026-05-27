@@ -26,15 +26,34 @@ ROUND_SPLIT_RE = re.compile(r'^###\s*기출\s*제(\d+)회[^\n]*\n', re.M)
 PROBLEM_HEADER_RE = re.compile(r'^####\s*📝\s*문제\s*$', re.M)
 ANSWER_HEADER_RE = re.compile(r'^####\s*✅\s*답안[^\n]*$', re.M)
 PROBLEM_MARK_RE = re.compile(r'【\s*문제\s*(\d+)\s*】')
-ANSWER_MARK_RE = re.compile(r'\[문제\s*#(\d+)\]\s*(?:\((\d+)점\))?')
+# 답안 마커: 앞에 회차 번호가 있을 수 있음 (예: "19회 [문제#1]" — 다음 회차가 같은 섹션에 섞여 있음)
+# group(1) = 다음 회차 번호 (있으면), group(2) = 문제 번호, group(3) = 배점
+ANSWER_MARK_RE = re.compile(r'(?:(\d+)회\s*)?\[문제\s*#(\d+)\]\s*(?:\((\d+)점\))?')
 POINTS_RE = re.compile(r'\((\d+)\s*점\)')
+
+# 본문 오염 패턴 (PDF 변환 시 끼어든 페이지 헤더/푸터/카피라이트)
+NOISE_PATTERNS = [
+    re.compile(r'^STUDY\s*FIGHTER\b.*$', re.M | re.I),
+    re.compile(r'^스터디파이터\b.*$', re.M),
+    re.compile(r'^\s*\d+\s*$', re.M),  # 페이지 번호 단독 라인
+    re.compile(r'<!--p\.\d+-->'),
+    re.compile(r'^감정평가실무\s+\d+회?\s*기출문제\s*$', re.M),
+    re.compile(r'^.{0,3}교\s*시\s+시험과목\s+시험시간.*$', re.M),
+    re.compile(r'^감정평가실무\s+\d+분\s*$', re.M),
+    re.compile(r'^\d{4}년도\s+제\d+회\s+감정평가사\s+\d+차\s+시험문제지\s*$', re.M),
+]
+
+# 답안 휴리스틱 줄바꿈: PDF 변환에서 줄바꿈 소실된 답안에 가독성용 break 삽입
+ANSWER_BREAK_BEFORE = re.compile(r'(?<![\n])(?=(?:Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ|Ⅷ|Ⅸ|Ⅹ)\.)')
+ANSWER_BREAK_NUM = re.compile(r'(?<=[^\n])(?=(?:\d+\.\s|\(\d+\)|①|②|③|④|⑤|⑥))')
 
 def short_id(s: str) -> str:
     return hashlib.sha1(s.encode('utf-8')).hexdigest()[:8]
 
 def clean_body(text: str) -> str:
-    # HTML 페이지 마커 제거 (<!--p.XX-->)
-    text = re.sub(r'<!--p\.\d+-->', '', text)
+    # 알려진 oise 패턴 제거 (페이지 헤더/푸터, 카피라이트, 시험지 헤더 등)
+    for pat in NOISE_PATTERNS:
+        text = pat.sub('', text)
     # 줄 시작 공백 보존하되 끝 공백 정리
     lines = [l.rstrip() for l in text.split('\n')]
     # 연속 빈 줄 1개로 축소
@@ -48,6 +67,20 @@ def clean_body(text: str) -> str:
             blank = False
         out.append(l)
     return '\n'.join(out).strip()
+
+
+def enhance_answer(text: str) -> str:
+    """PDF에서 줄바꿈이 소실된 답안에 휴리스틱 줄바꿈을 추가해 가독성 ↑."""
+    if not text:
+        return text
+    cleaned = clean_body(text)
+    # Roman 숫자 절 앞에 줄바꿈
+    cleaned = ANSWER_BREAK_BEFORE.sub('\n', cleaned)
+    # 숫자/괄호 절 앞에 줄바꿈 (이미 줄 시작인 건 제외 — 룩비하인드 처리)
+    cleaned = ANSWER_BREAK_NUM.sub('\n', cleaned)
+    # 연속 줄바꿈 1개로
+    cleaned = re.sub(r'\n{3,}', '\n\n', cleaned)
+    return cleaned.strip()
 
 def parse_chapter(md_text: str, chapter_id: str, source_file: str):
     """기출 섹션 내 모든 문제를 추출. 각 문제는 dict 1개."""
@@ -102,23 +135,35 @@ def parse_chapter(md_text: str, chapter_id: str, source_file: str):
             points = int(pts_m.group(1)) if pts_m else None
             problems[n] = {'body': body, 'points': points}
 
-        # 답안 split
+        # 답안 split — 같은 답안 섹션에 다음 회차 답안이 섞여 있을 수 있어 round-aware하게 처리
+        # 패턴: (?:(\d+)회)?\[문제#(\d+)\] — 회차 번호가 있으면 그 회차의 답안 시작
         answers = {}
         ans_iter = list(ANSWER_MARK_RE.finditer(answer_text))
+        current_round = round_num  # 시작 회차
         for j, am in enumerate(ans_iter):
-            n = int(am.group(1))
-            ans_pts = int(am.group(2)) if am.group(2) else None
+            mark_round = int(am.group(1)) if am.group(1) else None
+            if mark_round is not None:
+                current_round = mark_round
+            n = int(am.group(2))
+            ans_pts = int(am.group(3)) if am.group(3) else None
+            # 다른 회차의 답안은 무시 (이 round_num의 답안만 수집)
+            if current_round != round_num:
+                continue
             body_start = am.end()
             body_end = ans_iter[j+1].start() if j+1 < len(ans_iter) else len(answer_text)
-            body = clean_body(answer_text[body_start:body_end])
+            body = enhance_answer(answer_text[body_start:body_end])
             answers[n] = {'body': body, 'points': ans_pts}
 
         # 답안이 매칭 안 되면 전체 답안 텍스트가 한 덩어리일 수도 있음
         # (예: 답안에 [문제#N] 마커 없이 평문) — 이 경우 전체를 round-level로 보존
+        # 단, 답안 텍스트에 다른 회차 마커가 있으면 거기까지만 자른다
         round_level_answer = None
         if not answers and answer_text.strip():
-            cleaned = clean_body(answer_text)
-            if cleaned and not cleaned.startswith('> 11회 이전'):
+            # 다른 회차 마커가 있으면 그 앞까지만
+            other_round = re.search(r'(\d+)회\s*\[문제\s*#\d+\]', answer_text)
+            cut = answer_text[:other_round.start()] if other_round else answer_text
+            cleaned = enhance_answer(cut)
+            if cleaned and not cleaned.startswith('> 11회 이전') and '답안집(11~36회)에 없음' not in cleaned:
                 round_level_answer = cleaned
 
         for n in sorted(problems):
