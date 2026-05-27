@@ -718,11 +718,12 @@ const App = () => {
   };
   // 둘러보기 시험 모드 — 분류·연도·과목 픽커가 이 시험에 맞춰짐
   // ''/null = 전체 (모든 시험), '감정평가사'|'세무사'|'공인중개사' = 모드
+  // 기본은 '전체' — 모드는 사용자가 명시적으로 선택할 때만 적용 (회귀 방지)
   const [browseExam, setBrowseExamState] = useState(() => {
     try {
       const v = localStorage.getItem('quiz-browse-exam');
-      return v == null ? '감정평가사' : v;   // 첫 진입 기본값
-    } catch { return '감정평가사'; }
+      return v == null ? '' : v;
+    } catch { return ''; }
   });
   // 시험 일정 — 3시험 동시 준비 시 D-DAY 표시·일일 권장량 계산용
   const [examDates, setExamDatesState] = useState(loadExamDates);
