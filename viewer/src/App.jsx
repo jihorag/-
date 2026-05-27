@@ -3147,43 +3147,31 @@ const App = () => {
           <span style={{ fontSize: '0.85rem', fontWeight: 700 }}>시작 →</span>
         </button>
 
-        {/* 다른 방법으로 — 보조 경로(시각 비중↓, 선택 부담 분산 방지) */}
-        <section style={{ marginBottom: '14px' }}>
-          <div style={{ display: 'flex', gap: '8px' }}>
-            {[
-              { t: '둘러보기', on: () => setCurrentView('dashboard') },
-              { t: '랜덤 20', on: () => startRandom(20) },
-              { t: '검색', on: () => setCurrentView('search') },
-            ].map((b, i) => (
-              <button key={i} onClick={b.on}
-                style={{ flex: 1, padding: '11px 8px', borderRadius: '10px', cursor: 'pointer',
-                  border: '1px solid #e5e7eb', background: '#fff', color: '#374151',
-                  fontSize: '0.85rem', fontWeight: 600 }}>
-                {b.t}
-              </button>
-            ))}
-          </div>
-        </section>
-
-        {/* 약점 집중 — 모드 적용 */}
+        {/* 약점 집중 — 모드 적용. 보강 권유는 주황 톤(긴급 X)으로 — 빨강은 D-30 등 진짜 임박용 */}
         {(modeAnalytics ? modeAnalytics.weak : analytics.weak).length > 0 && (
           <section style={{ marginBottom: '14px' }}>
             <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#374151', margin: '0 2px 10px' }}>
               📉 약점 집중{browseExam && ` · ${browseExam}`}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {(modeAnalytics ? modeAnalytics.weak : analytics.weak).map((w) => (
-                <button key={w.name} onClick={() => startConcept(w.name,
-                  `${browseExam ? browseExam + ' · ' : ''}${w.name} 집중 학습`, browseExam || null)}
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px',
-                    padding: '13px 15px', borderRadius: '12px', cursor: 'pointer',
-                    border: '1px solid #fecaca', background: '#fef2f2', textAlign: 'left' }}>
-                  <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#374151' }}>{w.name}</span>
-                  <span style={{ fontSize: '0.82rem', color: '#dc2626', fontWeight: 700, flexShrink: 0 }}>
-                    정답률 {w.acc}% · 보강 →
-                  </span>
-                </button>
-              ))}
+              {(modeAnalytics ? modeAnalytics.weak : analytics.weak).map((w) => {
+                const critical = w.acc < 50;   // 50% 미만만 빨강(진짜 위험), 그 외 주황
+                const fg = critical ? '#dc2626' : '#c2410c';
+                const bg = critical ? '#fef2f2' : '#fff7ed';
+                const bd = critical ? '#fecaca' : '#fed7aa';
+                return (
+                  <button key={w.name} onClick={() => startConcept(w.name,
+                    `${browseExam ? browseExam + ' · ' : ''}${w.name} 집중 학습`, browseExam || null)}
+                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px',
+                      padding: '13px 15px', borderRadius: '12px', cursor: 'pointer',
+                      border: `1px solid ${bd}`, background: bg, textAlign: 'left' }}>
+                    <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#374151' }}>{w.name}</span>
+                    <span style={{ fontSize: '0.82rem', color: fg, fontWeight: 700, flexShrink: 0 }}>
+                      정답률 {w.acc}% · 보강 →
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </section>
         )}
@@ -3251,58 +3239,7 @@ const App = () => {
           )}
         </section>
 
-        {/* 시험별 진척 */}
-        {coverage.exams.length > 0 && (
-          <section style={{ marginBottom: '14px' }}>
-            <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#374151', margin: '0 2px 10px' }}>
-              📋 시험별 진척
-            </div>
-            <div style={{ background: '#fff', borderRadius: '14px', padding: '14px', boxShadow: 'var(--shadow-sm)',
-              display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {coverage.exams.slice(0, 4).map((e) => (
-                <button key={e.name} onClick={() => enterTaxScope({ kind: 'exam', value: e.name, label: e.name })}
-                  style={{ border: 'none', background: 'transparent', cursor: 'pointer', textAlign: 'left', padding: 0 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '5px' }}>
-                    <span style={{ fontWeight: 700, color: '#374151' }}>{e.name}</span>
-                    <span style={{ color: '#6b7280' }}>
-                      {e.coverPct}%{e.acc != null && <> · 정답 {e.acc}%</>}
-                    </span>
-                  </div>
-                  <div className="progress-bar-container" style={{ height: '7px' }}>
-                    <div className="progress-bar-fill" style={{ width: `${e.coverPct}%` }}></div>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* 복습 알림 */}
-        <div style={{ width: '100%', padding: '14px 16px', marginBottom: '8px', borderRadius: '12px',
-          border: '1px solid #e5e7eb', background: '#fff',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
-          <div>
-            <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#374151' }}>🔔 복습 알림</div>
-            <div style={{ fontSize: '0.78rem', color: '#9ca3af', marginTop: '2px' }}>
-              {srs.nextDue != null && !srs.due.length
-                ? `다음 복습 ${new Date(srs.nextDue).getMonth() + 1}/${new Date(srs.nextDue).getDate()}`
-                : '복습할 게 생기면 알려드려요'}
-            </div>
-          </div>
-          <button
-            onClick={() => {
-              if (typeof Notification === 'undefined') return;
-              if (Notification.permission === 'granted') setNotifPref(p => !p);
-              else Notification.requestPermission().then(r => setNotifPref(r === 'granted'));
-            }}
-            style={{ flexShrink: 0, border: notifPref ? '1px solid #2563eb' : '1px solid #d1d5db',
-              background: notifPref ? '#eff6ff' : '#fff', borderRadius: '8px',
-              padding: '8px 14px', fontSize: '0.8rem', cursor: 'pointer',
-              color: notifPref ? '#1d4ed8' : '#6b7280', fontWeight: 600 }}
-          >
-            {notifPref ? '켜짐' : '받기'}
-          </button>
-        </div>
+        {/* 시험별 진척 / 복습 알림 카드는 status 탭·Settings로 이관 — 홈 간소화 */}
 
       </main>
     </div>
