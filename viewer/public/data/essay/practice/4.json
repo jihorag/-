@@ -4,7 +4,7 @@
   "chapter": "4",
   "chapterTitle": "유형별 평가",
   "source": "official",
-  "count": 89,
+  "count": 119,
   "withAnswer": 4,
   "matchedAnswer": 4,
   "rounds": [
@@ -1752,6 +1752,576 @@
         "호텔 8~10%",
         "골프 7~8%",
         "유원지 10%"
+      ]
+    },
+    {
+      "id": "practice-4-601",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-1",
+      "topic": "3방식 단순 시산",
+      "body": "원가법 50억, 비교법 60억, 수익법 70억. 균등 가중치로 결정가액을 산정하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- (50+60+70)/3 = 60억\n- 균등 가중평균\n- 시산조정 단순화",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(50+60+70)/3 = 60억",
+        "균등 가중평균",
+        "시산조정 단순화"
+      ]
+    },
+    {
+      "id": "practice-4-602",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-1",
+      "topic": "비교법 단순",
+      "body": "거래사례 단가 5,000,000원/㎡, 시점수정 1.02, 개별요인 1.05. 대상 단가를 산정하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 5,000,000 × 1.02 × 1.05\n- = 5,355,000원/㎡\n- 시점·개별 곱셈",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000,000 × 1.02 × 1.05",
+        "= 5,355,000원/㎡",
+        "시점·개별 곱셈"
+      ]
+    },
+    {
+      "id": "practice-4-603",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-1",
+      "topic": "원가법 단순",
+      "body": "재조달원가 10억, 잔가율 0.7. 적산가액을 산정하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 10억 × 0.7 = 7억\n- 단순 원가법\n- 잔가율 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10억 × 0.7 = 7억",
+        "단순 원가법",
+        "잔가율 적용"
+      ]
+    },
+    {
+      "id": "practice-4-604",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-1",
+      "topic": "수익환원 단순",
+      "body": "NOI 5억, 환원이율 7%. 수익가액을 산정하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 5억 / 0.07 ≈ 71.4억\n- 직접환원법\n- NOI/환원이율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5억 / 0.07 ≈ 71.4억",
+        "직접환원법",
+        "NOI/환원이율"
+      ]
+    },
+    {
+      "id": "practice-4-605",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-1",
+      "topic": "공시지가 단순",
+      "body": "비교표준지 단가 8,000,000원, 시점수정 1.03, 개별 1.05, 그밖의 1.10. 대상 단가를 산정하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 8,000,000 × 1.03 × 1.05 × 1.10\n- = 9,517,200원/㎡\n- 4단계 보정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,000,000 × 1.03 × 1.05 × 1.10",
+        "= 9,517,200원/㎡",
+        "4단계 보정"
+      ]
+    },
+    {
+      "id": "practice-4-606",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-2",
+      "topic": "기계 정률법 5년",
+      "body": "신품가 1억, 정률법 잔존율 0.9, 경과 5년. 적산가액을 산정하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 1억 × 0.9^5 = 1억 × 0.59049\n- = 5,905만\n- 거듭제곱",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1억 × 0.9^5 = 1억 × 0.59049",
+        "= 5,905만",
+        "거듭제곱"
+      ]
+    },
+    {
+      "id": "practice-4-607",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-2",
+      "topic": "차량 시장가",
+      "body": "동연식 시장가 2,500만원/대, 3대. 평가액을 산정하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 2,500만 × 3대 = 7,500만\n- 시장가 우선\n- 단순 합계",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2,500만 × 3대 = 7,500만",
+        "시장가 우선",
+        "단순 합계"
+      ]
+    },
+    {
+      "id": "practice-4-608",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-2",
+      "topic": "동산 운반비",
+      "body": "동산 시장가 1억, 이전비 5%. 보상금을 산정하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가 + 이전비\n- 1억 + 500만 = 1억 500만\n- 이전 가능 동산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 + 이전비",
+        "1억 + 500만 = 1억 500만",
+        "이전 가능 동산"
+      ]
+    },
+    {
+      "id": "practice-4-609",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-2",
+      "topic": "기계 정률 10년",
+      "body": "신품가 5천만, 정률 매년 0.85, 10년. 적산가액?",
+      "modelAnswer": "## 핵심 정리\n\n- 5천만 × 0.85^10\n- = 5천만 × 0.1969\n- = 약 985만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5천만 × 0.85^10",
+        "= 5천만 × 0.1969",
+        "= 약 985만"
+      ]
+    },
+    {
+      "id": "practice-4-610",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-2",
+      "topic": "차량 운반비",
+      "body": "차량 5대 시장가 1.5억, 이전비 200만. 합계?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.5억 + 200만 = 1.52억\n- 운반비 가산\n- 간단 합산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.5억 + 200만 = 1.52억",
+        "운반비 가산",
+        "간단 합산"
+      ]
+    },
+    {
+      "id": "practice-4-611",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-3",
+      "topic": "지상권 5년 연금",
+      "body": "연 NOI 1억, 5년 잔여, 연금현가계수(5%, 5년) = 4.329. 지상권 가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 1억 × 4.329 = 4.329억\n- 연금현가 곱셈\n- 잔여기간 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1억 × 4.329 = 4.329억",
+        "연금현가 곱셈",
+        "잔여기간 가치"
+      ]
+    },
+    {
+      "id": "practice-4-612",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-3",
+      "topic": "전세권 가치",
+      "body": "전세금 5억, 잔여 3년. 전세권 가치 (단기)?",
+      "modelAnswer": "## 핵심 정리\n\n- 약 5억 (전세금)\n- 단기 잔여 = 전세금\n- 시장-계약 차액 없음 가정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "약 5억 (전세금)",
+        "단기 잔여 = 전세금",
+        "시장-계약 차액 없음 가정"
+      ]
+    },
+    {
+      "id": "practice-4-613",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-3",
+      "topic": "임차권 차액",
+      "body": "시장월세 800만, 계약월세 500만, 잔여 3년, 연금현가 2.6. 임차권 가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 월차액 300만 × 12 = 3,600만/년\n- 3,600만 × 2.6 = 9,360만\n- 연금현가 활용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "월차액 300만 × 12 = 3,600만/년",
+        "3,600만 × 2.6 = 9,360만",
+        "연금현가 활용"
+      ]
+    },
+    {
+      "id": "practice-4-614",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-3",
+      "topic": "지역권 보상",
+      "body": "토지단가 300만/㎡, 통과면적 50㎡, 영향 15%. 지역권 보상?",
+      "modelAnswer": "## 핵심 정리\n\n- 300만 × 50 × 0.15\n- = 2,250만\n- 간단 곱셈",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "300만 × 50 × 0.15",
+        "= 2,250만",
+        "간단 곱셈"
+      ]
+    },
+    {
+      "id": "practice-4-615",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-3",
+      "topic": "신탁수익권 만기",
+      "body": "5년 후 자산가치 30억, 할인계수 0.7. 만기 자산 현가?",
+      "modelAnswer": "## 핵심 정리\n\n- 30억 × 0.7 = 21억\n- 단순 현가\n- 만기 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30억 × 0.7 = 21억",
+        "단순 현가",
+        "만기 가치"
+      ]
+    },
+    {
+      "id": "practice-4-616",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-4",
+      "topic": "답 평가",
+      "body": "답 단가 80만/㎡, 3,000㎡. 평가가는?",
+      "modelAnswer": "## 핵심 정리\n\n- 80만 × 3,000 = 24억\n- 단순 곱셈\n- 농지 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80만 × 3,000 = 24억",
+        "단순 곱셈",
+        "농지 평가"
+      ]
+    },
+    {
+      "id": "practice-4-617",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-4",
+      "topic": "과수원 평가",
+      "body": "과수원 단가 120만/㎡, 2,000㎡. 토지 평가가는?",
+      "modelAnswer": "## 핵심 정리\n\n- 120만 × 2,000 = 24억\n- 입목 별도\n- 토지만 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "120만 × 2,000 = 24억",
+        "입목 별도",
+        "토지만 평가"
+      ]
+    },
+    {
+      "id": "practice-4-618",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-4",
+      "topic": "임야 단가 비교",
+      "body": "보전 5만, 준보전 10만, 생산 20만/㎡, 각 1,000㎡. 합계?",
+      "modelAnswer": "## 핵심 정리\n\n- (5+10+20)만 × 1,000 = 3.5억\n- 3종 합산\n- 단가 차등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(5+10+20)만 × 1,000 = 3.5억",
+        "3종 합산",
+        "단가 차등"
+      ]
+    },
+    {
+      "id": "practice-4-619",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-4",
+      "topic": "입목 시장가",
+      "body": "입목당 재적 0.5㎥, 입목가 30,000원/㎥, 본수 200본. 입목 가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.5 × 30,000 × 200\n- = 300만\n- 본수·재적·단가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.5 × 30,000 × 200",
+        "= 300만",
+        "본수·재적·단가"
+      ]
+    },
+    {
+      "id": "practice-4-620",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-4",
+      "topic": "농업진흥 감가",
+      "body": "일반 답 100만/㎡, 농업진흥 -30%. 농업진흥 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 100만 × 0.7 = 70만/㎡\n- 일반제한 감가\n- 제한 반영",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100만 × 0.7 = 70만/㎡",
+        "일반제한 감가",
+        "제한 반영"
+      ]
+    },
+    {
+      "id": "practice-4-621",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-5",
+      "topic": "사찰 부지",
+      "body": "임야 단가 8만/㎡, 5,000㎡, 사찰 부지 가산 20%. 평가가?",
+      "modelAnswer": "## 핵심 정리\n\n- 8만 × 5,000 × 1.20\n- = 4.8억\n- 사찰 부지 보정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8만 × 5,000 × 1.20",
+        "= 4.8억",
+        "사찰 부지 보정"
+      ]
+    },
+    {
+      "id": "practice-4-622",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-5",
+      "topic": "학교 부지 보정",
+      "body": "일반주거 단가 400만, 학교부지 -15%. 보정 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 400만 × 0.85 = 340만\n- 학교 부지 감가\n- 비영리 보정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "400만 × 0.85 = 340만",
+        "학교 부지 감가",
+        "비영리 보정"
+      ]
+    },
+    {
+      "id": "practice-4-623",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-5",
+      "topic": "한옥 단가",
+      "body": "한옥 RC 단가 350만/㎡, 잔가율 0.6, 800㎡. 적산?",
+      "modelAnswer": "## 핵심 정리\n\n- 350만 × 800 × 0.6\n- = 16.8억\n- 한옥 표준 단가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "350만 × 800 × 0.6",
+        "= 16.8억",
+        "한옥 표준 단가"
+      ]
+    },
+    {
+      "id": "practice-4-624",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-6",
+      "topic": "잔여 채굴기간",
+      "body": "매장량 200만톤, 연생산 25만톤. 잔여 채굴기간?",
+      "modelAnswer": "## 핵심 정리\n\n- 200/25 = 8년\n- 단순 나눗셈\n- 잔여기간",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "200/25 = 8년",
+        "단순 나눗셈",
+        "잔여기간"
+      ]
+    },
+    {
+      "id": "practice-4-625",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-6",
+      "topic": "광업권 가치",
+      "body": "연 영업이익 5억, 잔여 10년, 연금현가(15%, 10) = 5.019. 광업권?",
+      "modelAnswer": "## 핵심 정리\n\n- 5억 × 5.019 = 25.1억\n- 수익환원\n- 잔여기간",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5억 × 5.019 = 25.1억",
+        "수익환원",
+        "잔여기간"
+      ]
+    },
+    {
+      "id": "practice-4-626",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-6",
+      "topic": "어업권 가치",
+      "body": "연 매출 5억, 영업이익률 30%, 잔여 5년, 연금현가 3.7. 어업권?",
+      "modelAnswer": "## 핵심 정리\n\n- 5억 × 0.3 = 1.5억 (이익)\n- 1.5억 × 3.7 = 5.55억\n- 연금현가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5억 × 0.3 = 1.5억 (이익)",
+        "1.5억 × 3.7 = 5.55억",
+        "연금현가"
+      ]
+    },
+    {
+      "id": "practice-4-627",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-6",
+      "topic": "입목가 산식",
+      "body": "시장 원목가 80,000원/㎥, 벌채반출 30,000, 관리 20,000. 입목가?",
+      "modelAnswer": "## 핵심 정리\n\n- 80,000 - 30,000 - 20,000\n- = 30,000원/㎥\n- 시장가 역산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80,000 - 30,000 - 20,000",
+        "= 30,000원/㎥",
+        "시장가 역산"
+      ]
+    },
+    {
+      "id": "practice-4-628",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-7",
+      "topic": "호텔 객실 매출",
+      "body": "120실, 평균 단가 15만/박, 가동률 80%, 365일. 연 매출?",
+      "modelAnswer": "## 핵심 정리\n\n- 120 × 150,000 × 0.8 × 365\n- = 약 52.6억\n- 객실 매출",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "120 × 150,000 × 0.8 × 365",
+        "= 약 52.6억",
+        "객실 매출"
+      ]
+    },
+    {
+      "id": "practice-4-629",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-7",
+      "topic": "골프장 NOI",
+      "body": "연 매출 250억, 영업이익률 30%, 자본적지출 5%. NOI?",
+      "modelAnswer": "## 핵심 정리\n\n- 250 × 0.30 = 75억\n- 75 - 250×0.05 = 62.5억\n- NOI 산정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "250 × 0.30 = 75억",
+        "75 - 250×0.05 = 62.5억",
+        "NOI 산정"
+      ]
+    },
+    {
+      "id": "practice-4-630",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-7",
+      "topic": "유원지 가액",
+      "body": "NOI 22.5억, 환원이율 10%. 수익가액?",
+      "modelAnswer": "## 핵심 정리\n\n- 22.5 / 0.10 = 225억\n- 직접환원법\n- 유원지 가액",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "22.5 / 0.10 = 225억",
+        "직접환원법",
+        "유원지 가액"
       ]
     }
   ]
