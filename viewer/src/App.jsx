@@ -656,6 +656,7 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
 const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
   const [taxonomyData, setTaxonomyData] = useState(null);
+  const [essayManifest, setEssayManifest] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadPct, setLoadPct] = useState(0);
   const [loadError, setLoadError] = useState(false);
@@ -850,12 +851,13 @@ const App = () => {
     let cancelled = false;
     (async () => {
       try {
-        const [manifestRes, tData] = await Promise.all([
+        const [manifestRes, tData, essayMan] = await Promise.all([
           fetch('/data/manifest.json').then(r => {
             if (!r.ok) throw new Error('manifest ' + r.status);
             return r.json();
           }),
           fetch('/data/taxonomy.json').then(r => r.json()),
+          fetch('/data/essay/practice/manifest.json').then(r => r.ok ? r.json() : null).catch(() => null),
         ]);
         if (cancelled) return;
         const exams = manifestRes.exams || [];
@@ -875,6 +877,7 @@ const App = () => {
         setLoadPct(100);
         setQuestionsData(qData);
         setTaxonomyData(tData);
+        setEssayManifest(essayMan);
         setLoading(false);
       } catch (err) {
         console.error('데이터 로딩 실패:', err);
@@ -1071,7 +1074,7 @@ const App = () => {
   // 과목(taxonomy subject) 목록 — 시험별/과목별/단원별/연도별 공용 (scope 반영)
   const taxSubjectGroups = useMemo(() => {
     if (!taxonomyData) return [];
-    return Object.keys(taxonomyData).map(subj => {
+    const groups = Object.keys(taxonomyData).map(subj => {
       const filtered = scopedClassified.filter(q => q.taxSubjectName === subj);
       return {
         type: 'tax_subject',
@@ -1082,7 +1085,19 @@ const App = () => {
         tag: '과목'
       };
     }).filter(g => g.total > 0);
-  }, [taxonomyData, scopedClassified, taxScope]);
+    // 2차 essay — 감정평가실무 과목으로 통합 (감정평가사 시험에만 표시)
+    if (essayManifest && (!browseExam || browseExam === '감정평가사') && (!taxScope || taxScope.kind === 'exam')) {
+      groups.push({
+        type: 'essay_entry',
+        title: '감정평가실무',
+        subtitle: '2차 논술 기출',
+        total: essayManifest.total || 0,
+        weak: false,
+        tag: '2차'
+      });
+    }
+    return groups;
+  }, [taxonomyData, scopedClassified, taxScope, essayManifest, browseExam]);
 
   // 세부과목 또는 장(Chapter) 목록 (scope 반영)
   const taxSubSubjectGroups = useMemo(() => {
@@ -1575,6 +1590,11 @@ const App = () => {
     } else if (group.type === 'tax_subject') {
       setTaxSubject(group.title);
       setCurrentView('tax_sub_subjects');
+      window.scrollTo(0, 0);
+    } else if (group.type === 'essay_entry') {
+      setEssayChapter(null);
+      setEssayQuestionId(null);
+      setCurrentView('essay_subjects');
       window.scrollTo(0, 0);
     } else if (group.type === 'tax_sub_subject') {
       setTaxSubSubject(group.title);
