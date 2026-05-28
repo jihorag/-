@@ -4,7 +4,7 @@
   "chapter": "6a",
   "chapterTitle": "토지보상 기본·원칙",
   "source": "official",
-  "count": 39,
+  "count": 69,
   "withAnswer": 19,
   "matchedAnswer": 19,
   "rounds": [
@@ -939,6 +939,581 @@
         "권리 구제"
       ],
       "subchapter": "6a-1"
+    },
+    {
+      "id": "practice-6a-501",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "보상의 의의",
+      "body": "토지보상의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공익사업 시행자가 토지소유자에게 지급\n- 정당보상 원칙\n- 헌법 §23 ③",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공익사업 시행자가 토지소유자에게 지급",
+        "정당보상 원칙",
+        "헌법 §23 ③"
+      ]
+    },
+    {
+      "id": "practice-6a-502",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "5대 보상 원칙",
+      "body": "5대 보상 원칙을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 정당보상\n- 사업시행자 보상\n- 현금보상\n- 개인별 보상\n- 일괄 보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "정당보상",
+        "사업시행자 보상",
+        "현금보상",
+        "개인별 보상",
+        "일괄 보상"
+      ]
+    },
+    {
+      "id": "practice-6a-503",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "정당보상",
+      "body": "정당보상의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 헌법 §23 ③\n- 시장가치 기준\n- 완전보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "헌법 §23 ③",
+        "시장가치 기준",
+        "완전보상"
+      ]
+    },
+    {
+      "id": "practice-6a-504",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "사업인정고시",
+      "body": "사업인정고시의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 수용 절차 개시\n- 공시지가 적용 기준\n- 협의·재결 개시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수용 절차 개시",
+        "공시지가 적용 기준",
+        "협의·재결 개시"
+      ]
+    },
+    {
+      "id": "practice-6a-505",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "토지보상법",
+      "body": "토지보상법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공익사업 토지 등 취득·보상\n- 시행 절차·기준\n- 권리자 보호",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공익사업 토지 등 취득·보상",
+        "시행 절차·기준",
+        "권리자 보호"
+      ]
+    },
+    {
+      "id": "practice-6a-506",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "토지보상법 시행규칙",
+      "body": "토지보상법 시행규칙의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보상 평가의 구체 기준\n- 각 항목별 산정\n- 평가사 필독",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보상 평가의 구체 기준",
+        "각 항목별 산정",
+        "평가사 필독"
+      ]
+    },
+    {
+      "id": "practice-6a-507",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "협의",
+      "body": "보상 협의의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 사업시행자와 토지소유자 합의\n- 자발적\n- 결렬 시 재결",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사업시행자와 토지소유자 합의",
+        "자발적",
+        "결렬 시 재결"
+      ]
+    },
+    {
+      "id": "practice-6a-508",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "재결",
+      "body": "보상 재결의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 협의 결렬 시 지방위 결정\n- 수용·보상금 결정\n- 강제 절차",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "협의 결렬 시 지방위 결정",
+        "수용·보상금 결정",
+        "강제 절차"
+      ]
+    },
+    {
+      "id": "practice-6a-509",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "이의재결",
+      "body": "이의재결의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지방위 재결 불복 시 중앙위\n- 60일 이내\n- 최종 행정 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지방위 재결 불복 시 중앙위",
+        "60일 이내",
+        "최종 행정 결정"
+      ]
+    },
+    {
+      "id": "practice-6a-510",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "토지조서",
+      "body": "토지조서의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 토지 목록·표시\n- 평가의 기초\n- §14 작성 의무",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 토지 목록·표시",
+        "평가의 기초",
+        "§14 작성 의무"
+      ]
+    },
+    {
+      "id": "practice-6a-511",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "물건조서",
+      "body": "물건조서의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 물건 목록\n- 건축물·작물·동산\n- §14 작성",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 물건 목록",
+        "건축물·작물·동산",
+        "§14 작성"
+      ]
+    },
+    {
+      "id": "practice-6a-512",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "개발이익 배제",
+      "body": "개발이익 배제의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- §70 ②\n- 사업영향 가치 상승 배제\n- 정당보상 핵심",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§70 ②",
+        "사업영향 가치 상승 배제",
+        "정당보상 핵심"
+      ]
+    },
+    {
+      "id": "practice-6a-513",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "토지수용위원회",
+      "body": "토지수용위원회의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지방위·중앙위\n- 재결·이의재결\n- 객관성 보장",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지방위·중앙위",
+        "재결·이의재결",
+        "객관성 보장"
+      ]
+    },
+    {
+      "id": "practice-6a-514",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "보상금 공탁",
+      "body": "보상금 공탁의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 수령 거부 시 법원 공탁\n- 사업 진행\n- 5년 시효",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수령 거부 시 법원 공탁",
+        "사업 진행",
+        "5년 시효"
+      ]
+    },
+    {
+      "id": "practice-6a-515",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "환매권",
+      "body": "환매권의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- §91~§92\n- 사업 폐지 시 원소유자 권리\n- 10년 기한",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§91~§92",
+        "사업 폐지 시 원소유자 권리",
+        "10년 기한"
+      ]
+    },
+    {
+      "id": "practice-6a-516",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "공시지가기준법",
+      "body": "공시지가기준법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- §70\n- 비교표준지 × 시점·요인 × 그밖의\n- 보상 토지 주방식",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§70",
+        "비교표준지 × 시점·요인 × 그밖의",
+        "보상 토지 주방식"
+      ]
+    },
+    {
+      "id": "practice-6a-517",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "비교표준지",
+      "body": "비교표준지의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보상 토지와 유사\n- 용도지역·도로조건 일치\n- 평가 기준 단가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보상 토지와 유사",
+        "용도지역·도로조건 일치",
+        "평가 기준 단가"
+      ]
+    },
+    {
+      "id": "practice-6a-518",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "시점수정",
+      "body": "보상 시점수정의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공시일 → 가격시점\n- 사업영향 배제 변동률\n- 복리 누적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공시일 → 가격시점",
+        "사업영향 배제 변동률",
+        "복리 누적"
+      ]
+    },
+    {
+      "id": "practice-6a-519",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "지역요인",
+      "body": "지역요인의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지역 평점 비교\n- 동일 인근지역\n- 일반적 1.0",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지역 평점 비교",
+        "동일 인근지역",
+        "일반적 1.0"
+      ]
+    },
+    {
+      "id": "practice-6a-520",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "개별요인",
+      "body": "개별요인의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 6대 조건\n- 가로·접근·환경·획지·행정·기타\n- 곱셈 종합",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6대 조건",
+        "가로·접근·환경·획지·행정·기타",
+        "곱셈 종합"
+      ]
+    },
+    {
+      "id": "practice-6a-521",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "그밖의요인",
+      "body": "그밖의요인 보정의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보상선례 활용\n- 시장가치 미반영분 보완\n- 1.05~1.30",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보상선례 활용",
+        "시장가치 미반영분 보완",
+        "1.05~1.30"
+      ]
+    },
+    {
+      "id": "practice-6a-522",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "보상선례",
+      "body": "보상선례의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 동일 인근·동일 용도지역\n- 시점환산 단가 평균\n- 그밖의요인 기초",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "동일 인근·동일 용도지역",
+        "시점환산 단가 평균",
+        "그밖의요인 기초"
+      ]
+    },
+    {
+      "id": "practice-6a-523",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "가격시점",
+      "body": "보상 가격시점의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- §67 ①\n- 협의·재결 시점\n- 평가 종착점",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§67 ①",
+        "협의·재결 시점",
+        "평가 종착점"
+      ]
+    },
+    {
+      "id": "practice-6a-524",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "잔여지 보상",
+      "body": "잔여지 보상의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- §73 가치손실\n- §74 매수청구\n- 30% 감가 = 매수청구",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§73 가치손실",
+        "§74 매수청구",
+        "30% 감가 = 매수청구"
+      ]
+    },
+    {
+      "id": "practice-6a-525",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "편입 토지 보상",
+      "body": "편입 토지 보상의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공시지가기준법\n- 편입 면적 × 단가\n- 정당보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공시지가기준법",
+        "편입 면적 × 단가",
+        "정당보상"
+      ]
+    },
+    {
+      "id": "practice-6a-526",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "6대 개별요인",
+      "body": "6대 개별요인을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 가로조건\n- 접근조건\n- 환경조건\n- 획지조건\n- 행정조건\n- 기타조건",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가로조건",
+        "접근조건",
+        "환경조건",
+        "획지조건",
+        "행정조건",
+        "기타조건"
+      ]
+    },
+    {
+      "id": "practice-6a-527",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "시점수정율",
+      "body": "시점수정율 산정의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지가지수·지가변동률\n- 복리 누적\n- 일단위 부분안분",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지가지수·지가변동률",
+        "복리 누적",
+        "일단위 부분안분"
+      ]
+    },
+    {
+      "id": "practice-6a-528",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "가상정상가",
+      "body": "가상정상가의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 표준지×시점×지역×개별 결과\n- 그밖의요인 미반영\n- 그밖의요인 산정 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "표준지×시점×지역×개별 결과",
+        "그밖의요인 미반영",
+        "그밖의요인 산정 기준"
+      ]
+    },
+    {
+      "id": "practice-6a-529",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "평가 단가 절사",
+      "body": "평가 단가 절사의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 천단위 미만 절사 일반\n- 계산 결과 정리\n- 실무 표준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "천단위 미만 절사 일반",
+        "계산 결과 정리",
+        "실무 표준"
+      ]
+    },
+    {
+      "id": "practice-6a-530",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "평가 보고서 §16",
+      "body": "시행규칙 §16의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보상 평가서 기재사항\n- 9대 항목\n- 필수 첨부 자료",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보상 평가서 기재사항",
+        "9대 항목",
+        "필수 첨부 자료"
+      ]
     }
   ]
 }

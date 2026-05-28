@@ -4,7 +4,7 @@
   "chapter": "5",
   "chapterTitle": "비가치추계·기업가치·무형자산",
   "source": "official",
-  "count": 48,
+  "count": 78,
   "withAnswer": 33,
   "matchedAnswer": 33,
   "rounds": [
@@ -1055,6 +1055,577 @@
         "시간가치"
       ],
       "subchapter": "5-1"
+    },
+    {
+      "id": "practice-5-501",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "시산조정 의의",
+      "body": "시산조정의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 3방식 시산가액 종합\n- 가중치 또는 채택\n- 결정가액 도출",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3방식 시산가액 종합",
+        "가중치 또는 채택",
+        "결정가액 도출"
+      ]
+    },
+    {
+      "id": "practice-5-502",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "가중치 결정 기준",
+      "body": "시산조정 가중치 결정 기준을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 부동산 용도\n- 시장 상황\n- 자료 신뢰성",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "부동산 용도",
+        "시장 상황",
+        "자료 신뢰성"
+      ]
+    },
+    {
+      "id": "practice-5-503",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "평가 검증",
+      "body": "평가가의 검증 방법을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장사례 비교\n- 인근 균형\n- 시점 추세 분석",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장사례 비교",
+        "인근 균형",
+        "시점 추세 분석"
+      ]
+    },
+    {
+      "id": "practice-5-504",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "평가서 신뢰성",
+      "body": "평가서 신뢰성 기준을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 산식·근거 명시\n- 비교표준지 선정 적정\n- 5% 이내 차이",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "산식·근거 명시",
+        "비교표준지 선정 적정",
+        "5% 이내 차이"
+      ]
+    },
+    {
+      "id": "practice-5-505",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "비가치추계의 의의",
+      "body": "비가치추계의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 가치 외 자료 활용\n- 시산조정 보완\n- 신뢰성 검증",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가치 외 자료 활용",
+        "시산조정 보완",
+        "신뢰성 검증"
+      ]
+    },
+    {
+      "id": "practice-5-506",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "평가 보고서 기재",
+      "body": "평가 보고서 필수 기재사항을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 평가가·평가일\n- 대상물건\n- 평가방법\n- 서명·날인",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평가가·평가일",
+        "대상물건",
+        "평가방법",
+        "서명·날인"
+      ]
+    },
+    {
+      "id": "practice-5-507",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "평가사 윤리",
+      "body": "평가사 윤리 의무를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 성실의무\n- 비밀준수\n- 금지행위 (자기·친족 평가)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "성실의무",
+        "비밀준수",
+        "금지행위 (자기·친족 평가)"
+      ]
+    },
+    {
+      "id": "practice-5-508",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "평가가 결정",
+      "body": "평가가 결정 시 의견 차이 처리를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 5% 이내 인정\n- 5% 초과 재평가\n- 협의 또는 위원회 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5% 이내 인정",
+        "5% 초과 재평가",
+        "협의 또는 위원회 결정"
+      ]
+    },
+    {
+      "id": "practice-5-509",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "평가시점·기준시점",
+      "body": "평가시점과 기준시점의 차이를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 평가시점 = 의뢰일 또는 평가일\n- 기준시점 = 가격형성 시점\n- 둘 다 명시 필수",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평가시점 = 의뢰일 또는 평가일",
+        "기준시점 = 가격형성 시점",
+        "둘 다 명시 필수"
+      ]
+    },
+    {
+      "id": "practice-5-510",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "시장가치 정의",
+      "body": "시장가치의 정의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 감정평가규칙 §2\n- 정상거래 가능 가격\n- 시장 합리적 가격",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "감정평가규칙 §2",
+        "정상거래 가능 가격",
+        "시장 합리적 가격"
+      ]
+    },
+    {
+      "id": "practice-5-511",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "기업가치 평가 방식",
+      "body": "기업가치 평가 3방식을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 자산접근법\n- 수익접근법 (DCF·자본환원)\n- 시장접근법 (PER·PBR)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "자산접근법",
+        "수익접근법 (DCF·자본환원)",
+        "시장접근법 (PER·PBR)"
+      ]
+    },
+    {
+      "id": "practice-5-512",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "DCF 의의",
+      "body": "DCF 평가의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 미래 FCF 현가\n- WACC 할인율\n- 잔여가치 합산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "미래 FCF 현가",
+        "WACC 할인율",
+        "잔여가치 합산"
+      ]
+    },
+    {
+      "id": "practice-5-513",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "WACC 의의",
+      "body": "WACC (가중평균자본비용)의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 자기자본 + 부채 비용 가중평균\n- 세후 부채비용\n- 자본구조 反映",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "자기자본 + 부채 비용 가중평균",
+        "세후 부채비용",
+        "자본구조 反映"
+      ]
+    },
+    {
+      "id": "practice-5-514",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "자본환원율",
+      "body": "자본환원율의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- NOI를 가치로 환원\n- WACC - 성장률\n- 안정 기업에 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "NOI를 가치로 환원",
+        "WACC - 성장률",
+        "안정 기업에 적용"
+      ]
+    },
+    {
+      "id": "practice-5-515",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "비상장 할인",
+      "body": "비상장 할인의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 유동성 부족 반영\n- 20~40% 할인\n- 시장접근법 적용 시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "유동성 부족 반영",
+        "20~40% 할인",
+        "시장접근법 적용 시"
+      ]
+    },
+    {
+      "id": "practice-5-516",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "PER·PBR",
+      "body": "PER·PBR의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- PER = 주가/EPS\n- PBR = 주가/BPS\n- 유사 상장 비교",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "PER = 주가/EPS",
+        "PBR = 주가/BPS",
+        "유사 상장 비교"
+      ]
+    },
+    {
+      "id": "practice-5-517",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "자산접근법",
+      "body": "자산접근법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시가 순자산 / 주식수\n- 자산집약형 적합\n- 청산가치 가정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시가 순자산 / 주식수",
+        "자산집약형 적합",
+        "청산가치 가정"
+      ]
+    },
+    {
+      "id": "practice-5-518",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "시너지 효과",
+      "body": "M&A 시너지의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 인수 후 추가 가치\n- 비용 절감·매출 증대\n- 시장가 + 시너지 + 프리미엄",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "인수 후 추가 가치",
+        "비용 절감·매출 증대",
+        "시장가 + 시너지 + 프리미엄"
+      ]
+    },
+    {
+      "id": "practice-5-519",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "잔여가치",
+      "body": "DCF 잔여가치의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- Gordon: TV = FCF/(r-g)\n- 예측기간 후 가치\n- 통상 70%+ 비중",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Gordon: TV = FCF/(r-g)",
+        "예측기간 후 가치",
+        "통상 70%+ 비중"
+      ]
+    },
+    {
+      "id": "practice-5-520",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "기업가치 vs 주주가치",
+      "body": "기업가치와 주주가치의 차이를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 기업가치 = 자기자본 + 부채\n- 주주가치 = 자기자본\n- 주식 평가 = 주주가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기업가치 = 자기자본 + 부채",
+        "주주가치 = 자기자본",
+        "주식 평가 = 주주가치"
+      ]
+    },
+    {
+      "id": "practice-5-521",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "무형자산 정의",
+      "body": "무형자산의 정의와 종류를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 물리적 실체 X 자산\n- 영업권·특허·상표·저작권\n- 브랜드·고객관계",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "물리적 실체 X 자산",
+        "영업권·특허·상표·저작권",
+        "브랜드·고객관계"
+      ]
+    },
+    {
+      "id": "practice-5-522",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "영업권 의의",
+      "body": "영업권의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 초과수익 자본화\n- 브랜드·고객 기반\n- 매매 시 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "초과수익 자본화",
+        "브랜드·고객 기반",
+        "매매 시 가치"
+      ]
+    },
+    {
+      "id": "practice-5-523",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "영업권 평가",
+      "body": "영업권의 평가 방법을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 초과수익법\n- 정상수익 vs 영업이익\n- 환원율 20%↑",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "초과수익법",
+        "정상수익 vs 영업이익",
+        "환원율 20%↑"
+      ]
+    },
+    {
+      "id": "practice-5-524",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "영업권 손상검사",
+      "body": "영업권 손상검사의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- K-IFRS 36\n- 매년 의무\n- 회수가능 < 장부 = 손상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "K-IFRS 36",
+        "매년 의무",
+        "회수가능 < 장부 = 손상"
+      ]
+    },
+    {
+      "id": "practice-5-525",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "브랜드 평가",
+      "body": "브랜드 평가 방법을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 로열티 면제법\n- 잠재 로열티 절감\n- 잔존기간 연금현가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "로열티 면제법",
+        "잠재 로열티 절감",
+        "잔존기간 연금현가"
+      ]
+    },
+    {
+      "id": "practice-5-526",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "특허 평가",
+      "body": "특허의 평가 방법을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 초과수익법\n- 특허 잔여기간\n- 특허 만료 시 가치 0",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "초과수익법",
+        "특허 잔여기간",
+        "특허 만료 시 가치 0"
+      ]
+    },
+    {
+      "id": "practice-5-527",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "저작권 평가",
+      "body": "저작권의 평가 방법을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 로열티 영구환원\n- 70년 보호기간\n- 안정 수익",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "로열티 영구환원",
+        "70년 보호기간",
+        "안정 수익"
+      ]
+    },
+    {
+      "id": "practice-5-528",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "고객관계 평가",
+      "body": "고객관계의 평가 방법을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 고객 유지율 反映\n- 연금현가\n- 평균 유지기간",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "고객 유지율 反映",
+        "연금현가",
+        "평균 유지기간"
+      ]
+    },
+    {
+      "id": "practice-5-529",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "무형자산 상각",
+      "body": "무형자산 상각의 원칙을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- K-IFRS 38\n- 정액법\n- 잔존가치 0",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "K-IFRS 38",
+        "정액법",
+        "잔존가치 0"
+      ]
+    },
+    {
+      "id": "practice-5-530",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "자산유동화",
+      "body": "자산유동화 (ABS·MBS)의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 기초자산 증권화\n- SPC 활용\n- 선순위·후순위 분리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기초자산 증권화",
+        "SPC 활용",
+        "선순위·후순위 분리"
+      ]
     }
   ]
 }
