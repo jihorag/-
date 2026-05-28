@@ -4,7 +4,7 @@
   "chapter": "6a",
   "chapterTitle": "토지보상 기본·원칙",
   "source": "official",
-  "count": 361,
+  "count": 400,
   "withAnswer": 19,
   "matchedAnswer": 19,
   "rounds": [
@@ -6777,6 +6777,669 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "연도별 곱셈"
+      ]
+    },
+    {
+      "id": "practice-6a-851",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "비교 시점",
+      "body": "[자료] 8,500,000×1.04. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 8,840,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,840,000원"
+      ]
+    },
+    {
+      "id": "practice-6a-852",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "6대 종합",
+      "body": "[자료] 1.05×1.03×0.98×1.02. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.072",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.072"
+      ]
+    },
+    {
+      "id": "practice-6a-853",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "그밖의 보정",
+      "body": "[자료] 선례/가상정상. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 보정치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보정치"
+      ]
+    },
+    {
+      "id": "practice-6a-854",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "평가단가",
+      "body": "[자료] 8,000×1.05×1.04×1.10. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 9,609,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,609,000원"
+      ]
+    },
+    {
+      "id": "practice-6a-855",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "평가총액",
+      "body": "[자료] 단가×면적. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 총액",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "총액"
+      ]
+    },
+    {
+      "id": "practice-6a-856",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "시점 일단위",
+      "body": "[자료] 연 5%×100/365. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.37%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.37%"
+      ]
+    },
+    {
+      "id": "practice-6a-857",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "시점 월단위",
+      "body": "[자료] 연 4%×3/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1%"
+      ]
+    },
+    {
+      "id": "practice-6a-858",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "복리 누적",
+      "body": "[자료] 1.04×1.035×1.015. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.0892",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.0892"
+      ]
+    },
+    {
+      "id": "practice-6a-859",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "선례 평균",
+      "body": "[자료] 4건 평균. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 평균값",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균값"
+      ]
+    },
+    {
+      "id": "practice-6a-860",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "잔여 손실",
+      "body": "[자료] (종전-종후)×면적. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "손실"
+      ]
+    },
+    {
+      "id": "practice-6a-861",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "면적 가중",
+      "body": "[자료] 단가×면적 합/총면적. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 평균",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균"
+      ]
+    },
+    {
+      "id": "practice-6a-862",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "단가 절사",
+      "body": "[자료] 천단위 절사. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 실무",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실무"
+      ]
+    },
+    {
+      "id": "practice-6a-863",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "협의 단가",
+      "body": "[자료] 평가 100. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 시작",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시작"
+      ]
+    },
+    {
+      "id": "practice-6a-864",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "재결 차이",
+      "body": "[자료] 재결-협의 10%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 시점+평가사",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점+평가사"
+      ]
+    },
+    {
+      "id": "practice-6a-865",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "시효 5년",
+      "body": "[자료] 청구권 시효. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 민법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "민법"
+      ]
+    },
+    {
+      "id": "practice-6a-866",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "공탁 30일",
+      "body": "[자료] 재결 후 30일. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 시한",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시한"
+      ]
+    },
+    {
+      "id": "practice-6a-867",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "환매 10년",
+      "body": "[자료] 사업인정+10년. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 시한",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시한"
+      ]
+    },
+    {
+      "id": "practice-6a-868",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "환매가",
+      "body": "[자료] 보상+부담. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 환매가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환매가"
+      ]
+    },
+    {
+      "id": "practice-6a-869",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "환매 이익",
+      "body": "[자료] 시장-환매가. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 이익",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이익"
+      ]
+    },
+    {
+      "id": "practice-6a-870",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "구분지상 저해율",
+      "body": "[자료] 0.25×0.08. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.02",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.02"
+      ]
+    },
+    {
+      "id": "practice-6a-871",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "구분지상 보상",
+      "body": "[자료] 단가×저해율×면적. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 보상금",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보상금"
+      ]
+    },
+    {
+      "id": "practice-6a-872",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "잔여지 매수",
+      "body": "[자료] 감가 32% > 30%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 매수 가능",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매수 가능"
+      ]
+    },
+    {
+      "id": "practice-6a-873",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "시점 + 그밖의",
+      "body": "[자료] 시점·그밖의 곱셈. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 종합",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종합"
+      ]
+    },
+    {
+      "id": "practice-6a-874",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "비교평균",
+      "body": "[자료] 3건 균등. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 평균",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균"
+      ]
+    },
+    {
+      "id": "practice-6a-875",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "시점 +5%",
+      "body": "[자료] 단가×1.05. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 시점환산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점환산"
+      ]
+    },
+    {
+      "id": "practice-6a-876",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "개별 +3%",
+      "body": "[자료] 단가×1.03. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 개별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "개별"
+      ]
+    },
+    {
+      "id": "practice-6a-877",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "그밖의 +15%",
+      "body": "[자료] 단가×1.15. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 그밖의",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "그밖의"
+      ]
+    },
+    {
+      "id": "practice-6a-878",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "평가단가 절사",
+      "body": "[자료] 천단위 미만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 절사",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "절사"
+      ]
+    },
+    {
+      "id": "practice-6a-879",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "평가총액 산정",
+      "body": "[자료] 단가×면적. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 총액",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "총액"
+      ]
+    },
+    {
+      "id": "practice-6a-880",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "시점 분기",
+      "body": "[자료] 연 4%×3/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1%"
+      ]
+    },
+    {
+      "id": "practice-6a-881",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "시효 도과",
+      "body": "[자료] 5년+1일 도과. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 청구 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "청구 X"
+      ]
+    },
+    {
+      "id": "practice-6a-882",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "재결 신청",
+      "body": "[자료] 결렬+1년 이내. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 신청",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "신청"
+      ]
+    },
+    {
+      "id": "practice-6a-883",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "이의재결",
+      "body": "[자료] 재결+60일. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 신청",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "신청"
+      ]
+    },
+    {
+      "id": "practice-6a-884",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "행정소송",
+      "body": "[자료] 이의재결+60일. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 소송",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "소송"
+      ]
+    },
+    {
+      "id": "practice-6a-885",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "시효 5년",
+      "body": "[자료] 5년 시효. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 민법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "민법"
+      ]
+    },
+    {
+      "id": "practice-6a-886",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "구분지상 깊이",
+      "body": "[자료] 15m 30%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 저해율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저해율"
+      ]
+    },
+    {
+      "id": "practice-6a-887",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "비교법 표준지",
+      "body": "[자료] 비교표준지 단가. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 시점환산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점환산"
+      ]
+    },
+    {
+      "id": "practice-6a-888",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "6대 곱셈",
+      "body": "[자료] 6개 곱. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 종합",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종합"
+      ]
+    },
+    {
+      "id": "practice-6a-889",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "그밖의 1.10",
+      "body": "[자료] 선례 평균/가상. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.10",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.10"
       ]
     }
   ]
