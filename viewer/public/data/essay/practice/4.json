@@ -4,7 +4,7 @@
   "chapter": "4",
   "chapterTitle": "유형별 평가",
   "source": "official",
-  "count": 184,
+  "count": 209,
   "withAnswer": 4,
   "matchedAnswer": 4,
   "rounds": [
@@ -3581,6 +3581,440 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "100×0.25 - 100×0.05 = 20억"
+      ]
+    },
+    {
+      "id": "practice-4-821",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-1",
+      "topic": "3방식 시산",
+      "body": "[자료] 원가 60, 비교 70, 수익 80. 가중 비교 40/수익 40/원가 20%",
+      "modelAnswer": "## 핵심 정리\n\n- 60×0.2+70×0.4+80×0.4 = 12+28+32 = 72억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "60×0.2+70×0.4+80×0.4 = 12+28+32 = 72억"
+      ]
+    },
+    {
+      "id": "practice-4-822",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-1",
+      "topic": "비교+시점",
+      "body": "[자료] 사례 6,000,000원/㎡, 시점 1.05, 개별 1.03, 면적 400㎡",
+      "modelAnswer": "## 핵심 정리\n\n- 6,000×1.05×1.03×400 = 25.96억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6,000×1.05×1.03×400 = 25.96억"
+      ]
+    },
+    {
+      "id": "practice-4-823",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-2",
+      "topic": "기계+정률",
+      "body": "[자료] 신품 2억, 정률 0.92, 8년",
+      "modelAnswer": "## 핵심 정리\n\n- 0.92^8 = 0.513\n- 2×0.513 = 1.026억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.92^8 = 0.513",
+        "2×0.513 = 1.026억"
+      ]
+    },
+    {
+      "id": "practice-4-824",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-2",
+      "topic": "차량 5대",
+      "body": "[자료] 시장가 2,800만/대 × 5대 + 운반 200만",
+      "modelAnswer": "## 핵심 정리\n\n- 1.4억+200만 = 1.42억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.4억+200만 = 1.42억"
+      ]
+    },
+    {
+      "id": "practice-4-825",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-3",
+      "topic": "지상권 8년",
+      "body": "[자료] NOI 2억, 8년 연금 (8%) 5.75",
+      "modelAnswer": "## 핵심 정리\n\n- 2×5.75 = 11.5억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2×5.75 = 11.5억"
+      ]
+    },
+    {
+      "id": "practice-4-826",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-3",
+      "topic": "임차권 종합",
+      "body": "[자료] 시장 900만, 계약 600만, 5년, 연금 (8%) 3.99",
+      "modelAnswer": "## 핵심 정리\n\n- 월차 300만 → 연 3,600\n- 3,600×3.99 = 1.44억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "월차 300만 → 연 3,600",
+        "3,600×3.99 = 1.44억"
+      ]
+    },
+    {
+      "id": "practice-4-827",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-3",
+      "topic": "신탁수익권",
+      "body": "[자료] 연 수익 3억, 5년 연금 3.99, 만기 자산 30억, 할인 0.68",
+      "modelAnswer": "## 핵심 정리\n\n- 11.97 + 20.4 = 32.37억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "11.97 + 20.4 = 32.37억"
+      ]
+    },
+    {
+      "id": "practice-4-828",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-4",
+      "topic": "농지 종합",
+      "body": "[자료] 답 4,000×80만, 전 1,500×100만, 과수원 1,000×120만",
+      "modelAnswer": "## 핵심 정리\n\n- 32+15+12 = 59억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "32+15+12 = 59억"
+      ]
+    },
+    {
+      "id": "practice-4-829",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-4",
+      "topic": "임야+입목",
+      "body": "[자료] 임야 5,000×8만, 입목 200본×0.5㎥×30,000원",
+      "modelAnswer": "## 핵심 정리\n\n- 4억+300만 = 4.03억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4억+300만 = 4.03억"
+      ]
+    },
+    {
+      "id": "practice-4-830",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-4",
+      "topic": "농지+영농",
+      "body": "[자료] 답 3,000×90만, 영농 통계 700원/㎡ × 2년",
+      "modelAnswer": "## 핵심 정리\n\n- 27억+420만 = 27.04억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "27억+420만 = 27.04억"
+      ]
+    },
+    {
+      "id": "practice-4-831",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-5",
+      "topic": "사찰 평가",
+      "body": "[자료] 부지 임야 10,000×8만 (+20%), 한옥 1,500×380만, 잔가 0.6",
+      "modelAnswer": "## 핵심 정리\n\n- 9.6억+34.2억 = 43.8억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9.6억+34.2억 = 43.8억"
+      ]
+    },
+    {
+      "id": "practice-4-832",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-5",
+      "topic": "학교 평가",
+      "body": "[자료] 부지 일반주거 8,000×5,000,000원 (-15%), 건물 2,500,000원×2,000㎡ × 잔가 0.55",
+      "modelAnswer": "## 핵심 정리\n\n- 34억+27.5억 = 61.5억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "34억+27.5억 = 61.5억"
+      ]
+    },
+    {
+      "id": "practice-4-833",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-6",
+      "topic": "광업권 종합",
+      "body": "[자료] 매장량 400만톤, 연 생산 40만톤. 영업이익 5억/년. 12년 연금 (15%) 5.42",
+      "modelAnswer": "## 핵심 정리\n\n- 잔여 10년 → 5×5.42 = 27.1억 (10년 연금 5.019 → 25.1억)\n- 실제 25.1억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잔여 10년 → 5×5.42 = 27.1억 (10년 연금 5.019 → 25.1억)",
+        "실제 25.1억"
+      ]
+    },
+    {
+      "id": "practice-4-834",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-6",
+      "topic": "어업권 7년",
+      "body": "[자료] 매출 7억, 영업이익률 25%, 7년 연금 (12%) 4.56",
+      "modelAnswer": "## 핵심 정리\n\n- 이익 1.75억\n- 1.75×4.56 = 7.98억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이익 1.75억",
+        "1.75×4.56 = 7.98억"
+      ]
+    },
+    {
+      "id": "practice-4-835",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-7",
+      "topic": "호텔 NOI",
+      "body": "[자료] 매출 80억, 영업이익률 30%, 자본적 5%, 환원율 9%",
+      "modelAnswer": "## 핵심 정리\n\n- NOI 80×0.25 = 20억\n- 20/0.09 = 222.2억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "NOI 80×0.25 = 20억",
+        "20/0.09 = 222.2억"
+      ]
+    },
+    {
+      "id": "practice-4-836",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-7",
+      "topic": "골프장",
+      "body": "[자료] 매출 200억, 영업이익률 30%, 자본적 5%, 환원율 7%",
+      "modelAnswer": "## 핵심 정리\n\n- NOI 50억\n- 50/0.07 = 714.3억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "NOI 50억",
+        "50/0.07 = 714.3억"
+      ]
+    },
+    {
+      "id": "practice-4-837",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-7",
+      "topic": "유원지",
+      "body": "[자료] 매출 80억, 영업이익률 20%, 자본적 5%, 환원율 10%",
+      "modelAnswer": "## 핵심 정리\n\n- NOI 12억\n- 12/0.10 = 120억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "NOI 12억",
+        "12/0.10 = 120억"
+      ]
+    },
+    {
+      "id": "practice-4-838",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-1",
+      "topic": "3방식 + 시점",
+      "body": "[자료] 원가 (시점환산 +5%) 80억, 비교 90, 수익 100",
+      "modelAnswer": "## 핵심 정리\n\n- 평균 90억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균 90억"
+      ]
+    },
+    {
+      "id": "practice-4-839",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-2",
+      "topic": "기계 + 차량",
+      "body": "[자료] 기계 5대 신품 1억 정률 8년 (0.5132) = 2.566억. 차량 시장가 3,000만 × 5 = 1.5억",
+      "modelAnswer": "## 핵심 정리\n\n- 합 4.07억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "합 4.07억"
+      ]
+    },
+    {
+      "id": "practice-4-840",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-3",
+      "topic": "권리 종합",
+      "body": "[자료] 지상권 5년 NOI 1억 (연금 4.10), 임차권 차액 연 1,500만 (연금 4.33)",
+      "modelAnswer": "## 핵심 정리\n\n- 지상권 4.10억\n- 임차권 6,495만\n- 합 4.75억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지상권 4.10억",
+        "임차권 6,495만",
+        "합 4.75억"
+      ]
+    },
+    {
+      "id": "practice-4-841",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-4",
+      "topic": "농지+과수+영농",
+      "body": "[자료] 답 3,000×80만, 사과 30주 × 200만, 영농 700원/㎡ × 2년",
+      "modelAnswer": "## 핵심 정리\n\n- 24억+6,000만+420만 = 24.64억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "24억+6,000만+420만 = 24.64억"
+      ]
+    },
+    {
+      "id": "practice-4-842",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-5",
+      "topic": "사찰 + 문화재",
+      "body": "[자료] 평가 30억 (사찰), 문화재 가산 +20%",
+      "modelAnswer": "## 핵심 정리\n\n- 30×1.2 = 36억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30×1.2 = 36억"
+      ]
+    },
+    {
+      "id": "practice-4-843",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-6",
+      "topic": "광업권 + 자산배분",
+      "body": "[자료] 광업권 100억. 토지 30%, 채굴시설 30%, 광업권 40%",
+      "modelAnswer": "## 핵심 정리\n\n- 토지 30, 채굴 30, 광업권 40억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 30, 채굴 30, 광업권 40억"
+      ]
+    },
+    {
+      "id": "practice-4-844",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-7",
+      "topic": "호텔 + 자산배분",
+      "body": "[자료] 호텔 수익가액 200억. 토지 30%, 건물 50%, 가구 20%",
+      "modelAnswer": "## 핵심 정리\n\n- 토지 60, 건물 100, 가구 40억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 60, 건물 100, 가구 40억"
+      ]
+    },
+    {
+      "id": "practice-4-845",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "4-7",
+      "topic": "골프장 + 회원권",
+      "body": "[자료] 골프장 800억, 회원권 100구좌 × 5천만 = 50억",
+      "modelAnswer": "## 핵심 정리\n\n- 총 850억 (회원권 별도)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "총 850억 (회원권 별도)"
       ]
     }
   ]
