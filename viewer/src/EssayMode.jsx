@@ -437,18 +437,24 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     const meta = chapter ? manifest.chapters.find(c => c.id === chapter) : null;
     if (!cd) return shell(<div style={{ padding: 24, color: '#9ca3af' }}>단원 데이터 불러오는 중…</div>);
 
-    // source별 카운트
+    // source별 카운트 — 실문제(official/gs/past) / 연습문제(practice-set) / AI 명확히 구분
+    const isOfficial = (q) => q.source === 'official' || q.source === 'gs' || q.source == null;
+    const isPractice = (q) => q.source === 'practice-set';
+    const isAIVary = (q) => q.source === 'ai-generated' && q.genMode === 'vary';
+    const isAINew = (q) => q.source === 'ai-generated' && q.genMode === 'new';
     const counts = {
       all: cd.questions.length,
-      official: cd.questions.filter(q => q.source !== 'ai-generated').length,
-      'ai-vary': cd.questions.filter(q => q.source === 'ai-generated' && q.genMode === 'vary').length,
-      'ai-new': cd.questions.filter(q => q.source === 'ai-generated' && q.genMode === 'new').length,
+      official: cd.questions.filter(isOfficial).length,
+      'practice-set': cd.questions.filter(isPractice).length,
+      'ai-vary': cd.questions.filter(isAIVary).length,
+      'ai-new': cd.questions.filter(isAINew).length,
     };
     const filterChips = [
-      { id: 'all',      label: '전체',     count: counts.all },
-      { id: 'official', label: '실문제',   count: counts.official },
-      { id: 'ai-vary',  label: '🤖 변형',  count: counts['ai-vary'] },
-      { id: 'ai-new',   label: '🤖 신규',  count: counts['ai-new'] },
+      { id: 'all',          label: '전체',          count: counts.all },
+      { id: 'official',     label: '📘 실문제(기출)', count: counts.official },
+      { id: 'practice-set', label: '📝 연습문제',    count: counts['practice-set'] },
+      { id: 'ai-vary',      label: '🤖 AI 변형',    count: counts['ai-vary'] },
+      { id: 'ai-new',       label: '🤖 AI 신규',    count: counts['ai-new'] },
     ].filter(c => c.count > 0);
 
     // 난이도별 카운트
@@ -457,9 +463,10 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     const hasDiff = [1,2,3,4,5].some(d => diffCounts[d] > 0);
 
     const visible = cd.questions.filter(q => {
-      if (sourceFilter === 'official' && q.source === 'ai-generated') return false;
-      if (sourceFilter === 'ai-vary' && !(q.source === 'ai-generated' && q.genMode === 'vary')) return false;
-      if (sourceFilter === 'ai-new' && !(q.source === 'ai-generated' && q.genMode === 'new')) return false;
+      if (sourceFilter === 'official' && !isOfficial(q)) return false;
+      if (sourceFilter === 'practice-set' && !isPractice(q)) return false;
+      if (sourceFilter === 'ai-vary' && !isAIVary(q)) return false;
+      if (sourceFilter === 'ai-new' && !isAINew(q)) return false;
       if (diffFilter !== null && q.difficulty !== diffFilter) return false;
       return true;
     });
@@ -591,11 +598,19 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             const lastScore = attemptCount ? prog.attempts[attemptCount - 1].selfScore : null;
             const hasAnswer = !!q.modelAnswer;
             const isAI = q.source === 'ai-generated';
+            const isPracticeSet = q.source === 'practice-set';
+            // 카드 색상: 실문제(흰), 연습문제(연한 라임), AI(연한 보라)
+            const cardBorder = isAI ? '1px solid #ddd6fe'
+              : isPracticeSet ? '1px solid #d9f99d'
+              : '1px solid #e5e7eb';
+            const cardBg = isAI ? '#fafaff'
+              : isPracticeSet ? '#fefce8'
+              : '#fff';
             return (
               <button key={q.id}
                 onClick={() => { setQuestionId(q.id); onNavigate('essay_write'); }}
-                style={{ background: '#fff', borderRadius: 10, padding: '14px 16px',
-                  border: isAI ? '1px solid #ddd6fe' : '1px solid #e5e7eb',
+                style={{ background: cardBg, borderRadius: 10, padding: '14px 16px',
+                  border: cardBorder,
                   textAlign: 'left', cursor: 'pointer',
                   display: 'flex', alignItems: 'flex-start', gap: 12 }}>
                 <div style={{ minWidth: 56, fontSize: '0.78rem', color: '#9ca3af', fontWeight: 700 }}>
@@ -603,6 +618,8 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                     <>🤖<br /><span style={{ color: '#7c3aed', fontSize: '0.72rem' }}>
                       {q.genMode === 'new' ? '신규' : '변형'}
                     </span></>
+                  ) : isPracticeSet ? (
+                    <><span style={{ color: '#65a30d', fontSize: '0.7rem' }}>📝 연습</span><br /><span style={{ color: '#374151', fontSize: '0.78rem' }}>{q.id.replace('practice-2a-', 'P-')}</span></>
                   ) : q.gsRound ? (
                     <><span style={{ color: '#0891b2', fontSize: '0.7rem' }}>GS</span><br /><span style={{ color: '#374151', fontSize: '0.78rem' }}>{q.gsRound}</span><br /><span style={{ color: '#9ca3af', fontSize: '0.72rem' }}>{q.questionNum}번</span></>
                   ) : (
