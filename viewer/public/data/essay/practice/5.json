@@ -4,7 +4,7 @@
   "chapter": "5",
   "chapterTitle": "비가치추계·기업가치·무형자산",
   "source": "official",
-  "count": 108,
+  "count": 138,
   "withAnswer": 33,
   "matchedAnswer": 33,
   "rounds": [
@@ -2195,6 +2195,576 @@
         "잔여 계약기간",
         "수익 흐름 현가",
         "계약 갱신 가능성"
+      ]
+    },
+    {
+      "id": "practice-5-601",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-1",
+      "topic": "평가가 결정",
+      "body": "원가법 100억, 비교법 110억, 수익법 90억. 균등 가중평균?",
+      "modelAnswer": "## 핵심 정리\n\n- (100+110+90)/3 = 100억\n- 단순 평균\n- 시산조정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(100+110+90)/3 = 100억",
+        "단순 평균",
+        "시산조정"
+      ]
+    },
+    {
+      "id": "practice-5-602",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-1",
+      "topic": "가중평균",
+      "body": "원가 80, 비교 100, 수익 110억. 가중치 20:50:30. 결정가?",
+      "modelAnswer": "## 핵심 정리\n\n- 80×0.2 + 100×0.5 + 110×0.3\n- = 16+50+33 = 99억\n- 가중평균",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80×0.2 + 100×0.5 + 110×0.3",
+        "= 16+50+33 = 99억",
+        "가중평균"
+      ]
+    },
+    {
+      "id": "practice-5-603",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-1",
+      "topic": "비교법 가중",
+      "body": "비교법 50% 가중. 비교 120, 수익 100, 원가 90억. (수익·원가 25%씩)",
+      "modelAnswer": "## 핵심 정리\n\n- 120×0.5 + 100×0.25 + 90×0.25\n- = 60+25+22.5 = 107.5억\n- 가중치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "120×0.5 + 100×0.25 + 90×0.25",
+        "= 60+25+22.5 = 107.5억",
+        "가중치"
+      ]
+    },
+    {
+      "id": "practice-5-604",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-1",
+      "topic": "평가 단가 절사",
+      "body": "평가 단가 5,478,925원/㎡. 천단위 절사?",
+      "modelAnswer": "## 핵심 정리\n\n- 천단위 미만 절사\n- = 5,478,000원/㎡\n- 실무 표준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "천단위 미만 절사",
+        "= 5,478,000원/㎡",
+        "실무 표준"
+      ]
+    },
+    {
+      "id": "practice-5-605",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-1",
+      "topic": "시점 환산",
+      "body": "거래시점 단가 8,000,000원, 시점수정율 1.05. 가격시점 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 8,000,000 × 1.05\n- = 8,400,000원\n- 시점수정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,000,000 × 1.05",
+        "= 8,400,000원",
+        "시점수정"
+      ]
+    },
+    {
+      "id": "practice-5-606",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-1",
+      "topic": "복리 시점",
+      "body": "연 변동 +3%, 2년. 누계 변동률?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.03^2 - 1\n- = 0.0609 = 6.09%\n- 복리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.03^2 - 1",
+        "= 0.0609 = 6.09%",
+        "복리"
+      ]
+    },
+    {
+      "id": "practice-5-607",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-1",
+      "topic": "지가지수 활용",
+      "body": "거래시점 지수 100, 가격시점 지수 110. 시점수정율?",
+      "modelAnswer": "## 핵심 정리\n\n- 110/100 = 1.10\n- 시점수정율 산정\n- 지가지수 활용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "110/100 = 1.10",
+        "시점수정율 산정",
+        "지가지수 활용"
+      ]
+    },
+    {
+      "id": "practice-5-608",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-1",
+      "topic": "평가가 차이",
+      "body": "평가사 A: 10억, 평가사 B: 10.5억. 차이 비율?",
+      "modelAnswer": "## 핵심 정리\n\n- (10.5-10)/10 = 5%\n- 5% 이내 인정\n- 재평가 불필요",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(10.5-10)/10 = 5%",
+        "5% 이내 인정",
+        "재평가 불필요"
+      ]
+    },
+    {
+      "id": "practice-5-609",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-1",
+      "topic": "5% 초과 차이",
+      "body": "평가사 A: 10억, 평가사 B: 11억. 차이 처리?",
+      "modelAnswer": "## 핵심 정리\n\n- 차이 10%\n- 5% 초과 → 재평가\n- 또는 위원회 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "차이 10%",
+        "5% 초과 → 재평가",
+        "또는 위원회 결정"
+      ]
+    },
+    {
+      "id": "practice-5-610",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-1",
+      "topic": "검증 비교",
+      "body": "평가가 100억, 인근 평균 95억. 차이 비율?",
+      "modelAnswer": "## 핵심 정리\n\n- (100-95)/95 = 5.3%\n- 5% 근접\n- 균형 검증",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(100-95)/95 = 5.3%",
+        "5% 근접",
+        "균형 검증"
+      ]
+    },
+    {
+      "id": "practice-5-611",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-2",
+      "topic": "WACC 계산",
+      "body": "자기자본 50%×10% + 부채 50%×4%. WACC?",
+      "modelAnswer": "## 핵심 정리\n\n- 5% + 2% = 7%\n- 가중평균\n- 세후 부채비용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5% + 2% = 7%",
+        "가중평균",
+        "세후 부채비용"
+      ]
+    },
+    {
+      "id": "practice-5-612",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-2",
+      "topic": "FCF 현가",
+      "body": "1년 FCF 100, WACC 8%. 현가?",
+      "modelAnswer": "## 핵심 정리\n\n- 100/1.08 = 92.59\n- 단순 할인\n- 1년 현가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100/1.08 = 92.59",
+        "단순 할인",
+        "1년 현가"
+      ]
+    },
+    {
+      "id": "practice-5-613",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-2",
+      "topic": "잔여가치",
+      "body": "6년 FCF 110, WACC 8%, 성장 2%. Terminal value?",
+      "modelAnswer": "## 핵심 정리\n\n- 110/(0.08-0.02) = 1,833\n- Gordon 모형\n- 잔여가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "110/(0.08-0.02) = 1,833",
+        "Gordon 모형",
+        "잔여가치"
+      ]
+    },
+    {
+      "id": "practice-5-614",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-2",
+      "topic": "자본환원",
+      "body": "NOI 15억, 환원율 7.5%. 가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 15/0.075 = 200억\n- 직접환원\n- 단순 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "15/0.075 = 200억",
+        "직접환원",
+        "단순 적용"
+      ]
+    },
+    {
+      "id": "practice-5-615",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-2",
+      "topic": "주당 가치",
+      "body": "기업가치 500억, 발행주식 100만주. 주당?",
+      "modelAnswer": "## 핵심 정리\n\n- 500억/100만 = 50,000원\n- 단순 나눗셈\n- 주당 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "500억/100만 = 50,000원",
+        "단순 나눗셈",
+        "주당 가치"
+      ]
+    },
+    {
+      "id": "practice-5-616",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-2",
+      "topic": "PER 평가",
+      "body": "EPS 5,000원, PER 12배. 주당?",
+      "modelAnswer": "## 핵심 정리\n\n- 5,000 × 12 = 60,000원\n- PER 방식\n- 시장접근",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000 × 12 = 60,000원",
+        "PER 방식",
+        "시장접근"
+      ]
+    },
+    {
+      "id": "practice-5-617",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-2",
+      "topic": "PBR 평가",
+      "body": "BPS 50,000원, PBR 1.2배. 주당?",
+      "modelAnswer": "## 핵심 정리\n\n- 50,000 × 1.2 = 60,000원\n- PBR 방식\n- 자산접근",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50,000 × 1.2 = 60,000원",
+        "PBR 방식",
+        "자산접근"
+      ]
+    },
+    {
+      "id": "practice-5-618",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-2",
+      "topic": "비상장 할인",
+      "body": "주당 50,000원, 비상장 할인 25%. 적용?",
+      "modelAnswer": "## 핵심 정리\n\n- 50,000 × 0.75 = 37,500원\n- 비상장 할인\n- 유동성 부족",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50,000 × 0.75 = 37,500원",
+        "비상장 할인",
+        "유동성 부족"
+      ]
+    },
+    {
+      "id": "practice-5-619",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-2",
+      "topic": "순자산 주당",
+      "body": "순자산 300억, 주식 100만주. 주당 순자산?",
+      "modelAnswer": "## 핵심 정리\n\n- 300억/100만 = 30,000원\n- BPS\n- 자산접근",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "300억/100만 = 30,000원",
+        "BPS",
+        "자산접근"
+      ]
+    },
+    {
+      "id": "practice-5-620",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-2",
+      "topic": "EBITDA 배수",
+      "body": "EBITDA 50억, 업종 평균 EV/EBITDA 10배. 기업가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 50 × 10 = 500억\n- EV/EBITDA 배수\n- 시장접근",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50 × 10 = 500억",
+        "EV/EBITDA 배수",
+        "시장접근"
+      ]
+    },
+    {
+      "id": "practice-5-621",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-3",
+      "topic": "브랜드 로열티",
+      "body": "연 매출 100억, 로열티율 3%. 잠재 로열티 절감?",
+      "modelAnswer": "## 핵심 정리\n\n- 100 × 0.03 = 3억\n- 로열티 면제법\n- 연 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100 × 0.03 = 3억",
+        "로열티 면제법",
+        "연 가치"
+      ]
+    },
+    {
+      "id": "practice-5-622",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-3",
+      "topic": "브랜드 5년 현가",
+      "body": "연 절감 3억, 5년 연금현가 3.5. 브랜드 가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 3 × 3.5 = 10.5억\n- 연금현가\n- 잔존기간",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3 × 3.5 = 10.5억",
+        "연금현가",
+        "잔존기간"
+      ]
+    },
+    {
+      "id": "practice-5-623",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-3",
+      "topic": "특허 초과수익",
+      "body": "매출 50억, 영업이익률 +5% (특허). 추가 이익?",
+      "modelAnswer": "## 핵심 정리\n\n- 50 × 0.05 = 2.5억/년\n- 초과수익\n- 특허 효과",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50 × 0.05 = 2.5억/년",
+        "초과수익",
+        "특허 효과"
+      ]
+    },
+    {
+      "id": "practice-5-624",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-3",
+      "topic": "특허 가치",
+      "body": "연 초과수익 2.5억, 잔여 5년, 연금현가 3.4. 특허 가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 2.5 × 3.4 = 8.5억\n- 연금현가\n- 잔여기간",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2.5 × 3.4 = 8.5억",
+        "연금현가",
+        "잔여기간"
+      ]
+    },
+    {
+      "id": "practice-5-625",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-3",
+      "topic": "영업권 정상수익",
+      "body": "운영자산 50억, 정상수익률 10%. 정상수익?",
+      "modelAnswer": "## 핵심 정리\n\n- 50 × 0.10 = 5억\n- 운영자산 기대수익\n- 정상수익",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50 × 0.10 = 5억",
+        "운영자산 기대수익",
+        "정상수익"
+      ]
+    },
+    {
+      "id": "practice-5-626",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-3",
+      "topic": "영업권 초과수익",
+      "body": "영업이익 10억 - 정상수익 5억. 초과수익?",
+      "modelAnswer": "## 핵심 정리\n\n- 10 - 5 = 5억\n- 초과수익 = 영업 - 정상\n- 영업권 기초",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10 - 5 = 5억",
+        "초과수익 = 영업 - 정상",
+        "영업권 기초"
+      ]
+    },
+    {
+      "id": "practice-5-627",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-3",
+      "topic": "영업권 가치",
+      "body": "초과수익 5억, 영업권 환원율 20%. 가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 5/0.20 = 25억\n- 영업권 자본환원\n- 직접환원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5/0.20 = 25억",
+        "영업권 자본환원",
+        "직접환원"
+      ]
+    },
+    {
+      "id": "practice-5-628",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-3",
+      "topic": "저작권 영구",
+      "body": "연 로열티 8억, 할인율 15%. 영구환원 가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 8/0.15 = 53.3억\n- 영구환원\n- 저작권",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8/0.15 = 53.3억",
+        "영구환원",
+        "저작권"
+      ]
+    },
+    {
+      "id": "practice-5-629",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-3",
+      "topic": "고객관계 가치",
+      "body": "연 영업이익 (고객) 3억, 5년 연금현가 3.6. 가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 3 × 3.6 = 10.8억\n- 고객 유지기간\n- 연금현가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3 × 3.6 = 10.8억",
+        "고객 유지기간",
+        "연금현가"
+      ]
+    },
+    {
+      "id": "practice-5-630",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "5-3",
+      "topic": "무형자산 상각",
+      "body": "무형자산 10억, 잔여 10년. 연 상각?",
+      "modelAnswer": "## 핵심 정리\n\n- 10억/10년 = 1억/년\n- 정액법\n- 잔존가치 0",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10억/10년 = 1억/년",
+        "정액법",
+        "잔존가치 0"
       ]
     }
   ]

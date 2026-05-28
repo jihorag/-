@@ -4,7 +4,7 @@
   "chapter": "6a",
   "chapterTitle": "토지보상 기본·원칙",
   "source": "official",
-  "count": 99,
+  "count": 129,
   "withAnswer": 19,
   "matchedAnswer": 19,
   "rounds": [
@@ -2083,6 +2083,576 @@
         "변경 후 용도 단가",
         "인허가 확인",
         "변경 시기 검증"
+      ]
+    },
+    {
+      "id": "practice-6a-601",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "5대 원칙 적용",
+      "body": "협의 시 정당보상의 의미는?",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가치 기준\n- 헌법 §23 ③\n- 완전보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가치 기준",
+        "헌법 §23 ③",
+        "완전보상"
+      ]
+    },
+    {
+      "id": "practice-6a-602",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "협의 결렬 일정",
+      "body": "협의 결렬 후 재결 신청 기한?",
+      "modelAnswer": "## 핵심 정리\n\n- 1년 이내\n- 사업인정 5년 이내\n- 지방토지수용위원회",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1년 이내",
+        "사업인정 5년 이내",
+        "지방토지수용위원회"
+      ]
+    },
+    {
+      "id": "practice-6a-603",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "이의재결 기한",
+      "body": "재결 결정 통보 후 이의재결 신청 기한?",
+      "modelAnswer": "## 핵심 정리\n\n- 60일 이내\n- 중앙토지수용위원회\n- 최종 행정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "60일 이내",
+        "중앙토지수용위원회",
+        "최종 행정"
+      ]
+    },
+    {
+      "id": "practice-6a-604",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "행정소송 기한",
+      "body": "이의재결 후 행정소송 기한?",
+      "modelAnswer": "## 핵심 정리\n\n- 60일 이내\n- 행정법원\n- 처분 취소",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "60일 이내",
+        "행정법원",
+        "처분 취소"
+      ]
+    },
+    {
+      "id": "practice-6a-605",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "보상금 지급",
+      "body": "협의·재결 후 지급 기한?",
+      "modelAnswer": "## 핵심 정리\n\n- 30일 이내\n- 미수령 시 공탁\n- 토지 인도 후",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30일 이내",
+        "미수령 시 공탁",
+        "토지 인도 후"
+      ]
+    },
+    {
+      "id": "practice-6a-606",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "청구권 시효",
+      "body": "보상금 청구권 시효?",
+      "modelAnswer": "## 핵심 정리\n\n- 5년\n- 민법 §766\n- 시효 완성 시 청구 불가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5년",
+        "민법 §766",
+        "시효 완성 시 청구 불가"
+      ]
+    },
+    {
+      "id": "practice-6a-607",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "공탁 사유",
+      "body": "공탁 사유 3가지?",
+      "modelAnswer": "## 핵심 정리\n\n- 수령 거부\n- 수령자 불명\n- 압류·가압류",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수령 거부",
+        "수령자 불명",
+        "압류·가압류"
+      ]
+    },
+    {
+      "id": "practice-6a-608",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "사업인정 효력",
+      "body": "사업인정의 5대 효력 중 핵심?",
+      "modelAnswer": "## 핵심 정리\n\n- 수용권 발생\n- 공시지가 적용 기준\n- 협의·재결 개시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수용권 발생",
+        "공시지가 적용 기준",
+        "협의·재결 개시"
+      ]
+    },
+    {
+      "id": "practice-6a-609",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "개발이익 배제",
+      "body": "개발이익 배제의 법적 근거?",
+      "modelAnswer": "## 핵심 정리\n\n- 토지보상법 §70 ②\n- 정당보상 원칙\n- 사업영향 배제",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지보상법 §70 ②",
+        "정당보상 원칙",
+        "사업영향 배제"
+      ]
+    },
+    {
+      "id": "practice-6a-610",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "대토보상",
+      "body": "대토보상의 의의?",
+      "modelAnswer": "## 핵심 정리\n\n- 토지로 보상\n- 예외적 (현금 원칙)\n- 대규모 사업",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지로 보상",
+        "예외적 (현금 원칙)",
+        "대규모 사업"
+      ]
+    },
+    {
+      "id": "practice-6a-611",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "채권보상",
+      "body": "채권보상의 의의?",
+      "modelAnswer": "## 핵심 정리\n\n- 채권으로 지급\n- 재정 사정 시\n- 현금 보상 예외",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "채권으로 지급",
+        "재정 사정 시",
+        "현금 보상 예외"
+      ]
+    },
+    {
+      "id": "practice-6a-612",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "잔여지 매수",
+      "body": "잔여지 매수청구 요건?",
+      "modelAnswer": "## 핵심 정리\n\n- 30% 이상 감가\n- 사용 곤란\n- 청구 기한 1년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30% 이상 감가",
+        "사용 곤란",
+        "청구 기한 1년"
+      ]
+    },
+    {
+      "id": "practice-6a-613",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "환매권 기한",
+      "body": "환매권 행사 기한?",
+      "modelAnswer": "## 핵심 정리\n\n- 10년 이내\n- 사업 폐지 시\n- 원소유자 권리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10년 이내",
+        "사업 폐지 시",
+        "원소유자 권리"
+      ]
+    },
+    {
+      "id": "practice-6a-614",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "협의 의무",
+      "body": "토지소유자 협의 의무?",
+      "modelAnswer": "## 핵심 정리\n\n- 응할 의무 없음\n- 결렬 시 재결 절차\n- 권리 보호",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "응할 의무 없음",
+        "결렬 시 재결 절차",
+        "권리 보호"
+      ]
+    },
+    {
+      "id": "practice-6a-615",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-1",
+      "topic": "조서 작성",
+      "body": "토지·물건조서 작성 의무자?",
+      "modelAnswer": "## 핵심 정리\n\n- 사업시행자\n- 시행규칙 §14\n- 토지소유자 입회",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사업시행자",
+        "시행규칙 §14",
+        "토지소유자 입회"
+      ]
+    },
+    {
+      "id": "practice-6a-616",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "비교표준지 단가",
+      "body": "비교표준지 9,000,000원, 시점수정 1.04. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 9,000,000 × 1.04\n- = 9,360,000원\n- 시점수정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,000,000 × 1.04",
+        "= 9,360,000원",
+        "시점수정"
+      ]
+    },
+    {
+      "id": "practice-6a-617",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "개별요인 종합",
+      "body": "가로 1.03, 환경 0.97, 획지 1.02. 종합?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.03 × 0.97 × 1.02\n- = 1.019\n- 6대 요인 곱셈",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.03 × 0.97 × 1.02",
+        "= 1.019",
+        "6대 요인 곱셈"
+      ]
+    },
+    {
+      "id": "practice-6a-618",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "그밖의요인 단가",
+      "body": "가상정상가 8,000,000원, 선례평균 9,200,000원. 보정치?",
+      "modelAnswer": "## 핵심 정리\n\n- 9,200,000/8,000,000\n- = 1.15\n- 그밖의요인",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,200,000/8,000,000",
+        "= 1.15",
+        "그밖의요인"
+      ]
+    },
+    {
+      "id": "practice-6a-619",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "평가 단가 종합",
+      "body": "표준지 8,000,000 × 시점 1.05 × 지역 1.0 × 개별 1.03 × 그밖의 1.10. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 8,000,000 × 1.05 × 1.03 × 1.10\n- = 약 9,514,000원/㎡\n- 단가 종합",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,000,000 × 1.05 × 1.03 × 1.10",
+        "= 약 9,514,000원/㎡",
+        "단가 종합"
+      ]
+    },
+    {
+      "id": "practice-6a-620",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "평가총액",
+      "body": "단가 9,500,000원/㎡, 면적 500㎡. 총액?",
+      "modelAnswer": "## 핵심 정리\n\n- 9,500,000 × 500\n- = 47.5억\n- 단가×면적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,500,000 × 500",
+        "= 47.5억",
+        "단가×면적"
+      ]
+    },
+    {
+      "id": "practice-6a-621",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "시점수정 일단위",
+      "body": "연 변동 5%, 6개월 (183일/365일). 부분기간 변동률?",
+      "modelAnswer": "## 핵심 정리\n\n- 5% × 183/365\n- = 2.51%\n- 일단위 안분",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5% × 183/365",
+        "= 2.51%",
+        "일단위 안분"
+      ]
+    },
+    {
+      "id": "practice-6a-622",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "선례 시점환산",
+      "body": "선례 단가 8,500,000, 시점수정 1.06. 환산 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 8,500,000 × 1.06\n- = 9,010,000원\n- 시점환산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,500,000 × 1.06",
+        "= 9,010,000원",
+        "시점환산"
+      ]
+    },
+    {
+      "id": "practice-6a-623",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "6대 요인 단순",
+      "body": "대상 105, 표준지 100. 격차율?",
+      "modelAnswer": "## 핵심 정리\n\n- 105/100 = 1.05\n- 대상/표준지\n- 단일 항목",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "105/100 = 1.05",
+        "대상/표준지",
+        "단일 항목"
+      ]
+    },
+    {
+      "id": "practice-6a-624",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "지가변동률 일",
+      "body": "연 변동률 6%, 100일. 변동률?",
+      "modelAnswer": "## 핵심 정리\n\n- 6% × 100/365\n- = 1.64%\n- 일단위",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6% × 100/365",
+        "= 1.64%",
+        "일단위"
+      ]
+    },
+    {
+      "id": "practice-6a-625",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "선례 평균",
+      "body": "선례 4건 시점환산: 8,100,000 / 8,400,000 / 8,700,000 / 9,000,000. 평균?",
+      "modelAnswer": "## 핵심 정리\n\n- (8,100+8,400+8,700+9,000)/4\n- = 8,550,000원\n- 평균",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(8,100+8,400+8,700+9,000)/4",
+        "= 8,550,000원",
+        "평균"
+      ]
+    },
+    {
+      "id": "practice-6a-626",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "시점수정 복리",
+      "body": "1년 +3%, 2년 +4%. 누계 시점수정?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.03 × 1.04\n- = 1.0712 (+7.12%)\n- 복리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.03 × 1.04",
+        "= 1.0712 (+7.12%)",
+        "복리"
+      ]
+    },
+    {
+      "id": "practice-6a-627",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "잔여지 손실",
+      "body": "종전 단가 5,000,000, 종후 단가 4,200,000, 잔여 100㎡. 손실?",
+      "modelAnswer": "## 핵심 정리\n\n- (5,000-4,200) × 100 = 80,000,000\n- 종전-종후 차액\n- 가치 손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(5,000-4,200) × 100 = 80,000,000",
+        "종전-종후 차액",
+        "가치 손실"
+      ]
+    },
+    {
+      "id": "practice-6a-628",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "편입 보상",
+      "body": "단가 6,000,000원/㎡, 편입 800㎡. 편입 보상?",
+      "modelAnswer": "## 핵심 정리\n\n- 6,000,000 × 800 = 48억\n- 편입 단가×면적\n- 직접 보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6,000,000 × 800 = 48억",
+        "편입 단가×면적",
+        "직접 보상"
+      ]
+    },
+    {
+      "id": "practice-6a-629",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "그밖의요인 산식",
+      "body": "선례 8,800,000, 가상정상가 8,000,000. 보정치?",
+      "modelAnswer": "## 핵심 정리\n\n- 8,800,000/8,000,000 = 1.10\n- +10%\n- 그밖의요인",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,800,000/8,000,000 = 1.10",
+        "+10%",
+        "그밖의요인"
+      ]
+    },
+    {
+      "id": "practice-6a-630",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6a-2",
+      "topic": "평가가 천단위",
+      "body": "평가 단가 9,478,250원/㎡. 천단위 절사?",
+      "modelAnswer": "## 핵심 정리\n\n- 절사 결과 9,478,000원/㎡\n- 실무 표준\n- 천단위 미만 절사",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "절사 결과 9,478,000원/㎡",
+        "실무 표준",
+        "천단위 미만 절사"
       ]
     }
   ]
