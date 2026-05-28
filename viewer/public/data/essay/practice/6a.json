@@ -4,7 +4,7 @@
   "chapter": "6a",
   "chapterTitle": "토지보상 기본·원칙",
   "source": "official",
-  "count": 149,
+  "count": 169,
   "withAnswer": 19,
   "matchedAnswer": 19,
   "rounds": [
@@ -3032,6 +3032,387 @@
         "9,775/8,500 = 1.15",
         "+15%",
         "그밖의요인"
+      ]
+    },
+    {
+      "id": "practice-6a-801",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "협의·재결·이의 단가",
+      "body": "[자료 01] 협의 단가 8,500,000원 (2025.12), 재결 9,000,000원 (2026.4)\n[자료 02] 이의재결 9,500,000원 (2026.7)\n[자료 03] 시점 단계별 변동\n[물음] 단가 변동 원인 분석?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 협의→재결 시점 +5.9%, 평가사 차이\n- 재결→이의 +5.6%\n- 단계별 5-6% 일반\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "협의→재결 시점 +5.9%, 평가사 차이",
+        "재결→이의 +5.6%",
+        "단계별 5-6% 일반"
+      ]
+    },
+    {
+      "id": "practice-6a-802",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "공탁 + 청구",
+      "body": "[자료 01] 재결 보상금 10억, 수령 거부, 공탁 2026.2\n[자료 02] 시효 5년, 청구 시점 2030.5\n[물음] 청구 가능 여부?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 공탁 2026.2\n- 시효 + 5년 = 2031.2까지\n- 2030.5 < 2031.2 → 청구 가능\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공탁 2026.2",
+        "시효 + 5년 = 2031.2까지",
+        "2030.5 < 2031.2 → 청구 가능"
+      ]
+    },
+    {
+      "id": "practice-6a-803",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "환매 + 시장",
+      "body": "[자료 01] 보상 10년 전 5억 수령, 사업 폐지 2025\n[자료 02] 사업시행자 부담 1,500만, 시장가 12억\n[물음] 환매가와 이익?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 환매가 5억 + 0.15억 = 5.15억\n- 시장 12억\n- 이익 6.85억\n- 환매 강력 권장\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환매가 5억 + 0.15억 = 5.15억",
+        "시장 12억",
+        "이익 6.85억",
+        "환매 강력 권장"
+      ]
+    },
+    {
+      "id": "practice-6a-804",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "잔여지 종합",
+      "body": "[자료 01] 전체 토지 1,000㎡ × 5,000,000원, 편입 700㎡\n[자료 02] 잔여 300㎡, 종후 단가 4,000,000원 (-20%)\n[물음] 편입 + 가치손실?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 편입 35억\n- 종전 잔여 15억, 종후 12억\n- 손실 3억\n- 총 38억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 35억",
+        "종전 잔여 15억, 종후 12억",
+        "손실 3억",
+        "총 38억"
+      ]
+    },
+    {
+      "id": "practice-6a-805",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "구분지상권 종합",
+      "body": "[자료 01] 토지 단가 8,000,000원, 통과 면적 350㎡\n[자료 02] 지하 25m, 지하 이용비율 25%, 깊이 저해율 10%\n[물음] 보상?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 저해율 0.25 × 0.10 = 0.025\n- 단가 8,000×0.025 = 200,000원\n- 총 200,000×350 = 7,000만\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저해율 0.25 × 0.10 = 0.025",
+        "단가 8,000×0.025 = 200,000원",
+        "총 200,000×350 = 7,000만"
+      ]
+    },
+    {
+      "id": "practice-6a-806",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "이의재결 차액",
+      "body": "[자료 01] 재결 100억, 이의재결 110억\n[자료 02] 토지소유자 청구 → 차액 지급\n[자료 03] 행정소송 추가 청구 120억\n[물음] 단계별 처리?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 재결 → 이의재결 +10억 지급\n- 이의재결 → 소송 가능 (60일)\n- 행정소송 결과 따라 추가\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "재결 → 이의재결 +10억 지급",
+        "이의재결 → 소송 가능 (60일)",
+        "행정소송 결과 따라 추가"
+      ]
+    },
+    {
+      "id": "practice-6a-807",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "협의 결렬 + 재결 시한",
+      "body": "[자료 01] 사업인정고시 2024.6\n[자료 02] 협의 시작 2025.1, 결렬 2025.6\n[물음] 재결 신청 시한과 처리?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 결렬 후 1년 = 2026.6까지\n- 사업인정 5년 = 2029.6까지\n- 늦은 시한 = 2026.6\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "결렬 후 1년 = 2026.6까지",
+        "사업인정 5년 = 2029.6까지",
+        "늦은 시한 = 2026.6"
+      ]
+    },
+    {
+      "id": "practice-6a-808",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-2",
+      "topic": "공시지가 + 시점·요인 종합",
+      "body": "[자료 01] 표준지 7,500,000원\n[자료 02] 시점수정 1.052, 지역 1.0, 개별 0.96, 그밖의 1.13\n[자료 03] 면적 480㎡\n[물음] 단가 + 총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 7,500×1.052×0.96×1.13 = 8,560,000원/㎡\n- 단가 절사 8,560,000\n- 총액 41.09억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,500×1.052×0.96×1.13 = 8,560,000원/㎡",
+        "단가 절사 8,560,000",
+        "총액 41.09억"
+      ]
+    },
+    {
+      "id": "practice-6a-809",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-2",
+      "topic": "시점수정 일단위",
+      "body": "[자료 01] 2025년 변동 +5.2%, 2026 1-4월 +1.8%, 5월 1-15일 변동률 +0.05%/일\n[물음] 시점수정율?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 1.052 × 1.018 × (1+0.05/100×15)\n- = 1.052 × 1.018 × 1.0075\n- 약 1.0791\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.052 × 1.018 × (1+0.05/100×15)",
+        "= 1.052 × 1.018 × 1.0075",
+        "약 1.0791"
+      ]
+    },
+    {
+      "id": "practice-6a-810",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-2",
+      "topic": "6대 요인 + 그밖의",
+      "body": "[자료 01] 가로 1.05, 접근 1.03, 환경 0.95, 획지 1.02, 행정 1.0, 기타 1.01\n[자료 02] 가상정상가 8,000,000원, 선례 평균 9,200,000원\n[물음] 종합 격차 + 그밖의?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 개별 종합 1.0539\n- 그밖의 9,200/8,000 = 1.15\n- 둘 적용 시\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "개별 종합 1.0539",
+        "그밖의 9,200/8,000 = 1.15",
+        "둘 적용 시"
+      ]
+    },
+    {
+      "id": "practice-6a-811",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "시효 + 이자",
+      "body": "[자료 01] 보상금 청구권 발생 2020.6\n[자료 02] 현 2025.5, 청구 가능 여부와 지연이자?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 시효 5년 = 2025.6 완성\n- 2025.5 < 2025.6 → 청구 가능\n- 지연이자 별도\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시효 5년 = 2025.6 완성",
+        "2025.5 < 2025.6 → 청구 가능",
+        "지연이자 별도"
+      ]
+    },
+    {
+      "id": "practice-6a-812",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-2",
+      "topic": "비교표준지 다수",
+      "body": "[자료 01] 표준지 A 8,000,000, B 8,200,000, C 8,400,000 (모두 동일 조건)\n[자료 02] 면적: A 300, B 350, C 400㎡\n[물음] 평균 + 면적 가중 평균?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 단순 평균 8,200,000원\n- 면적 가중 (8,000×300+8,200×350+8,400×400)/1,050 = 8,222원\n- 근사치\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단순 평균 8,200,000원",
+        "면적 가중 (8,000×300+8,200×350+8,400×400)/1,050 = 8,222원",
+        "근사치"
+      ]
+    },
+    {
+      "id": "practice-6a-813",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-2",
+      "topic": "그밖의요인 4건",
+      "body": "[자료 01] 선례 4건 시점환산: 8,200/8,500/8,800/9,000만\n[자료 02] 가상정상가 7,800만\n[물음] 평균 + 보정치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 평균 8,625\n- 8,625/7,800 = 1.106 → 1.11\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균 8,625",
+        "8,625/7,800 = 1.106 → 1.11"
+      ]
+    },
+    {
+      "id": "practice-6a-814",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-2",
+      "topic": "잔여지 매수청구",
+      "body": "[자료 01] 종전 단가 7,000,000원, 잔여 80㎡, 종후 4,800,000원 (-31%)\n[물음] 매수청구 + 보상?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 감가 31% > 30% → 매수청구 ◯\n- 매수가 = 편입 단가 7,000,000\n- 7,000×80 = 5.6억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "감가 31% > 30% → 매수청구 ◯",
+        "매수가 = 편입 단가 7,000,000",
+        "7,000×80 = 5.6억"
+      ]
+    },
+    {
+      "id": "practice-6a-815",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-2",
+      "topic": "시점 + 사업영향 배제",
+      "body": "[자료 01] 사업 무관 일반 변동 +3%/년\n[자료 02] 사업영향 포함 +12%/년\n[자료 03] 2024.6 ~ 2026.5 (23개월)\n[물음] 적용 시점수정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 사업 무관: 3% × 23/12 = 5.75%\n- 시점수정 1.0575\n- 개발이익 배제\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사업 무관: 3% × 23/12 = 5.75%",
+        "시점수정 1.0575",
+        "개발이익 배제"
+      ]
+    },
+    {
+      "id": "practice-6a-816",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "이의재결 vs 행정소송",
+      "body": "[자료 01] 재결 80억, 이의재결 88억, 행정소송 92억\n[자료 02] 단계별 토지소유자 만족도\n[물음] 단계별 분석?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 재결 → 이의재결 +10%\n- 이의재결 → 소송 +4.5%\n- 점진적 증액\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "재결 → 이의재결 +10%",
+        "이의재결 → 소송 +4.5%",
+        "점진적 증액"
+      ]
+    },
+    {
+      "id": "practice-6a-817",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-2",
+      "topic": "그밖의요인 + 인근",
+      "body": "[자료 01] 가상정상가 9,500만/㎡\n[자료 02] 인근 매매가 평균 10,800만/㎡, 보상선례 10,900만/㎡\n[물음] 그밖의요인 산정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 선례 우선\n- 10,900/9,500 = 1.147 → 1.15\n- 시장 매매와 일치\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "선례 우선",
+        "10,900/9,500 = 1.147 → 1.15",
+        "시장 매매와 일치"
+      ]
+    },
+    {
+      "id": "practice-6a-818",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "재결 + 공탁",
+      "body": "[자료 01] 재결 보상 12억, 토지소유자 수령 거부 (이의 신청)\n[자료 02] 사업시행자 30일 이내 공탁\n[물음] 공탁 효과와 후속 절차?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 공탁 = 사업 진행 가능\n- 토지 인도 후 사용\n- 이의재결 후 차액 정산\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공탁 = 사업 진행 가능",
+        "토지 인도 후 사용",
+        "이의재결 후 차액 정산"
+      ]
+    },
+    {
+      "id": "practice-6a-819",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-2",
+      "topic": "복합 보정",
+      "body": "[자료 01] 표준지 6,500,000원/㎡\n[자료 02] 시점 1.04, 지역 1.0, 개별 1.06, 그밖의 1.18\n[자료 03] 면적 280㎡\n[물음] 평가단가 + 총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 단가 6,500×1.04×1.06×1.18 = 8,452,000원/㎡\n- 총액 23.66억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가 6,500×1.04×1.06×1.18 = 8,452,000원/㎡",
+        "총액 23.66억"
+      ]
+    },
+    {
+      "id": "practice-6a-820",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "6a-1",
+      "topic": "환매가 + 시장 다양",
+      "body": "[자료 01] 보상 10년 전 6억, 시장가 시나리오: 10억, 8억, 5억\n[자료 02] 사업시행자 부담 1,500만\n[물음] 시나리오별 환매 결정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 환매가 6.15억\n- 10억 → 행사 (이익 3.85)\n- 8억 → 행사 (1.85)\n- 5억 → 거부 (-1.15)\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환매가 6.15억",
+        "10억 → 행사 (이익 3.85)",
+        "8억 → 행사 (1.85)",
+        "5억 → 거부 (-1.15)"
       ]
     }
   ]

@@ -4,7 +4,7 @@
   "chapter": "5",
   "chapterTitle": "비가치추계·기업가치·무형자산",
   "source": "official",
-  "count": 158,
+  "count": 178,
   "withAnswer": 33,
   "matchedAnswer": 33,
   "rounds": [
@@ -3147,6 +3147,385 @@
         "회수가능 max(22,25) = 25억",
         "장부 30 > 회수 25 → 손상",
         "손상액 5억"
+      ]
+    },
+    {
+      "id": "practice-5-801",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-1",
+      "topic": "시산조정 종합 1",
+      "body": "[자료 01] 원가 100억, 비교 110억, 수익 120억, 공시 90억\n[자료 02] 가중 비교 35%, 수익 30%, 원가 20%, 공시 15%\n[물음] 결정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 100×0.2 + 110×0.35 + 120×0.3 + 90×0.15\n- = 20+38.5+36+13.5 = 108억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100×0.2 + 110×0.35 + 120×0.3 + 90×0.15",
+        "= 20+38.5+36+13.5 = 108억"
+      ]
+    },
+    {
+      "id": "practice-5-802",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-1",
+      "topic": "시점 + 시산",
+      "body": "[자료 01] 단가 8,000,000원 (2025.6), 가격 2026.5\n[자료 02] 2025 +4%, 2026 1-4월 +1.2%, 5월 (10일/31일) +0.03%/일\n[자료 03] 면적 400㎡\n[물음] 단가 + 총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 시점 1.04 × 1.012 × (1+0.0003×10) = 약 1.0556\n- 단가 8,445,000원/㎡\n- 총액 33.78억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점 1.04 × 1.012 × (1+0.0003×10) = 약 1.0556",
+        "단가 8,445,000원/㎡",
+        "총액 33.78억"
+      ]
+    },
+    {
+      "id": "practice-5-803",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-1",
+      "topic": "검증 + 인근",
+      "body": "[자료 01] 평가 100억, 검증 95억, 인근 평균 98억, 시장 거래 102억\n[자료 02] 차이 분석\n[물음] 적정성?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 검증 차이 5%\n- 인근 차이 -2%\n- 시장 +2%\n- 균형 양호, 평가 적정\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "검증 차이 5%",
+        "인근 차이 -2%",
+        "시장 +2%",
+        "균형 양호, 평가 적정"
+      ]
+    },
+    {
+      "id": "practice-5-804",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-2",
+      "topic": "DCF 6년",
+      "body": "[자료 01] FCF 1-5년: 100, 105, 110, 115, 120 (백만)\n[자료 02] 6년 FCF 122, 성장 2%, WACC 8%\n[자료 03] 1-5년 현가 합 442백만\n[물음] 기업가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- Terminal 122/0.06 = 2,033\n- PV(TV) = 2,033/1.08^5 = 1,383\n- 442 + 1,383 = 1,825백만\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Terminal 122/0.06 = 2,033",
+        "PV(TV) = 2,033/1.08^5 = 1,383",
+        "442 + 1,383 = 1,825백만"
+      ]
+    },
+    {
+      "id": "practice-5-805",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-2",
+      "topic": "WACC + 자본환원",
+      "body": "[자료 01] E비 60%×11% + D비 40%×5%×(1-0.25) = WACC\n[자료 02] NOI 15억, 성장 3%\n[물음] 자본환원율과 가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- WACC = 6.6 + 1.5 = 8.1%\n- 환원율 = 8.1-3 = 5.1%\n- 15/0.051 = 약 294억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "WACC = 6.6 + 1.5 = 8.1%",
+        "환원율 = 8.1-3 = 5.1%",
+        "15/0.051 = 약 294억"
+      ]
+    },
+    {
+      "id": "practice-5-806",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-2",
+      "topic": "비상장 3방식",
+      "body": "[자료 01] 자산 50,000원/주, 수익 45,000원/주, 시장 (할인 후) 38,000원/주\n[자료 02] 가중 자산 30%, 수익 40%, 시장 30%\n[물음] 주당?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 50,000×0.3 + 45,000×0.4 + 38,000×0.3\n- = 15+18+11.4 = 44,400원\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50,000×0.3 + 45,000×0.4 + 38,000×0.3",
+        "= 15+18+11.4 = 44,400원"
+      ]
+    },
+    {
+      "id": "practice-5-807",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-3",
+      "topic": "브랜드 + 특허",
+      "body": "[자료 01] 브랜드: 매출 150억 × 3% × 잔여 8년, 연금 (10%, 8) = 5.33\n[자료 02] 특허: 초과수익 2억, 잔여 5년, 연금 (12%, 5) = 3.60\n[물음] 합계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 브랜드 4.5×5.33 = 24억\n- 특허 2×3.6 = 7.2억\n- 합계 31.2억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "브랜드 4.5×5.33 = 24억",
+        "특허 2×3.6 = 7.2억",
+        "합계 31.2억"
+      ]
+    },
+    {
+      "id": "practice-5-808",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-3",
+      "topic": "영업권 + 손상",
+      "body": "[자료 01] 영업이익 12억, 운영자산 40억 (정상수익률 12%)\n[자료 02] 영업권 환원율 22%\n[자료 03] 회수가능 22억, 장부 25억\n[물음] 영업권 + 손상?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 정상 4.8억\n- 초과 7.2억\n- 영업권 32.7억\n- 장부 25, 회수 22 → 손상 3억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "정상 4.8억",
+        "초과 7.2억",
+        "영업권 32.7억",
+        "장부 25, 회수 22 → 손상 3억"
+      ]
+    },
+    {
+      "id": "practice-5-809",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-1",
+      "topic": "평가 단가 + 총액",
+      "body": "[자료 01] 기본 단가 9,000,000원, 시점 1.05, 지역 1.0, 개별 1.04, 그밖의 1.10\n[자료 02] 면적 350㎡\n[물음] 단가 + 총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 9,000 × 1.05 × 1.04 × 1.10 = 10,807,800\n- 절사 10,807,000원/㎡\n- 총액 37.82억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,000 × 1.05 × 1.04 × 1.10 = 10,807,800",
+        "절사 10,807,000원/㎡",
+        "총액 37.82억"
+      ]
+    },
+    {
+      "id": "practice-5-810",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-1",
+      "topic": "시점수정 일단위 종합",
+      "body": "[자료 01] 2024 +3%, 2025 +4.5%, 2026 1-3월 +1.2%, 4월 +0.4%, 5월 (15일/31일) +0.06%\n[자료 02] 일단위 적용\n[물음] 누계 시점수정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 1.03 × 1.045 × 1.012 × 1.004 × (1+0.06/100×15/31)\n- 복리 약 1.099 (+9.9%)\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.03 × 1.045 × 1.012 × 1.004 × (1+0.06/100×15/31)",
+        "복리 약 1.099 (+9.9%)"
+      ]
+    },
+    {
+      "id": "practice-5-811",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-2",
+      "topic": "M&A 가치 + 시너지",
+      "body": "[자료 01] 대상 시장가 800억, 시너지 150억\n[자료 02] 프리미엄 시장가의 20%\n[자료 03] 매수자 회수 가능 추정 200억\n[물음] 최대 인수가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 시장가 + 시너지 + 프리미엄\n- 800 + 150 + 160 = 1,110억\n- 회수 한도 200억 → 부담\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 + 시너지 + 프리미엄",
+        "800 + 150 + 160 = 1,110억",
+        "회수 한도 200억 → 부담"
+      ]
+    },
+    {
+      "id": "practice-5-812",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-2",
+      "topic": "WACC 변동",
+      "body": "[자료 01] 현 WACC 8% → 부채 ↑ → WACC 7%\n[자료 02] NOI 10억, 성장 3%\n[물음] 가치 변동?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 8%: 10/(0.08-0.03) = 200억\n- 7%: 10/(0.07-0.03) = 250억\n- +25% 가치 증가\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8%: 10/(0.08-0.03) = 200억",
+        "7%: 10/(0.07-0.03) = 250억",
+        "+25% 가치 증가"
+      ]
+    },
+    {
+      "id": "practice-5-813",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-3",
+      "topic": "무형자산 종합",
+      "body": "[자료 01] 브랜드 30억, 특허 20억, 영업권 50억\n[자료 02] 영업권 손상 검사: 회수 45억\n[물음] 손상 후 무형자산?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 영업권 손상 50-45 = 5억\n- 손상 후: 30+20+45 = 95억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업권 손상 50-45 = 5억",
+        "손상 후: 30+20+45 = 95억"
+      ]
+    },
+    {
+      "id": "practice-5-814",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-2",
+      "topic": "PER + PBR 가중",
+      "body": "[자료 01] EPS 4,000, PER 11배, BPS 35,000, PBR 1.5배\n[자료 02] 비상장 할인 25%\n[자료 03] PER 50%, PBR 50% 가중\n[물음] 주당?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- PER 4,000×11×0.75 = 33,000\n- PBR 35,000×1.5×0.75 = 39,375\n- 평균 36,188원\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "PER 4,000×11×0.75 = 33,000",
+        "PBR 35,000×1.5×0.75 = 39,375",
+        "평균 36,188원"
+      ]
+    },
+    {
+      "id": "practice-5-815",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-1",
+      "topic": "평가서 5단계",
+      "body": "[자료 01] 평가가 80억, 검증 75억, 인근 78억\n[자료 02] 평가시점 2026.4, 사건 2026.6 (불의타)\n[물음] 신뢰성 검증?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 검증 차이 6.3%\n- 인근 +2.5%\n- 사후 사건 영향 X\n- 원평가 적정\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "검증 차이 6.3%",
+        "인근 +2.5%",
+        "사후 사건 영향 X",
+        "원평가 적정"
+      ]
+    },
+    {
+      "id": "practice-5-816",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-2",
+      "topic": "EBITDA 비교",
+      "body": "[자료 01] EBITDA 30억, 업종 EV/EBITDA 평균 12배\n[자료 02] 비상장 할인 30%\n[자료 03] 부채 50억\n[물음] EV와 주주가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- EV 30×12 = 360억\n- 비상장 360×0.7 = 252억\n- 주주가치 252-50 = 202억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "EV 30×12 = 360억",
+        "비상장 360×0.7 = 252억",
+        "주주가치 252-50 = 202억"
+      ]
+    },
+    {
+      "id": "practice-5-817",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-3",
+      "topic": "브랜드 손상",
+      "body": "[자료 01] 브랜드 장부 20억, 회수가능 사용가치 18억, 처분 17억\n[물음] 손상?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 회수 max(18,17) = 18억\n- 장부 20 > 18 → 손상 2억\n- 브랜드 환입 가능\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "회수 max(18,17) = 18억",
+        "장부 20 > 18 → 손상 2억",
+        "브랜드 환입 가능"
+      ]
+    },
+    {
+      "id": "practice-5-818",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-2",
+      "topic": "비상장 5방식",
+      "body": "[자료 01] 자산 100억, DCF 110억, PER 115억, PBR 105억, EV/EBITDA 120억\n[자료 02] 가중 자산 10%, DCF 40%, PER 20%, PBR 15%, EV/EBITDA 15%\n[물음] 결정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 100×0.1 + 110×0.4 + 115×0.2 + 105×0.15 + 120×0.15\n- = 10+44+23+15.75+18 = 110.75억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100×0.1 + 110×0.4 + 115×0.2 + 105×0.15 + 120×0.15",
+        "= 10+44+23+15.75+18 = 110.75억"
+      ]
+    },
+    {
+      "id": "practice-5-819",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-3",
+      "topic": "저작권 + 고객",
+      "body": "[자료 01] 저작권 연 로열티 10억, 영구환원율 12%\n[자료 02] 고객관계 연 영업이익 4억, 유지 6년, 연금 (12%, 6) = 4.11\n[물음] 합계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 저작권 83.3억\n- 고객 16.44억\n- 합계 99.7억\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저작권 83.3억",
+        "고객 16.44억",
+        "합계 99.7억"
+      ]
+    },
+    {
+      "id": "practice-5-820",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "5-1",
+      "topic": "시산조정 + 단가",
+      "body": "[자료 01] 원가 (단가 7,000,000원 × 500㎡) 35억\n[자료 02] 비교 (단가 7,500,000원) 37.5억\n[자료 03] 수익 (NOI 2.6억 / 환원율 7%) 37.14억\n[자료 04] 가중 비교 40%, 수익 40%, 원가 20%\n[물음] 결정 + 단가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 0.2×35 + 0.4×37.5 + 0.4×37.14\n- = 7+15+14.86 = 36.86억\n- 단가 36.86/500 = 7,372만/㎡\n- 절사 7,372,000\n\n## Ⅲ. 결론\n\n위 다중 보정 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.2×35 + 0.4×37.5 + 0.4×37.14",
+        "= 7+15+14.86 = 36.86억",
+        "단가 36.86/500 = 7,372만/㎡",
+        "절사 7,372,000"
       ]
     }
   ]
