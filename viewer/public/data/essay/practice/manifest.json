@@ -1,7 +1,7 @@
 {
-  "built_at": "2026-05-28T15:46:54.326708+00:00",
+  "built_at": "2026-05-28T15:54:03.782593+00:00",
   "subject": "감정평가실무",
-  "total": 2850,
+  "total": 2865,
   "chapters": [
     {
       "id": "2a",
@@ -192,8 +192,8 @@
       "id": "3",
       "title": "건물·복합·구분·임대료",
       "file": "3.json",
-      "count": 307,
-      "withAnswer": 307,
+      "count": 312,
+      "withAnswer": 312,
       "matchedAnswer": 307,
       "rounds": [
         4,
@@ -308,8 +308,8 @@
       "id": "4",
       "title": "유형별 평가",
       "file": "4.json",
-      "count": 283,
-      "withAnswer": 283,
+      "count": 288,
+      "withAnswer": 288,
       "matchedAnswer": 283,
       "rounds": [
         24
@@ -417,8 +417,8 @@
       "id": "6b",
       "title": "토지보상 공법상제한·특수",
       "file": "6b.json",
-      "count": 284,
-      "withAnswer": 284,
+      "count": 289,
+      "withAnswer": 289,
       "matchedAnswer": 272,
       "rounds": [
         8,
