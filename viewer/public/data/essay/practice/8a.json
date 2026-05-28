@@ -4,7 +4,7 @@
   "chapter": "8a",
   "chapterTitle": "목적별 평가",
   "source": "official",
-  "count": 200,
+  "count": 220,
   "withAnswer": 18,
   "matchedAnswer": 18,
   "rounds": [
@@ -3902,6 +3902,359 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "70-50 = 20억 잉여"
+      ]
+    },
+    {
+      "id": "practice-8a-821",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-1",
+      "topic": "담보 + LTV",
+      "body": "[자료] 시장 25억, 담보율 75%, LTV 60%",
+      "modelAnswer": "## 핵심 정리\n\n- 담보 18.75\n- LTV 11.25억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "담보 18.75",
+        "LTV 11.25억"
+      ]
+    },
+    {
+      "id": "practice-8a-822",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-1",
+      "topic": "DTI + MC",
+      "body": "[자료] 소득 1억, DTI 40%, MC 0.06",
+      "modelAnswer": "## 핵심 정리\n\n- 연 원리금 4,000만\n- 원금 4,000/0.06 = 6.67억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연 원리금 4,000만",
+        "원금 4,000/0.06 = 6.67억"
+      ]
+    },
+    {
+      "id": "practice-8a-823",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-1",
+      "topic": "부담권리",
+      "body": "[자료] LTV 한도 10억, 1순위 3억, 임차 2억, 조세 5천만",
+      "modelAnswer": "## 핵심 정리\n\n- 10 - 3 - 2 - 0.5 = 4.5억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10 - 3 - 2 - 0.5 = 4.5억"
+      ]
+    },
+    {
+      "id": "practice-8a-824",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-1",
+      "topic": "DSR",
+      "body": "[자료] 소득 1.5억, DSR 45%, 기존 원리금 2,000만",
+      "modelAnswer": "## 핵심 정리\n\n- 한도 6,750만 - 2,000 = 4,750만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "한도 6,750만 - 2,000 = 4,750만"
+      ]
+    },
+    {
+      "id": "practice-8a-825",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-1",
+      "topic": "담보 변동",
+      "body": "[자료] 시장 30→24억 (-20%), 기존 대출 18억",
+      "modelAnswer": "## 핵심 정리\n\n- 새 담보 18억\n- 새 LTV 100% (위기)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "새 담보 18억",
+        "새 LTV 100% (위기)"
+      ]
+    },
+    {
+      "id": "practice-8a-826",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-2",
+      "topic": "경매 낙찰",
+      "body": "[자료] 감정 20억, 1차 낙찰 85%, 인수 임차 4억",
+      "modelAnswer": "## 핵심 정리\n\n- 낙찰 17억\n- 총 부담 21억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "낙찰 17억",
+        "총 부담 21억"
+      ]
+    },
+    {
+      "id": "practice-8a-827",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-2",
+      "topic": "경매 배당",
+      "body": "[자료] 낙찰 15억, 조세 1억, 1순위 저당 5억, 가압류 3억, 임차 (소멸) 2억",
+      "modelAnswer": "## 핵심 정리\n\n- 조세 1 → 저당 5 → 가압류 3 → 임차 2\n- 잔여 4억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "조세 1 → 저당 5 → 가압류 3 → 임차 2",
+        "잔여 4억"
+      ]
+    },
+    {
+      "id": "practice-8a-828",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-2",
+      "topic": "유찰",
+      "body": "[자료] 감정 25억, 2회 유찰 (각 -20%) 후 낙찰 90%",
+      "modelAnswer": "## 핵심 정리\n\n- 최저 16억\n- 낙찰 14.4억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최저 16억",
+        "낙찰 14.4억"
+      ]
+    },
+    {
+      "id": "practice-8a-829",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-2",
+      "topic": "소송 보수",
+      "body": "[자료] 평가 100억, 본료 0.04%, 출석 4회 × 30만, 증언 2회 × 20만, 실비 20만",
+      "modelAnswer": "## 핵심 정리\n\n- 본료 400만 + 출석 120 + 증언 40 + 실비 20 = 580만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "본료 400만 + 출석 120 + 증언 40 + 실비 20 = 580만"
+      ]
+    },
+    {
+      "id": "practice-8a-830",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-2",
+      "topic": "대항력 vs 후순위",
+      "body": "[자료] 대항력 임차 3억 (인수), 후순위 임차 2억 (소멸)",
+      "modelAnswer": "## 핵심 정리\n\n- 매수인 인수 3억\n- 후순위는 배당",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매수인 인수 3억",
+        "후순위는 배당"
+      ]
+    },
+    {
+      "id": "practice-8a-831",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-3",
+      "topic": "국유 매각",
+      "body": "[자료] 시장 30억",
+      "modelAnswer": "## 핵심 정리\n\n- 매각가 30억 (최저)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매각가 30억 (최저)"
+      ]
+    },
+    {
+      "id": "practice-8a-832",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-3",
+      "topic": "대부료 5년",
+      "body": "[자료] 시장 20억, 5%, 5년",
+      "modelAnswer": "## 핵심 정리\n\n- 연 1억\n- 5년 5억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연 1억",
+        "5년 5억"
+      ]
+    },
+    {
+      "id": "practice-8a-833",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-3",
+      "topic": "재평가",
+      "body": "[자료] 장부 50억, 시장 80억",
+      "modelAnswer": "## 핵심 정리\n\n- 잉여 30억 (자본)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잉여 30억 (자본)"
+      ]
+    },
+    {
+      "id": "practice-8a-834",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-3",
+      "topic": "재평가 하락",
+      "body": "[자료] 장부 80억 (잉여 30), 시장 70억",
+      "modelAnswer": "## 핵심 정리\n\n- 잉여 -10억 (자본 차감)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잉여 -10억 (자본 차감)"
+      ]
+    },
+    {
+      "id": "practice-8a-835",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-3",
+      "topic": "양도세",
+      "body": "[자료] 양도 15억, 취득 8억, 경비 5천, 세율 30%",
+      "modelAnswer": "## 핵심 정리\n\n- 양도소득 6.5억\n- 세금 1.95억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "양도소득 6.5억",
+        "세금 1.95억"
+      ]
+    },
+    {
+      "id": "practice-8a-836",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-3",
+      "topic": "종부세",
+      "body": "[자료] 공시 합산 30억, 다주택 한도 6억, 세율 2%",
+      "modelAnswer": "## 핵심 정리\n\n- 과세표준 24억\n- 종부세 4,800만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "과세표준 24억",
+        "종부세 4,800만"
+      ]
+    },
+    {
+      "id": "practice-8a-837",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-3",
+      "topic": "REITs NAV",
+      "body": "[자료] 부동산 50억, 부채 20억, 주식 100만주",
+      "modelAnswer": "## 핵심 정리\n\n- NAV 30억\n- 주당 30,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "NAV 30억",
+        "주당 30,000원"
+      ]
+    },
+    {
+      "id": "practice-8a-838",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-3",
+      "topic": "REITs 시가",
+      "body": "[자료] NAV 30억, 시가총액 35억",
+      "modelAnswer": "## 핵심 정리\n\n- 프리미엄 17%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "프리미엄 17%"
+      ]
+    },
+    {
+      "id": "practice-8a-839",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-2",
+      "topic": "경매 + 임차",
+      "body": "[자료] 감정 30억, 낙찰 80%, 대항력 임차 6억",
+      "modelAnswer": "## 핵심 정리\n\n- 낙찰 24억\n- 인수 6억\n- 총 30억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "낙찰 24억",
+        "인수 6억",
+        "총 30억"
+      ]
+    },
+    {
+      "id": "practice-8a-840",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8a-1",
+      "topic": "LTV vs DTI",
+      "body": "[자료] LTV 한도 10억, DTI 한도 8억",
+      "modelAnswer": "## 핵심 정리\n\n- 적은 값 채택 8억 (DTI)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "적은 값 채택 8억 (DTI)"
       ]
     }
   ]

@@ -4,7 +4,7 @@
   "chapter": "7",
   "chapterTitle": "건축물·영업·기타 보상",
   "source": "official",
-  "count": 188,
+  "count": 213,
   "withAnswer": 13,
   "matchedAnswer": 13,
   "rounds": [
@@ -3672,6 +3672,445 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "3,600만 → 한도 2,400만"
+      ]
+    },
+    {
+      "id": "practice-7-821",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-1",
+      "topic": "건물 부분 편입",
+      "body": "[자료] 단가 1,800,000원, 편입 150㎡, 잔가율 0.7, 보강비 6,000만",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 1,800×150×0.7 = 1.89억\n- +6,000만 = 2.49억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 1,800×150×0.7 = 1.89억",
+        "+6,000만 = 2.49억"
+      ]
+    },
+    {
+      "id": "practice-7-822",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-1",
+      "topic": "주체+부대",
+      "body": "[자료] 주체 단가 1,500,000(70%), 부대 700,000(30%), 면적 2,000㎡, 잔가율 주체 0.7 / 부대 0.3",
+      "modelAnswer": "## 핵심 정리\n\n- 주체 1,500×2,000×0.7×0.7 = 14.7억\n- 부대 700×2,000×0.3×0.3 = 1.26억\n- 합 15.96억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주체 1,500×2,000×0.7×0.7 = 14.7억",
+        "부대 700×2,000×0.3×0.3 = 1.26억",
+        "합 15.96억"
+      ]
+    },
+    {
+      "id": "practice-7-823",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-1",
+      "topic": "잔존 가치손실",
+      "body": "[자료] 종전 잔존 가치 20억, 손실 -5%",
+      "modelAnswer": "## 핵심 정리\n\n- 1억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1억"
+      ]
+    },
+    {
+      "id": "practice-7-824",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-1",
+      "topic": "건물 + 보강 종합",
+      "body": "[자료] 적산 25억, 잔여 가치손실 8%, 보강비 1억",
+      "modelAnswer": "## 핵심 정리\n\n- 종전 25 → 종후 25×0.92 = 23억\n- 손실 2억\n- 보강 1억 → 보상 3억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종전 25 → 종후 25×0.92 = 23억",
+        "손실 2억",
+        "보강 1억 → 보상 3억"
+      ]
+    },
+    {
+      "id": "practice-7-825",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-1",
+      "topic": "용도변경 후",
+      "body": "[자료] 상가용 단가 2,500,000원, 면적 800㎡, 잔가율 0.6",
+      "modelAnswer": "## 핵심 정리\n\n- 2,500×800×0.6 = 12억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2,500×800×0.6 = 12억"
+      ]
+    },
+    {
+      "id": "practice-7-826",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "휴업 4월 + 부대",
+      "body": "[자료] 영업이익 2.4억, 4월 휴업, 이전 6%, 시설 4%, 광고 1,000만",
+      "modelAnswer": "## 핵심 정리\n\n- 4월 영업 8,000만\n- 이전 480만 + 시설 320만 + 광고 1,000만 = 1,800만\n- 총 9,800만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4월 영업 8,000만",
+        "이전 480만 + 시설 320만 + 광고 1,000만 = 1,800만",
+        "총 9,800만"
+      ]
+    },
+    {
+      "id": "practice-7-827",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "폐업 2년분 + 고정",
+      "body": "[자료] 영업이익 3억, 폐업, 고정자산 1.5억",
+      "modelAnswer": "## 핵심 정리\n\n- 3×2 = 6억 + 1.5억 = 7.5억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3×2 = 6억 + 1.5억 = 7.5억"
+      ]
+    },
+    {
+      "id": "practice-7-828",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "휴업 6월",
+      "body": "[자료] 영업이익 1.8억, 6월 휴업 (인허가), 부대 10%",
+      "modelAnswer": "## 핵심 정리\n\n- 6월 영업 9,000만\n- 부대 900만\n- 총 9,900만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6월 영업 9,000만",
+        "부대 900만",
+        "총 9,900만"
+      ]
+    },
+    {
+      "id": "practice-7-829",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "영농 + 한도",
+      "body": "[자료] 답 4,000㎡, 통계 800원, 실제 1,300원/㎡, 2년",
+      "modelAnswer": "## 핵심 정리\n\n- 통계 한도 800×1.5 = 1,200원\n- 실제 1,300 → 한도 1,200 적용\n- 1,200×4,000×2 = 960만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통계 한도 800×1.5 = 1,200원",
+        "실제 1,300 → 한도 1,200 적용",
+        "1,200×4,000×2 = 960만"
+      ]
+    },
+    {
+      "id": "practice-7-830",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "농작물",
+      "body": "[자료] 답 3,000㎡, 매출 1,500kg × 2,500원 = 375만, 잔여비율 0.83",
+      "modelAnswer": "## 핵심 정리\n\n- 375×0.83 = 311만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "375×0.83 = 311만"
+      ]
+    },
+    {
+      "id": "practice-7-831",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "과수 + 영농",
+      "body": "[자료] 사과 50주, 가식 40×180만 + 곤란 10×240만, 영농 과수원 2,000㎡ × 1,800원 × 2년",
+      "modelAnswer": "## 핵심 정리\n\n- 7,200만 + 2,400만 + 720만 = 1.032억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,200만 + 2,400만 + 720만 = 1.032억"
+      ]
+    },
+    {
+      "id": "practice-7-832",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "입목 + 분묘",
+      "body": "[자료] 입목 200본 × 0.5 × 30,000원, 분묘 단분 4기 × 300만",
+      "modelAnswer": "## 핵심 정리\n\n- 입목 300만 + 단분 1,200만 = 1,500만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "입목 300만 + 단분 1,200만 = 1,500만"
+      ]
+    },
+    {
+      "id": "practice-7-833",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "시설하우스",
+      "body": "[자료] 시설 500㎡ × 1,500,000원 × 잔가 0.5, 영농 1,500원/㎡ × 2년",
+      "modelAnswer": "## 핵심 정리\n\n- 시설 3.75억 + 영농 150만 = 3.77억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시설 3.75억 + 영농 150만 = 3.77억"
+      ]
+    },
+    {
+      "id": "practice-7-834",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "축산 종합",
+      "body": "[자료] 한우 30두 × 400만, 축사 500㎡ × 1,000,000원 × 잔가 0.6, 영농 8천만 × 2",
+      "modelAnswer": "## 핵심 정리\n\n- 한우 1.2억 + 축사 3억 + 영농 1.6억 = 5.8억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "한우 1.2억 + 축사 3억 + 영농 1.6억 = 5.8억"
+      ]
+    },
+    {
+      "id": "practice-7-835",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "폐업 + 영업권",
+      "body": "[자료] 폐업 보상 6억 + 고정 1억. 시장 영업권 가치 4억 (참고)",
+      "modelAnswer": "## 핵심 정리\n\n- 폐업 7억\n- 영업권 4억은 보상 외",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "폐업 7억",
+        "영업권 4억은 보상 외"
+      ]
+    },
+    {
+      "id": "practice-7-836",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-3",
+      "topic": "주거 + 4인",
+      "body": "[자료] 가구원 4인 (1인 200만/월), 건물 1.5억 × 30% = 4,500만 → 한도 2,400만, 동산 450만",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 3,200만 + 정착 2,400만 + 동산 450만 = 6,050만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 3,200만 + 정착 2,400만 + 동산 450만 = 6,050만"
+      ]
+    },
+    {
+      "id": "practice-7-837",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-3",
+      "topic": "주거 5인",
+      "body": "[자료] 가구원 5명, 1인 220만, 건물 1.2억, 동산 500만",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 4,400만 + 정착 2,400만 (한도) + 동산 500만 = 7,300만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 4,400만 + 정착 2,400만 (한도) + 동산 500만 = 7,300만"
+      ]
+    },
+    {
+      "id": "practice-7-838",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-3",
+      "topic": "대가족 7인",
+      "body": "[자료] 가구원 7명, 1인 230만, 건물 1.8억, 동산 700만",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 6,440만 + 정착 2,400만 (한도) + 동산 700만 = 9,540만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 6,440만 + 정착 2,400만 (한도) + 동산 700만 = 9,540만"
+      ]
+    },
+    {
+      "id": "practice-7-839",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-3",
+      "topic": "대토 vs 현금",
+      "body": "[자료] 토지 평가 8억",
+      "modelAnswer": "## 핵심 정리\n\n- 대토 8억 (동일 가치) 또는 현금 8억\n- 주거자 선택",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "대토 8억 (동일 가치) 또는 현금 8억",
+        "주거자 선택"
+      ]
+    },
+    {
+      "id": "practice-7-840",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-3",
+      "topic": "주거+영업 겸용",
+      "body": "[자료] 건물 1.2억 (주거 60%, 영업 40%)",
+      "modelAnswer": "## 핵심 정리\n\n- 주거 7,200만 / 영업 4,800만 분리 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주거 7,200만 / 영업 4,800만 분리 평가"
+      ]
+    },
+    {
+      "id": "practice-7-841",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "폐업 + 영업권 비교",
+      "body": "[자료] 영업이익 4억, 폐업 + 고정 1억. 영업권 시장 가치 8억 (참고)",
+      "modelAnswer": "## 핵심 정리\n\n- 폐업 9억\n- 영업권 8억 = 보상 외 미회수",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "폐업 9억",
+        "영업권 8억 = 보상 외 미회수"
+      ]
+    },
+    {
+      "id": "practice-7-842",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-1",
+      "topic": "용도변경 + 잔가율",
+      "body": "[자료] 합법 변경 상가용 2,000,000원, 면적 1,000㎡, 잔가율 0.6",
+      "modelAnswer": "## 핵심 정리\n\n- 2,000×1,000×0.6 = 12억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2,000×1,000×0.6 = 12억"
+      ]
+    },
+    {
+      "id": "practice-7-843",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "농경지 + 시설하우스",
+      "body": "[자료] 답 5,000×100만 + 시설 800×150만 × 잔가 0.6",
+      "modelAnswer": "## 핵심 정리\n\n- 50억 + 7.2억 = 57.2억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50억 + 7.2억 = 57.2억"
+      ]
+    },
+    {
+      "id": "practice-7-844",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-3",
+      "topic": "주거 + 임시",
+      "body": "[자료] 4인 가구 6,050만 + 임시 거주비 1,000만",
+      "modelAnswer": "## 핵심 정리\n\n- 7,050만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,050만"
+      ]
+    },
+    {
+      "id": "practice-7-845",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "7-2",
+      "topic": "대형 영업장",
+      "body": "[자료] 영업이익 5억, 폐업, 고정 2억",
+      "modelAnswer": "## 핵심 정리\n\n- 5×2 + 2 = 12억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5×2 + 2 = 12억"
       ]
     }
   ]
