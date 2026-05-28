@@ -4,7 +4,7 @@
   "chapter": "3",
   "chapterTitle": "건물·복합·구분·임대료",
   "source": "official",
-  "count": 162,
+  "count": 202,
   "withAnswer": 29,
   "matchedAnswer": 29,
   "rounds": [
@@ -3253,6 +3253,780 @@
         "임차권 4,800×2.58 = 12,384만 = 1.24억",
         "임대권 손실 대칭 1.24억",
         "갱신: 시장 1,380만 vs 계약×변동률 920만, 평균 1,150만/월"
+      ]
+    },
+    {
+      "id": "practice-3-701",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-1",
+      "topic": "재조달 종합",
+      "body": "[자료] 단가 1,500,000원, 면적 2,000㎡, 시점수정 1.04. 재조달?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 1,500×1.04×2,000\n- = 31.2억\n- 시점환산\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,500×1.04×2,000",
+        "= 31.2억",
+        "시점환산"
+      ]
+    },
+    {
+      "id": "practice-3-702",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-1",
+      "topic": "정액법 + 잔존가치",
+      "body": "[자료] 재조달 30억, 정액법 (경과 20, 내용 50, 잔존 10%). 적산?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 감가율 0.9×0.4 = 0.36\n- 잔가율 0.64\n- 30×0.64 = 19.2억\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "감가율 0.9×0.4 = 0.36",
+        "잔가율 0.64",
+        "30×0.64 = 19.2억"
+      ]
+    },
+    {
+      "id": "practice-3-703",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-1",
+      "topic": "정률법 종합",
+      "body": "[자료] 신품 20억, 정률 매년 0.9, 7년. 적산?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 0.9^7 = 0.4783\n- 20×0.4783 = 9.57억\n- 정률법\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.9^7 = 0.4783",
+        "20×0.4783 = 9.57억",
+        "정률법"
+      ]
+    },
+    {
+      "id": "practice-3-704",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-1",
+      "topic": "주체+부대",
+      "body": "[자료] 주체 RC 2,000,000원 (70%), 부대 800,000원 (30%), 면적 2,500㎡, 경과 15년, 잔가율 주체 0.7 / 부대 0.4",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 주체 2,000×2,500×0.7×0.7 = 24.5억\n- 부대 800×2,500×0.3×0.4 = 2.4억\n- 합 26.9억\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주체 2,000×2,500×0.7×0.7 = 24.5억",
+        "부대 800×2,500×0.3×0.4 = 2.4억",
+        "합 26.9억"
+      ]
+    },
+    {
+      "id": "practice-3-705",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-1",
+      "topic": "관찰감가",
+      "body": "[자료] 정액 적산 30억, 리모델링 효과 +12%. 최종?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 30×1.12 = 33.6억\n- 관찰감가법\n- 리모델링 가치 회복\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30×1.12 = 33.6억",
+        "관찰감가법",
+        "리모델링 가치 회복"
+      ]
+    },
+    {
+      "id": "practice-3-706",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-1",
+      "topic": "기능적 감가",
+      "body": "[자료] 정액 적산 50억, 기능적 감가 8%. 최종?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 50×(1-0.08) = 46억\n- 기능적 감가\n- 설비 노후\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50×(1-0.08) = 46억",
+        "기능적 감가",
+        "설비 노후"
+      ]
+    },
+    {
+      "id": "practice-3-707",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-1",
+      "topic": "경제적 감가",
+      "body": "[자료] 정액 적산 80억, 외부 환경 악화 -5%. 최종?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 80×0.95 = 76억\n- 경제적 감가\n- 환경 영향\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80×0.95 = 76억",
+        "경제적 감가",
+        "환경 영향"
+      ]
+    },
+    {
+      "id": "practice-3-708",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-1",
+      "topic": "복합 감가",
+      "body": "[자료] 정액 60억, 기능 5% + 경제 3%. 최종?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 60×0.95×0.97 = 55.29억\n- 복합 감가\n- 순차 적용\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "60×0.95×0.97 = 55.29억",
+        "복합 감가",
+        "순차 적용"
+      ]
+    },
+    {
+      "id": "practice-3-709",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-2",
+      "topic": "일체효용 + 시산",
+      "body": "[자료] 별도 합계 50억, 일체효용 +8%, 시산조정 (별도 50%, 일체 50%). 결정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 일체 50×1.08 = 54억\n- 평균 (50+54)/2 = 52억\n- 시산조정\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일체 50×1.08 = 54억",
+        "평균 (50+54)/2 = 52억",
+        "시산조정"
+      ]
+    },
+    {
+      "id": "practice-3-710",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-2",
+      "topic": "토지잔여 종합",
+      "body": "[자료] 전체 NOI 5억, 건물 가액 15억 (환원율 8%), 토지환원율 5%. 토지가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 건물 NOI 1.2억\n- 토지 NOI 3.8억\n- 3.8/0.05 = 76억\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "건물 NOI 1.2억",
+        "토지 NOI 3.8억",
+        "3.8/0.05 = 76억"
+      ]
+    },
+    {
+      "id": "practice-3-711",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-2",
+      "topic": "건물잔여 종합",
+      "body": "[자료] 전체 NOI 6억, 토지 가액 30억 (환원율 5%), 건물환원율 9%. 건물가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 토지 NOI 1.5억\n- 건물 NOI 4.5억\n- 4.5/0.09 = 50억\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 NOI 1.5억",
+        "건물 NOI 4.5억",
+        "4.5/0.09 = 50억"
+      ]
+    },
+    {
+      "id": "practice-3-712",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-2",
+      "topic": "복합 3방식",
+      "body": "[자료] 원가 80, 비교 90, 수익 100억. 가중 비교 40/수익 40/원가 20%. 결정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 80×0.2+90×0.4+100×0.4\n- = 16+36+40 = 92억\n- 시산조정\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80×0.2+90×0.4+100×0.4",
+        "= 16+36+40 = 92억",
+        "시산조정"
+      ]
+    },
+    {
+      "id": "practice-3-713",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-2",
+      "topic": "복합 + 일체",
+      "body": "[자료] 토지 40 + 건물 30 = 70억 별도, 일체 거래사례 단가 4,000,000원/㎡-연면적, 2,000㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 일체 80억\n- 시너지 80-70 = 10억 (+14%)\n- 시장 일체 우월\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일체 80억",
+        "시너지 80-70 = 10억 (+14%)",
+        "시장 일체 우월"
+      ]
+    },
+    {
+      "id": "practice-3-714",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-2",
+      "topic": "시산 + 환원율",
+      "body": "[자료] NOI 7억, 환원율 6%→8% 변동 가능성. 수익가액 범위?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 최저 7/0.08 = 87.5억\n- 최고 7/0.06 = 116.7억\n- 환원율 ±1% 큰 변동\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최저 7/0.08 = 87.5억",
+        "최고 7/0.06 = 116.7억",
+        "환원율 ±1% 큰 변동"
+      ]
+    },
+    {
+      "id": "practice-3-715",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-3",
+      "topic": "대지권 종합",
+      "body": "[자료] 1동 대지 2,000㎡, 1동 전유 8,000㎡, 대상 전유 100㎡, 토지 단가 6,000,000원",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 대지권 비율 100/8,000 = 1.25%\n- 면적 2,000×0.0125 = 25㎡\n- 가치 25×6,000 = 1.5억\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "대지권 비율 100/8,000 = 1.25%",
+        "면적 2,000×0.0125 = 25㎡",
+        "가치 25×6,000 = 1.5억"
+      ]
+    },
+    {
+      "id": "practice-3-716",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-3",
+      "topic": "층 효용비 + 사례",
+      "body": "[자료] 사례 1층 5,000만/㎡, 효용비 1층 100, 2층 65, 지하 35. 2층·지하 단가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 2층 5,000×0.65 = 3,250만\n- 지하 5,000×0.35 = 1,750만\n- 층 효용비\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2층 5,000×0.65 = 3,250만",
+        "지하 5,000×0.35 = 1,750만",
+        "층 효용비"
+      ]
+    },
+    {
+      "id": "practice-3-717",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-3",
+      "topic": "평형 효용비",
+      "body": "[자료] 84A 사례 14억, A 100, B 96, 대상 84B. 대상가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 14×96/100 = 13.44억\n- 평형 보정\n- 효용비 적용\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "14×96/100 = 13.44억",
+        "평형 보정",
+        "효용비 적용"
+      ]
+    },
+    {
+      "id": "practice-3-718",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-3",
+      "topic": "향·조망 보정",
+      "body": "[자료] 사례 13억 (동향), 대상 남향 +5%, 조망 한강 +8%. 대상가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 13×1.05×1.08 = 14.74억\n- 향·조망 보정\n- 곱셈 종합\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "13×1.05×1.08 = 14.74억",
+        "향·조망 보정",
+        "곱셈 종합"
+      ]
+    },
+    {
+      "id": "practice-3-719",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-3",
+      "topic": "공급면적 단가",
+      "body": "[자료] 전유 84㎡, 공용 26㎡, 거래 14억. 공급면적 단가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 공급 110㎡\n- 14억/110 = 1,272만/㎡\n- 공급면적 기준\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공급 110㎡",
+        "14억/110 = 1,272만/㎡",
+        "공급면적 기준"
+      ]
+    },
+    {
+      "id": "practice-3-720",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-3",
+      "topic": "전유면적 단가",
+      "body": "[자료] 거래 14억, 전유 84㎡. 전유 단가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 14억/84 = 1,667만/㎡\n- 전유면적 기준\n- 실 사용 단가\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "14억/84 = 1,667만/㎡",
+        "전유면적 기준",
+        "실 사용 단가"
+      ]
+    },
+    {
+      "id": "practice-3-721",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-4",
+      "topic": "적산법 종합",
+      "body": "[자료] 기초 50억, 기대이율 5.5%, 경비 5,000만/년. 연 임대료?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 50×0.055+0.5 = 2.75+0.5 = 3.25억/년\n- 적산법\n- 월 2,708만\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50×0.055+0.5 = 2.75+0.5 = 3.25억/년",
+        "적산법",
+        "월 2,708만"
+      ]
+    },
+    {
+      "id": "practice-3-722",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-4",
+      "topic": "수익분석법",
+      "body": "[자료] 매출 80억, 임대료 비율 10%. 연 임대료?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 80×0.10 = 8억/년\n- 수익분석법\n- 월 6,667만\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80×0.10 = 8억/년",
+        "수익분석법",
+        "월 6,667만"
+      ]
+    },
+    {
+      "id": "practice-3-723",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-4",
+      "topic": "임대사례비교",
+      "body": "[자료] 사례 단가 30,000원/㎡/월, 시점 1.03, 개별 1.02, 대상 250㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 보정 30,000×1.03×1.02 = 31,518원\n- 월 31,518×250 = 약 788만\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보정 30,000×1.03×1.02 = 31,518원",
+        "월 31,518×250 = 약 788만"
+      ]
+    },
+    {
+      "id": "practice-3-724",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-4",
+      "topic": "임차권 종합",
+      "body": "[자료] 시장 월세 1,000만, 계약 700만, 잔여 4년, 연금현가(7%, 4) = 3.39",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 월차액 300만 → 연 3,600만\n- 3,600×3.39 = 1.22억\n- 임차권 가치\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "월차액 300만 → 연 3,600만",
+        "3,600×3.39 = 1.22억",
+        "임차권 가치"
+      ]
+    },
+    {
+      "id": "practice-3-725",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-4",
+      "topic": "전월세 환산 종합",
+      "body": "[자료] 보증금 2억, 월세 200만, 전월세 전환율 5%. 완전월세·완전전세?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 완전월세 200+2억×5%/12 = 283만\n- 완전전세 2+2억(=200×12/0.05) = 4.8억\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "완전월세 200+2억×5%/12 = 283만",
+        "완전전세 2+2억(=200×12/0.05) = 4.8억"
+      ]
+    },
+    {
+      "id": "practice-3-726",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-5",
+      "topic": "DCF 종합 단순",
+      "body": "[자료] 1년 NOI 5억, 성장 2%, 보유 5년, 매각환원 6%, 할인율 7.5%",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 5년 PV 약 21억\n- 매각 5×1.02^5/0.06 = 92.04 → PV 64.13\n- 합 85.13억\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5년 PV 약 21억",
+        "매각 5×1.02^5/0.06 = 92.04 → PV 64.13",
+        "합 85.13억"
+      ]
+    },
+    {
+      "id": "practice-3-727",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-5",
+      "topic": "환원율 4방식 평균",
+      "body": "[자료] 시장추출 7.0, 요소구성 6.8, 투자결합 7.2, 부채감당 5.5%. 평균?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- (7.0+6.8+7.2+5.5)/4 = 6.625%\n- 4방식 평균\n- 시장추출 우선 권장\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(7.0+6.8+7.2+5.5)/4 = 6.625%",
+        "4방식 평균",
+        "시장추출 우선 권장"
+      ]
+    },
+    {
+      "id": "practice-3-728",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-5",
+      "topic": "직접환원 + 비교",
+      "body": "[자료] NOI 8억, 환원율 7%. 비교법 단가 5,000,000원, 면적 3,000㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 수익 114.3억\n- 비교 150억\n- 시산 차이 분석\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수익 114.3억",
+        "비교 150억",
+        "시산 차이 분석"
+      ]
+    },
+    {
+      "id": "practice-3-729",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-5",
+      "topic": "시점환산 NOI",
+      "body": "[자료] 2024 NOI 5억, 2025 +3%, 2026 +5%. 2026 NOI?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- 5×1.03×1.05 = 5.41억\n- 복리 성장\n- 시점환산\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5×1.03×1.05 = 5.41억",
+        "복리 성장",
+        "시점환산"
+      ]
+    },
+    {
+      "id": "practice-3-730",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "3-5",
+      "topic": "PGI → NOI 종합",
+      "body": "[자료] PGI 15억, 공실 8%, 경비 28%. NOI?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제.\n\n## Ⅱ. 본론\n\n- EGI 15×0.92 = 13.8억\n- NOI 13.8×0.72 = 9.94억\n- PGI→EGI→NOI\n\n## Ⅲ. 결론\n\n위 산식 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "EGI 15×0.92 = 13.8억",
+        "NOI 13.8×0.72 = 9.94억",
+        "PGI→EGI→NOI"
+      ]
+    },
+    {
+      "id": "practice-3-821",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "3-1",
+      "topic": "건물 원가 + 감가 종합",
+      "body": "[자료 01] RC조 6층 3,500㎡, 신축 22년\n[자료 02] 단가 주체 2,000,000원(70%), 부대 800,000원(30%)\n[자료 03] 내용 주체 50년(잔존 5%), 부대 25년(잔존 0%)\n[자료 04] 관찰감가 +8% (리모델링)\n[자료 05] 기능 6% + 경제 4%\n[물음] 적산?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 주체 잔가율 1-0.95×0.44 = 0.582\n- 주체 2,000×3,500×0.7×0.582 = 28.52억\n- 부대 잔가율 1-1×0.88 = 0.12\n- 부대 800×3,500×0.3×0.12 = 1.01억\n- 정액 합 29.53억\n- 관찰 ×1.08 = 31.89억\n- 기능·경제 31.89×0.94×0.96 = 28.78억\n\n## Ⅲ. 결론\n\n위 다중 보정 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주체 잔가율 1-0.95×0.44 = 0.582",
+        "주체 2,000×3,500×0.7×0.582 = 28.52억",
+        "부대 잔가율 1-1×0.88 = 0.12",
+        "부대 800×3,500×0.3×0.12 = 1.01억",
+        "정액 합 29.53억",
+        "관찰 ×1.08 = 31.89억",
+        "기능·경제 31.89×0.94×0.96 = 28.78억"
+      ]
+    },
+    {
+      "id": "practice-3-822",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "3-2",
+      "topic": "복합 3방식 + 시산",
+      "body": "[자료 01] 토지 8,000,000×600 (시점 1.04, 개별 1.05, 그밖의 1.10) = 57.65억\n[자료 02] 건물 적산 35억\n[자료 03] 비교법 100억 (일체)\n[자료 04] 수익 NOI 7억, 환원율 6.5% = 107.7억\n[자료 05] 가중 수익 40 / 비교 40 / 원가 20%\n[물음] 결정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 원가 92.65억\n- 비교 100\n- 수익 107.7\n- 가중 92.65×0.2+100×0.4+107.7×0.4 = 18.53+40+43.08 = 101.61억\n\n## Ⅲ. 결론\n\n위 다중 보정 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원가 92.65억",
+        "비교 100",
+        "수익 107.7",
+        "가중 92.65×0.2+100×0.4+107.7×0.4 = 18.53+40+43.08 = 101.61억"
+      ]
+    },
+    {
+      "id": "practice-3-823",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "3-3",
+      "topic": "아파트 종합",
+      "body": "[자료 01] 대상 84A 14층, 사례 3건\n- A 84A 12층 13.5억 (2026.2)\n- B 84B 8층 12억 (2026.3)\n- C 84A 18층 14.2억 (2026.4)\n[자료 02] 시점 → 5월: A 1.02, B 1.015, C 1.010\n[자료 03] 층 효용: 12층 100, 14층 102, 18층 100, 8층 95\n[자료 04] 평형: A 100, B 96\n[물음] 결정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 사례 A: 13.5×1.02×102/100 = 14.05억\n- 사례 B: 12×1.015×102/95×100/96 = 13.59억\n- 사례 C: 14.2×1.010×102/100 = 14.62억\n- 평균 14.09억 결정\n\n## Ⅲ. 결론\n\n위 다중 보정 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사례 A: 13.5×1.02×102/100 = 14.05억",
+        "사례 B: 12×1.015×102/95×100/96 = 13.59억",
+        "사례 C: 14.2×1.010×102/100 = 14.62억",
+        "평균 14.09억 결정"
+      ]
+    },
+    {
+      "id": "practice-3-824",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "3-4",
+      "topic": "임대료 시장 vs 계약",
+      "body": "[자료 01] 시장 월세 1,200만, 계약 800만, 잔여 5년\n[자료 02] 시장 보증금 2억, 계약 1억, 전환율 5%\n[자료 03] 연금현가 (7%, 5) = 4.10\n[물음] 임차권 가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 월차액 400만 → 연 4,800만\n- 보증금 차액 1억×5% = 500만/년\n- 연 합 5,300만\n- 5,300×4.10 = 2.17억\n\n## Ⅲ. 결론\n\n위 다중 보정 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "월차액 400만 → 연 4,800만",
+        "보증금 차액 1억×5% = 500만/년",
+        "연 합 5,300만",
+        "5,300×4.10 = 2.17억"
+      ]
+    },
+    {
+      "id": "practice-3-825",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "3-5",
+      "topic": "DCF 5년 종합",
+      "body": "[자료 01] 1년 NOI 8억, 성장 2.5%\n[자료 02] 보유 5년\n[자료 03] 매각 환원 6%, 할인 7.5%\n[자료 04] 매각비용 2.5%\n[물음] DCF?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- NOI: 8/8.2/8.41/8.62/8.83 (억) → 5년 PV 약 34.42\n- 6년 9.05 → 매각 9.05/0.06 = 150.83\n- 비용 2.5% → 순 147.06\n- 매각 PV 147.06/1.075^5 = 102.41\n- DCF 34.42 + 102.41 = 136.83억\n\n## Ⅲ. 결론\n\n위 다중 보정 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "NOI: 8/8.2/8.41/8.62/8.83 (억) → 5년 PV 약 34.42",
+        "6년 9.05 → 매각 9.05/0.06 = 150.83",
+        "비용 2.5% → 순 147.06",
+        "매각 PV 147.06/1.075^5 = 102.41",
+        "DCF 34.42 + 102.41 = 136.83억"
+      ]
+    },
+    {
+      "id": "practice-3-826",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "3-2",
+      "topic": "잔여법 + 비교",
+      "body": "[자료 01] 전체 NOI 6억\n[자료 02] 건물 가액 20억, 건물 환원율 8%\n[자료 03] 토지 환원율 5%\n[자료 04] 비교법 (참고) 80억\n[물음] 토지잔여 vs 비교?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 건물 NOI 1.6억\n- 토지 NOI 4.4억\n- 토지 4.4/0.05 = 88억\n- 건물+토지 = 108억\n- 비교 80억과 차이 +35%\n- 시산조정 (수익 60%, 비교 40%): 108×0.6+80×0.4 = 64.8+32 = 96.8억\n\n## Ⅲ. 결론\n\n위 다중 보정 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "건물 NOI 1.6억",
+        "토지 NOI 4.4억",
+        "토지 4.4/0.05 = 88억",
+        "건물+토지 = 108억",
+        "비교 80억과 차이 +35%",
+        "시산조정 (수익 60%, 비교 40%): 108×0.6+80×0.4 = 64.8+32 = 96.8억"
+      ]
+    },
+    {
+      "id": "practice-3-827",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "3-3",
+      "topic": "구분소유 + 대지권",
+      "body": "[자료 01] 1동 대지 2,500㎡, 전유 합 10,000㎡\n[자료 02] 대상 84A 10층 (효용 100)\n[자료 03] 사례 84A 5층 (효용 98), 거래 13억 (2026.3)\n[자료 04] 시점 → 5월: 1.02\n[자료 05] 토지 단가 8,000,000원\n[물음] 평가 + 대지권?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 대지권 비율 0.84%, 면적 21㎡\n- 대지권 가치 21×8,000 = 1.68억\n- 사례 보정 13×1.02×100/98 = 13.53억\n- 건물+대지권 일체 13.53억\n\n## Ⅲ. 결론\n\n위 다중 보정 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "대지권 비율 0.84%, 면적 21㎡",
+        "대지권 가치 21×8,000 = 1.68억",
+        "사례 보정 13×1.02×100/98 = 13.53억",
+        "건물+대지권 일체 13.53억"
+      ]
+    },
+    {
+      "id": "practice-3-828",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "3-4",
+      "topic": "임대료 3방식 종합",
+      "body": "[자료 01] 비교: 사례 단가 35,000원/㎡/월, 시점 1.02, 개별 1.0\n[자료 02] 적산: 기초 30억, 기대이율 5.5%, 경비 3,000만/년\n[자료 03] 수익분석: 매출 30억, 임대료 비율 12%\n[자료 04] 대상 200㎡\n[자료 05] 가중 비교 50, 적산 25, 수익 25%\n[물음] 결정 월 임대료?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 비교 35,000×1.02×200 = 714만/월\n- 적산 30×0.055+0.3 = 1.95억/년 = 1,625만/월\n- 수익 30×0.12 = 3.6억/년 = 3,000만/월\n- 가중 714×0.5 + 1,625×0.25 + 3,000×0.25 = 357 + 406 + 750 = 1,513만/월\n\n## Ⅲ. 결론\n\n위 다중 보정 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "비교 35,000×1.02×200 = 714만/월",
+        "적산 30×0.055+0.3 = 1.95억/년 = 1,625만/월",
+        "수익 30×0.12 = 3.6억/년 = 3,000만/월",
+        "가중 714×0.5 + 1,625×0.25 + 3,000×0.25 = 357 + 406 + 750 = 1,513만/월"
+      ]
+    },
+    {
+      "id": "practice-3-829",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "3-5",
+      "topic": "환원율 종합 4방식",
+      "body": "[자료 01] 시장추출 4건: NOI/거래 = 7.0, 6.8, 7.2, 6.9%\n[자료 02] 요소구성: 무위험 3% + 부동산 3% + 비유동 1% = 7%\n[자료 03] 투자결합: E비 50%×9% + D비 50%×0.065 = 7.75%\n[자료 04] 부채감당: DCR 1.3 × LTV 60% × MC 0.064 = 5%\n[자료 05] 가중 시장 50, 요소 20, 결합 20, 부채 10\n[물음] 적용 환원율?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 시장 평균 6.975%\n- 4방식 평균 6.68%\n- 가중 6.975×0.5+7×0.2+7.75×0.2+5×0.1 = 3.49+1.4+1.55+0.5 = 6.94%\n- 시장추출 중심 채택 7%\n\n## Ⅲ. 결론\n\n위 다중 보정 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 평균 6.975%",
+        "4방식 평균 6.68%",
+        "가중 6.975×0.5+7×0.2+7.75×0.2+5×0.1 = 3.49+1.4+1.55+0.5 = 6.94%",
+        "시장추출 중심 채택 7%"
+      ]
+    },
+    {
+      "id": "practice-3-830",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "3-1",
+      "topic": "주체·부대 + 시점",
+      "body": "[자료 01] 주체 단가 2,200,000원 (70%), 부대 900,000원 (30%)\n[자료 02] 신축 18년, 면적 4,000㎡\n[자료 03] 내용 주체 50년(잔존 5%), 부대 25년(잔존 0%)\n[자료 04] 시점수정 1.05\n[물음] 시점환산 단가 + 적산?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 시점환산: 주체 2,310,000, 부대 945,000\n- 주체 잔가율 0.658, 적산 2,310×4,000×0.7×0.658 = 42.56억\n- 부대 잔가율 0.28, 적산 945×4,000×0.3×0.28 = 3.17억\n- 합계 45.73억\n\n## Ⅲ. 결론\n\n위 다중 보정 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점환산: 주체 2,310,000, 부대 945,000",
+        "주체 잔가율 0.658, 적산 2,310×4,000×0.7×0.658 = 42.56억",
+        "부대 잔가율 0.28, 적산 945×4,000×0.3×0.28 = 3.17억",
+        "합계 45.73억"
       ]
     }
   ]
