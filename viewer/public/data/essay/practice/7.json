@@ -4,7 +4,7 @@
   "chapter": "7",
   "chapterTitle": "건축물·영업·기타 보상",
   "source": "official",
-  "count": 173,
+  "count": 188,
   "withAnswer": 13,
   "matchedAnswer": 13,
   "rounds": [
@@ -3416,6 +3416,262 @@
         "학비 2,000만",
         "토지 8억 (대토 또는 현금)",
         "총 9.35억"
+      ]
+    },
+    {
+      "id": "practice-7-731",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-1",
+      "topic": "재조달",
+      "body": "[자료] 단가 1,500,000원/㎡ × 2,000㎡",
+      "modelAnswer": "## 핵심 정리\n\n- 30억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30억"
+      ]
+    },
+    {
+      "id": "practice-7-732",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-1",
+      "topic": "잔가율 정액",
+      "body": "[자료] 경과 15년, 내용 50년, 잔존 5%",
+      "modelAnswer": "## 핵심 정리\n\n- 1-0.95×0.3 = 0.715",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1-0.95×0.3 = 0.715"
+      ]
+    },
+    {
+      "id": "practice-7-733",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-1",
+      "topic": "편입부 적산",
+      "body": "[자료] 단가 1,800,000원, 면적 200㎡, 잔가율 0.7",
+      "modelAnswer": "## 핵심 정리\n\n- 1,800×200×0.7 = 2.52억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,800×200×0.7 = 2.52억"
+      ]
+    },
+    {
+      "id": "practice-7-734",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-1",
+      "topic": "보강비 합계",
+      "body": "[자료] 구조 5천 + 외벽 1.5천 + 임시 800",
+      "modelAnswer": "## 핵심 정리\n\n- 5,000+1,500+800 = 7,300만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000+1,500+800 = 7,300만"
+      ]
+    },
+    {
+      "id": "practice-7-735",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-2",
+      "topic": "3년 평균 영업",
+      "body": "[자료] 2023 200만, 2024 220만, 2025 240만 (× 100)",
+      "modelAnswer": "## 핵심 정리\n\n- 평균 220만 × 100 = 2.2억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균 220만 × 100 = 2.2억"
+      ]
+    },
+    {
+      "id": "practice-7-736",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-2",
+      "topic": "휴업 4월",
+      "body": "[자료] 연 영업이익 2.4억",
+      "modelAnswer": "## 핵심 정리\n\n- 2.4×4/12 = 8,000만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2.4×4/12 = 8,000만"
+      ]
+    },
+    {
+      "id": "practice-7-737",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-2",
+      "topic": "폐업 2년분",
+      "body": "[자료] 연 영업이익 3억",
+      "modelAnswer": "## 핵심 정리\n\n- 3×2 = 6억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3×2 = 6억"
+      ]
+    },
+    {
+      "id": "practice-7-738",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-2",
+      "topic": "영농 통계",
+      "body": "[자료] 통계 800원/㎡ × 3,000㎡ × 2년",
+      "modelAnswer": "## 핵심 정리\n\n- 800×3,000×2 = 480만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "800×3,000×2 = 480만"
+      ]
+    },
+    {
+      "id": "practice-7-739",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-2",
+      "topic": "실제 한도",
+      "body": "[자료] 통계 800, 실제 1,300원/㎡",
+      "modelAnswer": "## 핵심 정리\n\n- 통계×1.5 = 1,200\n- 실제 1,300 → 1,200 한도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통계×1.5 = 1,200",
+        "실제 1,300 → 1,200 한도"
+      ]
+    },
+    {
+      "id": "practice-7-740",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-2",
+      "topic": "농작물 잔여비율",
+      "body": "[자료] 매출 400만 × 0.75 비율",
+      "modelAnswer": "## 핵심 정리\n\n- 400×0.75 = 300만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "400×0.75 = 300만"
+      ]
+    },
+    {
+      "id": "practice-7-741",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-2",
+      "topic": "과수 가식",
+      "body": "[자료] 사과 30주 × 200만",
+      "modelAnswer": "## 핵심 정리\n\n- 30×200 = 6,000만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30×200 = 6,000만"
+      ]
+    },
+    {
+      "id": "practice-7-742",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-2",
+      "topic": "입목 산식",
+      "body": "[자료] 본수 200 × 재적 0.5 × 입목가 30,000원",
+      "modelAnswer": "## 핵심 정리\n\n- 200×0.5×30,000 = 300만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "200×0.5×30,000 = 300만"
+      ]
+    },
+    {
+      "id": "practice-7-743",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-2",
+      "topic": "분묘 종합",
+      "body": "[자료] 단분 5기×300만 + 합장 2기×500만",
+      "modelAnswer": "## 핵심 정리\n\n- 1,500+1,000 = 2,500만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,500+1,000 = 2,500만"
+      ]
+    },
+    {
+      "id": "practice-7-744",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-3",
+      "topic": "주거이전비",
+      "body": "[자료] 1인 200만 × 4명 × 4월",
+      "modelAnswer": "## 핵심 정리\n\n- 200×4×4 = 3,200만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "200×4×4 = 3,200만"
+      ]
+    },
+    {
+      "id": "practice-7-745",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "7-3",
+      "topic": "이주정착금",
+      "body": "[자료] 건물 1.2억 × 30%",
+      "modelAnswer": "## 핵심 정리\n\n- 3,600만 → 한도 2,400만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3,600만 → 한도 2,400만"
       ]
     }
   ]
