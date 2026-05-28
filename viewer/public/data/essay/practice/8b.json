@@ -4,7 +4,7 @@
   "chapter": "8b",
   "chapterTitle": "표준지·정비·불의타",
   "source": "official",
-  "count": 137,
+  "count": 157,
   "withAnswer": 7,
   "matchedAnswer": 7,
   "rounds": [
@@ -2667,6 +2667,390 @@
         "8,500 × 1.04",
         "= 8,840,000원/㎡",
         "시점환산"
+      ]
+    },
+    {
+      "id": "practice-8b-801",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-1",
+      "topic": "표준지 종합 1",
+      "body": "[자료 01] 사례 단가 9,500,000원, 시점환산 1.04\n[자료 02] 인근 평균 9,800,000원\n[자료 03] 시·도 균형 검증 차이 +2%\n[물음] 적정가격?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 시점환산 9,500×1.04 = 9,880,000\n- 인근 9,800 (-0.8%)\n- 균형 양호\n- 적정가 9,880,000\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점환산 9,500×1.04 = 9,880,000",
+        "인근 9,800 (-0.8%)",
+        "균형 양호",
+        "적정가 9,880,000"
+      ]
+    },
+    {
+      "id": "practice-8b-802",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-1",
+      "topic": "개별공시 + 비준",
+      "body": "[자료 01] 표준지 5,500,000원\n[자료 02] 비준표: 도로 0.96, 환경 1.04, 획지 1.02, 행정 1.0\n[자료 03] 면적 320㎡\n[물음] 개별공시 + 총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 종합 격차 1.0185\n- 5,500×1.0185 = 5,602,000원\n- 총액 17.93억\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종합 격차 1.0185",
+        "5,500×1.0185 = 5,602,000원",
+        "총액 17.93억"
+      ]
+    },
+    {
+      "id": "practice-8b-803",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-2",
+      "topic": "비례율 + 권리가액",
+      "body": "[자료 01] 수입 800억, 사업비 600억, 종전 200억\n[자료 02] 조합원 갑 종전 1.5억\n[자료 03] 종후 2억\n[물음] 권리가액 + 분담금?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 비례율 (800-600)/200 = 100%\n- 권리가액 1.5억\n- 분담금 0.5억\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "비례율 (800-600)/200 = 100%",
+        "권리가액 1.5억",
+        "분담금 0.5억"
+      ]
+    },
+    {
+      "id": "practice-8b-804",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-2",
+      "topic": "비례율 변동 시나리오",
+      "body": "[자료 01] 당초 수입 1,000억, 사업비 700억, 종전 300억\n[자료 02] 시나리오: 수입 -10%, 사업비 +5%\n[물음] 비례율 변동?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 당초 (1,000-700)/300 = 100%\n- 시나리오: (900-735)/300 = 55%\n- 비례율 -45%p\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "당초 (1,000-700)/300 = 100%",
+        "시나리오: (900-735)/300 = 55%",
+        "비례율 -45%p"
+      ]
+    },
+    {
+      "id": "practice-8b-805",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-2",
+      "topic": "청산 종합",
+      "body": "[자료 01] 실제 수입 1,200억, 실제 사업비 800억, 종전 400억\n[자료 02] 조합원 갑 종전 2억, 종후 2.6억, 기 납부 4천만\n[물음] 청산 비례율 + 청산금?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 청산 비례율 (1,200-800)/400 = 100%\n- 청산 권리 2억\n- 청산 분담 6,000만\n- 청산금 6,000-4,000 = +2,000만 (추가 납부)\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "청산 비례율 (1,200-800)/400 = 100%",
+        "청산 권리 2억",
+        "청산 분담 6,000만",
+        "청산금 6,000-4,000 = +2,000만 (추가 납부)"
+      ]
+    },
+    {
+      "id": "practice-8b-806",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-2",
+      "topic": "분양가 상한",
+      "body": "[자료 01] 토지비 8억, 건축비 4.5억, 가산비 6천만 (84A)\n[자료 02] 시장가 15억\n[자료 03] 상한제 적용\n[물음] 상한 + 시장가 차이?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 상한 13.1억\n- 시장 15억\n- 차이 1.9억\n- 조합 손실\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "상한 13.1억",
+        "시장 15억",
+        "차이 1.9억",
+        "조합 손실"
+      ]
+    },
+    {
+      "id": "practice-8b-807",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-3",
+      "topic": "불의타 종합",
+      "body": "[자료 01] 시장가 50억, 영업이익 6억/년\n[자료 02] 사건 후 매출 -30%, 가치 -10% 추정\n[자료 03] 회복 6개월\n[물음] 영업이익 손실 + 가치 손실?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 영업이익 6×0.3×6/12 = 9,000만\n- 가치 50×0.1 = 5억\n- 합계 5.9억\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업이익 6×0.3×6/12 = 9,000만",
+        "가치 50×0.1 = 5억",
+        "합계 5.9억"
+      ]
+    },
+    {
+      "id": "practice-8b-808",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-3",
+      "topic": "비례율 비관",
+      "body": "[자료 01] 분양수입 -15%, 사업비 +10%, 종전 동일\n[자료 02] 당초 분양 500억, 사업비 350억, 종전 150억\n[물음] 변동 비례율?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 당초 (500-350)/150 = 100%\n- 비관 (425-385)/150 = 26.7%\n- 큰 폭 하락\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "당초 (500-350)/150 = 100%",
+        "비관 (425-385)/150 = 26.7%",
+        "큰 폭 하락"
+      ]
+    },
+    {
+      "id": "practice-8b-809",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-1",
+      "topic": "표준지 4단계 보정",
+      "body": "[자료 01] 비교 단가 8,800,000원, 시점환산 1.03\n[자료 02] 인근 균형 차이 +1.5%\n[자료 03] 검증 차이 +3%\n[물음] 적정가격?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 시점환산 9,064,000원\n- 인근 (+1.5%) 9,200,000\n- 검증 (+3%) 9,335,000\n- 평균 9,200,000\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점환산 9,064,000원",
+        "인근 (+1.5%) 9,200,000",
+        "검증 (+3%) 9,335,000",
+        "평균 9,200,000"
+      ]
+    },
+    {
+      "id": "practice-8b-810",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-2",
+      "topic": "종후자산 + 분담금",
+      "body": "[자료 01] 인근 신축 사례: 84A 13억, 84B 11.5억, 14층 1.05배 (위치)\n[자료 02] 대상 84A 15층 = 13×1.05 = 13.65억\n[자료 03] 조합원 우대 -15%\n[자료 04] 권리가액 1.8억 (가정)\n[물음] 종후 + 분담금?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 종후 13.65×0.85 = 11.6억\n- 분담 11.6 - 1.8 = 9.8억\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종후 13.65×0.85 = 11.6억",
+        "분담 11.6 - 1.8 = 9.8억"
+      ]
+    },
+    {
+      "id": "practice-8b-811",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-2",
+      "topic": "미동의자 차이",
+      "body": "[자료 01] 시장가 18억, 사업영향 +20% 포함\n[자료 02] 매도청구 = 시장가 18억\n[자료 03] 수용 = 사업영향 배제 15억\n[물음] 차이와 선택?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 매도청구 18억\n- 수용 15억\n- 차이 3억 (매도청구 유리)\n- 미동의자 매도 응답\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매도청구 18억",
+        "수용 15억",
+        "차이 3억 (매도청구 유리)",
+        "미동의자 매도 응답"
+      ]
+    },
+    {
+      "id": "practice-8b-812",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-1",
+      "topic": "표준지 + 인근 평균",
+      "body": "[자료 01] 평가 10,500,000원, 인근 표준지 평균 10,200,000원\n[자료 02] 시·도 균형 검증: 강남 +10%, 서초 +8%, 송파 +9%\n[물음] 균형성?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 평가-인근 차이 +2.9%\n- 시·도 차이 ±1~2%p\n- 균형 양호\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평가-인근 차이 +2.9%",
+        "시·도 차이 ±1~2%p",
+        "균형 양호"
+      ]
+    },
+    {
+      "id": "practice-8b-813",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-2",
+      "topic": "재개발 비례율 + 권리",
+      "body": "[자료 01] 수입 900억, 사업비 650억, 종전 250억\n[자료 02] 조합원 종전 평가: 갑 1억, 을 2억, 병 3억\n[물음] 권리가액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 비례율 100%\n- 갑 1억, 을 2억, 병 3억\n- 권리가액 = 종전 그대로\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "비례율 100%",
+        "갑 1억, 을 2억, 병 3억",
+        "권리가액 = 종전 그대로"
+      ]
+    },
+    {
+      "id": "practice-8b-814",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-3",
+      "topic": "환경 사고 + 복원",
+      "body": "[자료 01] 토양 오염 사고\n[자료 02] 시장가 30억 - 가치 -25% (오염), 복원비 5억\n[물음] 처리?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 오염 후 가치 22.5억\n- 복원비 5억 차감 (소유자 부담)\n- 순 가치 17.5억\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "오염 후 가치 22.5억",
+        "복원비 5억 차감 (소유자 부담)",
+        "순 가치 17.5억"
+      ]
+    },
+    {
+      "id": "practice-8b-815",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-3",
+      "topic": "재평가 시점",
+      "body": "[자료 01] 평가 2025.12 (50억), 사건 2026.3, 재평가 2026.5\n[자료 02] 사건 영향 -15%\n[물음] 평가시점 별 가액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 원평가 50억 (사건 영향 X)\n- 재평가 50×0.85 = 42.5억\n- 원평가 적정 (시점 명시)\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원평가 50억 (사건 영향 X)",
+        "재평가 50×0.85 = 42.5억",
+        "원평가 적정 (시점 명시)"
+      ]
+    },
+    {
+      "id": "practice-8b-816",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-1",
+      "topic": "비교법 + 그밖의",
+      "body": "[자료 01] 표준지 7,500,000원\n[자료 02] 시점 1.05, 개별 1.04, 그밖의 1.12\n[자료 03] 면적 350㎡\n[물음] 평가단가 + 총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 7,500×1.05×1.04×1.12 = 9,172,800원\n- 총액 32.10억\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,500×1.05×1.04×1.12 = 9,172,800원",
+        "총액 32.10억"
+      ]
+    },
+    {
+      "id": "practice-8b-817",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-2",
+      "topic": "청산 - 환급",
+      "body": "[자료 01] 실제 수입 850억, 사업비 600억, 종전 250억\n[자료 02] 갑 종전 2억, 종후 2.5억, 기 납부 6천만\n[물음] 청산 종합?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 청산 비례율 (850-600)/250 = 100%\n- 권리 2억\n- 청산 분담 0.5억\n- 청산금 5,000-6,000 = -1,000만 (환급)\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "청산 비례율 (850-600)/250 = 100%",
+        "권리 2억",
+        "청산 분담 0.5억",
+        "청산금 5,000-6,000 = -1,000만 (환급)"
+      ]
+    },
+    {
+      "id": "practice-8b-818",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-2",
+      "topic": "분양가 상한 vs 시장",
+      "body": "[자료 01] 84A 시장 14억, 상한 11억 (토지 6 + 건축 4 + 가산 1)\n[자료 02] 조합원 우대 일반 대비 15%\n[물음] 조합원 분양가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 일반 = 상한 11억\n- 조합원 = 11×0.85 = 9.35억\n- 조합원 우대 약 35%\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일반 = 상한 11억",
+        "조합원 = 11×0.85 = 9.35억",
+        "조합원 우대 약 35%"
+      ]
+    },
+    {
+      "id": "practice-8b-819",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-1",
+      "topic": "표준지 균형 분석",
+      "body": "[자료 01] 평가 12,500,000원\n[자료 02] 인접 강남 12,000,000, 서초 12,800,000, 송파 11,500,000\n[물음] 균형 검증?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 평균 12,100\n- 평가 +3.3%\n- 인접 ±5% 이내 → 균형 양호\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균 12,100",
+        "평가 +3.3%",
+        "인접 ±5% 이내 → 균형 양호"
+      ]
+    },
+    {
+      "id": "practice-8b-820",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 4,
+      "points": 30,
+      "subchapter": "8b-3",
+      "topic": "불의타 복합",
+      "body": "[자료 01] 시장 40억, 영업이익 5억\n[자료 02] 영향: 영업 -25%, 가치 -15%\n[자료 03] 회복 가능성: 영업 12개월, 가치 영구 일부\n[물음] 1년 영향?",
+      "modelAnswer": "## Ⅰ. 서론\n\n응용 종합 문제.\n\n## Ⅱ. 본론\n\n- 영업 5×0.25×1 = 1.25억\n- 가치 40×0.15 = 6억 (일부 회복)\n- 총 7.25억 손실 추정\n\n## Ⅲ. 결론\n\n위 다중 보정·종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업 5×0.25×1 = 1.25억",
+        "가치 40×0.15 = 6억 (일부 회복)",
+        "총 7.25억 손실 추정"
       ]
     }
   ]
