@@ -4,7 +4,7 @@
   "chapter": "4",
   "chapterTitle": "유형별 평가",
   "source": "official",
-  "count": 274,
+  "count": 304,
   "withAnswer": 4,
   "matchedAnswer": 4,
   "rounds": [
@@ -5157,6 +5157,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "원가법 우선"
+      ]
+    },
+    {
+      "id": "practice-4-631",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "평가규칙 §2",
+      "body": "평가규칙 §2 시장가치 정의",
+      "modelAnswer": "## 핵심 정리\n\n- 통상 가격",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통상 가격"
+      ]
+    },
+    {
+      "id": "practice-4-632",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "평가규칙 §3",
+      "body": "평가규칙 §3 평가기준",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가치 원칙",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가치 원칙"
+      ]
+    },
+    {
+      "id": "practice-4-633",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "평가규칙 §8",
+      "body": "평가규칙 §8 절차",
+      "modelAnswer": "## 핵심 정리\n\n- 7단계",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7단계"
+      ]
+    },
+    {
+      "id": "practice-4-634",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "평가규칙 §11",
+      "body": "평가규칙 §11",
+      "modelAnswer": "## 핵심 정리\n\n- 평가가액 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평가가액 결정"
+      ]
+    },
+    {
+      "id": "practice-4-635",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "시산조정 가중치",
+      "body": "시산조정 가중치 결정",
+      "modelAnswer": "## 핵심 정리\n\n- 용도·시장·자료",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도·시장·자료"
+      ]
+    },
+    {
+      "id": "practice-4-636",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "동산 시장가",
+      "body": "동산 시장가 우선",
+      "modelAnswer": "## 핵심 정리\n\n- 자료 풍부 시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "자료 풍부 시"
+      ]
+    },
+    {
+      "id": "practice-4-637",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "동산 원가법",
+      "body": "동산 원가법",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가 부재 시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 부재 시"
+      ]
+    },
+    {
+      "id": "practice-4-638",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "동산 운반비",
+      "body": "운반비 산정",
+      "modelAnswer": "## 핵심 정리\n\n- 이전비 5~10%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전비 5~10%"
+      ]
+    },
+    {
+      "id": "practice-4-639",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "동산 보험",
+      "body": "동산 보험가",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가 + 운반·보험",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 + 운반·보험"
+      ]
+    },
+    {
+      "id": "practice-4-640",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "권리 평가 일반",
+      "body": "권리 평가 원칙",
+      "modelAnswer": "## 핵심 정리\n\n- 미래 효익 현가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "미래 효익 현가"
+      ]
+    },
+    {
+      "id": "practice-4-641",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "연금현가계수",
+      "body": "연금현가계수 활용",
+      "modelAnswer": "## 핵심 정리\n\n- 잔여기간 환원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잔여기간 환원"
+      ]
+    },
+    {
+      "id": "practice-4-642",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "권리 잔여기간",
+      "body": "잔여기간 핵심",
+      "modelAnswer": "## 핵심 정리\n\n- 가치의 주된 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가치의 주된 결정"
+      ]
+    },
+    {
+      "id": "practice-4-643",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "대항력",
+      "body": "대항력 요건",
+      "modelAnswer": "## 핵심 정리\n\n- 전입신고+인도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전입신고+인도"
+      ]
+    },
+    {
+      "id": "practice-4-644",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "농지 거래사례",
+      "body": "농지 거래사례비교법",
+      "modelAnswer": "## 핵심 정리\n\n- 보조 방식",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보조 방식"
+      ]
+    },
+    {
+      "id": "practice-4-645",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "농지 비교표준지",
+      "body": "농지 비교표준지",
+      "modelAnswer": "## 핵심 정리\n\n- 용도지역 일치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도지역 일치"
+      ]
+    },
+    {
+      "id": "practice-4-646",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "임야 평가 단가",
+      "body": "임야 평가 단가",
+      "modelAnswer": "## 핵심 정리\n\n- 보전·준보전·생산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보전·준보전·생산"
+      ]
+    },
+    {
+      "id": "practice-4-647",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "입목 본수",
+      "body": "입목 본수 산정",
+      "modelAnswer": "## 핵심 정리\n\n- 실측·표본조사",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실측·표본조사"
+      ]
+    },
+    {
+      "id": "practice-4-648",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "입목 재적",
+      "body": "입목 재적",
+      "modelAnswer": "## 핵심 정리\n\n- 수고·흉고직경",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수고·흉고직경"
+      ]
+    },
+    {
+      "id": "practice-4-649",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-5",
+      "topic": "비영리 평가",
+      "body": "비영리 부동산",
+      "modelAnswer": "## 핵심 정리\n\n- 수익법 부적합",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수익법 부적합"
+      ]
+    },
+    {
+      "id": "practice-4-650",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-5",
+      "topic": "특수용도 비교 부재",
+      "body": "비교사례 부재",
+      "modelAnswer": "## 핵심 정리\n\n- 원가법 + 토지 별도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원가법 + 토지 별도"
+      ]
+    },
+    {
+      "id": "practice-4-651",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-5",
+      "topic": "사찰 잔가율",
+      "body": "사찰 잔가율 추정",
+      "modelAnswer": "## 핵심 정리\n\n- 수선보수 후 잔여",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수선보수 후 잔여"
+      ]
+    },
+    {
+      "id": "practice-4-652",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "광량",
+      "body": "확정·추정 매장량",
+      "modelAnswer": "## 핵심 정리\n\n- 지질조사",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지질조사"
+      ]
+    },
+    {
+      "id": "practice-4-653",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "광물 시장가",
+      "body": "광물 시장가",
+      "modelAnswer": "## 핵심 정리\n\n- 톤당 단가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "톤당 단가"
+      ]
+    },
+    {
+      "id": "practice-4-654",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "벌채반출비",
+      "body": "벌채반출비",
+      "modelAnswer": "## 핵심 정리\n\n- 수확·이송 비용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수확·이송 비용"
+      ]
+    },
+    {
+      "id": "practice-4-655",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "면허 갱신",
+      "body": "어업 면허 갱신",
+      "modelAnswer": "## 핵심 정리\n\n- 갱신 가능성 검토",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "갱신 가능성 검토"
+      ]
+    },
+    {
+      "id": "practice-4-656",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "객실가동률",
+      "body": "객실가동률 정의",
+      "modelAnswer": "## 핵심 정리\n\n- 실 가동/총 객실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실 가동/총 객실"
+      ]
+    },
+    {
+      "id": "practice-4-657",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "회원권 시장",
+      "body": "회원권 시장 거래",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가 자료",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 자료"
+      ]
+    },
+    {
+      "id": "practice-4-658",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "영업이익률",
+      "body": "영업이익률 표준",
+      "modelAnswer": "## 핵심 정리\n\n- 업종별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "업종별"
+      ]
+    },
+    {
+      "id": "practice-4-659",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "자본적지출",
+      "body": "자본적지출 비율",
+      "modelAnswer": "## 핵심 정리\n\n- 매출의 5%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매출의 5%"
+      ]
+    },
+    {
+      "id": "practice-4-660",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "영업용 환원율",
+      "body": "영업용 환원이율",
+      "modelAnswer": "## 핵심 정리\n\n- 7~10%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7~10%"
       ]
     }
   ]

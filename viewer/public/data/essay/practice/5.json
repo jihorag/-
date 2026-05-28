@@ -4,7 +4,7 @@
   "chapter": "5",
   "chapterTitle": "비가치추계·기업가치·무형자산",
   "source": "official",
-  "count": 293,
+  "count": 323,
   "withAnswer": 33,
   "matchedAnswer": 33,
   "rounds": [
@@ -5584,6 +5584,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "위험 차등"
+      ]
+    },
+    {
+      "id": "practice-5-631",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "평가시점",
+      "body": "평가시점·기준시점 구분",
+      "modelAnswer": "## 핵심 정리\n\n- 평가시 vs 가격형성",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평가시 vs 가격형성"
+      ]
+    },
+    {
+      "id": "practice-5-632",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "시장가치 정의",
+      "body": "시장가치 (평가규칙 §2)",
+      "modelAnswer": "## 핵심 정리\n\n- 통상 거래 가격",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통상 거래 가격"
+      ]
+    },
+    {
+      "id": "practice-5-633",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "공정가치",
+      "body": "공정가치 (K-IFRS 13)",
+      "modelAnswer": "## 핵심 정리\n\n- 시장참여자 거래가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장참여자 거래가"
+      ]
+    },
+    {
+      "id": "practice-5-634",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "담보 vs 시장",
+      "body": "담보 vs 시장 차이",
+      "modelAnswer": "## 핵심 정리\n\n- 처분 위험 가산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "처분 위험 가산"
+      ]
+    },
+    {
+      "id": "practice-5-635",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "청산 vs 시장",
+      "body": "청산 vs 시장 차이",
+      "modelAnswer": "## 핵심 정리\n\n- 긴급 매각",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "긴급 매각"
+      ]
+    },
+    {
+      "id": "practice-5-636",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "평가 가정",
+      "body": "평가 가정·전제",
+      "modelAnswer": "## 핵심 정리\n\n- 명시 의무",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "명시 의무"
+      ]
+    },
+    {
+      "id": "practice-5-637",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "평가가 결정 절차",
+      "body": "결정 절차",
+      "modelAnswer": "## 핵심 정리\n\n- 시산조정 후 단일값",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시산조정 후 단일값"
+      ]
+    },
+    {
+      "id": "practice-5-638",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "비가치추계",
+      "body": "비가치추계 의의",
+      "modelAnswer": "## 핵심 정리\n\n- 가치 외 자료 활용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가치 외 자료 활용"
+      ]
+    },
+    {
+      "id": "practice-5-639",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "시점 환산",
+      "body": "시점환산 의의",
+      "modelAnswer": "## 핵심 정리\n\n- 거래시점 → 가격시점",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "거래시점 → 가격시점"
+      ]
+    },
+    {
+      "id": "practice-5-640",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-1",
+      "topic": "평가 보고서 §13",
+      "body": "평가 보고서 (§13)",
+      "modelAnswer": "## 핵심 정리\n\n- 표준 기재사항",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "표준 기재사항"
+      ]
+    },
+    {
+      "id": "practice-5-641",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "CAPM 적용",
+      "body": "CAPM 적용",
+      "modelAnswer": "## 핵심 정리\n\n- Rf + β(Rm-Rf)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Rf + β(Rm-Rf)"
+      ]
+    },
+    {
+      "id": "practice-5-642",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "β 산정",
+      "body": "베타 산정",
+      "modelAnswer": "## 핵심 정리\n\n- 시장 대비 변동성",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 대비 변동성"
+      ]
+    },
+    {
+      "id": "practice-5-643",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "시장프리미엄",
+      "body": "시장프리미엄",
+      "modelAnswer": "## 핵심 정리\n\n- Rm - Rf 약 5%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Rm - Rf 약 5%"
+      ]
+    },
+    {
+      "id": "practice-5-644",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "WACC 계산",
+      "body": "WACC 산식",
+      "modelAnswer": "## 핵심 정리\n\n- E비×Ke + D비×Kd(1-t)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "E비×Ke + D비×Kd(1-t)"
+      ]
+    },
+    {
+      "id": "practice-5-645",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "잔여가치 (Gordon)",
+      "body": "Gordon 모형",
+      "modelAnswer": "## 핵심 정리\n\n- FCF/(r-g)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "FCF/(r-g)"
+      ]
+    },
+    {
+      "id": "practice-5-646",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "잔여가치 비중",
+      "body": "잔여가치 비중",
+      "modelAnswer": "## 핵심 정리\n\n- 통상 70%+",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통상 70%+"
+      ]
+    },
+    {
+      "id": "practice-5-647",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "EV 산정",
+      "body": "EV 산정",
+      "modelAnswer": "## 핵심 정리\n\n- EBITDA × 배수",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "EBITDA × 배수"
+      ]
+    },
+    {
+      "id": "practice-5-648",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "주당 산정",
+      "body": "주당 가치",
+      "modelAnswer": "## 핵심 정리\n\n- 기업가치/주식수",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기업가치/주식수"
+      ]
+    },
+    {
+      "id": "practice-5-649",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "PER 활용",
+      "body": "PER 활용",
+      "modelAnswer": "## 핵심 정리\n\n- 업종 평균 비교",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "업종 평균 비교"
+      ]
+    },
+    {
+      "id": "practice-5-650",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-2",
+      "topic": "비상장 할인 율",
+      "body": "비상장 할인 20~40%",
+      "modelAnswer": "## 핵심 정리\n\n- 유동성 부족",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "유동성 부족"
+      ]
+    },
+    {
+      "id": "practice-5-651",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "무형 정의",
+      "body": "무형자산 정의 (K-IFRS 38)",
+      "modelAnswer": "## 핵심 정리\n\n- 물리X·식별·통제",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "물리X·식별·통제"
+      ]
+    },
+    {
+      "id": "practice-5-652",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "영업권 vs 무형",
+      "body": "영업권 vs 일반 무형",
+      "modelAnswer": "## 핵심 정리\n\n- 영업권 비상각",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업권 비상각"
+      ]
+    },
+    {
+      "id": "practice-5-653",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "브랜드 의의",
+      "body": "브랜드 의의",
+      "modelAnswer": "## 핵심 정리\n\n- 로열티 면제",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "로열티 면제"
+      ]
+    },
+    {
+      "id": "practice-5-654",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "특허 의의",
+      "body": "특허 의의",
+      "modelAnswer": "## 핵심 정리\n\n- 초과수익",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "초과수익"
+      ]
+    },
+    {
+      "id": "practice-5-655",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "저작권 의의",
+      "body": "저작권 의의",
+      "modelAnswer": "## 핵심 정리\n\n- 로열티 영구",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "로열티 영구"
+      ]
+    },
+    {
+      "id": "practice-5-656",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "고객관계 의의",
+      "body": "고객관계 의의",
+      "modelAnswer": "## 핵심 정리\n\n- 유지기간 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "유지기간 가치"
+      ]
+    },
+    {
+      "id": "practice-5-657",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "손상검사 (§36)",
+      "body": "손상검사",
+      "modelAnswer": "## 핵심 정리\n\n- K-IFRS 36 매년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "K-IFRS 36 매년"
+      ]
+    },
+    {
+      "id": "practice-5-658",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "회수가능",
+      "body": "회수가능액",
+      "modelAnswer": "## 핵심 정리\n\n- max(사용·처분)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "max(사용·처분)"
+      ]
+    },
+    {
+      "id": "practice-5-659",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "영업권 환입X",
+      "body": "영업권 환입 불가",
+      "modelAnswer": "## 핵심 정리\n\n- K-IFRS 36",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "K-IFRS 36"
+      ]
+    },
+    {
+      "id": "practice-5-660",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "5-3",
+      "topic": "다른 무형 환입",
+      "body": "다른 무형 환입 가능",
+      "modelAnswer": "## 핵심 정리\n\n- 손상 후 회복 시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "손상 후 회복 시"
       ]
     }
   ]

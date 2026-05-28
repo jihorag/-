@@ -4,7 +4,7 @@
   "chapter": "8a",
   "chapterTitle": "목적별 평가",
   "source": "official",
-  "count": 300,
+  "count": 330,
   "withAnswer": 18,
   "matchedAnswer": 18,
   "rounds": [
@@ -5647,6 +5647,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "부동산투자회사법"
+      ]
+    },
+    {
+      "id": "practice-8a-631",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보가치 의의",
+      "body": "담보가치 의의",
+      "modelAnswer": "## 핵심 정리\n\n- 처분 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "처분 가치"
+      ]
+    },
+    {
+      "id": "practice-8a-632",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보율 결정",
+      "body": "담보율 결정",
+      "modelAnswer": "## 핵심 정리\n\n- 용도별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도별"
+      ]
+    },
+    {
+      "id": "practice-8a-633",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "LTV 한도",
+      "body": "LTV 한도",
+      "modelAnswer": "## 핵심 정리\n\n- 주택 60~70%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주택 60~70%"
+      ]
+    },
+    {
+      "id": "practice-8a-634",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "DTI 한도",
+      "body": "DTI 한도",
+      "modelAnswer": "## 핵심 정리\n\n- 소득 40~50%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "소득 40~50%"
+      ]
+    },
+    {
+      "id": "practice-8a-635",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "DSR 한도",
+      "body": "DSR 한도",
+      "modelAnswer": "## 핵심 정리\n\n- 전 원리금 40~45%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전 원리금 40~45%"
+      ]
+    },
+    {
+      "id": "practice-8a-636",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "저당상수 의의",
+      "body": "저당상수 (MC)",
+      "modelAnswer": "## 핵심 정리\n\n- 원금 1당 원리금",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원금 1당 원리금"
+      ]
+    },
+    {
+      "id": "practice-8a-637",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보 변동",
+      "body": "담보 변동 대응",
+      "modelAnswer": "## 핵심 정리\n\n- 추가 담보·상환",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "추가 담보·상환"
+      ]
+    },
+    {
+      "id": "practice-8a-638",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보 보험",
+      "body": "담보 화재보험",
+      "modelAnswer": "## 핵심 정리\n\n- 대출 조건",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "대출 조건"
+      ]
+    },
+    {
+      "id": "practice-8a-639",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보 처분",
+      "body": "담보 처분 방법",
+      "modelAnswer": "## 핵심 정리\n\n- 경매·임의 매각",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "경매·임의 매각"
+      ]
+    },
+    {
+      "id": "practice-8a-640",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보 부담권리 순위",
+      "body": "부담권리 순위",
+      "modelAnswer": "## 핵심 정리\n\n- 조세 우선",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "조세 우선"
+      ]
+    },
+    {
+      "id": "practice-8a-641",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "경매 신청",
+      "body": "경매 신청 주체",
+      "modelAnswer": "## 핵심 정리\n\n- 저당권자",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저당권자"
+      ]
+    },
+    {
+      "id": "practice-8a-642",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "경매 종류",
+      "body": "임의 vs 강제",
+      "modelAnswer": "## 핵심 정리\n\n- 저당 vs 판결",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저당 vs 판결"
+      ]
+    },
+    {
+      "id": "practice-8a-643",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "입찰 보증금",
+      "body": "입찰 보증금",
+      "modelAnswer": "## 핵심 정리\n\n- 최저가 10%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최저가 10%"
+      ]
+    },
+    {
+      "id": "practice-8a-644",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "입찰 절차",
+      "body": "입찰 절차",
+      "modelAnswer": "## 핵심 정리\n\n- 공고-입찰-낙찰",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공고-입찰-낙찰"
+      ]
+    },
+    {
+      "id": "practice-8a-645",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "낙찰 결정",
+      "body": "낙찰자 결정",
+      "modelAnswer": "## 핵심 정리\n\n- 최고가 매수인",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최고가 매수인"
+      ]
+    },
+    {
+      "id": "practice-8a-646",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "잔금 납부",
+      "body": "잔금 납부 기한",
+      "modelAnswer": "## 핵심 정리\n\n- 낙찰 후 1개월",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "낙찰 후 1개월"
+      ]
+    },
+    {
+      "id": "practice-8a-647",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "소유권 이전",
+      "body": "소유권 이전",
+      "modelAnswer": "## 핵심 정리\n\n- 잔금 후 등기",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잔금 후 등기"
+      ]
+    },
+    {
+      "id": "practice-8a-648",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "명도",
+      "body": "명도 절차",
+      "modelAnswer": "## 핵심 정리\n\n- 낙찰 후 인도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "낙찰 후 인도"
+      ]
+    },
+    {
+      "id": "practice-8a-649",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "말소기준 권리",
+      "body": "말소기준",
+      "modelAnswer": "## 핵심 정리\n\n- 최선순위",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최선순위"
+      ]
+    },
+    {
+      "id": "practice-8a-650",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "인수 vs 소멸",
+      "body": "인수 vs 소멸",
+      "modelAnswer": "## 핵심 정리\n\n- 말소기준 전후",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "말소기준 전후"
+      ]
+    },
+    {
+      "id": "practice-8a-651",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "국유 매각 절차",
+      "body": "국유 매각 절차",
+      "modelAnswer": "## 핵심 정리\n\n- 평가-공고-입찰",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평가-공고-입찰"
+      ]
+    },
+    {
+      "id": "practice-8a-652",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "국유 대부 의의",
+      "body": "국유 대부",
+      "modelAnswer": "## 핵심 정리\n\n- 사용권 부여",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사용권 부여"
+      ]
+    },
+    {
+      "id": "practice-8a-653",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "대부 기간",
+      "body": "대부 기간",
+      "modelAnswer": "## 핵심 정리\n\n- 통상 5~10년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통상 5~10년"
+      ]
+    },
+    {
+      "id": "practice-8a-654",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "사용료율 5%",
+      "body": "사용료율 5%",
+      "modelAnswer": "## 핵심 정리\n\n- 연 시장가의 5%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연 시장가의 5%"
+      ]
+    },
+    {
+      "id": "practice-8a-655",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "수의계약 예외",
+      "body": "수의계약",
+      "modelAnswer": "## 핵심 정리\n\n- 인접·대부·공익",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "인접·대부·공익"
+      ]
+    },
+    {
+      "id": "practice-8a-656",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "자산재평가 빈도",
+      "body": "재평가 빈도",
+      "modelAnswer": "## 핵심 정리\n\n- 매년/3년/5년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매년/3년/5년"
+      ]
+    },
+    {
+      "id": "practice-8a-657",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "K-IFRS 16",
+      "body": "K-IFRS 16 유형자산",
+      "modelAnswer": "## 핵심 정리\n\n- 원가 vs 재평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원가 vs 재평가"
+      ]
+    },
+    {
+      "id": "practice-8a-658",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "K-IFRS 40",
+      "body": "K-IFRS 40 투자부동산",
+      "modelAnswer": "## 핵심 정리\n\n- 공정가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공정가치"
+      ]
+    },
+    {
+      "id": "practice-8a-659",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "REITs 자산",
+      "body": "REITs 자산 평가",
+      "modelAnswer": "## 핵심 정리\n\n- 매년 의무",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매년 의무"
+      ]
+    },
+    {
+      "id": "practice-8a-660",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "재평가 잉여 처리",
+      "body": "재평가 잉여 처리",
+      "modelAnswer": "## 핵심 정리\n\n- 자본 항목",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "자본 항목"
       ]
     }
   ]

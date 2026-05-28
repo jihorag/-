@@ -4,7 +4,7 @@
   "chapter": "6a",
   "chapterTitle": "토지보상 기본·원칙",
   "source": "official",
-  "count": 301,
+  "count": 331,
   "withAnswer": 19,
   "matchedAnswer": 19,
   "rounds": [
@@ -5757,6 +5757,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "§73 종전-종후"
+      ]
+    },
+    {
+      "id": "practice-6a-631",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "보상 원칙 정당",
+      "body": "정당보상 원칙",
+      "modelAnswer": "## 핵심 정리\n\n- 헌법 §23 ③",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "헌법 §23 ③"
+      ]
+    },
+    {
+      "id": "practice-6a-632",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "보상 원칙 사업자",
+      "body": "사업시행자 보상",
+      "modelAnswer": "## 핵심 정리\n\n- 사업주체 부담",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사업주체 부담"
+      ]
+    },
+    {
+      "id": "practice-6a-633",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "보상 원칙 현금",
+      "body": "현금보상 원칙",
+      "modelAnswer": "## 핵심 정리\n\n- §63",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§63"
+      ]
+    },
+    {
+      "id": "practice-6a-634",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "보상 원칙 개인",
+      "body": "개인별 보상",
+      "modelAnswer": "## 핵심 정리\n\n- §64",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§64"
+      ]
+    },
+    {
+      "id": "practice-6a-635",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "보상 원칙 일괄",
+      "body": "일괄보상 원칙",
+      "modelAnswer": "## 핵심 정리\n\n- §65 동일 사업",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§65 동일 사업"
+      ]
+    },
+    {
+      "id": "practice-6a-636",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "대토보상 예외",
+      "body": "대토보상 예외",
+      "modelAnswer": "## 핵심 정리\n\n- §63 ④",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§63 ④"
+      ]
+    },
+    {
+      "id": "practice-6a-637",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "채권보상 예외",
+      "body": "채권보상",
+      "modelAnswer": "## 핵심 정리\n\n- 재정 사정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "재정 사정"
+      ]
+    },
+    {
+      "id": "practice-6a-638",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "협의 단계",
+      "body": "협의 단계",
+      "modelAnswer": "## 핵심 정리\n\n- 자발적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "자발적"
+      ]
+    },
+    {
+      "id": "practice-6a-639",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "재결 단계",
+      "body": "재결 단계",
+      "modelAnswer": "## 핵심 정리\n\n- 강제 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "강제 결정"
+      ]
+    },
+    {
+      "id": "practice-6a-640",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "이의재결 단계",
+      "body": "이의재결 단계",
+      "modelAnswer": "## 핵심 정리\n\n- 중앙 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "중앙 결정"
+      ]
+    },
+    {
+      "id": "practice-6a-641",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "소송 단계",
+      "body": "행정·민사소송",
+      "modelAnswer": "## 핵심 정리\n\n- 법원 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "법원 결정"
+      ]
+    },
+    {
+      "id": "practice-6a-642",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "공탁 의의",
+      "body": "공탁 의의",
+      "modelAnswer": "## 핵심 정리\n\n- §40",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§40"
+      ]
+    },
+    {
+      "id": "practice-6a-643",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "공탁 사유",
+      "body": "공탁 사유",
+      "modelAnswer": "## 핵심 정리\n\n- 수령 거부·불명",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수령 거부·불명"
+      ]
+    },
+    {
+      "id": "practice-6a-644",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "수용권 발생",
+      "body": "수용권 발생",
+      "modelAnswer": "## 핵심 정리\n\n- 사업인정고시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사업인정고시"
+      ]
+    },
+    {
+      "id": "practice-6a-645",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "강제수용",
+      "body": "강제수용",
+      "modelAnswer": "## 핵심 정리\n\n- 재결 후",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "재결 후"
+      ]
+    },
+    {
+      "id": "practice-6a-646",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "공시지가기준법",
+      "body": "공시지가기준법",
+      "modelAnswer": "## 핵심 정리\n\n- §14",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§14"
+      ]
+    },
+    {
+      "id": "practice-6a-647",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "거래사례비교법",
+      "body": "거래사례비교법",
+      "modelAnswer": "## 핵심 정리\n\n- §12",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§12"
+      ]
+    },
+    {
+      "id": "practice-6a-648",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "수익환원법",
+      "body": "수익환원법",
+      "modelAnswer": "## 핵심 정리\n\n- §13",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§13"
+      ]
+    },
+    {
+      "id": "practice-6a-649",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "원가법",
+      "body": "원가법",
+      "modelAnswer": "## 핵심 정리\n\n- §15",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§15"
+      ]
+    },
+    {
+      "id": "practice-6a-650",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "6대 요인 가로",
+      "body": "가로조건",
+      "modelAnswer": "## 핵심 정리\n\n- 도로 폭·접도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "도로 폭·접도"
+      ]
+    },
+    {
+      "id": "practice-6a-651",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "6대 요인 접근",
+      "body": "접근조건",
+      "modelAnswer": "## 핵심 정리\n\n- 지하철·고속",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지하철·고속"
+      ]
+    },
+    {
+      "id": "practice-6a-652",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "6대 요인 환경",
+      "body": "환경조건",
+      "modelAnswer": "## 핵심 정리\n\n- 소음·일조·조망",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "소음·일조·조망"
+      ]
+    },
+    {
+      "id": "practice-6a-653",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "6대 요인 획지",
+      "body": "획지조건",
+      "modelAnswer": "## 핵심 정리\n\n- 형상·가각",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "형상·가각"
+      ]
+    },
+    {
+      "id": "practice-6a-654",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "6대 요인 행정",
+      "body": "행정조건",
+      "modelAnswer": "## 핵심 정리\n\n- 용도지역 등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도지역 등"
+      ]
+    },
+    {
+      "id": "practice-6a-655",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "6대 요인 기타",
+      "body": "기타조건",
+      "modelAnswer": "## 핵심 정리\n\n- 그 외 영향",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "그 외 영향"
+      ]
+    },
+    {
+      "id": "practice-6a-656",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "시점수정 가격일",
+      "body": "시점수정 가격일",
+      "modelAnswer": "## 핵심 정리\n\n- 공시일 → 가격시점",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공시일 → 가격시점"
+      ]
+    },
+    {
+      "id": "practice-6a-657",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "지역요인 동일",
+      "body": "동일 인근지역",
+      "modelAnswer": "## 핵심 정리\n\n- 지역요인 1.0",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지역요인 1.0"
+      ]
+    },
+    {
+      "id": "practice-6a-658",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "비교표준지 선정",
+      "body": "비교표준지 선정 기준",
+      "modelAnswer": "## 핵심 정리\n\n- 용도·도로 일치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도·도로 일치"
+      ]
+    },
+    {
+      "id": "practice-6a-659",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "그밖의요인 적용",
+      "body": "그밖의요인 적용 시점",
+      "modelAnswer": "## 핵심 정리\n\n- 최종 단계",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최종 단계"
+      ]
+    },
+    {
+      "id": "practice-6a-660",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "단가 절사",
+      "body": "단가 절사",
+      "modelAnswer": "## 핵심 정리\n\n- 천단위 미만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "천단위 미만"
       ]
     }
   ]

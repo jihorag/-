@@ -4,7 +4,7 @@
   "chapter": "7",
   "chapterTitle": "건축물·영업·기타 보상",
   "source": "official",
-  "count": 293,
+  "count": 323,
   "withAnswer": 13,
   "matchedAnswer": 13,
   "rounds": [
@@ -5492,6 +5492,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "비율 분리"
+      ]
+    },
+    {
+      "id": "practice-7-631",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "건축물 보상 원칙",
+      "body": "건축물 보상 §33",
+      "modelAnswer": "## 핵심 정리\n\n- 적산가액",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "적산가액"
+      ]
+    },
+    {
+      "id": "practice-7-632",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "건축물 부분 §35",
+      "body": "건축물 부분 §35",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 + 보강",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 + 보강"
+      ]
+    },
+    {
+      "id": "practice-7-633",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "건축물 잔여 §35 ②",
+      "body": "잔여 건물 §35 ②",
+      "modelAnswer": "## 핵심 정리\n\n- 가치손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가치손실"
+      ]
+    },
+    {
+      "id": "practice-7-634",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "재조달원가 §33 ①",
+      "body": "재조달원가 §33 ①",
+      "modelAnswer": "## 핵심 정리\n\n- 신축 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "신축 기준"
+      ]
+    },
+    {
+      "id": "practice-7-635",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "잔존가치율",
+      "body": "잔존가치율",
+      "modelAnswer": "## 핵심 정리\n\n- 종료 시 잔가 %",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종료 시 잔가 %"
+      ]
+    },
+    {
+      "id": "practice-7-636",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "주체 잔존내용",
+      "body": "주체 잔존내용연수",
+      "modelAnswer": "## 핵심 정리\n\n- 수선보수 후",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수선보수 후"
+      ]
+    },
+    {
+      "id": "practice-7-637",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "부대 잔존내용",
+      "body": "부대 잔존내용연수",
+      "modelAnswer": "## 핵심 정리\n\n- 수선보수 후",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수선보수 후"
+      ]
+    },
+    {
+      "id": "practice-7-638",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "관찰감가법 의의",
+      "body": "관찰감가법",
+      "modelAnswer": "## 핵심 정리\n\n- 실태 반영",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실태 반영"
+      ]
+    },
+    {
+      "id": "practice-7-639",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "기능적 감가 사유",
+      "body": "기능적 감가 사유",
+      "modelAnswer": "## 핵심 정리\n\n- 설비·평면 부족",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "설비·평면 부족"
+      ]
+    },
+    {
+      "id": "practice-7-640",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "영업이익 3년 평균",
+      "body": "3년 평균 영업이익",
+      "modelAnswer": "## 핵심 정리\n\n- 시점 평탄화",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점 평탄화"
+      ]
+    },
+    {
+      "id": "practice-7-641",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "휴업 표준 4월",
+      "body": "휴업 표준",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 가능 시 4월",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 가능 시 4월"
+      ]
+    },
+    {
+      "id": "practice-7-642",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "폐업 2년분",
+      "body": "폐업 2년분",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 곤란 시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 곤란 시"
+      ]
+    },
+    {
+      "id": "practice-7-643",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "폐업 고정자산",
+      "body": "폐업 고정자산",
+      "modelAnswer": "## 핵심 정리\n\n- 기계·시설·영업권",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기계·시설·영업권"
+      ]
+    },
+    {
+      "id": "practice-7-644",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시·군내 이전",
+      "body": "시·군 내 이전 가능성",
+      "modelAnswer": "## 핵심 정리\n\n- 휴업 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "휴업 결정"
+      ]
+    },
+    {
+      "id": "practice-7-645",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시·군내 부재",
+      "body": "시·군 내 부재",
+      "modelAnswer": "## 핵심 정리\n\n- 폐업 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "폐업 결정"
+      ]
+    },
+    {
+      "id": "practice-7-646",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "광고비 §46 ②",
+      "body": "광고비 §46 ②",
+      "modelAnswer": "## 핵심 정리\n\n- 시장 회복",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 회복"
+      ]
+    },
+    {
+      "id": "practice-7-647",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시설복구비 §46 ②",
+      "body": "시설복구비 §46 ②",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 후 복구",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 후 복구"
+      ]
+    },
+    {
+      "id": "practice-7-648",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "잔존시설 손실",
+      "body": "잔존시설 손실",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 곤란 시설",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 곤란 시설"
+      ]
+    },
+    {
+      "id": "practice-7-649",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "영업장 위치",
+      "body": "위치 이동 영향",
+      "modelAnswer": "## 핵심 정리\n\n- 고객 이탈",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "고객 이탈"
+      ]
+    },
+    {
+      "id": "practice-7-650",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "인건비 휴업",
+      "body": "인건비 휴업",
+      "modelAnswer": "## 핵심 정리\n\n- 유급 휴업 인정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "유급 휴업 인정"
+      ]
+    },
+    {
+      "id": "practice-7-651",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "주거이전 §54",
+      "body": "주거이전 §54",
+      "modelAnswer": "## 핵심 정리\n\n- 1인×가구원×4월",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1인×가구원×4월"
+      ]
+    },
+    {
+      "id": "practice-7-652",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "이주정착금 §53",
+      "body": "이주정착금 §53",
+      "modelAnswer": "## 핵심 정리\n\n- 건물 30%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "건물 30%"
+      ]
+    },
+    {
+      "id": "practice-7-653",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "동산이전비 §55",
+      "body": "동산이전비 §55",
+      "modelAnswer": "## 핵심 정리\n\n- 가구원수별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가구원수별"
+      ]
+    },
+    {
+      "id": "practice-7-654",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "도시근로자 소득",
+      "body": "도시근로자 평균 소득",
+      "modelAnswer": "## 핵심 정리\n\n- 매년 갱신",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매년 갱신"
+      ]
+    },
+    {
+      "id": "practice-7-655",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "이주대책 종류",
+      "body": "이주대책 3종",
+      "modelAnswer": "## 핵심 정리\n\n- 대토·임대·정착금",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "대토·임대·정착금"
+      ]
+    },
+    {
+      "id": "practice-7-656",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "이주자 자격",
+      "body": "이주자 자격",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 직전 거주",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 직전 거주"
+      ]
+    },
+    {
+      "id": "practice-7-657",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "임시 거주비",
+      "body": "임시 거주비",
+      "modelAnswer": "## 핵심 정리\n\n- 신축 전 임차",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "신축 전 임차"
+      ]
+    },
+    {
+      "id": "practice-7-658",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "주거+영업 비율",
+      "body": "주거+영업 비율",
+      "modelAnswer": "## 핵심 정리\n\n- 항목 분리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "항목 분리"
+      ]
+    },
+    {
+      "id": "practice-7-659",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "대토보상 §63 ④",
+      "body": "대토보상 §63 ④",
+      "modelAnswer": "## 핵심 정리\n\n- 토지로 보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지로 보상"
+      ]
+    },
+    {
+      "id": "practice-7-660",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "용도변경 후 평가",
+      "body": "용도변경 후 평가",
+      "modelAnswer": "## 핵심 정리\n\n- 현 용도 단가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "현 용도 단가"
       ]
     }
   ]

@@ -4,7 +4,7 @@
   "chapter": "3",
   "chapterTitle": "건물·복합·구분·임대료",
   "source": "official",
-  "count": 307,
+  "count": 357,
   "withAnswer": 29,
   "matchedAnswer": 29,
   "rounds": [
@@ -5890,6 +5890,858 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "감가·유지·공조·보험·대손·공실"
+      ]
+    },
+    {
+      "id": "practice-3-631",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "잔존 내용연수",
+      "body": "잔존 내용연수 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 수선보수 후 잔존\n- 경제적 사용 가능",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수선보수 후 잔존",
+        "경제적 사용 가능"
+      ]
+    },
+    {
+      "id": "practice-3-632",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "내용연수 산정",
+      "body": "내용연수 산정 기준을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 구조·관리·환경 종합",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "구조·관리·환경 종합"
+      ]
+    },
+    {
+      "id": "practice-3-633",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "재조달원가 표",
+      "body": "재조달원가 표준단가표를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 연도별 갱신\n- 용도·구조별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연도별 갱신",
+        "용도·구조별"
+      ]
+    },
+    {
+      "id": "practice-3-634",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "복합 감가",
+      "body": "복합 감가의 순서를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 물리 → 기능 → 경제",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "물리 → 기능 → 경제"
+      ]
+    },
+    {
+      "id": "practice-3-635",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "경과연수 계산",
+      "body": "경과연수 계산법을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 월 단위까지 정밀",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "월 단위까지 정밀"
+      ]
+    },
+    {
+      "id": "practice-3-636",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "신축 단가",
+      "body": "신축 단가 자료원을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 표준단가표·견적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "표준단가표·견적"
+      ]
+    },
+    {
+      "id": "practice-3-637",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "복합 시너지",
+      "body": "복합 시너지 5~15%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 일체효용 가산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일체효용 가산"
+      ]
+    },
+    {
+      "id": "practice-3-638",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "일체 비교법",
+      "body": "일체 비교법 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장 거래 직접 反영",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 거래 직접 反영"
+      ]
+    },
+    {
+      "id": "practice-3-639",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "잔여법 의의",
+      "body": "잔여법 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 명확 자산 잔여 NOI 환원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "명확 자산 잔여 NOI 환원"
+      ]
+    },
+    {
+      "id": "practice-3-640",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "건물 환원율",
+      "body": "건물 환원율 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지환원율 + 감가율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지환원율 + 감가율"
+      ]
+    },
+    {
+      "id": "practice-3-641",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "집합 구분소유",
+      "body": "집합 구분소유를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 1동 분할 소유",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1동 분할 소유"
+      ]
+    },
+    {
+      "id": "practice-3-642",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "분리 처분 X",
+      "body": "대지권 분리 처분 금지를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 집합건물법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "집합건물법"
+      ]
+    },
+    {
+      "id": "practice-3-643",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "공급 면적",
+      "body": "공급면적 표기를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 전유 + 공용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전유 + 공용"
+      ]
+    },
+    {
+      "id": "practice-3-644",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "관리비 분담",
+      "body": "관리비 분담 비율을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 전유면적 비례",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전유면적 비례"
+      ]
+    },
+    {
+      "id": "practice-3-645",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "아파트 표준",
+      "body": "아파트 평형 표준을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 59·74·84·114㎡ 등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "59·74·84·114㎡ 등"
+      ]
+    },
+    {
+      "id": "practice-3-646",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "임대료지수",
+      "body": "임대료지수 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 임대료 변동률 측정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "임대료 변동률 측정"
+      ]
+    },
+    {
+      "id": "practice-3-647",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "월차임",
+      "body": "월차임 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 월 임대료",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "월 임대료"
+      ]
+    },
+    {
+      "id": "practice-3-648",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "관리비 실비",
+      "body": "관리비 실비 처리를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 실비 환원, 수입·경비 동시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실비 환원, 수입·경비 동시"
+      ]
+    },
+    {
+      "id": "practice-3-649",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "임대 면적",
+      "body": "임대 면적 산정을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 전용 또는 공용 포함",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전용 또는 공용 포함"
+      ]
+    },
+    {
+      "id": "practice-3-650",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "임대 만기",
+      "body": "임대 만기 처리를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 갱신 또는 종료",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "갱신 또는 종료"
+      ]
+    },
+    {
+      "id": "practice-3-651",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "PGI",
+      "body": "PGI 정의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- Potential Gross Income",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Potential Gross Income"
+      ]
+    },
+    {
+      "id": "practice-3-652",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "EGI",
+      "body": "EGI 정의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- Effective Gross Income",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Effective Gross Income"
+      ]
+    },
+    {
+      "id": "practice-3-653",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "NOI",
+      "body": "NOI 정의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- Net Operating Income",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Net Operating Income"
+      ]
+    },
+    {
+      "id": "practice-3-654",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "Terminal Cap",
+      "body": "Terminal Cap Rate 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 매각 환원이율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매각 환원이율"
+      ]
+    },
+    {
+      "id": "practice-3-655",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "Holding Period",
+      "body": "Holding Period 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보유기간 (DCF)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보유기간 (DCF)"
+      ]
+    },
+    {
+      "id": "practice-3-656",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "환원이율 vs 할인율",
+      "body": "환원·할인율 차이를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 환원 = 할인 - 성장",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환원 = 할인 - 성장"
+      ]
+    },
+    {
+      "id": "practice-3-657",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "매각가치 비중",
+      "body": "매각가치 비중을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 통상 70%+",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통상 70%+"
+      ]
+    },
+    {
+      "id": "practice-3-658",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "직접환원 적용",
+      "body": "직접환원 적용 조건을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 안정 NOI",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "안정 NOI"
+      ]
+    },
+    {
+      "id": "practice-3-659",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "DCF 적용",
+      "body": "DCF 적용 조건을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 성장·변동 기대",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "성장·변동 기대"
+      ]
+    },
+    {
+      "id": "practice-3-660",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "잔여 환원",
+      "body": "잔여 환원이율을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 잔여 NOI 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잔여 NOI 적용"
+      ]
+    },
+    {
+      "id": "practice-3-801",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-1",
+      "topic": "재조달 계산",
+      "body": "[자료] 단가 2,000,000 × 2,500㎡. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 50억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50억"
+      ]
+    },
+    {
+      "id": "practice-3-802",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-1",
+      "topic": "잔가율 30년",
+      "body": "[자료] 경과 30, 내용 50. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.4",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.4"
+      ]
+    },
+    {
+      "id": "practice-3-803",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-1",
+      "topic": "정률 3년",
+      "body": "[자료] 0.85^3. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.614",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.614"
+      ]
+    },
+    {
+      "id": "practice-3-804",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-1",
+      "topic": "정률 6년",
+      "body": "[자료] 0.9^6. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.531",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.531"
+      ]
+    },
+    {
+      "id": "practice-3-805",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-2",
+      "topic": "잔여 NOI",
+      "body": "[자료] 5억 - 2억. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 3억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3억"
+      ]
+    },
+    {
+      "id": "practice-3-806",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-3",
+      "topic": "대지권 면적",
+      "body": "[자료] 2,000 × 1.5%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 30㎡",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30㎡"
+      ]
+    },
+    {
+      "id": "practice-3-807",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-3",
+      "topic": "층 효용",
+      "body": "[자료] 5,000만 × 102/100. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 5,100만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,100만"
+      ]
+    },
+    {
+      "id": "practice-3-808",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "월 임대료",
+      "body": "[자료] 연 4.8억/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 4,000만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4,000만"
+      ]
+    },
+    {
+      "id": "practice-3-809",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "연금현가 4년",
+      "body": "[자료] 연금계수 (7%, 4) = 3.39. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 3.39",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3.39"
+      ]
+    },
+    {
+      "id": "practice-3-810",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "NOI 환원 6%",
+      "body": "[자료] 6억/6%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 100억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100억"
+      ]
+    },
+    {
+      "id": "practice-3-811",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "환원율 시장",
+      "body": "[자료] NOI 5억/거래 70. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 7.14%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7.14%"
+      ]
+    },
+    {
+      "id": "practice-3-812",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "DCF 5년 PV",
+      "body": "[자료] 5년 PV 25, 매각 PV 80. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- DCF 105억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "DCF 105억"
+      ]
+    },
+    {
+      "id": "practice-3-813",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-1",
+      "topic": "복합 감가",
+      "body": "[자료] 50억×0.95×0.97. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 46.08억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "46.08억"
+      ]
+    },
+    {
+      "id": "practice-3-814",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-2",
+      "topic": "시산 가중",
+      "body": "[자료] 60×0.2+70×0.4+80×0.4. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 72억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "72억"
+      ]
+    },
+    {
+      "id": "practice-3-815",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-3",
+      "topic": "평형 효용",
+      "body": "[자료] 84A 100, 84B 96, 14억. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 13.44억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "13.44억"
+      ]
+    },
+    {
+      "id": "practice-3-816",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "적산법 연",
+      "body": "[자료] 50억×5%+5천만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 3억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3억"
+      ]
+    },
+    {
+      "id": "practice-3-817",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "수익분석",
+      "body": "[자료] 매출 60억×10%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 6억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6억"
+      ]
+    },
+    {
+      "id": "practice-3-818",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "환원 4방식 평균",
+      "body": "[자료] 7+7.2+7.5+5/4. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 6.675%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6.675%"
+      ]
+    },
+    {
+      "id": "practice-3-819",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "매각환원",
+      "body": "[자료] 6년 NOI 7억/6%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 116.7억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "116.7억"
+      ]
+    },
+    {
+      "id": "practice-3-820",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-1",
+      "topic": "주체+부대 잔가",
+      "body": "[자료] 주체 0.7, 부대 0.3. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 총 평균 ≈ 0.55",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "총 평균 ≈ 0.55"
       ]
     }
   ]
