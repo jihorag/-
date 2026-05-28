@@ -4,7 +4,7 @@
   "chapter": "8b",
   "chapterTitle": "표준지·정비·불의타",
   "source": "official",
-  "count": 317,
+  "count": 347,
   "withAnswer": 7,
   "matchedAnswer": 7,
   "rounds": [
@@ -5866,6 +5866,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "범위 평가 가능"
+      ]
+    },
+    {
+      "id": "practice-8b-661",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-1",
+      "topic": "공시법 §3",
+      "body": "부동산가격공시법 §3를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 표준지 공시지가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "표준지 공시지가"
+      ]
+    },
+    {
+      "id": "practice-8b-662",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-1",
+      "topic": "표준지 평가",
+      "body": "표준지 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 적정가격",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "적정가격"
+      ]
+    },
+    {
+      "id": "practice-8b-663",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-1",
+      "topic": "국토부장관",
+      "body": "공시 주체를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 국토교통부장관",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "국토교통부장관"
+      ]
+    },
+    {
+      "id": "practice-8b-664",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-1",
+      "topic": "한국감정원 검증",
+      "body": "한국감정원 검증를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 객관·일관성",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "객관·일관성"
+      ]
+    },
+    {
+      "id": "practice-8b-665",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-1",
+      "topic": "의견 수렴",
+      "body": "의견 수렴를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 소유자·지자체",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "소유자·지자체"
+      ]
+    },
+    {
+      "id": "practice-8b-666",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-1",
+      "topic": "이의신청 §11",
+      "body": "이의신청 (§11)를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공시 30일 이내",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공시 30일 이내"
+      ]
+    },
+    {
+      "id": "practice-8b-667",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-1",
+      "topic": "공시 일자",
+      "body": "공시 일자를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 2~3월",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2~3월"
+      ]
+    },
+    {
+      "id": "practice-8b-668",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-1",
+      "topic": "개별공시지가",
+      "body": "개별공시지가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시·군·구 산정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시·군·구 산정"
+      ]
+    },
+    {
+      "id": "practice-8b-669",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-1",
+      "topic": "비준표",
+      "body": "토지가격비준표를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 개별공시 산정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "개별공시 산정"
+      ]
+    },
+    {
+      "id": "practice-8b-670",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-1",
+      "topic": "5%기준",
+      "body": "5% 기준를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 이내 인정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이내 인정"
+      ]
+    },
+    {
+      "id": "practice-8b-671",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-2",
+      "topic": "도시정비법 §4",
+      "body": "도시정비법 §4를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 정비사업 종류",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "정비사업 종류"
+      ]
+    },
+    {
+      "id": "practice-8b-672",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-2",
+      "topic": "재개발 의의",
+      "body": "재개발를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 노후·불량 정비",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "노후·불량 정비"
+      ]
+    },
+    {
+      "id": "practice-8b-673",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-2",
+      "topic": "재건축 의의",
+      "body": "재건축를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 단순 신축",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단순 신축"
+      ]
+    },
+    {
+      "id": "practice-8b-674",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-2",
+      "topic": "리모델링 의의",
+      "body": "리모델링를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보강",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보강"
+      ]
+    },
+    {
+      "id": "practice-8b-675",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-2",
+      "topic": "관리처분 인가",
+      "body": "관리처분 인가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 종전평가일",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종전평가일"
+      ]
+    },
+    {
+      "id": "practice-8b-676",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-2",
+      "topic": "조합원 분양가",
+      "body": "조합원 분양가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 일반의 80~90%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일반의 80~90%"
+      ]
+    },
+    {
+      "id": "practice-8b-677",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-2",
+      "topic": "일반 분양가",
+      "body": "일반 분양가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가"
+      ]
+    },
+    {
+      "id": "practice-8b-678",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-2",
+      "topic": "분양가 상한제",
+      "body": "분양가 상한제를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 투기과열지구",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "투기과열지구"
+      ]
+    },
+    {
+      "id": "practice-8b-679",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-2",
+      "topic": "매도청구 §73 ②",
+      "body": "매도청구를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 미동의자 처리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "미동의자 처리"
+      ]
+    },
+    {
+      "id": "practice-8b-680",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-2",
+      "topic": "청산금",
+      "body": "청산금를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 실제 정산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실제 정산"
+      ]
+    },
+    {
+      "id": "practice-8b-681",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-3",
+      "topic": "불의타 의의",
+      "body": "불의타를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 예측 못한 영향",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "예측 못한 영향"
+      ]
+    },
+    {
+      "id": "practice-8b-682",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-3",
+      "topic": "재평가 시점",
+      "body": "재평가 시점를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 사건 후 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사건 후 결정"
+      ]
+    },
+    {
+      "id": "practice-8b-683",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-3",
+      "topic": "회복 가능성",
+      "body": "회복 가능성를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 1~5년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1~5년"
+      ]
+    },
+    {
+      "id": "practice-8b-684",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-3",
+      "topic": "시나리오 분석",
+      "body": "시나리오 분석를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 낙관·중립·비관",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "낙관·중립·비관"
+      ]
+    },
+    {
+      "id": "practice-8b-685",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-3",
+      "topic": "환경 사고 책임",
+      "body": "환경 사고 책임를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 행위자 우선",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "행위자 우선"
+      ]
+    },
+    {
+      "id": "practice-8b-686",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-3",
+      "topic": "복원 의무",
+      "body": "복원 의무를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 소유자 보충",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "소유자 보충"
+      ]
+    },
+    {
+      "id": "practice-8b-687",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-3",
+      "topic": "평가사 면책",
+      "body": "평가사 면책를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 평가시점 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평가시점 기준"
+      ]
+    },
+    {
+      "id": "practice-8b-688",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-3",
+      "topic": "평가서 시점 명시",
+      "body": "평가서 명시를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시점·전제",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점·전제"
+      ]
+    },
+    {
+      "id": "practice-8b-689",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-3",
+      "topic": "평가 신뢰성",
+      "body": "평가 신뢰성를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 객관·근거",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "객관·근거"
+      ]
+    },
+    {
+      "id": "practice-8b-690",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8b-3",
+      "topic": "시장 회복",
+      "body": "시장 회복를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 평균 2~3년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균 2~3년"
       ]
     }
   ]

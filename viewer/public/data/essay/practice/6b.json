@@ -4,7 +4,7 @@
   "chapter": "6b",
   "chapterTitle": "토지보상 공법상제한·특수",
   "source": "official",
-  "count": 307,
+  "count": 337,
   "withAnswer": 12,
   "matchedAnswer": 12,
   "rounds": [
@@ -5679,6 +5679,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "행사 후 5년"
+      ]
+    },
+    {
+      "id": "practice-6b-661",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "공법상 제한 분류",
+      "body": "공법상 제한 2종를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 일반·개별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일반·개별"
+      ]
+    },
+    {
+      "id": "practice-6b-662",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "일반제한 적용",
+      "body": "일반제한 반영를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 단가 차감",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가 차감"
+      ]
+    },
+    {
+      "id": "practice-6b-663",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "개별제한 배제",
+      "body": "개별제한 배제를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시행규칙 §23",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시행규칙 §23"
+      ]
+    },
+    {
+      "id": "practice-6b-664",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "도시계획시설",
+      "body": "도시계획시설 종류를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 도로·공원·학교",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "도로·공원·학교"
+      ]
+    },
+    {
+      "id": "practice-6b-665",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "일몰제 도입",
+      "body": "일몰제 (2020)를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 미집행 20년 효력 상실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "미집행 20년 효력 상실"
+      ]
+    },
+    {
+      "id": "practice-6b-666",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "용적률 결정",
+      "body": "용적률 결정를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 용도지역별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도지역별"
+      ]
+    },
+    {
+      "id": "practice-6b-667",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "건폐율 결정",
+      "body": "건폐율 결정를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 용도지역별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도지역별"
+      ]
+    },
+    {
+      "id": "practice-6b-668",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "주거지역 종류",
+      "body": "주거지역 4종를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 전용 1·2종/일반 1·2·3종/준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전용 1·2종/일반 1·2·3종/준"
+      ]
+    },
+    {
+      "id": "practice-6b-669",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "상업지역 종류",
+      "body": "상업지역 4종를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 중심·일반·근린·유통",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "중심·일반·근린·유통"
+      ]
+    },
+    {
+      "id": "practice-6b-670",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "공업지역 종류",
+      "body": "공업지역 3종를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 전용·일반·준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전용·일반·준"
+      ]
+    },
+    {
+      "id": "practice-6b-671",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "녹지지역 종류",
+      "body": "녹지지역 3종를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보전·생산·자연",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보전·생산·자연"
+      ]
+    },
+    {
+      "id": "practice-6b-672",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "관리지역 종류",
+      "body": "관리지역 3종를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보전·생산·계획",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보전·생산·계획"
+      ]
+    },
+    {
+      "id": "practice-6b-673",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "농림지역",
+      "body": "농림지역를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 농림 진흥",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "농림 진흥"
+      ]
+    },
+    {
+      "id": "practice-6b-674",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "자연환경보전",
+      "body": "자연환경보전지역를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 최고 보전",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최고 보전"
+      ]
+    },
+    {
+      "id": "practice-6b-675",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "농업진흥구역",
+      "body": "농업진흥구역를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 농지법 §28",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "농지법 §28"
+      ]
+    },
+    {
+      "id": "practice-6b-676",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "상수원보호구역",
+      "body": "상수원보호구역를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 수도법 §7",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수도법 §7"
+      ]
+    },
+    {
+      "id": "practice-6b-677",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "군사기지",
+      "body": "군사기지보호구역를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 군사기지법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "군사기지법"
+      ]
+    },
+    {
+      "id": "practice-6b-678",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "자연취락지구",
+      "body": "자연취락지구를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 용도지구",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도지구"
+      ]
+    },
+    {
+      "id": "practice-6b-679",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "지구단위계획",
+      "body": "지구단위계획를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 국토계획법 §49",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "국토계획법 §49"
+      ]
+    },
+    {
+      "id": "practice-6b-680",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "경관지구",
+      "body": "경관지구를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시각·풍치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시각·풍치"
+      ]
+    },
+    {
+      "id": "practice-6b-681",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여지 §73",
+      "body": "잔여지 §73를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 가치손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가치손실"
+      ]
+    },
+    {
+      "id": "practice-6b-682",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여지 §74",
+      "body": "잔여지 §74를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 매수청구",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매수청구"
+      ]
+    },
+    {
+      "id": "practice-6b-683",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여 매수 30%",
+      "body": "매수청구 30%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 감가 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "감가 기준"
+      ]
+    },
+    {
+      "id": "practice-6b-684",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "미지급용지 §25",
+      "body": "미지급용지 §25를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 당시 이용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 당시 이용"
+      ]
+    },
+    {
+      "id": "practice-6b-685",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "구분지상권 §32",
+      "body": "구분지상권 §32를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 입체이용 보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "입체이용 보상"
+      ]
+    },
+    {
+      "id": "practice-6b-686",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "환매권 §91",
+      "body": "환매권 §91를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 10년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10년"
+      ]
+    },
+    {
+      "id": "practice-6b-687",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "환매가 §92",
+      "body": "환매가 §92를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보상+부담",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보상+부담"
+      ]
+    },
+    {
+      "id": "practice-6b-688",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여 건물 §35 ②",
+      "body": "잔여 건물 §35 ②를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 가치손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가치손실"
+      ]
+    },
+    {
+      "id": "practice-6b-689",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "구분지상 저해율 표",
+      "body": "깊이별 저해율를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 깊을수록 ↓",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "깊을수록 ↓"
+      ]
+    },
+    {
+      "id": "practice-6b-690",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "환매 행사 결정",
+      "body": "환매 행사를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가 > 환매가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 > 환매가"
       ]
     }
   ]

@@ -4,7 +4,7 @@
   "chapter": "4",
   "chapterTitle": "유형별 평가",
   "source": "official",
-  "count": 304,
+  "count": 334,
   "withAnswer": 4,
   "matchedAnswer": 4,
   "rounds": [
@@ -5667,6 +5667,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "7~10%"
+      ]
+    },
+    {
+      "id": "practice-4-661",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "평가규칙 §12",
+      "body": "거래사례비교법를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장 거래 직접 반영",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 거래 직접 반영"
+      ]
+    },
+    {
+      "id": "practice-4-662",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "평가규칙 §13",
+      "body": "수익환원법를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 미래 수익 환원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "미래 수익 환원"
+      ]
+    },
+    {
+      "id": "practice-4-663",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "평가규칙 §14",
+      "body": "공시지가기준법를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 표준지 활용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "표준지 활용"
+      ]
+    },
+    {
+      "id": "practice-4-664",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "평가규칙 §15",
+      "body": "원가법를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 재조달원가 + 감가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "재조달원가 + 감가"
+      ]
+    },
+    {
+      "id": "practice-4-665",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "3방식 시산조정",
+      "body": "3방식 시산조정를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 가중평균",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가중평균"
+      ]
+    },
+    {
+      "id": "practice-4-666",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "동산 원가 우선",
+      "body": "동산 원가 vs 시장를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 상황별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "상황별"
+      ]
+    },
+    {
+      "id": "practice-4-667",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "기계 정률 표준",
+      "body": "기계 정률 잔존율를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 0.85~0.92",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.85~0.92"
+      ]
+    },
+    {
+      "id": "practice-4-668",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "차량 중고차",
+      "body": "차량 중고차 시장를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 활발",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "활발"
+      ]
+    },
+    {
+      "id": "practice-4-669",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "동산 이전비 5%",
+      "body": "동산 이전비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가의 5~10%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가의 5~10%"
+      ]
+    },
+    {
+      "id": "practice-4-670",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "지상권 잔여기간",
+      "body": "지상권 잔여를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 통상 30~50년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통상 30~50년"
+      ]
+    },
+    {
+      "id": "practice-4-671",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "임차권 잔여",
+      "body": "임차권 잔여를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 2~10년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2~10년"
+      ]
+    },
+    {
+      "id": "practice-4-672",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "전세권 단기",
+      "body": "전세권 단기를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 1~3년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1~3년"
+      ]
+    },
+    {
+      "id": "practice-4-673",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "지역권 영구",
+      "body": "지역권 영구를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 영구 권리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영구 권리"
+      ]
+    },
+    {
+      "id": "practice-4-674",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "구분지상권 깊이",
+      "body": "구분지상 깊이를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 저해율 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저해율 결정"
+      ]
+    },
+    {
+      "id": "practice-4-675",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "농지 분류",
+      "body": "농지 답·전·과수를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지목별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지목별"
+      ]
+    },
+    {
+      "id": "practice-4-676",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "임야 분류",
+      "body": "임야 보전·준보전·생산를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 산림법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "산림법"
+      ]
+    },
+    {
+      "id": "practice-4-677",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "농업진흥 보전",
+      "body": "농업진흥구역를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 일반제한",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일반제한"
+      ]
+    },
+    {
+      "id": "practice-4-678",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "입목 별도",
+      "body": "입목 별도 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시행규칙 §39",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시행규칙 §39"
+      ]
+    },
+    {
+      "id": "practice-4-679",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "과수 가식·이식",
+      "body": "가식·이식 곤란를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시행규칙 §42",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시행규칙 §42"
+      ]
+    },
+    {
+      "id": "practice-4-680",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-5",
+      "topic": "사찰 평가 방법",
+      "body": "사찰 원가법를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장 거래 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 거래 X"
+      ]
+    },
+    {
+      "id": "practice-4-681",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-5",
+      "topic": "학교 부지 보정",
+      "body": "학교 부지 -15%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 용도 제한",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도 제한"
+      ]
+    },
+    {
+      "id": "practice-4-682",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-5",
+      "topic": "문화재 가산",
+      "body": "문화재 +20%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 역사·예술 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "역사·예술 가치"
+      ]
+    },
+    {
+      "id": "practice-4-683",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "광량 정의",
+      "body": "확정 매장량를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지질조사 검증",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지질조사 검증"
+      ]
+    },
+    {
+      "id": "practice-4-684",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "광업권 환원율",
+      "body": "광업권 환원율 12~18%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 위험 高",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "위험 高"
+      ]
+    },
+    {
+      "id": "practice-4-685",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "어업권 환원율",
+      "body": "어업권 환원율 10~15%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 위험 中",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "위험 中"
+      ]
+    },
+    {
+      "id": "practice-4-686",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "호텔 영업이익률",
+      "body": "호텔 영업이익률 30%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 표준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "표준"
+      ]
+    },
+    {
+      "id": "practice-4-687",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "호텔 환원율",
+      "body": "호텔 환원율 8~10%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 위험 高",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "위험 高"
+      ]
+    },
+    {
+      "id": "practice-4-688",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "골프 영업이익률",
+      "body": "골프 영업이익률 25~35%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 안정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "안정"
+      ]
+    },
+    {
+      "id": "practice-4-689",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "골프 환원율",
+      "body": "골프 환원율 7~8%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 안정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "안정"
+      ]
+    },
+    {
+      "id": "practice-4-690",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "유원지 환원율",
+      "body": "유원지 환원율 10%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 위험 高",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "위험 高"
       ]
     }
   ]

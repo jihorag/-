@@ -4,7 +4,7 @@
   "chapter": "3",
   "chapterTitle": "건물·복합·구분·임대료",
   "source": "official",
-  "count": 357,
+  "count": 387,
   "withAnswer": 29,
   "matchedAnswer": 29,
   "rounds": [
@@ -6742,6 +6742,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "총 평균 ≈ 0.55"
+      ]
+    },
+    {
+      "id": "practice-3-661",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "신축 시점 단가",
+      "body": "신축 시점 단가 산정를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 표준단가표 또는 견적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "표준단가표 또는 견적"
+      ]
+    },
+    {
+      "id": "practice-3-662",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "시점 보정 단가",
+      "body": "시점 보정 단가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 건축비변동률 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "건축비변동률 적용"
+      ]
+    },
+    {
+      "id": "practice-3-663",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "잔존가치율 5%",
+      "body": "잔존가치율 5%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- RC 표준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "RC 표준"
+      ]
+    },
+    {
+      "id": "practice-3-664",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "잔존가치율 0% (만년)",
+      "body": "만년감가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 종료 시 가치 0",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종료 시 가치 0"
+      ]
+    },
+    {
+      "id": "practice-3-665",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "주체 잔가율 산식",
+      "body": "주체 잔존/(경과+잔존)를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공식",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공식"
+      ]
+    },
+    {
+      "id": "practice-3-666",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "부대 잔가율 산식",
+      "body": "부대 잔존/(경과+잔존)를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공식",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공식"
+      ]
+    },
+    {
+      "id": "practice-3-667",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "관찰감가 활용",
+      "body": "관찰감가 활용 조건를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 리모델링·노후",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "리모델링·노후"
+      ]
+    },
+    {
+      "id": "practice-3-668",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "기능 감가율 5~10%",
+      "body": "기능 감가율 표준를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 5~10%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5~10%"
+      ]
+    },
+    {
+      "id": "practice-3-669",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "경제 감가율 3~5%",
+      "body": "경제 감가율 표준를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 3~5%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3~5%"
+      ]
+    },
+    {
+      "id": "practice-3-670",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "복합 일체 평가",
+      "body": "일체 평가 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장 거래 표준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 거래 표준"
+      ]
+    },
+    {
+      "id": "practice-3-671",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "복합 별도 평가",
+      "body": "별도 평가 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 회계·세무용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "회계·세무용"
+      ]
+    },
+    {
+      "id": "practice-3-672",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "시너지 가산 5%",
+      "body": "시너지 가산 5%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 일체효용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일체효용"
+      ]
+    },
+    {
+      "id": "practice-3-673",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "시너지 가산 15%",
+      "body": "시너지 가산 15%를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 최대 일체효용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최대 일체효용"
+      ]
+    },
+    {
+      "id": "practice-3-674",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "토지잔여법 적용",
+      "body": "토지잔여법 적용를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 신축 건물",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "신축 건물"
+      ]
+    },
+    {
+      "id": "practice-3-675",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "건물잔여법 적용",
+      "body": "건물잔여법 적용를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지 명확",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 명확"
+      ]
+    },
+    {
+      "id": "practice-3-676",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "집합건물법",
+      "body": "집합건물법 적용를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 아파트·상가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "아파트·상가"
+      ]
+    },
+    {
+      "id": "practice-3-677",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "전유면적",
+      "body": "전유면적 정의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 독립 사용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "독립 사용"
+      ]
+    },
+    {
+      "id": "practice-3-678",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "공용면적",
+      "body": "공용면적 정의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공유 사용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공유 사용"
+      ]
+    },
+    {
+      "id": "practice-3-679",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "대지권 비율",
+      "body": "대지권 비율 산식를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 전유/총전유",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전유/총전유"
+      ]
+    },
+    {
+      "id": "practice-3-680",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "대지권 면적",
+      "body": "대지권 면적 산식를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 대지 × 비율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "대지 × 비율"
+      ]
+    },
+    {
+      "id": "practice-3-681",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "층 효용비 1층",
+      "body": "1층 효용비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 기준 100",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기준 100"
+      ]
+    },
+    {
+      "id": "practice-3-682",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "층 효용비 2층",
+      "body": "2층 효용비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 상가 60·아파트 92",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "상가 60·아파트 92"
+      ]
+    },
+    {
+      "id": "practice-3-683",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "층 효용비 고층",
+      "body": "고층 효용비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 아파트 102",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "아파트 102"
+      ]
+    },
+    {
+      "id": "practice-3-684",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "평형 효용비 A",
+      "body": "평형 효용비 A를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 기준 100",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기준 100"
+      ]
+    },
+    {
+      "id": "practice-3-685",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "임대료 환산",
+      "body": "월·연 환산를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- ×12",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "×12"
+      ]
+    },
+    {
+      "id": "practice-3-686",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "전환율 적용",
+      "body": "전월세 전환율를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 연 5~6%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연 5~6%"
+      ]
+    },
+    {
+      "id": "practice-3-687",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "완전월세",
+      "body": "완전월세 산식를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 월세 + 보증금×r/12",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "월세 + 보증금×r/12"
+      ]
+    },
+    {
+      "id": "practice-3-688",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "완전전세",
+      "body": "완전전세 산식를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보증금 + 월세×12/r",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보증금 + 월세×12/r"
+      ]
+    },
+    {
+      "id": "practice-3-689",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "시장-계약 차액",
+      "body": "시장 vs 계약 차액를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 임차권 가치 기초",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "임차권 가치 기초"
+      ]
+    },
+    {
+      "id": "practice-3-690",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "잔여 임대기간",
+      "body": "잔여 임대기간를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 임차권 가치 핵심",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "임차권 가치 핵심"
       ]
     }
   ]
