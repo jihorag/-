@@ -4,7 +4,7 @@
   "chapter": "8a",
   "chapterTitle": "목적별 평가",
   "source": "official",
-  "count": 38,
+  "count": 68,
   "withAnswer": 18,
   "matchedAnswer": 18,
   "rounds": [
@@ -837,6 +837,576 @@
         "트랜치"
       ],
       "subchapter": "8a-1"
+    },
+    {
+      "id": "practice-8a-501",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보평가 의의",
+      "body": "담보평가의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 금융기관 채권 회수용\n- 처분 시 회수 가치\n- 보수적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "금융기관 채권 회수용",
+        "처분 시 회수 가치",
+        "보수적"
+      ]
+    },
+    {
+      "id": "practice-8a-502",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보가치",
+      "body": "담보가치의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가치 × 담보율\n- 담보율 60~80%\n- 용도별 차등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가치 × 담보율",
+        "담보율 60~80%",
+        "용도별 차등"
+      ]
+    },
+    {
+      "id": "practice-8a-503",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "LTV",
+      "body": "LTV의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- Loan to Value\n- 담보가치 대비 대출 비율\n- 60~70%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Loan to Value",
+        "담보가치 대비 대출 비율",
+        "60~70%"
+      ]
+    },
+    {
+      "id": "practice-8a-504",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "DTI",
+      "body": "DTI의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- Debt to Income\n- 소득 대비 원리금\n- 40~50%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Debt to Income",
+        "소득 대비 원리금",
+        "40~50%"
+      ]
+    },
+    {
+      "id": "practice-8a-505",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "저당상수",
+      "body": "저당상수의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- Mortgage Constant (MC)\n- 원금 1당 연 원리금\n- 대출조건별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Mortgage Constant (MC)",
+        "원금 1당 연 원리금",
+        "대출조건별"
+      ]
+    },
+    {
+      "id": "practice-8a-506",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "부담권리",
+      "body": "담보 부담권리 검토를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 저당·임차·가압류 등\n- 가용 한도 차감\n- 조세 우선",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저당·임차·가압류 등",
+        "가용 한도 차감",
+        "조세 우선"
+      ]
+    },
+    {
+      "id": "practice-8a-507",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보 vs 시장",
+      "body": "담보가치와 시장가치의 차이를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장 = 일반 거래\n- 담보 = 처분 + 위험\n- 담보율 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 = 일반 거래",
+        "담보 = 처분 + 위험",
+        "담보율 적용"
+      ]
+    },
+    {
+      "id": "practice-8a-508",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "대항력 임차",
+      "body": "대항력 임차의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 전입신고 + 인도\n- 낙찰자 인수\n- 담보가치 차감",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전입신고 + 인도",
+        "낙찰자 인수",
+        "담보가치 차감"
+      ]
+    },
+    {
+      "id": "practice-8a-509",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보 가용 한도",
+      "body": "담보 가용 한도 산정을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- LTV - 부담권리\n- 부담권리 차감\n- 실제 대출가능액",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "LTV - 부담권리",
+        "부담권리 차감",
+        "실제 대출가능액"
+      ]
+    },
+    {
+      "id": "practice-8a-510",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-1",
+      "topic": "담보율 차등",
+      "body": "담보율 용도별 차등을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 주택 70~80%\n- 오피스 70%\n- 특수 50~60%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주택 70~80%",
+        "오피스 70%",
+        "특수 50~60%"
+      ]
+    },
+    {
+      "id": "practice-8a-511",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "경매 감정",
+      "body": "경매 감정의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 법원 의뢰\n- 최저매각가 산정\n- 시장가치 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "법원 의뢰",
+        "최저매각가 산정",
+        "시장가치 기준"
+      ]
+    },
+    {
+      "id": "practice-8a-512",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "최저매각가",
+      "body": "최저매각가의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 감정가 100% 또는 95%\n- 경매 시작 가격\n- 유찰 시 20% 저감",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "감정가 100% 또는 95%",
+        "경매 시작 가격",
+        "유찰 시 20% 저감"
+      ]
+    },
+    {
+      "id": "practice-8a-513",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "낙찰가",
+      "body": "낙찰가의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 실제 낙찰 가격\n- 감정가의 70~90%\n- 시장 경쟁도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실제 낙찰 가격",
+        "감정가의 70~90%",
+        "시장 경쟁도"
+      ]
+    },
+    {
+      "id": "practice-8a-514",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "말소기준 권리",
+      "body": "말소기준 권리의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 최선순위 저당·가압류\n- 이후 권리 소멸\n- 인수·소멸 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최선순위 저당·가압류",
+        "이후 권리 소멸",
+        "인수·소멸 결정"
+      ]
+    },
+    {
+      "id": "practice-8a-515",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "인수 권리",
+      "body": "경매 인수 권리를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 말소기준 이전 대항력 권리\n- 낙찰자 인수\n- 임차권 등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "말소기준 이전 대항력 권리",
+        "낙찰자 인수",
+        "임차권 등"
+      ]
+    },
+    {
+      "id": "practice-8a-516",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "소멸 권리",
+      "body": "경매 소멸 권리를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 말소기준 이후\n- 배당으로 처리\n- 저당·가압류",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "말소기준 이후",
+        "배당으로 처리",
+        "저당·가압류"
+      ]
+    },
+    {
+      "id": "practice-8a-517",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "소송 감정",
+      "body": "소송 감정의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 법원 명령 평가\n- 선서·위증죄\n- 객관성",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "법원 명령 평가",
+        "선서·위증죄",
+        "객관성"
+      ]
+    },
+    {
+      "id": "practice-8a-518",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "감정인 선임",
+      "body": "감정인 선임의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 법원 선임\n- 평가사 명부\n- 객관 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "법원 선임",
+        "평가사 명부",
+        "객관 평가"
+      ]
+    },
+    {
+      "id": "practice-8a-519",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "감정인 출석",
+      "body": "감정인 출석·증언을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 법원 신문 출석\n- 감정 결과 설명\n- 반대신문 응대",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "법원 신문 출석",
+        "감정 결과 설명",
+        "반대신문 응대"
+      ]
+    },
+    {
+      "id": "practice-8a-520",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-2",
+      "topic": "소송 감정 보수",
+      "body": "소송 감정 보수를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 본료 + 출석 + 증언 + 실비\n- 법원 보수 기준표\n- 일반보다 낮음",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "본료 + 출석 + 증언 + 실비",
+        "법원 보수 기준표",
+        "일반보다 낮음"
+      ]
+    },
+    {
+      "id": "practice-8a-521",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "국유재산",
+      "body": "국유재산의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 국가 소유 재산\n- 국유재산법\n- 매각·대부 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "국가 소유 재산",
+        "국유재산법",
+        "매각·대부 평가"
+      ]
+    },
+    {
+      "id": "practice-8a-522",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "국유 매각가",
+      "body": "국유재산 매각가 산정을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가치 기준\n- 평가가 = 최저가\n- 입찰 또는 수의계약",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가치 기준",
+        "평가가 = 최저가",
+        "입찰 또는 수의계약"
+      ]
+    },
+    {
+      "id": "practice-8a-523",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "국유 대부료",
+      "body": "국유재산 대부료를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가치 × 사용료율 5%\n- 연 단위\n- 5년마다 재평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가치 × 사용료율 5%",
+        "연 단위",
+        "5년마다 재평가"
+      ]
+    },
+    {
+      "id": "practice-8a-524",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "입찰 vs 수의계약",
+      "body": "입찰과 수의계약의 차이를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 입찰 = 일반경쟁 (원칙)\n- 수의 = 인접·대부·공익 예외\n- 최고가 vs 협의가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "입찰 = 일반경쟁 (원칙)",
+        "수의 = 인접·대부·공익 예외",
+        "최고가 vs 협의가"
+      ]
+    },
+    {
+      "id": "practice-8a-525",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "자산재평가",
+      "body": "자산재평가의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- K-IFRS 16·40\n- 재평가모형\n- 시가 反영",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "K-IFRS 16·40",
+        "재평가모형",
+        "시가 反영"
+      ]
+    },
+    {
+      "id": "practice-8a-526",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "재평가 잉여",
+      "body": "재평가 잉여를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시가 - 장부가\n- 자본 항목 (기타포괄손익)\n- 손익 인식 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시가 - 장부가",
+        "자본 항목 (기타포괄손익)",
+        "손익 인식 X"
+      ]
+    },
+    {
+      "id": "practice-8a-527",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "K-IFRS 13",
+      "body": "K-IFRS 13 공정가치를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장참여자 간 거래 가격\n- 시장가치와 유사\n- 회계용 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장참여자 간 거래 가격",
+        "시장가치와 유사",
+        "회계용 평가"
+      ]
+    },
+    {
+      "id": "practice-8a-528",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "양도세 평가",
+      "body": "양도세 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 취득·양도 시점 평가\n- 양도소득 산정\n- 신고 자료",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "취득·양도 시점 평가",
+        "양도소득 산정",
+        "신고 자료"
+      ]
+    },
+    {
+      "id": "practice-8a-529",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "종부세 평가",
+      "body": "종부세 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공시가격 기반\n- 한도 초과 분\n- 매년 6.1 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공시가격 기반",
+        "한도 초과 분",
+        "매년 6.1 기준"
+      ]
+    },
+    {
+      "id": "practice-8a-530",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "8a-3",
+      "topic": "REITs",
+      "body": "REITs의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 부동산투자회사\n- 매년 평가 의무\n- NAV 산정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "부동산투자회사",
+        "매년 평가 의무",
+        "NAV 산정"
+      ]
     }
   ]
 }

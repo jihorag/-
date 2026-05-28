@@ -4,7 +4,7 @@
   "chapter": "6b",
   "chapterTitle": "토지보상 공법상제한·특수",
   "source": "official",
-  "count": 32,
+  "count": 62,
   "withAnswer": 12,
   "matchedAnswer": 12,
   "rounds": [
@@ -685,6 +685,576 @@
         "편입 단가"
       ],
       "subchapter": "6b-2"
+    },
+    {
+      "id": "practice-6b-501",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "공법상 제한",
+      "body": "공법상 제한의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 용도지역·지구·구역 규제\n- 건축·개발 제한\n- 시행규칙 §23 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도지역·지구·구역 규제",
+        "건축·개발 제한",
+        "시행규칙 §23 적용"
+      ]
+    },
+    {
+      "id": "practice-6b-502",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "일반제한",
+      "body": "일반제한의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 용도지역·지구 등 일반 규제\n- 보상 평가에 반영\n- 사업 무관",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도지역·지구 등 일반 규제",
+        "보상 평가에 반영",
+        "사업 무관"
+      ]
+    },
+    {
+      "id": "practice-6b-503",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "개별제한",
+      "body": "개별제한의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 도시계획시설·도로 등 개별 결정\n- 제한 없는 상태 평가\n- 사업영향",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "도시계획시설·도로 등 개별 결정",
+        "제한 없는 상태 평가",
+        "사업영향"
+      ]
+    },
+    {
+      "id": "practice-6b-504",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "시행규칙 §23",
+      "body": "시행규칙 §23의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공법상 제한 토지 평가 원칙\n- 일반제한 반영·개별제한 배제\n- 제한 없는 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공법상 제한 토지 평가 원칙",
+        "일반제한 반영·개별제한 배제",
+        "제한 없는 평가"
+      ]
+    },
+    {
+      "id": "practice-6b-505",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "사실상 도로",
+      "body": "사실상 도로의 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 인근 토지 단가 1/3\n- 시행규칙 §26\n- 도로 종류 판정 핵심",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "인근 토지 단가 1/3",
+        "시행규칙 §26",
+        "도로 종류 판정 핵심"
+      ]
+    },
+    {
+      "id": "practice-6b-506",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "사도법상 사도",
+      "body": "사도법상 사도의 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 인근 단가 1/5\n- 시행규칙 §26\n- 등록된 사도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "인근 단가 1/5",
+        "시행규칙 §26",
+        "등록된 사도"
+      ]
+    },
+    {
+      "id": "practice-6b-507",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "도시계획도로",
+      "body": "도시계획도로 부지 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시행규칙 §23 개별제한\n- 제한 없는 평가\n- 사업영향 배제",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시행규칙 §23 개별제한",
+        "제한 없는 평가",
+        "사업영향 배제"
+      ]
+    },
+    {
+      "id": "practice-6b-508",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "도시계획공원",
+      "body": "도시계획공원 부지 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 개별제한 배제\n- 제한 없는 평가\n- 일몰제 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "개별제한 배제",
+        "제한 없는 평가",
+        "일몰제 적용"
+      ]
+    },
+    {
+      "id": "practice-6b-509",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "일몰제",
+      "body": "도시계획시설 일몰제를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 결정 20년 미집행 시 효력 상실\n- 2020 도입\n- 시장가치 회복",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "결정 20년 미집행 시 효력 상실",
+        "2020 도입",
+        "시장가치 회복"
+      ]
+    },
+    {
+      "id": "practice-6b-510",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "농업진흥구역",
+      "body": "농업진흥구역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 농지법\n- 농업 진흥 목적\n- 용도변경 곤란",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "농지법",
+        "농업 진흥 목적",
+        "용도변경 곤란"
+      ]
+    },
+    {
+      "id": "practice-6b-511",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "자연환경보전지역",
+      "body": "자연환경보전지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 자연환경보전법\n- 자연 보전 우선\n- 개발 제한",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "자연환경보전법",
+        "자연 보전 우선",
+        "개발 제한"
+      ]
+    },
+    {
+      "id": "practice-6b-512",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "상수원보호구역",
+      "body": "상수원보호구역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 수도법\n- 개발·오염 엄격 제한\n- 큰 폭 감가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수도법",
+        "개발·오염 엄격 제한",
+        "큰 폭 감가"
+      ]
+    },
+    {
+      "id": "practice-6b-513",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "군사시설보호구역",
+      "body": "군사시설보호구역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 군사기지법\n- 제한·통제 구역 차등\n- 건축 제한",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "군사기지법",
+        "제한·통제 구역 차등",
+        "건축 제한"
+      ]
+    },
+    {
+      "id": "practice-6b-514",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "자연취락지구",
+      "body": "자연취락지구의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 국토계획법 용도지구\n- 자연 보전+취락\n- 개발 제한",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "국토계획법 용도지구",
+        "자연 보전+취락",
+        "개발 제한"
+      ]
+    },
+    {
+      "id": "practice-6b-515",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "지구단위계획구역",
+      "body": "지구단위계획구역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 국토계획법 §49\n- 종합 계획\n- 가치 ± 영향",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "국토계획법 §49",
+        "종합 계획",
+        "가치 ± 영향"
+      ]
+    },
+    {
+      "id": "practice-6b-516",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "용도지역 변경",
+      "body": "용도지역 변경의 평가 영향을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 상향 변경 시 가치 ↑\n- 하향 변경 시 가치 ↓\n- 예상 변경 反映 가능",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "상향 변경 시 가치 ↑",
+        "하향 변경 시 가치 ↓",
+        "예상 변경 反映 가능"
+      ]
+    },
+    {
+      "id": "practice-6b-517",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "용적률 영향",
+      "body": "용적률 변경의 평가 영향을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 용적률 ↑ = 가치 ↑\n- 용적률 ↓ = 가치 ↓\n- 개발 잠재가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용적률 ↑ = 가치 ↑",
+        "용적률 ↓ = 가치 ↓",
+        "개발 잠재가치"
+      ]
+    },
+    {
+      "id": "practice-6b-518",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "도시계획 결정",
+      "body": "도시계획결정 후 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 개별제한 배제\n- 제한 없는 상태 평가\n- 시행규칙 §23",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "개별제한 배제",
+        "제한 없는 상태 평가",
+        "시행규칙 §23"
+      ]
+    },
+    {
+      "id": "practice-6b-519",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "보전산지",
+      "body": "보전산지의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 산림법\n- 공익용 산지\n- 개발 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "산림법",
+        "공익용 산지",
+        "개발 X"
+      ]
+    },
+    {
+      "id": "practice-6b-520",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "준보전·생산산지",
+      "body": "준보전·생산산지의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 준보전 = 제한 개발\n- 생산 = 개발 가능 + 임업\n- 단가 차등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "준보전 = 제한 개발",
+        "생산 = 개발 가능 + 임업",
+        "단가 차등"
+      ]
+    },
+    {
+      "id": "practice-6b-521",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "미지급용지",
+      "body": "미지급용지의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 후 보상 누락 토지\n- 시행규칙 §25\n- 편입 당시 이용상황 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 후 보상 누락 토지",
+        "시행규칙 §25",
+        "편입 당시 이용상황 기준"
+      ]
+    },
+    {
+      "id": "practice-6b-522",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여지 §73",
+      "body": "잔여지 §73의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 잔여지 가치손실 보상\n- 종전 - 종후 가치\n- 가치 감소만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잔여지 가치손실 보상",
+        "종전 - 종후 가치",
+        "가치 감소만"
+      ]
+    },
+    {
+      "id": "practice-6b-523",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여지 §74",
+      "body": "잔여지 §74의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 잔여지 매수청구\n- 사용 곤란 시\n- 편입 단가 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잔여지 매수청구",
+        "사용 곤란 시",
+        "편입 단가 적용"
+      ]
+    },
+    {
+      "id": "practice-6b-524",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여지 매수청구 요건",
+      "body": "잔여지 매수청구 요건을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 30% 이상 감가\n- 사용 곤란 인정\n- 청구 기한 1년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30% 이상 감가",
+        "사용 곤란 인정",
+        "청구 기한 1년"
+      ]
+    },
+    {
+      "id": "practice-6b-525",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "구분지상권",
+      "body": "구분지상권의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지 입체공간 사용권\n- 지하·공중 점유\n- 입체이용저해율 보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 입체공간 사용권",
+        "지하·공중 점유",
+        "입체이용저해율 보상"
+      ]
+    },
+    {
+      "id": "practice-6b-526",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "입체이용저해율",
+      "body": "입체이용저해율의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지하 이용비율 × 깊이저해율\n- 구분지상권 보상 핵심\n- 0.5~5% 범위",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지하 이용비율 × 깊이저해율",
+        "구분지상권 보상 핵심",
+        "0.5~5% 범위"
+      ]
+    },
+    {
+      "id": "practice-6b-527",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "환매권 행사 요건",
+      "body": "환매권 행사 요건을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 사업 폐지·취소\n- 10년 이내\n- 토지 사용 안 함",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사업 폐지·취소",
+        "10년 이내",
+        "토지 사용 안 함"
+      ]
+    },
+    {
+      "id": "practice-6b-528",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "환매가 산정",
+      "body": "환매가 산정의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보상금 + 사업시행자 부담\n- 시장가 변동 별도\n- 원소유자 이익",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보상금 + 사업시행자 부담",
+        "시장가 변동 별도",
+        "원소유자 이익"
+      ]
+    },
+    {
+      "id": "practice-6b-529",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "미지급용지 vs 사실상 도로",
+      "body": "미지급용지와 사실상 도로의 차이를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 미지급용지 = 편입 당시 이용상황\n- 사실상 도로 = 인근 단가 1/3\n- 평가 기준 다름",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "미지급용지 = 편입 당시 이용상황",
+        "사실상 도로 = 인근 단가 1/3",
+        "평가 기준 다름"
+      ]
+    },
+    {
+      "id": "practice-6b-530",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "농지의 일반제한",
+      "body": "농지의 일반제한 처리를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 농지법상 제한 반영\n- 농업진흥구역 등\n- 제한 없는 평가 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "농지법상 제한 반영",
+        "농업진흥구역 등",
+        "제한 없는 평가 X"
+      ]
     }
   ]
 }

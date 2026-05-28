@@ -4,7 +4,7 @@
   "chapter": "7",
   "chapterTitle": "건축물·영업·기타 보상",
   "source": "official",
-  "count": 33,
+  "count": 63,
   "withAnswer": 13,
   "matchedAnswer": 13,
   "rounds": [
@@ -707,6 +707,576 @@
         "1989.1.24"
       ],
       "subchapter": "7-2"
+    },
+    {
+      "id": "practice-7-501",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "건축물 보상",
+      "body": "건축물 보상의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 건물 적산가액\n- 원가법\n- 시행규칙 §33 등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 건물 적산가액",
+        "원가법",
+        "시행규칙 §33 등"
+      ]
+    },
+    {
+      "id": "practice-7-502",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "건축물 부분 편입",
+      "body": "건축물 부분 편입의 처리를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 편입부 적산 + 잔존부 보강비\n- 시행규칙 §35\n- 구조 안전성 검토",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입부 적산 + 잔존부 보강비",
+        "시행규칙 §35",
+        "구조 안전성 검토"
+      ]
+    },
+    {
+      "id": "practice-7-503",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "건축물 잔여 §35 ②",
+      "body": "잔여 건물 가치손실 보상을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- §35 ②\n- 종전-종후 가치\n- 보강비와 별개",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§35 ②",
+        "종전-종후 가치",
+        "보강비와 별개"
+      ]
+    },
+    {
+      "id": "practice-7-504",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "건축물 이전비",
+      "body": "건축물 이전비 보상을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 가능 시 운반·해체비\n- 이전 곤란 시 적산가액\n- 시행규칙 §33",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 가능 시 운반·해체비",
+        "이전 곤란 시 적산가액",
+        "시행규칙 §33"
+      ]
+    },
+    {
+      "id": "practice-7-505",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "무허가 건물",
+      "body": "무허가 건물 보상의 원칙을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 원칙 보상 X\n- 1989.1.24 이전 예외\n- 시행규칙 §24",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원칙 보상 X",
+        "1989.1.24 이전 예외",
+        "시행규칙 §24"
+      ]
+    },
+    {
+      "id": "practice-7-506",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "용도변경 후 보상",
+      "body": "용도변경 후 건물 보상을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 합법 변경 = 현용도 단가\n- 무허가 변경 = 당초 용도\n- 인허가 확인",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "합법 변경 = 현용도 단가",
+        "무허가 변경 = 당초 용도",
+        "인허가 확인"
+      ]
+    },
+    {
+      "id": "practice-7-507",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "신축 건물 보상",
+      "body": "신축 건물 보상의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 적산가액 (신축 잔가율)\n- 재조달원가 거의 동일\n- 경과연수 짧음",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "적산가액 (신축 잔가율)",
+        "재조달원가 거의 동일",
+        "경과연수 짧음"
+      ]
+    },
+    {
+      "id": "practice-7-508",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "주거용 건물 보상",
+      "body": "주거용 건물 보상을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 적산가액 + 이주정착금 + 이전비\n- 주거자 보호\n- 시행규칙 §33·§53·§54",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "적산가액 + 이주정착금 + 이전비",
+        "주거자 보호",
+        "시행규칙 §33·§53·§54"
+      ]
+    },
+    {
+      "id": "practice-7-509",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "영업손실 보상",
+      "body": "영업손실 보상의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 편입으로 인한 영업 중단·이전 손실\n- 시행규칙 §46·§47\n- 휴업·폐업 구분",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입으로 인한 영업 중단·이전 손실",
+        "시행규칙 §46·§47",
+        "휴업·폐업 구분"
+      ]
+    },
+    {
+      "id": "practice-7-510",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "휴업 §46",
+      "body": "휴업 §46의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 가능 시 휴업기간 영업이익\n- 4개월 표준\n- 부대비 가산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 가능 시 휴업기간 영업이익",
+        "4개월 표준",
+        "부대비 가산"
+      ]
+    },
+    {
+      "id": "practice-7-511",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "폐업 §47",
+      "body": "폐업 §47의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시·군내 이전 곤란 시\n- 영업이익 2년분\n- 고정자산 가산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시·군내 이전 곤란 시",
+        "영업이익 2년분",
+        "고정자산 가산"
+      ]
+    },
+    {
+      "id": "practice-7-512",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "영업이익 3년 평균",
+      "body": "영업이익 3년 평균의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 직전 3년 영업이익 평균\n- 안정 산정\n- 시점 변동 평탄화",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "직전 3년 영업이익 평균",
+        "안정 산정",
+        "시점 변동 평탄화"
+      ]
+    },
+    {
+      "id": "practice-7-513",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "휴업 4개월",
+      "body": "휴업 4개월 표준의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 가능 시 표준\n- 예외 시 연장\n- 대형 시설 등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 가능 시 표준",
+        "예외 시 연장",
+        "대형 시설 등"
+      ]
+    },
+    {
+      "id": "practice-7-514",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "휴업 부대비",
+      "body": "휴업 부대비 항목을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 이전비·시설복구·광고·임차·인건\n- 영업이익 50% 가량\n- 시행규칙 §46 ②",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전비·시설복구·광고·임차·인건",
+        "영업이익 50% 가량",
+        "시행규칙 §46 ②"
+      ]
+    },
+    {
+      "id": "practice-7-515",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "영농손실 §48",
+      "body": "영농손실 §48의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 통계소득 또는 실제소득\n- 2년분\n- 통계 ×1.5 한도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통계소득 또는 실제소득",
+        "2년분",
+        "통계 ×1.5 한도"
+      ]
+    },
+    {
+      "id": "practice-7-516",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "실제소득 한도",
+      "body": "실제소득 1.5배 한도를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 통계소득 ×1.5 한도\n- 입증 충분 시 한도 내 인정\n- 시행규칙 §48",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통계소득 ×1.5 한도",
+        "입증 충분 시 한도 내 인정",
+        "시행규칙 §48"
+      ]
+    },
+    {
+      "id": "practice-7-517",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "농작물 §41",
+      "body": "농작물 §41의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 수확 전 농작물 가치\n- 예상 수확량 × 단가\n- 잔여기간 비율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수확 전 농작물 가치",
+        "예상 수확량 × 단가",
+        "잔여기간 비율"
+      ]
+    },
+    {
+      "id": "practice-7-518",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "과수 §42",
+      "body": "과수 §42의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 수확 전 과수\n- 가식 vs 이식 곤란\n- 주당 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수확 전 과수",
+        "가식 vs 이식 곤란",
+        "주당 가치"
+      ]
+    },
+    {
+      "id": "practice-7-519",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "입목 §39",
+      "body": "입목 §39의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 산림 입목 평가\n- 시장가 역산법\n- 벌채·반출 비용 차감",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "산림 입목 평가",
+        "시장가 역산법",
+        "벌채·반출 비용 차감"
+      ]
+    },
+    {
+      "id": "practice-7-520",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "분묘 §43",
+      "body": "분묘 이장 §43의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 유연고·무연고 단분·합장\n- 시행규칙 §43\n- 부속시설 별도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "유연고·무연고 단분·합장",
+        "시행규칙 §43",
+        "부속시설 별도"
+      ]
+    },
+    {
+      "id": "practice-7-521",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시설하우스",
+      "body": "시설하우스 보상을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지 + 시설 별도\n- 농지 단가 + 시설 시장가\n- 원예·축산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 + 시설 별도",
+        "농지 단가 + 시설 시장가",
+        "원예·축산"
+      ]
+    },
+    {
+      "id": "practice-7-522",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "축산 영업",
+      "body": "축산 영업 보상을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지+축사+가축+영농\n- 시장가+운반비\n- 폐업 시 더 큼",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지+축사+가축+영농",
+        "시장가+운반비",
+        "폐업 시 더 큼"
+      ]
+    },
+    {
+      "id": "practice-7-523",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "동산 §55",
+      "body": "동산 §55의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 이전 가능 시 운반비\n- 이전 곤란 시 시장가\n- 가구원수별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 가능 시 운반비",
+        "이전 곤란 시 시장가",
+        "가구원수별"
+      ]
+    },
+    {
+      "id": "practice-7-524",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "주거이전비 §54",
+      "body": "주거이전비 §54의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 1인 월소득 × 가구원 × 4월\n- 주거자 보호\n- 도시근로자 평균",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1인 월소득 × 가구원 × 4월",
+        "주거자 보호",
+        "도시근로자 평균"
+      ]
+    },
+    {
+      "id": "practice-7-525",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "이주정착금 §53",
+      "body": "이주정착금 §53의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 건물 평가액 × 30%\n- 한도 1,200만~2,400만\n- 주거자 정착",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "건물 평가액 × 30%",
+        "한도 1,200만~2,400만",
+        "주거자 정착"
+      ]
+    },
+    {
+      "id": "practice-7-526",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "동산 이전비",
+      "body": "동산 이전비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- §55\n- 가구원수별 표준\n- 가구·집기·동산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§55",
+        "가구원수별 표준",
+        "가구·집기·동산"
+      ]
+    },
+    {
+      "id": "practice-7-527",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "임시 거주비",
+      "body": "임시 거주비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 주거 전환 기간 임시 비용\n- 신축 전 임차\n- 추가 가산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주거 전환 기간 임시 비용",
+        "신축 전 임차",
+        "추가 가산"
+      ]
+    },
+    {
+      "id": "practice-7-528",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "광고·시장회복비",
+      "body": "광고·시장회복비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 영업 재개 시 광고비\n- 시행규칙 §46 ②\n- 정액 또는 비율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업 재개 시 광고비",
+        "시행규칙 §46 ②",
+        "정액 또는 비율"
+      ]
+    },
+    {
+      "id": "practice-7-529",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "이주대책",
+      "body": "이주대책의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 대토 또는 임대주택\n- 주거자 보호\n- 시행자 의무",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "대토 또는 임대주택",
+        "주거자 보호",
+        "시행자 의무"
+      ]
+    },
+    {
+      "id": "practice-7-530",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "주거자 vs 영업자",
+      "body": "주거자와 영업자 보상의 차이를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 주거자: §53·§54·§55\n- 영업자: §46·§47\n- 항목 다름",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주거자: §53·§54·§55",
+        "영업자: §46·§47",
+        "항목 다름"
+      ]
     }
   ]
 }
