@@ -4,7 +4,7 @@
   "chapter": "6a",
   "chapterTitle": "토지보상 기본·원칙",
   "source": "official",
-  "count": 221,
+  "count": 241,
   "withAnswer": 19,
   "matchedAnswer": 19,
   "rounds": [
@@ -4371,6 +4371,372 @@
         "A 7,000×0.25×0.30×200 = 1.05억",
         "B 7,000×0.25×0.08×200 = 2,800만",
         "합 1.33억"
+      ]
+    },
+    {
+      "id": "practice-6a-911",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "공시지가 + 일단위",
+      "body": "[자료] 표준지 8,500,000원, 2025 +4%, 2026 1-4 +1.5%, 5월 15일 +0.05%/일. 개별 1.05, 그밖의 1.13. 면적 450㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 시점 1.04×1.015×1.0075 = 1.063\n- 단가 8,500×1.063×1.05×1.13 = 10,733,000원\n- 48.30억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점 1.04×1.015×1.0075 = 1.063",
+        "단가 8,500×1.063×1.05×1.13 = 10,733,000원",
+        "48.30억"
+      ]
+    },
+    {
+      "id": "practice-6a-912",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-1",
+      "topic": "협의·재결·이의",
+      "body": "[자료] 협의 100억 (2025.6), 재결 110억 (2026.4), 이의재결 115억 (2026.7)",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 단계별 +10%, +4.5%\n- 점진 증액 권장\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단계별 +10%, +4.5%",
+        "점진 증액 권장"
+      ]
+    },
+    {
+      "id": "practice-6a-913",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-1",
+      "topic": "잔여지 + 매수",
+      "body": "[자료] 전체 1,200㎡, 단가 5,000,000원. 편입 1,000㎡. 시나리오 A -10%, B -20%, C -32%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 편입 50억\n- A 손실 200×500=1억\n- B 200×1,000=2억\n- C 매수청구 200×5,000=10억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 50억",
+        "A 손실 200×500=1억",
+        "B 200×1,000=2억",
+        "C 매수청구 200×5,000=10억"
+      ]
+    },
+    {
+      "id": "practice-6a-914",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-1",
+      "topic": "환매 시나리오",
+      "body": "[자료] 보상 8억 (2014), 시행자 부담 2,000만. 시장가 시나리오 15/10/6억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 환매가 8.2억\n- 15→이익 6.8\n- 10→이익 1.8\n- 6→손해 2.2 → 거부\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환매가 8.2억",
+        "15→이익 6.8",
+        "10→이익 1.8",
+        "6→손해 2.2 → 거부"
+      ]
+    },
+    {
+      "id": "practice-6a-915",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "6대 + 그밖의",
+      "body": "[자료] 표준지 7,500,000원. 6대 종합 1.0681, 시점 1.05, 그밖의 1.15. 면적 400㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 7,500×1.05×1.0681×1.15 = 9,672,000원\n- 38.69억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,500×1.05×1.0681×1.15 = 9,672,000원",
+        "38.69억"
+      ]
+    },
+    {
+      "id": "practice-6a-916",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "비교표준지 3건",
+      "body": "[자료] A 8,000,000 (적격), B 8,500,000 (도로 차이), C 9,000,000 (적격). 시점 1.04",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- B 배제\n- A·C 평균 8,500,000\n- 시점 8,840,000\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "B 배제",
+        "A·C 평균 8,500,000",
+        "시점 8,840,000"
+      ]
+    },
+    {
+      "id": "practice-6a-917",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-1",
+      "topic": "시효 + 청구",
+      "body": "[자료] 보상금 청구권 발생 2020.4. 현 2026.4. 시효 5년",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 시효 = 2025.4 도과\n- 청구 불가\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시효 = 2025.4 도과",
+        "청구 불가"
+      ]
+    },
+    {
+      "id": "practice-6a-918",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-1",
+      "topic": "공탁 + 이의",
+      "body": "[자료] 재결 100억 (2026.4), 토지소유자 거부, 사업시행자 공탁 (2026.4.20)",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 공탁 적법 (30일 이내)\n- 토지 인도\n- 이의재결 60일 이내\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공탁 적법 (30일 이내)",
+        "토지 인도",
+        "이의재결 60일 이내"
+      ]
+    },
+    {
+      "id": "practice-6a-919",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "시점수정 + 평균",
+      "body": "[자료] 2024 +4%, 2025 +3.5%, 2026 1-4 +1.5%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1.04×1.035×1.015 = 1.092\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.04×1.035×1.015 = 1.092"
+      ]
+    },
+    {
+      "id": "practice-6a-920",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "구분지상권 다양",
+      "body": "[자료] 단가 7,500,000원. A 200㎡ × 15m (저해 30%), B 300㎡ × 25m (저해 15%), C 200㎡ × 30m (저해 8%). 이용 25%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- A 0.075×200=1.125억\n- B 0.0375×300=8,438만\n- C 0.02×200=3,000만\n- 합 2.27억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "A 0.075×200=1.125억",
+        "B 0.0375×300=8,438만",
+        "C 0.02×200=3,000만",
+        "합 2.27억"
+      ]
+    },
+    {
+      "id": "practice-6a-921",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "잔여지 손실 + 시나리오",
+      "body": "[자료] 종전 6,000,000원, 잔여 200㎡. 시나리오 A -10%, B -25%, C -32%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- A 1.2억\n- B 3억\n- C 매수청구 6,000×200=12억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "A 1.2억",
+        "B 3억",
+        "C 매수청구 6,000×200=12억"
+      ]
+    },
+    {
+      "id": "practice-6a-922",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-1",
+      "topic": "이의재결 + 행정소송",
+      "body": "[자료] 재결 100, 이의재결 110, 행정소송 115억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 단계 +10%, +4.5%\n- 점진 증액\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단계 +10%, +4.5%",
+        "점진 증액"
+      ]
+    },
+    {
+      "id": "practice-6a-923",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "공시지가 + 절사",
+      "body": "[자료] 계산 9,547,832원/㎡, 면적 280㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 절사 9,547,000원\n- 총 26.73억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "절사 9,547,000원",
+        "총 26.73억"
+      ]
+    },
+    {
+      "id": "practice-6a-924",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-1",
+      "topic": "환매 거부 시 시효",
+      "body": "[자료] 환매 거부, 시효 10년 도과",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 환매권 소멸\n- 권리 행사 불가\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환매권 소멸",
+        "권리 행사 불가"
+      ]
+    },
+    {
+      "id": "practice-6a-925",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "비교표준지 면적가중",
+      "body": "[자료] A 8,000 (200㎡), B 8,500 (300), C 9,000 (500)",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 가중 (8,000×200+8,500×300+9,000×500)/1,000 = 8,650\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가중 (8,000×200+8,500×300+9,000×500)/1,000 = 8,650"
+      ]
+    },
+    {
+      "id": "practice-6a-926",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "시점 + 일·월",
+      "body": "[자료] 2025 +5%, 2026 1-3월 +1.2%, 4월 +0.4%, 5월 10일 +0.05%/일",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1.05×1.012×1.004×(1+0.05%×10) = 1.072\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.05×1.012×1.004×(1+0.05%×10) = 1.072"
+      ]
+    },
+    {
+      "id": "practice-6a-927",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-1",
+      "topic": "협의 결렬 + 시한",
+      "body": "[자료] 사업인정 2024.6, 협의 결렬 2025.6. 재결 시한?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- +1년=2026.6 또는 사업인정 +5년=2029.6 둘 중 빠른\n- 2026.6 적용\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "+1년=2026.6 또는 사업인정 +5년=2029.6 둘 중 빠른",
+        "2026.6 적용"
+      ]
+    },
+    {
+      "id": "practice-6a-928",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "그밖의요인 5건",
+      "body": "[자료] 선례 5건 시점환산: 9,000/9,200/9,500/9,800/10,000. 가상정상가 8,500,000",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 평균 9,500\n- 9,500/8,500=1.118 → 1.12\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균 9,500",
+        "9,500/8,500=1.118 → 1.12"
+      ]
+    },
+    {
+      "id": "practice-6a-929",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-1",
+      "topic": "구분지상권 보상",
+      "body": "[자료] 토지 단가 8,000,000원, 통과 400㎡, 지하 30m, 저해율 0.02",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 8,000×0.02×400 = 6,400만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,000×0.02×400 = 6,400만"
+      ]
+    },
+    {
+      "id": "practice-6a-930",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6a-2",
+      "topic": "평가단가 + 면적",
+      "body": "[자료] 9,000,000 × 시점 1.05 × 개별 1.04 × 그밖의 1.12, 면적 350㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 10,989,000원/㎡\n- 38.46억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10,989,000원/㎡",
+        "38.46억"
       ]
     }
   ]

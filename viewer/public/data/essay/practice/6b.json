@@ -4,7 +4,7 @@
   "chapter": "6b",
   "chapterTitle": "토지보상 공법상제한·특수",
   "source": "official",
-  "count": 212,
+  "count": 232,
   "withAnswer": 12,
   "matchedAnswer": 12,
   "rounds": [
@@ -4053,6 +4053,357 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "8,000×1.05×600 = 50.4억"
+      ]
+    },
+    {
+      "id": "practice-6b-911",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "공법상 + 시점",
+      "body": "[자료] 일반주거 5,000,000원, 자연취락 -40%, 시점 1.05, 면적 800㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 5,000×0.6×1.05×800 = 25.2억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000×0.6×1.05×800 = 25.2억"
+      ]
+    },
+    {
+      "id": "practice-6b-912",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "농업진흥 종합",
+      "body": "[자료] 일반 답 1,100,000원, 농업진흥 -30%, 시점 1.05, 그밖의 1.10, 면적 5,000㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1,100×0.7×1.05×1.10×5,000 = 44.46억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,100×0.7×1.05×1.10×5,000 = 44.46억"
+      ]
+    },
+    {
+      "id": "practice-6b-913",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "도시계획도로",
+      "body": "[자료] 일반주거 4,500,000원, 도시계획도로 (제한 배제), 시점 1.04, 개별 1.05, 면적 400㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 4,500×1.04×1.05×400 = 19.66억\n- 제한 배제\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4,500×1.04×1.05×400 = 19.66억",
+        "제한 배제"
+      ]
+    },
+    {
+      "id": "practice-6b-914",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "자연환경보전",
+      "body": "[자료] 일반 임야 120,000원, 자연환경보전 -50%, 시점 1.04, 면적 10,000㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 120×0.5×1.04×10,000 = 6.24억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "120×0.5×1.04×10,000 = 6.24억"
+      ]
+    },
+    {
+      "id": "practice-6b-915",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "용도지역 변경",
+      "body": "[자료] 변경 후 일반상업 9,000,000원 (2024.6), 시점 1.04, 면적 500㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 9,000×1.04×500 = 46.8억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,000×1.04×500 = 46.8억"
+      ]
+    },
+    {
+      "id": "practice-6b-916",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-2",
+      "topic": "미지급용지",
+      "body": "[자료] 편입 답, 인근 970,000원, 시점 1.08, 개별 0.96, 그밖의 1.10, 면적 1,800㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 970×1.08×0.96×1.10×1,800 = 19.88억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "970×1.08×0.96×1.10×1,800 = 19.88억"
+      ]
+    },
+    {
+      "id": "practice-6b-917",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-2",
+      "topic": "잔여지 시나리오",
+      "body": "[자료] 종전 6,000,000원, 잔여 200㎡, 시나리오 A -10%, B -25%, C -35%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- A 1.2억\n- B 3억\n- C 매수청구 12억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "A 1.2억",
+        "B 3억",
+        "C 매수청구 12억"
+      ]
+    },
+    {
+      "id": "practice-6b-918",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-2",
+      "topic": "구분지상권",
+      "body": "[자료] 단가 8,500,000원, 통과 350㎡, 깊이 22m (저해 0.0375)",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 8,500×0.0375×350 = 1.116억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,500×0.0375×350 = 1.116억"
+      ]
+    },
+    {
+      "id": "practice-6b-919",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-2",
+      "topic": "환매 분석",
+      "body": "[자료] 보상 10억, 시행자 부담 1,500만, 시장가 14억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 환매가 10.15\n- 이익 3.85억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환매가 10.15",
+        "이익 3.85억"
+      ]
+    },
+    {
+      "id": "practice-6b-920",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "상수원 + 그밖의",
+      "body": "[자료] 일반 자연녹지 1,000,000원, 상수원 -50%, 그밖의 1.05, 면적 4,000㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1,000×0.5×1.05×4,000 = 21억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,000×0.5×1.05×4,000 = 21억"
+      ]
+    },
+    {
+      "id": "practice-6b-921",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "군사보호 종합",
+      "body": "[자료] 일반주거 4,000,000원, 통제보호 -50%, 시점 1.04, 그밖의 1.10, 면적 600㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 4,000×0.5×1.04×1.10×600 = 13.73억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4,000×0.5×1.04×1.10×600 = 13.73억"
+      ]
+    },
+    {
+      "id": "practice-6b-922",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "용적률 +",
+      "body": "[자료] 일반 5,000,000원, 용적률 200→300% (+15%), 면적 500㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 5,000×1.15×500 = 28.75억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000×1.15×500 = 28.75억"
+      ]
+    },
+    {
+      "id": "practice-6b-923",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-2",
+      "topic": "잔여지 매수청구",
+      "body": "[자료] 종전 7,000,000원, 잔여 150㎡, 종후 -35%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 매수청구 가능\n- 편입 단가 7,000×150 = 10.5억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매수청구 가능",
+        "편입 단가 7,000×150 = 10.5억"
+      ]
+    },
+    {
+      "id": "practice-6b-924",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-2",
+      "topic": "미지급 + 시점",
+      "body": "[자료] 편입 1990년 답, 인근 1,000,000원, 시점 (1990→2026) 1.20, 면적 2,000㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1,000×1.20 = 1,200,000원/㎡\n- 총 24억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,000×1.20 = 1,200,000원/㎡",
+        "총 24억"
+      ]
+    },
+    {
+      "id": "practice-6b-925",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "관리지역",
+      "body": "[자료] 일반 1,800,000원, 보전관리 -25%, 시점 1.04, 면적 3,000㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1,800×0.75×1.04×3,000 = 42.12억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,800×0.75×1.04×3,000 = 42.12억"
+      ]
+    },
+    {
+      "id": "practice-6b-926",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "농림지역",
+      "body": "[자료] 일반 1,600,000원, 농림 -30%, 시점 1.05, 면적 4,000㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1,600×0.7×1.05×4,000 = 47.04억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,600×0.7×1.05×4,000 = 47.04억"
+      ]
+    },
+    {
+      "id": "practice-6b-927",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "준주거 + 종합",
+      "body": "[자료] 준주거 6,500,000원, 시점 1.05, 개별 1.04, 그밖의 1.10, 면적 500㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 6,500×1.05×1.04×1.10×500 = 39.04억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6,500×1.05×1.04×1.10×500 = 39.04억"
+      ]
+    },
+    {
+      "id": "practice-6b-928",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-2",
+      "topic": "환매 + 시장 변동",
+      "body": "[자료] 보상 9억, 시행자 부담 1,000만. 시나리오 시장 15/9/6억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 환매 9.1\n- 15→이익 5.9\n- 9→손해 0.1 거부\n- 6→손해 3.1 거부\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환매 9.1",
+        "15→이익 5.9",
+        "9→손해 0.1 거부",
+        "6→손해 3.1 거부"
+      ]
+    },
+    {
+      "id": "practice-6b-929",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-2",
+      "topic": "구분지상권 다양",
+      "body": "[자료] 단가 8,000,000원. A 200㎡ × 깊이 12m (저해 30%), B 300㎡ × 깊이 25m (저해 12%), 이용 25%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- A 8,000×0.075×200 = 1.2억\n- B 8,000×0.03×300 = 7,200만\n- 합 1.92억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "A 8,000×0.075×200 = 1.2억",
+        "B 8,000×0.03×300 = 7,200만",
+        "합 1.92억"
+      ]
+    },
+    {
+      "id": "practice-6b-930",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "6b-1",
+      "topic": "자연환경 + 시점",
+      "body": "[자료] 일반 임야 100,000원, 자연환경 -50%, 시점 1.05, 그밖의 1.10, 면적 8,000㎡",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 100×0.5×1.05×1.10×8,000 = 4.62억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100×0.5×1.05×1.10×8,000 = 4.62억"
       ]
     }
   ]

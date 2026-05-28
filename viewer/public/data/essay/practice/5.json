@@ -4,7 +4,7 @@
   "chapter": "5",
   "chapterTitle": "비가치추계·기업가치·무형자산",
   "source": "official",
-  "count": 233,
+  "count": 253,
   "withAnswer": 33,
   "matchedAnswer": 33,
   "rounds": [
@@ -4535,6 +4535,375 @@
         "수익 19.95억",
         "만기 34억",
         "합 53.95억"
+      ]
+    },
+    {
+      "id": "practice-5-911",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-1",
+      "topic": "시산조정 + 검증",
+      "body": "[자료] 원가 80, 비교 90, 수익 100. 인근 평균 88, 시장 92. 가중 비교 40/수익 40/원가 20%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 가중 92\n- 인근 88, 시장 92 → 적정\n- 결정 92억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가중 92",
+        "인근 88, 시장 92 → 적정",
+        "결정 92억"
+      ]
+    },
+    {
+      "id": "practice-5-912",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-2",
+      "topic": "DCF 종합",
+      "body": "[자료] FCF 100/110/121/133/146/161 (백만), WACC 8%, 성장 2%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 5년 PV 합 478\n- TV 2,683, PV 1,825\n- DCF 2,303백만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5년 PV 합 478",
+        "TV 2,683, PV 1,825",
+        "DCF 2,303백만"
+      ]
+    },
+    {
+      "id": "practice-5-913",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-2",
+      "topic": "비상장 5방식",
+      "body": "[자료] 자산 50, 자본환원 60, DCF 70, PER 65, EV/EBITDA 75억. 가중 15/20/30/15/20%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 50×0.15+60×0.2+70×0.3+65×0.15+75×0.2\n- = 7.5+12+21+9.75+15 = 65.25억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50×0.15+60×0.2+70×0.3+65×0.15+75×0.2",
+        "= 7.5+12+21+9.75+15 = 65.25억"
+      ]
+    },
+    {
+      "id": "practice-5-914",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-2",
+      "topic": "WACC + 자본환원",
+      "body": "[자료] E비 60%×11% + D비 40%×5%×0.75. NOI 15억, 성장 2.5%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- WACC 8.1%\n- 환원율 5.6%\n- 15/0.056 = 267.9억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "WACC 8.1%",
+        "환원율 5.6%",
+        "15/0.056 = 267.9억"
+      ]
+    },
+    {
+      "id": "practice-5-915",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-3",
+      "topic": "영업권 종합",
+      "body": "[자료] 영업이익 20억, 운영자산 80억 (정상 12%). 환원율 20%. 손상검사 회수 50억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 정상 9.6\n- 초과 10.4\n- 60억\n- 회수 50 < 60 → 손상 10억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "정상 9.6",
+        "초과 10.4",
+        "60억",
+        "회수 50 < 60 → 손상 10억"
+      ]
+    },
+    {
+      "id": "practice-5-916",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-3",
+      "topic": "무형 5종",
+      "body": "[자료] 브랜드 30, 특허 20, 영업권 50, 저작권 40, 고객 15억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 합 155억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "합 155억"
+      ]
+    },
+    {
+      "id": "practice-5-917",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-1",
+      "topic": "시점수정",
+      "body": "[자료] 2024 +5%, 2025 +3.5%, 2026 1-4 +1.5%, 5월 (15/31) +0.04%/일",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1.05×1.035×1.015×(1+0.04%×15) = 1.110\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.05×1.035×1.015×(1+0.04%×15) = 1.110"
+      ]
+    },
+    {
+      "id": "practice-5-918",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-2",
+      "topic": "주당 + 비상장",
+      "body": "[자료] EPS 6,000원, PER 11배, BPS 50,000원, PBR 1.5배. 비상장 할인 25%. 가중 PER 60/PBR 40%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- PER 49,500\n- PBR 56,250\n- 가중 49,500×0.6+56,250×0.4 = 52,200원\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "PER 49,500",
+        "PBR 56,250",
+        "가중 49,500×0.6+56,250×0.4 = 52,200원"
+      ]
+    },
+    {
+      "id": "practice-5-919",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-2",
+      "topic": "M&A 인수",
+      "body": "[자료] 대상 1,500억, 시너지 250, 프리미엄 15%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 최대 1,500+250+225 = 1,975억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최대 1,500+250+225 = 1,975억"
+      ]
+    },
+    {
+      "id": "practice-5-920",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-3",
+      "topic": "특허 + 영업권",
+      "body": "[자료] 특허 초과 4억/년, 7년, 연금 (12%) 4.56. 영업권 초과 10억, 환원율 22%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 특허 18.24억\n- 영업권 45.45억\n- 합 63.69억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "특허 18.24억",
+        "영업권 45.45억",
+        "합 63.69억"
+      ]
+    },
+    {
+      "id": "practice-5-921",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-1",
+      "topic": "평가 검증",
+      "body": "[자료] 평가 100억, 검증 94, 인근 평균 97",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 차이 6% (5% 초과)\n- 재검증 권장\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "차이 6% (5% 초과)",
+        "재검증 권장"
+      ]
+    },
+    {
+      "id": "practice-5-922",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-2",
+      "topic": "PER+PBR+EV",
+      "body": "[자료] PER 50,000, PBR 55,000, EV/EBITDA 60,000원. 가중 PER 40/PBR 30/EV 30%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 50×0.4+55×0.3+60×0.3 = 20+16.5+18 = 54,500원\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "50×0.4+55×0.3+60×0.3 = 20+16.5+18 = 54,500원"
+      ]
+    },
+    {
+      "id": "practice-5-923",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-3",
+      "topic": "브랜드 + 손상",
+      "body": "[자료] 브랜드 장부 25억, 회수가능 22억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 손상 3억\n- 환입 가능\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "손상 3억",
+        "환입 가능"
+      ]
+    },
+    {
+      "id": "practice-5-924",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-3",
+      "topic": "ABS 트랜치",
+      "body": "[자료] 기초 100억. 선순위 60, 중순위 25, 후순위 15%. 금리 5/8/13%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 선 60억\n- 중 25\n- 후 15\n- 가중금리 7.55%\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "선 60억",
+        "중 25",
+        "후 15",
+        "가중금리 7.55%"
+      ]
+    },
+    {
+      "id": "practice-5-925",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-3",
+      "topic": "신탁수익권",
+      "body": "[자료] 연 수익 5억, 7년 연금 (8%) 5.21. 만기 자산 60억, 할인 0.583",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 수익 26.05억\n- 만기 34.98\n- 합 61.03억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수익 26.05억",
+        "만기 34.98",
+        "합 61.03억"
+      ]
+    },
+    {
+      "id": "practice-5-926",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-2",
+      "topic": "DCF 가중",
+      "body": "[자료] FCF: 100, 110, 120, 130, 140 (백만), 6년 143, WACC 9%, g 2%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 5년 PV 합 약 458\n- TV 143/0.07 = 2,043\n- PV 1,328\n- DCF 1,786백만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5년 PV 합 약 458",
+        "TV 143/0.07 = 2,043",
+        "PV 1,328",
+        "DCF 1,786백만"
+      ]
+    },
+    {
+      "id": "practice-5-927",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-3",
+      "topic": "영업권 환입 X",
+      "body": "[자료] 영업권 손상 후 50→40. 다음 해 회수가능 45억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 영업권 환입 불가 (K-IFRS)\n- 장부 40 유지\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업권 환입 불가 (K-IFRS)",
+        "장부 40 유지"
+      ]
+    },
+    {
+      "id": "practice-5-928",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-1",
+      "topic": "복리 시점",
+      "body": "[자료] 2022 +3%, 2023 +4%, 2024 +5%, 2025 +3.5%, 2026 +2% (4월까지)",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1.03×1.04×1.05×1.035×1.02 = 1.187\n- +18.7%\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.03×1.04×1.05×1.035×1.02 = 1.187",
+        "+18.7%"
+      ]
+    },
+    {
+      "id": "practice-5-929",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-2",
+      "topic": "M&A 시나리오",
+      "body": "[자료] 대상 1,000억. 낙관 시너지 300+15% 프리미엄. 비관 시너지 100+10%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 낙관 1,000+300+150=1,450\n- 비관 1,000+100+100=1,200\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "낙관 1,000+300+150=1,450",
+        "비관 1,000+100+100=1,200"
+      ]
+    },
+    {
+      "id": "practice-5-930",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "5-3",
+      "topic": "고객관계 + 저작권",
+      "body": "[자료] 고객관계 4억, 6년 연금 (10%) 4.36. 저작권 8억, 영구 12%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 고객 17.44억\n- 저작권 66.67\n- 합 84.11\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "고객 17.44억",
+        "저작권 66.67",
+        "합 84.11"
       ]
     }
   ]

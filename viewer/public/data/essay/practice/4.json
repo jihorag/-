@@ -4,7 +4,7 @@
   "chapter": "4",
   "chapterTitle": "유형별 평가",
   "source": "official",
-  "count": 209,
+  "count": 229,
   "withAnswer": 4,
   "matchedAnswer": 4,
   "rounds": [
@@ -4015,6 +4015,383 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "총 850억 (회원권 별도)"
+      ]
+    },
+    {
+      "id": "practice-4-911",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-1",
+      "topic": "3방식 + 시점",
+      "body": "[자료] 원가 80 (시점환산 +5%), 비교 90, 수익 100. 가중 비교 40/수익 40/원가 20%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 평균 92억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균 92억"
+      ]
+    },
+    {
+      "id": "practice-4-912",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-2",
+      "topic": "동산 종합",
+      "body": "[자료] 기계 5대 신품 1억 정률 0.9 (8년)=0.43, 차량 3대 시장가 3,000만, 가구 5천만 + 이전 5%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 기계 2.15억\n- 차량 9,000만\n- 가구 5,250만\n- 합 3.58억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기계 2.15억",
+        "차량 9,000만",
+        "가구 5,250만",
+        "합 3.58억"
+      ]
+    },
+    {
+      "id": "practice-4-913",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-3",
+      "topic": "권리 종합",
+      "body": "[자료] 지상권 10년 NOI 1.5억 (연금 6.71), 임차권 차액 연 3,600만 (연금 4.10), 지역권 토지단가 5,000,000 영향 50㎡ 15%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 지상권 10.07억\n- 임차권 1.476억\n- 지역권 3,750만\n- 합 11.92억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지상권 10.07억",
+        "임차권 1.476억",
+        "지역권 3,750만",
+        "합 11.92억"
+      ]
+    },
+    {
+      "id": "practice-4-914",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-4",
+      "topic": "농지+입목+영농",
+      "body": "[자료] 답 5,000×90만 + 임야 3,000×8만 + 입목 150본 × 0.5 × 30,000원 + 영농 800원 × 5,000 × 2년",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 토지 50.4억\n- 입목 225만\n- 영농 800만\n- 합 50.5억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 50.4억",
+        "입목 225만",
+        "영농 800만",
+        "합 50.5억"
+      ]
+    },
+    {
+      "id": "practice-4-915",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-5",
+      "topic": "사찰 + 시설",
+      "body": "[자료] 사찰 부지 12,000×8만 (사찰 +20%) + 한옥 1,800×380만 (잔가 0.6) + 부속 시설 5억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 토지 11.52\n- 건물 41.04\n- 시설 5억\n- 합 57.56억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 11.52",
+        "건물 41.04",
+        "시설 5억",
+        "합 57.56억"
+      ]
+    },
+    {
+      "id": "practice-4-916",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-6",
+      "topic": "광업권 시나리오",
+      "body": "[자료] 매장량 600만톤, 연 생산 50만톤. NOI 30억/년. 시나리오 할인율 12/15/18%, 연금 (12년) 6.19/5.42/4.79",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 12%: 30×6.19=185.7\n- 15%: 30×5.42=162.6\n- 18%: 30×4.79=143.7\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "12%: 30×6.19=185.7",
+        "15%: 30×5.42=162.6",
+        "18%: 30×4.79=143.7"
+      ]
+    },
+    {
+      "id": "practice-4-917",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-7",
+      "topic": "호텔 종합",
+      "body": "[자료] 객실 200실, 단가 20만, 가동 75%, 365일. 부대 매출 35%. 영업이익률 35%, 자본적 5%, 환원율 9%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 객실 109.5억\n- 부대 38.3\n- 총 147.8\n- 영업 51.7\n- 자본적 7.39\n- NOI 44.3\n- /0.09 = 492.6억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "객실 109.5억",
+        "부대 38.3",
+        "총 147.8",
+        "영업 51.7",
+        "자본적 7.39",
+        "NOI 44.3",
+        "/0.09 = 492.6억"
+      ]
+    },
+    {
+      "id": "practice-4-918",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-1",
+      "topic": "시산 + 검증",
+      "body": "[자료] 원가 70, 비교 80, 수익 85. 인근 평균 78, 시장 82. 가중 비교 40/수익 40/원가 20%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 가중 79\n- 인근 78, 시장 82 → 일관\n- 결정 80억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가중 79",
+        "인근 78, 시장 82 → 일관",
+        "결정 80억"
+      ]
+    },
+    {
+      "id": "practice-4-919",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-2",
+      "topic": "기계 + 정률 + 차량",
+      "body": "[자료] 기계 7대 신품 1.2억 정률 0.85 (10년)=0.197, 차량 5대 시장가 2,800만",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 기계 1,654만/대, 1.16억\n- 차량 1.4억\n- 합 2.56억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기계 1,654만/대, 1.16억",
+        "차량 1.4억",
+        "합 2.56억"
+      ]
+    },
+    {
+      "id": "practice-4-920",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-3",
+      "topic": "임차권 + 신탁",
+      "body": "[자료] 임차권 시장 1,200만 vs 계약 800만, 5년, 연금 4.10. 신탁 수익권 연 4억, 7년, 연금 5.21",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 임차권 월차 400→연 4,800\n- 4,800×4.10 = 1.97억\n- 신탁 4×5.21 = 20.84억\n- 합 22.81억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "임차권 월차 400→연 4,800",
+        "4,800×4.10 = 1.97억",
+        "신탁 4×5.21 = 20.84억",
+        "합 22.81억"
+      ]
+    },
+    {
+      "id": "practice-4-921",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-4",
+      "topic": "대규모 농경지",
+      "body": "[자료] 답 10,000×100만 + 전 5,000×120만 + 과수원 2,000×150만",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 100억 + 60억 + 30억 = 190억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100억 + 60억 + 30억 = 190억"
+      ]
+    },
+    {
+      "id": "practice-4-922",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-4",
+      "topic": "과수 + 영농 + 입목",
+      "body": "[자료] 사과 100주 (가식 70×180만, 곤란 30×250만), 영농 1,800원/㎡×3,000㎡×2년",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 가식 1.26억 + 곤란 7,500 = 2.01억\n- 영농 1,080만\n- 합 약 2.12억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가식 1.26억 + 곤란 7,500 = 2.01억",
+        "영농 1,080만",
+        "합 약 2.12억"
+      ]
+    },
+    {
+      "id": "practice-4-923",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-5",
+      "topic": "학교 종합",
+      "body": "[자료] 일반주거 6,000,000원 (-15%) × 20,000㎡ + 건물 2,500,000 × 8,000㎡ × 잔가 0.55",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 토지 102억 + 건물 110억 = 212억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 102억 + 건물 110억 = 212억"
+      ]
+    },
+    {
+      "id": "practice-4-924",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-6",
+      "topic": "광업+어업 합산",
+      "body": "[자료] 광업 NOI 8억, 잔여 12년, 연금 5.42 / 어업 NOI 2억, 잔여 7년, 연금 4.56",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 광업 43.36억 + 어업 9.12억 = 52.48억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "광업 43.36억 + 어업 9.12억 = 52.48억"
+      ]
+    },
+    {
+      "id": "practice-4-925",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-7",
+      "topic": "골프장 + 회원권",
+      "body": "[자료] 골프장 NOI 80억, 환원율 7.5%. 회원권 150구좌 × 6,000만 = 별도 자산 90억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 수익가액 80/0.075 = 1,066.7억 + 회원권 90 = 1,156.7억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수익가액 80/0.075 = 1,066.7억 + 회원권 90 = 1,156.7억"
+      ]
+    },
+    {
+      "id": "practice-4-926",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-7",
+      "topic": "유원지 NOI",
+      "body": "[자료] 매출 120억, 영업이익률 25%, 자본적 5%, 환원율 10%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 영업 30억\n- 자본적 6억\n- NOI 24억\n- /0.10 = 240억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업 30억",
+        "자본적 6억",
+        "NOI 24억",
+        "/0.10 = 240억"
+      ]
+    },
+    {
+      "id": "practice-4-927",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-1",
+      "topic": "5방식 시산",
+      "body": "[자료] 공시 80, 거래 90, 원가 75, 수익 95, 잔여 85. 가중 거래 30/수익 30/공시 20/원가 10/잔여 10%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 80×0.2+90×0.3+75×0.1+95×0.3+85×0.1 = 16+27+7.5+28.5+8.5 = 87.5억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80×0.2+90×0.3+75×0.1+95×0.3+85×0.1 = 16+27+7.5+28.5+8.5 = 87.5억"
+      ]
+    },
+    {
+      "id": "practice-4-928",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-2",
+      "topic": "동산 + 시점",
+      "body": "[자료] 기계 10대 신품 5천만 정률 0.88 (5년)=0.527, 차량 시장가 2,500만×8대, 가구 6천+이전 5%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 기계 2.64억\n- 차량 2억\n- 가구 6,300만\n- 합 5.27억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기계 2.64억",
+        "차량 2억",
+        "가구 6,300만",
+        "합 5.27억"
+      ]
+    },
+    {
+      "id": "practice-4-929",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-4",
+      "topic": "농지 + 시설 + 영농",
+      "body": "[자료] 답 4,000×95만 + 시설하우스 600×150만×잔가 0.5 + 영농 800×4,000×2년",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 38억 + 4.5억 + 640만 = 42.56억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "38억 + 4.5억 + 640만 = 42.56억"
+      ]
+    },
+    {
+      "id": "practice-4-930",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "4-3",
+      "topic": "신탁 종합",
+      "body": "[자료] 부동산 60억 (가치). 신탁 연 수익 4억, 8년, 연금 (8%) 5.75. 만기 자산 60×1.025^8 = 73.1, 할인 0.54",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 수익 PV 23억\n- 만기 PV 39.47\n- 합 62.47억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수익 PV 23억",
+        "만기 PV 39.47",
+        "합 62.47억"
       ]
     }
   ]
