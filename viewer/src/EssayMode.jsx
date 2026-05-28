@@ -481,6 +481,19 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       return true;
     });
 
+    // practice-set 문제의 subchapter별 순번 (전체 데이터 기준, 필터 무관)
+    const practiceOrder = {};
+    {
+      const counter = {};
+      cd.questions
+        .filter(q => q.source === 'practice-set' && q.subchapter)
+        .forEach(q => {
+          counter[q.subchapter] = (counter[q.subchapter] || 0) + 1;
+          const sc = subchapterList.find(s => s.id === q.subchapter);
+          practiceOrder[q.id] = { title: sc?.title || '연습', no: counter[q.subchapter] };
+        });
+    }
+
     // 학습 통계 + 추천
     const stats = computeStats(cd.questions, progress);
     const recommendations = recommendNext(cd.questions, progress);
@@ -638,6 +651,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             const hasAnswer = !!q.modelAnswer;
             const isAI = q.source === 'ai-generated';
             const isPracticeSet = q.source === 'practice-set';
+            const practiceMeta = isPracticeSet ? practiceOrder[q.id] : null;
             // 카드 색상: 실문제(흰), 연습문제(연한 라임), AI(연한 보라)
             const cardBorder = isAI ? '1px solid #ddd6fe'
               : isPracticeSet ? '1px solid #d9f99d'
