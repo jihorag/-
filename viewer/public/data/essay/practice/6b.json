@@ -4,7 +4,7 @@
   "chapter": "6b",
   "chapterTitle": "토지보상 공법상제한·특수",
   "source": "official",
-  "count": 62,
+  "count": 92,
   "withAnswer": 12,
   "matchedAnswer": 12,
   "rounds": [
@@ -1254,6 +1254,576 @@
         "농지법상 제한 반영",
         "농업진흥구역 등",
         "제한 없는 평가 X"
+      ]
+    },
+    {
+      "id": "practice-6b-531",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "제1종전용주거",
+      "body": "제1종전용주거지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 주거 보호 최강\n- 저층 단독주택\n- 용적률 100%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주거 보호 최강",
+        "저층 단독주택",
+        "용적률 100%"
+      ]
+    },
+    {
+      "id": "practice-6b-532",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "제2종전용주거",
+      "body": "제2종전용주거지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공동주택 허용\n- 저층 위주\n- 용적률 150%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공동주택 허용",
+        "저층 위주",
+        "용적률 150%"
+      ]
+    },
+    {
+      "id": "practice-6b-533",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "제1종일반주거",
+      "body": "제1종일반주거지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 저층주거 중심\n- 주거 + 일부 시설\n- 용적률 200%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저층주거 중심",
+        "주거 + 일부 시설",
+        "용적률 200%"
+      ]
+    },
+    {
+      "id": "practice-6b-534",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "제2종일반주거",
+      "body": "제2종일반주거지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 중층주거\n- 주거 + 근린생활\n- 용적률 250%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "중층주거",
+        "주거 + 근린생활",
+        "용적률 250%"
+      ]
+    },
+    {
+      "id": "practice-6b-535",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "제3종일반주거",
+      "body": "제3종일반주거지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 고층 가능\n- 주거 + 근린·업무\n- 용적률 300%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "고층 가능",
+        "주거 + 근린·업무",
+        "용적률 300%"
+      ]
+    },
+    {
+      "id": "practice-6b-536",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "준주거지역",
+      "body": "준주거지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 주거+상업 혼용\n- 용적률 500%\n- 복합 개발",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주거+상업 혼용",
+        "용적률 500%",
+        "복합 개발"
+      ]
+    },
+    {
+      "id": "practice-6b-537",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "중심상업",
+      "body": "중심상업지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 도심·부도심\n- 상업·업무 중심\n- 용적률 1500%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "도심·부도심",
+        "상업·업무 중심",
+        "용적률 1500%"
+      ]
+    },
+    {
+      "id": "practice-6b-538",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "일반상업",
+      "body": "일반상업지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 일반 상업·업무\n- 용적률 1300%\n- 상가건물",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일반 상업·업무",
+        "용적률 1300%",
+        "상가건물"
+      ]
+    },
+    {
+      "id": "practice-6b-539",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "근린상업",
+      "body": "근린상업지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 근린생활 서비스\n- 용적률 900%\n- 동네 상가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "근린생활 서비스",
+        "용적률 900%",
+        "동네 상가"
+      ]
+    },
+    {
+      "id": "practice-6b-540",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "유통상업",
+      "body": "유통상업지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 도매·물류\n- 용적률 1100%\n- 도매시장 등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "도매·물류",
+        "용적률 1100%",
+        "도매시장 등"
+      ]
+    },
+    {
+      "id": "practice-6b-541",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "전용공업",
+      "body": "전용공업지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 중화학공업\n- 용적률 300%\n- 환경 영향 大",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "중화학공업",
+        "용적률 300%",
+        "환경 영향 大"
+      ]
+    },
+    {
+      "id": "practice-6b-542",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "일반공업",
+      "body": "일반공업지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 중공업\n- 용적률 350%\n- 일반 공장",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "중공업",
+        "용적률 350%",
+        "일반 공장"
+      ]
+    },
+    {
+      "id": "practice-6b-543",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "준공업",
+      "body": "준공업지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 경공업+주거 가능\n- 용적률 400%\n- 복합 이용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "경공업+주거 가능",
+        "용적률 400%",
+        "복합 이용"
+      ]
+    },
+    {
+      "id": "practice-6b-544",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "보전녹지",
+      "body": "보전녹지지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 자연환경 보전\n- 개발 제한\n- 용적률 80%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "자연환경 보전",
+        "개발 제한",
+        "용적률 80%"
+      ]
+    },
+    {
+      "id": "practice-6b-545",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "생산녹지",
+      "body": "생산녹지지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 농업 생산\n- 용적률 100%\n- 농지 보호",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "농업 생산",
+        "용적률 100%",
+        "농지 보호"
+      ]
+    },
+    {
+      "id": "practice-6b-546",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "자연녹지",
+      "body": "자연녹지지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 도시 외곽\n- 용적률 100%\n- 제한적 개발",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "도시 외곽",
+        "용적률 100%",
+        "제한적 개발"
+      ]
+    },
+    {
+      "id": "practice-6b-547",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "관리지역",
+      "body": "관리지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 도시·농어촌 경계\n- 계획·생산·보전 세분\n- 국토계획법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "도시·농어촌 경계",
+        "계획·생산·보전 세분",
+        "국토계획법"
+      ]
+    },
+    {
+      "id": "practice-6b-548",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "농림지역",
+      "body": "농림지역의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 농업·임업 진흥\n- 국토계획법\n- 개발 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "농업·임업 진흥",
+        "국토계획법",
+        "개발 X"
+      ]
+    },
+    {
+      "id": "practice-6b-549",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "자연환경보전지역",
+      "body": "자연환경보전지역의 강도를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 최고 보전 강도\n- 용적률 80%\n- 개발 거의 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최고 보전 강도",
+        "용적률 80%",
+        "개발 거의 X"
+      ]
+    },
+    {
+      "id": "practice-6b-550",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-1",
+      "topic": "비도시지역 보상",
+      "body": "비도시지역 토지 보상을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 일반제한 반영\n- 농림·관리·자연환경\n- 도시보다 단가 ↓",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일반제한 반영",
+        "농림·관리·자연환경",
+        "도시보다 단가 ↓"
+      ]
+    },
+    {
+      "id": "practice-6b-551",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여지 매수청구 30%",
+      "body": "잔여지 매수청구 30% 기준을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 30% 이상 감가 = 매수청구\n- 편입 단가 적용\n- 시행규칙 §32",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30% 이상 감가 = 매수청구",
+        "편입 단가 적용",
+        "시행규칙 §32"
+      ]
+    },
+    {
+      "id": "practice-6b-552",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여 건물 §35 ②",
+      "body": "잔여 건물 가치손실 보상을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 종전 - 종후 가치\n- 5~15% 감가 일반\n- 보강비와 별도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종전 - 종후 가치",
+        "5~15% 감가 일반",
+        "보강비와 별도"
+      ]
+    },
+    {
+      "id": "practice-6b-553",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여지 활용 가능성",
+      "body": "잔여지 활용 가능성 검토를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 형상·면적·도로 접속\n- 건축 가능 여부\n- 매수청구 판단",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "형상·면적·도로 접속",
+        "건축 가능 여부",
+        "매수청구 판단"
+      ]
+    },
+    {
+      "id": "practice-6b-554",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "미지급용지 적용 사례",
+      "body": "미지급용지 적용 사례를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 도로·하천 등 30년+ 사용\n- 보상 누락\n- 소유자 청구",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "도로·하천 등 30년+ 사용",
+        "보상 누락",
+        "소유자 청구"
+      ]
+    },
+    {
+      "id": "practice-6b-555",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "구분지상권 보상 산식",
+      "body": "구분지상권 보상 산식을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 단가 × 입체이용저해율 × 통과면적\n- 시행규칙 §32\n- 저해율 0.5~5%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가 × 입체이용저해율 × 통과면적",
+        "시행규칙 §32",
+        "저해율 0.5~5%"
+      ]
+    },
+    {
+      "id": "practice-6b-556",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "환매 행사 vs 거부",
+      "body": "환매 행사 vs 거부 판단을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가 > 환매가 = 행사\n- 시장가 < 환매가 = 거부\n- 원소유자 선택",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 > 환매가 = 행사",
+        "시장가 < 환매가 = 거부",
+        "원소유자 선택"
+      ]
+    },
+    {
+      "id": "practice-6b-557",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "환매권 소멸",
+      "body": "환매권 소멸 사유를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 10년 기한 도과\n- 행사 거부\n- 권리 포기",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10년 기한 도과",
+        "행사 거부",
+        "권리 포기"
+      ]
+    },
+    {
+      "id": "practice-6b-558",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "잔여지 시점",
+      "body": "잔여지 평가시점을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 토지와 동일\n- 협의·재결 시점\n- 일괄 보상 §65",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 토지와 동일",
+        "협의·재결 시점",
+        "일괄 보상 §65"
+      ]
+    },
+    {
+      "id": "practice-6b-559",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "미지급용지 입증",
+      "body": "미지급용지 입증을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 시점 자료\n- 이용상황 증빙\n- 소유 사실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 시점 자료",
+        "이용상황 증빙",
+        "소유 사실"
+      ]
+    },
+    {
+      "id": "practice-6b-560",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6b-2",
+      "topic": "환매 매수자",
+      "body": "환매 매수자를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 원소유자 또는 상속인\n- 권리 양도 X\n- 소유 시점 확인",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원소유자 또는 상속인",
+        "권리 양도 X",
+        "소유 시점 확인"
       ]
     }
   ]
