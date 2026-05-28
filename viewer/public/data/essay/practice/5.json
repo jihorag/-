@@ -4,7 +4,7 @@
   "chapter": "5",
   "chapterTitle": "비가치추계·기업가치·무형자산",
   "source": "official",
-  "count": 188,
+  "count": 208,
   "withAnswer": 33,
   "matchedAnswer": 33,
   "rounds": [
@@ -3745,6 +3745,353 @@
         "재평가: NOI 4억×0.85 = 3.4억 / 환원 7%→8% → 3.4/0.08 = 42.5억",
         "시나리오: 즉시 -10% = 45억, 1년 -7% = 46.5억, 2년 -3% = 48.5억, 영구 50억",
         "평가사 원평가 적정, 책임 평가시점 기준"
+      ]
+    },
+    {
+      "id": "practice-5-731",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "시산조정 단순",
+      "body": "[자료] 원가 60, 비교 70, 수익 75억. 가중 비교 40/수익 40/원가 20%",
+      "modelAnswer": "## 핵심 정리\n\n- 60×0.2+70×0.4+75×0.4 = 12+28+30 = 70억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "60×0.2+70×0.4+75×0.4 = 12+28+30 = 70억"
+      ]
+    },
+    {
+      "id": "practice-5-732",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "복리 시점",
+      "body": "[자료] 2024 +4%, 2025 +3.5%, 2026 4월 +1.2%",
+      "modelAnswer": "## 핵심 정리\n\n- 1.04×1.035×1.012 = 1.0892\n- +8.92%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.04×1.035×1.012 = 1.0892",
+        "+8.92%"
+      ]
+    },
+    {
+      "id": "practice-5-733",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "평가가 검증",
+      "body": "[자료] 평가 100억, 검증 95억",
+      "modelAnswer": "## 핵심 정리\n\n- 차이 5%\n- 경계\n- 5% 이내 인정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "차이 5%",
+        "경계",
+        "5% 이내 인정"
+      ]
+    },
+    {
+      "id": "practice-5-734",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "인근 비교",
+      "body": "[자료] 평가 80억, 인근 평균 75억",
+      "modelAnswer": "## 핵심 정리\n\n- 차이 6.7%\n- 5% 초과\n- 재검증 권장",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "차이 6.7%",
+        "5% 초과",
+        "재검증 권장"
+      ]
+    },
+    {
+      "id": "practice-5-735",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "시점환산 단가",
+      "body": "[자료] 거래 단가 7,000,000원, 시점수정 1.05",
+      "modelAnswer": "## 핵심 정리\n\n- 7,000×1.05 = 7,350,000원/㎡",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,000×1.05 = 7,350,000원/㎡"
+      ]
+    },
+    {
+      "id": "practice-5-736",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "DCF 5년 PV",
+      "body": "[자료] FCF 100, 105, 110, 115, 120 (백만), WACC 8%",
+      "modelAnswer": "## 핵심 정리\n\n- 각 연도 PV ≈ 92.6 + 90.0 + 87.3 + 84.5 + 81.7 = 436.1백만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "각 연도 PV ≈ 92.6 + 90.0 + 87.3 + 84.5 + 81.7 = 436.1백만"
+      ]
+    },
+    {
+      "id": "practice-5-737",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "잔여가치",
+      "body": "[자료] 6년 FCF 123백만, WACC 8%, 성장 2%",
+      "modelAnswer": "## 핵심 정리\n\n- Terminal 123/(0.08-0.02) = 2,050백만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Terminal 123/(0.08-0.02) = 2,050백만"
+      ]
+    },
+    {
+      "id": "practice-5-738",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "DCF 종합",
+      "body": "[자료] 5년 PV 합 436백만, 잔여 PV 1,395백만",
+      "modelAnswer": "## 핵심 정리\n\n- DCF 436+1,395 = 1,831백만\n- 잔여 비중 76%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "DCF 436+1,395 = 1,831백만",
+        "잔여 비중 76%"
+      ]
+    },
+    {
+      "id": "practice-5-739",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "WACC 계산",
+      "body": "[자료] E비 60%×11% + D비 40%×5%×0.75",
+      "modelAnswer": "## 핵심 정리\n\n- 6.6 + 1.5 = 8.1%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6.6 + 1.5 = 8.1%"
+      ]
+    },
+    {
+      "id": "practice-5-740",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "자본환원율",
+      "body": "[자료] WACC 8.1%, 성장 2.5%",
+      "modelAnswer": "## 핵심 정리\n\n- 8.1 - 2.5 = 5.6%\n- 환원율 = WACC - g",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8.1 - 2.5 = 5.6%",
+        "환원율 = WACC - g"
+      ]
+    },
+    {
+      "id": "practice-5-741",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "주당 PER",
+      "body": "[자료] EPS 5,000원, PER 12배",
+      "modelAnswer": "## 핵심 정리\n\n- 5,000×12 = 60,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000×12 = 60,000원"
+      ]
+    },
+    {
+      "id": "practice-5-742",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "비상장 PER 할인",
+      "body": "[자료] 주당 60,000원, 비상장 할인 25%",
+      "modelAnswer": "## 핵심 정리\n\n- 60,000×0.75 = 45,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "60,000×0.75 = 45,000원"
+      ]
+    },
+    {
+      "id": "practice-5-743",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "PBR",
+      "body": "[자료] BPS 40,000원, PBR 1.5배",
+      "modelAnswer": "## 핵심 정리\n\n- 40,000×1.5 = 60,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "40,000×1.5 = 60,000원"
+      ]
+    },
+    {
+      "id": "practice-5-744",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "EV/EBITDA",
+      "body": "[자료] EBITDA 40억, EV/EBITDA 10배",
+      "modelAnswer": "## 핵심 정리\n\n- 40×10 = 400억 (EV)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "40×10 = 400억 (EV)"
+      ]
+    },
+    {
+      "id": "practice-5-745",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "주주가치",
+      "body": "[자료] EV 400억, 부채 100억",
+      "modelAnswer": "## 핵심 정리\n\n- 400 - 100 = 300억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "400 - 100 = 300억"
+      ]
+    },
+    {
+      "id": "practice-5-746",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "영업권 환원",
+      "body": "[자료] 초과수익 5억, 환원율 25%",
+      "modelAnswer": "## 핵심 정리\n\n- 5/0.25 = 20억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5/0.25 = 20억"
+      ]
+    },
+    {
+      "id": "practice-5-747",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "브랜드 로열티",
+      "body": "[자료] 매출 200억, 로열티율 4%, 연금 5년 3.99",
+      "modelAnswer": "## 핵심 정리\n\n- 200×0.04×3.99 = 31.92억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "200×0.04×3.99 = 31.92억"
+      ]
+    },
+    {
+      "id": "practice-5-748",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "특허 잔여",
+      "body": "[자료] 초과수익 3억, 잔여 7년, 연금 4.87",
+      "modelAnswer": "## 핵심 정리\n\n- 3×4.87 = 14.61억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3×4.87 = 14.61억"
+      ]
+    },
+    {
+      "id": "practice-5-749",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "저작권 영구",
+      "body": "[자료] 로열티 8억/년, 할인율 12%",
+      "modelAnswer": "## 핵심 정리\n\n- 8/0.12 = 66.7억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8/0.12 = 66.7억"
+      ]
+    },
+    {
+      "id": "practice-5-750",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "고객관계",
+      "body": "[자료] 영업이익 4억, 5년 연금 3.6",
+      "modelAnswer": "## 핵심 정리\n\n- 4×3.6 = 14.4억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4×3.6 = 14.4억"
       ]
     }
   ]
