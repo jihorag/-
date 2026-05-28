@@ -104,6 +104,8 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
   const [sourceFilter, setSourceFilter] = useState('all');
   // 난이도 필터: null | 1 | 2 | 3 | 4 | 5
   const [diffFilter, setDiffFilter] = useState(null);
+  // subchapter 필터: null (전체) | 'XX-Y' subchapter id
+  const [subchapterFilter, setSubchapterFilter] = useState(null);
 
   // 작성 화면 상태
   const [draft, setDraft] = useState('');
@@ -462,12 +464,20 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     [1,2,3,4,5].forEach(d => { diffCounts[d] = cd.questions.filter(q => q.difficulty === d).length; });
     const hasDiff = [1,2,3,4,5].some(d => diffCounts[d] > 0);
 
+    // subchapter 메타 + 카운트
+    const subchapterList = meta?.subchapters || [];
+    const subchapterCounts = {};
+    subchapterList.forEach(sc => {
+      subchapterCounts[sc.id] = cd.questions.filter(q => q.subchapter === sc.id).length;
+    });
+
     const visible = cd.questions.filter(q => {
       if (sourceFilter === 'official' && !isOfficial(q)) return false;
       if (sourceFilter === 'practice-set' && !isPractice(q)) return false;
       if (sourceFilter === 'ai-vary' && !isAIVary(q)) return false;
       if (sourceFilter === 'ai-new' && !isAINew(q)) return false;
       if (diffFilter !== null && q.difficulty !== diffFilter) return false;
+      if (subchapterFilter !== null && q.subchapter !== subchapterFilter) return false;
       return true;
     });
 
@@ -585,6 +595,35 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                     borderRadius: 999, fontWeight: on ? 800 : 600,
                     fontSize: '0.75rem', cursor: 'pointer' }}>
                   {m.label} {m.name} {diffCounts[d]}
+                </button>
+              );
+            })}
+          </div>
+        )}
+        {/* subchapter 필터 chip — 단원 세분화 */}
+        {subchapterList.length > 1 && (
+          <div style={{ display: 'flex', gap: 6, marginBottom: 14, overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch' }}>
+            <button onClick={() => setSubchapterFilter(null)}
+              style={{ flex: '0 0 auto', padding: '5px 10px', whiteSpace: 'nowrap',
+                border: subchapterFilter === null ? '1.5px solid #0891b2' : '1px solid #d1d5db',
+                background: subchapterFilter === null ? '#ecfeff' : '#fff',
+                color: subchapterFilter === null ? '#0e7490' : '#6b7280',
+                borderRadius: 999, fontWeight: subchapterFilter === null ? 800 : 600,
+                fontSize: '0.74rem', cursor: 'pointer' }}>
+              📚 전체 소단원
+            </button>
+            {subchapterList.filter(sc => subchapterCounts[sc.id] > 0).map(sc => {
+              const on = subchapterFilter === sc.id;
+              return (
+                <button key={sc.id} onClick={() => setSubchapterFilter(on ? null : sc.id)}
+                  style={{ flex: '0 0 auto', padding: '5px 10px', whiteSpace: 'nowrap',
+                    border: on ? '1.5px solid #0891b2' : '1px solid #d1d5db',
+                    background: on ? '#ecfeff' : '#fff',
+                    color: on ? '#0e7490' : '#374151',
+                    borderRadius: 999, fontWeight: on ? 800 : 600,
+                    fontSize: '0.74rem', cursor: 'pointer' }}>
+                  {sc.title} {subchapterCounts[sc.id]}
                 </button>
               );
             })}
