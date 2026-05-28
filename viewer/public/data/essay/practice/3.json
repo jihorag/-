@@ -4,7 +4,7 @@
   "chapter": "3",
   "chapterTitle": "건물·복합·구분·임대료",
   "source": "official",
-  "count": 94,
+  "count": 124,
   "withAnswer": 29,
   "matchedAnswer": 29,
   "rounds": [
@@ -1938,6 +1938,577 @@
         "가시성"
       ],
       "subchapter": "3-3"
+    },
+    {
+      "id": "practice-3-501",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "건물 원가법 절차",
+      "body": "건물 원가법 절차를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 재조달원가 산정\n- 감가수정\n- 적산가액 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "재조달원가 산정",
+        "감가수정",
+        "적산가액 결정"
+      ]
+    },
+    {
+      "id": "practice-3-502",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "재조달원가 구성",
+      "body": "재조달원가의 구성을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 직접비 (자재·노무)\n- 간접비 (관리·이윤·금융)\n- 신축 시점 비용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "직접비 (자재·노무)",
+        "간접비 (관리·이윤·금융)",
+        "신축 시점 비용"
+      ]
+    },
+    {
+      "id": "practice-3-503",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "간접비율",
+      "body": "간접비율의 표준을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 직접비의 25~35%\n- 관리·이윤·금융·설계감리\n- 표준단가 포함",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "직접비의 25~35%",
+        "관리·이윤·금융·설계감리",
+        "표준단가 포함"
+      ]
+    },
+    {
+      "id": "practice-3-504",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "감가수정 3유형",
+      "body": "감가수정 3유형을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 물리적 감가\n- 기능적 감가\n- 경제적 감가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "물리적 감가",
+        "기능적 감가",
+        "경제적 감가"
+      ]
+    },
+    {
+      "id": "practice-3-505",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "정액법",
+      "body": "정액법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 매년 동일 감가액\n- 건물 표준\n- 잔가율 = 1-(경과/내용)×(1-잔존율)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매년 동일 감가액",
+        "건물 표준",
+        "잔가율 = 1-(경과/내용)×(1-잔존율)"
+      ]
+    },
+    {
+      "id": "practice-3-506",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "정률법",
+      "body": "정률법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 잔가에 일정율 차감\n- 초기 감가 큼\n- 기계·차량에 적합",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잔가에 일정율 차감",
+        "초기 감가 큼",
+        "기계·차량에 적합"
+      ]
+    },
+    {
+      "id": "practice-3-507",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "관찰감가법",
+      "body": "관찰감가법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 실제 상태 관찰\n- 리모델링·노후화 反영\n- 실태 기반",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실제 상태 관찰",
+        "리모델링·노후화 反영",
+        "실태 기반"
+      ]
+    },
+    {
+      "id": "practice-3-508",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-1",
+      "topic": "리모델링 효과",
+      "body": "리모델링의 가치 회복을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 정액법 + 추가 가산\n- 리모델링비의 80%\n- 관찰감가법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "정액법 + 추가 가산",
+        "리모델링비의 80%",
+        "관찰감가법"
+      ]
+    },
+    {
+      "id": "practice-3-509",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "복합부동산",
+      "body": "복합부동산의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지+건물 일체\n- 시장 거래의 표준\n- 일체효용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지+건물 일체",
+        "시장 거래의 표준",
+        "일체효용"
+      ]
+    },
+    {
+      "id": "practice-3-510",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "일체 평가",
+      "body": "일체 평가의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지+건물 묶음\n- 시장 거래사례 비교\n- 담보·매각용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지+건물 묶음",
+        "시장 거래사례 비교",
+        "담보·매각용"
+      ]
+    },
+    {
+      "id": "practice-3-511",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "별도 평가",
+      "body": "별도 평가의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지·건물 분리\n- 회계·세무용\n- 자산 배분",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지·건물 분리",
+        "회계·세무용",
+        "자산 배분"
+      ]
+    },
+    {
+      "id": "practice-3-512",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "일체효용",
+      "body": "일체효용의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지+건물 시너지\n- 5~15% 가산\n- 시장 거래 우월",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지+건물 시너지",
+        "5~15% 가산",
+        "시장 거래 우월"
+      ]
+    },
+    {
+      "id": "practice-3-513",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "토지잔여법",
+      "body": "토지잔여법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 건물 명확 → 토지 산정\n- 잔여 NOI 환원\n- 신축 건물 적합",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "건물 명확 → 토지 산정",
+        "잔여 NOI 환원",
+        "신축 건물 적합"
+      ]
+    },
+    {
+      "id": "practice-3-514",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-2",
+      "topic": "건물잔여법",
+      "body": "건물잔여법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지 명확 → 건물 산정\n- 잔여 NOI 환원\n- 노후 건물 적합",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 명확 → 건물 산정",
+        "잔여 NOI 환원",
+        "노후 건물 적합"
+      ]
+    },
+    {
+      "id": "practice-3-515",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "구분소유",
+      "body": "구분소유의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 1동 건물 구분\n- 집합건물법\n- 전유+공용 지분",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1동 건물 구분",
+        "집합건물법",
+        "전유+공용 지분"
+      ]
+    },
+    {
+      "id": "practice-3-516",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "대지권",
+      "body": "대지권의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 1동 대지 지분\n- 전유면적 비례\n- 분리 처분 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1동 대지 지분",
+        "전유면적 비례",
+        "분리 처분 X"
+      ]
+    },
+    {
+      "id": "practice-3-517",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "전유면적",
+      "body": "전유면적의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 독립 사용 공간\n- 실제 거주·이용\n- 단가 표시 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "독립 사용 공간",
+        "실제 거주·이용",
+        "단가 표시 기준"
+      ]
+    },
+    {
+      "id": "practice-3-518",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "공급면적",
+      "body": "공급면적의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 전유 + 공용지분\n- 시장 표시 표준\n- 매매 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전유 + 공용지분",
+        "시장 표시 표준",
+        "매매 기준"
+      ]
+    },
+    {
+      "id": "practice-3-519",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-3",
+      "topic": "층 효용비",
+      "body": "층별 효용비의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 층별 가치 차이\n- 아파트 1-3층 ↓·중간 ↑\n- 상가 1층 高",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "층별 가치 차이",
+        "아파트 1-3층 ↓·중간 ↑",
+        "상가 1층 高"
+      ]
+    },
+    {
+      "id": "practice-3-520",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "임대료 평가 3방식",
+      "body": "임대료 평가 3방식을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 임대사례비교법\n- 적산법\n- 수익분석법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "임대사례비교법",
+        "적산법",
+        "수익분석법"
+      ]
+    },
+    {
+      "id": "practice-3-521",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "임대사례비교법",
+      "body": "임대사례비교법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 사례 임대료 비교\n- 시점·개별 보정\n- 주방식",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사례 임대료 비교",
+        "시점·개별 보정",
+        "주방식"
+      ]
+    },
+    {
+      "id": "practice-3-522",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "적산법",
+      "body": "적산법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 기초가액 × 기대이율 + 경비\n- 신축·자가에 적합\n- 비용 기반",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기초가액 × 기대이율 + 경비",
+        "신축·자가에 적합",
+        "비용 기반"
+      ]
+    },
+    {
+      "id": "practice-3-523",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "수익분석법",
+      "body": "수익분석법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 매출 × 임대료 비율\n- 영업용에 적합\n- 업종 표준비율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매출 × 임대료 비율",
+        "영업용에 적합",
+        "업종 표준비율"
+      ]
+    },
+    {
+      "id": "practice-3-524",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "기대이율",
+      "body": "기대이율의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 자본의 기대수익률\n- 경비 미포함\n- 환원이율 - 경비/가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "자본의 기대수익률",
+        "경비 미포함",
+        "환원이율 - 경비/가치"
+      ]
+    },
+    {
+      "id": "practice-3-525",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-4",
+      "topic": "필요제경비",
+      "body": "필요제경비의 항목을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 감가상각·유지수선·공조공과\n- 보험료·대손·공실\n- 6대 항목",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "감가상각·유지수선·공조공과",
+        "보험료·대손·공실",
+        "6대 항목"
+      ]
+    },
+    {
+      "id": "practice-3-526",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "건물 거래사례",
+      "body": "건물 거래사례비교법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 건물 단독 거래 비교\n- 구조·연식 유사\n- 비교법 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "건물 단독 거래 비교",
+        "구조·연식 유사",
+        "비교법 적용"
+      ]
+    },
+    {
+      "id": "practice-3-527",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "NOI",
+      "body": "NOI의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- Net Operating Income\n- 순영업수익\n- 환원율 적용 기초",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Net Operating Income",
+        "순영업수익",
+        "환원율 적용 기초"
+      ]
+    },
+    {
+      "id": "practice-3-528",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "직접환원법",
+      "body": "직접환원법의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- NOI/환원이율\n- 안정 임대 부동산\n- 단순·신속",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "NOI/환원이율",
+        "안정 임대 부동산",
+        "단순·신속"
+      ]
+    },
+    {
+      "id": "practice-3-529",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "DCF",
+      "body": "DCF의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 미래 NOI + 매각 현가\n- 5~10년 예측\n- 성장 反영",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "미래 NOI + 매각 현가",
+        "5~10년 예측",
+        "성장 反영"
+      ]
+    },
+    {
+      "id": "practice-3-530",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "3-5",
+      "topic": "환원이율 4방식",
+      "body": "환원이율 4방식을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장추출\n- 요소구성\n- 투자결합\n- 부채감당",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장추출",
+        "요소구성",
+        "투자결합",
+        "부채감당"
+      ]
     }
   ]
 }
