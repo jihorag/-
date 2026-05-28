@@ -4,7 +4,7 @@
   "chapter": "7",
   "chapterTitle": "건축물·영업·기타 보상",
   "source": "official",
-  "count": 263,
+  "count": 293,
   "withAnswer": 13,
   "matchedAnswer": 13,
   "rounds": [
@@ -4982,6 +4982,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "적산 합산"
+      ]
+    },
+    {
+      "id": "practice-7-561",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "시행규칙 §33",
+      "body": "건축물 §33를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 적산가액",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "적산가액"
+      ]
+    },
+    {
+      "id": "practice-7-562",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "시행규칙 §35",
+      "body": "건축물 §35를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 부분 편입 + 보강",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "부분 편입 + 보강"
+      ]
+    },
+    {
+      "id": "practice-7-563",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "시행규칙 §35 ②",
+      "body": "잔여 건물 §35 ②를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 가치손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가치손실"
+      ]
+    },
+    {
+      "id": "practice-7-564",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "재조달원가",
+      "body": "재조달원가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 신축 시점 비용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "신축 시점 비용"
+      ]
+    },
+    {
+      "id": "practice-7-565",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "주체설비",
+      "body": "주체설비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 구조·벽·기둥",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "구조·벽·기둥"
+      ]
+    },
+    {
+      "id": "practice-7-566",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "부대설비",
+      "body": "부대설비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 배관·전기·설비",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "배관·전기·설비"
+      ]
+    },
+    {
+      "id": "practice-7-567",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "관찰감가",
+      "body": "관찰감가법를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 실태 관찰",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실태 관찰"
+      ]
+    },
+    {
+      "id": "practice-7-568",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "기능적 감가",
+      "body": "기능적 감가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 기능 부족",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기능 부족"
+      ]
+    },
+    {
+      "id": "practice-7-569",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "경제적 감가",
+      "body": "경제적 감가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 외부 환경",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "외부 환경"
+      ]
+    },
+    {
+      "id": "practice-7-570",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시행규칙 §46",
+      "body": "휴업 §46를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 4월 표준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4월 표준"
+      ]
+    },
+    {
+      "id": "practice-7-571",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시행규칙 §47",
+      "body": "폐업 §47를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 2년분",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2년분"
+      ]
+    },
+    {
+      "id": "practice-7-572",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시행규칙 §48",
+      "body": "영농 §48를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 통계 또는 실제 ×2년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통계 또는 실제 ×2년"
+      ]
+    },
+    {
+      "id": "practice-7-573",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시행규칙 §41",
+      "body": "농작물 §41를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 수확 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수확 가치"
+      ]
+    },
+    {
+      "id": "practice-7-574",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시행규칙 §42",
+      "body": "과수 §42를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 가식·이식 곤란",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가식·이식 곤란"
+      ]
+    },
+    {
+      "id": "practice-7-575",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시행규칙 §39",
+      "body": "입목 §39를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가 역산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 역산"
+      ]
+    },
+    {
+      "id": "practice-7-576",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시행규칙 §43",
+      "body": "분묘 §43를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 이장비",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이장비"
+      ]
+    },
+    {
+      "id": "practice-7-577",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "이전·잔존",
+      "body": "이전·잔존 손실를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 영업이익 비율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업이익 비율"
+      ]
+    },
+    {
+      "id": "practice-7-578",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "광고비",
+      "body": "광고비 보상를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장 회복 비용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 회복 비용"
+      ]
+    },
+    {
+      "id": "practice-7-579",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시설복구",
+      "body": "시설복구비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 영업이익 비율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업이익 비율"
+      ]
+    },
+    {
+      "id": "practice-7-580",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "인건비",
+      "body": "휴업 인건비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 유급 휴업 인정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "유급 휴업 인정"
+      ]
+    },
+    {
+      "id": "practice-7-581",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "시행규칙 §54",
+      "body": "주거이전비 §54를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 1인×가구원×4월",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1인×가구원×4월"
+      ]
+    },
+    {
+      "id": "practice-7-582",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "시행규칙 §53",
+      "body": "이주정착금 §53를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 건물 30%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "건물 30%"
+      ]
+    },
+    {
+      "id": "practice-7-583",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "시행규칙 §55",
+      "body": "동산 §55를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 가구원수별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가구원수별"
+      ]
+    },
+    {
+      "id": "practice-7-584",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "대토보상",
+      "body": "대토보상를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지로 보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지로 보상"
+      ]
+    },
+    {
+      "id": "practice-7-585",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "이주대책",
+      "body": "이주대책를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 주거 보호",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주거 보호"
+      ]
+    },
+    {
+      "id": "practice-7-586",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "주거자 자격",
+      "body": "이주대책 자격를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 직전 거주",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 직전 거주"
+      ]
+    },
+    {
+      "id": "practice-7-587",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "임시 거주",
+      "body": "임시 거주비를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 전환 기간",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전환 기간"
+      ]
+    },
+    {
+      "id": "practice-7-588",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-1",
+      "topic": "시행규칙 §24",
+      "body": "무허가 §24를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 원칙 보상 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원칙 보상 X"
+      ]
+    },
+    {
+      "id": "practice-7-589",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-2",
+      "topic": "시·군 내 이전",
+      "body": "시·군내 이전 곤란를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 폐업 인정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "폐업 인정"
+      ]
+    },
+    {
+      "id": "practice-7-590",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "7-3",
+      "topic": "주거+영업",
+      "body": "주거+영업 겸용를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 비율 분리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "비율 분리"
       ]
     }
   ]

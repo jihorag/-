@@ -4,7 +4,7 @@
   "chapter": "6a",
   "chapterTitle": "토지보상 기본·원칙",
   "source": "official",
-  "count": 271,
+  "count": 301,
   "withAnswer": 19,
   "matchedAnswer": 19,
   "rounds": [
@@ -5247,6 +5247,516 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "1년 이내 신청"
+      ]
+    },
+    {
+      "id": "practice-6a-561",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "헌법 §23",
+      "body": "헌법 §23 ③를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공용수용 정당보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공용수용 정당보상"
+      ]
+    },
+    {
+      "id": "practice-6a-562",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "사업인정 절차",
+      "body": "사업인정 절차를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 신청 - 심의 - 고시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "신청 - 심의 - 고시"
+      ]
+    },
+    {
+      "id": "practice-6a-563",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "협의·재결 절차",
+      "body": "협의·재결 단계를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 협의 → 재결 → 이의",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "협의 → 재결 → 이의"
+      ]
+    },
+    {
+      "id": "practice-6a-564",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "재결 의의",
+      "body": "재결의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 수용 결정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수용 결정"
+      ]
+    },
+    {
+      "id": "practice-6a-565",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "이의재결 의의",
+      "body": "이의재결를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지방→중앙",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지방→중앙"
+      ]
+    },
+    {
+      "id": "practice-6a-566",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "행정소송",
+      "body": "행정소송를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 처분 취소",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "처분 취소"
+      ]
+    },
+    {
+      "id": "practice-6a-567",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "민사소송",
+      "body": "보상 민사소송를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 손해배상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "손해배상"
+      ]
+    },
+    {
+      "id": "practice-6a-568",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "시효 5년",
+      "body": "시효 5년를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 민법 §766",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "민법 §766"
+      ]
+    },
+    {
+      "id": "practice-6a-569",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "대토보상",
+      "body": "대토보상를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지로 보상",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지로 보상"
+      ]
+    },
+    {
+      "id": "practice-6a-570",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "채권보상",
+      "body": "채권보상를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 채권 지급",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "채권 지급"
+      ]
+    },
+    {
+      "id": "practice-6a-571",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "잔여지 매수",
+      "body": "매수청구를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 30% 감가 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30% 감가 기준"
+      ]
+    },
+    {
+      "id": "practice-6a-572",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "환매 조건",
+      "body": "환매 행사 요건를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 사업 폐지+10년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사업 폐지+10년"
+      ]
+    },
+    {
+      "id": "practice-6a-573",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "재결 신청권",
+      "body": "재결 신청권자를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 사업시행자",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사업시행자"
+      ]
+    },
+    {
+      "id": "practice-6a-574",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "협의 의무",
+      "body": "협의 의무 X를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 자발적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "자발적"
+      ]
+    },
+    {
+      "id": "practice-6a-575",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-1",
+      "topic": "평가사 역할",
+      "body": "평가사 단계 역할를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 단계별 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단계별 평가"
+      ]
+    },
+    {
+      "id": "practice-6a-576",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "비교표준지",
+      "body": "비교표준지를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 용도·도로 일치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도·도로 일치"
+      ]
+    },
+    {
+      "id": "practice-6a-577",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "시점수정",
+      "body": "시점수정를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 공시일 → 가격시점",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "공시일 → 가격시점"
+      ]
+    },
+    {
+      "id": "practice-6a-578",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "지역요인",
+      "body": "지역요인를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지역 평점 비교",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지역 평점 비교"
+      ]
+    },
+    {
+      "id": "practice-6a-579",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "개별요인",
+      "body": "개별요인를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 6대 조건",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6대 조건"
+      ]
+    },
+    {
+      "id": "practice-6a-580",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "그밖의요인",
+      "body": "그밖의요인를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 보상선례 활용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보상선례 활용"
+      ]
+    },
+    {
+      "id": "practice-6a-581",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "6대 조건",
+      "body": "가로조건를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 도로 폭·접도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "도로 폭·접도"
+      ]
+    },
+    {
+      "id": "practice-6a-582",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "접근조건",
+      "body": "접근조건를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지하철·고속도로 등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지하철·고속도로 등"
+      ]
+    },
+    {
+      "id": "practice-6a-583",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "환경조건",
+      "body": "환경조건를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 소음·일조·조망",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "소음·일조·조망"
+      ]
+    },
+    {
+      "id": "practice-6a-584",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "획지조건",
+      "body": "획지조건를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 형상·가각",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "형상·가각"
+      ]
+    },
+    {
+      "id": "practice-6a-585",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "행정조건",
+      "body": "행정조건를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 용도지역 등",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "용도지역 등"
+      ]
+    },
+    {
+      "id": "practice-6a-586",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "기타조건",
+      "body": "기타조건를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 그 외 영향",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "그 외 영향"
+      ]
+    },
+    {
+      "id": "practice-6a-587",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "보상선례",
+      "body": "보상선례를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 그밖의요인 기초",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "그밖의요인 기초"
+      ]
+    },
+    {
+      "id": "practice-6a-588",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "가상정상가",
+      "body": "가상정상가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 그밖의 미반영 가격",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "그밖의 미반영 가격"
+      ]
+    },
+    {
+      "id": "practice-6a-589",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "단가 절사",
+      "body": "천단위 절사를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 실무 표준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실무 표준"
+      ]
+    },
+    {
+      "id": "practice-6a-590",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "6a-2",
+      "topic": "잔여지 손실",
+      "body": "잔여지 손실를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- §73 종전-종후",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "§73 종전-종후"
       ]
     }
   ]
