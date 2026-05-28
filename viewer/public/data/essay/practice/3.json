@@ -4,7 +4,7 @@
   "chapter": "3",
   "chapterTitle": "건물·복합·구분·임대료",
   "source": "official",
-  "count": 250,
+  "count": 277,
   "withAnswer": 29,
   "matchedAnswer": 29,
   "rounds": [
@@ -4918,6 +4918,465 @@
         "A 6.72/0.07 = 96.0",
         "B 5.52/0.07 = 78.9",
         "C 85.7"
+      ]
+    },
+    {
+      "id": "practice-3-734",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-1",
+      "topic": "적산",
+      "body": "[자료] 재조달 50억 × 잔가 0.7. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 35억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "35억"
+      ]
+    },
+    {
+      "id": "practice-3-735",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-1",
+      "topic": "주체잔가",
+      "body": "[자료] 잔존 35/(경과+잔존) 50. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.7",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.7"
+      ]
+    },
+    {
+      "id": "practice-3-736",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-1",
+      "topic": "부대잔가",
+      "body": "[자료] 잔존 8/총 25. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.32",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.32"
+      ]
+    },
+    {
+      "id": "practice-3-737",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-1",
+      "topic": "시점환산 단가",
+      "body": "[자료] 1,500,000 × 1.05. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1,575,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,575,000원"
+      ]
+    },
+    {
+      "id": "practice-3-738",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-2",
+      "topic": "일체효용",
+      "body": "[자료] 70억 × 1.08. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 75.6억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "75.6억"
+      ]
+    },
+    {
+      "id": "practice-3-739",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-2",
+      "topic": "잔여 NOI",
+      "body": "[자료] 5억 - 1.5억. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 3.5억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3.5억"
+      ]
+    },
+    {
+      "id": "practice-3-740",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-2",
+      "topic": "토지잔여",
+      "body": "[자료] NOI 4억/환원 5%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 80억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80억"
+      ]
+    },
+    {
+      "id": "practice-3-741",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-2",
+      "topic": "건물잔여",
+      "body": "[자료] NOI 3억/환원 9%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 33.3억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "33.3억"
+      ]
+    },
+    {
+      "id": "practice-3-742",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-3",
+      "topic": "대지권 비율",
+      "body": "[자료] 84/6,000. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.4%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.4%"
+      ]
+    },
+    {
+      "id": "practice-3-743",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-3",
+      "topic": "대지권 면적",
+      "body": "[자료] 2,000 × 1.4%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 28㎡",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "28㎡"
+      ]
+    },
+    {
+      "id": "practice-3-744",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-3",
+      "topic": "대지권 가치",
+      "body": "[자료] 28 × 7,000,000. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.96억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.96억"
+      ]
+    },
+    {
+      "id": "practice-3-745",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-3",
+      "topic": "층 효용",
+      "body": "[자료] 1층 100, 12층 102. 1층 5,000만 → 12층?. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 5,100만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,100만"
+      ]
+    },
+    {
+      "id": "practice-3-746",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-3",
+      "topic": "평형 효용",
+      "body": "[자료] 84A 100, 84B 96. A 14억 → B?. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 13.44억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "13.44억"
+      ]
+    },
+    {
+      "id": "practice-3-747",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "월세 환산",
+      "body": "[자료] 연 임대료 3.6억/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 3,000만/월",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3,000만/월"
+      ]
+    },
+    {
+      "id": "practice-3-748",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "보증금 → 월",
+      "body": "[자료] 2억 × 5%/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 83.3만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "83.3만"
+      ]
+    },
+    {
+      "id": "practice-3-749",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "완전월세",
+      "body": "[자료] 월세 500만 + 보증금 1억 × 5%/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 541.7만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "541.7만"
+      ]
+    },
+    {
+      "id": "practice-3-750",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "완전전세",
+      "body": "[자료] 보증금 1억 + 월세 200만 × 12/5%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 5.8억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5.8억"
+      ]
+    },
+    {
+      "id": "practice-3-751",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "임차권",
+      "body": "[자료] 월차 300만 × 12 × 연금 3 (3년). 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.08억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.08억"
+      ]
+    },
+    {
+      "id": "practice-3-752",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "적산법",
+      "body": "[자료] 50억 × 5.5% + 5,000만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 3.25억/년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3.25억/년"
+      ]
+    },
+    {
+      "id": "practice-3-753",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-4",
+      "topic": "수익분석",
+      "body": "[자료] 매출 80억 × 10%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 8억/년",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8억/년"
+      ]
+    },
+    {
+      "id": "practice-3-754",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "NOI 환원",
+      "body": "[자료] 6억/7%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 85.71억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "85.71억"
+      ]
+    },
+    {
+      "id": "practice-3-755",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "EGI",
+      "body": "[자료] PGI 10억 × 92%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 9.2억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9.2억"
+      ]
+    },
+    {
+      "id": "practice-3-756",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "NOI 산정",
+      "body": "[자료] EGI 9.2 × 72%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 6.62억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6.62억"
+      ]
+    },
+    {
+      "id": "practice-3-757",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "직접환원",
+      "body": "[자료] NOI 5억 / 6.5%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 76.92억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "76.92억"
+      ]
+    },
+    {
+      "id": "practice-3-758",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "환원율 시장",
+      "body": "[자료] NOI 7억 / 거래 100억. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 7%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7%"
+      ]
+    },
+    {
+      "id": "practice-3-759",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "환원율 요소",
+      "body": "[자료] 무위험 3 + 부동산 2.5 + 비유동 1 + 관리 0.5. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 7%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7%"
+      ]
+    },
+    {
+      "id": "practice-3-760",
+      "subject": "감정평가실무",
+      "chapter": "3",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "3-5",
+      "topic": "환원율 결합",
+      "body": "[자료] E 50%×9% + D 50%×0.065. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 7.75%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7.75%"
       ]
     }
   ]

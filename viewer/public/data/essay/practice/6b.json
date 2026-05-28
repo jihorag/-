@@ -4,7 +4,7 @@
   "chapter": "6b",
   "chapterTitle": "토지보상 공법상제한·특수",
   "source": "official",
-  "count": 232,
+  "count": 247,
   "withAnswer": 12,
   "matchedAnswer": 12,
   "rounds": [
@@ -4404,6 +4404,261 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "100×0.5×1.05×1.10×8,000 = 4.62억"
+      ]
+    },
+    {
+      "id": "practice-6b-746",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "준주거",
+      "body": "[자료] 5,500,000원 시점 1.05. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 5,775,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,775,000원"
+      ]
+    },
+    {
+      "id": "practice-6b-747",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "준공업",
+      "body": "[자료] 용적률 400% 등급 가산. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 일반 대비 +5%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일반 대비 +5%"
+      ]
+    },
+    {
+      "id": "practice-6b-748",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "용도지구 +",
+      "body": "[자료] 단가 4,000,000×1.05. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 4,200,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4,200,000원"
+      ]
+    },
+    {
+      "id": "practice-6b-749",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "미지급용지 단가",
+      "body": "[자료] 950,000×1.05×0.98. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 977,055원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "977,055원"
+      ]
+    },
+    {
+      "id": "practice-6b-750",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "미지급 총액",
+      "body": "[자료] 977,000×1,800㎡. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 17.59억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "17.59억"
+      ]
+    },
+    {
+      "id": "practice-6b-751",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "잔여지 손실",
+      "body": "[자료] (6,000-5,100)×200. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.8억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.8억"
+      ]
+    },
+    {
+      "id": "practice-6b-752",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "잔여 매수",
+      "body": "[자료] 감가 35% 매수청구. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 편입 단가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 단가"
+      ]
+    },
+    {
+      "id": "practice-6b-753",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "구분지상권",
+      "body": "[자료] 단가 7,500,000×0.025×300. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 5,625만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,625만"
+      ]
+    },
+    {
+      "id": "practice-6b-754",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "환매가",
+      "body": "[자료] 보상 9억+1,500만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 9.15억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9.15억"
+      ]
+    },
+    {
+      "id": "practice-6b-755",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "환매 거부",
+      "body": "[자료] 시장 8억 < 환매 9.15. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 거부 합리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "거부 합리"
+      ]
+    },
+    {
+      "id": "practice-6b-756",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "미지급 시점",
+      "body": "[자료] 인근 950,000×1.10. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1,045,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,045,000원"
+      ]
+    },
+    {
+      "id": "practice-6b-757",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "잔여지 면적",
+      "body": "[자료] 잔여 200㎡ × 종후. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평가"
+      ]
+    },
+    {
+      "id": "practice-6b-758",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "구분지상 깊이",
+      "body": "[자료] 15m 저해 30% × 이용 25%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.075",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.075"
+      ]
+    },
+    {
+      "id": "practice-6b-759",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "환매 시효",
+      "body": "[자료] 10년 도과. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 소멸",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "소멸"
+      ]
+    },
+    {
+      "id": "practice-6b-760",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "잔여 가치손실",
+      "body": "[자료] 종전-종후 ×면적. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 손실 산정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "손실 산정"
       ]
     }
   ]

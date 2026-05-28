@@ -4,7 +4,7 @@
   "chapter": "8b",
   "chapterTitle": "표준지·정비·불의타",
   "source": "official",
-  "count": 227,
+  "count": 257,
   "withAnswer": 7,
   "matchedAnswer": 7,
   "rounds": [
@@ -4336,6 +4336,516 @@
       "keyPoints": [
         "절사 10,847,000원",
         "총 32.54억"
+      ]
+    },
+    {
+      "id": "practice-8b-761",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "비교 시점",
+      "body": "[자료] 8,000,000×1.05. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 8,400,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,400,000원"
+      ]
+    },
+    {
+      "id": "practice-8b-762",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "검증 차이",
+      "body": "[자료] 5% 이내 인정. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 차이 ±5%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "차이 ±5%"
+      ]
+    },
+    {
+      "id": "practice-8b-763",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "인근 비교",
+      "body": "[자료] 평가-인근 ±5%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 균형",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "균형"
+      ]
+    },
+    {
+      "id": "practice-8b-764",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "시·도 균형",
+      "body": "[자료] ±5%p 이내. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 양호",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "양호"
+      ]
+    },
+    {
+      "id": "practice-8b-765",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "개별공시",
+      "body": "[자료] 표준지 × 비준표. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 단가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가"
+      ]
+    },
+    {
+      "id": "practice-8b-766",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "평가 절사",
+      "body": "[자료] 천단위 절사. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 실무",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실무"
+      ]
+    },
+    {
+      "id": "practice-8b-767",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "비준표 도로",
+      "body": "[자료] 0.97. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 도로조건 격차",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "도로조건 격차"
+      ]
+    },
+    {
+      "id": "practice-8b-768",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "비준표 환경",
+      "body": "[자료] 1.02. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 환경 격차",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환경 격차"
+      ]
+    },
+    {
+      "id": "practice-8b-769",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "시점환산",
+      "body": "[자료] 거래 1.04. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 시점 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점 적용"
+      ]
+    },
+    {
+      "id": "practice-8b-770",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "표준지 결정",
+      "body": "[자료] 의견 협의. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 결정값",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "결정값"
+      ]
+    },
+    {
+      "id": "practice-8b-771",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "비례율",
+      "body": "[자료] (수입-비용)/종전 ×100. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- %",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "%"
+      ]
+    },
+    {
+      "id": "practice-8b-772",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "권리가액",
+      "body": "[자료] 종전 × 비례율. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 권리 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "권리 가치"
+      ]
+    },
+    {
+      "id": "practice-8b-773",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "분담금",
+      "body": "[자료] 종후 - 권리가액. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- + 납부 / - 환급",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "+ 납부 / - 환급"
+      ]
+    },
+    {
+      "id": "practice-8b-774",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "분양가 상한",
+      "body": "[자료] 토지+건축+가산. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 상한",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "상한"
+      ]
+    },
+    {
+      "id": "practice-8b-775",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "청산 비례율",
+      "body": "[자료] 실제 (수입-비용)/종전. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- %",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "%"
+      ]
+    },
+    {
+      "id": "practice-8b-776",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "청산금",
+      "body": "[자료] 청산 분담 - 기 납부. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 환급/납부",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환급/납부"
+      ]
+    },
+    {
+      "id": "practice-8b-777",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "조합원 우대",
+      "body": "[자료] 일반 ×0.85~0.90. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 우대가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "우대가"
+      ]
+    },
+    {
+      "id": "practice-8b-778",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "비례율 100%",
+      "body": "[자료] 균형 사업. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 종전 = 권리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종전 = 권리"
+      ]
+    },
+    {
+      "id": "practice-8b-779",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "비례율 110%",
+      "body": "[자료] +10% 이익. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 종전 ×1.10",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종전 ×1.10"
+      ]
+    },
+    {
+      "id": "practice-8b-780",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "권리 + 분담",
+      "body": "[자료] 권리 2.2 + 분담 0.8. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 종후 3억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종후 3억"
+      ]
+    },
+    {
+      "id": "practice-8b-781",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "불의타 영업",
+      "body": "[자료] 영업×영향%×기간/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "손실"
+      ]
+    },
+    {
+      "id": "practice-8b-782",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "불의타 가치",
+      "body": "[자료] 시장 × 영향%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "손실"
+      ]
+    },
+    {
+      "id": "practice-8b-783",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "NOI 변동",
+      "body": "[자료] NOI -20%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 새 NOI",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "새 NOI"
+      ]
+    },
+    {
+      "id": "practice-8b-784",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "환원 상승",
+      "body": "[자료] 환원 +1.5%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 가치 ↓",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가치 ↓"
+      ]
+    },
+    {
+      "id": "practice-8b-785",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "재평가",
+      "body": "[자료] NOI/새 환원. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 새 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "새 가치"
+      ]
+    },
+    {
+      "id": "practice-8b-786",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "미동의자",
+      "body": "[자료] 매도청구 = 시장. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 수용 < 시장",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수용 < 시장"
+      ]
+    },
+    {
+      "id": "practice-8b-787",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "평가시점",
+      "body": "[자료] 사후 사건 영향 X. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 원평가 적정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원평가 적정"
+      ]
+    },
+    {
+      "id": "practice-8b-788",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "복원 차감",
+      "body": "[자료] 시장 - 복원. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 순 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "순 가치"
+      ]
+    },
+    {
+      "id": "practice-8b-789",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "시장 vs 수용",
+      "body": "[자료] 차이 분석. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 미동의자 선택",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "미동의자 선택"
+      ]
+    },
+    {
+      "id": "practice-8b-790",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "환경 책임",
+      "body": "[자료] 행위자 우선. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 소유자 보충",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "소유자 보충"
       ]
     }
   ]
