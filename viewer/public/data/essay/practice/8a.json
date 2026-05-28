@@ -4,7 +4,7 @@
   "chapter": "8a",
   "chapterTitle": "목적별 평가",
   "source": "official",
-  "count": 128,
+  "count": 148,
   "withAnswer": 18,
   "matchedAnswer": 18,
   "rounds": [
@@ -2546,6 +2546,382 @@
         "30 - 12 = 18억",
         "REITs NAV",
         "자산-부채"
+      ]
+    },
+    {
+      "id": "practice-8a-701",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-1",
+      "topic": "담보 + LTV",
+      "body": "[자료]\n시장 20억, 담보율 75%, LTV 60%.\n\n[물음] 담보가치와 대출한도?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 담보 20×0.75 = 15억\n- LTV 15×0.6 = 9억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "담보 20×0.75 = 15억",
+        "LTV 15×0.6 = 9억"
+      ]
+    },
+    {
+      "id": "practice-8a-702",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-1",
+      "topic": "DTI 산정",
+      "body": "[자료]\n연 소득 8천만, DTI 40%, MC 0.064 (30년 5%).\n\n[물음] DTI 원금 한도?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 연 원리금 3,200만\n- 원금 3,200만/0.064 = 5억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연 원리금 3,200만",
+        "원금 3,200만/0.064 = 5억"
+      ]
+    },
+    {
+      "id": "practice-8a-703",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-1",
+      "topic": "가용한도",
+      "body": "[자료]\nLTV 한도 8억, 1순위 저당 3억, 대항력 임차 1억, 조세 2천만.\n\n[물음] 가용한도?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 8 - 3 - 1 - 0.2 = 3.8억\n- 부담권리 차감\n- 대출가능액\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8 - 3 - 1 - 0.2 = 3.8억",
+        "부담권리 차감",
+        "대출가능액"
+      ]
+    },
+    {
+      "id": "practice-8a-704",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-1",
+      "topic": "LTV vs DTI 채택",
+      "body": "[자료]\nLTV 한도 5억, DTI 한도 4억.\n\n[물음] 채택?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 적은 값 채택\n- 4억 (DTI)\n- 소득 제한\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "적은 값 채택",
+        "4억 (DTI)",
+        "소득 제한"
+      ]
+    },
+    {
+      "id": "practice-8a-705",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-1",
+      "topic": "담보율 산정",
+      "body": "[자료]\n시장 15억, 처분 위험 25% (위험가산).\n\n[물음] 담보율과 담보가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 담보율 75% (1-0.25)\n- 15×0.75 = 11.25억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "담보율 75% (1-0.25)",
+        "15×0.75 = 11.25억"
+      ]
+    },
+    {
+      "id": "practice-8a-706",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-1",
+      "topic": "DSR 종합",
+      "body": "[자료]\n연 소득 1.2억, DSR 45%, 기존 대출 원리금 2,000만.\n\n[물음] 신규 대출 원리금 한도?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- DSR 한도 1.2 × 0.45 = 5,400만\n- 기존 2,000만 차감\n- 신규 3,400만\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "DSR 한도 1.2 × 0.45 = 5,400만",
+        "기존 2,000만 차감",
+        "신규 3,400만"
+      ]
+    },
+    {
+      "id": "practice-8a-707",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-1",
+      "topic": "담보 재평가 차이",
+      "body": "[자료]\n초기 담보 10억, 1년 후 재평가 8억 (-20%).\n\n[물음] LTV 변동 대응?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- LTV 비율 상승\n- 추가 담보 또는 일부 상환\n- 담보 부족 알림\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "LTV 비율 상승",
+        "추가 담보 또는 일부 상환",
+        "담보 부족 알림"
+      ]
+    },
+    {
+      "id": "practice-8a-708",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-2",
+      "topic": "낙찰 + 인수",
+      "body": "[자료]\n감정 20억, 1차 낙찰 (85%), 인수 대항력 임차 3억.\n\n[물음] 매수인 총 부담?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 낙찰 20×0.85 = 17억\n- 인수 3억\n- 총 20억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "낙찰 20×0.85 = 17억",
+        "인수 3억",
+        "총 20억"
+      ]
+    },
+    {
+      "id": "practice-8a-709",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-2",
+      "topic": "유찰 후 낙찰",
+      "body": "[자료]\n감정 10억, 2회 유찰 (각 20% 저감) 후 낙찰.\n\n[물음] 최저매각가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 10×0.8×0.8 = 6.4억\n- 2회 유찰\n- 40% 저감\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10×0.8×0.8 = 6.4억",
+        "2회 유찰",
+        "40% 저감"
+      ]
+    },
+    {
+      "id": "practice-8a-710",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-2",
+      "topic": "배당 우선순위",
+      "body": "[자료]\n낙찰 12억. 조세 1억 / 1순위 저당 6억 / 2순위 가압류 3억 / 임차 (대항력) 2억.\n\n[물음] 배당 순서?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 조세 1억 → 저당 6 → 가압류 3\n- 임차 인수 (배당 X)\n- 잔여 2억 = 소유자\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "조세 1억 → 저당 6 → 가압류 3",
+        "임차 인수 (배당 X)",
+        "잔여 2억 = 소유자"
+      ]
+    },
+    {
+      "id": "practice-8a-711",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-2",
+      "topic": "소송 감정 보수",
+      "body": "[자료]\n평가가 50억, 출석 2회 × 30만, 증언 1회 × 20만, 실비 20만.\n본료 0.04%.\n\n[물음] 총 보수?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 본료 50억×0.0004 = 200만\n- 출석 60+증언 20+실비 20 = 100만\n- 총 300만\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "본료 50억×0.0004 = 200만",
+        "출석 60+증언 20+실비 20 = 100만",
+        "총 300만"
+      ]
+    },
+    {
+      "id": "practice-8a-712",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-2",
+      "topic": "인수 vs 소멸",
+      "body": "[자료]\n1순위 저당 (말소기준) → 2순위 가압류 → 대항력 임차.\n\n[물음] 인수/소멸?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 저당·가압류 소멸 (배당)\n- 대항력 임차 인수\n- 말소기준 원리\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저당·가압류 소멸 (배당)",
+        "대항력 임차 인수",
+        "말소기준 원리"
+      ]
+    },
+    {
+      "id": "practice-8a-713",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-2",
+      "topic": "경매 신청",
+      "body": "[자료]\n저당권자 (1순위) 채무 변제 부재. 경매 신청.\n\n[물음] 임의경매 절차?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 저당권 실행 임의경매\n- 신청 → 감정 → 매각\n- 저당권자 우선 배당\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저당권 실행 임의경매",
+        "신청 → 감정 → 매각",
+        "저당권자 우선 배당"
+      ]
+    },
+    {
+      "id": "practice-8a-714",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-2",
+      "topic": "입찰 보증금 몰수",
+      "body": "[자료]\n낙찰가 8억, 보증금 8천만. 잔금 미납.\n\n[물음] 처리?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 보증금 몰수\n- 재경매 진행\n- 낙찰자 책임\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보증금 몰수",
+        "재경매 진행",
+        "낙찰자 책임"
+      ]
+    },
+    {
+      "id": "practice-8a-715",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-3",
+      "topic": "국유 매각 vs 대부",
+      "body": "[자료]\n시장가 30억, 사용료율 5%, 20년 대부 또는 매각 선택.\n\n[물음] 20년 대부 누계 vs 매각?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 연 대부 1.5억\n- 20년 = 30억 (시점 변동 별도)\n- 매각 일시 30억 vs 대부 30억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연 대부 1.5억",
+        "20년 = 30억 (시점 변동 별도)",
+        "매각 일시 30억 vs 대부 30억"
+      ]
+    },
+    {
+      "id": "practice-8a-716",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-3",
+      "topic": "재평가 잉여",
+      "body": "[자료]\n장부 50억, 시장 80억.\n\n[물음] 재평가 분개와 잉여?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 자산 +30억\n- 재평가잉여 (자본) +30억\n- 손익 인식 X\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "자산 +30억",
+        "재평가잉여 (자본) +30억",
+        "손익 인식 X"
+      ]
+    },
+    {
+      "id": "practice-8a-717",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-3",
+      "topic": "재평가 하락",
+      "body": "[자료]\n장부 80억 (잉여 30억), 시장 60억 (-20억).\n\n[물음] 처리?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 재평가잉여 차감 (자본)\n- 잉여 부족 시 손실 인식\n- K-IFRS 16\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "재평가잉여 차감 (자본)",
+        "잉여 부족 시 손실 인식",
+        "K-IFRS 16"
+      ]
+    },
+    {
+      "id": "practice-8a-718",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-3",
+      "topic": "양도세 산정",
+      "body": "[자료]\n양도가 15억, 취득가 8억, 필요경비 5천만, 보유 10년.\n\n[물음] 양도소득과 세금 (30% 가정)?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 양도소득 6.5억\n- 세금 6.5×0.3 = 1.95억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "양도소득 6.5억",
+        "세금 6.5×0.3 = 1.95억"
+      ]
+    },
+    {
+      "id": "practice-8a-719",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-3",
+      "topic": "종부세 다주택",
+      "body": "[자료]\n공시 합산 35억, 다주택자 한도 6억, 세율 2%.\n\n[물음] 종부세?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 과세표준 29억\n- 29×0.02 = 5,800만\n- 추정 세액\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "과세표준 29억",
+        "29×0.02 = 5,800만",
+        "추정 세액"
+      ]
+    },
+    {
+      "id": "practice-8a-720",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8a-3",
+      "topic": "REITs 평가",
+      "body": "[자료]\n부동산 50억, 부채 20억, 발행주식 100만주.\n\n[물음] NAV와 주당?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- NAV 30억\n- 주당 30,000원\n- 시가 비교 별도\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "NAV 30억",
+        "주당 30,000원",
+        "시가 비교 별도"
       ]
     }
   ]

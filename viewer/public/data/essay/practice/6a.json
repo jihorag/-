@@ -4,7 +4,7 @@
   "chapter": "6a",
   "chapterTitle": "토지보상 기본·원칙",
   "source": "official",
-  "count": 129,
+  "count": 149,
   "withAnswer": 19,
   "matchedAnswer": 19,
   "rounds": [
@@ -2653,6 +2653,385 @@
         "절사 결과 9,478,000원/㎡",
         "실무 표준",
         "천단위 미만 절사"
+      ]
+    },
+    {
+      "id": "practice-6a-701",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-1",
+      "topic": "협의·재결 단가 차이",
+      "body": "[자료]\n협의 평가 9,000,000원 (2025.12), 재결 평가 9,500,000원 (2026.4).\n시점 변동 +3%.\n\n[물음] 평가사 의견 차이?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 시점 보정 후 9,270,000원\n- 실제 9,500,000\n- 평가사 의견 차이 약 2.5%\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점 보정 후 9,270,000원",
+        "실제 9,500,000",
+        "평가사 의견 차이 약 2.5%"
+      ]
+    },
+    {
+      "id": "practice-6a-702",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-1",
+      "topic": "시효 계산",
+      "body": "[자료]\n보상금 청구권 발생 2020.6.1. 현재 2026.5.\n\n[물음] 시효 완성 여부?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 시효 5년\n- 2020.6 + 5년 = 2025.6 완성\n- 시효 도과로 청구 불가\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시효 5년",
+        "2020.6 + 5년 = 2025.6 완성",
+        "시효 도과로 청구 불가"
+      ]
+    },
+    {
+      "id": "practice-6a-703",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-1",
+      "topic": "공탁 시점",
+      "body": "[자료]\n재결 2025.12.1, 보상금 10억, 토지소유자 수령 거부.\n\n[물음] 공탁 시기와 의의?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 재결 후 30일 이내 공탁\n- 2026.1.1 이전\n- 토지 수용권 확정\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "재결 후 30일 이내 공탁",
+        "2026.1.1 이전",
+        "토지 수용권 확정"
+      ]
+    },
+    {
+      "id": "practice-6a-704",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-1",
+      "topic": "이의재결 효과",
+      "body": "[자료]\n재결 보상금 10억, 이의재결 11억.\n\n[물음] 차액 처리?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 이의재결 증액 1억\n- 차액 지급\n- 감액 시 환수 X (불이익변경 금지)\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이의재결 증액 1억",
+        "차액 지급",
+        "감액 시 환수 X (불이익변경 금지)"
+      ]
+    },
+    {
+      "id": "practice-6a-705",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-1",
+      "topic": "환매가 계산",
+      "body": "[자료]\n보상금 8억, 사업시행자 부담 1,500만, 시장가 12억.\n\n[물음] 환매가와 이익?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 환매가 8.15억\n- 시장가 12억\n- 환매 이익 3.85억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "환매가 8.15억",
+        "시장가 12억",
+        "환매 이익 3.85억"
+      ]
+    },
+    {
+      "id": "practice-6a-706",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-1",
+      "topic": "잔여지 비교",
+      "body": "[자료]\n종전 100㎡ × 4,000,000 = 4억, 종후 단가 3,500,000원 (-12.5%).\n\n[물음] 가치손실 vs 매수청구?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 종후 가치 3.5억\n- 손실 5천만 (§73)\n- 12.5% < 30% → 매수청구 불가\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종후 가치 3.5억",
+        "손실 5천만 (§73)",
+        "12.5% < 30% → 매수청구 불가"
+      ]
+    },
+    {
+      "id": "practice-6a-707",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-1",
+      "topic": "구분지상권 단가",
+      "body": "[자료]\n지하 30m 통과, 지하 이용비율 20%, 깊이저해율 8%.\n토지단가 7,000,000원, 통과 250㎡.\n\n[물음] 보상?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 저해율 0.20 × 0.08 = 0.016\n- 단가 7,000,000 × 0.016 = 112,000원\n- 총 112,000 × 250 = 2,800만\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "저해율 0.20 × 0.08 = 0.016",
+        "단가 7,000,000 × 0.016 = 112,000원",
+        "총 112,000 × 250 = 2,800만"
+      ]
+    },
+    {
+      "id": "practice-6a-708",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-1",
+      "topic": "조서·평가 절차",
+      "body": "[자료]\n사업인정 2025.6, 조서 작성 2025.10, 평가 2025.12, 협의 2026.1.\n\n[물음] 절차 순서 검토?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 사업인정 → 조서 → 평가 → 협의\n- 조서가 평가 기초\n- 시행규칙 §14 정상\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "사업인정 → 조서 → 평가 → 협의",
+        "조서가 평가 기초",
+        "시행규칙 §14 정상"
+      ]
+    },
+    {
+      "id": "practice-6a-709",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-1",
+      "topic": "대토 vs 현금",
+      "body": "[자료]\n보상금 10억, 대토 동일 가치 토지 가능.\n\n[물음] 대토 선택 시 절차?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 대토보상 §63 ④\n- 시행자 토지 제공\n- 평가가 = 가치\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "대토보상 §63 ④",
+        "시행자 토지 제공",
+        "평가가 = 가치"
+      ]
+    },
+    {
+      "id": "practice-6a-710",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-1",
+      "topic": "협의 vs 재결 결정",
+      "body": "[자료]\n협의 평가 100억, 사업시행자 제시 95억. 협의 결렬.\n\n[물음] 토지소유자 권리?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 재결 신청 권리\n- 평가가 보장 X\n- 재결 시 새 평가\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "재결 신청 권리",
+        "평가가 보장 X",
+        "재결 시 새 평가"
+      ]
+    },
+    {
+      "id": "practice-6a-711",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-2",
+      "topic": "공시지가 단가 종합",
+      "body": "[자료]\n표준지 8,000,000원, 시점 1.04, 지역 1.0, 개별 (가로 1.03, 환경 0.98, 획지 1.05) = 1.0593, 그밖의 1.12.\n\n[물음] 평가단가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 8,000 × 1.04 × 1.0593 × 1.12\n- = 9,872,000원/㎡\n- 4단계 곱셈\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,000 × 1.04 × 1.0593 × 1.12",
+        "= 9,872,000원/㎡",
+        "4단계 곱셈"
+      ]
+    },
+    {
+      "id": "practice-6a-712",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-2",
+      "topic": "시점수정 일단위",
+      "body": "[자료]\n2025 연 변동 +4.8%, 2026 1.1~5.15 (135일/365일).\n\n[물음] 시점수정율 (단일)?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 4.8% × 135/365\n- = 1.775%\n- 일단위 안분\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4.8% × 135/365",
+        "= 1.775%",
+        "일단위 안분"
+      ]
+    },
+    {
+      "id": "practice-6a-713",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-2",
+      "topic": "시점 복리",
+      "body": "[자료]\n2024 +3%, 2025 +4%, 2026 +2%.\n\n[물음] 3년 누계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 1.03 × 1.04 × 1.02\n- = 1.0926\n- +9.26%\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.03 × 1.04 × 1.02",
+        "= 1.0926",
+        "+9.26%"
+      ]
+    },
+    {
+      "id": "practice-6a-714",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-2",
+      "topic": "6대 요인 종합",
+      "body": "[자료]\n가로 1.05, 접근 1.03, 환경 0.97, 획지 1.02, 행정 1.0, 기타 1.01.\n\n[물음] 종합 격차?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 1.05 × 1.03 × 0.97 × 1.02 × 1.0 × 1.01\n- = 1.0780\n- +7.8%\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.05 × 1.03 × 0.97 × 1.02 × 1.0 × 1.01",
+        "= 1.0780",
+        "+7.8%"
+      ]
+    },
+    {
+      "id": "practice-6a-715",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-2",
+      "topic": "그밖의요인 4건",
+      "body": "[자료]\n선례 시점환산: 8,500,000 / 8,700,000 / 8,900,000 / 9,100,000.\n가상정상가 8,000,000.\n\n[물음] 평균과 보정치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 평균 8,800,000\n- 8,800/8,000 = 1.10\n- +10%\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평균 8,800,000",
+        "8,800/8,000 = 1.10",
+        "+10%"
+      ]
+    },
+    {
+      "id": "practice-6a-716",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-2",
+      "topic": "평가단가 + 천단위",
+      "body": "[자료]\n계산 결과 9,847,562원/㎡, 면적 350㎡.\n\n[물음] 단가와 총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 절사 9,847,000원/㎡\n- 9,847 × 350 = 34.46억\n- 평가총액\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "절사 9,847,000원/㎡",
+        "9,847 × 350 = 34.46억",
+        "평가총액"
+      ]
+    },
+    {
+      "id": "practice-6a-717",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-2",
+      "topic": "잔여지 가치손실",
+      "body": "[자료]\n종전 단가 6,000,000, 종후 단가 5,100,000, 잔여 150㎡.\n\n[물음] §73 가치손실?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- (6,000-5,100) × 150\n- = 900,000 × 150 = 1.35억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(6,000-5,100) × 150",
+        "= 900,000 × 150 = 1.35억"
+      ]
+    },
+    {
+      "id": "practice-6a-718",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-2",
+      "topic": "비교표준지 균등평균",
+      "body": "[자료]\n표준지 A 8,000,000, B 8,500,000, C 9,000,000 (모두 동일 조건).\n\n[물음] 평균?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- (8,000+8,500+9,000)/3\n- = 8,500,000원/㎡\n- 단순 평균\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(8,000+8,500+9,000)/3",
+        "= 8,500,000원/㎡",
+        "단순 평균"
+      ]
+    },
+    {
+      "id": "practice-6a-719",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-2",
+      "topic": "시점환산 단순",
+      "body": "[자료]\n선례 단가 7,000,000원, 시점수정율 1.08.\n\n[물음] 환산 단가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 7,000,000 × 1.08\n- = 7,560,000원/㎡\n- 시점환산\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,000,000 × 1.08",
+        "= 7,560,000원/㎡",
+        "시점환산"
+      ]
+    },
+    {
+      "id": "practice-6a-720",
+      "subject": "감정평가실무",
+      "chapter": "6a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "6a-2",
+      "topic": "그밖의요인 1.15",
+      "body": "[자료]\n표준지×시점×지역×개별 = 8,500,000원, 선례평균 9,775,000원.\n\n[물음] 보정치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 9,775/8,500 = 1.15\n- +15%\n- 그밖의요인\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,775/8,500 = 1.15",
+        "+15%",
+        "그밖의요인"
       ]
     }
   ]

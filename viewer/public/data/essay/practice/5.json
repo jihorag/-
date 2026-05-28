@@ -4,7 +4,7 @@
   "chapter": "5",
   "chapterTitle": "비가치추계·기업가치·무형자산",
   "source": "official",
-  "count": 138,
+  "count": 158,
   "withAnswer": 33,
   "matchedAnswer": 33,
   "rounds": [
@@ -2765,6 +2765,388 @@
         "10억/10년 = 1억/년",
         "정액법",
         "잔존가치 0"
+      ]
+    },
+    {
+      "id": "practice-5-701",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "시산조정 4방식",
+      "body": "[자료]\n원가 80억, 비교 100억, 수익 110억, 공시 90억.\n가중치: 비교 40% / 수익 30% / 공시 20% / 원가 10%.\n\n[물음] 결정가액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 80×0.1 + 100×0.4 + 110×0.3 + 90×0.2\n- = 8+40+33+18 = 99억\n- 4방식 가중평균\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80×0.1 + 100×0.4 + 110×0.3 + 90×0.2",
+        "= 8+40+33+18 = 99억",
+        "4방식 가중평균"
+      ]
+    },
+    {
+      "id": "practice-5-702",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "시점수정 종합",
+      "body": "[자료]\n거래 단가 8,000,000원, 거래 2025.6, 가격 2026.5.\n2025 연 변동 +4%, 2026 1-4월 누계 +1.5%, 5월 +0.05%/일×31일.\n\n[물음] 시점수정율과 단가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 2025.6~12 = 4% × 7/12 = 2.33%\n- 2026 합계 ≈ 1.55%\n- 복리 ≈ 1.0394\n- 단가 ≈ 8,315,200원\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2025.6~12 = 4% × 7/12 = 2.33%",
+        "2026 합계 ≈ 1.55%",
+        "복리 ≈ 1.0394",
+        "단가 ≈ 8,315,200원"
+      ]
+    },
+    {
+      "id": "practice-5-703",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "검증 종합",
+      "body": "[자료]\n평가가 100억, 검증가 95억, 인근 평균 102억, 시장 거래 98억.\n\n[물음] 평가 적정성 분석.",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 검증 차이 5%\n- 인근 차이 -2%\n- 시장 +2%\n- 균형 양호, 적정\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "검증 차이 5%",
+        "인근 차이 -2%",
+        "시장 +2%",
+        "균형 양호, 적정"
+      ]
+    },
+    {
+      "id": "practice-5-704",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "복리 누적",
+      "body": "[자료]\n2024 +3%, 2025 +5%, 2026 +2%.\n\n[물음] 3년 누계 복리?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 1.03 × 1.05 × 1.02 = 1.1031\n- +10.31% 누적\n- 단순 +10%와 차이\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.03 × 1.05 × 1.02 = 1.1031",
+        "+10.31% 누적",
+        "단순 +10%와 차이"
+      ]
+    },
+    {
+      "id": "practice-5-705",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "단가 절사",
+      "body": "[자료]\n계산 결과 7,569,832원/㎡, 면적 320㎡.\n\n[물음] 천단위 절사 단가와 총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 절사 7,569,000원/㎡\n- 7,569 × 320 = 2,422,080,000원\n- 총액 약 24.22억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "절사 7,569,000원/㎡",
+        "7,569 × 320 = 2,422,080,000원",
+        "총액 약 24.22억"
+      ]
+    },
+    {
+      "id": "practice-5-706",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "평가 단가 + 면적",
+      "body": "[자료]\n기본 단가 5,000,000원, 시점 1.05, 지역 1.0, 개별 1.03, 그밖의 1.10.\n면적 400㎡.\n\n[물음] 평가단가 + 총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 5,000 × 1.05 × 1.03 × 1.10 = 5,948,250원\n- 절사 5,948,000\n- 5,948 × 400 = 23.79억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000 × 1.05 × 1.03 × 1.10 = 5,948,250원",
+        "절사 5,948,000",
+        "5,948 × 400 = 23.79억"
+      ]
+    },
+    {
+      "id": "practice-5-707",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-1",
+      "topic": "가격시점 직전 공시",
+      "body": "[자료]\n사업인정고시 2024.6, 가격시점 2026.5.\n2024 공시 5,000,000원, 2025 5,200,000원, 2026 5,500,000원.\n\n[물음] 적용 공시?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 직전 공시 = 2024.1.1\n- 2024 공시 5,000,000원 적용\n- 시점수정 별도 ×24개월 변동\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "직전 공시 = 2024.1.1",
+        "2024 공시 5,000,000원 적용",
+        "시점수정 별도 ×24개월 변동"
+      ]
+    },
+    {
+      "id": "practice-5-708",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "DCF 5년",
+      "body": "[자료]\nFCF: 100, 110, 120, 130, 140, 145 (백만, 6년).\nWACC 8%, 성장 2%.\n\n[물음] DCF 가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 5년 현가 합 ≈ 480백만\n- TV = 145/(0.08-0.02) = 2,417백만\n- 5년말 PV ≈ 1,645\n- 합계 약 2,125백만\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5년 현가 합 ≈ 480백만",
+        "TV = 145/(0.08-0.02) = 2,417백만",
+        "5년말 PV ≈ 1,645",
+        "합계 약 2,125백만"
+      ]
+    },
+    {
+      "id": "practice-5-709",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "WACC 종합",
+      "body": "[자료]\n자기자본 60% / 부채 40%, 이자율 6% (세율 25%), 자기자본 비용 12%.\n\n[물음] WACC?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 부채 세후 6%×0.75 = 4.5%\n- 0.6×12 + 0.4×4.5\n- = 7.2 + 1.8 = 9%\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "부채 세후 6%×0.75 = 4.5%",
+        "0.6×12 + 0.4×4.5",
+        "= 7.2 + 1.8 = 9%"
+      ]
+    },
+    {
+      "id": "practice-5-710",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "비상장 PER+PBR",
+      "body": "[자료]\nEPS 4,000원, PER 10배, BPS 40,000원, PBR 1.5배. 비상장 할인 25%.\n가중치 PER 60% / PBR 40%.\n\n[물음] 주당가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- PER 40,000×0.75=30,000\n- PBR 60,000×0.75=45,000\n- 0.6×30,000 + 0.4×45,000 = 36,000원\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "PER 40,000×0.75=30,000",
+        "PBR 60,000×0.75=45,000",
+        "0.6×30,000 + 0.4×45,000 = 36,000원"
+      ]
+    },
+    {
+      "id": "practice-5-711",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "영구환원",
+      "body": "[자료]\n연 NOI 1.2억, WACC 8%, 성장 3%.\n\n[물음] 영구 가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- Gordon: 1.2/(0.08-0.03)\n- = 24억\n- 영구환원\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "Gordon: 1.2/(0.08-0.03)",
+        "= 24억",
+        "영구환원"
+      ]
+    },
+    {
+      "id": "practice-5-712",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "잔여가치 비중",
+      "body": "[자료]\n5년 FCF 현가 합 500억, 잔여가치 PV 1,500억.\n\n[물음] 잔여 비중?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 총 2,000억\n- 잔여 1,500/2,000 = 75%\n- 통상 70%+\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "총 2,000억",
+        "잔여 1,500/2,000 = 75%",
+        "통상 70%+"
+      ]
+    },
+    {
+      "id": "practice-5-713",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "M&A 인수가",
+      "body": "[자료]\n시장가치 1,000억, 시너지 200억, 프리미엄 시장가의 15%.\n\n[물음] 최대 인수가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 1,000 + 200 + 150\n- = 1,350억\n- M&A 인수가\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,000 + 200 + 150",
+        "= 1,350억",
+        "M&A 인수가"
+      ]
+    },
+    {
+      "id": "practice-5-714",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-2",
+      "topic": "주주가치 vs 기업가치",
+      "body": "[자료]\n기업가치 1,500억, 부채 500억.\n\n[물음] 주주가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 1,500 - 500 = 1,000억\n- 기업가치 = E + D\n- 주주가치 = 자기자본\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,500 - 500 = 1,000억",
+        "기업가치 = E + D",
+        "주주가치 = 자기자본"
+      ]
+    },
+    {
+      "id": "practice-5-715",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "브랜드 종합",
+      "body": "[자료]\n연 매출 200억, 로열티율 4%, 잔존 10년, 할인율 12%.\n연금현가계수 (12%, 10년) = 5.65.\n\n[물음] 브랜드?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 200 × 0.04 = 8억/년\n- 8 × 5.65 = 45.2억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "200 × 0.04 = 8억/년",
+        "8 × 5.65 = 45.2억"
+      ]
+    },
+    {
+      "id": "practice-5-716",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "영업권 종합",
+      "body": "[자료]\n연 영업이익 15억, 운영자산 50억 (정상수익률 12%).\n\n[물음] 영업권 (환원율 25%)?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 정상수익 50×0.12 = 6억\n- 초과 15-6 = 9억\n- 9/0.25 = 36억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "정상수익 50×0.12 = 6억",
+        "초과 15-6 = 9억",
+        "9/0.25 = 36억"
+      ]
+    },
+    {
+      "id": "practice-5-717",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "특허 7년",
+      "body": "[자료]\n연 초과수익 3억, 잔여 7년, 연금현가 (10%, 7) = 4.87.\n\n[물음] 특허?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 3 × 4.87 = 14.61억\n- 연금현가\n- 잔여기간 핵심\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3 × 4.87 = 14.61억",
+        "연금현가",
+        "잔여기간 핵심"
+      ]
+    },
+    {
+      "id": "practice-5-718",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "저작권 영구",
+      "body": "[자료]\n연 로열티 12억, 할인율 12%.\n\n[물음] 영구환원?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 12/0.12 = 100억\n- 영구환원\n- 저작권 70년 ≈ 영구\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "12/0.12 = 100억",
+        "영구환원",
+        "저작권 70년 ≈ 영구"
+      ]
+    },
+    {
+      "id": "practice-5-719",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "고객관계",
+      "body": "[자료]\n연 영업이익 (고객 귀속) 5억, 유지기간 8년, 연금현가 (12%, 8) = 4.97.\n\n[물음] 가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 5 × 4.97 = 24.85억\n- 고객관계 평가\n- 연금현가\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5 × 4.97 = 24.85억",
+        "고객관계 평가",
+        "연금현가"
+      ]
+    },
+    {
+      "id": "practice-5-720",
+      "subject": "감정평가실무",
+      "chapter": "5",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "5-3",
+      "topic": "영업권 손상",
+      "body": "[자료]\n장부 30억, 사용가치 22억, 처분가치 25억.\n\n[물음] 손상 여부와 손상액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 회수가능 max(22,25) = 25억\n- 장부 30 > 회수 25 → 손상\n- 손상액 5억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "회수가능 max(22,25) = 25억",
+        "장부 30 > 회수 25 → 손상",
+        "손상액 5억"
       ]
     }
   ]
