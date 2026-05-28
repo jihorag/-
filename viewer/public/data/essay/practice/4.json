@@ -4,7 +4,7 @@
   "chapter": "4",
   "chapterTitle": "유형별 평가",
   "source": "official",
-  "count": 384,
+  "count": 389,
   "withAnswer": 4,
   "matchedAnswer": 4,
   "rounds": [
@@ -7027,6 +7027,91 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "종합 합계"
+      ]
+    },
+    {
+      "id": "practice-4-931",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-1",
+      "topic": "비교 시점",
+      "body": "[자료] 단가×1.04. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 단가×1.04",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가×1.04"
+      ]
+    },
+    {
+      "id": "practice-4-932",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-2",
+      "topic": "동산 시장",
+      "body": "[자료] 시장가 적용. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 적용"
+      ]
+    },
+    {
+      "id": "practice-4-933",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-4",
+      "topic": "농지 단가",
+      "body": "[자료] 90만×면적. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 90만×면적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "90만×면적"
+      ]
+    },
+    {
+      "id": "practice-4-934",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-7",
+      "topic": "호텔 NOI",
+      "body": "[자료] 매출×30%-5%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 매출×30%-5%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매출×30%-5%"
+      ]
+    },
+    {
+      "id": "practice-4-935",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "4-6",
+      "topic": "광업권",
+      "body": "[자료] NOI×연금. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- NOI×연금",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "NOI×연금"
       ]
     }
   ]

@@ -4,7 +4,7 @@
   "chapter": "7",
   "chapterTitle": "건축물·영업·기타 보상",
   "source": "official",
-  "count": 353,
+  "count": 393,
   "withAnswer": 13,
   "matchedAnswer": 13,
   "rounds": [
@@ -6512,6 +6512,686 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "전환기간"
+      ]
+    },
+    {
+      "id": "practice-7-931",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "재조달 단가",
+      "body": "[자료] 단가×면적. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 단가×면적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가×면적"
+      ]
+    },
+    {
+      "id": "practice-7-932",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "잔가율",
+      "body": "[자료] 경과/내용. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 경과/내용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "경과/내용"
+      ]
+    },
+    {
+      "id": "practice-7-933",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "편입 적산",
+      "body": "[자료] 단가×면적×잔가. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 단가×면적×잔가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가×면적×잔가"
+      ]
+    },
+    {
+      "id": "practice-7-934",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "보강비",
+      "body": "[자료] 기둥+외벽+임시. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 기둥+외벽+임시",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기둥+외벽+임시"
+      ]
+    },
+    {
+      "id": "practice-7-935",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "주체 잔가",
+      "body": "[자료] 잔존/(경과+잔존). 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 잔존/(경과+잔존)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잔존/(경과+잔존)"
+      ]
+    },
+    {
+      "id": "practice-7-936",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "부대 잔가",
+      "body": "[자료] 잔존/(경과+잔존). 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 잔존/(경과+잔존)",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잔존/(경과+잔존)"
+      ]
+    },
+    {
+      "id": "practice-7-937",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "주체 적산",
+      "body": "[자료] 단가×잔가. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 단가×잔가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가×잔가"
+      ]
+    },
+    {
+      "id": "practice-7-938",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "부대 적산",
+      "body": "[자료] 단가×잔가. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 단가×잔가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가×잔가"
+      ]
+    },
+    {
+      "id": "practice-7-939",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "3년 평균",
+      "body": "[자료] (20+22+24)/3. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- (20+22+24)/3",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(20+22+24)/3"
+      ]
+    },
+    {
+      "id": "practice-7-940",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "4월 휴업",
+      "body": "[자료] 연×4/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 연×4/12",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연×4/12"
+      ]
+    },
+    {
+      "id": "practice-7-941",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "5월 휴업",
+      "body": "[자료] 연×5/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 연×5/12",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연×5/12"
+      ]
+    },
+    {
+      "id": "practice-7-942",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "6월 휴업",
+      "body": "[자료] 연×6/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 연×6/12",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연×6/12"
+      ]
+    },
+    {
+      "id": "practice-7-943",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "폐업 2년",
+      "body": "[자료] 연×2. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 연×2",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연×2"
+      ]
+    },
+    {
+      "id": "practice-7-944",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "폐업+고정",
+      "body": "[자료] 6+1.5. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 6+1.5",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6+1.5"
+      ]
+    },
+    {
+      "id": "practice-7-945",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "영농 통계",
+      "body": "[자료] 800×면적×2. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 800×면적×2",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "800×면적×2"
+      ]
+    },
+    {
+      "id": "practice-7-946",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "영농 실제",
+      "body": "[자료] 실제×면적×2. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 실제×면적×2",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "실제×면적×2"
+      ]
+    },
+    {
+      "id": "practice-7-947",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "한도 1.5",
+      "body": "[자료] 통계×1.5. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 통계×1.5",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통계×1.5"
+      ]
+    },
+    {
+      "id": "practice-7-948",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "농작물",
+      "body": "[자료] 매출×0.75. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 매출×0.75",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매출×0.75"
+      ]
+    },
+    {
+      "id": "practice-7-949",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "과수 가식",
+      "body": "[자료] 30주×200만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 30주×200만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30주×200만"
+      ]
+    },
+    {
+      "id": "practice-7-950",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "과수 곤란",
+      "body": "[자료] 20주×250만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 20주×250만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "20주×250만"
+      ]
+    },
+    {
+      "id": "practice-7-951",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "입목",
+      "body": "[자료] 본수×재적×입목가. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 본수×재적×입목가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "본수×재적×입목가"
+      ]
+    },
+    {
+      "id": "practice-7-952",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "분묘 단분",
+      "body": "[자료] 5기×300만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 5기×300만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5기×300만"
+      ]
+    },
+    {
+      "id": "practice-7-953",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "분묘 합장",
+      "body": "[자료] 2기×500만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 2기×500만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2기×500만"
+      ]
+    },
+    {
+      "id": "practice-7-954",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "시설하우스",
+      "body": "[자료] 면적×단가×잔가. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 면적×단가×잔가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "면적×단가×잔가"
+      ]
+    },
+    {
+      "id": "practice-7-955",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "축사",
+      "body": "[자료] 면적×단가×잔가. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 면적×단가×잔가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "면적×단가×잔가"
+      ]
+    },
+    {
+      "id": "practice-7-956",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "한우",
+      "body": "[자료] 30두×400만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 30두×400만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30두×400만"
+      ]
+    },
+    {
+      "id": "practice-7-957",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "광고비",
+      "body": "[자료] 정액 700만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 정액 700만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "정액 700만"
+      ]
+    },
+    {
+      "id": "practice-7-958",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "잔존시설",
+      "body": "[자료] 영업×4%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 영업×4%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업×4%"
+      ]
+    },
+    {
+      "id": "practice-7-959",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "이전비",
+      "body": "[자료] 영업×5%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 영업×5%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업×5%"
+      ]
+    },
+    {
+      "id": "practice-7-960",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "주거이전 4인",
+      "body": "[자료] 200만×4×4월. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 200만×4×4월",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "200만×4×4월"
+      ]
+    },
+    {
+      "id": "practice-7-961",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "주거이전 7인",
+      "body": "[자료] 220만×7×4월. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 220만×7×4월",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "220만×7×4월"
+      ]
+    },
+    {
+      "id": "practice-7-962",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "이주정착 한도",
+      "body": "[자료] 1,200~2,400만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1,200~2,400만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,200~2,400만"
+      ]
+    },
+    {
+      "id": "practice-7-963",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "동산 4인",
+      "body": "[자료] 450만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 450만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "450만"
+      ]
+    },
+    {
+      "id": "practice-7-964",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "동산 7인",
+      "body": "[자료] 700만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 700만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "700만"
+      ]
+    },
+    {
+      "id": "practice-7-965",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "주거 종합",
+      "body": "[자료] 이전+정착+동산. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 이전+정착+동산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전+정착+동산"
+      ]
+    },
+    {
+      "id": "practice-7-966",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "대토보상",
+      "body": "[자료] 동일 가치. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 동일 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "동일 가치"
+      ]
+    },
+    {
+      "id": "practice-7-967",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "임시 거주",
+      "body": "[자료] 1,000만. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1,000만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,000만"
+      ]
+    },
+    {
+      "id": "practice-7-968",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "건물 보상",
+      "body": "[자료] 편입+보강. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 편입+보강",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입+보강"
+      ]
+    },
+    {
+      "id": "practice-7-969",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "폐업 영업권",
+      "body": "[자료] 폐업 + 영업권 손실. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 폐업 + 영업권 손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "폐업 + 영업권 손실"
+      ]
+    },
+    {
+      "id": "practice-7-970",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "주거+영업 분리",
+      "body": "[자료] 6:4 비율. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 6:4 비율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6:4 비율"
       ]
     }
   ]
