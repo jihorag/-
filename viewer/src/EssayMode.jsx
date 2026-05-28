@@ -666,13 +666,26 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   border: cardBorder,
                   textAlign: 'left', cursor: 'pointer',
                   display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-                <div style={{ minWidth: 56, fontSize: '0.78rem', color: '#9ca3af', fontWeight: 700 }}>
+                <div style={{ minWidth: 92, maxWidth: 92, fontSize: '0.78rem',
+                  color: '#9ca3af', fontWeight: 700, lineHeight: 1.3 }}>
                   {isAI ? (
                     <>🤖<br /><span style={{ color: '#7c3aed', fontSize: '0.72rem' }}>
                       {q.genMode === 'new' ? '신규' : '변형'}
                     </span></>
+                  ) : isPracticeSet && practiceMeta ? (
+                    <>
+                      <span style={{ color: '#65a30d', fontSize: '0.7rem', fontWeight: 700,
+                        display: 'block', overflow: 'hidden', textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap' }} title={practiceMeta.title}>
+                        {practiceMeta.title}
+                      </span>
+                      <span style={{ color: '#374151', fontSize: '0.74rem', fontWeight: 600 }}>
+                        연습문제 {practiceMeta.no}
+                      </span>
+                    </>
                   ) : isPracticeSet ? (
-                    <><span style={{ color: '#65a30d', fontSize: '0.7rem' }}>📝 연습</span><br /><span style={{ color: '#374151', fontSize: '0.78rem' }}>{q.id.replace('practice-2a-', 'P-')}</span></>
+                    <><span style={{ color: '#65a30d', fontSize: '0.7rem' }}>📝 연습</span><br />
+                      <span style={{ color: '#374151', fontSize: '0.74rem' }}>{q.id}</span></>
                   ) : q.gsRound ? (
                     <><span style={{ color: '#0891b2', fontSize: '0.7rem' }}>GS</span><br /><span style={{ color: '#374151', fontSize: '0.78rem' }}>{q.gsRound}</span><br /><span style={{ color: '#9ca3af', fontSize: '0.72rem' }}>{q.questionNum}번</span></>
                   ) : (
