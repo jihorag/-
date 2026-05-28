@@ -4,7 +4,7 @@
   "chapter": "4",
   "chapterTitle": "유형별 평가",
   "source": "official",
-  "count": 119,
+  "count": 139,
   "withAnswer": 4,
   "matchedAnswer": 4,
   "rounds": [
@@ -2322,6 +2322,386 @@
         "22.5 / 0.10 = 225억",
         "직접환원법",
         "유원지 가액"
+      ]
+    },
+    {
+      "id": "practice-4-701",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-1",
+      "topic": "3방식 시산",
+      "body": "[자료]\n원가 80억, 비교 95억, 수익 100억.\n가중치 비교 50% / 수익 30% / 원가 20%.\n\n[물음] 결정가액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 80×0.2 + 95×0.5 + 100×0.3\n- = 16+47.5+30 = 93.5억\n- 시산조정\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80×0.2 + 95×0.5 + 100×0.3",
+        "= 16+47.5+30 = 93.5억",
+        "시산조정"
+      ]
+    },
+    {
+      "id": "practice-4-702",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-2",
+      "topic": "기계 정률 종합",
+      "body": "[자료]\n신품 2억, 정률 잔존율 0.9, 경과 7년.\n\n[물음] 적산?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 0.9^7 = 0.4783\n- 2×0.4783 = 9,566만\n- 정률법\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.9^7 = 0.4783",
+        "2×0.4783 = 9,566만",
+        "정률법"
+      ]
+    },
+    {
+      "id": "practice-4-703",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-3",
+      "topic": "지상권 10년",
+      "body": "[자료]\n연 NOI 1.5억, 잔여 10년, 연금현가 (8%, 10) = 6.71.\n\n[물음] 지상권?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 1.5 × 6.71 = 10.07억\n- 연금현가\n- 잔여기간\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.5 × 6.71 = 10.07억",
+        "연금현가",
+        "잔여기간"
+      ]
+    },
+    {
+      "id": "practice-4-704",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-4",
+      "topic": "농지 종합",
+      "body": "[자료]\n답 1,000㎡ × 90만 + 전 1,000㎡ × 110만 + 과수원 1,000㎡ × 150만.\n\n[물음] 합계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 9억 + 11억 + 15억\n- = 35억\n- 종합 합산\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9억 + 11억 + 15억",
+        "= 35억",
+        "종합 합산"
+      ]
+    },
+    {
+      "id": "practice-4-705",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-5",
+      "topic": "사찰 종합",
+      "body": "[자료]\n임야 8,000㎡ × 9만 (사찰 +20%), 한옥 800㎡ × 350만, 잔가율 0.6.\n\n[물음] 합계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 토지 8.64억\n- 건물 16.8억\n- 합계 25.44억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 8.64억",
+        "건물 16.8억",
+        "합계 25.44억"
+      ]
+    },
+    {
+      "id": "practice-4-706",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-6",
+      "topic": "광업권 15년",
+      "body": "[자료]\n연 영업이익 4억, 잔여 15년, 연금현가 (15%, 15) = 5.85.\n\n[물음] 광업권?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 4 × 5.85 = 23.4억\n- 연금현가\n- 잔여기간\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4 × 5.85 = 23.4억",
+        "연금현가",
+        "잔여기간"
+      ]
+    },
+    {
+      "id": "practice-4-707",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-7",
+      "topic": "호텔 NOI 종합",
+      "body": "[자료]\n객실 매출 50억 + 부대 20억, 영업이익률 35%, 자본적지출 5%.\n\n[물음] NOI?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 총 70억\n- 70×0.35 = 24.5억\n- 자본적 70×0.05=3.5\n- NOI 21억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "총 70억",
+        "70×0.35 = 24.5억",
+        "자본적 70×0.05=3.5",
+        "NOI 21억"
+      ]
+    },
+    {
+      "id": "practice-4-708",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-1",
+      "topic": "비교법 + 시점",
+      "body": "[자료]\n사례 단가 4,000,000원, 시점수정 1.06, 개별 0.95, 면적 350㎡.\n\n[물음] 평가총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 보정 단가 4,000,000×1.06×0.95 = 4,028,000\n- 4,028×350 = 14.1억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "보정 단가 4,000,000×1.06×0.95 = 4,028,000",
+        "4,028×350 = 14.1억"
+      ]
+    },
+    {
+      "id": "practice-4-709",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-3",
+      "topic": "임차권 차액",
+      "body": "[자료]\n시장 월세 800만, 계약 600만, 잔여 4년, 연금현가 (8%, 4) = 3.31.\n\n[물음] 임차권?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 월차액 200만 → 연 2,400만\n- 2,400 × 3.31 = 7,944만\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "월차액 200만 → 연 2,400만",
+        "2,400 × 3.31 = 7,944만"
+      ]
+    },
+    {
+      "id": "practice-4-710",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-4",
+      "topic": "임야 + 입목",
+      "body": "[자료]\n임야 5,000㎡ × 100,000원, 입목 200본 × 0.5㎥ × 30,000원/㎥.\n\n[물음] 합계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 토지 5억\n- 입목 300만\n- 합계 약 5.03억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 5억",
+        "입목 300만",
+        "합계 약 5.03억"
+      ]
+    },
+    {
+      "id": "practice-4-711",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-6",
+      "topic": "어업권 5년",
+      "body": "[자료]\n연 매출 10억, 영업이익률 25%, 잔여 5년, 연금현가 (12%, 5) = 3.60.\n\n[물음] 어업권?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 영업이익 2.5억\n- 2.5 × 3.60 = 9억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업이익 2.5억",
+        "2.5 × 3.60 = 9억"
+      ]
+    },
+    {
+      "id": "practice-4-712",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-7",
+      "topic": "골프장 수익가액",
+      "body": "[자료]\n연 매출 200억, 영업이익률 30%, 자본적지출 5%, 환원이율 7%.\n\n[물음] 수익가액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 영업 60억\n- 자본적 10억\n- NOI 50억\n- 50/0.07 = 714.3억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업 60억",
+        "자본적 10억",
+        "NOI 50억",
+        "50/0.07 = 714.3억"
+      ]
+    },
+    {
+      "id": "practice-4-713",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-2",
+      "topic": "차량 + 운반",
+      "body": "[자료]\n중고차 시장가 3,000만/대 × 10대, 운반비 정액 500만.\n\n[물음] 평가액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 3억 + 500만 = 3.05억\n- 시장가 + 운반\n- 동산\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3억 + 500만 = 3.05억",
+        "시장가 + 운반",
+        "동산"
+      ]
+    },
+    {
+      "id": "practice-4-714",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-5",
+      "topic": "학교 평가",
+      "body": "[자료]\n일반주거 단가 500만/㎡, 학교 부지 -15%, 면적 5,000㎡, 건물 800만/㎡, 2,000㎡, 잔가율 0.6.\n\n[물음] 합계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 토지 500×0.85×5,000 = 21.25억\n- 건물 800×2,000×0.6 = 9.6억\n- 합계 30.85억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 500×0.85×5,000 = 21.25억",
+        "건물 800×2,000×0.6 = 9.6억",
+        "합계 30.85억"
+      ]
+    },
+    {
+      "id": "practice-4-715",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-1",
+      "topic": "시산조정 변동",
+      "body": "[자료]\n환원이율 8%→7%로 조정 시. NOI 5억.\n\n[물음] 가치 변화?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 8%: 5/0.08 = 62.5억\n- 7%: 5/0.07 = 71.4억\n- 환원이율 -1% → +14% 가치\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8%: 5/0.08 = 62.5억",
+        "7%: 5/0.07 = 71.4억",
+        "환원이율 -1% → +14% 가치"
+      ]
+    },
+    {
+      "id": "practice-4-716",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-3",
+      "topic": "신탁수익권",
+      "body": "[자료]\n연 수익 2억, 7년 연금현가 (8%, 7) = 5.21. 만기 자산 25억, 7년 할인계수 0.58.\n\n[물음] 수익권 가치?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 수익 2×5.21 = 10.42억\n- 만기 25×0.58 = 14.5억\n- 합계 24.92억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수익 2×5.21 = 10.42억",
+        "만기 25×0.58 = 14.5억",
+        "합계 24.92억"
+      ]
+    },
+    {
+      "id": "practice-4-717",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-4",
+      "topic": "과수 종합",
+      "body": "[자료]\n과수원 2,000㎡ × 130만, 사과 50주 × 200만.\n\n[물음] 합계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 토지 26억\n- 입목 1억\n- 합계 27억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 26억",
+        "입목 1억",
+        "합계 27억"
+      ]
+    },
+    {
+      "id": "practice-4-718",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-7",
+      "topic": "유원지",
+      "body": "[자료]\n연 매출 150억, 영업이익률 20%, 자본적지출 5%, 환원이율 10%.\n\n[물음] 수익가액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 영업 30억\n- 자본적 7.5억\n- NOI 22.5억\n- 22.5/0.10 = 225억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업 30억",
+        "자본적 7.5억",
+        "NOI 22.5억",
+        "22.5/0.10 = 225억"
+      ]
+    },
+    {
+      "id": "practice-4-719",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-2",
+      "topic": "동산 종합",
+      "body": "[자료]\n기계 5대 신품 1억/대 (정률 5년 0.59049), 차량 3대 시장가 2,500만/대.\n\n[물음] 합계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 기계 1×0.59049×5 = 2.95억\n- 차량 7,500만\n- 합계 약 3.70억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "기계 1×0.59049×5 = 2.95억",
+        "차량 7,500만",
+        "합계 약 3.70억"
+      ]
+    },
+    {
+      "id": "practice-4-720",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "4-3",
+      "topic": "권리 종합",
+      "body": "[자료]\n지상권 5년 (NOI 1억, 연금 4.33), 임차권 3년 (차액 연 1,800만, 연금 2.58).\n\n[물음] 합계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 지상권 4.33억\n- 임차권 4,644만\n- 합계 약 4.80억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지상권 4.33억",
+        "임차권 4,644만",
+        "합계 약 4.80억"
       ]
     }
   ]

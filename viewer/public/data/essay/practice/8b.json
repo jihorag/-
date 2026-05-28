@@ -4,7 +4,7 @@
   "chapter": "8b",
   "chapterTitle": "표준지·정비·불의타",
   "source": "official",
-  "count": 117,
+  "count": 137,
   "withAnswer": 7,
   "matchedAnswer": 7,
   "rounds": [
@@ -2288,6 +2288,385 @@
         "13 - 11.7 = 1.3억",
         "매도청구 유리",
         "미동의자 선택"
+      ]
+    },
+    {
+      "id": "practice-8b-701",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-1",
+      "topic": "표준지 적정가격",
+      "body": "[자료]\n사례 평균 단가 9,000,000원 (시점환산 1.02 후), 인근 평균 9,200,000원.\n\n[물음] 균형 검증?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 차이 2.2%\n- 균형 양호\n- 적정가격 9,000원/㎡\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "차이 2.2%",
+        "균형 양호",
+        "적정가격 9,000원/㎡"
+      ]
+    },
+    {
+      "id": "practice-8b-702",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-1",
+      "topic": "개별공시 산정",
+      "body": "[자료]\n표준지 5,000,000원, 비준표 격차 (도로 0.97, 환경 1.02, 획지 1.05).\n\n[물음] 개별공시?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 종합 격차 1.038\n- 5,000×1.038 = 5,190,000원/㎡\n- 개별공시지가\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "종합 격차 1.038",
+        "5,000×1.038 = 5,190,000원/㎡",
+        "개별공시지가"
+      ]
+    },
+    {
+      "id": "practice-8b-703",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-1",
+      "topic": "비교표준지 +시점",
+      "body": "[자료]\n공시 단가 8,000,000원 (2026.1.1), 가격시점 2026.5.1, 누계 +1.5%.\n\n[물음] 시점환산?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 8,000 × 1.015\n- = 8,120,000원/㎡\n- 시점환산\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,000 × 1.015",
+        "= 8,120,000원/㎡",
+        "시점환산"
+      ]
+    },
+    {
+      "id": "practice-8b-704",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-1",
+      "topic": "검증 차이",
+      "body": "[자료]\n평가 1,100만/㎡, 검증 1,050만, 인근 평균 1,080만.\n\n[물음] 차이 분석?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 평가-검증 4.5%\n- 평가-인근 1.85%\n- 검증 차이 5% 이내\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "평가-검증 4.5%",
+        "평가-인근 1.85%",
+        "검증 차이 5% 이내"
+      ]
+    },
+    {
+      "id": "practice-8b-705",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-1",
+      "topic": "표준지 시도 균형",
+      "body": "[자료]\n강남 +12%, 서초 +10%, 송파 +9%.\n\n[물음] 균형?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 차이 ±3%p 이내\n- 균형 양호\n- 인접 지역\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "차이 ±3%p 이내",
+        "균형 양호",
+        "인접 지역"
+      ]
+    },
+    {
+      "id": "practice-8b-706",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-2",
+      "topic": "비례율 +권리가액",
+      "body": "[자료]\n수입 600억, 사업비 450억, 종전 150억. 조합원 갑 종전 2억.\n\n[물음] 권리가액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 비례율 (600-450)/150 = 100%\n- 2 × 1.0 = 2억\n- 권리가액\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "비례율 (600-450)/150 = 100%",
+        "2 × 1.0 = 2억",
+        "권리가액"
+      ]
+    },
+    {
+      "id": "practice-8b-707",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-2",
+      "topic": "분담금",
+      "body": "[자료]\n권리가액 2억, 종후 2.3억.\n\n[물음] 분담금?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 2.3 - 2 = 3,000만\n- 추가 납부\n- 분담금\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2.3 - 2 = 3,000만",
+        "추가 납부",
+        "분담금"
+      ]
+    },
+    {
+      "id": "practice-8b-708",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-2",
+      "topic": "비례율 변동",
+      "body": "[자료]\n당초 수입 500억, 실제 550억. 사업비 동일 380억. 종전 100억.\n\n[물음] 비례율 변동?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 당초 (500-380)/100 = 120%\n- 실제 (550-380)/100 = 170%\n- 비례율 +50%p\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "당초 (500-380)/100 = 120%",
+        "실제 (550-380)/100 = 170%",
+        "비례율 +50%p"
+      ]
+    },
+    {
+      "id": "practice-8b-709",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-2",
+      "topic": "청산금",
+      "body": "[자료]\n청산 비례율 130%, 종전 2억, 종후 2.5억, 기 납부 5천만.\n\n[물음] 청산금?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 청산 권리 2.6억\n- 청산 분담 -1,000만 (환급)\n- 기 납부 5천 → 청산금 -6,000만 환급\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "청산 권리 2.6억",
+        "청산 분담 -1,000만 (환급)",
+        "기 납부 5천 → 청산금 -6,000만 환급"
+      ]
+    },
+    {
+      "id": "practice-8b-710",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-2",
+      "topic": "분양가 상한",
+      "body": "[자료]\n토지비 6.5억, 건축비 4억, 가산비 6천만.\n\n[물음] 상한 + 시장 13억 비교?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 상한 6.5+4+0.6 = 11.1억\n- 시장 13억 - 상한 11.1억 = 1.9억 차이\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "상한 6.5+4+0.6 = 11.1억",
+        "시장 13억 - 상한 11.1억 = 1.9억 차이"
+      ]
+    },
+    {
+      "id": "practice-8b-711",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-3",
+      "topic": "불의타 영업이익",
+      "body": "[자료]\n연 영업이익 4억, 영향 6개월, -25%.\n\n[물음] 손실?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 4 × 0.25 × 6/12\n- = 5,000만\n- 6개월 영향\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4 × 0.25 × 6/12",
+        "= 5,000만",
+        "6개월 영향"
+      ]
+    },
+    {
+      "id": "practice-8b-712",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-3",
+      "topic": "불의타 가치손실",
+      "body": "[자료]\n시장가 40억, 일률 -10%.\n\n[물음] 손실?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 40 × 0.10\n- = 4억\n- 가치 손실\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "40 × 0.10",
+        "= 4억",
+        "가치 손실"
+      ]
+    },
+    {
+      "id": "practice-8b-713",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-3",
+      "topic": "재평가 NOI",
+      "body": "[자료]\nNOI 5억 → 4억 (-20%), 환원이율 7%→9% (위험).\n\n[물음] 재평가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 원: 5/0.07 = 71.4억\n- 재: 4/0.09 = 44.4억\n- 하락 약 38%\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원: 5/0.07 = 71.4억",
+        "재: 4/0.09 = 44.4억",
+        "하락 약 38%"
+      ]
+    },
+    {
+      "id": "practice-8b-714",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-3",
+      "topic": "비례율 시나리오",
+      "body": "[자료]\n중립 비례율 100%. 낙관 +10% 수입. 사업비 동일.\n\n[물음] 낙관 비례율?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 수입 1.1배 → 분자 수입-사업비 증가\n- 비례율 약 130%\n- 시나리오 분석\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수입 1.1배 → 분자 수입-사업비 증가",
+        "비례율 약 130%",
+        "시나리오 분석"
+      ]
+    },
+    {
+      "id": "practice-8b-715",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-3",
+      "topic": "미동의자 매도/수용",
+      "body": "[자료]\n시장가 15억, 수용 (사업영향 배제) 13.5억.\n\n[물음] 차이?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 매도청구 15억\n- 수용 13.5억\n- 차이 1.5억 (매도 유리)\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매도청구 15억",
+        "수용 13.5억",
+        "차이 1.5억 (매도 유리)"
+      ]
+    },
+    {
+      "id": "practice-8b-716",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-1",
+      "topic": "평가 단가 + 천단위",
+      "body": "[자료]\n시점·요인 보정 후 단가 8,547,820원/㎡, 면적 320㎡.\n\n[물음] 평가총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 절사 8,547,000원/㎡\n- 8,547 × 320 = 27.35억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "절사 8,547,000원/㎡",
+        "8,547 × 320 = 27.35억"
+      ]
+    },
+    {
+      "id": "practice-8b-717",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-2",
+      "topic": "종후 가치 산정",
+      "body": "[자료]\n조합원 분양가 13억 (84A), 일반 분양가 15억.\n\n[물음] 차이와 비율?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 차이 2억\n- 조합원 = 일반 × 0.867 (약 87%)\n- 조합원 우대 13%\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "차이 2억",
+        "조합원 = 일반 × 0.867 (약 87%)",
+        "조합원 우대 13%"
+      ]
+    },
+    {
+      "id": "practice-8b-718",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-2",
+      "topic": "청산 환급",
+      "body": "[자료]\n청산 분담 -2천만 (음수), 기 납부 4천만.\n\n[물음] 청산금?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- -2,000 - 4,000\n- = -6,000만\n- 환급 6,000만\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "-2,000 - 4,000",
+        "= -6,000만",
+        "환급 6,000만"
+      ]
+    },
+    {
+      "id": "practice-8b-719",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-3",
+      "topic": "재평가 일률 vs NOI",
+      "body": "[자료]\n시장가 50억, 일률 -10% = 45억. NOI 5억 → 4억, 환원 7→8%.\n\n[물음] 두 방식?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 일률 45억\n- NOI 50억\n- 두 방식 차이 5억\n- 평균 47.5억\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일률 45억",
+        "NOI 50억",
+        "두 방식 차이 5억",
+        "평균 47.5억"
+      ]
+    },
+    {
+      "id": "practice-8b-720",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "8b-1",
+      "topic": "시점환산 단가",
+      "body": "[자료]\n선례 단가 8,500,000원, 시점수정율 1.04, 개별 1.0.\n\n[물음] 환산?",
+      "modelAnswer": "## Ⅰ. 서론\n\n표준 종합 문제 풀이.\n\n## Ⅱ. 본론\n\n- 8,500 × 1.04\n- = 8,840,000원/㎡\n- 시점환산\n\n## Ⅲ. 결론\n\n위 산식 종합 적용.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,500 × 1.04",
+        "= 8,840,000원/㎡",
+        "시점환산"
       ]
     }
   ]
