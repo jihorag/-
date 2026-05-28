@@ -4,7 +4,7 @@
   "chapter": "8a",
   "chapterTitle": "목적별 평가",
   "source": "official",
-  "count": 298,
+  "count": 301,
   "withAnswer": 18,
   "matchedAnswer": 18,
   "rounds": [
@@ -5445,6 +5445,63 @@
         "1차 매각 3,825백만, 모든 채권 회수",
         "임의 근저당 / 강제 집행권원",
         "민사집행법 §265"
+      ]
+    },
+    {
+      "id": "practice-8a-994",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "subchapter": "8a-1",
+      "difficulty": 3,
+      "points": 20,
+      "topic": "담보평가 — 토지·건물 일체",
+      "body": "감정평가사 K는 토지·건물 일체 담보평가를 의뢰받았다. (20점)\n\n[ 자료 01 ] 부동산\n- 시가: 2,500백만\n\n[ 자료 02 ] LTV\n- 70% 적용: 1,750백만\n\n[ 자료 03 ] 처분 감액\n- 시가 × 0.85 = 2,125\n- LTV 70%: 1,488\n\n[ 물음 ]\n1. 시가\n2. LTV 한도\n3. 처분 후 한도",
+      "modelAnswer": "## Ⅰ. 서론\n담보 = 시가 × LTV × 처분 감액.\n\n## Ⅱ. 본론\n### 1. 시가 2,500\n### 2. LTV 1,750\n### 3. 처분: **1,488백만**\n\n## Ⅲ. 결론\n대출 1,488백만.\n\n## ★ 핵심 학습 포인트\n- LTV 70%\n- 처분 감액 15%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시가 2,500 × 0.7 × 0.85 = 1,488백만",
+        "LTV 70%",
+        "처분 -15%"
+      ]
+    },
+    {
+      "id": "practice-8a-995",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "subchapter": "8a-2",
+      "difficulty": 3,
+      "points": 20,
+      "topic": "경매 — 1차 매각 기대 배당",
+      "body": "감정평가사 K는 1차 매각 기대 배당을 의뢰받았다. (20점)\n\n[ 자료 01 ] 부동산\n- 시가 1,500백만\n- 근저당 800\n- 가압류 200\n\n[ 자료 02 ] 매각 (1차)\n- 1,500 × 0.85 = 1,275\n\n[ 자료 03 ] 배당\n- 우선 50\n- 근저당 800\n- 가압류 200\n- 잔여 225\n\n[ 물음 ]\n1. 1차 매각가\n2. 배당 분석\n3. 잔여 잉여",
+      "modelAnswer": "## Ⅰ. 서론\n경매 1차 매각.\n\n## Ⅱ. 본론\n### 1. 매각: 1,275백만\n### 2. 배당: 우선 50 / 근저당 800 / 가압류 200 / 잔여 **225**\n### 3. 잉여 225\n\n## Ⅲ. 결론\n잔여 225백만.\n\n## ★ 핵심 학습 포인트\n- 1차 매각 = 시가 × 85%\n- 배당 순위",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1차 1,275 - 우선 50 - 근저당 800 - 가압류 200 = 225백만",
+        "배당 순위",
+        "시가 × 85%"
+      ]
+    },
+    {
+      "id": "practice-8a-996",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "subchapter": "8a-3",
+      "difficulty": 3,
+      "points": 20,
+      "topic": "국공유 — 매각 시 적정가",
+      "body": "감정평가사 K는 국공유 매각 시 적정가를 의뢰받았다. (20점)\n\n[ 자료 01 ] 부동산\n- 국유 토지 800㎡, 시가 1,800,000원/㎡\n- 시가: 1,440백만\n\n[ 자료 02 ] 매각가\n- 일반: 1,440\n- 공익: -10% = 1,296\n\n[ 물음 ]\n1. 시가\n2. 일반·공익 매각가\n3. 국유재산법 §43",
+      "modelAnswer": "## Ⅰ. 서론\n국유 매각은 §43.\n\n## Ⅱ. 본론\n### 1. 시가: 1,440백만\n### 2. 일반 1,440 / 공익 **1,296**\n### 3. §43 매각\n\n## Ⅲ. 결론\n일반 1,440, 공익 1,296백만.\n\n## ★ 핵심 학습 포인트\n- §43 매각\n- 공익 -10%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시가 1,440 / 공익 1,296백만",
+        "국유재산법 §43",
+        "공익 10% 감액"
       ]
     }
   ]

@@ -4,7 +4,7 @@
   "chapter": "8b",
   "chapterTitle": "표준지·정비·불의타",
   "source": "official",
-  "count": 287,
+  "count": 290,
   "withAnswer": 7,
   "matchedAnswer": 7,
   "rounds": [
@@ -5190,6 +5190,63 @@
         "균열 120 + 가구 30 + 정신 50 + 가치 250 = 450백만",
         "민법 §758 공작물 책임",
         "공동 청구 + 감정"
+      ]
+    },
+    {
+      "id": "practice-8b-989",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "subchapter": "8b-1",
+      "difficulty": 3,
+      "points": 20,
+      "topic": "표준지 — 단순 거래사례 비교",
+      "body": "감정평가사 K는 표준지 거래사례 비교를 의뢰받았다. (20점)\n\n[ 자료 01 ] 표준지\n- 일반상업 250㎡\n\n[ 자료 02 ] 거래사례 (보정 후)\n- 사례 A: 8,200천원/㎡\n- 사례 B: 8,500\n- 사례 C: 8,000\n- 평균: 8,233\n\n[ 자료 03 ] 결정\n- 8,200천원/㎡ (반올림)\n\n[ 물음 ]\n1. 사례 평균\n2. 결정 단가\n3. 부공법 §3",
+      "modelAnswer": "## Ⅰ. 서론\n표준지는 적정가격.\n\n## Ⅱ. 본론\n### 1. 평균: 8,233천원/㎡\n### 2. 결정: **8,200천원/㎡**\n### 3. §3 적정가격\n\n## Ⅲ. 결론\n표준지 8,200천원/㎡.\n\n## ★ 핵심 학습 포인트\n- 거래사례 평균\n- 부공법 §3",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3사례 평균 8,233 → 8,200천원/㎡",
+        "부공법 §3",
+        "단순 비교"
+      ]
+    },
+    {
+      "id": "practice-8b-990",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "subchapter": "8b-2",
+      "difficulty": 3,
+      "points": 20,
+      "topic": "정비사업 — 비례율 산정",
+      "body": "감정평가사 K는 정비사업 비례율 산정을 의뢰받았다. (20점)\n\n[ 자료 01 ] 사업\n- 종전 400,000백만\n- 종후 720,000\n- 사업비 460,000\n\n[ 자료 02 ] 비례율\n- (720,000 - 460,000) / 400,000 = 0.65\n\n[ 물음 ]\n1. 비례율 산정\n2. 비례율 의미\n3. 도시정비법",
+      "modelAnswer": "## Ⅰ. 서론\n비례율 = (종후 - 사업비) / 종전.\n\n## Ⅱ. 본론\n### 1. 비례율: **0.65**\n### 2. 1.0 미만 → 조합원 부담\n### 3. 도시정비법 §74\n\n## Ⅲ. 결론\n비례율 0.65.\n\n## ★ 핵심 학습 포인트\n- 비례율 산식\n- 1.0 미만 = 조합원 부담",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(720 - 460) / 400 = 0.65",
+        "조합원 부담",
+        "도시정비법 §74"
+      ]
+    },
+    {
+      "id": "practice-8b-991",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "subchapter": "8b-3",
+      "difficulty": 3,
+      "points": 20,
+      "topic": "불의타 — 화재 단순 손실",
+      "body": "감정평가사 K는 화재 단순 손실 평가를 의뢰받았다. (20점)\n\n[ 자료 01 ] 부동산\n- 단독건물, 일부 화재\n\n[ 자료 02 ] 손실\n- 적산가액 손실: 65백만\n- 가구 폐기: 12백만\n- 합: 77백만\n\n[ 자료 03 ] 보험\n- 보상 60백만\n- 자기부담 17\n\n[ 물음 ]\n1. 손실\n2. 보험 보상\n3. 자기부담",
+      "modelAnswer": "## Ⅰ. 서론\n화재 손실 = 적산 + 가구 - 보험.\n\n## Ⅱ. 본론\n### 1. 손실: 77백만\n### 2. 보험: 60백만\n### 3. 자기부담: **17백만**\n\n## Ⅲ. 결론\n자기부담 17백만.\n\n## ★ 핵심 학습 포인트\n- 적산 + 가구\n- 보험 차감",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "손실 77 - 보험 60 = 자기부담 17백만",
+        "적산 + 가구재",
+        "보험 차감"
       ]
     }
   ]
