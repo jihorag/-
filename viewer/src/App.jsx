@@ -1085,8 +1085,14 @@ const App = () => {
         tag: '과목'
       };
     }).filter(g => g.total > 0);
-    // 2차 essay — 감정평가실무 과목으로 통합 (감정평가사 시험에만 표시)
-    if (essayManifest && (!browseExam || browseExam === '감정평가사') && (!taxScope || taxScope.kind === 'exam')) {
+    // 2차 essay — '감정평가실무' 과목으로 통합 노출
+    // 조건: ① essayManifest 로딩됨, ② 시험 필터(browseExam)가 비었거나 '감정평가사',
+    //       ③ scope가 없거나(전체) 감정평가사 시험 scope, 또는 연도 scope
+    const examMatch = !browseExam || browseExam === '감정평가사';
+    const scopeMatch = !taxScope
+      || (taxScope.kind === 'exam' && taxScope.value === '감정평가사')
+      || taxScope.kind === 'year';
+    if (essayManifest && examMatch && scopeMatch) {
       groups.push({
         type: 'essay_entry',
         title: '감정평가실무',
@@ -3254,7 +3260,7 @@ const App = () => {
           );
         })()}
 
-        {/* 모의고사 + 2차 진입 — 감정평가사 또는 전체 모드일 때 2차도 노출 */}
+        {/* 모의고사 진입 — 2차 준비(감정평가실무)는 둘러보기 > 과목 리스트에 통합됨 */}
         <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
           <button onClick={() => setCurrentView('mock')}
             style={{ flex: 1, display: 'flex', flexDirection: 'column',
@@ -3267,19 +3273,6 @@ const App = () => {
               시간 제한 풀이 · 자동 채점
             </span>
           </button>
-          {(!browseExam || browseExam === '감정평가사') && (
-            <button onClick={() => { setEssayChapter(null); setEssayQuestionId(null); setCurrentView('essay_subjects'); }}
-              style={{ flex: 1, display: 'flex', flexDirection: 'column',
-                padding: '14px', borderRadius: 12,
-                border: '1px solid #ddd6fe', background: '#f5f3ff',
-                color: '#5b21b6', cursor: 'pointer', textAlign: 'left' }}>
-              <span style={{ fontWeight: 800, fontSize: '0.9rem' }}>📝 2차 준비</span>
-              <span style={{ fontSize: '0.74rem', color: '#6d28d9', marginTop: 2,
-                lineHeight: 1.4 }}>
-                논술 기출 · 자기 채점
-              </span>
-            </button>
-          )}
         </div>
 
         {/* 약점 집중 — 모드 적용. 보강 권유는 주황 톤(긴급 X)으로 — 빨강은 D-30 등 진짜 임박용 */}
