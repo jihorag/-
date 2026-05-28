@@ -4,7 +4,7 @@
   "chapter": "7",
   "chapterTitle": "건축물·영업·기타 보상",
   "source": "official",
-  "count": 93,
+  "count": 123,
   "withAnswer": 13,
   "matchedAnswer": 13,
   "rounds": [
@@ -1847,6 +1847,576 @@
         "주거·영업 비율 구분",
         "항목별 보상",
         "중복 가산 X"
+      ]
+    },
+    {
+      "id": "practice-7-601",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "편입부 적산",
+      "body": "단가 1,500,000원/㎡, 편입 100㎡, 잔가율 0.7. 적산?",
+      "modelAnswer": "## 핵심 정리\n\n- 1,500,000 × 100 × 0.7\n- = 1.05억\n- 편입부 적산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,500,000 × 100 × 0.7",
+        "= 1.05억",
+        "편입부 적산"
+      ]
+    },
+    {
+      "id": "practice-7-602",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "잔존부 보강비",
+      "body": "구조 보강 2,500만 + 외벽 800만 + 임시 500만. 합계?",
+      "modelAnswer": "## 핵심 정리\n\n- 2,500+800+500 = 3,800만\n- 보강비 항목\n- 시행규칙 §35",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2,500+800+500 = 3,800만",
+        "보강비 항목",
+        "시행규칙 §35"
+      ]
+    },
+    {
+      "id": "practice-7-603",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "건물 부분 총",
+      "body": "편입 1.05억 + 보강비 3,800만. 총 보상?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.05억 + 0.38억 = 1.43억\n- 편입+보강\n- 시행규칙 §35",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.05억 + 0.38억 = 1.43억",
+        "편입+보강",
+        "시행규칙 §35"
+      ]
+    },
+    {
+      "id": "practice-7-604",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "잔가율 계산",
+      "body": "경과 20년, 내용 50년, 잔존가치율 5%. 잔가율?",
+      "modelAnswer": "## 핵심 정리\n\n- 1 - (1-0.05)×(20/50)\n- = 1 - 0.38 = 0.62\n- 정액법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1 - (1-0.05)×(20/50)",
+        "= 1 - 0.38 = 0.62",
+        "정액법"
+      ]
+    },
+    {
+      "id": "practice-7-605",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "잔여건물 손실",
+      "body": "종전 가치 19억, 종후 가치 18억. 손실?",
+      "modelAnswer": "## 핵심 정리\n\n- 19 - 18 = 1억\n- §35 ②\n- 잔여 건물",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "19 - 18 = 1억",
+        "§35 ②",
+        "잔여 건물"
+      ]
+    },
+    {
+      "id": "practice-7-606",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "재조달원가",
+      "body": "단가 1,800,000원, 800㎡. 재조달원가?",
+      "modelAnswer": "## 핵심 정리\n\n- 1,800,000 × 800 = 14.4억\n- 단순 곱셈\n- 신축 단가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,800,000 × 800 = 14.4억",
+        "단순 곱셈",
+        "신축 단가"
+      ]
+    },
+    {
+      "id": "practice-7-607",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "주체 잔가율",
+      "body": "경과 15년, 잔존내용 35년. 잔가율?",
+      "modelAnswer": "## 핵심 정리\n\n- 35/(15+35) = 0.7\n- 잔존/(경과+잔존)\n- 주체",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "35/(15+35) = 0.7",
+        "잔존/(경과+잔존)",
+        "주체"
+      ]
+    },
+    {
+      "id": "practice-7-608",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-1",
+      "topic": "부대 잔가율",
+      "body": "경과 15년, 잔존내용 10년. 잔가율?",
+      "modelAnswer": "## 핵심 정리\n\n- 10/(15+10) = 0.4\n- 잔존/(경과+잔존)\n- 부대",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10/(15+10) = 0.4",
+        "잔존/(경과+잔존)",
+        "부대"
+      ]
+    },
+    {
+      "id": "practice-7-609",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "3년 평균 영업이익",
+      "body": "2023: 1.5억, 2024: 1.8억, 2025: 2.1억. 평균?",
+      "modelAnswer": "## 핵심 정리\n\n- (1.5+1.8+2.1)/3 = 1.8억\n- 3년 평균\n- 시점 평탄화",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(1.5+1.8+2.1)/3 = 1.8억",
+        "3년 평균",
+        "시점 평탄화"
+      ]
+    },
+    {
+      "id": "practice-7-610",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "4개월 휴업",
+      "body": "연 영업이익 1.8억. 4개월 분?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.8 × 4/12 = 0.6억\n- 휴업기간 영업이익\n- 시행규칙 §46",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.8 × 4/12 = 0.6억",
+        "휴업기간 영업이익",
+        "시행규칙 §46"
+      ]
+    },
+    {
+      "id": "practice-7-611",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "폐업 2년분",
+      "body": "연 영업이익 1.5억. 2년분?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.5 × 2 = 3억\n- 폐업 영업이익\n- 시행규칙 §47",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.5 × 2 = 3억",
+        "폐업 영업이익",
+        "시행규칙 §47"
+      ]
+    },
+    {
+      "id": "practice-7-612",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "휴업 부대비",
+      "body": "휴업 영업이익 5,000만. 이전비 5% + 시설 3%?",
+      "modelAnswer": "## 핵심 정리\n\n- 5,000만 × 0.08 = 400만\n- 8% 가산\n- 부대비",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000만 × 0.08 = 400만",
+        "8% 가산",
+        "부대비"
+      ]
+    },
+    {
+      "id": "practice-7-613",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "폐업 + 고정자산",
+      "body": "영업이익 2년분 4억 + 고정자산 8천만. 총?",
+      "modelAnswer": "## 핵심 정리\n\n- 4억 + 8,000만 = 4.8억\n- 폐업 종합\n- 시행규칙 §47",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4억 + 8,000만 = 4.8억",
+        "폐업 종합",
+        "시행규칙 §47"
+      ]
+    },
+    {
+      "id": "practice-7-614",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "영농손실 통계",
+      "body": "벼 ㎡당 연 700원, 2,500㎡, 2년분?",
+      "modelAnswer": "## 핵심 정리\n\n- 700 × 2,500 × 2 = 350만\n- 통계소득\n- 시행규칙 §48",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "700 × 2,500 × 2 = 350만",
+        "통계소득",
+        "시행규칙 §48"
+      ]
+    },
+    {
+      "id": "practice-7-615",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "실제소득 평균",
+      "body": "2023: 200만, 2024: 220만, 2025: 240만. 평균?",
+      "modelAnswer": "## 핵심 정리\n\n- (200+220+240)/3 = 220만\n- 3년 평균\n- 실제소득",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(200+220+240)/3 = 220만",
+        "3년 평균",
+        "실제소득"
+      ]
+    },
+    {
+      "id": "practice-7-616",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "실제 vs 통계",
+      "body": "실제 220만, 통계 200만. 한도 확인?",
+      "modelAnswer": "## 핵심 정리\n\n- 통계 × 1.5 = 300만\n- 실제 220 < 300\n- 한도 내",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "통계 × 1.5 = 300만",
+        "실제 220 < 300",
+        "한도 내"
+      ]
+    },
+    {
+      "id": "practice-7-617",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "농작물 매출",
+      "body": "예상 수확량 1,500kg, kg당 단가 2,500원. 매출?",
+      "modelAnswer": "## 핵심 정리\n\n- 1,500 × 2,500 = 375만\n- 수확 가치\n- 시행규칙 §41",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,500 × 2,500 = 375만",
+        "수확 가치",
+        "시행규칙 §41"
+      ]
+    },
+    {
+      "id": "practice-7-618",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "농작물 잔여 비율",
+      "body": "잔여 4개월/6개월. 비율?",
+      "modelAnswer": "## 핵심 정리\n\n- 4/6 = 0.667\n- 67%\n- 잔여기간 비율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4/6 = 0.667",
+        "67%",
+        "잔여기간 비율"
+      ]
+    },
+    {
+      "id": "practice-7-619",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "농작물 보상",
+      "body": "매출 375만, 잔여 비율 0.67. 보상?",
+      "modelAnswer": "## 핵심 정리\n\n- 375 × 0.67 = 251만\n- 시행규칙 §41\n- 잔여기간 비율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "375 × 0.67 = 251만",
+        "시행규칙 §41",
+        "잔여기간 비율"
+      ]
+    },
+    {
+      "id": "practice-7-620",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "과수 가식",
+      "body": "주당 가식 가치 150만, 가식 가능 30주. 보상?",
+      "modelAnswer": "## 핵심 정리\n\n- 150 × 30 = 4,500만\n- 시행규칙 §42\n- 가식 가능",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "150 × 30 = 4,500만",
+        "시행규칙 §42",
+        "가식 가능"
+      ]
+    },
+    {
+      "id": "practice-7-621",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "과수 이식 곤란",
+      "body": "주당 이식 곤란 가치 250만, 20주. 보상?",
+      "modelAnswer": "## 핵심 정리\n\n- 250 × 20 = 5,000만\n- 이식 곤란\n- 시행규칙 §42",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "250 × 20 = 5,000만",
+        "이식 곤란",
+        "시행규칙 §42"
+      ]
+    },
+    {
+      "id": "practice-7-622",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "입목 본수·재적",
+      "body": "본당 재적 0.4㎥, 200본, 입목가 30,000원/㎥. 가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.4 × 200 × 30,000 = 240만\n- 시행규칙 §39\n- 본수·재적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.4 × 200 × 30,000 = 240만",
+        "시행규칙 §39",
+        "본수·재적"
+      ]
+    },
+    {
+      "id": "practice-7-623",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-2",
+      "topic": "분묘 종합",
+      "body": "단분 5기 (300만/기) + 합장 2기 (500만/기). 합계?",
+      "modelAnswer": "## 핵심 정리\n\n- 300×5 + 500×2 = 2,500만\n- 시행규칙 §43\n- 종류별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "300×5 + 500×2 = 2,500만",
+        "시행규칙 §43",
+        "종류별"
+      ]
+    },
+    {
+      "id": "practice-7-624",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "주거이전비 4인",
+      "body": "1인 월소득 200만, 가구원 4명. 이전비?",
+      "modelAnswer": "## 핵심 정리\n\n- 200 × 4 × 4월 = 3,200만\n- 시행규칙 §54\n- 4인 가구",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "200 × 4 × 4월 = 3,200만",
+        "시행규칙 §54",
+        "4인 가구"
+      ]
+    },
+    {
+      "id": "practice-7-625",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "주거이전비 7인",
+      "body": "1인 월소득 200만, 7명. 이전비?",
+      "modelAnswer": "## 핵심 정리\n\n- 200 × 7 × 4월 = 5,600만\n- 시행규칙 §54\n- 대가족",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "200 × 7 × 4월 = 5,600만",
+        "시행규칙 §54",
+        "대가족"
+      ]
+    },
+    {
+      "id": "practice-7-626",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "이주정착금 산식",
+      "body": "건물 평가액 1억 × 30% = 3천만. 한도 확인?",
+      "modelAnswer": "## 핵심 정리\n\n- 1,200~2,400만 한도\n- 3천만 → 한도 2,400만\n- 시행규칙 §53",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,200~2,400만 한도",
+        "3천만 → 한도 2,400만",
+        "시행규칙 §53"
+      ]
+    },
+    {
+      "id": "practice-7-627",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "이주정착금 1억",
+      "body": "건물 1억 × 30% = 3,000만. 한도 적용?",
+      "modelAnswer": "## 핵심 정리\n\n- 한도 2,400만 적용\n- 한도 초과\n- 시행규칙 §53",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "한도 2,400만 적용",
+        "한도 초과",
+        "시행규칙 §53"
+      ]
+    },
+    {
+      "id": "practice-7-628",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "동산이전비 4인",
+      "body": "4인 가구 표준 450만. 적용?",
+      "modelAnswer": "## 핵심 정리\n\n- 450만 (표준)\n- 시행규칙 §55\n- 가구원수별",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "450만 (표준)",
+        "시행규칙 §55",
+        "가구원수별"
+      ]
+    },
+    {
+      "id": "practice-7-629",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "주거 종합",
+      "body": "이전비 3,200만 + 정착금 2,400만 + 동산 450만. 합계?",
+      "modelAnswer": "## 핵심 정리\n\n- 3,200+2,400+450 = 6,050만\n- 주거 종합\n- 3대 항목",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3,200+2,400+450 = 6,050만",
+        "주거 종합",
+        "3대 항목"
+      ]
+    },
+    {
+      "id": "practice-7-630",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "7-3",
+      "topic": "주거+영업 비율",
+      "body": "주거 60%, 영업 40%. 건물 1억의 주거분?",
+      "modelAnswer": "## 핵심 정리\n\n- 1억 × 0.6 = 6,000만\n- 주거 영역\n- 비율 분리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1억 × 0.6 = 6,000만",
+        "주거 영역",
+        "비율 분리"
       ]
     }
   ]

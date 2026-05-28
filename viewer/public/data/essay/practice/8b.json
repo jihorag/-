@@ -4,7 +4,7 @@
   "chapter": "8b",
   "chapterTitle": "표준지·정비·불의타",
   "source": "official",
-  "count": 87,
+  "count": 117,
   "withAnswer": 7,
   "matchedAnswer": 7,
   "rounds": [
@@ -1718,6 +1718,576 @@
         "시나리오 분석",
         "가정·전제 명시",
         "범위 평가"
+      ]
+    },
+    {
+      "id": "practice-8b-601",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "비교법 표준지",
+      "body": "사례 단가 9,200,000, 시점 1.02, 개별 1.00. 보정?",
+      "modelAnswer": "## 핵심 정리\n\n- 9,200 × 1.02 × 1.00\n- = 9,384,000원/㎡\n- 단순 보정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,200 × 1.02 × 1.00",
+        "= 9,384,000원/㎡",
+        "단순 보정"
+      ]
+    },
+    {
+      "id": "practice-8b-602",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "검증 차이",
+      "body": "평가 1,000만, 검증 950만. 차이?",
+      "modelAnswer": "## 핵심 정리\n\n- (1,000-950)/1,000 = 5%\n- 5% 경계\n- 5% 이내 인정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(1,000-950)/1,000 = 5%",
+        "5% 경계",
+        "5% 이내 인정"
+      ]
+    },
+    {
+      "id": "practice-8b-603",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "차이 5% 초과",
+      "body": "평가 1,100만, 검증 1,000만. 차이?",
+      "modelAnswer": "## 핵심 정리\n\n- (1,100-1,000)/1,000 = 10%\n- 5% 초과\n- 재평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(1,100-1,000)/1,000 = 10%",
+        "5% 초과",
+        "재평가"
+      ]
+    },
+    {
+      "id": "practice-8b-604",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "인근 표준지 균형",
+      "body": "대상 평가 1,000만, 인근 평균 950만. 차이?",
+      "modelAnswer": "## 핵심 정리\n\n- (1,000-950)/950 = 5.3%\n- 균형 양호\n- 5% 근접",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(1,000-950)/950 = 5.3%",
+        "균형 양호",
+        "5% 근접"
+      ]
+    },
+    {
+      "id": "practice-8b-605",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "시·도 균형",
+      "body": "강남 +8%, 인접 송파 +6%. 차이?",
+      "modelAnswer": "## 핵심 정리\n\n- 8 - 6 = 2%p\n- 균형 양호\n- 인접 비교",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8 - 6 = 2%p",
+        "균형 양호",
+        "인접 비교"
+      ]
+    },
+    {
+      "id": "practice-8b-606",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "개별공시 단가",
+      "body": "표준지 5,000,000, 비준표 0.95. 개별공시?",
+      "modelAnswer": "## 핵심 정리\n\n- 5,000 × 0.95 = 4,750,000원/㎡\n- 비준표 적용\n- 단순 보정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000 × 0.95 = 4,750,000원/㎡",
+        "비준표 적용",
+        "단순 보정"
+      ]
+    },
+    {
+      "id": "practice-8b-607",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "개별공시 총액",
+      "body": "단가 4,750,000원, 면적 300㎡. 총액?",
+      "modelAnswer": "## 핵심 정리\n\n- 4,750 × 300 = 14.25억\n- 개별공시지가\n- 총액",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4,750 × 300 = 14.25억",
+        "개별공시지가",
+        "총액"
+      ]
+    },
+    {
+      "id": "practice-8b-608",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "평가 단가 절사",
+      "body": "계산 결과 7,549,825원. 천단위 절사?",
+      "modelAnswer": "## 핵심 정리\n\n- 7,549,000원/㎡\n- 실무 표준\n- 천단위 미만 절사",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,549,000원/㎡",
+        "실무 표준",
+        "천단위 미만 절사"
+      ]
+    },
+    {
+      "id": "practice-8b-609",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "재평가 차이",
+      "body": "재평가 950만, 인근 920만. 차이?",
+      "modelAnswer": "## 핵심 정리\n\n- (950-920)/920 = 3.3%\n- 균형 합리\n- 재평가 후",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(950-920)/920 = 3.3%",
+        "균형 합리",
+        "재평가 후"
+      ]
+    },
+    {
+      "id": "practice-8b-610",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-1",
+      "topic": "표준지 매년 비교",
+      "body": "2025: 8,000만, 2026: 9,000만. 변동?",
+      "modelAnswer": "## 핵심 정리\n\n- (9,000-8,000)/8,000 = 12.5%\n- 연 변동률\n- 시장 反映",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(9,000-8,000)/8,000 = 12.5%",
+        "연 변동률",
+        "시장 反映"
+      ]
+    },
+    {
+      "id": "practice-8b-611",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "비례율 산정",
+      "body": "분양수입 500억, 사업비 380억, 종전 100억. 비례율?",
+      "modelAnswer": "## 핵심 정리\n\n- (500-380)/100 × 100\n- = 120%\n- 비례율 산식",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(500-380)/100 × 100",
+        "= 120%",
+        "비례율 산식"
+      ]
+    },
+    {
+      "id": "practice-8b-612",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "권리가액",
+      "body": "종전 1.5억, 비례율 110%. 권리가액?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.5 × 1.10 = 1.65억\n- 권리가액 산식\n- 비례율 곱셈",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.5 × 1.10 = 1.65억",
+        "권리가액 산식",
+        "비례율 곱셈"
+      ]
+    },
+    {
+      "id": "practice-8b-613",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "분담금",
+      "body": "종후 2억, 권리가액 1.65억. 분담금?",
+      "modelAnswer": "## 핵심 정리\n\n- 2 - 1.65 = 0.35억\n- 분담금 산식\n- 추가 납부",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2 - 1.65 = 0.35억",
+        "분담금 산식",
+        "추가 납부"
+      ]
+    },
+    {
+      "id": "practice-8b-614",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "환급금",
+      "body": "종후 1.5억, 권리가액 1.8억. 환급?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.5 - 1.8 = -0.3억\n- 음수 = 환급\n- 음수 처리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.5 - 1.8 = -0.3억",
+        "음수 = 환급",
+        "음수 처리"
+      ]
+    },
+    {
+      "id": "practice-8b-615",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "청산 비례율",
+      "body": "실제 수입 550억, 실제 비용 390억, 종전 100억. 청산?",
+      "modelAnswer": "## 핵심 정리\n\n- (550-390)/100 × 100\n- = 160%\n- 청산 비례율",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(550-390)/100 × 100",
+        "= 160%",
+        "청산 비례율"
+      ]
+    },
+    {
+      "id": "practice-8b-616",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "청산금",
+      "body": "청산 분담 2천만, 기 납부 5천만. 청산금?",
+      "modelAnswer": "## 핵심 정리\n\n- 2,000 - 5,000 = -3,000만\n- 환급\n- 음수",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2,000 - 5,000 = -3,000만",
+        "환급",
+        "음수"
+      ]
+    },
+    {
+      "id": "practice-8b-617",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "분양가 상한",
+      "body": "토지 6억 + 건축 3.5억 + 가산 0.5억. 상한?",
+      "modelAnswer": "## 핵심 정리\n\n- 6 + 3.5 + 0.5 = 10억\n- 상한 산식\n- 주택법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6 + 3.5 + 0.5 = 10억",
+        "상한 산식",
+        "주택법"
+      ]
+    },
+    {
+      "id": "practice-8b-618",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "시장가 vs 상한",
+      "body": "시장 13억, 상한 10억. 차이?",
+      "modelAnswer": "## 핵심 정리\n\n- 13 - 10 = 3억\n- 상한 -23%\n- 조합 손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "13 - 10 = 3억",
+        "상한 -23%",
+        "조합 손실"
+      ]
+    },
+    {
+      "id": "practice-8b-619",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "조합원 vs 일반",
+      "body": "일반 13억, 조합원 85%. 조합원가?",
+      "modelAnswer": "## 핵심 정리\n\n- 13 × 0.85 = 11.05억\n- 조합원 우대\n- 85%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "13 × 0.85 = 11.05억",
+        "조합원 우대",
+        "85%"
+      ]
+    },
+    {
+      "id": "practice-8b-620",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-2",
+      "topic": "비례율 100% 균형",
+      "body": "분양수입 = 사업비 + 종전 = 균형. 비례율?",
+      "modelAnswer": "## 핵심 정리\n\n- (수입-비용)/종전 = 1\n- 100%\n- 균형",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(수입-비용)/종전 = 1",
+        "100%",
+        "균형"
+      ]
+    },
+    {
+      "id": "practice-8b-621",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "불의타 영업이익 손실",
+      "body": "연 영업이익 3억, 영향 6개월, -20%. 손실?",
+      "modelAnswer": "## 핵심 정리\n\n- 3 × 0.20 × 6/12 = 0.3억\n- 영업이익 손실\n- 일부 기간",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3 × 0.20 × 6/12 = 0.3억",
+        "영업이익 손실",
+        "일부 기간"
+      ]
+    },
+    {
+      "id": "practice-8b-622",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "불의타 가치 손실",
+      "body": "시장가 30억, 일률 -5%. 손실?",
+      "modelAnswer": "## 핵심 정리\n\n- 30 × 0.05 = 1.5억\n- 가치 손실\n- 일률 감가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30 × 0.05 = 1.5억",
+        "가치 손실",
+        "일률 감가"
+      ]
+    },
+    {
+      "id": "practice-8b-623",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "NOI 감소",
+      "body": "연 NOI 5억, -20%. 새 NOI?",
+      "modelAnswer": "## 핵심 정리\n\n- 5 × 0.80 = 4억\n- NOI 감소\n- 영향 반영",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5 × 0.80 = 4억",
+        "NOI 감소",
+        "영향 반영"
+      ]
+    },
+    {
+      "id": "practice-8b-624",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "환원이율 상승",
+      "body": "기존 7%, 위험 +1.5%. 새 환원이율?",
+      "modelAnswer": "## 핵심 정리\n\n- 7% + 1.5% = 8.5%\n- 위험 반영\n- 환원이율 상승",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7% + 1.5% = 8.5%",
+        "위험 반영",
+        "환원이율 상승"
+      ]
+    },
+    {
+      "id": "practice-8b-625",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "재평가 후 가액",
+      "body": "NOI 4억, 환원이율 8.5%. 가액?",
+      "modelAnswer": "## 핵심 정리\n\n- 4 / 0.085 = 약 47억\n- 직접환원\n- 재평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4 / 0.085 = 약 47억",
+        "직접환원",
+        "재평가"
+      ]
+    },
+    {
+      "id": "practice-8b-626",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "비례율 시나리오",
+      "body": "낙관 +10% 수입, 사업비 동일. 새 비례율?",
+      "modelAnswer": "## 핵심 정리\n\n- 수입 550억 → (550-380)/100\n- = 170%\n- 낙관",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수입 550억 → (550-380)/100",
+        "= 170%",
+        "낙관"
+      ]
+    },
+    {
+      "id": "practice-8b-627",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "비례율 비관",
+      "body": "비관 -10% 수입. 새 비례율?",
+      "modelAnswer": "## 핵심 정리\n\n- 수입 450 → (450-380)/100\n- = 70%\n- 비관",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수입 450 → (450-380)/100",
+        "= 70%",
+        "비관"
+      ]
+    },
+    {
+      "id": "practice-8b-628",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "미동의자 시장가",
+      "body": "시장가치 13억. 매도청구가?",
+      "modelAnswer": "## 핵심 정리\n\n- 13억 (시장가)\n- 매도청구 = 시장가\n- 도시정비법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "13억 (시장가)",
+        "매도청구 = 시장가",
+        "도시정비법"
+      ]
+    },
+    {
+      "id": "practice-8b-629",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "미동의자 수용가",
+      "body": "시장가 13억, 사업영향 -10% 배제. 수용가?",
+      "modelAnswer": "## 핵심 정리\n\n- 13 × 0.9 = 11.7억\n- 수용 = 사업영향 배제\n- 토지보상법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "13 × 0.9 = 11.7억",
+        "수용 = 사업영향 배제",
+        "토지보상법"
+      ]
+    },
+    {
+      "id": "practice-8b-630",
+      "subject": "감정평가실무",
+      "chapter": "8b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8b-3",
+      "topic": "미동의자 차이",
+      "body": "매도청구 13억, 수용 11.7억. 차이?",
+      "modelAnswer": "## 핵심 정리\n\n- 13 - 11.7 = 1.3억\n- 매도청구 유리\n- 미동의자 선택",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "13 - 11.7 = 1.3억",
+        "매도청구 유리",
+        "미동의자 선택"
       ]
     }
   ]

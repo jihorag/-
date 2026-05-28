@@ -4,7 +4,7 @@
   "chapter": "6b",
   "chapterTitle": "토지보상 공법상제한·특수",
   "source": "official",
-  "count": 92,
+  "count": 122,
   "withAnswer": 12,
   "matchedAnswer": 12,
   "rounds": [
@@ -1824,6 +1824,576 @@
         "원소유자 또는 상속인",
         "권리 양도 X",
         "소유 시점 확인"
+      ]
+    },
+    {
+      "id": "practice-6b-601",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "일반제한 단가",
+      "body": "일반 단가 4,000,000원/㎡, 자연환경보전 -50%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 4,000,000 × 0.5 = 2,000,000원\n- 일반제한 감가\n- 시행규칙 §23",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4,000,000 × 0.5 = 2,000,000원",
+        "일반제한 감가",
+        "시행규칙 §23"
+      ]
+    },
+    {
+      "id": "practice-6b-602",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "농업진흥 단가",
+      "body": "일반 답 1,000,000원, 농업진흥 -30%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 1,000,000 × 0.7 = 700,000원\n- 농지법 제한\n- 일반제한",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,000,000 × 0.7 = 700,000원",
+        "농지법 제한",
+        "일반제한"
+      ]
+    },
+    {
+      "id": "practice-6b-603",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "상수원보호 단가",
+      "body": "일반 자연녹지 800,000원, 상수원보호 -50%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 800,000 × 0.5 = 400,000원\n- 수도법\n- 큰 감가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "800,000 × 0.5 = 400,000원",
+        "수도법",
+        "큰 감가"
+      ]
+    },
+    {
+      "id": "practice-6b-604",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "군사보호구역 단가",
+      "body": "일반 단가 3,000,000원, 제한보호구역 -20%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 3,000,000 × 0.8 = 2,400,000원\n- 군사기지법\n- 제한보호",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3,000,000 × 0.8 = 2,400,000원",
+        "군사기지법",
+        "제한보호"
+      ]
+    },
+    {
+      "id": "practice-6b-605",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "통제보호 단가",
+      "body": "일반 단가 3,000,000원, 통제보호 -50%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 3,000,000 × 0.5 = 1,500,000원\n- 통제보호 큰 감가\n- 군사기지법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3,000,000 × 0.5 = 1,500,000원",
+        "통제보호 큰 감가",
+        "군사기지법"
+      ]
+    },
+    {
+      "id": "practice-6b-606",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "자연취락 단가",
+      "body": "일반 대지 2,000,000원, 자연취락 -40%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 2,000,000 × 0.6 = 1,200,000원\n- 국토계획법\n- 용도지구",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2,000,000 × 0.6 = 1,200,000원",
+        "국토계획법",
+        "용도지구"
+      ]
+    },
+    {
+      "id": "practice-6b-607",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "도시계획도로 평가",
+      "body": "인근 단가 3,000,000원, 도시계획도로 (제한 없는 평가). 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 3,000,000원 (제한 배제)\n- 시행규칙 §23 ①\n- 개별제한 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3,000,000원 (제한 배제)",
+        "시행규칙 §23 ①",
+        "개별제한 X"
+      ]
+    },
+    {
+      "id": "practice-6b-608",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "사실상 도로 단가",
+      "body": "인근 단가 3,000,000원, 사실상 도로. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 3,000,000 × 1/3 = 1,000,000원\n- 시행규칙 §26\n- 사실상 도로 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3,000,000 × 1/3 = 1,000,000원",
+        "시행규칙 §26",
+        "사실상 도로 평가"
+      ]
+    },
+    {
+      "id": "practice-6b-609",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "사도법상 사도 단가",
+      "body": "인근 단가 3,000,000원, 사도법상 사도. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 3,000,000 × 1/5 = 600,000원\n- 시행규칙 §26\n- 사도법 등록",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3,000,000 × 1/5 = 600,000원",
+        "시행규칙 §26",
+        "사도법 등록"
+      ]
+    },
+    {
+      "id": "practice-6b-610",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "도시계획공원 평가",
+      "body": "일몰 후 도시계획공원 부지, 인근 단가 2,000,000원. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 2,000,000원 (일몰)\n- 효력 상실\n- 일반 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2,000,000원 (일몰)",
+        "효력 상실",
+        "일반 평가"
+      ]
+    },
+    {
+      "id": "practice-6b-611",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "용적률 상향",
+      "body": "용적률 200→300% (+50%). 단가 영향?",
+      "modelAnswer": "## 핵심 정리\n\n- 단가 +10~20%\n- 개발 잠재가치\n- 시장 반영",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가 +10~20%",
+        "개발 잠재가치",
+        "시장 반영"
+      ]
+    },
+    {
+      "id": "practice-6b-612",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "용적률 하향",
+      "body": "용적률 300→200% (-33%). 단가 영향?",
+      "modelAnswer": "## 핵심 정리\n\n- 단가 -10~20%\n- 개발 제한\n- 시장 반영",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가 -10~20%",
+        "개발 제한",
+        "시장 반영"
+      ]
+    },
+    {
+      "id": "practice-6b-613",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "용도지역 상향",
+      "body": "일반주거→일반상업 변경. 단가 영향?",
+      "modelAnswer": "## 핵심 정리\n\n- 단가 2~3배 상승\n- 용도 가치 차이\n- 변경 시점 검토",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가 2~3배 상승",
+        "용도 가치 차이",
+        "변경 시점 검토"
+      ]
+    },
+    {
+      "id": "practice-6b-614",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "보전산지 단가",
+      "body": "일반 임야 100,000원/㎡, 보전산지 -60%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 100,000 × 0.4 = 40,000원\n- 산림법\n- 공익용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100,000 × 0.4 = 40,000원",
+        "산림법",
+        "공익용"
+      ]
+    },
+    {
+      "id": "practice-6b-615",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "준보전산지 단가",
+      "body": "일반 임야 100,000원/㎡, 준보전산지 0%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 100,000원 (일반과 동일)\n- 제한 개발 가능\n- 단가 차이 적음",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100,000원 (일반과 동일)",
+        "제한 개발 가능",
+        "단가 차이 적음"
+      ]
+    },
+    {
+      "id": "practice-6b-616",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "생산산지 단가",
+      "body": "일반 임야 100,000원, 생산산지 +50% (개발). 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 100,000 × 1.5 = 150,000원\n- 개발 가능\n- 단가 ↑",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100,000 × 1.5 = 150,000원",
+        "개발 가능",
+        "단가 ↑"
+      ]
+    },
+    {
+      "id": "practice-6b-617",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "보전녹지 단가",
+      "body": "일반 자연녹지 800,000원, 보전녹지 -30%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 800,000 × 0.7 = 560,000원\n- 보전녹지 제한\n- 국토계획법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "800,000 × 0.7 = 560,000원",
+        "보전녹지 제한",
+        "국토계획법"
+      ]
+    },
+    {
+      "id": "practice-6b-618",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "생산녹지 단가",
+      "body": "일반 자연녹지 800,000원, 생산녹지 0%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 800,000원 (자연녹지와 유사)\n- 농업 보호\n- 단가 차이 적음",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "800,000원 (자연녹지와 유사)",
+        "농업 보호",
+        "단가 차이 적음"
+      ]
+    },
+    {
+      "id": "practice-6b-619",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "관리지역 단가",
+      "body": "일반 800,000원, 보전관리 -20%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 800,000 × 0.8 = 640,000원\n- 도시·농어촌 경계\n- 관리지역",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "800,000 × 0.8 = 640,000원",
+        "도시·농어촌 경계",
+        "관리지역"
+      ]
+    },
+    {
+      "id": "practice-6b-620",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-1",
+      "topic": "농림지역 단가",
+      "body": "일반 1,000,000원, 농림지역 -30%. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 1,000,000 × 0.7 = 700,000원\n- 농업·임업 진흥\n- 개발 X",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,000,000 × 0.7 = 700,000원",
+        "농업·임업 진흥",
+        "개발 X"
+      ]
+    },
+    {
+      "id": "practice-6b-621",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "미지급용지 단가",
+      "body": "편입 당시 답, 인근 답 단가 900,000원, 그밖의요인 1.05. 단가?",
+      "modelAnswer": "## 핵심 정리\n\n- 900,000 × 1.05 = 945,000원\n- 시행규칙 §25\n- 편입 시 이용상황",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "900,000 × 1.05 = 945,000원",
+        "시행규칙 §25",
+        "편입 시 이용상황"
+      ]
+    },
+    {
+      "id": "practice-6b-622",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "미지급용지 총액",
+      "body": "단가 945,000원, 면적 2,000㎡. 보상총액?",
+      "modelAnswer": "## 핵심 정리\n\n- 945,000 × 2,000 = 18.9억\n- 단가×면적\n- 미지급용지",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "945,000 × 2,000 = 18.9억",
+        "단가×면적",
+        "미지급용지"
+      ]
+    },
+    {
+      "id": "practice-6b-623",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "잔여지 손실",
+      "body": "종전 단가 4,000,000원, 종후 단가 3,200,000원, 잔여 200㎡. 손실?",
+      "modelAnswer": "## 핵심 정리\n\n- (4,000-3,200) × 200 = 1.6억\n- 20% 감가\n- §73",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(4,000-3,200) × 200 = 1.6억",
+        "20% 감가",
+        "§73"
+      ]
+    },
+    {
+      "id": "practice-6b-624",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "잔여지 매수청구",
+      "body": "종전 5,000,000원, 종후 3,500,000원 (-30%). 매수청구?",
+      "modelAnswer": "## 핵심 정리\n\n- 30% 감가 = 매수청구 가능\n- 편입 단가 적용\n- §74",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30% 감가 = 매수청구 가능",
+        "편입 단가 적용",
+        "§74"
+      ]
+    },
+    {
+      "id": "practice-6b-625",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "구분지상권 보상",
+      "body": "토지 단가 8,000,000원, 입체이용저해율 2.4%, 통과 300㎡. 보상?",
+      "modelAnswer": "## 핵심 정리\n\n- 8,000,000 × 0.024 × 300\n- = 5,760만\n- 구분지상권",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,000,000 × 0.024 × 300",
+        "= 5,760만",
+        "구분지상권"
+      ]
+    },
+    {
+      "id": "practice-6b-626",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "입체이용저해율 산정",
+      "body": "지하 이용비율 20%, 깊이 저해율 15%. 저해율?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.20 × 0.15 = 0.030\n- 3.0%\n- 곱셈",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.20 × 0.15 = 0.030",
+        "3.0%",
+        "곱셈"
+      ]
+    },
+    {
+      "id": "practice-6b-627",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "환매가 산식",
+      "body": "보상금 8억, 사업시행자 부담 1,000만. 환매가?",
+      "modelAnswer": "## 핵심 정리\n\n- 8억 + 1,000만 = 8.1억\n- 시행규칙 §57\n- 환매 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8억 + 1,000만 = 8.1억",
+        "시행규칙 §57",
+        "환매 기준"
+      ]
+    },
+    {
+      "id": "practice-6b-628",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "환매 이익",
+      "body": "시장가 12억, 환매가 8.1억. 환매 이익?",
+      "modelAnswer": "## 핵심 정리\n\n- 12 - 8.1 = 3.9억\n- 원소유자 이익\n- 시장가 > 환매가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "12 - 8.1 = 3.9억",
+        "원소유자 이익",
+        "시장가 > 환매가"
+      ]
+    },
+    {
+      "id": "practice-6b-629",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "잔여 건물 손실",
+      "body": "종전 가치 10억, 종후 가치 9.5억. 손실?",
+      "modelAnswer": "## 핵심 정리\n\n- 10 - 9.5 = 0.5억\n- §35 ②\n- 가치 손실",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10 - 9.5 = 0.5억",
+        "§35 ②",
+        "가치 손실"
+      ]
+    },
+    {
+      "id": "practice-6b-630",
+      "subject": "감정평가실무",
+      "chapter": "6b",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "6b-2",
+      "topic": "구분지상권 깊이별",
+      "body": "깊이 25m. 저해율?",
+      "modelAnswer": "## 핵심 정리\n\n- 15~25m 구간 8%\n- 깊이별 차등\n- 저해율 표 참고",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "15~25m 구간 8%",
+        "깊이별 차등",
+        "저해율 표 참고"
       ]
     }
   ]

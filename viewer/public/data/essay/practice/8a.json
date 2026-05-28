@@ -4,7 +4,7 @@
   "chapter": "8a",
   "chapterTitle": "목적별 평가",
   "source": "official",
-  "count": 98,
+  "count": 128,
   "withAnswer": 18,
   "matchedAnswer": 18,
   "rounds": [
@@ -1976,6 +1976,576 @@
         "자본시장법",
         "매년 평가",
         "공시 의무"
+      ]
+    },
+    {
+      "id": "practice-8a-601",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-1",
+      "topic": "담보가치",
+      "body": "시장가치 10억, 담보율 75%. 담보가치?",
+      "modelAnswer": "## 핵심 정리\n\n- 10 × 0.75 = 7.5억\n- 담보가치 산정\n- 담보율 적용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10 × 0.75 = 7.5억",
+        "담보가치 산정",
+        "담보율 적용"
+      ]
+    },
+    {
+      "id": "practice-8a-602",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-1",
+      "topic": "LTV 한도",
+      "body": "담보가치 7.5억, LTV 60%. 한도?",
+      "modelAnswer": "## 핵심 정리\n\n- 7.5 × 0.6 = 4.5억\n- LTV 한도\n- 대출가능액",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7.5 × 0.6 = 4.5억",
+        "LTV 한도",
+        "대출가능액"
+      ]
+    },
+    {
+      "id": "practice-8a-603",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-1",
+      "topic": "DTI 한도",
+      "body": "연 소득 8천만, DTI 40%. 연 원리금?",
+      "modelAnswer": "## 핵심 정리\n\n- 8천 × 0.4 = 3,200만/년\n- DTI 한도\n- 원리금",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8천 × 0.4 = 3,200만/년",
+        "DTI 한도",
+        "원리금"
+      ]
+    },
+    {
+      "id": "practice-8a-604",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-1",
+      "topic": "저당상수",
+      "body": "연 원리금 3,200만, MC 0.0644. 원금?",
+      "modelAnswer": "## 핵심 정리\n\n- 3,200만/0.0644 = 약 4.97억\n- DTI 원금 한도\n- MC 활용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "3,200만/0.0644 = 약 4.97억",
+        "DTI 원금 한도",
+        "MC 활용"
+      ]
+    },
+    {
+      "id": "practice-8a-605",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-1",
+      "topic": "가용 한도",
+      "body": "LTV 4.5억 - 1순위 1억 - 가압류 5천 - 임차 3천. 가용?",
+      "modelAnswer": "## 핵심 정리\n\n- 4.5 - 1 - 0.5 - 0.3 = 2.7억\n- 부담권리 차감\n- 가용 한도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4.5 - 1 - 0.5 - 0.3 = 2.7억",
+        "부담권리 차감",
+        "가용 한도"
+      ]
+    },
+    {
+      "id": "practice-8a-606",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-1",
+      "topic": "담보 vs 시장",
+      "body": "시장 10억, 담보 7억. 차이율?",
+      "modelAnswer": "## 핵심 정리\n\n- (10-7)/10 = 30%\n- 담보율 70%\n- 담보 보수성",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(10-7)/10 = 30%",
+        "담보율 70%",
+        "담보 보수성"
+      ]
+    },
+    {
+      "id": "practice-8a-607",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-1",
+      "topic": "주택 담보율",
+      "body": "시장 5억, 담보율 80%. 담보?",
+      "modelAnswer": "## 핵심 정리\n\n- 5 × 0.8 = 4억\n- 주택 담보율\n- 주거용 高",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5 × 0.8 = 4억",
+        "주택 담보율",
+        "주거용 高"
+      ]
+    },
+    {
+      "id": "practice-8a-608",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-1",
+      "topic": "오피스 담보율",
+      "body": "시장 30억, 담보율 70%. 담보?",
+      "modelAnswer": "## 핵심 정리\n\n- 30 × 0.7 = 21억\n- 오피스 담보율\n- 비주거",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30 × 0.7 = 21억",
+        "오피스 담보율",
+        "비주거"
+      ]
+    },
+    {
+      "id": "practice-8a-609",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-1",
+      "topic": "특수 담보율",
+      "body": "시장 20억, 담보율 55%. 담보?",
+      "modelAnswer": "## 핵심 정리\n\n- 20 × 0.55 = 11억\n- 특수 담보율 낮음\n- 환가성 ↓",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "20 × 0.55 = 11억",
+        "특수 담보율 낮음",
+        "환가성 ↓"
+      ]
+    },
+    {
+      "id": "practice-8a-610",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-1",
+      "topic": "DSR",
+      "body": "연 소득 1억, DSR 40%. 전 대출 원리금?",
+      "modelAnswer": "## 핵심 정리\n\n- 1억 × 0.4 = 4,000만\n- 총 부채 원리금\n- DSR 한도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1억 × 0.4 = 4,000만",
+        "총 부채 원리금",
+        "DSR 한도"
+      ]
+    },
+    {
+      "id": "practice-8a-611",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-2",
+      "topic": "최저매각가",
+      "body": "감정가 10억, 1차 매각. 최저매각가?",
+      "modelAnswer": "## 핵심 정리\n\n- 10억 (감정가 100%)\n- 1차 입찰\n- 최저매각",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10억 (감정가 100%)",
+        "1차 입찰",
+        "최저매각"
+      ]
+    },
+    {
+      "id": "practice-8a-612",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-2",
+      "topic": "유찰 후",
+      "body": "감정가 10억, 1회 유찰, 저감 20%. 최저?",
+      "modelAnswer": "## 핵심 정리\n\n- 10 × 0.8 = 8억\n- 20% 저감\n- 재매각",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10 × 0.8 = 8억",
+        "20% 저감",
+        "재매각"
+      ]
+    },
+    {
+      "id": "practice-8a-613",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-2",
+      "topic": "2회 유찰",
+      "body": "감정가 10억, 2회 유찰 (각 20%). 최저?",
+      "modelAnswer": "## 핵심 정리\n\n- 10 × 0.8 × 0.8 = 6.4억\n- 40% 저감\n- 2회 유찰",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10 × 0.8 × 0.8 = 6.4억",
+        "40% 저감",
+        "2회 유찰"
+      ]
+    },
+    {
+      "id": "practice-8a-614",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-2",
+      "topic": "낙찰가 예측",
+      "body": "감정가 10억, 시장 낙찰률 85%. 낙찰가?",
+      "modelAnswer": "## 핵심 정리\n\n- 10 × 0.85 = 8.5억\n- 시장 평균 낙찰\n- 경쟁도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10 × 0.85 = 8.5억",
+        "시장 평균 낙찰",
+        "경쟁도"
+      ]
+    },
+    {
+      "id": "practice-8a-615",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-2",
+      "topic": "인수+낙찰",
+      "body": "낙찰가 8억, 인수 임차 2억. 매수인 부담?",
+      "modelAnswer": "## 핵심 정리\n\n- 8 + 2 = 10억\n- 낙찰가 + 인수\n- 대항력 임차",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8 + 2 = 10억",
+        "낙찰가 + 인수",
+        "대항력 임차"
+      ]
+    },
+    {
+      "id": "practice-8a-616",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-2",
+      "topic": "입찰 보증금",
+      "body": "감정가 10억, 보증금 10%. 보증금?",
+      "modelAnswer": "## 핵심 정리\n\n- 10 × 0.1 = 1억\n- 입찰 보증금\n- 미낙찰 시 환급",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10 × 0.1 = 1억",
+        "입찰 보증금",
+        "미낙찰 시 환급"
+      ]
+    },
+    {
+      "id": "practice-8a-617",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-2",
+      "topic": "소송 감정 본료",
+      "body": "평가가 30억. 본료 (법원 기준 0.05%)?",
+      "modelAnswer": "## 핵심 정리\n\n- 30억 × 0.0005 = 150만\n- 본료 산식\n- 법원 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30억 × 0.0005 = 150만",
+        "본료 산식",
+        "법원 기준"
+      ]
+    },
+    {
+      "id": "practice-8a-618",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-2",
+      "topic": "출석 일당",
+      "body": "출석 1회당 30만, 2회 출석. 일당?",
+      "modelAnswer": "## 핵심 정리\n\n- 30만 × 2 = 60만\n- 출석 일당\n- 법원 기준",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30만 × 2 = 60만",
+        "출석 일당",
+        "법원 기준"
+      ]
+    },
+    {
+      "id": "practice-8a-619",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-2",
+      "topic": "소송 감정 총",
+      "body": "본료 150만 + 출석 60만 + 증언 20만 + 실비 15만. 총?",
+      "modelAnswer": "## 핵심 정리\n\n- 150+60+20+15 = 245만\n- 소송 보수\n- 4대 항목",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "150+60+20+15 = 245만",
+        "소송 보수",
+        "4대 항목"
+      ]
+    },
+    {
+      "id": "practice-8a-620",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-2",
+      "topic": "경매 배당 우선",
+      "body": "낙찰 10억. 조세 2억 → 1순위 저당 5억 → 2순위 가압류 3억?",
+      "modelAnswer": "## 핵심 정리\n\n- 조세 2 → 저당 5 → 가압류 3\n- 조세 우선\n- 순위 배당",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "조세 2 → 저당 5 → 가압류 3",
+        "조세 우선",
+        "순위 배당"
+      ]
+    },
+    {
+      "id": "practice-8a-621",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-3",
+      "topic": "매각가",
+      "body": "시장가치 20억. 매각가 결정?",
+      "modelAnswer": "## 핵심 정리\n\n- 20억 = 최저가\n- 시장가치 기준\n- 국유재산법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "20억 = 최저가",
+        "시장가치 기준",
+        "국유재산법"
+      ]
+    },
+    {
+      "id": "practice-8a-622",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-3",
+      "topic": "대부료 산정",
+      "body": "시장가치 10억, 사용료율 5%. 연 대부료?",
+      "modelAnswer": "## 핵심 정리\n\n- 10 × 0.05 = 5,000만\n- 연 단위\n- 국유재산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10 × 0.05 = 5,000만",
+        "연 단위",
+        "국유재산"
+      ]
+    },
+    {
+      "id": "practice-8a-623",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-3",
+      "topic": "5년 누계 대부료",
+      "body": "연 5,000만, 5년. 누계?",
+      "modelAnswer": "## 핵심 정리\n\n- 5,000 × 5 = 2.5억\n- 단순 합계\n- 5년 합산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000 × 5 = 2.5억",
+        "단순 합계",
+        "5년 합산"
+      ]
+    },
+    {
+      "id": "practice-8a-624",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-3",
+      "topic": "재평가 잉여",
+      "body": "장부 10억, 시가 15억. 잉여?",
+      "modelAnswer": "## 핵심 정리\n\n- 15 - 10 = 5억\n- 재평가 잉여\n- 자본 항목",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "15 - 10 = 5억",
+        "재평가 잉여",
+        "자본 항목"
+      ]
+    },
+    {
+      "id": "practice-8a-625",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-3",
+      "topic": "재평가 후 장부",
+      "body": "재평가 잉여 5억 인식. 새 장부?",
+      "modelAnswer": "## 핵심 정리\n\n- 10 + 5 = 15억\n- 시가 반영\n- K-IFRS",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "10 + 5 = 15억",
+        "시가 반영",
+        "K-IFRS"
+      ]
+    },
+    {
+      "id": "practice-8a-626",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-3",
+      "topic": "양도소득",
+      "body": "양도가 12억, 취득가 5억, 필요경비 5천. 양도소득?",
+      "modelAnswer": "## 핵심 정리\n\n- 12 - 5 - 0.5 = 6.5억\n- 양도소득 산식\n- 세금 기초",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "12 - 5 - 0.5 = 6.5억",
+        "양도소득 산식",
+        "세금 기초"
+      ]
+    },
+    {
+      "id": "practice-8a-627",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-3",
+      "topic": "양도세 30%",
+      "body": "양도소득 6.5억, 세율 30%. 양도세?",
+      "modelAnswer": "## 핵심 정리\n\n- 6.5 × 0.3 = 1.95억\n- 추정 세액\n- 실제 누진",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6.5 × 0.3 = 1.95억",
+        "추정 세액",
+        "실제 누진"
+      ]
+    },
+    {
+      "id": "practice-8a-628",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-3",
+      "topic": "종부세 과세표준",
+      "body": "공시 합산 20억, 한도 12억 (1주택). 과세표준?",
+      "modelAnswer": "## 핵심 정리\n\n- 20 - 12 = 8억\n- 한도 차감\n- 1주택 한도",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "20 - 12 = 8억",
+        "한도 차감",
+        "1주택 한도"
+      ]
+    },
+    {
+      "id": "practice-8a-629",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-3",
+      "topic": "종부세 1%",
+      "body": "과세표준 8억, 세율 1%. 종부세?",
+      "modelAnswer": "## 핵심 정리\n\n- 8 × 0.01 = 800만\n- 구간 세율\n- 단순 추정",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8 × 0.01 = 800만",
+        "구간 세율",
+        "단순 추정"
+      ]
+    },
+    {
+      "id": "practice-8a-630",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "8a-3",
+      "topic": "NAV",
+      "body": "자산 30억 - 부채 12억. NAV?",
+      "modelAnswer": "## 핵심 정리\n\n- 30 - 12 = 18억\n- REITs NAV\n- 자산-부채",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "30 - 12 = 18억",
+        "REITs NAV",
+        "자산-부채"
       ]
     }
   ]
