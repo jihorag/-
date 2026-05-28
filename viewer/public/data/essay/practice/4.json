@@ -4,7 +4,7 @@
   "chapter": "4",
   "chapterTitle": "유형별 평가",
   "source": "official",
-  "count": 59,
+  "count": 89,
   "withAnswer": 4,
   "matchedAnswer": 4,
   "rounds": [
@@ -1181,6 +1181,577 @@
         "입장객 매출",
         "자본적지출 5%",
         "시설 비중 高"
+      ]
+    },
+    {
+      "id": "practice-4-531",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "비교법 적용 조건",
+      "body": "비교법 적용 조건을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 거래사례 풍부\n- 시점·요인 비교 가능\n- 시장 활발",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "거래사례 풍부",
+        "시점·요인 비교 가능",
+        "시장 활발"
+      ]
+    },
+    {
+      "id": "practice-4-532",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "수익환원법 적용",
+      "body": "수익환원법 적용 조건을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 임대 부동산\n- 안정 수익\n- 환원이율 산정 가능",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "임대 부동산",
+        "안정 수익",
+        "환원이율 산정 가능"
+      ]
+    },
+    {
+      "id": "practice-4-533",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "원가법 적용",
+      "body": "원가법 적용 조건을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 신축·특수건물\n- 재조달원가 산정 용이\n- 비교사례 부재",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "신축·특수건물",
+        "재조달원가 산정 용이",
+        "비교사례 부재"
+      ]
+    },
+    {
+      "id": "practice-4-534",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "평가 방식 선정",
+      "body": "평가 방식 선정 원칙을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 부동산 용도\n- 시장 상황\n- 자료 신뢰성\n- 평가 목적",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "부동산 용도",
+        "시장 상황",
+        "자료 신뢰성",
+        "평가 목적"
+      ]
+    },
+    {
+      "id": "practice-4-535",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-1",
+      "topic": "시산조정 가중치",
+      "body": "시산조정 가중치 결정 원칙을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 임대 = 수익 비중↑\n- 신축 = 원가 비중↑\n- 시장 활발 = 비교 비중↑",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "임대 = 수익 비중↑",
+        "신축 = 원가 비중↑",
+        "시장 활발 = 비교 비중↑"
+      ]
+    },
+    {
+      "id": "practice-4-536",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "동산 분류",
+      "body": "동산의 분류를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 생산용 (기계·설비)\n- 운송용 (차량)\n- 가축·생물",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "생산용 (기계·설비)",
+        "운송용 (차량)",
+        "가축·생물"
+      ]
+    },
+    {
+      "id": "practice-4-537",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "기계 평가 원칙",
+      "body": "기계 평가 원칙을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가 우선\n- 정률법 (감가)\n- 특수 기계 = 원가법",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 우선",
+        "정률법 (감가)",
+        "특수 기계 = 원가법"
+      ]
+    },
+    {
+      "id": "practice-4-538",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "차량 시장가",
+      "body": "차량 시장가 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 중고차 시장 활발\n- 연식·주행거리·옵션\n- 시장가 우선",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "중고차 시장 활발",
+        "연식·주행거리·옵션",
+        "시장가 우선"
+      ]
+    },
+    {
+      "id": "practice-4-539",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-2",
+      "topic": "가축 평가",
+      "body": "가축 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장가 (시세)\n- 두당 가치\n- 운반비 가산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장가 (시세)",
+        "두당 가치",
+        "운반비 가산"
+      ]
+    },
+    {
+      "id": "practice-4-540",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "지상권 평가 산식",
+      "body": "지상권 평가 산식을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지 NOI × 연금현가\n- 토지가치 × 효용 비율\n- 잔여기간 핵심",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 NOI × 연금현가",
+        "토지가치 × 효용 비율",
+        "잔여기간 핵심"
+      ]
+    },
+    {
+      "id": "practice-4-541",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "전세권 가치 산정",
+      "body": "전세권 가치 산정을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 전세금 ≈ 가치 (단기)\n- 시장-계약 차액 별도\n- 연금현가 활용",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "전세금 ≈ 가치 (단기)",
+        "시장-계약 차액 별도",
+        "연금현가 활용"
+      ]
+    },
+    {
+      "id": "practice-4-542",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "지역권 평가",
+      "body": "지역권 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 토지 단가 × 영향 면적\n- 약 10~20% 보상\n- 영구 권리",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 단가 × 영향 면적",
+        "약 10~20% 보상",
+        "영구 권리"
+      ]
+    },
+    {
+      "id": "practice-4-543",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-3",
+      "topic": "신탁수익권",
+      "body": "신탁수익권 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 수익 현가 + 만기 자산\n- 신탁수수료 차감\n- 관리·처분 신탁",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "수익 현가 + 만기 자산",
+        "신탁수수료 차감",
+        "관리·처분 신탁"
+      ]
+    },
+    {
+      "id": "practice-4-544",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "답 평가 특성",
+      "body": "답 평가 특성을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 관개·배수 시설 가치\n- 곡물 생산\n- 단가 낮음",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "관개·배수 시설 가치",
+        "곡물 생산",
+        "단가 낮음"
+      ]
+    },
+    {
+      "id": "practice-4-545",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "전 평가 특성",
+      "body": "전 평가 특성을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 다양 작물 가능\n- 농기구 활용 쉬움\n- 답보다 高",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "다양 작물 가능",
+        "농기구 활용 쉬움",
+        "답보다 高"
+      ]
+    },
+    {
+      "id": "practice-4-546",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "과수원 평가",
+      "body": "과수원 평가의 특성을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 영구작물·고부가가치\n- 토지+입목 별도\n- 단가 가장 高",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영구작물·고부가가치",
+        "토지+입목 별도",
+        "단가 가장 高"
+      ]
+    },
+    {
+      "id": "practice-4-547",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "임야 입목 평가",
+      "body": "임야 입목 시장가 역산법을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장 원목가 - 벌채반출비 - 일반관리·이윤\n- 본수·재적 측정\n- 시행규칙 §39",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 원목가 - 벌채반출비 - 일반관리·이윤",
+        "본수·재적 측정",
+        "시행규칙 §39"
+      ]
+    },
+    {
+      "id": "practice-4-548",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-4",
+      "topic": "농지 보전 가산",
+      "body": "농지 보전 가산을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 농업진흥구역 등 일반제한\n- 용도변경 곤란\n- 일반 대비 -20~30%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "농업진흥구역 등 일반제한",
+        "용도변경 곤란",
+        "일반 대비 -20~30%"
+      ]
+    },
+    {
+      "id": "practice-4-549",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-5",
+      "topic": "종교 시설",
+      "body": "종교 시설의 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 원가법 + 토지 별도\n- 시장 거래 드물음\n- 한옥·전통 건축 별도 단가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원가법 + 토지 별도",
+        "시장 거래 드물음",
+        "한옥·전통 건축 별도 단가"
+      ]
+    },
+    {
+      "id": "practice-4-550",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-5",
+      "topic": "교육 시설",
+      "body": "교육 시설의 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 학교 부지 보정 -15%\n- 비영리 → 수익법 X\n- 용도변경 잠재가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "학교 부지 보정 -15%",
+        "비영리 → 수익법 X",
+        "용도변경 잠재가치"
+      ]
+    },
+    {
+      "id": "practice-4-551",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-5",
+      "topic": "비영리 특수",
+      "body": "비영리 특수 부동산 평가를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 원가법 중심\n- 수익법 부적합\n- 시장 비교법 어려움",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "원가법 중심",
+        "수익법 부적합",
+        "시장 비교법 어려움"
+      ]
+    },
+    {
+      "id": "practice-4-552",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-5",
+      "topic": "용도변경 잠재가치",
+      "body": "특수용도 용도변경 잠재가치를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 일반 매각 시 변경 가능\n- 변경 후 가치 별도 검토\n- 잠재가치 가산",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "일반 매각 시 변경 가능",
+        "변경 후 가치 별도 검토",
+        "잠재가치 가산"
+      ]
+    },
+    {
+      "id": "practice-4-553",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "광업권 산정 산식",
+      "body": "광업권 산정 산식을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 연 영업이익 × 연금현가\n- 잔여 채굴기간\n- 할인율 15%↑",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "연 영업이익 × 연금현가",
+        "잔여 채굴기간",
+        "할인율 15%↑"
+      ]
+    },
+    {
+      "id": "practice-4-554",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "매장량 추정",
+      "body": "매장량 추정의 의의를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 지질조사 결과\n- 확정·추정 매장량\n- 평가의 기초",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "지질조사 결과",
+        "확정·추정 매장량",
+        "평가의 기초"
+      ]
+    },
+    {
+      "id": "practice-4-555",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "어업권 면허",
+      "body": "어업권 면허 갱신을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 면허기간 5~10년\n- 갱신 가능성 검토\n- 갱신 가정 평가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "면허기간 5~10년",
+        "갱신 가능성 검토",
+        "갱신 가정 평가"
+      ]
+    },
+    {
+      "id": "practice-4-556",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-6",
+      "topic": "광업·어업 위험",
+      "body": "광업·어업의 위험을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시장 가격 변동\n- 환경 규제\n- 자원 고갈",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시장 가격 변동",
+        "환경 규제",
+        "자원 고갈"
+      ]
+    },
+    {
+      "id": "practice-4-557",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "호텔 객실 가동률",
+      "body": "호텔 객실 가동률의 영향을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 매출의 핵심\n- 70%+ 안정\n- 비수기·성수기 변동",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매출의 핵심",
+        "70%+ 안정",
+        "비수기·성수기 변동"
+      ]
+    },
+    {
+      "id": "practice-4-558",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "골프장 회원권",
+      "body": "골프장 회원권의 별도 가치를 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 회원권 시장 거래\n- 입회금 자산\n- 운영자 별도 가치",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "회원권 시장 거래",
+        "입회금 자산",
+        "운영자 별도 가치"
+      ]
+    },
+    {
+      "id": "practice-4-559",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "유원지 시설 비중",
+      "body": "유원지 시설 비중을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 시설 60% 비중\n- 자본적지출 5%\n- 유지·교체 필수",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시설 60% 비중",
+        "자본적지출 5%",
+        "유지·교체 필수"
+      ]
+    },
+    {
+      "id": "practice-4-560",
+      "subject": "감정평가실무",
+      "chapter": "4",
+      "source": "practice-set",
+      "difficulty": 1,
+      "points": 5,
+      "subchapter": "4-7",
+      "topic": "영업용 환원이율",
+      "body": "영업용 부동산 환원이율을 약술하시오.",
+      "modelAnswer": "## 핵심 정리\n\n- 호텔 8~10%\n- 골프 7~8%\n- 유원지 10%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "호텔 8~10%",
+        "골프 7~8%",
+        "유원지 10%"
       ]
     }
   ]
