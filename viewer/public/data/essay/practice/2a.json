@@ -4,7 +4,7 @@
   "chapter": "2a",
   "chapterTitle": "3방식기초 공시지가·거래사례·원가",
   "source": "official",
-  "count": 378,
+  "count": 418,
   "withAnswer": 22,
   "matchedAnswer": 22,
   "rounds": [
@@ -7931,6 +7931,729 @@
         "개별 종합 1.0721",
         "7,500×1.04×1.0721×1.15 = 9,612,000원/㎡",
         "총액 33.64억"
+      ]
+    },
+    {
+      "id": "practice-2a-751",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-1",
+      "topic": "공시지가 단순",
+      "body": "[자료] 표준지 9,000,000원, 시점 1.05",
+      "modelAnswer": "## 핵심 정리\n\n- 9,000×1.05 = 9,450,000원/㎡",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,000×1.05 = 9,450,000원/㎡"
+      ]
+    },
+    {
+      "id": "practice-2a-752",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-1",
+      "topic": "6대 요인",
+      "body": "[자료] 가로 1.05, 접근 1.03, 환경 0.98, 획지 1.02, 행정 1.0, 기타 1.01",
+      "modelAnswer": "## 핵심 정리\n\n- 1.05×1.03×0.98×1.02×1.0×1.01 = 1.0915",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.05×1.03×0.98×1.02×1.0×1.01 = 1.0915"
+      ]
+    },
+    {
+      "id": "practice-2a-753",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-1",
+      "topic": "그밖의요인",
+      "body": "[자료] 선례 평균 11,000,000, 가상정상 9,500,000",
+      "modelAnswer": "## 핵심 정리\n\n- 11,000/9,500 = 1.158 → 1.16",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "11,000/9,500 = 1.158 → 1.16"
+      ]
+    },
+    {
+      "id": "practice-2a-754",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-1",
+      "topic": "평가단가",
+      "body": "[자료] 표준지 7,500,000, 시점 1.05, 개별 1.04, 그밖의 1.10",
+      "modelAnswer": "## 핵심 정리\n\n- 7,500×1.05×1.04×1.10 = 9,009,000원/㎡",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,500×1.05×1.04×1.10 = 9,009,000원/㎡"
+      ]
+    },
+    {
+      "id": "practice-2a-755",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-2",
+      "topic": "거래사례 단순",
+      "body": "[자료] 사례 6,500,000원, 시점 1.04, 개별 1.03",
+      "modelAnswer": "## 핵심 정리\n\n- 6,500×1.04×1.03 = 6,963,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6,500×1.04×1.03 = 6,963,000원"
+      ]
+    },
+    {
+      "id": "practice-2a-756",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-2",
+      "topic": "사정보정",
+      "body": "[자료] 친족 거래 사례 8억 (사정 -10%), 정상가 환원",
+      "modelAnswer": "## 핵심 정리\n\n- 8/0.9 = 8.89억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8/0.9 = 8.89억"
+      ]
+    },
+    {
+      "id": "practice-2a-757",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-3",
+      "topic": "정액법",
+      "body": "[자료] 재조달 30억, 경과 15년, 내용 50년, 잔존 0%",
+      "modelAnswer": "## 핵심 정리\n\n- 잔가 0.7\n- 21억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잔가 0.7",
+        "21억"
+      ]
+    },
+    {
+      "id": "practice-2a-758",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-3",
+      "topic": "정률법",
+      "body": "[자료] 신품 20억, 정률 0.92, 8년",
+      "modelAnswer": "## 핵심 정리\n\n- 0.92^8 = 0.513\n- 20×0.513 = 10.26억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.92^8 = 0.513",
+        "20×0.513 = 10.26억"
+      ]
+    },
+    {
+      "id": "practice-2a-759",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-4",
+      "topic": "직접환원",
+      "body": "[자료] NOI 5억, 환원율 7%",
+      "modelAnswer": "## 핵심 정리\n\n- 5/0.07 = 71.4억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5/0.07 = 71.4억"
+      ]
+    },
+    {
+      "id": "practice-2a-760",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-4",
+      "topic": "DCF 단순",
+      "body": "[자료] 1년 NOI 8억, 5년 PV 합 30억, 매각 PV 90억",
+      "modelAnswer": "## 핵심 정리\n\n- DCF 30+90 = 120억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "DCF 30+90 = 120억"
+      ]
+    },
+    {
+      "id": "practice-2a-761",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-5",
+      "topic": "시산조정",
+      "body": "[자료] 원가 60, 비교 70, 수익 75. 가중 비교 40/수익 40/원가 20%",
+      "modelAnswer": "## 핵심 정리\n\n- 60×0.2+70×0.4+75×0.4 = 70억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "60×0.2+70×0.4+75×0.4 = 70억"
+      ]
+    },
+    {
+      "id": "practice-2a-762",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-5",
+      "topic": "시점 복리",
+      "body": "[자료] 2024 +4%, 2025 +3.5%, 2026 +1.5%",
+      "modelAnswer": "## 핵심 정리\n\n- 1.04×1.035×1.015 = 1.0921",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.04×1.035×1.015 = 1.0921"
+      ]
+    },
+    {
+      "id": "practice-2a-763",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-6",
+      "topic": "보상 단가",
+      "body": "[자료] 비교표준지 9,000,000원, 시점 (사업영향 배제) 1.08, 개별 1.05, 그밖의 1.15",
+      "modelAnswer": "## 핵심 정리\n\n- 9,000×1.08×1.05×1.15 = 11,737,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,000×1.08×1.05×1.15 = 11,737,000원"
+      ]
+    },
+    {
+      "id": "practice-2a-764",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-6",
+      "topic": "잔여지 가치손실",
+      "body": "[자료] 종전 6,000,000원, 잔여 200㎡, 종후 5,000,000원",
+      "modelAnswer": "## 핵심 정리\n\n- (6,000-5,000)×200 = 2억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(6,000-5,000)×200 = 2억"
+      ]
+    },
+    {
+      "id": "practice-2a-765",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-6",
+      "topic": "구분지상권",
+      "body": "[자료] 단가 8,000,000원, 통과 250㎡, 저해율 0.025",
+      "modelAnswer": "## 핵심 정리\n\n- 8,000×0.025×250 = 5,000만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,000×0.025×250 = 5,000만"
+      ]
+    },
+    {
+      "id": "practice-2a-766",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-7",
+      "topic": "영업 4월",
+      "body": "[자료] 영업이익 1.8억, 4월 휴업",
+      "modelAnswer": "## 핵심 정리\n\n- 1.8×4/12 = 6,000만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.8×4/12 = 6,000만"
+      ]
+    },
+    {
+      "id": "practice-2a-767",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-7",
+      "topic": "폐업 2년",
+      "body": "[자료] 영업이익 2.5억, 폐업",
+      "modelAnswer": "## 핵심 정리\n\n- 2.5×2 = 5억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2.5×2 = 5억"
+      ]
+    },
+    {
+      "id": "practice-2a-768",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-7",
+      "topic": "영농 통계",
+      "body": "[자료] 답 통계 800원/㎡ × 4,000㎡ × 2년",
+      "modelAnswer": "## 핵심 정리\n\n- 640만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "640만"
+      ]
+    },
+    {
+      "id": "practice-2a-769",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-8",
+      "topic": "비례율",
+      "body": "[자료] 수입 600억, 사업비 450억, 종전 150억",
+      "modelAnswer": "## 핵심 정리\n\n- (600-450)/150 = 100%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "(600-450)/150 = 100%"
+      ]
+    },
+    {
+      "id": "practice-2a-770",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 3,
+      "points": 20,
+      "subchapter": "2a-8",
+      "topic": "권리가액·분담",
+      "body": "[자료] 종전 2억, 비례율 110%, 종후 2.5억",
+      "modelAnswer": "## 핵심 정리\n\n- 권리 2.2억, 분담 3,000만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "권리 2.2억, 분담 3,000만"
+      ]
+    },
+    {
+      "id": "practice-2a-942",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-1",
+      "topic": "공시지가 시나리오",
+      "body": "[자료] 표준지 9,000,000원 (2024.1.1)\n시점 2025 +4%, 2026 1-4월 +1.5%, 5월 +0.05%/일\n개별 종합 1.07, 그밖의 1.13, 면적 450㎡\n[물음] 단가+총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 시점 1.04×1.015×(1+0.05%×15)=1.064\n- 9,000×1.064×1.07×1.13=11,576,000원\n- 52.09억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시점 1.04×1.015×(1+0.05%×15)=1.064",
+        "9,000×1.064×1.07×1.13=11,576,000원",
+        "52.09억"
+      ]
+    },
+    {
+      "id": "practice-2a-943",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-2",
+      "topic": "거래사례 3건",
+      "body": "[자료] A 사례 7,000,000원 (시점 1.04, 개별 0.98)\nB 사례 7,500,000 (1.02, 1.02)\nC 사례 7,200,000 (1.025, 1.0)\n[물음] 평균 단가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- A 7,000×1.04×0.98 = 7,131\n- B 7,500×1.02×1.02 = 7,803\n- C 7,200×1.025×1.0 = 7,380\n- 평균 7,438\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "A 7,000×1.04×0.98 = 7,131",
+        "B 7,500×1.02×1.02 = 7,803",
+        "C 7,200×1.025×1.0 = 7,380",
+        "평균 7,438"
+      ]
+    },
+    {
+      "id": "practice-2a-944",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-3",
+      "topic": "원가법 종합",
+      "body": "[자료] 토지 8,000,000원 × 500 (시점 1.04, 그밖의 1.10) + 건물 적산 30억\n[물음] 합계?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 토지 8,000×1.04×1.10×500 = 45.76\n- 건물 30\n- 합 75.76억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 8,000×1.04×1.10×500 = 45.76",
+        "건물 30",
+        "합 75.76억"
+      ]
+    },
+    {
+      "id": "practice-2a-945",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-4",
+      "topic": "수익환원 + 시점",
+      "body": "[자료] PGI 30억, 공실 8%, 경비 28%, 환원율 7%\n[물음] 수익가액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- EGI 27.6\n- NOI 19.872\n- 19.872/0.07 = 283.9억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "EGI 27.6",
+        "NOI 19.872",
+        "19.872/0.07 = 283.9억"
+      ]
+    },
+    {
+      "id": "practice-2a-946",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-5",
+      "topic": "5방식 시산",
+      "body": "[자료] 공시 80, 거래 90, 원가 75, 수익 95, 잔여 85억\n가중 거래 30, 수익 30, 공시 20, 원가 10, 잔여 10%\n[물음] 결정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 80×0.2+90×0.3+75×0.1+95×0.3+85×0.1\n- = 16+27+7.5+28.5+8.5 = 87.5억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "80×0.2+90×0.3+75×0.1+95×0.3+85×0.1",
+        "= 16+27+7.5+28.5+8.5 = 87.5억"
+      ]
+    },
+    {
+      "id": "practice-2a-947",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-6",
+      "topic": "보상 + 잔여지",
+      "body": "[자료] 표준지 9,000,000원, 시점 1.08, 개별 1.05, 그밖의 1.15\n편입 800㎡, 잔여 200㎡ (-15%)\n[물음] 편입 보상 + 잔여지?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 단가 11,737,000원\n- 편입 93.9억\n- 잔여 손실 (1,500,000)×200 = 3억\n- 총 96.9억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "단가 11,737,000원",
+        "편입 93.9억",
+        "잔여 손실 (1,500,000)×200 = 3억",
+        "총 96.9억"
+      ]
+    },
+    {
+      "id": "practice-2a-948",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-7",
+      "topic": "영업·영농 종합",
+      "body": "[자료] 음식점 영업이익 2억, 휴업 4월\n농지 답 3,000×100만, 영농 통계 800원/㎡ × 2년\n과수 사과 50주: 가식 30×180만, 곤란 20×240만\n[물음] 종합?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 영업 6,667만\n- 농지 30억\n- 영농 480만\n- 과수 5,400+4,800 = 1.02억\n- 합 31.69억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업 6,667만",
+        "농지 30억",
+        "영농 480만",
+        "과수 5,400+4,800 = 1.02억",
+        "합 31.69억"
+      ]
+    },
+    {
+      "id": "practice-2a-949",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-8",
+      "topic": "정비 비례율",
+      "body": "[자료] 수입 800억, 사업비 600억, 종전 250억\n조합원 갑 종전 2.5억, 종후 3억\n[물음] 비례율·분담?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 비례율 (800-600)/250 = 80%\n- 권리 2억\n- 분담 1억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "비례율 (800-600)/250 = 80%",
+        "권리 2억",
+        "분담 1억"
+      ]
+    },
+    {
+      "id": "practice-2a-950",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-9",
+      "topic": "맹지 + 시점",
+      "body": "[자료] 인접 도로변 4,500,000원, 맹지 -30%, 시점 1.05, 그밖의 1.10, 면적 700㎡\n[물음] 보상?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 4,500×0.7×1.05×1.10 = 3,638,000원\n- 총 25.47억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4,500×0.7×1.05×1.10 = 3,638,000원",
+        "총 25.47억"
+      ]
+    },
+    {
+      "id": "practice-2a-951",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-1",
+      "topic": "6대 + 그밖의",
+      "body": "[자료] 표준지 8,500,000원\n시점 1.05, 6대 종합 1.07, 그밖의 1.15\n면적 400㎡\n[물음] 평가 + 검증 (인근 평균 10,500,000원/㎡)?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 8,500×1.05×1.07×1.15 = 10,971,000원/㎡\n- 인근 10,500 → +4.5% (양호)\n- 총 43.88억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,500×1.05×1.07×1.15 = 10,971,000원/㎡",
+        "인근 10,500 → +4.5% (양호)",
+        "총 43.88억"
+      ]
+    },
+    {
+      "id": "practice-2a-952",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-3",
+      "topic": "주체+부대 +시점",
+      "body": "[자료] 주체 단가 2,000,000 (70%), 부대 800,000 (30%)\n면적 3,000㎡, 시점 1.05, 경과 18년\n주체 잔가율 0.6, 부대 0.3\n[물음] 적산?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 주체 2,000×1.05×3,000×0.7×0.6 = 26.46억\n- 부대 800×1.05×3,000×0.3×0.3 = 2.27억\n- 합 28.73억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주체 2,000×1.05×3,000×0.7×0.6 = 26.46억",
+        "부대 800×1.05×3,000×0.3×0.3 = 2.27억",
+        "합 28.73억"
+      ]
+    },
+    {
+      "id": "practice-2a-953",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-4",
+      "topic": "DCF 종합",
+      "body": "[자료] 1년 NOI 7억, 성장 2.5%, 5년 보유\n할인 7.5%, 매각환원 6%, 매각비 2.5%\n[물음] DCF?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 5년 NOI 7~7.78\n- 5년 PV 합 약 30.5억\n- 6년 7.97 → 매각 132.8 → 비용 후 129.5 → PV 90.2\n- DCF 120.7억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5년 NOI 7~7.78",
+        "5년 PV 합 약 30.5억",
+        "6년 7.97 → 매각 132.8 → 비용 후 129.5 → PV 90.2",
+        "DCF 120.7억"
+      ]
+    },
+    {
+      "id": "practice-2a-954",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-5",
+      "topic": "시산 + 검증",
+      "body": "[자료] 원가 80, 비교 90, 수익 100억\n인근 평균 92, 시장 95억\n가중 비교 40/수익 40/원가 20%\n[물음] 시산·결정·검증?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 가중 80×0.2+90×0.4+100×0.4 = 92억\n- 인근 92와 일치\n- 결정 92억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가중 80×0.2+90×0.4+100×0.4 = 92억",
+        "인근 92와 일치",
+        "결정 92억"
+      ]
+    },
+    {
+      "id": "practice-2a-955",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-6",
+      "topic": "보상 + 그밖의",
+      "body": "[자료] 표준지 8,000,000원, 시점 1.10, 개별 1.04, 그밖의 1.18, 면적 600㎡\n[물음] 단가+총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 8,000×1.10×1.04×1.18 = 10,801,000원\n- 총액 64.81억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,000×1.10×1.04×1.18 = 10,801,000원",
+        "총액 64.81억"
+      ]
+    },
+    {
+      "id": "practice-2a-956",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-7",
+      "topic": "폐업 + 영업권",
+      "body": "[자료] 영업이익 4억, 폐업 + 고정 1억\n영업권 시장 가치 (참고) 10억\n[물음] 폐업 vs 영업권 손실?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 폐업 9억\n- 영업권 10억 → 1억 미회수\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "폐업 9억",
+        "영업권 10억 → 1억 미회수"
+      ]
+    },
+    {
+      "id": "practice-2a-957",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-8",
+      "topic": "청산 종합",
+      "body": "[자료] 실제 수입 1,200억, 비용 850억, 종전 350억\n갑 종전 3억, 종후 4억, 기 납부 5천만\n[물음] 청산·청산금?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 청산 비례율 (1,200-850)/350 = 100%\n- 권리 3억\n- 분담 1억\n- 청산금 5,000만 추가 납부\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "청산 비례율 (1,200-850)/350 = 100%",
+        "권리 3억",
+        "분담 1억",
+        "청산금 5,000만 추가 납부"
+      ]
+    },
+    {
+      "id": "practice-2a-958",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-9",
+      "topic": "맹지 vs 통행권",
+      "body": "[자료] 도로변 5,000,000원, 맹지 600㎡\n시나리오: A 불가 (-50%), B 통행권 (+15%), C 도로 신설 (+30%)\n[물음] 시나리오별 총액?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- A 5,000×0.5×600 = 15억\n- B 5,000×0.65×600 = 19.5억\n- C 5,000×0.75×600 = 22.5억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "A 5,000×0.5×600 = 15억",
+        "B 5,000×0.65×600 = 19.5억",
+        "C 5,000×0.75×600 = 22.5억"
+      ]
+    },
+    {
+      "id": "practice-2a-959",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-1",
+      "topic": "비교표준지 다수",
+      "body": "[자료] A 8,000,000 (300㎡), B 8,500,000 (400), C 9,000,000 (500㎡, 부적격)\n[물음] 평균 + 적격 선정?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- C 부적격\n- A·B 평균 8,250,000\n- A·B 면적 가중 (8,000×300+8,500×400)/700 = 8,286\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "C 부적격",
+        "A·B 평균 8,250,000",
+        "A·B 면적 가중 (8,000×300+8,500×400)/700 = 8,286"
+      ]
+    },
+    {
+      "id": "practice-2a-960",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-3",
+      "topic": "관찰감가 시나리오",
+      "body": "[자료] 정액 적산 40억\n시나리오: A 리모델링 +12%, B 노후 -10%, C 일반 변동 없음\n[물음] 시나리오별 평가?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- A 44.8\n- B 36\n- C 40억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "A 44.8",
+        "B 36",
+        "C 40억"
+      ]
+    },
+    {
+      "id": "practice-2a-961",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "2a-4",
+      "topic": "환원율 4방식",
+      "body": "[자료] 시장추출 4건 평균 7.0%, 요소구성 7.2%, 투자결합 7.8%, 부채감당 5.5%\n가중 시장 50, 요소 20, 결합 20, 부채 10%\n[물음] 적용 환원율?",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 7×0.5+7.2×0.2+7.8×0.2+5.5×0.1\n- =3.5+1.44+1.56+0.55=7.05%\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7×0.5+7.2×0.2+7.8×0.2+5.5×0.1",
+        "=3.5+1.44+1.56+0.55=7.05%"
       ]
     }
   ]
