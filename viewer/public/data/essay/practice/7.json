@@ -4,7 +4,7 @@
   "chapter": "7",
   "chapterTitle": "건축물·영업·기타 보상",
   "source": "official",
-  "count": 213,
+  "count": 233,
   "withAnswer": 13,
   "matchedAnswer": 13,
   "rounds": [
@@ -4111,6 +4111,367 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "5×2 + 2 = 12억"
+      ]
+    },
+    {
+      "id": "practice-7-911",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-1",
+      "topic": "건물 종합",
+      "body": "[자료] RC조 5층 3,000㎡, 신축 18년. 단가 주체 2,000,000(70%), 부대 800,000(30%). 잔가 주체 0.7, 부대 0.3. 시점 1.05",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 주체 2,000×1.05×3,000×0.7×0.7 = 30.87\n- 부대 800×1.05×3,000×0.3×0.3 = 2.27\n- 합 33.14억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "주체 2,000×1.05×3,000×0.7×0.7 = 30.87",
+        "부대 800×1.05×3,000×0.3×0.3 = 2.27",
+        "합 33.14억"
+      ]
+    },
+    {
+      "id": "practice-7-912",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "휴업 종합",
+      "body": "[자료] 영업이익 2.5억/년, 휴업 4월, 이전 6%, 시설 4%, 광고 1,000만, 임차 1,200만",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 4월 영업 8,333만\n- 이전 500 + 시설 333 + 광고 1,000 + 임차 1,200 = 3,033만\n- 총 1.14억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "4월 영업 8,333만",
+        "이전 500 + 시설 333 + 광고 1,000 + 임차 1,200 = 3,033만",
+        "총 1.14억"
+      ]
+    },
+    {
+      "id": "practice-7-913",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "폐업 + 영업권",
+      "body": "[자료] 영업이익 3억, 폐업, 고정 1.5억. 영업권 시장 (참고) 8억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 폐업 7.5억\n- 영업권 8억 = 보상 외 손실 8억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "폐업 7.5억",
+        "영업권 8억 = 보상 외 손실 8억"
+      ]
+    },
+    {
+      "id": "practice-7-914",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "농경지 종합",
+      "body": "[자료] 답 5,000×100만, 영농 통계 800원/㎡×2년. 과수 60주: 가식 40×180만, 곤란 20×240만",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 토지 50억\n- 영농 800만\n- 과수 1.2억\n- 합 51.28억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "토지 50억",
+        "영농 800만",
+        "과수 1.2억",
+        "합 51.28억"
+      ]
+    },
+    {
+      "id": "practice-7-915",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-3",
+      "topic": "주거 종합 5인",
+      "body": "[자료] 5인 가구 (1인 220만/월), 건물 1.2억, 동산 500만",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 이전 4,400 + 정착 2,400(한도) + 동산 500 = 7,300만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 4,400 + 정착 2,400(한도) + 동산 500 = 7,300만"
+      ]
+    },
+    {
+      "id": "practice-7-916",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-1",
+      "topic": "건물 부분 + 보강",
+      "body": "[자료] 단가 1,800,000원, 면적 200㎡, 잔가 0.7, 보강 7,000만, 가치 손실 -5%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 편입 2.52\n- 보강 0.7\n- 잔존 가치 2,000×1,800×0.7 = 25.2×0.05 = 1.26\n- 총 4.48억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 2.52",
+        "보강 0.7",
+        "잔존 가치 2,000×1,800×0.7 = 25.2×0.05 = 1.26",
+        "총 4.48억"
+      ]
+    },
+    {
+      "id": "practice-7-917",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "영농 + 실제",
+      "body": "[자료] 답 3,500㎡, 통계 750원, 실제 1,500원. 한도 1,125, 적용",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1,125×3,500×2 = 788만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1,125×3,500×2 = 788만"
+      ]
+    },
+    {
+      "id": "practice-7-918",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "과수 + 시점",
+      "body": "[자료] 사과 80주 (가식 60×200만, 곤란 20×260만), 영농 1,800원/㎡×3,000㎡×2년",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1.2억 + 5,200만 + 1,080만 = 1.83억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.2억 + 5,200만 + 1,080만 = 1.83억"
+      ]
+    },
+    {
+      "id": "practice-7-919",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "축산 종합",
+      "body": "[자료] 한우 40×450만, 축사 800㎡ × 1,000,000원 × 0.6, 영농 8천만 × 2",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1.8억 + 4.8억 + 1.6억 = 8.2억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.8억 + 4.8억 + 1.6억 = 8.2억"
+      ]
+    },
+    {
+      "id": "practice-7-920",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-3",
+      "topic": "대가족",
+      "body": "[자료] 가구원 8인 × 240만/월, 건물 2억, 동산 700만",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 이전 7,680만 + 정착 2,400만 (한도) + 동산 700만 = 1.08억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "이전 7,680만 + 정착 2,400만 (한도) + 동산 700만 = 1.08억"
+      ]
+    },
+    {
+      "id": "practice-7-921",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-1",
+      "topic": "용도변경 후",
+      "body": "[자료] 합법 변경 상가 단가 2,500,000원, 면적 1,000㎡, 잔가 0.6",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 2,500×1,000×0.6 = 15억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2,500×1,000×0.6 = 15억"
+      ]
+    },
+    {
+      "id": "practice-7-922",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "음식점 폐업",
+      "body": "[자료] 영업이익 2.5억, 폐업, 고정 1억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 2.5×2 + 1 = 6억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2.5×2 + 1 = 6억"
+      ]
+    },
+    {
+      "id": "practice-7-923",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "입목 + 분묘",
+      "body": "[자료] 입목 300본 × 0.5㎥ × 32,000원. 분묘 단분 6기 × 300만, 합장 3 × 500만",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 입목 480만\n- 분묘 3,300만\n- 합 3,780만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "입목 480만",
+        "분묘 3,300만",
+        "합 3,780만"
+      ]
+    },
+    {
+      "id": "practice-7-924",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "시설하우스 + 영농",
+      "body": "[자료] 시설 800㎡ × 1,800,000원 × 0.5, 영농 2,000원/㎡ × 800㎡ × 2",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 시설 7.2억 + 영농 320만 = 7.23억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "시설 7.2억 + 영농 320만 = 7.23억"
+      ]
+    },
+    {
+      "id": "practice-7-925",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-3",
+      "topic": "주거 + 영업",
+      "body": "[자료] 건물 1.5억 (주거 60% / 영업 40%), 영업이익 2억/년 휴업 4월",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 건물 주거 9,000 영업 6,000\n- 영업 휴업 6,667+부대 660 = 7,327만\n- 주거 (4인 가구) 약 6,050만\n- 합 약 13,377만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "건물 주거 9,000 영업 6,000",
+        "영업 휴업 6,667+부대 660 = 7,327만",
+        "주거 (4인 가구) 약 6,050만",
+        "합 약 13,377만"
+      ]
+    },
+    {
+      "id": "practice-7-926",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "영업 임차 + 임대",
+      "body": "[자료] 임차인 영업이익 2억 휴업 4월. 임대인 토지·건물 8억 + 임대권 손실 (잔여 3년, 차액 4,800만, 연금 2.62)",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 임차인 6,667+부대 = 약 7,333만\n- 임대인 8억 + 4,800×2.62 = 9,258만 = 8.93억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "임차인 6,667+부대 = 약 7,333만",
+        "임대인 8억 + 4,800×2.62 = 9,258만 = 8.93억"
+      ]
+    },
+    {
+      "id": "practice-7-927",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-1",
+      "topic": "주체 부대 부분",
+      "body": "[자료] 주체 2,000,000(70%), 부대 900,000(30%), 면적 2,500㎡. 편입 200㎡. 잔가 주체 0.7, 부대 0.3",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 편입 주체 2,000×200×0.7×0.7 = 1.96\n- 부대 900×200×0.3×0.3 = 162만\n- 합 2.12억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "편입 주체 2,000×200×0.7×0.7 = 1.96",
+        "부대 900×200×0.3×0.3 = 162만",
+        "합 2.12억"
+      ]
+    },
+    {
+      "id": "practice-7-928",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "영업 + 부대",
+      "body": "[자료] 영업이익 1.6억/년, 휴업 3월, 부대 8%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 영업 4,000만\n- 부대 320만\n- 합 4,320만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "영업 4,000만",
+        "부대 320만",
+        "합 4,320만"
+      ]
+    },
+    {
+      "id": "practice-7-929",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-2",
+      "topic": "영농 종합",
+      "body": "[자료] 답 4,000㎡ + 전 1,500㎡, 통계 답 750원/전 950원, 2년",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 답 600만 + 전 285만 = 885만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "답 600만 + 전 285만 = 885만"
+      ]
+    },
+    {
+      "id": "practice-7-930",
+      "subject": "감정평가실무",
+      "chapter": "7",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "7-3",
+      "topic": "대토 + 주거",
+      "body": "[자료] 토지 평가 12억 (대토 가능). 주거 5인 가구 종합 7,300만",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 대토 12억 + 주거 7,300만 = 12.73억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "대토 12억 + 주거 7,300만 = 12.73억"
       ]
     }
   ]

@@ -4,7 +4,7 @@
   "chapter": "8a",
   "chapterTitle": "목적별 평가",
   "source": "official",
-  "count": 220,
+  "count": 240,
   "withAnswer": 18,
   "matchedAnswer": 18,
   "rounds": [
@@ -4255,6 +4255,377 @@
       "answerFormat": "essay-narrative",
       "keyPoints": [
         "적은 값 채택 8억 (DTI)"
+      ]
+    },
+    {
+      "id": "practice-8a-911",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-1",
+      "topic": "담보 + LTV/DTI",
+      "body": "[자료] 시장 30억, 담보율 75%, LTV 60%. 소득 1.2억, DTI 40%, MC 0.064",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 담보 22.5\n- LTV 13.5\n- DTI 7,500/0.064 = 7.5\n- 채택 7.5억 (DTI)\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "담보 22.5",
+        "LTV 13.5",
+        "DTI 7,500/0.064 = 7.5",
+        "채택 7.5억 (DTI)"
+      ]
+    },
+    {
+      "id": "practice-8a-912",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-1",
+      "topic": "부담권리",
+      "body": "[자료] LTV 10억, 1순위 4, 가압류 1, 임차 (대항력) 2, 조세 5천",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 가용 10-4-1-2-0.5 = 2.5억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "가용 10-4-1-2-0.5 = 2.5억"
+      ]
+    },
+    {
+      "id": "practice-8a-913",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-2",
+      "topic": "경매 낙찰",
+      "body": "[자료] 감정 25억, 1차 85% 낙찰, 대항력 임차 4억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 낙찰 21.25\n- 인수 4\n- 총 25.25억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "낙찰 21.25",
+        "인수 4",
+        "총 25.25억"
+      ]
+    },
+    {
+      "id": "practice-8a-914",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-2",
+      "topic": "경매 배당",
+      "body": "[자료] 낙찰 18억, 조세 2, 1순위 8, 가압류 4, 임차 (소멸) 2",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 조세 2 → 저당 8 → 가압류 4 → 임차 2\n- 잔여 2억 = 소유자\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "조세 2 → 저당 8 → 가압류 4 → 임차 2",
+        "잔여 2억 = 소유자"
+      ]
+    },
+    {
+      "id": "practice-8a-915",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-3",
+      "topic": "국유 매각 vs 대부",
+      "body": "[자료] 시장 40억. 매각 시 일시. 대부 20년 5%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 매각 40억 (일시)\n- 대부 5년 단위 누계 약 50억 (재평가)\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매각 40억 (일시)",
+        "대부 5년 단위 누계 약 50억 (재평가)"
+      ]
+    },
+    {
+      "id": "practice-8a-916",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-3",
+      "topic": "REITs",
+      "body": "[자료] 부동산 80억, 부채 30억, 주식 500만주, 주가 1,200원",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- NAV 50억\n- 주당 1,000\n- 시가총액 60억\n- 프리미엄 20%\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "NAV 50억",
+        "주당 1,000",
+        "시가총액 60억",
+        "프리미엄 20%"
+      ]
+    },
+    {
+      "id": "practice-8a-917",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-3",
+      "topic": "양도세",
+      "body": "[자료] 양도 25억, 취득 10억 (2010), 경비 1억, 보유 16년 장기보유 30%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 양도소득 14억 → 공제 9.8억 → 세금 (35%) 3.43억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "양도소득 14억 → 공제 9.8억 → 세금 (35%) 3.43억"
+      ]
+    },
+    {
+      "id": "practice-8a-918",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-3",
+      "topic": "재평가",
+      "body": "[자료] 장부 60억, 시장 100억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 잉여 40억 (자본)\n- 손익 X\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잉여 40억 (자본)",
+        "손익 X"
+      ]
+    },
+    {
+      "id": "practice-8a-919",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-1",
+      "topic": "담보 시나리오",
+      "body": "[자료] 시장 25→30 (1년 후 +20%), 기존 18억 LTV 75%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 새 시장 30 × 0.75 × 0.6 = 13.5 (한도)\n- 기존 18 > 13.5 → 시점 LTV 100%, 일부 상환 필요\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "새 시장 30 × 0.75 × 0.6 = 13.5 (한도)",
+        "기존 18 > 13.5 → 시점 LTV 100%, 일부 상환 필요"
+      ]
+    },
+    {
+      "id": "practice-8a-920",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-2",
+      "topic": "소송 보수",
+      "body": "[자료] 평가 120억, 본료 0.04%, 출석 5회 × 35만, 증언 3회 × 25만, 실비 30만",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 본료 480만\n- 출석 175만\n- 증언 75만\n- 실비 30만\n- 총 760만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "본료 480만",
+        "출석 175만",
+        "증언 75만",
+        "실비 30만",
+        "총 760만"
+      ]
+    },
+    {
+      "id": "practice-8a-921",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-3",
+      "topic": "종부세",
+      "body": "[자료] 공시 합산 40억, 다주택 한도 6억, 세율 2.5%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 과세표준 34억\n- 세금 8,500만\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "과세표준 34억",
+        "세금 8,500만"
+      ]
+    },
+    {
+      "id": "practice-8a-922",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-3",
+      "topic": "재평가 하락",
+      "body": "[자료] 장부 100억 (잉여 40), 시장 80억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 잉여 -20억 (자본 차감)\n- 잉여 잔액 20억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "잉여 -20억 (자본 차감)",
+        "잉여 잔액 20억"
+      ]
+    },
+    {
+      "id": "practice-8a-923",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-1",
+      "topic": "담보 부담권리 시나리오",
+      "body": "[자료] 시장 30억, 담보율 70%. LTV 60%. 부담 1순위 5, 가압류 2, 임차 3억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 담보 21\n- LTV 12.6\n- 가용 12.6-5-2-3 = 2.6억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "담보 21",
+        "LTV 12.6",
+        "가용 12.6-5-2-3 = 2.6억"
+      ]
+    },
+    {
+      "id": "practice-8a-924",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-2",
+      "topic": "경매 유찰",
+      "body": "[자료] 감정 40억, 2회 유찰 (각 -20%) 후 낙찰 85%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 최저 25.6억\n- 낙찰 21.76억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "최저 25.6억",
+        "낙찰 21.76억"
+      ]
+    },
+    {
+      "id": "practice-8a-925",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-3",
+      "topic": "대부료 누계",
+      "body": "[자료] 시장 30억, 사용료율 5%, 20년. 5년마다 +3%/년 변동",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 1-5년 75백만/년 = 3.75억\n- 6-10 87백만 = 4.35억\n- 11-15 100백만 = 5억\n- 16-20 116백만 = 5.8억\n- 누계 약 18.9억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1-5년 75백만/년 = 3.75억",
+        "6-10 87백만 = 4.35억",
+        "11-15 100백만 = 5억",
+        "16-20 116백만 = 5.8억",
+        "누계 약 18.9억"
+      ]
+    },
+    {
+      "id": "practice-8a-926",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-3",
+      "topic": "REITs 상승",
+      "body": "[자료] NAV 40억, 시가총액 50억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 프리미엄 25%\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "프리미엄 25%"
+      ]
+    },
+    {
+      "id": "practice-8a-927",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-1",
+      "topic": "DSR",
+      "body": "[자료] 소득 1.5억, DSR 45%, 기존 원리금 3,000만, MC 0.06",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- DSR 한도 6,750만 - 3,000 = 3,750만\n- 원금 6.25억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "DSR 한도 6,750만 - 3,000 = 3,750만",
+        "원금 6.25억"
+      ]
+    },
+    {
+      "id": "practice-8a-928",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-3",
+      "topic": "양도세 + 보유",
+      "body": "[자료] 양도 18억, 취득 12억 (2017), 보유 9년 단기·중기 (공제 X), 세율 30%",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 양도소득 6억 → 세금 1.8억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "양도소득 6억 → 세금 1.8억"
+      ]
+    },
+    {
+      "id": "practice-8a-929",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-2",
+      "topic": "경매 대항력 + 인수",
+      "body": "[자료] 감정 30억, 낙찰 85% (25.5), 대항력 임차 5, 후순위 (소멸) 3",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 낙찰 25.5\n- 인수 5\n- 총 30.5억\n- 후순위 소멸 (배당)\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "낙찰 25.5",
+        "인수 5",
+        "총 30.5억",
+        "후순위 소멸 (배당)"
+      ]
+    },
+    {
+      "id": "practice-8a-930",
+      "subject": "감정평가실무",
+      "chapter": "8a",
+      "source": "practice-set",
+      "difficulty": 5,
+      "points": 40,
+      "subchapter": "8a-3",
+      "topic": "회계 처리",
+      "body": "[자료] 토지 30억, 재평가 잉여 10억. 토지 매각 50억",
+      "modelAnswer": "## Ⅰ. 서론\n\n복합 시나리오.\n\n## Ⅱ. 본론\n\n- 매각이익 (회계) 20억\n- 잉여 10억 → 이익잉여금 대체\n- 손익 인식 20억\n\n## Ⅲ. 결론\n\n다중 자료 종합.",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "매각이익 (회계) 20억",
+        "잉여 10억 → 이익잉여금 대체",
+        "손익 인식 20억"
       ]
     }
   ]
