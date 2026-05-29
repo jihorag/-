@@ -1,14 +1,14 @@
 {
-  "built_at": "2026-05-29T02:07:42.941662+00:00",
+  "built_at": "2026-05-29T02:11:47.948175+00:00",
   "subject": "감정평가실무",
-  "total": 1047,
+  "total": 2722,
   "chapters": [
     {
       "id": "2a",
       "title": "3방식기초 공시지가·거래사례·원가",
       "file": "2a.json",
-      "count": 347,
-      "withAnswer": 347,
+      "count": 373,
+      "withAnswer": 373,
       "matchedAnswer": 365,
       "rounds": [
         1,
@@ -192,8 +192,8 @@
       "id": "3",
       "title": "건물·복합·구분·임대료",
       "file": "3.json",
-      "count": 118,
-      "withAnswer": 118,
+      "count": 317,
+      "withAnswer": 317,
       "matchedAnswer": 307,
       "rounds": [
         4,
@@ -308,8 +308,8 @@
       "id": "4",
       "title": "유형별 평가",
       "file": "4.json",
-      "count": 65,
-      "withAnswer": 65,
+      "count": 261,
+      "withAnswer": 261,
       "matchedAnswer": 283,
       "rounds": [
         24
@@ -327,8 +327,8 @@
       "id": "5",
       "title": "비가치추계·기업가치·무형자산",
       "file": "5.json",
-      "count": 85,
-      "withAnswer": 85,
+      "count": 289,
+      "withAnswer": 289,
       "matchedAnswer": 293,
       "rounds": [
         10,
@@ -378,8 +378,8 @@
       "id": "6a",
       "title": "토지보상 기본·원칙",
       "file": "6a.json",
-      "count": 64,
-      "withAnswer": 64,
+      "count": 273,
+      "withAnswer": 273,
       "matchedAnswer": 275,
       "rounds": [
         2,
@@ -417,8 +417,8 @@
       "id": "6b",
       "title": "토지보상 공법상제한·특수",
       "file": "6b.json",
-      "count": 64,
-      "withAnswer": 64,
+      "count": 266,
+      "withAnswer": 266,
       "matchedAnswer": 272,
       "rounds": [
         8,
@@ -453,8 +453,8 @@
       "id": "7",
       "title": "건축물·영업·기타 보상",
       "file": "7.json",
-      "count": 60,
-      "withAnswer": 60,
+      "count": 270,
+      "withAnswer": 270,
       "matchedAnswer": 278,
       "rounds": [
         11,
@@ -502,8 +502,8 @@
       "id": "8a",
       "title": "목적별 평가",
       "file": "8a.json",
-      "count": 60,
-      "withAnswer": 60,
+      "count": 275,
+      "withAnswer": 275,
       "matchedAnswer": 275,
       "rounds": [
         6,
@@ -549,8 +549,8 @@
       "id": "8b",
       "title": "표준지·정비·불의타",
       "file": "8b.json",
-      "count": 50,
-      "withAnswer": 50,
+      "count": 264,
+      "withAnswer": 264,
       "matchedAnswer": 269,
       "rounds": [
         7,

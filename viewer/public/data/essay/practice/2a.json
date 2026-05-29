@@ -4,7 +4,7 @@
   "chapter": "2a",
   "chapterTitle": "3방식기초 공시지가·거래사례·원가",
   "source": "official",
-  "count": 347,
+  "count": 373,
   "withAnswer": 22,
   "matchedAnswer": 22,
   "rounds": [
@@ -6824,6 +6824,448 @@
         "환급·추가납부"
       ],
       "subchapter": "2a-8"
+    },
+    {
+      "id": "practice-2a-471",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-1",
+      "topic": "시점 1.04",
+      "body": "[자료] 단가 8,000,000×1.04. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 8,320,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,320,000원"
+      ]
+    },
+    {
+      "id": "practice-2a-472",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-1",
+      "topic": "시점 1.05",
+      "body": "[자료] 단가 7,500,000×1.05. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 7,875,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,875,000원"
+      ]
+    },
+    {
+      "id": "practice-2a-473",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-1",
+      "topic": "6대 곱셈",
+      "body": "[자료] 1.05×1.03×0.97×1.02×1.0×1.01. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 1.070",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "1.070"
+      ]
+    },
+    {
+      "id": "practice-2a-474",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-1",
+      "topic": "그밖의 1.10",
+      "body": "[자료] 단가 9,000,000×1.10. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 9,900,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,900,000원"
+      ]
+    },
+    {
+      "id": "practice-2a-475",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-1",
+      "topic": "평가단가 종합",
+      "body": "[자료] 8,000×1.05×1.04×1.10. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 9,609,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9,609,000원"
+      ]
+    },
+    {
+      "id": "practice-2a-476",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-2",
+      "topic": "거래사례 시점",
+      "body": "[자료] 7,000,000×1.04. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 7,280,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,280,000원"
+      ]
+    },
+    {
+      "id": "practice-2a-477",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-2",
+      "topic": "사정보정",
+      "body": "[자료] 8,000,000/0.9. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 8,889,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "8,889,000원"
+      ]
+    },
+    {
+      "id": "practice-2a-478",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-2",
+      "topic": "개별요인",
+      "body": "[자료] 단가 ×0.98. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 감가",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "감가"
+      ]
+    },
+    {
+      "id": "practice-2a-479",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-3",
+      "topic": "정액법",
+      "body": "[자료] 잔가율 0.7. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 적산 ×0.7",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "적산 ×0.7"
+      ]
+    },
+    {
+      "id": "practice-2a-480",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-3",
+      "topic": "정률법",
+      "body": "[자료] 0.92^5. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 0.659",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "0.659"
+      ]
+    },
+    {
+      "id": "practice-2a-481",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-3",
+      "topic": "재조달",
+      "body": "[자료] 단가 1,800,000×2,500. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 45억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "45억"
+      ]
+    },
+    {
+      "id": "practice-2a-482",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-4",
+      "topic": "직접환원",
+      "body": "[자료] NOI 5억/7%. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 71.4억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "71.4억"
+      ]
+    },
+    {
+      "id": "practice-2a-483",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-4",
+      "topic": "EGI",
+      "body": "[자료] PGI 10억×0.92. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 9.2억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "9.2억"
+      ]
+    },
+    {
+      "id": "practice-2a-484",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-4",
+      "topic": "NOI",
+      "body": "[자료] EGI 9.2×0.72. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 6.62억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6.62억"
+      ]
+    },
+    {
+      "id": "practice-2a-485",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-5",
+      "topic": "시산 평균",
+      "body": "[자료] 60+70+80 /3. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 70억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "70억"
+      ]
+    },
+    {
+      "id": "practice-2a-486",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-5",
+      "topic": "가중평균",
+      "body": "[자료] 60×0.2+70×0.4+80×0.4. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 72억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "72억"
+      ]
+    },
+    {
+      "id": "practice-2a-487",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-6",
+      "topic": "보상 단가",
+      "body": "[자료] 9,000×1.08×1.05×1.15. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 11,737,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "11,737,000원"
+      ]
+    },
+    {
+      "id": "practice-2a-488",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-6",
+      "topic": "잔여지 손실",
+      "body": "[자료] (6,000-5,000)×200. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 2억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2억"
+      ]
+    },
+    {
+      "id": "practice-2a-489",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-6",
+      "topic": "구분지상",
+      "body": "[자료] 8,000,000×0.025×250. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 5,000만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5,000만"
+      ]
+    },
+    {
+      "id": "practice-2a-490",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-7",
+      "topic": "4월 영업",
+      "body": "[자료] 연 1.8×4/12. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 6,000만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "6,000만"
+      ]
+    },
+    {
+      "id": "practice-2a-491",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-7",
+      "topic": "폐업 2년",
+      "body": "[자료] 연 2.5×2. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 5억",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "5억"
+      ]
+    },
+    {
+      "id": "practice-2a-492",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-7",
+      "topic": "영농 통계",
+      "body": "[자료] 800×4,000×2. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 640만",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "640만"
+      ]
+    },
+    {
+      "id": "practice-2a-493",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-8",
+      "topic": "비례율",
+      "body": "[자료] (600-450)/150. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 100%",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "100%"
+      ]
+    },
+    {
+      "id": "practice-2a-494",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-8",
+      "topic": "권리·분담",
+      "body": "[자료] 2×1.10, 2.5-2.2. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 권리 2.2, 분담 0.3",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "권리 2.2, 분담 0.3"
+      ]
+    },
+    {
+      "id": "practice-2a-495",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-9",
+      "topic": "맹지 단가",
+      "body": "[자료] 4,000×0.7. 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 2,800,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "2,800,000원"
+      ]
+    },
+    {
+      "id": "practice-2a-496",
+      "subject": "감정평가실무",
+      "chapter": "2a",
+      "source": "practice-set",
+      "difficulty": 2,
+      "points": 10,
+      "subchapter": "2a-9",
+      "topic": "노선가",
+      "body": "[자료] 8,000,000×0.9 (깊이). 결과?",
+      "modelAnswer": "## 핵심 정리\n\n- 7,200,000원",
+      "modelAnswerSource": "ai-direct-essay",
+      "answerFormat": "essay-narrative",
+      "keyPoints": [
+        "7,200,000원"
+      ]
     },
     {
       "id": "practice-2a-497",
