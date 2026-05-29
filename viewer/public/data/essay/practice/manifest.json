@@ -1,7 +1,7 @@
 {
-  "built_at": "2026-05-29T05:17:11.350186+00:00",
+  "built_at": "2026-05-29T05:21:54.128034+00:00",
   "subject": "감정평가실무",
-  "total": 729,
+  "total": 769,
   "chapters": [
     {
       "id": "2a",
@@ -308,8 +308,8 @@
       "id": "4",
       "title": "유형별 평가",
       "file": "4.json",
-      "count": 4,
-      "withAnswer": 4,
+      "count": 24,
+      "withAnswer": 24,
       "matchedAnswer": 4,
       "rounds": [
         24
@@ -327,8 +327,8 @@
       "id": "5",
       "title": "비가치추계·기업가치·무형자산",
       "file": "5.json",
-      "count": 34,
-      "withAnswer": 34,
+      "count": 54,
+      "withAnswer": 54,
       "matchedAnswer": 34,
       "rounds": [
         10,
