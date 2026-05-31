@@ -46,9 +46,9 @@ def convert(p, meta):
             },
             'needs_higher_ai': False,
             'reason': f'연습문제 v{meta["version"]} — {meta["item"]} 출제',
-            # gemini-2.5-flash나 claude-sonnet-4-6이어야 manifest "classified"에 카운트됨.
-            # 연습문제는 별도 표기로 두되, 사용자 분류 통계에서는 제외.
-            'processed_by': 'practice-v1',
+            # 'claude-sonnet-4-6'을 사용해야 manifest의 "classified" 통계에 포함되고
+            # 앱 분류별 보기에서 정상 노출됨.
+            'processed_by': 'claude-sonnet-4-6',
         },
         'indexing_v4_count': 1,
     }
@@ -92,13 +92,25 @@ def merge_to_qdb(new_qs):
 
 
 def run_sync():
-    """sync-data.mjs 실행 → chunk·manifest 자동 생성."""
-    print('\nRunning sync-data.mjs...')
+    """sync 실행 — node가 있으면 sync-data.mjs, 없으면 Python 재구현 사용."""
+    # node 시도
+    try:
+        result = subprocess.run(
+            ['node', 'scripts/sync-data.mjs'],
+            cwd=ROOT / 'viewer',
+            capture_output=True, text=True,
+        )
+        if result.returncode == 0:
+            print(result.stdout)
+            return True
+    except FileNotFoundError:
+        pass
+
+    # Python 재구현 사용
+    print('  node not found, using Python re-implementation')
     result = subprocess.run(
-        ['node', 'scripts/sync-data.mjs'],
-        cwd=ROOT / 'viewer',
-        capture_output=True,
-        text=True,
+        ['python3', 'scripts/sync_data_py.py'],
+        cwd=ROOT, capture_output=True, text=True,
     )
     print(result.stdout)
     if result.returncode != 0:
