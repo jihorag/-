@@ -1,26 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""연습문제 JSON을 앱의 exam chunk 형식으로 변환·통합."""
+"""연습문제를 questions_db.json(정본)에 통합 후 sync-data로 chunk 자동 생성.
+
+흐름:
+  practice/economics/*.json → 변환 → questions_db.json(append) → sync-data.mjs → chunk
+"""
 import json
-import os
+import subprocess
 from pathlib import Path
-from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parent.parent
 PRACTICE_DIR = ROOT / 'viewer/public/data/practice/economics'
-EXAMS_DIR = ROOT / 'viewer/public/data/exams'
-MANIFEST_PATH = ROOT / 'viewer/public/data/manifest.json'
-
-# 연습문제 → 13.json
-TARGET_FILE = '13.json'
+QDB = ROOT / 'questions_db.json'
 EXAM_NAME = '[연습문제]'
 
 
-def convert_practice_question(p, meta, seq):
-    """연습문제 한 문제를 questions_db 호환 형식으로 변환."""
+def convert(p, meta):
     return {
         'id': p['id'],
-        'number': str(seq),
+        'number': '',
         'period': 'practice',
         'year': '2026',
         'exam_date': '2026-05-31',
@@ -48,86 +46,81 @@ def convert_practice_question(p, meta, seq):
             },
             'needs_higher_ai': False,
             'reason': f'연습문제 v{meta["version"]} — {meta["item"]} 출제',
+            # gemini-2.5-flash나 claude-sonnet-4-6이어야 manifest "classified"에 카운트됨.
+            # 연습문제는 별도 표기로 두되, 사용자 분류 통계에서는 제외.
             'processed_by': 'practice-v1',
         },
         'indexing_v4_count': 1,
     }
 
 
-def load_practice_files():
-    """practice/economics/ 하위 모든 JSON 로드."""
+def load_practice():
     qs = []
     if not PRACTICE_DIR.exists():
-        print(f'No practice dir: {PRACTICE_DIR}')
         return qs
-
-    seq = 1
     for fp in sorted(PRACTICE_DIR.glob('*.json')):
         with open(fp, encoding='utf-8') as f:
             data = json.load(f)
         meta = data.get('meta', {})
         for q in data.get('questions', []):
-            converted = convert_practice_question(q, meta, seq)
-            qs.append(converted)
-            seq += 1
-        print(f'  loaded {fp.name}: {len(data.get("questions", []))} questions')
-
+            qs.append(convert(q, meta))
+        print(f'  practice loaded: {fp.name} ({len(data.get("questions",[]))}문제)')
     return qs
 
 
-def write_chunk(qs):
-    """13.json에 기록."""
-    EXAMS_DIR.mkdir(parents=True, exist_ok=True)
-    target = EXAMS_DIR / TARGET_FILE
-    with open(target, 'w', encoding='utf-8') as f:
-        json.dump(qs, f, ensure_ascii=False, indent=2)
-    size = target.stat().st_size
-    print(f'\nWrote {target.name}: {len(qs)} qs, {size} bytes')
-    return size
+def merge_to_qdb(new_qs):
+    """questions_db.json에서 기존 연습문제 제거 후 새 연습문제 추가."""
+    with open(QDB, encoding='utf-8') as f:
+        db = json.load(f)
+
+    # 기존 연습문제 제거 (id가 'practice-' 시작하거나 exam이 [연습문제])
+    before = len(db)
+    db = [q for q in db if not (
+        q.get('id', '').startswith('practice-') or q.get('exam') == EXAM_NAME
+    )]
+    removed = before - len(db)
+    print(f'  removed {removed} prior practice questions from db')
+
+    # 새 연습문제 추가
+    db.extend(new_qs)
+    print(f'  added {len(new_qs)} new practice questions')
+
+    with open(QDB, 'w', encoding='utf-8') as f:
+        json.dump(db, f, ensure_ascii=False)
+    print(f'  questions_db.json: {len(db)} questions total')
+    return db
 
 
-def update_manifest(count, size):
-    """manifest.json에 [연습문제] exam 등록."""
-    with open(MANIFEST_PATH, encoding='utf-8') as f:
-        m = json.load(f)
-
-    # 기존 [연습문제] 엔트리 제거 (있으면 갱신)
-    m['exams'] = [e for e in m['exams'] if e['name'] != EXAM_NAME]
-
-    # 새 엔트리 추가
-    m['exams'].append({
-        'name': EXAM_NAME,
-        'file': TARGET_FILE,
-        'count': count,
-        'classified': count,
-        'years': ['2026'],
-        'sizeBytes': size,
-    })
-
-    # 정렬: 파일명 순서대로
-    m['exams'].sort(key=lambda e: e['file'])
-
-    # total/classified 재산정
-    m['total'] = sum(e['count'] for e in m['exams'])
-    m['classified'] = sum(e['classified'] for e in m['exams'])
-    m['built_at'] = datetime.now(timezone.utc).isoformat()
-
-    with open(MANIFEST_PATH, 'w', encoding='utf-8') as f:
-        json.dump(m, f, ensure_ascii=False, indent=2)
-    print(f'\nUpdated manifest.json:')
-    print(f'  [연습문제] {count}문제 등록 ({TARGET_FILE})')
-    print(f'  Total: {m["total"]}, Classified: {m["classified"]}')
+def run_sync():
+    """sync-data.mjs 실행 → chunk·manifest 자동 생성."""
+    print('\nRunning sync-data.mjs...')
+    result = subprocess.run(
+        ['node', 'scripts/sync-data.mjs'],
+        cwd=ROOT / 'viewer',
+        capture_output=True,
+        text=True,
+    )
+    print(result.stdout)
+    if result.returncode != 0:
+        print('stderr:', result.stderr)
+        return False
+    return True
 
 
 def main():
-    print('=== 연습문제 → 앱 통합 ===\n')
-    qs = load_practice_files()
-    if not qs:
+    print('=== 연습문제 → questions_db → app sync ===\n')
+    print('[1/3] 연습문제 로드')
+    practice_qs = load_practice()
+    if not practice_qs:
         print('No practice questions found.')
         return
-    size = write_chunk(qs)
-    update_manifest(len(qs), size)
-    print('\n✅ 앱 반영 완료')
+    print(f'\n[2/3] questions_db.json 통합')
+    merge_to_qdb(practice_qs)
+    print(f'\n[3/3] sync-data 실행 (chunk 자동 생성)')
+    if run_sync():
+        print('\n✅ 앱 반영 완료')
+        print(f'   dev: http://localhost:5173 (npm run dev)')
+        print(f'   build: npm run build')
 
 
 if __name__ == '__main__':
