@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-001",
+    "number": "1",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "경제학(economics)의 기본 정의로 가장 적절한 것은?",
+    "options": [
+      "화폐와 금융을 연구하는 학문",
+      "희소한 자원의 합리적 선택을 연구하는 학문",
+      "시장의 가격 결정만을 연구하는 학문",
+      "정부 정책을 연구하는 학문",
+      "부의 분배만을 연구하는 학문"
+    ],
+    "answer": "2",
+    "explanation": "경제학은 라이오넬 로빈스(L. Robbins)의 정의에 따라 '대체적 용도를 가지는 희소한 자원과 목표 간의 관계로서의 인간 행동을 연구하는 학문'이다. 핵심은 ① 자원의 희소성(scarcity)과 ② 합리적 선택이다. 다른 선택지들은 경제학의 일부 분야에 해당할 뿐 전체 정의로 부적절하다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 1,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 1,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-002",
+    "number": "2",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "미시경제학(microeconomics)의 주된 분석 대상은?",
+    "options": [
+      "국민소득의 결정",
+      "가계와 기업의 개별적 의사결정",
+      "통화량과 물가의 변동",
+      "국제수지와 환율의 결정",
+      "정부의 재정정책 효과"
+    ],
+    "answer": "2",
+    "explanation": "미시경제학은 가계·기업·산업 등 개별 경제주체의 의사결정과 시장에서의 자원배분 메커니즘을 분석한다. ①③④⑤는 거시경제학·국제경제학·재정학의 영역이다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 1,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 1,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-003",
+    "number": "3",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "거시경제학(macroeconomics)의 주된 연구 분야가 아닌 것은?",
+    "options": [
+      "국민총생산(GDP)",
+      "실업률과 인플레이션",
+      "개별 기업의 생산비용 곡선",
+      "통화정책과 이자율",
+      "경제성장과 경기변동"
+    ],
+    "answer": "3",
+    "explanation": "개별 기업의 생산비용 곡선은 미시경제학(생산자이론)의 영역이다. 거시경제학은 국민경제 전체의 총량변수(GDP·물가·실업·이자율)를 다룬다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 1,
+      "question_type": "틀린 것 고르기",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 1,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-004",
+    "number": "4",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "실증경제학(positive economics)과 규범경제학(normative economics)의 차이로 옳은 것은?",
+    "options": [
+      "실증경제학은 정책을 제안하고, 규범경제학은 사실을 분석한다.",
+      "실증경제학은 '어떠한가'를 다루고, 규범경제학은 '어떠해야 하는가'를 다룬다.",
+      "실증경제학은 거시경제학이고, 규범경제학은 미시경제학이다.",
+      "실증경제학은 정성적이고, 규범경제학은 정량적이다.",
+      "둘은 동일한 학문이며 구별이 없다."
+    ],
+    "answer": "2",
+    "explanation": "실증경제학은 사실판단(what is)을 다루는 학문으로 검증 가능한 사실 분석을 의미하고, 규범경제학은 가치판단(what ought to be)을 다루는 학문으로 정책 제안이나 평가가 중심이다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 1,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 1,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-005",
+    "number": "5",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "경제학의 기본 가정으로 옳은 것은?",
+    "options": [
+      "모든 자원이 무한히 풍부하다.",
+      "경제주체는 비합리적으로 행동한다.",
+      "자원은 희소하고 경제주체는 합리적으로 행동한다.",
+      "인간은 항상 이타적으로만 행동한다.",
+      "정부가 모든 자원을 분배한다."
+    ],
+    "answer": "3",
+    "explanation": "경제학의 두 기본 가정은 ① 자원의 희소성(scarcity)과 ② 경제주체의 합리적 선택(rational choice)이다. 이 두 가정에서 경제학의 핵심 문제인 '선택의 문제'가 도출된다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 1,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 1,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-006",
+    "number": "6",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "경제학을 분석 단위에 따라 미시경제학과 거시경제학으로 구분하는 기준은?",
+    "options": [
+      "시간의 길이 (단기·장기)",
+      "분석 대상의 범위 (개별·전체)",
+      "사용하는 수학의 종류",
+      "정부 개입의 정도",
+      "정책 옵션의 유무"
+    ],
+    "answer": "2",
+    "explanation": "미시경제학은 가계·기업 등 개별 경제주체(small unit)를 분석하고, 거시경제학은 국민경제 전체의 총량변수(large aggregate)를 분석한다. 분석 대상의 범위에 따른 구분이며, 'micro(작은)'와 'macro(큰)'의 어원과도 일치한다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 2,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 2,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-007",
+    "number": "7",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "부분균형분석(partial equilibrium analysis)과 일반균형분석(general equilibrium analysis)의 차이로 옳은 것은?",
+    "options": [
+      "부분균형은 단기, 일반균형은 장기를 다룬다.",
+      "부분균형은 한 시장만, 일반균형은 모든 시장의 상호작용을 분석한다.",
+      "부분균형은 거시, 일반균형은 미시 분석이다.",
+      "부분균형은 정태, 일반균형은 동태 분석이다.",
+      "부분균형은 실증, 일반균형은 규범 분석이다."
+    ],
+    "answer": "2",
+    "explanation": "부분균형분석(마샬)은 다른 조건을 일정하게 가정(ceteris paribus)하고 한 시장만 분리해서 분석한다. 일반균형분석(왈라스)은 모든 시장의 상호작용과 동시 균형을 다룬다. 부분균형은 분석이 단순하나 다른 시장의 파급효과를 간과할 수 있고, 일반균형은 종합적이나 복잡하다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 2,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 2,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-008",
+    "number": "8",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 중 미시경제학의 핵심 개념이 아닌 것은?",
+    "options": [
+      "수요와 공급",
+      "효용극대화",
+      "이윤극대화",
+      "통화승수",
+      "시장균형"
+    ],
+    "answer": "4",
+    "explanation": "통화승수(money multiplier)는 거시경제학(화폐금융론)의 개념으로, 본원통화 1단위 증가 시 총통화량이 얼마나 증가하는지를 나타낸다. 나머지(수요·공급, 효용극대화, 이윤극대화, 시장균형)는 모두 미시경제학의 핵심 개념이다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 2,
+      "question_type": "틀린 것 고르기",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 2,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-009",
+    "number": "9",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 중 응용경제학에 속하지 않는 것은?",
+    "options": [
+      "노동경제학",
+      "산업조직론",
+      "미시경제이론",
+      "환경경제학",
+      "도시경제학"
+    ],
+    "answer": "3",
+    "explanation": "미시경제이론은 응용경제학이 아니라 이론경제학(기본 이론 분야)에 속한다. 이론경제학은 미시·거시 이론의 토대를 제공하며, 노동·산업조직·환경·도시·재정·국제 등은 이론을 특정 분야에 적용한 응용경제학이다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 2,
+      "question_type": "틀린 것 고르기",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 2,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-010",
+    "number": "10",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "'다른 조건이 일정할 때(ceteris paribus)' 가정의 주된 목적은?",
+    "options": [
+      "모든 변수를 동시에 분석하기 위함",
+      "분석을 단순화하여 한 변수의 효과를 명확히 파악하기 위함",
+      "정부 개입의 필요성을 입증하기 위함",
+      "가설을 반증하기 위함",
+      "통계적 검정의 신뢰도를 높이기 위함"
+    ],
+    "answer": "2",
+    "explanation": "'ceteris paribus(라틴어: 다른 것은 같다)' 가정은 분석의 단순화를 위해 사용된다. 한 변수의 변화가 다른 변수에 미치는 효과만을 다른 영향과 분리해 명확히 파악하기 위한 방법론적 장치이다. 부분균형분석의 기초가 된다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 2,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 2,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-011",
+    "number": "11",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 명제 중 실증경제학의 명제로 옳은 것은?",
+    "options": [
+      "정부는 빈곤층을 더 많이 도와야 한다.",
+      "최저임금이 인상되면 단순노동의 고용이 감소한다.",
+      "세금은 가능한 한 낮추어야 한다.",
+      "부의 재분배는 정의로운 사회의 기초이다.",
+      "환경 보호는 경제 성장보다 중요하다."
+    ],
+    "answer": "2",
+    "explanation": "②는 사실에 대한 검증 가능한 진술로 실증명제이다(데이터로 진위 확인 가능). 나머지는 모두 '~해야 한다'는 가치판단을 포함한 규범명제이다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 2,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-012",
+    "number": "12",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "경제학의 기본 가정으로서 '합리적 행위(rational behavior)'의 의미로 옳은 것은?",
+    "options": [
+      "모든 행동이 도덕적이라는 의미",
+      "항상 같은 선택을 한다는 의미",
+      "주어진 정보와 제약 하에서 자신의 목표를 가장 잘 달성하도록 선택한다는 의미",
+      "감정에 따라 결정한다는 의미",
+      "다른 사람의 행동을 그대로 모방한다는 의미"
+    ],
+    "answer": "3",
+    "explanation": "경제학에서 합리성(rationality)은 주어진 정보·예산·시간 등의 제약 조건 하에서 자신의 목적(소비자는 효용극대화, 기업은 이윤극대화 등)을 가장 잘 달성하도록 일관된 선호에 따라 의사결정을 한다는 의미이다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 2,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 2,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-013",
+    "number": "13",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 설명에 해당하는 경제학자와 학파가 옳게 짝지어진 것은?\n\n[자료]\n「국부론(The Wealth of Nations, 1776)」을 저술하였고, '보이지 않는 손(invisible hand)'으로 시장의 자율 조정 기능을 강조하였다.",
+    "options": [
+      "케인즈(J.M. Keynes) - 케인즈학파",
+      "마르크스(K. Marx) - 마르크스 경제학",
+      "아담 스미스(A. Smith) - 고전학파",
+      "루카스(R. Lucas) - 새고전학파",
+      "프리드만(M. Friedman) - 통화주의"
+    ],
+    "answer": "3",
+    "explanation": "아담 스미스(1723~1790)는 1776년 「국부론」을 저술한 고전학파(Classical School)의 창시자이다. '보이지 않는 손'은 개별 경제주체의 사익 추구가 시장의 가격 메커니즘을 통해 사회 전체의 후생을 증대시킨다는 시장 자율 조정 원리를 의미한다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 3,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 3,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-014",
+    "number": "14",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 중 경제학 이론·모형의 구성요소가 아닌 것은?",
+    "options": [
+      "가정(assumption)",
+      "변수(variable)",
+      "가설(hypothesis)과 검증(verification)",
+      "함수관계(functional relationship)",
+      "분석가의 정치적 신념(political belief)"
+    ],
+    "answer": "5",
+    "explanation": "경제 모형은 ① 가정(assumption), ② 변수(variable, 내생·외생), ③ 함수관계(structural relationship), ④ 가설(hypothesis)과 검증(empirical testing)의 4가지 요소로 구성된다. 분석가의 정치적 신념은 모형 자체의 구성요소가 아니며, 객관적 분석을 해칠 수 있어 배제해야 한다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 3,
+      "question_type": "틀린 것 고르기",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 3,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-015",
+    "number": "15",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 설명 중 옳은 것을 모두 고른 것은?\n\nㄱ. 미시경제학은 일반균형분석을 주로 사용한다.\nㄴ. 거시경제학은 국민경제 전체를 분석한다.\nㄷ. 규범경제학은 정책 평가와 제안을 다룬다.\nㄹ. 실증경제학은 가정에 관계없이 항상 동일한 결론을 도출한다.",
+    "options": [
+      "ㄱ, ㄴ",
+      "ㄴ, ㄷ",
+      "ㄱ, ㄷ",
+      "ㄴ, ㄷ, ㄹ",
+      "ㄱ, ㄴ, ㄷ"
+    ],
+    "answer": "2",
+    "explanation": "ㄴㄷ만 옳다.\nㄱ ✗: 미시경제학은 주로 부분균형분석을 사용한다. 일반균형은 고급 분석에 활용.\nㄴ ✓: 거시경제학은 국민경제 전체의 총량을 분석한다.\nㄷ ✓: 규범경제학은 가치판단에 기반한 정책 평가·제안을 다룬다.\nㄹ ✗: 실증경제학도 가정·데이터·모형에 따라 다른 결론이 도출될 수 있다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 3,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-016",
+    "number": "16",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "경제 모형에서 내생변수(endogenous variable)와 외생변수(exogenous variable)에 관한 설명으로 옳은 것은?",
+    "options": [
+      "내생변수는 모형 외부에서 결정되고, 외생변수는 모형 내부에서 결정된다.",
+      "내생변수는 모형 내부에서 결정되고, 외생변수는 모형 외부에서 주어진다.",
+      "둘은 동일한 변수이며 구분되지 않는다.",
+      "내생변수는 양적 변수, 외생변수는 질적 변수이다.",
+      "내생변수는 정책변수, 외생변수는 자연환경 변수이다."
+    ],
+    "answer": "2",
+    "explanation": "내생변수(endogenous)는 모형 내에서 균형 조건에 의해 결정되는 변수이고(예: 수요·공급 모형에서 P와 Q), 외생변수(exogenous)는 모형 외부에서 주어지는 변수이다(예: 소득·기술수준·정부지출 등). 비교정태분석은 외생변수의 변화가 내생변수의 균형값에 미치는 영향을 분석한다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 3,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 3,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-017",
+    "number": "17",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "정태분석(static analysis)과 동태분석(dynamic analysis)의 차이로 옳은 것은?",
+    "options": [
+      "정태분석은 시간을 명시적으로 고려하고, 동태분석은 고려하지 않는다.",
+      "정태분석은 균형점만 분석하고, 동태분석은 균형 도달 과정과 시간경로를 분석한다.",
+      "정태분석은 거시, 동태분석은 미시 분석이다.",
+      "정태분석은 단기, 동태분석은 장기를 다룬다.",
+      "정태분석은 양적 분석, 동태분석은 질적 분석이다."
+    ],
+    "answer": "2",
+    "explanation": "정태분석은 특정 시점의 균형 상태에 초점을 맞춘다. 동태분석은 시간이 흐름에 따라 변수가 어떻게 변화하며 균형에 도달하는지(adjustment path)와 그 안정성(stability)을 분석한다. 비교정태분석은 정태분석의 한 유형이다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 3,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 3,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-018",
+    "number": "18",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 중 경제학의 응용 분야와 그 분석 대상이 잘못 짝지어진 것은?",
+    "options": [
+      "노동경제학 - 임금 결정과 실업의 분석",
+      "산업조직론 - 시장구조·기업행동·경쟁의 분석",
+      "환경경제학 - 외부효과와 환경규제의 분석",
+      "정보경제학 - 비대칭정보와 역선택·도덕적 해이",
+      "화폐금융론 - 개별 소비자의 효용극대화 결정"
+    ],
+    "answer": "5",
+    "explanation": "화폐금융론은 통화공급·통화수요·이자율·금융제도를 다루는 거시경제학의 분야이다. 개별 소비자의 효용극대화 결정은 미시경제학의 소비자이론에 속한다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 3,
+      "question_type": "틀린 것 고르기",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 3,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-019",
+    "number": "19",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "케인즈학파와 고전학파의 주요 차이점으로 옳은 것은?",
+    "options": [
+      "케인즈학파는 시장 자율, 고전학파는 정부 개입을 주장한다.",
+      "케인즈학파는 단기 가격 경직성, 고전학파는 가격 신축성을 가정한다.",
+      "케인즈학파는 공급 측, 고전학파는 수요 측 분석을 강조한다.",
+      "케인즈학파는 통화정책, 고전학파는 재정정책을 강조한다.",
+      "케인즈학파는 미시, 고전학파는 거시 분석이다."
+    ],
+    "answer": "2",
+    "explanation": "고전학파는 가격이 신축적으로 조정되어 시장이 항상 균형(완전고용 균형)을 회복한다고 본다(세이의 법칙). 케인즈학파는 단기에 가격·임금이 경직적이므로 유효수요 부족으로 비자발적 실업이 지속될 수 있다고 보아 정부의 적극적 재정정책을 주장한다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 3,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 3,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-020",
+    "number": "20",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 명제 중 규범경제학의 명제만을 모두 고른 것은?\n\nㄱ. 최저임금 인상은 단순노동의 실업률을 증가시킨다.\nㄴ. 정부는 경제성장보다 소득 분배에 더 신경써야 한다.\nㄷ. 인플레이션은 실질소득의 분포를 변화시킨다.\nㄹ. 부유세는 도입되어야 한다.",
+    "options": [
+      "ㄱ, ㄴ",
+      "ㄴ, ㄹ",
+      "ㄱ, ㄷ",
+      "ㄴ, ㄷ",
+      "ㄷ, ㄹ"
+    ],
+    "answer": "2",
+    "explanation": "ㄴㄹ만 가치판단('해야 한다')을 포함한 규범명제이다. ㄱㄷ은 사실에 대한 진술로 실증명제(검증 가능)이다. 실증 vs 규범의 핵심 차이는 '~한다'(사실)와 '~해야 한다'(가치판단)에 있다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 3,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-021",
+    "number": "21",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "비교정태분석(comparative statics)의 정의로 옳은 것은?",
+    "options": [
+      "시간 경로에 따른 변수의 동적 변화 분석",
+      "외생변수의 변화에 따른 두 균형점을 비교하는 분석",
+      "가격과 수량의 동시 결정 분석",
+      "정부 정책의 후생 효과 측정",
+      "균형의 안정성에 대한 수학적 증명"
+    ],
+    "answer": "2",
+    "explanation": "비교정태분석(comparative statics)은 외생변수가 변할 때, 변하기 전의 균형과 변한 후의 균형을 비교하여 변화의 방향과 크기를 분석하는 방법이다. 폴 사무엘슨이 「경제분석의 기초(1947)」에서 체계화하였다. 도달 과정은 다루지 않으며, 도달 과정 분석은 동태분석의 영역이다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 3,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 3,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-022",
+    "number": "22",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 중 합리적 선택의 가정이 가장 강하게 적용되는 경제학 분야는?",
+    "options": [
+      "행동경제학(behavioral economics)",
+      "신고전학파 미시경제학(neoclassical microeconomics)",
+      "진화경제학(evolutionary economics)",
+      "제도경제학(institutional economics)",
+      "마르크스 경제학(Marxian economics)"
+    ],
+    "answer": "2",
+    "explanation": "신고전학파 미시경제학은 완전한 합리성과 효용극대화의 가정을 가장 강하게 적용한다. 행동경제학(카네만·탈러)은 비합리적 행동과 제한된 합리성을 분석하며, 진화·제도·마르크스 경제학은 각각 다른 가정과 분석틀을 사용한다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 3,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 3,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-023",
+    "number": "23",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음은 경제학 사조와 주요 주장에 관한 설명이다. 옳지 않은 것은?",
+    "options": [
+      "고전학파(아담 스미스 등): '보이지 않는 손'에 의한 시장 자율 조정과 자유방임 옹호",
+      "신고전학파(마샬·왈라스 등): 한계효용·한계생산성 분석과 일반균형이론 발전",
+      "케인즈학파: 단기 가격 경직성과 유효수요 부족에 따른 정부 개입의 필요성",
+      "새고전학파(루카스 등): 합리적 기대와 가격 신축성, 실물경기변동이론 발전",
+      "통화주의(프리드만): 적극적 재정정책 강조, 통화정책의 무용성 주장"
+    ],
+    "answer": "5",
+    "explanation": "통화주의(monetarism, M. Friedman)는 통화정책의 중요성을 강조하고 재정정책의 효과를 비판한 학파이다. 'k% 룰'(통화량 일정 비율 증가)을 주장하였다. 적극적 재정정책 강조는 케인즈학파의 핵심 주장이다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 4,
+      "question_type": "틀린 것 고르기",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 4,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-024",
+    "number": "24",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "수요·공급 모형에서 다음 변수들이 옳게 분류된 것은?\n\n[변수]\n- P: 가격\n- Q: 거래량\n- I: 소비자 소득\n- W: 원자재 가격\n\n(단, 일반적인 부분균형분석을 가정한다.)",
+    "options": [
+      "내생변수: P, Q, I / 외생변수: W",
+      "내생변수: P, Q / 외생변수: I, W",
+      "내생변수: I, W / 외생변수: P, Q",
+      "내생변수: P / 외생변수: Q, I, W",
+      "내생변수: I / 외생변수: P, Q, W"
+    ],
+    "answer": "2",
+    "explanation": "수요·공급 모형에서 시장균형에 의해 결정되는 P(가격)와 Q(거래량)가 내생변수이다. 소비자 소득(I)은 수요곡선을 이동시키는 외생적 요인이고, 원자재 가격(W)은 공급곡선을 이동시키는 외생적 요인이다. 비교정태분석에서는 I나 W의 변화가 균형 P·Q에 미치는 영향을 분석한다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 4,
+      "question_type": "이론형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 4,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-025",
+    "number": "25",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 설명 중 옳은 것을 모두 고른 것은?\n\nㄱ. 신고전학파 종합(neoclassical synthesis)은 케인즈 거시경제학과 신고전학파 미시경제학을 결합하였다.\nㄴ. 새고전학파(new classical)는 합리적 기대 가설을 도입하여 정책무력성정리를 주장하였다.\nㄷ. 새케인즈학파(new Keynesian)는 가격경직성에 대한 미시적 기초를 메뉴비용·효율임금 등으로 설명하였다.\nㄹ. 실물경기변동이론(RBC)은 통화적 충격을 경기변동의 주요 원인으로 본다.",
+    "options": [
+      "ㄱ, ㄴ",
+      "ㄴ, ㄷ",
+      "ㄱ, ㄴ, ㄷ",
+      "ㄴ, ㄷ, ㄹ",
+      "ㄱ, ㄴ, ㄷ, ㄹ"
+    ],
+    "answer": "3",
+    "explanation": "ㄱㄴㄷ 옳음. ㄹ ✗: 실물경기변동이론(RBC, Kydland·Prescott)은 기술충격 등 실물 요인이 경기변동의 주된 원인이라고 본다. 통화적 충격을 강조하는 것은 통화주의이다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 4,
+      "question_type": "보기 결합형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 4,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-026",
+    "number": "26",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음은 경제학의 분석 방법에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 부분균형분석은 알프레드 마샬(A. Marshall)이 「경제학원리(1890)」에서 발전시켰다.\nㄴ. 일반균형분석은 레옹 왈라스(L. Walras)가 「순수경제학요론(1874)」에서 정립하였다.\nㄷ. 비교정태분석은 슘페터(J. Schumpeter)가 처음 사용하였다.\nㄹ. 동태분석은 시간을 명시적으로 도입하여 변수의 변화 경로를 추적한다.",
+    "options": [
+      "ㄱ, ㄴ",
+      "ㄱ, ㄴ, ㄹ",
+      "ㄱ, ㄷ",
+      "ㄴ, ㄷ, ㄹ",
+      "ㄱ, ㄴ, ㄷ, ㄹ"
+    ],
+    "answer": "2",
+    "explanation": "ㄱㄴㄹ 옳음. ㄷ ✗: 비교정태분석(comparative statics)을 체계화한 학자는 폴 사무엘슨(P. Samuelson)이다. 그의 「경제분석의 기초(1947)」가 대표 저서이다. 슘페터는 혁신(innovation)과 동태적 경제발전이론으로 유명하다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 4,
+      "question_type": "보기 결합형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 4,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-027",
+    "number": "27",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "경제학에서 합리성의 가정에 대한 비판과 대안적 접근에 관한 설명으로 옳은 것은?",
+    "options": [
+      "행동경제학은 사이먼의 '제한된 합리성'과 휴리스틱·편향을 도입하여 신고전학파의 완전 합리성을 보완·비판한다.",
+      "신고전학파는 합리성을 약화시키고 비합리적 행동을 적극 모형화하였다.",
+      "마르크스 경제학은 모든 경제주체의 완전한 합리성을 가정한다.",
+      "합리적 기대 가설은 경제주체가 비합리적으로 의사결정한다고 가정한다.",
+      "정보경제학은 합리성 자체를 부정한다."
+    ],
+    "answer": "1",
+    "explanation": "행동경제학(D. Kahneman, R. Thaler 등)은 허버트 사이먼의 '제한된 합리성(bounded rationality)' 개념을 발전시키고, 휴리스틱(heuristics)과 인지적 편향(cognitive bias)을 실증적으로 분석하여 신고전학파의 완전 합리성 가정을 보완·비판하였다. 카네만은 2002년, 탈러는 2017년 노벨경제학상을 수상하였다.",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 4,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-028",
+    "number": "28",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음은 경제학 사조의 발전사이다. 시대 순서로 옳게 나열한 것은?\n\nㄱ. 마샬·왈라스·맹거 등이 한계효용과 부분균형·일반균형을 발전시킨 학파\nㄴ. 아담 스미스가 시장 자율 조정 메커니즘과 자유방임을 옹호한 학파\nㄷ. 대공황 이후 정부 개입의 필요성을 주장하고 거시경제학을 정립한 학파\nㄹ. 루카스 등이 합리적 기대와 실물경기변동을 강조한 학파\nㅁ. 가격경직성과 비대칭정보를 미시적 기초로 분석한 학파",
+    "options": [
+      "ㄴ → ㄱ → ㄷ → ㄹ → ㅁ",
+      "ㄱ → ㄴ → ㄷ → ㄹ → ㅁ",
+      "ㄴ → ㄷ → ㄱ → ㄹ → ㅁ",
+      "ㄱ → ㄷ → ㄴ → ㅁ → ㄹ",
+      "ㄴ → ㄱ → ㄹ → ㄷ → ㅁ"
+    ],
+    "answer": "1",
+    "explanation": "경제학 사조의 시대 순서:\nㄴ 고전학파 (18~19세기 초, 아담 스미스 1776) →\nㄱ 신고전학파 (19세기 말 한계혁명, 마샬·왈라스·맹거) →\nㄷ 케인즈학파 (1930년대, 케인즈 1936 「일반이론」) →\nㄹ 새고전학파 (1970년대, 루카스·실물경기변동이론) →\nㅁ 새케인즈학파 (1980년대~, 가격경직성·비대칭정보 미시적 기초)",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 5,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-029",
+    "number": "29",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 진술 중 실증경제학·규범경제학의 구분이 옳은 것을 모두 고른 것은?\n\nA. 최저임금 인상이 단순노동 고용을 감소시키는 효과는 실증경제학의 분석 대상이다.\nB. '최저임금 인상으로 인한 고용 감소를 감수하더라도 저소득층 보호를 위해 시행해야 한다'는 실증경제학의 명제이다.\nC. 환율 절하의 J-curve 효과 분석은 실증경제학의 분석 대상이다.\nD. '정부는 경제성장보다 환경 보호를 우선해야 한다'는 규범경제학의 영역이다.\nE. 인플레이션이 실질임금에 미치는 영향을 측정하는 것은 규범경제학에 속한다.",
+    "options": [
+      "A, B, C, D",
+      "A, C, D, E",
+      "B, D, E",
+      "A, B, C",
+      "A, C, D"
+    ],
+    "answer": "5",
+    "explanation": "A·C·D 구분이 옳다.\nA ✓: 고용 효과 측정은 사실 분석 → 실증경제학.\nB ✗: '시행해야 한다'는 가치판단 → 규범경제학(잘못 분류).\nC ✓: J-curve 효과는 사실 분석 → 실증경제학.\nD ✓: '우선해야 한다'는 가치판단 → 규범경제학.\nE ✗: 실질임금 영향 측정은 사실 분석 → 실증경제학(잘못 분류).",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 5,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  },
+  {
+    "id": "practice-econ-micro-ch01-sec01-item01-030",
+    "number": "30",
+    "period": "practice",
+    "year": "2026",
+    "exam_date": "2026-05-31",
+    "question": "다음 경제학자와 그들의 핵심 기여를 옳게 짝지은 것을 모두 고른 것은?\n\nA. 아담 스미스 - 「국부론」, '보이지 않는 손', 분업의 이점\nB. 알프레드 마샬 - 「경제학원리」, 부분균형분석, 수요·공급 도해\nC. 존 메이너드 케인즈 - 「일반이론」, 유효수요 원리, 정부 개입\nD. 밀턴 프리드만 - 통화주의, 자연실업률 가설, 항상소득가설\nE. 폴 사무엘슨 - 「경제분석의 기초」, 비교정태분석, 신고전학파 종합\nF. 로버트 루카스 - 합리적 기대, 정책무력성정리, 루카스 비판",
+    "options": [
+      "A, B, C, D",
+      "A, B, C, E",
+      "A, B, C, D, E",
+      "A, B, D, E, F",
+      "A, B, C, D, E, F"
+    ],
+    "answer": "5",
+    "explanation": "6명 모두 옳게 짝지어졌다.\nA 아담 스미스(1776): 「국부론」·보이지 않는 손·분업\nB 알프레드 마샬(1890): 「경제학원리」·부분균형·수요공급 도해\nC J.M. 케인즈(1936): 「일반이론」·유효수요·정부 개입\nD 밀턴 프리드만(1957~): 항상소득가설·통화주의·자연실업률(1968)\nE 폴 사무엘슨(1947): 「경제분석의 기초」·비교정태분석·신고전학파 종합\nF 로버트 루카스(1976): 루카스 비판·합리적 기대·정책무력성정리(1995년 노벨상)",
+    "subject": "경제학원론",
+    "tags": {
+      "subject": "경제학원론",
+      "is_practice": true,
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "system_note": "practice-v1"
+    },
+    "exam": "[연습문제]",
+    "indexing_v4": {
+      "difficulty": 5,
+      "mapped_taxonomy": {
+        "subject": "경제학원론",
+        "sub_subject": "미시경제학",
+        "chapter": "제1장 경제학의 기초",
+        "section": "제1절 경제학의 개요",
+        "item": "제1관 경제학의 정의와 분류"
+      },
+      "needs_higher_ai": false,
+      "reason": "연습문제 vv1 — 제1관 경제학의 정의와 분류 출제",
+      "processed_by": "practice-v1"
+    },
+    "indexing_v4_count": 1
+  }
+]
