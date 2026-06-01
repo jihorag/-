@@ -1696,6 +1696,58 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           <RotateCcw size={14} /> 복습 만기 {due.length}개
         </div>
       )}
+      {mockSession && (() => {
+        const elapsed = Math.floor((Date.now() - mockSession.startedAt) / 1000);
+        const totalSec = mockSession.totalMin * 60;
+        const remaining = Math.max(0, totalSec - elapsed);
+        const mm = Math.floor(remaining / 60);
+        const ss = String(remaining % 60).padStart(2, '0');
+        const overTime = elapsed > totalSec;
+        const acc = mockSession.scores.reduce((a, x) => a + x.score, 0);
+        const accMax = mockSession.scoreDist.slice(0, Math.max(mockSession.scores.length, mockSession.curQ - 1)).reduce((a, x) => a + x, 0);
+        const totalMax = mockSession.scoreDist.reduce((a, x) => a + x, 0);
+        const progress = (mockSession.scores.length / mockSession.totalQ) * 100;
+        return (
+          <div style={{
+            padding: '8px 12px', background: 'linear-gradient(90deg, #ede9fe 0%, #ddd6fe 100%)',
+            borderBottom: '1px solid #c4b5fd',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6, flexWrap: 'wrap' }}>
+              <span style={{ fontWeight: 800, color: '#5b21b6', fontSize: '0.85rem' }}>
+                🎬 실전 모의 {mockSession.curQ}/{mockSession.totalQ}
+              </span>
+              <span style={{ fontSize: '0.74rem', color: '#7c3aed', fontWeight: 700 }}>
+                ⏱ {overTime ? '+' : ''}{mm}:{ss}{overTime && ' 초과'}
+              </span>
+              <span style={{ fontSize: '0.74rem', color: '#5b21b6' }}>
+                누적 {acc}/{accMax || 0}점 (만점 {totalMax})
+              </span>
+              <button onClick={endMock}
+                style={{ marginLeft: 'auto', padding: '3px 9px', fontSize: '0.7rem', fontWeight: 700,
+                  background: '#fff', color: '#991b1b', border: '1px solid #fecaca', borderRadius: 6, cursor: 'pointer' }}>
+                중단
+              </button>
+            </div>
+            <div style={{ height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden' }}>
+              <div style={{ width: `${progress}%`, height: '100%', background: '#7c3aed', transition: 'width .3s' }} />
+            </div>
+            {mockSession.complete && (
+              <div style={{ marginTop: 8, padding: 8, background: '#fff', borderRadius: 6, border: '1px solid #c4b5fd' }}>
+                <div style={{ fontWeight: 800, color: '#5b21b6', marginBottom: 4 }}>
+                  ✅ 모의 완료 — 총 {acc}/{totalMax}점 ({Math.round((acc / totalMax) * 100)}%)
+                </div>
+                <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', fontSize: '0.72rem', color: '#374151' }}>
+                  {mockSession.scores.map((sc, i) => (
+                    <span key={i} style={{ background: '#f3f4f6', padding: '2px 6px', borderRadius: 4 }}>
+                      Q{sc.q}: {sc.score}/{sc.max}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       <div style={{ padding: '8px 12px', borderBottom: '1px solid #e5e7eb', background: '#f9fafb' }}>
         <div style={{ display: 'flex', gap: 4, marginBottom: 8, overflowX: 'auto', paddingBottom: 2 }}>
