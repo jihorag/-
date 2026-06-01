@@ -1035,6 +1035,39 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     setConfirmAction({ label, danger: !!danger, onYes });
   };
 
+  // 학습 진척 즉시 초기화 — native confirm 사용해 항상 보이도록
+  const doResetProgress = useCallback(() => {
+    if (typeof window !== 'undefined' && !window.confirm(
+      '대화·세션·진척도를 모두 초기화하시겠습니까?\nAPI 키와 설정은 유지됩니다.'
+    )) return;
+    if (abortRef.current) abortRef.current.abort();
+    resetLearningProgress();
+    setMessages([]);
+    setMasteryState({});
+    setDue([]);
+    setSessionId(null);
+    setPendingNext(null);
+    setRecentRooms([]);
+    setConfirmAction(null);
+    // current 초기화 후 default leaf로 재설정
+    setCurrentState(null);
+    setCurrent(null);
+    if (indexMeta?.default_leaf) {
+      const def = (indexMeta.leaves || []).find((l) => l.id === indexMeta.default_leaf) || (indexMeta.leaves || [])[0];
+      if (def) {
+        const next = { subject: subjectId, leaf_id: def.id };
+        setCurrentState(next);
+        setCurrent(next);
+      }
+    }
+    setShowSettings(false);
+    setShowHistory(false);
+    setShowAnalytics(false);
+    if (typeof window !== 'undefined' && window.alert) {
+      window.alert('✅ 학습 진척이 초기화되었습니다.');
+    }
+  }, [indexMeta, subjectId]);
+
   const curLeaf = leaves.find((l) => l.id === current?.leaf_id);
   const cap = canSendMessage();
 
@@ -1077,23 +1110,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             usage={getUsage()}
             onSave={(patch) => { const next = setPrefs(patch); setPrefsState(next); }}
             onClearKey={() => { setByok(null); setByokState(''); }}
-            onResetProgress={() => {
-              askConfirm('대화·세션·진척도 전부 초기화 (API 키·설정 유지)', true, () => {
-                resetLearningProgress();
-                setMessages([]);
-                setMasteryState({});
-                setDue([]);
-                setCurrentState(null);
-                setSessionId(null);
-                setPendingNext(null);
-                setRecentRooms([]);
-                if (indexMeta?.default_leaf) {
-                  const def = indexMeta.leaves.find((l) => l.id === indexMeta.default_leaf) || indexMeta.leaves[0];
-                  if (def) { const next = { subject: 'civil', leaf_id: def.id }; setCurrentState(next); setCurrent(next); }
-                }
-                setShowSettings(false);
-              });
-            }}
+            onResetProgress={doResetProgress}
           />
         </div>
       )}
@@ -1394,23 +1411,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             usage={getUsage()}
             onSave={(patch) => { const next = setPrefs(patch); setPrefsState(next); }}
             onClearKey={() => { setByok(null); setByokState(''); }}
-            onResetProgress={() => {
-              askConfirm('대화·세션·진척도 전부 초기화 (API 키·설정 유지)', true, () => {
-                resetLearningProgress();
-                setMessages([]);
-                setMasteryState({});
-                setDue([]);
-                setCurrentState(null);
-                setSessionId(null);
-                setPendingNext(null);
-                setRecentRooms([]);
-                if (indexMeta?.default_leaf) {
-                  const def = indexMeta.leaves.find((l) => l.id === indexMeta.default_leaf) || indexMeta.leaves[0];
-                  if (def) { const next = { subject: 'civil', leaf_id: def.id }; setCurrentState(next); setCurrent(next); }
-                }
-                setShowSettings(false);
-              });
-            }}
+            onResetProgress={doResetProgress}
           />
         </div>
       )}
