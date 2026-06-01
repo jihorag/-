@@ -680,11 +680,33 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
   return (
     <div className="app-shell" style={{ paddingBottom: 80, display: 'flex', flexDirection: 'column', height: '100vh' }}>
       <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '8px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <h2 style={{ margin: 0, fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: 6, color: '#111827' }}>
-          <Sparkles size={18} color="#4f46e5" /> AI 학습 · 민법
+        <h2 style={{ margin: 0, fontSize: '1rem', display: 'flex', alignItems: 'center', gap: 6, color: '#111827', flex: 1, minWidth: 0 }}>
+          <Sparkles size={18} color="#4f46e5" />
+          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            {curLeaf ? curLeaf.path.slice(-1)[0] : 'AI 학습'}
+          </span>
+          <span style={{ fontSize: '0.7rem', color: '#9ca3af', whiteSpace: 'nowrap' }}>
+            {messages.length > 0 ? `· ${messages.length}건` : ''}
+          </span>
         </h2>
-        <div style={{ display: 'flex', gap: 4 }}>
-          <button onClick={() => setShowHistory((v) => !v)} title="기록" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
+        <div style={{ display: 'flex', gap: 2 }}>
+          {messages.length > 0 && curLeaf && (
+            <button
+              onClick={() => {
+                if (!confirm(`"${curLeaf.path.slice(-1)[0]}" 채팅방을 초기화할까요?\n진척도는 유지됩니다.`)) return;
+                if (abortRef.current) abortRef.current.abort();
+                clearRoom(curLeaf.id);
+                setMessages([]);
+                setPendingNext(null);
+                setIdlePromptShown(false);
+              }}
+              title="이 채팅방 초기화"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}
+            >
+              <Trash2 size={17} color="#ef4444" />
+            </button>
+          )}
+          <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
             <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
           </button>
           <button onClick={() => setShowSettings((v) => !v)} title="설정" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
@@ -757,7 +779,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
 
       {showHistory && (
         <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
-          <HistoryPanel onClose={() => setShowHistory(false)} />
+          <HistoryPanel
+            leaves={leaves}
+            onClose={() => setShowHistory(false)}
+            onJump={(leaf) => { pickLeaf(leaf); setShowHistory(false); }}
+            onClearRoom={(leafId) => {
+              clearRoom(leafId);
+              if (leafId === current?.leaf_id) setMessages([]);
+            }}
+          />
         </div>
       )}
 
