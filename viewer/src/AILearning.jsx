@@ -999,6 +999,14 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [weakSuggestion, setWeakSuggestion] = useState([]);
   const [confirmAction, setConfirmAction] = useState(null); // {label, onYes}
   const [recentRooms, setRecentRooms] = useState(() => getAllRooms());
+  // 2차 실전 모의 세션 — null | { startedAt, totalMin, curQ, totalQ, scoreDist, scores: [{q, score, max, time_used_min}] }
+  const [mockSession, setMockSession] = useState(null);
+  const [mockTick, setMockTick] = useState(0);
+  useEffect(() => {
+    if (!mockSession) return;
+    const t = setInterval(() => setMockTick((x) => x + 1), 1000);
+    return () => clearInterval(t);
+  }, [mockSession]);
   const abortRef = useRef(null);
   const scrollRef = useRef(null);
   const idleTimerRef = useRef(null);
@@ -1236,6 +1244,18 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           });
           coverageBumped = true;
           setMasteryState(getMastery());
+          // 모의 세션 중이면 점수 누적
+          if (mockSession && !mockSession.complete) {
+            setMockSession((s) => ({
+              ...s,
+              scores: [...s.scores, {
+                q: s.curQ,
+                score: b.score,
+                max: b.max || s.scoreDist[s.curQ - 1],
+                time_used_min: b.time_used_min || 0,
+              }],
+            }));
+          }
         }
         if (b && b.session_summary && current) {
           const delta = Number(b.coverage_delta) || 0.05;
@@ -1285,6 +1305,38 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
   // 빠른 액션: input을 거치지 않고 즉시 send (overrideText 사용)
   const quickSend = (text) => { if (!streaming) send(text); };
+
+  // 2차 실전 모의 — 시작/종료 헬퍼
+  const startMock = () => {
+    const totalMin = subjectId === 'appraisal_law' ? 120 : 100;
+    const scoreDist = [40, 30, 20, 10];
+    setMockSession({
+      startedAt: Date.now(),
+      totalMin,
+      curQ: 1,
+      totalQ: 4,
+      scoreDist,
+      scores: [],
+      complete: false,
+    });
+    quickSend(`실전 모의 시작 — 4문제 세트 (${scoreDist.join('·')}점). 첫 번째 40점 문제부터 출제. 사례·자료 포함.`);
+  };
+  const endMock = () => setMockSession(null);
+  const nextMockQuestion = () => {
+    if (!mockSession) return;
+    if (mockSession.curQ >= mockSession.totalQ) {
+      // 종합 단계
+      setMockSession((s) => ({ ...s, complete: true }));
+      const total = mockSession.scores.reduce((a, x) => a + x.score, 0);
+      const max = mockSession.scoreDist.reduce((a, x) => a + x, 0);
+      quickSend(`모의 4문제 종료. 누적 ${total}/${max}점. 종합 분석·시간 사용·약점 단원 추천 표로 정리해줘.`);
+      return;
+    }
+    const nextQ = mockSession.curQ + 1;
+    const nextScore = mockSession.scoreDist[nextQ - 1];
+    setMockSession((s) => ({ ...s, curQ: nextQ }));
+    quickSend(`다음 ${nextQ}번 문제 (${nextScore}점) 출제해줘.`);
+  };
 
   // 인라인 confirm — 브라우저 confirm() 대체. 채팅 영역 하단에 카드로 표시.
   const askConfirm = (label, danger, onYes) => {
@@ -2163,10 +2215,11 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               ['🎯 40점 문제', '40점 짜리 사례형 논술 1개 출제.'],
               ['📖 모범 답안', '방금 문제 모범 답안 양식 보여줘.'],
             ],
-            mock_full: [
-              ['🎬 모의 시작', '실전 4문제 세트 시작. 첫 번째 40점 문제부터.'],
-              ['⏭️ 다음 문제', '다음 문제로.'],
-              ['🏁 마무리·종합', '4문제 종합 점수·시간 분석·약점 단원 추천.'],
+            mock_full: mockSession ? [
+              ['⏭️ 다음 문제', '__nextMock__'],
+              ['🏁 마무리·종합', '__endMock__'],
+            ] : [
+              ['🎬 모의 시작', '__startMock__'],
             ],
             calc_s2: [
               ['🧮 계산 시범', '이 논점 계산 산식을 단계별로 시범 보여줘.'],
@@ -2177,7 +2230,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             <button
               key={label}
               disabled={streaming || !cap.ok}
-              onClick={() => quickSend(prompt)}
+              onClick={() => {
+                if (prompt === '__startMock__') startMock();
+                else if (prompt === '__nextMock__') nextMockQuestion();
+                else if (prompt === '__endMock__') { setMockSession((s) => s ? { ...s, complete: true } : s); quickSend('모의 종료. 누적 점수·시간 분석·약점 단원 종합 정리.'); }
+                else quickSend(prompt);
+              }}
               style={{
                 flex: '0 0 auto', padding: '5px 10px', borderRadius: 14,
                 border: '1px solid #d1d5db', background: '#fff', color: '#374151',
