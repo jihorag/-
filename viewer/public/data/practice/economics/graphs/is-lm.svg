@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">Y</text>
+  <text x="20" y="15" font-weight="bold">r</text>
+  <!-- IS (우하향) -->
+  <line x1="60" y1="50" x2="320" y2="230" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="325" y="235" fill="#2563eb" font-weight="bold">IS</text>
+  <!-- LM (우상향) -->
+  <path d="M 60,200 Q 130,180 200,140 Q 270,90 320,50" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="325" y="50" fill="#dc2626" font-weight="bold">LM</text>
+  <!-- 균형 E -->
+  <circle cx="200" cy="140" r="4" fill="#111"/>
+  <text x="207" y="138">E</text>
+  <line x1="40" y1="140" x2="200" y2="140" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="20" y="144">r*</text>
+  <line x1="200" y1="140" x2="200" y2="240" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="193" y="258">Y*</text>
+  <text x="28" y="258">O</text>
+</svg>

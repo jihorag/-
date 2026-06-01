@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">L</text>
+  <text x="20" y="15" font-weight="bold">W</text>
+  <!-- 노동수요 Ld (우하향) -->
+  <line x1="60" y1="50" x2="320" y2="220" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="325" y="225" fill="#2563eb" font-weight="bold">Ld</text>
+  <!-- 노동공급 Ls (우상향) -->
+  <line x1="60" y1="230" x2="320" y2="50" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="325" y="50" fill="#dc2626" font-weight="bold">Ls</text>
+  <!-- 균형 E -->
+  <circle cx="190" cy="140" r="4" fill="#111"/>
+  <text x="198" y="138">E</text>
+  <line x1="40" y1="140" x2="190" y2="140" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="15" y="144">W*</text>
+  <line x1="190" y1="140" x2="190" y2="240" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="183" y="258">L*</text>
+  <!-- 최저임금 Wmin -->
+  <line x1="40" y1="90" x2="320" y2="90" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="10" y="94" fill="#b45309">Wmin</text>
+  <!-- 고용 (Ld at Wmin) -->
+  <circle cx="120" cy="90" r="3" fill="#2563eb"/>
+  <text x="105" y="80" fill="#2563eb" font-size="11">고용</text>
+  <!-- 구직 (Ls at Wmin) -->
+  <circle cx="260" cy="90" r="3" fill="#dc2626"/>
+  <text x="265" y="80" fill="#dc2626" font-size="11">구직</text>
+  <!-- 실업 영역 -->
+  <line x1="120" y1="90" x2="260" y2="90" stroke="#b45309" stroke-width="3" opacity="0.6"/>
+  <text x="170" y="105" fill="#b45309" font-size="11" font-weight="bold">실업</text>
+  <text x="28" y="258">O</text>
+</svg>

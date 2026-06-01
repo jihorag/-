@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">Q</text>
+  <text x="20" y="15" font-weight="bold">P</text>
+  <!-- 완전탄력 (수평) -->
+  <line x1="60" y1="90" x2="320" y2="90" stroke="#0ea5e9" stroke-width="2.5"/>
+  <text x="65" y="84" fill="#0ea5e9" font-size="11">완전탄력 ε=∞</text>
+  <!-- 탄력적 (평탄) -->
+  <line x1="80" y1="50" x2="320" y2="150" stroke="#2563eb" stroke-width="2"/>
+  <text x="270" y="155" fill="#2563eb" font-size="11">탄력 |ε|&gt;1</text>
+  <!-- 단위탄력 (직각 쌍곡선 근사) -->
+  <path d="M 80,40 Q 130,80 180,130 Q 230,180 320,210" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="200" y="120" fill="#7c3aed" font-size="11">단위 ε=1</text>
+  <!-- 비탄력 (가파름) -->
+  <line x1="150" y1="40" x2="220" y2="240" stroke="#dc2626" stroke-width="2"/>
+  <text x="225" y="220" fill="#dc2626" font-size="11">비탄력 |ε|&lt;1</text>
+  <!-- 완전비탄력 (수직) -->
+  <line x1="260" y1="20" x2="260" y2="240" stroke="#991b1b" stroke-width="2.5"/>
+  <text x="267" y="35" fill="#991b1b" font-size="11">완전비탄력 ε=0</text>
+  <text x="28" y="258">O</text>
+</svg>

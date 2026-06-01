@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">Y</text>
+  <text x="20" y="15" font-weight="bold">P</text>
+  <!-- 총수요 AD -->
+  <line x1="60" y1="50" x2="320" y2="220" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="325" y="225" fill="#2563eb" font-weight="bold">AD</text>
+  <!-- 단기 총공급 SAS (우상향) -->
+  <path d="M 60,210 Q 130,180 200,140 Q 270,100 320,40" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="325" y="40" fill="#dc2626" font-weight="bold">SAS</text>
+  <!-- 장기 총공급 LAS (수직) -->
+  <line x1="220" y1="20" x2="220" y2="240" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="225" y="30" fill="#7c3aed" font-weight="bold">LAS</text>
+  <text x="200" y="35" fill="#7c3aed" font-size="10">Y_f</text>
+  <!-- 균형 E -->
+  <circle cx="190" cy="140" r="4" fill="#111"/>
+  <text x="197" y="138">E</text>
+  <line x1="40" y1="140" x2="190" y2="140" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="20" y="144">P*</text>
+  <line x1="190" y1="140" x2="190" y2="240" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="183" y="258">Y*</text>
+  <text x="28" y="258">O</text>
+</svg>
