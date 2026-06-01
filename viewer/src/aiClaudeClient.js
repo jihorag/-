@@ -59,7 +59,7 @@ function getEndpoint(baseUrl) {
   return (baseUrl && baseUrl.trim()) ? baseUrl.trim().replace(/\/$/, '') + '/v1/messages' : API_URL;
 }
 
-export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, mode, currentMastery, recentSummary }) {
+export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, mode, currentMastery, recentSummary, leafPath }) {
   // Anthropic prompt caching: 큰 컨텐츠 블록에 cache_control 부여
   const blocks = [
     { type: 'text', text: SYSTEM_RULES + (mode === 'practice' ? PRACTICE_RULES : '') },
@@ -91,7 +91,10 @@ export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, m
       cache_control: { type: 'ephemeral' },
     });
   }
+  // ⚠️ leafPath, mastery, recentSummary는 항상 변하므로 cache_control 없이 마지막에 둔다.
+  // 캐시 prefix(인수인계+섹션)는 leaf 전환에도 그대로 유지된다.
   const stateLines = [];
+  if (leafPath) stateLines.push(`[현재 단원] ${leafPath}`);
   if (currentMastery) {
     stateLines.push(
       `진척: coverage=${(currentMastery.coverage * 100).toFixed(0)}%, ` +

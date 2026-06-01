@@ -232,7 +232,9 @@ function ApiKeyForm({ initial, onSave }) {
 }
 
 function SettingsPanel({ prefs, onSave, onClearKey, usage }) {
-  const today = usage[todayStr()] || { messages: 0, input_tokens: 0, output_tokens: 0 };
+  const today = usage[todayStr()] || { messages: 0, input_tokens: 0, cache_read: 0, cache_write: 0, output_tokens: 0 };
+  const cacheTotal = (today.cache_read || 0) + (today.cache_write || 0);
+  const cacheHit = cacheTotal > 0 ? Math.round(((today.cache_read || 0) / cacheTotal) * 100) : 0;
   return (
     <div style={{ padding: 16, background: '#fff', borderRadius: 12, border: '1px solid #e5e7eb' }}>
       <h3 style={{ margin: '0 0 12px 0', fontSize: '1rem' }}>설정</h3>
@@ -242,9 +244,22 @@ function SettingsPanel({ prefs, onSave, onClearKey, usage }) {
         onChange={(e) => onSave({ model: e.target.value })}
         style={{ width: '100%', padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.9rem', marginBottom: 12 }}
       >
-        <option value={MODELS.primary}>Sonnet 4.6 (권장)</option>
-        <option value={MODELS.fast}>Haiku 4.5 (빠름·저렴)</option>
+        <option value={MODELS.primary}>Sonnet 4.6 (균형)</option>
+        <option value={MODELS.fast}>Haiku 4.5 (빠름·저렴 ⚡)</option>
         <option value={MODELS.premium}>Opus 4.7 (최고품질·비쌈)</option>
+      </select>
+      <label style={{ display: 'block', fontSize: '0.85rem', color: '#374151', marginBottom: 4 }}>
+        응답 길이 상한 (max_tokens) — 줄이면 더 빠른 응답
+      </label>
+      <select
+        value={prefs.max_tokens || 1200}
+        onChange={(e) => onSave({ max_tokens: parseInt(e.target.value, 10) })}
+        style={{ width: '100%', padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.9rem', marginBottom: 12 }}
+      >
+        <option value={600}>600 (짧고 빠름)</option>
+        <option value={1200}>1200 (권장)</option>
+        <option value={2000}>2000 (길게 설명)</option>
+        <option value={3000}>3000 (종합 퀴즈용)</option>
       </select>
       <label style={{ display: 'block', fontSize: '0.85rem', color: '#374151', marginBottom: 4 }}>일일 메시지 cap</label>
       <input
@@ -255,8 +270,12 @@ function SettingsPanel({ prefs, onSave, onClearKey, usage }) {
         onChange={(e) => onSave({ daily_cap: parseInt(e.target.value, 10) || 0 })}
         style={{ width: '100%', padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.9rem', marginBottom: 4 }}
       />
-      <div style={{ fontSize: '0.78rem', color: '#6b7280', marginBottom: 12 }}>
-        오늘 사용량: {today.messages}회 / 입력 {today.input_tokens.toLocaleString()} 토큰 / 출력 {today.output_tokens.toLocaleString()} 토큰
+      <div style={{ fontSize: '0.78rem', color: '#6b7280', marginBottom: 6 }}>
+        오늘: {today.messages}회 · 입력 {(today.input_tokens || 0).toLocaleString()} · 출력 {(today.output_tokens || 0).toLocaleString()} 토큰
+      </div>
+      <div style={{ fontSize: '0.78rem', color: cacheHit >= 70 ? '#047857' : '#92400e', marginBottom: 12 }}>
+        캐시 적중률 {cacheHit}% (읽기 {(today.cache_read || 0).toLocaleString()} / 쓰기 {(today.cache_write || 0).toLocaleString()})
+        {cacheHit < 50 && cacheTotal > 0 && ' · 5분 안에 다음 질문 보내면 캐시 적중률이 올라갑니다'}
       </div>
       <button
         onClick={onClearKey}
@@ -458,16 +477,15 @@ export default function AILearning({ isTabRoot, browseExam }) {
     const curMastery = current ? getChapterMastery(current.leaf_id) : null;
     const lastSession = getSessions().slice(-2, -1)[0];
     const recentSummary = lastSession?.summary || '';
-    // leaf 경로를 system에 명시 (어느 관을 다루는지 AI에 알림)
-    const leafPath = curLeaf ? `\n\n[현재 단원]\n${curLeaf.path.join(' / ')}` : '';
     const system = buildSystemBlocks({
-      handoverMd: handoverMd + leafPath,
+      handoverMd,                            // ← 캐시 안정: 텍스트 불변
       unitMd: sectionMd ? '' : unitMd,
       sectionMd,
       problemsMd: mode === 'practice' ? problemsMd : '',
       mode,
       currentMastery: curMastery,
       recentSummary,
+      leafPath: curLeaf ? curLeaf.path.join(' / ') : '',
     });
 
     const history = [...getConversation(todayStr())].slice(-13);
@@ -481,7 +499,7 @@ export default function AILearning({ isTabRoot, browseExam }) {
         model: prefs.model,
         system,
         messages: apiMessages,
-        maxTokens: 2048,
+        maxTokens: prefs.max_tokens || 1200,
         signal: ac.signal,
         onDelta: (_chunk, agg) => setDraft(agg),
       });
@@ -490,7 +508,9 @@ export default function AILearning({ isTabRoot, browseExam }) {
       setMessages((arr) => [...arr, { ...aMsg, ts: new Date().toISOString() }]);
       bumpUsage({
         messages: 1,
-        input_tokens: (usage.input_tokens || 0) + (usage.cache_read_input_tokens || 0) + (usage.cache_creation_input_tokens || 0),
+        input_tokens: usage.input_tokens || 0,
+        cache_read: usage.cache_read_input_tokens || 0,
+        cache_write: usage.cache_creation_input_tokens || 0,
         output_tokens: usage.output_tokens || 0,
       });
       const blocks = extractJsonBlocks(out);

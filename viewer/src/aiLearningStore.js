@@ -31,6 +31,7 @@ export const KEY = {
 export const DEFAULT_PREFS = {
   daily_cap: 50,
   model: 'claude-sonnet-4-6',
+  max_tokens: 1200,
   hide_handover_hint: false,
 };
 
@@ -157,14 +158,16 @@ export function todayKey() {
   const pad = (n) => String(n).padStart(2, '0');
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
-export function bumpUsage({ messages = 0, input_tokens = 0, output_tokens = 0 } = {}) {
+export function bumpUsage({ messages = 0, input_tokens = 0, cache_read = 0, cache_write = 0, output_tokens = 0 } = {}) {
   const all = getUsage();
   const k = todayKey();
-  const cur = all[k] || { messages: 0, input_tokens: 0, output_tokens: 0 };
+  const cur = all[k] || { messages: 0, input_tokens: 0, cache_read: 0, cache_write: 0, output_tokens: 0 };
   all[k] = {
     messages: cur.messages + messages,
-    input_tokens: cur.input_tokens + input_tokens,
-    output_tokens: cur.output_tokens + output_tokens,
+    input_tokens: (cur.input_tokens || 0) + input_tokens,
+    cache_read: (cur.cache_read || 0) + cache_read,
+    cache_write: (cur.cache_write || 0) + cache_write,
+    output_tokens: (cur.output_tokens || 0) + output_tokens,
   };
   lsSet(KEY.usage, all);
   return all[k];
