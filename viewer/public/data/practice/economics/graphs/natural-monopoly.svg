@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">Q</text>
+  <text x="20" y="15" font-weight="bold">P</text>
+  <line x1="60" y1="40" x2="320" y2="220" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="325" y="225" fill="#2563eb" font-weight="bold">D</text>
+  <line x1="60" y1="40" x2="190" y2="220" stroke="#7c3aed" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="195" y="225" fill="#7c3aed">MR</text>
+  <path d="M 60,80 Q 200,170 320,200" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="325" y="200" fill="#dc2626" font-weight="bold">LRAC</text>
+  <path d="M 60,120 Q 200,200 320,225" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3 3"/>
+  <text x="325" y="225" fill="#b45309" font-size="11">LRMC</text>
+  <text x="200" y="60" fill="#dc2626" font-size="11">LRAC 계속 감소</text>
+  <text x="200" y="76" fill="#dc2626" font-size="10">→ 자연독점</text>
+  <text x="28" y="258">O</text>
+</svg>

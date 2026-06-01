@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">k</text>
+  <text x="20" y="15" font-weight="bold">y</text>
+  <path d="M 60,240 Q 130,150 220,90 Q 290,55 320,40" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="325" y="45" fill="#2563eb" font-weight="bold">f(k)</text>
+  <path d="M 60,240 Q 130,200 220,160 Q 290,130 320,115" fill="none" stroke="#0a7" stroke-width="2.5"/>
+  <text x="325" y="115" fill="#0a7" font-weight="bold">sf(k)</text>
+  <line x1="40" y1="240" x2="320" y2="60" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="325" y="65" fill="#dc2626" font-weight="bold">(n+δ)k</text>
+  <circle cx="190" cy="170" r="5" fill="#111"/>
+  <text x="197" y="168" font-weight="bold">k*</text>
+  <text x="197" y="180" font-size="10">정상상태</text>
+  <line x1="190" y1="170" x2="190" y2="240" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="28" y="258">O</text>
+</svg>

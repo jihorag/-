@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">I</text>
+  <text x="20" y="15" font-weight="bold">Q</text>
+  <path d="M 50,235 Q 100,180 170,120 Q 250,60 320,30" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="270" y="50" fill="#2563eb" font-weight="bold">사치재</text>
+  <text x="265" y="65" fill="#2563eb" font-size="10">ε_I &gt; 1</text>
+  <path d="M 50,210 Q 130,160 200,140 Q 280,125 330,120" fill="none" stroke="#0a7" stroke-width="2.5"/>
+  <text x="240" y="115" fill="#0a7" font-weight="bold">필수재</text>
+  <text x="240" y="130" fill="#0a7" font-size="10">0&lt;ε_I&lt;1</text>
+  <path d="M 50,200 Q 130,160 180,180 Q 250,210 320,225" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="240" y="200" fill="#dc2626" font-weight="bold">열등재</text>
+  <text x="240" y="215" fill="#dc2626" font-size="10">ε_I &lt; 0</text>
+  <text x="28" y="258">O</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">X</text>
+  <text x="20" y="15" font-weight="bold">Y</text>
+  <line x1="40" y1="60" x2="120" y2="240" stroke="#0a7" stroke-width="2" stroke-dasharray="3 3"/>
+  <line x1="40" y1="60" x2="200" y2="240" stroke="#0a7" stroke-width="2" stroke-dasharray="3 3"/>
+  <line x1="40" y1="60" x2="290" y2="240" stroke="#0a7" stroke-width="2" stroke-dasharray="3 3"/>
+  <path d="M 80,170 Q 95,140 110,140" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <path d="M 120,170 Q 150,135 175,135" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <path d="M 175,160 Q 215,120 240,120" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="90" cy="155" r="4" fill="#dc2626"/>
+  <circle cx="148" cy="148" r="4" fill="#dc2626"/>
+  <circle cx="215" cy="125" r="4" fill="#dc2626"/>
+  <path d="M 90,155 Q 148,148 215,125" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="225" y="125" fill="#7c3aed" font-weight="bold">PCC</text>
+  <text x="225" y="140" fill="#7c3aed" font-size="10">Px↓</text>
+  <text x="28" y="258">O</text>
+</svg>

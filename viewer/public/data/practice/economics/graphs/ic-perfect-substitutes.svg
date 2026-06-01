@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">X</text>
+  <text x="20" y="15" font-weight="bold">Y</text>
+  <line x1="40" y1="80" x2="270" y2="240" stroke="#2563eb" stroke-width="2.2"/>
+  <text x="275" y="245" fill="#2563eb">IC₁</text>
+  <line x1="40" y1="120" x2="310" y2="240" stroke="#3b82f6" stroke-width="2"/>
+  <text x="315" y="245" fill="#3b82f6">IC₂</text>
+  <line x1="40" y1="160" x2="340" y2="240" stroke="#93c5fd" stroke-width="2"/>
+  <line x1="40" y1="200" x2="340" y2="220" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="180" y="80" fill="#2563eb" font-weight="bold">완전대체재</text>
+  <text x="180" y="100" fill="#2563eb" font-size="11">U = aX + bY (직선)</text>
+  <text x="180" y="115" fill="#2563eb" font-size="11">MRS = a/b 일정</text>
+  <text x="28" y="258">O</text>
+</svg>

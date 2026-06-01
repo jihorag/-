@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">L</text>
+  <text x="20" y="15" font-weight="bold">w</text>
+  <line x1="60" y1="40" x2="320" y2="220" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="325" y="225" fill="#2563eb" font-weight="bold">VMP</text>
+  <line x1="60" y1="220" x2="320" y2="40" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="325" y="45" fill="#dc2626" font-weight="bold">S(=w)</text>
+  <line x1="60" y1="240" x2="200" y2="20" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="205" y="35" fill="#7c3aed" font-weight="bold">MFC</text>
+  <circle cx="160" cy="140" r="4" fill="#111"/>
+  <text x="165" y="138" font-weight="bold">A</text>
+  <text x="165" y="152" font-size="10">VMP=MFC</text>
+  <line x1="40" y1="140" x2="160" y2="140" stroke="#666" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <circle cx="160" cy="180" r="4" fill="#dc2626"/>
+  <text x="165" y="195" fill="#dc2626" font-size="10">w_m (낮은 임금)</text>
+  <line x1="40" y1="180" x2="160" y2="180" stroke="#666" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <text x="20" y="184" fill="#dc2626">w_m</text>
+  <line x1="160" y1="180" x2="160" y2="240" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="153" y="258">L_m</text>
+  <text x="28" y="258">O</text>
+</svg>

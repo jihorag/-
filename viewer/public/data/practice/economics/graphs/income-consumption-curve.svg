@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">X</text>
+  <text x="20" y="15" font-weight="bold">Y</text>
+  <line x1="40" y1="180" x2="170" y2="240" stroke="#0a7" stroke-width="2" stroke-dasharray="3 3"/>
+  <line x1="40" y1="120" x2="230" y2="240" stroke="#0a7" stroke-width="2" stroke-dasharray="3 3"/>
+  <line x1="40" y1="60" x2="290" y2="240" stroke="#0a7" stroke-width="2" stroke-dasharray="3 3"/>
+  <path d="M 70,205 Q 90,170 110,170" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <path d="M 100,180 Q 130,140 155,140" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <path d="M 140,150 Q 175,105 200,105" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="92" cy="180" r="4" fill="#dc2626"/>
+  <circle cx="135" cy="145" r="4" fill="#dc2626"/>
+  <circle cx="183" cy="108" r="4" fill="#dc2626"/>
+  <path d="M 92,180 Q 135,145 183,108" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="190" y="105" fill="#7c3aed" font-weight="bold">ICC</text>
+  <text x="195" y="120" fill="#7c3aed" font-size="10">정상재</text>
+  <text x="28" y="258">O</text>
+</svg>

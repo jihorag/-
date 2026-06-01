@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">X</text>
+  <text x="20" y="15" font-weight="bold">Y</text>
+  <polyline points="40,180 100,180 100,40" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="105" y="40" fill="#2563eb">IC₁</text>
+  <polyline points="40,140 150,140 150,40" fill="none" stroke="#3b82f6" stroke-width="2.2"/>
+  <text x="155" y="50" fill="#3b82f6">IC₂</text>
+  <polyline points="40,100 200,100 200,40" fill="none" stroke="#93c5fd" stroke-width="2"/>
+  <text x="205" y="50" fill="#93c5fd">IC₃</text>
+  <line x1="40" y1="240" x2="240" y2="40" stroke="#0a7" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="245" y="42" fill="#0a7" font-size="11">확장경로</text>
+  <text x="180" y="200" fill="#2563eb" font-weight="bold">완전보완재</text>
+  <text x="180" y="218" fill="#2563eb" font-size="11">U = min(aX, bY)</text>
+  <text x="28" y="258">O</text>
+</svg>

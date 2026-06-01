@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">q₁</text>
+  <text x="20" y="15" font-weight="bold">q₂</text>
+  <line x1="40" y1="60" x2="300" y2="240" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="305" y="245" fill="#2563eb" font-weight="bold">R₁(q₂)</text>
+  <text x="20" y="65" fill="#2563eb" font-size="10">기업1 반응함수</text>
+  <line x1="60" y1="40" x2="320" y2="220" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="325" y="225" fill="#dc2626" font-weight="bold">R₂(q₁)</text>
+  <text x="300" y="35" fill="#dc2626" font-size="10">기업2 반응함수</text>
+  <circle cx="170" cy="155" r="5" fill="#047857"/>
+  <text x="177" y="153" fill="#047857" font-weight="bold">N</text>
+  <text x="177" y="167" fill="#047857" font-size="10">쿠르노 균형</text>
+  <text x="28" y="258">O</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">Q</text>
+  <text x="20" y="15" font-weight="bold">AC</text>
+  <path d="M 60,150 Q 90,90 120,140 Q 150,170 180,150" fill="none" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="62" y="140" fill="#3b82f6" font-size="10">SRAC₁</text>
+  <path d="M 110,140 Q 150,80 190,130 Q 230,160 270,145" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="115" y="125" fill="#3b82f6" font-size="10">SRAC₂</text>
+  <path d="M 180,135 Q 220,80 260,130 Q 300,170 340,160" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="185" y="120" fill="#2563eb" font-size="10">SRAC₃</text>
+  <path d="M 60,160 Q 130,90 220,90 Q 300,100 340,140" fill="none" stroke="#dc2626" stroke-width="2.8"/>
+  <text x="270" y="80" fill="#dc2626" font-weight="bold">LRAC</text>
+  <text x="220" y="200" fill="#dc2626" font-size="11">규모경제 → MES → 규모부경제</text>
+  <text x="28" y="258">O</text>
+</svg>

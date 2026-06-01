@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">L</text>
+  <text x="20" y="15" font-weight="bold">W</text>
+  <path d="M 60,220 Q 100,200 160,140 Q 200,100 220,60 Q 200,40 150,30" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="225" y="55" fill="#2563eb" font-weight="bold">Ls</text>
+  <text x="100" y="190" fill="#2563eb" font-size="11">대체효과 우세</text>
+  <text x="170" y="80" fill="#2563eb" font-size="11">소득효과 우세</text>
+  <text x="120" y="100" fill="#dc2626" font-size="11">↑임금↑노동</text>
+  <text x="170" y="120" fill="#dc2626" font-size="11">↓후방굴절</text>
+  <text x="28" y="258">O</text>
+</svg>

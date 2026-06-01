@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">Q</text>
+  <text x="20" y="15" font-weight="bold">P</text>
+  <line x1="60" y1="50" x2="180" y2="140" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="180" y1="140" x2="320" y2="220" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="55" y="40" fill="#2563eb" font-size="11">탄력적</text>
+  <text x="285" y="218" fill="#2563eb" font-size="11">비탄력적</text>
+  <circle cx="180" cy="140" r="5" fill="#dc2626"/>
+  <text x="187" y="138" fill="#dc2626" font-weight="bold">P*</text>
+  <text x="187" y="152" fill="#dc2626" font-size="10">굴절점</text>
+  <line x1="60" y1="60" x2="180" y2="140" stroke="#7c3aed" stroke-width="1.8" stroke-dasharray="3 3"/>
+  <line x1="180" y1="220" x2="180" y2="240" stroke="#7c3aed" stroke-width="0"/>
+  <line x1="180" y1="220" x2="320" y2="240" stroke="#7c3aed" stroke-width="1.8" stroke-dasharray="3 3"/>
+  <text x="60" y="70" fill="#7c3aed" font-size="10">MR (윗부분)</text>
+  <text x="280" y="240" fill="#7c3aed" font-size="10">MR</text>
+  <line x1="180" y1="140" x2="180" y2="220" stroke="#7c3aed" stroke-width="3"/>
+  <text x="155" y="185" fill="#7c3aed" font-size="10">MR 불연속</text>
+  <text x="28" y="258">O</text>
+</svg>

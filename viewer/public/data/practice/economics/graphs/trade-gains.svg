@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">Q</text>
+  <text x="20" y="15" font-weight="bold">P</text>
+  <line x1="60" y1="40" x2="320" y2="220" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="325" y="225" fill="#2563eb" font-weight="bold">D</text>
+  <line x1="60" y1="220" x2="320" y2="40" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="325" y="45" fill="#dc2626" font-weight="bold">S</text>
+  <circle cx="190" cy="130" r="3" fill="#666"/>
+  <text x="195" y="128" fill="#666" font-size="10">자급자족</text>
+  <line x1="40" y1="170" x2="320" y2="170" stroke="#0a7" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="10" y="174" fill="#047857" font-weight="bold">P_w</text>
+  <text x="280" y="166" fill="#047857" font-size="11">세계가격</text>
+  <circle cx="120" cy="170" r="4" fill="#dc2626"/>
+  <text x="100" y="190" fill="#dc2626" font-size="10">국내공급</text>
+  <circle cx="250" cy="170" r="4" fill="#2563eb"/>
+  <text x="230" y="190" fill="#2563eb" font-size="10">국내수요</text>
+  <line x1="120" y1="170" x2="250" y2="170" stroke="#047857" stroke-width="4" opacity="0.5"/>
+  <text x="155" y="208" fill="#047857" font-weight="bold">수입</text>
+  <text x="28" y="258">O</text>
+</svg>

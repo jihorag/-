@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">u</text>
+  <text x="20" y="15" font-weight="bold">π</text>
+  <path d="M 80,60 Q 130,120 200,180 Q 270,215 320,230" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="80" y="50" fill="#2563eb" font-weight="bold">SPC</text>
+  <text x="80" y="65" fill="#2563eb" font-size="10">단기 필립스</text>
+  <line x1="220" y1="20" x2="220" y2="240" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6 3"/>
+  <text x="225" y="35" fill="#dc2626" font-weight="bold">LPC</text>
+  <text x="225" y="50" fill="#dc2626" font-size="10">u_N</text>
+  <circle cx="160" cy="130" r="4" fill="#111"/>
+  <text x="120" y="125" font-size="10">단기균형</text>
+  <circle cx="220" cy="200" r="4" fill="#047857"/>
+  <text x="225" y="205" font-size="10">자연실업률</text>
+  <text x="28" y="258">O</text>
+</svg>
