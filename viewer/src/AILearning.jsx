@@ -1038,8 +1038,195 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   }
 
   return (
+    aiView === 'home' ? (
+    <div className="app-shell" style={{ paddingBottom: 80, display: 'flex', flexDirection: 'column', height: '100vh' }}>
+      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '8px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <h2 style={{ margin: 0, fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: 6, color: '#111827' }}>
+          <Sparkles size={20} color="#4f46e5" /> AI 학습
+        </h2>
+        <div style={{ display: 'flex', gap: 2 }}>
+          <button onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
+            <BarChart3 size={18} color={showAnalytics ? '#4f46e5' : '#6b7280'} />
+          </button>
+          <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
+            <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
+          </button>
+          <button onClick={() => setShowSettings((v) => !v)} title="설정" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
+            <SettingsIcon size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
+          </button>
+        </div>
+      </header>
+      {showSettings && (
+        <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
+          <SettingsPanel
+            prefs={prefs}
+            usage={getUsage()}
+            onSave={(patch) => { const next = setPrefs(patch); setPrefsState(next); }}
+            onClearKey={() => { setByok(null); setByokState(''); }}
+            onResetProgress={() => {
+              askConfirm('대화·세션·진척도 전부 초기화 (API 키·설정 유지)', true, () => {
+                resetLearningProgress();
+                setMessages([]);
+                setMasteryState({});
+                setDue([]);
+                setCurrentState(null);
+                setSessionId(null);
+                setPendingNext(null);
+                setRecentRooms([]);
+                if (indexMeta?.default_leaf) {
+                  const def = indexMeta.leaves.find((l) => l.id === indexMeta.default_leaf) || indexMeta.leaves[0];
+                  if (def) { const next = { subject: 'civil', leaf_id: def.id }; setCurrentState(next); setCurrent(next); }
+                }
+                setShowSettings(false);
+              });
+            }}
+          />
+        </div>
+      )}
+      {showHistory && (
+        <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
+          <HistoryPanel
+            leaves={Object.values(leavesBySubject).flat()}
+            onClose={() => setShowHistory(false)}
+            onJump={(leaf) => {
+              const sid = (leaf.id || '').split('__')[0];
+              if (sid !== subjectId) switchSubject(sid, true); else setAiView('study');
+              setTimeout(() => pickLeaf(leaf), 50);
+              setShowHistory(false);
+            }}
+            onClearRoom={(leafId) => {
+              clearRoom(leafId);
+              if (leafId === current?.leaf_id) setMessages([]);
+            }}
+          />
+        </div>
+      )}
+      {showAnalytics && (
+        <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
+          <AnalyticsPanel
+            mastery={mastery}
+            leavesBySubject={leavesBySubject}
+            onClose={() => setShowAnalytics(false)}
+            onJump={(leaf, sid) => {
+              if (sid !== subjectId) switchSubject(sid, true); else setAiView('study');
+              setTimeout(() => pickLeaf(leaf), 50);
+              setShowAnalytics(false);
+            }}
+          />
+        </div>
+      )}
+      {confirmAction && (
+        <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
+          <div style={{
+            background: confirmAction.danger ? '#fef2f2' : '#eef2ff',
+            border: `1px solid ${confirmAction.danger ? '#fecaca' : '#c7d2fe'}`,
+            color: confirmAction.danger ? '#991b1b' : '#1e40af',
+            padding: 12, borderRadius: 10, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap',
+          }}>
+            <div style={{ flex: 1, fontSize: '0.88rem', fontWeight: 600 }}>{confirmAction.label}?</div>
+            <button onClick={() => { const a = confirmAction; setConfirmAction(null); a.onYes && a.onYes(); }}
+              style={{ padding: '6px 14px', fontSize: '0.85rem', fontWeight: 700, background: confirmAction.danger ? '#dc2626' : '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
+              네
+            </button>
+            <button onClick={() => setConfirmAction(null)}
+              style={{ padding: '6px 14px', fontSize: '0.85rem', background: '#fff', color: '#374151', border: '1px solid #d1d5db', borderRadius: 6, cursor: 'pointer' }}>
+              취소
+            </button>
+          </div>
+        </div>
+      )}
+      <div style={{ flex: 1, overflowY: 'auto', padding: '14px 14px 30px' }}>
+        {/* 이어서 학습 카드 */}
+        {curLeaf && messages.length > 0 && (() => {
+          const m = mastery[curLeaf.id] || {};
+          const sMeta = getSubjectMeta(subjectId);
+          return (
+            <button
+              onClick={() => setAiView('study')}
+              style={{
+                width: '100%', textAlign: 'left', padding: 14,
+                background: `linear-gradient(135deg, ${sMeta.color}15 0%, #fff 100%)`,
+                border: `1.5px solid ${sMeta.color}`,
+                borderRadius: 14, cursor: 'pointer', marginBottom: 16,
+              }}
+            >
+              <div style={{ fontSize: '0.72rem', color: sMeta.color, fontWeight: 700, marginBottom: 4 }}>
+                ▶️ 이어서 학습 — {sMeta.icon} {sMeta.short}
+              </div>
+              <div style={{ fontSize: '1rem', fontWeight: 800, color: '#111827' }}>
+                {curLeaf.path.slice(-1)[0]}
+              </div>
+              <div style={{ fontSize: '0.78rem', color: '#6b7280', marginTop: 2 }}>
+                {curLeaf.path.slice(0, -1).join(' › ')}
+              </div>
+              <div style={{ fontSize: '0.72rem', color: '#374151', marginTop: 6 }}>
+                {messages.length}건 · 진척 {Math.round((m.coverage || 0) * 100)}%
+              </div>
+            </button>
+          );
+        })()}
+
+        {/* 5과목 그리드 */}
+        <div style={{ fontSize: '0.85rem', color: '#374151', fontWeight: 700, marginBottom: 8 }}>📚 과목 선택</div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10 }}>
+          {SUBJECTS.map((s) => {
+            const subLeaves = leavesBySubject[s.id] || [];
+            const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__'));
+            const covAvg = ks.length ? ks.reduce((a, k) => a + (mastery[k]?.coverage || 0), 0) / ks.length : 0;
+            const masterN = ks.filter((k) => mastery[k]?.status === 'mastered').length;
+            const dueN = (due || []).filter((d) => (d.code || '').startsWith(s.id + '__')).length;
+            const weakN = ((weakPathsBySubject || {})[s.id] || []).length;
+            const pct = Math.round(covAvg * 100);
+            return (
+              <button
+                key={s.id}
+                onClick={() => switchSubject(s.id, true)}
+                style={{
+                  padding: 14, textAlign: 'left',
+                  background: `linear-gradient(135deg, ${s.color}12 0%, #fff 100%)`,
+                  border: `1px solid ${s.color}40`, borderRadius: 12, cursor: 'pointer',
+                  display: 'flex', flexDirection: 'column', gap: 4,
+                }}
+              >
+                <div style={{ fontSize: '1.6rem', lineHeight: 1 }}>{s.icon}</div>
+                <div style={{ fontWeight: 800, color: s.color, fontSize: '0.95rem' }}>{s.short}</div>
+                <div style={{ fontSize: '0.66rem', color: '#9ca3af' }}>{s.title}</div>
+                <div style={{ marginTop: 6, height: 4, background: '#f3f4f6', borderRadius: 2, overflow: 'hidden' }}>
+                  <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: s.color }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#374151', marginTop: 4 }}>
+                  <span style={{ fontWeight: 700 }}>{pct}%</span>
+                  <span style={{ color: '#9ca3af' }}>마스터 {masterN}{subLeaves.length > 0 ? `/${subLeaves.length}` : ''}</span>
+                </div>
+                {(dueN > 0 || weakN > 0) && (
+                  <div style={{ marginTop: 2, fontSize: '0.66rem', color: '#92400e', display: 'flex', gap: 4 }}>
+                    {dueN > 0 && <span>🔁 {dueN}</span>}
+                    {weakN > 0 && <span>⚠️ {weakN}</span>}
+                  </div>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* 비어있는 첫 사용자 가이드 */}
+        {!curLeaf && Object.keys(mastery).length === 0 && (
+          <div style={{ marginTop: 20, padding: 14, background: '#f9fafb', border: '1px dashed #d1d5db', borderRadius: 12, fontSize: '0.85rem', color: '#6b7280', textAlign: 'center' }}>
+            과목을 선택하면 단원 트리에서 학습할 곳을 고르고 대화를 시작할 수 있어요
+          </div>
+        )}
+      </div>
+    </div>
+    ) : (
     <div className="app-shell" style={{ paddingBottom: 80, display: 'flex', flexDirection: 'column', height: '100vh' }}>
       <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '6px 8px', display: 'flex', alignItems: 'center', gap: 4 }}>
+        <button
+          onClick={() => setAiView('home')}
+          title="과목 홈"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: '#4f46e5', fontSize: '0.85rem', fontWeight: 700, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 2 }}
+        >
+          <ChevronLeft size={18} />홈
+        </button>
         <button
           onClick={() => prevLeaf && pickLeaf(prevLeaf)}
           disabled={!prevLeaf}
@@ -1108,45 +1295,6 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           <SettingsIcon size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
         </button>
       </header>
-      {(() => {
-        // 5과목 종합 진척 — 현재 과목과 무관하게 모든 leaf mastery 합산
-        const overall = {};
-        SUBJECTS.forEach((s) => {
-          const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__'));
-          const total = ks.length;
-          const covSum = ks.reduce((sum, k) => sum + (mastery[k]?.coverage || 0), 0);
-          const masterCount = ks.filter((k) => mastery[k]?.status === 'mastered').length;
-          overall[s.id] = { total, covAvg: total > 0 ? covSum / total : 0, masterCount };
-        });
-        const anyProgress = Object.values(overall).some((x) => x.covAvg > 0);
-        if (!anyProgress) return null;
-        return (
-          <div style={{ padding: '4px 8px', borderBottom: '1px solid #f3f4f6', background: '#fafafa', display: 'flex', gap: 6, overflowX: 'auto' }}>
-            {SUBJECTS.map((s) => {
-              const o = overall[s.id];
-              const on = s.id === subjectId;
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => switchSubject(s.id)}
-                  title={`${s.title} · 평균 ${Math.round(o.covAvg * 100)}% · 마스터 ${o.masterCount}`}
-                  style={{
-                    flex: '0 0 auto', padding: '3px 8px', borderRadius: 8,
-                    background: on ? '#fff' : 'transparent',
-                    border: on ? `1px solid ${s.color}` : '1px solid transparent',
-                    cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minWidth: 56,
-                  }}
-                >
-                  <span style={{ fontSize: '0.65rem', color: on ? s.color : '#6b7280', fontWeight: 700 }}>{s.icon} {s.short}</span>
-                  <div style={{ width: '100%', height: 3, background: '#e5e7eb', borderRadius: 2, marginTop: 2, overflow: 'hidden' }}>
-                    <div style={{ width: `${Math.max(2, o.covAvg * 100)}%`, height: '100%', background: s.color }} />
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        );
-      })()}
       {recentChips.length > 0 && (
         <div style={{ padding: '4px 8px', borderBottom: '1px solid #f3f4f6', background: '#fafafa', display: 'flex', gap: 4, overflowX: 'auto' }}>
           <span style={{ fontSize: '0.7rem', color: '#9ca3af', alignSelf: 'center', flex: '0 0 auto', padding: '0 4px' }}>최근:</span>
@@ -1178,27 +1326,6 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       )}
 
       <div style={{ padding: '8px 12px', borderBottom: '1px solid #e5e7eb', background: '#f9fafb' }}>
-        <div style={{ display: 'flex', gap: 4, marginBottom: 8, overflowX: 'auto', paddingBottom: 2 }}>
-          {SUBJECTS.map((s) => {
-            const on = s.id === subjectId;
-            return (
-              <button
-                key={s.id}
-                onClick={() => switchSubject(s.id)}
-                style={{
-                  flex: '0 0 auto', padding: '5px 10px', borderRadius: 12,
-                  border: on ? `1.5px solid ${s.color}` : '1px solid #d1d5db',
-                  background: on ? `${s.color}15` : '#fff',
-                  color: on ? s.color : '#374151',
-                  fontWeight: on ? 800 : 600, fontSize: '0.78rem', cursor: 'pointer', whiteSpace: 'nowrap',
-                }}
-                title={s.title}
-              >
-                {s.icon} {s.short}
-              </button>
-            );
-          })}
-        </div>
         <div style={{ display: 'flex', gap: 4, marginBottom: 8 }}>
           {[['study', '📖 이론'], ['practice', '✏️ 문제풀이']].map(([k, label]) => (
             <button
@@ -1633,5 +1760,6 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         </div>
       </div>
     </div>
+    )
   );
 }
