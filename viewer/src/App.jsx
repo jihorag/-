@@ -2964,49 +2964,107 @@ const App = () => {
             </section>
           )}
 
-          {/* ②.7 활동 잔디 — 최근 8주 */}
-          <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
-            padding: '14px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-              <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>📅 최근 8주 학습 활동</div>
-              <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>기출 + AI 메시지</div>
-            </div>
-            <div style={{ display: 'flex', gap: 3, justifyContent: 'space-between' }}>
-              {Array.from({ length: 8 }).map((_, wi) => (
-                <div key={wi} style={{ display: 'flex', flexDirection: 'column', gap: 3, flex: 1 }}>
-                  {Array.from({ length: 7 }).map((_, di) => {
-                    const idx = wi * 7 + di;
-                    const cell = last56Days[idx];
-                    if (!cell) return <div key={di} style={{ height: 12 }} />;
-                    const intensity = cell.count > 0 ? Math.min(1, 0.2 + (cell.count / heatMax) * 0.8) : 0;
-                    const bg = intensity === 0 ? '#f3f4f6'
-                      : intensity < 0.4 ? '#c7d2fe'
-                      : intensity < 0.7 ? '#818cf8'
-                      : '#4f46e5';
-                    const day = cell.date.getMonth() + 1 + '/' + cell.date.getDate();
-                    return (
-                      <div key={di}
-                        title={`${day} · ${cell.count}건`}
-                        style={{
-                          height: 12, borderRadius: 2, background: bg,
-                          border: cell.isToday ? '1.5px solid #ea580c' : 'none',
-                        }} />
-                    );
-                  })}
+          {/* ②.7 학습 캘린더 — 56일 일별 학습량 (셀 1개 = 하루) */}
+          {(() => {
+            const activeDays = last56Days.filter((x) => x.count > 0).length;
+            const totalCount = last56Days.reduce((a, x) => a + x.count, 0);
+            const avg = activeDays > 0 ? Math.round(totalCount / activeDays) : 0;
+            const maxCell = last56Days.reduce((a, x) => x.count > a.count ? x : a, { count: 0 });
+            // 셀이 비어있을 때는 의미가 떨어지므로 데이터가 거의 없으면 안내만 표시
+            if (totalCount === 0) return (
+              <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+                padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)', textAlign: 'center' }}>
+                <div style={{ fontWeight: 800, fontSize: '0.95rem', marginBottom: 8 }}>📅 학습 캘린더</div>
+                <div style={{ fontSize: '0.82rem', color: '#9ca3af' }}>
+                  학습을 시작하면 매일 활동량이 칸으로 쌓입니다
                 </div>
-              ))}
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 8, fontSize: '0.7rem', color: '#6b7280' }}>
-              <span>🔥 {analytics.streak}일 연속</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                <span>적음</span>
-                {['#f3f4f6', '#c7d2fe', '#818cf8', '#4f46e5'].map((c) => (
-                  <span key={c} style={{ width: 10, height: 10, borderRadius: 2, background: c, display: 'inline-block' }} />
-                ))}
-                <span>많음</span>
-              </div>
-            </div>
-          </section>
+              </section>
+            );
+            const weekLabels = ['7주전', '6주전', '5주전', '4주전', '3주전', '2주전', '지난주', '이번주'];
+            const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+            return (
+              <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+                padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+                <div style={{ marginBottom: 4 }}>
+                  <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>📅 학습 캘린더 — 최근 56일</div>
+                  <div style={{ fontSize: '0.72rem', color: '#6b7280', marginTop: 2 }}>
+                    칸 하나가 하루. 색이 진할수록 그날 많이 학습 (기출 풀이 + AI 메시지)
+                  </div>
+                </div>
+                {/* 통계 */}
+                <div style={{ display: 'flex', gap: 12, marginTop: 10, marginBottom: 10, fontSize: '0.78rem', color: '#374151', flexWrap: 'wrap' }}>
+                  <span>🔥 <b style={{ color: '#ea580c' }}>{analytics.streak}일</b> 연속</span>
+                  <span>📌 학습일 <b style={{ color: '#4338ca' }}>{activeDays}/56</b></span>
+                  <span>📊 활동일 평균 <b>{avg}</b>회</span>
+                  {maxCell.count > 0 && (
+                    <span>⭐ 최고 <b>{maxCell.count}</b>회 ({maxCell.date.getMonth() + 1}/{maxCell.date.getDate()})</span>
+                  )}
+                </div>
+                {/* 본체: 좌측 요일 라벨 + 8주 격자 */}
+                <div style={{ display: 'flex', gap: 4 }}>
+                  {/* 요일 라벨 */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4, paddingTop: 18 }}>
+                    {dayNames.map((d, i) => (
+                      <div key={i} style={{
+                        height: 16, fontSize: '0.62rem', color: '#9ca3af',
+                        display: 'flex', alignItems: 'center', justifyContent: 'flex-end', minWidth: 16,
+                      }}>
+                        {i % 2 === 0 ? d : ''}
+                      </div>
+                    ))}
+                  </div>
+                  {/* 격자 */}
+                  <div style={{ flex: 1 }}>
+                    {/* 주 라벨 */}
+                    <div style={{ display: 'flex', gap: 4, marginBottom: 4 }}>
+                      {weekLabels.map((w, i) => (
+                        <div key={i} style={{
+                          flex: 1, fontSize: '0.6rem', textAlign: 'center',
+                          color: i === 7 ? '#ea580c' : '#9ca3af',
+                          fontWeight: i === 7 ? 700 : 500,
+                        }}>
+                          {i % 2 === 0 || i === 7 ? w : ''}
+                        </div>
+                      ))}
+                    </div>
+                    <div style={{ display: 'flex', gap: 4 }}>
+                      {Array.from({ length: 8 }).map((_, wi) => (
+                        <div key={wi} style={{ display: 'flex', flexDirection: 'column', gap: 4, flex: 1 }}>
+                          {Array.from({ length: 7 }).map((_, di) => {
+                            const idx = wi * 7 + di;
+                            const cell = last56Days[idx];
+                            if (!cell) return <div key={di} style={{ height: 16 }} />;
+                            const intensity = cell.count > 0 ? Math.min(1, 0.2 + (cell.count / heatMax) * 0.8) : 0;
+                            const bg = intensity === 0 ? '#f3f4f6'
+                              : intensity < 0.4 ? '#c7d2fe'
+                              : intensity < 0.7 ? '#818cf8'
+                              : '#4f46e5';
+                            const day = (cell.date.getMonth() + 1) + '월 ' + cell.date.getDate() + '일';
+                            return (
+                              <div key={di}
+                                title={`${day} (${dayNames[cell.date.getDay()]}) · ${cell.count}회 학습`}
+                                style={{
+                                  height: 16, borderRadius: 3, background: bg,
+                                  border: cell.isToday ? '1.5px solid #ea580c' : '1px solid transparent',
+                                }} />
+                            );
+                          })}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                {/* 범례 */}
+                <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 4, marginTop: 10, fontSize: '0.68rem', color: '#9ca3af' }}>
+                  <span>적음</span>
+                  {['#f3f4f6', '#c7d2fe', '#818cf8', '#4f46e5'].map((c) => (
+                    <span key={c} style={{ width: 12, height: 12, borderRadius: 3, background: c, display: 'inline-block' }} />
+                  ))}
+                  <span>많음</span>
+                </div>
+              </section>
+            );
+          })()}
 
           {/* ③ 오늘 할 일 — 4탭 통합 액션 카드 */}
           <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
