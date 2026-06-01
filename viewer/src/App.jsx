@@ -3468,24 +3468,32 @@ const App = () => {
           {segRow('학습 추세 기간', '현황 화면 추세 그래프의 기간이에요.',
             [[7, '7일'], [30, '30일']], trendDays, setTrendDays)}
 
-          {/* 시험 일정 — 3시험 동시 준비: D-DAY, 일일 권장량 자동 계산용 */}
+          {/* 감정평가사 시험 일정 — 1차/2차 D-DAY, 일일 권장량 자동 계산용 */}
           <section style={{ background: '#fff', borderRadius: '14px', padding: '16px',
             boxShadow: 'var(--shadow-sm)', marginBottom: '12px' }}>
-            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#374151' }}>📅 시험 일정 (D-DAY)</div>
+            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#374151' }}>
+              📅 {PRIMARY_EXAM} 시험일 (D-DAY)
+            </div>
             <div style={{ fontSize: '0.78rem', color: '#9ca3af', marginTop: '3px' }}>
-              각 시험 날짜를 입력하면 홈에 D-DAY와 일일 권장 학습량이 표시돼요.
+              1차·2차 시험일을 입력하면 홈에 D-DAY와 일일 권장 학습량이 표시돼요.
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 14 }}>
-              {TARGET_EXAMS.map(exam => {
-                const d = daysUntil(examDates[exam]);
+              {[
+                { key: `${PRIMARY_EXAM}_1차`, label: '1차 (5과목)', hint: '4월경' },
+                { key: `${PRIMARY_EXAM}_2차`, label: '2차 (4과목)', hint: '8월경' },
+              ].map(({ key, label, hint }) => {
+                const d = daysUntil(examDates[key]);
                 const color = d == null ? '#9ca3af' : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
                 return (
-                  <div key={exam} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <span style={{ minWidth: 90, fontWeight: 700, fontSize: '0.88rem', color: '#374151' }}>
-                      {exam}
+                  <div key={key} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <span style={{ minWidth: 100 }}>
+                      <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#374151' }}>
+                        {label}
+                      </div>
+                      <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>{hint}</div>
                     </span>
-                    <input type="date" value={examDates[exam] || ''}
-                      onChange={(e) => setExamDate(exam, e.target.value)}
+                    <input type="date" value={examDates[key] || ''}
+                      onChange={(e) => setExamDate(key, e.target.value)}
                       style={{ flex: 1, padding: '8px 10px', borderRadius: 8,
                         border: '1px solid #d1d5db', fontSize: '0.88rem',
                         fontFamily: 'inherit' }} />
