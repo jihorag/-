@@ -1797,8 +1797,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           const isLast = i === messages.length - 1;
           const showChoices = isLast && !streaming && mode === 'practice' && m.role === 'assistant';
           const opts = showChoices ? extractMultipleChoice(m.content) : null;
-          // 응답 직후 마지막 assistant 메시지에만 페이드인 효과 (재마운트 시 일괄 페이드 방지: key는 인덱스)
           const fadeIn = isLast && m.role === 'assistant' && !streaming;
+          // 2차 채점 결과 카드 — 마지막 assistant 메시지에 graded:true, stage:2 JSON 있을 때
+          let scoringResult = null;
+          if (isLast && m.role === 'assistant' && !streaming) {
+            const blocks = extractJsonBlocks(m.content);
+            scoringResult = blocks.find((b) => b?.graded === true && b?.stage === 2);
+          }
           return (
             <div key={i}>
               <MessageBubble msg={m} fadeIn={fadeIn} />
@@ -1807,6 +1812,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                   options={opts}
                   disabled={streaming || !cap.ok}
                   onPick={(o) => quickSend(`${CIRCLED_DIGITS[o.n - 1]}번 — ${o.text}`)}
+                />
+              )}
+              {scoringResult && (
+                <ScoringResultCard
+                  result={scoringResult}
+                  onRewrite={() => quickSend('같은 논점으로 다시 답안 작성할게. 같은 문제 다시 보여줘.')}
+                  onShowModel={() => quickSend('이 문제의 모범 답안과 핵심 키워드를 보여줘.')}
                 />
               )}
             </div>
