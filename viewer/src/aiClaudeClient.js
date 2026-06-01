@@ -36,21 +36,33 @@ export const SYSTEM_RULES = `당신은 감정평가사 1차 시험 — 민법 �
 - 표는 마크다운 표.
 - 조문 인용은 "민법 제X조"로 정확히.
 
-[세션 종료]
-- 사용자가 "정리" 또는 "끝"이라고 하면, 마지막 메시지에 다음을 JSON으로 함께 출력:
-  \`\`\`json
-  {"session_summary": "...", "coverage_delta": 0.05, "next_topic": {"code":"M02","section_key":"full","reason":"..."}}
-  \`\`\`
+[세션 종료 — 사용자가 "정리"/"끝"/"오늘 끝"이라고 하면 반드시]
+다음을 마지막 메시지 끝에 JSON 코드블록으로 함께 출력:
+\`\`\`json
+{"session_summary": "오늘 학습 핵심 3-5줄", "coverage_delta": 0.05, "next_topic": {"code":"M02","section_key":"full","reason":"왜 다음에 이걸 해야 하는지"}}
+\`\`\`
+coverage_delta는 0~0.3 사이 추정치. next_topic.code는 단원 코드(M01~M06, B01~B05).
 `;
+
+export const PRACTICE_RULES = `
+
+[문제풀이 모드 — 별도 규칙]
+- 사용자가 "문제 내줘"/"기출 풀자"라고 하면 [기출 문제 자료]에서 한 문제를 골라 정확히 출제 (원문 그대로).
+- 학생이 ①~⑤로 답하면, 정답 + 각 선택지별 옳고 그른 이유 + 함정 + 출제 의도 분석.
+- 채점 직후 반드시 다음 한 줄 JSON을 메시지 끝에 추가:
+  \`\`\`json
+  {"graded": true, "code":"M02", "correct": true, "question_id":"기출 문제번호 또는 요약"}
+  \`\`\`
+- 문제 자료가 없거나 부족하면 학생에게 알리고, 임의로 새 문제 만들지 마세요.`;
 
 function getEndpoint(baseUrl) {
   return (baseUrl && baseUrl.trim()) ? baseUrl.trim().replace(/\/$/, '') + '/v1/messages' : API_URL;
 }
 
-export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, currentMastery, recentSummary }) {
+export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, mode, currentMastery, recentSummary }) {
   // Anthropic prompt caching: 큰 컨텐츠 블록에 cache_control 부여
   const blocks = [
-    { type: 'text', text: SYSTEM_RULES },
+    { type: 'text', text: SYSTEM_RULES + (mode === 'practice' ? PRACTICE_RULES : '') },
   ];
   if (handoverMd) {
     blocks.push({
@@ -69,6 +81,13 @@ export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, currentMaster
     blocks.push({
       type: 'text',
       text: `\n\n[현재 학습 단원 자료]\n${unitMd}`,
+      cache_control: { type: 'ephemeral' },
+    });
+  }
+  if (mode === 'practice' && problemsMd) {
+    blocks.push({
+      type: 'text',
+      text: `\n\n[기출 문제 자료]\n${problemsMd}`,
       cache_control: { type: 'ephemeral' },
     });
   }
@@ -163,6 +182,27 @@ export async function sendMessages({
     }
   }
   return { text, usage, stop_reason };
+}
+
+// 응답 본문에서 ```json ... ``` 블록을 모두 뽑아 파싱.
+// 채점(graded) · 세션 정리(session_summary) 양쪽 모두를 자동 추출하기 위함.
+export function extractJsonBlocks(text) {
+  if (!text) return [];
+  const re = /```json\s*([\s\S]*?)```/g;
+  const out = [];
+  let m;
+  while ((m = re.exec(text))) {
+    try {
+      out.push(JSON.parse(m[1].trim()));
+    } catch { /* malformed — skip */ }
+  }
+  return out;
+}
+
+// 표시용 텍스트에서 ```json ... ``` 블록을 제거 (UI에서 노이즈 숨김).
+export function stripJsonBlocks(text) {
+  if (!text) return text;
+  return text.replace(/```json\s*[\s\S]*?```\s*$/g, '').trimEnd();
 }
 
 // 단원 MD를 sections.lines 기준으로 잘라 토큰 절약.

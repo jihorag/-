@@ -15,12 +15,14 @@ import {
   getByok, setByok, getPrefs, setPrefs,
   getCurrent, setCurrent,
   getMastery, getChapterMastery, updateChapterMastery,
+  recordGrade, getDueChapters,
   getSessions, addSession, updateSession,
   getConversation, appendMessage,
   bumpUsage, canSendMessage, getUsage,
   pruneOldConversations,
+  addAssessment,
 } from './aiLearningStore';
-import { sendMessages, buildSystemBlocks, sliceSection, MODELS } from './aiClaudeClient';
+import { sendMessages, buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
 
 const INDEX_URL = '/data/study/civil/chapters_index.json';
 const HANDOVER_URL = '/data/study/civil/handover.md';
@@ -267,6 +269,10 @@ export default function AILearning({ isTabRoot, browseExam }) {
   const [unitMd, setUnitMd] = useState('');
   const [sectionMd, setSectionMd] = useState('');
   const [sectionKey, setSectionKey] = useState('full');
+  const [problemsMd, setProblemsMd] = useState('');
+  const [mode, setMode] = useState('study'); // 'study' | 'practice'
+  const [pendingNext, setPendingNext] = useState(null); // AI 제안 다음 토픽
+  const [due, setDue] = useState(() => getDueChapters());
   const [messages, setMessages] = useState(() => getConversation(todayStr()));
   const [input, setInput] = useState('');
   const [streaming, setStreaming] = useState(false);
@@ -310,6 +316,14 @@ export default function AILearning({ isTabRoot, browseExam }) {
       setSectionKey(k);
     }).catch((e) => setError('단원 자료 로드 실패: ' + e.message));
   }, [current?.code, current?.section_key, chapters]);
+
+  // 문제풀이 모드 진입 시에만 problems MD 로드 (지연 로딩)
+  useEffect(() => {
+    if (mode !== 'practice' || !current) { setProblemsMd(''); return; }
+    const c = chapters.find((x) => x.code === current.code);
+    if (!c || !c.problems_file) return;
+    fetch('/data/study/civil/' + c.problems_file).then((r) => r.text()).then(setProblemsMd).catch(() => setProblemsMd(''));
+  }, [mode, current?.code, chapters]);
 
   // 자동 스크롤
   useEffect(() => {
@@ -373,6 +387,8 @@ export default function AILearning({ isTabRoot, browseExam }) {
       handoverMd,
       unitMd: sectionMd ? '' : unitMd,
       sectionMd,
+      problemsMd: mode === 'practice' ? problemsMd : '',
+      mode,
       currentMastery: curMastery,
       recentSummary,
     });
@@ -401,14 +417,41 @@ export default function AILearning({ isTabRoot, browseExam }) {
         input_tokens: (usage.input_tokens || 0) + (usage.cache_read_input_tokens || 0) + (usage.cache_creation_input_tokens || 0),
         output_tokens: usage.output_tokens || 0,
       });
-      if (curChapter && current) {
-        // 가벼운 진척 가산 (실제 평가는 추후 ai_assessments에서)
+      // 응답에서 JSON 자동 추출 — 채점 / 세션 정리 양쪽 처리
+      const blocks = extractJsonBlocks(out);
+      let coverageBumped = false;
+      blocks.forEach((b) => {
+        if (b && typeof b.correct === 'boolean' && current) {
+          const code = b.code || current.code;
+          recordGrade(code, b.correct);
+        }
+        if (b && b.session_summary && current) {
+          const delta = Number(b.coverage_delta) || 0.05;
+          const prev = getChapterMastery(current.code);
+          updateChapterMastery(current.code, {
+            coverage: Math.min(1, (prev.coverage || 0) + Math.max(0, Math.min(0.3, delta))),
+          });
+          coverageBumped = true;
+          if (sessionId) updateSession(sessionId, { summary: b.session_summary, ended_at: new Date().toISOString() });
+          addAssessment({
+            session_id: sessionId,
+            code: current.code,
+            score: null,
+            comments: b.session_summary,
+            next_topic: b.next_topic || null,
+          });
+          if (b.next_topic && b.next_topic.code) setPendingNext(b.next_topic);
+        }
+      });
+      if (!coverageBumped && curChapter && current) {
+        // 가벼운 진척 가산 (한 턴 기준)
         const m = getChapterMastery(current.code);
         updateChapterMastery(current.code, {
           coverage: Math.min(1, (m.coverage || 0) + 0.01),
         });
-        setMasteryState(getMastery());
       }
+      setMasteryState(getMastery());
+      setDue(getDueChapters());
       if (sessionId) {
         updateSession(sessionId, { msg_count: history.length + 1 });
       }
@@ -457,7 +500,33 @@ export default function AILearning({ isTabRoot, browseExam }) {
         </div>
       </header>
 
+      {due.length > 0 && (
+        <div style={{
+          padding: '6px 12px', background: '#fef3c7', borderBottom: '1px solid #fcd34d',
+          fontSize: '0.78rem', color: '#92400e', display: 'flex', alignItems: 'center', gap: 6,
+        }}>
+          <RotateCcw size={14} />
+          복습 만기 {due.length}단원: {due.map((d) => d.code).join(', ')}
+        </div>
+      )}
       <div style={{ padding: '8px 12px', borderBottom: '1px solid #e5e7eb', background: '#f9fafb' }}>
+        <div style={{ display: 'flex', gap: 4, marginBottom: 8 }}>
+          {[['study', '📖 이론'], ['practice', '✏️ 문제풀이']].map(([k, label]) => (
+            <button
+              key={k}
+              onClick={() => setMode(k)}
+              style={{
+                flex: 1, padding: '6px 10px', borderRadius: 8,
+                border: mode === k ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
+                background: mode === k ? '#eef2ff' : '#fff',
+                color: mode === k ? '#1d4ed8' : '#374151',
+                fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer',
+              }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
         <ChapterPicker chapters={chapters} current={current} onPick={pickChapter} mastery={mastery} />
         {curChapter && curChapter.sections && curChapter.sections.length > 1 && (
           <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginTop: 8, paddingBottom: 4 }}>
@@ -519,6 +588,34 @@ export default function AILearning({ isTabRoot, browseExam }) {
         {error && (
           <div style={{ background: '#fef2f2', color: '#991b1b', padding: 10, borderRadius: 8, fontSize: '0.85rem', marginTop: 10, border: '1px solid #fecaca' }}>
             {error}
+          </div>
+        )}
+        {pendingNext && (
+          <div style={{
+            background: '#eef2ff', color: '#1e40af', padding: 12, borderRadius: 10,
+            marginTop: 10, border: '1px solid #c7d2fe',
+          }}>
+            <div style={{ fontWeight: 700, marginBottom: 4 }}>
+              📌 다음 추천: {pendingNext.code} · {chapters.find((c) => c.code === pendingNext.code)?.title || '(단원)'}
+            </div>
+            {pendingNext.reason && <div style={{ fontSize: '0.85rem', marginBottom: 8 }}>{pendingNext.reason}</div>}
+            <div style={{ display: 'flex', gap: 6 }}>
+              <button
+                onClick={() => {
+                  const next = { subject: 'civil', code: pendingNext.code, section_key: pendingNext.section_key || 'full' };
+                  setCurrentState(next); setCurrent(next); setPendingNext(null);
+                }}
+                style={{ padding: '6px 14px', background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}
+              >
+                이 단원으로 이동
+              </button>
+              <button
+                onClick={() => setPendingNext(null)}
+                style={{ padding: '6px 14px', background: '#fff', color: '#374151', border: '1px solid #d1d5db', borderRadius: 6, cursor: 'pointer' }}
+              >
+                나중에
+              </button>
+            </div>
           </div>
         )}
       </div>

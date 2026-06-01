@@ -34,7 +34,15 @@ export const DEFAULT_PREFS = {
   hide_handover_hint: false,
 };
 
-const MASTERY_DEFAULT = { coverage: 0, accuracy: 0, status: 'not_started', last_studied: null };
+const MASTERY_DEFAULT = {
+  coverage: 0, accuracy: 0, status: 'not_started',
+  last_studied: null, next_review: null, srs_box: 0,
+  attempted: 0, correct: 0,
+};
+
+// SRS Leitner 간격 (일) — 다음 복습일 자동 산정에 사용.
+export const SRS_LADDER = [1, 3, 7, 16, 35, 70];
+const DAY_MS = 86400000;
 
 function lsGet(key, def) {
   try {
@@ -76,13 +84,49 @@ export function getChapterMastery(code) {
 }
 export function updateChapterMastery(code, patch) {
   const all = getMastery();
-  const next = { ...MASTERY_DEFAULT, ...(all[code] || {}), ...patch, last_studied: new Date().toISOString() };
+  const prev = { ...MASTERY_DEFAULT, ...(all[code] || {}) };
+  const next = { ...prev, ...patch, last_studied: new Date().toISOString() };
   // 학습 상태 자동 분류
   if (next.coverage >= 0.95 && next.accuracy >= 0.8) next.status = 'mastered';
   else if (next.coverage > 0) next.status = 'in_progress';
+  // SRS 다음 복습 산정: 마스터 → ladder 따라 박스 진행 / 진행 중이면 box=0(1일 후)
+  const now = Date.now();
+  if (next.status === 'mastered') {
+    const box = Math.min(SRS_LADDER.length - 1, (prev.srs_box || 0) + 1);
+    next.srs_box = box;
+    next.next_review = new Date(now + SRS_LADDER[box] * DAY_MS).toISOString();
+  } else if (next.status === 'in_progress') {
+    const box = 0;
+    next.srs_box = box;
+    next.next_review = new Date(now + SRS_LADDER[box] * DAY_MS).toISOString();
+  }
   all[code] = next;
   lsSet(KEY.mastery, all);
   return next;
+}
+
+// 채점 결과를 누적해 accuracy 갱신 + SRS lapse 처리
+export function recordGrade(code, isCorrect) {
+  const all = getMastery();
+  const prev = { ...MASTERY_DEFAULT, ...(all[code] || {}) };
+  const attempted = (prev.attempted || 0) + 1;
+  const correct = (prev.correct || 0) + (isCorrect ? 1 : 0);
+  const accuracy = attempted > 0 ? correct / attempted : 0;
+  const patch = { attempted, correct, accuracy };
+  if (!isCorrect && prev.srs_box > 0) patch.srs_box = Math.max(0, prev.srs_box - 1);
+  return updateChapterMastery(code, patch);
+}
+
+// 오늘 복습 만기인 단원 코드 목록
+export function getDueChapters(now = Date.now()) {
+  const all = getMastery();
+  const due = [];
+  Object.entries(all).forEach(([code, m]) => {
+    if (!m || !m.next_review) return;
+    const t = new Date(m.next_review).getTime();
+    if (isFinite(t) && t <= now) due.push({ code, days_overdue: Math.floor((now - t) / DAY_MS) });
+  });
+  return due;
 }
 
 export function getSessions() { return lsGet(KEY.sessions, []); }
