@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen, Sparkles } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
-import { findLeafByPath, questionsInLeaf, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
+import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
 import { setCurrent as setAiCurrent } from './aiLearningStore';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
@@ -1542,6 +1542,20 @@ const App = () => {
   // 커버리지: 전체 대비 미응답/정답/복습필요/마스터 + 시험별 진척
   const coverage = useMemo(() => buildCoverage(classifiedList, progress), [classifiedList, progress]);
 
+  // 모든 leaf의 quiz 진척 dict — { leaf_id: {total, answered, correct, wrong, due, accuracy, coverage} }
+  // 4탭 공통 참조: AI 학습(LeafPicker 인라인), 둘러보기(카드), 현황(통합 view), 복습(due 카운트)
+  const quizStatsByLeaf = useMemo(() => {
+    const out = {};
+    if (!classifiedList?.length) return out;
+    Object.values(leavesBySubject).forEach((arr) => {
+      (arr || []).forEach((leaf) => {
+        const s = leafQuizStats(leaf, classifiedList, progress, qid);
+        if (s.total > 0) out[leaf.id] = s;
+      });
+    });
+    return out;
+  }, [leavesBySubject, classifiedList, progress]);
+
   // AI 학습 탭 — 5과목 quiz 오답률 기반 취약 단원 path 집계.
   // 결과: { civil: [...], economics: [...], realestate: [...], law: [...], accounting: [...] }
   const aiWeakPathsBySubject = useMemo(() => {
@@ -1920,6 +1934,7 @@ const App = () => {
           if (!leaf || !classifiedList?.length) return 0;
           return questionsInLeaf(classifiedList, leaf).length;
         }}
+        quizStatsByLeaf={quizStatsByLeaf}
       />
     );
   }

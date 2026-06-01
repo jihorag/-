@@ -91,7 +91,7 @@ function MasteryBar({ value, color = '#4f46e5' }) {
 
 // 평탄 leaf 리스트를 들여쓰기로 시각화하는 picker.
 // path 길이에 따른 들여쓰기 + 검색.
-function LeafPicker({ leaves, current, onPick, mastery, due }) {
+function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf }) {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState('');
   const cur = leaves.find((l) => l.id === current?.leaf_id);
@@ -700,7 +700,7 @@ function matchWeakLeaves(weakPaths, leaves) {
 
 const IDLE_MS = 10 * 60 * 1000; // 10분
 
-export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPathsBySubject, leavesBySubject: leavesBySubjectProp, onJumpToBrowse, getQuizCountForLeaf }) {
+export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPathsBySubject, leavesBySubject: leavesBySubjectProp, onJumpToBrowse, getQuizCountForLeaf, quizStatsByLeaf }) {
   useEffect(() => { migrateLegacyCivilIds(); }, []);
   const [byok, setByokState] = useState(getByok());
   const [prefs, setPrefsState] = useState(getPrefs());
