@@ -211,3 +211,29 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* ===== 반응형 — PC/태블릿 폭 확장 ===== */
+/* 태블릿(≥768px): 본문 폭 적당히 확장 */
+@media (min-width: 768px) {
+  .app-shell { max-width: 760px; }
+  .bottom-nav { max-width: 760px; }
+}
+/* PC(≥1024px): 컨텐츠 폭 더 넓게, 본문은 카드 그리드가 채움 */
+@media (min-width: 1024px) {
+  .app-shell { max-width: 1080px; }
+  .bottom-nav { max-width: 1080px; }
+  .main-content { padding-left: 24px; padding-right: 24px; }
+  /* PC에서 5과목 카드, 통계 카드 등은 더 큰 minmax로 자동 확장
+     인라인 스타일은 그대로 두되 화면 자체가 넓어 한 줄에 더 많은 카드가 들어감 */
+  .study-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important; }
+  .todo-hero { max-width: none; }
+  /* 분석/현황 차트들이 너무 작지 않게 — 컨테이너가 넓어지면 차트도 같이 확장됨 */
+}
+/* 와이드 PC(≥1440px): 더 여유롭게 */
+@media (min-width: 1440px) {
+  .app-shell { max-width: 1280px; }
+  .bottom-nav { max-width: 1280px; }
+}
+
+/* 하단 nav가 화면 중앙 정렬되도록 left/transform 보장 (기존 left:50%; transform:translateX(-50%);) */
+/* — 이미 위에 있음. PC에서도 같은 규칙 적용 */

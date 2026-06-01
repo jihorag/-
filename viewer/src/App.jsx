@@ -1876,7 +1876,7 @@ const App = () => {
         }} />
       <div style={{
         position: 'fixed', top: 0, right: 0, bottom: 0,
-        width: 'min(360px, 92vw)', background: '#fff',
+        width: 'clamp(320px, 38vw, 480px)', background: '#fff',
         boxShadow: '-12px 0 28px rgba(0,0,0,0.18)', zIndex: 101,
         display: 'flex', flexDirection: 'column',
         animation: 'slideInRight 0.24s cubic-bezier(0.22, 0.61, 0.36, 1)',
