@@ -3426,98 +3426,108 @@ const App = () => {
           })()}
 
 
-          {/* ④ 5과목 도넛 카드 그리드 — 파랑/화이트 톤 통일 */}
-          <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
-            padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <div style={{ fontWeight: 800, fontSize: '1rem' }}>📊 5과목 통합 진척</div>
-              <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>약점 우선</div>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 10 }}>
-              {subjectMatrix.map(({ s, aiCov, aiMaster, aiTotal, quizAcc, quizCov, quizScored, quizTotal, score }) => {
-                const scorePct = Math.round(score * 100);
-                // 색은 통일된 파랑 — score만 진하기 변화
-                const blueShade = scorePct >= 70 ? '#1d4ed8'
-                  : scorePct >= 40 ? '#4f46e5'
-                  : '#818cf8';
-                const tierLabel = scorePct >= 70 ? '안정' : scorePct >= 40 ? '진행' : '시작';
-                return (
-                  <div key={s.id} style={{
-                    background: 'linear-gradient(160deg, #f5f8ff 0%, #ffffff 100%)',
-                    border: '1px solid #dbeafe', borderRadius: 12, padding: 12,
-                    display: 'flex', flexDirection: 'column', gap: 6,
-                  }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <span style={{ fontSize: '1.1rem' }}>{s.icon}</span>
-                      <span style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '0.9rem' }}>{s.short}</span>
-                      <span style={{ marginLeft: 'auto', fontSize: '0.62rem', fontWeight: 700, color: '#4338ca',
-                        background: '#eef2ff', padding: '2px 6px', borderRadius: 999, border: '1px solid #c7d2fe' }}>
-                        {tierLabel}
-                      </span>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'center', margin: '4px 0' }}>
-                      <Donut
-                        size={86}
-                        value={score}
-                        color={blueShade}
-                        stroke={8}
-                        centerText={`${scorePct}`}
-                        centerSub="통합"
-                      />
-                    </div>
-                    {/* 듀얼 미니 막대 — 파랑 톤 */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                        <span style={{ fontSize: '0.65rem', color: '#6b7280', width: 14 }}>🎓</span>
-                        <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e0e7ff' }}>
-                          <div style={{ width: `${Math.round(aiCov * 100)}%`, height: '100%', background: '#4f46e5' }} />
-                        </div>
-                        <span style={{ fontSize: '0.62rem', color: '#374151', minWidth: 32, textAlign: 'right' }}>
-                          {Math.round(aiCov * 100)}%
+          {/* ④ 8과목 도넛 카드 그리드 — 1차 / 2차 섹션 분리 */}
+          {[
+            { label: '📖 1차 시험 (5과목)', matrix: matrixStage1 },
+            { label: '✍️ 2차 시험 (3과목)', matrix: matrixStage2 },
+          ].map(({ label, matrix }) => matrix.length === 0 ? null : (
+            <section key={label} style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+              padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                <div style={{ fontWeight: 800, fontSize: '1rem' }}>📊 {label}</div>
+                <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>약점 우선</div>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 10 }}>
+                {matrix.map(({ s, aiCov, aiMaster, aiTotal, quizAcc, quizCov, quizScored, quizTotal, score, isStage2, avgScorePct, answerCountSum }) => {
+                  const scorePct = Math.round(score * 100);
+                  const blueShade = scorePct >= 70 ? '#1d4ed8' : scorePct >= 40 ? '#4f46e5' : '#818cf8';
+                  const tierLabel = scorePct >= 70 ? '안정' : scorePct >= 40 ? '진행' : '시작';
+                  return (
+                    <div key={s.id} style={{
+                      background: 'linear-gradient(160deg, #f5f8ff 0%, #ffffff 100%)',
+                      border: '1px solid #dbeafe', borderRadius: 12, padding: 12,
+                      display: 'flex', flexDirection: 'column', gap: 6,
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ fontSize: '1.1rem' }}>{s.icon}</span>
+                        <span style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '0.9rem' }}>{s.short}</span>
+                        <span style={{ marginLeft: 'auto', fontSize: '0.62rem', fontWeight: 700, color: '#4338ca',
+                          background: '#eef2ff', padding: '2px 6px', borderRadius: 999, border: '1px solid #c7d2fe' }}>
+                          {tierLabel}
                         </span>
                       </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                        <span style={{ fontSize: '0.65rem', color: '#6b7280', width: 14 }}>📚</span>
-                        <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e0e7ff' }}>
-                          <div style={{ width: `${Math.round(quizCov * 100)}%`, height: '100%', background: '#60a5fa' }} />
+                      <div style={{ display: 'flex', justifyContent: 'center', margin: '4px 0' }}>
+                        <Donut size={86} value={score} color={blueShade} stroke={8}
+                          centerText={`${scorePct}`} centerSub="통합" />
+                      </div>
+                      {/* 듀얼 미니 막대 — stage 2는 답안 평균 표시 */}
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                          <span style={{ fontSize: '0.65rem', color: '#6b7280', width: 14 }}>🎓</span>
+                          <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e0e7ff' }}>
+                            <div style={{ width: `${Math.round(aiCov * 100)}%`, height: '100%', background: '#4f46e5' }} />
+                          </div>
+                          <span style={{ fontSize: '0.62rem', color: '#374151', minWidth: 32, textAlign: 'right' }}>
+                            {Math.round(aiCov * 100)}%
+                          </span>
                         </div>
-                        <span style={{ fontSize: '0.62rem', color: '#374151', minWidth: 32, textAlign: 'right' }}>
-                          {quizAcc != null ? `${Math.round(quizAcc * 100)}%` : '–'}
-                        </span>
+                        {isStage2 ? (
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                            <span style={{ fontSize: '0.65rem', color: '#6b7280', width: 14 }}>📝</span>
+                            <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e0e7ff' }}>
+                              <div style={{ width: `${Math.round(avgScorePct * 100)}%`, height: '100%', background: '#7c3aed' }} />
+                            </div>
+                            <span style={{ fontSize: '0.62rem', color: '#374151', minWidth: 32, textAlign: 'right' }}>
+                              {Math.round(avgScorePct * 100)}%
+                            </span>
+                          </div>
+                        ) : (
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                            <span style={{ fontSize: '0.65rem', color: '#6b7280', width: 14 }}>📚</span>
+                            <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e0e7ff' }}>
+                              <div style={{ width: `${Math.round(quizCov * 100)}%`, height: '100%', background: '#60a5fa' }} />
+                            </div>
+                            <span style={{ fontSize: '0.62rem', color: '#374151', minWidth: 32, textAlign: 'right' }}>
+                              {quizAcc != null ? `${Math.round(quizAcc * 100)}%` : '–'}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <div style={{ fontSize: '0.62rem', color: '#6b7280', display: 'flex', justifyContent: 'space-between' }}>
+                        <span>마스터 {aiMaster}/{aiTotal}</span>
+                        <span>{isStage2 ? `답안 ${answerCountSum}` : `${quizScored}/${quizTotal}`}</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: 4, marginTop: 2 }}>
+                        <button
+                          onClick={() => {
+                            const sl = (leavesBySubject[s.id] || [])[0];
+                            if (sl) jumpToAILearn(sl); else jumpToAILearn(null);
+                          }}
+                          style={{ flex: 1, padding: '5px', fontSize: '0.7rem', fontWeight: 700,
+                            background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
+                          🎓
+                        </button>
+                        {!isStage2 && (
+                          <button
+                            onClick={() => {
+                              setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
+                              setTaxSubject(s.title);
+                              setTaxSubSubject(null); setTaxChapter(null); setTaxSection(null);
+                              setCurrentView('tax_sub_subjects');
+                              window.scrollTo(0, 0);
+                            }}
+                            style={{ flex: 1, padding: '5px', fontSize: '0.7rem', fontWeight: 700,
+                              background: '#fff', color: '#4338ca', border: '1px solid #c7d2fe', borderRadius: 6, cursor: 'pointer' }}>
+                            📚
+                          </button>
+                        )}
                       </div>
                     </div>
-                    <div style={{ fontSize: '0.62rem', color: '#6b7280', display: 'flex', justifyContent: 'space-between' }}>
-                      <span>마스터 {aiMaster}/{aiTotal}</span>
-                      <span>{quizScored}/{quizTotal}</span>
-                    </div>
-                    <div style={{ display: 'flex', gap: 4, marginTop: 2 }}>
-                      <button
-                        onClick={() => {
-                          const sl = (leavesBySubject[s.id] || [])[0];
-                          if (sl) jumpToAILearn(sl); else jumpToAILearn(null);
-                        }}
-                        style={{ flex: 1, padding: '5px', fontSize: '0.7rem', fontWeight: 700,
-                          background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
-                        🎓
-                      </button>
-                      <button
-                        onClick={() => {
-                          setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
-                          setTaxSubject(s.title);
-                          setTaxSubSubject(null); setTaxChapter(null); setTaxSection(null);
-                          setCurrentView('tax_sub_subjects');
-                          window.scrollTo(0, 0);
-                        }}
-                        style={{ flex: 1, padding: '5px', fontSize: '0.7rem', fontWeight: 700,
-                          background: '#fff', color: '#4338ca', border: '1px solid #c7d2fe', borderRadius: 6, cursor: 'pointer' }}>
-                        📚
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
 
 
 
