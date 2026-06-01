@@ -1275,7 +1275,48 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', padding: '12px 14px' }}>
         {messages.length === 0 && curLeaf && (() => {
           const m = mastery[curLeaf.id] || { coverage: 0, status: 'not_started' };
-          const isResume = m.coverage > 0 || m.status === 'in_progress';
+          const isMaster = m.status === 'mastered';
+          const isResume = !isMaster && (m.coverage > 0 || m.status === 'in_progress');
+          // 마스터된 leaf면 자동 다음 단원 카드 노출
+          if (isMaster && nextLeaf) {
+            return (
+              <div style={{
+                background: 'linear-gradient(180deg, #d1fae5 0%, #fff 100%)',
+                border: '1px solid #6ee7b7', borderRadius: 14, padding: 18, marginTop: 12,
+                textAlign: 'center',
+              }}>
+                <div style={{ fontSize: '2rem', marginBottom: 4 }}>✅</div>
+                <div style={{ fontSize: '0.85rem', color: '#047857', fontWeight: 700, marginBottom: 4 }}>
+                  {curLeaf.path.slice(-1)[0]} — 마스터 완료
+                </div>
+                <div style={{ fontSize: '0.78rem', color: '#374151', marginBottom: 12 }}>
+                  다음은 {nextLeaf.path.slice(-1)[0]} 입니다
+                </div>
+                <div style={{ display: 'flex', gap: 6, justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <button
+                    onClick={() => pickLeaf(nextLeaf)}
+                    style={{
+                      padding: '9px 16px', background: '#059669', color: '#fff', border: 'none',
+                      borderRadius: 8, cursor: 'pointer', fontWeight: 700,
+                      display: 'inline-flex', alignItems: 'center', gap: 6,
+                    }}
+                  >
+                    다음 단원으로 <ArrowRight size={14} />
+                  </button>
+                  <button
+                    onClick={() => quickSend('이 단원 복습 퀴즈 5문제 내줘. 함정 강조.')}
+                    disabled={!cap.ok}
+                    style={{
+                      padding: '9px 16px', background: '#fff', color: '#065f46', border: '1px solid #6ee7b7',
+                      borderRadius: 8, cursor: cap.ok ? 'pointer' : 'not-allowed', fontWeight: 600,
+                    }}
+                  >
+                    🔁 복습 퀴즈
+                  </button>
+                </div>
+              </div>
+            );
+          }
           return (
             <div style={{
               background: 'linear-gradient(180deg, #eef2ff 0%, #fff 100%)',
@@ -1318,6 +1359,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                 >
                   {mode === 'practice' ? '📖 이론으로' : '✏️ 문제풀이로'}
                 </button>
+                {/* 단원 자료 없음 안내 */}
+                {!curLeaf.unit_file && (
+                  <div style={{ width: '100%', marginTop: 8, fontSize: '0.78rem', color: '#9a3412' }}>
+                    ⚠️ 교재 단원 자료가 없어, 인수인계서만으로 학습이 진행됩니다.
+                  </div>
+                )}
               </div>
             </div>
           );
