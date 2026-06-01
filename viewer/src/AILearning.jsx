@@ -1751,78 +1751,38 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     </div>
     ) : (
     <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 880, margin: '0 auto', width: '100%' }}>
-      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', flexDirection: 'column', padding: 0 }}>
-        {/* 상단 행 — 네비 + 유틸 버튼 (이전·다음 단원 / 분석·기록·설정) */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '6px 8px' }}>
-          <button
-            onClick={() => setAiView('home')}
-            title="과목 홈"
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: '#4f46e5', fontSize: '0.85rem', fontWeight: 700, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 2 }}
-          >
-            <ChevronLeft size={18} />홈
-          </button>
-          <button
-            onClick={() => prevLeaf && pickLeaf(prevLeaf)}
-            disabled={!prevLeaf}
-            title={prevLeaf ? `← ${prevLeaf.path.slice(-1)[0]}` : ''}
-            style={{ background: 'none', border: 'none', cursor: prevLeaf ? 'pointer' : 'not-allowed', padding: 4, opacity: prevLeaf ? 1 : 0.3 }}
-          >
-            <ChevronLeft size={20} color="#374151" />
-          </button>
-          <button
-            onClick={() => nextLeaf && pickLeaf(nextLeaf)}
-            disabled={!nextLeaf}
-            title={nextLeaf ? `${nextLeaf.path.slice(-1)[0]} →` : ''}
-            style={{ background: 'none', border: 'none', cursor: nextLeaf ? 'pointer' : 'not-allowed', padding: 4, opacity: nextLeaf ? 1 : 0.3 }}
-          >
-            <ChevronRight size={20} color="#374151" />
-          </button>
-          <div style={{ flex: 1 }} />
-          {messages.length > 0 && curLeaf && (
-            <button
-              onClick={() => askConfirm(`"${curLeaf.path.slice(-1)[0]}" 채팅방 초기화 (진척도는 유지)`, true, () => {
-                if (abortRef.current) abortRef.current.abort();
-                clearRoom(curLeaf.id);
-                setMessages([]);
-                setPendingNext(null);
-                setIdlePromptShown(false);
-                setRecentRooms(getAllRooms());
-              })}
-              title="이 채팅방 초기화"
-              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
-            >
-              <Trash2 size={16} color="#ef4444" />
-            </button>
-          )}
-        <button onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
-          <BarChart3 size={18} color={showAnalytics ? '#4f46e5' : '#6b7280'} />
+      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', gap: 6, padding: '6px 8px' }}>
+        <button
+          onClick={() => setAiView('home')}
+          title="과목 홈"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: '#4f46e5', fontSize: '0.85rem', fontWeight: 700, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 2 }}
+        >
+          <ChevronLeft size={18} />홈
         </button>
-        <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
-          <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
+        <button
+          onClick={() => prevLeaf && pickLeaf(prevLeaf)}
+          disabled={!prevLeaf}
+          title={prevLeaf ? `← ${prevLeaf.path.slice(-1)[0]}` : ''}
+          style={{ background: 'none', border: 'none', cursor: prevLeaf ? 'pointer' : 'not-allowed', padding: 4, opacity: prevLeaf ? 1 : 0.3 }}
+        >
+          <ChevronLeft size={20} color="#374151" />
         </button>
-        <button onClick={() => setShowSettings((v) => !v)} title="설정" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
-          <SettingsIcon size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
-        </button>
-        </div>
-        {/* 하단 행 — 현재 단원·소단원 정보 (분리된 옅은 배경) */}
+
+        {/* 가운데: 단원 정보를 옅은 박스로 감싸 시각적 분리 */}
         <div style={{
-          display: 'flex', alignItems: 'center', gap: 10,
-          padding: '10px 14px',
-          background: 'linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)',
-          borderTop: '1px solid #e5e7eb',
+          flex: 1, minWidth: 0,
+          display: 'flex', alignItems: 'center', gap: 8,
+          padding: '5px 10px',
+          background: 'linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%)',
+          border: '1px solid #e0e7ff',
+          borderRadius: 10,
         }}>
-          <div style={{
-            width: 32, height: 32, borderRadius: 8,
-            background: '#eef2ff', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            flex: '0 0 auto',
-          }}>
-            <Sparkles size={18} color="#4f46e5" />
-          </div>
+          <Sparkles size={16} color="#4f46e5" style={{ flex: '0 0 auto' }} />
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: '1.02rem', fontWeight: 800, color: '#111827', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#111827', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {curLeaf ? curLeaf.path.slice(-1)[0] : 'AI 학습'}
             </div>
-            <div style={{ fontSize: '0.76rem', color: '#475569', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 1 }}>
+            <div style={{ fontSize: '0.7rem', color: '#475569', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {curLeaf ? curLeaf.path.slice(1, -1).join(' › ') : ''}
             </div>
           </div>
@@ -1835,7 +1795,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               const avg = Math.round(m.avg_score_pct || 0);
               return (
                 <span style={{
-                  fontSize: '0.78rem', fontWeight: 800, padding: '4px 10px', borderRadius: 999,
+                  fontSize: '0.72rem', fontWeight: 800, padding: '3px 9px', borderRadius: 999,
                   background: isMaster ? '#d1fae5' : cnt > 0 ? '#ede9fe' : '#fff',
                   color: isMaster ? '#047857' : cnt > 0 ? '#5b21b6' : '#475569',
                   border: '1px solid ' + (isMaster ? '#a7f3d0' : cnt > 0 ? '#ddd6fe' : '#e2e8f0'),
@@ -1848,8 +1808,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             const pct = Math.round((m.coverage || 0) * 100);
             return (
               <span style={{
-                fontSize: '0.78rem', fontWeight: 800, padding: '4px 10px', borderRadius: 999,
-                background: isMaster ? '#d1fae5' : pct > 0 ? '#eef2ff' : '#fff',
+                fontSize: '0.72rem', fontWeight: 800, padding: '3px 9px', borderRadius: 999,
+                background: isMaster ? '#d1fae5' : pct > 0 ? '#fff' : '#fff',
                 color: isMaster ? '#047857' : pct > 0 ? '#4338ca' : '#475569',
                 border: '1px solid ' + (isMaster ? '#a7f3d0' : pct > 0 ? '#c7d2fe' : '#e2e8f0'),
                 whiteSpace: 'nowrap', flex: '0 0 auto',
@@ -1859,6 +1819,40 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             );
           })()}
         </div>
+
+        <button
+          onClick={() => nextLeaf && pickLeaf(nextLeaf)}
+          disabled={!nextLeaf}
+          title={nextLeaf ? `${nextLeaf.path.slice(-1)[0]} →` : ''}
+          style={{ background: 'none', border: 'none', cursor: nextLeaf ? 'pointer' : 'not-allowed', padding: 4, opacity: nextLeaf ? 1 : 0.3 }}
+        >
+          <ChevronRight size={20} color="#374151" />
+        </button>
+        {messages.length > 0 && curLeaf && (
+          <button
+            onClick={() => askConfirm(`"${curLeaf.path.slice(-1)[0]}" 채팅방 초기화 (진척도는 유지)`, true, () => {
+              if (abortRef.current) abortRef.current.abort();
+              clearRoom(curLeaf.id);
+              setMessages([]);
+              setPendingNext(null);
+              setIdlePromptShown(false);
+              setRecentRooms(getAllRooms());
+            })}
+            title="이 채팅방 초기화"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+          >
+            <Trash2 size={16} color="#ef4444" />
+          </button>
+        )}
+        <button onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+          <BarChart3 size={18} color={showAnalytics ? '#4f46e5' : '#6b7280'} />
+        </button>
+        <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+          <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
+        </button>
+        <button onClick={() => setShowSettings((v) => !v)} title="설정" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+          <SettingsIcon size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
+        </button>
       </header>
       {recentChips.length > 0 && (
         <div style={{ padding: '4px 8px', borderBottom: '1px solid #f3f4f6', background: '#fafafa', display: 'flex', gap: 4, overflowX: 'auto' }}>
