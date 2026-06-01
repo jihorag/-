@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "재정학",
+    "chapter": "제2장 외부성, 공공재, 공공선택이론",
+    "section": "제5절 공공선택이론",
+    "item": "제2관 애로우의 불가능성정리",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 30
+  },
+  "questions": [
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성정리(Arrow's Impossibility Theorem)의 결론으로 옳은 것은?",
+      "options": [
+        "민주적 의사결정은 항상 효율적이다",
+        "3명 이상의 개인과 3개 이상의 대안에서 일정한 합리적 조건을 모두 만족하는 사회후생함수는 존재하지 않는다",
+        "독재가 최선의 의사결정 방식이다",
+        "다수결은 항상 최적이다",
+        "효용을 무한히 측정할 수 있다"
+      ],
+      "answer": "2",
+      "explanation": "Arrow의 불가능성정리(1951): 3명 이상 개인의 선호를 결합하여 사회적 선호로 만드는 사회후생함수가 ① 보편 정의역, ② 파레토 효율, ③ 무관한 대안의 독립성, ④ 이행성, ⑤ 비독재성의 5가지 합리적 조건을 모두 만족할 수 없다. 즉 완벽한 민주적 의사결정 메커니즘은 이론적으로 불가능하다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성정리를 정립한 학자와 시기로 옳은 것은?",
+      "options": [
+        "Kenneth Arrow, 1951년 「Social Choice and Individual Values」",
+        "Adam Smith, 1776년",
+        "John Keynes, 1936년",
+        "Paul Samuelson, 1947년",
+        "Milton Friedman, 1962년"
+      ],
+      "answer": "1",
+      "explanation": "Kenneth Arrow가 1951년 박사학위 논문으로 「Social Choice and Individual Values」를 발표하여 불가능성정리를 정립하였다. 이 연구로 Arrow는 1972년 노벨경제학상을 수상하였으며, 공공선택이론·사회선택이론의 출발점이 되었다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-003",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "애로우의 5가지 조건 중 '비독재성(non-dictatorship)'의 의미로 옳은 것은?",
+      "options": [
+        "한 사람의 선호가 다른 사람들의 선호를 결정한다",
+        "어떤 한 사람의 선호가 사회 전체 선호를 결정해서는 안 된다 (모든 사람의 선호가 반영되어야 함)",
+        "정부가 모든 결정을 한다",
+        "국민투표만 사용한다",
+        "독재자만이 의사결정한다"
+      ],
+      "answer": "2",
+      "explanation": "비독재성(non-dictatorship)은 사회후생함수가 어떤 한 사람의 선호만으로 결정되어서는 안 된다는 조건이다. 즉 모든 구성원의 선호가 사회적 결정에 의미 있게 반영되어야 한다. 이는 민주주의의 기본 원칙으로, Arrow는 이 조건이 다른 합리적 조건들과 동시 만족이 불가능함을 증명하였다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-004",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "콩도르세의 역설(Condorcet's paradox)의 정의로 옳은 것은?",
+      "options": [
+        "다수결 투표에서 항상 합리적 결과가 나옴",
+        "다수결로 결정 시 개인의 선호는 합리적이지만 사회적 선호가 이행적(transitive)이지 못해 순환(A>B>C>A)이 발생할 수 있는 역설",
+        "독재가 가장 효율적임을 보여줌",
+        "개인의 선호가 비합리적임을 보여줌",
+        "정부 개입이 항상 옳음을 보여줌"
+      ],
+      "answer": "2",
+      "explanation": "콩도르세의 역설: 3명 이상이 3개 이상 대안을 다수결로 선택할 때 사회적 선호가 순환할 수 있다. 예: ① X: A>B>C, ② Y: B>C>A, ③ Z: C>A>B. AB 투표에서 A 승(X,Z 찬성), BC 투표에서 B 승(X,Y 찬성), CA 투표에서 C 승(Y,Z 찬성). 즉 A>B>C>A 순환. 이는 Arrow 정리의 한 사례이다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-005",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성정리가 의미하는 가장 핵심 함의는?",
+      "options": [
+        "민주주의는 항상 효율적",
+        "완벽한 민주적 의사결정 메커니즘은 이론적으로 불가능하므로, 어떤 사회선택 방법도 일부 합리성 조건을 포기해야 한다",
+        "독재가 옳은 정치 체제",
+        "사회선택은 항상 효율적",
+        "개인 선호는 측정 불가능"
+      ],
+      "answer": "2",
+      "explanation": "Arrow 정리의 핵심 함의: 완벽한 민주적 의사결정은 이론적으로 불가능하므로 ① 어떤 사회선택 방법도 일부 합리성 조건(보편 정의역·파레토·IIA·이행성·비독재성 중 일부)을 포기해야 한다. 이는 민주주의의 본질적 한계를 보여주는 동시에 다양한 사회선택 메커니즘의 trade-off 분석의 출발점이 된다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-006",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "애로우의 5가지 조건 중 '파레토 효율(Pareto efficiency)' 조건의 의미로 옳은 것은?",
+      "options": [
+        "모든 사람이 X를 Y보다 선호하면 사회도 X를 Y보다 선호해야 함",
+        "X와 Y 사이 사회 선호는 무작위로 결정",
+        "다수결만 사용",
+        "독재자가 결정",
+        "정부가 결정"
+      ],
+      "answer": "1",
+      "explanation": "파레토 효율 조건(만장일치 조건): 모든 개인이 X를 Y보다 선호하면 사회도 X를 Y보다 선호해야 한다(만장일치는 사회적으로도 반영). 이는 가장 기본적이고 약한 조건이며, 이마저 다른 조건들과 동시 만족이 불가능하다는 것이 Arrow 정리의 강력함을 보여준다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-007",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "애로우의 5가지 조건 중 '무관한 대안의 독립성(IIA, Independence of Irrelevant Alternatives)'의 의미로 옳은 것은?",
+      "options": [
+        "X와 Y 사이 사회 선호는 X와 Y에 대한 개인 선호만으로 결정되며, 무관한 제3의 대안 Z는 영향을 주지 않아야 함",
+        "모든 대안이 동등하게 취급",
+        "다수결만 사용",
+        "독재자가 결정",
+        "선호의 강도(cardinal utility)를 사용"
+      ],
+      "answer": "1",
+      "explanation": "IIA 조건: X와 Y 사이 사회 선호는 ① 개인들의 X·Y에 대한 상대 선호만으로 결정되어야 하며, ② 무관한 대안 Z의 등장이나 변동이 X·Y의 사회 선호에 영향을 주어서는 안 된다. 이 조건은 매우 직관적이지만 strong한 제약이며, Arrow는 이 조건이 다른 조건들과 동시 만족 불가능함을 핵심적으로 보였다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-008",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "애로우의 5가지 조건 중 '보편 정의역(Universal Domain)'의 의미로 옳은 것은?",
+      "options": [
+        "모든 사람이 같은 선호를 가져야 함",
+        "사회후생함수는 개인들의 모든 가능한 합리적(이행적) 선호 조합을 입력으로 받아야 함",
+        "독재자만 입력",
+        "특정 사람들의 선호만 입력",
+        "정부가 선호를 결정"
+      ],
+      "answer": "2",
+      "explanation": "보편 정의역(Universal Domain): 사회후생함수는 개인들의 모든 가능한 합리적 선호(이행적·완비된 선호) 조합에 대해 사회적 선호를 도출해야 한다. 즉 어떤 개인 선호 조합이 입력되어도 사회 선호가 정의되어야 한다. 이는 선호의 다양성을 인정하는 민주적 조건이다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-009",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "애로우의 5가지 조건 중 '이행성(transitivity)'의 의미로 옳은 것은?",
+      "options": [
+        "A>B이고 B>C이면 A>C가 사회적 선호로 성립해야 함 (논리적 일관성)",
+        "모든 사람이 동일 선호",
+        "다수결 결과를 따름",
+        "독재자가 결정",
+        "임의로 결정"
+      ],
+      "answer": "1",
+      "explanation": "이행성(transitivity): 사회 선호도 개인 선호처럼 논리적 일관성(A>B, B>C → A>C)을 가져야 한다. 비이행성(A>B>C>A 순환)은 합리적 사회 의사결정 불가를 의미한다. 콩도르세의 역설은 다수결이 이 조건을 만족하지 못함을 보여준다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-010",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "콩도르세의 역설을 회피할 수 있는 조건으로 옳은 것은?",
+      "options": [
+        "모든 개인이 동일 선호",
+        "Black(1948)의 'single-peaked preferences(단봉 선호)' 조건 — 모든 개인의 선호가 한 차원에서 단봉형이면 다수결이 이행적 결과 도출",
+        "다수결을 폐지",
+        "독재로 전환",
+        "투표 자체를 금지"
+      ],
+      "answer": "2",
+      "explanation": "Duncan Black(1948)의 '중위투표자 정리(median voter theorem)': 모든 개인의 선호가 한 차원(예: 진보-보수)에서 단봉형(single-peaked)이면 다수결로 중위투표자(median voter)의 선호가 선택되며 순환이 발생하지 않는다. 이는 Arrow의 보편 정의역 조건을 약화한 결과이며, 정치경제학의 핵심 정리이다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-011",
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "question": "Arrow의 불가능성정리가 가지는 정책적 함의로 가장 적절한 것은?",
+      "options": [
+        "민주적 의사결정 방법(다수결·투표 등) 모두 일정한 한계를 가지므로, 각 방법의 trade-off를 인식하고 상황에 맞는 의사결정 메커니즘 설계가 필요함",
+        "모든 정부 결정은 효율적이다",
+        "독재가 최선의 정치 체제",
+        "투표는 폐지되어야 한다",
+        "민주주의는 항상 불완전하므로 의미 없다"
+      ],
+      "answer": "1",
+      "explanation": "Arrow 정리의 정책 함의: 완벽한 민주적 의사결정 메커니즘은 없으므로 ① 다수결·결선투표·점수투표·승점방식 등 다양한 방법의 trade-off 분석, ② 상황(투표 대상·집단 규모·이해관계)에 맞는 의사결정 메커니즘 설계, ③ 단순 다수결만 의존하지 말고 다양한 방법 활용이 필요. 이는 헌법·선거제도 설계의 이론적 기초가 된다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-012",
+      "difficulty": 2,
+      "question_type": "틀린 것 고르기",
+      "question": "Arrow의 불가능성정리에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "Arrow가 1951년 박사논문으로 발표",
+        "5가지 합리적 조건의 동시 만족이 불가능함을 증명",
+        "콩도르세의 역설을 일반화한 결과",
+        "Arrow는 1972년 노벨상 수상",
+        "5가지 조건을 항상 모두 만족하는 완벽한 사회후생함수가 존재함을 보임"
+      ],
+      "answer": "5",
+      "explanation": "⑤는 Arrow 정리와 정반대이므로 옳지 않다. Arrow 정리의 핵심 결론은 '5가지 조건을 동시에 만족하는 완벽한 사회후생함수는 존재하지 않는다(impossibility)'는 것이다. ①~④는 모두 옳은 설명이다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-013",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "콩도르세의 역설 사례. 3명의 투표자가 3개 대안을 다음과 같이 선호한다:\n- 갑: A > B > C\n- 을: B > C > A\n- 병: C > A > B\n\n쌍별 다수결의 결과는?",
+      "options": [
+        "A > B > C로 이행적 결과",
+        "A vs B → A 승, B vs C → B 승, A vs C → C 승 (A>B>C>A 순환)",
+        "독재자가 결정",
+        "모든 선호가 동등",
+        "B가 모든 투표에서 승"
+      ],
+      "answer": "2",
+      "explanation": "쌍별 다수결: ① A vs B: 갑·병은 A>B(2명), 을은 B>A(1명) → A 승. ② B vs C: 갑·을은 B>C(2명), 병은 C>B(1명) → B 승. ③ A vs C: 을·병은 C>A(2명), 갑은 A>C(1명) → C 승. 결과: A>B, B>C, C>A의 순환(콩도르세 역설). 사회 선호가 비이행적이며 다수결의 한계를 보여준다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-014",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Arrow 정리의 증명에서 핵심 메커니즘으로 옳은 것은?",
+      "options": [
+        "임의의 사회후생함수가 5가지 조건을 만족하려고 하면, 한 사람이 결정적 영향력(독재자)을 가지게 됨을 보여 비독재성 조건과 모순됨",
+        "5가지 조건이 항상 서로를 강화함",
+        "독재자가 항상 최적",
+        "다수결이 항상 효율",
+        "효용이 항상 측정 가능"
+      ],
+      "answer": "1",
+      "explanation": "Arrow 증명의 핵심: 임의의 사회후생함수가 ① 보편 정의역, ② 파레토, ③ IIA, ④ 이행성을 만족하려고 하면, '결정적 개인(decisive individual)' 또는 '독재자'의 존재가 도출됨을 보임. 이는 비독재성 조건과 모순이므로 5가지 조건의 동시 만족은 불가능. 이를 'pivotal voter' 또는 'dictator' 증명이라 한다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-015",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "Arrow의 5가지 조건에 관한 다음 설명 중 옳은 것을 모두 고른 것은?\n\nㄱ. 보편 정의역: 사회후생함수는 모든 가능한 개인 선호 조합에 대해 정의되어야 함.\nㄴ. 파레토 효율: 만장일치로 선호되면 사회도 선호.\nㄷ. IIA: 무관한 대안이 X·Y 사회 선호에 영향을 주지 말아야 함.\nㄹ. 이행성: A>B>C라면 A>C가 사회적으로 성립.\nㅁ. 비독재성: 한 사람의 선호가 사회 전체를 결정하지 말아야 함.",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄴ, ㄹ, ㅁ"
+      ],
+      "answer": "4",
+      "explanation": "ㄱ~ㅁ 모두 옳다. Arrow의 5가지 조건: ① Universal Domain, ② Pareto Efficiency, ③ Independence of Irrelevant Alternatives(IIA), ④ Transitivity, ⑤ Non-dictatorship. 각 조건은 합리적·민주적 의사결정의 직관적 요구사항이지만, Arrow는 이 5가지를 동시에 만족할 수 없음을 증명하였다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-016",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Arrow의 정리가 함의하는 'IIA 위반'의 사례로 가장 적절한 것은?",
+      "options": [
+        "단순 다수결",
+        "보다 카운트(Borda count) - 각 대안에 순위에 따른 점수를 부여 후 합산. 무관한 대안이 추가/제거되면 점수 변동으로 사회 선호 변경",
+        "독재자가 결정",
+        "만장일치만 사용",
+        "투표를 폐지"
+      ],
+      "answer": "2",
+      "explanation": "Borda count 방식: 각 대안에 순위 점수 부여 후 합산. 예: 3개 대안이면 1·2·3순위에 2·1·0점. 그러나 ① 무관한 대안이 추가되면 다른 대안의 점수도 변동, ② IIA 위반. Arrow 정리는 Borda count 등 다양한 투표 방식이 IIA를 위반함을 보여주는 결과이다. 미국 대통령 선거제도(선거인단)도 IIA 위반 사례."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-017",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Black(1948)의 중위투표자 정리(median voter theorem)와 Arrow 정리의 관계로 옳은 것은?",
+      "options": [
+        "두 정리는 무관하다",
+        "Black은 Arrow의 보편 정의역 조건을 약화(선호를 단봉형으로 제한)하면 다수결이 이행적 결과(중위투표자의 선호)를 도출함을 보여 Arrow의 가능성 회복",
+        "Black은 Arrow를 부정",
+        "두 정리는 같은 결론",
+        "Black은 비민주적 결과"
+      ],
+      "answer": "2",
+      "explanation": "Duncan Black(1948)의 중위투표자 정리: Arrow의 보편 정의역 조건을 약화(모든 선호가 한 차원에서 단봉형이라 가정)하면, 다수결로 중위투표자의 선호가 선택되어 이행적 결과 가능. 즉 가능성 회복. 정치경제학에서는 정당의 정책이 중위투표자 쪽으로 수렴한다는 '중위투표자 수렴' 분석에 활용된다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-018",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Sen(1970)의 '자유주의의 불가능성(impossibility of a Paretian liberal)'의 의미로 옳은 것은?",
+      "options": [
+        "자유와 민주주의는 항상 양립 가능",
+        "최소한의 자유주의(개인이 사적 영역에서 결정 가능)와 파레토 효율 조건이 양립 불가능하다는 정리 — Arrow 정리의 자유 차원 확장",
+        "자유는 항상 가능",
+        "민주주의는 자유와 무관",
+        "정부 개입이 자유를 보장"
+      ],
+      "answer": "2",
+      "explanation": "Amartya Sen(1970, 1998 노벨상)의 「The Impossibility of a Paretian Liberal」: ① 모든 개인이 최소한의 사적 영역(예: '내가 어떤 책을 읽을지')에서 결정권을 가지는 '최소 자유주의', ② 파레토 효율(만장일치 반영) 조건이 동시 만족 불가능함을 증명. Arrow 정리의 확장이며 자유와 민주주의의 trade-off를 보여준다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-019",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Gibbard-Satterthwaite 정리(1973-1975)의 결론으로 옳은 것은?",
+      "options": [
+        "투표자는 항상 진실한 선호를 표시한다",
+        "비독재적·비결정적 투표 메커니즘은 모두 전략적 투표(strategic voting, 진실한 선호와 다르게 투표할 유인)에 취약하다",
+        "다수결만 전략적 투표가 가능",
+        "독재만이 전략적 투표를 방지",
+        "전략적 투표는 항상 효율"
+      ],
+      "answer": "2",
+      "explanation": "Allan Gibbard(1973)와 Mark Satterthwaite(1975)의 정리: 비독재적·비결정적·범위적 사회선택 메커니즘은 모두 ① 전략적 투표(strategic voting)에 취약, ② 진실한 선호 표시가 항상 최선이 아닐 수 있음. 이는 Arrow 정리를 전략적 차원으로 확장한 결과로, 'mechanism design' 분야 발전의 기초이다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-020",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "Arrow 정리의 정책적 함의에 관한 다음 설명 중 옳은 것을 모두 고른 것은?\n\nㄱ. 완벽한 민주적 의사결정 메커니즘은 이론적으로 불가능하다.\nㄴ. 단순 다수결은 이행성·순환 등 한계를 가진다.\nㄷ. 다양한 투표 방식(다수결·결선·점수·승점)의 trade-off를 인식하고 상황에 맞는 메커니즘 설계가 필요.\nㄹ. 헌법·선거제도 설계의 이론적 기초.",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄷ, ㄹ"
+      ],
+      "answer": "4",
+      "explanation": "ㄱ~ㄹ 모두 옳다. Arrow 정리의 정책 함의: ① 완벽한 민주 의사결정 불가능, ② 다수결의 한계, ③ 투표 방식의 trade-off 인식과 메커니즘 설계, ④ 헌법·선거제도 설계의 이론적 기초. 이는 현대 정치경제학·메커니즘 디자인의 출발점이다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-021",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Arrow 정리가 부정하지 않는 것으로 옳은 것은?",
+      "options": [
+        "다수결의 절대적 우월성",
+        "완벽한 민주적 사회후생함수의 존재",
+        "다양한 투표 방식이 각자의 장단점을 가지고 상황에 따라 사용될 수 있다는 점",
+        "독재의 정당성",
+        "민주주의의 절대적 가치"
+      ],
+      "answer": "3",
+      "explanation": "Arrow 정리는 ① 완벽한 사회후생함수의 불가능을 보였지만, ② 민주주의 자체를 부정하지 않으며, ③ 다양한 투표 방식이 각자의 장단점을 가지고 상황별 활용 가능함을 시사한다. 어떤 조건을 우선시할지(파레토 vs 비독재 등)는 정치적·윤리적 선택이며, Arrow는 그 트레이드오프를 명확히 보여주었다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-022",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 투표 방식 중 콩도르세 우승자(Condorcet winner, 모든 다른 대안과의 1대1 다수결에서 이기는 후보)를 항상 선택하지 못하는 방식은?",
+      "options": [
+        "콩도르세 방식 자체",
+        "단순 다수결(plurality, 1차 투표에서 최다 득표자 선출)",
+        "결선투표",
+        "Black의 단봉 선호 가정 시 다수결",
+        "콩도르세 토너먼트"
+      ],
+      "answer": "2",
+      "explanation": "단순 다수결(plurality, '한 표만 표시')은 ① 콩도르세 우승자가 있어도 1차 득표 분산으로 선택하지 못할 수 있음, ② 1992년 미국 대선의 Perot 효과 등 사례. 따라서 단순 다수결의 한계가 사회선택이론에서 자주 논의된다. 결선투표·콩도르세 방식·승점 방식 등이 대안."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Arrow 정리의 후속 발전과 확장으로 옳은 것은?",
+      "options": [
+        "Arrow 정리는 후속 연구 없이 단일 정리로만 남았다",
+        "후속 연구로 ① Black의 중위투표자 정리(보편 정의역 약화 시 가능성 회복), ② Sen의 자유주의 불가능성, ③ Gibbard-Satterthwaite의 전략적 투표 정리, ④ Mechanism design 분야 발전 등이 있다",
+        "Arrow 정리는 완전히 폐기되었다",
+        "Arrow 정리는 거시경제학과 통합되었다",
+        "Arrow 정리는 미시경제학의 핵심"
+      ],
+      "answer": "2",
+      "explanation": "Arrow 정리의 발전: ① Black(1948) 중위투표자 정리, ② Sen(1970) 자유주의 불가능성, ③ Gibbard(1973)·Satterthwaite(1975) 전략적 투표 정리, ④ Hurwicz·Maskin·Myerson(2007 노벨상) Mechanism Design 이론으로 발전 — 사회선택·공공경제학·정치경제학·메커니즘 디자인의 거대한 연구 흐름의 출발점이 되었다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-024",
+      "difficulty": 4,
+      "question_type": "보기 결합형",
+      "question": "Arrow 정리 이후 발전한 사회선택·메커니즘 이론에 관한 다음 설명 중 옳은 것을 모두 고른 것은?\n\nA. Black(1948) - 중위투표자 정리.\nB. Sen(1970, 1998 노벨상) - 자유주의의 불가능성·역량 접근.\nC. Gibbard-Satterthwaite(1973-1975) - 전략적 투표 정리.\nD. Hurwicz·Maskin·Myerson(2007 노벨상) - 메커니즘 디자인 이론.\nE. Arrow(1972 노벨상) - 일반균형 + 사회선택 이론.\nF. Lucas(1972) - 합리적 기대.",
+      "options": [
+        "A, B, C, D",
+        "A, B, C, D, E",
+        "A, B, C, E",
+        "A, B, C, D, F",
+        "A, B, C, D, E, F"
+      ],
+      "answer": "2",
+      "explanation": "A·B·C·D·E 옳음. ① Black(1948) 중위투표자, ② Sen(1970) 자유주의 불가능성, ③ Gibbard-Satterthwaite(1973-1975) 전략적 투표, ④ Hurwicz·Maskin·Myerson(2007 노벨상) 메커니즘 디자인, ⑤ Arrow(1972 노벨상). F ✗: Lucas(1972)의 합리적 기대는 거시경제학의 이론이지 사회선택과 직접 무관하다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-025",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "한국의 대통령 선거제도(단순 다수결, 1987년~)에서 Arrow 정리의 함의로 옳은 것은?",
+      "options": [
+        "한국 선거제도는 항상 최적",
+        "한국의 단순 다수결은 ① 콩도르세 우승자를 놓칠 가능성, ② 사표 발생, ③ 분파 후보로 인한 결과 왜곡(예: 1987년 김영삼·김대중 분열) 등 Arrow 정리가 시사하는 단순 다수결의 한계를 보여줌. 결선투표·점수투표 등 대안이 학계에서 논의됨",
+        "한국 선거는 결선투표제로 운영",
+        "Arrow 정리는 한국 선거와 무관",
+        "한국 선거는 독재적"
+      ],
+      "answer": "2",
+      "explanation": "한국의 단순 다수결 대통령 선거제도와 Arrow 정리: ① 콩도르세 우승자 놓칠 가능성, ② 사표 발생, ③ 분파 후보로 인한 결과 왜곡(1987년 김영삼·김대중 분열로 노태우 당선, 2002년 정몽준 단일화 효과 등). 결선투표제(프랑스), 순위투표(호주·아일랜드) 등 대안 논의가 학계에서 진행되고 있으며, 이는 Arrow 정리의 정책적 함의이다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-026",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Arrow 정리와 후생경제학 제1·제2정리의 관계로 옳은 것은?",
+      "options": [
+        "두 정리는 무관하다",
+        "후생경제학 정리는 ① 시장에서 효율 달성을 보임, ② Arrow 정리는 사회선택(정치)에서 완벽한 의사결정 불가능을 보임 — 시장과 정치의 비대칭성 시사",
+        "두 정리는 같은 결론",
+        "Arrow는 시장경제 부정",
+        "후생경제학은 사회선택 부정"
+      ],
+      "answer": "2",
+      "explanation": "후생경제학 정리는 시장 메커니즘이 가정 충족 시 파레토 효율 달성을 보이고, Arrow 정리는 사회선택(정치 의사결정)에서 완벽한 민주 메커니즘이 불가능함을 보인다. 두 정리는 ① 시장(효율) vs 정치(한계)의 비대칭성, ② 시장실패와 정부실패의 비교 형량의 이론적 기초를 함께 제공한다. 둘 다 Arrow(1972 노벨상)와 관련."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-027",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Mechanism Design 이론이 Arrow 정리의 한계를 어떻게 우회하려 했는가?",
+      "options": [
+        "5가지 조건을 모두 만족하는 사회후생함수 찾기",
+        "사회선택의 직접 추구 대신, ① 원하는 결과(목표·외부 기준)를 정하고, ② 그를 달성하는 인센티브 양립적 메커니즘(예: VCG 메커니즘)을 설계하는 접근으로 우회",
+        "독재로 전환",
+        "투표 폐지",
+        "다수결만 사용"
+      ],
+      "answer": "2",
+      "explanation": "Mechanism Design(Hurwicz·Maskin·Myerson 2007 노벨상): ① Arrow 정리의 한계를 인정하고, ② 사회선택의 직접 추구 대신 외부 기준(효율·정의)을 정하고, ③ 그를 달성하는 인센티브 양립적 메커니즘(incentive compatible) 설계로 접근. 예: Vickrey-Clarke-Groves(VCG) 메커니즘은 진실한 선호 표시를 유인하는 경매·공공재 공급 도구로 활용된다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-028",
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 종합 시나리오의 분석으로 가장 적절한 것은?\n\n[시나리오] 한 도시의 지방세 사용 우선순위 결정\n- 3개 선택지: A(교통 인프라), B(교육), C(의료)\n- 시민 3그룹(각 그룹의 선호):\n  * 청년: A > B > C\n  * 중장년: B > C > A\n  * 노년: C > A > B",
+      "options": [
+        "단순 다수결로 정답을 도출할 수 있다",
+        "콩도르세 역설 발생 — 쌍별 다수결로 A>B, B>C, C>A 순환. Arrow 정리에 따라 완벽한 민주 의사결정 불가. 정책 결정에 다양한 메커니즘(결선·점수·승점·전문가 검토 등)을 활용하거나, 사회후생함수 가치판단을 명시할 필요",
+        "독재자가 결정해야 한다",
+        "투표 자체가 의미 없다",
+        "모든 그룹이 같은 선호를 가져야 한다"
+      ],
+      "answer": "2",
+      "explanation": "이 시나리오는 콩도르세 역설의 대표적 사례: ① A vs B: 청년·노년 A>B(2), 중장년 B>A(1) → A 승, ② B vs C: 청년·중장년 B>C(2), 노년 C>B(1) → B 승, ③ A vs C: 중장년·노년 C>A(2), 청년 A>C(1) → C 승. A>B>C>A 순환. Arrow 정리의 정확한 사례. 해결책: 결선투표, 점수투표, 가중 사회후생함수(예: 공리주의 또는 롤스), 전문가 검토 등의 결합 활용."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-029",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "Arrow 정리와 관련된 학문적 발전을 종합한 다음 설명 중 옳은 것을 모두 고른 것은?\n\nA. Black(1948) - 중위투표자 정리, 보편 정의역 약화 시 가능성.\nB. Arrow(1951) - 불가능성정리, 1972년 노벨상.\nC. Sen(1970) - 자유주의의 불가능성, 1998년 노벨상.\nD. Gibbard-Satterthwaite(1973-1975) - 전략적 투표 정리.\nE. Hurwicz·Maskin·Myerson(2007 노벨상) - 메커니즘 디자인.\nF. Acemoglu·Robinson(2012) - 「Why Nations Fail」, 포용적 vs 추출적 제도.",
+      "options": [
+        "A, B, C, D",
+        "A, B, C, D, E",
+        "A, B, C, D, F",
+        "A, B, C, D, E, F",
+        "B, C, D, E"
+      ],
+      "answer": "4",
+      "explanation": "A~F 모두 옳다. 사회선택·공공선택·정치경제학 발전사: ① Black(1948), ② Arrow(1951, 1972 노벨), ③ Sen(1970, 1998 노벨), ④ Gibbard-Satterthwaite(1973-1975), ⑤ Hurwicz·Maskin·Myerson(2007 노벨, 메커니즘 디자인), ⑥ Acemoglu-Robinson(2012, 제도 경제학) — 약 60년에 걸친 거대한 학문적 흐름의 핵심이다."
+    },
+    {
+      "id": "practice-econ-fiscal-ch02-sec05-item02-030",
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "question": "Arrow의 불가능성정리의 현대적 의의와 한계에 관한 종합 분석으로 가장 적절한 것은?",
+      "options": [
+        "Arrow 정리는 민주주의를 부정",
+        "Arrow 정리는 ① 완벽한 민주 의사결정 메커니즘의 이론적 불가능성을 엄밀히 증명, ② 사회선택·공공선택·메커니즘 디자인의 거대 학문 분야 출발점, ③ 헌법·선거제도 설계의 이론적 기초이다. 한계로 ① 강한 IIA 조건 등 가정의 약화 시 가능성 회복(Black의 중위투표자), ② 효용의 cardinal 측정·인간관계 비교 가능성을 가정하면 결과 변화, ③ 실제 정책 의사결정은 단순 사회후생함수 외에 다양한 절차·가치판단·이해관계 조정으로 이루어진다는 점이 있어 ④ 후속 연구로 보완·확장되어 왔다",
+        "Arrow 정리는 완전히 폐기",
+        "Arrow 정리는 미시경제학과 무관",
+        "Arrow 정리는 거시경제 도구"
+      ],
+      "answer": "2",
+      "explanation": "Arrow 정리의 종합적 의의와 한계: 의의 ① 완벽한 민주 의사결정의 이론적 불가능성, ② 사회선택·공공선택·메커니즘 디자인의 출발점, ③ 헌법·선거제도의 이론적 기초. 한계 ① 가정 약화 시 가능성 회복(Black), ② 효용의 cardinal·비교 가능성 가정 시 다른 결과(Harsanyi), ③ 실제 정책은 단순 사회후생함수 외 절차·이해관계 조정 등 다층적. 후속 연구로 ① Sen, ② Gibbard-Satterthwaite, ③ Mechanism Design 등으로 발전·확장되며, 현대 정치경제학·공공경제학의 핵심 이론으로 남아 있다."
+    }
+  ]
+}
