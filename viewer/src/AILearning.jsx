@@ -1592,10 +1592,32 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           );
         })}
         {streaming && draft && (
-          <MessageBubble msg={{ role: 'assistant', content: draft }} />
+          // streaming 중에는 plain text + 흐르는 커서로 렌더 — ParsedText(KaTeX) 재파싱을 막아 chunk마다 끊김 제거
+          <div style={{ display: 'flex', justifyContent: 'flex-start', margin: '8px 0' }}>
+            <div style={{
+              maxWidth: '85%', padding: '10px 14px', borderRadius: 14,
+              background: '#f3f4f6', color: '#111827',
+              fontSize: '0.95rem', lineHeight: 1.55,
+              whiteSpace: 'pre-wrap', wordBreak: 'break-word',
+            }}>
+              {draft}
+              <span className="ai-streaming-cursor" style={{
+                display: 'inline-block', width: 8, height: '1em',
+                background: '#4f46e5', marginLeft: 2, verticalAlign: 'text-bottom',
+                animation: 'aiCursorBlink 1s steps(2) infinite',
+              }} />
+            </div>
+          </div>
         )}
         {streaming && !draft && (
-          <div style={{ padding: 12, color: '#6b7280', fontSize: '0.85rem' }}>생각하는 중…</div>
+          <div style={{ padding: 12, color: '#6b7280', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ display: 'inline-flex', gap: 4 }}>
+              <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4f46e5', animation: 'aiThink 1.2s ease-in-out infinite' }} />
+              <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4f46e5', animation: 'aiThink 1.2s ease-in-out 0.2s infinite' }} />
+              <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4f46e5', animation: 'aiThink 1.2s ease-in-out 0.4s infinite' }} />
+            </span>
+            생각하는 중…
+          </div>
         )}
         {error && (
           <div style={{ background: '#fef2f2', color: '#991b1b', padding: 10, borderRadius: 8, fontSize: '0.85rem', marginTop: 10, border: '1px solid #fecaca' }}>

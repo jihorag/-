@@ -182,3 +182,13 @@
     border-right-color: var(--border);
   }
 }
+
+/* AI 학습 — streaming 흐름 시각 효과 */
+@keyframes aiCursorBlink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+@keyframes aiThink {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-3px); opacity: 1; }
+}
