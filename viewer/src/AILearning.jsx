@@ -173,7 +173,7 @@ function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf }) 
                       {chName}
                     </div>
                     {ch._leaf && matchQ(ch._leaf) && (
-                      <LeafButton leaf={ch._leaf} active={ch._leaf.id === current?.leaf_id} mastery={mastery} due={dueIds} onPick={() => { onPick(ch._leaf); setOpen(false); }} depth={1} />
+                      <LeafButton leaf={ch._leaf} active={ch._leaf.id === current?.leaf_id} mastery={mastery} due={dueIds} quizStatsByLeaf={quizStatsByLeaf} onPick={() => { onPick(ch._leaf); setOpen(false); }} depth={1} />
                     )}
                     {Object.entries(ch.sections).map(([secName, sec]) => {
                       const secLeaves = sec._leaf ? [sec._leaf, ...Object.values(sec.items)] : Object.values(sec.items);
@@ -181,13 +181,13 @@ function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf }) 
                       return (
                         <div key={secName}>
                           {sec._leaf && matchQ(sec._leaf) && (
-                            <LeafButton leaf={sec._leaf} active={sec._leaf.id === current?.leaf_id} mastery={mastery} due={dueIds} onPick={() => { onPick(sec._leaf); setOpen(false); }} depth={1} sectionLabel={secName} />
+                            <LeafButton leaf={sec._leaf} active={sec._leaf.id === current?.leaf_id} mastery={mastery} due={dueIds} quizStatsByLeaf={quizStatsByLeaf} onPick={() => { onPick(sec._leaf); setOpen(false); }} depth={1} sectionLabel={secName} />
                           )}
                           {!sec._leaf && Object.keys(sec.items).length > 0 && (
                             <div style={{ padding: '4px 12px 2px 24px', fontSize: '0.76rem', color: '#6b7280' }}>{secName}</div>
                           )}
                           {Object.values(sec.items).filter(matchQ).map((it) => (
-                            <LeafButton key={it.id} leaf={it} active={it.id === current?.leaf_id} mastery={mastery} due={dueIds} onPick={() => { onPick(it); setOpen(false); }} depth={2} />
+                            <LeafButton key={it.id} leaf={it} active={it.id === current?.leaf_id} mastery={mastery} due={dueIds} quizStatsByLeaf={quizStatsByLeaf} onPick={() => { onPick(it); setOpen(false); }} depth={2} />
                           ))}
                         </div>
                       );
@@ -203,9 +203,10 @@ function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf }) 
   );
 }
 
-function LeafButton({ leaf, active, mastery, due, onPick, depth = 0, sectionLabel }) {
+function LeafButton({ leaf, active, mastery, due, quizStatsByLeaf, onPick, depth = 0, sectionLabel }) {
   const m = mastery[leaf.id] || { coverage: 0, accuracy: 0, status: 'not_started' };
   const isDue = due.has(leaf.id);
+  const qs = quizStatsByLeaf?.[leaf.id];
   return (
     <button
       onClick={onPick}
@@ -225,7 +226,22 @@ function LeafButton({ leaf, active, mastery, due, onPick, depth = 0, sectionLabe
           {m.status === 'mastered' ? '✓' : m.coverage > 0 ? `${Math.round(m.coverage * 100)}%` : ''}
         </span>
       </div>
-      {m.coverage > 0 && <div style={{ marginTop: 4 }}><MasteryBar value={m.coverage} /></div>}
+      {/* 진척: AI(상) + Quiz(하) 듀얼 막대 */}
+      {(m.coverage > 0 || (qs && qs.answered > 0)) && (
+        <div style={{ marginTop: 4, display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {m.coverage > 0 && <MasteryBar value={m.coverage} color="#4f46e5" />}
+          {qs && qs.total > 0 && qs.answered > 0 && (
+            <MasteryBar value={qs.accuracy} color="#10b981" />
+          )}
+        </div>
+      )}
+      {qs && qs.total > 0 && (
+        <div style={{ fontSize: '0.7rem', color: '#6b7280', marginTop: 2 }}>
+          기출 {qs.answered}/{qs.total}
+          {qs.answered > 0 && ` · 정답률 ${Math.round(qs.accuracy * 100)}%`}
+          {qs.due > 0 && <span style={{ color: '#92400e' }}> · 복습 {qs.due}</span>}
+        </div>
+      )}
     </button>
   );
 }
@@ -1197,7 +1213,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             </button>
           ))}
         </div>
-        <LeafPicker leaves={leaves} current={current} onPick={pickLeaf} mastery={mastery} due={due} />
+        <LeafPicker leaves={leaves} current={current} onPick={pickLeaf} mastery={mastery} due={due} quizStatsByLeaf={quizStatsByLeaf} />
         {curLeaf && (
           <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#6b7280', display: 'flex', gap: 6, alignItems: 'center', flexWrap: 'wrap' }}>
             <span>교재: {curLeaf.unit_code || '—'}</span>
