@@ -1,0 +1,219 @@
+{
+  "subject": "민법",
+  "subject_id": "civil",
+  "exam": "감정평가사 1차",
+  "scope": "민법총칙 + 물권법 (재산법 중심, 가족법 제외)",
+  "total_questions_per_exam": 40,
+  "score_breakdown": "민법총칙 25문항 + 물권법 15문항",
+  "files": {
+    "handover": "/data/study/civil/handover.md",
+    "units_dir": "/data/study/civil/units",
+    "problems_dir": "/data/study/civil/problems"
+  },
+  "chapters": [
+    {
+      "code": "M01",
+      "area": "민법총칙",
+      "title": "서론",
+      "subtitle": "법원·법률관계",
+      "frequency": 1,
+      "unit_file": "units/M01.md",
+      "problems_file": "problems/M01.md",
+      "estimated_kb": 74,
+      "estimated_tokens": 28000,
+      "sections": [
+        { "name": "전체", "key": "full", "lines": [1, 99999] }
+      ]
+    },
+    {
+      "code": "M02",
+      "area": "민법총칙",
+      "title": "자연인",
+      "subtitle": "권리능력·행위능력·실종",
+      "frequency": 3,
+      "unit_file": "units/M02.md",
+      "problems_file": "problems/M02.md",
+      "estimated_kb": 93,
+      "estimated_tokens": 35000,
+      "active_progress": "행위능력 미성년자까지 완료, 피성년후견인부터 이어감",
+      "sections": [
+        { "name": "전체", "key": "full", "lines": [1, 99999] }
+      ]
+    },
+    {
+      "code": "M03",
+      "area": "민법총칙",
+      "title": "법인",
+      "subtitle": "사단·재단·비법인사단",
+      "frequency": 2,
+      "unit_file": "units/M03.md",
+      "problems_file": "problems/M03.md",
+      "estimated_kb": 243,
+      "estimated_tokens": 90000,
+      "sections": [
+        { "name": "L1 정리", "key": "L1", "lines": [22, 3766] },
+        { "name": "L2 핵심요약서", "key": "L2", "lines": [3767, 4260] },
+        { "name": "L3 기본서", "key": "L3", "lines": [4261, 99999] }
+      ]
+    },
+    {
+      "code": "M04",
+      "area": "민법총칙",
+      "title": "물건",
+      "subtitle": "권리의 객체",
+      "frequency": 1,
+      "unit_file": "units/M04.md",
+      "problems_file": "problems/M04.md",
+      "estimated_kb": 43,
+      "estimated_tokens": 17000,
+      "sections": [
+        { "name": "전체", "key": "full", "lines": [1, 99999] }
+      ]
+    },
+    {
+      "code": "M05",
+      "area": "민법총칙",
+      "title": "법률행위",
+      "subtitle": "의사표시·대리·무효취소·부관 (최다 출제)",
+      "frequency": 3,
+      "unit_file": "units/M05.md",
+      "problems_file": "problems/M05.md",
+      "estimated_kb": 598,
+      "estimated_tokens": 230000,
+      "is_large": true,
+      "sections": [
+        { "name": "제2장 법원", "key": "ch02", "lines": [22, 844] },
+        { "name": "제5장 법률행위", "key": "ch05", "lines": [845, 1341] },
+        { "name": "제9장 법률행위의 목적", "key": "ch09", "lines": [1342, 2018] },
+        { "name": "제10장 의사표시", "key": "ch10", "lines": [2019, 5075] },
+        { "name": "제12장 무효와 취소", "key": "ch12", "lines": [5076, 6982] },
+        { "name": "L2 핵심요약서", "key": "L2", "lines": [6983, 8596] },
+        { "name": "L3 기본서", "key": "L3", "lines": [8597, 99999] }
+      ]
+    },
+    {
+      "code": "M06",
+      "area": "민법총칙",
+      "title": "기간과 소멸시효",
+      "subtitle": "신의칙 포함",
+      "frequency": 3,
+      "unit_file": "units/M06.md",
+      "problems_file": "problems/M06.md",
+      "estimated_kb": 168,
+      "estimated_tokens": 64000,
+      "sections": [
+        { "name": "제14장 소멸시효", "key": "ch14", "lines": [22, 1437] },
+        { "name": "제15장 신의성실의 원칙", "key": "ch15", "lines": [1438, 1999] },
+        { "name": "L2 핵심요약서", "key": "L2", "lines": [2000, 2416] },
+        { "name": "L3 기본서", "key": "L3", "lines": [2417, 99999] }
+      ]
+    },
+    {
+      "code": "B01",
+      "area": "물권법",
+      "title": "물권변동",
+      "subtitle": "등기·선의취득",
+      "frequency": 2,
+      "unit_file": "units/B01.md",
+      "problems_file": "problems/B01.md",
+      "estimated_kb": 200,
+      "estimated_tokens": 77000,
+      "sections": [
+        { "name": "L1 정리 서두", "key": "L1a", "lines": [15, 266] },
+        { "name": "제3장 부동산물권변동·등기부", "key": "ch03", "lines": [267, 1902] },
+        { "name": "제5장 동산물권 변동", "key": "ch05", "lines": [1903, 2299] },
+        { "name": "제7장 서설", "key": "ch07", "lines": [2300, 2440] },
+        { "name": "L2 핵심요약서", "key": "L2", "lines": [2441, 2834] },
+        { "name": "L3 기본서", "key": "L3", "lines": [2835, 99999] }
+      ]
+    },
+    {
+      "code": "B02",
+      "area": "물권법",
+      "title": "점유권",
+      "subtitle": "",
+      "frequency": 1,
+      "unit_file": "units/B02.md",
+      "problems_file": "problems/B02.md",
+      "estimated_kb": 127,
+      "estimated_tokens": 49000,
+      "sections": [
+        { "name": "제2장 서설", "key": "ch02", "lines": [22, 609] },
+        { "name": "제8장 소유권에 기한 물권적 청구권", "key": "ch08", "lines": [610, 1632] },
+        { "name": "L2 핵심요약서", "key": "L2", "lines": [1633, 1839] },
+        { "name": "L3 기본서", "key": "L3", "lines": [1840, 99999] }
+      ]
+    },
+    {
+      "code": "B03",
+      "area": "물권법",
+      "title": "소유권",
+      "subtitle": "취득시효·공동소유·명의신탁 (다출제)",
+      "frequency": 3,
+      "unit_file": "units/B03.md",
+      "problems_file": "problems/B03.md",
+      "estimated_kb": 331,
+      "estimated_tokens": 125000,
+      "is_large": true,
+      "sections": [
+        { "name": "제4장 법률관계의 변동", "key": "ch04", "lines": [22, 110] },
+        { "name": "제12장 소유권 일반", "key": "ch12", "lines": [111, 656] },
+        { "name": "제13장 건물 구분소유", "key": "ch13", "lines": [657, 1108] },
+        { "name": "제14장 취득시효", "key": "ch14", "lines": [1109, 2409] },
+        { "name": "제16장 공동소유 서설", "key": "ch16", "lines": [2410, 3307] },
+        { "name": "제17장 명의신탁", "key": "ch17", "lines": [3308, 4042] },
+        { "name": "L2 핵심요약서", "key": "L2", "lines": [4043, 4590] },
+        { "name": "L3 기본서", "key": "L3", "lines": [4591, 99999] }
+      ]
+    },
+    {
+      "code": "B04",
+      "area": "물권법",
+      "title": "용익물권",
+      "subtitle": "지상권·지역권·전세권",
+      "frequency": 1,
+      "unit_file": "units/B04.md",
+      "problems_file": "problems/B04.md",
+      "estimated_kb": 213,
+      "estimated_tokens": 82000,
+      "sections": [
+        { "name": "제18장 서설(지상권)", "key": "ch18", "lines": [22, 1288] },
+        { "name": "제20장 지역권", "key": "ch20", "lines": [1289, 1577] },
+        { "name": "제21장 전세권", "key": "ch21", "lines": [1578, 2027] },
+        { "name": "L2 핵심요약서", "key": "L2", "lines": [2028, 2429] },
+        { "name": "L3 기본서", "key": "L3", "lines": [2430, 99999] }
+      ]
+    },
+    {
+      "code": "B05",
+      "area": "물권법",
+      "title": "담보물권",
+      "subtitle": "유치권·질권·저당권",
+      "frequency": 2,
+      "unit_file": "units/B05.md",
+      "problems_file": "problems/B05.md",
+      "estimated_kb": 314,
+      "estimated_tokens": 120000,
+      "is_large": true,
+      "sections": [
+        { "name": "제22장 담보물권의 필요성", "key": "ch22", "lines": [22, 162] },
+        { "name": "제23장 유치권 서설", "key": "ch23", "lines": [163, 686] },
+        { "name": "제24장 동산질권", "key": "ch24", "lines": [687, 1104] },
+        { "name": "제25장 권리질권", "key": "ch25", "lines": [1105, 1337] },
+        { "name": "제26장 저당권 서설", "key": "ch26", "lines": [1338, 4116] },
+        { "name": "제31장 비전형담보 서설", "key": "ch31", "lines": [4117, 4392] },
+        { "name": "L2 핵심요약서", "key": "L2", "lines": [4393, 4872] },
+        { "name": "L3 기본서", "key": "L3", "lines": [4873, 99999] }
+      ]
+    }
+  ],
+  "default_start": {
+    "code": "M02",
+    "reason": "인수인계서상 자연인 행위능력 미성년자까지 완료 — 피성년후견인부터 이어가야 함",
+    "default_section": "full"
+  },
+  "learning_order": ["M01", "M02", "M03", "M04", "M05", "M06", "B01", "B02", "B03", "B04", "B05"],
+  "high_priority": ["M02", "M05", "M06", "B03"],
+  "version": "v1.0",
+  "updated": "2026-06-01"
+}
