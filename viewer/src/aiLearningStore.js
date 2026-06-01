@@ -25,6 +25,7 @@ export const KEY = {
   sessions: 'ailearn-sessions',
   usage: 'ailearn-usage',
   assessments: 'ailearn-assessments',
+  mocks: 'ailearn-mocks',                            // 2차 모의 history
   conv: (date) => `ailearn-conversations:${date}`,   // 레거시(날짜 기반)
   room: (leafId) => `ailearn-room:${leafId}`,        // 단원별 채팅방
 };
@@ -261,6 +262,20 @@ export function addAssessment(a) {
   const arr = getAssessments();
   arr.push({ ts: new Date().toISOString(), ...a });
   lsSet(KEY.assessments, arr);
+}
+
+// ── 2차 모의 시험 history ────────────────────────────────
+export function getMocks() { return lsGet(KEY.mocks, []); }
+export function addMock(record) {
+  const arr = getMocks();
+  arr.push({ ts: new Date().toISOString(), ...record });
+  // 최근 50개만 유지
+  while (arr.length > 50) arr.shift();
+  lsSet(KEY.mocks, arr);
+  return arr;
+}
+export function getMocksBySubject(subjectId) {
+  return getMocks().filter((m) => m.subject_id === subjectId);
 }
 
 // ── 1차 5과목 + 2차 3과목 ──────────────────────────────────

@@ -24,6 +24,7 @@ import {
   addAssessment,
   resetLearningProgress,
   migrateLegacyCivilIds,
+  addMock, getMocks,
   SUBJECTS, SUBJECTS_BY_STAGE, getSubjectMeta,
 } from './aiLearningStore';
 import { sendMessages, buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
@@ -1306,6 +1307,26 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   // 빠른 액션: input을 거치지 않고 즉시 send (overrideText 사용)
   const quickSend = (text) => { if (!streaming) send(text); };
 
+  // mockSession.complete가 true로 바뀌면 자동 저장 (멱등성 — saved 플래그)
+  useEffect(() => {
+    if (mockSession?.complete && !mockSession.saved && mockSession.scores.length > 0) {
+      const total = mockSession.scores.reduce((a, x) => a + x.score, 0);
+      const max = mockSession.scoreDist.reduce((a, x) => a + x, 0);
+      const elapsed_min = Math.floor((Date.now() - mockSession.startedAt) / 60000);
+      addMock({
+        subject_id: subjectId,
+        leaf_id: current?.leaf_id,
+        scores: mockSession.scores,
+        total,
+        max,
+        pct: max > 0 ? Math.round((total / max) * 100) : 0,
+        target_min: mockSession.totalMin,
+        elapsed_min,
+      });
+      setMockSession((s) => s ? { ...s, saved: true } : s);
+    }
+  }, [mockSession?.complete, mockSession?.saved]); // eslint-disable-line
+
   // 2차 실전 모의 — 시작/종료 헬퍼
   const startMock = () => {
     const totalMin = subjectId === 'appraisal_law' ? 120 : 100;
@@ -1958,6 +1979,30 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                     ⚠️ 단원 자료가 없어 인수인계서만으로 진행됩니다.
                   </div>
                 )}
+                {/* 모의 history 미니 패널 */}
+                {(() => {
+                  const mocks = getMocks().filter((m) => m.subject_id === subjectId).slice(-5).reverse();
+                  if (mocks.length === 0) return null;
+                  return (
+                    <div style={{ marginTop: 14, padding: 10, background: '#fff', border: '1px solid #ddd6fe',
+                      borderRadius: 8, textAlign: 'left' }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5b21b6', marginBottom: 6 }}>
+                        🎬 최근 모의 ({mocks.length})
+                      </div>
+                      {mocks.map((m, i) => (
+                        <div key={i} style={{ display: 'flex', justifyContent: 'space-between',
+                          alignItems: 'center', fontSize: '0.72rem', padding: '3px 0',
+                          borderTop: i > 0 ? '1px solid #f3f4f6' : 'none' }}>
+                          <span style={{ color: '#6b7280' }}>{(m.ts || '').slice(0, 10)}</span>
+                          <span style={{ fontWeight: 700, color: m.pct >= 70 ? '#16a34a' : m.pct >= 60 ? '#ea580c' : '#dc2626' }}>
+                            {m.total}/{m.max} ({m.pct}%)
+                          </span>
+                          <span style={{ color: '#9ca3af' }}>{m.elapsed_min}분</span>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })()}
               </div>
             );
           }
