@@ -725,6 +725,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const initCur = getCurrent();
   const [subjectId, setSubjectId] = useState(initCur?.subject || 'civil');
   const [current, setCurrentState] = useState(initCur);
+  // 자체 홈 화면 ↔ 학습 화면. 매 진입 시 홈으로 시작.
+  const [aiView, setAiView] = useState('home'); // 'home' | 'study'
   const [mastery, setMasteryState] = useState(getMastery());
   const [handoverMd, setHandoverMd] = useState('');
   const [unitMd, setUnitMd] = useState('');
@@ -851,13 +853,14 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   }, [leaves, weakPaths, weakPathsBySubject, subjectId]);
 
   // 과목 전환 헬퍼
-  const switchSubject = (sid) => {
-    if (sid === subjectId) return;
+  const switchSubject = (sid, enterStudy = false) => {
+    if (sid === subjectId && !enterStudy) return;
     if (abortRef.current) abortRef.current.abort();
     setSubjectId(sid);
     setMessages([]);
     setUnitMd(''); setSectionMd(''); setProblemsMd('');
     setPendingNext(null); setIdlePromptShown(false); setInput('');
+    if (enterStudy) setAiView('study');
   };
 
   // 응답 끝나면 10분 idle 타이머 시작. 다음 user 메시지·언마운트·세션 종료 시 clear.
@@ -1282,7 +1285,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             leavesBySubject={leavesBySubject}
             onClose={() => setShowAnalytics(false)}
             onJump={(leaf, sid) => {
-              if (sid !== subjectId) switchSubject(sid);
+              if (sid !== subjectId) switchSubject(sid, true);
+              else setAiView('study');
               setTimeout(() => pickLeaf(leaf), 50);
               setShowAnalytics(false);
             }}
