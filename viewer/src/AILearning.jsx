@@ -953,12 +953,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       // 기본: 비-스트리밍(한 번에 받기) — 매 chunk 마다 KaTeX/표 재파싱으로 인한 프레임 드롭 회피.
       // prefs.streaming === true 일 때만 토큰별 흐름 표시.
       const useStream = !!prefs.streaming;
+      // 모드별 최대 출력 토큰 — summary/diagnose는 짧게, deep는 길게
+      const modeMaxTokens = { summary: 600, diagnose: 900, deep: 1800, practice: 1500, study: 1200 };
+      const effectiveMax = prefs.max_tokens || modeMaxTokens[mode] || 1200;
       const { text: out, usage } = await sendMessages({
         apiKey: byok,
         model: prefs.model,
         system,
         messages: apiMessages,
-        maxTokens: prefs.max_tokens || 1200,
+        maxTokens: effectiveMax,
         signal: ac.signal,
         onDelta: useStream ? ((_chunk, agg) => setDraft(agg)) : undefined,
       });
@@ -1533,13 +1536,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                   {isResume ? '이어서 진행' : '이 단원 시작하기'}
                 </button>
                 <button
-                  onClick={() => setMode((m) => m === 'practice' ? 'study' : 'practice')}
+                  onClick={() => setMode('diagnose')}
                   style={{
                     padding: '9px 16px', background: '#fff', color: '#374151', border: '1px solid #d1d5db',
                     borderRadius: 8, cursor: 'pointer', fontWeight: 600,
                   }}
                 >
-                  {mode === 'practice' ? '📖 이론으로' : '✏️ 문제풀이로'}
+                  🎯 약점부터 진단
                 </button>
                 {/* 둘러보기 점프 — 이 단원의 quiz 문제 수 표시 */}
                 {onJumpToBrowse && getQuizCountForLeaf && (() => {
@@ -1732,19 +1735,34 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
       <div style={{ padding: 10, borderTop: '1px solid #e5e7eb', background: '#fff' }}>
         <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginBottom: 6, paddingBottom: 2 }}>
-          {(mode === 'practice'
-            ? [
-                ['📝 기출 한 문제 출제해줘', '기출 한 문제 출제해줘. 함정 분석도 같이.'],
-                ['🔄 비슷한 다른 문제', '같은 주제로 다른 기출 문제 한 개 더 출제해줘.'],
-                ['💡 정답·해설', '방금 문제 정답과 해설을 자세히 알려줘.'],
-              ]
-            : [
-                ['▶️ 이 단원 시작', '이 단원의 첫 절·관부터 한 사이클(개념→비유→확인 문제→피드백) 시작해줘.'],
-                ['🔁 이어서 진행', '직전에 멈춘 곳에서 자연스럽게 이어서 진행해줘.'],
-                ['🧩 종합 퀴즈', '이 단원의 종합 퀴즈(빈칸·단답·OX·사례) 한 세트 내줘.'],
-                ['🏁 오늘 끝 — 정리', '오늘 학습 정리해줘. 끝.'],
-              ]
-          ).map(([label, prompt]) => (
+          {({
+            study: [
+              ['▶️ 이 단원 시작', '이 단원의 첫 절·관부터 한 사이클(일상언어→한자풀이→비유→교재표현→쉬운 OX) 시작해줘.'],
+              ['🔁 이어서 진행', '직전에 멈춘 곳에서 자연스럽게 이어서 진행해줘.'],
+              ['❓ 더 쉽게', '방금 설명한 거 더 쉽게 일상 비유로 다시 풀어줘.'],
+              ['🏁 오늘 끝 — 정리', '오늘 학습 정리해줘. 끝.'],
+            ],
+            practice: [
+              ['📝 기출 한 문제', '기출 한 문제 출제해줘. 함정 분석도 같이.'],
+              ['🔄 다른 문제', '같은 주제로 다른 기출 문제 한 개 더.'],
+              ['💡 정답·해설', '방금 문제 정답과 해설을 자세히 알려줘.'],
+            ],
+            deep: [
+              ['🧠 더 깊게', '이 개념을 더 깊게 — 통설·소수설·관련 판례 정리해줘.'],
+              ['⚠️ 함정 분석', '이 단원의 시험 단골 함정 3개 표로 정리해줘.'],
+              ['🔀 유사 개념 비교', '헷갈리는 유사 개념과 비교표로 정리해줘.'],
+            ],
+            summary: [
+              ['⚡ 핵심 카드', '이 단원 핵심을 압축 카드 한 장으로(정의·키워드·암기 두문자·빈출 포인트).'],
+              ['📌 다음 카드', '다음 절·관 핵심 카드로 넘어가줘.'],
+              ['🔢 빈출 5', '이 단원에서 시험 빈출 5개만 짧게 정리.'],
+            ],
+            diagnose: [
+              ['🎯 진단 시작', '이 단원 핵심 5문제 OX/단답을 한꺼번에 내줘. 답은 한 메시지로 적을게.'],
+              ['🩺 약점만 다시', '방금 진단에서 틀린 부분만 다시 친절히 가르쳐줘.'],
+              ['📊 종합 진단', '진단 결과 표로 정리하고 다음 학습 단원 추천.'],
+            ],
+          }[mode] || []).map(([label, prompt]) => (
             <button
               key={label}
               disabled={streaming || !cap.ok}
