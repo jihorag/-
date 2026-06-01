@@ -3,7 +3,7 @@ import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen, Sparkles }
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
 import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
-import { setCurrent as setAiCurrent } from './aiLearningStore';
+import { setCurrent as setAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS } from './aiLearningStore';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
 import { ParsedText } from './ParsedText';
@@ -2351,6 +2351,19 @@ const App = () => {
     // 현재 tax 드릴 위치가 AI 학습 leaf로 매핑되면 점프 버튼 노출
     const tax = { subject: taxSubject, sub_subject: taxSubSubject, chapter: taxChapter, section: taxSection };
     const aiLeaf = (taxChapter || taxSection) ? findAiLeafForTax(tax) : null;
+    // 카드별 AI 진척 — group.title을 절 또는 관으로 해서 leaf 찾기
+    const aiMastery = getAiMastery();
+    const groupAiLeaf = (group) => {
+      if (!group || !group.title) return null;
+      const isItemGrid = currentView === 'tax_items';
+      return findAiLeafForTax({
+        subject: taxSubject,
+        sub_subject: taxSubSubject,
+        chapter: taxChapter,
+        section: isItemGrid ? taxSection : group.title,
+        item: isItemGrid ? group.title : null,
+      });
+    };
     return (
     <div className="app-container">
       {drillHeader()}
@@ -2403,6 +2416,21 @@ const App = () => {
                 <div className="card-progress-container">
                   <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
                 </div>
+                {(() => {
+                  const gLeaf = groupAiLeaf(group);
+                  const gm = gLeaf ? aiMastery[gLeaf.id] : null;
+                  if (!gm || !gm.coverage) return null;
+                  const aiPct = Math.round(gm.coverage * 100);
+                  return (
+                    <div style={{ marginTop: 4, fontSize: '0.72rem', color: '#4338ca', display: 'flex', alignItems: 'center', gap: 4 }}>
+                      <span>🎓 AI {aiPct}%</span>
+                      <div style={{ flex: 1, height: 3, background: '#e5e7eb', borderRadius: 2, overflow: 'hidden' }}>
+                        <div style={{ width: `${aiPct}%`, height: '100%', background: '#4f46e5' }} />
+                      </div>
+                      {gm.status === 'mastered' && <span style={{ color: '#047857' }}>✓</span>}
+                    </div>
+                  );
+                })()}
                 <div className="play-btn" style={isAll ? { background: 'var(--primary)', color: '#fff' } : {}}>선택</div>
               </div>
             );
