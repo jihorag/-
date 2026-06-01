@@ -75,11 +75,20 @@ const normAnswer = (raw, optCount) => {
   return String(n);
 };
 
-// ===== 다중 시험 준비 메타 =====
-// 3 시험(감정평가사·세무사·공인중개사) 동시 준비 워크플로우.
-const TARGET_EXAMS = ['감정평가사', '세무사', '공인중개사'];
-// 시험별 1차 표준 시간(분) — MockExam 시간 권장값. 실제와 차이 있을 수 있음.
-const EXAM_DEFAULT_MIN = { '감정평가사': 120, '세무사': 240, '공인중개사': 100 };
+// ===== 감정평가사 전용 메타 =====
+// 단일 시험(감정평가사)에만 집중. 다른 시험 데이터는 둘러보기에서 노출하되,
+// 홈/현황/추천/D-DAY/합격코치는 모두 감정평가사 기준.
+const PRIMARY_EXAM = '감정평가사';
+const TARGET_EXAMS = [PRIMARY_EXAM]; // 호환을 위해 배열로 유지 (renderModePicker는 비활성)
+// 1차 표준 시간(분) — MockExam 시간 권장값. 1교시 110분 (2과목) + 2교시 110분 (3과목) = 220분.
+// 단순화하여 1차 1세트 기준 120분 유지.
+const EXAM_DEFAULT_MIN = { '감정평가사': 120 };
+
+// 감정평가사 1차 5과목 (taxonomy.json 의 subject 명과 정확히 일치해야 함)
+const APPRAISER_1ST_SUBJECTS = ['민법', '경제학원론', '부동산학원론', '감정평가관계법규', '회계학'];
+
+// 감정평가사 2차 4과목 (essay 시험 — manifest 의 subject 명과 일치)
+const APPRAISER_2ND_SUBJECTS = ['감정평가실무', '감정평가이론', '감정평가관계법규', '감정평가 및 보상법규'];
 const daysUntil = (yyyymmdd) => {
   if (!yyyymmdd) return null;
   const d = new Date(yyyymmdd + 'T00:00:00');
@@ -718,14 +727,15 @@ const App = () => {
     setStudyOrderState(o);
     try { localStorage.setItem('quiz-study-order', o); } catch { /* SSR */ }
   };
-  // 둘러보기 시험 모드 — 분류·연도·과목 픽커가 이 시험에 맞춰짐
-  // ''/null = 전체 (모든 시험), '감정평가사'|'세무사'|'공인중개사' = 모드
-  // 기본은 '전체' — 모드는 사용자가 명시적으로 선택할 때만 적용 (회귀 방지)
+  // 둘러보기 시험 모드 — 감정평가사 전용 변환 후 기본값은 '감정평가사'.
+  // 빈 문자열('')은 '전체' 둘러보기 (다른 자격시험 DB까지 포함). 사용자가 명시 선택 시에만.
+  // 홈/현황/D-DAY/합격코치는 모두 '감정평가사' 기준으로 동작.
   const [browseExam, setBrowseExamState] = useState(() => {
     try {
       const v = localStorage.getItem('quiz-browse-exam');
-      return v == null ? '' : v;
-    } catch { return ''; }
+      // null = 첫 진입 → 감정평가사 기본. 명시적 '' = 전체 둘러보기 선택.
+      return v == null ? PRIMARY_EXAM : v;
+    } catch { return PRIMARY_EXAM; }
   });
   // 2차 essay 모드 — 단원/문항 선택 상태 (URL에는 미반영, 세션 내 navigation 용)
   const [essayChapter, setEssayChapter] = useState(null);
@@ -1767,12 +1777,12 @@ const App = () => {
   );
 
   // 시험 모드 픽커 — 홈/둘러보기/현황에서 일관된 디자인으로 사용
-  // withDday=true: 각 pill에 D-DAY 표기 (홈 용)
-  const renderModePicker = ({ withDday = false } = {}) => {
+  // 감정평가사 전용 변환 후 — 시험 picker는 둘러보기 탭에서만 "감정평가사 ↔ 전체 DB" 토글로 단순화.
+  // withDday 인자는 하위 호환만 위해 유지 (홈에서는 더 이상 사용 안 함).
+  const renderModePicker = () => {
     const pillStyle = (on) => ({
       flex: '1 0 auto',
-      minWidth: withDday ? 96 : 'auto',
-      padding: withDday ? '10px 12px' : '8px 12px',
+      padding: '8px 12px',
       whiteSpace: 'nowrap',
       border: on ? '1.5px solid #2563eb' : '1px solid #d1d5db',
       background: on ? '#eff6ff' : '#fff',
@@ -1781,33 +1791,18 @@ const App = () => {
       fontWeight: on ? 800 : 600,
       fontSize: '0.85rem',
       cursor: 'pointer',
-      textAlign: withDday ? 'left' : 'center',
+      textAlign: 'center',
     });
     return (
-      <div style={{ display: 'flex', gap: 6, overflowX: 'auto',
-        WebkitOverflowScrolling: 'touch' }}>
-        {TARGET_EXAMS.map(exam => {
-          const on = browseExam === exam;
-          const d = withDday ? daysUntil(examDates[exam]) : null;
-          const dColor = d == null ? '#9ca3af' : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
-          return (
-            <button key={exam} onClick={() => setBrowseExam(exam)} style={pillStyle(on)}>
-              <div>{exam}</div>
-              {withDday && (
-                <div style={{ fontSize: '0.78rem', fontWeight: 700,
-                  color: dColor, marginTop: 2 }}>
-                  {d != null ? fmtDday(d) : '일정 미입력'}
-                </div>
-              )}
-            </button>
-          );
-        })}
+      <div style={{ display: 'flex', gap: 6 }}>
+        <button onClick={() => setBrowseExam(PRIMARY_EXAM)} style={pillStyle(browseExam === PRIMARY_EXAM)}>
+          🎯 {PRIMARY_EXAM} 기출
+        </button>
         <button onClick={() => setBrowseExam('')} style={{
           ...pillStyle(!browseExam),
-          flex: '0 0 auto',
           color: !browseExam ? '#1d4ed8' : '#6b7280',
         }}>
-          🌐 전체
+          🌐 전체 DB ({TARGET_EXAMS.length === 1 ? '14자격' : ''})
         </button>
       </div>
     );
@@ -3070,18 +3065,61 @@ const App = () => {
       </div>
 
       <main className="main-content">
-        {/* 시험 모드 + D-DAY — 3시험 동시 준비자용 (통일된 ModePicker, D-DAY 표시 모드) */}
-        <section style={{ marginBottom: '14px' }}>
-          {renderModePicker({ withDday: true })}
-          {!TARGET_EXAMS.some(e => examDates[e]) && (
-            <button onClick={() => setCurrentView('settings')}
-              style={{ marginTop: 6, fontSize: '0.75rem', color: '#6b7280',
-                background: 'none', border: 'none', cursor: 'pointer',
-                padding: '4px 0' }}>
-              📅 시험 날짜 입력하기 (설정) →
-            </button>
-          )}
-        </section>
+        {/* 감정평가사 D-DAY 카드 — 1차/2차 두 단계 */}
+        {(() => {
+          const d1 = daysUntil(examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM]);
+          const d2 = daysUntil(examDates[`${PRIMARY_EXAM}_2차`]);
+          const hasAny = d1 != null || d2 != null;
+          const dColor = (d) => d == null ? '#9ca3af'
+            : d < 0 ? '#9ca3af'
+            : d <= 30 ? '#dc2626'
+            : d <= 90 ? '#ea580c'
+            : '#1d4ed8';
+          return (
+            <section style={{ background: '#fff', borderRadius: 16,
+              padding: '14px 16px', boxShadow: 'var(--shadow-md)', marginBottom: 14 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between',
+                alignItems: 'center', marginBottom: hasAny ? 10 : 0 }}>
+                <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827' }}>
+                  📅 {PRIMARY_EXAM} 시험일
+                </span>
+                <button onClick={() => setCurrentView('settings')}
+                  style={{ fontSize: '0.72rem', color: '#6b7280',
+                    background: 'none', border: 'none', cursor: 'pointer' }}>
+                  {hasAny ? '수정 →' : '입력하기 →'}
+                </button>
+              </div>
+              {hasAny ? (
+                <div style={{ display: 'flex', gap: 10 }}>
+                  {[
+                    { label: '1차', d: d1, date: examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM] },
+                    { label: '2차', d: d2, date: examDates[`${PRIMARY_EXAM}_2차`] },
+                  ].map(({ label, d, date }) => (
+                    <div key={label} style={{ flex: 1, padding: '10px 12px',
+                      borderRadius: 10, border: '1px solid #e5e7eb',
+                      background: d != null && d <= 30 ? '#fef2f2' : '#f9fafb' }}>
+                      <div style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 600 }}>
+                        {label}
+                      </div>
+                      <div style={{ fontSize: '1.1rem', fontWeight: 800,
+                        color: dColor(d), marginTop: 2 }}>
+                        {d != null ? fmtDday(d) : '—'}
+                      </div>
+                      <div style={{ fontSize: '0.68rem', color: '#9ca3af', marginTop: 2 }}>
+                        {date || '미입력'}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div style={{ fontSize: '0.78rem', color: '#9ca3af', textAlign: 'center',
+                  padding: '8px 0' }}>
+                  시험일을 등록하면 D-DAY와 일일 권장 학습량을 추천해드려요
+                </div>
+              )}
+            </section>
+          );
+        })()}
         {/* 오늘 할 일 — 단일 다음 행동(선택 부담 제거: Duolingo path 원칙)
             browseExam set이면 그 시험 안에서 약점·추천. 복습(SRS)은 모드 무관 — 도래시각 기반. */}
         {(() => {
