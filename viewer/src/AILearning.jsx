@@ -643,6 +643,73 @@ function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
   );
 }
 
+// 이론 답안 양식 카드 위젯 — _all.md 에서 ### Form N 블록 파싱
+function parseTemplateForms(md) {
+  if (!md) return [];
+  const out = [];
+  const re = /###\s*Form\s*(\d+)\s*\n```[^\n]*\n([\s\S]+?)\n```/g;
+  let m;
+  while ((m = re.exec(md))) {
+    out.push({ id: m[1], body: m[2].trim() });
+  }
+  return out;
+}
+
+function TemplateCardWidget({ templatesMd, onAskAI }) {
+  const cards = useMemo(() => parseTemplateForms(templatesMd), [templatesMd]);
+  const [idx, setIdx] = useState(0);
+  const [shuffle, setShuffle] = useState(false);
+  if (cards.length === 0) return null;
+  const order = shuffle ? cards.map((_, i) => i).sort((a, b) => (a * 7919) % 13 - (b * 7919) % 13) : cards.map((_, i) => i);
+  const actual = cards[order[idx] || 0];
+  return (
+    <div style={{
+      background: 'linear-gradient(180deg, #f0fdf4 0%, #fff 100%)',
+      border: '1px solid #86efac', borderRadius: 12, padding: 14, marginBottom: 10,
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+        <div style={{ fontWeight: 800, color: '#047857', fontSize: '0.88rem' }}>
+          📋 답안 양식 {actual.id} <span style={{ color: '#6b7280', fontWeight: 500 }}>({idx + 1}/{cards.length})</span>
+        </div>
+        <div style={{ display: 'flex', gap: 4 }}>
+          <button onClick={() => setShuffle((v) => !v)}
+            style={{ fontSize: '0.7rem', padding: '3px 8px', cursor: 'pointer',
+              border: shuffle ? '1px solid #16a34a' : '1px solid #d1d5db',
+              background: shuffle ? '#dcfce7' : '#fff', color: shuffle ? '#15803d' : '#6b7280', borderRadius: 6 }}>
+            🎲 셔플
+          </button>
+        </div>
+      </div>
+      <div style={{
+        background: '#fff', border: '1px dashed #86efac', borderRadius: 8, padding: 14,
+        fontSize: '0.95rem', lineHeight: 1.7, color: '#111827',
+        whiteSpace: 'pre-wrap', minHeight: 80,
+      }}>
+        {actual.body}
+      </div>
+      <div style={{ display: 'flex', gap: 6, marginTop: 10, alignItems: 'center' }}>
+        <button onClick={() => setIdx((i) => Math.max(0, i - 1))} disabled={idx === 0}
+          style={{ padding: '6px 12px', cursor: idx === 0 ? 'not-allowed' : 'pointer',
+            background: '#fff', border: '1px solid #d1d5db', borderRadius: 6,
+            opacity: idx === 0 ? 0.4 : 1, fontWeight: 700 }}>
+          ◀ 이전
+        </button>
+        <button onClick={() => setIdx((i) => Math.min(cards.length - 1, i + 1))} disabled={idx >= cards.length - 1}
+          style={{ padding: '6px 12px', cursor: idx >= cards.length - 1 ? 'not-allowed' : 'pointer',
+            background: '#fff', border: '1px solid #d1d5db', borderRadius: 6,
+            opacity: idx >= cards.length - 1 ? 0.4 : 1, fontWeight: 700 }}>
+          다음 ▶
+        </button>
+        <button onClick={() => onAskAI && onAskAI(actual)}
+          style={{ marginLeft: 'auto', padding: '6px 12px', cursor: 'pointer',
+            background: '#16a34a', color: '#fff', border: 'none', borderRadius: 6, fontWeight: 700, fontSize: '0.82rem' }}>
+          🤖 AI에 더 자세히
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // 2차 답안 작성 입력 — 큰 textarea + 타이머
 function AnswerWriteInput({ scorePoint, onSubmit, disabled }) {
   const [answer, setAnswer] = useState('');
@@ -2357,6 +2424,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             </button>
           ))}
         </div>
+        {mode === 'template' && subjectId === 'appraisal_theory' && problemsMd && (
+          <TemplateCardWidget
+            templatesMd={problemsMd}
+            onAskAI={(card) => quickSend(`답안 양식 ${card.id}을 더 자세히 풀어 설명해주세요. 골격·핵심 키워드·이 양식이 잘 쓰이는 논점·40점 답안 분량으로 펼치면 어떻게 되는지.`)}
+          />
+        )}
         {mode === 'answer_write' && (
           <AnswerWriteInput
             scorePoint={30}
