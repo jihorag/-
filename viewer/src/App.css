@@ -201,3 +201,13 @@
 .ai-msg-fade {
   animation: aiMsgFade 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
+
+/* 글로벌 설정 드로어 — 우측 슬라이드 인 */
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

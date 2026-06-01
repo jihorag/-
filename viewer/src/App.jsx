@@ -1853,9 +1853,189 @@ const App = () => {
   };
   // 전역 오버레이(컨페티) — 루트/드릴 양쪽에 삽입
   const overlays = <>{confetti && <Confetti />}</>;
+  // 글로벌 설정 플로팅 드로어 — 우측에서 슬라이드
+  const globalSettingsDrawer = showGlobalSettings ? (
+    <>
+      <div onClick={() => setShowGlobalSettings(false)}
+        style={{
+          position: 'fixed', inset: 0, background: 'rgba(15, 23, 42, 0.45)',
+          zIndex: 100, animation: 'fadeIn 0.18s ease-out',
+        }} />
+      <div style={{
+        position: 'fixed', top: 0, right: 0, bottom: 0,
+        width: 'min(360px, 92vw)', background: '#fff',
+        boxShadow: '-12px 0 28px rgba(0,0,0,0.18)', zIndex: 101,
+        display: 'flex', flexDirection: 'column',
+        animation: 'slideInRight 0.24s cubic-bezier(0.22, 0.61, 0.36, 1)',
+      }}>
+        <header style={{
+          padding: '14px 16px', borderBottom: '1px solid #e5e7eb',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          background: 'linear-gradient(180deg, #eef2ff 0%, #fff 100%)',
+        }}>
+          <h2 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 800, color: '#1e3a8a' }}>⚙️ 설정</h2>
+          <button onClick={() => setShowGlobalSettings(false)}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '1.2rem', padding: 4 }}>
+            ✕
+          </button>
+        </header>
+        <div style={{ flex: 1, overflowY: 'auto', padding: 16, display: 'flex', flexDirection: 'column', gap: 14 }}>
+          {/* 시험일 */}
+          <div>
+            <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: 6, color: '#374151' }}>📅 시험일</div>
+            <div style={{ display: 'flex', gap: 6 }}>
+              {['1차', '2차'].map((label) => {
+                const key = `${PRIMARY_EXAM}_${label}`;
+                return (
+                  <label key={label} style={{ flex: 1, fontSize: '0.78rem', color: '#6b7280' }}>
+                    {label}
+                    <input
+                      type="date"
+                      value={examDates[key] || ''}
+                      onChange={(e) => setExamDates(key, e.target.value)}
+                      style={{ width: '100%', padding: '6px 8px', marginTop: 2,
+                        border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem' }}
+                    />
+                  </label>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 일일 목표 */}
+          <div>
+            <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: 6, color: '#374151' }}>🎯 일일 목표</div>
+            <div style={{ display: 'flex', gap: 4 }}>
+              {[10, 20, 30, 50].map((g) => (
+                <button key={g} onClick={() => setDailyGoal(g)}
+                  style={{
+                    flex: 1, padding: '7px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer',
+                    border: dailyGoal === g ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
+                    background: dailyGoal === g ? '#eef2ff' : '#fff',
+                    color: dailyGoal === g ? '#1d4ed8' : '#6b7280',
+                  }}>
+                  {g}문제
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 폰트 크기 */}
+          <div>
+            <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: 6, color: '#374151' }}>🔤 글자 크기</div>
+            <div style={{ display: 'flex', gap: 4 }}>
+              {[[0.9, '작게'], [1, '보통'], [1.18, '크게']].map(([v, l]) => (
+                <button key={v} onClick={() => setFontScale(v)}
+                  style={{
+                    flex: 1, padding: '7px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer',
+                    border: fontScale === v ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
+                    background: fontScale === v ? '#eef2ff' : '#fff',
+                    color: fontScale === v ? '#1d4ed8' : '#6b7280',
+                  }}>
+                  {l}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ borderTop: '1px dashed #e5e7eb', margin: '4px 0' }} />
+
+          {/* 데이터 관리 */}
+          <div>
+            <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: 6, color: '#374151' }}>💾 데이터 관리</div>
+            <button onClick={exportUserData}
+              style={{ width: '100%', padding: '10px', marginBottom: 6, background: '#fff', color: '#1e40af',
+                border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>
+              📥 백업 다운로드
+            </button>
+            <label style={{ display: 'block', width: '100%', padding: '10px', marginBottom: 6, background: '#fff', color: '#1e40af',
+              border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', textAlign: 'center' }}>
+              📤 백업 복원
+              <input type="file" accept="application/json" style={{ display: 'none' }}
+                onChange={(e) => {
+                  const f = e.target.files?.[0]; if (!f) return;
+                  const r = new FileReader();
+                  r.onload = () => {
+                    try { importUserData(String(r.result)); alert('가져오기 완료. 새로고침합니다.'); window.location.reload(); }
+                    catch (err) { alert('형식 오류: ' + err.message); }
+                  };
+                  r.readAsText(f);
+                }} />
+            </label>
+          </div>
+
+          {/* 위험 영역 */}
+          <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 10, padding: 12 }}>
+            <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#991b1b', marginBottom: 6 }}>⚠️ 위험 영역</div>
+            <button
+              onClick={() => {
+                if (!window.confirm('기출 학습 기록(정답/오답/SRS/북마크)을 모두 삭제하시겠습니까?\n되돌릴 수 없습니다.')) return;
+                resetUserData();
+                alert('✅ 학습 기록 초기화 완료. 새로고침합니다.');
+                window.location.reload();
+              }}
+              style={{ width: '100%', padding: '10px', marginBottom: 6, background: '#fff', color: '#991b1b',
+                border: '1px solid #fecaca', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
+              🗑️ 기출 진척 초기화
+            </button>
+            <button
+              onClick={() => {
+                if (!window.confirm('AI 학습 대화·세션·진척도를 모두 삭제하시겠습니까?\nAPI 키와 설정은 유지됩니다.')) return;
+                try {
+                  for (let i = localStorage.length - 1; i >= 0; i--) {
+                    const k = localStorage.key(i);
+                    if (k && k.startsWith('ailearn-') && k !== 'ailearn-byok' && k !== 'ailearn-prefs') {
+                      localStorage.removeItem(k);
+                    }
+                  }
+                } catch { /* noop */ }
+                alert('✅ AI 학습 진척 초기화 완료. 새로고침합니다.');
+                window.location.reload();
+              }}
+              style={{ width: '100%', padding: '10px', background: '#fff', color: '#991b1b',
+                border: '1px solid #fecaca', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
+              🎓 AI 학습 진척 초기화
+            </button>
+          </div>
+
+          {/* 프로필 진입 */}
+          <button onClick={() => { setShowGlobalSettings(false); setCurrentView('profile'); }}
+            style={{ width: '100%', padding: '11px', background: '#f9fafb', color: '#374151',
+              border: '1px solid #e5e7eb', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>
+            👤 프로필·계정 →
+          </button>
+        </div>
+      </div>
+    </>
+  ) : null;
+
+  // 모든 탭 헤더 우상단 공통 ⚙️ 버튼 — fixed로 떠 있음
+  const globalSettingsFab = (
+    <button
+      onClick={() => setShowGlobalSettings(true)}
+      title="설정"
+      style={{
+        position: 'fixed',
+        top: 'calc(env(safe-area-inset-top, 0px) + 14px)',
+        right: 14, zIndex: 50,
+        width: 38, height: 38, borderRadius: '50%',
+        background: 'rgba(255,255,255,0.85)',
+        border: '1px solid #d1d5db',
+        backdropFilter: 'blur(8px)',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+        cursor: 'pointer', fontSize: '1.1rem',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}
+    >
+      ⚙️
+    </button>
+  );
+
   const shell = (content) => (
     <div className="app-shell with-nav">
       {content}
+      {globalSettingsFab}
+      {globalSettingsDrawer}
       {bottomNav}
       {overlays}
     </div>
