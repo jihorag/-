@@ -2,6 +2,8 @@ import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen, Sparkles } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
+import { findLeafByPath, questionsInLeaf, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
+import { setCurrent as setAiCurrent } from './aiLearningStore';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
 import { ParsedText } from './ParsedText';
@@ -673,6 +675,37 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
 const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
   const [taxonomyData, setTaxonomyData] = useState(null);
+  // 5과목 AI 학습 leaves — 4탭 공통 참조용. 백그라운드 로드.
+  const [leavesBySubject, setLeavesBySubject] = useState({});
+  useEffect(() => {
+    ['civil', 'economics', 'realestate', 'law', 'accounting'].forEach((sid) => {
+      fetch(`/data/study/${sid}/ai_taxonomy_index.json`)
+        .then((r) => r.ok ? r.json() : null)
+        .then((idx) => {
+          if (idx && idx.leaves) {
+            setLeavesBySubject((prev) => ({ ...prev, [sid]: idx.leaves }));
+          }
+        })
+        .catch(() => {});
+    });
+  }, []);
+  // tax 위치 → 해당 AI leaf 찾기 (현재 taxSubject/Chapter/... 상태 기반)
+  const findAiLeafForTax = useCallback((tax) => {
+    const subjName = tax?.subject;
+    const subjId = QUIZ_SUBJECT_TO_AI[subjName];
+    if (!subjId || !leavesBySubject[subjId]) return null;
+    const path = [tax.sub_subject, tax.chapter, tax.section, tax.item].filter(Boolean);
+    return findLeafByPath(leavesBySubject[subjId], path);
+  }, [leavesBySubject]);
+  // AI 학습 탭으로 점프 (특정 leaf 지정 가능)
+  const jumpToAILearn = useCallback((leaf) => {
+    if (leaf) {
+      const sid = (leaf.id || '').split('__')[0];
+      try { setAiCurrent({ subject: sid, leaf_id: leaf.id }); } catch { /* SSR */ }
+    }
+    setCurrentView('civil');
+    window.scrollTo(0, 0);
+  }, []);
   const [essayManifest, setEssayManifest] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadPct, setLoadPct] = useState(0);
