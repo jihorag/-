@@ -1,0 +1,1855 @@
+{
+  "subject": "민법",
+  "subject_id": "civil",
+  "exam": "감정평가사 1차",
+  "total_questions_per_exam": 40,
+  "taxonomy_source": "/data/taxonomy.json",
+  "units_dir": "/data/study/civil/units",
+  "problems_dir": "/data/study/civil/problems",
+  "handover_file": "/data/study/civil/handover.md",
+  "leaves": [
+    {
+      "id": "민법총칙__제1장_민법_서론",
+      "path": [
+        "민법총칙",
+        "제1장 민법 서론"
+      ],
+      "leaf_type": "chapter",
+      "title": "제1장 민법 서론",
+      "subject_root": "물권법",
+      "frequency": 1,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "민법총칙__제2장_법률관계와_신의성실의_원칙__제1절_법률관계와_권리_의무",
+      "path": [
+        "민법총칙",
+        "제2장 법률관계와 신의성실의 원칙",
+        "제1절 법률관계와 권리·의무"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 법률관계와 권리",
+      "subject_root": "물권법",
+      "frequency": 1,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "민법총칙__제2장_법률관계와_신의성실의_원칙__제2절_신의성실의_원칙__제1관_서설",
+      "path": [
+        "민법총칙",
+        "제2장 법률관계와 신의성실의 원칙",
+        "제2절 신의성실의 원칙",
+        "제1관 서설"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 서설",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "ch15",
+      "section_lines": [
+        1438,
+        1999
+      ],
+      "section_name": "제15장 신의성실의 원칙",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "민법총칙__제2장_법률관계와_신의성실의_원칙__제2절_신의성실의_원칙__제2관_신의칙의_파생원칙",
+      "path": [
+        "민법총칙",
+        "제2장 법률관계와 신의성실의 원칙",
+        "제2절 신의성실의 원칙",
+        "제2관 신의칙의 파생원칙"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 신의칙의 파생원칙",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "ch15",
+      "section_lines": [
+        1438,
+        1999
+      ],
+      "section_name": "제15장 신의성실의 원칙",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "민법총칙__제3장_권리의_주체__제1절_자연인__제1관_권리능력",
+      "path": [
+        "민법총칙",
+        "제3장 권리의 주체",
+        "제1절 자연인",
+        "제1관 권리능력"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 권리능력",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "민법총칙__제3장_권리의_주체__제1절_자연인__제2관_의사능력",
+      "path": [
+        "민법총칙",
+        "제3장 권리의 주체",
+        "제1절 자연인",
+        "제2관 의사능력"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 의사능력",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "민법총칙__제3장_권리의_주체__제1절_자연인__제3관_행위능력",
+      "path": [
+        "민법총칙",
+        "제3장 권리의 주체",
+        "제1절 자연인",
+        "제3관 행위능력"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 행위능력",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "민법총칙__제3장_권리의_주체__제1절_자연인__제4관_자연인의_주소_제5관_부재와_실종",
+      "path": [
+        "민법총칙",
+        "제3장 권리의 주체",
+        "제1절 자연인",
+        "제4관 자연인의 주소 · 제5관 부재와 실종"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 자연인의 주소",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "민법총칙__제3장_권리의_주체__제2절_법인",
+      "path": [
+        "민법총칙",
+        "제3장 권리의 주체",
+        "제2절 법인"
+      ],
+      "leaf_type": "section",
+      "title": "제2절 법인",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": null,
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "민법총칙__제4장_권리의_객체",
+      "path": [
+        "민법총칙",
+        "제4장 권리의 객체"
+      ],
+      "leaf_type": "chapter",
+      "title": "제4장 권리의 객체",
+      "subject_root": "물권법",
+      "frequency": 1,
+      "unit_code": "M04",
+      "unit_file": "units/M04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M04.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제1절_총설",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제1절 총설"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 총설",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch05",
+      "section_lines": [
+        845,
+        1341
+      ],
+      "section_name": "제5장 법률행위",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제2절_법률행위__제1관_총설_제2관_법률행위의_목적",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제2절 법률행위",
+        "제1관 총설 · 제2관 법률행위의 목적"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 총설",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch09",
+      "section_lines": [
+        1342,
+        2018
+      ],
+      "section_name": "제9장 법률행위의 목적",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제3절_의사표시__제1관_흠_있는_의사표시",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제3절 의사표시",
+        "제1관 흠 있는 의사표시"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 흠 있는 의사표시",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch10",
+      "section_lines": [
+        2019,
+        5075
+      ],
+      "section_name": "제10장 의사표시",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제3절_의사표시__제2관_의사표시의_효력발생",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제3절 의사표시",
+        "제2관 의사표시의 효력발생"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 의사표시의 효력발생",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch10",
+      "section_lines": [
+        2019,
+        5075
+      ],
+      "section_name": "제10장 의사표시",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제1관_서설",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제4절 법률행위의 대리",
+        "제1관 서설"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 서설",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch10",
+      "section_lines": [
+        2019,
+        5075
+      ],
+      "section_name": "제10장 의사표시",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제2관_대리권",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제4절 법률행위의 대리",
+        "제2관 대리권"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 대리권",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch10",
+      "section_lines": [
+        2019,
+        5075
+      ],
+      "section_name": "제10장 의사표시",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제3관_대리행위",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제4절 법률행위의 대리",
+        "제3관 대리행위"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 대리행위",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch10",
+      "section_lines": [
+        2019,
+        5075
+      ],
+      "section_name": "제10장 의사표시",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제4관_복대리",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제4절 법률행위의 대리",
+        "제4관 복대리"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 복대리",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch10",
+      "section_lines": [
+        2019,
+        5075
+      ],
+      "section_name": "제10장 의사표시",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제5관_무권대리",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제4절 법률행위의 대리",
+        "제5관 무권대리"
+      ],
+      "leaf_type": "item",
+      "title": "제5관 무권대리",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch10",
+      "section_lines": [
+        2019,
+        5075
+      ],
+      "section_name": "제10장 의사표시",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제5절_법률행위의_무효와_취소__제1관_무효",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제5절 법률행위의 무효와 취소",
+        "제1관 무효"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 무효",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch12",
+      "section_lines": [
+        5076,
+        6982
+      ],
+      "section_name": "제12장 무효와 취소",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제5절_법률행위의_무효와_취소__제2관_취소",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제5절 법률행위의 무효와 취소",
+        "제2관 취소"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 취소",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch12",
+      "section_lines": [
+        5076,
+        6982
+      ],
+      "section_name": "제12장 무효와 취소",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제6절_법률행위의_부관__제1관_서설_제2관_조건",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제6절 법률행위의 부관",
+        "제1관 서설 · 제2관 조건"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 서설",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch12",
+      "section_lines": [
+        5076,
+        6982
+      ],
+      "section_name": "제12장 무효와 취소",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제5장_권리의_변동__제6절_법률행위의_부관__제3관_기한",
+      "path": [
+        "민법총칙",
+        "제5장 권리의 변동",
+        "제6절 법률행위의 부관",
+        "제3관 기한"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 기한",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "ch12",
+      "section_lines": [
+        5076,
+        6982
+      ],
+      "section_name": "제12장 무효와 취소",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "민법총칙__제6장_기간",
+      "path": [
+        "민법총칙",
+        "제6장 기간"
+      ],
+      "leaf_type": "chapter",
+      "title": "제6장 기간",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "ch14",
+      "section_lines": [
+        22,
+        1437
+      ],
+      "section_name": "제14장 소멸시효",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "민법총칙__제7장_소멸시효__제1절_총설_제2절_소멸시효의_요건__제1관_소멸시효의_대상이_되는_권리",
+      "path": [
+        "민법총칙",
+        "제7장 소멸시효",
+        "제1절 총설 · 제2절 소멸시효의 요건",
+        "제1관 소멸시효의 대상이 되는 권리"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 소멸시효의 대상이 되는 권리",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "ch14",
+      "section_lines": [
+        22,
+        1437
+      ],
+      "section_name": "제14장 소멸시효",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "민법총칙__제7장_소멸시효__제1절_총설_제2절_소멸시효의_요건__제2관_소멸시효의_기산점",
+      "path": [
+        "민법총칙",
+        "제7장 소멸시효",
+        "제1절 총설 · 제2절 소멸시효의 요건",
+        "제2관 소멸시효의 기산점"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 소멸시효의 기산점",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "ch14",
+      "section_lines": [
+        22,
+        1437
+      ],
+      "section_name": "제14장 소멸시효",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "민법총칙__제7장_소멸시효__제1절_총설_제2절_소멸시효의_요건__제3관_소멸시효의_기간",
+      "path": [
+        "민법총칙",
+        "제7장 소멸시효",
+        "제1절 총설 · 제2절 소멸시효의 요건",
+        "제3관 소멸시효의 기간"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 소멸시효의 기간",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "ch14",
+      "section_lines": [
+        22,
+        1437
+      ],
+      "section_name": "제14장 소멸시효",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "민법총칙__제7장_소멸시효__제3절_시효의_장애__제1관_소멸시효의_중단",
+      "path": [
+        "민법총칙",
+        "제7장 소멸시효",
+        "제3절 시효의 장애",
+        "제1관 소멸시효의 중단"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 소멸시효의 중단",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "ch14",
+      "section_lines": [
+        22,
+        1437
+      ],
+      "section_name": "제14장 소멸시효",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "민법총칙__제7장_소멸시효__제3절_시효의_장애__제2관_소멸시효의_정지",
+      "path": [
+        "민법총칙",
+        "제7장 소멸시효",
+        "제3절 시효의 장애",
+        "제2관 소멸시효의 정지"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 소멸시효의 정지",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "ch14",
+      "section_lines": [
+        22,
+        1437
+      ],
+      "section_name": "제14장 소멸시효",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "민법총칙__제7장_소멸시효__제4절_소멸시효_완성의_효과",
+      "path": [
+        "민법총칙",
+        "제7장 소멸시효",
+        "제4절 소멸시효 완성의 효과"
+      ],
+      "leaf_type": "section",
+      "title": "제4절 소멸시효 완성의 효과",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "ch14",
+      "section_lines": [
+        22,
+        1437
+      ],
+      "section_name": "제14장 소멸시효",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "민법총칙__제7장_소멸시효__제5절_제척기간",
+      "path": [
+        "민법총칙",
+        "제7장 소멸시효",
+        "제5절 제척기간"
+      ],
+      "leaf_type": "section",
+      "title": "제5절 제척기간",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "ch14",
+      "section_lines": [
+        22,
+        1437
+      ],
+      "section_name": "제14장 소멸시효",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "물권법__제1장_물권법_총설__제1절_물권법_일반_제2절_물권변동",
+      "path": [
+        "물권법",
+        "제1장 물권법 총설",
+        "제1절 물권법 일반 · 제2절 물권변동"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 물권법 일반",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B01",
+      "unit_file": "units/B01.md",
+      "section_key": "L1a",
+      "section_lines": [
+        15,
+        266
+      ],
+      "section_name": "L1 정리 서두",
+      "problems_file": "problems/B01.md"
+    },
+    {
+      "id": "물권법__제1장_물권법_총설__제3절_부동산_물권변동__제1관_법률행위에_의한_부동산_물권의_변동",
+      "path": [
+        "물권법",
+        "제1장 물권법 총설",
+        "제3절 부동산 물권변동",
+        "제1관 법률행위에 의한 부동산 물권의 변동"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 법률행위에 의한 부동산 물권의 변동",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B01",
+      "unit_file": "units/B01.md",
+      "section_key": "ch03",
+      "section_lines": [
+        267,
+        1902
+      ],
+      "section_name": "제3장 부동산물권변동·등기부",
+      "problems_file": "problems/B01.md"
+    },
+    {
+      "id": "물권법__제1장_물권법_총설__제3절_부동산_물권변동__제2관_법률행위에_의하지_않는_부동산물권의_변동",
+      "path": [
+        "물권법",
+        "제1장 물권법 총설",
+        "제3절 부동산 물권변동",
+        "제2관 법률행위에 의하지 않는 부동산물권의 변동"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 법률행위에 의하지 않는 부동산물권의 변동",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B01",
+      "unit_file": "units/B01.md",
+      "section_key": "ch03",
+      "section_lines": [
+        267,
+        1902
+      ],
+      "section_name": "제3장 부동산물권변동·등기부",
+      "problems_file": "problems/B01.md"
+    },
+    {
+      "id": "물권법__제1장_물권법_총설__제3절_부동산_물권변동__제3관_부동산",
+      "path": [
+        "물권법",
+        "제1장 물권법 총설",
+        "제3절 부동산 물권변동",
+        "제3관 부동산"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 부동산",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B01",
+      "unit_file": "units/B01.md",
+      "section_key": "ch03",
+      "section_lines": [
+        267,
+        1902
+      ],
+      "section_name": "제3장 부동산물권변동·등기부",
+      "problems_file": "problems/B01.md"
+    },
+    {
+      "id": "물권법__제1장_물권법_총설__제3절_부동산_물권변동__제4관_입목등기_및_명인방법",
+      "path": [
+        "물권법",
+        "제1장 물권법 총설",
+        "제3절 부동산 물권변동",
+        "제4관 입목등기 및 명인방법"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 입목등기 및 명인방법",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B01",
+      "unit_file": "units/B01.md",
+      "section_key": "ch03",
+      "section_lines": [
+        267,
+        1902
+      ],
+      "section_name": "제3장 부동산물권변동·등기부",
+      "problems_file": "problems/B01.md"
+    },
+    {
+      "id": "물권법__제1장_물권법_총설__제4절_동산_물권_변동",
+      "path": [
+        "물권법",
+        "제1장 물권법 총설",
+        "제4절 동산 물권 변동"
+      ],
+      "leaf_type": "section",
+      "title": "제4절 동산 물권 변동",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B01",
+      "unit_file": "units/B01.md",
+      "section_key": "ch05",
+      "section_lines": [
+        1903,
+        2299
+      ],
+      "section_name": "제5장 동산물권 변동",
+      "problems_file": "problems/B01.md"
+    },
+    {
+      "id": "물권법__제1장_물권법_총설__제5절_물권의_소멸",
+      "path": [
+        "물권법",
+        "제1장 물권법 총설",
+        "제5절 물권의 소멸"
+      ],
+      "leaf_type": "section",
+      "title": "제5절 물권의 소멸",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B01",
+      "unit_file": "units/B01.md",
+      "section_key": "ch07",
+      "section_lines": [
+        2300,
+        2440
+      ],
+      "section_name": "제7장 서설",
+      "problems_file": "problems/B01.md"
+    },
+    {
+      "id": "물권법__제2장_점유권__제1절_서론",
+      "path": [
+        "물권법",
+        "제2장 점유권",
+        "제1절 서론"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 서론",
+      "subject_root": "물권법",
+      "frequency": 1,
+      "unit_code": "B02",
+      "unit_file": "units/B02.md",
+      "section_key": "full",
+      "section_lines": null,
+      "section_name": "전체",
+      "problems_file": "problems/B02.md"
+    },
+    {
+      "id": "물권법__제2장_점유권__제2절_점유권의_취득과_소멸",
+      "path": [
+        "물권법",
+        "제2장 점유권",
+        "제2절 점유권의 취득과 소멸"
+      ],
+      "leaf_type": "section",
+      "title": "제2절 점유권의 취득과 소멸",
+      "subject_root": "물권법",
+      "frequency": 1,
+      "unit_code": "B02",
+      "unit_file": "units/B02.md",
+      "section_key": "full",
+      "section_lines": null,
+      "section_name": "전체",
+      "problems_file": "problems/B02.md"
+    },
+    {
+      "id": "물권법__제2장_점유권__제3절_점유권의_효력_제4절_준점유",
+      "path": [
+        "물권법",
+        "제2장 점유권",
+        "제3절 점유권의 효력 · 제4절 준점유"
+      ],
+      "leaf_type": "section",
+      "title": "제3절 점유권의 효력",
+      "subject_root": "물권법",
+      "frequency": 1,
+      "unit_code": "B02",
+      "unit_file": "units/B02.md",
+      "section_key": "full",
+      "section_lines": null,
+      "section_name": "전체",
+      "problems_file": "problems/B02.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제1절_총설",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제1절 총설"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 총설",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch12",
+      "section_lines": [
+        111,
+        656
+      ],
+      "section_name": "제12장 소유권 일반",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제2절_상린관계",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제2절 상린관계"
+      ],
+      "leaf_type": "section",
+      "title": "제2절 상린관계",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch12",
+      "section_lines": [
+        111,
+        656
+      ],
+      "section_name": "제12장 소유권 일반",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제3절_소유권의_취득__제1관_총설",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제3절 소유권의 취득",
+        "제1관 총설"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 총설",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch14",
+      "section_lines": [
+        1109,
+        2409
+      ],
+      "section_name": "제14장 취득시효",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제3절_소유권의_취득__제2관_부동산_점유취득시효",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제3절 소유권의 취득",
+        "제2관 부동산 점유취득시효"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 부동산 점유취득시효",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch14",
+      "section_lines": [
+        1109,
+        2409
+      ],
+      "section_name": "제14장 취득시효",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제3절_소유권의_취득__제3관_부동산_등기부_취득시효",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제3절 소유권의 취득",
+        "제3관 부동산 등기부 취득시효"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 부동산 등기부 취득시효",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch14",
+      "section_lines": [
+        1109,
+        2409
+      ],
+      "section_name": "제14장 취득시효",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제3절_소유권의_취득__제4관_취득시효의_중단과_정지_등",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제3절 소유권의 취득",
+        "제4관 취득시효의 중단과 정지 등"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 취득시효의 중단과 정지 등",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch14",
+      "section_lines": [
+        1109,
+        2409
+      ],
+      "section_name": "제14장 취득시효",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제4절_기타_소유권의_취득",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제4절 기타 소유권의 취득"
+      ],
+      "leaf_type": "section",
+      "title": "제4절 기타 소유권의 취득",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch14",
+      "section_lines": [
+        1109,
+        2409
+      ],
+      "section_name": "제14장 취득시효",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제5절_소유권에_기한_물권적_청구권",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제5절 소유권에 기한 물권적 청구권"
+      ],
+      "leaf_type": "section",
+      "title": "제5절 소유권에 기한 물권적 청구권",
+      "subject_root": "물권법",
+      "frequency": 1,
+      "unit_code": "B02",
+      "unit_file": "units/B02.md",
+      "section_key": "ch08",
+      "section_lines": [
+        610,
+        1632
+      ],
+      "section_name": "제8장 소유권에 기한 물권적 청구권",
+      "problems_file": "problems/B02.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제6절_공동소유__제1관_총설",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제6절 공동소유",
+        "제1관 총설"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 총설",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch16",
+      "section_lines": [
+        2410,
+        3307
+      ],
+      "section_name": "제16장 공동소유 서설",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제6절_공동소유__제2관_공유",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제6절 공동소유",
+        "제2관 공유"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 공유",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch16",
+      "section_lines": [
+        2410,
+        3307
+      ],
+      "section_name": "제16장 공동소유 서설",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제6절_공동소유__제3관_합유",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제6절 공동소유",
+        "제3관 합유"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 합유",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch16",
+      "section_lines": [
+        2410,
+        3307
+      ],
+      "section_name": "제16장 공동소유 서설",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제6절_공동소유__제4관_총유",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제6절 공동소유",
+        "제4관 총유"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 총유",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch16",
+      "section_lines": [
+        2410,
+        3307
+      ],
+      "section_name": "제16장 공동소유 서설",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제7절_명의신탁__제1관_총설_제2관_부동산_실권리자_명의_등기에_관한_법률",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제7절 명의신탁",
+        "제1관 총설 · 제2관 부동산 실권리자 명의 등기에 관한 법률"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 총설",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch17",
+      "section_lines": [
+        3308,
+        4042
+      ],
+      "section_name": "제17장 명의신탁",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제3장_소유권__제7절_명의신탁__제3관_유효한_명의신탁에_관한_판례의_이론",
+      "path": [
+        "물권법",
+        "제3장 소유권",
+        "제7절 명의신탁",
+        "제3관 유효한 명의신탁에 관한 판례의 이론"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 유효한 명의신탁에 관한 판례의 이론",
+      "subject_root": "물권법",
+      "frequency": 3,
+      "unit_code": "B03",
+      "unit_file": "units/B03.md",
+      "section_key": "ch17",
+      "section_lines": [
+        3308,
+        4042
+      ],
+      "section_name": "제17장 명의신탁",
+      "problems_file": "problems/B03.md"
+    },
+    {
+      "id": "물권법__제4장_용익물권__제1절_지상권",
+      "path": [
+        "물권법",
+        "제4장 용익물권",
+        "제1절 지상권"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 지상권",
+      "subject_root": "물권법",
+      "frequency": 1,
+      "unit_code": "B04",
+      "unit_file": "units/B04.md",
+      "section_key": "ch18",
+      "section_lines": [
+        22,
+        1288
+      ],
+      "section_name": "제18장 서설(지상권)",
+      "problems_file": "problems/B04.md"
+    },
+    {
+      "id": "물권법__제4장_용익물권__제2절_지역권",
+      "path": [
+        "물권법",
+        "제4장 용익물권",
+        "제2절 지역권"
+      ],
+      "leaf_type": "section",
+      "title": "제2절 지역권",
+      "subject_root": "물권법",
+      "frequency": 1,
+      "unit_code": "B04",
+      "unit_file": "units/B04.md",
+      "section_key": "ch20",
+      "section_lines": [
+        1289,
+        1577
+      ],
+      "section_name": "제20장 지역권",
+      "problems_file": "problems/B04.md"
+    },
+    {
+      "id": "물권법__제4장_용익물권__제3절_전세권",
+      "path": [
+        "물권법",
+        "제4장 용익물권",
+        "제3절 전세권"
+      ],
+      "leaf_type": "section",
+      "title": "제3절 전세권",
+      "subject_root": "물권법",
+      "frequency": 1,
+      "unit_code": "B04",
+      "unit_file": "units/B04.md",
+      "section_key": "ch21",
+      "section_lines": [
+        1578,
+        2027
+      ],
+      "section_name": "제21장 전세권",
+      "problems_file": "problems/B04.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제1절_총설",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제1절 총설"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 총설",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch22",
+      "section_lines": [
+        22,
+        162
+      ],
+      "section_name": "제22장 담보물권의 필요성",
+      "problems_file": "problems/B05.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제2절_유치권",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제2절 유치권"
+      ],
+      "leaf_type": "section",
+      "title": "제2절 유치권",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch23",
+      "section_lines": [
+        163,
+        686
+      ],
+      "section_name": "제23장 유치권 서설",
+      "problems_file": "problems/B05.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제3절_질권__제1관_동산질권",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제3절 질권",
+        "제1관 동산질권"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 동산질권",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch24",
+      "section_lines": [
+        687,
+        1104
+      ],
+      "section_name": "제24장 동산질권",
+      "problems_file": "problems/B05.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제3절_질권__제2관_권리질권",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제3절 질권",
+        "제2관 권리질권"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 권리질권",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch25",
+      "section_lines": [
+        1105,
+        1337
+      ],
+      "section_name": "제25장 권리질권",
+      "problems_file": "problems/B05.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제4절_저당권__제1관_총설_제2관_저당권의_성립",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제4절 저당권",
+        "제1관 총설 · 제2관 저당권의 성립"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 총설",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch26",
+      "section_lines": [
+        1338,
+        4116
+      ],
+      "section_name": "제26장 저당권 서설",
+      "problems_file": "problems/B05.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제4절_저당권__제3관_저당권의_효력",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제4절 저당권",
+        "제3관 저당권의 효력"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 저당권의 효력",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch26",
+      "section_lines": [
+        1338,
+        4116
+      ],
+      "section_name": "제26장 저당권 서설",
+      "problems_file": "problems/B05.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제4절_저당권__제4관_저당권의_처분_및_소멸",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제4절 저당권",
+        "제4관 저당권의 처분 및 소멸"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 저당권의 처분 및 소멸",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch26",
+      "section_lines": [
+        1338,
+        4116
+      ],
+      "section_name": "제26장 저당권 서설",
+      "problems_file": "problems/B05.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제4절_저당권__제5관_특수저당권",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제4절 저당권",
+        "제5관 특수저당권"
+      ],
+      "leaf_type": "item",
+      "title": "제5관 특수저당권",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch26",
+      "section_lines": [
+        1338,
+        4116
+      ],
+      "section_name": "제26장 저당권 서설",
+      "problems_file": "problems/B05.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제5절_비전형담보__제1관_총설_제2관_가등기담보",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제5절 비전형담보",
+        "제1관 총설 · 제2관 가등기담보"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 총설",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch31",
+      "section_lines": [
+        4117,
+        4392
+      ],
+      "section_name": "제31장 비전형담보 서설",
+      "problems_file": "problems/B05.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제5절_비전형담보__제3관_양도담보",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제5절 비전형담보",
+        "제3관 양도담보"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 양도담보",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch31",
+      "section_lines": [
+        4117,
+        4392
+      ],
+      "section_name": "제31장 비전형담보 서설",
+      "problems_file": "problems/B05.md"
+    },
+    {
+      "id": "물권법__제5장_담보물권__제5절_비전형담보__제4관_소유권유보부_매매",
+      "path": [
+        "물권법",
+        "제5장 담보물권",
+        "제5절 비전형담보",
+        "제4관 소유권유보부 매매"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 소유권유보부 매매",
+      "subject_root": "물권법",
+      "frequency": 2,
+      "unit_code": "B05",
+      "unit_file": "units/B05.md",
+      "section_key": "ch31",
+      "section_lines": [
+        4117,
+        4392
+      ],
+      "section_name": "제31장 비전형담보 서설",
+      "problems_file": "problems/B05.md"
+    }
+  ],
+  "tree": {
+    "민법총칙": [
+      {
+        "name": "제1장 민법 서론",
+        "sections": []
+      },
+      {
+        "name": "제2장 법률관계와 신의성실의 원칙",
+        "sections": [
+          {
+            "name": "제1절 법률관계와 권리·의무",
+            "items": []
+          },
+          {
+            "name": "제2절 신의성실의 원칙",
+            "items": [
+              {
+                "name": "제1관 서설"
+              },
+              {
+                "name": "제2관 신의칙의 파생원칙"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제3장 권리의 주체",
+        "sections": [
+          {
+            "name": "제1절 자연인",
+            "items": [
+              {
+                "name": "제1관 권리능력"
+              },
+              {
+                "name": "제2관 의사능력"
+              },
+              {
+                "name": "제3관 행위능력"
+              },
+              {
+                "name": "제4관 자연인의 주소 · 제5관 부재와 실종"
+              }
+            ]
+          },
+          {
+            "name": "제2절 법인",
+            "items": []
+          }
+        ]
+      },
+      {
+        "name": "제4장 권리의 객체",
+        "sections": []
+      },
+      {
+        "name": "제5장 권리의 변동",
+        "sections": [
+          {
+            "name": "제1절 총설",
+            "items": []
+          },
+          {
+            "name": "제2절 법률행위",
+            "items": [
+              {
+                "name": "제1관 총설 · 제2관 법률행위의 목적"
+              }
+            ]
+          },
+          {
+            "name": "제3절 의사표시",
+            "items": [
+              {
+                "name": "제1관 흠 있는 의사표시"
+              },
+              {
+                "name": "제2관 의사표시의 효력발생"
+              }
+            ]
+          },
+          {
+            "name": "제4절 법률행위의 대리",
+            "items": [
+              {
+                "name": "제1관 서설"
+              },
+              {
+                "name": "제2관 대리권"
+              },
+              {
+                "name": "제3관 대리행위"
+              },
+              {
+                "name": "제4관 복대리"
+              },
+              {
+                "name": "제5관 무권대리"
+              }
+            ]
+          },
+          {
+            "name": "제5절 법률행위의 무효와 취소",
+            "items": [
+              {
+                "name": "제1관 무효"
+              },
+              {
+                "name": "제2관 취소"
+              }
+            ]
+          },
+          {
+            "name": "제6절 법률행위의 부관",
+            "items": [
+              {
+                "name": "제1관 서설 · 제2관 조건"
+              },
+              {
+                "name": "제3관 기한"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제6장 기간",
+        "sections": []
+      },
+      {
+        "name": "제7장 소멸시효",
+        "sections": [
+          {
+            "name": "제1절 총설 · 제2절 소멸시효의 요건",
+            "items": [
+              {
+                "name": "제1관 소멸시효의 대상이 되는 권리"
+              },
+              {
+                "name": "제2관 소멸시효의 기산점"
+              },
+              {
+                "name": "제3관 소멸시효의 기간"
+              }
+            ]
+          },
+          {
+            "name": "제3절 시효의 장애",
+            "items": [
+              {
+                "name": "제1관 소멸시효의 중단"
+              },
+              {
+                "name": "제2관 소멸시효의 정지"
+              }
+            ]
+          },
+          {
+            "name": "제4절 소멸시효 완성의 효과",
+            "items": []
+          },
+          {
+            "name": "제5절 제척기간",
+            "items": []
+          }
+        ]
+      }
+    ],
+    "물권법": [
+      {
+        "name": "제1장 물권법 총설",
+        "sections": [
+          {
+            "name": "제1절 물권법 일반 · 제2절 물권변동",
+            "items": []
+          },
+          {
+            "name": "제3절 부동산 물권변동",
+            "items": [
+              {
+                "name": "제1관 법률행위에 의한 부동산 물권의 변동"
+              },
+              {
+                "name": "제2관 법률행위에 의하지 않는 부동산물권의 변동"
+              },
+              {
+                "name": "제3관 부동산"
+              },
+              {
+                "name": "제4관 입목등기 및 명인방법"
+              }
+            ]
+          },
+          {
+            "name": "제4절 동산 물권 변동",
+            "items": []
+          },
+          {
+            "name": "제5절 물권의 소멸",
+            "items": []
+          }
+        ]
+      },
+      {
+        "name": "제2장 점유권",
+        "sections": [
+          {
+            "name": "제1절 서론",
+            "items": []
+          },
+          {
+            "name": "제2절 점유권의 취득과 소멸",
+            "items": []
+          },
+          {
+            "name": "제3절 점유권의 효력 · 제4절 준점유",
+            "items": []
+          }
+        ]
+      },
+      {
+        "name": "제3장 소유권",
+        "sections": [
+          {
+            "name": "제1절 총설",
+            "items": []
+          },
+          {
+            "name": "제2절 상린관계",
+            "items": []
+          },
+          {
+            "name": "제3절 소유권의 취득",
+            "items": [
+              {
+                "name": "제1관 총설"
+              },
+              {
+                "name": "제2관 부동산 점유취득시효"
+              },
+              {
+                "name": "제3관 부동산 등기부 취득시효"
+              },
+              {
+                "name": "제4관 취득시효의 중단과 정지 등"
+              }
+            ]
+          },
+          {
+            "name": "제4절 기타 소유권의 취득",
+            "items": []
+          },
+          {
+            "name": "제5절 소유권에 기한 물권적 청구권",
+            "items": []
+          },
+          {
+            "name": "제6절 공동소유",
+            "items": [
+              {
+                "name": "제1관 총설"
+              },
+              {
+                "name": "제2관 공유"
+              },
+              {
+                "name": "제3관 합유"
+              },
+              {
+                "name": "제4관 총유"
+              }
+            ]
+          },
+          {
+            "name": "제7절 명의신탁",
+            "items": [
+              {
+                "name": "제1관 총설 · 제2관 부동산 실권리자 명의 등기에 관한 법률"
+              },
+              {
+                "name": "제3관 유효한 명의신탁에 관한 판례의 이론"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제4장 용익물권",
+        "sections": [
+          {
+            "name": "제1절 지상권",
+            "items": []
+          },
+          {
+            "name": "제2절 지역권",
+            "items": []
+          },
+          {
+            "name": "제3절 전세권",
+            "items": []
+          }
+        ]
+      },
+      {
+        "name": "제5장 담보물권",
+        "sections": [
+          {
+            "name": "제1절 총설",
+            "items": []
+          },
+          {
+            "name": "제2절 유치권",
+            "items": []
+          },
+          {
+            "name": "제3절 질권",
+            "items": [
+              {
+                "name": "제1관 동산질권"
+              },
+              {
+                "name": "제2관 권리질권"
+              }
+            ]
+          },
+          {
+            "name": "제4절 저당권",
+            "items": [
+              {
+                "name": "제1관 총설 · 제2관 저당권의 성립"
+              },
+              {
+                "name": "제3관 저당권의 효력"
+              },
+              {
+                "name": "제4관 저당권의 처분 및 소멸"
+              },
+              {
+                "name": "제5관 특수저당권"
+              }
+            ]
+          },
+          {
+            "name": "제5절 비전형담보",
+            "items": [
+              {
+                "name": "제1관 총설 · 제2관 가등기담보"
+              },
+              {
+                "name": "제3관 양도담보"
+              },
+              {
+                "name": "제4관 소유권유보부 매매"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "default_leaf": "민법총칙__제3장_권리의_주체__제1절_자연인__제3관_행위능력",
+  "version": "v2.0"
+}
