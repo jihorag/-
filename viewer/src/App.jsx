@@ -2034,7 +2034,8 @@ const App = () => {
   const shell = (content) => (
     <div className="app-shell with-nav">
       {content}
-      {globalSettingsFab}
+      {/* 홈은 banner에 자체 ⚙️ 버튼이 있어 FAB 중복 노출 회피 */}
+      {currentView !== 'home' && globalSettingsFab}
       {globalSettingsDrawer}
       {bottomNav}
       {overlays}
@@ -3716,7 +3717,7 @@ const App = () => {
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             👤
           </button>
-          <button aria-label="설정" onClick={() => setCurrentView('settings')}
+          <button aria-label="설정" onClick={() => setShowGlobalSettings(true)}
             style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
               background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
