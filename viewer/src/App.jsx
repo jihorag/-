@@ -2775,6 +2775,67 @@ const App = () => {
         <div style={{ fontSize: '0.72rem', color: '#6b7280', marginTop: '2px' }}>{sub}</div>
       </div>
     );
+
+    // ─── 시각화 헬퍼 ────────────────────────────────────────
+    // SVG 도넛 게이지 (value 0~1)
+    const Donut = ({ size = 70, value, color, stroke = 8, centerText, centerSub }) => {
+      const r = 50 - stroke / 2;
+      const C = 2 * Math.PI * r;
+      const v = Math.max(0, Math.min(1, value || 0));
+      return (
+        <svg viewBox="0 0 100 100" width={size} height={size} style={{ display: 'block' }}>
+          <circle cx="50" cy="50" r={r} fill="none" stroke="#f3f4f6" strokeWidth={stroke} />
+          <circle cx="50" cy="50" r={r} fill="none" stroke={color} strokeWidth={stroke}
+            strokeDasharray={`${(C * v).toFixed(2)} ${C.toFixed(2)}`}
+            strokeLinecap="round"
+            transform="rotate(-90 50 50)" />
+          {centerText != null && (
+            <text x="50" y={centerSub ? 47 : 55} textAnchor="middle" fontSize="22" fontWeight="800" fill={color}>
+              {centerText}
+            </text>
+          )}
+          {centerSub && (
+            <text x="50" y="65" textAnchor="middle" fontSize="11" fill="#9ca3af">{centerSub}</text>
+          )}
+        </svg>
+      );
+    };
+
+    // 최근 56일 활동 잔디 (GitHub 스타일)
+    const last56Days = (() => {
+      const arr = [];
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const counts = {};
+      Object.values(progress || {}).forEach((p) => {
+        if (!p?.ts) return;
+        const d = new Date(p.ts); d.setHours(0, 0, 0, 0);
+        const k = d.toDateString();
+        counts[k] = (counts[k] || 0) + 1;
+      });
+      // AI 학습 메시지 횟수도 가산 (ailearn-usage)
+      try {
+        const usage = JSON.parse(localStorage.getItem('ailearn-usage') || '{}');
+        Object.entries(usage).forEach(([yyyymmdd, u]) => {
+          const [y, m, d] = yyyymmdd.split('-').map(Number);
+          if (!y || !m || !d) return;
+          const dt = new Date(y, m - 1, d);
+          const k = dt.toDateString();
+          counts[k] = (counts[k] || 0) + (u.messages || 0);
+        });
+      } catch { /* noop */ }
+      for (let i = 55; i >= 0; i--) {
+        const d = new Date(today); d.setDate(today.getDate() - i);
+        arr.push({ date: d, count: counts[d.toDateString()] || 0, isToday: i === 0 });
+      }
+      return arr;
+    })();
+    const heatMax = Math.max(1, ...last56Days.map((x) => x.count));
+
+    // 5과목 레이더 차트 — subjectMatrix를 고정 순서로 다시 정렬
+    const radarStats = AI_SUBJECTS.map((s) => {
+      const found = subjectMatrix.find((x) => x.s.id === s.id);
+      return found || { s, score: 0, aiCov: 0, quizCov: 0, quizAcc: 0 };
+    });
     return shell(
       <div className="app-container">
         <div className="screen-head">
@@ -2824,6 +2885,128 @@ const App = () => {
             {kpi(`${analytics.streak}일`, '연속 학습', '#ea580c')}
             {kpi(todoCount, '오늘 할 일', todoCount > 0 ? '#dc2626' : '#9ca3af')}
           </div>
+
+          {/* ②.5 합격 코치 + 5과목 레이더 — 종합 시각화 */}
+          {coachUsed.readiness != null && (
+            <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+              padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, alignItems: 'center' }}>
+                {/* 좌: 합격 코치 도넛 */}
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#374151', marginBottom: 6 }}>🎯 합격 준비도</div>
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Donut
+                      size={140}
+                      value={Math.min(1, coachUsed.readiness / COACH_TARGET)}
+                      color={coachUsed.readiness >= COACH_TARGET ? '#16a34a' : '#4f46e5'}
+                      stroke={10}
+                      centerText={`${coachUsed.readiness}%`}
+                      centerSub={`목표 ${COACH_TARGET}%`}
+                    />
+                  </div>
+                  <div style={{ fontSize: '0.78rem', color: '#374151', fontWeight: 600, marginTop: 8 }}>{coachUsed.verdict}</div>
+                </div>
+                {/* 우: 5과목 레이더 */}
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#374151', marginBottom: 6 }}>📊 5과목 균형</div>
+                  {(() => {
+                    const cx = 80, cy = 80, R = 60;
+                    const N = radarStats.length;
+                    const ang = (i) => (Math.PI * 2 * i) / N - Math.PI / 2;
+                    const pt = (i, v) => ({
+                      x: cx + R * v * Math.cos(ang(i)),
+                      y: cy + R * v * Math.sin(ang(i)),
+                    });
+                    const polyPts = radarStats.map((st, i) => pt(i, st.score)).map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+                    return (
+                      <svg viewBox="0 0 160 160" style={{ width: '100%', maxWidth: 180 }}>
+                        {[0.25, 0.5, 0.75, 1].map((r) => (
+                          <polygon key={r}
+                            points={radarStats.map((_, i) => {
+                              const p = pt(i, r);
+                              return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+                            }).join(' ')}
+                            fill="none" stroke="#f3f4f6" strokeWidth="1" />
+                        ))}
+                        {radarStats.map((_, i) => {
+                          const p = pt(i, 1);
+                          return <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="#e5e7eb" strokeWidth="1" />;
+                        })}
+                        <polygon points={polyPts} fill="#4f46e5" fillOpacity="0.22" stroke="#4f46e5" strokeWidth="2" />
+                        {radarStats.map((st, i) => {
+                          const p = pt(i, st.score);
+                          return <circle key={i} cx={p.x} cy={p.y} r="3.5" fill={st.s.color} />;
+                        })}
+                        {radarStats.map((st, i) => {
+                          const p = pt(i, 1.18);
+                          return (
+                            <text key={i} x={p.x} y={p.y + 4}
+                              fontSize="10" fontWeight="700"
+                              fill={st.s.color}
+                              textAnchor={p.x > cx + 5 ? 'start' : p.x < cx - 5 ? 'end' : 'middle'}>
+                              {st.s.short}
+                            </text>
+                          );
+                        })}
+                      </svg>
+                    );
+                  })()}
+                </div>
+              </div>
+              {coachUsed.topFix && (
+                <button onClick={() => startConcept(coachUsed.topFix.name,
+                  `${browseExam ? browseExam + ' · ' : ''}${coachUsed.topFix.name} 보강`, browseExam || null)}
+                  style={{ width: '100%', marginTop: 14, padding: '11px 14px',
+                    background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 10, fontWeight: 800, cursor: 'pointer' }}>
+                  🔥 약점 보강 · {coachUsed.topFix.name} → 시작
+                </button>
+              )}
+            </section>
+          )}
+
+          {/* ②.7 활동 잔디 — 최근 8주 */}
+          <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+            padding: '14px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+              <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>📅 최근 8주 학습 활동</div>
+              <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>기출 + AI 메시지</div>
+            </div>
+            <div style={{ display: 'flex', gap: 3, justifyContent: 'space-between' }}>
+              {Array.from({ length: 8 }).map((_, wi) => (
+                <div key={wi} style={{ display: 'flex', flexDirection: 'column', gap: 3, flex: 1 }}>
+                  {Array.from({ length: 7 }).map((_, di) => {
+                    const idx = wi * 7 + di;
+                    const cell = last56Days[idx];
+                    if (!cell) return <div key={di} style={{ height: 12 }} />;
+                    const intensity = cell.count > 0 ? Math.min(1, 0.2 + (cell.count / heatMax) * 0.8) : 0;
+                    const bg = intensity === 0 ? '#f3f4f6'
+                      : intensity < 0.4 ? '#c7d2fe'
+                      : intensity < 0.7 ? '#818cf8'
+                      : '#4f46e5';
+                    const day = cell.date.getMonth() + 1 + '/' + cell.date.getDate();
+                    return (
+                      <div key={di}
+                        title={`${day} · ${cell.count}건`}
+                        style={{
+                          height: 12, borderRadius: 2, background: bg,
+                          border: cell.isToday ? '1.5px solid #ea580c' : 'none',
+                        }} />
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 8, fontSize: '0.7rem', color: '#6b7280' }}>
+              <span>🔥 {analytics.streak}일 연속</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                <span>적음</span>
+                {['#f3f4f6', '#c7d2fe', '#818cf8', '#4f46e5'].map((c) => (
+                  <span key={c} style={{ width: 10, height: 10, borderRadius: 2, background: c, display: 'inline-block' }} />
+                ))}
+                <span>많음</span>
+              </div>
+            </div>
+          </section>
 
           {/* ③ 오늘 할 일 — 4탭 통합 액션 카드 */}
           <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
@@ -2906,79 +3089,89 @@ const App = () => {
             </div>
           </section>
 
-          {/* ④ 5과목 통합 매트릭스 */}
+          {/* ④ 5과목 도넛 카드 그리드 */}
           <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
             padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <div style={{ fontWeight: 800, fontSize: '1rem' }}>📊 5과목 통합 매트릭스</div>
-              <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>약점 우선 정렬 · 🎓 AI · 📚 기출</div>
+              <div style={{ fontWeight: 800, fontSize: '1rem' }}>📊 5과목 통합 진척</div>
+              <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>약점 우선</div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {subjectMatrix.map(({ s, aiCov, aiMaster, aiTotal, quizAcc, quizCov, quizTotal, quizScored, score }) => {
-                const aiPct = Math.round(aiCov * 100);
-                const qCovPct = Math.round(quizCov * 100);
-                const qAccPct = quizAcc != null ? Math.round(quizAcc * 100) : null;
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 10 }}>
+              {subjectMatrix.map(({ s, aiCov, aiMaster, aiTotal, quizAcc, quizCov, quizScored, quizTotal, score }) => {
                 const scorePct = Math.round(score * 100);
                 const tier = scorePct >= 70 ? { bg: '#ecfdf5', bd: '#a7f3d0', c: '#047857', t: '안정' }
                   : scorePct >= 40 ? { bg: '#fff7ed', bd: '#fed7aa', c: '#9a3412', t: '진행' }
                   : { bg: '#fef2f2', bd: '#fecaca', c: '#991b1b', t: '집중' };
                 return (
                   <div key={s.id} style={{
-                    background: tier.bg, border: `1px solid ${tier.bd}`, borderRadius: 10, padding: 12,
+                    background: tier.bg, border: `1px solid ${tier.bd}`, borderRadius: 12, padding: 12,
+                    display: 'flex', flexDirection: 'column', gap: 6,
                   }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <span style={{ fontSize: '0.95rem', fontWeight: 800, color: s.color }}>
-                          {s.icon} {s.short}
-                        </span>
-                        <span style={{ fontSize: '0.65rem', fontWeight: 800, color: tier.c,
-                          background: '#fff', padding: '2px 7px', borderRadius: 999, border: `1px solid ${tier.bd}` }}>
-                          {tier.t} {scorePct}%
-                        </span>
-                      </div>
-                      <div style={{ display: 'flex', gap: 6 }}>
-                        <button
-                          onClick={() => {
-                            const sl = (leavesBySubject[s.id] || [])[0];
-                            if (sl) jumpToAILearn(sl); else jumpToAILearn(null);
-                          }}
-                          style={{ padding: '4px 10px', fontSize: '0.72rem', fontWeight: 700,
-                            background: s.color, color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
-                          🎓 AI
-                        </button>
-                        <button
-                          onClick={() => {
-                            setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
-                            setTaxSubject(s.title);
-                            setTaxSubSubject(null); setTaxChapter(null); setTaxSection(null);
-                            setCurrentView('tax_sub_subjects');
-                            window.scrollTo(0, 0);
-                          }}
-                          style={{ padding: '4px 10px', fontSize: '0.72rem', fontWeight: 700,
-                            background: '#fff', color: '#374151', border: '1px solid #d1d5db', borderRadius: 6, cursor: 'pointer' }}>
-                          📚 기출
-                        </button>
-                      </div>
-                    </div>
-                    {/* AI 막대 */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                      <span style={{ width: 28, fontSize: '0.7rem', color: '#6b7280' }}>🎓</span>
-                      <div style={{ flex: 1, height: 5, background: '#fff', borderRadius: 3, overflow: 'hidden', border: '1px solid #e5e7eb' }}>
-                        <div style={{ width: `${aiPct}%`, height: '100%', background: s.color }} />
-                      </div>
-                      <span style={{ width: 96, fontSize: '0.7rem', color: '#374151', textAlign: 'right' }}>
-                        {aiPct}% · 마스터 {aiMaster}/{aiTotal}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ fontSize: '1.1rem' }}>{s.icon}</span>
+                      <span style={{ fontWeight: 800, color: s.color, fontSize: '0.9rem' }}>{s.short}</span>
+                      <span style={{ marginLeft: 'auto', fontSize: '0.62rem', fontWeight: 800, color: tier.c,
+                        background: '#fff', padding: '2px 6px', borderRadius: 999, border: `1px solid ${tier.bd}` }}>
+                        {tier.t}
                       </span>
                     </div>
-                    {/* 기출 막대 */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <span style={{ width: 28, fontSize: '0.7rem', color: '#6b7280' }}>📚</span>
-                      <div style={{ flex: 1, height: 5, background: '#fff', borderRadius: 3, overflow: 'hidden', border: '1px solid #e5e7eb' }}>
-                        <div style={{ width: `${qCovPct}%`, height: '100%', background: '#10b981' }} />
+                    <div style={{ display: 'flex', justifyContent: 'center', margin: '4px 0' }}>
+                      <Donut
+                        size={86}
+                        value={score}
+                        color={s.color}
+                        stroke={8}
+                        centerText={`${scorePct}`}
+                        centerSub="통합"
+                      />
+                    </div>
+                    {/* 듀얼 미니 막대 */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                        <span style={{ fontSize: '0.65rem', color: '#6b7280', width: 14 }}>🎓</span>
+                        <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e5e7eb' }}>
+                          <div style={{ width: `${Math.round(aiCov * 100)}%`, height: '100%', background: s.color }} />
+                        </div>
+                        <span style={{ fontSize: '0.62rem', color: '#374151', minWidth: 32, textAlign: 'right' }}>
+                          {Math.round(aiCov * 100)}%
+                        </span>
                       </div>
-                      <span style={{ width: 96, fontSize: '0.7rem', color: '#374151', textAlign: 'right' }}>
-                        {quizScored}/{quizTotal}{qAccPct != null && ` · ${qAccPct}%`}
-                      </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                        <span style={{ fontSize: '0.65rem', color: '#6b7280', width: 14 }}>📚</span>
+                        <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e5e7eb' }}>
+                          <div style={{ width: `${Math.round(quizCov * 100)}%`, height: '100%', background: '#10b981' }} />
+                        </div>
+                        <span style={{ fontSize: '0.62rem', color: '#374151', minWidth: 32, textAlign: 'right' }}>
+                          {quizAcc != null ? `${Math.round(quizAcc * 100)}%` : '–'}
+                        </span>
+                      </div>
+                    </div>
+                    <div style={{ fontSize: '0.62rem', color: '#6b7280', display: 'flex', justifyContent: 'space-between' }}>
+                      <span>마스터 {aiMaster}/{aiTotal}</span>
+                      <span>{quizScored}/{quizTotal}</span>
+                    </div>
+                    <div style={{ display: 'flex', gap: 4, marginTop: 2 }}>
+                      <button
+                        onClick={() => {
+                          const sl = (leavesBySubject[s.id] || [])[0];
+                          if (sl) jumpToAILearn(sl); else jumpToAILearn(null);
+                        }}
+                        style={{ flex: 1, padding: '5px', fontSize: '0.7rem', fontWeight: 700,
+                          background: s.color, color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
+                        🎓
+                      </button>
+                      <button
+                        onClick={() => {
+                          setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
+                          setTaxSubject(s.title);
+                          setTaxSubSubject(null); setTaxChapter(null); setTaxSection(null);
+                          setCurrentView('tax_sub_subjects');
+                          window.scrollTo(0, 0);
+                        }}
+                        style={{ flex: 1, padding: '5px', fontSize: '0.7rem', fontWeight: 700,
+                          background: '#fff', color: '#374151', border: '1px solid #d1d5db', borderRadius: 6, cursor: 'pointer' }}>
+                        📚
+                      </button>
                     </div>
                   </div>
                 );
@@ -3032,72 +3225,6 @@ const App = () => {
             </section>
           )}
 
-          {/* 합격 코치 — 진단 + 처방 (모드 적용) */}
-          {coachUsed.readiness != null && (
-            <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
-              padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                <span style={{ fontWeight: 800, fontSize: '1.05rem' }}>
-                  🎯 합격 코치{browseExam && ` · ${browseExam}`}
-                </span>
-                <span style={{ fontSize: '0.78rem', color: '#9ca3af' }}>실력 {coachUsed.skillAcc}% · 학습범위 {coachUsed.coverage}%</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', margin: '12px 0 6px' }}>
-                <span style={{ fontSize: '2rem', fontWeight: 800, color: coachUsed.readiness >= COACH_TARGET ? '#16a34a' : 'var(--primary)' }}>
-                  {coachUsed.readiness}%
-                </span>
-                <span style={{ fontSize: '0.85rem', color: '#6b7280' }}>합격 준비도(추정) · 목표 {COACH_TARGET}%</span>
-              </div>
-              <div className="coach-gauge">
-                <div className="coach-gauge-fill" style={{
-                  width: `${Math.min(100, Math.round((coachUsed.readiness / COACH_TARGET) * 100))}%`,
-                  background: coachUsed.readiness >= COACH_TARGET ? 'var(--success)' : 'var(--primary)' }} />
-              </div>
-              <div style={{ fontSize: '0.86rem', color: '#374151', margin: '10px 0 4px', fontWeight: 600 }}>
-                {coachUsed.verdict}
-              </div>
-
-              {coachUsed.topFix && (
-                <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '12px',
-                  padding: '14px', margin: '14px 0 6px' }}>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--primary)', fontWeight: 800 }}>다음 한 수</div>
-                  <div style={{ fontWeight: 700, margin: '4px 0 10px', color: '#111827' }}>
-                    {coachUsed.topFix.name} {coachUsed.topFix.acc != null ? `정답률 ${coachUsed.topFix.acc}%` : '미진단'} — 여기부터 잡으면 합격선에 가장 빨리 가까워져요
-                  </div>
-                  <button onClick={() => startConcept(coachUsed.topFix.name,
-                    `${browseExam ? browseExam + ' · ' : ''}${coachUsed.topFix.name} 집중 보강`,
-                    browseExam || null)}
-                    style={{ width: '100%', padding: '12px', borderRadius: '10px', border: 'none',
-                      background: 'var(--primary)', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
-                    {coachUsed.topFix.name} 집중 보강 시작 →
-                  </button>
-                </div>
-              )}
-
-              <div style={{ marginTop: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {coachUsed.rows.slice(0, 8).map(r => {
-                  const tone = r.tier === 'risk' ? { c: '#dc2626', bg: '#fef2f2', t: '위험' }
-                    : r.tier === 'warn' ? { c: '#ea580c', bg: '#fff7ed', t: '주의' }
-                    : r.tier === 'safe' ? { c: '#16a34a', bg: '#f0fdf4', t: '안정' }
-                    : { c: '#6b7280', bg: '#f3f4f6', t: '표본부족' };
-                  return (
-                    <button key={r.name} onClick={() => startConcept(r.name,
-                      `${browseExam ? browseExam + ' · ' : ''}${r.name} 보강`, browseExam || null)}
-                      style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '11px 13px',
-                        borderRadius: '10px', border: '1px solid #e5e7eb', background: '#fff',
-                        cursor: 'pointer', textAlign: 'left', width: '100%' }}>
-                      <span style={{ flex: 1, fontWeight: 700, fontSize: '0.88rem', color: '#374151' }}>{r.name}</span>
-                      <span style={{ fontSize: '0.78rem', color: '#9ca3af' }}>
-                        {r.acc == null ? `학습 ${r.cov}%` : `정답률 ${r.acc}%`}
-                      </span>
-                      <span style={{ fontSize: '0.72rem', fontWeight: 800, color: tone.c, background: tone.bg,
-                        padding: '3px 9px', borderRadius: '999px' }}>{tone.t}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </section>
-          )}
 
           {/* 오늘 학습 목표 */}
           {(() => {
@@ -3143,10 +3270,10 @@ const App = () => {
             );
           })()}
 
-          {/* 추세 — 학습 행동은 시험과 무관해 항상 overall analytics 사용 */}
-          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-              <span style={{ fontWeight: 800 }}>최근 {trendDays}일 · {analytics.trendSum}문제</span>
+          {/* 추세 — 일별 학습량 라인 + 누적 정답률 */}
+          <section style={{ background: '#fff', borderRadius: '16px', padding: '16px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <span style={{ fontWeight: 800, fontSize: '0.95rem' }}>📈 최근 {trendDays}일 · {analytics.trendSum}문제</span>
               <span style={{ display: 'flex', gap: '4px' }}>
                 {[7, 30].map(d => (
                   <button key={d} onClick={() => setTrendDays(d)}
@@ -3155,18 +3282,48 @@ const App = () => {
                 ))}
               </span>
             </div>
-            <div style={{ display: 'flex', gap: trendDays > 7 ? '2px' : '6px', alignItems: 'flex-end', height: '64px' }}>
-              {analytics.trend.map((t, i) => (
-                <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%' }}>
-                  <div title={`${t.count}문제${t.acc != null ? ` · ${t.acc}%` : ''}`} style={{
-                    width: '100%', borderRadius: '3px 3px 0 0',
-                    height: `${t.count ? Math.max(4, (t.count / analytics.trendMax) * 44) : 3}px`,
-                    background: t.count ? (t.isToday ? 'var(--primary)' : '#93c5fd') : '#eee',
-                  }} />
-                  <div style={{ fontSize: '0.6rem', marginTop: '3px', color: t.isToday ? 'var(--primary)' : '#9ca3af', fontWeight: t.isToday ? 700 : 500 }}>{t.label}</div>
-                </div>
-              ))}
-            </div>
+            {(() => {
+              const W = 320, H = 80, PAD = 6;
+              const data = analytics.trend;
+              const n = data.length;
+              const maxV = analytics.trendMax || 1;
+              const xAt = (i) => PAD + (n > 1 ? (i * (W - 2 * PAD)) / (n - 1) : (W / 2));
+              const yAt = (v) => H - PAD - ((H - 2 * PAD) * v) / maxV;
+              const linePts = data.map((t, i) => `${xAt(i).toFixed(1)},${yAt(t.count).toFixed(1)}`).join(' ');
+              const areaPts = `${PAD},${H - PAD} ${linePts} ${(W - PAD)},${H - PAD}`;
+              return (
+                <svg viewBox={`0 0 ${W} ${H + 16}`} style={{ width: '100%', height: 'auto', display: 'block' }}>
+                  {/* y axis grid */}
+                  {[0.25, 0.5, 0.75, 1].map((g) => (
+                    <line key={g} x1={PAD} x2={W - PAD}
+                      y1={H - PAD - (H - 2 * PAD) * g}
+                      y2={H - PAD - (H - 2 * PAD) * g}
+                      stroke="#f3f4f6" strokeWidth="1" strokeDasharray="2,3" />
+                  ))}
+                  <polygon points={areaPts} fill="#4f46e5" fillOpacity="0.12" />
+                  <polyline points={linePts} fill="none" stroke="#4f46e5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  {data.map((t, i) => (
+                    <circle key={i} cx={xAt(i)} cy={yAt(t.count)} r={t.isToday ? 3.5 : 1.8}
+                      fill={t.isToday ? '#ea580c' : '#4f46e5'}
+                      stroke={t.isToday ? '#fff' : 'none'} strokeWidth={t.isToday ? 1.5 : 0}>
+                      <title>{t.label} · {t.count}문제{t.acc != null ? ` · ${t.acc}%` : ''}</title>
+                    </circle>
+                  ))}
+                  {/* x labels — 7일이면 모두, 30일이면 5등분 */}
+                  {data.map((t, i) => {
+                    if (trendDays > 7 && i % Math.ceil(n / 6) !== 0 && !t.isToday) return null;
+                    return (
+                      <text key={i} x={xAt(i)} y={H + 12} fontSize="9"
+                        textAnchor="middle"
+                        fill={t.isToday ? '#ea580c' : '#9ca3af'}
+                        fontWeight={t.isToday ? 700 : 500}>
+                        {t.label || `${t.date ? '' : i + 1}`}
+                      </text>
+                    );
+                  })}
+                </svg>
+              );
+            })()}
           </section>
 
           {/* ⑦ 난이도별 정답률 — 미니 차트 */}
