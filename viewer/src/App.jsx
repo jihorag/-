@@ -675,6 +675,8 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
 const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
   const [taxonomyData, setTaxonomyData] = useState(null);
+  // 글로벌 설정 플로팅 드로어 (모든 탭에서 호출 가능)
+  const [showGlobalSettings, setShowGlobalSettings] = useState(false);
   // 5과목 AI 학습 leaves — 4탭 공통 참조용. 백그라운드 로드.
   const [leavesBySubject, setLeavesBySubject] = useState({});
   useEffect(() => {
