@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen } from 'lucide-react';
+import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen, Sparkles } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
-import CivilMemorize from './CivilMemorize';
+import AILearning from './AILearning';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
 import { ParsedText } from './ParsedText';
@@ -12,7 +12,13 @@ const collectUserData = () => {
   const data = {};
   for (let i = 0; i < localStorage.length; i++) {
     const k = localStorage.key(i);
-    if (k && k.startsWith('quiz-')) data[k] = localStorage.getItem(k);
+    // quiz-* (기출 진척), mem-* (구 통암기 호환), ailearn-* (AI 학습 탭) 모두 동기화 대상.
+    // API 키(ailearn-byok)는 단일 기기에 머물러야 하므로 동기화에서 제외.
+    if (!k) continue;
+    if (k === 'ailearn-byok') continue;
+    if (k.startsWith('quiz-') || k.startsWith('mem-') || k.startsWith('ailearn-')) {
+      data[k] = localStorage.getItem(k);
+    }
   }
   return { version: 1, exportedAt: new Date().toISOString(), data };
 };
@@ -34,22 +40,24 @@ const exportUserData = () => {
   a.click();
   URL.revokeObjectURL(url);
 };
+const SYNC_PREFIXES = ['quiz-', 'mem-', 'ailearn-'];
+const isSyncKey = (k) => k && k !== 'ailearn-byok' && SYNC_PREFIXES.some((p) => k.startsWith(p));
 const importUserData = (text) => {
   const parsed = JSON.parse(text);
   const data = parsed && parsed.data;
   if (!data || typeof data !== 'object') throw new Error('형식이 올바르지 않은 백업 파일입니다.');
   for (let i = localStorage.length - 1; i >= 0; i--) {
     const k = localStorage.key(i);
-    if (k && k.startsWith('quiz-')) localStorage.removeItem(k);
+    if (isSyncKey(k)) localStorage.removeItem(k);
   }
   for (const k in data) {
-    if (k.startsWith('quiz-') && typeof data[k] === 'string') localStorage.setItem(k, data[k]);
+    if (isSyncKey(k) && typeof data[k] === 'string') localStorage.setItem(k, data[k]);
   }
 };
 const resetUserData = () => {
   for (let i = localStorage.length - 1; i >= 0; i--) {
     const k = localStorage.key(i);
-    if (k && k.startsWith('quiz-')) localStorage.removeItem(k);
+    if (isSyncKey(k)) localStorage.removeItem(k);
   }
 };
 
@@ -1713,21 +1721,21 @@ const App = () => {
       || currentView === 'essay_questions' || currentView === 'essay_result') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'review'
     : currentView === 'status' ? 'status'
-    : currentView === 'civil' ? 'memorize'
+    : currentView === 'civil' ? 'ai'
     : 'browse'; // dashboard + tax_* + search(둘러보기 흡수)
   const goTab = (t) => {
     clearAutoTimer();
     if (t === 'home') setCurrentView('home');
     else if (t === 'browse') setCurrentView('dashboard');
     else if (t === 'review') { setReviewSubject(null); setCurrentView('reviewHome'); }
-    else if (t === 'memorize') setCurrentView('civil');
+    else if (t === 'ai') setCurrentView('civil');
     else if (t === 'status') setCurrentView('status');
     window.scrollTo(0, 0);
   };
   const NAV_ITEMS = [
     ['home', House, '홈'],
     ['browse', Compass, '둘러보기'],
-    ['memorize', BookOpen, '암기'],
+    ['ai', Sparkles, 'AI 학습'],
     ['review', RotateCcw, '복습'],
     ['status', ChartColumn, '현황'],
   ];
@@ -1808,9 +1816,9 @@ const App = () => {
     );
   };
 
-  // 통암기(암기 탭) — 하단 탭바 노출되는 루트 화면. 내부 뒤로가기는 컴포넌트가 처리.
+  // AI 학습 탭 — 하단 탭바 노출되는 루트 화면. (구 통암기 탭 대체)
   if (currentView === 'civil') {
-    return shell(<CivilMemorize isTabRoot browseExam={browseExam} />);
+    return shell(<AILearning isTabRoot browseExam={browseExam} />);
   }
 
   // 모의고사: picker/result는 하단 탭 유지, session은 집중 모드(no shell).
