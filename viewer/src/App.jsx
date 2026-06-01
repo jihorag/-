@@ -1509,13 +1509,25 @@ const App = () => {
   // 커버리지: 전체 대비 미응답/정답/복습필요/마스터 + 시험별 진척
   const coverage = useMemo(() => buildCoverage(classifiedList, progress), [classifiedList, progress]);
 
-  // AI 학습 탭 — 민법 quiz 오답률 기반 취약 단원 path 집계 (상위 8개).
-  // mapped_taxonomy 경로(sub_subject/chapter/section/item) → AILearning이 leaf id로 매칭.
-  const aiWeakPaths = useMemo(() => {
-    if (!classifiedList || !classifiedList.length) return [];
-    const acc = new Map();
+  // AI 학습 탭 — 5과목 quiz 오답률 기반 취약 단원 path 집계.
+  // 결과: { civil: [...], economics: [...], realestate: [...], law: [...], accounting: [...] }
+  const aiWeakPathsBySubject = useMemo(() => {
+    const SUBJ_MAP = {
+      '민법': 'civil',
+      '경제학원론': 'economics',
+      '부동산학원론': 'realestate',
+      '감정평가관계법규': 'law',
+      '회계학': 'accounting',
+    };
+    const buckets = { civil: new Map(), economics: new Map(), realestate: new Map(), law: new Map(), accounting: new Map() };
+    if (!classifiedList || !classifiedList.length) {
+      return Object.fromEntries(Object.keys(buckets).map((k) => [k, []]));
+    }
     for (const q of classifiedList) {
-      if (q.taxSubjectName !== '민법' || !q.taxSubSubjectName || !q.taxChapterName) continue;
+      const sid = SUBJ_MAP[q.taxSubjectName];
+      if (!sid || !q.taxChapterName) continue;
+      const acc = buckets[sid];
+      // 과목별 path 구성: 민법·경제·회계는 sub_subject 포함, 부동산·관계법규는 직접 chapter
       const path = [q.taxSubSubjectName, q.taxChapterName, q.taxSectionName, q.taxItemName].filter(Boolean);
       const p = progress[qid(q)];
       if (!p) continue;
@@ -1525,11 +1537,15 @@ const App = () => {
       if (p.correct === true) cur.correct += 1;
       acc.set(key, cur);
     }
-    return Array.from(acc.values())
-      .filter((a) => a.attempts >= 3 && a.correct / a.attempts < 0.6)
-      .map((a) => ({ ...a, wrong_rate: 1 - a.correct / a.attempts }))
-      .sort((a, b) => b.wrong_rate - a.wrong_rate)
-      .slice(0, 8);
+    const out = {};
+    Object.entries(buckets).forEach(([sid, m]) => {
+      out[sid] = Array.from(m.values())
+        .filter((a) => a.attempts >= 3 && a.correct / a.attempts < 0.6)
+        .map((a) => ({ ...a, wrong_rate: 1 - a.correct / a.attempts }))
+        .sort((a, b) => b.wrong_rate - a.wrong_rate)
+        .slice(0, 8);
+    });
+    return out;
   }, [classifiedList, progress]);
   // 모드별 커버리지 (status 탭의 스택바)
   const modeCoverage = useMemo(
@@ -1841,7 +1857,7 @@ const App = () => {
 
   // AI 학습 탭 — 하단 탭바 노출되는 루트 화면. (구 통암기 탭 대체)
   if (currentView === 'civil') {
-    return shell(<AILearning isTabRoot browseExam={browseExam} weakPaths={aiWeakPaths} />);
+    return shell(<AILearning isTabRoot browseExam={browseExam} weakPathsBySubject={aiWeakPathsBySubject} />);
   }
 
   // 모의고사: picker/result는 하단 탭 유지, session은 집중 모드(no shell).
