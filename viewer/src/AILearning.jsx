@@ -821,6 +821,45 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           <SettingsIcon size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
         </button>
       </header>
+      {(() => {
+        // 5과목 종합 진척 — 현재 과목과 무관하게 모든 leaf mastery 합산
+        const overall = {};
+        SUBJECTS.forEach((s) => {
+          const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__'));
+          const total = ks.length;
+          const covSum = ks.reduce((sum, k) => sum + (mastery[k]?.coverage || 0), 0);
+          const masterCount = ks.filter((k) => mastery[k]?.status === 'mastered').length;
+          overall[s.id] = { total, covAvg: total > 0 ? covSum / total : 0, masterCount };
+        });
+        const anyProgress = Object.values(overall).some((x) => x.covAvg > 0);
+        if (!anyProgress) return null;
+        return (
+          <div style={{ padding: '4px 8px', borderBottom: '1px solid #f3f4f6', background: '#fafafa', display: 'flex', gap: 6, overflowX: 'auto' }}>
+            {SUBJECTS.map((s) => {
+              const o = overall[s.id];
+              const on = s.id === subjectId;
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => switchSubject(s.id)}
+                  title={`${s.title} · 평균 ${Math.round(o.covAvg * 100)}% · 마스터 ${o.masterCount}`}
+                  style={{
+                    flex: '0 0 auto', padding: '3px 8px', borderRadius: 8,
+                    background: on ? '#fff' : 'transparent',
+                    border: on ? `1px solid ${s.color}` : '1px solid transparent',
+                    cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minWidth: 56,
+                  }}
+                >
+                  <span style={{ fontSize: '0.65rem', color: on ? s.color : '#6b7280', fontWeight: 700 }}>{s.icon} {s.short}</span>
+                  <div style={{ width: '100%', height: 3, background: '#e5e7eb', borderRadius: 2, marginTop: 2, overflow: 'hidden' }}>
+                    <div style={{ width: `${Math.max(2, o.covAvg * 100)}%`, height: '100%', background: s.color }} />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        );
+      })()}
       {recentChips.length > 0 && (
         <div style={{ padding: '4px 8px', borderBottom: '1px solid #f3f4f6', background: '#fafafa', display: 'flex', gap: 4, overflowX: 'auto' }}>
           <span style={{ fontSize: '0.7rem', color: '#9ca3af', alignSelf: 'center', flex: '0 0 auto', padding: '0 4px' }}>최근:</span>
@@ -892,8 +931,20 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         </div>
         <LeafPicker leaves={leaves} current={current} onPick={pickLeaf} mastery={mastery} due={due} />
         {curLeaf && (
-          <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#6b7280' }}>
-            교재 매핑: {curLeaf.unit_code} · {curLeaf.section_name}
+          <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#6b7280', display: 'flex', gap: 6, alignItems: 'center', flexWrap: 'wrap' }}>
+            <span>교재: {curLeaf.unit_code || '—'}</span>
+            <span>·</span>
+            <span title={curLeaf.section_name}>
+              {curLeaf.section_name && curLeaf.section_name !== '전체'
+                ? `🔍 ${curLeaf.section_name.length > 24 ? curLeaf.section_name.slice(0, 24) + '…' : curLeaf.section_name}`
+                : '전체'}
+              {curLeaf.section_key === 'auto' && curLeaf.section_lines && (
+                <span style={{ color: '#9ca3af' }}> ({curLeaf.section_lines[1] - curLeaf.section_lines[0]}줄)</span>
+              )}
+            </span>
+            {!curLeaf.unit_file && (
+              <span style={{ color: '#dc2626', fontWeight: 700 }}>· ⚠️ 단원 자료 없음</span>
+            )}
           </div>
         )}
       </div>
