@@ -23,12 +23,14 @@ import {
   pruneOldConversations,
   addAssessment,
   resetLearningProgress,
+  migrateLegacyCivilIds,
+  SUBJECTS, getSubjectMeta,
 } from './aiLearningStore';
 import { sendMessages, buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
 
-const INDEX_URL = '/data/study/civil/ai_taxonomy_index.json';
-const HANDOVER_URL = '/data/study/civil/handover.md';
-const STUDY_BASE = '/data/study/civil/';
+const indexUrl = (subjectId) => `/data/study/${subjectId}/ai_taxonomy_index.json`;
+const handoverUrl = (subjectId) => `/data/study/${subjectId}/handover.md`;
+const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
 function todayStr() {
   const d = new Date();
@@ -451,12 +453,15 @@ function matchWeakLeaves(weakPaths, leaves) {
 
 const IDLE_MS = 10 * 60 * 1000; // 10분
 
-export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
+export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPathsBySubject }) {
+  useEffect(() => { migrateLegacyCivilIds(); }, []);
   const [byok, setByokState] = useState(getByok());
   const [prefs, setPrefsState] = useState(getPrefs());
   const [indexMeta, setIndexMeta] = useState(null);
   const [leaves, setLeaves] = useState([]);
-  const [current, setCurrentState] = useState(getCurrent());
+  const initCur = getCurrent();
+  const [subjectId, setSubjectId] = useState(initCur?.subject || 'civil');
+  const [current, setCurrentState] = useState(initCur);
   const [mastery, setMasteryState] = useState(getMastery());
   const [handoverMd, setHandoverMd] = useState('');
   const [unitMd, setUnitMd] = useState('');
@@ -481,30 +486,32 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
   const scrollRef = useRef(null);
   const idleTimerRef = useRef(null);
 
-  // 인덱스 로드
+  // 인덱스·인수인계서 로드 — subjectId 변경 시 재로드
   useEffect(() => {
-    fetch(INDEX_URL).then((r) => r.json()).then((idx) => {
+    fetch(indexUrl(subjectId)).then((r) => r.json()).then((idx) => {
       setIndexMeta(idx);
       setLeaves(idx.leaves || []);
-      if (!current?.leaf_id && idx.default_leaf) {
+      // 현재 leaf가 이 과목 leaves에 없으면 default로 재설정
+      const exists = current?.leaf_id && (idx.leaves || []).some((l) => l.id === current.leaf_id);
+      if (!exists && idx.default_leaf) {
         const def = idx.leaves.find((l) => l.id === idx.default_leaf) || idx.leaves[0];
         if (def) {
-          const next = { subject: 'civil', leaf_id: def.id };
+          const next = { subject: subjectId, leaf_id: def.id };
           setCurrentState(next);
           setCurrent(next);
         }
       }
     }).catch((e) => setError('단원 인덱스를 불러오지 못했습니다: ' + e.message));
-    fetch(HANDOVER_URL).then((r) => r.text()).then(setHandoverMd).catch(() => setHandoverMd(''));
+    fetch(handoverUrl(subjectId)).then((r) => r.text()).then(setHandoverMd).catch(() => setHandoverMd(''));
     pruneOldConversations(7);
-  }, []); // eslint-disable-line
+  }, [subjectId]); // eslint-disable-line
 
   // leaf 자료 로드 (section_lines 슬라이스)
   useEffect(() => {
     if (!current?.leaf_id || leaves.length === 0) return;
     const leaf = leaves.find((l) => l.id === current.leaf_id);
-    if (!leaf) return;
-    fetch(STUDY_BASE + leaf.unit_file).then((r) => r.text()).then((md) => {
+    if (!leaf || !leaf.unit_file) { setUnitMd(''); setSectionMd(''); return; }
+    fetch(studyBase(subjectId) + leaf.unit_file).then((r) => r.text()).then((md) => {
       setUnitMd(md);
       if (leaf.section_key && leaf.section_key !== 'full' && leaf.section_lines) {
         setSectionMd(sliceSection(md, { lines: leaf.section_lines }));
@@ -512,15 +519,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
         setSectionMd('');
       }
     }).catch((e) => setError('단원 자료 로드 실패: ' + e.message));
-  }, [current?.leaf_id, leaves]);
+  }, [current?.leaf_id, leaves, subjectId]);
 
   // 문제풀이 모드 진입 시에만 problems MD 로드
   useEffect(() => {
     if (mode !== 'practice' || !current?.leaf_id) { setProblemsMd(''); return; }
     const leaf = leaves.find((l) => l.id === current.leaf_id);
-    if (!leaf || !leaf.problems_file) return;
-    fetch(STUDY_BASE + leaf.problems_file).then((r) => r.text()).then(setProblemsMd).catch(() => setProblemsMd(''));
-  }, [mode, current?.leaf_id, leaves]);
+    if (!leaf || !leaf.problems_file) { setProblemsMd(''); return; }
+    fetch(studyBase(subjectId) + leaf.problems_file).then((r) => r.text()).then(setProblemsMd).catch(() => setProblemsMd(''));
+  }, [mode, current?.leaf_id, leaves, subjectId]);
 
   // leaf 전환 시 해당 단원의 채팅방 로드. streaming은 중단·입력·idle 초기화.
   useEffect(() => {
@@ -554,12 +561,23 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
       .filter((x) => x.leaf);
   }, [recentRooms, leaves, current?.leaf_id]);
 
-  // 취약 leaf 매칭 (모의고사·기출 결과 기반) — 첫 진입 시 한 번
+  // 취약 leaf 매칭 — 과목별 dict 우선, 단일 props weakPaths fallback
   useEffect(() => {
     if (!leaves.length) return;
-    const matched = matchWeakLeaves(weakPaths || [], leaves);
+    const src = (weakPathsBySubject && weakPathsBySubject[subjectId]) || weakPaths || [];
+    const matched = matchWeakLeaves(src, leaves);
     setWeakSuggestion(matched);
-  }, [leaves, weakPaths]);
+  }, [leaves, weakPaths, weakPathsBySubject, subjectId]);
+
+  // 과목 전환 헬퍼
+  const switchSubject = (sid) => {
+    if (sid === subjectId) return;
+    if (abortRef.current) abortRef.current.abort();
+    setSubjectId(sid);
+    setMessages([]);
+    setUnitMd(''); setSectionMd(''); setProblemsMd('');
+    setPendingNext(null); setIdlePromptShown(false); setInput('');
+  };
 
   // 응답 끝나면 10분 idle 타이머 시작. 다음 user 메시지·언마운트·세션 종료 시 clear.
   const armIdleTimer = useCallback(() => {
@@ -834,6 +852,27 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
       )}
 
       <div style={{ padding: '8px 12px', borderBottom: '1px solid #e5e7eb', background: '#f9fafb' }}>
+        <div style={{ display: 'flex', gap: 4, marginBottom: 8, overflowX: 'auto', paddingBottom: 2 }}>
+          {SUBJECTS.map((s) => {
+            const on = s.id === subjectId;
+            return (
+              <button
+                key={s.id}
+                onClick={() => switchSubject(s.id)}
+                style={{
+                  flex: '0 0 auto', padding: '5px 10px', borderRadius: 12,
+                  border: on ? `1.5px solid ${s.color}` : '1px solid #d1d5db',
+                  background: on ? `${s.color}15` : '#fff',
+                  color: on ? s.color : '#374151',
+                  fontWeight: on ? 800 : 600, fontSize: '0.78rem', cursor: 'pointer', whiteSpace: 'nowrap',
+                }}
+                title={s.title}
+              >
+                {s.icon} {s.short}
+              </button>
+            );
+          })}
+        </div>
         <div style={{ display: 'flex', gap: 4, marginBottom: 8 }}>
           {[['study', '📖 이론'], ['practice', '✏️ 문제풀이']].map(([k, label]) => (
             <button

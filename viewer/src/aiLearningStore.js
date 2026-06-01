@@ -220,6 +220,62 @@ export function addAssessment(a) {
   lsSet(KEY.assessments, arr);
 }
 
+// ── 1차 5과목 메타 ─────────────────────────────────────────
+export const SUBJECTS = [
+  { id: 'civil',      title: '민법',       short: '민법',     icon: '⚖️', color: '#4f46e5', tax_key: '민법' },
+  { id: 'economics',  title: '경제학원론', short: '경제학',   icon: '📊', color: '#0891b2', tax_key: '경제학원론' },
+  { id: 'realestate', title: '부동산학원론', short: '부동산학', icon: '🏘️', color: '#10b981', tax_key: '부동산학원론' },
+  { id: 'law',        title: '감정평가관계법규', short: '관계법규', icon: '📜', color: '#dc2626', tax_key: '감정평가관계법규' },
+  { id: 'accounting', title: '회계학',     short: '회계학',   icon: '💰', color: '#f59e0b', tax_key: '회계학' },
+];
+export const getSubjectMeta = (id) => SUBJECTS.find((s) => s.id === id) || SUBJECTS[0];
+
+// ── 민법 레거시 leaf_id 마이그레이션 ───────────────────────
+// 기존 사용자(`민법총칙__...`/`물권법__...`)의 mastery·room·current 키를
+// 새 prefix(`civil__...`)로 한 번에 옮긴다. 멱등성 보장.
+const CIVIL_LEGACY_PREFIXES = ['민법총칙__', '물권법__'];
+function isCivilLegacy(id) { return id && CIVIL_LEGACY_PREFIXES.some((p) => id.startsWith(p)); }
+
+export function migrateLegacyCivilIds() {
+  let touched = 0;
+  try {
+    // mastery
+    const m = lsGet(KEY.mastery, {});
+    Object.keys(m).forEach((k) => {
+      if (isCivilLegacy(k)) {
+        const nk = 'civil__' + k;
+        if (!m[nk]) m[nk] = m[k];
+        delete m[k];
+        touched++;
+      }
+    });
+    if (touched) lsSet(KEY.mastery, m);
+    // rooms
+    const moves = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k || !k.startsWith('ailearn-room:')) continue;
+      const leafId = k.slice('ailearn-room:'.length);
+      if (isCivilLegacy(leafId)) moves.push([k, KEY.room('civil__' + leafId)]);
+    }
+    moves.forEach(([oldK, newK]) => {
+      const v = localStorage.getItem(oldK);
+      if (v != null && !localStorage.getItem(newK)) localStorage.setItem(newK, v);
+      localStorage.removeItem(oldK);
+      touched++;
+    });
+    // current
+    const cur = lsGet(KEY.current, null);
+    if (cur && isCivilLegacy(cur.leaf_id)) {
+      cur.leaf_id = 'civil__' + cur.leaf_id;
+      cur.subject = cur.subject || 'civil';
+      lsSet(KEY.current, cur);
+      touched++;
+    }
+  } catch { /* SSR */ }
+  return touched;
+}
+
 // ── 전체 학습 진척 초기화 (API 키는 보존) ──────────────────────
 // current·mastery·sessions·conversations·usage·assessments 삭제.
 // ailearn-byok, ailearn-prefs 는 사용자 설정이므로 유지.
