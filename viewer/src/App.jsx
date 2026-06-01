@@ -3077,10 +3077,17 @@ const App = () => {
 
     // 5과목 매트릭스 (quiz + AI 통합) — 통합 점수 낮은 순 정렬
     const subjectMatrix = AI_SUBJECTS.map((s) => {
-      const aiKs = Object.keys(aiMastery).filter((k) => k.startsWith(s.id + '__'));
+      const aiKs = Object.keys(aiMastery).filter((k) => k.startsWith(s.id + '__') || k.startsWith(s.id + '_'));
       const aiCov = aiKs.length ? aiKs.reduce((a, k) => a + (aiMastery[k]?.coverage || 0), 0) / aiKs.length : 0;
       const aiMaster = aiKs.filter((k) => aiMastery[k]?.status === 'mastered').length;
       const aiTotal = (leavesBySubject[s.id] || []).length;
+
+      // 2차는 답안 평균 점수 활용
+      const isStage2 = s.stage === 2;
+      const avgScorePct = isStage2 && aiKs.length
+        ? aiKs.reduce((a, k) => a + (aiMastery[k]?.avg_score_pct || 0), 0) / aiKs.length / 100
+        : 0;
+      const answerCountSum = isStage2 ? aiKs.reduce((a, k) => a + (aiMastery[k]?.answer_count || 0), 0) : 0;
 
       const quizSubj = analyticsUsed.subjects.find((x) => x.name === s.title);
       const quizAcc = quizSubj && quizSubj.scored >= 5 ? quizSubj.correct / quizSubj.scored : null;
@@ -3088,16 +3095,21 @@ const App = () => {
       const quizTotal = quizSubj?.total || 0;
       const quizScored = quizSubj?.scored || 0;
 
-      // 통합 점수: AI coverage 40% + quiz coverage 30% + quiz accuracy 30%
-      const score = aiCov * 0.4 + quizCov * 0.3 + (quizAcc || 0) * 0.3;
-      const weakAiCount = (weakPathsBySubject => {
-        const arr = (aiWeakPathsBySubject || {})[s.id] || [];
-        return arr.length;
-      })();
+      // 통합 점수 — stage별 다른 산식
+      let score;
+      if (isStage2) {
+        score = aiCov * 0.5 + avgScorePct * 0.5;  // 1차 기출 없음 가정
+      } else {
+        score = aiCov * 0.4 + quizCov * 0.3 + (quizAcc || 0) * 0.3;
+      }
+      const weakAiCount = ((aiWeakPathsBySubject || {})[s.id] || []).length;
       return {
         s, aiCov, aiMaster, aiTotal, quizAcc, quizCov, quizTotal, quizScored, score, weakAiCount,
+        isStage2, avgScorePct, answerCountSum,
       };
     }).sort((a, b) => a.score - b.score);
+    const matrixStage1 = subjectMatrix.filter((x) => !x.isStage2);
+    const matrixStage2 = subjectMatrix.filter((x) => x.isStage2);
 
     // leaf 통합 score — quiz + AI
     const leafUnified = allLeavesFlat
