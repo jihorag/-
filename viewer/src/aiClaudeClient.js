@@ -71,6 +71,45 @@ export const PRACTICE_RULES = `
   \`\`\`
 - 문제 자료가 없거나 부족하면 학생에게 알리고, 임의로 새 문제 만들지 마세요.`;
 
+export const DEEP_RULES = `
+
+[심화 탐구 모드]
+- 학습자가 이미 기본 개념을 안다고 가정 (초보자 규칙 일부 완화 — 한자풀이·일상비유는 새 용어에만).
+- 한 개념을 더 깊게: 통설·소수설·관련 판례·시험 단골 함정 1-2개·헷갈리는 유사 개념과 비교 표.
+- 표·정리 위주. 한 답변에 정보 밀도 高. 단, 한 번에 한 주제만.
+- 끝에 "이걸 어떻게 시험에서 묻는지" 한 줄 가이드.
+- 학생이 모르겠다고 하면 즉시 [📖 이론] 모드 권장.`;
+
+export const SUMMARY_RULES = `
+
+[빠른 복습 모드]
+- 학습자가 이미 학습한 내용을 빠르게 훑는 모드.
+- 핵심만 압축: 정의 한 줄·핵심 키워드·암기 두문자·시험 빈출 포인트.
+- 표나 불릿 위주. 설명·비유 최소화.
+- 한 메시지 = 한 주제(절 또는 관) 압축 카드.
+- 마지막 줄에 "다음 카드?"로 유도.`;
+
+export const DIAGNOSE_RULES = `
+
+[약점 진단 모드]
+- 학습자의 약점을 5문제 OX/단답으로 빠르게 진단하는 모드.
+- 첫 메시지: 현재 단원에서 핵심 5문제를 한꺼번에 제시 (각 문제는 짧은 OX 또는 단답).
+  형식: "1. ___ 이다 (O/X)\\n2. ___" 식으로 번호만.
+- 학생이 1-5번 답을 한 번에 보내면, 각 문제별 정답·해설 + **약점 진단 결과**를 표로 제공.
+- 진단 결과에는 어느 개념을 보강해야 할지·다음 학습 추천 단원 명시.
+- 채점 후 반드시 JSON:
+  \`\`\`json
+  {"diagnose": true, "code":"M02", "score": 3, "weak_topics":["행위능력","제한능력자"]}
+  \`\`\``;
+
+export const MODE_RULES = {
+  study: '',
+  practice: PRACTICE_RULES,
+  deep: DEEP_RULES,
+  summary: SUMMARY_RULES,
+  diagnose: DIAGNOSE_RULES,
+};
+
 function getEndpoint(baseUrl) {
   return (baseUrl && baseUrl.trim()) ? baseUrl.trim().replace(/\/$/, '') + '/v1/messages' : API_URL;
 }
@@ -78,7 +117,7 @@ function getEndpoint(baseUrl) {
 export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, mode, currentMastery, recentSummary, leafPath }) {
   // Anthropic prompt caching: 큰 컨텐츠 블록에 cache_control 부여
   const blocks = [
-    { type: 'text', text: SYSTEM_RULES + (mode === 'practice' ? PRACTICE_RULES : '') },
+    { type: 'text', text: SYSTEM_RULES + (MODE_RULES[mode] || '') },
   ];
   if (handoverMd) {
     blocks.push({

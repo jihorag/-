@@ -740,7 +740,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [unitMd, setUnitMd] = useState('');
   const [sectionMd, setSectionMd] = useState('');
   const [problemsMd, setProblemsMd] = useState('');
-  const [mode, setMode] = useState('study'); // 'study' | 'practice'
+  const [mode, setMode] = useState('study'); // 'study' | 'practice' | 'deep' | 'summary' | 'diagnose'
   const [pendingNext, setPendingNext] = useState(null);
   const [due, setDue] = useState(() => getDueChapters());
   const [messages, setMessages] = useState([]);
@@ -1337,20 +1337,30 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       )}
 
       <div style={{ padding: '8px 12px', borderBottom: '1px solid #e5e7eb', background: '#f9fafb' }}>
-        <div style={{ display: 'flex', gap: 4, marginBottom: 8 }}>
-          {[['study', '📖 이론'], ['practice', '✏️ 문제풀이']].map(([k, label]) => (
+        <div style={{ display: 'flex', gap: 4, marginBottom: 8, overflowX: 'auto', paddingBottom: 2 }}>
+          {[
+            ['study', '📖', '이론', '처음 배움'],
+            ['practice', '✏️', '문제풀이', '기출 풀이'],
+            ['deep', '🧠', '심화', '판례·함정'],
+            ['summary', '⚡', '복습', '핵심 압축'],
+            ['diagnose', '🎯', '진단', 'OX 5문제'],
+          ].map(([k, icon, label, desc]) => (
             <button
               key={k}
               onClick={() => setMode(k)}
+              title={desc}
               style={{
-                flex: 1, padding: '6px 10px', borderRadius: 8,
+                flex: '0 0 auto', padding: '6px 10px', borderRadius: 8,
                 border: mode === k ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
                 background: mode === k ? '#eef2ff' : '#fff',
                 color: mode === k ? '#1d4ed8' : '#374151',
-                fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer',
+                fontWeight: 700, fontSize: '0.78rem', cursor: 'pointer',
+                display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 56,
+                lineHeight: 1.1,
               }}
             >
-              {label}
+              <span style={{ fontSize: '1rem' }}>{icon}</span>
+              <span style={{ marginTop: 2 }}>{label}</span>
             </button>
           ))}
         </div>
