@@ -629,6 +629,93 @@ function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
   );
 }
 
+// 2차 답안 작성 입력 — 큰 textarea + 타이머
+function AnswerWriteInput({ scorePoint, onSubmit, disabled }) {
+  const [answer, setAnswer] = useState('');
+  const [scoreSel, setScoreSel] = useState(scorePoint || 30);
+  const [timerOn, setTimerOn] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
+  useEffect(() => {
+    if (!timerOn) return;
+    const t = setInterval(() => setElapsed((s) => s + 1), 1000);
+    return () => clearInterval(t);
+  }, [timerOn]);
+  const targetMin = scoreSel; // 1점 ≈ 1분
+  const mm = Math.floor(elapsed / 60);
+  const ss = String(elapsed % 60).padStart(2, '0');
+  const submit = () => {
+    if (!answer.trim()) return;
+    onSubmit({
+      answer: answer.trim(),
+      score_point: scoreSel,
+      time_used_sec: elapsed,
+      time_target_min: targetMin,
+    });
+    setAnswer(''); setElapsed(0); setTimerOn(false);
+  };
+  return (
+    <div style={{ background: '#fafafa', border: '1px solid #c7d2fe', borderRadius: 12, padding: 10 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6, flexWrap: 'wrap' }}>
+        <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#4338ca' }}>📝 답안 작성</span>
+        <div style={{ display: 'flex', gap: 4 }}>
+          {[10, 20, 30, 40].map((p) => (
+            <button key={p} onClick={() => setScoreSel(p)}
+              style={{
+                padding: '3px 8px', fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer',
+                borderRadius: 6, border: scoreSel === p ? '1px solid #4f46e5' : '1px solid #d1d5db',
+                background: scoreSel === p ? '#eef2ff' : '#fff',
+                color: scoreSel === p ? '#1d4ed8' : '#6b7280',
+              }}>{p}점</button>
+          ))}
+        </div>
+        <span style={{ fontSize: '0.7rem', color: '#6b7280' }}>
+          권장 {targetMin}분 · ~{Math.round(scoreSel * 0.7)}줄
+        </span>
+        <span style={{ marginLeft: 'auto', fontSize: '0.8rem', fontWeight: 700, color: timerOn ? '#ea580c' : '#9ca3af' }}>
+          ⏱ {mm}:{ss}
+        </span>
+      </div>
+      <textarea
+        value={answer}
+        onChange={(e) => setAnswer(e.target.value)}
+        placeholder={'Ⅰ. 서\n\nⅡ. 본론\n  1. ...\n  2. ...\n\nⅢ. 결론·유의사항'}
+        rows={10}
+        disabled={disabled}
+        style={{
+          width: '100%', padding: 10,
+          fontFamily: 'inherit', fontSize: '0.92rem', lineHeight: 1.7,
+          border: '1px solid #d1d5db', borderRadius: 8, resize: 'vertical',
+          background: disabled ? '#f3f4f6' : '#fff',
+        }}
+      />
+      <div style={{ display: 'flex', gap: 6, marginTop: 8 }}>
+        <button onClick={() => setTimerOn((v) => !v)}
+          style={{
+            padding: '8px 12px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer',
+            background: timerOn ? '#fef3c7' : '#fff', color: timerOn ? '#92400e' : '#374151',
+            border: `1px solid ${timerOn ? '#fcd34d' : '#d1d5db'}`, borderRadius: 8,
+          }}>
+          {timerOn ? '⏸ 일시정지' : '⏱ 타이머 시작'}
+        </button>
+        <button onClick={() => { setElapsed(0); setTimerOn(false); }}
+          style={{ padding: '8px 12px', fontSize: '0.82rem', background: '#fff', color: '#6b7280',
+            border: '1px solid #d1d5db', borderRadius: 8, cursor: 'pointer' }}>
+          ↻ 리셋
+        </button>
+        <button onClick={submit} disabled={!answer.trim() || disabled}
+          style={{
+            marginLeft: 'auto', padding: '8px 16px', fontSize: '0.85rem', fontWeight: 800, cursor: !answer.trim() || disabled ? 'not-allowed' : 'pointer',
+            background: !answer.trim() || disabled ? '#e5e7eb' : '#4f46e5',
+            color: !answer.trim() || disabled ? '#9ca3af' : '#fff',
+            border: 'none', borderRadius: 8,
+          }}>
+          📝 제출하고 AI 채점
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // 2차 답안 채점 결과 카드
 function ScoringResultCard({ result, onRewrite, onShowModel }) {
   const pct = result.max > 0 ? (result.score / result.max) * 100 : 0;
@@ -960,6 +1047,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     fetch(studyBase(subjectId) + leaf.problems_file).then((r) => r.text()).then(setProblemsMd).catch(() => setProblemsMd(''));
   }, [mode, current?.leaf_id, leaves, subjectId]);
 
+  // 2차 template 모드 — 답안 양식 라이브러리(_all.md) 로드 (이론 전용)
+  useEffect(() => {
+    if (mode !== 'template' || subjectId !== 'appraisal_theory') return;
+    if (problemsMd) return;  // 이미 다른 자료 있으면 skip
+    fetch(studyBase(subjectId) + 'templates/_all.md').then((r) => r.text()).then(setProblemsMd).catch(() => {});
+  }, [mode, subjectId, problemsMd]);
+
   // leaf 전환 시 해당 단원의 채팅방 로드. streaming은 중단·입력·idle 초기화.
   useEffect(() => {
     if (!current?.leaf_id) { setMessages([]); return; }
@@ -1081,7 +1175,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     const recentSummary = lastSession?.summary || '';
     const subjStage = getSubjectMeta(subjectId)?.stage || 1;
     const usesProblems = (subjStage === 1 && mode === 'practice') ||
-                         (subjStage === 2 && (mode === 'answer_write' || mode === 'mock_full' || mode === 'topic_extract'));
+                         (subjStage === 2 && (mode === 'answer_write' || mode === 'mock_full' || mode === 'topic_extract' || mode === 'template'));
     const system = buildSystemBlocks({
       handoverMd,                            // ← 캐시 안정: 텍스트 불변
       unitMd: sectionMd ? '' : unitMd,
@@ -2017,16 +2111,29 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             </button>
           ))}
         </div>
-        <div style={{ display: 'flex', gap: 6, alignItems: 'flex-end' }}>
+        {mode === 'answer_write' && (
+          <AnswerWriteInput
+            scorePoint={30}
+            disabled={streaming || !cap.ok}
+            onSubmit={({ answer, score_point, time_used_sec, time_target_min }) => {
+              const min = Math.round(time_used_sec / 60);
+              const text = `[답안 작성 — ${score_point}점, ${min}분 사용, 목표 ${time_target_min}분]\n\n${answer}\n\n위 답안을 채점해주세요. 점수·강점·보강·재작성 힌트를 JSON으로.`;
+              quickSend(text);
+            }}
+          />
+        )}
+        <div style={{ display: 'flex', gap: 6, alignItems: 'flex-end', marginTop: mode === 'answer_write' ? 8 : 0 }}>
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
             }}
-            placeholder={cap.ok ? '메시지를 입력하세요 (Enter 전송, Shift+Enter 줄바꿈)' : '오늘 cap 도달'}
+            placeholder={cap.ok
+              ? (mode === 'answer_write' ? '추가 질문이나 모범 답안 요청...' : '메시지를 입력하세요 (Enter 전송, Shift+Enter 줄바꿈)')
+              : '오늘 cap 도달'}
             disabled={!cap.ok || streaming}
-            rows={2}
+            rows={mode === 'answer_write' ? 1 : 2}
             style={{
               flex: 1, padding: '10px 12px', border: '1px solid #d1d5db', borderRadius: 10,
               fontSize: '0.95rem', resize: 'none', fontFamily: 'inherit',
