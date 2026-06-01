@@ -25,7 +25,8 @@ export const KEY = {
   sessions: 'ailearn-sessions',
   usage: 'ailearn-usage',
   assessments: 'ailearn-assessments',
-  conv: (date) => `ailearn-conversations:${date}`,
+  conv: (date) => `ailearn-conversations:${date}`,   // 레거시(날짜 기반)
+  room: (leafId) => `ailearn-room:${leafId}`,        // 단원별 채팅방
 };
 
 export const DEFAULT_PREFS = {
@@ -145,11 +146,43 @@ export function updateSession(id, patch) {
   }
 }
 
+// 레거시 (날짜별) — 기존 사용자 데이터 호환만 유지
 export function getConversation(date) { return lsGet(KEY.conv(date), []); }
 export function appendMessage(date, msg) {
   const arr = getConversation(date);
   arr.push({ ts: new Date().toISOString(), ...msg });
   lsSet(KEY.conv(date), arr);
+}
+
+// ── 단원별 채팅방 ────────────────────────────────────────────
+export function getRoomMessages(leafId) {
+  if (!leafId) return [];
+  return lsGet(KEY.room(leafId), []);
+}
+export function appendRoomMessage(leafId, msg) {
+  if (!leafId) return;
+  const arr = getRoomMessages(leafId);
+  arr.push({ ts: new Date().toISOString(), ...msg });
+  lsSet(KEY.room(leafId), arr);
+}
+export function clearRoom(leafId) {
+  if (!leafId) return;
+  try { localStorage.removeItem(KEY.room(leafId)); } catch { /* noop */ }
+}
+export function getAllRooms() {
+  const out = [];
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k || !k.startsWith('ailearn-room:')) continue;
+      const leafId = k.slice('ailearn-room:'.length);
+      const arr = JSON.parse(localStorage.getItem(k) || '[]');
+      if (!Array.isArray(arr) || !arr.length) continue;
+      const last = arr[arr.length - 1];
+      out.push({ leafId, msg_count: arr.length, last_ts: last?.ts || null });
+    }
+  } catch { /* noop */ }
+  return out.sort((a, b) => (b.last_ts || '').localeCompare(a.last_ts || ''));
 }
 
 export function getUsage() { return lsGet(KEY.usage, {}); }
@@ -225,12 +258,18 @@ export function pruneOldConversations(keepDays = 7) {
 // App.jsx의 cloud sync(pushState)에 포함시키기 위한 한 덩어리 객체.
 export function buildSyncSnapshot() {
   const conv = {};
+  const rooms = {};
   try {
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
-      if (!k || !k.startsWith('ailearn-conversations:')) continue;
-      const date = k.split(':')[1];
-      conv[date] = lsGet(k, []);
+      if (!k) continue;
+      if (k.startsWith('ailearn-conversations:')) {
+        const date = k.split(':')[1];
+        conv[date] = lsGet(k, []);
+      } else if (k.startsWith('ailearn-room:')) {
+        const leafId = k.slice('ailearn-room:'.length);
+        rooms[leafId] = lsGet(k, []);
+      }
     }
   } catch { /* SSR */ }
   return {
@@ -241,6 +280,7 @@ export function buildSyncSnapshot() {
     usage: getUsage(),
     assessments: getAssessments(),
     conversations: conv,
+    rooms,
   };
 }
 
@@ -255,6 +295,11 @@ export function applySyncSnapshot(snap) {
   if (snap.conversations && typeof snap.conversations === 'object') {
     Object.entries(snap.conversations).forEach(([date, msgs]) => {
       if (Array.isArray(msgs)) lsSet(KEY.conv(date), msgs);
+    });
+  }
+  if (snap.rooms && typeof snap.rooms === 'object') {
+    Object.entries(snap.rooms).forEach(([leafId, msgs]) => {
+      if (Array.isArray(msgs)) lsSet(KEY.room(leafId), msgs);
     });
   }
 }

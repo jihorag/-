@@ -10,7 +10,7 @@
 //  - 오프라인 안내.
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Send, Settings as SettingsIcon, BookOpen, RotateCcw, ChevronDown, Calendar, Sparkles, Key, Search } from 'lucide-react';
+import { Send, Settings as SettingsIcon, BookOpen, RotateCcw, ChevronDown, Calendar, Sparkles, Key, Search, Trash2 } from 'lucide-react';
 import ParsedText from './ParsedText';
 import {
   getByok, setByok, getPrefs, setPrefs,
@@ -18,7 +18,7 @@ import {
   getMastery, getChapterMastery, updateChapterMastery,
   recordGrade, getDueChapters,
   getSessions, addSession, updateSession,
-  getConversation, appendMessage,
+  getRoomMessages, appendRoomMessage, clearRoom, getAllRooms,
   bumpUsage, canSendMessage, getUsage,
   pruneOldConversations,
   addAssessment,
@@ -315,52 +315,75 @@ function MessageBubble({ msg }) {
   );
 }
 
-function HistoryPanel({ onClose }) {
-  const [byDate, setByDate] = useState([]);
-  useEffect(() => {
-    const map = {};
-    try {
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i);
-        if (!k || !k.startsWith('ailearn-conversations:')) continue;
-        const d = k.split(':')[1];
-        const arr = JSON.parse(localStorage.getItem(k) || '[]');
-        if (Array.isArray(arr) && arr.length) map[d] = arr.length;
-      }
-    } catch { /* noop */ }
-    setByDate(Object.entries(map).sort((a, b) => b[0].localeCompare(a[0])));
-  }, []);
+function HistoryPanel({ leaves, onClose, onJump, onClearRoom }) {
+  const [rooms, setRooms] = useState(() => getAllRooms());
   const [pick, setPick] = useState(null);
-  const msgs = pick ? getConversation(pick) : [];
+  const refresh = () => setRooms(getAllRooms());
+  const leafById = useMemo(() => new Map(leaves.map((l) => [l.id, l])), [leaves]);
+  const msgs = pick ? getRoomMessages(pick) : [];
+  const pickLeaf = pick ? leafById.get(pick) : null;
   return (
     <div style={{ padding: 16, background: '#fff', borderRadius: 12, border: '1px solid #e5e7eb' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
         <h3 style={{ margin: 0, fontSize: '1rem', display: 'flex', alignItems: 'center', gap: 6 }}>
-          <Calendar size={18} /> 대화 기록
+          <Calendar size={18} /> 단원별 채팅방
         </h3>
         <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280' }}>✕</button>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: 12 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: 12 }}>
         <div style={{ maxHeight: 360, overflowY: 'auto', borderRight: '1px solid #f3f4f6', paddingRight: 8 }}>
-          {byDate.length === 0 && <div style={{ fontSize: '0.85rem', color: '#9ca3af', padding: '8px 0' }}>기록 없음</div>}
-          {byDate.map(([d, n]) => (
-            <button
-              key={d}
-              onClick={() => setPick(d)}
-              style={{
-                display: 'block', width: '100%', textAlign: 'left',
-                padding: '6px 8px', background: pick === d ? '#eef2ff' : 'transparent',
-                border: 'none', borderRadius: 6, marginBottom: 4, cursor: 'pointer',
-                fontSize: '0.85rem', color: '#111827',
-              }}
-            >
-              {d} <span style={{ color: '#6b7280' }}>({n})</span>
-            </button>
-          ))}
+          {rooms.length === 0 && <div style={{ fontSize: '0.85rem', color: '#9ca3af', padding: '8px 0' }}>채팅방 없음</div>}
+          {rooms.map((r) => {
+            const leaf = leafById.get(r.leafId);
+            const title = leaf ? leaf.path.slice(-1)[0] : r.leafId;
+            const sub = leaf ? leaf.path.slice(1, -1).join(' › ') : '';
+            return (
+              <button
+                key={r.leafId}
+                onClick={() => setPick(r.leafId)}
+                style={{
+                  display: 'block', width: '100%', textAlign: 'left',
+                  padding: '8px 10px', background: pick === r.leafId ? '#eef2ff' : 'transparent',
+                  border: 'none', borderRadius: 6, marginBottom: 4, cursor: 'pointer',
+                  fontSize: '0.85rem', color: '#111827',
+                }}
+              >
+                <div style={{ fontWeight: 700 }}>{title}</div>
+                <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>{sub}</div>
+                <div style={{ fontSize: '0.72rem', color: '#9ca3af', marginTop: 2 }}>
+                  {r.msg_count}건 · {(r.last_ts || '').slice(0, 16).replace('T', ' ')}
+                </div>
+              </button>
+            );
+          })}
         </div>
-        <div style={{ maxHeight: 360, overflowY: 'auto' }}>
-          {!pick && <div style={{ fontSize: '0.85rem', color: '#9ca3af', padding: '8px 0' }}>날짜 선택</div>}
-          {msgs.map((m, i) => <MessageBubble key={i} msg={m} />)}
+        <div style={{ maxHeight: 360, display: 'flex', flexDirection: 'column' }}>
+          {!pick && <div style={{ fontSize: '0.85rem', color: '#9ca3af', padding: '8px 0' }}>채팅방 선택</div>}
+          {pick && (
+            <>
+              <div style={{ display: 'flex', gap: 6, marginBottom: 8 }}>
+                <button
+                  onClick={() => { if (pickLeaf) onJump(pickLeaf); }}
+                  disabled={!pickLeaf}
+                  style={{ padding: '6px 10px', fontSize: '0.78rem', background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: pickLeaf ? 'pointer' : 'not-allowed' }}
+                >
+                  이 단원으로 이동
+                </button>
+                <button
+                  onClick={() => {
+                    if (!confirm('이 단원의 채팅방을 모두 삭제할까요?')) return;
+                    onClearRoom(pick); setPick(null); refresh();
+                  }}
+                  style={{ padding: '6px 10px', fontSize: '0.78rem', background: '#fef2f2', color: '#991b1b', border: '1px solid #fecaca', borderRadius: 6, cursor: 'pointer' }}
+                >
+                  채팅방 삭제
+                </button>
+              </div>
+              <div style={{ flex: 1, overflowY: 'auto' }}>
+                {msgs.map((m, i) => <MessageBubble key={i} msg={m} />)}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -408,7 +431,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
   const [mode, setMode] = useState('study'); // 'study' | 'practice'
   const [pendingNext, setPendingNext] = useState(null);
   const [due, setDue] = useState(() => getDueChapters());
-  const [messages, setMessages] = useState(() => getConversation(todayStr()));
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [streaming, setStreaming] = useState(false);
   const [draft, setDraft] = useState('');
@@ -462,6 +485,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
     if (!leaf || !leaf.problems_file) return;
     fetch(STUDY_BASE + leaf.problems_file).then((r) => r.text()).then(setProblemsMd).catch(() => setProblemsMd(''));
   }, [mode, current?.leaf_id, leaves]);
+
+  // leaf 전환 시 해당 단원의 채팅방 로드. streaming은 중단·입력·idle 초기화.
+  useEffect(() => {
+    if (!current?.leaf_id) { setMessages([]); return; }
+    setMessages(getRoomMessages(current.leaf_id));
+    setPendingNext(null);
+    setIdlePromptShown(false);
+    setInput('');
+    if (abortRef.current) abortRef.current.abort();
+    if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+  }, [current?.leaf_id]);
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -524,8 +558,9 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
     if (!sessionId) startNewSession();
 
     clearIdleTimer();
+    if (!current?.leaf_id) { setError('단원을 먼저 선택하세요.'); setStreaming(false); return; }
     const userMsg = { role: 'user', content: text };
-    appendMessage(todayStr(), userMsg);
+    appendRoomMessage(current.leaf_id, userMsg);
     setMessages((arr) => [...arr, { ...userMsg, ts: new Date().toISOString() }]);
     if (typeof overrideText !== 'string') setInput('');
     setStreaming(true);
@@ -546,7 +581,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
       leafPath: curLeaf ? curLeaf.path.join(' / ') : '',
     });
 
-    const history = [...getConversation(todayStr())].slice(-13);
+    const history = [...getRoomMessages(current.leaf_id)].slice(-13);
     const apiMessages = history.map((m) => ({ role: m.role, content: m.content }));
 
     const ac = new AbortController();
@@ -562,7 +597,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
         onDelta: (_chunk, agg) => setDraft(agg),
       });
       const aMsg = { role: 'assistant', content: out };
-      appendMessage(todayStr(), aMsg);
+      appendRoomMessage(current.leaf_id, aMsg);
       setMessages((arr) => [...arr, { ...aMsg, ts: new Date().toISOString() }]);
       bumpUsage({
         messages: 1,
