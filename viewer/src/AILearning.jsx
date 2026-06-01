@@ -22,6 +22,7 @@ import {
   bumpUsage, canSendMessage, getUsage,
   pruneOldConversations,
   addAssessment,
+  resetLearningProgress,
 } from './aiLearningStore';
 import { sendMessages, buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
 
@@ -231,7 +232,7 @@ function ApiKeyForm({ initial, onSave }) {
   );
 }
 
-function SettingsPanel({ prefs, onSave, onClearKey, usage }) {
+function SettingsPanel({ prefs, onSave, onClearKey, onResetProgress, usage }) {
   const today = usage[todayStr()] || { messages: 0, input_tokens: 0, cache_read: 0, cache_write: 0, output_tokens: 0 };
   const cacheTotal = (today.cache_read || 0) + (today.cache_write || 0);
   const cacheHit = cacheTotal > 0 ? Math.round(((today.cache_read || 0) / cacheTotal) * 100) : 0;
@@ -277,6 +278,12 @@ function SettingsPanel({ prefs, onSave, onClearKey, usage }) {
         캐시 적중률 {cacheHit}% (읽기 {(today.cache_read || 0).toLocaleString()} / 쓰기 {(today.cache_write || 0).toLocaleString()})
         {cacheHit < 50 && cacheTotal > 0 && ' · 5분 안에 다음 질문 보내면 캐시 적중률이 올라갑니다'}
       </div>
+      <button
+        onClick={onResetProgress}
+        style={{ width: '100%', padding: '8px 12px', background: '#fef3c7', color: '#92400e', border: '1px solid #fcd34d', borderRadius: 8, cursor: 'pointer', fontSize: '0.85rem', marginBottom: 6 }}
+      >
+        🧹 학습 진척 초기화 (대화·세션·진척도 삭제, 키·설정 보존)
+      </button>
       <button
         onClick={onClearKey}
         style={{ width: '100%', padding: '8px 12px', background: '#fef2f2', color: '#991b1b', border: '1px solid #fecaca', borderRadius: 8, cursor: 'pointer', fontSize: '0.85rem' }}
@@ -451,9 +458,9 @@ export default function AILearning({ isTabRoot, browseExam }) {
     setSessionId(id);
   };
 
-  const send = useCallback(async () => {
+  const send = useCallback(async (overrideText) => {
     setError('');
-    const text = input.trim();
+    const text = (typeof overrideText === 'string' ? overrideText : input).trim();
     if (!text || streaming) return;
     const cap = canSendMessage();
     if (!cap.ok) {
@@ -469,7 +476,7 @@ export default function AILearning({ isTabRoot, browseExam }) {
     const userMsg = { role: 'user', content: text };
     appendMessage(todayStr(), userMsg);
     setMessages((arr) => [...arr, { ...userMsg, ts: new Date().toISOString() }]);
-    setInput('');
+    if (typeof overrideText !== 'string') setInput('');
     setStreaming(true);
     setDraft('');
 
@@ -564,6 +571,9 @@ export default function AILearning({ isTabRoot, browseExam }) {
 
   const stop = () => { if (abortRef.current) abortRef.current.abort(); };
 
+  // 빠른 액션: input을 거치지 않고 즉시 send (overrideText 사용)
+  const quickSend = (text) => { if (!streaming) send(text); };
+
   const curLeaf = leaves.find((l) => l.id === current?.leaf_id);
   const cap = canSendMessage();
 
@@ -638,6 +648,22 @@ export default function AILearning({ isTabRoot, browseExam }) {
             usage={getUsage()}
             onSave={(patch) => { const next = setPrefs(patch); setPrefsState(next); }}
             onClearKey={() => { setByok(null); setByokState(''); }}
+            onResetProgress={() => {
+              if (!confirm('대화·세션·진척도를 모두 초기화하시겠습니까? API 키와 설정은 유지됩니다.')) return;
+              resetLearningProgress();
+              setMessages([]);
+              setMasteryState({});
+              setDue([]);
+              setCurrentState(null);
+              setSessionId(null);
+              setPendingNext(null);
+              // 기본 leaf로 재설정
+              if (indexMeta?.default_leaf) {
+                const def = indexMeta.leaves.find((l) => l.id === indexMeta.default_leaf) || indexMeta.leaves[0];
+                if (def) { const next = { subject: 'civil', leaf_id: def.id }; setCurrentState(next); setCurrent(next); }
+              }
+              setShowSettings(false);
+            }}
           />
         </div>
       )}
@@ -703,6 +729,35 @@ export default function AILearning({ isTabRoot, browseExam }) {
       </div>
 
       <div style={{ padding: 10, borderTop: '1px solid #e5e7eb', background: '#fff' }}>
+        <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginBottom: 6, paddingBottom: 2 }}>
+          {(mode === 'practice'
+            ? [
+                ['📝 기출 한 문제 출제해줘', '기출 한 문제 출제해줘. 함정 분석도 같이.'],
+                ['🔄 비슷한 다른 문제', '같은 주제로 다른 기출 문제 한 개 더 출제해줘.'],
+                ['💡 정답·해설', '방금 문제 정답과 해설을 자세히 알려줘.'],
+              ]
+            : [
+                ['▶️ 이 단원 시작', '이 단원의 첫 절·관부터 한 사이클(개념→비유→확인 문제→피드백) 시작해줘.'],
+                ['🔁 이어서 진행', '직전에 멈춘 곳에서 자연스럽게 이어서 진행해줘.'],
+                ['🧩 종합 퀴즈', '이 단원의 종합 퀴즈(빈칸·단답·OX·사례) 한 세트 내줘.'],
+                ['🏁 오늘 끝 — 정리', '오늘 학습 정리해줘. 끝.'],
+              ]
+          ).map(([label, prompt]) => (
+            <button
+              key={label}
+              disabled={streaming || !cap.ok}
+              onClick={() => quickSend(prompt)}
+              style={{
+                flex: '0 0 auto', padding: '5px 10px', borderRadius: 14,
+                border: '1px solid #d1d5db', background: '#fff', color: '#374151',
+                fontSize: '0.78rem', fontWeight: 600, cursor: streaming || !cap.ok ? 'not-allowed' : 'pointer',
+                whiteSpace: 'nowrap', opacity: streaming || !cap.ok ? 0.5 : 1,
+              }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
         <div style={{ display: 'flex', gap: 6, alignItems: 'flex-end' }}>
           <textarea
             value={input}

@@ -187,6 +187,23 @@ export function addAssessment(a) {
   lsSet(KEY.assessments, arr);
 }
 
+// ── 전체 학습 진척 초기화 (API 키는 보존) ──────────────────────
+// current·mastery·sessions·conversations·usage·assessments 삭제.
+// ailearn-byok, ailearn-prefs 는 사용자 설정이므로 유지.
+export function resetLearningProgress() {
+  const remove = [];
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k || !k.startsWith('ailearn-')) continue;
+      if (k === KEY.byok || k === KEY.prefs) continue;
+      remove.push(k);
+    }
+    remove.forEach((k) => localStorage.removeItem(k));
+  } catch { /* SSR */ }
+  return remove.length;
+}
+
 // ── 오래된 대화 정리 (7일 초과는 요약본만 세션에 보존) ────────────
 export function pruneOldConversations(keepDays = 7) {
   const cutoff = Date.now() - keepDays * 86400000;
