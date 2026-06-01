@@ -10,7 +10,7 @@
 //  - 오프라인 안내.
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Send, Settings as SettingsIcon, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play } from 'lucide-react';
+import { Send, Settings as SettingsIcon, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play, BarChart3, ArrowRight } from 'lucide-react';
 import ParsedText from './ParsedText';
 import {
   getByok, setByok, getPrefs, setPrefs,
@@ -334,6 +334,218 @@ function SettingsPanel({ prefs, onSave, onClearKey, onResetProgress, usage }) {
   );
 }
 
+// 응답 텍스트에서 ①~⑤ 또는 1)~5) 옵션 줄을 추출.
+// 응답이 정답·해설을 이미 포함하면(예: "정답: ②") null 반환.
+const CIRCLED_DIGITS = ['①', '②', '③', '④', '⑤'];
+function extractMultipleChoice(text) {
+  if (!text) return null;
+  if (/정답\s*[:：]/.test(text) || /correct\s*answer/i.test(text)) return null;
+  const lines = text.split('\n').map((l) => l.trim()).filter(Boolean);
+  const opts = [];
+  for (const l of lines) {
+    const m1 = l.match(/^[①②③④⑤]\s*(.+)$/);
+    const m2 = l.match(/^([1-5])[\.\)]\s*(.+)$/);
+    if (m1) opts.push({ n: CIRCLED_DIGITS.indexOf(l[0]) + 1, text: m1[1] });
+    else if (m2) opts.push({ n: parseInt(m2[1], 10), text: m2[2] });
+  }
+  // 5지선다만 인식. 중복 번호 제거.
+  const uniq = [];
+  const seen = new Set();
+  for (const o of opts) {
+    if (seen.has(o.n) || o.n < 1 || o.n > 5) continue;
+    seen.add(o.n); uniq.push(o);
+  }
+  if (uniq.length < 2 || uniq.length > 5) return null;
+  return uniq;
+}
+
+function AnswerChoiceRow({ options, onPick, disabled }) {
+  return (
+    <div style={{
+      display: 'flex', gap: 6, padding: '8px 12px', marginTop: 4,
+      background: '#fef9c3', borderTop: '1px solid #fde68a',
+      borderRadius: '0 0 12px 12px',
+    }}>
+      <div style={{ fontSize: '0.78rem', color: '#854d0e', alignSelf: 'center', marginRight: 4, fontWeight: 700 }}>답:</div>
+      {options.map((o) => (
+        <button
+          key={o.n}
+          onClick={() => onPick(o)}
+          disabled={disabled}
+          title={o.text.slice(0, 40)}
+          style={{
+            width: 36, height: 36, borderRadius: '50%',
+            border: '1.5px solid #ca8a04', background: '#fff', color: '#854d0e',
+            fontWeight: 800, fontSize: '0.95rem', cursor: disabled ? 'not-allowed' : 'pointer',
+            opacity: disabled ? 0.5 : 1,
+          }}
+        >
+          {CIRCLED_DIGITS[o.n - 1]}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// 5과목 종합 분석 — 레이더(다각형) + 단원별 상위/하위 5
+function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
+  const stats = SUBJECTS.map((s) => {
+    const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__'));
+    const total = ks.length;
+    const covSum = ks.reduce((a, k) => a + (mastery[k]?.coverage || 0), 0);
+    const accs = ks.map((k) => mastery[k]?.accuracy || 0).filter((x) => x > 0);
+    const masterCount = ks.filter((k) => mastery[k]?.status === 'mastered').length;
+    return {
+      s,
+      total,
+      covAvg: total > 0 ? covSum / total : 0,
+      accAvg: accs.length > 0 ? accs.reduce((a, b) => a + b, 0) / accs.length : 0,
+      masterCount,
+    };
+  });
+
+  // 단원 진행 ranking — 진행한 모든 leaf 중 top/bottom
+  const allRanked = useMemo(() => {
+    const arr = [];
+    SUBJECTS.forEach((s) => {
+      const leaves = leavesBySubject[s.id] || [];
+      leaves.forEach((leaf) => {
+        const m = mastery[leaf.id];
+        if (m && (m.coverage || 0) > 0) {
+          arr.push({ leaf, subject: s, ...m });
+        }
+      });
+    });
+    return arr.sort((a, b) => (b.coverage || 0) - (a.coverage || 0));
+  }, [mastery, leavesBySubject]);
+
+  const top5 = allRanked.slice(0, 5);
+  const bottom5 = allRanked.slice(-5).reverse();
+
+  // 레이더 다각형 좌표
+  const radius = 70;
+  const cx = 90;
+  const cy = 90;
+  const pts = stats.map((st, i) => {
+    const angle = (Math.PI * 2 * i) / stats.length - Math.PI / 2;
+    const r = radius * (st.covAvg || 0);
+    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle), s: st.s, st };
+  });
+  const polyStr = pts.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+  const axisPts = stats.map((_, i) => {
+    const angle = (Math.PI * 2 * i) / stats.length - Math.PI / 2;
+    return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle), label: SUBJECTS[i].short };
+  });
+
+  return (
+    <div style={{ padding: 16, background: '#fff', borderRadius: 12, border: '1px solid #e5e7eb' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+        <h3 style={{ margin: 0, fontSize: '1rem', display: 'flex', alignItems: 'center', gap: 6 }}>
+          <BarChart3 size={18} /> 5과목 종합 분석
+        </h3>
+        <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280' }}>✕</button>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: 16, alignItems: 'start' }}>
+        <svg viewBox="0 0 180 180" style={{ width: '100%', height: 'auto' }}>
+          {[0.25, 0.5, 0.75, 1].map((r) => (
+            <polygon
+              key={r}
+              points={SUBJECTS.map((_, i) => {
+                const a = (Math.PI * 2 * i) / SUBJECTS.length - Math.PI / 2;
+                return `${(cx + radius * r * Math.cos(a)).toFixed(1)},${(cy + radius * r * Math.sin(a)).toFixed(1)}`;
+              }).join(' ')}
+              fill="none" stroke="#e5e7eb" strokeWidth="1"
+            />
+          ))}
+          {axisPts.map((p, i) => (
+            <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="#e5e7eb" strokeWidth="1" />
+          ))}
+          <polygon points={polyStr} fill="#4f46e5" fillOpacity="0.25" stroke="#4f46e5" strokeWidth="2" />
+          {pts.map((p, i) => (
+            <circle key={i} cx={p.x} cy={p.y} r="3" fill={p.s.color} />
+          ))}
+          {axisPts.map((p, i) => (
+            <text
+              key={i}
+              x={p.x + (p.x > cx ? 4 : p.x < cx ? -4 : 0)}
+              y={p.y + (p.y > cy ? 10 : p.y < cy ? -4 : 4)}
+              fontSize="10"
+              textAnchor={p.x > cx ? 'start' : p.x < cx ? 'end' : 'middle'}
+              fill="#374151"
+            >
+              {p.label}
+            </text>
+          ))}
+        </svg>
+        <div>
+          <table style={{ width: '100%', fontSize: '0.78rem', borderCollapse: 'collapse' }}>
+            <thead>
+              <tr style={{ color: '#6b7280' }}>
+                <th style={{ textAlign: 'left' }}>과목</th>
+                <th style={{ textAlign: 'right' }}>평균</th>
+                <th style={{ textAlign: 'right' }}>마스터</th>
+                <th style={{ textAlign: 'right' }}>정답률</th>
+              </tr>
+            </thead>
+            <tbody>
+              {stats.map((st) => (
+                <tr key={st.s.id} style={{ borderTop: '1px solid #f3f4f6' }}>
+                  <td style={{ padding: '4px 0', color: st.s.color, fontWeight: 700 }}>{st.s.icon} {st.s.short}</td>
+                  <td style={{ textAlign: 'right' }}>{Math.round(st.covAvg * 100)}%</td>
+                  <td style={{ textAlign: 'right' }}>{st.masterCount}/{st.total}</td>
+                  <td style={{ textAlign: 'right' }}>{st.accAvg > 0 ? `${Math.round(st.accAvg * 100)}%` : '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginTop: 16 }}>
+        <div>
+          <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#065f46', marginBottom: 4 }}>🏆 진척 상위 5</div>
+          {top5.length === 0 && <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>없음</div>}
+          {top5.map((x) => (
+            <button
+              key={x.leaf.id}
+              onClick={() => onJump(x.leaf, x.subject.id)}
+              style={{
+                display: 'block', width: '100%', textAlign: 'left',
+                padding: '4px 6px', background: 'transparent', border: 'none',
+                borderRadius: 4, cursor: 'pointer', fontSize: '0.78rem', color: '#111827',
+              }}
+            >
+              <span style={{ color: x.subject.color, fontWeight: 700 }}>{x.subject.icon}</span>{' '}
+              {x.leaf.path.slice(-1)[0]}{' '}
+              <span style={{ color: '#9ca3af' }}>{Math.round((x.coverage || 0) * 100)}%</span>
+            </button>
+          ))}
+        </div>
+        <div>
+          <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#9a3412', marginBottom: 4 }}>🐌 진척 하위 5 (활성)</div>
+          {bottom5.length === 0 && <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>없음</div>}
+          {bottom5.map((x) => (
+            <button
+              key={x.leaf.id}
+              onClick={() => onJump(x.leaf, x.subject.id)}
+              style={{
+                display: 'block', width: '100%', textAlign: 'left',
+                padding: '4px 6px', background: 'transparent', border: 'none',
+                borderRadius: 4, cursor: 'pointer', fontSize: '0.78rem', color: '#111827',
+              }}
+            >
+              <span style={{ color: x.subject.color, fontWeight: 700 }}>{x.subject.icon}</span>{' '}
+              {x.leaf.path.slice(-1)[0]}{' '}
+              <span style={{ color: '#9ca3af' }}>{Math.round((x.coverage || 0) * 100)}%</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function MessageBubble({ msg }) {
   const isUser = msg.role === 'user';
   return (
@@ -358,10 +570,30 @@ function MessageBubble({ msg }) {
 function HistoryPanel({ leaves, onClose, onJump, onClearRoom }) {
   const [rooms, setRooms] = useState(() => getAllRooms());
   const [pick, setPick] = useState(null);
+  const [query, setQuery] = useState('');
   const refresh = () => setRooms(getAllRooms());
   const leafById = useMemo(() => new Map(leaves.map((l) => [l.id, l])), [leaves]);
   const msgs = pick ? getRoomMessages(pick) : [];
   const pickLeaf = pick ? leafById.get(pick) : null;
+
+  // 전체 단원 채팅방에서 키워드 검색 — 일치 메시지 발견된 방만 노출
+  const searchHits = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return null;
+    const hits = [];
+    rooms.forEach((r) => {
+      const arr = getRoomMessages(r.leafId);
+      const matchedMsgs = arr
+        .map((m, i) => ({ m, i }))
+        .filter(({ m }) => (m.content || '').toLowerCase().includes(q));
+      if (matchedMsgs.length > 0) {
+        hits.push({ leafId: r.leafId, leaf: leafById.get(r.leafId), count: matchedMsgs.length, sample: matchedMsgs[0].m });
+      }
+    });
+    return hits;
+  }, [query, rooms, leafById]);
+
+  const displayList = searchHits || rooms;
   return (
     <div style={{ padding: 16, background: '#fff', borderRadius: 12, border: '1px solid #e5e7eb' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
@@ -370,13 +602,28 @@ function HistoryPanel({ leaves, onClose, onJump, onClearRoom }) {
         </h3>
         <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280' }}>✕</button>
       </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 10px', background: '#f3f4f6', borderRadius: 8, marginBottom: 8 }}>
+        <Search size={14} color="#6b7280" />
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="모든 채팅방에서 키워드 검색 (예: 행위능력, CVP)"
+          style={{ flex: 1, border: 'none', background: 'transparent', outline: 'none', fontSize: '0.85rem' }}
+        />
+        {query && <button onClick={() => setQuery('')} style={{ background: 'none', border: 'none', color: '#6b7280', cursor: 'pointer', fontSize: '0.85rem' }}>✕</button>}
+      </div>
       <div style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: 12 }}>
         <div style={{ maxHeight: 360, overflowY: 'auto', borderRight: '1px solid #f3f4f6', paddingRight: 8 }}>
-          {rooms.length === 0 && <div style={{ fontSize: '0.85rem', color: '#9ca3af', padding: '8px 0' }}>채팅방 없음</div>}
-          {rooms.map((r) => {
-            const leaf = leafById.get(r.leafId);
+          {displayList.length === 0 && (
+            <div style={{ fontSize: '0.85rem', color: '#9ca3af', padding: '8px 0' }}>
+              {query ? `"${query}" 일치 없음` : '채팅방 없음'}
+            </div>
+          )}
+          {displayList.map((r) => {
+            const leaf = r.leaf || leafById.get(r.leafId);
             const title = leaf ? leaf.path.slice(-1)[0] : r.leafId;
             const sub = leaf ? leaf.path.slice(1, -1).join(' › ') : '';
+            const isHit = !!searchHits;
             return (
               <button
                 key={r.leafId}
@@ -391,7 +638,7 @@ function HistoryPanel({ leaves, onClose, onJump, onClearRoom }) {
                 <div style={{ fontWeight: 700 }}>{title}</div>
                 <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>{sub}</div>
                 <div style={{ fontSize: '0.72rem', color: '#9ca3af', marginTop: 2 }}>
-                  {r.msg_count}건 · {(r.last_ts || '').slice(0, 16).replace('T', ' ')}
+                  {isHit ? `🔍 ${r.count}건 일치` : `${r.msg_count}건 · ${(r.last_ts || '').slice(0, 16).replace('T', ' ')}`}
                 </div>
               </button>
             );
@@ -477,6 +724,22 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [error, setError] = useState('');
   const [showSettings, setShowSettings] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
+  const [showAnalytics, setShowAnalytics] = useState(false);
+  // leaf id → leaves (5과목 모두 캐시 — analytics 패널에서 사용)
+  const [leavesBySubject, setLeavesBySubject] = useState({});
+  useEffect(() => {
+    setLeavesBySubject((prev) => ({ ...prev, [subjectId]: leaves }));
+  }, [subjectId, leaves]);
+  useEffect(() => {
+    // 분석 패널 첫 노출 시 누락된 과목 인덱스도 로드 (캐시)
+    if (!showAnalytics) return;
+    SUBJECTS.forEach((s) => {
+      if (leavesBySubject[s.id]) return;
+      fetch(indexUrl(s.id)).then((r) => r.json()).then((idx) => {
+        setLeavesBySubject((prev) => ({ ...prev, [s.id]: idx.leaves || [] }));
+      }).catch(() => {});
+    });
+  }, [showAnalytics]); // eslint-disable-line
   const [sessionId, setSessionId] = useState(null);
   const [idlePromptShown, setIdlePromptShown] = useState(false);
   const [weakSuggestion, setWeakSuggestion] = useState([]);
@@ -814,6 +1077,9 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             <Trash2 size={16} color="#ef4444" />
           </button>
         )}
+        <button onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+          <BarChart3 size={18} color={showAnalytics ? '#4f46e5' : '#6b7280'} />
+        </button>
         <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
           <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
         </button>
@@ -991,6 +1257,21 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         </div>
       )}
 
+      {showAnalytics && (
+        <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
+          <AnalyticsPanel
+            mastery={mastery}
+            leavesBySubject={leavesBySubject}
+            onClose={() => setShowAnalytics(false)}
+            onJump={(leaf, sid) => {
+              if (sid !== subjectId) switchSubject(sid);
+              setTimeout(() => pickLeaf(leaf), 50);
+              setShowAnalytics(false);
+            }}
+          />
+        </div>
+      )}
+
       <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', padding: '12px 14px' }}>
         {messages.length === 0 && curLeaf && (() => {
           const m = mastery[curLeaf.id] || { coverage: 0, status: 'not_started' };
@@ -1069,7 +1350,23 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             </div>
           </div>
         )}
-        {messages.map((m, i) => <MessageBubble key={i} msg={m} />)}
+        {messages.map((m, i) => {
+          const isLast = i === messages.length - 1;
+          const showChoices = isLast && !streaming && mode === 'practice' && m.role === 'assistant';
+          const opts = showChoices ? extractMultipleChoice(m.content) : null;
+          return (
+            <div key={i}>
+              <MessageBubble msg={m} />
+              {opts && (
+                <AnswerChoiceRow
+                  options={opts}
+                  disabled={streaming || !cap.ok}
+                  onPick={(o) => quickSend(`${CIRCLED_DIGITS[o.n - 1]}번 — ${o.text}`)}
+                />
+              )}
+            </div>
+          );
+        })}
         {streaming && draft && (
           <MessageBubble msg={{ role: 'assistant', content: draft }} />
         )}
