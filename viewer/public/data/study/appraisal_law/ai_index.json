@@ -1,0 +1,316 @@
+{
+  "subject": "감정평가 및 보상법규",
+  "subject_id": "appraisal_law",
+  "subject_short": "보상법규",
+  "stage": 2,
+  "exam": "감정평가사 2차",
+  "essence": "사례 속에서 행정법+토지보상법 논점을 추출해 조문→학설→판례→결론으로 풀어내는 시험",
+  "exam_meta": {
+    "minutes": 120,
+    "problems_per_session": 4,
+    "score_distribution": [
+      40,
+      30,
+      20,
+      10
+    ],
+    "pass_threshold": 60
+  },
+  "units_dir": "/data/study/appraisal_law/units",
+  "problems_dir": "/data/study/appraisal_law/problems",
+  "handover_file": "/data/study/appraisal_law/handover.md",
+  "high_priority": [
+    "08",
+    "07",
+    "05"
+  ],
+  "study_progression": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10"
+  ],
+  "units": [
+    {
+      "code": "01",
+      "title": "행정법 개관·일반원칙·행정법관계",
+      "subtitle": "행정법 기초",
+      "frequency": 2,
+      "unit_file": "units/01.md",
+      "problems_file": "problems/01.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "01-1",
+          "title": "⚖️ 관련 조문 (법전 페이지 매칭)",
+          "section_lines": [
+            719,
+            793
+          ]
+        },
+        {
+          "id": "01-2",
+          "title": "📕 논점별 기출모음 발췌",
+          "section_lines": [
+            794,
+            806
+          ]
+        }
+      ]
+    },
+    {
+      "code": "02",
+      "title": "행정입법·행정행위",
+      "subtitle": "행정행위",
+      "frequency": 2,
+      "unit_file": "units/02.md",
+      "problems_file": "problems/02.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "02-1",
+          "title": "⚖️ 관련 조문 (법전 페이지 매칭)",
+          "section_lines": [
+            1949,
+            2021
+          ]
+        },
+        {
+          "id": "02-2",
+          "title": "📕 논점별 기출모음 발췌",
+          "section_lines": [
+            2022,
+            2025
+          ]
+        }
+      ]
+    },
+    {
+      "code": "03",
+      "title": "행정계획·인허가의제·공법상계약",
+      "subtitle": "행정계획",
+      "frequency": 1,
+      "unit_file": "units/03.md",
+      "problems_file": "problems/03.md",
+      "est_minutes": 75,
+      "topics": [
+        {
+          "id": "03-1",
+          "title": "⚖️ 관련 조문 (법전 페이지 매칭)",
+          "section_lines": [
+            688,
+            947
+          ]
+        },
+        {
+          "id": "03-2",
+          "title": "📕 논점별 기출모음 발췌",
+          "section_lines": [
+            948,
+            951
+          ]
+        }
+      ]
+    },
+    {
+      "code": "04",
+      "title": "행정절차·실효성확보수단",
+      "subtitle": "절차·확보수단",
+      "frequency": 2,
+      "unit_file": "units/04.md",
+      "problems_file": "problems/04.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "04-1",
+          "title": "⚖️ 관련 조문 (법전 페이지 매칭)",
+          "section_lines": [
+            1423,
+            2441
+          ]
+        },
+        {
+          "id": "04-2",
+          "title": "📕 논점별 기출모음 발췌",
+          "section_lines": [
+            2442,
+            2506
+          ]
+        }
+      ]
+    },
+    {
+      "code": "05",
+      "title": "행정쟁송 (심판·취소소송·기타)",
+      "subtitle": "★ 23회",
+      "frequency": 3,
+      "unit_file": "units/05.md",
+      "problems_file": "problems/05.md",
+      "est_minutes": 105,
+      "topics": [
+        {
+          "id": "05-1",
+          "title": "⚖️ 관련 조문 (법전 페이지 매칭)",
+          "section_lines": [
+            2256,
+            3305
+          ]
+        },
+        {
+          "id": "05-2",
+          "title": "📕 논점별 기출모음 발췌",
+          "section_lines": [
+            3306,
+            3439
+          ]
+        }
+      ]
+    },
+    {
+      "code": "06",
+      "title": "행정상 손해전보",
+      "subtitle": "국가배상",
+      "frequency": 2,
+      "unit_file": "units/06.md",
+      "problems_file": "problems/06.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "06-1",
+          "title": "⚖️ 관련 조문 (법전 페이지 매칭)",
+          "section_lines": [
+            469,
+            963
+          ]
+        },
+        {
+          "id": "06-2",
+          "title": "📕 논점별 기출모음 발췌",
+          "section_lines": [
+            964,
+            999
+          ]
+        }
+      ]
+    },
+    {
+      "code": "07",
+      "title": "공용수용 (사업인정·재결·약식)",
+      "subtitle": "★★ 24회",
+      "frequency": 3,
+      "unit_file": "units/07.md",
+      "problems_file": "problems/07.md",
+      "est_minutes": 105,
+      "topics": [
+        {
+          "id": "07-1",
+          "title": "⚖️ 관련 조문 (법전 페이지 매칭)",
+          "section_lines": [
+            5837,
+            7015
+          ]
+        },
+        {
+          "id": "07-2",
+          "title": "📕 논점별 기출모음 발췌",
+          "section_lines": [
+            7016,
+            7543
+          ]
+        }
+      ]
+    },
+    {
+      "code": "08",
+      "title": "손실보상 (보상기준·환매·생활보상)",
+      "subtitle": "★★★ 38회 1순위",
+      "frequency": 3,
+      "unit_file": "units/08.md",
+      "problems_file": "problems/08.md",
+      "est_minutes": 105,
+      "topics": [
+        {
+          "id": "08-1",
+          "title": "⚖️ 관련 조문 (법전 페이지 매칭)",
+          "section_lines": [
+            4020,
+            4900
+          ]
+        },
+        {
+          "id": "08-2",
+          "title": "📕 논점별 기출모음 발췌",
+          "section_lines": [
+            4901,
+            5092
+          ]
+        }
+      ]
+    },
+    {
+      "code": "09",
+      "title": "부동산 가격공시법",
+      "subtitle": "가격공시",
+      "frequency": 2,
+      "unit_file": "units/09.md",
+      "problems_file": "problems/09.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "09-1",
+          "title": "⚖️ 관련 조문 (법전 페이지 매칭)",
+          "section_lines": [
+            1285,
+            2415
+          ]
+        },
+        {
+          "id": "09-2",
+          "title": "📕 논점별 기출모음 발췌",
+          "section_lines": [
+            2416,
+            2622
+          ]
+        }
+      ]
+    },
+    {
+      "code": "10",
+      "title": "감정평가법·도정법",
+      "subtitle": "감정평가법·도정법",
+      "frequency": 2,
+      "unit_file": "units/10.md",
+      "problems_file": "problems/10.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "10-1",
+          "title": "⚖️ 관련 조문 (법전 페이지 매칭)",
+          "section_lines": [
+            2376,
+            3413
+          ]
+        },
+        {
+          "id": "10-2",
+          "title": "📕 논점별 기출모음 발췌",
+          "section_lines": [
+            3414,
+            3751
+          ]
+        }
+      ]
+    }
+  ],
+  "default_unit": "01",
+  "has_calc": false,
+  "has_templates": false,
+  "has_cases": true,
+  "version": "v1.0"
+}

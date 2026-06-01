@@ -220,14 +220,25 @@ export function addAssessment(a) {
   lsSet(KEY.assessments, arr);
 }
 
-// ── 1차 5과목 메타 ─────────────────────────────────────────
+// ── 1차 5과목 + 2차 3과목 ──────────────────────────────────
 export const SUBJECTS = [
-  { id: 'civil',      title: '민법',       short: '민법',     icon: '⚖️', color: '#4f46e5', tax_key: '민법' },
-  { id: 'economics',  title: '경제학원론', short: '경제학',   icon: '📊', color: '#0891b2', tax_key: '경제학원론' },
-  { id: 'realestate', title: '부동산학원론', short: '부동산학', icon: '🏘️', color: '#10b981', tax_key: '부동산학원론' },
-  { id: 'law',        title: '감정평가관계법규', short: '관계법규', icon: '📜', color: '#dc2626', tax_key: '감정평가관계법규' },
-  { id: 'accounting', title: '회계학',     short: '회계학',   icon: '💰', color: '#f59e0b', tax_key: '회계학' },
+  // 1차 (stage:1) — taxonomy 트리 기반
+  { id: 'civil',      stage: 1, title: '민법',       short: '민법',     icon: '⚖️', color: '#4f46e5', tax_key: '민법', index_kind: 'taxonomy' },
+  { id: 'economics',  stage: 1, title: '경제학원론', short: '경제학',   icon: '📊', color: '#0891b2', tax_key: '경제학원론', index_kind: 'taxonomy' },
+  { id: 'realestate', stage: 1, title: '부동산학원론', short: '부동산학', icon: '🏘️', color: '#10b981', tax_key: '부동산학원론', index_kind: 'taxonomy' },
+  { id: 'law',        stage: 1, title: '감정평가관계법규', short: '관계법규', icon: '📜', color: '#dc2626', tax_key: '감정평가관계법규', index_kind: 'taxonomy' },
+  { id: 'accounting', stage: 1, title: '회계학',     short: '회계학',   icon: '💰', color: '#f59e0b', tax_key: '회계학', index_kind: 'taxonomy' },
+  // 2차 (stage:2) — 단원·논점 평탄 구조
+  { id: 'appraisal_practice', stage: 2, title: '감정평가실무',         short: '실무',     icon: '🏛️', color: '#7c3aed', index_kind: 'units' },
+  { id: 'appraisal_theory',   stage: 2, title: '감정평가이론',         short: '이론',     icon: '📚', color: '#0d9488', index_kind: 'units' },
+  { id: 'appraisal_law',      stage: 2, title: '감정평가 및 보상법규', short: '보상법규', icon: '⚖️', color: '#be123c', index_kind: 'units' },
 ];
+
+export const SUBJECTS_BY_STAGE = {
+  1: SUBJECTS.filter((s) => s.stage === 1),
+  2: SUBJECTS.filter((s) => s.stage === 2),
+};
+
 export const getSubjectMeta = (id) => SUBJECTS.find((s) => s.id === id) || SUBJECTS[0];
 
 // ── 민법 레거시 leaf_id 마이그레이션 ───────────────────────

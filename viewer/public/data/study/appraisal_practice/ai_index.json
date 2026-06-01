@@ -1,0 +1,346 @@
+{
+  "subject": "감정평가실무",
+  "subject_id": "appraisal_practice",
+  "subject_short": "실무",
+  "stage": 2,
+  "exam": "감정평가사 2차",
+  "essence": "주어진 자료에서 출제자가 숨겨놓은 논점을 읽어내고, 산식 흐름을 누락 없이 보여주는 시험",
+  "exam_meta": {
+    "minutes": 100,
+    "problems_per_session": 4,
+    "score_distribution": [
+      40,
+      30,
+      20,
+      10
+    ],
+    "min_score_per_question": 40,
+    "pass_threshold": 60
+  },
+  "units_dir": "/data/study/appraisal_practice/units",
+  "problems_dir": "/data/study/appraisal_practice/problems",
+  "handover_file": "/data/study/appraisal_practice/handover.md",
+  "high_priority": [
+    "2a",
+    "3",
+    "6a",
+    "5"
+  ],
+  "study_progression": [
+    "1",
+    "2a",
+    "2b",
+    "3",
+    "5",
+    "6a",
+    "6b",
+    "4",
+    "7",
+    "8a",
+    "8b"
+  ],
+  "units": [
+    {
+      "code": "1",
+      "title": "감정평가실무 기초",
+      "subtitle": "TVM·금융계수·면적·도로",
+      "frequency": 1,
+      "unit_file": "units/1.md",
+      "problems_file": "problems/1.md",
+      "est_minutes": 75,
+      "topics": [
+        {
+          "id": "1-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            15
+          ]
+        },
+        {
+          "id": "1-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            16,
+            1776
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2a",
+      "title": "3방식 기초 — 공시지가·거래사례·원가",
+      "subtitle": "공시지가기준법 ★",
+      "frequency": 3,
+      "unit_file": "units/2a.md",
+      "problems_file": "problems/2a.md",
+      "est_minutes": 105,
+      "topics": [
+        {
+          "id": "2a-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            20
+          ]
+        },
+        {
+          "id": "2a-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            21,
+            4868
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2b",
+      "title": "3방식 — 수익환원·임대",
+      "subtitle": "DCF·임대료",
+      "frequency": 2,
+      "unit_file": "units/2b.md",
+      "problems_file": "problems/2b.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "2b-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            22
+          ]
+        },
+        {
+          "id": "2b-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            23,
+            3180
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3",
+      "title": "건물·복합·구분·임대료",
+      "subtitle": "★ 19회 빈출",
+      "frequency": 3,
+      "unit_file": "units/3.md",
+      "problems_file": "problems/3.md",
+      "est_minutes": 105,
+      "topics": [
+        {
+          "id": "3-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            28
+          ]
+        },
+        {
+          "id": "3-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            29,
+            4983
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4",
+      "title": "유형별 평가",
+      "subtitle": "토지·건물·기계기구",
+      "frequency": 2,
+      "unit_file": "units/4.md",
+      "problems_file": "problems/4.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "4-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            43
+          ]
+        },
+        {
+          "id": "4-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            44,
+            4090
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5",
+      "title": "비가치추계·기업가치·무형자산",
+      "subtitle": "DCF·기업가치",
+      "frequency": 2,
+      "unit_file": "units/5.md",
+      "problems_file": "problems/5.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "5-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            27
+          ]
+        },
+        {
+          "id": "5-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            28,
+            4246
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6a",
+      "title": "토지보상 기본·원칙",
+      "subtitle": "★ 보상 핵심",
+      "frequency": 3,
+      "unit_file": "units/6a.md",
+      "problems_file": "problems/6a.md",
+      "est_minutes": 105,
+      "topics": [
+        {
+          "id": "6a-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            16
+          ]
+        },
+        {
+          "id": "6a-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            17,
+            3112
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6b",
+      "title": "토지보상 — 공법상제한·특수",
+      "subtitle": "공법상제한·잔여지",
+      "frequency": 2,
+      "unit_file": "units/6b.md",
+      "problems_file": "problems/6b.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "6b-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            20
+          ]
+        },
+        {
+          "id": "6b-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            21,
+            6020
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7",
+      "title": "건축물·영업·기타 보상",
+      "subtitle": "영업손실보상",
+      "frequency": 2,
+      "unit_file": "units/7.md",
+      "problems_file": "problems/7.md",
+      "est_minutes": 90,
+      "topics": [
+        {
+          "id": "7-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            32
+          ]
+        },
+        {
+          "id": "7-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            33,
+            3437
+          ]
+        }
+      ]
+    },
+    {
+      "code": "8a",
+      "title": "목적별 평가",
+      "subtitle": "목적별 4종",
+      "frequency": 1,
+      "unit_file": "units/8a.md",
+      "problems_file": "problems/8a.md",
+      "est_minutes": 75,
+      "topics": [
+        {
+          "id": "8a-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            19
+          ]
+        },
+        {
+          "id": "8a-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            20,
+            2199
+          ]
+        }
+      ]
+    },
+    {
+      "code": "8b",
+      "title": "표준지·정비·불의타",
+      "subtitle": "표준지·정비사업",
+      "frequency": 1,
+      "unit_file": "units/8b.md",
+      "problems_file": "problems/8b.md",
+      "est_minutes": 75,
+      "topics": [
+        {
+          "id": "8b-1",
+          "title": "📑 이 단원의 논점 인덱스",
+          "section_lines": [
+            3,
+            27
+          ]
+        },
+        {
+          "id": "8b-2",
+          "title": "📌 출제포인트 분석 (GS0기 분석노트)",
+          "section_lines": [
+            28,
+            3944
+          ]
+        }
+      ]
+    }
+  ],
+  "default_unit": "1",
+  "has_calc": true,
+  "has_templates": false,
+  "has_cases": false,
+  "version": "v1.0"
+}
