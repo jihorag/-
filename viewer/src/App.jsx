@@ -3798,7 +3798,7 @@ const App = () => {
       <div className="app-container">
         <div style={{ position: 'absolute', right: 16, top: 'calc(env(safe-area-inset-top,0px) + 14px)',
           zIndex: 10, display: 'flex', gap: 10 }}>
-          <button aria-label="설정" onClick={() => setCurrentView('settings')}
+          <button aria-label="설정" onClick={() => openSettings('home')}
             style={{ width: 38, height: 38, borderRadius: '50%', border: '1px solid #e5e7eb',
               background: '#fff', color: '#6b7280', cursor: 'pointer' }}>⚙️</button>
         </div>
@@ -3887,7 +3887,7 @@ const App = () => {
                 <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827' }}>
                   📅 {PRIMARY_EXAM} 시험일
                 </span>
-                <button onClick={() => setCurrentView('settings')}
+                <button onClick={() => openSettings('home')}
                   style={{ fontSize: '0.72rem', color: '#6b7280',
                     background: 'none', border: 'none', cursor: 'pointer' }}>
                   {hasAny ? '수정 →' : '입력하기 →'}
