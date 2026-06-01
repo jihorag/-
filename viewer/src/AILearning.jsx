@@ -1,15 +1,16 @@
 // AI 학습 탭 — Claude 대화형 과외 + 진척 추적 + 일별 대화 기록.
-// 기존 CivilMemorize(통암기) 탭을 대체. 첫 과목: 민법.
+// 단원 체계: viewer/public/data/taxonomy.json 의 민법 트리(과목→장→절→관)와 동일.
+// 각 leaf(관/절/장)는 교재 단원 MD의 슬라이스로 매핑됨 → 학습/문제풀이/둘러보기 단원 축이 단일.
 //
 // 위험·검토(#8) 반영:
-//  - BYOK: API 키는 localStorage에만, 키 없으면 입력 폼.
-//  - 일일 메시지 cap (기본 50) — 초과 시 전송 차단.
-//  - 큰 단원(M05·B03 등)은 section 단위로만 로드 → 토큰 절약 + prompt caching.
-//  - 환각 방지: system 프롬프트에 "교재 인용만" 강제.
-//  - 오프라인 안내: 네트워크 없으면 전송 비활성화 + 메시지.
+//  - BYOK: API 키는 localStorage 단일 기기.
+//  - 일일 메시지 cap 기본 50.
+//  - section_lines 슬라이스 + prompt caching → 토큰 절약.
+//  - 환각 방지 system rules.
+//  - 오프라인 안내.
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { ArrowLeft, Send, Settings as SettingsIcon, BookOpen, MessageSquare, RotateCcw, ChevronDown, Calendar, Sparkles, Key } from 'lucide-react';
+import { Send, Settings as SettingsIcon, BookOpen, RotateCcw, ChevronDown, Calendar, Sparkles, Key, Search } from 'lucide-react';
 import ParsedText from './ParsedText';
 import {
   getByok, setByok, getPrefs, setPrefs,
@@ -24,8 +25,9 @@ import {
 } from './aiLearningStore';
 import { sendMessages, buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
 
-const INDEX_URL = '/data/study/civil/chapters_index.json';
+const INDEX_URL = '/data/study/civil/ai_taxonomy_index.json';
 const HANDOVER_URL = '/data/study/civil/handover.md';
+const STUDY_BASE = '/data/study/civil/';
 
 function todayStr() {
   const d = new Date();
@@ -40,15 +42,41 @@ function uid() {
 function MasteryBar({ value, color = '#4f46e5' }) {
   const pct = Math.max(0, Math.min(1, value || 0)) * 100;
   return (
-    <div style={{ background: '#f3f4f6', borderRadius: 6, height: 6, overflow: 'hidden' }}>
+    <div style={{ background: '#f3f4f6', borderRadius: 6, height: 5, overflow: 'hidden' }}>
       <div style={{ width: `${pct}%`, height: '100%', background: color, transition: 'width .3s' }} />
     </div>
   );
 }
 
-function ChapterPicker({ chapters, current, onPick, mastery }) {
+// 평탄 leaf 리스트를 들여쓰기로 시각화하는 picker.
+// path 길이에 따른 들여쓰기 + 검색.
+function LeafPicker({ leaves, current, onPick, mastery, due }) {
   const [open, setOpen] = useState(false);
-  const cur = chapters.find((c) => c.code === current?.code);
+  const [q, setQ] = useState('');
+  const cur = leaves.find((l) => l.id === current?.leaf_id);
+  // 트리 그룹화: subject → chapter → section → item
+  const tree = useMemo(() => {
+    const t = {};
+    leaves.forEach((l) => {
+      const [s, c, sec, it] = l.path;
+      t[s] = t[s] || {};
+      if (c) {
+        t[s][c] = t[s][c] || { _leaf: null, sections: {} };
+        if (!sec && !it) t[s][c]._leaf = l;
+        if (sec) {
+          t[s][c].sections[sec] = t[s][c].sections[sec] || { _leaf: null, items: {} };
+          if (!it) t[s][c].sections[sec]._leaf = l;
+          if (it) t[s][c].sections[sec].items[it] = l;
+        }
+      }
+    });
+    return t;
+  }, [leaves]);
+
+  const dueIds = useMemo(() => new Set(due.map((d) => d.code)), [due]);
+
+  const matchQ = (l) => !q.trim() || l.path.join(' / ').toLowerCase().includes(q.trim().toLowerCase());
+
   return (
     <div style={{ position: 'relative' }}>
       <button
@@ -56,13 +84,15 @@ function ChapterPicker({ chapters, current, onPick, mastery }) {
         style={{
           width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: '10px 14px', background: '#fff', border: '1px solid #d1d5db', borderRadius: 10,
-          fontSize: '0.95rem', fontWeight: 700, cursor: 'pointer', color: '#111827',
+          fontSize: '0.92rem', fontWeight: 700, cursor: 'pointer', color: '#111827',
+          textAlign: 'left',
         }}
       >
-        <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 1, minWidth: 0 }}>
           <BookOpen size={18} color="#4f46e5" />
-          {cur ? `${cur.code} · ${cur.title}` : '단원 선택'}
-          {cur && '★'.repeat(cur.frequency)}
+          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            {cur ? cur.path.slice(1).join(' › ') || cur.path[0] : '단원 선택'}
+          </span>
         </span>
         <ChevronDown size={18} />
       </button>
@@ -70,39 +100,92 @@ function ChapterPicker({ chapters, current, onPick, mastery }) {
         <div style={{
           position: 'absolute', top: 'calc(100% + 4px)', left: 0, right: 0, zIndex: 30,
           background: '#fff', border: '1px solid #d1d5db', borderRadius: 10,
-          maxHeight: 360, overflowY: 'auto', boxShadow: '0 8px 24px rgba(0,0,0,.12)',
+          maxHeight: 480, overflowY: 'auto', boxShadow: '0 8px 24px rgba(0,0,0,.12)',
         }}>
-          {chapters.map((c) => {
-            const m = mastery[c.code] || { coverage: 0, accuracy: 0, status: 'not_started' };
-            const active = c.code === current?.code;
-            return (
-              <button
-                key={c.code}
-                onClick={() => { onPick(c); setOpen(false); }}
-                style={{
-                  width: '100%', textAlign: 'left', padding: '10px 14px',
-                  background: active ? '#eef2ff' : '#fff', border: 'none',
-                  borderBottom: '1px solid #f3f4f6', cursor: 'pointer',
-                }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontWeight: 700, color: '#111827' }}>
-                    {c.code} · {c.title} {'★'.repeat(c.frequency)}
-                  </span>
-                  <span style={{ fontSize: '0.75rem', color: '#6b7280' }}>
-                    {m.status === 'mastered' ? '✓ 마스터' : m.status === 'in_progress' ? '진행 중' : '미시작'}
-                  </span>
-                </div>
-                <div style={{ fontSize: '0.78rem', color: '#6b7280', marginTop: 2 }}>{c.subtitle}</div>
-                <div style={{ marginTop: 6 }}>
-                  <MasteryBar value={m.coverage} />
-                </div>
-              </button>
-            );
-          })}
+          <div style={{ padding: 8, borderBottom: '1px solid #f3f4f6', position: 'sticky', top: 0, background: '#fff' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#f3f4f6', borderRadius: 8, padding: '6px 10px' }}>
+              <Search size={14} color="#6b7280" />
+              <input
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                placeholder="단원·관 검색 (예: 행위능력, 명의신탁)"
+                style={{ flex: 1, border: 'none', background: 'transparent', outline: 'none', fontSize: '0.85rem' }}
+              />
+            </div>
+          </div>
+          {Object.entries(tree).map(([subj, chs]) => (
+            <div key={subj}>
+              <div style={{ padding: '8px 12px', background: '#f9fafb', fontWeight: 800, fontSize: '0.78rem', color: '#4338ca' }}>
+                {subj}
+              </div>
+              {Object.entries(chs).map(([chName, ch]) => {
+                const chLeaves = [];
+                if (ch._leaf) chLeaves.push(ch._leaf);
+                Object.entries(ch.sections).forEach(([_, sec]) => {
+                  if (sec._leaf) chLeaves.push(sec._leaf);
+                  Object.values(sec.items).forEach((l) => chLeaves.push(l));
+                });
+                if (q && !chLeaves.some(matchQ)) return null;
+                return (
+                  <div key={chName}>
+                    <div style={{ padding: '6px 12px', fontSize: '0.82rem', fontWeight: 700, color: '#111827', borderTop: '1px solid #f3f4f6' }}>
+                      {chName}
+                    </div>
+                    {ch._leaf && matchQ(ch._leaf) && (
+                      <LeafButton leaf={ch._leaf} active={ch._leaf.id === current?.leaf_id} mastery={mastery} due={dueIds} onPick={() => { onPick(ch._leaf); setOpen(false); }} depth={1} />
+                    )}
+                    {Object.entries(ch.sections).map(([secName, sec]) => {
+                      const secLeaves = sec._leaf ? [sec._leaf, ...Object.values(sec.items)] : Object.values(sec.items);
+                      if (q && !secLeaves.some(matchQ)) return null;
+                      return (
+                        <div key={secName}>
+                          {sec._leaf && matchQ(sec._leaf) && (
+                            <LeafButton leaf={sec._leaf} active={sec._leaf.id === current?.leaf_id} mastery={mastery} due={dueIds} onPick={() => { onPick(sec._leaf); setOpen(false); }} depth={1} sectionLabel={secName} />
+                          )}
+                          {!sec._leaf && Object.keys(sec.items).length > 0 && (
+                            <div style={{ padding: '4px 12px 2px 24px', fontSize: '0.76rem', color: '#6b7280' }}>{secName}</div>
+                          )}
+                          {Object.values(sec.items).filter(matchQ).map((it) => (
+                            <LeafButton key={it.id} leaf={it} active={it.id === current?.leaf_id} mastery={mastery} due={dueIds} onPick={() => { onPick(it); setOpen(false); }} depth={2} />
+                          ))}
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+          ))}
         </div>
       )}
     </div>
+  );
+}
+
+function LeafButton({ leaf, active, mastery, due, onPick, depth = 0, sectionLabel }) {
+  const m = mastery[leaf.id] || { coverage: 0, accuracy: 0, status: 'not_started' };
+  const isDue = due.has(leaf.id);
+  return (
+    <button
+      onClick={onPick}
+      style={{
+        width: '100%', textAlign: 'left', padding: `6px 12px 6px ${12 + depth * 14}px`,
+        background: active ? '#eef2ff' : '#fff', border: 'none', cursor: 'pointer',
+      }}
+    >
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 6 }}>
+        <span style={{ fontSize: '0.85rem', color: '#111827', flex: 1, minWidth: 0 }}>
+          {sectionLabel && <span style={{ color: '#6b7280', fontSize: '0.76rem' }}>{sectionLabel} · </span>}
+          {leaf.path[leaf.path.length - 1]}
+          {leaf.frequency >= 3 && <span style={{ color: '#dc2626', marginLeft: 4 }}>★</span>}
+          {isDue && <span style={{ background: '#fef3c7', color: '#92400e', fontSize: '0.7rem', padding: '0 6px', borderRadius: 4, marginLeft: 4 }}>복습</span>}
+        </span>
+        <span style={{ fontSize: '0.7rem', color: '#9ca3af', whiteSpace: 'nowrap' }}>
+          {m.status === 'mastered' ? '✓' : m.coverage > 0 ? `${Math.round(m.coverage * 100)}%` : ''}
+        </span>
+      </div>
+      {m.coverage > 0 && <div style={{ marginTop: 4 }}><MasteryBar value={m.coverage} /></div>}
+    </button>
   );
 }
 
@@ -261,17 +344,16 @@ function HistoryPanel({ onClose }) {
 export default function AILearning({ isTabRoot, browseExam }) {
   const [byok, setByokState] = useState(getByok());
   const [prefs, setPrefsState] = useState(getPrefs());
-  const [chapters, setChapters] = useState([]);
   const [indexMeta, setIndexMeta] = useState(null);
+  const [leaves, setLeaves] = useState([]);
   const [current, setCurrentState] = useState(getCurrent());
   const [mastery, setMasteryState] = useState(getMastery());
   const [handoverMd, setHandoverMd] = useState('');
   const [unitMd, setUnitMd] = useState('');
   const [sectionMd, setSectionMd] = useState('');
-  const [sectionKey, setSectionKey] = useState('full');
   const [problemsMd, setProblemsMd] = useState('');
   const [mode, setMode] = useState('study'); // 'study' | 'practice'
-  const [pendingNext, setPendingNext] = useState(null); // AI 제안 다음 토픽
+  const [pendingNext, setPendingNext] = useState(null);
   const [due, setDue] = useState(() => getDueChapters());
   const [messages, setMessages] = useState(() => getConversation(todayStr()));
   const [input, setInput] = useState('');
@@ -288,11 +370,11 @@ export default function AILearning({ isTabRoot, browseExam }) {
   useEffect(() => {
     fetch(INDEX_URL).then((r) => r.json()).then((idx) => {
       setIndexMeta(idx);
-      setChapters(idx.chapters || []);
-      if (!current && idx.default_start) {
-        const def = idx.chapters.find((c) => c.code === idx.default_start.code) || idx.chapters[0];
+      setLeaves(idx.leaves || []);
+      if (!current?.leaf_id && idx.default_leaf) {
+        const def = idx.leaves.find((l) => l.id === idx.default_leaf) || idx.leaves[0];
         if (def) {
-          const next = { subject: 'civil', code: def.code, section_key: idx.default_start.default_section || 'full' };
+          const next = { subject: 'civil', leaf_id: def.id };
           setCurrentState(next);
           setCurrent(next);
         }
@@ -302,42 +384,35 @@ export default function AILearning({ isTabRoot, browseExam }) {
     pruneOldConversations(7);
   }, []); // eslint-disable-line
 
-  // 단원 본문 로드
+  // leaf 자료 로드 (section_lines 슬라이스)
   useEffect(() => {
-    if (!current) return;
-    const c = chapters.find((x) => x.code === current.code);
-    if (!c) return;
-    fetch('/data/study/civil/' + c.unit_file).then((r) => r.text()).then((md) => {
+    if (!current?.leaf_id || leaves.length === 0) return;
+    const leaf = leaves.find((l) => l.id === current.leaf_id);
+    if (!leaf) return;
+    fetch(STUDY_BASE + leaf.unit_file).then((r) => r.text()).then((md) => {
       setUnitMd(md);
-      const k = current.section_key || 'full';
-      const sec = (c.sections || []).find((s) => s.key === k);
-      if (sec && sec.key !== 'full') setSectionMd(sliceSection(md, sec));
-      else setSectionMd('');
-      setSectionKey(k);
+      if (leaf.section_key && leaf.section_key !== 'full' && leaf.section_lines) {
+        setSectionMd(sliceSection(md, { lines: leaf.section_lines }));
+      } else {
+        setSectionMd('');
+      }
     }).catch((e) => setError('단원 자료 로드 실패: ' + e.message));
-  }, [current?.code, current?.section_key, chapters]);
+  }, [current?.leaf_id, leaves]);
 
-  // 문제풀이 모드 진입 시에만 problems MD 로드 (지연 로딩)
+  // 문제풀이 모드 진입 시에만 problems MD 로드
   useEffect(() => {
-    if (mode !== 'practice' || !current) { setProblemsMd(''); return; }
-    const c = chapters.find((x) => x.code === current.code);
-    if (!c || !c.problems_file) return;
-    fetch('/data/study/civil/' + c.problems_file).then((r) => r.text()).then(setProblemsMd).catch(() => setProblemsMd(''));
-  }, [mode, current?.code, chapters]);
+    if (mode !== 'practice' || !current?.leaf_id) { setProblemsMd(''); return; }
+    const leaf = leaves.find((l) => l.id === current.leaf_id);
+    if (!leaf || !leaf.problems_file) return;
+    fetch(STUDY_BASE + leaf.problems_file).then((r) => r.text()).then(setProblemsMd).catch(() => setProblemsMd(''));
+  }, [mode, current?.leaf_id, leaves]);
 
-  // 자동 스크롤
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, draft]);
 
-  const pickChapter = (c) => {
-    const next = { subject: 'civil', code: c.code, section_key: 'full' };
-    setCurrentState(next);
-    setCurrent(next);
-  };
-
-  const switchSection = (key) => {
-    const next = { ...current, section_key: key };
+  const pickLeaf = (leaf) => {
+    const next = { subject: 'civil', leaf_id: leaf.id };
     setCurrentState(next);
     setCurrent(next);
   };
@@ -347,8 +422,8 @@ export default function AILearning({ isTabRoot, browseExam }) {
     addSession({
       id,
       date: todayStr(),
-      code: current?.code,
-      section_key: sectionKey,
+      code: current?.leaf_id,
+      section_key: 'full',
       started_at: new Date().toISOString(),
       ended_at: null,
       msg_count: 0,
@@ -379,12 +454,14 @@ export default function AILearning({ isTabRoot, browseExam }) {
     setStreaming(true);
     setDraft('');
 
-    const curChapter = chapters.find((c) => c.code === current?.code);
-    const curMastery = current ? getChapterMastery(current.code) : null;
+    const curLeaf = leaves.find((l) => l.id === current?.leaf_id);
+    const curMastery = current ? getChapterMastery(current.leaf_id) : null;
     const lastSession = getSessions().slice(-2, -1)[0];
     const recentSummary = lastSession?.summary || '';
+    // leaf 경로를 system에 명시 (어느 관을 다루는지 AI에 알림)
+    const leafPath = curLeaf ? `\n\n[현재 단원]\n${curLeaf.path.join(' / ')}` : '';
     const system = buildSystemBlocks({
-      handoverMd,
+      handoverMd: handoverMd + leafPath,
       unitMd: sectionMd ? '' : unitMd,
       sectionMd,
       problemsMd: mode === 'practice' ? problemsMd : '',
@@ -393,7 +470,6 @@ export default function AILearning({ isTabRoot, browseExam }) {
       recentSummary,
     });
 
-    // 컨텍스트: 오늘 대화만 (날짜 경계로 분리). MVP: 최근 12 turn.
     const history = [...getConversation(todayStr())].slice(-13);
     const apiMessages = history.map((m) => ({ role: m.role, content: m.content }));
 
@@ -417,36 +493,38 @@ export default function AILearning({ isTabRoot, browseExam }) {
         input_tokens: (usage.input_tokens || 0) + (usage.cache_read_input_tokens || 0) + (usage.cache_creation_input_tokens || 0),
         output_tokens: usage.output_tokens || 0,
       });
-      // 응답에서 JSON 자동 추출 — 채점 / 세션 정리 양쪽 처리
       const blocks = extractJsonBlocks(out);
       let coverageBumped = false;
       blocks.forEach((b) => {
         if (b && typeof b.correct === 'boolean' && current) {
-          const code = b.code || current.code;
-          recordGrade(code, b.correct);
+          recordGrade(current.leaf_id, b.correct);
         }
         if (b && b.session_summary && current) {
           const delta = Number(b.coverage_delta) || 0.05;
-          const prev = getChapterMastery(current.code);
-          updateChapterMastery(current.code, {
+          const prev = getChapterMastery(current.leaf_id);
+          updateChapterMastery(current.leaf_id, {
             coverage: Math.min(1, (prev.coverage || 0) + Math.max(0, Math.min(0.3, delta))),
           });
           coverageBumped = true;
           if (sessionId) updateSession(sessionId, { summary: b.session_summary, ended_at: new Date().toISOString() });
           addAssessment({
             session_id: sessionId,
-            code: current.code,
+            code: current.leaf_id,
             score: null,
             comments: b.session_summary,
             next_topic: b.next_topic || null,
           });
-          if (b.next_topic && b.next_topic.code) setPendingNext(b.next_topic);
+          if (b.next_topic) {
+            // next_topic.code가 leaf_id면 사용, 아니면 path 매칭
+            const candidate = leaves.find((l) => l.id === b.next_topic.code)
+              || leaves.find((l) => l.path.join('/').includes(b.next_topic.code || ''));
+            if (candidate) setPendingNext({ leaf: candidate, reason: b.next_topic.reason });
+          }
         }
       });
-      if (!coverageBumped && curChapter && current) {
-        // 가벼운 진척 가산 (한 턴 기준)
-        const m = getChapterMastery(current.code);
-        updateChapterMastery(current.code, {
+      if (!coverageBumped && current) {
+        const m = getChapterMastery(current.leaf_id);
+        updateChapterMastery(current.leaf_id, {
           coverage: Math.min(1, (m.coverage || 0) + 0.01),
         });
       }
@@ -462,13 +540,11 @@ export default function AILearning({ isTabRoot, browseExam }) {
       setDraft('');
       abortRef.current = null;
     }
-  }, [input, streaming, byok, prefs.model, prefs.daily_cap, current, chapters, handoverMd, unitMd, sectionMd, sessionId]);
+  }, [input, streaming, byok, prefs.model, prefs.daily_cap, current, leaves, handoverMd, unitMd, sectionMd, problemsMd, mode, sessionId]);
 
   const stop = () => { if (abortRef.current) abortRef.current.abort(); };
 
-  // ── 렌더 ──────────────────────────────────────────────
-  const curChapter = chapters.find((c) => c.code === current?.code);
-  const curSec = curChapter?.sections?.find((s) => s.key === sectionKey);
+  const curLeaf = leaves.find((l) => l.id === current?.leaf_id);
   const cap = canSendMessage();
 
   if (!byok) {
@@ -505,10 +581,10 @@ export default function AILearning({ isTabRoot, browseExam }) {
           padding: '6px 12px', background: '#fef3c7', borderBottom: '1px solid #fcd34d',
           fontSize: '0.78rem', color: '#92400e', display: 'flex', alignItems: 'center', gap: 6,
         }}>
-          <RotateCcw size={14} />
-          복습 만기 {due.length}단원: {due.map((d) => d.code).join(', ')}
+          <RotateCcw size={14} /> 복습 만기 {due.length}개
         </div>
       )}
+
       <div style={{ padding: '8px 12px', borderBottom: '1px solid #e5e7eb', background: '#f9fafb' }}>
         <div style={{ display: 'flex', gap: 4, marginBottom: 8 }}>
           {[['study', '📖 이론'], ['practice', '✏️ 문제풀이']].map(([k, label]) => (
@@ -527,24 +603,10 @@ export default function AILearning({ isTabRoot, browseExam }) {
             </button>
           ))}
         </div>
-        <ChapterPicker chapters={chapters} current={current} onPick={pickChapter} mastery={mastery} />
-        {curChapter && curChapter.sections && curChapter.sections.length > 1 && (
-          <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginTop: 8, paddingBottom: 4 }}>
-            {curChapter.sections.map((s) => (
-              <button
-                key={s.key}
-                onClick={() => switchSection(s.key)}
-                style={{
-                  flex: '0 0 auto', padding: '4px 10px', borderRadius: 14,
-                  border: sectionKey === s.key ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
-                  background: sectionKey === s.key ? '#eef2ff' : '#fff',
-                  color: sectionKey === s.key ? '#1d4ed8' : '#374151',
-                  fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap',
-                }}
-              >
-                {s.name}
-              </button>
-            ))}
+        <LeafPicker leaves={leaves} current={current} onPick={pickLeaf} mastery={mastery} due={due} />
+        {curLeaf && (
+          <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#6b7280' }}>
+            교재 매핑: {curLeaf.unit_code} · {curLeaf.section_name}
           </div>
         )}
       </div>
@@ -571,10 +633,10 @@ export default function AILearning({ isTabRoot, browseExam }) {
           <div style={{ textAlign: 'center', color: '#6b7280', marginTop: 40 }}>
             <BookOpen size={40} style={{ opacity: 0.4 }} />
             <p style={{ marginTop: 12, fontSize: '0.95rem' }}>
-              {curChapter ? `${curChapter.code} · ${curChapter.title} 학습을 시작하세요` : '단원을 선택하세요'}
+              {curLeaf ? `${curLeaf.path.slice(-1)[0]} 학습을 시작하세요` : '단원을 선택하세요'}
             </p>
             <p style={{ fontSize: '0.8rem', color: '#9ca3af' }}>
-              "이어서 진행해줘" / "오늘 복습할게" / "{curChapter?.title} 시작하자" 등으로 대화
+              "이어서 진행해줘" / "오늘 복습할게" / "{curLeaf?.title} 시작하자" 등으로 대화
             </p>
           </div>
         )}
@@ -596,15 +658,15 @@ export default function AILearning({ isTabRoot, browseExam }) {
             marginTop: 10, border: '1px solid #c7d2fe',
           }}>
             <div style={{ fontWeight: 700, marginBottom: 4 }}>
-              📌 다음 추천: {pendingNext.code} · {chapters.find((c) => c.code === pendingNext.code)?.title || '(단원)'}
+              📌 다음 추천: {pendingNext.leaf.path.slice(-1)[0]}
+            </div>
+            <div style={{ fontSize: '0.78rem', color: '#3730a3', marginBottom: 4 }}>
+              {pendingNext.leaf.path.join(' › ')}
             </div>
             {pendingNext.reason && <div style={{ fontSize: '0.85rem', marginBottom: 8 }}>{pendingNext.reason}</div>}
             <div style={{ display: 'flex', gap: 6 }}>
               <button
-                onClick={() => {
-                  const next = { subject: 'civil', code: pendingNext.code, section_key: pendingNext.section_key || 'full' };
-                  setCurrentState(next); setCurrent(next); setPendingNext(null);
-                }}
+                onClick={() => { pickLeaf(pendingNext.leaf); setPendingNext(null); }}
                 style={{ padding: '6px 14px', background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}
               >
                 이 단원으로 이동
