@@ -1820,8 +1820,8 @@ const App = () => {
   };
   const NAV_ITEMS = [
     ['home', House, '홈'],
-    ['browse', Compass, '둘러보기'],
     ['ai', Sparkles, 'AI 학습'],
+    ['browse', Compass, '문제풀이'],
     ['review', RotateCcw, '복습'],
     ['status', ChartColumn, '현황'],
   ];
@@ -2515,7 +2515,7 @@ const App = () => {
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
           <button className="back-btn" onClick={() => setCurrentView('dashboard')}>
             <ArrowLeft size={24} style={{ marginRight: '8px' }} />
-            <span style={{ fontSize: '1rem', fontWeight: '600' }}>둘러보기</span>
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>문제풀이</span>
           </button>
         </header>
         <div className="screen-head">
@@ -3928,7 +3928,7 @@ const App = () => {
   return shell(
     <div className="app-container">
       <div className="screen-head">
-        <h1 className="screen-title">📚 둘러보기</h1>
+        <h1 className="screen-title">📚 문제풀이</h1>
       </div>
       <main className="main-content" style={{ marginTop: '16px' }}>
         {/* 시험 모드 (통일된 ModePicker) — 분류·연도·과목 픽커가 그 시험에 맞춰짐 */}
