@@ -89,28 +89,42 @@ const renderInlines = (text, keyPrefix) => {
       out.push(<SafeImage key={`${keyPrefix}-img-${i}`} src={`/images/${imageName}`} />);
       return;
     }
-    // 2) 수식 + bold 분리 (math를 먼저 처리해서 ** 가 수식 안에 있어도 깨지지 않게)
-    const mathParts = part.split(/(\$[\s\S]*?\$)/g);
+    // 2) 디스플레이 수식 $$...$$ 먼저 분리 (블록 렌더)
+    const dispParts = part.split(/(\$\$[\s\S]+?\$\$)/g);
+    dispParts.forEach((dp, di) => {
+      if (dp.startsWith('$$') && dp.endsWith('$$') && dp.length > 4) {
+        const math = dp.slice(2, -2).trim();
+        try {
+          const html = katex.renderToString(math, { throwOnError: false, output: 'html', displayMode: true });
+          out.push(<div key={`${keyPrefix}-${i}-${di}-dm`} dangerouslySetInnerHTML={{ __html: html }} style={{ margin: '8px 0', overflowX: 'auto' }} />);
+        } catch {
+          out.push(<span key={`${keyPrefix}-${i}-${di}-dm`}>{dp}</span>);
+        }
+        return;
+      }
+      // 3) 인라인 수식 + bold (math 먼저)
+      const mathParts = dp.split(/(\$[\s\S]*?\$)/g);
     mathParts.forEach((mp, j) => {
       if (mp.startsWith('$') && mp.endsWith('$') && mp.length > 2) {
         const math = mp.slice(1, -1);
         try {
           const html = katex.renderToString(math, { throwOnError: false, output: 'html' });
-          out.push(<span key={`${keyPrefix}-${i}-${j}-m`} dangerouslySetInnerHTML={{ __html: html }} />);
+          out.push(<span key={`${keyPrefix}-${i}-${di}-${j}-m`} dangerouslySetInnerHTML={{ __html: html }} />);
         } catch {
-          out.push(<span key={`${keyPrefix}-${i}-${j}-m`}>{mp}</span>);
+          out.push(<span key={`${keyPrefix}-${i}-${di}-${j}-m`}>{mp}</span>);
         }
         return;
       }
-      // 3) bold (**text**) 분리
+      // 4) bold (**text**) 분리
       const boldParts = mp.split(/(\*\*[^*]+\*\*)/g);
       boldParts.forEach((bp, k) => {
         if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
-          out.push(<strong key={`${keyPrefix}-${i}-${j}-b${k}`}>{bp.slice(2, -2)}</strong>);
+          out.push(<strong key={`${keyPrefix}-${i}-${di}-${j}-b${k}`}>{bp.slice(2, -2)}</strong>);
         } else if (bp) {
-          out.push(<span key={`${keyPrefix}-${i}-${j}-t${k}`}>{bp}</span>);
+          out.push(<span key={`${keyPrefix}-${i}-${di}-${j}-t${k}`}>{bp}</span>);
         }
       });
+    });
     });
   });
   return out;
