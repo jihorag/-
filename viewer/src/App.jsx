@@ -726,7 +726,12 @@ const App = () => {
   const [loadPct, setLoadPct] = useState(0);
   const [loadError, setLoadError] = useState(false);
   // 새로고침/딥링크 복원: 최초 렌더에서 URL 해시를 1회 파싱해 초기 상태로 사용
-  const [bootNav] = useState(() => parseNav(typeof window !== 'undefined' ? window.location.hash : ''));
+  const [bootNav] = useState(() => {
+    const parsed = parseNav(typeof window !== 'undefined' ? window.location.hash : '');
+    // 'settings' 라우트는 폐기 — 플로팅 드로어로 통합. 홈으로 리디렉트.
+    if (parsed && parsed.currentView === 'settings') parsed.currentView = 'home';
+    return parsed;
+  });
   const bootView = (() => {
     if (!bootNav) return 'home';
     let cv = bootNav.currentView;
@@ -1816,7 +1821,7 @@ const App = () => {
 
   // 하단 탭바: 루트 화면에서만 노출(드릴/풀이는 전체화면)
   const navTab =
-    (currentView === 'home' || currentView === 'profile' || currentView === 'settings'
+    (currentView === 'home' || currentView === 'profile'
       || currentView === 'mock' || currentView === 'mockResult'
       || currentView === 'essay_subjects' || currentView === 'essay_chapters'
       || currentView === 'essay_questions' || currentView === 'essay_result') ? 'home'
@@ -4259,125 +4264,6 @@ const App = () => {
 
       </main>
     </div>
-    );
-  }
-
-  // ===== 설정 =====
-  if (currentView === 'settings') {
-    const segRow = (title, desc, opts, cur, onPick) => (
-      <section style={{ background: '#fff', borderRadius: '14px', padding: '16px', boxShadow: 'var(--shadow-sm)', marginBottom: '12px' }}>
-        <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#374151' }}>{title}</div>
-        {desc && <div style={{ fontSize: '0.78rem', color: '#9ca3af', marginTop: '3px' }}>{desc}</div>}
-        <div style={{ display: 'flex', gap: '8px', marginTop: '12px', flexWrap: 'wrap' }}>
-          {opts.map(([val, lbl]) => {
-            const on = cur === val;
-            return (
-              <button key={String(val)} onClick={() => onPick(val)}
-                style={{ flex: '1 1 auto', minWidth: '64px', padding: '9px 10px', borderRadius: '9px', cursor: 'pointer',
-                  fontSize: '0.85rem', fontWeight: 600,
-                  border: on ? '1px solid #2563eb' : '1px solid #d1d5db',
-                  background: on ? '#eff6ff' : '#fff', color: on ? '#1d4ed8' : '#6b7280' }}>
-                {lbl}
-              </button>
-            );
-          })}
-        </div>
-      </section>
-    );
-    return shell(
-      <div className="app-container">
-        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
-          <button className="back-btn" onClick={() => setCurrentView('home')}>
-            <ArrowLeft size={24} style={{ marginRight: '8px' }} />
-            <span style={{ fontSize: '1rem', fontWeight: '600' }}>홈</span>
-          </button>
-        </header>
-        <div className="screen-head"><h1 className="screen-title">⚙️ 설정</h1></div>
-        <main className="main-content" style={{ marginTop: '16px' }}>
-          {segRow('복습 강도', '간격 반복 일정의 빡셈 정도를 정해요.',
-            Object.entries(SRS_MODES).map(([k, v]) => [k, v.label]), srsMode, setSrsMode)}
-          {segRow('일일 학습 목표', '하루에 풀 문제 수 목표예요.',
-            [[10, '10문제'], [20, '20문제'], [30, '30문제'], [50, '50문제']], dailyGoal, setDailyGoal)}
-          {segRow('학습 순서', '가이드 학습에서 문제가 나오는 순서예요.',
-            [['difficulty', '난이도순'], ['random', '무작위']], studyOrder, setStudyOrder)}
-          {segRow('글자 크기', '문제·보기·해설 본문 크기예요.',
-            [[0.9, '작게'], [1, '보통'], [1.18, '크게']], fontScale, setFontScale)}
-          {segRow('자동 다음', '정답 확인 후 다음 문제로 자동 이동할지 정해요.',
-            [[true, '켜기'], [false, '끄기']], autoNext, setAutoNext)}
-          {autoNext && segRow('자동 다음 대기', '자동 이동 전 해설을 볼 시간이에요.',
-            [[3, '3초'], [5, '5초'], [8, '8초']], autoSec, setAutoSec)}
-          {segRow('학습 추세 기간', '현황 화면 추세 그래프의 기간이에요.',
-            [[7, '7일'], [30, '30일']], trendDays, setTrendDays)}
-
-          {/* 감정평가사 시험 일정 — 1차/2차 D-DAY, 일일 권장량 자동 계산용 */}
-          <section style={{ background: '#fff', borderRadius: '14px', padding: '16px',
-            boxShadow: 'var(--shadow-sm)', marginBottom: '12px' }}>
-            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#374151' }}>
-              📅 {PRIMARY_EXAM} 시험일 (D-DAY)
-            </div>
-            <div style={{ fontSize: '0.78rem', color: '#9ca3af', marginTop: '3px' }}>
-              1차·2차 시험일을 입력하면 홈에 D-DAY와 일일 권장 학습량이 표시돼요.
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 14 }}>
-              {[
-                { key: `${PRIMARY_EXAM}_1차`, label: '1차 (5과목)', hint: '4월경' },
-                { key: `${PRIMARY_EXAM}_2차`, label: '2차 (4과목)', hint: '8월경' },
-              ].map(({ key, label, hint }) => {
-                const d = daysUntil(examDates[key]);
-                const color = d == null ? '#9ca3af' : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
-                return (
-                  <div key={key} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <span style={{ minWidth: 100 }}>
-                      <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#374151' }}>
-                        {label}
-                      </div>
-                      <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>{hint}</div>
-                    </span>
-                    <input type="date" value={examDates[key] || ''}
-                      onChange={(e) => setExamDate(key, e.target.value)}
-                      style={{ flex: 1, padding: '8px 10px', borderRadius: 8,
-                        border: '1px solid #d1d5db', fontSize: '0.88rem',
-                        fontFamily: 'inherit' }} />
-                    <span style={{ minWidth: 60, textAlign: 'right',
-                      fontWeight: 800, fontSize: '0.9rem', color }}>
-                      {fmtDday(d)}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          <section style={{ background: '#fff', borderRadius: '14px', padding: '16px', boxShadow: 'var(--shadow-sm)', marginBottom: '12px',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
-            <div>
-              <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#374151' }}>복습 알림</div>
-              <div style={{ fontSize: '0.78rem', color: '#9ca3af', marginTop: '3px' }}>
-                오늘 복습할 문제가 있으면 앱을 열 때 하루 한 번 알려줘요.
-              </div>
-            </div>
-            <button
-              onClick={() => {
-                if (typeof Notification === 'undefined') return;
-                if (Notification.permission === 'granted') setNotifPref(p => !p);
-                else Notification.requestPermission().then(r => setNotifPref(r === 'granted'));
-              }}
-              style={{ flexShrink: 0, border: notifPref ? '1px solid #2563eb' : '1px solid #d1d5db',
-                background: notifPref ? '#eff6ff' : '#fff', borderRadius: '9px', padding: '9px 14px',
-                fontSize: '0.85rem', cursor: 'pointer', fontWeight: 600,
-                color: notifPref ? '#1d4ed8' : '#6b7280' }}>
-              {notifPref ? '🔔 켜짐' : '🔕 꺼짐'}
-            </button>
-          </section>
-          <button onClick={() => setCurrentView('profile')}
-            style={{ width: '100%', textAlign: 'left', padding: '14px 16px', borderRadius: '12px',
-              border: '1px solid #d1d5db', background: '#fff', color: '#374151', cursor: 'pointer',
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontWeight: 700 }}>👤 내 프로필 · 백업·데이터 관리</span>
-            <span style={{ fontSize: '0.8rem', color: '#9ca3af' }}>→</span>
-          </button>
-        </main>
-      </div>
     );
   }
 
