@@ -693,6 +693,7 @@ const App = () => {
   // 5과목 AI 학습 leaves — 4탭 공통 참조용. 백그라운드 로드.
   const [leavesBySubject, setLeavesBySubject] = useState({});
   useEffect(() => {
+    // 1차 5과목 (taxonomy 트리)
     ['civil', 'economics', 'realestate', 'law', 'accounting'].forEach((sid) => {
       fetch(`/data/study/${sid}/ai_taxonomy_index.json`)
         .then((r) => r.ok ? r.json() : null)
@@ -700,6 +701,34 @@ const App = () => {
           if (idx && idx.leaves) {
             setLeavesBySubject((prev) => ({ ...prev, [sid]: idx.leaves }));
           }
+        })
+        .catch(() => {});
+    });
+    // 2차 3과목 (units 평탄) — leaves 형식으로 정규화
+    ['appraisal_practice', 'appraisal_theory', 'appraisal_law'].forEach((sid) => {
+      fetch(`/data/study/${sid}/ai_index.json`)
+        .then((r) => r.ok ? r.json() : null)
+        .then((raw) => {
+          if (!raw) return;
+          const leaves = [];
+          (raw.units || []).forEach((u) => {
+            const baseId = `${raw.subject_id}__${u.code}`;
+            leaves.push({
+              id: baseId, path: [raw.subject, u.title], leaf_type: 'unit',
+              title: u.title, subject_root: raw.subject, frequency: u.frequency || 1,
+              unit_code: u.code, unit_file: u.unit_file, problems_file: u.problems_file,
+              stage: 2,
+            });
+            (u.topics || []).forEach((t) => {
+              leaves.push({
+                id: `${baseId}__${t.id}`, path: [raw.subject, u.title, t.title], leaf_type: 'topic',
+                title: t.title, subject_root: raw.subject, frequency: u.frequency || 1,
+                unit_code: u.code, unit_file: u.unit_file, problems_file: u.problems_file,
+                stage: 2,
+              });
+            });
+          });
+          setLeavesBySubject((prev) => ({ ...prev, [sid]: leaves }));
         })
         .catch(() => {});
     });

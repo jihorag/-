@@ -28,9 +28,68 @@ import {
 } from './aiLearningStore';
 import { sendMessages, buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
 
-const indexUrl = (subjectId) => `/data/study/${subjectId}/ai_taxonomy_index.json`;
+const indexUrl = (subjectId) => {
+  const s = SUBJECTS.find((x) => x.id === subjectId);
+  if (s?.stage === 2) return `/data/study/${subjectId}/ai_index.json`;
+  return `/data/study/${subjectId}/ai_taxonomy_index.json`;
+};
 const handoverUrl = (subjectId) => `/data/study/${subjectId}/handover.md`;
 const studyBase = (subjectId) => `/data/study/${subjectId}/`;
+
+// 2차 ai_index.json 을 1차 leaves 배열 호환 구조로 변환
+function normalizeStage2Index(idx) {
+  if (!idx || idx.stage !== 2) return idx;
+  const leaves = [];
+  (idx.units || []).forEach((u) => {
+    const baseId = `${idx.subject_id}__${u.code}`;
+    // 단원 자체를 leaf로 (topics 없거나 첫 진입용)
+    leaves.push({
+      id: baseId,
+      path: [idx.subject, u.title],
+      leaf_type: 'unit',
+      title: u.title,
+      subject_root: idx.subject,
+      frequency: u.frequency || 1,
+      unit_code: u.code,
+      unit_file: u.unit_file,
+      problems_file: u.problems_file,
+      section_key: 'full',
+      section_lines: [1, 999999],
+      section_name: '전체',
+      est_minutes: u.est_minutes,
+      stage: 2,
+      subtitle: u.subtitle,
+    });
+    // 각 topic도 별도 leaf
+    (u.topics || []).forEach((t) => {
+      leaves.push({
+        id: `${baseId}__${t.id}`,
+        path: [idx.subject, u.title, t.title],
+        leaf_type: 'topic',
+        title: t.title,
+        subject_root: idx.subject,
+        frequency: u.frequency || 1,
+        unit_code: u.code,
+        unit_file: u.unit_file,
+        problems_file: u.problems_file,
+        section_key: 'topic',
+        section_lines: t.section_lines || [1, 999999],
+        section_name: t.title,
+        stage: 2,
+        templates: t.templates,
+        key_cases: t.key_cases,
+        key_statutes: t.key_statutes,
+      });
+    });
+  });
+  // default_unit → leaf id
+  const defLeaf = leaves.find((l) => l.unit_code === idx.default_unit) || leaves[0];
+  return {
+    ...idx,
+    leaves,
+    default_leaf: defLeaf?.id || null,
+  };
+}
 
 function todayStr() {
   const d = new Date();
@@ -570,6 +629,85 @@ function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
   );
 }
 
+// 2차 답안 채점 결과 카드
+function ScoringResultCard({ result, onRewrite, onShowModel }) {
+  const pct = result.max > 0 ? (result.score / result.max) * 100 : 0;
+  const tier = pct >= 70 ? '합격선' : pct >= 60 ? '통과권' : '보강 필요';
+  const color = pct >= 70 ? '#16a34a' : pct >= 60 ? '#ea580c' : '#dc2626';
+  return (
+    <div style={{ background: '#fff', border: `2px solid ${color}`, borderRadius: 14, padding: 14, marginTop: 6 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+        <div>
+          <span style={{ fontSize: '2rem', fontWeight: 800, color }}>{result.score}</span>
+          <span style={{ color: '#9ca3af' }}> / {result.max}점</span>
+        </div>
+        <span style={{ background: color, color: '#fff', padding: '4px 10px', borderRadius: 999, fontSize: '0.78rem', fontWeight: 700 }}>
+          {tier} {Math.round(pct)}%
+        </span>
+      </div>
+      {(result.structure_score != null || result.content_score != null) && (
+        <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', gap: 4 }}>
+          {[
+            ['구조', result.structure_score, 10, '#4f46e5'],
+            ['내용', result.content_score, 15, '#10b981'],
+            ['완성도', result.completeness_score, 5, '#f59e0b'],
+          ].map(([label, s, max, col]) => s == null ? null : (
+            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.74rem' }}>
+              <span style={{ width: 44, color: '#374151', fontWeight: 600 }}>{label}</span>
+              <div style={{ flex: 1, height: 5, background: '#f3f4f6', borderRadius: 3, overflow: 'hidden' }}>
+                <div style={{ width: `${(s / max) * 100}%`, height: '100%', background: col }} />
+              </div>
+              <span style={{ width: 36, textAlign: 'right', color: '#6b7280' }}>{s}/{max}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {(result.strengths?.length || result.missed?.length) && (
+        <div style={{ marginTop: 10, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+          {result.strengths?.length > 0 && (
+            <div>
+              <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#047857', marginBottom: 4 }}>✅ 강점</div>
+              {result.strengths.map((s, i) => <div key={i} style={{ fontSize: '0.72rem', color: '#374151' }}>· {s}</div>)}
+            </div>
+          )}
+          {result.missed?.length > 0 && (
+            <div>
+              <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#9a3412', marginBottom: 4 }}>⚠️ 보강</div>
+              {result.missed.map((m, i) => <div key={i} style={{ fontSize: '0.72rem', color: '#374151' }}>· {m}</div>)}
+            </div>
+          )}
+        </div>
+      )}
+      {result.rewrite_hint && (
+        <div style={{ marginTop: 10, padding: 8, background: '#fffbeb', border: '1px solid #fde68a', borderRadius: 6, fontSize: '0.78rem', color: '#92400e' }}>
+          💡 {result.rewrite_hint}
+        </div>
+      )}
+      {(result.time_used_min || result.time_target_min) && (
+        <div style={{ marginTop: 8, fontSize: '0.7rem', color: '#6b7280' }}>
+          ⏱ {result.time_used_min || 0}분 사용 / 목표 {result.time_target_min || 0}분
+        </div>
+      )}
+      <div style={{ display: 'flex', gap: 6, marginTop: 12 }}>
+        {onShowModel && (
+          <button onClick={onShowModel}
+            style={{ flex: 1, padding: '8px', background: '#fff', color: '#4338ca',
+              border: '1px solid #c7d2fe', borderRadius: 6, cursor: 'pointer', fontWeight: 700, fontSize: '0.8rem' }}>
+            💡 모범 답안
+          </button>
+        )}
+        {onRewrite && (
+          <button onClick={onRewrite}
+            style={{ flex: 1, padding: '8px', background: '#4f46e5', color: '#fff',
+              border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700, fontSize: '0.8rem' }}>
+            📝 다시 쓰기
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function MessageBubble({ msg, fadeIn }) {
   const isUser = msg.role === 'user';
   return (
@@ -763,7 +901,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     if (!showAnalytics) return;
     SUBJECTS.forEach((s) => {
       if (leavesBySubject[s.id]) return;
-      fetch(indexUrl(s.id)).then((r) => r.json()).then((idx) => {
+      fetch(indexUrl(s.id)).then((r) => r.json()).then((raw) => {
+        const idx = raw?.stage === 2 ? normalizeStage2Index(raw) : raw;
         setLeavesBySubject((prev) => ({ ...prev, [s.id]: idx.leaves || [] }));
       }).catch(() => {});
     });
@@ -779,10 +918,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
   // 인덱스·인수인계서 로드 — subjectId 변경 시 재로드
   useEffect(() => {
-    fetch(indexUrl(subjectId)).then((r) => r.json()).then((idx) => {
+    fetch(indexUrl(subjectId)).then((r) => r.json()).then((raw) => {
+      const idx = raw?.stage === 2 ? normalizeStage2Index(raw) : raw;
       setIndexMeta(idx);
       setLeaves(idx.leaves || []);
-      // 현재 leaf가 이 과목 leaves에 없으면 default로 재설정
       const exists = current?.leaf_id && (idx.leaves || []).some((l) => l.id === current.leaf_id);
       if (!exists && idx.default_leaf) {
         const def = idx.leaves.find((l) => l.id === idx.default_leaf) || idx.leaves[0];
@@ -812,9 +951,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     }).catch((e) => setError('단원 자료 로드 실패: ' + e.message));
   }, [current?.leaf_id, leaves, subjectId]);
 
-  // 문제풀이 모드 진입 시에만 problems MD 로드
+  // 문제·기출 자료 로드 — 1차 practice, 2차 answer_write / mock_full / topic_extract 모드에서
   useEffect(() => {
-    if (mode !== 'practice' || !current?.leaf_id) { setProblemsMd(''); return; }
+    const needs = mode === 'practice' || mode === 'answer_write' || mode === 'mock_full' || mode === 'topic_extract';
+    if (!needs || !current?.leaf_id) { setProblemsMd(''); return; }
     const leaf = leaves.find((l) => l.id === current.leaf_id);
     if (!leaf || !leaf.problems_file) { setProblemsMd(''); return; }
     fetch(studyBase(subjectId) + leaf.problems_file).then((r) => r.text()).then(setProblemsMd).catch(() => setProblemsMd(''));
@@ -868,6 +1008,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     setMessages([]);
     setUnitMd(''); setSectionMd(''); setProblemsMd('');
     setPendingNext(null); setIdlePromptShown(false); setInput('');
+    // stage 전환 시 적합한 default 모드로
+    const nextStage = SUBJECTS.find((s) => s.id === sid)?.stage || 1;
+    const stage1Modes = ['study', 'practice', 'deep', 'summary', 'diagnose'];
+    const stage2Modes = ['concept_s2', 'template', 'topic_extract', 'answer_write', 'mock_full', 'calc_s2'];
+    if (nextStage === 2 && !stage2Modes.includes(mode)) setMode('concept_s2');
+    else if (nextStage === 1 && !stage1Modes.includes(mode)) setMode('study');
     if (enterStudy) setAiView('study');
   };
 
@@ -933,15 +1079,20 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     const curMastery = current ? getChapterMastery(current.leaf_id) : null;
     const lastSession = getSessions().slice(-2, -1)[0];
     const recentSummary = lastSession?.summary || '';
+    const subjStage = getSubjectMeta(subjectId)?.stage || 1;
+    const usesProblems = (subjStage === 1 && mode === 'practice') ||
+                         (subjStage === 2 && (mode === 'answer_write' || mode === 'mock_full' || mode === 'topic_extract'));
     const system = buildSystemBlocks({
       handoverMd,                            // ← 캐시 안정: 텍스트 불변
       unitMd: sectionMd ? '' : unitMd,
       sectionMd,
-      problemsMd: mode === 'practice' ? problemsMd : '',
+      problemsMd: usesProblems ? problemsMd : '',
       mode,
       currentMastery: curMastery,
       recentSummary,
       leafPath: curLeaf ? curLeaf.path.join(' / ') : '',
+      stage: subjStage,
+      subjectId,
     });
 
     const history = [...getRoomMessages(current.leaf_id)].slice(-13);
@@ -980,6 +1131,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       blocks.forEach((b) => {
         if (b && typeof b.correct === 'boolean' && current) {
           recordGrade(current.leaf_id, b.correct);
+        }
+        // 2차 답안 채점 결과
+        if (b && b.graded === true && b.stage === 2 && typeof b.score === 'number' && current) {
+          recordAnswerScore(current.leaf_id, {
+            score: b.score,
+            max: b.max || 30,
+            time_used_min: b.time_used_min || 0,
+            time_target_min: b.time_target_min || (b.max || 30),
+          });
+          coverageBumped = true;
+          setMasteryState(getMastery());
         }
         if (b && b.session_summary && current) {
           const delta = Number(b.coverage_delta) || 0.05;
@@ -1197,48 +1359,66 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           );
         })()}
 
-        {/* 5과목 그리드 */}
-        <div style={{ fontSize: '0.85rem', color: '#374151', fontWeight: 700, marginBottom: 8 }}>📚 과목 선택</div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10 }}>
-          {SUBJECTS.map((s) => {
-            const subLeaves = leavesBySubject[s.id] || [];
-            const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__'));
-            const covAvg = ks.length ? ks.reduce((a, k) => a + (mastery[k]?.coverage || 0), 0) / ks.length : 0;
-            const masterN = ks.filter((k) => mastery[k]?.status === 'mastered').length;
-            const dueN = (due || []).filter((d) => (d.code || '').startsWith(s.id + '__')).length;
-            const weakN = ((weakPathsBySubject || {})[s.id] || []).length;
-            const pct = Math.round(covAvg * 100);
-            return (
-              <button
-                key={s.id}
-                onClick={() => switchSubject(s.id, true)}
-                style={{
-                  padding: 14, textAlign: 'left',
-                  background: `linear-gradient(135deg, ${s.color}12 0%, #fff 100%)`,
-                  border: `1px solid ${s.color}40`, borderRadius: 12, cursor: 'pointer',
-                  display: 'flex', flexDirection: 'column', gap: 4,
-                }}
-              >
-                <div style={{ fontSize: '1.6rem', lineHeight: 1 }}>{s.icon}</div>
-                <div style={{ fontWeight: 800, color: s.color, fontSize: '0.95rem' }}>{s.short}</div>
-                <div style={{ fontSize: '0.66rem', color: '#9ca3af' }}>{s.title}</div>
-                <div style={{ marginTop: 6, height: 4, background: '#f3f4f6', borderRadius: 2, overflow: 'hidden' }}>
-                  <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: s.color }} />
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#374151', marginTop: 4 }}>
-                  <span style={{ fontWeight: 700 }}>{pct}%</span>
-                  <span style={{ color: '#9ca3af' }}>마스터 {masterN}{subLeaves.length > 0 ? `/${subLeaves.length}` : ''}</span>
-                </div>
-                {(dueN > 0 || weakN > 0) && (
-                  <div style={{ marginTop: 2, fontSize: '0.66rem', color: '#92400e', display: 'flex', gap: 4 }}>
-                    {dueN > 0 && <span>🔁 {dueN}</span>}
-                    {weakN > 0 && <span>⚠️ {weakN}</span>}
-                  </div>
-                )}
-              </button>
-            );
-          })}
-        </div>
+        {/* 1차 / 2차 섹션 분리 그리드 */}
+        {[
+          { stage: 1, label: '1차 시험 — 객관식 5지선다', subjects: SUBJECTS_BY_STAGE[1] },
+          { stage: 2, label: '2차 시험 — 서술형·답안 작성', subjects: SUBJECTS_BY_STAGE[2] },
+        ].map(({ stage, label, subjects }) => (
+          <div key={stage} style={{ marginBottom: 14 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+              <div style={{ fontSize: '0.85rem', color: '#374151', fontWeight: 700 }}>
+                {stage === 1 ? '📖' : '✍️'} {label}
+              </div>
+              <span style={{ fontSize: '0.7rem', color: '#9ca3af' }}>{subjects.length}과목</span>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10 }}>
+              {subjects.map((s) => {
+                // stage1: ailearn-mastery 키가 'civil__...' prefix
+                // stage2: 단원 id가 'appraisal_practice_1' 형태
+                const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__') || k.startsWith(s.id + '_'));
+                const covAvg = ks.length ? ks.reduce((a, k) => a + (mastery[k]?.coverage || 0), 0) / ks.length : 0;
+                const masterN = ks.filter((k) => mastery[k]?.status === 'mastered').length;
+                const dueN = (due || []).filter((d) => (d.code || '').startsWith(s.id + '__') || (d.code || '').startsWith(s.id + '_')).length;
+                const weakN = ((weakPathsBySubject || {})[s.id] || []).length;
+                const pct = Math.round(covAvg * 100);
+                const isStage2 = s.stage === 2;
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => switchSubject(s.id, true)}
+                    style={{
+                      padding: 14, textAlign: 'left',
+                      background: `linear-gradient(135deg, ${s.color}12 0%, #fff 100%)`,
+                      border: `1px solid ${s.color}40`, borderRadius: 12, cursor: 'pointer',
+                      display: 'flex', flexDirection: 'column', gap: 4, position: 'relative',
+                    }}
+                  >
+                    {isStage2 && (
+                      <span style={{ position: 'absolute', top: 8, right: 8, fontSize: '0.6rem', fontWeight: 800,
+                        background: s.color, color: '#fff', padding: '2px 6px', borderRadius: 999 }}>2차</span>
+                    )}
+                    <div style={{ fontSize: '1.6rem', lineHeight: 1 }}>{s.icon}</div>
+                    <div style={{ fontWeight: 800, color: s.color, fontSize: '0.95rem' }}>{s.short}</div>
+                    <div style={{ fontSize: '0.66rem', color: '#9ca3af', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.title}</div>
+                    <div style={{ marginTop: 6, height: 4, background: '#f3f4f6', borderRadius: 2, overflow: 'hidden' }}>
+                      <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: s.color }} />
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#374151', marginTop: 4 }}>
+                      <span style={{ fontWeight: 700 }}>{pct}%</span>
+                      <span style={{ color: '#9ca3af' }}>{isStage2 ? `답안 ${masterN}` : `마스터 ${masterN}`}</span>
+                    </div>
+                    {(dueN > 0 || weakN > 0) && (
+                      <div style={{ marginTop: 2, fontSize: '0.66rem', color: '#92400e', display: 'flex', gap: 4 }}>
+                        {dueN > 0 && <span>🔁 {dueN}</span>}
+                        {weakN > 0 && <span>⚠️ {weakN}</span>}
+                      </div>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ))}
 
         {/* 비어있는 첫 사용자 가이드 */}
         {!curLeaf && Object.keys(mastery).length === 0 && (
@@ -1358,13 +1538,27 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
       <div style={{ padding: '8px 12px', borderBottom: '1px solid #e5e7eb', background: '#f9fafb' }}>
         <div style={{ display: 'flex', gap: 4, marginBottom: 8, overflowX: 'auto', paddingBottom: 2 }}>
-          {[
-            ['study', '📖', '이론', '처음 배움'],
-            ['practice', '✏️', '문제풀이', '기출 풀이'],
-            ['deep', '🧠', '심화', '판례·함정'],
-            ['summary', '⚡', '복습', '핵심 압축'],
-            ['diagnose', '🎯', '진단', 'OX 5문제'],
-          ].map(([k, icon, label, desc]) => (
+          {(() => {
+            const isStage2 = getSubjectMeta(subjectId)?.stage === 2;
+            if (!isStage2) {
+              return [
+                ['study', '📖', '이론', '처음 배움'],
+                ['practice', '✏️', '문제풀이', '기출 풀이'],
+                ['deep', '🧠', '심화', '판례·함정'],
+                ['summary', '⚡', '복습', '핵심 압축'],
+                ['diagnose', '🎯', '진단', 'OX 5문제'],
+              ];
+            }
+            const list = [
+              ['concept_s2', '📖', '개념', '논점 도입'],
+              ['template', '📋', '양식', '답안 골격 외우기'],
+              ['topic_extract', '🔍', '논점', '사례 분석'],
+              ['answer_write', '📝', '답안', '작성·채점'],
+              ['mock_full', '🎬', '실전', '4문제 타이머'],
+            ];
+            if (subjectId === 'appraisal_practice') list.push(['calc_s2', '🧮', '계산', '산식 풀이']);
+            return list;
+          })().map(([k, icon, label, desc]) => (
             <button
               key={k}
               onClick={() => setMode(k)}
@@ -1737,6 +1931,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       <div style={{ padding: 10, borderTop: '1px solid #e5e7eb', background: '#fff' }}>
         <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginBottom: 6, paddingBottom: 2 }}>
           {({
+            // 1차
             study: [
               ['▶️ 이 단원 시작', '이 단원의 첫 절·관부터 한 사이클(일상언어→한자풀이→비유→교재표현→쉬운 OX) 시작해줘.'],
               ['🔁 이어서 진행', '직전에 멈춘 곳에서 자연스럽게 이어서 진행해줘.'],
@@ -1762,6 +1957,37 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               ['🎯 진단 시작', '이 단원 핵심 5문제 OX/단답을 한꺼번에 내줘. 답은 한 메시지로 적을게.'],
               ['🩺 약점만 다시', '방금 진단에서 틀린 부분만 다시 친절히 가르쳐줘.'],
               ['📊 종합 진단', '진단 결과 표로 정리하고 다음 학습 단원 추천.'],
+            ],
+            // 2차
+            concept_s2: [
+              ['▶️ 논점 도입', '이 단원의 첫 논점부터 답안에 어떻게 쓸지 같이 가르쳐줘.'],
+              ['📋 답안 골격', '이 논점의 답안 골격(Ⅰ·Ⅱ·Ⅲ)을 보여줘.'],
+              ['🔁 이어서', '직전에 멈춘 곳부터 이어서.'],
+            ],
+            template: [
+              ['📋 양식 한 장', '이 단원의 빈출 논점 답안 양식 한 장 보여줘.'],
+              ['❓ 빈칸 퀴즈', '방금 양식의 핵심 키워드 5개를 빈칸으로 내줘.'],
+              ['🔢 빈출 양식 3', '이 단원 빈출 답안 양식 3개를 표로 정리.'],
+            ],
+            topic_extract: [
+              ['🔍 사례 분석', '이 단원 빈출 사례 1개 제시하고, 어떤 논점 다룰지 물어봐줘.'],
+              ['💡 정답 논점', '방금 사례의 정답 논점과 답안 배치 알려줘.'],
+              ['🔄 다른 사례', '같은 주제 다른 사례 1개 더.'],
+            ],
+            answer_write: [
+              ['📝 답안 문제', '이 단원에서 30점 분량 답안 문제 1개 출제. 학생이 답안 작성하면 채점해줄게.'],
+              ['🎯 40점 문제', '40점 짜리 사례형 논술 1개 출제.'],
+              ['📖 모범 답안', '방금 문제 모범 답안 양식 보여줘.'],
+            ],
+            mock_full: [
+              ['🎬 모의 시작', '실전 4문제 세트 시작. 첫 번째 40점 문제부터.'],
+              ['⏭️ 다음 문제', '다음 문제로.'],
+              ['🏁 마무리·종합', '4문제 종합 점수·시간 분석·약점 단원 추천.'],
+            ],
+            calc_s2: [
+              ['🧮 계산 시범', '이 논점 계산 산식을 단계별로 시범 보여줘.'],
+              ['❓ 함정 체크', '계산 시 자주 빠뜨리는 함정 3개 알려줘.'],
+              ['📋 답안 적용', '이 계산을 답안에 어떻게 쓸지 한 줄.'],
             ],
           }[mode] || []).map(([label, prompt]) => (
             <button

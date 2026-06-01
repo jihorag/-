@@ -102,22 +102,150 @@ export const DIAGNOSE_RULES = `
   {"diagnose": true, "code":"M02", "score": 3, "weak_topics":["행위능력","제한능력자"]}
   \`\`\``;
 
+// ── 2차 시험 공통 규칙 ─────────────────────────────────
+export const STAGE2_RULES = `
+
+[⭐ 2차 시험 — 답안 작성 기술 중심]
+- 학습자는 1차 합격 또는 충분히 학습한 상태. 기초 개념은 어느 정도 안다고 가정.
+- 단, **답안 작성·논점 추출·시간 관리는 처음** → 이 부분만 친절히.
+- 모든 설명에 "어떻게 답안에 쓸지"를 명시. 개념만 던지지 말 것.
+- 답안 골격: **Ⅰ. 서/개요 → Ⅱ. 본론 2~3목차 → Ⅲ. 결론·유의사항**.
+- 점수별 분량 가이드:
+  · 10점 ≈ 6~7줄, 핵심만
+  · 20점 ≈ 10~15줄, 2목차
+  · 30점 ≈ 18~25줄, 3목차
+  · 40점 ≈ 25~35줄, 3~4목차 + 결론
+- 시간 관리: 점수 1점당 약 1분 (100분/100점).
+`;
+
+// ── 2차 모드별 규칙 ─────────────────────────────────────
+export const TEMPLATE_RULES = `
+
+[📋 답안 양식 암기 모드]
+- 학생이 양식을 외우는 게 목적. 양식 카드 한 장을 한 번에 보여주고, 빈칸·OX로 반복.
+- 각 양식: 논점명 → 골격 Ⅰ·Ⅱ·Ⅲ → 핵심 키워드 5~7개 → 분량 가이드.
+- 한 사이클: 양식 보여주기 → 빈칸/순서 확인 문제 → 학생 답 → 정답·해설.`;
+
+export const TOPIC_EXTRACT_RULES = `
+
+[🔍 논점 추출 모드]
+- 학생에게 사례·자료를 주고, "어떤 논점이 숨어있는지" 추출 연습.
+- 첫 메시지: 짧은 사례(5~10줄) 제시 → "이 사례에서 다뤄야 할 논점 3개?" 질문.
+- 학생 답 → 정답 논점 + 출제 의도 + 답안에 어떻게 배치할지 안내.`;
+
+export const ANSWER_RULES = `
+
+[📝 답안 작성·채점 모드]
+- 학생이 textarea로 답안을 작성하면, 점수·강점·보강·재작성 힌트 제공.
+- 채점 항목 (배점 분배):
+  · 구조 (목차·골격) /10
+  · 내용 (키워드·조문/판례·식·단위) /15
+  · 완성도 (분량·결론·유의사항) /5
+- 반드시 다음 JSON을 메시지 끝에 첨부:
+\`\`\`json
+{
+  "graded": true,
+  "stage": 2,
+  "code": "단원_id",
+  "score": 22,
+  "max": 30,
+  "structure_score": 8,
+  "content_score": 10,
+  "completeness_score": 4,
+  "strengths": ["목차 명확", "키워드 포함"],
+  "missed": ["분량 부족", "결론 약함"],
+  "rewrite_hint": "Ⅲ.결론에 유의사항 3가지 추가",
+  "time_used_min": 18,
+  "time_target_min": 20
+}
+\`\`\`
+- 점수 70%+ = 합격선, 60%+ = 통과권, 미만 = 보강.`;
+
+export const MOCK_FULL_RULES = `
+
+[🎬 실전 모의 모드]
+- 4문제 세트 제공 (배점 40·30·20·10). 한 번에 한 문제씩 제시.
+- 학생이 답 → 채점 JSON (ANSWER_RULES 형식)
+- 마지막 4번째 후 종합 점수·시간 분석·약점 단원 추천.`;
+
+export const CALC_S2_RULES = `
+
+[🧮 계산 풀이 모드 — 실무 전용]
+- 산식을 한 단계씩 보여줌.
+- 매 단계: 식 → 대입 → 계산 → 단위 표기.
+- 함정 체크: 단가(원/㎡) · 소수점 셋째 자리 반올림 · 부가세 미포함.
+- 끝에 "이 식을 답안에 어떻게 쓸지" 한 줄 안내.`;
+
+// ── 2차 과목별 규칙 ─────────────────────────────────────
+export const PRACTICE_S2_RULES = `
+
+[감정평가실무 시험 규칙]
+- 풀이 과정·산식·도출 흐름이 곧 점수. 답이 부수적.
+- 단가 표기: 원/㎡, 소수점 셋째 자리 반올림. 부가세는 평가사 미포함.
+- 자료 해석 함정: "기타사항"·"분묘"·"분할 후 면적"·"보합세" 단서가 논점.
+- 거래사례 기간: 도시 3년·비도시 5년.
+- 자료 배제 우선순위: 용도지역 > 이용상황 > 면적/주위환경.
+- 출제자 의도: 수치를 그대로 주면 그건 논점 아님. 단서가 곧 논점.`;
+
+export const THEORY_S2_RULES = `
+
+[감정평가이론 시험 규칙]
+- 100% 서술형, 계산 없음. 100분/4문제.
+- 답안 양식 통암기가 핵심. "쌤이 만든 목차" 그대로 따라쓰기.
+- 두문자보다 ★표시·정형 목차로 차별화.
+- 격언: "정확히 외울 필요 없다. 수험생 지식차 적다. → 양식·키워드로 승부".
+- 답안 양식은 templates/ 라이브러리 참조.`;
+
+export const LAW_S2_RULES = `
+
+[감정평가 및 보상법규 시험 규칙]
+- 120분/4문제. 1번은 사례형 논술(40점).
+- IRAC 흐름: 사실관계 → 논점추출 → 조문(조·항·호 정확) → 학설/판례(사건번호) → 포섭·결론.
+- 조문 없는 일반론·판례 없는 학설은 감점.
+- 필수 판례 (반드시 인용):
+  · 사업인정: 대판 2011두1051
+  · 재결신청청구: 대판 2011두2309
+  · 잔여지수용: 대판 2008두822, 2014두46669
+  · 협의성립확인: 대판 2018두57865
+  · 이주대책: 대판 92다35783(전합)
+  · 주거이전비: 대판 2011두3685
+- 빈출 1·2·3위: 손실보상(38회)·공용수용(24회)·행정쟁송(23회).`;
+
+export const SUBJECT_RULES = {
+  appraisal_practice: PRACTICE_S2_RULES,
+  appraisal_theory: THEORY_S2_RULES,
+  appraisal_law: LAW_S2_RULES,
+};
+
 export const MODE_RULES = {
+  // 1차
   study: '',
   practice: PRACTICE_RULES,
   deep: DEEP_RULES,
   summary: SUMMARY_RULES,
   diagnose: DIAGNOSE_RULES,
+  // 2차 신규
+  concept_s2: '',
+  template: TEMPLATE_RULES,
+  topic_extract: TOPIC_EXTRACT_RULES,
+  answer_write: ANSWER_RULES,
+  mock_full: MOCK_FULL_RULES,
+  calc_s2: CALC_S2_RULES,
 };
 
 function getEndpoint(baseUrl) {
   return (baseUrl && baseUrl.trim()) ? baseUrl.trim().replace(/\/$/, '') + '/v1/messages' : API_URL;
 }
 
-export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, mode, currentMastery, recentSummary, leafPath }) {
+export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, mode, currentMastery, recentSummary, leafPath, stage, subjectId }) {
   // Anthropic prompt caching: 큰 컨텐츠 블록에 cache_control 부여
+  let systemHead = SYSTEM_RULES;
+  if (stage === 2) {
+    systemHead += STAGE2_RULES + (SUBJECT_RULES[subjectId] || '');
+  }
+  systemHead += (MODE_RULES[mode] || '');
   const blocks = [
-    { type: 'text', text: SYSTEM_RULES + (MODE_RULES[mode] || '') },
+    { type: 'text', text: systemHead },
   ];
   if (handoverMd) {
     blocks.push({
