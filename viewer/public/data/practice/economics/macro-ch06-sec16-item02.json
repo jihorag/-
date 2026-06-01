@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "거시경제학",
+    "chapter": "제6장 거시경제학파와 안정화정책",
+    "section": "제16절 새고전학파·새케인즈학파",
+    "item": "제2관 새케인즈학파 (가격경직성·메뉴비용)",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 30
+  },
+  "questions": [
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "새케인즈학파(New Keynesian Economics)의 핵심 특징으로 옳은 것은?",
+      "options": [
+        "가격이 신축적으로 조정된다",
+        "가격·임금의 경직성에 미시적 기초(메뉴비용·효율임금·계약 등)를 제공하여 케인즈 이론을 현대적으로 재정립",
+        "정부 개입을 완전히 부정",
+        "통화는 항상 중립적",
+        "합리적 기대 가설을 부정"
+      ],
+      "answer": "2",
+      "explanation": "새케인즈학파(1980s~)는 ① 합리적 기대를 수용하면서도, ② 가격·임금의 경직성에 미시적 기초(메뉴비용·효율임금·내부자-외부자·실재 경직성 등)를 제공하여 케인즈 이론을 현대적으로 재정립한 학파이다. Mankiw·Romer 등이 주도하였다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "새케인즈학파의 대표 학자로 옳지 않은 것은?",
+      "options": [
+        "Gregory Mankiw - 메뉴비용 이론",
+        "David Romer - 미시적 기초 종합",
+        "George Akerlof (2001 노벨상) - 효율임금·역선택",
+        "Joseph Stiglitz (2001 노벨상) - 효율임금·정보경제학",
+        "Robert Lucas - 합리적 기대로 새고전학파 정립"
+      ],
+      "answer": "5",
+      "explanation": "Robert Lucas는 새고전학파(New Classical)의 대표 학자로 1995년 노벨상을 수상하였으며 새케인즈학파의 일원이 아니다. ①②③④는 모두 새케인즈학파의 대표 학자이며, 그 중 Akerlof·Stiglitz는 2001년 노벨상을 공동 수상하였다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-003",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "Mankiw(1985)의 메뉴비용(menu cost) 이론의 핵심 명제로 옳은 것은?",
+      "options": [
+        "가격 변경 비용이 0이므로 가격이 즉시 조정된다",
+        "가격 변경에 작은 비용(메뉴비용)이 있어도 기업의 가격 경직성과 거시경제적 큰 산출 변동이 발생할 수 있다",
+        "정부가 가격을 직접 통제",
+        "독점기업만 가격을 변경",
+        "가격은 무작위로 결정"
+      ],
+      "answer": "2",
+      "explanation": "Mankiw(1985)의 메뉴비용 이론: 가격 변경에 드는 작은 비용(메뉴 인쇄·가격표 변경·고객 통지 등)이 있어도, ① 기업이 미세한 수요·비용 변화에 대해 가격을 조정하지 않고, ② 그 결과 거시경제적으로 큰 산출 변동(승수효과)이 발생할 수 있다는 이론이다. 미시적 가격 경직성의 거시적 결과를 설명하는 핵심 이론."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-004",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "효율임금(efficiency wage) 이론의 기본 명제로 옳은 것은?",
+      "options": [
+        "기업은 시장 균형임금을 정확히 지불한다",
+        "기업이 의도적으로 시장 균형임금보다 높은 임금을 지불하여 생산성 향상·이직 감소·도덕적 해이 방지 등을 추구",
+        "노동조합이 임금을 결정",
+        "정부가 모든 임금을 결정",
+        "임금은 항상 시장에서 자동 결정"
+      ],
+      "answer": "2",
+      "explanation": "효율임금 이론(Shapiro-Stiglitz 1984 등): 기업이 의도적으로 시장 균형임금보다 높은 임금을 지불하면 ① 노동자의 생산성·노력 증가(shirking 방지), ② 이직률 감소, ③ 우수 노동자 채용 가능성 증가 등의 효과로 오히려 단위 노동비용 감소. 따라서 균형에서도 비자발적 실업이 존재할 수 있어 케인즈의 실업 분석에 미시적 기초 제공."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-005",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "새케인즈학파의 등장 시기와 배경으로 옳은 것은?",
+      "options": [
+        "1930년대 대공황 직후",
+        "1980년대 이후 새고전학파(Lucas 등)의 비판에 대응하여 케인즈 이론을 미시적 기초로 재정립",
+        "1950년대 신고전학파 종합",
+        "1990년대 신흥국 위기 후",
+        "2008년 글로벌 금융위기 후"
+      ],
+      "answer": "2",
+      "explanation": "새케인즈학파는 1980년대 이후 등장했다. 배경: ① 1970s 스태그플레이션으로 전통 케인즈학파 한계 드러남, ② Lucas·Sargent 등 새고전학파의 합리적 기대·정책무력성 비판, ③ 그러나 1970s~80s 비자발적 실업·경기변동 등 케인즈적 현상 여전. 이에 케인즈 이론을 합리적 기대 + 가격경직성의 미시적 기초로 재정립."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-006",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "Shapiro-Stiglitz(1984)의 효율임금 모형에서 균형 비자발적 실업이 발생하는 메커니즘으로 옳은 것은?",
+      "options": [
+        "정부가 강제로 실업을 만든다",
+        "기업이 노동자의 게으름(shirking) 방지를 위해 균형임금보다 높은 효율임금을 지불 → 노동공급 초과(비자발적 실업) → 실업의 비용이 게으름의 비용 역할",
+        "노동조합이 임금을 인상",
+        "기술 발전으로 실업 발생",
+        "외환위기로 실업 발생"
+      ],
+      "answer": "2",
+      "explanation": "Shapiro-Stiglitz 효율임금 모형: ① 기업이 노동자의 노력을 완전 감시 못함(정보 비대칭) → 게으름 유인, ② 따라서 효율임금(균형임금 + 프리미엄)을 지불해 노력 유도, ③ 모든 기업이 같은 전략 → 노동공급 초과 → 비자발적 실업 발생, ④ 실업은 게으름의 처벌(해고 시 실업 비용)로 작용. 균형에서 실업 존재의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-007",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "Lindbeck-Snower의 내부자-외부자 이론(insider-outsider theory)의 핵심으로 옳은 것은?",
+      "options": [
+        "노동시장은 항상 완전경쟁",
+        "고용된 노동자(내부자)는 ① 이직비용, ② 조직 협상력으로 자신의 임금·고용을 보호하므로, ③ 실업자(외부자)가 더 낮은 임금에 일하고자 해도 채용되지 않아 실업이 지속",
+        "정부가 노동시장을 통제",
+        "노동조합이 모든 임금을 결정",
+        "실업은 자발적"
+      ],
+      "answer": "2",
+      "explanation": "Lindbeck-Snower(1988)의 내부자-외부자 이론: 고용된 노동자(insider)는 ① 신규 채용·해고 비용, ② 조직 협상력(파업 등), ③ 신규자 견제 등으로 자신의 임금·고용을 보호. 실업자(outsider)가 더 낮은 임금을 제시해도 ① 채용 거부, ② 협상에서 배제 → 실업의 지속(persistence) 설명. 비자발적 실업의 또 다른 미시적 기초."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-008",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "Taylor(1980)·Calvo(1983)의 시차 계약(staggered contracts) 모형의 의의로 옳은 것은?",
+      "options": [
+        "모든 가격·임금이 동시에 조정된다",
+        "기업·노동자의 가격·임금 결정 시점이 시차를 두고 분산되어 ① 통화정책 효과가 점진적으로 누적, ② 단기 가격 경직성의 미시적 기초 제공",
+        "계약은 즉시 조정",
+        "계약은 무관",
+        "정부가 모든 계약을 결정"
+      ],
+      "answer": "2",
+      "explanation": "Taylor(1980)·Calvo(1983)의 시차 계약(staggered contracts): 기업·노동자의 가격·임금 결정 시점이 시간적으로 분산. ① 한 기간에 일부 가격만 조정 가능, ② 통화정책 효과가 점진적으로 누적 → 통화의 단기 실물 효과 설명, ③ Calvo 모형은 현대 DSGE의 표준 가격 경직성 도구. New Keynesian Phillips Curve의 미시적 기초이다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-009",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "새케인즈학파가 새고전학파(New Classical)와 공통으로 채택한 가정은?",
+      "options": [
+        "가격 신축성",
+        "합리적 기대(rational expectations)",
+        "정책무력성 정리",
+        "완전경쟁",
+        "실물경기변동"
+      ],
+      "answer": "2",
+      "explanation": "새케인즈학파와 새고전학파는 ① 합리적 기대 가설(rational expectations)을 공통 채택. 차이점: ② 새고전학파는 가격 신축성 + 시장청산, ③ 새케인즈학파는 가격 경직성의 미시적 기초(메뉴비용·효율임금 등). 즉 합리적 기대 + 시장 마찰이 새케인즈학파의 특징이다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-010",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "조정실패(coordination failure) 이론의 기본 명제로 옳은 것은?",
+      "options": [
+        "정부가 모든 활동을 조정",
+        "복수의 균형이 가능한 환경에서 개별 기업·노동자의 의사결정이 조정되지 못해 ① 낮은 산출·고용 균형에 머무를 수 있음 — 전략적 보완성이 핵심",
+        "조정은 항상 자동 달성",
+        "조정은 무관",
+        "독점만이 조정"
+      ],
+      "answer": "2",
+      "explanation": "조정실패(coordination failure, Cooper-John 1988 등): 복수의 균형이 가능한 환경에서 ① 다른 모든 기업이 확대 투자하면 자기도 확대(좋은 균형), ② 다른 모두가 축소하면 자기도 축소(나쁜 균형) → 전략적 보완성(strategic complementarity). 정보 부족·조정 메커니즘 부재로 나쁜 균형에 머무를 수 있음. 케인즈의 'animal spirits' 미시적 기초."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-011",
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "question": "새케인즈학파의 정책 입장으로 옳은 것은?",
+      "options": [
+        "정부 개입을 완전히 부정",
+        "가격경직성·정보 비대칭 등 시장 마찰로 인한 비효율을 인정하므로 ① 적정한 통화·재정 정책의 안정화 역할 인정, ② 다만 케인즈학파의 적극적 재량보다는 규칙 기반 정책 선호",
+        "오직 통화량 목표제",
+        "오직 보호무역",
+        "정부의 완전 통제"
+      ],
+      "answer": "2",
+      "explanation": "새케인즈학파의 정책 입장: ① 가격경직성·정보 비대칭 등 시장 마찰로 인한 비효율 인정, ② 적정한 통화·재정 정책의 안정화 역할 인정(케인즈학파 입장 계승), ③ 다만 적극적 재량보다는 규칙 기반·예측 가능한 정책 선호(통화주의·새고전학파 영향). 현대 인플레이션 목표제·테일러 룰 등의 이론적 기초."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-012",
+      "difficulty": 2,
+      "question_type": "틀린 것 고르기",
+      "question": "새케인즈학파에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "1980년대 이후 등장",
+        "가격경직성의 미시적 기초 제공",
+        "Mankiw·Romer 등이 주도",
+        "합리적 기대 가설 채택",
+        "케인즈의 가격경직성 가정을 부정"
+      ],
+      "answer": "5",
+      "explanation": "⑤는 옳지 않다. 새케인즈학파는 케인즈의 가격경직성 가정을 부정하지 않고, 오히려 ① 그 가정을 ② 메뉴비용·효율임금·시차 계약 등의 미시적 기초로 ③ 정당화한다. ①~④는 모두 옳은 새케인즈학파의 특징이다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Mankiw(1985)가 분석한 메뉴비용의 거시경제적 함의로 옳은 것은?",
+      "options": [
+        "메뉴비용은 거시경제와 무관",
+        "개별 기업에게 작은 메뉴비용도 ① 사적 의사결정으로는 가격 조정 안 함이 합리적이나 ② 사회적으로는 가격이 조정되어야 거시 균형 효율, ③ 즉 미시 비용 vs 거시 후생의 외부효과 → 사회적 비효율의 미시적 기초",
+        "메뉴비용은 효율 보장",
+        "정부가 메뉴비용 결정",
+        "메뉴비용은 항상 0"
+      ],
+      "answer": "2",
+      "explanation": "Mankiw(1985)의 메뉴비용 거시 함의: ① 개별 기업에게 메뉴비용 c가 작아도 가격 조정으로 얻는 사적 이익 < c이면 가격 미조정이 합리적. ② 그러나 사회적으로는 가격이 조정되어야 거시 후생 향상. ③ 미시 사적 비용 vs 거시 사회 후생의 외부효과 → 작은 미시 마찰이 큰 거시 비효율을 낳음. 비자발적 실업·산출 변동의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-014",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Akerlof-Yellen(1985)의 'near-rationality' 분석의 의의로 옳은 것은?",
+      "options": [
+        "기업이 완전히 비합리적",
+        "기업이 가격 조정에서 약간의 비합리성(near-rational)을 보여도, 그 비용은 사적으로 작으나 사회적으로 큰 경기변동을 낳음 → 합리적 기대 비판의 한 형태",
+        "기업은 항상 완전 합리적",
+        "정부가 결정",
+        "기업가정신과 무관"
+      ],
+      "answer": "2",
+      "explanation": "Akerlof-Yellen(1985 「A Near-Rational Model of the Business Cycle」): 기업이 합리적 기대에서 약간 벗어나도(near-rational) ① 사적 비용은 작음(2차 손실), ② 그러나 외부효과로 사회적 비용은 큼(1차 손실), ③ 따라서 작은 비합리성이 큰 경기변동을 낳을 수 있음. 합리적 기대 가설의 강한 가정에 대한 비판이며 새케인즈학파의 핵심 분석 도구."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-015",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "새케인즈학파의 가격경직성 미시적 기초 이론을 모두 고른 것은?\n\nㄱ. 메뉴비용(menu cost) - Mankiw(1985)\nㄴ. 효율임금(efficiency wage) - Shapiro-Stiglitz(1984)\nㄷ. 시차 계약(staggered contracts) - Taylor(1980)·Calvo(1983)\nㄹ. 내부자-외부자 - Lindbeck-Snower(1988)\nㅁ. 조정실패(coordination failure) - Cooper-John(1988)",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㅁ"
+      ],
+      "answer": "4",
+      "explanation": "ㄱ~ㅁ 모두 새케인즈학파의 가격경직성 미시적 기초 이론. ① 메뉴비용, ② 효율임금, ③ 시차 계약, ④ 내부자-외부자, ⑤ 조정실패 — 모두 케인즈의 비자발적 실업·가격경직성·경기변동의 미시적 기초를 다른 각도에서 제공한 핵심 이론이다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-016",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "새케인즈학파의 필립스곡선(New Keynesian Phillips Curve)의 특징으로 옳은 것은?",
+      "options": [
+        "단기·장기 모두 수직",
+        "현재 인플레이션 = 기대 인플레이션 + 산출갭(또는 한계비용)의 함수 — 합리적 기대 + 가격경직성(Calvo) 결합으로 미시적 기초 제공",
+        "현재 인플레이션은 무작위",
+        "정부가 결정",
+        "필립스곡선과 무관"
+      ],
+      "answer": "2",
+      "explanation": "New Keynesian Phillips Curve(NKPC): π_t = βE_t[π_{t+1}] + κ·산출갭_t (또는 한계비용). ① 합리적 기대 + Calvo 시차 가격 결정에서 도출, ② 전통 필립스곡선을 미시적 기초로 재정립, ③ 현대 DSGE 모형의 핵심 방정식, ④ 인플레이션 목표제 정책 분석의 도구. 새케인즈학파의 가장 중요한 분석 도구이다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-017",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "DSGE(Dynamic Stochastic General Equilibrium) 모형과 새케인즈학파의 관계로 옳은 것은?",
+      "options": [
+        "DSGE와 새케인즈학파는 무관",
+        "현대 DSGE 모형의 표준(예: Smets-Wouters 2003·2007)은 새케인즈학파의 ① 합리적 기대, ② 가격경직성(Calvo), ③ 명목·실재 경직성 등 미시적 기초를 결합한 동태 일반균형 모형이며, 중앙은행 정책 분석의 표준 도구",
+        "DSGE는 새고전학파만",
+        "DSGE는 통화주의의 일부",
+        "DSGE는 정책 분석에 부적합"
+      ],
+      "answer": "2",
+      "explanation": "DSGE 모형: ① 합리적 기대 + 동태 최적화(미시적 기초) + 확률적 충격 + 일반균형 결합. ② Christiano-Eichenbaum-Evans(2005)·Smets-Wouters(2003·2007)의 새케인즈 DSGE가 표준. ③ 가격경직성(Calvo), 임금경직성, 습관 형성, 자본 조정비용 등 새케인즈학파의 미시적 기초 종합. ④ 미 연준·ECB·한국은행 등 중앙은행 정책 분석의 표준 도구이다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-018",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Akerlof(1970, 2001 노벨상)의 'lemon problem'이 새케인즈학파와 연결되는 메커니즘으로 옳은 것은?",
+      "options": [
+        "두 이론은 무관",
+        "정보 비대칭(역선택·도덕적해이)이 ① 노동시장(고용 검색·효율임금), ② 금융시장(신용배급), ③ 보험·계약 등에 시장 마찰을 일으켜 케인즈적 비효율의 미시적 기초 제공",
+        "정보 비대칭은 효율 보장",
+        "Akerlof는 새고전학파",
+        "정보 비대칭은 거시와 무관"
+      ],
+      "answer": "2",
+      "explanation": "Akerlof(1970) 「The Market for Lemons」의 정보 비대칭 분석은 새케인즈학파의 미시적 기초의 핵심 도구가 된다. ① 노동시장: 효율임금·고용 검색 등의 시장 마찰, ② 금융시장: 신용배급(Stiglitz-Weiss 1981)으로 통화정책 전달 메커니즘, ③ 보험·계약: 역선택·도덕적해이로 시장 마찰. 케인즈적 비효율의 미시적 기초로 사용. Akerlof·Spence·Stiglitz는 2001년 노벨상 공동 수상."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-019",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Stiglitz-Weiss(1981)의 신용배급(credit rationing) 이론의 의의로 옳은 것은?",
+      "options": [
+        "은행이 항상 모든 차주에게 대출",
+        "정보 비대칭(차주의 위험 미관찰) 환경에서 은행이 이자율을 균형 위로 올리면 ① 우량 차주가 떠나는 역선택, ② 도덕적 해이로 위험투자 증가 → 은행이 이자율을 일정 이하로 유지하며 신용량으로 배급(credit rationing)",
+        "신용배급은 효율 보장",
+        "정부가 신용을 통제",
+        "은행은 항상 합리적"
+      ],
+      "answer": "2",
+      "explanation": "Stiglitz-Weiss(1981) 신용배급 이론: 정보 비대칭(차주의 위험 미관찰) 환경에서 은행이 이자율을 올리면 ① 우량 차주가 떠나는 역선택, ② 남은 차주의 위험투자 도덕적해이 → 은행 손실 증가. 따라서 은행은 균형 이자율 이하에서 신용량 자체를 제한(rationing). 통화정책의 전달 메커니즘·금융위기 분석의 핵심 이론이며, 새케인즈학파의 금융 측면 미시적 기초이다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-020",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "새케인즈학파와 새고전학파의 차이에 관한 다음 설명 중 옳은 것을 모두 고른 것은?\n\nㄱ. 둘 다 합리적 기대를 채택한다.\nㄴ. 새케인즈는 가격경직성, 새고전은 가격 신축성.\nㄷ. 새케인즈는 시장 마찰, 새고전은 시장 청산.\nㄹ. 새케인즈는 정부 개입 인정, 새고전은 정책무력성.\nㅁ. 새케인즈는 미시적 기초, 새고전은 거시만 다룸.",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㅁ"
+      ],
+      "answer": "2",
+      "explanation": "ㄱㄴㄷㄹ 옳음. ① 둘 다 합리적 기대, ② 가격경직성 vs 신축성, ③ 시장 마찰 vs 청산, ④ 정부 개입 인정 vs 정책무력성. ㅁ ✗: 두 학파 모두 미시적 기초를 강조한다. 새고전학파(RBC 모형 등)도 미시적 기초에서 출발하며, 미시적 기초는 두 학파의 공통 특징이다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-021",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Romer(1990)·Akerlof-Yellen 등의 새케인즈학파의 'real rigidity(실재 경직성)' 개념으로 옳은 것은?",
+      "options": [
+        "명목 가격만 경직적",
+        "명목 경직성(메뉴비용) + 실재 가격(상대가격) 경직성(시장지배력·노동·인플레이션 추세)이 결합되어야 큰 거시 변동 설명 가능 — 두 경직성의 결합이 새케인즈학파의 핵심",
+        "실재 경직성은 무관",
+        "정부가 결정",
+        "실재 경직성은 항상 0"
+      ],
+      "answer": "2",
+      "explanation": "실재 경직성(real rigidity): 명목 경직성(메뉴비용)만으로는 큰 거시 변동 설명 어려움. 따라서 ① 명목 경직성(메뉴비용) + ② 실재 경직성(상대가격 경직성 — 시장지배력·노동시장 마찰·전략적 보완성·인플레이션 추세 등)이 결합. Ball-Romer(1990 「Real Rigidities and the Non-Neutrality of Money」)가 분석. 새케인즈학파 분석 도구의 정교화."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-022",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "새케인즈학파가 통화정책 전달 메커니즘에 미친 영향으로 옳은 것은?",
+      "options": [
+        "통화정책은 항상 무효",
+        "단기 가격경직성으로 통화정책이 실물(GDP·고용)에 영향을 미치며, 그 메커니즘으로 ① 이자율 채널, ② 자산가격 채널, ③ 신용 채널(Bernanke-Gertler 1995), ④ 환율 채널 등이 분석됨",
+        "통화정책은 정부의 결정",
+        "통화정책은 항상 효과",
+        "통화정책은 미시와 무관"
+      ],
+      "answer": "2",
+      "explanation": "새케인즈학파의 통화정책 전달 메커니즘 분석: ① 단기 가격경직성 → 통화정책이 실물에 영향. 전달 메커니즘: ① 이자율 채널(전통적), ② 자산가격 채널(주식·부동산 가격), ③ 신용 채널(은행 신용·대차대조표·Bernanke-Gertler 1995), ④ 환율 채널. Bernanke는 새케인즈학파의 신용 채널 연구로 유명하며 2022년 노벨상 수상."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Taylor rule(테일러 룰)과 새케인즈학파의 관계로 옳은 것은?",
+      "options": [
+        "Taylor rule은 새케인즈학파와 무관",
+        "John Taylor(1993)의 ① 기준금리 = 균형 실질이자율 + 인플레이션율 + α·산출갭 + β·인플레이션갭, ② 통화주의 규칙 + 케인즈적 안정화 결합, ③ 새케인즈 DSGE의 표준 정책 규칙이 됨",
+        "Taylor rule은 정부 결정",
+        "Taylor rule은 새고전학파만",
+        "Taylor rule은 사회주의"
+      ],
+      "answer": "2",
+      "explanation": "John Taylor(1993) Taylor rule: 기준금리 = 균형 실질이자율 + 인플레이션율 + 0.5·(인플레이션 - 목표) + 0.5·산출갭. ① 통화주의 규칙(예측 가능)과 ② 케인즈적 안정화(인플레이션·산출 안정)를 결합. ③ 새케인즈 DSGE의 표준 정책 규칙. ④ 현대 중앙은행의 실제 정책에 큰 영향(연준·ECB·한국은행 등). 새케인즈학파 정책 분석의 핵심 도구."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-024",
+      "difficulty": 4,
+      "question_type": "보기 결합형",
+      "question": "새케인즈학파의 주요 학자와 기여에 관한 다음 설명 중 옳은 것을 모두 고른 것은?\n\nA. Mankiw(1985) - 메뉴비용 이론.\nB. Shapiro-Stiglitz(1984) - 효율임금 모형.\nC. Taylor(1980)·Calvo(1983) - 시차 계약 모형.\nD. Akerlof(2001 노벨상)·Stiglitz(2001 노벨상) - 비대칭정보·새케인즈학파.\nE. Mankiw-Romer(1991) - 「New Keynesian Economics」 편저로 학파 정립.\nF. Bernanke-Gertler(1995) - 신용 채널·금융가속도(Bernanke 2022 노벨상).",
+      "options": [
+        "A, B, C, D",
+        "A, B, C, D, E",
+        "A, B, C, D, F",
+        "A, B, C, D, E, F",
+        "B, C, D, E, F"
+      ],
+      "answer": "4",
+      "explanation": "A~F 모두 옳다. 새케인즈학파 발전사: ① Mankiw(1985) 메뉴비용, ② Shapiro-Stiglitz(1984) 효율임금, ③ Taylor·Calvo(1980·83) 시차 계약, ④ Akerlof·Stiglitz(2001 노벨상) 비대칭정보, ⑤ Mankiw-Romer(1991) 편저로 학파 정립, ⑥ Bernanke-Gertler(1995) 신용 채널·Bernanke 2022 노벨상 — 약 40년에 걸친 거대한 학문 흐름이다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-025",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "새케인즈학파의 2008 글로벌 금융위기·2020 코로나 대응에 미친 영향으로 옳은 것은?",
+      "options": [
+        "새케인즈학파는 위기 대응에 무용",
+        "① 신용 채널·금융가속도 분석으로 위기 진단(Bernanke), ② DSGE 모형으로 정책 효과 분석, ③ 비전통적 통화정책(QE)의 이론적 기초, ④ 정부 재정·통화 결합 정책의 정당화, ⑤ 인플레이션 목표제 + 금융 안정성의 종합 접근 등 다층적 영향",
+        "오직 통화주의로 위기 대응",
+        "위기는 새고전학파로만 해결",
+        "위기 대응은 정부와 무관"
+      ],
+      "answer": "2",
+      "explanation": "새케인즈학파의 위기 대응 영향: ① 신용 채널·금융가속도(Bernanke-Gertler) 분석으로 2008 위기 진단, ② DSGE 모형으로 정책 효과 분석(미 연준·ECB), ③ 비전통적 통화정책(QE·forward guidance)의 이론적 기초, ④ 정부 재정·통화 결합 정책 정당화(2008 ARRA·2020 코로나 부양), ⑤ 인플레이션 목표제 + 금융 안정성 종합 접근. Bernanke(2022 노벨상)는 새케인즈 신용 채널 분석으로 인정받았다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-026",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "새케인즈학파의 한계와 비판으로 옳은 것은?",
+      "options": [
+        "한계 없음",
+        "① DSGE 모형의 가정(합리적 기대·대표적 가계 등)의 비현실성, ② 2008 금융위기 예측·분석 한계로 'DSGE 위기'·이질적 가계 도입, ③ 거품·복잡 금융시장 모델링 어려움, ④ 행동경제학·복잡계 경제학의 비판",
+        "새케인즈학파는 항상 옳음",
+        "새케인즈학파는 미시경제학",
+        "새케인즈학파는 외환 모형"
+      ],
+      "answer": "2",
+      "explanation": "새케인즈학파의 한계: ① DSGE 모형의 가정(합리적 기대·대표적 가계·완전 시장 등)의 비현실성 비판, ② 2008 금융위기 예측·분석에 한계 드러남 → 'DSGE 위기', ③ 이후 이질적 가계(HANK)·금융 마찰 도입으로 확장, ④ Akerlof·Shiller의 행동경제학·동물적 본능 분석, ⑤ Mandelbrot·Sornette의 복잡계·거품 분석 등의 보완적 접근이 활발해졌다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-027",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "HANK(Heterogeneous Agent New Keynesian) 모형의 의의로 옳은 것은?",
+      "options": [
+        "전통 새케인즈와 같음",
+        "전통 새케인즈 DSGE의 '대표적 가계' 가정을 ① 이질적 가계(소득·자산 분포)로 확장하여 ② 분배·금융 마찰의 정책 효과를 정밀 분석 — Kaplan-Moll-Violante(2018) 등의 발전",
+        "HANK는 새고전학파",
+        "HANK는 미시경제학",
+        "HANK는 통화주의 모형"
+      ],
+      "answer": "2",
+      "explanation": "HANK(Heterogeneous Agent New Keynesian, Kaplan-Moll-Violante 2018 등): 전통 새케인즈 DSGE의 '대표적 가계' 가정을 ① 이질적 가계(소득·자산 분포·유동성 제약)로 확장, ② 분배·재정정책 효과의 정밀 분석 가능, ③ MPC(한계소비성향) 이질성·유동성 제약 가계의 정책 영향 등 분석, ④ 2008 위기·코로나 대응의 분배 효과 분석 도구. 새케인즈학파의 최근 발전."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-028",
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 종합 시나리오의 분석으로 가장 적절한 것은?\n\n[시나리오] 한 경제의 코로나19 대응 정책 분석\n- 2020년 초 코로나로 수요 급감·기업 폐쇄·고용 충격\n- 중앙은행 기준금리 0.5%로 인하·QE·forward guidance\n- 정부 대규모 재정 부양(미국 2.2조달러 CARES·한국 30조 추경)\n- 단기 인플레이션 압력·공급망 충격",
+      "options": [
+        "이 정책은 통화주의만",
+        "이 정책은 새케인즈학파의 종합적 분석에 부합 — ① 가격경직성 + 합리적 기대로 통화정책 단기 효과, ② 신용 채널·금융가속도(Bernanke-Gertler), ③ 재정정책과 통화정책 결합(승수효과), ④ HANK 모형으로 이질적 가계의 분배 영향, ⑤ 인플레이션 목표제 + 금융 안정성 균형",
+        "이 정책은 무용",
+        "정부는 개입하지 말아야 했음",
+        "오직 시장 자율"
+      ],
+      "answer": "2",
+      "explanation": "코로나19 정책 대응의 새케인즈학파적 분석: ① 가격경직성으로 통화·재정 정책의 단기 효과, ② Bernanke-Gertler 신용 채널·금융가속도 분석, ③ 재정·통화 결합 정책의 승수효과(2008 위기 학습), ④ HANK 모형으로 이질적 가계(특히 유동성 제약 저소득층)의 분배 효과 분석, ⑤ 인플레이션 목표제 + 금융 안정성 종합 접근. 미·EU·한국 모두 새케인즈학파 DSGE 분석으로 정책 효과 평가."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-029",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "새케인즈학파의 학문적·정책적 발전을 종합한 다음 설명 중 옳은 것을 모두 고른 것은?\n\nA. Shapiro-Stiglitz(1984) - 효율임금.\nB. Mankiw(1985) - 메뉴비용.\nC. Taylor(1980)·Calvo(1983) - 시차 계약.\nD. Bernanke-Gertler(1995) - 신용 채널·금융가속도.\nE. Smets-Wouters(2003·2007) - 새케인즈 DSGE 표준.\nF. Akerlof·Stiglitz(2001 노벨), Bernanke(2022 노벨) - 학문적 인정.\nG. HANK 모형(2018~) - 이질적 가계 확장.",
+      "options": [
+        "A, B, C, D, E",
+        "A, B, C, D, E, F",
+        "A, B, C, D, E, F, G",
+        "A, B, C, D, F",
+        "B, C, D, E, F, G"
+      ],
+      "answer": "3",
+      "explanation": "A~G 모두 옳다. 새케인즈학파 발전사: ① Shapiro-Stiglitz(1984) 효율임금, ② Mankiw(1985) 메뉴비용, ③ Taylor·Calvo(1980·83) 시차 계약, ④ Bernanke-Gertler(1995) 신용 채널, ⑤ Smets-Wouters DSGE 표준, ⑥ Akerlof·Stiglitz(2001)·Bernanke(2022) 노벨상, ⑦ HANK 모형으로 이질적 가계 확장 — 약 40년에 걸친 거대한 학문 흐름이다."
+    },
+    {
+      "id": "practice-econ-macro-ch06-sec16-item02-030",
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "question": "새케인즈학파의 현대적 의의와 한계에 관한 종합 분석으로 가장 적절한 것은?",
+      "options": [
+        "새케인즈학파는 학문적 가치만",
+        "새케인즈학파는 ① 케인즈 이론을 합리적 기대 + 가격경직성의 미시적 기초로 재정립, ② DSGE 모형·인플레이션 목표제·Taylor rule 등 현대 거시정책의 표준 도구 제공, ③ 2008·2020 위기 대응의 이론적 기초, ④ Akerlof·Stiglitz·Bernanke 등의 노벨상으로 학문적 인정. 한계로 ① DSGE의 비현실적 가정, ② 금융위기 예측 한계, ③ 행동경제학·복잡계의 비판이 있어 ⑤ HANK·금융 마찰·행동경제학적 확장으로 발전 중",
+        "새케인즈학파는 완전 폐기",
+        "새케인즈학파는 미시경제학의 일부",
+        "새케인즈학파는 외환만 다룸"
+      ],
+      "answer": "2",
+      "explanation": "새케인즈학파의 종합적 의의와 한계: 의의 ① 합리적 기대 + 미시적 기초(메뉴비용·효율임금·시차계약 등)로 케인즈 이론 재정립, ② DSGE 모형·Taylor rule·인플레이션 목표제 등 현대 거시정책의 표준 도구, ③ 2008·2020 위기 대응의 이론적 기초, ④ Akerlof·Stiglitz(2001)·Bernanke(2022) 노벨상으로 학문적 인정. 한계 ① DSGE의 비현실적 가정(합리적 기대·대표적 가계), ② 금융위기 예측 한계, ③ 행동경제학·복잡계 비판. 후속: ① HANK 모형(이질적 가계), ② 금융 마찰 확장, ③ 행동경제학적 통합. 현대 거시경제학의 주류로 영향력 지속 중."
+    }
+  ]
+}
