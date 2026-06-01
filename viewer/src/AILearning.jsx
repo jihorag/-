@@ -700,7 +700,7 @@ function matchWeakLeaves(weakPaths, leaves) {
 
 const IDLE_MS = 10 * 60 * 1000; // 10분
 
-export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPathsBySubject }) {
+export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPathsBySubject, leavesBySubject: leavesBySubjectProp, onJumpToBrowse, getQuizCountForLeaf }) {
   useEffect(() => { migrateLegacyCivilIds(); }, []);
   const [byok, setByokState] = useState(getByok());
   const [prefs, setPrefsState] = useState(getPrefs());
@@ -725,13 +725,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [showSettings, setShowSettings] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
-  // leaf id → leaves (5과목 모두 캐시 — analytics 패널에서 사용)
-  const [leavesBySubject, setLeavesBySubject] = useState({});
+  // 5과목 leaves 캐시 — App.jsx에서 미리 받아둔 props 사용. fallback으로 자체 fetch.
+  const [leavesBySubject, setLeavesBySubject] = useState(leavesBySubjectProp || {});
+  useEffect(() => {
+    if (leavesBySubjectProp) setLeavesBySubject(leavesBySubjectProp);
+  }, [leavesBySubjectProp]);
   useEffect(() => {
     setLeavesBySubject((prev) => ({ ...prev, [subjectId]: leaves }));
   }, [subjectId, leaves]);
   useEffect(() => {
-    // 분석 패널 첫 노출 시 누락된 과목 인덱스도 로드 (캐시)
     if (!showAnalytics) return;
     SUBJECTS.forEach((s) => {
       if (leavesBySubject[s.id]) return;
@@ -1371,6 +1373,22 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                 >
                   {mode === 'practice' ? '📖 이론으로' : '✏️ 문제풀이로'}
                 </button>
+                {/* 둘러보기 점프 — 이 단원의 quiz 문제 수 표시 */}
+                {onJumpToBrowse && getQuizCountForLeaf && (() => {
+                  const n = getQuizCountForLeaf(curLeaf);
+                  if (n <= 0) return null;
+                  return (
+                    <button
+                      onClick={() => onJumpToBrowse(curLeaf)}
+                      style={{
+                        padding: '9px 16px', background: '#fff', color: '#1e40af',
+                        border: '1px solid #c7d2fe', borderRadius: 8, cursor: 'pointer', fontWeight: 600,
+                      }}
+                    >
+                      📚 기출 {n}문제 보기
+                    </button>
+                  );
+                })()}
                 {/* 단원 자료 없음 안내 */}
                 {!curLeaf.unit_file && (
                   <div style={{ width: '100%', marginTop: 8, fontSize: '0.78rem', color: '#9a3412' }}>

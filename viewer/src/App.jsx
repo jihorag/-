@@ -1890,7 +1890,38 @@ const App = () => {
 
   // AI 학습 탭 — 하단 탭바 노출되는 루트 화면. (구 통암기 탭 대체)
   if (currentView === 'civil') {
-    return shell(<AILearning isTabRoot browseExam={browseExam} weakPathsBySubject={aiWeakPathsBySubject} />);
+    return shell(
+      <AILearning
+        isTabRoot
+        browseExam={browseExam}
+        weakPathsBySubject={aiWeakPathsBySubject}
+        leavesBySubject={leavesBySubject}
+        onJumpToBrowse={(leaf) => {
+          // leaf.path → tax 드릴 위치로 점프 (가장 구체적인 단계)
+          const subjId = (leaf.id || '').split('__')[0];
+          const subjName = AI_SUBJECT_TO_QUIZ[subjId];
+          if (!subjName || !taxonomyData) return;
+          const hasSubs = !!taxonomyData[subjName]?.has_subjects;
+          const p = leaf.path || [];
+          setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
+          setTaxSubject(subjName);
+          setTaxSubSubject(hasSubs ? p[0] : null);
+          setTaxChapter(hasSubs ? p[1] : p[0]);
+          setTaxSection(hasSubs ? (p[2] || null) : (p[1] || null));
+          // 가장 구체적인 단계로 currentView 결정
+          const sectionVal = hasSubs ? p[2] : p[1];
+          const chapterVal = hasSubs ? p[1] : p[0];
+          if (sectionVal) setCurrentView('tax_items');
+          else if (chapterVal) setCurrentView('tax_sections');
+          else setCurrentView('tax_chapters');
+          window.scrollTo(0, 0);
+        }}
+        getQuizCountForLeaf={(leaf) => {
+          if (!leaf || !classifiedList?.length) return 0;
+          return questionsInLeaf(classifiedList, leaf).length;
+        }}
+      />
+    );
   }
 
   // 모의고사: picker/result는 하단 탭 유지, session은 집중 모드(no shell).
@@ -2301,7 +2332,11 @@ const App = () => {
     );
   };
 
-  const renderStudyGrid = (title, subtitle, groups) => (
+  const renderStudyGrid = (title, subtitle, groups) => {
+    // 현재 tax 드릴 위치가 AI 학습 leaf로 매핑되면 점프 버튼 노출
+    const tax = { subject: taxSubject, sub_subject: taxSubSubject, chapter: taxChapter, section: taxSection };
+    const aiLeaf = (taxChapter || taxSection) ? findAiLeafForTax(tax) : null;
+    return (
     <div className="app-container">
       {drillHeader()}
       {renderBreadcrumb()}
@@ -2310,6 +2345,25 @@ const App = () => {
         <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '4px' }}>{subtitle}</div>
         <h1 className="screen-title">{title}</h1>
       </div>
+      {aiLeaf && (
+        <div style={{ padding: '8px 20px 0' }}>
+          <button
+            onClick={() => jumpToAILearn(aiLeaf)}
+            style={{
+              width: '100%', padding: '10px 14px',
+              background: 'linear-gradient(90deg, #eef2ff 0%, #fce7f3 100%)',
+              border: '1px solid #c7d2fe', borderRadius: 10, color: '#4338ca',
+              fontSize: '0.88rem', fontWeight: 700, cursor: 'pointer',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            }}
+          >
+            <span>🎓 AI 튜터로 이 단원 배우기</span>
+            <span style={{ fontSize: '0.75rem', color: '#6366f1', fontWeight: 600 }}>
+              {aiLeaf.path.slice(-1)[0]} ›
+            </span>
+          </button>
+        </div>
+      )}
       
       <main className="main-content" style={{ marginTop: '20px' }}>
         <div className="study-grid">
@@ -2341,7 +2395,8 @@ const App = () => {
         </div>
       </main>
     </div>
-  );
+    );
+  };
 
   // ===== 단일 v4 분류축 뷰 (시험별/과목별/단원별/연도별 공용) =====
   const scopePrefix = taxScope ? `${taxScope.label} · ` : '';
