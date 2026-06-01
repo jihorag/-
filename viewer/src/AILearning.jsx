@@ -474,21 +474,26 @@ function AnswerChoiceRow({ options, onPick, disabled }) {
 // 5과목 종합 분석 — 레이더(다각형) + 단원별 상위/하위 5
 function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
   const stats = SUBJECTS.map((s) => {
-    const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__'));
+    const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__') || k.startsWith(s.id + '_'));
     const total = ks.length;
     const covSum = ks.reduce((a, k) => a + (mastery[k]?.coverage || 0), 0);
     const accs = ks.map((k) => mastery[k]?.accuracy || 0).filter((x) => x > 0);
     const masterCount = ks.filter((k) => mastery[k]?.status === 'mastered').length;
+    const isStage2 = s.stage === 2;
+    const avgScoreSum = isStage2 ? ks.reduce((a, k) => a + (mastery[k]?.avg_score_pct || 0), 0) / 100 : 0;
     return {
       s,
       total,
       covAvg: total > 0 ? covSum / total : 0,
       accAvg: accs.length > 0 ? accs.reduce((a, b) => a + b, 0) / accs.length : 0,
       masterCount,
+      isStage2,
+      avgScoreAvg: isStage2 && total > 0 ? avgScoreSum / total : 0,
     };
   });
+  const statsStage1 = stats.filter((x) => !x.isStage2);
+  const statsStage2 = stats.filter((x) => x.isStage2);
 
-  // 단원 진행 ranking — 진행한 모든 leaf 중 top/bottom
   const allRanked = useMemo(() => {
     const arr = [];
     SUBJECTS.forEach((s) => {
@@ -506,37 +511,29 @@ function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
   const top5 = allRanked.slice(0, 5);
   const bottom5 = allRanked.slice(-5).reverse();
 
-  // 레이더 다각형 좌표
-  const radius = 70;
-  const cx = 90;
-  const cy = 90;
-  const pts = stats.map((st, i) => {
-    const angle = (Math.PI * 2 * i) / stats.length - Math.PI / 2;
-    const r = radius * (st.covAvg || 0);
-    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle), s: st.s, st };
-  });
-  const polyStr = pts.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
-  const axisPts = stats.map((_, i) => {
-    const angle = (Math.PI * 2 * i) / stats.length - Math.PI / 2;
-    return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle), label: SUBJECTS[i].short };
-  });
-
-  return (
-    <div style={{ padding: 16, background: '#fff', borderRadius: 12, border: '1px solid #e5e7eb' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-        <h3 style={{ margin: 0, fontSize: '1rem', display: 'flex', alignItems: 'center', gap: 6 }}>
-          <BarChart3 size={18} /> 5과목 종합 분석
-        </h3>
-        <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280' }}>✕</button>
-      </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: 16, alignItems: 'start' }}>
-        <svg viewBox="0 0 180 180" style={{ width: '100%', height: 'auto' }}>
+  // 레이더 렌더 헬퍼 (stage별)
+  const renderRadar = (data, label) => {
+    if (data.length < 3) return null;
+    const radius = 60, cx = 80, cy = 80;
+    const pts = data.map((st, i) => {
+      const angle = (Math.PI * 2 * i) / data.length - Math.PI / 2;
+      const r = radius * (st.covAvg || 0);
+      return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle), s: st.s };
+    });
+    const polyStr = pts.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+    const axisPts = data.map((st, i) => {
+      const angle = (Math.PI * 2 * i) / data.length - Math.PI / 2;
+      return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle), label: st.s.short };
+    });
+    return (
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ fontSize: '0.74rem', color: '#4338ca', fontWeight: 700, marginBottom: 4 }}>{label}</div>
+        <svg viewBox="0 0 160 160" style={{ width: '100%', maxWidth: 180 }}>
           {[0.25, 0.5, 0.75, 1].map((r) => (
             <polygon
               key={r}
-              points={SUBJECTS.map((_, i) => {
-                const a = (Math.PI * 2 * i) / SUBJECTS.length - Math.PI / 2;
+              points={data.map((_, i) => {
+                const a = (Math.PI * 2 * i) / data.length - Math.PI / 2;
                 return `${(cx + radius * r * Math.cos(a)).toFixed(1)},${(cy + radius * r * Math.sin(a)).toFixed(1)}`;
               }).join(' ')}
               fill="none" stroke="#e5e7eb" strokeWidth="1"
@@ -545,24 +542,38 @@ function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
           {axisPts.map((p, i) => (
             <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="#e5e7eb" strokeWidth="1" />
           ))}
-          <polygon points={polyStr} fill="#4f46e5" fillOpacity="0.25" stroke="#4f46e5" strokeWidth="2" />
+          <polygon points={polyStr} fill="#4f46e5" fillOpacity="0.22" stroke="#4f46e5" strokeWidth="2" />
           {pts.map((p, i) => (
-            <circle key={i} cx={p.x} cy={p.y} r="3" fill={p.s.color} />
+            <circle key={i} cx={p.x} cy={p.y} r="3" fill="#4f46e5" />
           ))}
           {axisPts.map((p, i) => (
-            <text
-              key={i}
+            <text key={i}
               x={p.x + (p.x > cx ? 4 : p.x < cx ? -4 : 0)}
               y={p.y + (p.y > cy ? 10 : p.y < cy ? -4 : 4)}
-              fontSize="10"
-              textAnchor={p.x > cx ? 'start' : p.x < cx ? 'end' : 'middle'}
-              fill="#374151"
-            >
-              {p.label}
-            </text>
+              fontSize="9" fontWeight="700"
+              textAnchor={p.x > cx + 2 ? 'start' : p.x < cx - 2 ? 'end' : 'middle'}
+              fill="#4338ca">{p.label}</text>
           ))}
         </svg>
-        <div>
+      </div>
+    );
+  };
+
+  return (
+    <div style={{ padding: 16, background: '#fff', borderRadius: 12, border: '1px solid #e5e7eb' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+        <h3 style={{ margin: 0, fontSize: '1rem', display: 'flex', alignItems: 'center', gap: 6 }}>
+          <BarChart3 size={18} /> 8과목 종합 분석
+        </h3>
+        <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280' }}>✕</button>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 14 }}>
+        {renderRadar(statsStage1, '📖 1차 5과목')}
+        {renderRadar(statsStage2, '✍️ 2차 3과목')}
+      </div>
+
+      <div>
           <table style={{ width: '100%', fontSize: '0.78rem', borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ color: '#6b7280' }}>
@@ -575,15 +586,17 @@ function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
             <tbody>
               {stats.map((st) => (
                 <tr key={st.s.id} style={{ borderTop: '1px solid #f3f4f6' }}>
-                  <td style={{ padding: '4px 0', color: st.s.color, fontWeight: 700 }}>{st.s.icon} {st.s.short}</td>
+                  <td style={{ padding: '4px 0', color: st.s.color, fontWeight: 700 }}>
+                    {st.s.icon} {st.s.short}
+                    {st.isStage2 && <span style={{ marginLeft: 4, fontSize: '0.6rem', background: st.s.color, color: '#fff', padding: '1px 4px', borderRadius: 4 }}>2차</span>}
+                  </td>
                   <td style={{ textAlign: 'right' }}>{Math.round(st.covAvg * 100)}%</td>
                   <td style={{ textAlign: 'right' }}>{st.masterCount}/{st.total}</td>
-                  <td style={{ textAlign: 'right' }}>{st.accAvg > 0 ? `${Math.round(st.accAvg * 100)}%` : '—'}</td>
+                  <td style={{ textAlign: 'right' }}>{st.isStage2 ? (st.avgScoreAvg > 0 ? `${Math.round(st.avgScoreAvg * 100)}%` : '—') : (st.accAvg > 0 ? `${Math.round(st.accAvg * 100)}%` : '—')}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginTop: 16 }}>
