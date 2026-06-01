@@ -1,0 +1,5989 @@
+{
+  "subject": "경제학원론",
+  "subject_id": "economics",
+  "exam": "감정평가사 1차",
+  "total_questions_per_exam": 40,
+  "taxonomy_source": "/data/taxonomy.json",
+  "units_dir": "/data/study/economics/units",
+  "problems_dir": "/data/study/economics/problems",
+  "handover_file": "/data/study/economics/handover.md",
+  "leaves": [
+    {
+      "id": "economics__미시경제학__제1장_경제학의_기초__제1절_경제학의_개요__제1관_경제학의_정의와_분류",
+      "path": [
+        "미시경제학",
+        "제1장 경제학의 기초",
+        "제1절 경제학의 개요",
+        "제1관 경제학의 정의와 분류"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 경제학의 정의와 분류",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__미시경제학__제1장_경제학의_기초__제1절_경제학의_개요__제2관_경제문제와_경제체제",
+      "path": [
+        "미시경제학",
+        "제1장 경제학의 기초",
+        "제1절 경제학의 개요",
+        "제2관 경제문제와 경제체제"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 경제문제와 경제체제",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__미시경제학__제1장_경제학의_기초__제1절_경제학의_개요__제3관_기회비용과_합리적_선택",
+      "path": [
+        "미시경제학",
+        "제1장 경제학의 기초",
+        "제1절 경제학의 개요",
+        "제3관 기회비용과 합리적 선택"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 기회비용과 합리적 선택",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__미시경제학__제1장_경제학의_기초__제1절_경제학의_개요__제4관_생산가능곡선",
+      "path": [
+        "미시경제학",
+        "제1장 경제학의 기초",
+        "제1절 경제학의 개요",
+        "제4관 생산가능곡선"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 생산가능곡선",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__미시경제학__제1장_경제학의_기초__제2절_경제학의_방법론__제1관_실증경제학과_규범경제학",
+      "path": [
+        "미시경제학",
+        "제1장 경제학의 기초",
+        "제2절 경제학의 방법론",
+        "제1관 실증경제학과 규범경제학"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 실증경제학과 규범경제학",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__미시경제학__제1장_경제학의_기초__제2절_경제학의_방법론__제2관_경제이론_모형_가정",
+      "path": [
+        "미시경제학",
+        "제1장 경제학의 기초",
+        "제2절 경제학의 방법론",
+        "제2관 경제이론·모형·가정"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 경제이론",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제3절_수요_공급의_이론__제1관_수요와_수요곡선",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제3절 수요·공급의 이론",
+        "제1관 수요와 수요곡선"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 수요와 수요곡선",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제3절_수요_공급의_이론__제2관_공급과_공급곡선",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제3절 수요·공급의 이론",
+        "제2관 공급과 공급곡선"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 공급과 공급곡선",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제3절_수요_공급의_이론__제3관_시장균형",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제3절 수요·공급의 이론",
+        "제3관 시장균형"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 시장균형",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제3절_수요_공급의_이론__제4관_수요_공급의_변화와_균형이동",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제3절 수요·공급의 이론",
+        "제4관 수요·공급의 변화와 균형이동"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 수요",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제4절_수요와_공급의_탄력성__제1관_수요의_가격탄력성",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제4절 수요와 공급의 탄력성",
+        "제1관 수요의 가격탄력성"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 수요의 가격탄력성",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제4절_수요와_공급의_탄력성__제2관_수요의_소득탄력성_교차탄력성",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제4절 수요와 공급의 탄력성",
+        "제2관 수요의 소득탄력성·교차탄력성"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 수요의 소득탄력성",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제4절_수요와_공급의_탄력성__제3관_공급의_가격탄력성",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제4절 수요와 공급의 탄력성",
+        "제3관 공급의 가격탄력성"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 공급의 가격탄력성",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제4절_수요와_공급의_탄력성__제4관_탄력성과_총수입",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제4절 수요와 공급의 탄력성",
+        "제4관 탄력성과 총수입"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 탄력성과 총수입",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제5절_수요_공급이론의_응용__제1관_가격통제_최고가격제_최저가격제",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제5절 수요·공급이론의 응용",
+        "제1관 가격통제 (최고가격제·최저가격제)"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 가격통제 (최고가격제",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제5절_수요_공급이론의_응용__제2관_조세의_귀착과_사회후생_손실",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제5절 수요·공급이론의 응용",
+        "제2관 조세의 귀착과 사회후생 손실"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 조세의 귀착과 사회후생 손실",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제2장_수요_공급의_이론__제5절_수요_공급이론의_응용__제3관_보조금의_효과",
+      "path": [
+        "미시경제학",
+        "제2장 수요·공급의 이론",
+        "제5절 수요·공급이론의 응용",
+        "제3관 보조금의 효과"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 보조금의 효과",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제6절_한계효용이론__제1관_효용과_한계효용",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제6절 한계효용이론",
+        "제1관 효용과 한계효용"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 효용과 한계효용",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제6절_한계효용이론__제2관_한계효용_균등의_법칙",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제6절 한계효용이론",
+        "제2관 한계효용 균등의 법칙"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 한계효용 균등의 법칙",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제6절_한계효용이론__제3관_수요곡선의_도출",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제6절 한계효용이론",
+        "제3관 수요곡선의 도출"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 수요곡선의 도출",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제7절_무차별곡선이론__제1관_무차별곡선과_한계대체율",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제7절 무차별곡선이론",
+        "제1관 무차별곡선과 한계대체율"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 무차별곡선과 한계대체율",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제7절_무차별곡선이론__제2관_예산선과_소비자균형",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제7절 무차별곡선이론",
+        "제2관 예산선과 소비자균형"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 예산선과 소비자균형",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제7절_무차별곡선이론__제3관_가격효과_대체효과_소득효과",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제7절 무차별곡선이론",
+        "제3관 가격효과·대체효과·소득효과"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 가격효과",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제7절_무차별곡선이론__제4관_슬러츠키_분해",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제7절 무차별곡선이론",
+        "제4관 슬러츠키 분해"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 슬러츠키 분해",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제8절_현시선호이론__제1관_현시선호의_약공리_강공리",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제8절 현시선호이론",
+        "제1관 현시선호의 약공리·강공리"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 현시선호의 약공리",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제8절_현시선호이론__제2관_수요곡선의_도출",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제8절 현시선호이론",
+        "제2관 수요곡선의 도출"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 수요곡선의 도출",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제9절_소비자이론의_응용__제1관_노동공급_결정",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제9절 소비자이론의 응용",
+        "제1관 노동공급 결정"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 노동공급 결정",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제9절_소비자이론의_응용__제2관_시점간_소비선택",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제9절 소비자이론의 응용",
+        "제2관 시점간 소비선택"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 시점간 소비선택",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제9절_소비자이론의_응용__제3관_소비자잉여",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제9절 소비자이론의 응용",
+        "제3관 소비자잉여"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 소비자잉여",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제10절_기대효용이론__제1관_기대값과_기대효용",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제10절 기대효용이론",
+        "제1관 기대값과 기대효용"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 기대값과 기대효용",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제10절_기대효용이론__제2관_위험에_대한_태도",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제10절 기대효용이론",
+        "제2관 위험에 대한 태도"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 위험에 대한 태도",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제3장_소비자이론__제10절_기대효용이론__제3관_위험프리미엄과_보험",
+      "path": [
+        "미시경제학",
+        "제3장 소비자이론",
+        "제10절 기대효용이론",
+        "제3관 위험프리미엄과 보험"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 위험프리미엄과 보험",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M03",
+      "unit_file": "units/M03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M03.md"
+    },
+    {
+      "id": "economics__미시경제학__제4장_생산자이론__제11절_생산이론__제1관_생산함수와_생산요소",
+      "path": [
+        "미시경제학",
+        "제4장 생산자이론",
+        "제11절 생산이론",
+        "제1관 생산함수와 생산요소"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 생산함수와 생산요소",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M04",
+      "unit_file": "units/M04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M04.md"
+    },
+    {
+      "id": "economics__미시경제학__제4장_생산자이론__제11절_생산이론__제2관_단기생산함수_한계생산_평균생산",
+      "path": [
+        "미시경제학",
+        "제4장 생산자이론",
+        "제11절 생산이론",
+        "제2관 단기생산함수 (한계생산·평균생산)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 단기생산함수 (한계생산",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M04",
+      "unit_file": "units/M04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M04.md"
+    },
+    {
+      "id": "economics__미시경제학__제4장_생산자이론__제11절_생산이론__제3관_장기생산함수_등량곡선_기술적_한계대체율",
+      "path": [
+        "미시경제학",
+        "제4장 생산자이론",
+        "제11절 생산이론",
+        "제3관 장기생산함수 (등량곡선·기술적 한계대체율)"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 장기생산함수 (등량곡선",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M04",
+      "unit_file": "units/M04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M04.md"
+    },
+    {
+      "id": "economics__미시경제학__제4장_생산자이론__제11절_생산이론__제4관_규모에_대한_수익",
+      "path": [
+        "미시경제학",
+        "제4장 생산자이론",
+        "제11절 생산이론",
+        "제4관 규모에 대한 수익"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 규모에 대한 수익",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M04",
+      "unit_file": "units/M04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M04.md"
+    },
+    {
+      "id": "economics__미시경제학__제4장_생산자이론__제12절_비용이론__제1관_회계적_비용과_경제적_비용",
+      "path": [
+        "미시경제학",
+        "제4장 생산자이론",
+        "제12절 비용이론",
+        "제1관 회계적 비용과 경제적 비용"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 회계적 비용과 경제적 비용",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M04",
+      "unit_file": "units/M04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M04.md"
+    },
+    {
+      "id": "economics__미시경제학__제4장_생산자이론__제12절_비용이론__제2관_단기비용함수",
+      "path": [
+        "미시경제학",
+        "제4장 생산자이론",
+        "제12절 비용이론",
+        "제2관 단기비용함수"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 단기비용함수",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M04",
+      "unit_file": "units/M04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M04.md"
+    },
+    {
+      "id": "economics__미시경제학__제4장_생산자이론__제12절_비용이론__제3관_장기비용함수와_규모의_경제",
+      "path": [
+        "미시경제학",
+        "제4장 생산자이론",
+        "제12절 비용이론",
+        "제3관 장기비용함수와 규모의 경제"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 장기비용함수와 규모의 경제",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M04",
+      "unit_file": "units/M04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M04.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제13절_완전경쟁시장__제1관_완전경쟁시장의_특징",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제13절 완전경쟁시장",
+        "제1관 완전경쟁시장의 특징"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 완전경쟁시장의 특징",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제13절_완전경쟁시장__제2관_단기_이윤극대화",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제13절 완전경쟁시장",
+        "제2관 단기 이윤극대화"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 단기 이윤극대화",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제13절_완전경쟁시장__제3관_장기균형",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제13절 완전경쟁시장",
+        "제3관 장기균형"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 장기균형",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제14절_독점시장__제1관_독점의_발생원인",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제14절 독점시장",
+        "제1관 독점의 발생원인"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 독점의 발생원인",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제14절_독점시장__제2관_독점기업의_이윤극대화",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제14절 독점시장",
+        "제2관 독점기업의 이윤극대화"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 독점기업의 이윤극대화",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제14절_독점시장__제3관_가격차별",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제14절 독점시장",
+        "제3관 가격차별"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 가격차별",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제14절_독점시장__제4관_독점의_폐해와_규제",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제14절 독점시장",
+        "제4관 독점의 폐해와 규제"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 독점의 폐해와 규제",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제15절_독점적_경쟁시장__제1관_독점적_경쟁의_특징",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제15절 독점적 경쟁시장",
+        "제1관 독점적 경쟁의 특징"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 독점적 경쟁의 특징",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제15절_독점적_경쟁시장__제2관_단기_장기균형",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제15절 독점적 경쟁시장",
+        "제2관 단기·장기균형"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 단기",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제16절_과점시장__제1관_과점의_특징과_모형_분류",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제16절 과점시장",
+        "제1관 과점의 특징과 모형 분류"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 과점의 특징과 모형 분류",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제16절_과점시장__제2관_쿠르노_베르트랑_슈타켈베르크_모형",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제16절 과점시장",
+        "제2관 쿠르노·베르트랑·슈타켈베르크 모형"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 쿠르노",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제16절_과점시장__제3관_굴절수요곡선_가격선도",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제16절 과점시장",
+        "제3관 굴절수요곡선·가격선도"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 굴절수요곡선",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제16절_과점시장__제4관_카르텔과_담합",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제16절 과점시장",
+        "제4관 카르텔과 담합"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 카르텔과 담합",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제17절_게임이론__제1관_전략형_게임과_내쉬균형",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제17절 게임이론",
+        "제1관 전략형 게임과 내쉬균형"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 전략형 게임과 내쉬균형",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제17절_게임이론__제2관_죄수의_딜레마",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제17절 게임이론",
+        "제2관 죄수의 딜레마"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 죄수의 딜레마",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제5장_시장이론__제17절_게임이론__제3관_순차게임_반복게임",
+      "path": [
+        "미시경제학",
+        "제5장 시장이론",
+        "제17절 게임이론",
+        "제3관 순차게임·반복게임"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 순차게임",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M05",
+      "unit_file": "units/M05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M05.md"
+    },
+    {
+      "id": "economics__미시경제학__제6장_생산요소시장과_소득분배__제18절_완전경쟁_요소시장__제1관_요소수요_한계생산물가치",
+      "path": [
+        "미시경제학",
+        "제6장 생산요소시장과 소득분배",
+        "제18절 완전경쟁 요소시장",
+        "제1관 요소수요 (한계생산물가치)"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 요소수요 (한계생산물가치)",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "economics__미시경제학__제6장_생산요소시장과_소득분배__제18절_완전경쟁_요소시장__제2관_요소공급",
+      "path": [
+        "미시경제학",
+        "제6장 생산요소시장과 소득분배",
+        "제18절 완전경쟁 요소시장",
+        "제2관 요소공급"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 요소공급",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "economics__미시경제학__제6장_생산요소시장과_소득분배__제18절_완전경쟁_요소시장__제3관_요소시장_균형",
+      "path": [
+        "미시경제학",
+        "제6장 생산요소시장과 소득분배",
+        "제18절 완전경쟁 요소시장",
+        "제3관 요소시장 균형"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 요소시장 균형",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "economics__미시경제학__제6장_생산요소시장과_소득분배__제19절_불완전경쟁_요소시장__제1관_수요독점",
+      "path": [
+        "미시경제학",
+        "제6장 생산요소시장과 소득분배",
+        "제19절 불완전경쟁 요소시장",
+        "제1관 수요독점"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 수요독점",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "economics__미시경제학__제6장_생산요소시장과_소득분배__제19절_불완전경쟁_요소시장__제2관_공급독점_노동조합",
+      "path": [
+        "미시경제학",
+        "제6장 생산요소시장과 소득분배",
+        "제19절 불완전경쟁 요소시장",
+        "제2관 공급독점 (노동조합)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 공급독점 (노동조합)",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "economics__미시경제학__제6장_생산요소시장과_소득분배__제19절_불완전경쟁_요소시장__제3관_쌍방독점",
+      "path": [
+        "미시경제학",
+        "제6장 생산요소시장과 소득분배",
+        "제19절 불완전경쟁 요소시장",
+        "제3관 쌍방독점"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 쌍방독점",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "economics__미시경제학__제6장_생산요소시장과_소득분배__제20절_소득분배이론__제1관_기능별_계층별_분배",
+      "path": [
+        "미시경제학",
+        "제6장 생산요소시장과 소득분배",
+        "제20절 소득분배이론",
+        "제1관 기능별·계층별 분배"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 기능별",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "economics__미시경제학__제6장_생산요소시장과_소득분배__제20절_소득분배이론__제2관_로렌츠곡선과_지니계수",
+      "path": [
+        "미시경제학",
+        "제6장 생산요소시장과 소득분배",
+        "제20절 소득분배이론",
+        "제2관 로렌츠곡선과 지니계수"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 로렌츠곡선과 지니계수",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "economics__미시경제학__제6장_생산요소시장과_소득분배__제20절_소득분배이론__제3관_분배이론_한계생산력설_등",
+      "path": [
+        "미시경제학",
+        "제6장 생산요소시장과 소득분배",
+        "제20절 소득분배이론",
+        "제3관 분배이론 (한계생산력설 등)"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 분배이론 (한계생산력설 등)",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M06",
+      "unit_file": "units/M06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M06.md"
+    },
+    {
+      "id": "economics__미시경제학__제7장_일반균형이론_및_후생경제학__제21절_일반균형이론과_경제적_효율성__제1관_일반균형의_개념",
+      "path": [
+        "미시경제학",
+        "제7장 일반균형이론 및 후생경제학",
+        "제21절 일반균형이론과 경제적 효율성",
+        "제1관 일반균형의 개념"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 일반균형의 개념",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__미시경제학__제7장_일반균형이론_및_후생경제학__제21절_일반균형이론과_경제적_효율성__제2관_에지워스_상자와_파레토_효율",
+      "path": [
+        "미시경제학",
+        "제7장 일반균형이론 및 후생경제학",
+        "제21절 일반균형이론과 경제적 효율성",
+        "제2관 에지워스 상자와 파레토 효율"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 에지워스 상자와 파레토 효율",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__미시경제학__제7장_일반균형이론_및_후생경제학__제21절_일반균형이론과_경제적_효율성__제3관_효율성의_조건",
+      "path": [
+        "미시경제학",
+        "제7장 일반균형이론 및 후생경제학",
+        "제21절 일반균형이론과 경제적 효율성",
+        "제3관 효율성의 조건"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 효율성의 조건",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__미시경제학__제7장_일반균형이론_및_후생경제학__제22절_후생경제학__제1관_후생경제학의_제1_제2정리",
+      "path": [
+        "미시경제학",
+        "제7장 일반균형이론 및 후생경제학",
+        "제22절 후생경제학",
+        "제1관 후생경제학의 제1·제2정리"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 후생경제학의 제1",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__미시경제학__제7장_일반균형이론_및_후생경제학__제22절_후생경제학__제2관_사회후생함수",
+      "path": [
+        "미시경제학",
+        "제7장 일반균형이론 및 후생경제학",
+        "제22절 후생경제학",
+        "제2관 사회후생함수"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 사회후생함수",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__미시경제학__제7장_일반균형이론_및_후생경제학__제22절_후생경제학__제3관_애로우의_불가능성_정리",
+      "path": [
+        "미시경제학",
+        "제7장 일반균형이론 및 후생경제학",
+        "제22절 후생경제학",
+        "제3관 애로우의 불가능성 정리"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 애로우의 불가능성 정리",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__미시경제학__제8장_시장실패와_정보경제학__제23절_시장실패__제1관_시장실패의_원인",
+      "path": [
+        "미시경제학",
+        "제8장 시장실패와 정보경제학",
+        "제23절 시장실패",
+        "제1관 시장실패의 원인"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 시장실패의 원인",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__미시경제학__제8장_시장실패와_정보경제학__제23절_시장실패__제2관_외부성",
+      "path": [
+        "미시경제학",
+        "제8장 시장실패와 정보경제학",
+        "제23절 시장실패",
+        "제2관 외부성"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 외부성",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__미시경제학__제8장_시장실패와_정보경제학__제23절_시장실패__제3관_공공재",
+      "path": [
+        "미시경제학",
+        "제8장 시장실패와 정보경제학",
+        "제23절 시장실패",
+        "제3관 공공재"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 공공재",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__미시경제학__제8장_시장실패와_정보경제학__제23절_시장실패__제4관_코즈_정리",
+      "path": [
+        "미시경제학",
+        "제8장 시장실패와 정보경제학",
+        "제23절 시장실패",
+        "제4관 코즈 정리"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 코즈 정리",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__미시경제학__제8장_시장실패와_정보경제학__제24절_정보경제학과_행동경제학__제1관_비대칭정보_역선택_도덕적해이",
+      "path": [
+        "미시경제학",
+        "제8장 시장실패와 정보경제학",
+        "제24절 정보경제학과 행동경제학",
+        "제1관 비대칭정보 (역선택·도덕적해이)"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 비대칭정보 (역선택",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__미시경제학__제8장_시장실패와_정보경제학__제24절_정보경제학과_행동경제학__제2관_신호발송_선별",
+      "path": [
+        "미시경제학",
+        "제8장 시장실패와 정보경제학",
+        "제24절 정보경제학과 행동경제학",
+        "제2관 신호발송·선별"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 신호발송",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__미시경제학__제8장_시장실패와_정보경제학__제24절_정보경제학과_행동경제학__제3관_행동경제학_기초",
+      "path": [
+        "미시경제학",
+        "제8장 시장실패와 정보경제학",
+        "제24절 정보경제학과 행동경제학",
+        "제3관 행동경제학 기초"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 행동경제학 기초",
+      "subject_root": "미시경제학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제1절_거시경제학의_기초__제1관_거시경제학의_주요_변수와_이슈",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제1절 거시경제학의 기초",
+        "제1관 거시경제학의 주요 변수와 이슈"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 거시경제학의 주요 변수와 이슈",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제1절_거시경제학의_기초__제2관_거시경제_모형의_분류",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제1절 거시경제학의 기초",
+        "제2관 거시경제 모형의 분류"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 거시경제 모형의 분류",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제2절_국민소득의_측정과_경제구조__제1관_GDP_GNI_등_국민소득_지표",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제2절 국민소득의 측정과 경제구조",
+        "제1관 GDP·GNI 등 국민소득 지표"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 GDP",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제2절_국민소득의_측정과_경제구조__제2관_명목_실질_GDP_GDP_디플레이터",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제2절 국민소득의 측정과 경제구조",
+        "제2관 명목·실질 GDP, GDP 디플레이터"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 명목",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제2절_국민소득의_측정과_경제구조__제3관_국민소득_3면_등가의_원칙",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제2절 국민소득의 측정과 경제구조",
+        "제3관 국민소득 3면 등가의 원칙"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 국민소득 3면 등가의 원칙",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제2절_국민소득의_측정과_경제구조__제4관_산업연관표_국민계정체계",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제2절 국민소득의 측정과 경제구조",
+        "제4관 산업연관표·국민계정체계"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 산업연관표",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제3절_고전학파의_국민소득결정이론__제1관_세이의_법칙",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제3절 고전학파의 국민소득결정이론",
+        "제1관 세이의 법칙"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 세이의 법칙",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제3절_고전학파의_국민소득결정이론__제2관_노동시장과_총생산함수",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제3절 고전학파의 국민소득결정이론",
+        "제2관 노동시장과 총생산함수"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 노동시장과 총생산함수",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제3절_고전학파의_국민소득결정이론__제3관_화폐수량설",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제3절 고전학파의 국민소득결정이론",
+        "제3관 화폐수량설"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 화폐수량설",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제4절_케인즈의_국민소득결정이론__제1관_유효수요의_원리",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제4절 케인즈의 국민소득결정이론",
+        "제1관 유효수요의 원리"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 유효수요의 원리",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제4절_케인즈의_국민소득결정이론__제2관_케인즈의_단순모형_45도선",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제4절 케인즈의 국민소득결정이론",
+        "제2관 케인즈의 단순모형 (45도선)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 케인즈의 단순모형 (45도선)",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제4절_케인즈의_국민소득결정이론__제3관_승수효과",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제4절 케인즈의 국민소득결정이론",
+        "제3관 승수효과"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 승수효과",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제1장_국민소득결정이론__제4절_케인즈의_국민소득결정이론__제4관_절약의_역설",
+      "path": [
+        "거시경제학",
+        "제1장 국민소득결정이론",
+        "제4절 케인즈의 국민소득결정이론",
+        "제4관 절약의 역설"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 절약의 역설",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G01",
+      "unit_file": "units/G01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G01.md"
+    },
+    {
+      "id": "economics__거시경제학__제2장_소비함수와_투자함수__제5절_소비함수론__제1관_케인즈의_절대소득가설",
+      "path": [
+        "거시경제학",
+        "제2장 소비함수와 투자함수",
+        "제5절 소비함수론",
+        "제1관 케인즈의 절대소득가설"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 케인즈의 절대소득가설",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G02",
+      "unit_file": "units/G02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G02.md"
+    },
+    {
+      "id": "economics__거시경제학__제2장_소비함수와_투자함수__제5절_소비함수론__제2관_쿠즈네츠의_실증연구",
+      "path": [
+        "거시경제학",
+        "제2장 소비함수와 투자함수",
+        "제5절 소비함수론",
+        "제2관 쿠즈네츠의 실증연구"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 쿠즈네츠의 실증연구",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G02",
+      "unit_file": "units/G02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G02.md"
+    },
+    {
+      "id": "economics__거시경제학__제2장_소비함수와_투자함수__제5절_소비함수론__제3관_상대소득가설_항상소득가설",
+      "path": [
+        "거시경제학",
+        "제2장 소비함수와 투자함수",
+        "제5절 소비함수론",
+        "제3관 상대소득가설·항상소득가설"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 상대소득가설",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G02",
+      "unit_file": "units/G02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G02.md"
+    },
+    {
+      "id": "economics__거시경제학__제2장_소비함수와_투자함수__제5절_소비함수론__제4관_생애주기가설",
+      "path": [
+        "거시경제학",
+        "제2장 소비함수와 투자함수",
+        "제5절 소비함수론",
+        "제4관 생애주기가설"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 생애주기가설",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G02",
+      "unit_file": "units/G02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G02.md"
+    },
+    {
+      "id": "economics__거시경제학__제2장_소비함수와_투자함수__제6절_투자함수론__제1관_현재가치법과_내부수익률법",
+      "path": [
+        "거시경제학",
+        "제2장 소비함수와 투자함수",
+        "제6절 투자함수론",
+        "제1관 현재가치법과 내부수익률법"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 현재가치법과 내부수익률법",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G02",
+      "unit_file": "units/G02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G02.md"
+    },
+    {
+      "id": "economics__거시경제학__제2장_소비함수와_투자함수__제6절_투자함수론__제2관_케인즈의_한계효율이론",
+      "path": [
+        "거시경제학",
+        "제2장 소비함수와 투자함수",
+        "제6절 투자함수론",
+        "제2관 케인즈의 한계효율이론"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 케인즈의 한계효율이론",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G02",
+      "unit_file": "units/G02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G02.md"
+    },
+    {
+      "id": "economics__거시경제학__제2장_소비함수와_투자함수__제6절_투자함수론__제3관_가속도원리_신축적_가속도원리",
+      "path": [
+        "거시경제학",
+        "제2장 소비함수와 투자함수",
+        "제6절 투자함수론",
+        "제3관 가속도원리·신축적 가속도원리"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 가속도원리",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G02",
+      "unit_file": "units/G02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G02.md"
+    },
+    {
+      "id": "economics__거시경제학__제2장_소비함수와_투자함수__제6절_투자함수론__제4관_토빈의_q이론",
+      "path": [
+        "거시경제학",
+        "제2장 소비함수와 투자함수",
+        "제6절 투자함수론",
+        "제4관 토빈의 q이론"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 토빈의 q이론",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G02",
+      "unit_file": "units/G02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G02.md"
+    },
+    {
+      "id": "economics__거시경제학__제3장_화폐금융론__제7절_금융제도와_화폐공급__제1관_화폐의_기능과_통화지표",
+      "path": [
+        "거시경제학",
+        "제3장 화폐금융론",
+        "제7절 금융제도와 화폐공급",
+        "제1관 화폐의 기능과 통화지표"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 화폐의 기능과 통화지표",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G03",
+      "unit_file": "units/G03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G03.md"
+    },
+    {
+      "id": "economics__거시경제학__제3장_화폐금융론__제7절_금융제도와_화폐공급__제2관_본원통화와_통화승수",
+      "path": [
+        "거시경제학",
+        "제3장 화폐금융론",
+        "제7절 금융제도와 화폐공급",
+        "제2관 본원통화와 통화승수"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 본원통화와 통화승수",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G03",
+      "unit_file": "units/G03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G03.md"
+    },
+    {
+      "id": "economics__거시경제학__제3장_화폐금융론__제7절_금융제도와_화폐공급__제3관_신용창조",
+      "path": [
+        "거시경제학",
+        "제3장 화폐금융론",
+        "제7절 금융제도와 화폐공급",
+        "제3관 신용창조"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 신용창조",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G03",
+      "unit_file": "units/G03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G03.md"
+    },
+    {
+      "id": "economics__거시경제학__제3장_화폐금융론__제7절_금융제도와_화폐공급__제4관_중앙은행의_통화정책_수단",
+      "path": [
+        "거시경제학",
+        "제3장 화폐금융론",
+        "제7절 금융제도와 화폐공급",
+        "제4관 중앙은행의 통화정책 수단"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 중앙은행의 통화정책 수단",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G03",
+      "unit_file": "units/G03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G03.md"
+    },
+    {
+      "id": "economics__거시경제학__제3장_화폐금융론__제8절_화폐수요와_금융정책__제1관_고전학파의_화폐수요이론",
+      "path": [
+        "거시경제학",
+        "제3장 화폐금융론",
+        "제8절 화폐수요와 금융정책",
+        "제1관 고전학파의 화폐수요이론"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 고전학파의 화폐수요이론",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G03",
+      "unit_file": "units/G03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G03.md"
+    },
+    {
+      "id": "economics__거시경제학__제3장_화폐금융론__제8절_화폐수요와_금융정책__제2관_케인즈의_유동성선호설",
+      "path": [
+        "거시경제학",
+        "제3장 화폐금융론",
+        "제8절 화폐수요와 금융정책",
+        "제2관 케인즈의 유동성선호설"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 케인즈의 유동성선호설",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G03",
+      "unit_file": "units/G03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G03.md"
+    },
+    {
+      "id": "economics__거시경제학__제3장_화폐금융론__제8절_화폐수요와_금융정책__제3관_보몰_토빈_모형_프리드만의_신화폐수량설",
+      "path": [
+        "거시경제학",
+        "제3장 화폐금융론",
+        "제8절 화폐수요와 금융정책",
+        "제3관 보몰-토빈 모형·프리드만의 신화폐수량설"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 보몰-토빈 모형",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G03",
+      "unit_file": "units/G03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G03.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제9절_IS_LM모형__제1관_IS곡선의_도출과_이동",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제9절 IS-LM모형",
+        "제1관 IS곡선의 도출과 이동"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 IS곡선의 도출과 이동",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제9절_IS_LM모형__제2관_LM곡선의_도출과_이동",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제9절 IS-LM모형",
+        "제2관 LM곡선의 도출과 이동"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 LM곡선의 도출과 이동",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제9절_IS_LM모형__제3관_IS_LM_균형",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제9절 IS-LM모형",
+        "제3관 IS-LM 균형"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 IS-LM 균형",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제9절_IS_LM모형__제4관_유동성함정과_투자의_이자율_비탄력",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제9절 IS-LM모형",
+        "제4관 유동성함정과 투자의 이자율 비탄력"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 유동성함정과 투자의 이자율 비탄력",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제10절_재정정책과_금융정책__제1관_재정정책의_효과",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제10절 재정정책과 금융정책",
+        "제1관 재정정책의 효과"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 재정정책의 효과",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제10절_재정정책과_금융정책__제2관_금융정책의_효과",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제10절 재정정책과 금융정책",
+        "제2관 금융정책의 효과"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 금융정책의 효과",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제10절_재정정책과_금융정책__제3관_구축효과",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제10절 재정정책과 금융정책",
+        "제3관 구축효과"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 구축효과",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제10절_재정정책과_금융정책__제4관_정책혼합_policy_mix",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제10절 재정정책과 금융정책",
+        "제4관 정책혼합 (policy mix)"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 정책혼합 (policy mix)",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제11절_총수요_총공급__제1관_총수요곡선의_도출",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제11절 총수요·총공급",
+        "제1관 총수요곡선의 도출"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 총수요곡선의 도출",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제11절_총수요_총공급__제2관_총공급곡선_단기_장기",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제11절 총수요·총공급",
+        "제2관 총공급곡선 (단기·장기)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 총공급곡선 (단기",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제11절_총수요_총공급__제3관_AD_AS_균형",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제11절 총수요·총공급",
+        "제3관 AD-AS 균형"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 AD-AS 균형",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제4장_총수요_총공급이론__제11절_총수요_총공급__제4관_수요충격_공급충격",
+      "path": [
+        "거시경제학",
+        "제4장 총수요·총공급이론",
+        "제11절 총수요·총공급",
+        "제4관 수요충격·공급충격"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 수요충격",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G04",
+      "unit_file": "units/G04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G04.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제12절_물가와_인플레이션__제1관_물가지수_CPI_PPI_GDP_디플레이터",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제12절 물가와 인플레이션",
+        "제1관 물가지수 (CPI·PPI·GDP 디플레이터)"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 물가지수 (CPI",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제12절_물가와_인플레이션__제2관_인플레이션의_원인_수요견인_비용인상",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제12절 물가와 인플레이션",
+        "제2관 인플레이션의 원인 (수요견인·비용인상)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 인플레이션의 원인 (수요견인",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제12절_물가와_인플레이션__제3관_인플레이션의_비용",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제12절 물가와 인플레이션",
+        "제3관 인플레이션의 비용"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 인플레이션의 비용",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제12절_물가와_인플레이션__제4관_디플레이션과_디스인플레이션",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제12절 물가와 인플레이션",
+        "제4관 디플레이션과 디스인플레이션"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 디플레이션과 디스인플레이션",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제13절_노동시장과_실업__제1관_실업의_측정과_종류",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제13절 노동시장과 실업",
+        "제1관 실업의 측정과 종류"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 실업의 측정과 종류",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제13절_노동시장과_실업__제2관_자연실업률_이론",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제13절 노동시장과 실업",
+        "제2관 자연실업률 이론"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 자연실업률 이론",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제13절_노동시장과_실업__제3관_효율임금이론_내부자_외부자_이론",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제13절 노동시장과 실업",
+        "제3관 효율임금이론·내부자-외부자 이론"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 효율임금이론",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제14절_필립스곡선과_스태그플레이션__제1관_원래의_필립스곡선",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제14절 필립스곡선과 스태그플레이션",
+        "제1관 원래의 필립스곡선"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 원래의 필립스곡선",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제14절_필립스곡선과_스태그플레이션__제2관_기대부가_필립스곡선",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제14절 필립스곡선과 스태그플레이션",
+        "제2관 기대부가 필립스곡선"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 기대부가 필립스곡선",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제14절_필립스곡선과_스태그플레이션__제3관_스태그플레이션과_자연실업률가설",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제14절 필립스곡선과 스태그플레이션",
+        "제3관 스태그플레이션과 자연실업률가설"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 스태그플레이션과 자연실업률가설",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제5장_인플레이션과_실업__제14절_필립스곡선과_스태그플레이션__제4관_합리적_기대와_필립스곡선",
+      "path": [
+        "거시경제학",
+        "제5장 인플레이션과 실업",
+        "제14절 필립스곡선과 스태그플레이션",
+        "제4관 합리적 기대와 필립스곡선"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 합리적 기대와 필립스곡선",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G05",
+      "unit_file": "units/G05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G05.md"
+    },
+    {
+      "id": "economics__거시경제학__제6장_거시경제학파와_안정화정책__제15절_각_학파_모형의_주요내용__제1관_고전학파와_케인즈학파",
+      "path": [
+        "거시경제학",
+        "제6장 거시경제학파와 안정화정책",
+        "제15절 각 학파 모형의 주요내용",
+        "제1관 고전학파와 케인즈학파"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 고전학파와 케인즈학파",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G06",
+      "unit_file": "units/G06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G06.md"
+    },
+    {
+      "id": "economics__거시경제학__제6장_거시경제학파와_안정화정책__제15절_각_학파_모형의_주요내용__제2관_통화주의",
+      "path": [
+        "거시경제학",
+        "제6장 거시경제학파와 안정화정책",
+        "제15절 각 학파 모형의 주요내용",
+        "제2관 통화주의"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 통화주의",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G06",
+      "unit_file": "units/G06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G06.md"
+    },
+    {
+      "id": "economics__거시경제학__제6장_거시경제학파와_안정화정책__제15절_각_학파_모형의_주요내용__제3관_학파_비교",
+      "path": [
+        "거시경제학",
+        "제6장 거시경제학파와 안정화정책",
+        "제15절 각 학파 모형의 주요내용",
+        "제3관 학파 비교"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 학파 비교",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G06",
+      "unit_file": "units/G06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G06.md"
+    },
+    {
+      "id": "economics__거시경제학__제6장_거시경제학파와_안정화정책__제16절_새고전학파_새케인즈학파__제1관_새고전학파_합리적기대_실물경기변동",
+      "path": [
+        "거시경제학",
+        "제6장 거시경제학파와 안정화정책",
+        "제16절 새고전학파·새케인즈학파",
+        "제1관 새고전학파 (합리적기대·실물경기변동)"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 새고전학파 (합리적기대",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G06",
+      "unit_file": "units/G06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G06.md"
+    },
+    {
+      "id": "economics__거시경제학__제6장_거시경제학파와_안정화정책__제16절_새고전학파_새케인즈학파__제2관_새케인즈학파_가격경직성_메뉴비용",
+      "path": [
+        "거시경제학",
+        "제6장 거시경제학파와 안정화정책",
+        "제16절 새고전학파·새케인즈학파",
+        "제2관 새케인즈학파 (가격경직성·메뉴비용)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 새케인즈학파 (가격경직성",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G06",
+      "unit_file": "units/G06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G06.md"
+    },
+    {
+      "id": "economics__거시경제학__제6장_거시경제학파와_안정화정책__제17절_안정화정책과_관련된_논쟁__제1관_재량_vs_준칙",
+      "path": [
+        "거시경제학",
+        "제6장 거시경제학파와 안정화정책",
+        "제17절 안정화정책과 관련된 논쟁",
+        "제1관 재량 vs 준칙"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 재량 vs 준칙",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G06",
+      "unit_file": "units/G06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G06.md"
+    },
+    {
+      "id": "economics__거시경제학__제6장_거시경제학파와_안정화정책__제17절_안정화정책과_관련된_논쟁__제2관_최적정책의_동태적_비일관성",
+      "path": [
+        "거시경제학",
+        "제6장 거시경제학파와 안정화정책",
+        "제17절 안정화정책과 관련된 논쟁",
+        "제2관 최적정책의 동태적 비일관성"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 최적정책의 동태적 비일관성",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G06",
+      "unit_file": "units/G06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G06.md"
+    },
+    {
+      "id": "economics__거시경제학__제6장_거시경제학파와_안정화정책__제17절_안정화정책과_관련된_논쟁__제3관_정책의_시차",
+      "path": [
+        "거시경제학",
+        "제6장 거시경제학파와 안정화정책",
+        "제17절 안정화정책과 관련된 논쟁",
+        "제3관 정책의 시차"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 정책의 시차",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G06",
+      "unit_file": "units/G06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G06.md"
+    },
+    {
+      "id": "economics__거시경제학__제7장_경기변동과_경제성장__제18절_경기변동론__제1관_경기변동의_특징과_측정",
+      "path": [
+        "거시경제학",
+        "제7장 경기변동과 경제성장",
+        "제18절 경기변동론",
+        "제1관 경기변동의 특징과 측정"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 경기변동의 특징과 측정",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G07",
+      "unit_file": "units/G07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G07.md"
+    },
+    {
+      "id": "economics__거시경제학__제7장_경기변동과_경제성장__제18절_경기변동론__제2관_케인즈학파_경기변동이론",
+      "path": [
+        "거시경제학",
+        "제7장 경기변동과 경제성장",
+        "제18절 경기변동론",
+        "제2관 케인즈학파 경기변동이론"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 케인즈학파 경기변동이론",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G07",
+      "unit_file": "units/G07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G07.md"
+    },
+    {
+      "id": "economics__거시경제학__제7장_경기변동과_경제성장__제18절_경기변동론__제3관_실물경기변동이론_RBC",
+      "path": [
+        "거시경제학",
+        "제7장 경기변동과 경제성장",
+        "제18절 경기변동론",
+        "제3관 실물경기변동이론 (RBC)"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 실물경기변동이론 (RBC)",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G07",
+      "unit_file": "units/G07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G07.md"
+    },
+    {
+      "id": "economics__거시경제학__제7장_경기변동과_경제성장__제18절_경기변동론__제4관_새케인즈학파의_경기변동이론",
+      "path": [
+        "거시경제학",
+        "제7장 경기변동과 경제성장",
+        "제18절 경기변동론",
+        "제4관 새케인즈학파의 경기변동이론"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 새케인즈학파의 경기변동이론",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G07",
+      "unit_file": "units/G07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G07.md"
+    },
+    {
+      "id": "economics__거시경제학__제7장_경기변동과_경제성장__제19절_경제성장론__제1관_해로드_도마_모형",
+      "path": [
+        "거시경제학",
+        "제7장 경기변동과 경제성장",
+        "제19절 경제성장론",
+        "제1관 해로드-도마 모형"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 해로드-도마 모형",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G07",
+      "unit_file": "units/G07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G07.md"
+    },
+    {
+      "id": "economics__거시경제학__제7장_경기변동과_경제성장__제19절_경제성장론__제2관_솔로우_성장모형",
+      "path": [
+        "거시경제학",
+        "제7장 경기변동과 경제성장",
+        "제19절 경제성장론",
+        "제2관 솔로우 성장모형"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 솔로우 성장모형",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G07",
+      "unit_file": "units/G07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G07.md"
+    },
+    {
+      "id": "economics__거시경제학__제7장_경기변동과_경제성장__제19절_경제성장론__제3관_황금률_Golden_Rule",
+      "path": [
+        "거시경제학",
+        "제7장 경기변동과 경제성장",
+        "제19절 경제성장론",
+        "제3관 황금률 (Golden Rule)"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 황금률 (Golden Rule)",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G07",
+      "unit_file": "units/G07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G07.md"
+    },
+    {
+      "id": "economics__거시경제학__제7장_경기변동과_경제성장__제19절_경제성장론__제4관_내생적_성장이론",
+      "path": [
+        "거시경제학",
+        "제7장 경기변동과 경제성장",
+        "제19절 경제성장론",
+        "제4관 내생적 성장이론"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 내생적 성장이론",
+      "subject_root": "거시경제학",
+      "frequency": 2,
+      "unit_code": "G07",
+      "unit_file": "units/G07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G07.md"
+    },
+    {
+      "id": "economics__국제경제학__제1장_국제무역론__제1절_국제무역이론__제1관_절대우위_비교우위_리카도_모형",
+      "path": [
+        "국제경제학",
+        "제1장 국제무역론",
+        "제1절 국제무역이론",
+        "제1관 절대우위·비교우위 (리카도 모형)"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 절대우위",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G08",
+      "unit_file": "units/G08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G08.md"
+    },
+    {
+      "id": "economics__국제경제학__제1장_국제무역론__제1절_국제무역이론__제2관_헥셔_올린_정리",
+      "path": [
+        "국제경제학",
+        "제1장 국제무역론",
+        "제1절 국제무역이론",
+        "제2관 헥셔-올린 정리"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 헥셔-올린 정리",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G08",
+      "unit_file": "units/G08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G08.md"
+    },
+    {
+      "id": "economics__국제경제학__제1장_국제무역론__제1절_국제무역이론__제3관_스톨퍼_사무엘슨_정리_립진스키_정리",
+      "path": [
+        "국제경제학",
+        "제1장 국제무역론",
+        "제1절 국제무역이론",
+        "제3관 스톨퍼-사무엘슨 정리·립진스키 정리"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 스톨퍼-사무엘슨 정리",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G08",
+      "unit_file": "units/G08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G08.md"
+    },
+    {
+      "id": "economics__국제경제학__제1장_국제무역론__제1절_국제무역이론__제4관_현대무역이론_산업내_무역",
+      "path": [
+        "국제경제학",
+        "제1장 국제무역론",
+        "제1절 국제무역이론",
+        "제4관 현대무역이론 (산업내 무역)"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 현대무역이론 (산업내 무역)",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G08",
+      "unit_file": "units/G08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G08.md"
+    },
+    {
+      "id": "economics__국제경제학__제1장_국제무역론__제2절_무역정책론__제1관_관세의_효과",
+      "path": [
+        "국제경제학",
+        "제1장 국제무역론",
+        "제2절 무역정책론",
+        "제1관 관세의 효과"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 관세의 효과",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G08",
+      "unit_file": "units/G08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G08.md"
+    },
+    {
+      "id": "economics__국제경제학__제1장_국제무역론__제2절_무역정책론__제2관_비관세장벽_수입할당_수출자율규제",
+      "path": [
+        "국제경제학",
+        "제1장 국제무역론",
+        "제2절 무역정책론",
+        "제2관 비관세장벽 (수입할당·수출자율규제)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 비관세장벽 (수입할당",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G08",
+      "unit_file": "units/G08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G08.md"
+    },
+    {
+      "id": "economics__국제경제학__제1장_국제무역론__제2절_무역정책론__제3관_자유무역_vs_보호무역",
+      "path": [
+        "국제경제학",
+        "제1장 국제무역론",
+        "제2절 무역정책론",
+        "제3관 자유무역 vs 보호무역"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 자유무역 vs 보호무역",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G08",
+      "unit_file": "units/G08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G08.md"
+    },
+    {
+      "id": "economics__국제경제학__제1장_국제무역론__제2절_무역정책론__제4관_경제통합과_WTO",
+      "path": [
+        "국제경제학",
+        "제1장 국제무역론",
+        "제2절 무역정책론",
+        "제4관 경제통합과 WTO"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 경제통합과 WTO",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G08",
+      "unit_file": "units/G08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G08.md"
+    },
+    {
+      "id": "economics__국제경제학__제2장_국제금융론__제3절_환율_환율결정이론_환율제도__제1관_환율의_개념과_표시방법",
+      "path": [
+        "국제경제학",
+        "제2장 국제금융론",
+        "제3절 환율, 환율결정이론, 환율제도",
+        "제1관 환율의 개념과 표시방법"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 환율의 개념과 표시방법",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G09",
+      "unit_file": "units/G09.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G09.md"
+    },
+    {
+      "id": "economics__국제경제학__제2장_국제금융론__제3절_환율_환율결정이론_환율제도__제2관_구매력평가설_PPP",
+      "path": [
+        "국제경제학",
+        "제2장 국제금융론",
+        "제3절 환율, 환율결정이론, 환율제도",
+        "제2관 구매력평가설 (PPP)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 구매력평가설 (PPP)",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G09",
+      "unit_file": "units/G09.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G09.md"
+    },
+    {
+      "id": "economics__국제경제학__제2장_국제금융론__제3절_환율_환율결정이론_환율제도__제3관_이자율평가설_IRP",
+      "path": [
+        "국제경제학",
+        "제2장 국제금융론",
+        "제3절 환율, 환율결정이론, 환율제도",
+        "제3관 이자율평가설 (IRP)"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 이자율평가설 (IRP)",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G09",
+      "unit_file": "units/G09.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G09.md"
+    },
+    {
+      "id": "economics__국제경제학__제2장_국제금융론__제3절_환율_환율결정이론_환율제도__제4관_환율제도_고정_변동_관리변동",
+      "path": [
+        "국제경제학",
+        "제2장 국제금융론",
+        "제3절 환율, 환율결정이론, 환율제도",
+        "제4관 환율제도 (고정·변동·관리변동)"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 환율제도 (고정",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G09",
+      "unit_file": "units/G09.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G09.md"
+    },
+    {
+      "id": "economics__국제경제학__제2장_국제금융론__제4절_국제수지론__제1관_국제수지표의_구조",
+      "path": [
+        "국제경제학",
+        "제2장 국제금융론",
+        "제4절 국제수지론",
+        "제1관 국제수지표의 구조"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 국제수지표의 구조",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G09",
+      "unit_file": "units/G09.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G09.md"
+    },
+    {
+      "id": "economics__국제경제학__제2장_국제금융론__제4절_국제수지론__제2관_국제수지_조정이론_탄력성_흡수_통화접근",
+      "path": [
+        "국제경제학",
+        "제2장 국제금융론",
+        "제4절 국제수지론",
+        "제2관 국제수지 조정이론 (탄력성·흡수·통화접근)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 국제수지 조정이론 (탄력성",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G09",
+      "unit_file": "units/G09.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G09.md"
+    },
+    {
+      "id": "economics__국제경제학__제2장_국제금융론__제4절_국제수지론__제3관_J_curve_효과",
+      "path": [
+        "국제경제학",
+        "제2장 국제금융론",
+        "제4절 국제수지론",
+        "제3관 J-curve 효과"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 J-curve 효과",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G09",
+      "unit_file": "units/G09.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G09.md"
+    },
+    {
+      "id": "economics__국제경제학__제2장_국제금융론__제4절_국제수지론__제4관_먼델_플레밍_모형",
+      "path": [
+        "국제경제학",
+        "제2장 국제금융론",
+        "제4절 국제수지론",
+        "제4관 먼델-플레밍 모형"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 먼델-플레밍 모형",
+      "subject_root": "국제경제학",
+      "frequency": 2,
+      "unit_code": "G09",
+      "unit_file": "units/G09.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/G09.md"
+    },
+    {
+      "id": "economics__재정학__제1장_재정학의_개요__제1절_재정학의_기초__제1관_재정의_의의와_기능",
+      "path": [
+        "재정학",
+        "제1장 재정학의 개요",
+        "제1절 재정학의 기초",
+        "제1관 재정의 의의와 기능"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 재정의 의의와 기능",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__재정학__제1장_재정학의_개요__제1절_재정학의_기초__제2관_정부의_경제적_역할_머스그레이브의_3대_기능",
+      "path": [
+        "재정학",
+        "제1장 재정학의 개요",
+        "제1절 재정학의 기초",
+        "제2관 정부의 경제적 역할 (머스그레이브의 3대 기능)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 정부의 경제적 역할 (머스그레이브의 3대 기능)",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__재정학__제1장_재정학의_개요__제1절_재정학의_기초__제3관_재정학의_분석방법",
+      "path": [
+        "재정학",
+        "제1장 재정학의 개요",
+        "제1절 재정학의 기초",
+        "제3관 재정학의 분석방법"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 재정학의 분석방법",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__재정학__제1장_재정학의_개요__제2절_경제적_효율성과_시장실패__제1관_파레토_효율성",
+      "path": [
+        "재정학",
+        "제1장 재정학의 개요",
+        "제2절 경제적 효율성과 시장실패",
+        "제1관 파레토 효율성"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 파레토 효율성",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__재정학__제1장_재정학의_개요__제2절_경제적_효율성과_시장실패__제2관_후생경제학의_기본정리",
+      "path": [
+        "재정학",
+        "제1장 재정학의 개요",
+        "제2절 경제적 효율성과 시장실패",
+        "제2관 후생경제학의 기본정리"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 후생경제학의 기본정리",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__재정학__제1장_재정학의_개요__제2절_경제적_효율성과_시장실패__제3관_시장실패의_원인",
+      "path": [
+        "재정학",
+        "제1장 재정학의 개요",
+        "제2절 경제적 효율성과 시장실패",
+        "제3관 시장실패의 원인"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 시장실패의 원인",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M01",
+      "unit_file": "units/M01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M01.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제3절_외부성__제1관_외부성의_유형과_효과",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제3절 외부성",
+        "제1관 외부성의 유형과 효과"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 외부성의 유형과 효과",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제3절_외부성__제2관_코즈정리",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제3절 외부성",
+        "제2관 코즈정리"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 코즈정리",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제3절_외부성__제3관_피구세_피구보조금",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제3절 외부성",
+        "제3관 피구세·피구보조금"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 피구세",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제3절_외부성__제4관_배출권거래제",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제3절 외부성",
+        "제4관 배출권거래제"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 배출권거래제",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제4절_공공재이론__제1관_공공재의_특성_비경합성_비배제성",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제4절 공공재이론",
+        "제1관 공공재의 특성 (비경합성·비배제성)"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 공공재의 특성 (비경합성",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제4절_공공재이론__제2관_공공재의_최적공급_린달균형_사뮤엘슨_조건",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제4절 공공재이론",
+        "제2관 공공재의 최적공급 (린달균형·사뮤엘슨 조건)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 공공재의 최적공급 (린달균형",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제4절_공공재이론__제3관_무임승차문제",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제4절 공공재이론",
+        "제3관 무임승차문제"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 무임승차문제",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제4절_공공재이론__제4관_클럽재",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제4절 공공재이론",
+        "제4관 클럽재"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 클럽재",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제5절_공공선택이론__제1관_다수결투표와_중위투표자정리",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제5절 공공선택이론",
+        "제1관 다수결투표와 중위투표자정리"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 다수결투표와 중위투표자정리",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제5절_공공선택이론__제2관_애로우의_불가능성정리",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제5절 공공선택이론",
+        "제2관 애로우의 불가능성정리"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 애로우의 불가능성정리",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제5절_공공선택이론__제3관_정치과정과_정부실패",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제5절 공공선택이론",
+        "제3관 정치과정과 정부실패"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 정치과정과 정부실패",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제2장_외부성_공공재_공공선택이론__제5절_공공선택이론__제4관_지대추구행위",
+      "path": [
+        "재정학",
+        "제2장 외부성, 공공재, 공공선택이론",
+        "제5절 공공선택이론",
+        "제4관 지대추구행위"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 지대추구행위",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제3장_공공지출이론__제6절_정부지출과_예산제도__제1관_정부지출의_분류와_추세",
+      "path": [
+        "재정학",
+        "제3장 공공지출이론",
+        "제6절 정부지출과 예산제도",
+        "제1관 정부지출의 분류와 추세"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 정부지출의 분류와 추세",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제3장_공공지출이론__제6절_정부지출과_예산제도__제2관_예산의_원칙",
+      "path": [
+        "재정학",
+        "제3장 공공지출이론",
+        "제6절 정부지출과 예산제도",
+        "제2관 예산의 원칙"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 예산의 원칙",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제3장_공공지출이론__제6절_정부지출과_예산제도__제3관_예산제도의_발전_PPBS_ZBB_등",
+      "path": [
+        "재정학",
+        "제3장 공공지출이론",
+        "제6절 정부지출과 예산제도",
+        "제3관 예산제도의 발전 (PPBS·ZBB 등)"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 예산제도의 발전 (PPBS",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제3장_공공지출이론__제6절_정부지출과_예산제도__제4관_발생주의_예산회계",
+      "path": [
+        "재정학",
+        "제3장 공공지출이론",
+        "제6절 정부지출과 예산제도",
+        "제4관 발생주의 예산회계"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 발생주의 예산회계",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제3장_공공지출이론__제7절_비용_편익분석__제1관_비용_편익분석의_절차",
+      "path": [
+        "재정학",
+        "제3장 공공지출이론",
+        "제7절 비용-편익분석",
+        "제1관 비용-편익분석의 절차"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 비용-편익분석의 절차",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제3장_공공지출이론__제7절_비용_편익분석__제2관_사회적_할인율",
+      "path": [
+        "재정학",
+        "제3장 공공지출이론",
+        "제7절 비용-편익분석",
+        "제2관 사회적 할인율"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 사회적 할인율",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제3장_공공지출이론__제7절_비용_편익분석__제3관_평가기준_NPV_B_C_IRR",
+      "path": [
+        "재정학",
+        "제3장 공공지출이론",
+        "제7절 비용-편익분석",
+        "제3관 평가기준 (NPV·B/C·IRR)"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 평가기준 (NPV",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제3장_공공지출이론__제7절_비용_편익분석__제4관_위험과_불확실성",
+      "path": [
+        "재정학",
+        "제3장 공공지출이론",
+        "제7절 비용-편익분석",
+        "제4관 위험과 불확실성"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 위험과 불확실성",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M08",
+      "unit_file": "units/M08.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M08.md"
+    },
+    {
+      "id": "economics__재정학__제4장_조세의_기초_및_전가와_귀착__제8절_조세의_기초이론__제1관_조세의_분류와_원칙",
+      "path": [
+        "재정학",
+        "제4장 조세의 기초 및 전가와 귀착",
+        "제8절 조세의 기초이론",
+        "제1관 조세의 분류와 원칙"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 조세의 분류와 원칙",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제4장_조세의_기초_및_전가와_귀착__제8절_조세의_기초이론__제2관_조세부담의_측정",
+      "path": [
+        "재정학",
+        "제4장 조세의 기초 및 전가와 귀착",
+        "제8절 조세의 기초이론",
+        "제2관 조세부담의 측정"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 조세부담의 측정",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제4장_조세의_기초_및_전가와_귀착__제8절_조세의_기초이론__제3관_공평과세_편익원칙_능력원칙",
+      "path": [
+        "재정학",
+        "제4장 조세의 기초 및 전가와 귀착",
+        "제8절 조세의 기초이론",
+        "제3관 공평과세 (편익원칙·능력원칙)"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 공평과세 (편익원칙",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제4장_조세의_기초_및_전가와_귀착__제8절_조세의_기초이론__제4관_우리나라_조세체계",
+      "path": [
+        "재정학",
+        "제4장 조세의 기초 및 전가와 귀착",
+        "제8절 조세의 기초이론",
+        "제4관 우리나라 조세체계"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 우리나라 조세체계",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제4장_조세의_기초_및_전가와_귀착__제9절_조세의_전가와_귀착__제1관_조세전가의_개념",
+      "path": [
+        "재정학",
+        "제4장 조세의 기초 및 전가와 귀착",
+        "제9절 조세의 전가와 귀착",
+        "제1관 조세전가의 개념"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 조세전가의 개념",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제4장_조세의_기초_및_전가와_귀착__제9절_조세의_전가와_귀착__제2관_부분균형_분석",
+      "path": [
+        "재정학",
+        "제4장 조세의 기초 및 전가와 귀착",
+        "제9절 조세의 전가와 귀착",
+        "제2관 부분균형 분석"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 부분균형 분석",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제4장_조세의_기초_및_전가와_귀착__제9절_조세의_전가와_귀착__제3관_일반균형_분석_하버거_모형",
+      "path": [
+        "재정학",
+        "제4장 조세의 기초 및 전가와 귀착",
+        "제9절 조세의 전가와 귀착",
+        "제3관 일반균형 분석 (하버거 모형)"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 일반균형 분석 (하버거 모형)",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제4장_조세의_기초_및_전가와_귀착__제9절_조세의_전가와_귀착__제4관_시장구조별_조세귀착",
+      "path": [
+        "재정학",
+        "제4장 조세의 기초 및 전가와 귀착",
+        "제9절 조세의 전가와 귀착",
+        "제4관 시장구조별 조세귀착"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 시장구조별 조세귀착",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제5장_조세의_초과부담_및_최적과세론__제10절_조세와_효율성_초과부담__제1관_초과부담의_의의와_측정",
+      "path": [
+        "재정학",
+        "제5장 조세의 초과부담 및 최적과세론",
+        "제10절 조세와 효율성 : 초과부담",
+        "제1관 초과부담의 의의와 측정"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 초과부담의 의의와 측정",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제5장_조세의_초과부담_및_최적과세론__제10절_조세와_효율성_초과부담__제2관_보상수요곡선과_초과부담",
+      "path": [
+        "재정학",
+        "제5장 조세의 초과부담 및 최적과세론",
+        "제10절 조세와 효율성 : 초과부담",
+        "제2관 보상수요곡선과 초과부담"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 보상수요곡선과 초과부담",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제5장_조세의_초과부담_및_최적과세론__제10절_조세와_효율성_초과부담__제3관_노동공급_저축_투자에_미치는_영향",
+      "path": [
+        "재정학",
+        "제5장 조세의 초과부담 및 최적과세론",
+        "제10절 조세와 효율성 : 초과부담",
+        "제3관 노동공급·저축·투자에 미치는 영향"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 노동공급",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제5장_조세의_초과부담_및_최적과세론__제11절_최적과세론__제1관_최적물품세_램지_원칙_역탄력성",
+      "path": [
+        "재정학",
+        "제5장 조세의 초과부담 및 최적과세론",
+        "제11절 최적과세론",
+        "제1관 최적물품세 (램지 원칙·역탄력성)"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 최적물품세 (램지 원칙",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제5장_조세의_초과부담_및_최적과세론__제11절_최적과세론__제2관_최적소득세_멀리스_모형",
+      "path": [
+        "재정학",
+        "제5장 조세의 초과부담 및 최적과세론",
+        "제11절 최적과세론",
+        "제2관 최적소득세 (멀리스 모형)"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 최적소득세 (멀리스 모형)",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제5장_조세의_초과부담_및_최적과세론__제11절_최적과세론__제3관_효율_공평_상충관계",
+      "path": [
+        "재정학",
+        "제5장 조세의 초과부담 및 최적과세론",
+        "제11절 최적과세론",
+        "제3관 효율-공평 상충관계"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 효율-공평 상충관계",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M02",
+      "unit_file": "units/M02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M02.md"
+    },
+    {
+      "id": "economics__재정학__제6장_조세의_경제적_효과__제12절_개별조세이론__제1관_소득세",
+      "path": [
+        "재정학",
+        "제6장 조세의 경제적 효과",
+        "제12절 개별조세이론",
+        "제1관 소득세"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 소득세",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제6장_조세의_경제적_효과__제12절_개별조세이론__제2관_법인세",
+      "path": [
+        "재정학",
+        "제6장 조세의 경제적 효과",
+        "제12절 개별조세이론",
+        "제2관 법인세"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 법인세",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제6장_조세의_경제적_효과__제12절_개별조세이론__제3관_소비세_부가가치세",
+      "path": [
+        "재정학",
+        "제6장 조세의 경제적 효과",
+        "제12절 개별조세이론",
+        "제3관 소비세 (부가가치세)"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 소비세 (부가가치세)",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제6장_조세의_경제적_효과__제12절_개별조세이론__제4관_재산세",
+      "path": [
+        "재정학",
+        "제6장 조세의 경제적 효과",
+        "제12절 개별조세이론",
+        "제4관 재산세"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 재산세",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제6장_조세의_경제적_효과__제13절_조세의_경제적_효과__제1관_조세와_노동공급",
+      "path": [
+        "재정학",
+        "제6장 조세의 경제적 효과",
+        "제13절 조세의 경제적 효과",
+        "제1관 조세와 노동공급"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 조세와 노동공급",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제6장_조세의_경제적_효과__제13절_조세의_경제적_효과__제2관_조세와_저축_투자",
+      "path": [
+        "재정학",
+        "제6장 조세의 경제적 효과",
+        "제13절 조세의 경제적 효과",
+        "제2관 조세와 저축·투자"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 조세와 저축",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제6장_조세의_경제적_효과__제13절_조세의_경제적_효과__제3관_조세와_위험부담",
+      "path": [
+        "재정학",
+        "제6장 조세의 경제적 효과",
+        "제13절 조세의 경제적 효과",
+        "제3관 조세와 위험부담"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 조세와 위험부담",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제14절_소득분배_및_사회보장__제1관_소득분배의_측정_로렌츠곡선_지니계수",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제14절 소득분배 및 사회보장",
+        "제1관 소득분배의 측정 (로렌츠곡선·지니계수)"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 소득분배의 측정 (로렌츠곡선",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제14절_소득분배_및_사회보장__제2관_빈곤의_측정",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제14절 소득분배 및 사회보장",
+        "제2관 빈곤의 측정"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 빈곤의 측정",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제14절_소득분배_및_사회보장__제3관_사회보장제도",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제14절 소득분배 및 사회보장",
+        "제3관 사회보장제도"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 사회보장제도",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제14절_소득분배_및_사회보장__제4관_부의_소득세_근로장려세제",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제14절 소득분배 및 사회보장",
+        "제4관 부의 소득세·근로장려세제"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 부의 소득세",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제15절_공공요금의_이론__제1관_자연독점과_공공요금",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제15절 공공요금의 이론",
+        "제1관 자연독점과 공공요금"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 자연독점과 공공요금",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제15절_공공요금의_이론__제2관_한계비용_가격설정_평균비용_가격설정",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제15절 공공요금의 이론",
+        "제2관 한계비용 가격설정·평균비용 가격설정"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 한계비용 가격설정",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제15절_공공요금의_이론__제3관_램지_가격설정_이부요금제",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제15절 공공요금의 이론",
+        "제3관 램지 가격설정·이부요금제"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 램지 가격설정",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제16절_공채론__제1관_공채의_종류와_기능",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제16절 공채론",
+        "제1관 공채의 종류와 기능"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 공채의 종류와 기능",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제16절_공채론__제2관_공채의_경제적_효과",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제16절 공채론",
+        "제2관 공채의 경제적 효과"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 공채의 경제적 효과",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제16절_공채론__제3관_리카도의_등가정리",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제16절 공채론",
+        "제3관 리카도의 등가정리"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 리카도의 등가정리",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제17절_지방재정__제1관_재정연방주의",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제17절 지방재정",
+        "제1관 재정연방주의"
+      ],
+      "leaf_type": "item",
+      "title": "제1관 재정연방주의",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제17절_지방재정__제2관_티부의_가설",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제17절 지방재정",
+        "제2관 티부의 가설"
+      ],
+      "leaf_type": "item",
+      "title": "제2관 티부의 가설",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제17절_지방재정__제3관_지방세와_지방교부세",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제17절 지방재정",
+        "제3관 지방세와 지방교부세"
+      ],
+      "leaf_type": "item",
+      "title": "제3관 지방세와 지방교부세",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    },
+    {
+      "id": "economics__재정학__제7장_재정학의_기타주제__제17절_지방재정__제4관_지방재정조정제도",
+      "path": [
+        "재정학",
+        "제7장 재정학의 기타주제",
+        "제17절 지방재정",
+        "제4관 지방재정조정제도"
+      ],
+      "leaf_type": "item",
+      "title": "제4관 지방재정조정제도",
+      "subject_root": "재정학",
+      "frequency": 2,
+      "unit_code": "M07",
+      "unit_file": "units/M07.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/M07.md"
+    }
+  ],
+  "tree": {
+    "미시경제학": [
+      {
+        "name": "제1장 경제학의 기초",
+        "sections": [
+          {
+            "name": "제1절 경제학의 개요",
+            "items": [
+              {
+                "name": "제1관 경제학의 정의와 분류"
+              },
+              {
+                "name": "제2관 경제문제와 경제체제"
+              },
+              {
+                "name": "제3관 기회비용과 합리적 선택"
+              },
+              {
+                "name": "제4관 생산가능곡선"
+              }
+            ]
+          },
+          {
+            "name": "제2절 경제학의 방법론",
+            "items": [
+              {
+                "name": "제1관 실증경제학과 규범경제학"
+              },
+              {
+                "name": "제2관 경제이론·모형·가정"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제2장 수요·공급의 이론",
+        "sections": [
+          {
+            "name": "제3절 수요·공급의 이론",
+            "items": [
+              {
+                "name": "제1관 수요와 수요곡선"
+              },
+              {
+                "name": "제2관 공급과 공급곡선"
+              },
+              {
+                "name": "제3관 시장균형"
+              },
+              {
+                "name": "제4관 수요·공급의 변화와 균형이동"
+              }
+            ]
+          },
+          {
+            "name": "제4절 수요와 공급의 탄력성",
+            "items": [
+              {
+                "name": "제1관 수요의 가격탄력성"
+              },
+              {
+                "name": "제2관 수요의 소득탄력성·교차탄력성"
+              },
+              {
+                "name": "제3관 공급의 가격탄력성"
+              },
+              {
+                "name": "제4관 탄력성과 총수입"
+              }
+            ]
+          },
+          {
+            "name": "제5절 수요·공급이론의 응용",
+            "items": [
+              {
+                "name": "제1관 가격통제 (최고가격제·최저가격제)"
+              },
+              {
+                "name": "제2관 조세의 귀착과 사회후생 손실"
+              },
+              {
+                "name": "제3관 보조금의 효과"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제3장 소비자이론",
+        "sections": [
+          {
+            "name": "제6절 한계효용이론",
+            "items": [
+              {
+                "name": "제1관 효용과 한계효용"
+              },
+              {
+                "name": "제2관 한계효용 균등의 법칙"
+              },
+              {
+                "name": "제3관 수요곡선의 도출"
+              }
+            ]
+          },
+          {
+            "name": "제7절 무차별곡선이론",
+            "items": [
+              {
+                "name": "제1관 무차별곡선과 한계대체율"
+              },
+              {
+                "name": "제2관 예산선과 소비자균형"
+              },
+              {
+                "name": "제3관 가격효과·대체효과·소득효과"
+              },
+              {
+                "name": "제4관 슬러츠키 분해"
+              }
+            ]
+          },
+          {
+            "name": "제8절 현시선호이론",
+            "items": [
+              {
+                "name": "제1관 현시선호의 약공리·강공리"
+              },
+              {
+                "name": "제2관 수요곡선의 도출"
+              }
+            ]
+          },
+          {
+            "name": "제9절 소비자이론의 응용",
+            "items": [
+              {
+                "name": "제1관 노동공급 결정"
+              },
+              {
+                "name": "제2관 시점간 소비선택"
+              },
+              {
+                "name": "제3관 소비자잉여"
+              }
+            ]
+          },
+          {
+            "name": "제10절 기대효용이론",
+            "items": [
+              {
+                "name": "제1관 기대값과 기대효용"
+              },
+              {
+                "name": "제2관 위험에 대한 태도"
+              },
+              {
+                "name": "제3관 위험프리미엄과 보험"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제4장 생산자이론",
+        "sections": [
+          {
+            "name": "제11절 생산이론",
+            "items": [
+              {
+                "name": "제1관 생산함수와 생산요소"
+              },
+              {
+                "name": "제2관 단기생산함수 (한계생산·평균생산)"
+              },
+              {
+                "name": "제3관 장기생산함수 (등량곡선·기술적 한계대체율)"
+              },
+              {
+                "name": "제4관 규모에 대한 수익"
+              }
+            ]
+          },
+          {
+            "name": "제12절 비용이론",
+            "items": [
+              {
+                "name": "제1관 회계적 비용과 경제적 비용"
+              },
+              {
+                "name": "제2관 단기비용함수"
+              },
+              {
+                "name": "제3관 장기비용함수와 규모의 경제"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제5장 시장이론",
+        "sections": [
+          {
+            "name": "제13절 완전경쟁시장",
+            "items": [
+              {
+                "name": "제1관 완전경쟁시장의 특징"
+              },
+              {
+                "name": "제2관 단기 이윤극대화"
+              },
+              {
+                "name": "제3관 장기균형"
+              }
+            ]
+          },
+          {
+            "name": "제14절 독점시장",
+            "items": [
+              {
+                "name": "제1관 독점의 발생원인"
+              },
+              {
+                "name": "제2관 독점기업의 이윤극대화"
+              },
+              {
+                "name": "제3관 가격차별"
+              },
+              {
+                "name": "제4관 독점의 폐해와 규제"
+              }
+            ]
+          },
+          {
+            "name": "제15절 독점적 경쟁시장",
+            "items": [
+              {
+                "name": "제1관 독점적 경쟁의 특징"
+              },
+              {
+                "name": "제2관 단기·장기균형"
+              }
+            ]
+          },
+          {
+            "name": "제16절 과점시장",
+            "items": [
+              {
+                "name": "제1관 과점의 특징과 모형 분류"
+              },
+              {
+                "name": "제2관 쿠르노·베르트랑·슈타켈베르크 모형"
+              },
+              {
+                "name": "제3관 굴절수요곡선·가격선도"
+              },
+              {
+                "name": "제4관 카르텔과 담합"
+              }
+            ]
+          },
+          {
+            "name": "제17절 게임이론",
+            "items": [
+              {
+                "name": "제1관 전략형 게임과 내쉬균형"
+              },
+              {
+                "name": "제2관 죄수의 딜레마"
+              },
+              {
+                "name": "제3관 순차게임·반복게임"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제6장 생산요소시장과 소득분배",
+        "sections": [
+          {
+            "name": "제18절 완전경쟁 요소시장",
+            "items": [
+              {
+                "name": "제1관 요소수요 (한계생산물가치)"
+              },
+              {
+                "name": "제2관 요소공급"
+              },
+              {
+                "name": "제3관 요소시장 균형"
+              }
+            ]
+          },
+          {
+            "name": "제19절 불완전경쟁 요소시장",
+            "items": [
+              {
+                "name": "제1관 수요독점"
+              },
+              {
+                "name": "제2관 공급독점 (노동조합)"
+              },
+              {
+                "name": "제3관 쌍방독점"
+              }
+            ]
+          },
+          {
+            "name": "제20절 소득분배이론",
+            "items": [
+              {
+                "name": "제1관 기능별·계층별 분배"
+              },
+              {
+                "name": "제2관 로렌츠곡선과 지니계수"
+              },
+              {
+                "name": "제3관 분배이론 (한계생산력설 등)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제7장 일반균형이론 및 후생경제학",
+        "sections": [
+          {
+            "name": "제21절 일반균형이론과 경제적 효율성",
+            "items": [
+              {
+                "name": "제1관 일반균형의 개념"
+              },
+              {
+                "name": "제2관 에지워스 상자와 파레토 효율"
+              },
+              {
+                "name": "제3관 효율성의 조건"
+              }
+            ]
+          },
+          {
+            "name": "제22절 후생경제학",
+            "items": [
+              {
+                "name": "제1관 후생경제학의 제1·제2정리"
+              },
+              {
+                "name": "제2관 사회후생함수"
+              },
+              {
+                "name": "제3관 애로우의 불가능성 정리"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제8장 시장실패와 정보경제학",
+        "sections": [
+          {
+            "name": "제23절 시장실패",
+            "items": [
+              {
+                "name": "제1관 시장실패의 원인"
+              },
+              {
+                "name": "제2관 외부성"
+              },
+              {
+                "name": "제3관 공공재"
+              },
+              {
+                "name": "제4관 코즈 정리"
+              }
+            ]
+          },
+          {
+            "name": "제24절 정보경제학과 행동경제학",
+            "items": [
+              {
+                "name": "제1관 비대칭정보 (역선택·도덕적해이)"
+              },
+              {
+                "name": "제2관 신호발송·선별"
+              },
+              {
+                "name": "제3관 행동경제학 기초"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "거시경제학": [
+      {
+        "name": "제1장 국민소득결정이론",
+        "sections": [
+          {
+            "name": "제1절 거시경제학의 기초",
+            "items": [
+              {
+                "name": "제1관 거시경제학의 주요 변수와 이슈"
+              },
+              {
+                "name": "제2관 거시경제 모형의 분류"
+              }
+            ]
+          },
+          {
+            "name": "제2절 국민소득의 측정과 경제구조",
+            "items": [
+              {
+                "name": "제1관 GDP·GNI 등 국민소득 지표"
+              },
+              {
+                "name": "제2관 명목·실질 GDP, GDP 디플레이터"
+              },
+              {
+                "name": "제3관 국민소득 3면 등가의 원칙"
+              },
+              {
+                "name": "제4관 산업연관표·국민계정체계"
+              }
+            ]
+          },
+          {
+            "name": "제3절 고전학파의 국민소득결정이론",
+            "items": [
+              {
+                "name": "제1관 세이의 법칙"
+              },
+              {
+                "name": "제2관 노동시장과 총생산함수"
+              },
+              {
+                "name": "제3관 화폐수량설"
+              }
+            ]
+          },
+          {
+            "name": "제4절 케인즈의 국민소득결정이론",
+            "items": [
+              {
+                "name": "제1관 유효수요의 원리"
+              },
+              {
+                "name": "제2관 케인즈의 단순모형 (45도선)"
+              },
+              {
+                "name": "제3관 승수효과"
+              },
+              {
+                "name": "제4관 절약의 역설"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제2장 소비함수와 투자함수",
+        "sections": [
+          {
+            "name": "제5절 소비함수론",
+            "items": [
+              {
+                "name": "제1관 케인즈의 절대소득가설"
+              },
+              {
+                "name": "제2관 쿠즈네츠의 실증연구"
+              },
+              {
+                "name": "제3관 상대소득가설·항상소득가설"
+              },
+              {
+                "name": "제4관 생애주기가설"
+              }
+            ]
+          },
+          {
+            "name": "제6절 투자함수론",
+            "items": [
+              {
+                "name": "제1관 현재가치법과 내부수익률법"
+              },
+              {
+                "name": "제2관 케인즈의 한계효율이론"
+              },
+              {
+                "name": "제3관 가속도원리·신축적 가속도원리"
+              },
+              {
+                "name": "제4관 토빈의 q이론"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제3장 화폐금융론",
+        "sections": [
+          {
+            "name": "제7절 금융제도와 화폐공급",
+            "items": [
+              {
+                "name": "제1관 화폐의 기능과 통화지표"
+              },
+              {
+                "name": "제2관 본원통화와 통화승수"
+              },
+              {
+                "name": "제3관 신용창조"
+              },
+              {
+                "name": "제4관 중앙은행의 통화정책 수단"
+              }
+            ]
+          },
+          {
+            "name": "제8절 화폐수요와 금융정책",
+            "items": [
+              {
+                "name": "제1관 고전학파의 화폐수요이론"
+              },
+              {
+                "name": "제2관 케인즈의 유동성선호설"
+              },
+              {
+                "name": "제3관 보몰-토빈 모형·프리드만의 신화폐수량설"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제4장 총수요·총공급이론",
+        "sections": [
+          {
+            "name": "제9절 IS-LM모형",
+            "items": [
+              {
+                "name": "제1관 IS곡선의 도출과 이동"
+              },
+              {
+                "name": "제2관 LM곡선의 도출과 이동"
+              },
+              {
+                "name": "제3관 IS-LM 균형"
+              },
+              {
+                "name": "제4관 유동성함정과 투자의 이자율 비탄력"
+              }
+            ]
+          },
+          {
+            "name": "제10절 재정정책과 금융정책",
+            "items": [
+              {
+                "name": "제1관 재정정책의 효과"
+              },
+              {
+                "name": "제2관 금융정책의 효과"
+              },
+              {
+                "name": "제3관 구축효과"
+              },
+              {
+                "name": "제4관 정책혼합 (policy mix)"
+              }
+            ]
+          },
+          {
+            "name": "제11절 총수요·총공급",
+            "items": [
+              {
+                "name": "제1관 총수요곡선의 도출"
+              },
+              {
+                "name": "제2관 총공급곡선 (단기·장기)"
+              },
+              {
+                "name": "제3관 AD-AS 균형"
+              },
+              {
+                "name": "제4관 수요충격·공급충격"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제5장 인플레이션과 실업",
+        "sections": [
+          {
+            "name": "제12절 물가와 인플레이션",
+            "items": [
+              {
+                "name": "제1관 물가지수 (CPI·PPI·GDP 디플레이터)"
+              },
+              {
+                "name": "제2관 인플레이션의 원인 (수요견인·비용인상)"
+              },
+              {
+                "name": "제3관 인플레이션의 비용"
+              },
+              {
+                "name": "제4관 디플레이션과 디스인플레이션"
+              }
+            ]
+          },
+          {
+            "name": "제13절 노동시장과 실업",
+            "items": [
+              {
+                "name": "제1관 실업의 측정과 종류"
+              },
+              {
+                "name": "제2관 자연실업률 이론"
+              },
+              {
+                "name": "제3관 효율임금이론·내부자-외부자 이론"
+              }
+            ]
+          },
+          {
+            "name": "제14절 필립스곡선과 스태그플레이션",
+            "items": [
+              {
+                "name": "제1관 원래의 필립스곡선"
+              },
+              {
+                "name": "제2관 기대부가 필립스곡선"
+              },
+              {
+                "name": "제3관 스태그플레이션과 자연실업률가설"
+              },
+              {
+                "name": "제4관 합리적 기대와 필립스곡선"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제6장 거시경제학파와 안정화정책",
+        "sections": [
+          {
+            "name": "제15절 각 학파 모형의 주요내용",
+            "items": [
+              {
+                "name": "제1관 고전학파와 케인즈학파"
+              },
+              {
+                "name": "제2관 통화주의"
+              },
+              {
+                "name": "제3관 학파 비교"
+              }
+            ]
+          },
+          {
+            "name": "제16절 새고전학파·새케인즈학파",
+            "items": [
+              {
+                "name": "제1관 새고전학파 (합리적기대·실물경기변동)"
+              },
+              {
+                "name": "제2관 새케인즈학파 (가격경직성·메뉴비용)"
+              }
+            ]
+          },
+          {
+            "name": "제17절 안정화정책과 관련된 논쟁",
+            "items": [
+              {
+                "name": "제1관 재량 vs 준칙"
+              },
+              {
+                "name": "제2관 최적정책의 동태적 비일관성"
+              },
+              {
+                "name": "제3관 정책의 시차"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제7장 경기변동과 경제성장",
+        "sections": [
+          {
+            "name": "제18절 경기변동론",
+            "items": [
+              {
+                "name": "제1관 경기변동의 특징과 측정"
+              },
+              {
+                "name": "제2관 케인즈학파 경기변동이론"
+              },
+              {
+                "name": "제3관 실물경기변동이론 (RBC)"
+              },
+              {
+                "name": "제4관 새케인즈학파의 경기변동이론"
+              }
+            ]
+          },
+          {
+            "name": "제19절 경제성장론",
+            "items": [
+              {
+                "name": "제1관 해로드-도마 모형"
+              },
+              {
+                "name": "제2관 솔로우 성장모형"
+              },
+              {
+                "name": "제3관 황금률 (Golden Rule)"
+              },
+              {
+                "name": "제4관 내생적 성장이론"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "국제경제학": [
+      {
+        "name": "제1장 국제무역론",
+        "sections": [
+          {
+            "name": "제1절 국제무역이론",
+            "items": [
+              {
+                "name": "제1관 절대우위·비교우위 (리카도 모형)"
+              },
+              {
+                "name": "제2관 헥셔-올린 정리"
+              },
+              {
+                "name": "제3관 스톨퍼-사무엘슨 정리·립진스키 정리"
+              },
+              {
+                "name": "제4관 현대무역이론 (산업내 무역)"
+              }
+            ]
+          },
+          {
+            "name": "제2절 무역정책론",
+            "items": [
+              {
+                "name": "제1관 관세의 효과"
+              },
+              {
+                "name": "제2관 비관세장벽 (수입할당·수출자율규제)"
+              },
+              {
+                "name": "제3관 자유무역 vs 보호무역"
+              },
+              {
+                "name": "제4관 경제통합과 WTO"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제2장 국제금융론",
+        "sections": [
+          {
+            "name": "제3절 환율, 환율결정이론, 환율제도",
+            "items": [
+              {
+                "name": "제1관 환율의 개념과 표시방법"
+              },
+              {
+                "name": "제2관 구매력평가설 (PPP)"
+              },
+              {
+                "name": "제3관 이자율평가설 (IRP)"
+              },
+              {
+                "name": "제4관 환율제도 (고정·변동·관리변동)"
+              }
+            ]
+          },
+          {
+            "name": "제4절 국제수지론",
+            "items": [
+              {
+                "name": "제1관 국제수지표의 구조"
+              },
+              {
+                "name": "제2관 국제수지 조정이론 (탄력성·흡수·통화접근)"
+              },
+              {
+                "name": "제3관 J-curve 효과"
+              },
+              {
+                "name": "제4관 먼델-플레밍 모형"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "재정학": [
+      {
+        "name": "제1장 재정학의 개요",
+        "sections": [
+          {
+            "name": "제1절 재정학의 기초",
+            "items": [
+              {
+                "name": "제1관 재정의 의의와 기능"
+              },
+              {
+                "name": "제2관 정부의 경제적 역할 (머스그레이브의 3대 기능)"
+              },
+              {
+                "name": "제3관 재정학의 분석방법"
+              }
+            ]
+          },
+          {
+            "name": "제2절 경제적 효율성과 시장실패",
+            "items": [
+              {
+                "name": "제1관 파레토 효율성"
+              },
+              {
+                "name": "제2관 후생경제학의 기본정리"
+              },
+              {
+                "name": "제3관 시장실패의 원인"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제2장 외부성, 공공재, 공공선택이론",
+        "sections": [
+          {
+            "name": "제3절 외부성",
+            "items": [
+              {
+                "name": "제1관 외부성의 유형과 효과"
+              },
+              {
+                "name": "제2관 코즈정리"
+              },
+              {
+                "name": "제3관 피구세·피구보조금"
+              },
+              {
+                "name": "제4관 배출권거래제"
+              }
+            ]
+          },
+          {
+            "name": "제4절 공공재이론",
+            "items": [
+              {
+                "name": "제1관 공공재의 특성 (비경합성·비배제성)"
+              },
+              {
+                "name": "제2관 공공재의 최적공급 (린달균형·사뮤엘슨 조건)"
+              },
+              {
+                "name": "제3관 무임승차문제"
+              },
+              {
+                "name": "제4관 클럽재"
+              }
+            ]
+          },
+          {
+            "name": "제5절 공공선택이론",
+            "items": [
+              {
+                "name": "제1관 다수결투표와 중위투표자정리"
+              },
+              {
+                "name": "제2관 애로우의 불가능성정리"
+              },
+              {
+                "name": "제3관 정치과정과 정부실패"
+              },
+              {
+                "name": "제4관 지대추구행위"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제3장 공공지출이론",
+        "sections": [
+          {
+            "name": "제6절 정부지출과 예산제도",
+            "items": [
+              {
+                "name": "제1관 정부지출의 분류와 추세"
+              },
+              {
+                "name": "제2관 예산의 원칙"
+              },
+              {
+                "name": "제3관 예산제도의 발전 (PPBS·ZBB 등)"
+              },
+              {
+                "name": "제4관 발생주의 예산회계"
+              }
+            ]
+          },
+          {
+            "name": "제7절 비용-편익분석",
+            "items": [
+              {
+                "name": "제1관 비용-편익분석의 절차"
+              },
+              {
+                "name": "제2관 사회적 할인율"
+              },
+              {
+                "name": "제3관 평가기준 (NPV·B/C·IRR)"
+              },
+              {
+                "name": "제4관 위험과 불확실성"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제4장 조세의 기초 및 전가와 귀착",
+        "sections": [
+          {
+            "name": "제8절 조세의 기초이론",
+            "items": [
+              {
+                "name": "제1관 조세의 분류와 원칙"
+              },
+              {
+                "name": "제2관 조세부담의 측정"
+              },
+              {
+                "name": "제3관 공평과세 (편익원칙·능력원칙)"
+              },
+              {
+                "name": "제4관 우리나라 조세체계"
+              }
+            ]
+          },
+          {
+            "name": "제9절 조세의 전가와 귀착",
+            "items": [
+              {
+                "name": "제1관 조세전가의 개념"
+              },
+              {
+                "name": "제2관 부분균형 분석"
+              },
+              {
+                "name": "제3관 일반균형 분석 (하버거 모형)"
+              },
+              {
+                "name": "제4관 시장구조별 조세귀착"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제5장 조세의 초과부담 및 최적과세론",
+        "sections": [
+          {
+            "name": "제10절 조세와 효율성 : 초과부담",
+            "items": [
+              {
+                "name": "제1관 초과부담의 의의와 측정"
+              },
+              {
+                "name": "제2관 보상수요곡선과 초과부담"
+              },
+              {
+                "name": "제3관 노동공급·저축·투자에 미치는 영향"
+              }
+            ]
+          },
+          {
+            "name": "제11절 최적과세론",
+            "items": [
+              {
+                "name": "제1관 최적물품세 (램지 원칙·역탄력성)"
+              },
+              {
+                "name": "제2관 최적소득세 (멀리스 모형)"
+              },
+              {
+                "name": "제3관 효율-공평 상충관계"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제6장 조세의 경제적 효과",
+        "sections": [
+          {
+            "name": "제12절 개별조세이론",
+            "items": [
+              {
+                "name": "제1관 소득세"
+              },
+              {
+                "name": "제2관 법인세"
+              },
+              {
+                "name": "제3관 소비세 (부가가치세)"
+              },
+              {
+                "name": "제4관 재산세"
+              }
+            ]
+          },
+          {
+            "name": "제13절 조세의 경제적 효과",
+            "items": [
+              {
+                "name": "제1관 조세와 노동공급"
+              },
+              {
+                "name": "제2관 조세와 저축·투자"
+              },
+              {
+                "name": "제3관 조세와 위험부담"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "제7장 재정학의 기타주제",
+        "sections": [
+          {
+            "name": "제14절 소득분배 및 사회보장",
+            "items": [
+              {
+                "name": "제1관 소득분배의 측정 (로렌츠곡선·지니계수)"
+              },
+              {
+                "name": "제2관 빈곤의 측정"
+              },
+              {
+                "name": "제3관 사회보장제도"
+              },
+              {
+                "name": "제4관 부의 소득세·근로장려세제"
+              }
+            ]
+          },
+          {
+            "name": "제15절 공공요금의 이론",
+            "items": [
+              {
+                "name": "제1관 자연독점과 공공요금"
+              },
+              {
+                "name": "제2관 한계비용 가격설정·평균비용 가격설정"
+              },
+              {
+                "name": "제3관 램지 가격설정·이부요금제"
+              }
+            ]
+          },
+          {
+            "name": "제16절 공채론",
+            "items": [
+              {
+                "name": "제1관 공채의 종류와 기능"
+              },
+              {
+                "name": "제2관 공채의 경제적 효과"
+              },
+              {
+                "name": "제3관 리카도의 등가정리"
+              }
+            ]
+          },
+          {
+            "name": "제17절 지방재정",
+            "items": [
+              {
+                "name": "제1관 재정연방주의"
+              },
+              {
+                "name": "제2관 티부의 가설"
+              },
+              {
+                "name": "제3관 지방세와 지방교부세"
+              },
+              {
+                "name": "제4관 지방재정조정제도"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "default_leaf": "economics__미시경제학__제1장_경제학의_기초__제1절_경제학의_개요__제1관_경제학의_정의와_분류",
+  "version": "v2.1"
+}

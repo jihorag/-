@@ -1,0 +1,1427 @@
+{
+  "subject": "감정평가관계법규",
+  "subject_id": "law",
+  "exam": "감정평가사 1차",
+  "total_questions_per_exam": 40,
+  "taxonomy_source": "/data/taxonomy.json",
+  "units_dir": "/data/study/law/units",
+  "problems_dir": "/data/study/law/problems",
+  "handover_file": "/data/study/law/handover.md",
+  "leaves": [
+    {
+      "id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_01_총칙",
+      "path": [
+        "PART 01 국토의 계획 및 이용에 관한 법률",
+        "Chapter 01 총칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 01 총칙",
+      "subject_root": "PART 01 국토의 계획 및 이용에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_02_광역도시계획",
+      "path": [
+        "PART 01 국토의 계획 및 이용에 관한 법률",
+        "Chapter 02 광역도시계획"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 02 광역도시계획",
+      "subject_root": "PART 01 국토의 계획 및 이용에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_03_도시_군기본계획",
+      "path": [
+        "PART 01 국토의 계획 및 이용에 관한 법률",
+        "Chapter 03 도시·군기본계획"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 03 도시",
+      "subject_root": "PART 01 국토의 계획 및 이용에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_04_도시_군관리계획__제1절_도시_군관리계획",
+      "path": [
+        "PART 01 국토의 계획 및 이용에 관한 법률",
+        "Chapter 04 도시·군관리계획",
+        "제1절 도시·군관리계획"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 도시",
+      "subject_root": "PART 01 국토의 계획 및 이용에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_04_도시_군관리계획__제2절_용도지역_용도지구_용도구역",
+      "path": [
+        "PART 01 국토의 계획 및 이용에 관한 법률",
+        "Chapter 04 도시·군관리계획",
+        "제2절 용도지역·용도지구·용도구역"
+      ],
+      "leaf_type": "section",
+      "title": "제2절 용도지역",
+      "subject_root": "PART 01 국토의 계획 및 이용에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_04_도시_군관리계획__제3절_기반시설과_도시_군계획시설_등",
+      "path": [
+        "PART 01 국토의 계획 및 이용에 관한 법률",
+        "Chapter 04 도시·군관리계획",
+        "제3절 기반시설과 도시·군계획시설 등"
+      ],
+      "leaf_type": "section",
+      "title": "제3절 기반시설과 도시",
+      "subject_root": "PART 01 국토의 계획 및 이용에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_04_도시_군관리계획__제4절_지구단위계획구역과_지구단위계획",
+      "path": [
+        "PART 01 국토의 계획 및 이용에 관한 법률",
+        "Chapter 04 도시·군관리계획",
+        "제4절 지구단위계획구역과 지구단위계획"
+      ],
+      "leaf_type": "section",
+      "title": "제4절 지구단위계획구역과 지구단위계획",
+      "subject_root": "PART 01 국토의 계획 및 이용에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_05_개발행위의_허가_등",
+      "path": [
+        "PART 01 국토의 계획 및 이용에 관한 법률",
+        "Chapter 05 개발행위의 허가 등"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 05 개발행위의 허가 등",
+      "subject_root": "PART 01 국토의 계획 및 이용에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_06_보칙_및_벌칙",
+      "path": [
+        "PART 01 국토의 계획 및 이용에 관한 법률",
+        "Chapter 06 보칙 및 벌칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 06 보칙 및 벌칙",
+      "subject_root": "PART 01 국토의 계획 및 이용에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_02_건축법__Chapter_01_총칙",
+      "path": [
+        "PART 02 건축법",
+        "Chapter 01 총칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 01 총칙",
+      "subject_root": "PART 02 건축법",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_02_건축법__Chapter_02_건축물의_건축_등",
+      "path": [
+        "PART 02 건축법",
+        "Chapter 02 건축물의 건축 등"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 02 건축물의 건축 등",
+      "subject_root": "PART 02 건축법",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_02_건축법__Chapter_03_건축물의_대지와_도로",
+      "path": [
+        "PART 02 건축법",
+        "Chapter 03 건축물의 대지와 도로"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 03 건축물의 대지와 도로",
+      "subject_root": "PART 02 건축법",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_02_건축법__Chapter_04_건축물의_구조_및_재료",
+      "path": [
+        "PART 02 건축법",
+        "Chapter 04 건축물의 구조 및 재료"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 04 건축물의 구조 및 재료",
+      "subject_root": "PART 02 건축법",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_02_건축법__Chapter_05_지역_및_지구_안의_건축물",
+      "path": [
+        "PART 02 건축법",
+        "Chapter 05 지역 및 지구 안의 건축물"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 05 지역 및 지구 안의 건축물",
+      "subject_root": "PART 02 건축법",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_02_건축법__Chapter_06_특별건축구역_건축협정_결합건축_벌칙",
+      "path": [
+        "PART 02 건축법",
+        "Chapter 06 특별건축구역, 건축협정, 결합건축, 벌칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 06 특별건축구역, 건축협정, 결합건축, 벌칙",
+      "subject_root": "PART 02 건축법",
+      "frequency": 2,
+      "unit_code": "PART01",
+      "unit_file": "units/PART01.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART01.md"
+    },
+    {
+      "id": "law__PART_03_도시_및_주거환경정비법__Chapter_01_총칙",
+      "path": [
+        "PART 03 도시 및 주거환경정비법",
+        "Chapter 01 총칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 01 총칙",
+      "subject_root": "PART 03 도시 및 주거환경정비법",
+      "frequency": 2,
+      "unit_code": "PART02",
+      "unit_file": "units/PART02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART02.md"
+    },
+    {
+      "id": "law__PART_03_도시_및_주거환경정비법__Chapter_02_기본계획의_수립_및_정비구역의_지정",
+      "path": [
+        "PART 03 도시 및 주거환경정비법",
+        "Chapter 02 기본계획의 수립 및 정비구역의 지정"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 02 기본계획의 수립 및 정비구역의 지정",
+      "subject_root": "PART 03 도시 및 주거환경정비법",
+      "frequency": 2,
+      "unit_code": "PART02",
+      "unit_file": "units/PART02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART02.md"
+    },
+    {
+      "id": "law__PART_03_도시_및_주거환경정비법__Chapter_03_정비사업의_시행__제1절_시행자_및_사업시행계획",
+      "path": [
+        "PART 03 도시 및 주거환경정비법",
+        "Chapter 03 정비사업의 시행",
+        "제1절 시행자 및 사업시행계획"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 시행자 및 사업시행계획",
+      "subject_root": "PART 03 도시 및 주거환경정비법",
+      "frequency": 2,
+      "unit_code": "PART02",
+      "unit_file": "units/PART02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART02.md"
+    },
+    {
+      "id": "law__PART_03_도시_및_주거환경정비법__Chapter_03_정비사업의_시행__제2절_관리처분계획_및_소유권이전",
+      "path": [
+        "PART 03 도시 및 주거환경정비법",
+        "Chapter 03 정비사업의 시행",
+        "제2절 관리처분계획 및 소유권이전"
+      ],
+      "leaf_type": "section",
+      "title": "제2절 관리처분계획 및 소유권이전",
+      "subject_root": "PART 03 도시 및 주거환경정비법",
+      "frequency": 2,
+      "unit_code": "PART02",
+      "unit_file": "units/PART02.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART02.md"
+    },
+    {
+      "id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_01_총칙",
+      "path": [
+        "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "Chapter 01 총칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 01 총칙",
+      "subject_root": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART03",
+      "unit_file": "units/PART03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART03.md"
+    },
+    {
+      "id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_02_측량",
+      "path": [
+        "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "Chapter 02 측량"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 02 측량",
+      "subject_root": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART03",
+      "unit_file": "units/PART03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART03.md"
+    },
+    {
+      "id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_03_지적_地籍__제1절_토지의_조사_및_등록",
+      "path": [
+        "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "Chapter 03 지적(地籍)",
+        "제1절 토지의 조사 및 등록"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 토지의 조사 및 등록",
+      "subject_root": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART03",
+      "unit_file": "units/PART03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART03.md"
+    },
+    {
+      "id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_03_지적_地籍__제2절_지번",
+      "path": [
+        "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "Chapter 03 지적(地籍)",
+        "제2절 지번"
+      ],
+      "leaf_type": "section",
+      "title": "제2절 지번",
+      "subject_root": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART03",
+      "unit_file": "units/PART03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART03.md"
+    },
+    {
+      "id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_03_지적_地籍__제3절_지목",
+      "path": [
+        "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "Chapter 03 지적(地籍)",
+        "제3절 지목"
+      ],
+      "leaf_type": "section",
+      "title": "제3절 지목",
+      "subject_root": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART03",
+      "unit_file": "units/PART03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART03.md"
+    },
+    {
+      "id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_03_지적_地籍__제4절_경계",
+      "path": [
+        "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "Chapter 03 지적(地籍)",
+        "제4절 경계"
+      ],
+      "leaf_type": "section",
+      "title": "제4절 경계",
+      "subject_root": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART03",
+      "unit_file": "units/PART03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART03.md"
+    },
+    {
+      "id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_03_지적_地籍__제5절_면적",
+      "path": [
+        "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "Chapter 03 지적(地籍)",
+        "제5절 면적"
+      ],
+      "leaf_type": "section",
+      "title": "제5절 면적",
+      "subject_root": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART03",
+      "unit_file": "units/PART03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART03.md"
+    },
+    {
+      "id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_04_지적공부",
+      "path": [
+        "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "Chapter 04 지적공부"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 04 지적공부",
+      "subject_root": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART03",
+      "unit_file": "units/PART03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART03.md"
+    },
+    {
+      "id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_05_토지의_이동_등__제1절_토지의_이동",
+      "path": [
+        "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "Chapter 05 토지의 이동 등",
+        "제1절 토지의 이동"
+      ],
+      "leaf_type": "section",
+      "title": "제1절 토지의 이동",
+      "subject_root": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART03",
+      "unit_file": "units/PART03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART03.md"
+    },
+    {
+      "id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_05_토지의_이동_등__제2절_등록사항의_정정_등",
+      "path": [
+        "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "Chapter 05 토지의 이동 등",
+        "제2절 등록사항의 정정 등"
+      ],
+      "leaf_type": "section",
+      "title": "제2절 등록사항의 정정 등",
+      "subject_root": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART03",
+      "unit_file": "units/PART03.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART03.md"
+    },
+    {
+      "id": "law__PART_05_부동산등기법__Chapter_01_총칙",
+      "path": [
+        "PART 05 부동산등기법",
+        "Chapter 01 총칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 01 총칙",
+      "subject_root": "PART 05 부동산등기법",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_05_부동산등기법__Chapter_02_등기부_등",
+      "path": [
+        "PART 05 부동산등기법",
+        "Chapter 02 등기부 등"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 02 등기부 등",
+      "subject_root": "PART 05 부동산등기법",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_05_부동산등기법__Chapter_03_등기절차",
+      "path": [
+        "PART 05 부동산등기법",
+        "Chapter 03 등기절차"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 03 등기절차",
+      "subject_root": "PART 05 부동산등기법",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_05_부동산등기법__Chapter_04_표시에_관한_등기",
+      "path": [
+        "PART 05 부동산등기법",
+        "Chapter 04 표시에 관한 등기"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 04 표시에 관한 등기",
+      "subject_root": "PART 05 부동산등기법",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_05_부동산등기법__Chapter_05_권리에_관한_등기",
+      "path": [
+        "PART 05 부동산등기법",
+        "Chapter 05 권리에 관한 등기"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 05 권리에 관한 등기",
+      "subject_root": "PART 05 부동산등기법",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_05_부동산등기법__Chapter_06_이의신청",
+      "path": [
+        "PART 05 부동산등기법",
+        "Chapter 06 이의신청"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 06 이의신청",
+      "subject_root": "PART 05 부동산등기법",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_06_국유재산법__Chapter_01_총칙",
+      "path": [
+        "PART 06 국유재산법",
+        "Chapter 01 총칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 01 총칙",
+      "subject_root": "PART 06 국유재산법",
+      "frequency": 2,
+      "unit_code": "PART06",
+      "unit_file": "units/PART06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART06.md"
+    },
+    {
+      "id": "law__PART_06_국유재산법__Chapter_02_총괄청",
+      "path": [
+        "PART 06 국유재산법",
+        "Chapter 02 총괄청"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 02 총괄청",
+      "subject_root": "PART 06 국유재산법",
+      "frequency": 2,
+      "unit_code": "PART06",
+      "unit_file": "units/PART06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART06.md"
+    },
+    {
+      "id": "law__PART_06_국유재산법__Chapter_03_행정재산",
+      "path": [
+        "PART 06 국유재산법",
+        "Chapter 03 행정재산"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 03 행정재산",
+      "subject_root": "PART 06 국유재산법",
+      "frequency": 2,
+      "unit_code": "PART06",
+      "unit_file": "units/PART06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART06.md"
+    },
+    {
+      "id": "law__PART_06_국유재산법__Chapter_04_일반재산",
+      "path": [
+        "PART 06 국유재산법",
+        "Chapter 04 일반재산"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 04 일반재산",
+      "subject_root": "PART 06 국유재산법",
+      "frequency": 2,
+      "unit_code": "PART06",
+      "unit_file": "units/PART06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART06.md"
+    },
+    {
+      "id": "law__PART_06_국유재산법__Chapter_05_지식재산_관리_처분의_특례",
+      "path": [
+        "PART 06 국유재산법",
+        "Chapter 05 지식재산 관리·처분의 특례"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 05 지식재산 관리",
+      "subject_root": "PART 06 국유재산법",
+      "frequency": 2,
+      "unit_code": "PART06",
+      "unit_file": "units/PART06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART06.md"
+    },
+    {
+      "id": "law__PART_06_국유재산법__Chapter_06_대장과_보고_및_보칙",
+      "path": [
+        "PART 06 국유재산법",
+        "Chapter 06 대장과 보고 및 보칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 06 대장과 보고 및 보칙",
+      "subject_root": "PART 06 국유재산법",
+      "frequency": 2,
+      "unit_code": "PART06",
+      "unit_file": "units/PART06.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART06.md"
+    },
+    {
+      "id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_01_용어의_정의",
+      "path": [
+        "PART 07 부동산 가격공시에 관한 법률",
+        "Chapter 01 용어의 정의"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 01 용어의 정의",
+      "subject_root": "PART 07 부동산 가격공시에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_02_표준지공시지가",
+      "path": [
+        "PART 07 부동산 가격공시에 관한 법률",
+        "Chapter 02 표준지공시지가"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 02 표준지공시지가",
+      "subject_root": "PART 07 부동산 가격공시에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_03_개별공시지가",
+      "path": [
+        "PART 07 부동산 가격공시에 관한 법률",
+        "Chapter 03 개별공시지가"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 03 개별공시지가",
+      "subject_root": "PART 07 부동산 가격공시에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_04_주택가격의_공시",
+      "path": [
+        "PART 07 부동산 가격공시에 관한 법률",
+        "Chapter 04 주택가격의 공시"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 04 주택가격의 공시",
+      "subject_root": "PART 07 부동산 가격공시에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_05_비주거용_부동산가격의_공시",
+      "path": [
+        "PART 07 부동산 가격공시에 관한 법률",
+        "Chapter 05 비주거용 부동산가격의 공시"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 05 비주거용 부동산가격의 공시",
+      "subject_root": "PART 07 부동산 가격공시에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_06_부동산가격공시위원회",
+      "path": [
+        "PART 07 부동산 가격공시에 관한 법률",
+        "Chapter 06 부동산가격공시위원회"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 06 부동산가격공시위원회",
+      "subject_root": "PART 07 부동산 가격공시에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_01_총칙",
+      "path": [
+        "PART 08 감정평가 및 감정평가사에 관한 법률",
+        "Chapter 01 총칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 01 총칙",
+      "subject_root": "PART 08 감정평가 및 감정평가사에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART04",
+      "unit_file": "units/PART04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART04.md"
+    },
+    {
+      "id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_02_감정평가사",
+      "path": [
+        "PART 08 감정평가 및 감정평가사에 관한 법률",
+        "Chapter 02 감정평가사"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 02 감정평가사",
+      "subject_root": "PART 08 감정평가 및 감정평가사에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART04",
+      "unit_file": "units/PART04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART04.md"
+    },
+    {
+      "id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_03_감정평가법인",
+      "path": [
+        "PART 08 감정평가 및 감정평가사에 관한 법률",
+        "Chapter 03 감정평가법인"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 03 감정평가법인",
+      "subject_root": "PART 08 감정평가 및 감정평가사에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART04",
+      "unit_file": "units/PART04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART04.md"
+    },
+    {
+      "id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_04_징계",
+      "path": [
+        "PART 08 감정평가 및 감정평가사에 관한 법률",
+        "Chapter 04 징계"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 04 징계",
+      "subject_root": "PART 08 감정평가 및 감정평가사에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART04",
+      "unit_file": "units/PART04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART04.md"
+    },
+    {
+      "id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_05_과징금",
+      "path": [
+        "PART 08 감정평가 및 감정평가사에 관한 법률",
+        "Chapter 05 과징금"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 05 과징금",
+      "subject_root": "PART 08 감정평가 및 감정평가사에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART04",
+      "unit_file": "units/PART04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART04.md"
+    },
+    {
+      "id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_06_보칙_및_벌칙",
+      "path": [
+        "PART 08 감정평가 및 감정평가사에 관한 법률",
+        "Chapter 06 보칙 및 벌칙"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 06 보칙 및 벌칙",
+      "subject_root": "PART 08 감정평가 및 감정평가사에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART04",
+      "unit_file": "units/PART04.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART04.md"
+    },
+    {
+      "id": "law__PART_09_동산_채권_등의_담보에_관한_법률__Chapter_01_동산담보권",
+      "path": [
+        "PART 09 동산.채권 등의 담보에 관한 법률",
+        "Chapter 01 동산담보권"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 01 동산담보권",
+      "subject_root": "PART 09 동산.채권 등의 담보에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_09_동산_채권_등의_담보에_관한_법률__Chapter_02_채권담보권",
+      "path": [
+        "PART 09 동산.채권 등의 담보에 관한 법률",
+        "Chapter 02 채권담보권"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 02 채권담보권",
+      "subject_root": "PART 09 동산.채권 등의 담보에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    },
+    {
+      "id": "law__PART_09_동산_채권_등의_담보에_관한_법률__Chapter_03_담보등기",
+      "path": [
+        "PART 09 동산.채권 등의 담보에 관한 법률",
+        "Chapter 03 담보등기"
+      ],
+      "leaf_type": "chapter",
+      "title": "Chapter 03 담보등기",
+      "subject_root": "PART 09 동산.채권 등의 담보에 관한 법률",
+      "frequency": 2,
+      "unit_code": "PART05",
+      "unit_file": "units/PART05.md",
+      "section_key": "full",
+      "section_lines": [
+        1,
+        99999
+      ],
+      "section_name": "전체",
+      "problems_file": "problems/PART05.md"
+    }
+  ],
+  "tree": {
+    "_root": [
+      {
+        "name": "PART 01 국토의 계획 및 이용에 관한 법률",
+        "sections": [
+          {
+            "name": "Chapter 01 총칙",
+            "items": []
+          },
+          {
+            "name": "Chapter 02 광역도시계획",
+            "items": []
+          },
+          {
+            "name": "Chapter 03 도시·군기본계획",
+            "items": []
+          },
+          {
+            "name": "Chapter 04 도시·군관리계획",
+            "items": [
+              {
+                "name": "제1절 도시·군관리계획"
+              },
+              {
+                "name": "제2절 용도지역·용도지구·용도구역"
+              },
+              {
+                "name": "제3절 기반시설과 도시·군계획시설 등"
+              },
+              {
+                "name": "제4절 지구단위계획구역과 지구단위계획"
+              }
+            ]
+          },
+          {
+            "name": "Chapter 05 개발행위의 허가 등",
+            "items": []
+          },
+          {
+            "name": "Chapter 06 보칙 및 벌칙",
+            "items": []
+          }
+        ]
+      },
+      {
+        "name": "PART 02 건축법",
+        "sections": [
+          {
+            "name": "Chapter 01 총칙",
+            "items": []
+          },
+          {
+            "name": "Chapter 02 건축물의 건축 등",
+            "items": []
+          },
+          {
+            "name": "Chapter 03 건축물의 대지와 도로",
+            "items": []
+          },
+          {
+            "name": "Chapter 04 건축물의 구조 및 재료",
+            "items": []
+          },
+          {
+            "name": "Chapter 05 지역 및 지구 안의 건축물",
+            "items": []
+          },
+          {
+            "name": "Chapter 06 특별건축구역, 건축협정, 결합건축, 벌칙",
+            "items": []
+          }
+        ]
+      },
+      {
+        "name": "PART 03 도시 및 주거환경정비법",
+        "sections": [
+          {
+            "name": "Chapter 01 총칙",
+            "items": []
+          },
+          {
+            "name": "Chapter 02 기본계획의 수립 및 정비구역의 지정",
+            "items": []
+          },
+          {
+            "name": "Chapter 03 정비사업의 시행",
+            "items": [
+              {
+                "name": "제1절 시행자 및 사업시행계획"
+              },
+              {
+                "name": "제2절 관리처분계획 및 소유권이전"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PART 04 공간정보의 구축 및 관리 등에 관한 법률",
+        "sections": [
+          {
+            "name": "Chapter 01 총칙",
+            "items": []
+          },
+          {
+            "name": "Chapter 02 측량",
+            "items": []
+          },
+          {
+            "name": "Chapter 03 지적(地籍)",
+            "items": [
+              {
+                "name": "제1절 토지의 조사 및 등록"
+              },
+              {
+                "name": "제2절 지번"
+              },
+              {
+                "name": "제3절 지목"
+              },
+              {
+                "name": "제4절 경계"
+              },
+              {
+                "name": "제5절 면적"
+              }
+            ]
+          },
+          {
+            "name": "Chapter 04 지적공부",
+            "items": []
+          },
+          {
+            "name": "Chapter 05 토지의 이동 등",
+            "items": [
+              {
+                "name": "제1절 토지의 이동"
+              },
+              {
+                "name": "제2절 등록사항의 정정 등"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PART 05 부동산등기법",
+        "sections": [
+          {
+            "name": "Chapter 01 총칙",
+            "items": []
+          },
+          {
+            "name": "Chapter 02 등기부 등",
+            "items": []
+          },
+          {
+            "name": "Chapter 03 등기절차",
+            "items": []
+          },
+          {
+            "name": "Chapter 04 표시에 관한 등기",
+            "items": []
+          },
+          {
+            "name": "Chapter 05 권리에 관한 등기",
+            "items": []
+          },
+          {
+            "name": "Chapter 06 이의신청",
+            "items": []
+          }
+        ]
+      },
+      {
+        "name": "PART 06 국유재산법",
+        "sections": [
+          {
+            "name": "Chapter 01 총칙",
+            "items": []
+          },
+          {
+            "name": "Chapter 02 총괄청",
+            "items": []
+          },
+          {
+            "name": "Chapter 03 행정재산",
+            "items": []
+          },
+          {
+            "name": "Chapter 04 일반재산",
+            "items": []
+          },
+          {
+            "name": "Chapter 05 지식재산 관리·처분의 특례",
+            "items": []
+          },
+          {
+            "name": "Chapter 06 대장과 보고 및 보칙",
+            "items": []
+          }
+        ]
+      },
+      {
+        "name": "PART 07 부동산 가격공시에 관한 법률",
+        "sections": [
+          {
+            "name": "Chapter 01 용어의 정의",
+            "items": []
+          },
+          {
+            "name": "Chapter 02 표준지공시지가",
+            "items": []
+          },
+          {
+            "name": "Chapter 03 개별공시지가",
+            "items": []
+          },
+          {
+            "name": "Chapter 04 주택가격의 공시",
+            "items": []
+          },
+          {
+            "name": "Chapter 05 비주거용 부동산가격의 공시",
+            "items": []
+          },
+          {
+            "name": "Chapter 06 부동산가격공시위원회",
+            "items": []
+          }
+        ]
+      },
+      {
+        "name": "PART 08 감정평가 및 감정평가사에 관한 법률",
+        "sections": [
+          {
+            "name": "Chapter 01 총칙",
+            "items": []
+          },
+          {
+            "name": "Chapter 02 감정평가사",
+            "items": []
+          },
+          {
+            "name": "Chapter 03 감정평가법인",
+            "items": []
+          },
+          {
+            "name": "Chapter 04 징계",
+            "items": []
+          },
+          {
+            "name": "Chapter 05 과징금",
+            "items": []
+          },
+          {
+            "name": "Chapter 06 보칙 및 벌칙",
+            "items": []
+          }
+        ]
+      },
+      {
+        "name": "PART 09 동산.채권 등의 담보에 관한 법률",
+        "sections": [
+          {
+            "name": "Chapter 01 동산담보권",
+            "items": []
+          },
+          {
+            "name": "Chapter 02 채권담보권",
+            "items": []
+          },
+          {
+            "name": "Chapter 03 담보등기",
+            "items": []
+          }
+        ]
+      }
+    ]
+  },
+  "default_leaf": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_01_총칙",
+  "version": "v2.1"
+}
