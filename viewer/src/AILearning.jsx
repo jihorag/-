@@ -643,6 +643,74 @@ function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
   );
 }
 
+// 법규 판례 카드 위젯 — [대법원 YYYY. M. DD. 선고 NNNN두NNNN] 패턴 파싱
+function parseLawCases(md) {
+  if (!md) return [];
+  const out = [];
+  const re = /\[대법원\s+(\d{4})\.\s*(\d{1,2})\.\s*(\d{1,2})\.\s*선고\s+(\d+(?:두|다|누|가)\d+(?:\s*전합)?)[^\]]*\]([\s\S]*?)(?=\[대법원|\n##\s|$)/g;
+  let m;
+  while ((m = re.exec(md))) {
+    const date = `${m[1]}.${m[2].padStart(2,'0')}.${m[3].padStart(2,'0')}`;
+    const caseNo = m[4].trim().replace(/\s+/g, ' ');
+    const bodyFull = m[5].trim();
+    const body = bodyFull.length > 600 ? bodyFull.slice(0, 600) + '…' : bodyFull;
+    if (body.length > 80) out.push({ date, caseNo, body, fullLen: bodyFull.length });
+  }
+  // 중복 사건번호 제거 (앞 등장 유지)
+  const seen = new Set();
+  return out.filter((c) => { if (seen.has(c.caseNo)) return false; seen.add(c.caseNo); return true; });
+}
+
+function LawCasesWidget({ casesMd, onAskAI }) {
+  const cards = useMemo(() => parseLawCases(casesMd), [casesMd]);
+  const [idx, setIdx] = useState(0);
+  if (cards.length === 0) return null;
+  const c = cards[idx];
+  return (
+    <div style={{
+      background: 'linear-gradient(180deg, #fef2f2 0%, #fff 100%)',
+      border: '1px solid #fecaca', borderRadius: 12, padding: 14, marginBottom: 10,
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+        <div style={{ fontWeight: 800, color: '#991b1b', fontSize: '0.88rem' }}>
+          ⚖️ 판례 카드 <span style={{ color: '#6b7280', fontWeight: 500 }}>({idx + 1}/{cards.length})</span>
+        </div>
+        <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>{cards.length}개 판례 추출</div>
+      </div>
+      <div style={{
+        background: '#fff', border: '1px dashed #fecaca', borderRadius: 8, padding: 14,
+        fontSize: '0.88rem', lineHeight: 1.65, color: '#111827',
+      }}>
+        <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#991b1b', marginBottom: 6 }}>
+          대판 {c.caseNo} <span style={{ color: '#6b7280', fontWeight: 500 }}>· {c.date}</span>
+        </div>
+        <div style={{ whiteSpace: 'pre-wrap', maxHeight: 260, overflowY: 'auto' }}>
+          {c.body}
+        </div>
+      </div>
+      <div style={{ display: 'flex', gap: 6, marginTop: 10, alignItems: 'center' }}>
+        <button onClick={() => setIdx((i) => Math.max(0, i - 1))} disabled={idx === 0}
+          style={{ padding: '6px 12px', cursor: idx === 0 ? 'not-allowed' : 'pointer',
+            background: '#fff', border: '1px solid #d1d5db', borderRadius: 6,
+            opacity: idx === 0 ? 0.4 : 1, fontWeight: 700 }}>
+          ◀ 이전
+        </button>
+        <button onClick={() => setIdx((i) => Math.min(cards.length - 1, i + 1))} disabled={idx >= cards.length - 1}
+          style={{ padding: '6px 12px', cursor: idx >= cards.length - 1 ? 'not-allowed' : 'pointer',
+            background: '#fff', border: '1px solid #d1d5db', borderRadius: 6,
+            opacity: idx >= cards.length - 1 ? 0.4 : 1, fontWeight: 700 }}>
+          다음 ▶
+        </button>
+        <button onClick={() => onAskAI && onAskAI(c)}
+          style={{ marginLeft: 'auto', padding: '6px 12px', cursor: 'pointer',
+            background: '#dc2626', color: '#fff', border: 'none', borderRadius: 6, fontWeight: 700, fontSize: '0.82rem' }}>
+          🤖 답안 인용 시범
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // 이론 답안 양식 카드 위젯 — _all.md 에서 ### Form N 블록 파싱
 function parseTemplateForms(md) {
   if (!md) return [];
@@ -1136,11 +1204,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     fetch(studyBase(subjectId) + leaf.problems_file).then((r) => r.text()).then(setProblemsMd).catch(() => setProblemsMd(''));
   }, [mode, current?.leaf_id, leaves, subjectId]);
 
-  // 2차 template 모드 — 답안 양식 라이브러리(_all.md) 로드 (이론 전용)
+  // 2차 template 모드 — 자료 로드
+  // 이론: templates/_all.md (답안 양식 61개)
+  // 법규: meta/cases.md (판례 카드)
   useEffect(() => {
-    if (mode !== 'template' || subjectId !== 'appraisal_theory') return;
-    if (problemsMd) return;  // 이미 다른 자료 있으면 skip
-    fetch(studyBase(subjectId) + 'templates/_all.md').then((r) => r.text()).then(setProblemsMd).catch(() => {});
+    if (mode !== 'template') return;
+    if (problemsMd) return;
+    if (subjectId === 'appraisal_theory') {
+      fetch(studyBase(subjectId) + 'templates/_all.md').then((r) => r.text()).then(setProblemsMd).catch(() => {});
+    } else if (subjectId === 'appraisal_law') {
+      fetch(studyBase(subjectId) + 'meta/cases.md').then((r) => r.text()).then(setProblemsMd).catch(() => {});
+    }
   }, [mode, subjectId, problemsMd]);
 
   // leaf 전환 시 해당 단원의 채팅방 로드. streaming은 중단·입력·idle 초기화.
@@ -2428,6 +2502,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           <TemplateCardWidget
             templatesMd={problemsMd}
             onAskAI={(card) => quickSend(`답안 양식 ${card.id}을 더 자세히 풀어 설명해주세요. 골격·핵심 키워드·이 양식이 잘 쓰이는 논점·40점 답안 분량으로 펼치면 어떻게 되는지.`)}
+          />
+        )}
+        {mode === 'template' && subjectId === 'appraisal_law' && problemsMd && (
+          <LawCasesWidget
+            casesMd={problemsMd}
+            onAskAI={(card) => quickSend(`대판 ${card.caseNo}(${card.date}) 판례를 답안에서 어떻게 인용하는지 시범 보여주세요. 의의·요건·판시사항 핵심 + 답안 인용 형식.`)}
           />
         )}
         {mode === 'answer_write' && (
