@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" font-family="Arial, sans-serif" font-size="12">
+  <line x1="40" y1="240" x2="340" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <text x="345" y="245" font-weight="bold">X</text>
+  <text x="20" y="15" font-weight="bold">Y</text>
+  <!-- 예산선 BL: (40, 50) -> (300, 240) -->
+  <line x1="40" y1="50" x2="300" y2="240" stroke="#0a7" stroke-width="2.5"/>
+  <text x="305" y="245" fill="#0a7" font-weight="bold">BL</text>
+  <text x="20" y="55" fill="#0a7" font-size="11">I/Py</text>
+  <text x="290" y="258" fill="#0a7" font-size="11">I/Px</text>
+  <!-- 무차별곡선 IC1 (최적점에서 접) -->
+  <path d="M 80,200 Q 110,135 175,128 Q 250,125 290,80" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="295" y="80" fill="#2563eb" font-weight="bold">IC₁</text>
+  <!-- 무차별곡선 IC0 (안쪽, 낮은 효용) -->
+  <path d="M 70,225 Q 95,170 145,162 Q 200,155 240,118" fill="none" stroke="#93c5fd" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <text x="245" y="115" fill="#3b82f6" font-size="11">IC₀</text>
+  <!-- 무차별곡선 IC2 (바깥쪽, 도달 불가) -->
+  <path d="M 100,200 Q 145,115 215,108 Q 290,100 330,55" fill="none" stroke="#bfdbfe" stroke-width="1.5" stroke-dasharray="2 3"/>
+  <text x="325" y="55" fill="#60a5fa" font-size="11">IC₂</text>
+  <!-- 최적점 E* -->
+  <circle cx="175" cy="128" r="4.5" fill="#dc2626"/>
+  <text x="183" y="125" font-weight="bold" fill="#dc2626">E*</text>
+  <!-- 최적 X* -->
+  <line x1="175" y1="128" x2="175" y2="240" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="168" y="258" font-style="italic">X*</text>
+  <!-- 최적 Y* -->
+  <line x1="40" y1="128" x2="175" y2="128" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="22" y="132" font-style="italic">Y*</text>
+  <text x="28" y="258">O</text>
+</svg>
