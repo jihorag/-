@@ -3066,86 +3066,6 @@ const App = () => {
             );
           })()}
 
-          {/* ③ 오늘 할 일 — 4탭 통합 액션 카드 */}
-          <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
-            padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
-            <div style={{ fontWeight: 800, fontSize: '1rem', marginBottom: 10 }}>🎯 오늘 할 일</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <button
-                onClick={() => srs.due.length && setCurrentView('today')}
-                disabled={!srs.due.length}
-                style={{
-                  display: 'flex', alignItems: 'center', gap: 10, padding: '12px 14px',
-                  background: srs.due.length ? '#eff6ff' : '#f9fafb',
-                  border: `1px solid ${srs.due.length ? '#bfdbfe' : '#e5e7eb'}`,
-                  borderRadius: 10, cursor: srs.due.length ? 'pointer' : 'default',
-                  width: '100%', textAlign: 'left',
-                }}
-              >
-                <span style={{ fontSize: '1.4rem' }}>📅</span>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontWeight: 700, color: srs.due.length ? '#1d4ed8' : '#9ca3af', fontSize: '0.92rem' }}>
-                    기출 복습 {srs.due.length > 0 ? `${srs.due.length}문제` : '없음'}
-                  </div>
-                  <div style={{ fontSize: '0.74rem', color: '#6b7280' }}>
-                    {srs.due.length > 0 ? '복습 탭에서 SRS 만기 문제 풀이' : '틀린 문제 누적 후 자동 일정 생성'}
-                  </div>
-                </div>
-                {srs.due.length > 0 && <span style={{ color: '#1d4ed8', fontWeight: 700 }}>→</span>}
-              </button>
-
-              <button
-                onClick={() => {
-                  if (!aiDueArr.length) return;
-                  const first = aiDueArr[0];
-                  const leaf = flatLeafById.get(first.code);
-                  if (leaf) jumpToAILearn(leaf); else jumpToAILearn(null);
-                }}
-                disabled={!aiDueArr.length}
-                style={{
-                  display: 'flex', alignItems: 'center', gap: 10, padding: '12px 14px',
-                  background: aiDueArr.length ? '#eef2ff' : '#f9fafb',
-                  border: `1px solid ${aiDueArr.length ? '#c7d2fe' : '#e5e7eb'}`,
-                  borderRadius: 10, cursor: aiDueArr.length ? 'pointer' : 'default',
-                  width: '100%', textAlign: 'left',
-                }}
-              >
-                <span style={{ fontSize: '1.4rem' }}>🎓</span>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontWeight: 700, color: aiDueArr.length ? '#4338ca' : '#9ca3af', fontSize: '0.92rem' }}>
-                    AI 학습 복습 {aiDueArr.length > 0 ? `${aiDueArr.length}단원` : '없음'}
-                  </div>
-                  <div style={{ fontSize: '0.74rem', color: '#6b7280' }}>
-                    {aiDueArr.length > 0 ? `${flatLeafById.get(aiDueArr[0]?.code)?.path?.slice(-1)[0] || ''} 등` : '마스터 단원 SRS 자동 일정'}
-                  </div>
-                </div>
-                {aiDueArr.length > 0 && <span style={{ color: '#4338ca', fontWeight: 700 }}>→</span>}
-              </button>
-
-              {coachUsed.topFix && (
-                <button
-                  onClick={() => startConcept(coachUsed.topFix.name,
-                    `${browseExam ? browseExam + ' · ' : ''}${coachUsed.topFix.name} 보강`, browseExam || null)}
-                  style={{
-                    display: 'flex', alignItems: 'center', gap: 10, padding: '12px 14px',
-                    background: '#fef3c7', border: '1px solid #fcd34d',
-                    borderRadius: 10, cursor: 'pointer', width: '100%', textAlign: 'left',
-                  }}
-                >
-                  <span style={{ fontSize: '1.4rem' }}>🔥</span>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: 700, color: '#92400e', fontSize: '0.92rem' }}>
-                      약점 보강 — {coachUsed.topFix.name}
-                    </div>
-                    <div style={{ fontSize: '0.74rem', color: '#78350f' }}>
-                      {coachUsed.topFix.acc != null ? `정답률 ${coachUsed.topFix.acc}% — 가장 큰 합격선 갭` : '미진단 — 첫 표본 쌓기'}
-                    </div>
-                  </div>
-                  <span style={{ color: '#92400e', fontWeight: 700 }}>→</span>
-                </button>
-              )}
-            </div>
-          </section>
 
           {/* ④ 5과목 도넛 카드 그리드 — 파랑/화이트 톤 통일 */}
           <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
@@ -3711,24 +3631,30 @@ const App = () => {
             </section>
           );
         })()}
-        {/* 오늘 할 일 — 단일 다음 행동(선택 부담 제거: Duolingo path 원칙)
-            browseExam set이면 그 시험 안에서 약점·추천. 복습(SRS)은 모드 무관 — 도래시각 기반. */}
+        {/* 오늘 할 일 — 4탭 통합 액션 (우선순위: SRS 기출 → AI 복습 → 약점 → 추천) */}
         {(() => {
+          const aiDueLocal = getAiDue();
           const modeWeak = modeAnalytics ? modeAnalytics.weak[0] : null;
           const w0 = modeWeak || analytics.weak[0];
           let act;
           if (srs.due.length > 0) {
-            act = { tag: '복습', title: `오늘 복습 ${srs.due.length}문제`,
+            act = { tag: '🔁 기출 복습', title: `오늘 복습 ${srs.due.length}문제`,
               desc: '기억 곡선이 도래했어요 · 지금이 가장 잘 외워질 때',
               go: () => setCurrentView('today') };
+          } else if (aiDueLocal.length > 0) {
+            const firstLeaf = Object.values(leavesBySubject).flat().find((l) => l.id === aiDueLocal[0].code);
+            const leafName = firstLeaf ? firstLeaf.path.slice(-1)[0] : '단원';
+            act = { tag: '🎓 AI 복습', title: `AI 학습 복습 ${aiDueLocal.length}단원`,
+              desc: `${leafName} 등 마스터 단원 SRS 도래`,
+              go: () => firstLeaf ? jumpToAILearn(firstLeaf) : jumpToAILearn(null) };
           } else if (w0) {
             const prefix = browseExam ? `${browseExam} · ` : '';
-            act = { tag: '약점 보강', title: `${prefix}${w0.name} 집중`,
+            act = { tag: '🔥 약점 보강', title: `${prefix}${w0.name} 집중`,
               desc: `현재 정답률 ${w0.acc}% — 약한 곳부터 끌어올려요`,
               go: () => startConcept(w0.name, `${prefix}${w0.name} 집중 학습`, browseExam || null) };
           } else {
             const prefix = browseExam ? `${browseExam} ` : '오늘의 ';
-            act = { tag: '추천', title: `${prefix}추천 ${dailyGoal}문제`,
+            act = { tag: '✨ 추천', title: `${prefix}추천 ${dailyGoal}문제`,
               desc: '미학습 위주로 골라 담았어요 · 한 번에 시작',
               go: () => startRecommended(browseExam || null) };
           }
