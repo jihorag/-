@@ -2744,6 +2744,51 @@ const App = () => {
         <main className="main-content" style={{ marginTop: '16px' }}>
           {/* 모드 pill — status 통계의 범위를 시험별로 전환 */}
           <div style={{ marginBottom: 14 }}>{renderModePicker()}</div>
+          {/* 🎓 AI 학습 5과목 종합 — quiz와 한 화면에서 보기 */}
+          {(() => {
+            const aiMastery = getAiMastery();
+            const rows = AI_SUBJECTS.map((s) => {
+              const ks = Object.keys(aiMastery).filter((k) => k.startsWith(s.id + '__'));
+              const total = ks.length;
+              const covSum = ks.reduce((a, k) => a + (aiMastery[k]?.coverage || 0), 0);
+              const masterCount = ks.filter((k) => aiMastery[k]?.status === 'mastered').length;
+              return { s, total, covAvg: total > 0 ? covSum / total : 0, masterCount };
+            });
+            const anyProgress = rows.some((r) => r.covAvg > 0);
+            if (!anyProgress) return null;
+            return (
+              <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '12px',
+                padding: '14px', marginBottom: '16px', boxShadow: 'var(--shadow-sm)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                  <span style={{ fontWeight: 800, fontSize: '0.95rem' }}>🎓 AI 학습 5과목</span>
+                  <button
+                    onClick={() => jumpToAILearn(null)}
+                    style={{ background: 'none', border: 'none', color: '#4f46e5', fontWeight: 700, fontSize: '0.78rem', cursor: 'pointer' }}
+                  >
+                    AI 학습 탭 →
+                  </button>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                  {rows.map((r) => {
+                    const pct = Math.round(r.covAvg * 100);
+                    return (
+                      <div key={r.s.id} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <span style={{ width: 90, fontSize: '0.78rem', color: r.s.color, fontWeight: 700 }}>
+                          {r.s.icon} {r.s.short}
+                        </span>
+                        <div style={{ flex: 1, height: 6, background: '#f3f4f6', borderRadius: 3, overflow: 'hidden' }}>
+                          <div style={{ width: `${pct}%`, height: '100%', background: r.s.color, transition: 'width .3s' }} />
+                        </div>
+                        <span style={{ width: 80, fontSize: '0.72rem', color: '#6b7280', textAlign: 'right' }}>
+                          {pct}% · 마스터 {r.masterCount}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+            );
+          })()}
           {/* 핵심 KPI — 모드별 정답률 (overall은 mode 무관, accuracy는 mode 분 사용) */}
           <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
             {kpi(`${learnedPct}%`, `학습 ${cv.total - cv.unseen}/${cv.total}`, '#2563eb')}
@@ -3782,6 +3827,49 @@ const App = () => {
                   : '틀린 문제가 쌓이면 복습 일정이 생겨요')}
           </div>
         </div>
+        {/* AI 학습 SRS due 단원 */}
+        {(() => {
+          const aiDueArr = getAiDue();
+          const aiMastery = getAiMastery();
+          if (aiDueArr.length === 0) return null;
+          // leaf id → leaf 찾기 (leavesBySubject 캐시)
+          const flat = Object.values(leavesBySubject).flat();
+          const dueLeaves = aiDueArr.map((d) => ({
+            leaf: flat.find((l) => l.id === d.code),
+            days_overdue: d.days_overdue,
+            m: aiMastery[d.code],
+          })).filter((x) => x.leaf);
+          return (
+            <div style={{ padding: '14px', marginBottom: '12px', borderRadius: '12px',
+              border: '1px solid #c7d2fe', background: '#eef2ff' }}>
+              <div style={{ fontWeight: 700, fontSize: '1.05rem', color: '#4338ca', marginBottom: 4 }}>
+                🎓 AI 학습 복습 만기 {dueLeaves.length}단원
+              </div>
+              <div style={{ fontSize: '0.78rem', color: '#6b7280', marginBottom: 8 }}>
+                SRS 간격에 따라 마스터한 단원을 다시 보세요
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                {dueLeaves.slice(0, 5).map((x) => (
+                  <button
+                    key={x.leaf.id}
+                    onClick={() => jumpToAILearn(x.leaf)}
+                    style={{
+                      textAlign: 'left', padding: '8px 10px', background: '#fff',
+                      border: '1px solid #ddd6fe', borderRadius: 8, cursor: 'pointer',
+                      fontSize: '0.82rem',
+                    }}
+                  >
+                    <div style={{ fontWeight: 700, color: '#1e1b4b' }}>{x.leaf.path.slice(-1)[0]}</div>
+                    <div style={{ fontSize: '0.72rem', color: '#6b7280' }}>
+                      {x.leaf.path.slice(0, -1).join(' › ')}
+                      {x.days_overdue > 0 && <span style={{ color: '#9a3412', marginLeft: 6 }}>· {x.days_overdue}일 경과</span>}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
         <div
           onClick={() => wrongList.length && (setReviewSubject(null), setCurrentView('review'))}
           style={{ padding: '18px', borderRadius: '12px',
