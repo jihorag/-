@@ -1330,10 +1330,22 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#111827', marginBottom: 6 }}>
                 {curLeaf.path.slice(-1)[0]}
               </div>
-              <div style={{ fontSize: '0.85rem', color: '#374151', marginBottom: 14 }}>
+              <div style={{ fontSize: '0.85rem', color: '#374151', marginBottom: 10 }}>
                 {isResume
                   ? `진척 ${Math.round((m.coverage || 0) * 100)}% — 이어서 진행할까요?`
                   : '새 단원 채팅방입니다. 한 사이클로 시작해 봅시다.'}
+              </div>
+              <div style={{
+                background: '#fff', border: '1px solid #e0e7ff', borderRadius: 8,
+                padding: '8px 12px', marginBottom: 12, fontSize: '0.78rem', color: '#4338ca',
+                display: 'inline-block',
+              }}>
+                📂 {curLeaf.unit_code || '—'} · {curLeaf.section_name || '전체'}
+                {curLeaf.section_key === 'auto' && curLeaf.section_lines && (
+                  <span style={{ color: '#9ca3af', marginLeft: 6 }}>
+                    ({curLeaf.section_lines[1] - curLeaf.section_lines[0]}줄 · 키워드 자동 매칭)
+                  </span>
+                )}
               </div>
               <div style={{ display: 'flex', gap: 6, justifyContent: 'center', flexWrap: 'wrap' }}>
                 <button

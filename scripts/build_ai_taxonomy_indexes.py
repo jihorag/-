@@ -340,17 +340,14 @@ def build_for_subject(subject_id, conf):
     for path in leaves:
         path_str = ' / '.join(path)
         code, sec_key = find_mapping(path_str, conf['mapping'])
+        # 매핑 실패 시 잘못된 첫 단원 부여 대신 null — UI에서 "자료 없음" 안내 노출
         if not code:
             unmapped.append(path_str)
-            # 첫 단원으로 fallback
-            unit_files = sorted([f for f in os.listdir(units_dir) if f.endswith('.md')]) if os.path.isdir(units_dir) else []
-            code = (unit_files[0].replace('.md', '') if unit_files else 'PART01')
-            sec_key = 'full'
-        unit_file_rel = f'units/{code}.md'
-        unit_file_full = os.path.join(base, unit_file_rel)
-        exists = os.path.exists(unit_file_full)
-        problems_file_rel = f'problems/{code}.md'
-        problems_exists = os.path.exists(os.path.join(base, problems_file_rel))
+        unit_file_rel = f'units/{code}.md' if code else None
+        unit_file_full = os.path.join(base, unit_file_rel) if unit_file_rel else None
+        exists = bool(unit_file_full) and os.path.exists(unit_file_full)
+        problems_file_rel = f'problems/{code}.md' if code else None
+        problems_exists = bool(problems_file_rel) and os.path.exists(os.path.join(base, problems_file_rel))
         # section_lines 자동 매칭: ## 헤더 → fuzzy 키워드 검색 → fallback full
         section_lines = [1, 99999]
         section_name = '전체'
@@ -368,11 +365,11 @@ def build_for_subject(subject_id, conf):
             'title': path[-1].split('·')[0].strip(),
             'subject_root': path[0],
             'frequency': 2,
-            'unit_code': code,
+            'unit_code': code,            # 매핑 실패 시 None — UI에서 자료 없음 안내
             'unit_file': unit_file_rel if exists else None,
-            'section_key': actual_sec_key,
-            'section_lines': section_lines,
-            'section_name': section_name,
+            'section_key': actual_sec_key if exists else None,
+            'section_lines': section_lines if exists else None,
+            'section_name': section_name if exists else None,
             'problems_file': problems_file_rel if problems_exists else None,
         })
     index = {
