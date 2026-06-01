@@ -192,3 +192,12 @@
   0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
   30% { transform: translateY(-3px); opacity: 1; }
 }
+
+/* AI 메시지 페이드인 — 응답 도착 시 부드럽게 노출 */
+@keyframes aiMsgFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.ai-msg-fade {
+  animation: aiMsgFade 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}

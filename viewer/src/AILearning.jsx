@@ -318,6 +318,14 @@ function SettingsPanel({ prefs, onSave, onClearKey, onResetProgress, usage }) {
         <option value={2000}>2000 (길게 설명)</option>
         <option value={3000}>3000 (종합 퀴즈용)</option>
       </select>
+      <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.85rem', color: '#374151', marginBottom: 12, cursor: 'pointer' }}>
+        <input
+          type="checkbox"
+          checked={!!prefs.streaming}
+          onChange={(e) => onSave({ streaming: e.target.checked })}
+        />
+        응답 스트리밍 (토큰별 흐름) — 끄면 완성 후 한 번에 표시(권장)
+      </label>
       <label style={{ display: 'block', fontSize: '0.85rem', color: '#374151', marginBottom: 4 }}>일일 메시지 cap</label>
       <input
         type="number"
@@ -562,10 +570,10 @@ function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
   );
 }
 
-function MessageBubble({ msg }) {
+function MessageBubble({ msg, fadeIn }) {
   const isUser = msg.role === 'user';
   return (
-    <div style={{ display: 'flex', justifyContent: isUser ? 'flex-end' : 'flex-start', margin: '8px 0' }}>
+    <div className={fadeIn ? 'ai-msg-fade' : ''} style={{ display: 'flex', justifyContent: isUser ? 'flex-end' : 'flex-start', margin: '8px 0' }}>
       <div style={{
         maxWidth: '85%',
         padding: '10px 14px',
@@ -942,6 +950,9 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     const ac = new AbortController();
     abortRef.current = ac;
     try {
+      // 기본: 비-스트리밍(한 번에 받기) — 매 chunk 마다 KaTeX/표 재파싱으로 인한 프레임 드롭 회피.
+      // prefs.streaming === true 일 때만 토큰별 흐름 표시.
+      const useStream = !!prefs.streaming;
       const { text: out, usage } = await sendMessages({
         apiKey: byok,
         model: prefs.model,
@@ -949,7 +960,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         messages: apiMessages,
         maxTokens: prefs.max_tokens || 1200,
         signal: ac.signal,
-        onDelta: (_chunk, agg) => setDraft(agg),
+        onDelta: useStream ? ((_chunk, agg) => setDraft(agg)) : undefined,
       });
       const aMsg = { role: 'assistant', content: out };
       appendRoomMessage(current.leaf_id, aMsg);
@@ -1578,9 +1589,11 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           const isLast = i === messages.length - 1;
           const showChoices = isLast && !streaming && mode === 'practice' && m.role === 'assistant';
           const opts = showChoices ? extractMultipleChoice(m.content) : null;
+          // 응답 직후 마지막 assistant 메시지에만 페이드인 효과 (재마운트 시 일괄 페이드 방지: key는 인덱스)
+          const fadeIn = isLast && m.role === 'assistant' && !streaming;
           return (
             <div key={i}>
-              <MessageBubble msg={m} />
+              <MessageBubble msg={m} fadeIn={fadeIn} />
               {opts && (
                 <AnswerChoiceRow
                   options={opts}
