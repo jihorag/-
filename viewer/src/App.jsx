@@ -2935,14 +2935,14 @@ const App = () => {
                         <polygon points={polyPts} fill="#4f46e5" fillOpacity="0.22" stroke="#4f46e5" strokeWidth="2" />
                         {radarStats.map((st, i) => {
                           const p = pt(i, st.score);
-                          return <circle key={i} cx={p.x} cy={p.y} r="3.5" fill={st.s.color} />;
+                          return <circle key={i} cx={p.x} cy={p.y} r="3.5" fill="#4f46e5" />;
                         })}
                         {radarStats.map((st, i) => {
                           const p = pt(i, 1.18);
                           return (
                             <text key={i} x={p.x} y={p.y + 4}
                               fontSize="10" fontWeight="700"
-                              fill={st.s.color}
+                              fill="#4338ca"
                               textAnchor={p.x > cx + 5 ? 'start' : p.x < cx - 5 ? 'end' : 'middle'}>
                               {st.s.short}
                             </text>
@@ -3089,7 +3089,7 @@ const App = () => {
             </div>
           </section>
 
-          {/* ④ 5과목 도넛 카드 그리드 */}
+          {/* ④ 5과목 도넛 카드 그리드 — 파랑/화이트 톤 통일 */}
           <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
             padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
@@ -3099,38 +3099,41 @@ const App = () => {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 10 }}>
               {subjectMatrix.map(({ s, aiCov, aiMaster, aiTotal, quizAcc, quizCov, quizScored, quizTotal, score }) => {
                 const scorePct = Math.round(score * 100);
-                const tier = scorePct >= 70 ? { bg: '#ecfdf5', bd: '#a7f3d0', c: '#047857', t: '안정' }
-                  : scorePct >= 40 ? { bg: '#fff7ed', bd: '#fed7aa', c: '#9a3412', t: '진행' }
-                  : { bg: '#fef2f2', bd: '#fecaca', c: '#991b1b', t: '집중' };
+                // 색은 통일된 파랑 — score만 진하기 변화
+                const blueShade = scorePct >= 70 ? '#1d4ed8'
+                  : scorePct >= 40 ? '#4f46e5'
+                  : '#818cf8';
+                const tierLabel = scorePct >= 70 ? '안정' : scorePct >= 40 ? '진행' : '시작';
                 return (
                   <div key={s.id} style={{
-                    background: tier.bg, border: `1px solid ${tier.bd}`, borderRadius: 12, padding: 12,
+                    background: 'linear-gradient(160deg, #f5f8ff 0%, #ffffff 100%)',
+                    border: '1px solid #dbeafe', borderRadius: 12, padding: 12,
                     display: 'flex', flexDirection: 'column', gap: 6,
                   }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                       <span style={{ fontSize: '1.1rem' }}>{s.icon}</span>
-                      <span style={{ fontWeight: 800, color: s.color, fontSize: '0.9rem' }}>{s.short}</span>
-                      <span style={{ marginLeft: 'auto', fontSize: '0.62rem', fontWeight: 800, color: tier.c,
-                        background: '#fff', padding: '2px 6px', borderRadius: 999, border: `1px solid ${tier.bd}` }}>
-                        {tier.t}
+                      <span style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '0.9rem' }}>{s.short}</span>
+                      <span style={{ marginLeft: 'auto', fontSize: '0.62rem', fontWeight: 700, color: '#4338ca',
+                        background: '#eef2ff', padding: '2px 6px', borderRadius: 999, border: '1px solid #c7d2fe' }}>
+                        {tierLabel}
                       </span>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center', margin: '4px 0' }}>
                       <Donut
                         size={86}
                         value={score}
-                        color={s.color}
+                        color={blueShade}
                         stroke={8}
                         centerText={`${scorePct}`}
                         centerSub="통합"
                       />
                     </div>
-                    {/* 듀얼 미니 막대 */}
+                    {/* 듀얼 미니 막대 — 파랑 톤 */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                         <span style={{ fontSize: '0.65rem', color: '#6b7280', width: 14 }}>🎓</span>
-                        <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e5e7eb' }}>
-                          <div style={{ width: `${Math.round(aiCov * 100)}%`, height: '100%', background: s.color }} />
+                        <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e0e7ff' }}>
+                          <div style={{ width: `${Math.round(aiCov * 100)}%`, height: '100%', background: '#4f46e5' }} />
                         </div>
                         <span style={{ fontSize: '0.62rem', color: '#374151', minWidth: 32, textAlign: 'right' }}>
                           {Math.round(aiCov * 100)}%
@@ -3138,8 +3141,8 @@ const App = () => {
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                         <span style={{ fontSize: '0.65rem', color: '#6b7280', width: 14 }}>📚</span>
-                        <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e5e7eb' }}>
-                          <div style={{ width: `${Math.round(quizCov * 100)}%`, height: '100%', background: '#10b981' }} />
+                        <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e0e7ff' }}>
+                          <div style={{ width: `${Math.round(quizCov * 100)}%`, height: '100%', background: '#60a5fa' }} />
                         </div>
                         <span style={{ fontSize: '0.62rem', color: '#374151', minWidth: 32, textAlign: 'right' }}>
                           {quizAcc != null ? `${Math.round(quizAcc * 100)}%` : '–'}
@@ -3157,7 +3160,7 @@ const App = () => {
                           if (sl) jumpToAILearn(sl); else jumpToAILearn(null);
                         }}
                         style={{ flex: 1, padding: '5px', fontSize: '0.7rem', fontWeight: 700,
-                          background: s.color, color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
+                          background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
                         🎓
                       </button>
                       <button
@@ -3169,7 +3172,7 @@ const App = () => {
                           window.scrollTo(0, 0);
                         }}
                         style={{ flex: 1, padding: '5px', fontSize: '0.7rem', fontWeight: 700,
-                          background: '#fff', color: '#374151', border: '1px solid #d1d5db', borderRadius: 6, cursor: 'pointer' }}>
+                          background: '#fff', color: '#4338ca', border: '1px solid #c7d2fe', borderRadius: 6, cursor: 'pointer' }}>
                         📚
                       </button>
                     </div>
@@ -3179,51 +3182,6 @@ const App = () => {
             </div>
           </section>
 
-          {/* ⑤ 단원 통합 랭킹 — 상위/하위 5 */}
-          {(topLeaves.length > 0 || bottomLeaves.length > 0) && (
-            <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
-              padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
-              <div style={{ fontWeight: 800, fontSize: '1rem', marginBottom: 10 }}>🏆 단원 통합 랭킹</div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                <div>
-                  <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#047857', marginBottom: 6 }}>강점 Top 5</div>
-                  {topLeaves.length === 0 && <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>—</div>}
-                  {topLeaves.map((x) => (
-                    <button key={x.leaf.id} onClick={() => jumpToAILearn(x.leaf)}
-                      style={{ display: 'block', width: '100%', textAlign: 'left',
-                        padding: '6px 8px', background: 'transparent', border: 'none', borderRadius: 6,
-                        cursor: 'pointer', marginBottom: 2 }}>
-                      <div style={{ fontSize: '0.78rem', color: '#111827', fontWeight: 700 }}>
-                        <span style={{ color: x.sMeta?.color }}>{x.sMeta?.icon}</span>{' '}
-                        {x.leaf.path.slice(-1)[0]}
-                      </div>
-                      <div style={{ fontSize: '0.68rem', color: '#9ca3af' }}>
-                        통합 {Math.round(x.score * 100)}%
-                      </div>
-                    </button>
-                  ))}
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#9a3412', marginBottom: 6 }}>약점 Top 5</div>
-                  {bottomLeaves.length === 0 && <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>—</div>}
-                  {bottomLeaves.map((x) => (
-                    <button key={x.leaf.id} onClick={() => jumpToAILearn(x.leaf)}
-                      style={{ display: 'block', width: '100%', textAlign: 'left',
-                        padding: '6px 8px', background: 'transparent', border: 'none', borderRadius: 6,
-                        cursor: 'pointer', marginBottom: 2 }}>
-                      <div style={{ fontSize: '0.78rem', color: '#111827', fontWeight: 700 }}>
-                        <span style={{ color: x.sMeta?.color }}>{x.sMeta?.icon}</span>{' '}
-                        {x.leaf.path.slice(-1)[0]}
-                      </div>
-                      <div style={{ fontSize: '0.68rem', color: '#9ca3af' }}>
-                        통합 {Math.round(x.score * 100)}%
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </section>
-          )}
 
 
           {/* 오늘 학습 목표 */}
