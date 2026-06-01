@@ -1552,8 +1552,23 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           </div>
           {curLeaf && (() => {
             const m = mastery[curLeaf.id] || { coverage: 0, status: 'not_started' };
-            const pct = Math.round((m.coverage || 0) * 100);
+            const isStage2 = getSubjectMeta(subjectId)?.stage === 2;
             const isMaster = m.status === 'mastered';
+            if (isStage2) {
+              const cnt = m.answer_count || 0;
+              const avg = Math.round(m.avg_score_pct || 0);
+              return (
+                <span style={{
+                  fontSize: '0.7rem', fontWeight: 700, padding: '2px 8px', borderRadius: 10,
+                  background: isMaster ? '#d1fae5' : cnt > 0 ? '#ede9fe' : '#f3f4f6',
+                  color: isMaster ? '#047857' : cnt > 0 ? '#5b21b6' : '#9ca3af',
+                  whiteSpace: 'nowrap',
+                }}>
+                  {isMaster ? '✓ 마스터' : cnt > 0 ? `📝${cnt} · ${avg}%` : '미시작'}
+                </span>
+              );
+            }
+            const pct = Math.round((m.coverage || 0) * 100);
             return (
               <span style={{
                 fontSize: '0.7rem', fontWeight: 700, padding: '2px 8px', borderRadius: 10,
@@ -1776,6 +1791,69 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                     🔁 복습 퀴즈
                   </button>
                 </div>
+              </div>
+            );
+          }
+          // 2차 환영 카드 — 답안 작성 위주
+          const isStage2 = getSubjectMeta(subjectId)?.stage === 2;
+          if (isStage2) {
+            const answerCount = m.answer_count || 0;
+            const avgScore = Math.round(m.avg_score_pct || 0);
+            return (
+              <div style={{
+                background: 'linear-gradient(180deg, #ede9fe 0%, #fff 100%)',
+                border: '1px solid #c4b5fd', borderRadius: 14, padding: 18, marginTop: 12,
+                textAlign: 'center',
+              }}>
+                <div style={{ fontSize: '2rem', marginBottom: 4 }}>✍️</div>
+                <div style={{ fontSize: '0.78rem', color: '#7c3aed', fontWeight: 600, marginBottom: 4 }}>
+                  {curLeaf.path.slice(1, -1).join(' › ')}
+                </div>
+                <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#111827', marginBottom: 6 }}>
+                  {curLeaf.path.slice(-1)[0]}
+                </div>
+                <div style={{ fontSize: '0.85rem', color: '#374151', marginBottom: 12 }}>
+                  {answerCount > 0
+                    ? `답안 ${answerCount}회 작성 · 평균 ${avgScore}% — 계속 연습?`
+                    : '2차 단원입니다. 답안 작성·논점 추출 위주로 학습합니다.'}
+                </div>
+                <div style={{
+                  background: '#fff', border: '1px solid #ddd6fe', borderRadius: 8,
+                  padding: '8px 12px', marginBottom: 12, fontSize: '0.74rem', color: '#5b21b6',
+                  display: 'inline-block',
+                }}>
+                  📂 단원 {curLeaf.unit_code || '—'} · {curLeaf.est_minutes ? `권장 ${curLeaf.est_minutes}분` : '서술형'}
+                </div>
+                {/* 2차 모드별 시작 버튼 */}
+                <div style={{ display: 'flex', gap: 6, justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <button onClick={() => { setMode('concept_s2'); quickSend('이 단원의 첫 논점부터 답안에 어떻게 쓸지 같이 가르쳐줘.'); }}
+                    disabled={!cap.ok}
+                    style={{ padding: '9px 14px', background: '#7c3aed', color: '#fff', border: 'none',
+                      borderRadius: 8, cursor: cap.ok ? 'pointer' : 'not-allowed', fontWeight: 700,
+                      display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                    <Play size={14} /> 개념 시작
+                  </button>
+                  <button onClick={() => setMode('answer_write')}
+                    style={{ padding: '9px 14px', background: '#fff', color: '#5b21b6',
+                      border: '1px solid #c4b5fd', borderRadius: 8, cursor: 'pointer', fontWeight: 700 }}>
+                    📝 답안 작성
+                  </button>
+                  <button onClick={() => setMode('template')}
+                    style={{ padding: '9px 14px', background: '#fff', color: '#5b21b6',
+                      border: '1px solid #c4b5fd', borderRadius: 8, cursor: 'pointer', fontWeight: 600 }}>
+                    📋 양식
+                  </button>
+                  <button onClick={() => setMode('mock_full')}
+                    style={{ padding: '9px 14px', background: '#fff', color: '#5b21b6',
+                      border: '1px solid #c4b5fd', borderRadius: 8, cursor: 'pointer', fontWeight: 600 }}>
+                    🎬 실전 모의
+                  </button>
+                </div>
+                {!curLeaf.unit_file && (
+                  <div style={{ width: '100%', marginTop: 10, fontSize: '0.76rem', color: '#9a3412' }}>
+                    ⚠️ 단원 자료가 없어 인수인계서만으로 진행됩니다.
+                  </div>
+                )}
               </div>
             );
           }
