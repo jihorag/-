@@ -4449,60 +4449,142 @@ const App = () => {
         <h1 className="screen-title">📚 문제풀이</h1>
       </div>
       <main className="main-content" style={{ marginTop: '16px' }}>
-        {/* 시험 모드 (통일된 ModePicker) — 분류·연도·과목 픽커가 그 시험에 맞춰짐 */}
+        {/* 시험 모드 (감정평가사 ↔ 전체 DB 토글) */}
         <div style={{ marginBottom: '16px' }}>{renderModePicker()}</div>
 
+        {/* 통합 검색 */}
         <button
           onClick={() => setCurrentView('search')}
           style={{ width: '100%', textAlign: 'left', padding: '14px 16px', marginBottom: '20px',
-            border: '1px solid #d1d5db', borderRadius: '12px', background: '#fff', color: '#6b7280',
-            fontSize: '0.95rem', cursor: 'pointer' }}
+            border: '1px solid #c7d2fe', borderRadius: '12px',
+            background: 'linear-gradient(160deg, #eff6ff 0%, #ffffff 100%)',
+            color: '#1f2937', fontSize: '0.95rem', cursor: 'pointer', fontWeight: 600 }}
         >
           🔍 통합 검색·필터 (시험·과목·연도·난이도·키워드)
         </button>
-        <div className="section-header">
-          <h3 className="section-title">
-            학습 목록{browseExam && <span style={{ fontSize: '0.78rem', color: '#6b7280', fontWeight: 600, marginLeft: 6 }}>· {browseExam}</span>}
-          </h3>
-          <div className="view-toggle">
-            {viewModeTabs.map(([mode,label]) => (
-              <button
-                key={mode}
-                className={viewMode === mode ? 'active' : ''}
-                onClick={() => switchTab(mode)}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
 
-        <div className="study-grid">
-          {activeGroups.map((group, idx) => {
-            const s = progressStats(cardQuestions(group), progress);
-            const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
-            const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
-            return (
-            <div key={idx} className="study-card" onClick={() => handleGroupClick(group)}>
-              {dm && (
-                <div className="card-badge" style={{ background: dm.bg, color: dm.fg, border: 'none' }}>
-                  난이도 {s.avgDiff.toFixed(1)}
-                </div>
-              )}
-              <h3 className="card-title">{group.title}</h3>
-              <div className="card-total">
-                {group.total}문제{s.answered > 0 && <> · 학습 {s.answered}<span style={{ color: '#9ca3af' }}>/{s.total}</span></>}
+        {/* 1차/2차 과목 카드 그리드 — AI 학습 홈과 통일된 디자인 */}
+        {[
+          { stage: 1, label: '1차 시험 — 객관식 5지선다', subjects: AI_SUBJECTS.filter((s) => s.stage === 1) },
+          { stage: 2, label: '2차 시험 — 서술형·답안 작성', subjects: AI_SUBJECTS.filter((s) => s.stage === 2) },
+        ].map(({ stage, label, subjects }) => (
+          <div key={stage} style={{ marginBottom: 18 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+              <div style={{ fontSize: '1rem', color: '#111827', fontWeight: 800 }}>
+                {stage === 1 ? '📖' : '✍️'} {label}
               </div>
-
-              <div className="card-progress-container">
-                <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
-              </div>
-
-              <div className="play-btn">풀기</div>
+              <span style={{ fontSize: '0.82rem', color: '#1f2937', fontWeight: 600 }}>{subjects.length}과목</span>
             </div>
-            );
-          })}
-        </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10 }}>
+              {subjects.map((s) => {
+                const subjStat = analytics.subjects.find((x) => x.name === s.title);
+                const totalN = subjStat?.total || 0;
+                const answeredN = subjStat?.scored || 0;
+                const correctN = subjStat?.correct || 0;
+                const pct = totalN > 0 ? Math.round((answeredN / totalN) * 100) : 0;
+                const acc = answeredN > 0 ? Math.round((correctN / answeredN) * 100) : 0;
+                const isStage2 = s.stage === 2;
+                const hasQuiz = totalN > 0;
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => {
+                      if (!hasQuiz) return;
+                      setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
+                      setTaxSubject(s.title);
+                      setTaxSubSubject(null);
+                      setTaxChapter(null);
+                      setTaxSection(null);
+                      const tax = taxonomyData?.[s.title];
+                      if (tax?.has_subjects) setCurrentView('tax_sub_subjects');
+                      else setCurrentView('tax_chapters');
+                      window.scrollTo(0, 0);
+                    }}
+                    disabled={!hasQuiz}
+                    style={{
+                      padding: 16, textAlign: 'left',
+                      background: hasQuiz
+                        ? 'linear-gradient(160deg, #eff6ff 0%, #ffffff 100%)'
+                        : 'linear-gradient(160deg, #f9fafb 0%, #ffffff 100%)',
+                      border: hasQuiz ? '1px solid #c7d2fe' : '1px solid #e5e7eb',
+                      borderRadius: 12, cursor: hasQuiz ? 'pointer' : 'not-allowed',
+                      display: 'flex', flexDirection: 'column', gap: 6, position: 'relative',
+                      opacity: hasQuiz ? 1 : 0.6,
+                    }}
+                  >
+                    {isStage2 && (
+                      <span style={{ position: 'absolute', top: 10, right: 10, fontSize: '0.7rem', fontWeight: 800,
+                        background: '#4f46e5', color: '#fff', padding: '3px 8px', borderRadius: 999 }}>2차</span>
+                    )}
+                    <div style={{ fontSize: '1.8rem', lineHeight: 1 }}>{s.icon}</div>
+                    <div style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '1.1rem' }}>{s.short}</div>
+                    <div style={{ fontSize: '0.82rem', color: '#1f2937', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {s.title}
+                    </div>
+                    <div style={{ marginTop: 8, height: 5, background: '#dbeafe', borderRadius: 3, overflow: 'hidden' }}>
+                      <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#4f46e5' }} />
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#111827', marginTop: 4 }}>
+                      <span style={{ fontWeight: 800 }}>{pct}%</span>
+                      <span style={{ color: '#1f2937', fontWeight: 600 }}>
+                        {hasQuiz ? `${answeredN}/${totalN}` : '기출 없음'}
+                      </span>
+                    </div>
+                    {hasQuiz && acc > 0 && (
+                      <div style={{ fontSize: '0.76rem', color: '#374151', marginTop: -2 }}>
+                        정답률 {acc}%
+                      </div>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+
+        {/* 보조 — 시험별/연도별 등 다른 둘러보기 토글 */}
+        <details style={{ marginTop: 20, background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 12, padding: 12 }}>
+          <summary style={{ cursor: 'pointer', fontWeight: 700, color: '#1f2937', fontSize: '0.92rem' }}>
+            🗂️ 다른 방식으로 둘러보기 (시험별 · 단원별 · 연도별)
+          </summary>
+          <div style={{ marginTop: 12 }}>
+            <div className="view-toggle">
+              {viewModeTabs.map(([mode, label]) => (
+                <button
+                  key={mode}
+                  className={viewMode === mode ? 'active' : ''}
+                  onClick={() => switchTab(mode)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            <div className="study-grid" style={{ marginTop: 12 }}>
+              {activeGroups.map((group, idx) => {
+                const s = progressStats(cardQuestions(group), progress);
+                const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
+                const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
+                return (
+                  <div key={idx} className="study-card" onClick={() => handleGroupClick(group)}>
+                    {dm && (
+                      <div className="card-badge" style={{ background: dm.bg, color: dm.fg, border: 'none' }}>
+                        난이도 {s.avgDiff.toFixed(1)}
+                      </div>
+                    )}
+                    <h3 className="card-title">{group.title}</h3>
+                    <div className="card-total">
+                      {group.total}문제{s.answered > 0 && <> · 학습 {s.answered}<span style={{ color: '#374151' }}>/{s.total}</span></>}
+                    </div>
+                    <div className="card-progress-container">
+                      <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
+                    </div>
+                    <div className="play-btn">풀기</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </details>
       </main>
     </div>
   );
