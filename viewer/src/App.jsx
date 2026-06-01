@@ -3306,7 +3306,7 @@ const App = () => {
           );
         })()}
 
-        {/* 모의고사 진입 — 2차 준비(감정평가실무)는 둘러보기 > 과목 리스트에 통합됨 */}
+        {/* 모의고사 + 2차 논술 진입 — 감정평가사 1차/2차 시험 트랙 */}
         <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
           <button onClick={() => setCurrentView('mock')}
             style={{ flex: 1, display: 'flex', flexDirection: 'column',
@@ -3316,7 +3316,18 @@ const App = () => {
             <span style={{ fontWeight: 800, fontSize: '0.9rem' }}>🎯 1차 모의고사</span>
             <span style={{ fontSize: '0.74rem', color: '#a16207', marginTop: 2,
               lineHeight: 1.4 }}>
-              시간 제한 풀이 · 자동 채점
+              5과목 · 시간제한 · 자동채점
+            </span>
+          </button>
+          <button onClick={() => setCurrentView('essay_subjects')}
+            style={{ flex: 1, display: 'flex', flexDirection: 'column',
+              padding: '14px', borderRadius: 12,
+              border: '1px solid #c4b5fd', background: '#f5f3ff',
+              color: '#5b21b6', cursor: 'pointer', textAlign: 'left' }}>
+            <span style={{ fontWeight: 800, fontSize: '0.9rem' }}>📝 2차 논술</span>
+            <span style={{ fontSize: '0.74rem', color: '#6d28d9', marginTop: 2,
+              lineHeight: 1.4 }}>
+              실무·이론·법규 · 모범답안
             </span>
           </button>
         </div>
