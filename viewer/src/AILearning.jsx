@@ -1685,12 +1685,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           { stage: 1, label: '1차 시험 — 객관식 5지선다', subjects: SUBJECTS_BY_STAGE[1] },
           { stage: 2, label: '2차 시험 — 서술형·답안 작성', subjects: SUBJECTS_BY_STAGE[2] },
         ].map(({ stage, label, subjects }) => (
-          <div key={stage} style={{ marginBottom: 14 }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
-              <div style={{ fontSize: '0.85rem', color: '#374151', fontWeight: 700 }}>
+          <div key={stage} style={{ marginBottom: 18 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+              <div style={{ fontSize: '1rem', color: '#111827', fontWeight: 800 }}>
                 {stage === 1 ? '📖' : '✍️'} {label}
               </div>
-              <span style={{ fontSize: '0.7rem', color: '#9ca3af' }}>{subjects.length}과목</span>
+              <span style={{ fontSize: '0.82rem', color: '#1f2937', fontWeight: 600 }}>{subjects.length}과목</span>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10 }}>
               {subjects.map((s) => {
@@ -1708,28 +1708,28 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                     key={s.id}
                     onClick={() => switchSubject(s.id, true)}
                     style={{
-                      padding: 14, textAlign: 'left',
-                      background: `linear-gradient(135deg, ${s.color}12 0%, #fff 100%)`,
-                      border: `1px solid ${s.color}40`, borderRadius: 12, cursor: 'pointer',
-                      display: 'flex', flexDirection: 'column', gap: 4, position: 'relative',
+                      padding: 16, textAlign: 'left',
+                      background: 'linear-gradient(160deg, #eff6ff 0%, #ffffff 100%)',
+                      border: '1px solid #c7d2fe', borderRadius: 12, cursor: 'pointer',
+                      display: 'flex', flexDirection: 'column', gap: 6, position: 'relative',
                     }}
                   >
                     {isStage2 && (
-                      <span style={{ position: 'absolute', top: 8, right: 8, fontSize: '0.6rem', fontWeight: 800,
-                        background: s.color, color: '#fff', padding: '2px 6px', borderRadius: 999 }}>2차</span>
+                      <span style={{ position: 'absolute', top: 10, right: 10, fontSize: '0.7rem', fontWeight: 800,
+                        background: '#4f46e5', color: '#fff', padding: '3px 8px', borderRadius: 999 }}>2차</span>
                     )}
-                    <div style={{ fontSize: '1.6rem', lineHeight: 1 }}>{s.icon}</div>
-                    <div style={{ fontWeight: 800, color: s.color, fontSize: '0.95rem' }}>{s.short}</div>
-                    <div style={{ fontSize: '0.66rem', color: '#9ca3af', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.title}</div>
-                    <div style={{ marginTop: 6, height: 4, background: '#f3f4f6', borderRadius: 2, overflow: 'hidden' }}>
-                      <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: s.color }} />
+                    <div style={{ fontSize: '1.8rem', lineHeight: 1 }}>{s.icon}</div>
+                    <div style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '1.1rem' }}>{s.short}</div>
+                    <div style={{ fontSize: '0.82rem', color: '#1f2937', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.title}</div>
+                    <div style={{ marginTop: 8, height: 5, background: '#dbeafe', borderRadius: 3, overflow: 'hidden' }}>
+                      <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#4f46e5' }} />
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#374151', marginTop: 4 }}>
-                      <span style={{ fontWeight: 700 }}>{pct}%</span>
-                      <span style={{ color: '#9ca3af' }}>{isStage2 ? `답안 ${masterN}` : `마스터 ${masterN}`}</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#111827', marginTop: 4 }}>
+                      <span style={{ fontWeight: 800 }}>{pct}%</span>
+                      <span style={{ color: '#1f2937', fontWeight: 600 }}>{isStage2 ? `답안 ${masterN}` : `마스터 ${masterN}`}</span>
                     </div>
                     {(dueN > 0 || weakN > 0) && (
-                      <div style={{ marginTop: 2, fontSize: '0.66rem', color: '#92400e', display: 'flex', gap: 4 }}>
+                      <div style={{ marginTop: 2, fontSize: '0.78rem', color: '#92400e', display: 'flex', gap: 6, fontWeight: 700 }}>
                         {dueN > 0 && <span>🔁 {dueN}</span>}
                         {weakN > 0 && <span>⚠️ {weakN}</span>}
                       </div>
