@@ -2709,20 +2709,68 @@ const App = () => {
   }
 
   if (currentView === 'status') {
-    // 모드 set 시 cv/coachUsed/analyticsUsed가 그 시험 데이터만 사용
+    // ─── 데이터 통합 ────────────────────────────────────────
     const cv = modeCoverage || coverage;
     const coachUsed = modeCoach || coach;
     const analyticsUsed = modeAnalytics || analytics;
-    const segs = [
-      { k: 'learned', label: '정답·학습', n: cv.learned, c: 'var(--primary)' },
-      { k: 'mastered', label: '마스터', n: cv.mastered, c: '#16a34a' },
-      { k: 'review', label: '복습필요', n: cv.review, c: '#ef4444' },
-      { k: 'unseen', label: '미응답', n: cv.unseen, c: '#e5e7eb' },
-    ];
-    const learnedPct = cv.total ? Math.round(((cv.learned + cv.mastered + cv.review) / cv.total) * 100) : 0;
-    const backlog = Math.max(0, srs.dueTotal - srs.due.length);
-    const kpi = (v, sub, color) => (
-      <div style={{ flex: 1, background: '#fff', borderRadius: '12px', padding: '14px 10px', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
+    const aiMastery = getAiMastery();
+    const aiDueArr = getAiDue();
+    const allLeavesFlat = Object.values(leavesBySubject).flat();
+    const flatLeafById = new Map(allLeavesFlat.map((l) => [l.id, l]));
+
+    // 종합 학습률 = quiz coverage 50% + AI coverage 평균 50%
+    const quizLearnedPct = cv.total ? ((cv.learned + cv.mastered + cv.review) / cv.total) : 0;
+    const aiCovAvg = (() => {
+      if (allLeavesFlat.length === 0) return 0;
+      const sum = allLeavesFlat.reduce((a, l) => a + (aiMastery[l.id]?.coverage || 0), 0);
+      return sum / allLeavesFlat.length;
+    })();
+    const overallPct = Math.round((quizLearnedPct * 0.5 + aiCovAvg * 0.5) * 100);
+    const todoCount = srs.due.length + aiDueArr.length;
+
+    // 5과목 매트릭스 (quiz + AI 통합) — 통합 점수 낮은 순 정렬
+    const subjectMatrix = AI_SUBJECTS.map((s) => {
+      const aiKs = Object.keys(aiMastery).filter((k) => k.startsWith(s.id + '__'));
+      const aiCov = aiKs.length ? aiKs.reduce((a, k) => a + (aiMastery[k]?.coverage || 0), 0) / aiKs.length : 0;
+      const aiMaster = aiKs.filter((k) => aiMastery[k]?.status === 'mastered').length;
+      const aiTotal = (leavesBySubject[s.id] || []).length;
+
+      const quizSubj = analyticsUsed.subjects.find((x) => x.name === s.title);
+      const quizAcc = quizSubj && quizSubj.scored >= 5 ? quizSubj.correct / quizSubj.scored : null;
+      const quizCov = quizSubj && quizSubj.total ? quizSubj.scored / quizSubj.total : 0;
+      const quizTotal = quizSubj?.total || 0;
+      const quizScored = quizSubj?.scored || 0;
+
+      // 통합 점수: AI coverage 40% + quiz coverage 30% + quiz accuracy 30%
+      const score = aiCov * 0.4 + quizCov * 0.3 + (quizAcc || 0) * 0.3;
+      const weakAiCount = (weakPathsBySubject => {
+        const arr = (aiWeakPathsBySubject || {})[s.id] || [];
+        return arr.length;
+      })();
+      return {
+        s, aiCov, aiMaster, aiTotal, quizAcc, quizCov, quizTotal, quizScored, score, weakAiCount,
+      };
+    }).sort((a, b) => a.score - b.score);
+
+    // leaf 통합 score — quiz + AI
+    const leafUnified = allLeavesFlat
+      .map((l) => {
+        const m = aiMastery[l.id] || {};
+        const qs = quizStatsByLeaf[l.id];
+        const aiCov = m.coverage || 0;
+        const quizAcc = qs && qs.answered > 0 ? qs.accuracy : 0;
+        const quizCov = qs && qs.total > 0 ? qs.coverage : 0;
+        const score = aiCov * 0.5 + quizAcc * 0.3 + quizCov * 0.2;
+        const subjId = (l.id || '').split('__')[0];
+        const sMeta = AI_SUBJECTS.find((x) => x.id === subjId);
+        return { leaf: l, sMeta, aiCov, quizAcc, quizCov, qs, m, score };
+      })
+      .filter((x) => x.aiCov > 0 || (x.qs && x.qs.answered > 0));
+    const topLeaves = [...leafUnified].sort((a, b) => b.score - a.score).slice(0, 5);
+    const bottomLeaves = [...leafUnified].filter((x) => x.score < 0.5).sort((a, b) => a.score - b.score).slice(0, 5);
+
+    const kpi = (v, sub, color, bg) => (
+      <div style={{ flex: 1, background: bg || '#fff', borderRadius: '12px', padding: '14px 10px', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
         <div style={{ fontSize: '1.25rem', fontWeight: 800, color: color || '#111827' }}>{v}</div>
         <div style={{ fontSize: '0.72rem', color: '#6b7280', marginTop: '2px' }}>{sub}</div>
       </div>
@@ -2744,58 +2792,245 @@ const App = () => {
         <main className="main-content" style={{ marginTop: '16px' }}>
           {/* 모드 pill — status 통계의 범위를 시험별로 전환 */}
           <div style={{ marginBottom: 14 }}>{renderModePicker()}</div>
-          {/* 🎓 AI 학습 5과목 종합 — quiz와 한 화면에서 보기 */}
+
+          {/* ① D-DAY 미니 카드 (1차/2차) */}
           {(() => {
-            const aiMastery = getAiMastery();
-            const rows = AI_SUBJECTS.map((s) => {
-              const ks = Object.keys(aiMastery).filter((k) => k.startsWith(s.id + '__'));
-              const total = ks.length;
-              const covSum = ks.reduce((a, k) => a + (aiMastery[k]?.coverage || 0), 0);
-              const masterCount = ks.filter((k) => aiMastery[k]?.status === 'mastered').length;
-              return { s, total, covAvg: total > 0 ? covSum / total : 0, masterCount };
-            });
-            const anyProgress = rows.some((r) => r.covAvg > 0);
-            if (!anyProgress) return null;
+            const d1 = daysUntil(examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM]);
+            const d2 = daysUntil(examDates[`${PRIMARY_EXAM}_2차`]);
+            if (d1 == null && d2 == null) return null;
+            const dColor = (d) => d == null ? '#9ca3af'
+              : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
+            const dPill = (label, d) => d == null ? null : (
+              <div style={{ flex: 1, background: '#fff', borderRadius: 12, padding: '10px 12px',
+                display: 'flex', alignItems: 'center', gap: 8, boxShadow: 'var(--shadow-sm)' }}>
+                <span style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 700 }}>{label}</span>
+                <span style={{ marginLeft: 'auto', fontSize: '1.05rem', fontWeight: 800, color: dColor(d) }}>
+                  D{d > 0 ? '-' : '+'}{Math.abs(d)}
+                </span>
+              </div>
+            );
             return (
-              <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '12px',
-                padding: '14px', marginBottom: '16px', boxShadow: 'var(--shadow-sm)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                  <span style={{ fontWeight: 800, fontSize: '0.95rem' }}>🎓 AI 학습 5과목</span>
-                  <button
-                    onClick={() => jumpToAILearn(null)}
-                    style={{ background: 'none', border: 'none', color: '#4f46e5', fontWeight: 700, fontSize: '0.78rem', cursor: 'pointer' }}
-                  >
-                    AI 학습 탭 →
-                  </button>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                  {rows.map((r) => {
-                    const pct = Math.round(r.covAvg * 100);
-                    return (
-                      <div key={r.s.id} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <span style={{ width: 90, fontSize: '0.78rem', color: r.s.color, fontWeight: 700 }}>
-                          {r.s.icon} {r.s.short}
-                        </span>
-                        <div style={{ flex: 1, height: 6, background: '#f3f4f6', borderRadius: 3, overflow: 'hidden' }}>
-                          <div style={{ width: `${pct}%`, height: '100%', background: r.s.color, transition: 'width .3s' }} />
-                        </div>
-                        <span style={{ width: 80, fontSize: '0.72rem', color: '#6b7280', textAlign: 'right' }}>
-                          {pct}% · 마스터 {r.masterCount}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </section>
+              <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+                {dPill('1차', d1)}
+                {dPill('2차', d2)}
+              </div>
             );
           })()}
-          {/* 핵심 KPI — 모드별 정답률 (overall은 mode 무관, accuracy는 mode 분 사용) */}
+
+          {/* ② 종합 KPI — quiz + AI 통합 */}
           <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
-            {kpi(`${learnedPct}%`, `학습 ${cv.total - cv.unseen}/${cv.total}`, '#2563eb')}
-            {kpi(coachUsed.skillAcc == null ? '–' : `${coachUsed.skillAcc}%`, '정답률', '#16a34a')}
+            {kpi(`${overallPct}%`, '종합 학습률', '#4f46e5', '#eef2ff')}
+            {kpi(coachUsed.skillAcc == null ? '–' : `${coachUsed.skillAcc}%`, '기출 정답률', '#16a34a')}
             {kpi(`${analytics.streak}일`, '연속 학습', '#ea580c')}
-            {kpi(srs.due.length, '오늘 복습', '#7c3aed')}
+            {kpi(todoCount, '오늘 할 일', todoCount > 0 ? '#dc2626' : '#9ca3af')}
           </div>
+
+          {/* ③ 오늘 할 일 — 4탭 통합 액션 카드 */}
+          <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+            padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+            <div style={{ fontWeight: 800, fontSize: '1rem', marginBottom: 10 }}>🎯 오늘 할 일</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <button
+                onClick={() => srs.due.length && setCurrentView('today')}
+                disabled={!srs.due.length}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 10, padding: '12px 14px',
+                  background: srs.due.length ? '#eff6ff' : '#f9fafb',
+                  border: `1px solid ${srs.due.length ? '#bfdbfe' : '#e5e7eb'}`,
+                  borderRadius: 10, cursor: srs.due.length ? 'pointer' : 'default',
+                  width: '100%', textAlign: 'left',
+                }}
+              >
+                <span style={{ fontSize: '1.4rem' }}>📅</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontWeight: 700, color: srs.due.length ? '#1d4ed8' : '#9ca3af', fontSize: '0.92rem' }}>
+                    기출 복습 {srs.due.length > 0 ? `${srs.due.length}문제` : '없음'}
+                  </div>
+                  <div style={{ fontSize: '0.74rem', color: '#6b7280' }}>
+                    {srs.due.length > 0 ? '복습 탭에서 SRS 만기 문제 풀이' : '틀린 문제 누적 후 자동 일정 생성'}
+                  </div>
+                </div>
+                {srs.due.length > 0 && <span style={{ color: '#1d4ed8', fontWeight: 700 }}>→</span>}
+              </button>
+
+              <button
+                onClick={() => {
+                  if (!aiDueArr.length) return;
+                  const first = aiDueArr[0];
+                  const leaf = flatLeafById.get(first.code);
+                  if (leaf) jumpToAILearn(leaf); else jumpToAILearn(null);
+                }}
+                disabled={!aiDueArr.length}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 10, padding: '12px 14px',
+                  background: aiDueArr.length ? '#eef2ff' : '#f9fafb',
+                  border: `1px solid ${aiDueArr.length ? '#c7d2fe' : '#e5e7eb'}`,
+                  borderRadius: 10, cursor: aiDueArr.length ? 'pointer' : 'default',
+                  width: '100%', textAlign: 'left',
+                }}
+              >
+                <span style={{ fontSize: '1.4rem' }}>🎓</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontWeight: 700, color: aiDueArr.length ? '#4338ca' : '#9ca3af', fontSize: '0.92rem' }}>
+                    AI 학습 복습 {aiDueArr.length > 0 ? `${aiDueArr.length}단원` : '없음'}
+                  </div>
+                  <div style={{ fontSize: '0.74rem', color: '#6b7280' }}>
+                    {aiDueArr.length > 0 ? `${flatLeafById.get(aiDueArr[0]?.code)?.path?.slice(-1)[0] || ''} 등` : '마스터 단원 SRS 자동 일정'}
+                  </div>
+                </div>
+                {aiDueArr.length > 0 && <span style={{ color: '#4338ca', fontWeight: 700 }}>→</span>}
+              </button>
+
+              {coachUsed.topFix && (
+                <button
+                  onClick={() => startConcept(coachUsed.topFix.name,
+                    `${browseExam ? browseExam + ' · ' : ''}${coachUsed.topFix.name} 보강`, browseExam || null)}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 10, padding: '12px 14px',
+                    background: '#fef3c7', border: '1px solid #fcd34d',
+                    borderRadius: 10, cursor: 'pointer', width: '100%', textAlign: 'left',
+                  }}
+                >
+                  <span style={{ fontSize: '1.4rem' }}>🔥</span>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontWeight: 700, color: '#92400e', fontSize: '0.92rem' }}>
+                      약점 보강 — {coachUsed.topFix.name}
+                    </div>
+                    <div style={{ fontSize: '0.74rem', color: '#78350f' }}>
+                      {coachUsed.topFix.acc != null ? `정답률 ${coachUsed.topFix.acc}% — 가장 큰 합격선 갭` : '미진단 — 첫 표본 쌓기'}
+                    </div>
+                  </div>
+                  <span style={{ color: '#92400e', fontWeight: 700 }}>→</span>
+                </button>
+              )}
+            </div>
+          </section>
+
+          {/* ④ 5과목 통합 매트릭스 */}
+          <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+            padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+              <div style={{ fontWeight: 800, fontSize: '1rem' }}>📊 5과목 통합 매트릭스</div>
+              <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>약점 우선 정렬 · 🎓 AI · 📚 기출</div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {subjectMatrix.map(({ s, aiCov, aiMaster, aiTotal, quizAcc, quizCov, quizTotal, quizScored, score }) => {
+                const aiPct = Math.round(aiCov * 100);
+                const qCovPct = Math.round(quizCov * 100);
+                const qAccPct = quizAcc != null ? Math.round(quizAcc * 100) : null;
+                const scorePct = Math.round(score * 100);
+                const tier = scorePct >= 70 ? { bg: '#ecfdf5', bd: '#a7f3d0', c: '#047857', t: '안정' }
+                  : scorePct >= 40 ? { bg: '#fff7ed', bd: '#fed7aa', c: '#9a3412', t: '진행' }
+                  : { bg: '#fef2f2', bd: '#fecaca', c: '#991b1b', t: '집중' };
+                return (
+                  <div key={s.id} style={{
+                    background: tier.bg, border: `1px solid ${tier.bd}`, borderRadius: 10, padding: 12,
+                  }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ fontSize: '0.95rem', fontWeight: 800, color: s.color }}>
+                          {s.icon} {s.short}
+                        </span>
+                        <span style={{ fontSize: '0.65rem', fontWeight: 800, color: tier.c,
+                          background: '#fff', padding: '2px 7px', borderRadius: 999, border: `1px solid ${tier.bd}` }}>
+                          {tier.t} {scorePct}%
+                        </span>
+                      </div>
+                      <div style={{ display: 'flex', gap: 6 }}>
+                        <button
+                          onClick={() => {
+                            const sl = (leavesBySubject[s.id] || [])[0];
+                            if (sl) jumpToAILearn(sl); else jumpToAILearn(null);
+                          }}
+                          style={{ padding: '4px 10px', fontSize: '0.72rem', fontWeight: 700,
+                            background: s.color, color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
+                          🎓 AI
+                        </button>
+                        <button
+                          onClick={() => {
+                            setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
+                            setTaxSubject(s.title);
+                            setTaxSubSubject(null); setTaxChapter(null); setTaxSection(null);
+                            setCurrentView('tax_sub_subjects');
+                            window.scrollTo(0, 0);
+                          }}
+                          style={{ padding: '4px 10px', fontSize: '0.72rem', fontWeight: 700,
+                            background: '#fff', color: '#374151', border: '1px solid #d1d5db', borderRadius: 6, cursor: 'pointer' }}>
+                          📚 기출
+                        </button>
+                      </div>
+                    </div>
+                    {/* AI 막대 */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                      <span style={{ width: 28, fontSize: '0.7rem', color: '#6b7280' }}>🎓</span>
+                      <div style={{ flex: 1, height: 5, background: '#fff', borderRadius: 3, overflow: 'hidden', border: '1px solid #e5e7eb' }}>
+                        <div style={{ width: `${aiPct}%`, height: '100%', background: s.color }} />
+                      </div>
+                      <span style={{ width: 96, fontSize: '0.7rem', color: '#374151', textAlign: 'right' }}>
+                        {aiPct}% · 마스터 {aiMaster}/{aiTotal}
+                      </span>
+                    </div>
+                    {/* 기출 막대 */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <span style={{ width: 28, fontSize: '0.7rem', color: '#6b7280' }}>📚</span>
+                      <div style={{ flex: 1, height: 5, background: '#fff', borderRadius: 3, overflow: 'hidden', border: '1px solid #e5e7eb' }}>
+                        <div style={{ width: `${qCovPct}%`, height: '100%', background: '#10b981' }} />
+                      </div>
+                      <span style={{ width: 96, fontSize: '0.7rem', color: '#374151', textAlign: 'right' }}>
+                        {quizScored}/{quizTotal}{qAccPct != null && ` · ${qAccPct}%`}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* ⑤ 단원 통합 랭킹 — 상위/하위 5 */}
+          {(topLeaves.length > 0 || bottomLeaves.length > 0) && (
+            <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+              padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+              <div style={{ fontWeight: 800, fontSize: '1rem', marginBottom: 10 }}>🏆 단원 통합 랭킹</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                <div>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#047857', marginBottom: 6 }}>강점 Top 5</div>
+                  {topLeaves.length === 0 && <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>—</div>}
+                  {topLeaves.map((x) => (
+                    <button key={x.leaf.id} onClick={() => jumpToAILearn(x.leaf)}
+                      style={{ display: 'block', width: '100%', textAlign: 'left',
+                        padding: '6px 8px', background: 'transparent', border: 'none', borderRadius: 6,
+                        cursor: 'pointer', marginBottom: 2 }}>
+                      <div style={{ fontSize: '0.78rem', color: '#111827', fontWeight: 700 }}>
+                        <span style={{ color: x.sMeta?.color }}>{x.sMeta?.icon}</span>{' '}
+                        {x.leaf.path.slice(-1)[0]}
+                      </div>
+                      <div style={{ fontSize: '0.68rem', color: '#9ca3af' }}>
+                        통합 {Math.round(x.score * 100)}%
+                      </div>
+                    </button>
+                  ))}
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#9a3412', marginBottom: 6 }}>약점 Top 5</div>
+                  {bottomLeaves.length === 0 && <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>—</div>}
+                  {bottomLeaves.map((x) => (
+                    <button key={x.leaf.id} onClick={() => jumpToAILearn(x.leaf)}
+                      style={{ display: 'block', width: '100%', textAlign: 'left',
+                        padding: '6px 8px', background: 'transparent', border: 'none', borderRadius: 6,
+                        cursor: 'pointer', marginBottom: 2 }}>
+                      <div style={{ fontSize: '0.78rem', color: '#111827', fontWeight: 700 }}>
+                        <span style={{ color: x.sMeta?.color }}>{x.sMeta?.icon}</span>{' '}
+                        {x.leaf.path.slice(-1)[0]}
+                      </div>
+                      <div style={{ fontSize: '0.68rem', color: '#9ca3af' }}>
+                        통합 {Math.round(x.score * 100)}%
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* 합격 코치 — 진단 + 처방 (모드 적용) */}
           {coachUsed.readiness != null && (
@@ -2908,43 +3143,6 @@ const App = () => {
             );
           })()}
 
-          {/* 커버리지 스택바 — 모드 적용 시 그 시험만 */}
-          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
-            <div style={{ fontWeight: 800, marginBottom: '12px' }}>
-              {browseExam ? `${browseExam} 커버리지` : '전체 커버리지'} ({cv.total}문항)
-            </div>
-            <div style={{ display: 'flex', height: '14px', borderRadius: '999px', overflow: 'hidden', marginBottom: '12px' }}>
-              {segs.map(s => s.n > 0 && (
-                <div key={s.k} title={`${s.label} ${s.n}`} style={{ width: `${(s.n / cv.total) * 100}%`, background: s.c }} />
-              ))}
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px 14px' }}>
-              {segs.map(s => (
-                <div key={s.k} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#374151' }}>
-                  <span style={{ width: 10, height: 10, borderRadius: 3, background: s.c, flexShrink: 0 }} />
-                  {s.label} <b style={{ marginLeft: 'auto' }}>{s.n}</b>
-                  <span style={{ color: '#9ca3af', minWidth: 38, textAlign: 'right' }}>{cv.pct(s.n)}%</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 복습 현황 */}
-          <section onClick={() => srs.due.length && setCurrentView('today')}
-            style={{ background: srs.due.length ? '#eff6ff' : '#fff', border: `1px solid ${srs.due.length ? '#bfdbfe' : '#e5e7eb'}`,
-              borderRadius: '16px', padding: '18px', marginBottom: '16px', cursor: srs.due.length ? 'pointer' : 'default' }}>
-            <div style={{ fontWeight: 800, marginBottom: '8px' }}>🔁 복습 현황</div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', fontSize: '0.85rem', color: '#374151' }}>
-              <span>오늘 <b style={{ color: '#1d4ed8' }}>{srs.due.length}</b></span>
-              <span>밀림 <b style={{ color: backlog ? '#dc2626' : '#374151' }}>{backlog}</b></span>
-              <span>마스터 <b style={{ color: '#16a34a' }}>{cv.mastered}</b></span>
-              <span style={{ color: '#6b7280' }}>
-                다음 예정 {srs.nextDue != null ? `${new Date(srs.nextDue).getMonth() + 1}/${new Date(srs.nextDue).getDate()}` : '–'}
-              </span>
-            </div>
-            {srs.due.length > 0 && <div style={{ fontSize: '0.8rem', color: '#1d4ed8', marginTop: '8px' }}>오늘 복습 시작 →</div>}
-          </section>
-
           {/* 추세 — 학습 행동은 시험과 무관해 항상 overall analytics 사용 */}
           <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
@@ -2971,13 +3169,11 @@ const App = () => {
             </div>
           </section>
 
-          {/* 약점 — 모드 적용 (분류 + 난이도별 정답률 모두) */}
-          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
-            <div style={{ fontWeight: 800, marginBottom: '10px' }}>
-              약점 진단{browseExam && ` · ${browseExam}`}
-            </div>
-            <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#6b7280', marginBottom: '6px' }}>난이도별 정답률</div>
-            <div style={{ display: 'flex', gap: '6px', marginBottom: '14px' }}>
+          {/* ⑦ 난이도별 정답률 — 미니 차트 */}
+          <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+            padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+            <div style={{ fontWeight: 800, fontSize: '0.95rem', marginBottom: 10 }}>📈 난이도별 정답률</div>
+            <div style={{ display: 'flex', gap: '6px' }}>
               {analyticsUsed.diffAcc.map(({ d, acc }) => {
                 const m = DIFFICULTY_META[d] || {};
                 return (
@@ -2991,33 +3187,6 @@ const App = () => {
                 );
               })}
             </div>
-            {analyticsUsed.weak.length === 0 ? (
-              <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>과목당 5문제 이상 풀면 약점이 분석돼요</div>
-            ) : analyticsUsed.weak.map(w => (
-              <div key={w.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                border: '1px solid #fecaca', background: '#fef2f2', borderRadius: '10px', padding: '10px 12px', marginBottom: '6px',
-                cursor: 'pointer' }} onClick={() => startConcept(w.name,
-                  `${browseExam ? browseExam + ' · ' : ''}${w.name} 집중 학습`, browseExam || null)}>
-                <span style={{ color: '#7f1d1d', fontSize: '0.88rem' }}><b>{w.name}</b>{w.weakSection && <span style={{ fontSize: '0.75rem', color: '#9a3412' }}> · {w.weakSection.nm}</span>}</span>
-                <span style={{ fontWeight: 800, color: '#dc2626' }}>{w.acc}%</span>
-              </div>
-            ))}
-          </section>
-
-          {/* 시험별 진척 */}
-          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
-            <div style={{ fontWeight: 800, marginBottom: '10px' }}>시험별 진척</div>
-            {cv.exams.map(e => (
-              <div key={e.name} style={{ marginBottom: '10px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginBottom: '4px' }}>
-                  <span style={{ fontWeight: 600 }}>{e.name}</span>
-                  <span style={{ color: '#6b7280' }}>{e.answered}/{e.total} · {e.acc == null ? '–' : `정답 ${e.acc}%`}</span>
-                </div>
-                <div style={{ height: '7px', background: '#f1f5f9', borderRadius: '999px', overflow: 'hidden' }}>
-                  <div style={{ width: `${e.coverPct}%`, height: '100%', background: 'var(--primary)' }} />
-                </div>
-              </div>
-            ))}
           </section>
 
           {/* 북마크 요약 */}
