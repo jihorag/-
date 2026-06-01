@@ -3,7 +3,8 @@ import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen, Sparkles }
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
 import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
-import { setCurrent as setAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS } from './aiLearningStore';
+import { setCurrent as setAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS, getPrefs as getAiPrefs, setPrefs as setAiPrefs } from './aiLearningStore';
+import { MODELS as AI_MODELS } from './aiClaudeClient';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
 import { ParsedText } from './ParsedText';
@@ -675,8 +676,20 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
 const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
   const [taxonomyData, setTaxonomyData] = useState(null);
-  // 글로벌 설정 플로팅 드로어 (모든 탭에서 호출 가능)
+  // 플로팅 설정 드로어 — 탭별 컨텍스트로 다른 항목 표시
   const [showGlobalSettings, setShowGlobalSettings] = useState(false);
+  const [settingsContext, setSettingsContext] = useState('home'); // home | ai | practice | review | status
+  const [aiPrefs, setAiPrefsState] = useState(() => getAiPrefs());
+  const openSettings = (ctx) => { setSettingsContext(ctx); setShowGlobalSettings(true); };
+  const openContextSettings = () => {
+    let ctx = 'home';
+    if (currentView === 'civil') ctx = 'ai';
+    else if (currentView === 'reviewHome' || currentView === 'today' || currentView === 'review') ctx = 'review';
+    else if (currentView === 'status') ctx = 'status';
+    else if (currentView === 'home') ctx = 'home';
+    else ctx = 'practice';
+    openSettings(ctx);
+  };
   // 5과목 AI 학습 leaves — 4탭 공통 참조용. 백그라운드 로드.
   const [leavesBySubject, setLeavesBySubject] = useState({});
   useEffect(() => {
@@ -1880,130 +1893,247 @@ const App = () => {
           </button>
         </header>
         <div style={{ flex: 1, overflowY: 'auto', padding: 16, display: 'flex', flexDirection: 'column', gap: 14 }}>
-          {/* 시험일 */}
-          <div>
-            <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: 6, color: '#374151' }}>📅 시험일</div>
-            <div style={{ display: 'flex', gap: 6 }}>
-              {['1차', '2차'].map((label) => {
-                const key = `${PRIMARY_EXAM}_${label}`;
-                return (
-                  <label key={label} style={{ flex: 1, fontSize: '0.78rem', color: '#6b7280' }}>
-                    {label}
-                    <input
-                      type="date"
-                      value={examDates[key] || ''}
-                      onChange={(e) => setExamDates(key, e.target.value)}
-                      style={{ width: '100%', padding: '6px 8px', marginTop: 2,
-                        border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem' }}
-                    />
+          {(() => {
+            const Pill = ({ on, label, onClick }) => (
+              <button onClick={onClick}
+                style={{
+                  flex: 1, padding: '7px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer',
+                  border: on ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
+                  background: on ? '#eef2ff' : '#fff',
+                  color: on ? '#1d4ed8' : '#6b7280',
+                }}>{label}</button>
+            );
+            const Section = ({ title, desc, children }) => (
+              <div>
+                <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#374151' }}>{title}</div>
+                {desc && <div style={{ fontSize: '0.74rem', color: '#9ca3af', marginTop: 2, marginBottom: 6 }}>{desc}</div>}
+                {!desc && <div style={{ marginBottom: 6 }} />}
+                {children}
+              </div>
+            );
+
+            // ── 컨텍스트 라벨 ──
+            const ctxMeta = {
+              home: { icon: '🏠', label: '홈 설정' },
+              ai: { icon: '🎓', label: 'AI 학습 설정' },
+              practice: { icon: '📚', label: '문제풀이 설정' },
+              review: { icon: '🔁', label: '복습 설정' },
+              status: { icon: '📊', label: '현황 설정' },
+            };
+            const meta = ctxMeta[settingsContext] || ctxMeta.home;
+
+            return (
+              <>
+                <div style={{ fontSize: '0.75rem', color: '#6b7280', fontWeight: 700,
+                  background: '#eef2ff', padding: '6px 10px', borderRadius: 8, alignSelf: 'flex-start' }}>
+                  {meta.icon} {meta.label}
+                </div>
+
+                {/* 🏠 홈 컨텍스트 */}
+                {settingsContext === 'home' && (
+                  <>
+                    <Section title="📅 시험일 (D-DAY)" desc="홈에 1차/2차 D-DAY와 일일 권장량이 표시돼요.">
+                      <div style={{ display: 'flex', gap: 6 }}>
+                        {[['1차', '4월경'], ['2차', '8월경']].map(([label, hint]) => {
+                          const key = `${PRIMARY_EXAM}_${label}`;
+                          return (
+                            <label key={label} style={{ flex: 1, fontSize: '0.74rem', color: '#9ca3af' }}>
+                              {label} <span style={{ fontSize: '0.66rem' }}>({hint})</span>
+                              <input type="date" value={examDates[key] || ''}
+                                onChange={(e) => setExamDates(key, e.target.value)}
+                                style={{ width: '100%', padding: '6px 8px', marginTop: 2,
+                                  border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem' }} />
+                            </label>
+                          );
+                        })}
+                      </div>
+                    </Section>
+                    <Section title="🎯 일일 학습 목표" desc="하루에 풀 문제 수 목표.">
+                      <div style={{ display: 'flex', gap: 4 }}>
+                        {[10, 20, 30, 50].map((g) => <Pill key={g} on={dailyGoal === g} label={`${g}문제`} onClick={() => setDailyGoal(g)} />)}
+                      </div>
+                    </Section>
+                  </>
+                )}
+
+                {/* 🎓 AI 학습 컨텍스트 */}
+                {settingsContext === 'ai' && (
+                  <>
+                    <Section title="🤖 모델" desc="응답 속도·품질이 다릅니다.">
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        {[
+                          [AI_MODELS.primary, '🎯 Sonnet 4.6 (균형·권장)'],
+                          [AI_MODELS.fast, '⚡ Haiku 4.5 (빠름·저렴)'],
+                          [AI_MODELS.premium, '🧠 Opus 4.7 (최고품질·비쌈)'],
+                        ].map(([v, l]) => (
+                          <button key={v} onClick={() => { const next = setAiPrefs({ model: v }); setAiPrefsState(next); }}
+                            style={{ padding: '8px 10px', textAlign: 'left', borderRadius: 8, cursor: 'pointer', fontSize: '0.85rem', fontWeight: 700,
+                              border: aiPrefs.model === v ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
+                              background: aiPrefs.model === v ? '#eef2ff' : '#fff',
+                              color: aiPrefs.model === v ? '#1d4ed8' : '#374151' }}>
+                            {l}
+                          </button>
+                        ))}
+                      </div>
+                    </Section>
+                    <Section title="📏 응답 길이 상한" desc="짧을수록 빠른 응답.">
+                      <div style={{ display: 'flex', gap: 4 }}>
+                        {[[600, '짧음'], [1200, '권장'], [2000, '길게'], [3000, '종합']].map(([v, l]) =>
+                          <Pill key={v} on={(aiPrefs.max_tokens || 1200) === v} label={l}
+                            onClick={() => { const next = setAiPrefs({ max_tokens: v }); setAiPrefsState(next); }} />
+                        )}
+                      </div>
+                    </Section>
+                    <Section title="🌊 응답 스트리밍" desc="토큰별 흐름 vs 완성 후 한 번에 (권장: 끔).">
+                      <div style={{ display: 'flex', gap: 4 }}>
+                        <Pill on={!aiPrefs.streaming} label="끄기 (권장)" onClick={() => { const next = setAiPrefs({ streaming: false }); setAiPrefsState(next); }} />
+                        <Pill on={!!aiPrefs.streaming} label="켜기" onClick={() => { const next = setAiPrefs({ streaming: true }); setAiPrefsState(next); }} />
+                      </div>
+                    </Section>
+                    <Section title="📨 일일 메시지 cap" desc="하루 최대 AI 호출 수 (비용 통제).">
+                      <input type="number" min={0} max={500} value={aiPrefs.daily_cap || 50}
+                        onChange={(e) => { const next = setAiPrefs({ daily_cap: parseInt(e.target.value, 10) || 0 }); setAiPrefsState(next); }}
+                        style={{ width: '100%', padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.9rem' }} />
+                    </Section>
+                    <Section title="🔑 Claude API 키" desc={localStorage.getItem('ailearn-byok') ? '✅ 입력됨' : '❌ 미입력'}>
+                      <button
+                        onClick={() => {
+                          if (!window.confirm('Claude API 키를 삭제하시겠습니까?')) return;
+                          try { localStorage.removeItem('ailearn-byok'); } catch { /* noop */ }
+                          alert('API 키 삭제 완료. 새로고침합니다.');
+                          window.location.reload();
+                        }}
+                        style={{ width: '100%', padding: '8px', background: '#fef2f2', color: '#991b1b',
+                          border: '1px solid #fecaca', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
+                        API 키 삭제
+                      </button>
+                    </Section>
+                    <Section title="🎓 AI 학습 진척 초기화" desc="대화·세션·진척도 전부 삭제 (API 키·설정은 유지).">
+                      <button
+                        onClick={() => {
+                          if (!window.confirm('AI 학습 대화·세션·진척도를 모두 삭제하시겠습니까?\n되돌릴 수 없습니다.')) return;
+                          try {
+                            for (let i = localStorage.length - 1; i >= 0; i--) {
+                              const k = localStorage.key(i);
+                              if (k && k.startsWith('ailearn-') && k !== 'ailearn-byok' && k !== 'ailearn-prefs') {
+                                localStorage.removeItem(k);
+                              }
+                            }
+                          } catch { /* noop */ }
+                          alert('✅ AI 학습 진척 초기화 완료. 새로고침합니다.');
+                          window.location.reload();
+                        }}
+                        style={{ width: '100%', padding: '10px', background: '#fef2f2', color: '#991b1b',
+                          border: '1px solid #fecaca', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
+                        🗑️ AI 학습 진척 초기화
+                      </button>
+                    </Section>
+                  </>
+                )}
+
+                {/* 📚 문제풀이 컨텍스트 */}
+                {settingsContext === 'practice' && (
+                  <>
+                    <Section title="🔀 학습 순서" desc="가이드 학습에서 문제가 나오는 순서.">
+                      <div style={{ display: 'flex', gap: 4 }}>
+                        <Pill on={studyOrder === 'difficulty'} label="난이도순" onClick={() => setStudyOrder('difficulty')} />
+                        <Pill on={studyOrder === 'random'} label="무작위" onClick={() => setStudyOrder('random')} />
+                      </div>
+                    </Section>
+                    <Section title="⏭️ 자동 다음" desc="정답 확인 후 다음 문제로 자동 이동.">
+                      <div style={{ display: 'flex', gap: 4, marginBottom: 8 }}>
+                        <Pill on={autoNext} label="켜기" onClick={() => setAutoNext(true)} />
+                        <Pill on={!autoNext} label="끄기" onClick={() => setAutoNext(false)} />
+                      </div>
+                      {autoNext && (
+                        <div style={{ display: 'flex', gap: 4 }}>
+                          {[3, 5, 8].map((s) => <Pill key={s} on={autoSec === s} label={`${s}초`} onClick={() => setAutoSec(s)} />)}
+                        </div>
+                      )}
+                    </Section>
+                    <Section title="🔤 글자 크기" desc="문제·보기·해설 본문 크기.">
+                      <div style={{ display: 'flex', gap: 4 }}>
+                        {[[0.9, '작게'], [1, '보통'], [1.18, '크게']].map(([v, l]) =>
+                          <Pill key={v} on={fontScale === v} label={l} onClick={() => setFontScale(v)} />
+                        )}
+                      </div>
+                    </Section>
+                  </>
+                )}
+
+                {/* 🔁 복습 컨텍스트 */}
+                {settingsContext === 'review' && (
+                  <>
+                    <Section title="💪 복습 강도" desc="간격 반복 일정의 빡셈 정도.">
+                      <div style={{ display: 'flex', gap: 4 }}>
+                        {Object.entries(SRS_MODES).map(([k, v]) =>
+                          <Pill key={k} on={srsMode === k} label={v.label} onClick={() => setSrsMode(k)} />
+                        )}
+                      </div>
+                    </Section>
+                    <Section title="🔔 복습 알림" desc="복습할 문제가 있으면 앱 진입 시 하루 한 번 알림.">
+                      <button
+                        onClick={() => {
+                          if (typeof Notification === 'undefined') return;
+                          if (Notification.permission === 'granted') setNotifPref((p) => !p);
+                          else Notification.requestPermission().then((r) => setNotifPref(r === 'granted'));
+                        }}
+                        style={{ width: '100%', padding: '10px', cursor: 'pointer',
+                          border: notifPref ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
+                          background: notifPref ? '#eef2ff' : '#fff',
+                          borderRadius: 8, fontWeight: 700, fontSize: '0.85rem',
+                          color: notifPref ? '#1d4ed8' : '#6b7280' }}>
+                        {notifPref ? '🔔 켜짐' : '🔕 꺼짐'}
+                      </button>
+                    </Section>
+                  </>
+                )}
+
+                {/* 📊 현황 컨텍스트 */}
+                {settingsContext === 'status' && (
+                  <>
+                    <Section title="📈 추세 기간" desc="추세 그래프 기간.">
+                      <div style={{ display: 'flex', gap: 4 }}>
+                        {[7, 30].map((d) => <Pill key={d} on={trendDays === d} label={`${d}일`} onClick={() => setTrendDays(d)} />)}
+                      </div>
+                    </Section>
+                  </>
+                )}
+
+                <div style={{ borderTop: '1px dashed #e5e7eb', margin: '4px 0' }} />
+
+                {/* 공통 — 데이터 관리 */}
+                <Section title="💾 데이터 관리" desc="모든 학습 기록 백업/복원.">
+                  <button onClick={exportUserData}
+                    style={{ width: '100%', padding: '10px', marginBottom: 6, background: '#fff', color: '#1e40af',
+                      border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>
+                    📥 백업 다운로드
+                  </button>
+                  <label style={{ display: 'block', width: '100%', padding: '10px', background: '#fff', color: '#1e40af',
+                    border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', textAlign: 'center' }}>
+                    📤 백업 복원
+                    <input type="file" accept="application/json" style={{ display: 'none' }}
+                      onChange={(e) => {
+                        const f = e.target.files?.[0]; if (!f) return;
+                        const r = new FileReader();
+                        r.onload = () => {
+                          try { importUserData(String(r.result)); alert('가져오기 완료. 새로고침합니다.'); window.location.reload(); }
+                          catch (err) { alert('형식 오류: ' + err.message); }
+                        };
+                        r.readAsText(f);
+                      }} />
                   </label>
-                );
-              })}
-            </div>
-          </div>
+                </Section>
 
-          {/* 일일 목표 */}
-          <div>
-            <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: 6, color: '#374151' }}>🎯 일일 목표</div>
-            <div style={{ display: 'flex', gap: 4 }}>
-              {[10, 20, 30, 50].map((g) => (
-                <button key={g} onClick={() => setDailyGoal(g)}
-                  style={{
-                    flex: 1, padding: '7px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer',
-                    border: dailyGoal === g ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
-                    background: dailyGoal === g ? '#eef2ff' : '#fff',
-                    color: dailyGoal === g ? '#1d4ed8' : '#6b7280',
-                  }}>
-                  {g}문제
+                {/* 프로필 진입 */}
+                <button onClick={() => { setShowGlobalSettings(false); setCurrentView('profile'); }}
+                  style={{ width: '100%', padding: '11px', background: '#f9fafb', color: '#374151',
+                    border: '1px solid #e5e7eb', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>
+                  👤 프로필·계정 →
                 </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 폰트 크기 */}
-          <div>
-            <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: 6, color: '#374151' }}>🔤 글자 크기</div>
-            <div style={{ display: 'flex', gap: 4 }}>
-              {[[0.9, '작게'], [1, '보통'], [1.18, '크게']].map(([v, l]) => (
-                <button key={v} onClick={() => setFontScale(v)}
-                  style={{
-                    flex: 1, padding: '7px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer',
-                    border: fontScale === v ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
-                    background: fontScale === v ? '#eef2ff' : '#fff',
-                    color: fontScale === v ? '#1d4ed8' : '#6b7280',
-                  }}>
-                  {l}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div style={{ borderTop: '1px dashed #e5e7eb', margin: '4px 0' }} />
-
-          {/* 데이터 관리 */}
-          <div>
-            <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: 6, color: '#374151' }}>💾 데이터 관리</div>
-            <button onClick={exportUserData}
-              style={{ width: '100%', padding: '10px', marginBottom: 6, background: '#fff', color: '#1e40af',
-                border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>
-              📥 백업 다운로드
-            </button>
-            <label style={{ display: 'block', width: '100%', padding: '10px', marginBottom: 6, background: '#fff', color: '#1e40af',
-              border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', textAlign: 'center' }}>
-              📤 백업 복원
-              <input type="file" accept="application/json" style={{ display: 'none' }}
-                onChange={(e) => {
-                  const f = e.target.files?.[0]; if (!f) return;
-                  const r = new FileReader();
-                  r.onload = () => {
-                    try { importUserData(String(r.result)); alert('가져오기 완료. 새로고침합니다.'); window.location.reload(); }
-                    catch (err) { alert('형식 오류: ' + err.message); }
-                  };
-                  r.readAsText(f);
-                }} />
-            </label>
-          </div>
-
-          {/* 위험 영역 */}
-          <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 10, padding: 12 }}>
-            <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#991b1b', marginBottom: 6 }}>⚠️ 위험 영역</div>
-            <button
-              onClick={() => {
-                if (!window.confirm('기출 학습 기록(정답/오답/SRS/북마크)을 모두 삭제하시겠습니까?\n되돌릴 수 없습니다.')) return;
-                resetUserData();
-                alert('✅ 학습 기록 초기화 완료. 새로고침합니다.');
-                window.location.reload();
-              }}
-              style={{ width: '100%', padding: '10px', marginBottom: 6, background: '#fff', color: '#991b1b',
-                border: '1px solid #fecaca', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
-              🗑️ 기출 진척 초기화
-            </button>
-            <button
-              onClick={() => {
-                if (!window.confirm('AI 학습 대화·세션·진척도를 모두 삭제하시겠습니까?\nAPI 키와 설정은 유지됩니다.')) return;
-                try {
-                  for (let i = localStorage.length - 1; i >= 0; i--) {
-                    const k = localStorage.key(i);
-                    if (k && k.startsWith('ailearn-') && k !== 'ailearn-byok' && k !== 'ailearn-prefs') {
-                      localStorage.removeItem(k);
-                    }
-                  }
-                } catch { /* noop */ }
-                alert('✅ AI 학습 진척 초기화 완료. 새로고침합니다.');
-                window.location.reload();
-              }}
-              style={{ width: '100%', padding: '10px', background: '#fff', color: '#991b1b',
-                border: '1px solid #fecaca', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
-              🎓 AI 학습 진척 초기화
-            </button>
-          </div>
-
-          {/* 프로필 진입 */}
-          <button onClick={() => { setShowGlobalSettings(false); setCurrentView('profile'); }}
-            style={{ width: '100%', padding: '11px', background: '#f9fafb', color: '#374151',
-              border: '1px solid #e5e7eb', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>
-            👤 프로필·계정 →
-          </button>
+              </>
+            );
+          })()}
         </div>
       </div>
     </>
@@ -2012,8 +2142,8 @@ const App = () => {
   // 모든 탭 헤더 우상단 공통 ⚙️ 버튼 — fixed로 떠 있음
   const globalSettingsFab = (
     <button
-      onClick={() => setShowGlobalSettings(true)}
-      title="설정"
+      onClick={openContextSettings}
+      title="이 탭 설정"
       style={{
         position: 'fixed',
         top: 'calc(env(safe-area-inset-top, 0px) + 14px)',
@@ -3717,7 +3847,7 @@ const App = () => {
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             👤
           </button>
-          <button aria-label="설정" onClick={() => setShowGlobalSettings(true)}
+          <button aria-label="설정" onClick={() => openSettings('home')}
             style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
               background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
