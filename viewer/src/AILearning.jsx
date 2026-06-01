@@ -10,7 +10,7 @@
 //  - 오프라인 안내.
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Send, Settings as SettingsIcon, BookOpen, RotateCcw, ChevronDown, Calendar, Sparkles, Key, Search, Trash2 } from 'lucide-react';
+import { Send, Settings as SettingsIcon, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play } from 'lucide-react';
 import ParsedText from './ParsedText';
 import {
   getByok, setByok, getPrefs, setPrefs,
@@ -38,6 +38,44 @@ function todayStr() {
 
 function uid() {
   try { return crypto.randomUUID(); } catch { return 's_' + Math.random().toString(36).slice(2); }
+}
+
+// 인라인 확인 — 브라우저 confirm() 대체. 1단계 클릭 시 노란 확인 상태로 변함.
+function InlineConfirm({ label, danger, onYes, onNo, compact }) {
+  const [armed, setArmed] = useState(false);
+  if (!armed) {
+    return (
+      <button
+        onClick={() => setArmed(true)}
+        style={{
+          padding: compact ? '4px 8px' : '6px 10px', fontSize: '0.78rem',
+          background: danger ? '#fef2f2' : '#fff',
+          color: danger ? '#991b1b' : '#374151',
+          border: `1px solid ${danger ? '#fecaca' : '#d1d5db'}`,
+          borderRadius: 6, cursor: 'pointer', fontWeight: 600,
+        }}
+      >
+        {label}
+      </button>
+    );
+  }
+  return (
+    <span style={{ display: 'inline-flex', gap: 4, alignItems: 'center' }}>
+      <span style={{ fontSize: '0.75rem', color: '#92400e' }}>정말요?</span>
+      <button
+        onClick={() => { setArmed(false); onYes && onYes(); }}
+        style={{ padding: '4px 10px', fontSize: '0.78rem', background: danger ? '#dc2626' : '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}
+      >
+        예
+      </button>
+      <button
+        onClick={() => { setArmed(false); onNo && onNo(); }}
+        style={{ padding: '4px 10px', fontSize: '0.78rem', background: '#fff', color: '#374151', border: '1px solid #d1d5db', borderRadius: 6, cursor: 'pointer' }}
+      >
+        아니요
+      </button>
+    </span>
+  );
 }
 
 function MasteryBar({ value, color = '#4f46e5' }) {
@@ -369,15 +407,11 @@ function HistoryPanel({ leaves, onClose, onJump, onClearRoom }) {
                 >
                   이 단원으로 이동
                 </button>
-                <button
-                  onClick={() => {
-                    if (!confirm('이 단원의 채팅방을 모두 삭제할까요?')) return;
-                    onClearRoom(pick); setPick(null); refresh();
-                  }}
-                  style={{ padding: '6px 10px', fontSize: '0.78rem', background: '#fef2f2', color: '#991b1b', border: '1px solid #fecaca', borderRadius: 6, cursor: 'pointer' }}
-                >
-                  채팅방 삭제
-                </button>
+                <InlineConfirm
+                  label="이 채팅방 삭제"
+                  danger
+                  onYes={() => { onClearRoom(pick); setPick(null); refresh(); }}
+                />
               </div>
               <div style={{ flex: 1, overflowY: 'auto' }}>
                 {msgs.map((m, i) => <MessageBubble key={i} msg={m} />)}
@@ -441,6 +475,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
   const [sessionId, setSessionId] = useState(null);
   const [idlePromptShown, setIdlePromptShown] = useState(false);
   const [weakSuggestion, setWeakSuggestion] = useState([]);
+  const [confirmAction, setConfirmAction] = useState(null); // {label, onYes}
+  const [recentRooms, setRecentRooms] = useState(() => getAllRooms());
   const abortRef = useRef(null);
   const scrollRef = useRef(null);
   const idleTimerRef = useRef(null);
@@ -500,6 +536,23 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, draft]);
+
+  // 메시지 변동 시 최근 방 목록 갱신
+  useEffect(() => { setRecentRooms(getAllRooms()); }, [messages]);
+
+  // 이전/다음 leaf 계산 (taxonomy index 순)
+  const curIndex = leaves.findIndex((l) => l.id === current?.leaf_id);
+  const prevLeaf = curIndex > 0 ? leaves[curIndex - 1] : null;
+  const nextLeaf = curIndex >= 0 && curIndex < leaves.length - 1 ? leaves[curIndex + 1] : null;
+
+  // 메시지 1건 이상 쌓인 방만, 현재 leaf 제외, 상위 6개
+  const recentChips = useMemo(() => {
+    return recentRooms
+      .filter((r) => r.leafId !== current?.leaf_id)
+      .slice(0, 6)
+      .map((r) => ({ ...r, leaf: leaves.find((l) => l.id === r.leafId) }))
+      .filter((x) => x.leaf);
+  }, [recentRooms, leaves, current?.leaf_id]);
 
   // 취약 leaf 매칭 (모의고사·기출 결과 기반) — 첫 진입 시 한 번
   useEffect(() => {
@@ -661,6 +714,11 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
   // 빠른 액션: input을 거치지 않고 즉시 send (overrideText 사용)
   const quickSend = (text) => { if (!streaming) send(text); };
 
+  // 인라인 confirm — 브라우저 confirm() 대체. 채팅 영역 하단에 카드로 표시.
+  const askConfirm = (label, danger, onYes) => {
+    setConfirmAction({ label, danger: !!danger, onYes });
+  };
+
   const curLeaf = leaves.find((l) => l.id === current?.leaf_id);
   const cap = canSendMessage();
 
@@ -679,41 +737,92 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
 
   return (
     <div className="app-shell" style={{ paddingBottom: 80, display: 'flex', flexDirection: 'column', height: '100vh' }}>
-      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '8px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <h2 style={{ margin: 0, fontSize: '1rem', display: 'flex', alignItems: 'center', gap: 6, color: '#111827', flex: 1, minWidth: 0 }}>
-          <Sparkles size={18} color="#4f46e5" />
-          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-            {curLeaf ? curLeaf.path.slice(-1)[0] : 'AI 학습'}
-          </span>
-          <span style={{ fontSize: '0.7rem', color: '#9ca3af', whiteSpace: 'nowrap' }}>
-            {messages.length > 0 ? `· ${messages.length}건` : ''}
-          </span>
-        </h2>
-        <div style={{ display: 'flex', gap: 2 }}>
-          {messages.length > 0 && curLeaf && (
-            <button
-              onClick={() => {
-                if (!confirm(`"${curLeaf.path.slice(-1)[0]}" 채팅방을 초기화할까요?\n진척도는 유지됩니다.`)) return;
-                if (abortRef.current) abortRef.current.abort();
-                clearRoom(curLeaf.id);
-                setMessages([]);
-                setPendingNext(null);
-                setIdlePromptShown(false);
-              }}
-              title="이 채팅방 초기화"
-              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}
-            >
-              <Trash2 size={17} color="#ef4444" />
-            </button>
-          )}
-          <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
-            <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
-          </button>
-          <button onClick={() => setShowSettings((v) => !v)} title="설정" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
-            <SettingsIcon size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
-          </button>
+      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '6px 8px', display: 'flex', alignItems: 'center', gap: 4 }}>
+        <button
+          onClick={() => prevLeaf && pickLeaf(prevLeaf)}
+          disabled={!prevLeaf}
+          title={prevLeaf ? `← ${prevLeaf.path.slice(-1)[0]}` : ''}
+          style={{ background: 'none', border: 'none', cursor: prevLeaf ? 'pointer' : 'not-allowed', padding: 4, opacity: prevLeaf ? 1 : 0.3 }}
+        >
+          <ChevronLeft size={20} color="#374151" />
+        </button>
+        <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
+          <Sparkles size={16} color="#4f46e5" />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#111827', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              {curLeaf ? curLeaf.path.slice(-1)[0] : 'AI 학습'}
+            </div>
+            <div style={{ fontSize: '0.68rem', color: '#9ca3af', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              {curLeaf ? curLeaf.path.slice(1, -1).join(' › ') : ''}
+            </div>
+          </div>
+          {curLeaf && (() => {
+            const m = mastery[curLeaf.id] || { coverage: 0, status: 'not_started' };
+            const pct = Math.round((m.coverage || 0) * 100);
+            const isMaster = m.status === 'mastered';
+            return (
+              <span style={{
+                fontSize: '0.7rem', fontWeight: 700, padding: '2px 8px', borderRadius: 10,
+                background: isMaster ? '#d1fae5' : pct > 0 ? '#eef2ff' : '#f3f4f6',
+                color: isMaster ? '#047857' : pct > 0 ? '#4338ca' : '#9ca3af',
+                whiteSpace: 'nowrap',
+              }}>
+                {isMaster ? '✓ 마스터' : `${pct}%`}
+              </span>
+            );
+          })()}
         </div>
+        <button
+          onClick={() => nextLeaf && pickLeaf(nextLeaf)}
+          disabled={!nextLeaf}
+          title={nextLeaf ? `${nextLeaf.path.slice(-1)[0]} →` : ''}
+          style={{ background: 'none', border: 'none', cursor: nextLeaf ? 'pointer' : 'not-allowed', padding: 4, opacity: nextLeaf ? 1 : 0.3 }}
+        >
+          <ChevronRight size={20} color="#374151" />
+        </button>
+        {messages.length > 0 && curLeaf && (
+          <button
+            onClick={() => askConfirm(`"${curLeaf.path.slice(-1)[0]}" 채팅방 초기화 (진척도는 유지)`, true, () => {
+              if (abortRef.current) abortRef.current.abort();
+              clearRoom(curLeaf.id);
+              setMessages([]);
+              setPendingNext(null);
+              setIdlePromptShown(false);
+              setRecentRooms(getAllRooms());
+            })}
+            title="이 채팅방 초기화"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+          >
+            <Trash2 size={16} color="#ef4444" />
+          </button>
+        )}
+        <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+          <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
+        </button>
+        <button onClick={() => setShowSettings((v) => !v)} title="설정" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+          <SettingsIcon size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
+        </button>
       </header>
+      {recentChips.length > 0 && (
+        <div style={{ padding: '4px 8px', borderBottom: '1px solid #f3f4f6', background: '#fafafa', display: 'flex', gap: 4, overflowX: 'auto' }}>
+          <span style={{ fontSize: '0.7rem', color: '#9ca3af', alignSelf: 'center', flex: '0 0 auto', padding: '0 4px' }}>최근:</span>
+          {recentChips.map((r) => (
+            <button
+              key={r.leafId}
+              onClick={() => pickLeaf(r.leaf)}
+              title={r.leaf.path.join(' › ')}
+              style={{
+                flex: '0 0 auto', padding: '3px 10px', borderRadius: 12,
+                background: '#fff', border: '1px solid #e5e7eb', color: '#374151',
+                fontSize: '0.72rem', fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap',
+              }}
+            >
+              {r.leaf.path.slice(-1)[0]}
+              <span style={{ color: '#9ca3af', marginLeft: 4 }}>{r.msg_count}</span>
+            </button>
+          ))}
+        </div>
+      )}
 
       {due.length > 0 && (
         <div style={{
@@ -758,20 +867,21 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
             onSave={(patch) => { const next = setPrefs(patch); setPrefsState(next); }}
             onClearKey={() => { setByok(null); setByokState(''); }}
             onResetProgress={() => {
-              if (!confirm('대화·세션·진척도를 모두 초기화하시겠습니까? API 키와 설정은 유지됩니다.')) return;
-              resetLearningProgress();
-              setMessages([]);
-              setMasteryState({});
-              setDue([]);
-              setCurrentState(null);
-              setSessionId(null);
-              setPendingNext(null);
-              // 기본 leaf로 재설정
-              if (indexMeta?.default_leaf) {
-                const def = indexMeta.leaves.find((l) => l.id === indexMeta.default_leaf) || indexMeta.leaves[0];
-                if (def) { const next = { subject: 'civil', leaf_id: def.id }; setCurrentState(next); setCurrent(next); }
-              }
-              setShowSettings(false);
+              askConfirm('대화·세션·진척도 전부 초기화 (API 키·설정 유지)', true, () => {
+                resetLearningProgress();
+                setMessages([]);
+                setMasteryState({});
+                setDue([]);
+                setCurrentState(null);
+                setSessionId(null);
+                setPendingNext(null);
+                setRecentRooms([]);
+                if (indexMeta?.default_leaf) {
+                  const def = indexMeta.leaves.find((l) => l.id === indexMeta.default_leaf) || indexMeta.leaves[0];
+                  if (def) { const next = { subject: 'civil', leaf_id: def.id }; setCurrentState(next); setCurrent(next); }
+                }
+                setShowSettings(false);
+              });
             }}
           />
         </div>
@@ -792,17 +902,55 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
       )}
 
       <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', padding: '12px 14px' }}>
-        {messages.length === 0 && (
-          <div style={{ textAlign: 'center', color: '#6b7280', marginTop: 40 }}>
-            <BookOpen size={40} style={{ opacity: 0.4 }} />
-            <p style={{ marginTop: 12, fontSize: '0.95rem' }}>
-              {curLeaf ? `${curLeaf.path.slice(-1)[0]} 학습을 시작하세요` : '단원을 선택하세요'}
-            </p>
-            <p style={{ fontSize: '0.8rem', color: '#9ca3af' }}>
-              "이어서 진행해줘" / "오늘 복습할게" / "{curLeaf?.title} 시작하자" 등으로 대화
-            </p>
-          </div>
-        )}
+        {messages.length === 0 && curLeaf && (() => {
+          const m = mastery[curLeaf.id] || { coverage: 0, status: 'not_started' };
+          const isResume = m.coverage > 0 || m.status === 'in_progress';
+          return (
+            <div style={{
+              background: 'linear-gradient(180deg, #eef2ff 0%, #fff 100%)',
+              border: '1px solid #c7d2fe', borderRadius: 14, padding: 18, marginTop: 12,
+              textAlign: 'center',
+            }}>
+              <div style={{ fontSize: '2rem', marginBottom: 4 }}>👋</div>
+              <div style={{ fontSize: '0.78rem', color: '#6366f1', fontWeight: 600, marginBottom: 4 }}>
+                {curLeaf.path.slice(1, -1).join(' › ')}
+              </div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#111827', marginBottom: 6 }}>
+                {curLeaf.path.slice(-1)[0]}
+              </div>
+              <div style={{ fontSize: '0.85rem', color: '#374151', marginBottom: 14 }}>
+                {isResume
+                  ? `진척 ${Math.round((m.coverage || 0) * 100)}% — 이어서 진행할까요?`
+                  : '새 단원 채팅방입니다. 한 사이클로 시작해 봅시다.'}
+              </div>
+              <div style={{ display: 'flex', gap: 6, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <button
+                  onClick={() => quickSend(isResume
+                    ? '직전에 멈춘 곳에서 자연스럽게 이어서 진행해줘.'
+                    : '이 단원의 첫 절·관부터 한 사이클(개념→비유→확인 문제→피드백) 시작해줘.')}
+                  disabled={!cap.ok}
+                  style={{
+                    padding: '9px 16px', background: '#4f46e5', color: '#fff', border: 'none',
+                    borderRadius: 8, cursor: cap.ok ? 'pointer' : 'not-allowed', fontWeight: 700,
+                    display: 'inline-flex', alignItems: 'center', gap: 6,
+                  }}
+                >
+                  <Play size={14} />
+                  {isResume ? '이어서 진행' : '이 단원 시작하기'}
+                </button>
+                <button
+                  onClick={() => setMode((m) => m === 'practice' ? 'study' : 'practice')}
+                  style={{
+                    padding: '9px 16px', background: '#fff', color: '#374151', border: '1px solid #d1d5db',
+                    borderRadius: 8, cursor: 'pointer', fontWeight: 600,
+                  }}
+                >
+                  {mode === 'practice' ? '📖 이론으로' : '✏️ 문제풀이로'}
+                </button>
+              </div>
+            </div>
+          );
+        })()}
         {messages.length === 0 && weakSuggestion.length > 0 && (
           <div style={{
             background: '#fff7ed', border: '1px solid #fed7aa', borderRadius: 10, padding: 12, marginTop: 16,
@@ -841,6 +989,36 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
         {error && (
           <div style={{ background: '#fef2f2', color: '#991b1b', padding: 10, borderRadius: 8, fontSize: '0.85rem', marginTop: 10, border: '1px solid #fecaca' }}>
             {error}
+          </div>
+        )}
+        {confirmAction && (
+          <div style={{
+            background: confirmAction.danger ? '#fef2f2' : '#eef2ff',
+            border: `1px solid ${confirmAction.danger ? '#fecaca' : '#c7d2fe'}`,
+            color: confirmAction.danger ? '#991b1b' : '#1e40af',
+            padding: 12, borderRadius: 10, marginTop: 10,
+            display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap',
+          }}>
+            <div style={{ flex: 1, fontSize: '0.88rem', fontWeight: 600 }}>{confirmAction.label}?</div>
+            <button
+              onClick={() => { const a = confirmAction; setConfirmAction(null); a.onYes && a.onYes(); }}
+              style={{
+                padding: '6px 14px', fontSize: '0.85rem', fontWeight: 700,
+                background: confirmAction.danger ? '#dc2626' : '#4f46e5',
+                color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer',
+              }}
+            >
+              네
+            </button>
+            <button
+              onClick={() => setConfirmAction(null)}
+              style={{
+                padding: '6px 14px', fontSize: '0.85rem',
+                background: '#fff', color: '#374151', border: '1px solid #d1d5db', borderRadius: 6, cursor: 'pointer',
+              }}
+            >
+              취소
+            </button>
           </div>
         )}
         {idlePromptShown && !streaming && messages.length > 0 && (
