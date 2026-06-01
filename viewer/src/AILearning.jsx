@@ -16,7 +16,7 @@ import {
   getByok, setByok, getPrefs, setPrefs,
   getCurrent, setCurrent,
   getMastery, getChapterMastery, updateChapterMastery,
-  recordGrade, getDueChapters,
+  recordGrade, recordAnswerScore, getDueChapters,
   getSessions, addSession, updateSession,
   getRoomMessages, appendRoomMessage, clearRoom, getAllRooms,
   bumpUsage, canSendMessage, getUsage,
@@ -24,7 +24,7 @@ import {
   addAssessment,
   resetLearningProgress,
   migrateLegacyCivilIds,
-  SUBJECTS, getSubjectMeta,
+  SUBJECTS, SUBJECTS_BY_STAGE, getSubjectMeta,
 } from './aiLearningStore';
 import { sendMessages, buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
 

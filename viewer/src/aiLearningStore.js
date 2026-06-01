@@ -40,7 +40,50 @@ const MASTERY_DEFAULT = {
   coverage: 0, accuracy: 0, status: 'not_started',
   last_studied: null, next_review: null, srs_box: 0,
   attempted: 0, correct: 0,
+  // 2차 전용 필드 (사용 안 하면 0으로 무시)
+  answer_count: 0,       // 답안 작성 횟수
+  avg_score_pct: 0,      // 평균 점수 %
+  avg_time_ratio: 1.0,   // 사용시간/목표시간
 };
+
+// 2차 답안 채점 결과 반영
+export function recordAnswerScore(leafId, scoreResult) {
+  if (!leafId || !scoreResult) return null;
+  const all = getMastery();
+  const prev = { ...MASTERY_DEFAULT, ...(all[leafId] || {}) };
+  const count = (prev.answer_count || 0) + 1;
+  const pct = Math.max(0, Math.min(100, (scoreResult.score / scoreResult.max) * 100));
+  const newAvg = (prev.avg_score_pct * (count - 1) + pct) / count;
+  const timeRatio = scoreResult.time_target_min > 0
+    ? scoreResult.time_used_min / scoreResult.time_target_min
+    : 1.0;
+  const newTimeAvg = (prev.avg_time_ratio * (count - 1) + timeRatio) / count;
+  const next = {
+    ...prev,
+    answer_count: count,
+    avg_score_pct: newAvg,
+    avg_time_ratio: newTimeAvg,
+    coverage: Math.min(1, count / 5),  // 5번 작성하면 100%
+    accuracy: newAvg / 100,
+    last_studied: new Date().toISOString(),
+  };
+  if (newAvg >= 80 && count >= 3) next.status = 'mastered';
+  else if (newAvg >= 60 && count >= 2) next.status = 'passing';
+  else if (count > 0) next.status = 'drafting';
+  // SRS 적용
+  const now = Date.now();
+  if (next.status === 'mastered') {
+    const box = Math.min(SRS_LADDER.length - 1, (prev.srs_box || 0) + 1);
+    next.srs_box = box;
+    next.next_review = new Date(now + SRS_LADDER[box] * DAY_MS).toISOString();
+  } else {
+    next.srs_box = 0;
+    next.next_review = new Date(now + SRS_LADDER[0] * DAY_MS).toISOString();
+  }
+  all[leafId] = next;
+  lsSet(KEY.mastery, all);
+  return next;
+}
 
 // SRS Leitner 간격 (일) — 다음 복습일 자동 산정에 사용.
 export const SRS_LADDER = [1, 3, 7, 16, 35, 70];
