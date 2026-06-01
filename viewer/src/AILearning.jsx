@@ -1073,7 +1073,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
   if (!byok) {
     return (
-      <div className="app-shell" style={{ padding: 16, paddingBottom: 80 }}>
+      <div style={{ padding: 16 }}>
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '8px 0', marginBottom: 16 }}>
           <h2 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 8, color: '#111827' }}>
             <Sparkles size={20} color="#4f46e5" /> AI 학습
@@ -1086,7 +1086,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
   return (
     aiView === 'home' ? (
-    <div className="app-shell" style={{ paddingBottom: 80, display: 'flex', flexDirection: 'column', height: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))' }}>
       <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '8px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <h2 style={{ margin: 0, fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: 6, color: '#111827' }}>
           <Sparkles size={20} color="#4f46e5" /> AI 학습
@@ -1249,7 +1249,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       </div>
     </div>
     ) : (
-    <div className="app-shell" style={{ paddingBottom: 80, display: 'flex', flexDirection: 'column', height: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))' }}>
       <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '6px 8px', display: 'flex', alignItems: 'center', gap: 4 }}>
         <button
           onClick={() => setAiView('home')}
