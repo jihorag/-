@@ -3065,7 +3065,7 @@ const App = () => {
       </div>
 
       <main className="main-content">
-        {/* 감정평가사 D-DAY 카드 — 1차/2차 두 단계 */}
+        {/* 감정평가사 D-DAY 카드 — 1차/2차 두 단계 + 일일 권장량 자동 계산 */}
         {(() => {
           const d1 = daysUntil(examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM]);
           const d2 = daysUntil(examDates[`${PRIMARY_EXAM}_2차`]);
@@ -3075,6 +3075,12 @@ const App = () => {
             : d <= 30 ? '#dc2626'
             : d <= 90 ? '#ea580c'
             : '#1d4ed8';
+          // 가장 임박한 미래 시험을 기준으로 일일 권장량 계산
+          // 미응답 ÷ 남은일 (최소 5, 최대 100문제/일)
+          const focusD = [d1, d2].filter(x => x != null && x > 0).sort((a, b) => a - b)[0];
+          const remain1stQs = classifiedList.filter(q =>
+            q.exam === PRIMARY_EXAM && !progress[qid(q)]).length;
+          const rec = focusD ? Math.max(5, Math.min(100, Math.ceil(remain1stQs / focusD))) : null;
           return (
             <section style={{ background: '#fff', borderRadius: 16,
               padding: '14px 16px', boxShadow: 'var(--shadow-md)', marginBottom: 14 }}>
@@ -3090,27 +3096,47 @@ const App = () => {
                 </button>
               </div>
               {hasAny ? (
-                <div style={{ display: 'flex', gap: 10 }}>
-                  {[
-                    { label: '1차', d: d1, date: examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM] },
-                    { label: '2차', d: d2, date: examDates[`${PRIMARY_EXAM}_2차`] },
-                  ].map(({ label, d, date }) => (
-                    <div key={label} style={{ flex: 1, padding: '10px 12px',
-                      borderRadius: 10, border: '1px solid #e5e7eb',
-                      background: d != null && d <= 30 ? '#fef2f2' : '#f9fafb' }}>
-                      <div style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 600 }}>
-                        {label}
+                <>
+                  <div style={{ display: 'flex', gap: 10 }}>
+                    {[
+                      { label: '1차', d: d1, date: examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM] },
+                      { label: '2차', d: d2, date: examDates[`${PRIMARY_EXAM}_2차`] },
+                    ].map(({ label, d, date }) => (
+                      <div key={label} style={{ flex: 1, padding: '10px 12px',
+                        borderRadius: 10, border: '1px solid #e5e7eb',
+                        background: d != null && d <= 30 ? '#fef2f2' : '#f9fafb' }}>
+                        <div style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 600 }}>
+                          {label}
+                        </div>
+                        <div style={{ fontSize: '1.1rem', fontWeight: 800,
+                          color: dColor(d), marginTop: 2 }}>
+                          {d != null ? fmtDday(d) : '—'}
+                        </div>
+                        <div style={{ fontSize: '0.68rem', color: '#9ca3af', marginTop: 2 }}>
+                          {date || '미입력'}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '1.1rem', fontWeight: 800,
-                        color: dColor(d), marginTop: 2 }}>
-                        {d != null ? fmtDday(d) : '—'}
-                      </div>
-                      <div style={{ fontSize: '0.68rem', color: '#9ca3af', marginTop: 2 }}>
-                        {date || '미입력'}
-                      </div>
+                    ))}
+                  </div>
+                  {rec != null && remain1stQs > 0 && (
+                    <div style={{ marginTop: 10, padding: '8px 12px',
+                      background: '#eff6ff', borderRadius: 8,
+                      fontSize: '0.78rem', color: '#1e40af', textAlign: 'center' }}>
+                      💡 합격까지 미학습 {remain1stQs}문제 · 하루 <b>{rec}문제</b> 추천
+                      {dailyGoal !== rec && (
+                        <button onClick={() => {
+                          const nearest = [10, 20, 30, 50].reduce((p, c) =>
+                            Math.abs(c - rec) < Math.abs(p - rec) ? c : p, 20);
+                          setDailyGoal(nearest);
+                        }}
+                          style={{ marginLeft: 6, fontSize: '0.72rem', color: '#1d4ed8',
+                            fontWeight: 800, background: 'none', border: 'none', cursor: 'pointer' }}>
+                          목표로 설정
+                        </button>
+                      )}
                     </div>
-                  ))}
-                </div>
+                  )}
+                </>
               ) : (
                 <div style={{ fontSize: '0.78rem', color: '#9ca3af', textAlign: 'center',
                   padding: '8px 0' }}>
