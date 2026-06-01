@@ -3057,7 +3057,7 @@ const App = () => {
           </button>
         </div>
         <div className="banner-content">
-          <div className="banner-title">{browseExam || '감정평가사'} 1차 기출</div>
+          <div className="banner-title">{PRIMARY_EXAM} 합격 트랙</div>
           <p style={{ marginTop: '6px', opacity: 0.85, fontSize: '0.9rem', fontWeight: 500 }}>
             {nickname ? `${nickname}님, 오늘도 한 걸음 더` : '오늘도 한 걸음 더'}
           </p>
@@ -3151,85 +3151,93 @@ const App = () => {
           );
         })()}
 
-        {/* 합격 준비도 — 3 시험 동시 multi-gauge. 행 탭 시 그 모드로 전환 + 상세로 이동 */}
-        {(coach.readiness != null || TARGET_EXAMS.some(e => coachByExam[e].readiness != null)) && (
-          <section style={{ background: '#fff', borderRadius: 16, padding: 16,
-            boxShadow: 'var(--shadow-md)', marginBottom: 14 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between',
-              alignItems: 'baseline', marginBottom: 12 }}>
-              <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827' }}>
-                🎯 합격 준비도 <b style={{ color: 'var(--primary)', fontSize: '0.78rem' }}>추정</b>
-              </span>
-              <span style={{ fontSize: '0.72rem', color: '#9ca3af' }}>
-                목표 {COACH_TARGET}% · 시험별 →
-              </span>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
-              {TARGET_EXAMS.map(exam => {
-                const c = coachByExam[exam];
-                const d = daysUntil(examDates[exam]);
-                const has = c.readiness != null;
-                const pct = has ? Math.min(100, Math.round((c.readiness / COACH_TARGET) * 100)) : 0;
-                const color = !has ? '#d1d5db'
-                  : c.readiness >= COACH_TARGET ? '#16a34a'
-                  : c.readiness >= 55 ? '#2563eb'
-                  : c.readiness >= 40 ? '#ea580c'
-                  : '#dc2626';
-                const verdict = !has ? '학습 시작 →'
-                  : c.readiness >= COACH_TARGET ? '안정권'
-                  : c.readiness >= 55 ? '근접'
-                  : c.readiness >= 40 ? '보강 필요'
-                  : '집중 학습';
-                return (
-                  <button key={exam}
-                    onClick={() => { setBrowseExam(exam); setCurrentView('status'); }}
-                    style={{ display: 'flex', alignItems: 'center', gap: 10,
-                      padding: '8px 10px', borderRadius: 10,
-                      border: browseExam === exam ? '1px solid #93c5fd' : '1px solid transparent',
-                      background: browseExam === exam ? '#eff6ff' : 'transparent',
-                      cursor: 'pointer', textAlign: 'left' }}>
-                    <div style={{ minWidth: 92 }}>
-                      <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#374151' }}>
-                        {exam}
+        {/* 감정평가사 1차 5과목 합격 준비도 — 단일 시험 multi-subject gauge */}
+        {(() => {
+          // 감정평가사 시험만 필터해서 과목별 readiness 계산
+          const subjStats = {};
+          for (const q of classifiedList) {
+            if (q.exam !== PRIMARY_EXAM) continue;
+            const sName = q.taxSubjectName || '기타';
+            const s = subjStats[sName] || (subjStats[sName] = { total: 0, scored: 0, correct: 0 });
+            s.total++;
+            const p = progress[qid(q)];
+            if (!p) continue;
+            if (p.correct === true || p.correct === false) {
+              s.scored++; if (p.correct === true) s.correct++;
+            }
+          }
+          // 1차 표준 5과목 + 데이터에 실제로 있는 과목만 표시
+          const subjects = APPRAISER_1ST_SUBJECTS.filter(name => (subjStats[name]?.total || 0) > 0);
+          if (subjects.length === 0) return null;
+          return (
+            <section style={{ background: '#fff', borderRadius: 16, padding: 16,
+              boxShadow: 'var(--shadow-md)', marginBottom: 14 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between',
+                alignItems: 'baseline', marginBottom: 12 }}>
+                <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827' }}>
+                  🎯 1차 5과목 진척 <b style={{ color: 'var(--primary)', fontSize: '0.78rem' }}>합격선 {COACH_TARGET}%</b>
+                </span>
+                <button onClick={() => setCurrentView('status')}
+                  style={{ fontSize: '0.72rem', color: '#1d4ed8',
+                    background: 'none', border: 'none', cursor: 'pointer', fontWeight: 700 }}>
+                  현황 상세 →
+                </button>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
+                {subjects.map(name => {
+                  const v = subjStats[name];
+                  const has = v && v.scored >= 5;
+                  const acc = has ? Math.round((v.correct / v.scored) * 100) : null;
+                  const cov = v.total ? Math.round((v.scored / v.total) * 100) : 0;
+                  const pct = has ? Math.min(100, Math.round((acc / COACH_TARGET) * 100)) : 0;
+                  const color = !has ? '#d1d5db'
+                    : acc >= COACH_TARGET ? '#16a34a'
+                    : acc >= 55 ? '#2563eb'
+                    : acc >= 40 ? '#ea580c'
+                    : '#dc2626';
+                  const verdict = !has ? `학습 ${cov}% · 시작 →`
+                    : acc >= COACH_TARGET ? '안정권'
+                    : acc >= 55 ? '근접'
+                    : acc >= 40 ? '보강 필요'
+                    : '집중 학습';
+                  return (
+                    <button key={name}
+                      onClick={() => startConcept(name, `${name} 집중`, PRIMARY_EXAM)}
+                      style={{ display: 'flex', alignItems: 'center', gap: 10,
+                        padding: '8px 10px', borderRadius: 10,
+                        border: '1px solid transparent', background: 'transparent',
+                        cursor: 'pointer', textAlign: 'left' }}>
+                      <div style={{ minWidth: 110 }}>
+                        <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#374151' }}>
+                          {name}
+                        </div>
+                        <div style={{ fontSize: '0.68rem', color: '#9ca3af', marginTop: 1 }}>
+                          {v.scored}/{v.total}문제
+                        </div>
                       </div>
-                      <div style={{ fontSize: '0.7rem',
-                        color: d != null && d <= 30 ? '#dc2626' : '#9ca3af',
-                        fontWeight: d != null && d <= 30 ? 700 : 500, marginTop: 1 }}>
-                        {d != null ? fmtDday(d) : '일정 미입력'}
+                      <div style={{ flex: 1, position: 'relative' }}>
+                        <div style={{ height: 8, background: '#f3f4f6',
+                          borderRadius: 4, overflow: 'hidden' }}>
+                          <div style={{ width: `${pct}%`, height: '100%',
+                            background: color, transition: 'width 0.3s' }} />
+                        </div>
+                        <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: 3 }}>
+                          {verdict}
+                        </div>
                       </div>
-                    </div>
-                    <div style={{ flex: 1, position: 'relative' }}>
-                      <div style={{ height: 8, background: '#f3f4f6',
-                        borderRadius: 4, overflow: 'hidden' }}>
-                        <div style={{ width: `${pct}%`, height: '100%',
-                          background: color, transition: 'width 0.3s' }} />
+                      <div style={{ minWidth: 44, textAlign: 'right' }}>
+                        <div style={{ fontWeight: 800, fontSize: '1.05rem', color }}>
+                          {has ? `${acc}` : '—'}
+                          {has && <span style={{ fontSize: '0.7rem', fontWeight: 600 }}>%</span>}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: 3 }}>
-                        {verdict}
-                        {has && c.riskCount > 0 && (
-                          <span style={{ marginLeft: 6, color: '#dc2626', fontWeight: 700 }}>
-                            · 위험 {c.riskCount}
-                          </span>
-                        )}
-                        {has && c.warnCount > 0 && c.riskCount === 0 && (
-                          <span style={{ marginLeft: 6, color: '#ea580c', fontWeight: 700 }}>
-                            · 주의 {c.warnCount}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    <div style={{ minWidth: 48, textAlign: 'right' }}>
-                      <div style={{ fontWeight: 800, fontSize: '1.05rem', color }}>
-                        {has ? `${c.readiness}` : '—'}
-                        {has && <span style={{ fontSize: '0.7rem', fontWeight: 600 }}>%</span>}
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </section>
-        )}
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          );
+        })()}
 
         {/* 다음 목표(마일스톤) — 단일 진행 지표 */}
         {(() => {
