@@ -130,7 +130,7 @@ for path in leaves:
         'path': path,
         'leaf_type': ['subject', 'chapter', 'section', 'item'][len(path) - 1],
         'title': path[-1].split('·')[0].strip(),
-        'subject_root': subj,
+        'subject_root': path[0],
         'frequency': FREQUENCY_BY_UNIT.get(code, 1),
         'unit_code': code,
         'unit_file': f'units/{code}.md',
