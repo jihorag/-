@@ -367,7 +367,34 @@ function HistoryPanel({ onClose }) {
   );
 }
 
-export default function AILearning({ isTabRoot, browseExam }) {
+// Quiz 오답 통계 → leaf path 매칭. App.jsx에서 미리 계산한 weakPaths를 leaf id로 변환.
+function matchWeakLeaves(weakPaths, leaves) {
+  if (!weakPaths || !weakPaths.length || !leaves || !leaves.length) return [];
+  const byPath = new Map(leaves.map((l) => [l.path.filter(Boolean).join('|'), l]));
+  const out = [];
+  weakPaths.forEach((w) => {
+    const candidates = [
+      w.path.join('|'),
+      w.path.slice(0, 3).join('|'),
+      w.path.slice(0, 2).join('|'),
+    ];
+    for (const k of candidates) {
+      const leaf = byPath.get(k);
+      if (leaf) { out.push({ ...w, leaf }); break; }
+    }
+  });
+  // 동일 leaf 중복 제거 (가장 wrong_rate 높은 항목 유지)
+  const dedup = new Map();
+  out.forEach((x) => {
+    const prev = dedup.get(x.leaf.id);
+    if (!prev || x.wrong_rate > prev.wrong_rate) dedup.set(x.leaf.id, x);
+  });
+  return Array.from(dedup.values()).slice(0, 5);
+}
+
+const IDLE_MS = 10 * 60 * 1000; // 10분
+
+export default function AILearning({ isTabRoot, browseExam, weakPaths }) {
   const [byok, setByokState] = useState(getByok());
   const [prefs, setPrefsState] = useState(getPrefs());
   const [indexMeta, setIndexMeta] = useState(null);
@@ -389,8 +416,11 @@ export default function AILearning({ isTabRoot, browseExam }) {
   const [showSettings, setShowSettings] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [sessionId, setSessionId] = useState(null);
+  const [idlePromptShown, setIdlePromptShown] = useState(false);
+  const [weakSuggestion, setWeakSuggestion] = useState([]);
   const abortRef = useRef(null);
   const scrollRef = useRef(null);
+  const idleTimerRef = useRef(null);
 
   // 인덱스 로드
   useEffect(() => {
@@ -437,6 +467,26 @@ export default function AILearning({ isTabRoot, browseExam }) {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, draft]);
 
+  // 취약 leaf 매칭 (모의고사·기출 결과 기반) — 첫 진입 시 한 번
+  useEffect(() => {
+    if (!leaves.length) return;
+    const matched = matchWeakLeaves(weakPaths || [], leaves);
+    setWeakSuggestion(matched);
+  }, [leaves, weakPaths]);
+
+  // 응답 끝나면 10분 idle 타이머 시작. 다음 user 메시지·언마운트·세션 종료 시 clear.
+  const armIdleTimer = useCallback(() => {
+    if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+    idleTimerRef.current = setTimeout(() => {
+      setIdlePromptShown(true);
+    }, IDLE_MS);
+  }, []);
+  const clearIdleTimer = useCallback(() => {
+    if (idleTimerRef.current) { clearTimeout(idleTimerRef.current); idleTimerRef.current = null; }
+    setIdlePromptShown(false);
+  }, []);
+  useEffect(() => () => clearIdleTimer(), [clearIdleTimer]);
+
   const pickLeaf = (leaf) => {
     const next = { subject: 'civil', leaf_id: leaf.id };
     setCurrentState(next);
@@ -473,6 +523,7 @@ export default function AILearning({ isTabRoot, browseExam }) {
     }
     if (!sessionId) startNewSession();
 
+    clearIdleTimer();
     const userMsg = { role: 'user', content: text };
     appendMessage(todayStr(), userMsg);
     setMessages((arr) => [...arr, { ...userMsg, ts: new Date().toISOString() }]);
@@ -566,8 +617,9 @@ export default function AILearning({ isTabRoot, browseExam }) {
       setStreaming(false);
       setDraft('');
       abortRef.current = null;
+      armIdleTimer();
     }
-  }, [input, streaming, byok, prefs.model, prefs.daily_cap, current, leaves, handoverMd, unitMd, sectionMd, problemsMd, mode, sessionId]);
+  }, [input, streaming, byok, prefs.model, prefs.daily_cap, prefs.max_tokens, current, leaves, handoverMd, unitMd, sectionMd, problemsMd, mode, sessionId, clearIdleTimer, armIdleTimer]);
 
   const stop = () => { if (abortRef.current) abortRef.current.abort(); };
 
@@ -686,6 +738,34 @@ export default function AILearning({ isTabRoot, browseExam }) {
             </p>
           </div>
         )}
+        {messages.length === 0 && weakSuggestion.length > 0 && (
+          <div style={{
+            background: '#fff7ed', border: '1px solid #fed7aa', borderRadius: 10, padding: 12, marginTop: 16,
+          }}>
+            <div style={{ fontWeight: 700, color: '#9a3412', marginBottom: 6, fontSize: '0.9rem' }}>
+              ⚠️ 기출에서 자주 틀린 단원 — 우선 학습 추천
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {weakSuggestion.map((w) => (
+                <button
+                  key={w.leaf.id}
+                  onClick={() => { pickLeaf(w.leaf); setWeakSuggestion([]); }}
+                  style={{
+                    textAlign: 'left', padding: '8px 10px', background: '#fff',
+                    border: '1px solid #fed7aa', borderRadius: 8, cursor: 'pointer',
+                  }}
+                >
+                  <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#111827' }}>
+                    {w.leaf.path.slice(-1)[0]}
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: '#9a3412' }}>
+                    오답률 {Math.round(w.wrong_rate * 100)}% ({w.correct}/{w.attempts}) · {w.leaf.path.slice(1, -1).join(' › ')}
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
         {messages.map((m, i) => <MessageBubble key={i} msg={m} />)}
         {streaming && draft && (
           <MessageBubble msg={{ role: 'assistant', content: draft }} />
@@ -696,6 +776,29 @@ export default function AILearning({ isTabRoot, browseExam }) {
         {error && (
           <div style={{ background: '#fef2f2', color: '#991b1b', padding: 10, borderRadius: 8, fontSize: '0.85rem', marginTop: 10, border: '1px solid #fecaca' }}>
             {error}
+          </div>
+        )}
+        {idlePromptShown && !streaming && messages.length > 0 && (
+          <div style={{
+            background: '#ecfdf5', color: '#065f46', padding: 12, borderRadius: 10,
+            marginTop: 10, border: '1px solid #a7f3d0',
+          }}>
+            <div style={{ fontWeight: 700, marginBottom: 4 }}>⏱️ 10분간 응답이 없네요</div>
+            <div style={{ fontSize: '0.85rem', marginBottom: 8 }}>오늘 학습 정리하고 다음 추천 받을까요?</div>
+            <div style={{ display: 'flex', gap: 6 }}>
+              <button
+                onClick={() => { clearIdleTimer(); quickSend('오늘 학습 정리해줘. 끝.'); }}
+                style={{ padding: '6px 14px', background: '#059669', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}
+              >
+                정리하기
+              </button>
+              <button
+                onClick={clearIdleTimer}
+                style={{ padding: '6px 14px', background: '#fff', color: '#374151', border: '1px solid #d1d5db', borderRadius: 6, cursor: 'pointer' }}
+              >
+                닫기
+              </button>
+            </div>
           </div>
         )}
         {pendingNext && (

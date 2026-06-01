@@ -1508,6 +1508,29 @@ const App = () => {
 
   // 커버리지: 전체 대비 미응답/정답/복습필요/마스터 + 시험별 진척
   const coverage = useMemo(() => buildCoverage(classifiedList, progress), [classifiedList, progress]);
+
+  // AI 학습 탭 — 민법 quiz 오답률 기반 취약 단원 path 집계 (상위 8개).
+  // mapped_taxonomy 경로(sub_subject/chapter/section/item) → AILearning이 leaf id로 매칭.
+  const aiWeakPaths = useMemo(() => {
+    if (!classifiedList || !classifiedList.length) return [];
+    const acc = new Map();
+    for (const q of classifiedList) {
+      if (q.taxSubjectName !== '민법' || !q.taxSubSubjectName || !q.taxChapterName) continue;
+      const path = [q.taxSubSubjectName, q.taxChapterName, q.taxSectionName, q.taxItemName].filter(Boolean);
+      const p = progress[qid(q)];
+      if (!p) continue;
+      const key = path.join('|');
+      const cur = acc.get(key) || { path, attempts: 0, correct: 0 };
+      cur.attempts += 1;
+      if (p.correct === true) cur.correct += 1;
+      acc.set(key, cur);
+    }
+    return Array.from(acc.values())
+      .filter((a) => a.attempts >= 3 && a.correct / a.attempts < 0.6)
+      .map((a) => ({ ...a, wrong_rate: 1 - a.correct / a.attempts }))
+      .sort((a, b) => b.wrong_rate - a.wrong_rate)
+      .slice(0, 8);
+  }, [classifiedList, progress]);
   // 모드별 커버리지 (status 탭의 스택바)
   const modeCoverage = useMemo(
     () => browseExam ? buildCoverage(modeClassifiedList, progress) : null,
@@ -1818,7 +1841,7 @@ const App = () => {
 
   // AI 학습 탭 — 하단 탭바 노출되는 루트 화면. (구 통암기 탭 대체)
   if (currentView === 'civil') {
-    return shell(<AILearning isTabRoot browseExam={browseExam} />);
+    return shell(<AILearning isTabRoot browseExam={browseExam} weakPaths={aiWeakPaths} />);
   }
 
   // 모의고사: picker/result는 하단 탭 유지, session은 집중 모드(no shell).
