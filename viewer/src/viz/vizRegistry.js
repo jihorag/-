@@ -5,6 +5,9 @@
 import { supplyDemandTemplate } from './templates/SupplyDemand';
 import { tAccountTemplate } from './templates/TAccount';
 import { legalRelationsTemplate } from './templates/LegalRelations';
+import { balanceSheetTemplate } from './templates/BalanceSheet';
+import { incomeStatementTemplate } from './templates/IncomeStatement';
+import { claimFlowTemplate } from './templates/ClaimFlow';
 
 const _registry = new Map();
 
@@ -16,9 +19,15 @@ function register(t) {
   _registry.set(t.name, t);
 }
 
+// 경제
 register(supplyDemandTemplate);
+// 회계
 register(tAccountTemplate);
+register(balanceSheetTemplate);
+register(incomeStatementTemplate);
+// 법 (민법·법규·보상법규)
 register(legalRelationsTemplate);
+register(claimFlowTemplate);
 
 export function getTemplate(name) {
   return _registry.get(name);
