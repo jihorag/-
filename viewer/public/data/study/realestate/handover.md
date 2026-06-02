@@ -66,7 +66,22 @@
 
 **사용 시점**: 투자분석 (NPV·IRR 학습) / 화폐의 시간가치 / DCF법 개념 학습 시.
 
+### sales-adjustment — 거래사례 보정 단계표
+```viz sales-adjustment
+{"scenario": "<한 줄>",
+ "base_price": 2500000,
+ "adjustments": [
+   {"factor": "사정보정", "rate": 0, "reason": "..."},
+   {"factor": "시점수정", "rate": 0.03, "reason": "..."},
+   {"factor": "지역요인", "rate": -0.05, "reason": "..."},
+   {"factor": "개별요인", "rate": 0.08, "reason": "..."}
+ ],
+ "narration": "..."}
+```
+
+**사용 시점**: 비교방식 학습 / 보정 우선순위 (사정→시점→지역→개별) / 누적 보정률 개념 시.
+
 ## 차트 공통 규칙
 - 한 메시지에 viz 1개만.
 - 차트 뒤 본문 해설 이어 작성.
-- 카탈로그에 없는 도식은 텍스트·표로. freeform SVG 금지.
+- 카탈로그(income-capitalization·dcf-timeline·sales-adjustment)에 없는 도식은 Mermaid 또는 텍스트로. freeform SVG 금지.

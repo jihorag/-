@@ -300,3 +300,20 @@ div.app-shell.fullwidth,
   background: #fff; border: 1px solid #e5e7eb; border-radius: 4px;
   padding: 1px 6px; font-family: ui-monospace, monospace; font-size: 0.72rem; color: #374151;
 }
+
+/* ===== 시각자료 인쇄·export 최적화 =====
+   브라우저 Cmd+P → PDF로 저장 시 viz 카드가 잘리지 않고 색이 유지되도록. */
+@media print {
+  /* 페이지 여백 최소화 */
+  @page { margin: 12mm; }
+  /* viz figure 가 페이지 끊김 회피 */
+  figure { break-inside: avoid; page-break-inside: avoid; }
+  /* 채팅 헤더·탭바·설정 등 UI 요소 숨김 */
+  .bottom-nav, .top-nav, header.top-nav { display: none !important; }
+  /* 색상·배경 인쇄에 유지 */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* 풀스크린 그리드 → 1컬럼으로 평탄화 */
+  .app-shell.fullwidth { display: block !important; }
+  /* 사이드바 인쇄 시 숨김 */
+  aside { display: none !important; }
+}
