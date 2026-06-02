@@ -55,7 +55,7 @@ function flattenMessageContent(content) {
 }
 
 // ── OpenAI Chat Completions ──────────────────────────────────────
-async function sendOpenAI({ apiKey, model, system, messages, maxTokens, baseUrl, signal, onDelta }) {
+async function sendOpenAI({ apiKey, model, system, messages, maxTokens, baseUrl, signal, onDelta, reasoningEffort, verbosity }) {
   if (!apiKey) throw new Error('OpenAI API 키가 필요합니다');
   const endpoint = (baseUrl && baseUrl.trim() ? baseUrl.trim().replace(/\/$/, '') : 'https://api.openai.com') + '/v1/chat/completions';
   const stream = typeof onDelta === 'function';
@@ -65,20 +65,22 @@ async function sendOpenAI({ apiKey, model, system, messages, maxTokens, baseUrl,
   for (const m of messages) {
     apiMsgs.push({ role: m.role, content: flattenMessageContent(m.content) });
   }
-  // GPT-5 시리즈는 max_tokens 대신 max_completion_tokens 사용. 구 모델은 max_tokens.
-  // GPT-5 는 max_completion_tokens 가 reasoning + visible output 합산이라,
-  // budget 을 1.6x 늘리고 reasoning_effort='minimal' 로 visible output 우선.
-  // verbosity='high' 로 응답 길이 안정화.
+  // GPT-5 시리즈는 max_tokens 대신 max_completion_tokens (reasoning + visible 합산).
+  // reasoning 강도가 높을수록 budget 을 더 늘려야 visible output 이 안 잘림.
   const isGpt5 = /^gpt-5/i.test(model);
+  const reasoning = ['minimal', 'low', 'medium', 'high'].includes(reasoningEffort) ? reasoningEffort : 'minimal';
+  const verb = ['low', 'medium', 'high'].includes(verbosity) ? verbosity : 'high';
+  // reasoning 강도별 token 승수 — high 일수록 내부 추론 토큰을 많이 씀
+  const reasonMul = { minimal: 1.4, low: 1.8, medium: 2.5, high: 3.5 }[reasoning];
   const body = {
     model,
     messages: apiMsgs,
     stream,
     ...(isGpt5
       ? {
-          max_completion_tokens: Math.floor(maxTokens * 1.6),
-          reasoning_effort: 'minimal',
-          verbosity: 'high',
+          max_completion_tokens: Math.floor(maxTokens * reasonMul),
+          reasoning_effort: reasoning,
+          verbosity: verb,
         }
       : { max_tokens: maxTokens }),
   };

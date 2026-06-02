@@ -37,6 +37,8 @@ export const DEFAULT_PREFS = {
   daily_cap: 500,
   model: 'claude-sonnet-4-6',
   max_tokens: 1200,
+  reasoning_effort: 'minimal', // GPT-5: minimal | low | medium | high  (학습에는 minimal 권장)
+  verbosity: 'high',           // GPT-5: low | medium | high
   hide_handover_hint: false,
 };
 

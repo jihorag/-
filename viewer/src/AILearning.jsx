@@ -1352,6 +1352,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         messages: apiMessages,
         maxTokens: effectiveMax,
         baseUrl: baseUrls[provider],
+        reasoningEffort: prefs.reasoning_effort,
+        verbosity: prefs.verbosity,
         signal: ac.signal,
         onDelta: useStream ? ((_chunk, agg) => setDraft(agg)) : undefined,
       });

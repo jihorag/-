@@ -2113,6 +2113,26 @@ const App = () => {
                         onChange={(e) => { const next = setAiPrefs({ daily_cap: parseInt(e.target.value, 10) || 0 }); setAiPrefsState(next); }}
                         style={{ width: '100%', padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.9rem' }} />
                     </Section>
+                    {/^gpt-5/i.test(aiPrefs.model) && (
+                      <>
+                        <Section title="🧠 추론 강도 (GPT-5 전용)" desc="높을수록 내부 추론 다지지만, 응답 표시 토큰을 소모. 학습엔 minimal 권장.">
+                          <div style={{ display: 'flex', gap: 4 }}>
+                            {['minimal', 'low', 'medium', 'high'].map((v) =>
+                              <Pill key={v} on={(aiPrefs.reasoning_effort || 'minimal') === v} label={v}
+                                onClick={() => { const next = setAiPrefs({ reasoning_effort: v }); setAiPrefsState(next); }} />
+                            )}
+                          </div>
+                        </Section>
+                        <Section title="📝 응답 상세도 (GPT-5 전용)" desc="visible 응답 길이 가이드.">
+                          <div style={{ display: 'flex', gap: 4 }}>
+                            {['low', 'medium', 'high'].map((v) =>
+                              <Pill key={v} on={(aiPrefs.verbosity || 'high') === v} label={v}
+                                onClick={() => { const next = setAiPrefs({ verbosity: v }); setAiPrefsState(next); }} />
+                            )}
+                          </div>
+                        </Section>
+                      </>
+                    )}
                     <Section title="🔑 API 키 — 프로바이더 3개" desc="키 입력해두면 모델 전환 자유. 현재 활성 표시됨.">
                       <ApiKeysWidget activeProvider={getProviderForModel(aiPrefs.model)} onChange={() => setAiPrefsState({ ...aiPrefs })} />
                     </Section>
