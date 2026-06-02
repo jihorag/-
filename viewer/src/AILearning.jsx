@@ -26,10 +26,10 @@ import {
   migrateLegacyCivilIds,
   addMock, getMocks,
   SUBJECTS, SUBJECTS_BY_STAGE, getSubjectMeta,
+  getApiKey, getBaseUrls, setApiKey, setBaseUrl,
 } from './aiLearningStore';
 import { buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
 import { sendMessagesUnified, getProviderForModel, modelRequiresProxy } from './aiProviders';
-import { getApiKey, getBaseUrls, setApiKey, setBaseUrl } from './aiLearningStore';
 
 const indexUrl = (subjectId) => {
   const s = SUBJECTS.find((x) => x.id === subjectId);
@@ -388,6 +388,59 @@ function SettingsPanel({ prefs, onSave, onClearKey, onResetProgress, usage }) {
           <option value="gemini-3.1-flash">🟢 Gemini 3.1 Flash (-85%)</option>
         </optgroup>
       </select>
+      {provider === 'openai' && (
+        <div style={{ padding: 10, background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: 8, marginBottom: 12 }}>
+          <label style={{ display: 'block', fontSize: '0.82rem', color: '#1e40af', fontWeight: 700, marginBottom: 4 }}>OpenAI API 키 (sk-...)</label>
+          <input
+            type="password"
+            value={openaiKey}
+            onChange={(e) => { setOpenaiKeyState(e.target.value); setApiKey('openai', e.target.value); }}
+            placeholder="sk-proj-..."
+            style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 8 }}
+          />
+          <label style={{ display: 'block', fontSize: '0.82rem', color: '#1e40af', fontWeight: 700, marginBottom: 4 }}>프록시 baseUrl (CORS 우회)</label>
+          <input
+            type="text"
+            value={openaiBase}
+            onChange={(e) => { setOpenaiBaseState(e.target.value); setBaseUrl('openai', e.target.value); }}
+            placeholder="https://your-proxy.workers.dev"
+            style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 4 }}
+          />
+          <div style={{ fontSize: '0.72rem', color: '#1e3a8a', lineHeight: 1.5 }}>
+            ⚠️ OpenAI는 브라우저 직호출 차단. Cloudflare Worker 같은 프록시 필요.<br/>
+            예시 Worker: <code>fetch('https://api.openai.com' + req.path, {'{...req}'})</code>
+          </div>
+        </div>
+      )}
+      {provider === 'google' && (
+        <div style={{ padding: 10, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 8, marginBottom: 12 }}>
+          <label style={{ display: 'block', fontSize: '0.82rem', color: '#166534', fontWeight: 700, marginBottom: 4 }}>Google AI API 키</label>
+          <input
+            type="password"
+            value={googleKey}
+            onChange={(e) => { setGoogleKeyState(e.target.value); setApiKey('google', e.target.value); }}
+            placeholder="AIza..."
+            style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 8 }}
+          />
+          <label style={{ display: 'block', fontSize: '0.82rem', color: '#166534', fontWeight: 700, marginBottom: 4 }}>프록시 baseUrl (CORS 우회)</label>
+          <input
+            type="text"
+            value={googleBase}
+            onChange={(e) => { setGoogleBaseState(e.target.value); setBaseUrl('google', e.target.value); }}
+            placeholder="https://your-proxy.workers.dev"
+            style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 4 }}
+          />
+          <div style={{ fontSize: '0.72rem', color: '#14532d', lineHeight: 1.5 }}>
+            ⚠️ Gemini는 2026-04 정책 변경으로 브라우저 직호출 차단. 프록시 필요.<br/>
+            <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer" style={{ color: '#166534', textDecoration: 'underline' }}>AI Studio에서 키 발급</a>
+          </div>
+        </div>
+      )}
+      {needsProxy && (
+        <div style={{ padding: 8, background: '#fefce8', border: '1px solid #fef08a', borderRadius: 8, marginBottom: 12, fontSize: '0.78rem', color: '#854d0e' }}>
+          💡 간이 프록시 — Cloudflare Worker 무료 티어로 5분 만에 구축 가능. 키는 브라우저에만 저장돼 프록시에 노출되지 않음.
+        </div>
+      )}
       <label style={{ display: 'block', fontSize: '0.85rem', color: '#374151', marginBottom: 4 }}>
         응답 길이 상한 (max_tokens) — 줄이면 더 빠른 응답
       </label>
@@ -413,7 +466,7 @@ function SettingsPanel({ prefs, onSave, onClearKey, onResetProgress, usage }) {
       <input
         type="number"
         min={0}
-        max={500}
+        max={2000}
         value={prefs.daily_cap}
         onChange={(e) => onSave({ daily_cap: parseInt(e.target.value, 10) || 0 })}
         style={{ width: '100%', padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.9rem', marginBottom: 4 }}
