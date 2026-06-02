@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen, Sparkles } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
+import VizGallery from './viz/VizGallery';
 import ToastContainer, { toast } from './Toast';
 import CmdK from './CmdK';
 import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
@@ -796,6 +797,16 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [loadPct, setLoadPct] = useState(0);
   const [loadError, setLoadError] = useState(false);
+  // 개발용 시각자료 갤러리 — URL #viz-gallery 진입
+  const [showVizGallery, setShowVizGallery] = useState(() =>
+    typeof window !== 'undefined' && window.location.hash.includes('viz-gallery')
+  );
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const onHash = () => setShowVizGallery(window.location.hash.includes('viz-gallery'));
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
   // 새로고침/딥링크 복원: 최초 렌더에서 URL 해시를 1회 파싱해 초기 상태로 사용
   const [bootNav] = useState(() => {
     const parsed = parseNav(typeof window !== 'undefined' ? window.location.hash : '');
@@ -2961,6 +2972,16 @@ const App = () => {
   if (currentView === 'tax_chapters' && taxSubSubject) return renderStudyGrid(`${scopePrefix}${taxSubSubject}`, '장(Chapter) 선택', taxChapterGroups);
   if (currentView === 'tax_sections' && taxChapter) return renderStudyGrid(`${scopePrefix}${taxChapter}`, '절(Section) 선택', taxSectionGroups);
   if (currentView === 'tax_items' && taxSection) return renderStudyGrid(`${scopePrefix}${taxSection}`, '관(Item) 선택', taxItemGroups);
+
+  // 시각자료 갤러리 — 모든 view 위에 오버레이
+  if (showVizGallery) {
+    return <VizGallery onClose={() => {
+      // 해시에서 viz-gallery 토큰만 제거하고 holds 유지
+      const newHash = window.location.hash.replace(/[#&]?viz-gallery/g, '').replace(/^#&/, '#').replace(/^#$/, '');
+      window.location.hash = newHash || '';
+      setShowVizGallery(false);
+    }} />;
+  }
 
   // Dashboard View
 
