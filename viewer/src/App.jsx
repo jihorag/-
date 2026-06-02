@@ -3,6 +3,9 @@ import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen, Sparkles }
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
 import VizGallery from './viz/VizGallery';
+import WeaknessPanel from './WeaknessPanel';
+import DDayPlanner from './DDayPlanner';
+import NotesPanel from './NotesPanel';
 import ToastContainer, { toast } from './Toast';
 import CmdK from './CmdK';
 import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
@@ -3877,6 +3880,37 @@ const App = () => {
             <span style={{ fontWeight: 700 }}>👤 프로필 · 데이터 백업</span>
             <span style={{ fontSize: '0.8rem', color: '#9ca3af' }}>관리 →</span>
           </button>
+
+          {/* Phase β·γ — 신규 패널 통합 */}
+          <h2 style={{ fontSize: '1.05rem', fontWeight: 800, margin: '24px 0 10px', color: '#111827' }}>
+            🎯 학습 통찰
+          </h2>
+          <div style={{ marginBottom: 12 }}>
+            <DDayPlanner leavesBySubject={leavesBySubject} />
+          </div>
+          <div style={{ marginBottom: 12 }}>
+            <WeaknessPanel
+              leavesBySubject={leavesBySubject}
+              onJump={(leaf) => {
+                const subjId = (leaf?.id || '').split('__')[0];
+                if (subjId) {
+                  try { localStorage.setItem('ailearn-current', JSON.stringify({ subject: subjId, leaf_id: leaf.id })); } catch { /* noop */ }
+                }
+                setCurrentView('civil');
+              }}
+            />
+          </div>
+          <div style={{ marginBottom: 12 }}>
+            <NotesPanel
+              onJump={(leafId) => {
+                const subjId = (leafId || '').split('__')[0];
+                if (subjId) {
+                  try { localStorage.setItem('ailearn-current', JSON.stringify({ subject: subjId, leaf_id: leafId })); } catch { /* noop */ }
+                }
+                setCurrentView('civil');
+              }}
+            />
+          </div>
         </main>
       </div>
     );
