@@ -131,8 +131,14 @@ const renderInlines = (text, keyPrefix) => {
 };
 
 const renderTextBlock = (text, keyPrefix) => {
+  // 전처리 — **...** 안의 줄바꿈을 공백으로 정규화
+  // AI가 자주 `**\n텍스트**` 형태로 출력해서 줄 단위 split 후 매칭이 깨지는 문제 방지
+  const normalizedText = String(text || '').replace(
+    /\*\*([\s\S]+?)\*\*/g,
+    (match, inner) => '**' + inner.replace(/\s*\n+\s*/g, ' ').trim() + '**'
+  );
   // 라인 단위로 ## 헤더, --- 수평선, - 리스트, 빈줄 단락 분리, 일반 단락 처리
-  const rawLines = text.split('\n');
+  const rawLines = normalizedText.split('\n');
   const elements = [];
   let i = 0;
   while (i < rawLines.length) {
