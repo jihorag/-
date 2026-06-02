@@ -2466,7 +2466,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       </div>
 
       <div style={{ padding: 10, borderTop: '1px solid #e5e7eb', background: '#fff' }}>
-        <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginBottom: 6, paddingBottom: 2 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+          <div style={{ display: 'flex', gap: 4, overflowX: 'auto', paddingBottom: 2, flex: 1, minWidth: 0 }}>
           {({
             // 1차
             study: [
@@ -2547,6 +2548,26 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               {label}
             </button>
           ))}
+          </div>
+          <label style={{ display: 'inline-flex', alignItems: 'center', gap: 4, flexShrink: 0, fontSize: '0.72rem', color: '#9ca3af' }}>
+            <span>모델</span>
+            <select
+              value={prefs.model}
+              onChange={(e) => { const next = setPrefs({ model: e.target.value }); setPrefsState(next); }}
+              disabled={streaming}
+              style={{
+                padding: '2px 6px', fontSize: '0.72rem', fontWeight: 700,
+                border: '1px solid #d1d5db', borderRadius: 6,
+                background: streaming ? '#f3f4f6' : '#fff',
+                color: '#4338ca', cursor: streaming ? 'not-allowed' : 'pointer',
+              }}
+              title="응답 중에는 변경할 수 없습니다"
+            >
+              <option value={MODELS.primary}>🎯 Sonnet 4.6</option>
+              <option value={MODELS.fast}>⚡ Haiku 4.5</option>
+              <option value={MODELS.premium}>🧠 Opus 4.7</option>
+            </select>
+          </label>
         </div>
         {mode === 'template' && subjectId === 'appraisal_theory' && problemsMd && (
           <TemplateCardWidget
@@ -2609,30 +2630,6 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               <Send size={16} />
             </button>
           )}
-        </div>
-        <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#9ca3af', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
-          <label style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-            <span>모델</span>
-            <select
-              value={prefs.model}
-              onChange={(e) => { const next = setPrefs({ model: e.target.value }); setPrefsState(next); }}
-              disabled={streaming}
-              style={{
-                padding: '2px 6px', fontSize: '0.72rem', fontWeight: 700,
-                border: '1px solid #d1d5db', borderRadius: 6,
-                background: streaming ? '#f3f4f6' : '#fff',
-                color: '#4338ca', cursor: streaming ? 'not-allowed' : 'pointer',
-              }}
-              title="응답 중에는 변경할 수 없습니다"
-            >
-              <option value={MODELS.primary}>🎯 Sonnet 4.6</option>
-              <option value={MODELS.fast}>⚡ Haiku 4.5</option>
-              <option value={MODELS.premium}>🧠 Opus 4.7</option>
-            </select>
-          </label>
-          <span>
-            오늘 {(getUsage()[todayStr()]?.messages || 0)} / {prefs.daily_cap || '∞'} 메시지
-          </span>
         </div>
       </div>
     </div>
