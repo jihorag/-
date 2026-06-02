@@ -1344,8 +1344,16 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     const lastSession = getSessions().slice(-2, -1)[0];
     const recentSummary = lastSession?.summary || '';
     const subjStage = getSubjectMeta(subjectId)?.stage || 1;
-    const usesProblems = (subjStage === 1 && mode === 'practice') ||
-                         (subjStage === 2 && (mode === 'answer_write' || mode === 'mock_full' || mode === 'topic_extract' || mode === 'template'));
+    // problems 자료 조건부 로딩 — 항상 보내면 캐시 한 자리(약 10K 토큰)를 점유.
+    //  · 1차 practice / 2차 mock_full 은 항상 (문제풀이가 주 활동)
+    //  · 2차 answer_write / topic_extract / template 은 사용자 메시지에 트리거 키워드 있을 때만
+    const triggerWords = /(문제|기출|출제|사례|판례|양식|풀어|풀자|새\s*문제|다른\s*문제|모범\s*답안|채점)/;
+    const userText = text || '';
+    const triggered = triggerWords.test(userText);
+    const usesProblems =
+      (subjStage === 1 && mode === 'practice') ||
+      (subjStage === 2 && mode === 'mock_full') ||
+      (subjStage === 2 && (mode === 'answer_write' || mode === 'topic_extract' || mode === 'template') && triggered);
     const system = buildSystemBlocks({
       handoverMd,                            // ← 캐시 안정: 텍스트 불변
       unitMd: sectionMd ? '' : unitMd,
@@ -1386,8 +1394,16 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       // prefs.streaming === true 일 때만 토큰별 흐름 표시.
       const useStream = !!prefs.streaming;
       // 모드별 최대 출력 토큰 — summary/diagnose는 짧게, deep는 길게
-      const modeMaxTokens = { summary: 600, diagnose: 900, deep: 1800, practice: 1500, study: 1200 };
-      const effectiveMax = prefs.max_tokens || modeMaxTokens[mode] || 1200;
+      // 모드별 출력 cap — 출력 토큰이 단가의 절반 차지하므로 보수적으로 설정.
+      // 실측 평균 응답 길이 대비 1.2~1.5배 여유. 더 필요하면 prefs.max_tokens 로 override.
+      const modeMaxTokens = {
+        // 1차
+        summary: 400, diagnose: 700, deep: 1500, practice: 1100, study: 800,
+        // 2차
+        concept_s2: 900, template: 700, topic_extract: 900,
+        answer_write: 1200, mock_full: 1100, calc_s2: 900,
+      };
+      const effectiveMax = prefs.max_tokens || modeMaxTokens[mode] || 800;
       const { text: out, usage } = await sendMessages({
         apiKey: byok,
         model: prefs.model,
