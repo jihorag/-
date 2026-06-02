@@ -1326,16 +1326,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       // prefs.streaming === true 일 때만 토큰별 흐름 표시.
       const useStream = !!prefs.streaming;
       // 모드별 최대 출력 토큰 — summary/diagnose는 짧게, deep는 길게
-      // 모드별 출력 cap — 출력 토큰이 단가의 절반 차지하므로 보수적으로 설정.
-      // 실측 평균 응답 길이 대비 1.2~1.5배 여유. 더 필요하면 prefs.max_tokens 로 override.
+      // 모드별 출력 cap — 학습 경험 우선. 응답이 잘리지 않을 정도로 여유 있게.
       const modeMaxTokens = {
         // 1차
-        summary: 400, diagnose: 700, deep: 1500, practice: 1100, study: 800,
+        summary: 600, diagnose: 900, deep: 1800, practice: 1500, study: 1200,
         // 2차
-        concept_s2: 900, template: 700, topic_extract: 900,
-        answer_write: 1200, mock_full: 1100, calc_s2: 900,
+        concept_s2: 1400, template: 1000, topic_extract: 1300,
+        answer_write: 1800, mock_full: 1600, calc_s2: 1300,
       };
-      const effectiveMax = prefs.max_tokens || modeMaxTokens[mode] || 800;
+      const effectiveMax = prefs.max_tokens || modeMaxTokens[mode] || 1200;
       // 모델에 따라 프로바이더 자동 선택 (claude/gpt/gemini).
       // OpenAI·Gemini 는 보통 CORS 차단되지만, 일부 환경(extension, 프록시 헤더, 정책 변경)에서 통과될 수 있어 일단 시도.
       // 실패하면 catch 에서 안내.

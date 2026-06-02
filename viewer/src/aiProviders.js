@@ -66,12 +66,21 @@ async function sendOpenAI({ apiKey, model, system, messages, maxTokens, baseUrl,
     apiMsgs.push({ role: m.role, content: flattenMessageContent(m.content) });
   }
   // GPT-5 시리즈는 max_tokens 대신 max_completion_tokens 사용. 구 모델은 max_tokens.
+  // GPT-5 는 max_completion_tokens 가 reasoning + visible output 합산이라,
+  // budget 을 1.6x 늘리고 reasoning_effort='minimal' 로 visible output 우선.
+  // verbosity='high' 로 응답 길이 안정화.
   const isGpt5 = /^gpt-5/i.test(model);
   const body = {
     model,
     messages: apiMsgs,
     stream,
-    ...(isGpt5 ? { max_completion_tokens: maxTokens } : { max_tokens: maxTokens }),
+    ...(isGpt5
+      ? {
+          max_completion_tokens: Math.floor(maxTokens * 1.6),
+          reasoning_effort: 'minimal',
+          verbosity: 'high',
+        }
+      : { max_tokens: maxTokens }),
   };
   if (stream) body.stream_options = { include_usage: true };
   const res = await fetch(endpoint, {
