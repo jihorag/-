@@ -8,6 +8,11 @@ import { legalRelationsTemplate } from './templates/LegalRelations';
 import { balanceSheetTemplate } from './templates/BalanceSheet';
 import { incomeStatementTemplate } from './templates/IncomeStatement';
 import { claimFlowTemplate } from './templates/ClaimFlow';
+import { costCurvesTemplate } from './templates/CostCurves';
+import { isLmTemplate } from './templates/IsLm';
+import { caseComparisonTemplate } from './templates/CaseComparison';
+import { incomeCapitalizationTemplate } from './templates/IncomeCapitalization';
+import { dcfTimelineTemplate } from './templates/DcfTimeline';
 
 const _registry = new Map();
 
@@ -21,6 +26,8 @@ function register(t) {
 
 // 경제
 register(supplyDemandTemplate);
+register(costCurvesTemplate);
+register(isLmTemplate);
 // 회계
 register(tAccountTemplate);
 register(balanceSheetTemplate);
@@ -28,6 +35,10 @@ register(incomeStatementTemplate);
 // 법 (민법·법규·보상법규)
 register(legalRelationsTemplate);
 register(claimFlowTemplate);
+register(caseComparisonTemplate);
+// 부동산·감정평가실무
+register(incomeCapitalizationTemplate);
+register(dcfTimelineTemplate);
 
 export function getTemplate(name) {
   return _registry.get(name);

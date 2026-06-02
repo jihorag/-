@@ -39,3 +39,44 @@
 
 ## 한 사이클
 **논점 도입 → 적용 공식·조문 → 풀이 단계별 시범 → 학생 풀이 → 식·단위·자료 함정 첨삭** + 답안에 어떻게 쓸지 한 줄.
+
+## [VIZ_CATALOG] 시각자료 사용 규칙 (감정평가실무 2차 전용)
+
+산식 흐름·연차 PV·거래사례 보정 같은 수치 흐름은 **시각자료로 보여야 답안 흐름이 명확**. 텍스트로 산식 나열하지 말 것.
+
+### income-capitalization — 수익환원법 직접환원 흐름
+```viz income-capitalization
+{"scenario": "<한 줄 설명>",
+ "pgi": 120000000,
+ "vacancy_rate": 0.05,
+ "vacancy_loss": 6000000,
+ "operating_expenses": 24000000,
+ "cap_rate": 0.07,
+ "cap_rate_method": "시장추출법",
+ "narration": "..."}
+```
+
+**필드 의미**: PGI(가능총수익) → -공실/대손 → EGI → -운영비 → NOI ÷ 환원이율 = V. 일부 단계 생략 가능 (EGI 직접 입력 등).  
+**사용 시점**: 수익환원법 답안 흐름 설계 / 환원이율 산정법 학습 / 운영비 vs 자본지출 함정 강조 시.  
+**규칙**: 컴포넌트가 V = NOI ÷ R 자동 계산. opex_note에 "자본적 지출 제외" 같은 함정 강조.
+
+### dcf-timeline — DCF 연차별 PV
+```viz dcf-timeline
+{"scenario": "<한 줄 설명>",
+ "method": "DCF 5년 + 종기 복귀가치",
+ "discount_rate": 0.08,
+ "cashflows": [
+   {"year": 1, "amount": 80000000, "type": "noi"},
+   {"year": 5, "amount": 1287724357, "type": "reversion", "note": "5년차 NOI / R"}
+ ],
+ "narration": "..."}
+```
+
+**type 매핑**: noi(운영기간), reversion(매각 복귀가치), capex(자본지출), other.  
+**사용 시점**: DCF법 답안 설계 / 보유기간 NOI 성장 + 종기가치 합산 / 할인계수 단위 계산 검산 시.  
+**규칙**: 각 연차 PV는 컴포넌트가 (1+r)⁻ᵗ로 자동 계산. ΣPV 자동 합산.
+
+## 차트 공통 규칙
+- 한 메시지에 viz 1개만.
+- 차트는 답안 흐름 설계 + 산식 검증용. 본문 답안은 텍스트로 작성.
+- 카탈로그에 없는 도식(거래사례 보정·임대료 산정 등)은 마크다운 표로. freeform SVG 금지.

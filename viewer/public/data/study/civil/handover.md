@@ -94,6 +94,22 @@
 **사용 시점**: 취소·해제·무효 같은 다단계 법률효과 / 제한능력자 → 취소 → 부당이득반환 식 단계 사례 / 채권자대위·채권자취소 흐름 / 사해행위·반사회질서 단계 / 표현대리 성립 요건 단계.  
 **규칙**: 단계 2~5개 권장. `highlight: true`로 핵심 단계 강조. `note`엔 주의·반대해석 1줄.
 
+### case-comparison — 판례 N개 비교 매트릭스
+```viz case-comparison
+{"scenario": "<논점 한 줄>",
+ "fields": ["facts","issue","holding","conclusion"],
+ "cases": [
+   {"title":"<요약 제목>","ref":"<사건번호>","date":"YYYY",
+    "facts":"<사실관계>","issue":"<쟁점>","holding":"<판시사항>","conclusion":"<결론>",
+    "highlight": false}
+ ],
+ "narration": "..."}
+```
+
+**fields 옵션**: facts(사실관계), issue(쟁점), holding(판시사항), conclusion(결론), rule(법리), significance(의의), criticism(평석). 보통 4-5개 선택.  
+**사용 시점**: 빈출 판례 2-3개 대조 / 학설 vs 판례 비교 / 같은 쟁점 다른 결론 / 다수설 vs 소수설 학습 시.  
+**규칙**: `ref`는 정확히 "대판 92다35783(전합)" 등 형식. `highlight: true`로 핵심 판례 강조.
+
 ## 차트 사용 공통 규칙
 - 한 메시지에 viz 1개만.
 - 차트 뒤엔 본문 해설(왜 그렇게 되는지)을 마크다운으로 이어 작성.

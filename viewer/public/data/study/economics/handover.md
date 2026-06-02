@@ -66,8 +66,36 @@
 - 균형점 변화 분석 사례
 - 학생이 "그림으로 보여줘", "이동 어떻게 돼요?" 류 질문할 때
 
-### 규칙
+### supply-demand 규칙
 1. 한 메시지에 차트 1개만 (학습자 부담 줄이기).
 2. `reason` 필드 필수. 왜 이동했는지 한 줄.
 3. 차트 뒤에 본문 해설을 마크다운으로 이어 작성. 차트만 던지지 말 것.
-4. 카탈로그에 없는 그래프(IS-LM 등)는 텍스트·표로 설명. 다음 버전에 추가될 예정.
+
+### cost-curves — 비용곡선 (MC/AC/AVC/AFC)
+```viz cost-curves
+{"scenario": "<한 줄 설명>",
+ "curves_visible": ["MC","AC","AVC"],
+ "market_price": 0.55,
+ "profit_visible": true,
+ "narration": "..."}
+```
+
+**파라미터 설명**: `curves_visible` 배열에서 보일 곡선 선택. `market_price`는 0~1 정규화(컴포넌트가 시장가격선 자동 표시). `profit_visible: true` 이면 P×Q 사각형과 AC×Q 사각형으로 이윤·손실 영역 자동 색칠.  
+**사용 시점**: 완전경쟁기업 이윤극대화 (P=MC) / 손익분기점(MC=AC) / 조업중단점(P=AVC 최저) / AVC·AC 관계 설명 시.  
+**규칙**: AC·MC 함께 표시할 때만 손익분기점 마커가 자동으로 나타남.
+
+### is-lm — IS-LM 모형
+```viz is-lm
+{"scenario": "<재정/통화 정책 시나리오>",
+ "shifts": [{"curve": "IS|LM", "direction": "left|right", "magnitude": "small|moderate|large", "reason": "<왜>"}],
+ "narration": "..."}
+```
+
+**사용 시점**: 확장/긴축 재정정책 (IS 이동) / 확장/긴축 통화정책 (LM 이동) / 정책조합 / 구축효과(crowding-out) 설명 시.  
+**규칙**: shift 후 균형점 변화 (Y, r 방향)는 컴포넌트가 자동 자막. shift 2개까지 가능 (예: IS 우, LM 우 = 정책조합).
+
+## 차트 공통 규칙
+- 한 메시지에 viz 1개만.
+- `reason` 필드 필수.
+- 차트 뒤 본문 해설 이어 작성. 차트만 던지지 말 것.
+- 카탈로그에 없는 그래프(Phillips, 무차별곡선 등)는 다음 버전 예정 — 그때까지 텍스트·표로.
