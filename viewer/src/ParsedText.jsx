@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import VizRouter, { VizPending } from './viz/VizRouter';
 
 export const SafeImage = ({ src }) => {
   const [errored, setErrored] = useState(false);
@@ -247,6 +248,29 @@ export const ParsedText = ({ text }) => {
   };
   while (i < lines.length) {
     const l = lines[i];
+    // 시각자료 fence 감지: ```viz <template-name>
+    const vizMatch = l.match(/^```viz\s+([a-z0-9_-]+)\s*$/i);
+    if (vizMatch) {
+      flushText();
+      const name = vizMatch[1];
+      const jsonLines = [];
+      let j = i + 1;
+      let closed = false;
+      while (j < lines.length) {
+        if (/^```\s*$/.test(lines[j])) { closed = true; break; }
+        jsonLines.push(lines[j]);
+        j++;
+      }
+      if (closed) {
+        blocks.push({ type: 'viz', name, raw: jsonLines.join('\n') });
+        i = j + 1;
+      } else {
+        // 스트리밍 중 — 아직 펜스 안 닫힘. placeholder 표시.
+        blocks.push({ type: 'viz_pending', name });
+        i = j;  // 잔여 라인 소비 안 함 (다음 응답에서 마저 받음)
+      }
+      continue;
+    }
     // 표 시작 감지: 현재 라인 + 다음 라인이 pipe row이고, 다음 라인이 delimiter
     if (i + 1 < lines.length && isPipeRow(l) && isPipeRow(lines[i+1])) {
       const delimCells = splitCells(lines[i+1]);
@@ -273,6 +297,12 @@ export const ParsedText = ({ text }) => {
   return (
     <>
       {blocks.map((b, idx) => {
+        if (b.type === 'viz') {
+          return <VizRouter key={idx} name={b.name} rawJson={b.raw} />;
+        }
+        if (b.type === 'viz_pending') {
+          return <VizPending key={idx} name={b.name} />;
+        }
         if (b.type === 'table') {
           return (
             <div key={idx} style={{ overflowX: 'auto', margin: '8px 0' }}>
