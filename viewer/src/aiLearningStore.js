@@ -155,7 +155,20 @@ export function setPrefs(patch) {
   return next;
 }
 
-export function getCurrent() { return lsGet(KEY.current, null); }
+// 구 civil default_leaf(행위능력) 자동 리셋 — 1회성. 사용자가 명시적으로 선택한 게 아니면 첫 단원으로.
+const LEGACY_CIVIL_DEFAULT = 'civil__민법총칙__제3장_권리의_주체__제1절_자연인__제3관_행위능력';
+const CIVIL_RESET_FLAG = 'ailearn-civil-default-reset-v1';
+export function getCurrent() {
+  const cur = lsGet(KEY.current, null);
+  try {
+    if (cur?.subject === 'civil' && cur?.leaf_id === LEGACY_CIVIL_DEFAULT
+        && !localStorage.getItem(CIVIL_RESET_FLAG)) {
+      localStorage.setItem(CIVIL_RESET_FLAG, '1');
+      return null; // 초기화 → 인덱스 로드 시 default_leaf(첫 단원)로 자동 세팅됨
+    }
+  } catch { /* noop */ }
+  return cur;
+}
 export function setCurrent(cur) { lsSet(KEY.current, cur); }
 
 export function getMastery() { return lsGet(KEY.mastery, {}); }

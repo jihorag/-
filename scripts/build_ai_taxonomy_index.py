@@ -151,7 +151,7 @@ index = {
     'handover_file': '/data/study/civil/handover.md',
     'leaves': out,
     'tree': civ['subjects'],
-    'default_leaf': make_id(['민법총칙', '제3장 권리의 주체', '제1절 자연인', '제3관 행위능력']),
+    'default_leaf': out[0]['id'] if out else None,
     'version': 'v2.0',
 }
 
