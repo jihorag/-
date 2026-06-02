@@ -288,6 +288,120 @@ export function getAllRooms() {
   return out.sort((a, b) => (b.last_ts || '').localeCompare(a.last_ts || ''));
 }
 
+// ── Phase α: 답안 히스토리 (2차 답안 작성 추이) ──────────
+// 같은 leaf 에서 답안 N건 시간순 비교 + 점수 추이 + AI 인사이트 누적
+export function getAnswerHistory(leafId) {
+  if (!leafId) return [];
+  return lsGet(KEY.answers(leafId), []);
+}
+export function appendAnswer(leafId, record) {
+  if (!leafId) return;
+  const arr = getAnswerHistory(leafId);
+  arr.push({ ts: new Date().toISOString(), ...record });
+  // 최근 30건만 유지
+  while (arr.length > 30) arr.shift();
+  lsSet(KEY.answers(leafId), arr);
+  return arr;
+}
+export function getAllAnswerHistories() {
+  const out = [];
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k || !k.startsWith('ailearn-answers:')) continue;
+      const leafId = k.slice('ailearn-answers:'.length);
+      const arr = JSON.parse(localStorage.getItem(k) || '[]');
+      if (!Array.isArray(arr) || !arr.length) continue;
+      out.push({ leafId, history: arr });
+    }
+  } catch { /* noop */ }
+  return out;
+}
+
+// ── Phase β: D-day 시험 플래너 ──────────
+export function getExamPlan() {
+  return lsGet(KEY.examPlan, { exam_date: null, target_subjects: [] });
+}
+export function setExamPlan(plan) {
+  lsSet(KEY.examPlan, { ...getExamPlan(), ...plan });
+}
+export function daysUntilExam() {
+  const plan = getExamPlan();
+  if (!plan.exam_date) return null;
+  const target = new Date(plan.exam_date + 'T00:00:00');
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return Math.ceil((target - today) / (1000 * 60 * 60 * 24));
+}
+
+// ── Phase γ: 학습 노트 ──────────
+// kind: 'viz'(차트) | 'message'(AI 답변) | 'manual'(자유)
+export function getNotes() { return lsGet(KEY.notes, []); }
+export function addNote(note) {
+  const arr = getNotes();
+  const id = 'note_' + Date.now() + '_' + Math.floor(Math.random() * 9999);
+  arr.unshift({ id, ts: new Date().toISOString(), ...note });
+  while (arr.length > 500) arr.pop();
+  lsSet(KEY.notes, arr);
+  return id;
+}
+export function removeNote(id) {
+  const arr = getNotes().filter((n) => n.id !== id);
+  lsSet(KEY.notes, arr);
+}
+
+// ── Phase δ: 관측 — viz 사용 통계 + 메시지 평가 ──────────
+export function getVizUsage() { return lsGet(KEY.vizUsage, {}); }
+export function incrementVizUsage(name, ok = true) {
+  const all = getVizUsage();
+  const cur = all[name] || { ok: 0, err: 0, last_ts: null };
+  if (ok) cur.ok++; else cur.err++;
+  cur.last_ts = new Date().toISOString();
+  all[name] = cur;
+  lsSet(KEY.vizUsage, all);
+}
+export function getMsgRatings() { return lsGet(KEY.msgRatings, {}); }
+export function rateMsg(msgKey, rating) {
+  const all = getMsgRatings();
+  if (rating === 0 || rating == null) delete all[msgKey];
+  else all[msgKey] = { rating, ts: new Date().toISOString() };
+  lsSet(KEY.msgRatings, all);
+}
+
+// ── Phase β: 약점 탐지 — mastery + 답안 점수 가중 ──────────
+// 반환: TOP N 약점 leafId 배열 + score
+export function detectWeaknesses(masteryDict, allAnswerHistories, topN = 5) {
+  const candidates = [];
+  // 1차: mastery accuracy < 70% & 시도 횟수 ≥ 3
+  Object.entries(masteryDict || {}).forEach(([leafId, m]) => {
+    if ((m.attempted || 0) >= 3 && (m.accuracy || 0) < 0.7) {
+      candidates.push({
+        leafId,
+        weakness: (0.7 - (m.accuracy || 0)) * (m.attempted || 0),
+        reason: `정답률 ${Math.round((m.accuracy || 0) * 100)}% (${m.attempted}회 풀이)`,
+        kind: 'quiz',
+      });
+    }
+  });
+  // 2차: 답안 평균 점수 < 70% & 시도 ≥ 2
+  (allAnswerHistories || []).forEach(({ leafId, history }) => {
+    if (history.length < 2) return;
+    const scores = history.map((h) => h.score / (h.max || 30)).filter((v) => !isNaN(v));
+    if (!scores.length) return;
+    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+    if (avg < 0.7) {
+      candidates.push({
+        leafId,
+        weakness: (0.7 - avg) * Math.min(scores.length, 5),
+        reason: `답안 평균 ${Math.round(avg * 100)}% (${scores.length}회 작성)`,
+        kind: 'answer',
+      });
+    }
+  });
+  candidates.sort((a, b) => b.weakness - a.weakness);
+  return candidates.slice(0, topN);
+}
+
 export function getUsage() { return lsGet(KEY.usage, {}); }
 export function todayKey() {
   const d = new Date();
