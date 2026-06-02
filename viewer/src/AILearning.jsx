@@ -1149,6 +1149,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [weakSuggestion, setWeakSuggestion] = useState([]);
   const [confirmAction, setConfirmAction] = useState(null); // {label, onYes}
   const [recentRooms, setRecentRooms] = useState(() => getAllRooms());
+  // 헤더 단원 박스 클릭 → LeafPicker 모달
+  const [showLeafPickerModal, setShowLeafPickerModal] = useState(false);
   // 2차 실전 모의 세션 — null | { startedAt, totalMin, curQ, totalQ, scoreDist, scores: [{q, score, max, time_used_min}] }
   const [mockSession, setMockSession] = useState(null);
   const [mockTick, setMockTick] = useState(0);
@@ -1769,22 +1771,32 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           <ChevronLeft size={20} color="#374151" />
         </button>
 
-        {/* 가운데: 단원 정보를 옅은 박스로 감싸 시각적 분리 */}
-        <div style={{
-          flex: 1, minWidth: 0,
-          display: 'flex', alignItems: 'center', gap: 8,
-          padding: '5px 10px',
-          background: 'linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%)',
-          border: '1px solid #e0e7ff',
-          borderRadius: 10,
-        }}>
+        {/* 가운데: 단원 박스 — 클릭 시 LeafPicker 모달 (단원/소단원 선택 통합) */}
+        <button
+          onClick={() => setShowLeafPickerModal(true)}
+          style={{
+            flex: 1, minWidth: 0,
+            display: 'flex', alignItems: 'center', gap: 8,
+            padding: '5px 10px',
+            background: 'linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%)',
+            border: '1px solid #e0e7ff',
+            borderRadius: 10, cursor: 'pointer', textAlign: 'left',
+          }}
+          title="단원 변경"
+        >
           <Sparkles size={16} color="#4f46e5" style={{ flex: '0 0 auto' }} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#111827', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {curLeaf ? curLeaf.path.slice(-1)[0] : 'AI 학습'}
             </div>
             <div style={{ fontSize: '0.7rem', color: '#475569', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-              {curLeaf ? curLeaf.path.slice(1, -1).join(' › ') : ''}
+              {curLeaf ? curLeaf.path.slice(1, -1).join(' › ') : '단원 선택'}
+              {curLeaf?.unit_code && (
+                <span style={{ marginLeft: 6, color: '#94a3b8' }}>
+                  · {curLeaf.unit_code}
+                  {curLeaf.section_name && curLeaf.section_name !== '전체' && ` · ${curLeaf.section_name.slice(0, 12)}${curLeaf.section_name.length > 12 ? '…' : ''}`}
+                </span>
+              )}
             </div>
           </div>
           {curLeaf && (() => {
