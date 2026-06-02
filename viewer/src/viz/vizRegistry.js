@@ -63,12 +63,41 @@ export function listTemplates() {
   return Array.from(_registry.values());
 }
 
-// AI 시스템 프롬프트에 주입할 카탈로그 텍스트 생성 (per-subject 필터 가능).
-// subjects: undefined → 전체, 또는 ['economics', 'accounting'] 등
+// AI 시스템 프롬프트에 주입할 카탈로그 텍스트 생성 (per-subject 필터).
+// subjects: 단일 string (subject_id) 또는 array, undefined → 전체
+// 출력: handover.md 의 [VIZ_CATALOG] 섹션과 동일 포맷 — 그대로 system block 에 캐시됨.
 export function buildCatalog(subjects) {
+  const subjectList = !subjects ? null
+    : (Array.isArray(subjects) ? subjects : [subjects]);
   const list = listTemplates().filter((t) =>
-    !subjects || (t.subjects || []).some((s) => subjects.includes(s))
+    !subjectList || (t.subjects || []).some((s) => subjectList.includes(s))
   );
   if (!list.length) return '';
-  return list.map((t) => `### ${t.name} — ${t.helpText}\n\`\`\`viz ${t.name}\n${JSON.stringify(t.exampleParams, null, 2)}\n\`\`\``).join('\n\n');
+  const header = `## [VIZ_CATALOG] 시각자료 사용 규칙 (자동 생성, registry 기반)
+
+그래프·도식·관계도가 필요하면 **반드시 아래 템플릿 중 하나 선택**.
+freeform SVG 절대 금지 — 카탈로그에 없으면 \`\`\`mermaid 또는 텍스트/표로.
+좌표·축·색·라벨은 컴포넌트가 처리 — AI는 의미적 파라미터만 채움.
+
+`;
+  const body = list.map((t) => {
+    const example = JSON.stringify(t.exampleParams, null, 2);
+    return `### ${t.name} — ${t.helpText}
+\`\`\`viz ${t.name}
+${example}
+\`\`\``;
+  }).join('\n\n');
+  const footer = `
+
+## 차트 공통 규칙
+- 한 메시지에 viz 1개만 (학습 부담 최소화).
+- 차트 뒤엔 본문 해설(왜·어떻게·다음 단계)을 마크다운으로 이어 작성. 차트만 단독 X.
+- JSON 표준 준수 — 주석·trailing comma 금지.
+- 카탈로그 외 도식은 \`\`\`mermaid 폴백 또는 텍스트·표로.`;
+  return header + body + footer;
+}
+
+// 등록된 템플릿 총수 (디버깅/표시용)
+export function templateCount() {
+  return _registry.size;
 }

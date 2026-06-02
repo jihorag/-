@@ -6,6 +6,8 @@
 //
 // 위험·검토(#8): 환각 방지 — system 프롬프트에 "교재 인용만, 일반지식 금지" 강제.
 
+import { buildCatalog as _buildVizCatalog } from './viz/vizRegistry';
+
 const API_URL = 'https://api.anthropic.com/v1/messages';
 const API_VERSION = '2023-06-01';
 
@@ -274,7 +276,7 @@ function getEndpoint(baseUrl) {
 const CACHE_1H = { type: 'ephemeral', ttl: '1h' };
 
 export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, mode, currentMastery, recentSummary, leafPath, stage, subjectId }) {
-  // 캐시 prefix는 [SYSTEM_RULES + 과목별 규칙] → [handover] → [section] → [problems] 순.
+  // 캐시 prefix는 [SYSTEM_RULES + 과목별 규칙] → [handover + viz_catalog] → [section] → [problems] 순.
   // 과목/단원이 바뀌지 않는 한 prefix는 안정. 모드 규칙은 prefix 뒤로 빼서 모드 전환에도 캐시 보존.
   let systemHead = SYSTEM_RULES;
   if (stage === 2) {
@@ -283,10 +285,18 @@ export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, m
   const blocks = [
     { type: 'text', text: systemHead },
   ];
-  if (handoverMd) {
+  // 인수인계서 + viz 카탈로그 자동 주입 — 둘이 한 블록으로 묶어서 캐시 효율
+  // registry 가 단일 소스. handover.md 의 수동 카탈로그는 제거됨.
+  let vizCatalog = '';
+  try { vizCatalog = _buildVizCatalog(subjectId) || ''; } catch { /* noop */ }
+  const handoverPlusCatalog = [
+    handoverMd ? `\n\n[인수인계서]\n${handoverMd}` : '',
+    vizCatalog ? `\n\n${vizCatalog}` : '',
+  ].filter(Boolean).join('');
+  if (handoverPlusCatalog) {
     blocks.push({
       type: 'text',
-      text: `\n\n[인수인계서]\n${handoverMd}`,
+      text: handoverPlusCatalog,
       cache_control: CACHE_1H,
     });
   }
