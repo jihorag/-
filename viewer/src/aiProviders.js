@@ -22,9 +22,9 @@ export const ALL_MODELS = [
   // OpenAI — 프록시 필요
   { id: 'gpt-5.4',               provider: 'openai',    label: 'GPT-5.4',           icon: '🔵', tier: 'balanced', requiresProxy: true },
   { id: 'gpt-5.4-mini',          provider: 'openai',    label: 'GPT-5.4 mini',      icon: '🔵', tier: 'fast',     requiresProxy: true },
-  // Google — 프록시 필요
-  { id: 'gemini-3.1-pro',        provider: 'google',    label: 'Gemini 3.1 Pro',    icon: '🟢', tier: 'balanced', requiresProxy: true },
-  { id: 'gemini-3.1-flash',      provider: 'google',    label: 'Gemini 3.1 Flash',  icon: '🟢', tier: 'fast',     requiresProxy: true },
+  // Google — 프록시 권장 (브라우저 환경 따라 직호출 가능한 경우도 있음)
+  { id: 'gemini-3.1-pro-preview', provider: 'google',  label: 'Gemini 3.1 Pro',    icon: '🟢', tier: 'balanced', requiresProxy: true },
+  { id: 'gemini-3.1-flash-lite',  provider: 'google',  label: 'Gemini 3.1 Flash Lite', icon: '🟢', tier: 'fast', requiresProxy: true },
 ];
 
 export function getProviderForModel(modelId) {

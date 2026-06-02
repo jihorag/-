@@ -136,7 +136,19 @@ export function setBaseUrl(provider, url) {
   lsSet(KEY.baseUrls, cur);
 }
 
-export function getPrefs() { return { ...DEFAULT_PREFS, ...lsGet(KEY.prefs, {}) }; }
+// 구 모델 ID → 신 ID 매핑 (Gemini 3.1 의 정확한 generateContent 모델명으로 마이그레이션)
+const MODEL_ID_MIGRATE = {
+  'gemini-3.1-pro': 'gemini-3.1-pro-preview',
+  'gemini-3.1-flash': 'gemini-3.1-flash-lite',
+};
+export function getPrefs() {
+  const merged = { ...DEFAULT_PREFS, ...lsGet(KEY.prefs, {}) };
+  if (merged.model && MODEL_ID_MIGRATE[merged.model]) {
+    merged.model = MODEL_ID_MIGRATE[merged.model];
+    lsSet(KEY.prefs, merged);
+  }
+  return merged;
+}
 export function setPrefs(patch) {
   const next = { ...getPrefs(), ...patch };
   lsSet(KEY.prefs, next);

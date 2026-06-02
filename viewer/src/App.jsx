@@ -2072,9 +2072,9 @@ const App = () => {
                             ['gpt-5.4', '🔵 GPT-5.4 (-30% vs Sonnet)'],
                             ['gpt-5.4-mini', '🔵 GPT-5.4 mini (-80%)'],
                           ]},
-                          { group: 'Google — 프록시 필요', items: [
-                            ['gemini-3.1-pro', '🟢 Gemini 3.1 Pro (-43%)'],
-                            ['gemini-3.1-flash', '🟢 Gemini 3.1 Flash (-85%)'],
+                          { group: 'Google — 일부 환경 직호출 가능', items: [
+                            ['gemini-3.1-pro-preview', '🟢 Gemini 3.1 Pro (-43%)'],
+                            ['gemini-3.1-flash-lite', '🟢 Gemini 3.1 Flash Lite (-85%)'],
                           ]},
                         ].map((grp) => (
                           <div key={grp.group}>

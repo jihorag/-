@@ -2526,9 +2526,9 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                 <option value="gpt-5.4">🔵 GPT-5.4</option>
                 <option value="gpt-5.4-mini">🔵 GPT-5.4 mini</option>
               </optgroup>
-              <optgroup label="Google (프록시 필요)">
-                <option value="gemini-3.1-pro">🟢 Gemini 3.1 Pro</option>
-                <option value="gemini-3.1-flash">🟢 Gemini 3.1 Flash</option>
+              <optgroup label="Google (CORS 통과 가능 / 일부 프록시 필요)">
+                <option value="gemini-3.1-pro-preview">🟢 Gemini 3.1 Pro</option>
+                <option value="gemini-3.1-flash-lite">🟢 Gemini 3.1 Flash Lite</option>
               </optgroup>
             </select>
           </label>
