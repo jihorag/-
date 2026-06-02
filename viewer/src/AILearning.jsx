@@ -10,7 +10,7 @@
 //  - 오프라인 안내.
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Send, Settings as SettingsIcon, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play, BarChart3, ArrowRight } from 'lucide-react';
+import { Send, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play, BarChart3, ArrowRight } from 'lucide-react';
 import ParsedText from './ParsedText';
 import {
   getByok, setByok, getPrefs, setPrefs,
@@ -1215,7 +1215,6 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [streaming, setStreaming] = useState(false);
   const [draft, setDraft] = useState('');
   const [error, setError] = useState('');
-  const [showSettings, setShowSettings] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
   // 5과목 leaves 캐시 — App.jsx에서 미리 받아둔 props 사용. fallback으로 자체 fetch.
@@ -1682,7 +1681,6 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         setCurrent(next);
       }
     }
-    setShowSettings(false);
     setShowHistory(false);
     setShowAnalytics(false);
     if (typeof window !== 'undefined' && window.alert) {
@@ -1720,22 +1718,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
             <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
           </button>
-          <button onClick={() => setShowSettings((v) => !v)} title="설정" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
-            <SettingsIcon size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
-          </button>
         </div>
       </header>
-      {showSettings && (
-        <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
-          <SettingsPanel
-            prefs={prefs}
-            usage={getUsage()}
-            onSave={(patch) => { const next = setPrefs(patch); setPrefsState(next); }}
-            onClearKey={() => { setByok(null); setByokState(''); }}
-            onResetProgress={doResetProgress}
-          />
-        </div>
-      )}
       {showHistory && (
         <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
           <HistoryPanel
@@ -2000,9 +1984,6 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
           <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
         </button>
-        <button onClick={() => setShowSettings((v) => !v)} title="설정" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
-          <SettingsIcon size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
-        </button>
       </header>
       {recentChips.length > 0 && (
         <div style={{ padding: '4px 8px', borderBottom: '1px solid #f3f4f6', background: '#fafafa', display: 'flex', gap: 4, overflowX: 'auto' }}>
@@ -2135,18 +2116,6 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           </div>
         )}
       </div>
-
-      {showSettings && (
-        <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
-          <SettingsPanel
-            prefs={prefs}
-            usage={getUsage()}
-            onSave={(patch) => { const next = setPrefs(patch); setPrefsState(next); }}
-            onClearKey={() => { setByok(null); setByokState(''); }}
-            onResetProgress={doResetProgress}
-          />
-        </div>
-      )}
 
       {/* 단원 picker 모달 — 헤더 박스 클릭 시 */}
       {showLeafPickerModal && (
