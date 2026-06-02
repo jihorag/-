@@ -1179,15 +1179,6 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const prevLeaf = curIndex > 0 ? leaves[curIndex - 1] : null;
   const nextLeaf = curIndex >= 0 && curIndex < leaves.length - 1 ? leaves[curIndex + 1] : null;
 
-  // 메시지 1건 이상 쌓인 방만, 현재 leaf 제외, 상위 6개
-  const recentChips = useMemo(() => {
-    return recentRooms
-      .filter((r) => r.leafId !== current?.leaf_id)
-      .slice(0, 6)
-      .map((r) => ({ ...r, leaf: leaves.find((l) => l.id === r.leafId) }))
-      .filter((x) => x.leaf);
-  }, [recentRooms, leaves, current?.leaf_id]);
-
   // 취약 leaf 매칭 — 과목별 dict 우선, 단일 props weakPaths fallback
   useEffect(() => {
     if (!leaves.length) return;
@@ -1839,27 +1830,6 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
         </button>
       </header>
-      {recentChips.length > 0 && (
-        <div style={{ padding: '4px 8px', borderBottom: '1px solid #f3f4f6', background: '#fafafa', display: 'flex', gap: 4, overflowX: 'auto' }}>
-          <span style={{ fontSize: '0.7rem', color: '#9ca3af', alignSelf: 'center', flex: '0 0 auto', padding: '0 4px' }}>최근:</span>
-          {recentChips.map((r) => (
-            <button
-              key={r.leafId}
-              onClick={() => pickLeaf(r.leaf)}
-              title={r.leaf.path.join(' › ')}
-              style={{
-                flex: '0 0 auto', padding: '3px 10px', borderRadius: 12,
-                background: '#fff', border: '1px solid #e5e7eb', color: '#374151',
-                fontSize: '0.72rem', fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap',
-              }}
-            >
-              {r.leaf.path.slice(-1)[0]}
-              <span style={{ color: '#9ca3af', marginLeft: 4 }}>{r.msg_count}</span>
-            </button>
-          ))}
-        </div>
-      )}
-
       {due.length > 0 && (
         <div style={{
           padding: '6px 12px', background: '#fef3c7', borderBottom: '1px solid #fcd34d',
