@@ -1954,8 +1954,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         );
       })()}
 
-      <div style={{ padding: '8px 12px', borderBottom: '1px solid #e5e7eb', background: '#f9fafb' }}>
-        <div style={{ display: 'flex', gap: 4, marginBottom: 8, overflowX: 'auto', paddingBottom: 2 }}>
+      <div style={{ padding: '4px 12px', borderBottom: '1px solid #e5e7eb', background: '#f9fafb' }}>
+        <div style={{ display: 'flex', gap: 4, marginBottom: 0, overflowX: 'auto', paddingBottom: 2 }}>
           {(() => {
             const isStage2 = getSubjectMeta(subjectId)?.stage === 2;
             if (!isStage2) {
@@ -1982,17 +1982,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               onClick={() => setMode(k)}
               title={desc}
               style={{
-                flex: '0 0 auto', padding: '6px 10px', borderRadius: 8,
+                flex: '0 0 auto', padding: '4px 10px', borderRadius: 999,
                 border: mode === k ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
                 background: mode === k ? '#eef2ff' : '#fff',
                 color: mode === k ? '#1d4ed8' : '#374151',
-                fontWeight: 700, fontSize: '0.78rem', cursor: 'pointer',
-                display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 56,
-                lineHeight: 1.1,
+                fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer',
+                display: 'inline-flex', alignItems: 'center', gap: 5,
+                lineHeight: 1.2, whiteSpace: 'nowrap',
               }}
             >
-              <span style={{ fontSize: '1rem' }}>{icon}</span>
-              <span style={{ marginTop: 2 }}>{label}</span>
+              <span style={{ fontSize: '0.9rem' }}>{icon}</span>
+              <span>{label}</span>
             </button>
           ))}
         </div>
