@@ -40,6 +40,8 @@ export const KEY = {
   msgRatings: 'ailearn-msg-ratings',
   // Phase β — D-day 시험 플래너
   examPlan: 'ailearn-exam-plan',
+  // Phase ε — 학습 streak
+  streak: 'ailearn-streak',
 };
 
 export const DEFAULT_PREFS = {
@@ -366,6 +368,39 @@ export function rateMsg(msgKey, rating) {
   if (rating === 0 || rating == null) delete all[msgKey];
   else all[msgKey] = { rating, ts: new Date().toISOString() };
   lsSet(KEY.msgRatings, all);
+}
+
+// ── Phase ε: 학습 streak (연속 학습일) ──────────
+// 매 메시지 송신 시 markActiveToday() 호출. 자동으로 streak 누적/초기화.
+export function getStreak() {
+  return lsGet(KEY.streak, { current: 0, longest: 0, last_active: null, active_dates: [] });
+}
+export function markActiveToday() {
+  const today = todayKey();
+  const s = getStreak();
+  if (s.last_active === today) return s;
+  // active_dates 누적 (최근 60일만)
+  const dates = new Set(s.active_dates || []);
+  dates.add(today);
+  const sortedDates = Array.from(dates).sort();
+  const recent = sortedDates.slice(-60);
+  // current streak 계산
+  const yesterday = (() => {
+    const d = new Date(); d.setDate(d.getDate() - 1);
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  })();
+  let cur = 1;
+  if (s.last_active === yesterday) cur = (s.current || 0) + 1;
+  // 어제도 아니고 오늘도 아니면 1로 reset
+  const longest = Math.max(s.longest || 0, cur);
+  const next = { current: cur, longest, last_active: today, active_dates: recent };
+  lsSet(KEY.streak, next);
+  return next;
+}
+export function isActiveOnDate(dateStr) {
+  const s = getStreak();
+  return (s.active_dates || []).includes(dateStr);
 }
 
 // ── Phase β: 약점 탐지 — mastery + 답안 점수 가중 ──────────

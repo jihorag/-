@@ -29,8 +29,10 @@ import {
   getApiKey, getBaseUrls, setApiKey, setBaseUrl,
   appendAnswer,
   getMsgRatings, rateMsg, addNote,
+  markActiveToday,
 } from './aiLearningStore';
 import AnswerHistoryWidget from './AnswerHistoryWidget';
+import { SpeakButton } from './Speech';
 import { buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
 import { sendMessagesUnified, getProviderForModel } from './aiProviders';
 
@@ -951,6 +953,7 @@ function MessageBubble({ msg, fadeIn, leafId, leafTitle }) {
             <button onClick={saveAsNote} title="노트로 저장" style={msgBtn(savedToNote ? '#dbeafe' : '#fff', savedToNote ? '#1d4ed8' : '#6b7280')}>
               {savedToNote ? '✓ 저장됨' : '💾'}
             </button>
+            <SpeakButton text={msg.content} />
           </div>
         )}
       </div>
@@ -1421,6 +1424,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         cache_write: usage.cache_creation_input_tokens || 0,
         output_tokens: usage.output_tokens || 0,
       });
+      try { markActiveToday(); } catch { /* noop */ }
       const blocks = extractJsonBlocks(out);
       let coverageBumped = false;
       blocks.forEach((b) => {
