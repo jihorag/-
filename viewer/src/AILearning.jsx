@@ -39,6 +39,21 @@ const indexUrl = (subjectId) => {
 const handoverUrl = (subjectId) => `/data/study/${subjectId}/handover.md`;
 const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
+// PC(≥1024px) 감지 — 2컬럼 레이아웃 분기용. 모바일/태블릿은 기존 단일 컬럼 유지.
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches
+  );
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const handler = (e) => setIsDesktop(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return isDesktop;
+}
+
 // 2차 ai_index.json 을 1차 leaves 배열 호환 구조로 변환
 function normalizeStage2Index(idx) {
   if (!idx || idx.stage !== 2) return idx;
@@ -1038,6 +1053,7 @@ const IDLE_MS = 10 * 60 * 1000; // 10분
 
 export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPathsBySubject, leavesBySubject: leavesBySubjectProp, onJumpToBrowse, getQuizCountForLeaf, quizStatsByLeaf }) {
   useEffect(() => { migrateLegacyCivilIds(); }, []);
+  const isDesktop = useIsDesktop();
   const [byok, setByokState] = useState(getByok());
   const [prefs, setPrefsState] = useState(getPrefs());
   const [indexMeta, setIndexMeta] = useState(null);
@@ -1718,7 +1734,41 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       </div>
     </div>
     ) : (
-    <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 1100, margin: '0 auto', width: '100%' }}>
+    <div style={isDesktop ? {
+      display: 'grid',
+      gridTemplateColumns: '320px 1fr',
+      gap: 0,
+      height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))',
+      maxWidth: 1600,
+      margin: '0 auto',
+      width: '100%',
+    } : { display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 1100, margin: '0 auto', width: '100%' }}>
+      {/* PC 전용 좌측 단원 사이드바 — LeafPicker inline */}
+      {isDesktop && (
+        <aside style={{
+          borderRight: '1px solid #e5e7eb', background: '#fafafa',
+          display: 'flex', flexDirection: 'column', overflow: 'hidden',
+        }}>
+          <div style={{ padding: '10px 12px', borderBottom: '1px solid #e5e7eb', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ fontWeight: 800, fontSize: '0.88rem', color: '#111827' }}>📂 {getSubjectMeta(subjectId)?.title || '과목'}</div>
+            <button onClick={() => setAiView('home')} title="과목 변경" style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '0.75rem', fontWeight: 700 }}>
+              과목 ▾
+            </button>
+          </div>
+          <div style={{ flex: 1, overflowY: 'auto', padding: 8 }}>
+            <LeafPicker
+              inline
+              leaves={leaves}
+              current={current}
+              onPick={(leaf) => pickLeaf(leaf)}
+              mastery={mastery}
+              due={due}
+              quizStatsByLeaf={quizStatsByLeaf}
+            />
+          </div>
+        </aside>
+      )}
+      <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, height: '100%' }}>
       <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', gap: 6, padding: '6px 8px' }}>
         <button
           onClick={() => setAiView('home')}
@@ -2576,6 +2626,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           )}
         </div>
       </div>
+      </div>{/* /right column (PC) — wrapper added for 2-col grid */}
     </div>
     )
   );
