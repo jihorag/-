@@ -6,6 +6,8 @@ import VizGallery from './viz/VizGallery';
 import WeaknessPanel from './WeaknessPanel';
 import DDayPlanner from './DDayPlanner';
 import NotesPanel from './NotesPanel';
+import StreakBadge from './StreakBadge';
+import UsageDashboard from './UsageDashboard';
 import ToastContainer, { toast } from './Toast';
 import CmdK from './CmdK';
 import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
@@ -3881,10 +3883,13 @@ const App = () => {
             <span style={{ fontSize: '0.8rem', color: '#9ca3af' }}>관리 →</span>
           </button>
 
-          {/* Phase β·γ — 신규 패널 통합 */}
+          {/* Phase β·γ·δ·ε — 신규 패널 통합 */}
           <h2 style={{ fontSize: '1.05rem', fontWeight: 800, margin: '24px 0 10px', color: '#111827' }}>
             🎯 학습 통찰
           </h2>
+          <div style={{ marginBottom: 12 }}>
+            <StreakBadge />
+          </div>
           <div style={{ marginBottom: 12 }}>
             <DDayPlanner leavesBySubject={leavesBySubject} />
           </div>
@@ -3911,6 +3916,10 @@ const App = () => {
               }}
             />
           </div>
+          <h2 style={{ fontSize: '1.05rem', fontWeight: 800, margin: '24px 0 10px', color: '#111827' }}>
+            📈 관측 데이터
+          </h2>
+          <UsageDashboard />
         </main>
       </div>
     );
@@ -4111,6 +4120,9 @@ const App = () => {
           <p style={{ marginTop: '6px', opacity: 0.85, fontSize: '0.9rem', fontWeight: 500 }}>
             {nickname ? `${nickname}님, 오늘도 한 걸음 더` : '오늘도 한 걸음 더'}
           </p>
+          <div style={{ marginTop: 8 }}>
+            <StreakBadge compact />
+          </div>
         </div>
       </div>
 

@@ -66,12 +66,22 @@ export function listTemplates() {
 // AI 시스템 프롬프트에 주입할 카탈로그 텍스트 생성 (per-subject 필터).
 // subjects: 단일 string (subject_id) 또는 array, undefined → 전체
 // 출력: handover.md 의 [VIZ_CATALOG] 섹션과 동일 포맷 — 그대로 system block 에 캐시됨.
+// 사용 통계 기반으로 자주 쓰이는 순으로 정렬 (높은 사용 ↔ AI 가 우선 검토).
 export function buildCatalog(subjects) {
   const subjectList = !subjects ? null
     : (Array.isArray(subjects) ? subjects : [subjects]);
-  const list = listTemplates().filter((t) =>
+  let list = listTemplates().filter((t) =>
     !subjectList || (t.subjects || []).some((s) => subjectList.includes(s))
   );
+  // 사용량 정렬 — localStorage 의 viz-usage 활용 (browser only)
+  try {
+    const usage = JSON.parse(typeof localStorage !== 'undefined' ? (localStorage.getItem('ailearn-viz-usage') || '{}') : '{}');
+    list = list.slice().sort((a, b) => {
+      const ua = usage[a.name]?.ok || 0;
+      const ub = usage[b.name]?.ok || 0;
+      return ub - ua;
+    });
+  } catch { /* noop */ }
   if (!list.length) return '';
   const header = `## [VIZ_CATALOG] 시각자료 사용 규칙 (자동 생성, registry 기반)
 
