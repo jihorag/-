@@ -4727,49 +4727,58 @@ const App = () => {
           </div>
         ))}
 
-        {/* 보조 — 시험별/연도별 등 다른 둘러보기 토글 */}
-        <details style={{ marginTop: 20, background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 12, padding: 12 }}>
-          <summary style={{ cursor: 'pointer', fontWeight: 700, color: '#1f2937', fontSize: '0.92rem' }}>
-            🗂️ 다른 방식으로 둘러보기 (시험별 · 단원별 · 연도별)
-          </summary>
-          <div style={{ marginTop: 12 }}>
-            <div className="view-toggle">
+        {/* 🗂️ 다른 방식으로 둘러보기 — 본 UI 통합 */}
+        <div style={{ marginTop: 4 }}>
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            marginBottom: 10, gap: 8, flexWrap: 'wrap',
+          }}>
+            <div style={{ fontSize: '1rem', color: '#111827', fontWeight: 800, display: 'flex', alignItems: 'center', gap: 6 }}>
+              🗂️ 다른 방식으로 둘러보기
+            </div>
+            <div style={{ display: 'flex', gap: 4, background: '#eef2ff', padding: 3, borderRadius: 10, border: '1px solid #c7d2fe' }}>
               {viewModeTabs.map(([mode, label]) => (
                 <button
                   key={mode}
-                  className={viewMode === mode ? 'active' : ''}
                   onClick={() => switchTab(mode)}
+                  style={{
+                    padding: '6px 12px', borderRadius: 7, border: 'none',
+                    background: viewMode === mode ? '#4f46e5' : 'transparent',
+                    color: viewMode === mode ? '#fff' : '#4338ca',
+                    fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer',
+                    transition: 'all 0.15s',
+                  }}
                 >
                   {label}
                 </button>
               ))}
             </div>
-            <div className="study-grid" style={{ marginTop: 12 }}>
-              {activeGroups.map((group, idx) => {
-                const s = progressStats(cardQuestions(group), progress);
-                const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
-                const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
-                return (
-                  <div key={idx} className="study-card" onClick={() => handleGroupClick(group)}>
-                    {dm && (
-                      <div className="card-badge" style={{ background: dm.bg, color: dm.fg, border: 'none' }}>
-                        난이도 {s.avgDiff.toFixed(1)}
-                      </div>
-                    )}
-                    <h3 className="card-title">{group.title}</h3>
-                    <div className="card-total">
-                      {group.total}문제{s.answered > 0 && <> · 학습 {s.answered}<span style={{ color: '#374151' }}>/{s.total}</span></>}
-                    </div>
-                    <div className="card-progress-container">
-                      <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
-                    </div>
-                    <div className="play-btn">풀기</div>
-                  </div>
-                );
-              })}
-            </div>
           </div>
-        </details>
+          <div className="study-grid">
+            {activeGroups.map((group, idx) => {
+              const s = progressStats(cardQuestions(group), progress);
+              const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
+              const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
+              return (
+                <div key={idx} className="study-card" onClick={() => handleGroupClick(group)}>
+                  {dm && (
+                    <div className="card-badge" style={{ background: dm.bg, color: dm.fg, border: 'none' }}>
+                      난이도 {s.avgDiff.toFixed(1)}
+                    </div>
+                  )}
+                  <h3 className="card-title">{group.title}</h3>
+                  <div className="card-total">
+                    {group.total}문제{s.answered > 0 && <> · 학습 {s.answered}<span style={{ color: '#374151' }}>/{s.total}</span></>}
+                  </div>
+                  <div className="card-progress-container">
+                    <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
+                  </div>
+                  <div className="play-btn">풀기</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </main>
     </div>
   );
