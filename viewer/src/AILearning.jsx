@@ -27,7 +27,9 @@ import {
   addMock, getMocks,
   SUBJECTS, SUBJECTS_BY_STAGE, getSubjectMeta,
 } from './aiLearningStore';
-import { sendMessages, buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
+import { buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
+import { sendMessagesUnified, getProviderForModel, modelRequiresProxy } from './aiProviders';
+import { getApiKey, getBaseUrls, setApiKey, setBaseUrl } from './aiLearningStore';
 
 const indexUrl = (subjectId) => {
   const s = SUBJECTS.find((x) => x.id === subjectId);
@@ -356,6 +358,13 @@ function SettingsPanel({ prefs, onSave, onClearKey, onResetProgress, usage }) {
   const today = usage[todayStr()] || { messages: 0, input_tokens: 0, cache_read: 0, cache_write: 0, output_tokens: 0 };
   const cacheTotal = (today.cache_read || 0) + (today.cache_write || 0);
   const cacheHit = cacheTotal > 0 ? Math.round(((today.cache_read || 0) / cacheTotal) * 100) : 0;
+  // 선택된 모델의 프로바이더에 따라 키 입력 UI 가변
+  const provider = getProviderForModel(prefs.model);
+  const needsProxy = modelRequiresProxy(prefs.model);
+  const [openaiKey, setOpenaiKeyState] = useState(getApiKey('openai') || '');
+  const [googleKey, setGoogleKeyState] = useState(getApiKey('google') || '');
+  const [openaiBase, setOpenaiBaseState] = useState(getBaseUrls().openai || '');
+  const [googleBase, setGoogleBaseState] = useState(getBaseUrls().google || '');
   return (
     <div style={{ padding: 16, background: '#fff', borderRadius: 12, border: '1px solid #e5e7eb' }}>
       <h3 style={{ margin: '0 0 12px 0', fontSize: '1rem' }}>설정</h3>
@@ -365,9 +374,19 @@ function SettingsPanel({ prefs, onSave, onClearKey, onResetProgress, usage }) {
         onChange={(e) => onSave({ model: e.target.value })}
         style={{ width: '100%', padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.9rem', marginBottom: 12 }}
       >
-        <option value={MODELS.primary}>Sonnet 4.6 (균형)</option>
-        <option value={MODELS.fast}>Haiku 4.5 (빠름·저렴 ⚡)</option>
-        <option value={MODELS.premium}>Opus 4.7 (최고품질·비쌈)</option>
+        <optgroup label="Anthropic — 브라우저 직호출">
+          <option value="claude-sonnet-4-6">🎯 Sonnet 4.6 (균형, 권장)</option>
+          <option value="claude-haiku-4-5-20251001">⚡ Haiku 4.5 (빠름·저렴)</option>
+          <option value="claude-opus-4-7">🧠 Opus 4.7 (최고품질·비쌈)</option>
+        </optgroup>
+        <optgroup label="OpenAI — 프록시 baseUrl 필요">
+          <option value="gpt-5.4">🔵 GPT-5.4 (-30% vs Sonnet)</option>
+          <option value="gpt-5.4-mini">🔵 GPT-5.4 mini (-80%)</option>
+        </optgroup>
+        <optgroup label="Google — 프록시 baseUrl 필요">
+          <option value="gemini-3.1-pro">🟢 Gemini 3.1 Pro (-43% vs Sonnet)</option>
+          <option value="gemini-3.1-flash">🟢 Gemini 3.1 Flash (-85%)</option>
+        </optgroup>
       </select>
       <label style={{ display: 'block', fontSize: '0.85rem', color: '#374151', marginBottom: 4 }}>
         응답 길이 상한 (max_tokens) — 줄이면 더 빠른 응답
@@ -1404,12 +1423,23 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         answer_write: 1200, mock_full: 1100, calc_s2: 900,
       };
       const effectiveMax = prefs.max_tokens || modeMaxTokens[mode] || 800;
-      const { text: out, usage } = await sendMessages({
-        apiKey: byok,
+      // 모델에 따라 프로바이더 자동 선택 (claude/gpt/gemini). OpenAI·Gemini 는 baseUrl 프록시 필수.
+      const provider = getProviderForModel(prefs.model);
+      const providerKey = provider === 'anthropic' ? byok : getApiKey(provider);
+      const baseUrls = getBaseUrls();
+      if (!providerKey) {
+        throw new Error(`${provider === 'openai' ? 'OpenAI' : provider === 'google' ? 'Google' : 'Anthropic'} API 키가 설정되지 않았습니다. 설정에서 입력해주세요.`);
+      }
+      if (modelRequiresProxy(prefs.model) && !baseUrls[provider]) {
+        throw new Error(`${provider === 'openai' ? 'GPT' : 'Gemini'} 모델은 CORS 차단으로 인해 프록시 baseUrl 이 필요합니다. 설정에서 입력해주세요.`);
+      }
+      const { text: out, usage } = await sendMessagesUnified({
+        apiKey: providerKey,
         model: prefs.model,
         system,
         messages: apiMessages,
         maxTokens: effectiveMax,
+        baseUrl: baseUrls[provider],
         signal: ac.signal,
         onDelta: useStream ? ((_chunk, agg) => setDraft(agg)) : undefined,
       });
@@ -2596,9 +2626,19 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               }}
               title="응답 중에는 변경할 수 없습니다"
             >
-              <option value={MODELS.primary}>🎯 Sonnet 4.6</option>
-              <option value={MODELS.fast}>⚡ Haiku 4.5</option>
-              <option value={MODELS.premium}>🧠 Opus 4.7</option>
+              <optgroup label="Anthropic (브라우저 직호출)">
+                <option value="claude-sonnet-4-6">🎯 Sonnet 4.6</option>
+                <option value="claude-haiku-4-5-20251001">⚡ Haiku 4.5</option>
+                <option value="claude-opus-4-7">🧠 Opus 4.7</option>
+              </optgroup>
+              <optgroup label="OpenAI (프록시 필요)">
+                <option value="gpt-5.4">🔵 GPT-5.4</option>
+                <option value="gpt-5.4-mini">🔵 GPT-5.4 mini</option>
+              </optgroup>
+              <optgroup label="Google (프록시 필요)">
+                <option value="gemini-3.1-pro">🟢 Gemini 3.1 Pro</option>
+                <option value="gemini-3.1-flash">🟢 Gemini 3.1 Flash</option>
+              </optgroup>
             </select>
           </label>
         </div>

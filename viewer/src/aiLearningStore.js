@@ -18,7 +18,10 @@
 //   ailearn-assessments                : [{ session_id, code, score, comments, next_topic, ts }]
 
 export const KEY = {
-  byok: 'ailearn-byok',
+  byok: 'ailearn-byok',                              // Anthropic (legacy 호환)
+  byokOpenai: 'ailearn-byok-openai',                 // OpenAI API key
+  byokGoogle: 'ailearn-byok-google',                 // Google AI API key
+  baseUrls: 'ailearn-base-urls',                     // 프록시 URL { openai, google }
   prefs: 'ailearn-prefs',
   current: 'ailearn-current',
   mastery: 'ailearn-mastery',
@@ -112,6 +115,26 @@ function lsSet(key, val) {
 
 export function getByok() { return lsGet(KEY.byok, ''); }
 export function setByok(k) { lsSet(KEY.byok, k || null); }
+
+// 멀티-프로바이더 키 (provider: 'anthropic' | 'openai' | 'google')
+export function getApiKey(provider) {
+  if (provider === 'openai') return lsGet(KEY.byokOpenai, '');
+  if (provider === 'google') return lsGet(KEY.byokGoogle, '');
+  return lsGet(KEY.byok, ''); // anthropic 기본
+}
+export function setApiKey(provider, k) {
+  if (provider === 'openai') return lsSet(KEY.byokOpenai, k || null);
+  if (provider === 'google') return lsSet(KEY.byokGoogle, k || null);
+  return lsSet(KEY.byok, k || null);
+}
+
+// 프록시 baseUrl (CORS 우회용) — { openai?: 'https://my-proxy.workers.dev', google?: '...' }
+export function getBaseUrls() { return lsGet(KEY.baseUrls, {}); }
+export function setBaseUrl(provider, url) {
+  const cur = getBaseUrls();
+  cur[provider] = url || undefined;
+  lsSet(KEY.baseUrls, cur);
+}
 
 export function getPrefs() { return { ...DEFAULT_PREFS, ...lsGet(KEY.prefs, {}) }; }
 export function setPrefs(patch) {
