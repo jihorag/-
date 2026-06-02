@@ -29,7 +29,7 @@ import {
   getApiKey, getBaseUrls, setApiKey, setBaseUrl,
 } from './aiLearningStore';
 import { buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
-import { sendMessagesUnified, getProviderForModel, modelRequiresProxy } from './aiProviders';
+import { sendMessagesUnified, getProviderForModel } from './aiProviders';
 
 const indexUrl = (subjectId) => {
   const s = SUBJECTS.find((x) => x.id === subjectId);
@@ -1336,15 +1336,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         answer_write: 1200, mock_full: 1100, calc_s2: 900,
       };
       const effectiveMax = prefs.max_tokens || modeMaxTokens[mode] || 800;
-      // 모델에 따라 프로바이더 자동 선택 (claude/gpt/gemini). OpenAI·Gemini 는 baseUrl 프록시 필수.
+      // 모델에 따라 프로바이더 자동 선택 (claude/gpt/gemini).
+      // OpenAI·Gemini 는 보통 CORS 차단되지만, 일부 환경(extension, 프록시 헤더, 정책 변경)에서 통과될 수 있어 일단 시도.
+      // 실패하면 catch 에서 안내.
       const provider = getProviderForModel(prefs.model);
+      const providerName = provider === 'openai' ? 'OpenAI' : provider === 'google' ? 'Google' : 'Anthropic';
       const providerKey = provider === 'anthropic' ? byok : getApiKey(provider);
       const baseUrls = getBaseUrls();
       if (!providerKey) {
-        throw new Error(`${provider === 'openai' ? 'OpenAI' : provider === 'google' ? 'Google' : 'Anthropic'} API 키가 설정되지 않았습니다. 설정에서 입력해주세요.`);
-      }
-      if (modelRequiresProxy(prefs.model) && !baseUrls[provider]) {
-        throw new Error(`${provider === 'openai' ? 'GPT' : 'Gemini'} 모델은 CORS 차단으로 인해 프록시 baseUrl 이 필요합니다. 설정에서 입력해주세요.`);
+        throw new Error(`${providerName} API 키가 설정되지 않았습니다. 우상단 ⚙️ 설정에서 입력해주세요.`);
       }
       const { text: out, usage } = await sendMessagesUnified({
         apiKey: providerKey,
@@ -1430,7 +1430,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         updateSession(sessionId, { msg_count: history.length + 1 });
       }
     } catch (e) {
-      if (e.name !== 'AbortError') setError('Claude 호출 실패: ' + e.message);
+      if (e.name !== 'AbortError') {
+        const isNet = e.message && /fetch|network|cors|failed to fetch/i.test(e.message);
+        const provName = getProviderForModel(prefs.model);
+        const provLabel = provName === 'openai' ? 'GPT' : provName === 'google' ? 'Gemini' : 'Claude';
+        const corsHint = isNet && provName !== 'anthropic'
+          ? ` (브라우저 CORS 차단 가능성 — 설정에서 프록시 baseUrl 입력 또는 Anthropic 모델로 전환)`
+          : '';
+        setError(`${provLabel} 호출 실패: ${e.message}${corsHint}`);
+      }
     } finally {
       setStreaming(false);
       setDraft('');
