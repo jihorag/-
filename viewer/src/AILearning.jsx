@@ -151,8 +151,8 @@ function MasteryBar({ value, color = '#4f46e5' }) {
 
 // 평탄 leaf 리스트를 들여쓰기로 시각화하는 picker.
 // path 길이에 따른 들여쓰기 + 검색.
-function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf }) {
-  const [open, setOpen] = useState(false);
+function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf, inline = false }) {
+  const [open, setOpen] = useState(inline);
   const [q, setQ] = useState('');
   const cur = leaves.find((l) => l.id === current?.leaf_id);
   // 트리 그룹화: subject → chapter → section → item
@@ -180,25 +180,29 @@ function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf }) 
 
   return (
     <div style={{ position: 'relative' }}>
-      <button
-        onClick={() => setOpen((v) => !v)}
-        style={{
-          width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '10px 14px', background: '#fff', border: '1px solid #d1d5db', borderRadius: 10,
-          fontSize: '0.92rem', fontWeight: 700, cursor: 'pointer', color: '#111827',
-          textAlign: 'left',
-        }}
-      >
-        <span style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 1, minWidth: 0 }}>
-          <BookOpen size={18} color="#4f46e5" />
-          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-            {cur ? cur.path.slice(1).join(' › ') || cur.path[0] : '단원 선택'}
+      {!inline && (
+        <button
+          onClick={() => setOpen((v) => !v)}
+          style={{
+            width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '10px 14px', background: '#fff', border: '1px solid #d1d5db', borderRadius: 10,
+            fontSize: '0.92rem', fontWeight: 700, cursor: 'pointer', color: '#111827',
+            textAlign: 'left',
+          }}
+        >
+          <span style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 1, minWidth: 0 }}>
+            <BookOpen size={18} color="#4f46e5" />
+            <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              {cur ? cur.path.slice(1).join(' › ') || cur.path[0] : '단원 선택'}
+            </span>
           </span>
-        </span>
-        <ChevronDown size={18} />
-      </button>
+          <ChevronDown size={18} />
+        </button>
+      )}
       {open && (
-        <div style={{
+        <div style={inline ? {
+          background: '#fff', border: '1px solid #e5e7eb', borderRadius: 10,
+        } : {
           position: 'absolute', top: 'calc(100% + 4px)', left: 0, right: 0, zIndex: 30,
           background: '#fff', border: '1px solid #d1d5db', borderRadius: 10,
           maxHeight: 480, overflowY: 'auto', boxShadow: '0 8px 24px rgba(0,0,0,.12)',
@@ -233,7 +237,7 @@ function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf }) 
                       {chName}
                     </div>
                     {ch._leaf && matchQ(ch._leaf) && (
-                      <LeafButton leaf={ch._leaf} active={ch._leaf.id === current?.leaf_id} mastery={mastery} due={dueIds} quizStatsByLeaf={quizStatsByLeaf} onPick={() => { onPick(ch._leaf); setOpen(false); }} depth={1} />
+                      <LeafButton leaf={ch._leaf} active={ch._leaf.id === current?.leaf_id} mastery={mastery} due={dueIds} quizStatsByLeaf={quizStatsByLeaf} onPick={() => { onPick(ch._leaf); if (!inline) setOpen(false); }} depth={1} />
                     )}
                     {Object.entries(ch.sections).map(([secName, sec]) => {
                       const secLeaves = sec._leaf ? [sec._leaf, ...Object.values(sec.items)] : Object.values(sec.items);
@@ -241,13 +245,13 @@ function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf }) 
                       return (
                         <div key={secName}>
                           {sec._leaf && matchQ(sec._leaf) && (
-                            <LeafButton leaf={sec._leaf} active={sec._leaf.id === current?.leaf_id} mastery={mastery} due={dueIds} quizStatsByLeaf={quizStatsByLeaf} onPick={() => { onPick(sec._leaf); setOpen(false); }} depth={1} sectionLabel={secName} />
+                            <LeafButton leaf={sec._leaf} active={sec._leaf.id === current?.leaf_id} mastery={mastery} due={dueIds} quizStatsByLeaf={quizStatsByLeaf} onPick={() => { onPick(sec._leaf); if (!inline) setOpen(false); }} depth={1} sectionLabel={secName} />
                           )}
                           {!sec._leaf && Object.keys(sec.items).length > 0 && (
                             <div style={{ padding: '4px 12px 2px 24px', fontSize: '0.76rem', color: '#6b7280' }}>{secName}</div>
                           )}
                           {Object.values(sec.items).filter(matchQ).map((it) => (
-                            <LeafButton key={it.id} leaf={it} active={it.id === current?.leaf_id} mastery={mastery} due={dueIds} quizStatsByLeaf={quizStatsByLeaf} onPick={() => { onPick(it); setOpen(false); }} depth={2} />
+                            <LeafButton key={it.id} leaf={it} active={it.id === current?.leaf_id} mastery={mastery} due={dueIds} quizStatsByLeaf={quizStatsByLeaf} onPick={() => { onPick(it); if (!inline) setOpen(false); }} depth={2} />
                           ))}
                         </div>
                       );
@@ -2029,8 +2033,9 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               <div style={{ fontWeight: 800, color: '#111827' }}>📂 단원 선택</div>
               <button onClick={() => setShowLeafPickerModal(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '1.1rem' }}>✕</button>
             </div>
-            <div style={{ padding: 12, overflowY: 'auto' }}>
+            <div style={{ padding: 12, overflowY: 'auto', flex: 1 }}>
               <LeafPicker
+                inline
                 leaves={leaves}
                 current={current}
                 onPick={(leaf) => { pickLeaf(leaf); setShowLeafPickerModal(false); }}
