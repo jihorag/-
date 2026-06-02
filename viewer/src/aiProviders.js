@@ -65,11 +65,13 @@ async function sendOpenAI({ apiKey, model, system, messages, maxTokens, baseUrl,
   for (const m of messages) {
     apiMsgs.push({ role: m.role, content: flattenMessageContent(m.content) });
   }
+  // GPT-5 시리즈는 max_tokens 대신 max_completion_tokens 사용. 구 모델은 max_tokens.
+  const isGpt5 = /^gpt-5/i.test(model);
   const body = {
     model,
     messages: apiMsgs,
-    max_tokens: maxTokens,
     stream,
+    ...(isGpt5 ? { max_completion_tokens: maxTokens } : { max_tokens: maxTokens }),
   };
   if (stream) body.stream_options = { include_usage: true };
   const res = await fetch(endpoint, {
