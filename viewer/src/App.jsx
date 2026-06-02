@@ -2136,6 +2136,33 @@ const App = () => {
                     <Section title="🔑 API 키 — 프로바이더 3개" desc="키 입력해두면 모델 전환 자유. 현재 활성 표시됨.">
                       <ApiKeysWidget activeProvider={getProviderForModel(aiPrefs.model)} onChange={() => setAiPrefsState({ ...aiPrefs })} />
                     </Section>
+                    <Section title="🗑️ 현재 단원 채팅 초기화" desc="지금 열려 있는 단원의 대화만 삭제. 진척도·다른 단원 채팅은 유지.">
+                      {(() => {
+                        let cur = null;
+                        try { cur = JSON.parse(localStorage.getItem('ailearn-current') || 'null'); } catch { /* noop */ }
+                        const leafId = cur?.leaf_id;
+                        if (!leafId) {
+                          return <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>활성 단원이 없습니다.</div>;
+                        }
+                        let msgCount = 0;
+                        try { msgCount = (JSON.parse(localStorage.getItem(`ailearn-room:${leafId}`) || '[]')).length; } catch { /* noop */ }
+                        return (
+                          <button
+                            onClick={() => {
+                              if (!window.confirm(`현재 단원 채팅(${msgCount}개 메시지)을 삭제하시겠습니까?\n진척도는 유지됩니다.`)) return;
+                              try { localStorage.removeItem(`ailearn-room:${leafId}`); } catch { /* noop */ }
+                              toast.success('단원 채팅 초기화 완료 · 새로고침합니다');
+                              setTimeout(() => window.location.reload(), 600);
+                            }}
+                            disabled={msgCount === 0}
+                            style={{ width: '100%', padding: '8px', background: msgCount === 0 ? '#f3f4f6' : '#fef2f2', color: msgCount === 0 ? '#9ca3af' : '#991b1b',
+                              border: `1px solid ${msgCount === 0 ? '#e5e7eb' : '#fecaca'}`, borderRadius: 8, fontSize: '0.82rem', fontWeight: 700,
+                              cursor: msgCount === 0 ? 'not-allowed' : 'pointer' }}>
+                            {msgCount === 0 ? '이 단원에 메시지 없음' : `🗑️ ${msgCount}개 메시지 삭제`}
+                          </button>
+                        );
+                      })()}
+                    </Section>
                     <Section title="🎓 AI 학습 진척 초기화" desc="대화·세션·진척도 전부 삭제 (API 키·설정은 유지).">
                       <button
                         onClick={() => {

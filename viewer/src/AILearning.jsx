@@ -1807,18 +1807,27 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         >
           <ChevronRight size={20} color="#374151" />
         </button>
-        {messages.length > 0 && curLeaf && (
+        {curLeaf && (
           <button
-            onClick={() => askConfirm(`"${curLeaf.path.slice(-1)[0]}" 채팅방 초기화 (진척도는 유지)`, true, () => {
-              if (abortRef.current) abortRef.current.abort();
-              clearRoom(curLeaf.id);
-              setMessages([]);
-              setPendingNext(null);
-              setIdlePromptShown(false);
-              setRecentRooms(getAllRooms());
-            })}
-            title="이 채팅방 초기화"
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+            onClick={() => {
+              if (messages.length === 0) {
+                if (typeof window !== 'undefined') window.alert('이 단원엔 아직 대화가 없습니다.');
+                return;
+              }
+              askConfirm(`"${curLeaf.path.slice(-1)[0]}" 채팅방 초기화 (${messages.length}개 메시지 삭제, 진척도는 유지)`, true, () => {
+                if (abortRef.current) abortRef.current.abort();
+                clearRoom(curLeaf.id);
+                setMessages([]);
+                setPendingNext(null);
+                setIdlePromptShown(false);
+                setRecentRooms(getAllRooms());
+              });
+            }}
+            title={messages.length > 0 ? `이 채팅방 초기화 (${messages.length}개)` : '이 단원엔 대화 없음'}
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer', padding: 4,
+              opacity: messages.length === 0 ? 0.35 : 1,
+            }}
           >
             <Trash2 size={16} color="#ef4444" />
           </button>
