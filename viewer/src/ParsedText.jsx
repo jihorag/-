@@ -130,10 +130,30 @@ const renderInlines = (text, keyPrefix) => {
   return out;
 };
 
+// 미완성 마크다운 토큰 자동 보정 (streaming 중간 / max_tokens 절단 대응)
+function sanitizeMarkdown(text) {
+  if (!text) return text;
+  let t = String(text);
+  // ``` 코드블록 (가장 외곽) — 홀수면 닫기
+  const fenceCount = (t.match(/```/g) || []).length;
+  if (fenceCount % 2 === 1) t += '\n```';
+  // ** 굵게 — 홀수면 닫기
+  const starCount = (t.match(/\*\*/g) || []).length;
+  if (starCount % 2 === 1) t += '**';
+  // $$ 디스플레이 수식 — 홀수면 닫기
+  const ddCount = (t.match(/\$\$/g) || []).length;
+  if (ddCount % 2 === 1) t += '$$';
+  // 단일 $ 인라인 수식 — 홀수면 닫기 ($$ 사용분 제외)
+  const dollarCount = (t.match(/\$/g) || []).length;
+  const singleDollar = dollarCount - ddCount * 2;
+  if (singleDollar % 2 === 1) t += '$';
+  return t;
+}
+
 const renderTextBlock = (text, keyPrefix) => {
-  // 전처리 — **...** 안의 줄바꿈을 공백으로 정규화
-  // AI가 자주 `**\n텍스트**` 형태로 출력해서 줄 단위 split 후 매칭이 깨지는 문제 방지
-  const normalizedText = String(text || '').replace(
+  // ① 미완성 마크다운 보정 → ② **...** 안 줄바꿈 정규화
+  const sanitized = sanitizeMarkdown(text);
+  const normalizedText = String(sanitized || '').replace(
     /\*\*([\s\S]+?)\*\*/g,
     (match, inner) => '**' + inner.replace(/\s*\n+\s*/g, ' ').trim() + '**'
   );
