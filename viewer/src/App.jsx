@@ -4037,6 +4037,112 @@ const App = () => {
           );
         })()}
 
+        {/* ⚡ 4탭 빠른 진입 — AI학습·문제풀이·복습·현황 통합 허브 */}
+        {(() => {
+          const aiMastery = getAiMastery();
+          const aiDueArr = getAiDue();
+          const aiCur = (() => {
+            try { return JSON.parse(localStorage.getItem('ailearn-current') || 'null'); } catch { return null; }
+          })();
+          const allLeavesFlat = Object.values(leavesBySubject).flat();
+          const aiCurLeaf = aiCur ? allLeavesFlat.find((l) => l.id === aiCur.leaf_id) : null;
+          const aiMastered = Object.values(aiMastery).filter((m) => m?.status === 'mastered').length;
+          const overallPct = (() => {
+            const total = allLeavesFlat.length || 1;
+            const cov = allLeavesFlat.reduce((a, l) => a + (aiMastery[l.id]?.coverage || 0), 0) / total;
+            const quizPct = overall.total ? (overall.answered / overall.total) : 0;
+            return Math.round((cov * 0.5 + quizPct * 0.5) * 100);
+          })();
+          return (
+            <section style={{ marginBottom: 14 }}>
+              <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#111827', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 6 }}>
+                ⚡ 빠른 진입
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+                {/* 🤖 AI 학습 */}
+                <button
+                  onClick={() => setCurrentView('civil')}
+                  style={{
+                    padding: 14, textAlign: 'left', cursor: 'pointer',
+                    background: 'linear-gradient(160deg, #eef2ff 0%, #ffffff 100%)',
+                    border: '1px solid #c7d2fe', borderRadius: 12,
+                    display: 'flex', flexDirection: 'column', gap: 4,
+                  }}>
+                  <div style={{ fontSize: '1.3rem' }}>🤖</div>
+                  <div style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '1rem' }}>AI 학습</div>
+                  <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
+                    {aiCurLeaf ? `이어서: ${aiCurLeaf.path.slice(-1)[0]}` : '단원 선택 후 대화 시작'}
+                  </div>
+                  <div style={{ fontSize: '0.72rem', color: '#475569', marginTop: 2 }}>
+                    마스터 {aiMastered}{aiDueArr.length > 0 ? ` · 🔁 ${aiDueArr.length}` : ''}
+                  </div>
+                </button>
+                {/* 📚 문제풀이 */}
+                <button
+                  onClick={() => setCurrentView('dashboard')}
+                  style={{
+                    padding: 14, textAlign: 'left', cursor: 'pointer',
+                    background: 'linear-gradient(160deg, #ecfdf5 0%, #ffffff 100%)',
+                    border: '1px solid #a7f3d0', borderRadius: 12,
+                    display: 'flex', flexDirection: 'column', gap: 4,
+                  }}>
+                  <div style={{ fontSize: '1.3rem' }}>📚</div>
+                  <div style={{ fontWeight: 800, color: '#065f46', fontSize: '1rem' }}>문제풀이</div>
+                  <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
+                    {overall.answered > 0 ? `${overall.answered}/${overall.total} 풀이` : '8과목 기출 풀이'}
+                  </div>
+                  <div style={{ fontSize: '0.72rem', color: '#475569', marginTop: 2 }}>
+                    {coach?.skillAcc != null ? `정답률 ${coach.skillAcc}%` : '학습 시작'}
+                  </div>
+                </button>
+                {/* 🔁 복습 */}
+                <button
+                  onClick={() => { setReviewSubject(null); setCurrentView('reviewHome'); }}
+                  style={{
+                    padding: 14, textAlign: 'left', cursor: 'pointer',
+                    background: srs.due.length > 0 || aiDueArr.length > 0
+                      ? 'linear-gradient(160deg, #fef3c7 0%, #ffffff 100%)'
+                      : 'linear-gradient(160deg, #f9fafb 0%, #ffffff 100%)',
+                    border: srs.due.length > 0 || aiDueArr.length > 0 ? '1px solid #fcd34d' : '1px solid #e5e7eb',
+                    borderRadius: 12,
+                    display: 'flex', flexDirection: 'column', gap: 4,
+                  }}>
+                  <div style={{ fontSize: '1.3rem' }}>🔁</div>
+                  <div style={{ fontWeight: 800, color: srs.due.length > 0 || aiDueArr.length > 0 ? '#92400e' : '#374151', fontSize: '1rem' }}>
+                    복습
+                  </div>
+                  <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
+                    {srs.due.length > 0 || aiDueArr.length > 0
+                      ? `기출 ${srs.due.length} · AI ${aiDueArr.length}단원`
+                      : '복습 만기 없음'}
+                  </div>
+                  <div style={{ fontSize: '0.72rem', color: '#475569', marginTop: 2 }}>
+                    🔥 {analytics.streak}일 연속
+                  </div>
+                </button>
+                {/* 📊 현황 */}
+                <button
+                  onClick={() => setCurrentView('status')}
+                  style={{
+                    padding: 14, textAlign: 'left', cursor: 'pointer',
+                    background: 'linear-gradient(160deg, #fce7f3 0%, #ffffff 100%)',
+                    border: '1px solid #fbcfe8', borderRadius: 12,
+                    display: 'flex', flexDirection: 'column', gap: 4,
+                  }}>
+                  <div style={{ fontSize: '1.3rem' }}>📊</div>
+                  <div style={{ fontWeight: 800, color: '#9d174d', fontSize: '1rem' }}>현황</div>
+                  <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
+                    종합 학습률 {overallPct}%
+                  </div>
+                  <div style={{ fontSize: '0.72rem', color: '#475569', marginTop: 2 }}>
+                    {coach?.readiness != null ? `합격 준비도 ${coach.readiness}%` : '레이더·잔디·통계'}
+                  </div>
+                </button>
+              </div>
+            </section>
+          );
+        })()}
+
         {/* 감정평가사 1차 5과목 합격 준비도 — 단일 시험 multi-subject gauge */}
         {(() => {
           // 감정평가사 시험만 필터해서 과목별 readiness 계산
