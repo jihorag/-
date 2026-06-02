@@ -31,7 +31,7 @@ export const KEY = {
 };
 
 export const DEFAULT_PREFS = {
-  daily_cap: 50,
+  daily_cap: 500,
   model: 'claude-sonnet-4-6',
   max_tokens: 1200,
   hide_handover_hint: false,
