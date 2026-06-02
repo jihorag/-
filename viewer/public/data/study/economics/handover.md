@@ -94,8 +94,58 @@
 **사용 시점**: 확장/긴축 재정정책 (IS 이동) / 확장/긴축 통화정책 (LM 이동) / 정책조합 / 구축효과(crowding-out) 설명 시.  
 **규칙**: shift 후 균형점 변화 (Y, r 방향)는 컴포넌트가 자동 자막. shift 2개까지 가능 (예: IS 우, LM 우 = 정책조합).
 
+### phillips-curve — Phillips 곡선 (단·장기 + 기대 조정)
+```viz phillips-curve
+{"scenario": "<한 줄>",
+ "natural_unemployment": 0.5,
+ "expected_inflation": 0.0,
+ "short_run_visible": true,
+ "long_run_visible": true,
+ "shift": {"direction": "up|down", "magnitude": "small|moderate|large", "reason": "<왜>"},
+ "narration": "..."}
+```
+
+**사용 시점**: 유가 충격·기대 인플레이션 변화 / 자연실업률 개념 / 통화정책의 단기/장기 효과 / 스태그플레이션.
+
+### indifference-budget — 무차별곡선 + 예산선
+```viz indifference-budget
+{"scenario": "<한 줄>",
+ "preference_alpha": 0.5,
+ "price_ratio": 1.0,
+ "income_over_py": 1.0,
+ "x_label": "X재", "y_label": "Y재",
+ "narration": "..."}
+```
+
+**사용 시점**: 소비자 최적화 (MRS = Px/Py) / 가격 변화의 대체효과·소득효과 / 소득 변화 → 소득소비곡선.  
+**파라미터**: alpha(X 선호 비중 0.1~0.9), price_ratio(Px/Py), income_over_py(M/Py). 컴포넌트가 X*/Y* 자동 계산.
+
+### surplus-areas — 소비자/생산자 잉여 + 정책 효과
+```viz surplus-areas
+{"scenario": "<한 줄>",
+ "consumer_visible": true,
+ "producer_visible": true,
+ "deadweight_visible": true,
+ "policy": {"type": "tax|ceiling|floor", "value": 0.4},
+ "narration": "..."}
+```
+
+**사용 시점**: 후생경제학 (CS, PS 개념) / 종량세·가격상한제·가격하한제의 사중손실 분석 / 효율 vs 형평.
+
+### elasticity-zones — 수요곡선 위 탄력성 구간
+```viz elasticity-zones
+{"scenario": "<한 줄>",
+ "show_zones": true,
+ "show_labels": true,
+ "point_q": 0.3,
+ "narration": "..."}
+```
+
+**사용 시점**: 선형 수요곡선의 탄력성 가변성 / 중간점 단위탄력 개념 / 가격대별 탄력성 차이 / 총수입 극대화 점 학습 시.  
+**파라미터**: `point_q`로 임의 점 지정 시 그 점의 |E| 자동 표시.
+
 ## 차트 공통 규칙
 - 한 메시지에 viz 1개만.
-- `reason` 필드 필수.
+- `reason` 필드 필수 (해당 템플릿).
 - 차트 뒤 본문 해설 이어 작성. 차트만 던지지 말 것.
-- 카탈로그에 없는 그래프(Phillips, 무차별곡선 등)는 다음 버전 예정 — 그때까지 텍스트·표로.
+- 카탈로그(supply-demand·cost-curves·is-lm·phillips-curve·indifference-budget·surplus-areas·elasticity-zones)가 1차 경제학 빈출 그래프 전부 커버. 그 외 도식은 Mermaid 또는 텍스트로.

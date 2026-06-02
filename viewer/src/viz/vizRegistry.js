@@ -13,6 +13,11 @@ import { isLmTemplate } from './templates/IsLm';
 import { caseComparisonTemplate } from './templates/CaseComparison';
 import { incomeCapitalizationTemplate } from './templates/IncomeCapitalization';
 import { dcfTimelineTemplate } from './templates/DcfTimeline';
+import { phillipsCurveTemplate } from './templates/PhillipsCurve';
+import { indifferenceBudgetTemplate } from './templates/IndifferenceBudget';
+import { surplusAreasTemplate } from './templates/SurplusAreas';
+import { elasticityZonesTemplate } from './templates/ElasticityZones';
+import { salesAdjustmentTemplate } from './templates/SalesAdjustment';
 
 const _registry = new Map();
 
@@ -24,21 +29,26 @@ function register(t) {
   _registry.set(t.name, t);
 }
 
-// 경제
+// 경제 (8)
 register(supplyDemandTemplate);
 register(costCurvesTemplate);
 register(isLmTemplate);
-// 회계
+register(phillipsCurveTemplate);
+register(indifferenceBudgetTemplate);
+register(surplusAreasTemplate);
+register(elasticityZonesTemplate);
+// 회계 (3)
 register(tAccountTemplate);
 register(balanceSheetTemplate);
 register(incomeStatementTemplate);
-// 법 (민법·법규·보상법규)
+// 법 — 민법·법규·보상법규 (3)
 register(legalRelationsTemplate);
 register(claimFlowTemplate);
 register(caseComparisonTemplate);
-// 부동산·감정평가실무
+// 부동산·감정평가실무 (3)
 register(incomeCapitalizationTemplate);
 register(dcfTimelineTemplate);
+register(salesAdjustmentTemplate);
 
 export function getTemplate(name) {
   return _registry.get(name);
