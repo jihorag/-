@@ -31,6 +31,15 @@ export const KEY = {
   mocks: 'ailearn-mocks',                            // 2차 모의 history
   conv: (date) => `ailearn-conversations:${date}`,   // 레거시(날짜 기반)
   room: (leafId) => `ailearn-room:${leafId}`,        // 단원별 채팅방
+  // Phase α — 답안 히스토리 (2차 답안 작성 추이)
+  answers: (leafId) => `ailearn-answers:${leafId}`,
+  // Phase γ — 학습 노트
+  notes: 'ailearn-notes',
+  // Phase δ — 관측 데이터
+  vizUsage: 'ailearn-viz-usage',
+  msgRatings: 'ailearn-msg-ratings',
+  // Phase β — D-day 시험 플래너
+  examPlan: 'ailearn-exam-plan',
 };
 
 export const DEFAULT_PREFS = {
