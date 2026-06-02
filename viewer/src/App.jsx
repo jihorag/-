@@ -728,6 +728,7 @@ const App = () => {
                 id: `${baseId}__${t.id}`, path: [raw.subject, u.title, t.title], leaf_type: 'topic',
                 title: t.title, subject_root: raw.subject, frequency: u.frequency || 1,
                 unit_code: u.code, unit_file: u.unit_file, problems_file: u.problems_file,
+                section_key: t.section_key || 'narrow', section_lines: t.section_lines,
                 stage: 2,
               });
             });

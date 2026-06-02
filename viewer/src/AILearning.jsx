@@ -1359,8 +1359,25 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       subjectId,
     });
 
-    const history = [...getRoomMessages(current.leaf_id)].slice(-13);
-    const apiMessages = history.map((m) => ({ role: m.role, content: m.content }));
+    // 대화 히스토리 캐싱:
+    //  - 윈도우 25개 (기존 13 → 25). 같은 단원에서 25개까지는 캐시 prefix 안정.
+    //  - 마지막 6개는 캐시 안 함 (새 메시지가 계속 들어오는 꼬리 영역).
+    //  - 전체 방 메시지가 윈도우를 넘는 순간 prefix 가 매 라운드 한 칸씩 밀려 캐시 미스만 발생 → 그 경우 캐싱 비활성.
+    const HISTORY_WINDOW = 25;
+    const CACHE_TAIL_KEEP = 6;
+    const allRoomMsgs = getRoomMessages(current.leaf_id);
+    const history = [...allRoomMsgs].slice(-HISTORY_WINDOW);
+    const cacheStable = allRoomMsgs.length <= HISTORY_WINDOW;
+    const cacheCut = history.length - CACHE_TAIL_KEEP - 1;
+    const apiMessages = history.map((m, i) => {
+      if (cacheStable && i === cacheCut && cacheCut >= 1) {
+        return {
+          role: m.role,
+          content: [{ type: 'text', text: m.content, cache_control: { type: 'ephemeral', ttl: '1h' } }],
+        };
+      }
+      return { role: m.role, content: m.content };
+    });
 
     const ac = new AbortController();
     abortRef.current = ac;
