@@ -949,13 +949,14 @@ function MessageBubble({ msg, fadeIn }) {
   return (
     <div className={fadeIn ? 'ai-msg-fade' : ''} style={{ display: 'flex', justifyContent: isUser ? 'flex-end' : 'flex-start', margin: '8px 0' }}>
       <div style={{
-        maxWidth: '85%',
-        padding: '10px 14px',
+        // AI 메시지는 거의 전체 폭(98%), 사용자 메시지는 75% — 대비 + 읽기 편의
+        maxWidth: isUser ? '78%' : '98%',
+        padding: '12px 16px',
         borderRadius: 14,
         background: isUser ? '#4f46e5' : '#f3f4f6',
         color: isUser ? '#fff' : '#111827',
         fontSize: '0.95rem',
-        lineHeight: 1.55,
+        lineHeight: 1.6,
         whiteSpace: 'pre-wrap',
         wordBreak: 'break-word',
       }}>
@@ -1750,7 +1751,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       </div>
     </div>
     ) : (
-    <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 880, margin: '0 auto', width: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 1100, margin: '0 auto', width: '100%' }}>
       <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', gap: 6, padding: '6px 8px' }}>
         <button
           onClick={() => setAiView('home')}
@@ -2040,7 +2041,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         </div>
       )}
 
-      <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', padding: '12px 14px' }}>
+      <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', padding: '10px 10px 16px' }}>
         {messages.length === 0 && curLeaf && (() => {
           const m = mastery[curLeaf.id] || { coverage: 0, status: 'not_started' };
           const isMaster = m.status === 'mastered';
@@ -2315,9 +2316,9 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           // streaming 중에도 ParsedText로 마크다운/수식 렌더링 (sanitize로 미닫힌 토큰 자동 보정)
           <div style={{ display: 'flex', justifyContent: 'flex-start', margin: '8px 0' }}>
             <div style={{
-              maxWidth: '85%', padding: '10px 14px', borderRadius: 14,
+              maxWidth: '98%', padding: '12px 16px', borderRadius: 14,
               background: '#f3f4f6', color: '#111827',
-              fontSize: '0.95rem', lineHeight: 1.55,
+              fontSize: '0.95rem', lineHeight: 1.6,
               whiteSpace: 'pre-wrap', wordBreak: 'break-word',
             }}>
               <ParsedText text={draft} />
