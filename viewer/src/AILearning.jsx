@@ -27,7 +27,9 @@ import {
   addMock, getMocks,
   SUBJECTS, SUBJECTS_BY_STAGE, getSubjectMeta,
   getApiKey, getBaseUrls, setApiKey, setBaseUrl,
+  appendAnswer,
 } from './aiLearningStore';
+import AnswerHistoryWidget from './AnswerHistoryWidget';
 import { buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
 import { sendMessagesUnified, getProviderForModel } from './aiProviders';
 
@@ -1388,6 +1390,20 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             time_used_min: b.time_used_min || 0,
             time_target_min: b.time_target_min || (b.max || 30),
           });
+          // Phase α — 답안 히스토리 누적 (시간순 추이 + 인사이트)
+          appendAnswer(current.leaf_id, {
+            score: b.score,
+            max: b.max || 30,
+            structure_score: b.structure_score,
+            content_score: b.content_score,
+            completeness_score: b.completeness_score,
+            strengths: b.strengths || [],
+            missed: b.missed || [],
+            rewrite_hint: b.rewrite_hint || '',
+            time_used_min: b.time_used_min || 0,
+            time_target_min: b.time_target_min || (b.max || 30),
+            answer_text: (history[history.length - 1]?.content || '').slice(0, 5000),
+          });
           coverageBumped = true;
           setMasteryState(getMastery());
           // 모의 세션 중이면 점수 누적
@@ -2579,15 +2595,25 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           />
         )}
         {mode === 'answer_write' && (
-          <AnswerWriteInput
-            scorePoint={30}
-            disabled={streaming || !cap.ok}
-            onSubmit={({ answer, score_point, time_used_sec, time_target_min }) => {
-              const min = Math.round(time_used_sec / 60);
-              const text = `[답안 작성 — ${score_point}점, ${min}분 사용, 목표 ${time_target_min}분]\n\n${answer}\n\n위 답안을 채점해주세요. 점수·강점·보강·재작성 힌트를 JSON으로.`;
-              quickSend(text);
-            }}
-          />
+          <>
+            <AnswerHistoryWidget
+              leafId={current?.leaf_id}
+              onLoadAnswer={(prevText) => {
+                if (typeof window !== 'undefined' && prevText) {
+                  setInput(`[이전 답안 불러옴]\n${prevText}`);
+                }
+              }}
+            />
+            <AnswerWriteInput
+              scorePoint={30}
+              disabled={streaming || !cap.ok}
+              onSubmit={({ answer, score_point, time_used_sec, time_target_min }) => {
+                const min = Math.round(time_used_sec / 60);
+                const text = `[답안 작성 — ${score_point}점, ${min}분 사용, 목표 ${time_target_min}분]\n\n${answer}\n\n위 답안을 채점해주세요. 점수·강점·보강·재작성 힌트를 JSON으로.`;
+                quickSend(text);
+              }}
+            />
+          </>
         )}
         <div style={{ display: 'flex', gap: 6, alignItems: 'flex-end', marginTop: mode === 'answer_write' ? 8 : 0 }}>
           <textarea
