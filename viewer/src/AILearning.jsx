@@ -1831,7 +1831,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               </span>
             );
           })()}
-        </div>
+          <ChevronDown size={14} color="#94a3b8" style={{ flex: '0 0 auto' }} />
+        </button>
 
         <button
           onClick={() => nextLeaf && pickLeaf(nextLeaf)}
@@ -1991,22 +1992,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             </button>
           ))}
         </div>
-        <LeafPicker leaves={leaves} current={current} onPick={pickLeaf} mastery={mastery} due={due} quizStatsByLeaf={quizStatsByLeaf} />
-        {curLeaf && (
-          <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#6b7280', display: 'flex', gap: 6, alignItems: 'center', flexWrap: 'wrap' }}>
-            <span>교재: {curLeaf.unit_code || '—'}</span>
-            <span>·</span>
-            <span title={curLeaf.section_name}>
-              {curLeaf.section_name && curLeaf.section_name !== '전체'
-                ? `🔍 ${curLeaf.section_name.length > 24 ? curLeaf.section_name.slice(0, 24) + '…' : curLeaf.section_name}`
-                : '전체'}
-              {curLeaf.section_key === 'auto' && curLeaf.section_lines && (
-                <span style={{ color: '#9ca3af' }}> ({curLeaf.section_lines[1] - curLeaf.section_lines[0]}줄)</span>
-              )}
-            </span>
-            {!curLeaf.unit_file && (
-              <span style={{ color: '#dc2626', fontWeight: 700 }}>· ⚠️ 단원 자료 없음</span>
-            )}
+        {/* 단원 자료 없음만 작게 안내 */}
+        {curLeaf && !curLeaf.unit_file && (
+          <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#dc2626', fontWeight: 600 }}>
+            ⚠️ 단원 자료 없음 — 인수인계서만으로 진행
           </div>
         )}
       </div>
@@ -2021,6 +2010,37 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             onResetProgress={doResetProgress}
           />
         </div>
+      )}
+
+      {/* 단원 picker 모달 — 헤더 박스 클릭 시 */}
+      {showLeafPickerModal && (
+        <>
+          <div onClick={() => setShowLeafPickerModal(false)}
+            style={{ position: 'fixed', inset: 0, background: 'rgba(15,23,42,0.45)', zIndex: 150 }} />
+          <div style={{
+            position: 'fixed', top: '8vh', left: '50%', transform: 'translateX(-50%)',
+            width: 'min(560px, 92vw)', maxHeight: '80vh', background: '#fff',
+            borderRadius: 14, boxShadow: '0 20px 50px rgba(15,23,42,0.25)',
+            display: 'flex', flexDirection: 'column', zIndex: 151,
+            animation: 'cmdkIn 0.2s cubic-bezier(0.22, 0.61, 0.36, 1)',
+            overflow: 'hidden',
+          }}>
+            <div style={{ padding: '12px 14px', borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ fontWeight: 800, color: '#111827' }}>📂 단원 선택</div>
+              <button onClick={() => setShowLeafPickerModal(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '1.1rem' }}>✕</button>
+            </div>
+            <div style={{ padding: 12, overflowY: 'auto' }}>
+              <LeafPicker
+                leaves={leaves}
+                current={current}
+                onPick={(leaf) => { pickLeaf(leaf); setShowLeafPickerModal(false); }}
+                mastery={mastery}
+                due={due}
+                quizStatsByLeaf={quizStatsByLeaf}
+              />
+            </div>
+          </div>
+        </>
       )}
 
       {showHistory && (
