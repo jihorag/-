@@ -1736,11 +1736,9 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     ) : (
     <div style={isDesktop ? {
       display: 'grid',
-      gridTemplateColumns: '320px 1fr',
+      gridTemplateColumns: '340px minmax(0, 1fr)',
       gap: 0,
       height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))',
-      maxWidth: 1600,
-      margin: '0 auto',
       width: '100%',
     } : { display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 1100, margin: '0 auto', width: '100%' }}>
       {/* PC 전용 좌측 단원 사이드바 — LeafPicker inline */}

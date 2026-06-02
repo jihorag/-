@@ -2317,8 +2317,8 @@ const App = () => {
     </button>
   );
 
-  const shell = (content) => (
-    <div className="app-shell with-nav">
+  const shell = (content, extraClass = '') => (
+    <div className={`app-shell with-nav${extraClass ? ' ' + extraClass : ''}`}>
       {content}
       {/* 홈은 banner에 자체 ⚙️ 버튼이 있어 FAB 중복 노출 회피 */}
       {currentView !== 'home' && globalSettingsFab}
@@ -2414,6 +2414,7 @@ const App = () => {
   };
 
   // AI 학습 탭 — 하단 탭바 노출되는 루트 화면. (구 통암기 탭 대체)
+  // PC 에서 사이드바+채팅 2컬럼이 전체 화면을 활용하도록 fullwidth 클래스.
   if (currentView === 'civil') {
     return shell(
       <AILearning
@@ -2446,7 +2447,8 @@ const App = () => {
           return questionsInLeaf(classifiedList, leaf).length;
         }}
         quizStatsByLeaf={quizStatsByLeaf}
-      />
+      />,
+      'fullwidth'
     );
   }
 

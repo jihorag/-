@@ -235,6 +235,16 @@
   .bottom-nav { max-width: 1280px; }
 }
 
+/* AI 학습 탭 — 풀스크린 모드 (PC 에서만). 사이드바+채팅 2컬럼이 화면 전체를 활용. */
+@media (min-width: 1024px) {
+  .app-shell.fullwidth {
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  /* 바닥 탭바는 가독성을 위해 일정 폭 유지 (위치는 fixed 라 부모 무관). */
+}
+
 /* 하단 nav가 화면 중앙 정렬되도록 left/transform 보장 (기존 left:50%; transform:translateX(-50%);) */
 /* — 이미 위에 있음. PC에서도 같은 규칙 적용 */
 
