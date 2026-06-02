@@ -3,6 +3,7 @@
 
 import { getTemplate } from './vizRegistry';
 import { validate } from './validate';
+import VizFrame from './VizFrame';
 
 function ErrorBox({ name, errors, rawText }) {
   return (
@@ -41,7 +42,11 @@ export default function VizRouter({ name, rawJson }) {
     return <ErrorBox name={name} errors={v.errors} rawText={rawJson} />;
   }
   const Comp = tpl.Component;
-  return <Comp params={params} />;
+  return (
+    <VizFrame templateName={name}>
+      <Comp params={params} />
+    </VizFrame>
+  );
 }
 
 // 스트리밍 중 임시 표시 (펜스 열려 있고 아직 안 닫힘)

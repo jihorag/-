@@ -91,6 +91,38 @@
 **사용 시점**: 답안에 인용할 필수 판례 비교 / 적극·소극 판례 대조로 학설 양분 보이기.  
 **규칙**: 필수 판례 사건번호 정확 — 대판 2011두1051(사업인정), 2011두2309(재결신청), 2008두822·2014두46669(잔여지), 2018두57865(협의성립확인), 92다35783(전합·이주대책), 2011두3685(주거이전비) 등.
 
+### exam-pattern — 사례형 IRAC 답안 구조 (I→R→A→C)
+```viz exam-pattern
+{"topic": "<논점>",
+ "score_point": 40,
+ "time_minutes": 40,
+ "case_facts": "<사실관계 요지>",
+ "steps": [
+   {"kind": "I", "label": "쟁점", "lines": "3-4", "description": "...",
+    "checkpoints": ["..."]},
+   {"kind": "R", "label": "관련 법령", "lines": "6-8", "description": "...",
+    "articles": ["토지보상법 제X조"]},
+   {"kind": "A", "label": "학설·판례 적용", "lines": "12-15", "description": "...",
+    "cases": ["대판 YYYY두NNNN"], "checkpoints": ["..."]},
+   {"kind": "C", "label": "포섭·결론", "lines": "5-7", "description": "...",
+    "checkpoints": ["..."]}
+ ],
+ "tips": ["..."],
+ "narration": "..."}
+```
+
+**사용 시점**: 사례형 1번 문제(40점) 답안 설계 / 사실관계 → 조문 → 판례 → 결론 흐름 학습 시 / 학생이 "어디부터 써야 해요?" 질문 시.  
+**규칙**: A(Application) 단계가 배점의 50% 이상 비중. 판례 사건번호 정확 (대판 YYYY두NNNN 형식).
+
+### answer-template — 단답형/약술형 답안 골격
+```viz answer-template
+{"topic": "<논점>", "score_point": 20, "time_minutes": 20,
+ "sections": [{"title": "...", "lines": "...", "keywords": [...]}],
+ "tips": [...]}
+```
+
+**사용 시점**: 약술형 20점 또는 단답형 10점 답안 양식. 사례형 아닌 정의·요건·효과형 문제.
+
 ## 차트 공통 규칙
 - 한 메시지에 viz 1개만.
 - 차트는 답안 골격 설계 단계에서만 사용. 본문 답안 자체는 텍스트로 작성.

@@ -18,6 +18,8 @@ import { indifferenceBudgetTemplate } from './templates/IndifferenceBudget';
 import { surplusAreasTemplate } from './templates/SurplusAreas';
 import { elasticityZonesTemplate } from './templates/ElasticityZones';
 import { salesAdjustmentTemplate } from './templates/SalesAdjustment';
+import { answerTemplateChart } from './templates/AnswerTemplate';
+import { examPatternTemplate } from './templates/ExamPattern';
 
 const _registry = new Map();
 
@@ -49,6 +51,9 @@ register(caseComparisonTemplate);
 register(incomeCapitalizationTemplate);
 register(dcfTimelineTemplate);
 register(salesAdjustmentTemplate);
+// 2차 답안 양식 (2)
+register(answerTemplateChart);
+register(examPatternTemplate);
 
 export function getTemplate(name) {
   return _registry.get(name);

@@ -317,3 +317,26 @@ div.app-shell.fullwidth,
   /* 사이드바 인쇄 시 숨김 */
   aside { display: none !important; }
 }
+
+/* ===== 시각자료 다크모드 =====
+   prefers-color-scheme: dark 시 figure 의 인라인 #fff/#e5e7eb를 오버라이드.
+   인라인 스타일은 specificity 가 낮지 않으므로 !important 사용. */
+@media (prefers-color-scheme: dark) {
+  .viz-frame figure {
+    background: #1f2937 !important;
+    border-color: #374151 !important;
+    color: #f3f4f6 !important;
+  }
+  .viz-frame figure figcaption,
+  .viz-frame figure h3 {
+    color: #f3f4f6 !important;
+  }
+  .viz-frame figure p,
+  .viz-frame figure li,
+  .viz-frame figure div {
+    color: inherit;
+  }
+  /* SVG 안 텍스트는 그대로 (대비 OK) */
+  .viz-frame figure svg text { fill: #f3f4f6; }
+  .viz-frame figure svg line[stroke="#9ca3af"] { stroke: #6b7280; }
+}
