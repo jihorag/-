@@ -236,13 +236,6 @@ const Confetti = () => (
   </div>
 );
 
-// 첫 화면 가치 설명(모달 아님 — 빈 상태 히어로에 인라인)
-const ONB_BULLETS = [
-  { emoji: '✍️', t: '풀면서 이해', d: '해설로 개념까지' },
-  { emoji: '🔁', t: '틀린 건 기억곡선', d: '복습일 자동 배정' },
-  { emoji: '📊', t: '약점 한눈에', d: '현황·추천으로 보강' },
-];
-
 const SRS_MODES = {
   hard:   { label: '빡세게', factor: 0.6, cap: Infinity },
   normal: { label: '보통',   factor: 1,   cap: 40 },
@@ -1972,12 +1965,6 @@ const App = () => {
       })}
     </nav>
   );
-  // 첫 사용자는 모달 대신 빈 상태 히어로로 가치를 먼저 보여준다(아래 home 분기).
-  const startFirstTaste = () => {
-    try { localStorage.setItem('quiz-onboarded', '1'); } catch { /* SSR */ }
-    const ids = sampleN(classifiedList, 10).map(qid);
-    if (ids.length) startReview(ids, '맛보기 10문제', 'home');
-  };
   // 전역 오버레이(컨페티) — 루트/드릴 양쪽에 삽입
   const overlays = <>{confetti && <Confetti />}</>;
   // 글로벌 설정 플로팅 드로어 — 우측에서 슬라이드
