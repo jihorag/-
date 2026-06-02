@@ -2,6 +2,8 @@ import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen, Sparkles } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
+import ToastContainer, { toast } from './Toast';
+import CmdK from './CmdK';
 import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
 import { setCurrent as setAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS, getPrefs as getAiPrefs, setPrefs as setAiPrefs } from './aiLearningStore';
 import { MODELS as AI_MODELS } from './aiClaudeClient';
@@ -679,6 +681,8 @@ const App = () => {
   // 플로팅 설정 드로어 — 탭별 컨텍스트로 다른 항목 표시
   const [showGlobalSettings, setShowGlobalSettings] = useState(false);
   const [settingsContext, setSettingsContext] = useState('home'); // home | ai | practice | review | status
+  // Cmd+K 글로벌 검색 모달
+  const [showCmdK, setShowCmdK] = useState(false);
   const [aiPrefs, setAiPrefsState] = useState(() => getAiPrefs());
   const openSettings = (ctx) => { setSettingsContext(ctx); setShowGlobalSettings(true); };
   const openContextSettings = () => {
@@ -802,8 +806,8 @@ const App = () => {
     if (!f) return;
     const r = new FileReader();
     r.onload = () => {
-      try { importUserData(String(r.result)); alert('가져오기 완료. 새로고침합니다.'); window.location.reload(); }
-      catch (err) { alert('가져오기 실패: ' + err.message); }
+      try { importUserData(String(r.result)); toast.success('가져오기 완료 · 새로고침합니다'); setTimeout(() => window.location.reload(), 600); }
+      catch (err) { toast.error('가져오기 실패: ' + err.message); }
     };
     r.readAsText(f);
   };
@@ -1013,6 +1017,37 @@ const App = () => {
     }
     setCurrentView(cv);
   }, []);
+
+  // ===== 글로벌 키보드 단축키 =====
+  // Cmd/Ctrl+K — 검색 모달
+  // Cmd/Ctrl+1~5 — 탭 전환 (홈/AI학습/문제풀이/복습/현황)
+  // Esc — 모달/드로어 닫기 (각 컴포넌트에서 처리)
+  useEffect(() => {
+    const onKey = (e) => {
+      const mod = e.metaKey || e.ctrlKey;
+      // 입력 중인 필드에선 일부 단축키 무시 (그러나 Cmd+K는 우선)
+      const inField = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
+      if (mod && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        setShowCmdK(true);
+        return;
+      }
+      if (inField) return;
+      if (mod && e.key >= '1' && e.key <= '5') {
+        e.preventDefault();
+        const map = { '1': 'home', '2': 'civil', '3': 'dashboard', '4': 'reviewHome', '5': 'status' };
+        const v = map[e.key];
+        if (v) { setCurrentView(v); window.scrollTo(0, 0); }
+        return;
+      }
+      if (e.key === 'Escape') {
+        if (showCmdK) { setShowCmdK(false); return; }
+        if (showGlobalSettings) { setShowGlobalSettings(false); return; }
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [showCmdK, showGlobalSettings]);
 
   // popstate(브라우저 뒤로/앞으로) 구독. 초기 상태는 이미 해시에서 복원됨.
   useEffect(() => {
@@ -2034,7 +2069,8 @@ const App = () => {
                         onClick={() => {
                           if (!window.confirm('Claude API 키를 삭제하시겠습니까?')) return;
                           try { localStorage.removeItem('ailearn-byok'); } catch { /* noop */ }
-                          alert('API 키 삭제 완료. 새로고침합니다.');
+                          toast.success('API 키 삭제 완료 · 새로고침합니다');
+                          setTimeout(() => window.location.reload(), 600); return;
                           window.location.reload();
                         }}
                         style={{ width: '100%', padding: '8px', background: '#fef2f2', color: '#991b1b',
@@ -2054,7 +2090,8 @@ const App = () => {
                               }
                             }
                           } catch { /* noop */ }
-                          alert('✅ AI 학습 진척 초기화 완료. 새로고침합니다.');
+                          toast.success('AI 학습 진척 초기화 완료 · 새로고침합니다');
+                          setTimeout(() => window.location.reload(), 600); return;
                           window.location.reload();
                         }}
                         style={{ width: '100%', padding: '10px', background: '#fef2f2', color: '#991b1b',
@@ -2151,8 +2188,8 @@ const App = () => {
                         const f = e.target.files?.[0]; if (!f) return;
                         const r = new FileReader();
                         r.onload = () => {
-                          try { importUserData(String(r.result)); alert('가져오기 완료. 새로고침합니다.'); window.location.reload(); }
-                          catch (err) { alert('형식 오류: ' + err.message); }
+                          try { importUserData(String(r.result)); toast.success('가져오기 완료 · 새로고침합니다'); setTimeout(() => window.location.reload(), 600); }
+                          catch (err) { toast.error('형식 오류: ' + err.message); }
                         };
                         r.readAsText(f);
                       }} />
@@ -2203,6 +2240,48 @@ const App = () => {
       {globalSettingsDrawer}
       {bottomNav}
       {overlays}
+      <ToastContainer />
+      <CmdK
+        open={showCmdK}
+        onClose={() => setShowCmdK(false)}
+        subjects={AI_SUBJECTS}
+        leaves={Object.values(leavesBySubject).flat()}
+        rooms={(() => {
+          try {
+            const arr = [];
+            for (let i = 0; i < localStorage.length; i++) {
+              const k = localStorage.key(i);
+              if (!k || !k.startsWith('ailearn-room:')) continue;
+              const leafId = k.slice('ailearn-room:'.length);
+              const items = JSON.parse(localStorage.getItem(k) || '[]');
+              if (Array.isArray(items) && items.length) {
+                const last = items[items.length - 1];
+                arr.push({ leafId, msg_count: items.length, last_ts: last?.ts });
+              }
+            }
+            return arr.sort((a, b) => (b.last_ts || '').localeCompare(a.last_ts || '')).slice(0, 10);
+          } catch { return []; }
+        })()}
+        leafById={new Map(Object.values(leavesBySubject).flat().map((l) => [l.id, l]))}
+        onNavigate={(action) => {
+          if (action.type === 'tab') {
+            setCurrentView(action.view);
+            window.scrollTo(0, 0);
+          } else if (action.type === 'subject') {
+            try { setAiCurrent({ subject: action.id, leaf_id: null }); } catch { /* noop */ }
+            setCurrentView('civil');
+            window.scrollTo(0, 0);
+          } else if (action.type === 'leaf') {
+            if (!action.leaf) return;
+            const sid = (action.leaf.id || '').split('__')[0];
+            try { setAiCurrent({ subject: sid, leaf_id: action.leaf.id }); } catch { /* noop */ }
+            setCurrentView('civil');
+            window.scrollTo(0, 0);
+          } else if (action.type === 'settings') {
+            openSettings(action.ctx);
+          }
+        }}
+      />
     </div>
   );
 
@@ -3891,7 +3970,7 @@ const App = () => {
         <div style={{ position: 'absolute', right: '16px',
           top: 'calc(env(safe-area-inset-top, 0px) + 14px)', zIndex: 10,
           display: 'flex', gap: '8px' }}>
-          <button aria-label="검색" onClick={() => setCurrentView('search')}
+          <button aria-label="검색" onClick={() => setShowCmdK(true)} title="검색 (⌘K)"
             style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
               background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
