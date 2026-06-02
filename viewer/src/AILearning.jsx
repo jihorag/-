@@ -2312,7 +2312,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           );
         })}
         {streaming && draft && (
-          // streaming 중에는 plain text + 흐르는 커서로 렌더 — ParsedText(KaTeX) 재파싱을 막아 chunk마다 끊김 제거
+          // streaming 중에도 ParsedText로 마크다운/수식 렌더링 (sanitize로 미닫힌 토큰 자동 보정)
           <div style={{ display: 'flex', justifyContent: 'flex-start', margin: '8px 0' }}>
             <div style={{
               maxWidth: '85%', padding: '10px 14px', borderRadius: 14,
@@ -2320,7 +2320,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               fontSize: '0.95rem', lineHeight: 1.55,
               whiteSpace: 'pre-wrap', wordBreak: 'break-word',
             }}>
-              {draft}
+              <ParsedText text={draft} />
               <span className="ai-streaming-cursor" style={{
                 display: 'inline-block', width: 8, height: '1em',
                 background: '#4f46e5', marginLeft: 2, verticalAlign: 'text-bottom',
