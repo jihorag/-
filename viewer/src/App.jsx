@@ -2840,7 +2840,7 @@ const App = () => {
     if (crumbs.length <= 1) return null;  // 1단계뿐이면 안 보임
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center',
-        padding: '10px 20px 0', fontSize: '0.78rem', color: '#6b7280' }}>
+        padding: '12px 20px 4px', fontSize: '0.78rem', color: '#6b7280' }}>
         {crumbs.map((c, i) => (
           <span key={i} style={{ display: 'inline-flex', alignItems: 'center' }}>
             {i > 0 && <span style={{ margin: '0 6px', color: '#d1d5db' }}>›</span>}

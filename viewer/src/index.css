@@ -464,9 +464,9 @@ body {
 .empty-state .title { font-size: 1.05rem; font-weight: 700; color: #374151; margin-bottom: 6px; }
 .empty-state .sub { font-size: 0.9rem; }
 .drill-head {
-  padding: 20px;
-  background: #fff;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 10px 20px 16px;
+  background: transparent;
+  border-bottom: none;
 }
 
 /* 로딩 스켈레톤 */
