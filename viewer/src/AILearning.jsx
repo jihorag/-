@@ -361,6 +361,7 @@ function SettingsPanel({ prefs, onSave, onClearKey, onResetProgress, usage }) {
   // 선택된 모델의 프로바이더에 따라 키 입력 UI 가변
   const provider = getProviderForModel(prefs.model);
   const needsProxy = modelRequiresProxy(prefs.model);
+  const [anthropicKey, setAnthropicKeyState] = useState(getByok() || '');
   const [openaiKey, setOpenaiKeyState] = useState(getApiKey('openai') || '');
   const [googleKey, setGoogleKeyState] = useState(getApiKey('google') || '');
   const [openaiBase, setOpenaiBaseState] = useState(getBaseUrls().openai || '');
@@ -388,59 +389,74 @@ function SettingsPanel({ prefs, onSave, onClearKey, onResetProgress, usage }) {
           <option value="gemini-3.1-flash">🟢 Gemini 3.1 Flash (-85%)</option>
         </optgroup>
       </select>
-      {provider === 'openai' && (
-        <div style={{ padding: 10, background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: 8, marginBottom: 12 }}>
-          <label style={{ display: 'block', fontSize: '0.82rem', color: '#1e40af', fontWeight: 700, marginBottom: 4 }}>OpenAI API 키 (sk-...)</label>
+      {/* API 키 — 프로바이더 3개 모두 표시. 선택된 모델 = 현재 활성 표시 */}
+      <details open style={{ marginBottom: 12, padding: 8, background: '#f9fafb', borderRadius: 8, border: '1px solid #e5e7eb' }}>
+        <summary style={{ cursor: 'pointer', fontWeight: 700, fontSize: '0.85rem', color: '#374151' }}>
+          🔑 API 키 (3개 프로바이더 — 키 입력해두면 모델 전환 자유)
+        </summary>
+        {/* Anthropic */}
+        <div style={{ padding: 8, background: provider === 'anthropic' ? '#fef3c7' : '#fff', border: '1px solid #e5e7eb', borderRadius: 6, marginTop: 8 }}>
+          <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#92400e', marginBottom: 4 }}>
+            Anthropic Claude {provider === 'anthropic' && '· 현재 활성'}
+          </div>
+          <input
+            type="password"
+            value={anthropicKey}
+            onChange={(e) => { setAnthropicKeyState(e.target.value); setByok(e.target.value); }}
+            placeholder="sk-ant-..."
+            style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 4 }}
+          />
+          <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>
+            <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer" style={{ color: '#4f46e5' }}>console.anthropic.com</a> · 브라우저 직호출 OK
+          </div>
+        </div>
+        {/* OpenAI */}
+        <div style={{ padding: 8, background: provider === 'openai' ? '#dbeafe' : '#fff', border: '1px solid #e5e7eb', borderRadius: 6, marginTop: 6 }}>
+          <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#1e40af', marginBottom: 4 }}>
+            OpenAI GPT {provider === 'openai' && '· 현재 활성'}
+          </div>
           <input
             type="password"
             value={openaiKey}
             onChange={(e) => { setOpenaiKeyState(e.target.value); setApiKey('openai', e.target.value); }}
             placeholder="sk-proj-..."
-            style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 8 }}
+            style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 4 }}
           />
-          <label style={{ display: 'block', fontSize: '0.82rem', color: '#1e40af', fontWeight: 700, marginBottom: 4 }}>프록시 baseUrl (CORS 우회)</label>
           <input
             type="text"
             value={openaiBase}
             onChange={(e) => { setOpenaiBaseState(e.target.value); setBaseUrl('openai', e.target.value); }}
-            placeholder="https://your-proxy.workers.dev"
+            placeholder="프록시 baseUrl (https://your-proxy.workers.dev)"
             style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 4 }}
           />
-          <div style={{ fontSize: '0.72rem', color: '#1e3a8a', lineHeight: 1.5 }}>
-            ⚠️ OpenAI는 브라우저 직호출 차단. Cloudflare Worker 같은 프록시 필요.<br/>
-            예시 Worker: <code>fetch('https://api.openai.com' + req.path, {'{...req}'})</code>
+          <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>
+            <a href="https://platform.openai.com/api-keys" target="_blank" rel="noreferrer" style={{ color: '#1e40af' }}>platform.openai.com</a> · ⚠️ CORS 차단 → 프록시 baseUrl 필수
           </div>
         </div>
-      )}
-      {provider === 'google' && (
-        <div style={{ padding: 10, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 8, marginBottom: 12 }}>
-          <label style={{ display: 'block', fontSize: '0.82rem', color: '#166534', fontWeight: 700, marginBottom: 4 }}>Google AI API 키</label>
+        {/* Google */}
+        <div style={{ padding: 8, background: provider === 'google' ? '#dcfce7' : '#fff', border: '1px solid #e5e7eb', borderRadius: 6, marginTop: 6 }}>
+          <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#166534', marginBottom: 4 }}>
+            Google Gemini {provider === 'google' && '· 현재 활성'}
+          </div>
           <input
             type="password"
             value={googleKey}
             onChange={(e) => { setGoogleKeyState(e.target.value); setApiKey('google', e.target.value); }}
             placeholder="AIza..."
-            style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 8 }}
+            style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 4 }}
           />
-          <label style={{ display: 'block', fontSize: '0.82rem', color: '#166534', fontWeight: 700, marginBottom: 4 }}>프록시 baseUrl (CORS 우회)</label>
           <input
             type="text"
             value={googleBase}
             onChange={(e) => { setGoogleBaseState(e.target.value); setBaseUrl('google', e.target.value); }}
-            placeholder="https://your-proxy.workers.dev"
+            placeholder="프록시 baseUrl (https://your-proxy.workers.dev)"
             style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 4 }}
           />
-          <div style={{ fontSize: '0.72rem', color: '#14532d', lineHeight: 1.5 }}>
-            ⚠️ Gemini는 2026-04 정책 변경으로 브라우저 직호출 차단. 프록시 필요.<br/>
-            <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer" style={{ color: '#166534', textDecoration: 'underline' }}>AI Studio에서 키 발급</a>
+          <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>
+            <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer" style={{ color: '#166534' }}>aistudio.google.com</a> · ⚠️ CORS 차단 → 프록시 baseUrl 필수
           </div>
         </div>
-      )}
-      {needsProxy && (
-        <div style={{ padding: 8, background: '#fefce8', border: '1px solid #fef08a', borderRadius: 8, marginBottom: 12, fontSize: '0.78rem', color: '#854d0e' }}>
-          💡 간이 프록시 — Cloudflare Worker 무료 티어로 5분 만에 구축 가능. 키는 브라우저에만 저장돼 프록시에 노출되지 않음.
-        </div>
-      )}
+      </details>
       <label style={{ display: 'block', fontSize: '0.85rem', color: '#374151', marginBottom: 4 }}>
         응답 길이 상한 (max_tokens) — 줄이면 더 빠른 응답
       </label>
