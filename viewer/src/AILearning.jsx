@@ -28,6 +28,7 @@ import {
   SUBJECTS, SUBJECTS_BY_STAGE, getSubjectMeta,
   getApiKey, getBaseUrls, setApiKey, setBaseUrl,
   appendAnswer,
+  getMsgRatings, rateMsg, addNote,
 } from './aiLearningStore';
 import AnswerHistoryWidget from './AnswerHistoryWidget';
 import { buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
@@ -898,26 +899,70 @@ function ScoringResultCard({ result, onRewrite, onShowModel }) {
   );
 }
 
-function MessageBubble({ msg, fadeIn }) {
+function MessageBubble({ msg, fadeIn, leafId, leafTitle }) {
   const isUser = msg.role === 'user';
+  const msgKey = `${leafId || ''}::${msg.ts || msg.content?.slice(0, 40)}`;
+  const [rating, setRatingState] = useState(() => {
+    try { return getMsgRatings()[msgKey]?.rating || 0; } catch { return 0; }
+  });
+  const [savedToNote, setSavedToNote] = useState(false);
+  const rate = (val) => {
+    const next = rating === val ? 0 : val;
+    setRatingState(next);
+    try { rateMsg(msgKey, next); } catch { /* noop */ }
+  };
+  const saveAsNote = () => {
+    if (isUser) return;
+    const title = (msg.content || '').split('\n').find((l) => l.trim())?.slice(0, 60) || 'AI 응답';
+    try {
+      addNote({
+        kind: 'message',
+        title,
+        content: msg.content,
+        leafId: leafId || null,
+        leafTitle: leafTitle || null,
+      });
+      setSavedToNote(true);
+      setTimeout(() => setSavedToNote(false), 2000);
+    } catch { /* noop */ }
+  };
   return (
     <div className={fadeIn ? 'ai-msg-fade' : ''} style={{ display: 'flex', justifyContent: isUser ? 'flex-end' : 'flex-start', margin: '8px 0' }}>
-      <div style={{
-        // AI 메시지는 거의 전체 폭(98%), 사용자 메시지는 75% — 대비 + 읽기 편의
-        maxWidth: isUser ? '78%' : '98%',
-        padding: '12px 16px',
-        borderRadius: 14,
-        background: isUser ? '#4f46e5' : '#f3f4f6',
-        color: isUser ? '#fff' : '#111827',
-        fontSize: '0.95rem',
-        lineHeight: 1.6,
-        whiteSpace: 'pre-wrap',
-        wordBreak: 'break-word',
-      }}>
-        {isUser ? msg.content : <ParsedText text={msg.content} />}
+      <div style={{ maxWidth: isUser ? '78%' : '98%', display: 'flex', flexDirection: 'column', alignItems: isUser ? 'flex-end' : 'stretch' }}>
+        <div style={{
+          // AI 메시지는 거의 전체 폭(98%), 사용자 메시지는 75% — 대비 + 읽기 편의
+          padding: '12px 16px',
+          borderRadius: 14,
+          background: isUser ? '#4f46e5' : '#f3f4f6',
+          color: isUser ? '#fff' : '#111827',
+          fontSize: '0.95rem',
+          lineHeight: 1.6,
+          whiteSpace: 'pre-wrap',
+          wordBreak: 'break-word',
+        }}>
+          {isUser ? msg.content : <ParsedText text={msg.content} />}
+        </div>
+        {!isUser && (
+          <div style={{ display: 'flex', gap: 4, marginTop: 4, paddingLeft: 4, opacity: 0.6, transition: 'opacity 0.15s' }}
+            onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; }}
+            onMouseLeave={(e) => { e.currentTarget.style.opacity = 0.6; }}>
+            <button onClick={() => rate(1)} title="이해됐어요" style={msgBtn(rating === 1 ? '#dcfce7' : '#fff', rating === 1 ? '#15803d' : '#6b7280')}>👍</button>
+            <button onClick={() => rate(-1)} title="더 자세히" style={msgBtn(rating === -1 ? '#fef2f2' : '#fff', rating === -1 ? '#b91c1c' : '#6b7280')}>🤔</button>
+            <button onClick={saveAsNote} title="노트로 저장" style={msgBtn(savedToNote ? '#dbeafe' : '#fff', savedToNote ? '#1d4ed8' : '#6b7280')}>
+              {savedToNote ? '✓ 저장됨' : '💾'}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
+}
+function msgBtn(bg, color) {
+  return {
+    padding: '3px 8px', background: bg, color,
+    border: '1px solid #e5e7eb', borderRadius: 4,
+    fontSize: '0.74rem', fontWeight: 700, cursor: 'pointer',
+  };
 }
 
 function HistoryPanel({ leaves, onClose, onJump, onClearRoom }) {
@@ -2334,7 +2379,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           }
           return (
             <div key={i}>
-              <MessageBubble msg={m} fadeIn={fadeIn} />
+              <MessageBubble msg={m} fadeIn={fadeIn} leafId={current?.leaf_id} leafTitle={curLeaf?.path?.slice(-1)[0]} />
               {opts && (
                 <AnswerChoiceRow
                   options={opts}
