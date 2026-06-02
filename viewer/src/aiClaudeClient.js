@@ -241,13 +241,16 @@ function getEndpoint(baseUrl) {
   return (baseUrl && baseUrl.trim()) ? baseUrl.trim().replace(/\/$/, '') + '/v1/messages' : API_URL;
 }
 
+// 1시간 캐시 TTL — extended-cache-ttl beta. 같은 단원 1시간 내 재방문 시 캐시 히트.
+const CACHE_1H = { type: 'ephemeral', ttl: '1h' };
+
 export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, mode, currentMastery, recentSummary, leafPath, stage, subjectId }) {
-  // Anthropic prompt caching: 큰 컨텐츠 블록에 cache_control 부여
+  // 캐시 prefix는 [SYSTEM_RULES + 과목별 규칙] → [handover] → [section] → [problems] 순.
+  // 과목/단원이 바뀌지 않는 한 prefix는 안정. 모드 규칙은 prefix 뒤로 빼서 모드 전환에도 캐시 보존.
   let systemHead = SYSTEM_RULES;
   if (stage === 2) {
     systemHead += STAGE2_RULES + (SUBJECT_RULES[subjectId] || '');
   }
-  systemHead += (MODE_RULES[mode] || '');
   const blocks = [
     { type: 'text', text: systemHead },
   ];
@@ -255,31 +258,35 @@ export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, m
     blocks.push({
       type: 'text',
       text: `\n\n[인수인계서]\n${handoverMd}`,
-      cache_control: { type: 'ephemeral' },
+      cache_control: CACHE_1H,
     });
   }
   if (sectionMd) {
     blocks.push({
       type: 'text',
       text: `\n\n[현재 학습 단원 자료]\n${sectionMd}`,
-      cache_control: { type: 'ephemeral' },
+      cache_control: CACHE_1H,
     });
   } else if (unitMd) {
     blocks.push({
       type: 'text',
       text: `\n\n[현재 학습 단원 자료]\n${unitMd}`,
-      cache_control: { type: 'ephemeral' },
+      cache_control: CACHE_1H,
     });
   }
   if (mode === 'practice' && problemsMd) {
     blocks.push({
       type: 'text',
       text: `\n\n[기출 문제 자료]\n${problemsMd}`,
-      cache_control: { type: 'ephemeral' },
+      cache_control: CACHE_1H,
     });
   }
-  // ⚠️ leafPath, mastery, recentSummary는 항상 변하므로 cache_control 없이 마지막에 둔다.
-  // 캐시 prefix(인수인계+섹션)는 leaf 전환에도 그대로 유지된다.
+  // 모드 규칙은 캐시 뒤로 — 모드 전환에도 위쪽 캐시(인수인계+단원+기출) 보존.
+  const modeRules = MODE_RULES[mode] || '';
+  if (modeRules) {
+    blocks.push({ type: 'text', text: modeRules });
+  }
+  // 상태(leafPath/mastery/recentSummary)는 매번 변하므로 가장 뒤.
   const stateLines = [];
   if (leafPath) stateLines.push(`[현재 단원] ${leafPath}`);
   if (currentMastery) {
@@ -321,6 +328,7 @@ export async function sendMessages({
       'x-api-key': apiKey,
       'anthropic-version': API_VERSION,
       'anthropic-dangerous-direct-browser-access': 'true',
+      'anthropic-beta': 'extended-cache-ttl-2025-04-11',
     },
     body: JSON.stringify(body),
     signal,
