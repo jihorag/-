@@ -5,8 +5,9 @@ import AILearning from './AILearning';
 import ToastContainer, { toast } from './Toast';
 import CmdK from './CmdK';
 import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
-import { setCurrent as setAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS, getPrefs as getAiPrefs, setPrefs as setAiPrefs } from './aiLearningStore';
+import { setCurrent as setAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS, getPrefs as getAiPrefs, setPrefs as setAiPrefs, getApiKey as getProviderKey, setApiKey as setProviderKey, getBaseUrls, setBaseUrl } from './aiLearningStore';
 import { MODELS as AI_MODELS } from './aiClaudeClient';
+import { getProviderForModel } from './aiProviders';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
 import { ParsedText } from './ParsedText';
@@ -74,6 +75,49 @@ const DIFFICULTY_META = {
   4: { label: '난이도 4 · 어려움', bg: '#fff7ed', fg: '#c2410c' },
   5: { label: '난이도 5 · 매우어려움', bg: '#fef2f2', fg: '#b91c1c' },
 };
+
+// 멀티-프로바이더 API 키 + 프록시 baseUrl 위젯 (GlobalSettingsDrawer 'ai' 컨텍스트용)
+function ApiKeysWidget({ activeProvider, onChange }) {
+  const [anthropicKey, setAnthropicKey] = useState(localStorage.getItem('ailearn-byok') || '');
+  const [openaiKey, setOpenaiKey] = useState(getProviderKey('openai') || '');
+  const [googleKey, setGoogleKey] = useState(getProviderKey('google') || '');
+  const [openaiBase, setOpenaiBase] = useState(getBaseUrls().openai || '');
+  const [googleBase, setGoogleBase] = useState(getBaseUrls().google || '');
+  const save = (provider, key, baseUrl) => {
+    if (provider === 'anthropic') { localStorage.setItem('ailearn-byok', key || ''); }
+    else { setProviderKey(provider, key); }
+    if (baseUrl !== undefined) setBaseUrl(provider, baseUrl);
+    if (onChange) onChange();
+  };
+  const row = (active, bg, fgBorder, label, key, setKey, base, setBase, placeholder, baseHint, provider, link) => (
+    <div style={{ padding: 10, background: active ? bg : '#fff', border: `1px solid ${active ? fgBorder : '#e5e7eb'}`, borderRadius: 8, marginTop: 6 }}>
+      <div style={{ fontSize: '0.78rem', fontWeight: 700, color: active ? fgBorder : '#374151', marginBottom: 4 }}>
+        {label}{active && ' · 현재 활성'}{key ? ' · ✅ 키 입력됨' : ''}
+      </div>
+      <input type="password" value={key}
+        onChange={(e) => { setKey(e.target.value); save(provider, e.target.value); }}
+        placeholder={placeholder}
+        style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 4, boxSizing: 'border-box' }} />
+      {provider !== 'anthropic' && (
+        <input type="text" value={base}
+          onChange={(e) => { setBase(e.target.value); save(provider, key, e.target.value); }}
+          placeholder="프록시 baseUrl (https://your-worker.workers.dev)"
+          style={{ width: '100%', padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem', marginBottom: 4, boxSizing: 'border-box' }} />
+      )}
+      <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>
+        <a href={link} target="_blank" rel="noreferrer" style={{ color: fgBorder }}>키 발급</a>
+        {baseHint && <span> · {baseHint}</span>}
+      </div>
+    </div>
+  );
+  return (
+    <div>
+      {row(activeProvider === 'anthropic', '#fef3c7', '#92400e', 'Anthropic Claude', anthropicKey, setAnthropicKey, '', null, 'sk-ant-...', '브라우저 직호출 OK', 'anthropic', 'https://console.anthropic.com/settings/keys')}
+      {row(activeProvider === 'openai', '#dbeafe', '#1e40af', 'OpenAI GPT', openaiKey, setOpenaiKey, openaiBase, setOpenaiBase, 'sk-proj-...', '⚠️ CORS 차단 → 프록시 필수', 'openai', 'https://platform.openai.com/api-keys')}
+      {row(activeProvider === 'google', '#dcfce7', '#166534', 'Google Gemini', googleKey, setGoogleKey, googleBase, setGoogleBase, 'AIza...', '⚠️ CORS 차단 → 프록시 필수', 'google', 'https://aistudio.google.com/apikey')}
+    </div>
+  );
+}
 
 // 정답 정규화: 원문자/공백 처리 후 1..optCount 범위의 숫자 문자열만 유효, 아니면 null
 const CIRCLED = { '①': '1', '②': '2', '③': '3', '④': '4', '⑤': '5', '⑥': '6', '⑦': '7', '⑧': '8', '⑨': '9', '⑩': '10' };
@@ -2029,20 +2073,37 @@ const App = () => {
                 {/* 🎓 AI 학습 컨텍스트 */}
                 {settingsContext === 'ai' && (
                   <>
-                    <Section title="🤖 모델" desc="응답 속도·품질이 다릅니다.">
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <Section title="🤖 모델" desc="제공자별 가격·CORS 정책이 다름.">
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                         {[
-                          [AI_MODELS.primary, '🎯 Sonnet 4.6 (균형·권장)'],
-                          [AI_MODELS.fast, '⚡ Haiku 4.5 (빠름·저렴)'],
-                          [AI_MODELS.premium, '🧠 Opus 4.7 (최고품질·비쌈)'],
-                        ].map(([v, l]) => (
-                          <button key={v} onClick={() => { const next = setAiPrefs({ model: v }); setAiPrefsState(next); }}
-                            style={{ padding: '8px 10px', textAlign: 'left', borderRadius: 8, cursor: 'pointer', fontSize: '0.85rem', fontWeight: 700,
-                              border: aiPrefs.model === v ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
-                              background: aiPrefs.model === v ? '#eef2ff' : '#fff',
-                              color: aiPrefs.model === v ? '#1d4ed8' : '#374151' }}>
-                            {l}
-                          </button>
+                          { group: 'Anthropic — 브라우저 직호출', items: [
+                            ['claude-sonnet-4-6', '🎯 Sonnet 4.6 (균형·권장)'],
+                            ['claude-haiku-4-5-20251001', '⚡ Haiku 4.5 (빠름·저렴)'],
+                            ['claude-opus-4-7', '🧠 Opus 4.7 (최고품질·비쌈)'],
+                          ]},
+                          { group: 'OpenAI — 프록시 필요', items: [
+                            ['gpt-5.4', '🔵 GPT-5.4 (-30% vs Sonnet)'],
+                            ['gpt-5.4-mini', '🔵 GPT-5.4 mini (-80%)'],
+                          ]},
+                          { group: 'Google — 프록시 필요', items: [
+                            ['gemini-3.1-pro', '🟢 Gemini 3.1 Pro (-43%)'],
+                            ['gemini-3.1-flash', '🟢 Gemini 3.1 Flash (-85%)'],
+                          ]},
+                        ].map((grp) => (
+                          <div key={grp.group}>
+                            <div style={{ fontSize: '0.7rem', color: '#9ca3af', fontWeight: 700, marginBottom: 4 }}>{grp.group}</div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                              {grp.items.map(([v, l]) => (
+                                <button key={v} onClick={() => { const next = setAiPrefs({ model: v }); setAiPrefsState(next); }}
+                                  style={{ padding: '8px 10px', textAlign: 'left', borderRadius: 8, cursor: 'pointer', fontSize: '0.85rem', fontWeight: 700,
+                                    border: aiPrefs.model === v ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
+                                    background: aiPrefs.model === v ? '#eef2ff' : '#fff',
+                                    color: aiPrefs.model === v ? '#1d4ed8' : '#374151' }}>
+                                  {l}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
                         ))}
                       </div>
                     </Section>
@@ -2061,23 +2122,12 @@ const App = () => {
                       </div>
                     </Section>
                     <Section title="📨 일일 메시지 cap" desc="하루 최대 AI 호출 수 (비용 통제).">
-                      <input type="number" min={0} max={500} value={aiPrefs.daily_cap || 50}
+                      <input type="number" min={0} max={2000} value={aiPrefs.daily_cap || 500}
                         onChange={(e) => { const next = setAiPrefs({ daily_cap: parseInt(e.target.value, 10) || 0 }); setAiPrefsState(next); }}
                         style={{ width: '100%', padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.9rem' }} />
                     </Section>
-                    <Section title="🔑 Claude API 키" desc={localStorage.getItem('ailearn-byok') ? '✅ 입력됨' : '❌ 미입력'}>
-                      <button
-                        onClick={() => {
-                          if (!window.confirm('Claude API 키를 삭제하시겠습니까?')) return;
-                          try { localStorage.removeItem('ailearn-byok'); } catch { /* noop */ }
-                          toast.success('API 키 삭제 완료 · 새로고침합니다');
-                          setTimeout(() => window.location.reload(), 600); return;
-                          window.location.reload();
-                        }}
-                        style={{ width: '100%', padding: '8px', background: '#fef2f2', color: '#991b1b',
-                          border: '1px solid #fecaca', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
-                        API 키 삭제
-                      </button>
+                    <Section title="🔑 API 키 — 프로바이더 3개" desc="키 입력해두면 모델 전환 자유. 현재 활성 표시됨.">
+                      <ApiKeysWidget activeProvider={getProviderForModel(aiPrefs.model)} onChange={() => setAiPrefsState({ ...aiPrefs })} />
                     </Section>
                     <Section title="🎓 AI 학습 진척 초기화" desc="대화·세션·진척도 전부 삭제 (API 키·설정은 유지).">
                       <button
@@ -3927,43 +3977,7 @@ const App = () => {
     );
   }
 
-  // ===== 홈 탭: 학습 통계 + 오늘 복습 배너 =====
-  if (currentView === 'home' && overall.answered === 0) {
-    // 첫 사용자: 0의 벽 대신 단일 가치 행동으로 착지
-    return shell(
-      <div className="app-container">
-        <div style={{ position: 'absolute', right: 16, top: 'calc(env(safe-area-inset-top,0px) + 14px)',
-          zIndex: 10, display: 'flex', gap: 10 }}>
-          <button aria-label="설정" onClick={() => openSettings('home')}
-            style={{ width: 38, height: 38, borderRadius: '50%', border: '1px solid #e5e7eb',
-              background: '#fff', color: '#6b7280', cursor: 'pointer' }}>⚙️</button>
-        </div>
-        <main className="welcome">
-          <div className="welcome-mark">감정평가사 1차 기출</div>
-          <h1 className="welcome-title">기출 12,000제,<br />풀면서 개념까지.</h1>
-          <p className="welcome-sub">시험에 나온 문제로 바로 시작하세요. 가입 없이.</p>
-          <button className="welcome-cta" onClick={startFirstTaste}>
-            30초 안에 첫 문제 풀어보기
-          </button>
-          <button className="welcome-2nd" onClick={() => setCurrentView('dashboard')}>
-            시험·과목별로 골라 보기 →
-          </button>
-          <div className="welcome-bullets">
-            {ONB_BULLETS.map((b, i) => (
-              <div key={i} className="welcome-bullet">
-                <span style={{ fontSize: '1.3rem' }}>{b.emoji}</span>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#374151' }}>{b.t}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>{b.d}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </main>
-      </div>
-    );
-  }
-
+  // ===== 홈 탭 =====
   if (currentView === 'home') {
     return shell(
     <div className="app-container">
