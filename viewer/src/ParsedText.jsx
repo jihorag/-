@@ -4,6 +4,8 @@ import { useState } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import VizRouter, { VizPending } from './viz/VizRouter';
+import SafeSvg from './viz/SafeSvg';
+import MermaidView from './viz/MermaidView';
 
 export const SafeImage = ({ src }) => {
   const [errored, setErrored] = useState(false);
@@ -248,26 +250,31 @@ export const ParsedText = ({ text }) => {
   };
   while (i < lines.length) {
     const l = lines[i];
-    // 시각자료 fence 감지: ```viz <template-name>
-    const vizMatch = l.match(/^```viz\s+([a-z0-9_-]+)\s*$/i);
-    if (vizMatch) {
+    // 시각자료 fence 감지: ```viz <template-name>  /  ```mermaid  /  ```svg
+    const vizMatch = l.match(/^```(viz)\s+([a-z0-9_-]+)\s*$/i);
+    const mermaidMatch = l.match(/^```mermaid\s*$/i);
+    const svgMatch = l.match(/^```svg\s*$/i);
+    if (vizMatch || mermaidMatch || svgMatch) {
       flushText();
-      const name = vizMatch[1];
-      const jsonLines = [];
+      const kind = vizMatch ? 'viz' : mermaidMatch ? 'mermaid' : 'svg';
+      const name = vizMatch ? vizMatch[2] : kind;
+      const bodyLines = [];
       let j = i + 1;
       let closed = false;
       while (j < lines.length) {
         if (/^```\s*$/.test(lines[j])) { closed = true; break; }
-        jsonLines.push(lines[j]);
+        bodyLines.push(lines[j]);
         j++;
       }
       if (closed) {
-        blocks.push({ type: 'viz', name, raw: jsonLines.join('\n') });
+        if (kind === 'viz')         blocks.push({ type: 'viz', name, raw: bodyLines.join('\n') });
+        else if (kind === 'mermaid') blocks.push({ type: 'mermaid', raw: bodyLines.join('\n') });
+        else                          blocks.push({ type: 'svg', raw: bodyLines.join('\n') });
         i = j + 1;
       } else {
-        // 스트리밍 중 — 아직 펜스 안 닫힘. placeholder 표시.
-        blocks.push({ type: 'viz_pending', name });
-        i = j;  // 잔여 라인 소비 안 함 (다음 응답에서 마저 받음)
+        // 스트리밍 중 — 아직 펜스 안 닫힘.
+        blocks.push({ type: 'viz_pending', name: kind === 'viz' ? name : kind });
+        i = j;
       }
       continue;
     }
@@ -299,6 +306,12 @@ export const ParsedText = ({ text }) => {
       {blocks.map((b, idx) => {
         if (b.type === 'viz') {
           return <VizRouter key={idx} name={b.name} rawJson={b.raw} />;
+        }
+        if (b.type === 'mermaid') {
+          return <MermaidView key={idx} raw={b.raw} />;
+        }
+        if (b.type === 'svg') {
+          return <SafeSvg key={idx} raw={b.raw} />;
         }
         if (b.type === 'viz_pending') {
           return <VizPending key={idx} name={b.name} />;
