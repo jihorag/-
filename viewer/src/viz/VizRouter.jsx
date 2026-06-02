@@ -1,10 +1,11 @@
 // 시각자료 라우터: name + params 받아 등록된 컴포넌트 디스패치.
 // JSON 파싱 실패 / 스키마 검증 실패 시 에러 박스 표시 + 원본 코드 폴백.
 
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { getTemplate } from './vizRegistry';
 import { validate } from './validate';
 import VizFrame from './VizFrame';
+import { incrementVizUsage } from '../aiLearningStore';
 
 function ErrorBox({ name, errors, rawText }) {
   return (
@@ -27,28 +28,43 @@ function ErrorBox({ name, errors, rawText }) {
   );
 }
 
+function TrackedRender({ name, ok, children }) {
+  useEffect(() => {
+    try { incrementVizUsage(name, ok); } catch { /* noop */ }
+  }, [name, ok]);
+  return children;
+}
+
 export default function VizRouter({ name, rawJson }) {
   const tpl = getTemplate(name);
   if (!tpl) {
-    return <ErrorBox name={name} errors={[`등록되지 않은 템플릿: "${name}"`]} rawText={rawJson} />;
+    return <TrackedRender name={name} ok={false}>
+      <ErrorBox name={name} errors={[`등록되지 않은 템플릿: "${name}"`]} rawText={rawJson} />
+    </TrackedRender>;
   }
   let params;
   try {
     params = JSON.parse(rawJson || '{}');
   } catch (e) {
-    return <ErrorBox name={name} errors={[`JSON 파싱 오류: ${e.message}`]} rawText={rawJson} />;
+    return <TrackedRender name={name} ok={false}>
+      <ErrorBox name={name} errors={[`JSON 파싱 오류: ${e.message}`]} rawText={rawJson} />
+    </TrackedRender>;
   }
   const v = validate(tpl.schema, params);
   if (!v.ok) {
-    return <ErrorBox name={name} errors={v.errors} rawText={rawJson} />;
+    return <TrackedRender name={name} ok={false}>
+      <ErrorBox name={name} errors={v.errors} rawText={rawJson} />
+    </TrackedRender>;
   }
   const Comp = tpl.Component;
   return (
-    <VizFrame templateName={name}>
-      <Suspense fallback={<div style={{ padding: 14, background: '#eef2ff', borderRadius: 8, fontSize: '0.82rem', color: '#4338ca', textAlign: 'center' }}>📊 {name} 로드 중...</div>}>
-        <Comp params={params} />
-      </Suspense>
-    </VizFrame>
+    <TrackedRender name={name} ok={true}>
+      <VizFrame templateName={name}>
+        <Suspense fallback={<div style={{ padding: 14, background: '#eef2ff', borderRadius: 8, fontSize: '0.82rem', color: '#4338ca', textAlign: 'center' }}>📊 {name} 로드 중...</div>}>
+          <Comp params={params} />
+        </Suspense>
+      </VizFrame>
+    </TrackedRender>
   );
 }
 
