@@ -4754,27 +4754,59 @@ const App = () => {
               ))}
             </div>
           </div>
-          <div className="study-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10 }}>
             {activeGroups.map((group, idx) => {
               const s = progressStats(cardQuestions(group), progress);
               const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
               const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
+              const modeIcon = viewMode === 'exam' ? '🎓'
+                : viewMode === 'subject' ? '📚'
+                : viewMode === 'chapter' ? '📖'
+                : viewMode === 'year' ? '📅' : '📂';
+              const hasQuiz = group.total > 0;
               return (
-                <div key={idx} className="study-card" onClick={() => handleGroupClick(group)}>
+                <button
+                  key={idx}
+                  onClick={() => handleGroupClick(group)}
+                  disabled={!hasQuiz}
+                  style={{
+                    padding: 16, textAlign: 'left',
+                    background: hasQuiz
+                      ? 'linear-gradient(160deg, #eff6ff 0%, #ffffff 100%)'
+                      : 'linear-gradient(160deg, #f9fafb 0%, #ffffff 100%)',
+                    border: hasQuiz ? '1px solid #c7d2fe' : '1px solid #e5e7eb',
+                    borderRadius: 12, cursor: hasQuiz ? 'pointer' : 'not-allowed',
+                    display: 'flex', flexDirection: 'column', gap: 6, position: 'relative',
+                    opacity: hasQuiz ? 1 : 0.6,
+                  }}
+                >
                   {dm && (
-                    <div className="card-badge" style={{ background: dm.bg, color: dm.fg, border: 'none' }}>
+                    <span style={{ position: 'absolute', top: 10, right: 10, fontSize: '0.7rem', fontWeight: 800,
+                      background: dm.fg, color: '#fff', padding: '3px 8px', borderRadius: 999 }}>
                       난이도 {s.avgDiff.toFixed(1)}
+                    </span>
+                  )}
+                  <div style={{ fontSize: '1.8rem', lineHeight: 1 }}>{modeIcon}</div>
+                  <div style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '1.05rem',
+                    overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {group.title}
+                  </div>
+                  {group.subtitle && (
+                    <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 500,
+                      overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {group.subtitle}
                     </div>
                   )}
-                  <h3 className="card-title">{group.title}</h3>
-                  <div className="card-total">
-                    {group.total}문제{s.answered > 0 && <> · 학습 {s.answered}<span style={{ color: '#374151' }}>/{s.total}</span></>}
+                  <div style={{ marginTop: 8, height: 5, background: '#dbeafe', borderRadius: 3, overflow: 'hidden' }}>
+                    <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#4f46e5' }} />
                   </div>
-                  <div className="card-progress-container">
-                    <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#111827', marginTop: 4 }}>
+                    <span style={{ fontWeight: 800 }}>{pct}%</span>
+                    <span style={{ color: '#1f2937', fontWeight: 600 }}>
+                      {s.answered}/{group.total}
+                    </span>
                   </div>
-                  <div className="play-btn">풀기</div>
-                </div>
+                </button>
               );
             })}
           </div>
