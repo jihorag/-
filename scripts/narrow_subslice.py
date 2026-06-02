@@ -17,10 +17,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STUDY = os.path.join(ROOT, 'viewer/public/data/study')
 
 # 슬라이스 윈도우 — 키워드 기준 앞/뒤 라인 수
-WIN_BEFORE = 20
-WIN_AFTER  = 230
-MAX_WIN    = 280   # 절대 상한
-MIN_KEEP   = 60    # 이미 이보다 짧으면 보존
+# handover.md 가 매 요청에 cached 로 제공되어 일반 교습법·과목 맥락은 그쪽이 담당.
+# section 은 leaf-specific 디테일만 좁게 — 평균 1.5K 토큰 ≒ 130라인.
+WIN_BEFORE = 10
+WIN_AFTER  = 120
+MAX_WIN    = 140   # 절대 상한 (handover 활용으로 더 좁게 가능)
+MIN_KEEP   = 40    # 이미 이보다 짧으면 보존
 
 # 정규화: 제N장/절/관/편/Chapter/PART 등 접두 제거
 _PREFIX = re.compile(r'^(제\d+(장|절|관|편)|Chapter\s*\d+|PART\s*\d+|\([0-9]+\))\s+')
