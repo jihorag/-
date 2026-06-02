@@ -201,7 +201,7 @@ function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf, in
       )}
       {open && (
         <div style={inline ? {
-          background: '#fff', border: '1px solid #e5e7eb', borderRadius: 10,
+          background: '#fff',
         } : {
           position: 'absolute', top: 'calc(100% + 4px)', left: 0, right: 0, zIndex: 30,
           background: '#fff', border: '1px solid #d1d5db', borderRadius: 10,
@@ -2033,7 +2033,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               <div style={{ fontWeight: 800, color: '#111827' }}>📂 단원 선택</div>
               <button onClick={() => setShowLeafPickerModal(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '1.1rem' }}>✕</button>
             </div>
-            <div style={{ padding: 12, overflowY: 'auto', flex: 1 }}>
+            <div style={{ overflowY: 'auto', flex: 1 }}>
               <LeafPicker
                 inline
                 leaves={leaves}
