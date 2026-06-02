@@ -1739,7 +1739,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       gridTemplateColumns: '340px minmax(0, 1fr)',
       gap: 0,
       height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))',
-      width: '100%',
+      // viewport escape trick — 부모 max-width 제약 무시하고 전체 화면 폭 확보
+      width: '100vw',
+      marginLeft: 'calc(50% - 50vw)',
+      marginRight: 'calc(50% - 50vw)',
+      position: 'relative',
+      background: '#fff',
     } : { display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 1100, margin: '0 auto', width: '100%' }}>
       {/* PC 전용 좌측 단원 사이드바 — LeafPicker inline */}
       {isDesktop && (
