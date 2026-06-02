@@ -1,6 +1,7 @@
 // 시각자료 라우터: name + params 받아 등록된 컴포넌트 디스패치.
 // JSON 파싱 실패 / 스키마 검증 실패 시 에러 박스 표시 + 원본 코드 폴백.
 
+import { Suspense } from 'react';
 import { getTemplate } from './vizRegistry';
 import { validate } from './validate';
 import VizFrame from './VizFrame';
@@ -44,7 +45,9 @@ export default function VizRouter({ name, rawJson }) {
   const Comp = tpl.Component;
   return (
     <VizFrame templateName={name}>
-      <Comp params={params} />
+      <Suspense fallback={<div style={{ padding: 14, background: '#eef2ff', borderRadius: 8, fontSize: '0.82rem', color: '#4338ca', textAlign: 'center' }}>📊 {name} 로드 중...</div>}>
+        <Comp params={params} />
+      </Suspense>
     </VizFrame>
   );
 }

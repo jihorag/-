@@ -2174,6 +2174,17 @@ const App = () => {
                         );
                       })()}
                     </Section>
+                    <Section title="🎨 시각자료 갤러리" desc="등록된 모든 viz 템플릿 미리보기·예시 JSON 확인.">
+                      <button
+                        onClick={() => {
+                          setShowGlobalSettings(false);
+                          window.location.hash = '#viz-gallery';
+                        }}
+                        style={{ width: '100%', padding: '8px', background: '#eef2ff', color: '#4338ca',
+                          border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
+                        🎨 갤러리 열기
+                      </button>
+                    </Section>
                     <Section title="🎓 AI 학습 진척 초기화" desc="대화·세션·진척도 전부 삭제 (API 키·설정은 유지).">
                       <button
                         onClick={() => {
