@@ -189,6 +189,52 @@ const renderTextBlock = (text, keyPrefix) => {
       i++;
       continue;
     }
+    // 보기 ㄱㄴㄷㄹㅁ 박스 — 연속된 "ㄱ. " / "ㄴ. " ... 라인을 박스로 묶기
+    const bogiHead = trimmed.match(/^([ㄱ-ㅎ])\.\s+(.+)$/);
+    if (bogiHead && /[ㄱㄴㄷㄹㅁㅂㅅㅇ]/.test(bogiHead[1])) {
+      const items = [];
+      while (i < rawLines.length) {
+        const cur = rawLines[i].trim();
+        const m = cur.match(/^([ㄱ-ㅎ])\.\s+(.*)$/);
+        if (!m || !/[ㄱㄴㄷㄹㅁㅂㅅㅇ]/.test(m[1])) break;
+        items.push({ marker: m[1], content: m[2] });
+        i++;
+      }
+      elements.push(
+        <div
+          key={`${keyPrefix}-bogi-${i}`}
+          style={{
+            background: '#f8fafc',
+            border: '1px solid #e2e8f0',
+            borderLeft: '3px solid #94a3b8',
+            borderRadius: '6px',
+            padding: '12px 16px',
+            margin: '10px 0',
+          }}
+        >
+          {items.map((it, k) => (
+            <div
+              key={k}
+              style={{
+                display: 'flex',
+                gap: '10px',
+                margin: k === 0 ? '0' : '6px 0 0',
+                lineHeight: 1.6,
+                alignItems: 'baseline',
+              }}
+            >
+              <span style={{ fontWeight: 700, minWidth: '20px', color: '#475569', flexShrink: 0 }}>
+                {it.marker}.
+              </span>
+              <span style={{ flex: 1 }}>
+                {renderInlines(it.content, `${keyPrefix}-bogi-${k}`)}
+              </span>
+            </div>
+          ))}
+        </div>
+      );
+      continue;
+    }
     // 리스트 항목 — 연속된 - / * 라인 묶기
     if (/^\s*[-*]\s+/.test(ln)) {
       const items = [];
@@ -217,7 +263,7 @@ const renderTextBlock = (text, keyPrefix) => {
     while (i < rawLines.length) {
       const cur = rawLines[i];
       const ct = cur.trim();
-      if (ct === '' || /^(---+|___+|\*\*\*+)$/.test(ct) || /^(#{1,4})\s+/.test(ct) || /^\s*[-*]\s+/.test(cur)) break;
+      if (ct === '' || /^(---+|___+|\*\*\*+)$/.test(ct) || /^(#{1,4})\s+/.test(ct) || /^\s*[-*]\s+/.test(cur) || /^[ㄱㄴㄷㄹㅁㅂㅅㅇ]\.\s+/.test(ct)) break;
       paraLines.push(cur);
       i++;
     }
