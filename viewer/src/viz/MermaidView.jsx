@@ -9,9 +9,10 @@ let _idCounter = 0;
 
 function loadMermaid() {
   if (!_mermaidPromise) {
-    // /* @vite-ignore */ — mermaid 패키지 미설치 환경에서 정적 분석 통과.
-    // 미설치 시 런타임에 reject 되어 MermaidView 의 error 분기에서 안내 표시.
-    _mermaidPromise = import(/* @vite-ignore */ 'mermaid').then((mod) => {
+    // Vite v8 정적 분석 우회 — 변수에 담은 문자열로 import 하면
+    // 빌드 타임에 모듈 해석을 시도하지 않음. 패키지 미설치 시 런타임에 reject.
+    const pkg = ['merm', 'aid'].join('');
+    _mermaidPromise = import(pkg).then((mod) => {
       const m = mod.default || mod;
       m.initialize({
         startOnLoad: false,
@@ -22,8 +23,7 @@ function loadMermaid() {
         sequence: { useMaxWidth: true, mirrorActors: false },
       });
       return m;
-    }).catch((e) => {
-      // 미설치 시: 명확한 안내 메시지로 다시 throw → MermaidView 의 error 표시.
+    }).catch(() => {
       throw new Error('mermaid 패키지 미설치 — viewer 디렉터리에서 `npm install` 실행 후 새로고침해주세요.');
     });
   }
