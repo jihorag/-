@@ -1632,8 +1632,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
   return (
     aiView === 'home' ? (
-    <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 960, margin: '0 auto', width: '100%' }}>
-      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '8px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0, height: 'calc(100dvh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 960, margin: '0 auto', width: '100%' }}>
+      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '8px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'static', minHeight: 0, flex: '0 0 auto' }}>
         <h2 style={{ margin: 0, fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: 6, color: '#111827' }}>
           <Sparkles size={20} color="#4f46e5" /> AI 학습
         </h2>
@@ -1698,7 +1698,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           </div>
         </div>
       )}
-      <div style={{ flex: 1, overflowY: 'auto', padding: '14px 14px 30px' }}>
+      <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: '14px 14px 30px' }}>
         {/* 이어서 학습 카드 */}
         {curLeaf && messages.length > 0 && (() => {
           const m = mastery[curLeaf.id] || {};
@@ -1802,20 +1802,23 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     <div style={isDesktop ? {
       display: 'grid',
       gridTemplateColumns: '340px minmax(0, 1fr)',
+      // 단일 행을 뷰포트 높이로 고정. 미지정 시 행이 콘텐츠(implicit auto)로 잡혀
+      // 좌측 단원 트리가 길면 그리드가 뷰포트보다 커지고 채팅 컬럼 스크롤이 깨짐.
+      gridTemplateRows: 'minmax(0, 1fr)',
       gap: 0,
-      height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))',
+      height: 'calc(100dvh - 64px - env(safe-area-inset-bottom, 0px))',
       // viewport escape trick — 부모 max-width 제약 무시하고 전체 화면 폭 확보
       width: '100vw',
       marginLeft: 'calc(50% - 50vw)',
       marginRight: 'calc(50% - 50vw)',
       position: 'relative',
       background: '#fff',
-    } : { display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 1100, margin: '0 auto', width: '100%' }}>
+    } : { display: 'flex', flexDirection: 'column', minHeight: 0, height: 'calc(100dvh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 1100, margin: '0 auto', width: '100%' }}>
       {/* PC 전용 좌측 단원 사이드바 — LeafPicker inline */}
       {isDesktop && (
         <aside style={{
           borderRight: '1px solid #e5e7eb', background: '#fafafa',
-          display: 'flex', flexDirection: 'column', overflow: 'hidden',
+          display: 'flex', flexDirection: 'column', overflow: 'hidden', minHeight: 0,
         }}>
           <div style={{ padding: '10px 12px', borderBottom: '1px solid #e5e7eb', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ fontWeight: 800, fontSize: '0.88rem', color: '#111827' }}>📂 {getSubjectMeta(subjectId)?.title || '과목'}</div>
@@ -1836,8 +1839,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           </div>
         </aside>
       )}
-      <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, height: '100%' }}>
-      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', gap: 6, padding: '6px 8px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, minHeight: 0, height: '100%' }}>
+      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', gap: 6, padding: '6px 8px', position: 'static', minHeight: 0, flex: '0 0 auto' }}>
         <button
           onClick={() => setAiView('home')}
           title="과목 홈"
@@ -2130,7 +2133,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         </div>
       )}
 
-      <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', padding: '10px 10px 16px' }}>
+      <div ref={scrollRef} style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: '10px 10px 16px' }}>
         {messages.length === 0 && curLeaf && (() => {
           const m = mastery[curLeaf.id] || { coverage: 0, status: 'not_started' };
           const isMaster = m.status === 'mastered';
