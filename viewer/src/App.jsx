@@ -17,6 +17,7 @@ import { getProviderForModel } from './aiProviders';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
 import { ParsedText } from './ParsedText';
+import { useScrollLock } from './uiHooks';
 
 // ===== 사용자 데이터 관리 (백업/복원/초기화) =====
 // 모든 학습 상태는 localStorage 의 quiz-* 키에 저장됨. 계정 동기화의 단일 레이어.
@@ -726,6 +727,7 @@ const App = () => {
   const [settingsContext, setSettingsContext] = useState('home'); // home | ai | practice | review | status
   // Cmd+K 글로벌 검색 모달
   const [showCmdK, setShowCmdK] = useState(false);
+  useScrollLock(showGlobalSettings || showCmdK); // 오버레이 열림 시 배경 스크롤 잠금
   const [aiPrefs, setAiPrefsState] = useState(() => getAiPrefs());
   const openSettings = (ctx) => { setSettingsContext(ctx); setShowGlobalSettings(true); };
   const openContextSettings = () => {
@@ -1989,12 +1991,13 @@ const App = () => {
       <div onClick={() => setShowGlobalSettings(false)}
         style={{
           position: 'fixed', inset: 0, background: 'rgba(15, 23, 42, 0.45)',
-          zIndex: 100, animation: 'fadeIn 0.18s ease-out',
+          zIndex: 'var(--z-overlay)', animation: 'fadeIn 0.18s ease-out',
         }} />
       <div style={{
         position: 'fixed', top: 0, right: 0, bottom: 0,
         width: 'clamp(320px, 38vw, 480px)', background: '#fff',
-        boxShadow: '-12px 0 28px rgba(0,0,0,0.18)', zIndex: 101,
+        paddingTop: 'env(safe-area-inset-top, 0px)',
+        boxShadow: '-12px 0 28px rgba(0,0,0,0.18)', zIndex: 'var(--z-modal)',
         display: 'flex', flexDirection: 'column',
         animation: 'slideInRight 0.24s cubic-bezier(0.22, 0.61, 0.36, 1)',
       }}>
@@ -2203,8 +2206,7 @@ const App = () => {
                             }
                           } catch { /* noop */ }
                           toast.success('AI 학습 진척 초기화 완료 · 새로고침합니다');
-                          setTimeout(() => window.location.reload(), 600); return;
-                          window.location.reload();
+                          setTimeout(() => window.location.reload(), 600);
                         }}
                         style={{ width: '100%', padding: '10px', background: '#fef2f2', color: '#991b1b',
                           border: '1px solid #fecaca', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
@@ -2330,7 +2332,7 @@ const App = () => {
       style={{
         position: 'fixed',
         top: 'calc(env(safe-area-inset-top, 0px) + 14px)',
-        right: 14, zIndex: 50,
+        right: 14, zIndex: 'var(--z-nav)',
         width: 38, height: 38, borderRadius: '50%',
         background: 'rgba(255,255,255,0.85)',
         border: '1px solid #d1d5db',
@@ -2348,7 +2350,7 @@ const App = () => {
     <div className={`app-shell with-nav${extraClass ? ' ' + extraClass : ''}`}>
       {content}
       {/* 홈은 banner에 자체 ⚙️ 버튼이 있어 FAB 중복 노출 회피 */}
-      {currentView !== 'home' && globalSettingsFab}
+      {currentView !== 'home' && currentView !== 'civil' && !showGlobalSettings && globalSettingsFab}
       {globalSettingsDrawer}
       {bottomNav}
       {overlays}
@@ -2658,7 +2660,7 @@ const App = () => {
         </div>
 
         <main
-          style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}
+          style={{ padding: '20px', maxWidth: '800px', margin: '0 auto', paddingBottom: 'calc(40px + env(safe-area-inset-bottom, 0px))' }}
           onTouchStart={(e) => { const t = e.changedTouches[0]; swipe.x = t.clientX; swipe.y = t.clientY; }}
           onTouchEnd={(e) => {
             const t = e.changedTouches[0];
@@ -2815,7 +2817,7 @@ const App = () => {
           })()}
         </div>
 
-        <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+        <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto', paddingBottom: 'calc(40px + env(safe-area-inset-bottom, 0px))' }}>
           {filteredQuestions.map((q) => (
             <QuestionItem
               key={qid(q)}
@@ -3033,7 +3035,7 @@ const App = () => {
 
   if (totalQuestions === 0) {
     return (
-      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', color: '#6b7280', padding: '24px', textAlign: 'center' }}>
+      <div style={{ height: '100dvh', minHeight: '100dvh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', color: '#6b7280', padding: '24px', textAlign: 'center' }}>
         <div style={{ fontWeight: 700, fontSize: '1.2rem', color: '#374151', marginBottom: '8px' }}>표시할 분류된 문제가 없습니다</div>
         <div>데이터가 비어 있거나 분류가 아직 반영되지 않았습니다.</div>
       </div>

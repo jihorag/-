@@ -1,6 +1,7 @@
 // 인라인 이미지([IMAGE: ...]) + KaTeX($...$) + 줄바꿈 렌더러
 // App.jsx와 MockExam.jsx에서 동일한 문제 본문 렌더링을 위해 분리
 import { useState } from 'react';
+import { useScrollLock, useEscClose } from './uiHooks';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import VizRouter, { VizPending } from './viz/VizRouter';
@@ -10,6 +11,8 @@ import MermaidView from './viz/MermaidView';
 export const SafeImage = ({ src }) => {
   const [errored, setErrored] = useState(false);
   const [zoom, setZoom] = useState(false);
+  useScrollLock(zoom);
+  useEscClose(zoom, () => setZoom(false));
   if (errored) {
     return <span style={{ display: 'inline-block', color: '#9ca3af', fontSize: '0.85rem', padding: '8px 0' }}>[이미지 없음]</span>;
   }
@@ -395,7 +398,7 @@ export const ParsedText = ({ text }) => {
           );
         }
         // text block (block-level 요소 — div·ul·hr 등 — 반환)
-        return <div key={idx}>{renderTextBlock(b.content, idx)}</div>;
+        return <div key={idx} className="parsed-text">{renderTextBlock(b.content, idx)}</div>;
       })}
     </>
   );

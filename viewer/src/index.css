@@ -20,6 +20,14 @@
   --radius: 16px;
   /* 본문 글자 크기 배율(설정에서 변경) */
   --q-fs: 1;
+  /* z-index 스케일 — 오버레이 층위 일원화 (매직넘버 난립 방지) */
+  --z-nav: 50;        /* 하단 탭바 · 설정 FAB */
+  --z-sticky: 100;    /* 스크롤 따라가는 sticky 헤더 */
+  --z-overlay: 1000;  /* 모달 백드롭 */
+  --z-modal: 1001;    /* 일반 모달/드로어 패널 */
+  --z-modal-top: 1100;/* 중첩 모달(단원 picker·제출확인·CmdK) */
+  --z-lightbox: 1200; /* 이미지 라이트박스 */
+  --z-toast: 1300;    /* 토스트·컨페티 (항상 최상단) */
 }
 
 * {
@@ -39,7 +47,7 @@ body {
 .app-container {
   max-width: 600px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--bg-color);
 }
 
@@ -56,8 +64,39 @@ body {
   -webkit-backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: var(--z-sticky);
   border-bottom: 1px solid var(--border-color);
+}
+
+/* AI 메시지 액션 버튼 — 데스크톱은 hover 시 진하게, 터치 기기는 항상 보이게 */
+.ai-msg-actions { opacity: 0.6; transition: opacity 0.15s; }
+@media (hover: hover) and (pointer: fine) {
+  .ai-msg-actions:hover { opacity: 1; }
+}
+@media (hover: none), (pointer: coarse) {
+  .ai-msg-actions { opacity: 1; }
+}
+
+/* 아이콘 전용 버튼 터치 타깃 최소 44x44 보장 (시각 크기는 유지, 히트영역만 확대) */
+.icon-btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 발문·해설 렌더 영역: 긴 영문/URL/토큰이 박스·단락 폭을 넘겨 가로 스크롤 유발하는 것 방지 */
+.parsed-text, .parsed-text * { overflow-wrap: break-word; }
+
+/* 모션 민감 사용자: 모든 애니메이션·전환·스크롤 효과 비활성 (인라인 애니메이션 포함) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .back-btn {
@@ -362,7 +401,7 @@ body {
 .app-shell {
   max-width: 600px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   background: var(--bg-color);
 }
@@ -385,7 +424,7 @@ body {
   background: #fff;
   border-top: 1px solid #e5e7eb;
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  z-index: 50;
+  z-index: var(--z-nav);
 }
 .bottom-nav button {
   appearance: none;
@@ -788,7 +827,7 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 9999;
+  z-index: var(--z-toast);
   overflow: hidden;
 }
 .confetti-pc {
@@ -812,7 +851,7 @@ body {
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 9998;
+  z-index: var(--z-lightbox);
   background: rgba(0, 0, 0, 0.92);
   display: flex;
   align-items: center;
@@ -857,7 +896,7 @@ body {
 /* 과목별 액센트는 인라인 CSS 변수로 주입: --c-primary, --c-light, --c-dark, --c-accent */
 
 .mem-root {
-  min-height: 100vh; background: #f8fafc;
+  min-height: 100dvh; background: #f8fafc;
   padding-top: env(safe-area-inset-top, 0px);
   --c-primary: var(--primary, #2563eb);
   --c-light: var(--primary-light, #eff6ff);

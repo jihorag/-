@@ -30,7 +30,8 @@ export default function ToastContainer() {
   useEffect(() => {
     pushFn = (item) => {
       const id = Math.random().toString(36).slice(2) + Date.now();
-      setItems((arr) => [...arr, { id, ...item }]);
+      // 동시 표시 최대 3개 — 초과 시 가장 오래된 것부터 밀어냄 (화면 상단 점유 방지)
+      setItems((arr) => [...arr, { id, ...item }].slice(-3));
       setTimeout(() => {
         setItems((arr) => arr.filter((x) => x.id !== id));
       }, item.duration || 3000);
@@ -49,7 +50,7 @@ export default function ToastContainer() {
       position: 'fixed',
       top: 'calc(env(safe-area-inset-top, 0px) + 14px)',
       left: '50%', transform: 'translateX(-50%)',
-      zIndex: 9999, display: 'flex', flexDirection: 'column', gap: 8,
+      zIndex: 'var(--z-toast)', display: 'flex', flexDirection: 'column', gap: 8,
       pointerEvents: 'none',
       width: 'min(420px, 92vw)',
     }}>

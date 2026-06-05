@@ -17,6 +17,7 @@
 //   { type: 'settings', ctx }            — 설정 드로어 열기
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useScrollLock } from './uiHooks';
 
 const TABS = [
   { id: 'home', label: '홈', icon: '🏠', sub: '대시보드', view: 'home' },
@@ -39,6 +40,7 @@ function normalize(s) {
 }
 
 export default function CmdK({ open, onClose, onNavigate, subjects = [], leaves = [], rooms = [], leafById }) {
+  useScrollLock(open);
   const [q, setQ] = useState('');
   const [activeIdx, setActiveIdx] = useState(0);
   const inputRef = useRef(null);

@@ -99,6 +99,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
   const [manifest, setManifest] = useState(null);
   const [manifestErr, setManifestErr] = useState(null);
   const [chapterCache, setChapterCache] = useState({});  // { [id]: chapterData (questions merged official+generated) }
+  const [chapterErrors, setChapterErrors] = useState({}); // { [id]: errMsg } — 로드 실패 시 재시도 안내용
   const [progress, setProgressState] = useState(() => loadProgress());
   // 문제 목록 source 필터: 'all' | 'official' | 'ai-vary' | 'ai-new'
   const [sourceFilter, setSourceFilter] = useState('all');
@@ -222,16 +223,24 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         generatedCount: genQ.length,
       };
       setChapterCache(prev => ({ ...prev, [id]: merged }));
+      setChapterErrors(prev => { if (!prev[id]) return prev; const n = { ...prev }; delete n[id]; return n; });
       return merged;
     } catch (e) {
       console.error('essay chapter fetch failed', e);
+      setChapterErrors(prev => ({ ...prev, [id]: e.message || '로드 실패' }));
       return null;
     }
   }, [chapterCache]);
 
+  const retryChapter = useCallback((id) => {
+    setChapterErrors(prev => { const n = { ...prev }; delete n[id]; return n; });
+    ensureChapter(id);
+  }, [ensureChapter]);
+
   useEffect(() => {
-    if (chapter && !chapterCache[chapter]) ensureChapter(chapter);
-  }, [chapter, chapterCache, ensureChapter]);
+    // 캐시 없고 아직 실패 기록도 없을 때만 1회 시도 (실패 시 무한 재시도 방지)
+    if (chapter && !chapterCache[chapter] && !chapterErrors[chapter]) ensureChapter(chapter);
+  }, [chapter, chapterCache, chapterErrors, ensureChapter]);
 
   // ─────────── 작성 화면 진입 시 draft 로드 + 타이머 시작 ───────────
   useEffect(() => {
@@ -251,6 +260,14 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     const t = setInterval(() => saveDraft(questionId, draft), 10000);
     return () => clearInterval(t);
   }, [mode, questionId, draft]);
+
+  // ─────────── 작성 중 새로고침·탭 닫기 경고 (최대 10초 분량 유실 방지) ───────────
+  useEffect(() => {
+    if (mode !== 'essay_write' || draft.trim().length === 0) return undefined;
+    const handler = (e) => { e.preventDefault(); e.returnValue = ''; };
+    window.addEventListener('beforeunload', handler);
+    return () => window.removeEventListener('beforeunload', handler);
+  }, [mode, draft]);
 
   // ─────────── 현재 question 찾기 헬퍼 ───────────
   const currentQuestion = useMemo(() => {
@@ -437,7 +454,17 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
   if (mode === 'essay_questions') {
     const cd = chapter ? chapterCache[chapter] : null;
     const meta = chapter ? manifest.chapters.find(c => c.id === chapter) : null;
-    if (!cd) return shell(<div style={{ padding: 24, color: '#9ca3af' }}>단원 데이터 불러오는 중…</div>);
+    if (!cd) return shell(
+      chapterErrors[chapter]
+        ? <div style={{ padding: 24, textAlign: 'center' }}>
+            <div style={{ color: '#dc2626', fontWeight: 600, marginBottom: 12 }}>⚠️ 단원 자료를 불러오지 못했어요</div>
+            <div style={{ color: '#6b7280', fontSize: '0.85rem', marginBottom: 16 }}>{chapterErrors[chapter]}</div>
+            <button onClick={() => retryChapter(chapter)}
+              style={{ padding: '10px 18px', borderRadius: 8, fontWeight: 700, border: 'none',
+                background: '#2563eb', color: '#fff', cursor: 'pointer', minHeight: 44 }}>↻ 다시 시도</button>
+          </div>
+        : <div style={{ padding: 24, color: '#6b7280' }}>단원 데이터 불러오는 중…</div>
+    );
 
     // source별 카운트 — 실문제(official/gs/past) / 연습문제(practice-set) / AI 명확히 구분
     const isOfficial = (q) => q.source === 'official' || q.source === 'gs' || q.source == null;

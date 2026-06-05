@@ -274,6 +274,15 @@ export function clearRoom(leafId) {
   if (!leafId) return;
   try { localStorage.removeItem(KEY.room(leafId)); } catch { /* noop */ }
 }
+// 마지막 메시지 1개 제거 (전송 실패 롤백용). 제거된 메시지를 반환.
+export function popRoomMessage(leafId) {
+  if (!leafId) return null;
+  const arr = getRoomMessages(leafId);
+  if (!arr.length) return null;
+  const removed = arr.pop();
+  lsSet(KEY.room(leafId), arr);
+  return removed;
+}
 export function getAllRooms() {
   const out = [];
   try {

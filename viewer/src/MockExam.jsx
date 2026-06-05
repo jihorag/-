@@ -2,9 +2,10 @@
 // localStorage:
 //   quiz-mock-current  : 진행 중 세션(1개) — { exam, year, qids, startedAt, limitMs, answers }
 //   quiz-mock-history  : 완료 세션 누적 배열
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { ParsedText } from './ParsedText';
+import { useScrollLock, useEscClose } from './uiHooks';
 
 const CUR_KEY = 'quiz-mock-current';
 const HIST_KEY = 'quiz-mock-history';
@@ -168,6 +169,10 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
   const [idx, setIdx] = useState(0);
   const [palette, setPalette] = useState(false);
   const [confirmSubmit, setConfirmSubmit] = useState(false);
+  const [showExpired, setShowExpired] = useState(false);
+  useScrollLock(palette || confirmSubmit || showExpired);
+  useEscClose(palette, () => setPalette(false));
+  useEscClose(confirmSubmit, () => setConfirmSubmit(false));
   // 결과 화면: 무엇을 표시할지 (마지막 완료 항목 or 선택)
   const [resultId, setResultId] = useState(null);
   // history 필터: '' = 전체, 'mode' = 현재 모드 시험만
@@ -323,11 +328,18 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
     onNavigate('mock');
   }, [onNavigate]);
 
-  // 시간 초과 자동 제출
+  // 시간 초과 처리.
+  //  · 세션을 보는 중에 만료되면 → 자동 제출(정상).
+  //  · 앱을 닫았다가 한참 뒤 "이어서 풀기"로 들어와 이미 만료된 경우 → 즉시 자동제출하지 않고
+  //    확인 모달을 띄워(지금까지 답안으로 제출 / 폐기) 사용자가 결과를 인지하게 함.
+  const sawActiveRef = useRef(false);
+  useEffect(() => { sawActiveRef.current = false; setShowExpired(false); }, [current?.id]);
   useEffect(() => {
     if (mode !== 'mockSession' || !current || current.submitted || !current.limitMs) return;
     const remaining = current.startedAt + current.limitMs - now;
-    if (remaining <= 0) submitMock(true);
+    if (remaining > 0) { sawActiveRef.current = true; return; }
+    if (!sawActiveRef.current) { setShowExpired(true); return; } // 입장 시 이미 만료
+    submitMock(true); // 보는 중 만료 → 자동 제출
   }, [mode, current, now, submitMock]);
 
   // ═══════════════════ 화면별 렌더 ═══════════════════
@@ -605,15 +617,23 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
             <div className="q-text" style={{ lineHeight: 1.6, fontWeight: 600 }}>
               <ParsedText text={q.question} />
             </div>
+            {!opts.length && (
+              <div style={{ marginTop: 14, padding: 12, background: '#fef9c3', border: '1px solid #fde68a',
+                borderRadius: 8, fontSize: '0.85rem', color: '#92400e' }}>
+                ⚠️ 이 문항은 보기 데이터가 없어 응답할 수 없어요. 다음 문항으로 넘어가 주세요.
+              </div>
+            )}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
               {(opts.length ? opts : ['', '', '', '']).map((o, i) => {
                 const n = i + 1;
                 const on = sel === String(n);
                 return (
                   <button key={i} onClick={() => onPick(n)}
+                    disabled={!opts.length}
                     className="opt-btn"
                     style={{ background: on ? '#eff6ff' : '#f9fafb',
-                      borderColor: on ? '#93c5fd' : '#e5e7eb' }}>
+                      borderColor: on ? '#93c5fd' : '#e5e7eb',
+                      opacity: opts.length ? 1 : 0.5, cursor: opts.length ? 'pointer' : 'not-allowed' }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       width: 26, height: 26, borderRadius: '50%',
                       background: on ? '#2563eb' : '#fff', color: on ? '#fff' : '#4b5563',
@@ -673,7 +693,7 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
 
       {palette && (
         <div onClick={() => setPalette(false)} style={{ position: 'fixed', inset: 0,
-          background: 'rgba(0,0,0,0.5)', zIndex: 100, display: 'flex', alignItems: 'flex-end' }}>
+          background: 'rgba(0,0,0,0.5)', zIndex: 'var(--z-modal-top)', display: 'flex', alignItems: 'flex-end' }}>
           <div onClick={(e) => e.stopPropagation()}
             style={{ background: '#fff', width: '100%', maxHeight: '70vh', overflow: 'auto',
               borderRadius: '16px 16px 0 0', padding: 16 }}>
@@ -715,7 +735,7 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
 
       {confirmSubmit && (
         <div onClick={() => setConfirmSubmit(false)} style={{ position: 'fixed', inset: 0,
-          background: 'rgba(0,0,0,0.5)', zIndex: 110, display: 'flex',
+          background: 'rgba(0,0,0,0.5)', zIndex: 'var(--z-modal-top)', display: 'flex',
           alignItems: 'center', justifyContent: 'center', padding: 24 }}>
           <div onClick={(e) => e.stopPropagation()}
             style={{ background: '#fff', borderRadius: 14, padding: 22, maxWidth: 360, width: '100%' }}>
@@ -741,6 +761,26 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
                   background: 'none', border: 'none', color: '#dc2626',
                   cursor: 'pointer' }}>세션 버리기</button>
             )}
+          </div>
+        </div>
+      )}
+
+      {showExpired && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 'var(--z-modal-top)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
+          <div style={{ background: '#fff', borderRadius: 14, padding: 22, maxWidth: 360, width: '100%' }}>
+            <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#111827' }}>⏱ 시험 시간이 종료된 세션이에요</div>
+            <div style={{ fontSize: '0.88rem', color: '#6b7280', marginTop: 8 }}>
+              제한 시간이 지난 뒤 다시 들어왔어요. 지금까지 작성한 답안({answered}/{total})으로 채점하거나, 세션을 폐기할 수 있어요.
+            </div>
+            <div style={{ display: 'flex', gap: 8, marginTop: 18 }}>
+              <button onClick={() => { setShowExpired(false); if (window.confirm('이 세션을 폐기할까요? 응답은 사라져요.')) abandonMock(); }}
+                style={{ flex: 1, padding: '10px', borderRadius: 8, fontWeight: 700,
+                  border: '1px solid #fecaca', background: '#fff', color: '#dc2626', cursor: 'pointer' }}>폐기</button>
+              <button onClick={() => { setShowExpired(false); submitMock(true); }}
+                style={{ flex: 1, padding: '10px', borderRadius: 8, fontWeight: 700,
+                  border: 'none', background: '#2563eb', color: '#fff', cursor: 'pointer' }}>지금까지 답안으로 제출</button>
+            </div>
           </div>
         </div>
       )}

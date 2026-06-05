@@ -18,7 +18,7 @@ import {
   getMastery, getChapterMastery, updateChapterMastery,
   recordGrade, recordAnswerScore, getDueChapters,
   getSessions, addSession, updateSession,
-  getRoomMessages, appendRoomMessage, clearRoom, getAllRooms,
+  getRoomMessages, appendRoomMessage, popRoomMessage, clearRoom, getAllRooms,
   bumpUsage, canSendMessage, getUsage,
   pruneOldConversations,
   addAssessment,
@@ -31,6 +31,7 @@ import {
   getMsgRatings, rateMsg, addNote,
   markActiveToday,
 } from './aiLearningStore';
+import { useScrollLock, useEscClose } from './uiHooks';
 import AnswerHistoryWidget from './AnswerHistoryWidget';
 import { SpeakButton } from './Speech';
 import { buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
@@ -945,9 +946,7 @@ function MessageBubble({ msg, fadeIn, leafId, leafTitle }) {
           {isUser ? msg.content : <ParsedText text={msg.content} />}
         </div>
         {!isUser && (
-          <div style={{ display: 'flex', gap: 4, marginTop: 4, paddingLeft: 4, opacity: 0.6, transition: 'opacity 0.15s' }}
-            onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; }}
-            onMouseLeave={(e) => { e.currentTarget.style.opacity = 0.6; }}>
+          <div className="ai-msg-actions" style={{ display: 'flex', gap: 4, marginTop: 4, paddingLeft: 4 }}>
             <button onClick={() => rate(1)} title="이해됐어요" style={msgBtn(rating === 1 ? '#dcfce7' : '#fff', rating === 1 ? '#15803d' : '#6b7280')}>👍</button>
             <button onClick={() => rate(-1)} title="더 자세히" style={msgBtn(rating === -1 ? '#fef2f2' : '#fff', rating === -1 ? '#b91c1c' : '#6b7280')}>🤔</button>
             <button onClick={saveAsNote} title="노트로 저장" style={msgBtn(savedToNote ? '#dbeafe' : '#fff', savedToNote ? '#1d4ed8' : '#6b7280')}>
@@ -1126,6 +1125,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [streaming, setStreaming] = useState(false);
   const [draft, setDraft] = useState('');
   const [error, setError] = useState('');
+  const [lastFailedText, setLastFailedText] = useState(''); // 전송 실패 시 재시도용
+  const [thinkSec, setThinkSec] = useState(0); // 비스트리밍 대기 경과초
   const [showHistory, setShowHistory] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
   // 5과목 leaves 캐시 — App.jsx에서 미리 받아둔 props 사용. fallback으로 자체 fetch.
@@ -1153,6 +1154,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [recentRooms, setRecentRooms] = useState(() => getAllRooms());
   // 헤더 단원 박스 클릭 → LeafPicker 모달
   const [showLeafPickerModal, setShowLeafPickerModal] = useState(false);
+  useScrollLock(showLeafPickerModal);
+  useEscClose(showLeafPickerModal, () => setShowLeafPickerModal(false));
   // 2차 실전 모의 세션 — null | { startedAt, totalMin, curQ, totalQ, scoreDist, scores: [{q, score, max, time_used_min}] }
   const [mockSession, setMockSession] = useState(null);
   const [mockTick, setMockTick] = useState(0);
@@ -1163,6 +1166,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   }, [mockSession]);
   const abortRef = useRef(null);
   const scrollRef = useRef(null);
+  const stickBottomRef = useRef(true); // 채팅 자동 스크롤: 바닥 근처 여부
+  const inputRef = useRef(null); // 전송 후 포커스 복원용
   const idleTimerRef = useRef(null);
 
   // 인덱스·인수인계서 로드 — subjectId 변경 시 재로드
@@ -1224,6 +1229,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
   // leaf 전환 시 해당 단원의 채팅방 로드. streaming은 중단·입력·idle 초기화.
   useEffect(() => {
+    stickBottomRef.current = true; // 단원 전환 시 바닥으로
     if (!current?.leaf_id) { setMessages([]); return; }
     setMessages(getRoomMessages(current.leaf_id));
     setPendingNext(null);
@@ -1233,8 +1239,20 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
   }, [current?.leaf_id]);
 
+  // 대기 경과초 카운터 (특히 비스트리밍 모드에서 진행 단서 제공)
   useEffect(() => {
-    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    if (!streaming) { setThinkSec(0); return undefined; }
+    setThinkSec(0);
+    const t = setInterval(() => setThinkSec((s) => s + 1), 1000);
+    return () => clearInterval(t);
+  }, [streaming]);
+
+  // 채팅 stick-to-bottom: 사용자가 바닥 근처일 때만 자동 스크롤.
+  // 위로 올려 이전 내용을 읽는 중이면 스트리밍 토큰이 와도 끌어내리지 않음.
+  useEffect(() => {
+    if (stickBottomRef.current && scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
   }, [messages, draft]);
 
   // 메시지 변동 시 최근 방 목록 갱신
@@ -1261,6 +1279,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     setMessages([]);
     setUnitMd(''); setSectionMd(''); setProblemsMd('');
     setPendingNext(null); setIdlePromptShown(false); setInput('');
+    setMockSession(null); // 과목 전환 시 진행 중 모의 세션 정리 (다른 과목 맥락 잔존 방지)
     // stage 전환 시 적합한 default 모드로
     const nextStage = SUBJECTS.find((s) => s.id === sid)?.stage || 1;
     const stage1Modes = ['study', 'practice', 'deep', 'summary', 'diagnose'];
@@ -1321,10 +1340,14 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
     clearIdleTimer();
     if (!current?.leaf_id) { setError('단원을 먼저 선택하세요.'); setStreaming(false); return; }
+    const sendLeafId = current.leaf_id; // 응답 저장 대상 고정 (전송 중 단원 전환 레이스 방지)
     const userMsg = { role: 'user', content: text };
-    appendRoomMessage(current.leaf_id, userMsg);
+    appendRoomMessage(sendLeafId, userMsg);
     setMessages((arr) => [...arr, { ...userMsg, ts: new Date().toISOString() }]);
     if (typeof overrideText !== 'string') setInput('');
+    stickBottomRef.current = true; // 내가 보냈으면 바닥으로
+    setLastFailedText('');
+    setError('');
     setStreaming(true);
     setDraft('');
 
@@ -1414,9 +1437,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         signal: ac.signal,
         onDelta: useStream ? ((_chunk, agg) => setDraft(agg)) : undefined,
       });
+      if (ac.signal.aborted) return; // 단원 전환 등으로 취소됐으면 저장 안 함
       const aMsg = { role: 'assistant', content: out };
-      appendRoomMessage(current.leaf_id, aMsg);
-      setMessages((arr) => [...arr, { ...aMsg, ts: new Date().toISOString() }]);
+      appendRoomMessage(sendLeafId, aMsg);
+      // 전송 시점과 현재 단원이 같을 때만 화면 갱신 (다른 방으로 옮겼으면 무시)
+      if (current?.leaf_id === sendLeafId) {
+        setMessages((arr) => [...arr, { ...aMsg, ts: new Date().toISOString() }]);
+      }
       bumpUsage({
         messages: 1,
         input_tokens: usage.input_tokens || 0,
@@ -1504,6 +1531,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       }
     } catch (e) {
       if (e.name !== 'AbortError') {
+        // 낙관적으로 추가한 user 메시지 롤백 + 입력 복원 (짝 없는 메시지 영구 누적·내용 소실 방지)
+        popRoomMessage(sendLeafId);
+        if (current?.leaf_id === sendLeafId) {
+          setMessages((arr) => (arr.length && arr[arr.length - 1].role === 'user' ? arr.slice(0, -1) : arr));
+        }
+        setLastFailedText(text);
+        if (typeof overrideText !== 'string') setInput(text);
         const isNet = e.message && /fetch|network|cors|failed to fetch/i.test(e.message);
         const provName = getProviderForModel(prefs.model);
         const provLabel = provName === 'openai' ? 'GPT' : provName === 'google' ? 'Gemini' : 'Claude';
@@ -1517,6 +1551,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       setDraft('');
       abortRef.current = null;
       armIdleTimer();
+      // 전송 완료 후 입력창 포커스 복원 (전송 중 disabled로 blur됐던 것 회복)
+      if (typeof window !== 'undefined') {
+        requestAnimationFrame(() => { try { inputRef.current?.focus(); } catch { /* noop */ } });
+      }
     }
   }, [input, streaming, byok, prefs.model, prefs.daily_cap, prefs.max_tokens, current, leaves, handoverMd, unitMd, sectionMd, problemsMd, mode, sessionId, clearIdleTimer, armIdleTimer]);
 
@@ -1638,10 +1676,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           <Sparkles size={20} color="#4f46e5" /> AI 학습
         </h2>
         <div style={{ display: 'flex', gap: 2 }}>
-          <button onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
+          <button className="icon-btn" onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
             <BarChart3 size={18} color={showAnalytics ? '#4f46e5' : '#6b7280'} />
           </button>
-          <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
+          <button className="icon-btn" onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
             <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
           </button>
         </div>
@@ -1953,10 +1991,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             <Trash2 size={16} color="#ef4444" />
           </button>
         )}
-        <button onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+        <button className="icon-btn" onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
           <BarChart3 size={18} color={showAnalytics ? '#4f46e5' : '#6b7280'} />
         </button>
-        <button onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+        <button className="icon-btn" onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
           <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
         </button>
       </header>
@@ -2075,12 +2113,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       {showLeafPickerModal && (
         <>
           <div onClick={() => setShowLeafPickerModal(false)}
-            style={{ position: 'fixed', inset: 0, background: 'rgba(15,23,42,0.45)', zIndex: 150 }} />
+            style={{ position: 'fixed', inset: 0, background: 'rgba(15,23,42,0.45)', zIndex: 'var(--z-overlay)' }} />
           <div style={{
             position: 'fixed', top: '8vh', left: '50%', transform: 'translateX(-50%)',
             width: 'min(560px, 92vw)', maxHeight: '80vh', background: '#fff',
             borderRadius: 14, boxShadow: '0 20px 50px rgba(15,23,42,0.25)',
-            display: 'flex', flexDirection: 'column', zIndex: 151,
+            display: 'flex', flexDirection: 'column', zIndex: 'var(--z-modal-top)',
             animation: 'cmdkIn 0.2s cubic-bezier(0.22, 0.61, 0.36, 1)',
             overflow: 'hidden',
           }}>
@@ -2133,7 +2171,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         </div>
       )}
 
-      <div ref={scrollRef} style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: '10px 10px 16px' }}>
+      <div ref={scrollRef}
+        onScroll={(e) => {
+          const el = e.currentTarget;
+          stickBottomRef.current = el.scrollHeight - el.scrollTop - el.clientHeight < 120;
+        }}
+        style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: '10px 10px 16px' }}>
         {messages.length === 0 && curLeaf && (() => {
           const m = mastery[curLeaf.id] || { coverage: 0, status: 'not_started' };
           const isMaster = m.status === 'mastered';
@@ -2429,12 +2472,18 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4f46e5', animation: 'aiThink 1.2s ease-in-out 0.2s infinite' }} />
               <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4f46e5', animation: 'aiThink 1.2s ease-in-out 0.4s infinite' }} />
             </span>
-            생각하는 중…
+            생각하는 중…{thinkSec >= 3 ? ` ${thinkSec}s` : ''}
           </div>
         )}
         {error && (
-          <div style={{ background: '#fef2f2', color: '#991b1b', padding: 10, borderRadius: 8, fontSize: '0.85rem', marginTop: 10, border: '1px solid #fecaca' }}>
-            {error}
+          <div style={{ background: '#fef2f2', color: '#991b1b', padding: 10, borderRadius: 8, fontSize: '0.85rem', marginTop: 10, border: '1px solid #fecaca', display: 'flex', alignItems: 'flex-start', gap: 8, justifyContent: 'space-between' }}>
+            <span style={{ flex: 1, minWidth: 0 }}>{error}</span>
+            {lastFailedText && !streaming && (
+              <button
+                onClick={() => { const t = lastFailedText; setLastFailedText(''); setError(''); quickSend(t); }}
+                style={{ flex: '0 0 auto', padding: '4px 10px', fontSize: '0.78rem', fontWeight: 700, background: '#fff', color: '#991b1b', border: '1px solid #fecaca', borderRadius: 6, cursor: 'pointer', minHeight: 32 }}
+              >↻ 다시 보내기</button>
+            )}
           </div>
         )}
         {confirmAction && (
@@ -2669,10 +2718,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         )}
         <div style={{ display: 'flex', gap: 6, alignItems: 'flex-end', marginTop: mode === 'answer_write' ? 8 : 0 }}>
           <textarea
+            ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+              // 한글 IME 조합 중 Enter는 글자 확정용이므로 전송하지 않음
+              if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) { e.preventDefault(); send(); }
             }}
             placeholder={cap.ok
               ? (mode === 'answer_write' ? '추가 질문이나 모범 답안 요청...' : '메시지를 입력하세요 (Enter 전송, Shift+Enter 줄바꿈)')
@@ -2681,7 +2732,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             rows={mode === 'answer_write' ? 1 : 2}
             style={{
               flex: 1, padding: '10px 12px', border: '1px solid #d1d5db', borderRadius: 10,
-              fontSize: '0.95rem', resize: 'none', fontFamily: 'inherit',
+              // 16px 미만이면 iOS Safari가 포커스 시 페이지를 확대(zoom)함 → 16px 고정
+              fontSize: '16px', resize: 'none', fontFamily: 'inherit',
               background: !cap.ok ? '#f9fafb' : '#fff',
             }}
           />
