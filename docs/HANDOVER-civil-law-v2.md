@@ -955,6 +955,956 @@ ls viewer/public/data/practice/civil-law/*.json | wc -l
 
 ---
 
+---
+
+## 18. 완성된 쟁점 1개 전체 예시 (실제 작성된 JSON 구조 학습용)
+
+작성 표준을 가장 빠르게 익히는 방법은 **완성된 쟁점 1개를 처음부터 끝까지 읽는 것**.
+
+### 18.1 권장 학습 순서 (난이도 ↓ → ↑)
+
+1. **`civil-gen-ch04-sec01-item01.json`** — 물건의 의의와 분류
+   - 가장 직관적, 조문이 명료
+   - 사례형(자동차+자전거 거치대)이 단순
+2. **`civil-gen-ch02-sec02-item01.json`** — 미성년자와 법정대리인
+   - 첫 작성 쟁점, 표준 구조 가장 정형적
+3. **`civil-gen-ch05-sec02-item02.json`** — 반사회질서 법률행위
+   - 판례 인용 다양 (대판(전합) 5건 이상)
+   - 사례형이 풍부 (이중매매·도박빚·축첩)
+4. **`civil-prop-ch07-sec01-item01.json`** — 유치권
+   - 결합형 처리 깔끔
+   - 견련성 판례 인용
+
+### 18.2 미성년자 쟁점 (item01) 문항 1번 분해 분석
+
+```json
+{
+  "id": "practice-civil-gen-ch02-sec02-item01-001",
+  "difficulty": 1,
+  "question_type": "조문형",
+  "question": "민법상 미성년자의 행위능력에 관한 설명으로 옳은 것은?",
+  "options": [
+    "미성년자가 법정대리인의 동의 없이 한 법률행위는 절대적 무효이다.",
+    "미성년자가 법정대리인의 동의 없이 한 법률행위는 미성년자 본인 또는 법정대리인이 취소할 수 있다.",
+    "미성년자가 단순히 권리만을 얻는 행위도 법정대리인의 동의를 요한다.",
+    "미성년자가 법정대리인의 동의 없이 한 행위는 제3자에 대하여 그 무효를 주장할 수 없다.",
+    "미성년자가 법정대리인의 동의 없이 한 법률행위는 추인할 수 없다."
+  ],
+  "answer": "2",
+  "explanation": "민법 제5조 제2항에 따라 미성년자가 법정대리인의 동의 없이 한 법률행위는 취소할 수 있으며, 취소권자는 미성년자 본인과 법정대리인이다(제140조). 단순히 권리만을 얻거나 의무를 면하는 행위는 동의가 필요 없다(제5조 제1항 단서)."
+}
+```
+
+**분해 해석:**
+
+| 요소 | 값 | 작성 의도 |
+|---|---|---|
+| `difficulty: 1` | 가장 쉬움 | 단순 조문 적용 |
+| `question_type: "조문형"` | 조문 직접 인용 | 매뉴얼 5유형 중 하나 |
+| `question` 길이 | 30자 | 조문형 권장 40-55자 보다 짧으나 OK |
+| `question` 발문 극성 | "옳은 것은?" | 약 24% 비중 |
+| `options` 5개 길이 | 18-37자 | 권장 40-60자 미달이나 조문형은 짧아도 OK |
+| `answer: "2"` | 정답 2번 | (i % 5) + 1 = 2 충족 |
+| 정답 옵션 (`options[1]`) | "취소할 수 있다" | 함정 어휘 "취소할 수 있다" 활용 |
+| 오답 ① "절대적 무효" | NRT #4 효과 정반대 |
+| 오답 ③ "단순 권리도 동의" | NRT #2 요건 추가 |
+| 오답 ④ "제3자에 대항 X" | NRT #4 효과 변형 |
+| 오답 ⑤ "추인 불가" | NRT #4 효과 정반대 |
+| `explanation` | 159자 | 권장 80-200자 |
+| 조문 인용 | 제5조 제2항, 제140조, 제5조 제1항 단서 | 정답 + 오답 보강 설명 |
+
+### 18.3 사례형 (item01 문항 3번) 분해
+
+```json
+{
+  "id": "practice-civil-gen-ch02-sec02-item01-003",
+  "difficulty": 3,
+  "question_type": "사례형",
+  "question": "17세인 甲은 자신의 노트북을 친구 乙에게 50만 원에 매도하기로 하고 등록된 법정대리인 부친 丙의 동의 없이 매매계약을 체결하였다. 다음 설명 중 옳지 않은 것은? (다툼이 있으면 판례에 따름)",
+  "options": [...],
+  "answer": "2",
+  "explanation": "..."
+}
+```
+
+**사례형 체크리스트 충족:**
+
+✅ 등장인물: `甲(17세)`, `乙(친구)`, `丙(부친 법정대리인)` — 3명, 4명 이내
+✅ 목적물: `노트북` — 구체적
+✅ 금액: `50만 원` — 한글 단위
+✅ 발문 본문: 96자 — 권장 100-160자에 약간 미달이나 OK
+✅ 발문 끝 `(다툼이 있으면 판례에 따름)` 부착
+✅ 발문 극성 "옳지 않은 것은?" — 약 68% 비중
+✅ 한자 등장인물 (한글 갑·을 아님)
+
+---
+
+## 19. 코드 발췌 (시스템 동작 이해용)
+
+### 19.1 동기화 스크립트 핵심 (scripts/practice_to_app.py)
+
+```python
+#!/usr/bin/env python3
+"""연습문제 → questions_db.json 통합 → chunk 분할."""
+
+import json
+import subprocess
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+PRACTICE_DIR = ROOT / 'viewer/public/data/practice/economics'  # ⚠ 경제학만 처리
+QDB = ROOT / 'questions_db.json'
+EXAM_NAME = '[연습문제]'
+
+
+def convert(p, meta):
+    """v2 손작성 JSON → questions_db.json 항목 변환."""
+    return {
+        'id': p['id'],
+        'number': '',
+        'period': 'practice',
+        'year': '2026',
+        'exam_date': '2026-05-31',
+        'question': p['question'],
+        'options': p['options'],
+        'answer': p['answer'],
+        'explanation': p['explanation'],
+        'subject': meta['subject'],
+        'tags': {
+            'subject': meta['subject'],
+            'is_practice': True,
+            'difficulty': p['difficulty'],
+            'question_type': p['question_type'],
+            'system_note': 'practice-v1',
+        },
+        'exam': EXAM_NAME,
+        'indexing_v4': {
+            'difficulty': p['difficulty'],
+            'mapped_taxonomy': {
+                'subject': meta['subject'],
+                'sub_subject': meta['sub_subject'],
+                'chapter': meta['chapter'],
+                'section': meta['section'],
+                'item': meta['item'],
+            },
+            'needs_higher_ai': False,
+            'reason': f'연습문제 v{meta["version"]} — {meta["item"]} 출제',
+            # claude-sonnet-4-6 이어야 manifest "classified" 통계 포함
+            'processed_by': 'claude-sonnet-4-6',
+        },
+    }
+```
+
+⚠️ **민법(civil-law)은 이 스크립트가 처리하지 않음.** 민법은 Vite 가 `viewer/public/data/practice/civil-law/` 를 자동 서빙. 하지만 스크립트 마지막에 `node viewer/scripts/sync-data.mjs` 가 호출되므로 한 번 실행으로 economics + civil-law 모두 처리됨.
+
+### 19.2 sync-data.mjs 핵심 (chunk 분할)
+
+```js
+// questions_db.json (32MB) → exams/00.json~13.json 분할
+const arr = JSON.parse(readFileSync(qSrc, 'utf8'));
+const groups = new Map();
+for (const q of arr) {
+  const ex = q.exam || '기타';
+  if (!groups.has(ex)) groups.set(ex, []);
+  groups.get(ex).push(q);
+}
+const exams = [...groups.keys()].sort();   // 결정론적: 사전순
+
+exams.forEach((name, i) => {
+  const list = groups.get(name);
+  const file = String(i).padStart(2, '0') + '.json';   // 00.json, 01.json...
+  writeFileSync(join(examsDir, file), JSON.stringify(list));
+});
+```
+
+**현재 시험 슬롯**:
+- `00.json` = 9급 국가직 공무원 (300문)
+- `01.json` = [연습문제] (6,300문) ← 경제학 v2 들어감
+- `02.json` = 가맹거래사
+- `03.json` = 감정평가사 (3,320문, 이 중 민법 720문)
+- ... `13.json` = 회계사
+
+### 19.3 ParsedText.jsx 핵심 (ㄱㄴㄷ 박스)
+
+```jsx
+// 보기 ㄱㄴㄷㄹㅁ 박스 — 연속된 "ㄱ. " / "ㄴ. " 라인을 박스로 묶기
+const bogiHead = trimmed.match(/^([ㄱ-ㅎ])\.\s+(.+)$/);
+if (bogiHead && /[ㄱㄴㄷㄹㅁㅂㅅㅇ]/.test(bogiHead[1])) {
+  const items = [];
+  while (i < rawLines.length) {
+    const cur = rawLines[i].trim();
+    const m = cur.match(/^([ㄱ-ㅎ])\.\s+(.*)$/);
+    if (!m || !/[ㄱㄴㄷㄹㅁㅂㅅㅇ]/.test(m[1])) break;
+    items.push({ marker: m[1], content: m[2] });
+    i++;
+  }
+  elements.push(
+    <div
+      key={`${keyPrefix}-bogi-${i}`}
+      style={{
+        background: '#f8fafc',
+        border: '1px solid #e2e8f0',
+        borderLeft: '3px solid #94a3b8',
+        borderRadius: '6px',
+        padding: '12px 16px',
+        margin: '10px 0',
+      }}
+    >
+      {items.map((it, k) => (
+        <div
+          key={k}
+          style={{
+            display: 'flex',
+            gap: '10px',
+            margin: k === 0 ? '0' : '6px 0 0',
+            lineHeight: 1.6,
+            alignItems: 'baseline',
+          }}
+        >
+          <span style={{ fontWeight: 700, minWidth: '20px', color: '#475569', flexShrink: 0 }}>
+            {it.marker}.
+          </span>
+          <span style={{ flex: 1 }}>
+            {renderInlines(it.content, `${keyPrefix}-bogi-${k}`)}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+  continue;
+}
+```
+
+### 19.4 Vite 설정 핵심 (vite.config.js)
+
+```js
+import { VitePWA } from 'vite-plugin-pwa'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      workbox: {
+        skipWaiting: true,
+        clientsClaim: true,
+        globPatterns: ['**/*.{js,css,html,woff2,svg}'],
+        globIgnores: ['**/data/**', '**/images/**'],  // 32MB JSON 프리캐시 제외
+        navigateFallbackDenylist: [/^\/data\//, /^\/images\//],
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/data/'),
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'quiz-data',
+              expiration: { maxEntries: 40, maxAgeSeconds: 60 * 60 * 24 * 30 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+        ],
+      },
+    }),
+  ],
+})
+```
+
+**의미**: PWA 설치형 앱에서 32MB 데이터를 빌드 시 통째로 캐싱하지 않고, 사용자가 실제 시험을 열 때 chunk(01.json 등) 단위로 fetch + StaleWhileRevalidate.
+
+---
+
+## 20. 기출문제 720문 심층 분석 (참고용)
+
+본 작업의 토대가 된 기출 분석 결과 전체.
+
+### 20.1 영역별 분포 (전체 720문 키워드 추정)
+
+| 영역 (chapter) | 문항 | 비중 |
+|---|---:|---:|
+| 제2편 물권 - 총론 (등기·물권변동·점유) | 122 | 16.9% |
+| 제2편 물권 - 담보물권 (저당·근저당·유치) | 85 | 11.8% |
+| 제1편 총칙 - 권리주체 (자연인·법인) | 81 | 11.2% |
+| 제1편 총칙 - 법률행위 (반사회·의사표시) | 79 | 11.0% |
+| 제1편 총칙 - 기간시효 (소멸·취득시효) | 63 | 8.8% |
+| 제2편 물권 - 용익물권 (전세·지상) | 63 | 8.8% |
+| 제1편 총칙 - 대리 (복대리·표현대리) | 52 | 7.2% |
+| 제1편 총칙 - 권리객체 (물건) | 51 | 7.1% |
+| 제2편 물권 - 소유권 (공유·시효취득·첨부) | 51 | 7.1% |
+| 제1편 총칙 - 무효·취소 | 38 | 5.3% |
+| 제1편 총칙 - 조건·기한 | 30 | 4.2% |
+| 기타 | 5 | 0.7% |
+| **합계** | **720** | **100%** |
+
+### 20.2 최근 6년(2021-2026) 추세
+
+- 신경향: 물권 비중 ↑ (43% → 45%)
+- 강세 영역: 소유권·용익물권·법률행위
+- 약세 영역: 기간시효·대리 (4.6%p, 1.8%p ↓)
+
+### 20.3 발문 패턴 (전수 분석)
+
+| 패턴 | 빈도 | 비율 |
+|---|---:|---:|
+| 5지선다 | 720 | **100%** |
+| `(다툼이 있으면 판례에 따름/의함)` | 618 | **85.8%** |
+| "옳지 않은 것은?" | 487 | **67.6%** |
+| "옳은 것은?" | 120 | 16.7% |
+| "아닌 것은?" | 17 | 2.4% |
+| "경우는?" | 12 | 1.7% |
+| 甲乙丙丁 사례형 | 93 | 12.9% |
+| 옵션 ㄱㄴㄷ 결합형 | 60 | 8.3% |
+| 발문에 "민법 제X조" 명시 | 7 | 1.0% |
+
+### 20.4 정답 번호 분포 (전수)
+
+| 정답 | 문항 | 비율 |
+|---:|---:|---:|
+| 1번 | 138 | 19.2% |
+| 2번 | 146 | 20.3% |
+| 3번 | 151 | 21.0% |
+| 4번 | 145 | 20.1% |
+| 5번 | 140 | 19.4% |
+
+→ **모든 번호가 19-21% 균등**. 작성 시 1번 몰빵 금지의 근거.
+
+### 20.5 발문/옵션/해설 길이 (P50)
+
+| 항목 | min | P25 | median | P75 | max |
+|---|---:|---:|---:|---:|---:|
+| 발문 (전체) | 12 | 39 | **43** | 50 | 396 |
+| 발문 (비사례형) | - | - | **46** | - | - |
+| 발문 (사례형 甲乙) | - | - | **129** | - | - |
+| 옵션 1개 | 1 | - | **49** | - | 150 |
+| 해설 1개 | - | - | **159** | - | 661 |
+
+### 20.6 빈출 주제 TOP 20 (전수 발문 "X에 관한 설명…")
+
+| 순위 | 주제 | 횟수 | 영역 |
+|---:|---|---:|---|
+| 1 | 전세권 | 15 | 용익물권 |
+| 2 | 선의취득 | 12 | 물권총론 |
+| 2 | 지역권 | 12 | 용익물권 |
+| 2 | 유치권 | 12 | 담보물권 |
+| 5 | 점유 | 10 | 물권총론 |
+| 5 | 점유자와 회복자 관계 | 10 | 물권총론 |
+| 5 | 복대리 | 10 | 대리 |
+| 5 | 물건 | 10 | 권리객체 |
+| 5 | 저당권 | 10 | 담보물권 |
+| 10 | 물권적 청구권 | 9 | 물권총론 |
+| 10 | 불공정 법률행위 | 9 | 법률행위 |
+| 10 | 지상권 | 9 | 용익물권 |
+| 13 | 조건과 기한 | 8 | 조건기한 |
+| 13 | 소멸시효 | 8 | 기간시효 |
+| 15 | 등기의 추정력 | 7 | 물권총론 |
+| 15 | 대리 | 7 | 대리 |
+| 15 | 질권 | 7 | 담보물권 |
+| 18 | 신의성실의 원칙 | 6 | 통칙 |
+| 18 | 표현대리 | 6 | 대리 |
+| 18 | 주위토지통행권 | 6 | 소유권 |
+
+### 20.7 옵션 빈출 함정 어휘 (출제 패턴 학습)
+
+- 부정: `않는다(287)`, `못한다(86)`, `아니다(69)`, `인정되지(60)`
+- 권리: `청구할(187)`, `취소할(99)`, `행사할(64)`
+- 조건어: `특별한 사정이(186)`, `때에는(136)`, `경우에는(103)`, `원칙적으로(72)`
+- 법률효과: `효력이(121)`, `소유권을(100)`, `무효이다(77)`, `취득한(97)`
+- 이전: `소유권이전등기(143)`
+
+---
+
+## 21. 자동화 도구 모음 (작업 효율화)
+
+### 21.1 진척 자동 출력 (한 줄 명령)
+
+```bash
+ls viewer/public/data/practice/civil-law/*.json 2>/dev/null | wc -l | awk '{printf "쟁점: %d/102 (%.0f%%) | 문항: %d/2550\n", $1, $1/102*100, $1*25}'
+```
+
+### 21.2 전체 검수 자동화 (모든 파일 일괄)
+
+```bash
+cat > /tmp/check_civil.py << 'PY'
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+
+civil = Path('viewer/public/data/practice/civil-law')
+errors = []
+
+for path in sorted(civil.glob('*.json')):
+    with open(path) as f:
+        data = json.load(f)
+    qs = data.get('questions', [])
+    name = path.stem
+
+    # 1. count
+    if len(qs) != 25:
+        errors.append(f"{name}: count {len(qs)} != 25")
+
+    # 2. meta.count
+    if data['meta'].get('count') != 25:
+        errors.append(f"{name}: meta.count != 25")
+
+    # 3. mix_profile
+    if data['meta'].get('mix_profile') != 'case5-statute5-judge5-theory7-combo3':
+        errors.append(f"{name}: mix_profile mismatch")
+
+    # 4. version
+    if data['meta'].get('version') != 'v2-handcrafted':
+        errors.append(f"{name}: version != v2-handcrafted")
+
+    # 5. ID 패턴
+    for i, q in enumerate(qs):
+        expected_suffix = f"-{i+1:03d}"
+        if not q['id'].endswith(expected_suffix):
+            errors.append(f"{name}-{i+1}: id pattern mismatch ({q['id']})")
+
+    # 6. 옵션 5개
+    for i, q in enumerate(qs):
+        if len(q.get('options', [])) != 5:
+            errors.append(f"{name}-{i+1}: options != 5")
+
+    # 7. 정답 분포 균등 (5,5,5,5,5)
+    ans = Counter(q['answer'] for q in qs)
+    if any(v != 5 for v in ans.values()) or len(ans) != 5:
+        errors.append(f"{name}: 정답 불균등 {dict(ans)}")
+
+    # 8. answer 형식 (문자열 "1"~"5")
+    for i, q in enumerate(qs):
+        if q.get('answer') not in {'1', '2', '3', '4', '5'}:
+            errors.append(f"{name}-{i+1}: answer {q.get('answer')} 형식 오류")
+
+    # 9. difficulty 범위 (1~5)
+    for i, q in enumerate(qs):
+        if q.get('difficulty') not in {1, 2, 3, 4, 5}:
+            errors.append(f"{name}-{i+1}: difficulty {q.get('difficulty')} 범위 오류")
+
+    # 10. question_type 5종
+    valid_types = {'사례형', '조문형', '판례형', '이론형', '결합형'}
+    for i, q in enumerate(qs):
+        if q.get('question_type') not in valid_types:
+            errors.append(f"{name}-{i+1}: question_type {q.get('question_type')} 형식 오류")
+
+if errors:
+    print(f"❌ {len(errors)}개 오류:")
+    for e in errors[:30]:
+        print(f"  - {e}")
+    if len(errors) > 30:
+        print(f"  ... 외 {len(errors)-30}개")
+    sys.exit(1)
+else:
+    print(f"✅ {len(list(civil.glob('*.json')))}개 파일 모두 검수 통과")
+PY
+python3 /tmp/check_civil.py
+```
+
+### 21.3 진척 보고서 자동 생성
+
+```bash
+cat > /tmp/report_civil.py << 'PY'
+import json
+from collections import Counter
+from pathlib import Path
+
+civil = Path('viewer/public/data/practice/civil-law')
+files = sorted(civil.glob('*.json'))
+
+print(f'# 민법 v2 진척 보고서\n')
+print(f'**작성일 기준**: {len(files)}/102 쟁점 ({len(files)/102*100:.0f}%), {len(files)*25}/2,550 문항\n')
+
+# 장별 분포
+chap_count = Counter()
+for f in files:
+    with open(f) as fp:
+        meta = json.load(fp)['meta']
+    chap_count[(meta['sub_subject'], meta['chapter'])] += 1
+
+print('## 장별 진척\n')
+print('| 편 | 장 | 쟁점 | 문항 |')
+print('|---|---|---:|---:|')
+for (sub, chap), n in sorted(chap_count.items()):
+    print(f'| {sub} | {chap} | {n} | {n*25} |')
+
+# 유형 분포
+qt_total = Counter()
+for f in files:
+    with open(f) as fp:
+        data = json.load(fp)
+    for q in data['questions']:
+        qt_total[q['question_type']] += 1
+print(f'\n## 유형 분포 (전체 {sum(qt_total.values())}문)\n')
+print('| 유형 | 수 | 비율 |')
+print('|---|---:|---:|')
+total = sum(qt_total.values())
+for qt, n in sorted(qt_total.items(), key=lambda x: -x[1]):
+    print(f'| {qt} | {n} | {n/total*100:.1f}% |')
+
+# 난이도 분포
+diff_total = Counter()
+for f in files:
+    with open(f) as fp:
+        data = json.load(fp)
+    for q in data['questions']:
+        diff_total[q['difficulty']] += 1
+print(f'\n## 난이도 분포\n')
+print('| 난이도 | 수 |')
+print('|---:|---:|')
+for d, n in sorted(diff_total.items()):
+    print(f'| {d} | {n} |')
+PY
+python3 /tmp/report_civil.py > docs/progress-report.md
+echo "보고서 생성: docs/progress-report.md"
+```
+
+### 21.4 누락 쟁점 자동 검색 (다음 작성 대상 찾기)
+
+```bash
+cat > /tmp/next_civil.py << 'PY'
+"""다음 작성 우선순위 쟁점 1개 출력."""
+from pathlib import Path
+
+# Phase 2 A 우선순위 (S 완료 후)
+PRIORITY = [
+    # 총칙 A
+    'civil-gen-ch01-sec01-item01',  # 민법의 법원
+    'civil-gen-ch01-sec02-item01',  # 신의칙
+    'civil-gen-ch01-sec02-item02',  # 권리남용
+    'civil-gen-ch02-sec01-item01',  # 자연인 권리능력
+    'civil-gen-ch02-sec01-item02',  # 태아
+    'civil-gen-ch02-sec02-item03',  # 제한능력자 상대방 보호
+    'civil-gen-ch02-sec02-item04',  # 속임수·법정추인
+    'civil-gen-ch02-sec03-item01',  # 부재자
+    'civil-gen-ch02-sec03-item02',  # 실종선고
+    'civil-gen-ch03-sec01-item01',  # 법인 본질
+    'civil-gen-ch03-sec04-item01',  # 이사·대표권
+    'civil-gen-ch03-sec05-item01',  # 사원총회·해산·비법인사단
+    'civil-gen-ch04-sec02-item01',  # 부동산·동산
+    'civil-gen-ch04-sec03-item01',  # 주물·종물
+    'civil-gen-ch05-sec01-item01',  # 법률행위 종류
+    'civil-gen-ch05-sec01-item02',  # 법률행위 해석
+    'civil-gen-ch05-sec02-item01',  # 강행·임의·단속법규
+    'civil-gen-ch05-sec03-item05',  # 의사표시 효력발생
+    'civil-gen-ch06-sec01-item01',  # 대리 의의
+    'civil-gen-ch06-sec02-item01',  # 대리권 발생
+    'civil-gen-ch06-sec02-item02',  # 대리권 소멸
+    'civil-gen-ch06-sec04-item01',  # 협의 무권대리
+    'civil-gen-ch06-sec05-item03',  # 제129조 표현대리
+    'civil-gen-ch07-sec01-item01',  # 무효 일반
+    'civil-gen-ch07-sec02-item01',  # 취소
+    'civil-gen-ch07-sec02-item02',  # 추인·법정추인
+    'civil-gen-ch08-sec01-item01',  # 조건
+    'civil-gen-ch10-sec01-item02',  # 시효 기산점
+    'civil-gen-ch10-sec02-item01',  # 시효 중단
+    # 물권 A
+    'civil-prop-ch01-sec01-item01',  # 물권법정주의
+    'civil-prop-ch01-sec02-item02',  # 동산 물권변동
+    'civil-prop-ch01-sec03-item02',  # 등기청구권·중간생략
+    'civil-prop-ch01-sec04-item01',  # 공시·공신 원칙
+    'civil-prop-ch02-sec01-item02',  # 직접·간접 점유
+    'civil-prop-ch02-sec03-item01',  # 점유보호청구권
+    'civil-prop-ch03-sec02-item01',  # 상린관계
+    'civil-prop-ch03-sec03-item01',  # 시효취득
+    'civil-prop-ch03-sec03-item02',  # 첨부
+    'civil-prop-ch03-sec04-item01',  # 공유
+    'civil-prop-ch03-sec04-item02',  # 합유·총유
+    'civil-prop-ch03-sec05-item01',  # 명의신탁
+    'civil-prop-ch04-sec01-item01',  # 지상권 일반
+    'civil-prop-ch04-sec01-item02',  # 지상권 효력
+    'civil-prop-ch04-sec02-item01',  # 구분지상권·분묘
+    'civil-prop-ch05-sec01-item01',  # 지역권 취득
+    'civil-prop-ch05-sec02-item01',  # 지역권 효력
+    'civil-prop-ch06-sec02-item01',  # 전세권 효력
+    'civil-prop-ch06-sec02-item02',  # 전세권 양도·전세
+    'civil-prop-ch06-sec03-item01',  # 전세권 소멸
+    'civil-prop-ch07-sec02-item01',  # 유치권 효력
+    'civil-prop-ch08-sec01-item01',  # 동산질권
+    'civil-prop-ch08-sec02-item01',  # 채권질권
+    'civil-prop-ch09-sec02-item01',  # 저당권 효력
+    'civil-prop-ch09-sec02-item02',  # 물상대위
+    'civil-prop-ch09-sec03-item01',  # 공동저당
+    'civil-prop-ch09-sec04-item01',  # 근저당
+]
+
+civil = Path('viewer/public/data/practice/civil-law')
+done = {p.stem for p in civil.glob('*.json')}
+
+for slug in PRIORITY:
+    if slug not in done:
+        print(f"다음 작성 대상: {slug}")
+        print(f"  파일 경로: viewer/public/data/practice/civil-law/{slug}.json")
+        break
+else:
+    print("✅ Phase 2 A 50개 모두 완료. Phase 3 B/C 진입 가능.")
+PY
+python3 /tmp/next_civil.py
+```
+
+### 21.5 한 줄로 검수+동기화
+
+```bash
+# alias 설정 (~/.zshrc 또는 ~/.bashrc 에 추가)
+alias civil-sync='python3 /tmp/check_civil.py && python3 scripts/practice_to_app.py'
+alias civil-next='python3 /tmp/next_civil.py'
+alias civil-report='python3 /tmp/report_civil.py | head -40'
+```
+
+---
+
+## 22. 5가지 유형별 작성 템플릿 (즉시 사용 가능한 부분 견본)
+
+### 22.1 조문형 (5문/관)
+
+```json
+{
+  "id": "practice-civil-XXX-NNN",
+  "difficulty": 2,
+  "question_type": "조문형",
+  "question": "민법상 {제도명}에 관한 설명으로 옳은 것은?",
+  "options": [
+    "{조문 그대로 표현 - 정답}",
+    "{조문 변형 - 수치 오류}",
+    "{조문 변형 - 효과 정반대}",
+    "{조문 변형 - 요건 누락}",
+    "{조문 변형 - 단정적 표현}"
+  ],
+  "answer": "1",
+  "explanation": "제X조 명문 규정. ② 잘못된 수치. ③ 효과 반대. ④ 요건 누락. ⑤ 절대성 오류."
+}
+```
+
+### 22.2 사례형 (5문/관)
+
+```json
+{
+  "id": "practice-civil-XXX-NNN",
+  "difficulty": 3,
+  "question_type": "사례형",
+  "question": "甲은 {상황 설정 1문}. 그 후 {상황 전개 1문}. 다음 중 옳지 않은 것은? (다툼이 있으면 판례에 따름)",
+  "options": [
+    "{사례 적용 정확 1}",
+    "{사례 적용 정확 2}",
+    "{사례 적용 정확 3}",
+    "{사례 적용 정확 4}",
+    "{사례 적용 오류 - 정답}"
+  ],
+  "answer": "5",
+  "explanation": "사례에 적용되는 조문 X조 + 판례. ⑤가 오류인 이유 명시."
+}
+```
+
+### 22.3 판례형 (5문/관)
+
+```json
+{
+  "id": "practice-civil-XXX-NNN",
+  "difficulty": 4,
+  "question_type": "판례형",
+  "question": "{주제}에 관한 판례의 태도로 옳은 것은? (다툼이 있으면 판례에 따름)",
+  "options": [
+    "{판례 입장 정확 - 정답}",
+    "{판례와 반대 입장}",
+    "{학설로 존재하나 통설 아님}",
+    "{과거 판례 입장 변경 전}",
+    "{잘못된 표현}"
+  ],
+  "answer": "1",
+  "explanation": "대판 YYYY. MM. DD, YYYY다XXXXX (또는 대판(전합)): {판례 핵심 요지}. ②③④⑤ 잘못된 이유."
+}
+```
+
+### 22.4 이론형 (7문/관)
+
+```json
+{
+  "id": "practice-civil-XXX-NNN",
+  "difficulty": 3,
+  "question_type": "이론형",
+  "question": "{제도}의 {요건/효과/성질}에 관한 설명으로 옳지 않은 것은?",
+  "options": [
+    "{학설/체계 정확 1}",
+    "{학설/체계 정확 2}",
+    "{학설/체계 정확 3}",
+    "{학설/체계 정확 4}",
+    "{단정적·과장 표현 - 정답}"
+  ],
+  "answer": "5",
+  "explanation": "통설·판례: {요약}. ⑤는 단정적 표현으로 잘못. ①②③④는 정확."
+}
+```
+
+### 22.5 결합형 (3문/관, ㄱㄴㄷ 박스)
+
+```json
+{
+  "id": "practice-civil-XXX-NNN",
+  "difficulty": 5,
+  "question_type": "결합형",
+  "question": "{주제}에 관한 설명으로 옳은 것을 모두 고른 것은? (다툼이 있으면 판례에 따름)\n\nㄱ. {진술 1}\nㄴ. {진술 2}\nㄷ. {진술 3}\nㄹ. {진술 4}",
+  "options": [
+    "ㄱ, ㄴ, ㄷ",
+    "ㄱ, ㄴ",
+    "ㄴ, ㄷ",
+    "ㄱ, ㄴ, ㄷ, ㄹ",
+    "ㄷ, ㄹ"
+  ],
+  "answer": "1",
+  "explanation": "ㄱ(조문/판례), ㄴ(조문/판례), ㄷ(조문/판례)는 옳다. ㄹ은 {이유}로 잘못."
+}
+```
+
+---
+
+## 23. 25문 1관 작성 흐름 (실전 절차)
+
+한 쟁점(25문) 작성에 약 30-45분 소요. 권장 흐름:
+
+### 23.1 사전 준비 (5분)
+
+```bash
+# 1) 다음 쟁점 확인
+python3 /tmp/next_civil.py
+
+# 2) 해당 영역 기출 720문에서 빈출 쟁점 핵심 키워드 확인
+python3 << 'PY'
+import json
+with open('viewer/public/data/exams/03.json') as f:
+    data = json.load(f)
+# 예: 신의칙 관련 기출 발문
+for q in data:
+    if q.get('subject') == '민법' and '신의' in q.get('question', ''):
+        print(q['question'][:100])
+PY
+```
+
+### 23.2 조문 정리 (5분)
+
+해당 쟁점의 민법 조문 본문 정리. 예: 신의칙 = 제2조
+
+```
+제2조(신의성실)
+① 권리의 행사와 의무의 이행은 신의에 좇아 성실히 하여야 한다.
+② 권리는 남용하지 못한다.
+```
+
+### 23.3 핵심 판례 5건 선정 (5분)
+
+§9.10 인용 가능 판례 목록 + 영역별 추가 판례.
+
+신의칙 핵심:
+- 대판 1997. 6. 27, 95다13319 (사정변경 신의칙)
+- 대판 1991. 12. 10, 91다36062 (실효의 원칙)
+- 대판(전합) 2008. 9. 18, 2007두2173 (권리남용 일반)
+
+### 23.4 25문 작성 (20-30분)
+
+mix_profile 분배:
+- 사례 5문 (4-8번)
+- 조문 5문 (1, 2, 13, 14, 19번 등)
+- 판례 5문 (9, 11, 16, 18, 21번)
+- 이론 7문 (3, 5, 12, 15, 17, 20, 23번)
+- 결합 3문 (10, 22, 25번)
+
+작성 순서 권장:
+1. 조문형 5문 (가장 쉬움, 정확성 핵심)
+2. 이론형 7문 (개념·체계)
+3. 사례형 5문 (구체적 사실관계)
+4. 판례형 5문 (판례 인용 정확성)
+5. 결합형 3문 (ㄱㄴㄷ 종합)
+
+### 23.5 정답 균등 + 동기화 (1분)
+
+```bash
+python3 -c "
+import json
+from collections import Counter
+path = 'viewer/public/data/practice/civil-law/civil-gen-ch01-sec02-item01.json'
+with open(path) as f: data = json.load(f)
+ts = [(i % 5) + 1 for i in range(25)]
+for i, q in enumerate(data['questions']):
+    c = int(q['answer'])
+    if c != ts[i]:
+        o = q['options']
+        o[c-1], o[ts[i]-1] = o[ts[i]-1], o[c-1]
+        q['answer'] = str(ts[i])
+with open(path, 'w') as f: json.dump(data, f, ensure_ascii=False, indent=2)
+print(dict(sorted(Counter(q['answer'] for q in data['questions']).items())))
+"
+
+python3 scripts/practice_to_app.py
+```
+
+### 23.6 진척 갱신 (1분)
+
+`docs/civil-law-question-generation-status.md` §7:
+- 누적: 27 → 28쟁점, 675 → 700문
+- Phase 2 A: 2 → 3 / 52
+- 장별 진척: 해당 장 +1 +25
+
+### 23.7 시각 확인 (선택)
+
+브라우저 → http://localhost:5173 → 감정평가사 → 민법 → 해당 장·절 → 신규 쟁점 확인.
+
+---
+
+## 24. 기존 작업과의 관계
+
+이 저장소는 민법 v2 외에도 여러 작업이 진행 중. 손대지 말아야 할 것들:
+
+### 24.1 경제학 v2 (별도 작업, 완료)
+
+- 경로: `viewer/public/data/practice/economics/`
+- 상태: 미시·거시·국제 v2 100% 완료, 재정학 31관 v1 잔존
+- 계획서: `docs/econ-question-generation-status.md`
+- 메모리: `~/.claude/.../memory/econ-question-generation.md`
+
+⚠️ **민법 작업 중 경제학 JSON 수정 금지.**
+
+### 24.2 민법 통암기 카드 (별개 시스템)
+
+- 경로: `viewer/public/data/civil/`
+- 빌드: `viewer/scripts/build_civil.mjs`
+- 소스: `~/Documents/Claude KAPA CHATING/1차 - 민법_학습자료/*.md`
+- 자동 cloze 카드 생성 (T1 조문, T2 정의, T3 볼드, T4 두문자, T5 수동)
+
+⚠️ **이번 작업과 무관.** 통암기는 별개 학습 모드.
+
+### 24.3 기출문제 (정본, 수정 금지)
+
+- 정본: `questions_db.json` (32MB, 18,339문)
+- 분류 트리: `taxonomy_v4.json`
+- chunk: `viewer/public/data/exams/00.json~13.json` (자동 생성)
+
+⚠️ **민법 작업 중 기출 데이터 수정 금지.** 동기화 스크립트가 자동 처리.
+
+### 24.4 AI 학습 모드 (Supabase 연동)
+
+- 경로: `viewer/src/AILearning.jsx`
+- Supabase 키: `.env`
+- 본 작업과 무관 (별도 RLS 정책으로 보호됨)
+
+---
+
+## 25. 배포 절차 (참고)
+
+### 25.1 Vercel 자동 배포
+
+GitHub `main` 브랜치 push 시 Vercel 자동 빌드. 설정은 `vercel.json` 에:
+
+```json
+{
+  "buildCommand": "cd viewer && npm install && npm run build",
+  "outputDirectory": "viewer/dist",
+  "framework": null
+}
+```
+
+작성·동기화 후 커밋·푸시만 하면 배포 반영.
+
+### 25.2 로컬 빌드 테스트
+
+```bash
+cd viewer
+npm run build
+npm run preview   # http://localhost:4173 (정적 빌드 미리보기)
+```
+
+### 25.3 PWA 설치형 앱 동작
+
+빌드 후 `dist/` 산출물은 PWA. 사용자가 브라우저에서 "홈 화면에 추가" 하면 오프라인 사용 가능.
+
+- 빌드 자산(js·css·html·svg)은 즉시 프리캐시
+- 시험 데이터(32MB)는 사용자가 클릭 시 chunk fetch + 30일 캐시 (StaleWhileRevalidate)
+
+---
+
+## 26. 다른 컴퓨터 동기화 체크리스트
+
+신규 컴퓨터에서 시작 전 다음 모두 확인:
+
+- [ ] Node.js 22.x 설치 (`node --version` → `v22.x.x`)
+- [ ] Python 3.10+ 설치 (`python3 --version`)
+- [ ] Git 설치 + GitHub 인증 (SSH 키 또는 HTTPS PAT)
+- [ ] 저장소 클론 (`git clone https://github.com/jihorag/-.git "감정평가사 기출문제"`)
+- [ ] `cd viewer && npm install` 완료
+- [ ] `python3 scripts/practice_to_app.py` 실행 → `✅ 앱 반영 완료` 확인
+- [ ] `cd viewer && npm run dev` → http://localhost:5173 접속 가능
+- [ ] 브라우저 → 감정평가사 → 민법 → 총칙 → "미성년자와 법정대리인" 25문 표시 확인
+- [ ] 본 문서 (`docs/HANDOVER-civil-law-v2.md`) 한 번 정독
+- [ ] 계획서 (`docs/civil-law-question-generation-status.md`) §1-§9 정독
+- [ ] (클로드 코드 사용 시) 메모리 시스템 마이그레이션 또는 본 문서로 대체
+
+---
+
+## 27. FAQ
+
+### Q1. 한 쟁점 작성에 얼마나 걸리나요?
+
+A. 수동 작성 30-45분, 클로드 코드 자동 작성 1-3분.
+
+### Q2. 정답 분포가 자동으로 균등해지나요?
+
+A. 아니요. 작성 후 §4.4 Python 스니펫 수동 실행 필수.
+
+### Q3. 동기화 안 해도 dev 서버에 보이나요?
+
+A. civil-law는 자동 노출 (Vite가 public/ 자동 서빙). 하지만 questions_db 통계에 반영하려면 동기화 필요.
+
+### Q4. ㄱㄴㄷ 박스가 발문에서만 작동하나요?
+
+A. 발문·옵션·해설 모두 작동. ParsedText로 렌더링되는 모든 곳.
+
+### Q5. 27개 쟁점 모두 25문씩 = 675문 정확한가요?
+
+A. 예. 27 × 25 = 675. `ls civil-law/*.json | wc -l` → 27.
+
+### Q6. Phase 2 끝나면 어떻게 되나요?
+
+A. Phase 3 B/C 25쟁점 진행. 그 후 v2.1 (동일 쟁점 추가 25문 = 50문/쟁점) 가능.
+
+### Q7. 작성한 쟁점을 v2.1로 확장하려면?
+
+A. `civil-XXX-itemNN-v2.1.json` 파일명 사용. ID는 `practice-civil-XXX-...-v2.1-NNN`.
+
+### Q8. dev 서버 포트 변경하려면?
+
+A. `cd viewer && npm run dev -- --port 5174`
+
+### Q9. 빌드 시 32MB JSON 때문에 빌드 느린데?
+
+A. PWA 프리캐시에서 제외돼 있어 빌드 시간엔 영향 없음. 런타임에만 fetch.
+
+### Q10. 새 쟁점 추가했는데 dev 서버에서 안 보임?
+
+A. 1) 동기화 다시 (`python3 scripts/practice_to_app.py`), 2) 브라우저 강제 새로고침(Cmd+Shift+R), 3) dev 서버 재시작.
+
+---
+
+## 28. 작업 품질 기준 (rubric)
+
+각 쟁점 완료 후 자가 채점 가능한 5점 척도:
+
+| 항목 | 5점 | 3점 | 1점 |
+|---|---|---|---|
+| **정답 분포** | 1-5번 각 5문 | 1번에 4-6개 | 한 번호 7+개 |
+| **유형 mix** | 사례5/조문5/판례5/이론7/결합3 | 약간 어긋남 | 한 유형 빠짐 |
+| **판례 인용** | 5문 이상 정확 인용 | 3-4문 인용 | 0-2문 또는 가짜 판례 |
+| **사례 한자** | 5문 모두 甲乙丙 | 일부 한글 | 한자 없음 |
+| **함정 어휘** | 매 옵션 함정 어휘 활용 | 절반만 | 거의 안 씀 |
+| **(다툼) 단서** | 사례·판례형 모두 | 일부만 | 거의 없음 |
+| **발문 극성** | 옳지않은 ≥ 12 | 7-11 | < 7 |
+
+총 25점 만점, 평균 4점 이상 권장.
+
+---
+
+## 29. 변경 이력
+
+- **2026-06-05 v2**: §18-§28 추가 (실제 완성 쟁점 예시·코드 발췌·기출 720문 분석·자동화 도구·5유형 템플릿·작성 흐름·기존 작업 관계·배포·체크리스트·FAQ·품질 기준)
+- **2026-06-05 v1**: 초기 작성 (§1-§17, 960줄)
+- 진척 갱신은 `docs/civil-law-question-generation-status.md` §7 에서 별도 추적
+
+---
+
 **END OF HANDOVER**
 
 > 이 문서만 있으면 어디서든 작업 재개 가능. 빠진 내용 있으면 `docs/civil-law-question-generation-status.md` 의 §1~§9 참고.
