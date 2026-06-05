@@ -1,0 +1,51 @@
+name: Build (viewer)
+
+# push / PR 시 viewer 앱이 정상 컴파일되는지 자동 검증하고,
+# 빌드 산출물(dist)을 아티팩트로 업로드한다.
+# 라이브 배포는 Vercel(vercel.json)이 별도로 담당한다.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+# 같은 브랜치에서 연속 push 시 이전 실행 취소(빌드 큐 절약)
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: viewer
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: viewer/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        # prebuild 훅(sync-data + build_civil)이 자동 실행된 뒤 vite build 수행.
+        # 학습자료 .md 소스가 없는 CI 환경에서는 build_civil이 기존 JSON을 그대로 유지.
+        run: npm run build
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: viewer-dist
+          path: viewer/dist
+          retention-days: 14
+          if-no-files-found: error
