@@ -495,7 +495,9 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   <div style={{ fontSize: '0.75rem', color: '#2563eb', fontWeight: 700 }}>{pct}%</div>
                 </div>
                 <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 6 }}>
-                  {c.count}문항 · 답안 {c.matchedAnswer}/{c.count} · 회차 {c.rounds.join(', ')}회
+                  {c.count > 0 ? `${c.count}문항` : '준비 중'}
+                  {c.count > 0 && c.matchedAnswer != null ? ` · 답안 ${c.matchedAnswer}/${c.count}` : ''}
+                  {c.rounds?.length ? ` · 회차 ${c.rounds.join(', ')}회` : ''}
                 </div>
                 <div style={{ height: 4, background: '#f3f4f6', borderRadius: 2,
                   marginTop: 8, overflow: 'hidden' }}>
