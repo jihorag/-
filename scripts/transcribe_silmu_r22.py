@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """실무 기출 22회 전사 (마크다운 정밀 + 도면 이미지). 단원 분류 라우팅. (문제 누적)"""
 import sys
 from pathlib import Path

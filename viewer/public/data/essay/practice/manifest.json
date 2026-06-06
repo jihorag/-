@@ -1,7 +1,7 @@
 {
  "built_at": "2026-05-31T06:04:01.250547+00:00",
  "subject": "감정평가실무",
- "total": 1102,
+ "total": 1108,
  "chapters": [
   {
    "id": "kichul",
@@ -205,7 +205,7 @@
    "id": "3",
    "title": "건물·복합·구분·임대료",
    "file": "3.json",
-   "count": 14,
+   "count": 15,
    "withAnswer": 267,
    "matchedAnswer": 61,
    "rounds": [
@@ -321,7 +321,7 @@
    "id": "4",
    "title": "유형별 평가",
    "file": "4.json",
-   "count": 9,
+   "count": 10,
    "withAnswer": 252,
    "matchedAnswer": 4,
    "rounds": [
@@ -515,7 +515,7 @@
    "id": "8a",
    "title": "목적별 평가",
    "file": "8a.json",
-   "count": 13,
+   "count": 16,
    "withAnswer": 258,
    "matchedAnswer": 18,
    "rounds": [
@@ -562,7 +562,7 @@
    "id": "8b",
    "title": "표준지·정비·불의타",
    "file": "8b.json",
-   "count": 10,
+   "count": 11,
    "withAnswer": 251,
    "matchedAnswer": 7,
    "rounds": [
