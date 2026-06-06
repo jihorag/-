@@ -928,8 +928,8 @@
    "conceptName": "화폐의 시간가치(TVM) 6공식",
    "topicId": "1-1",
    "unitCode": "1",
-   "level": 2,
-   "difficulty": 2,
+   "level": 1,
+   "difficulty": 1,
    "format": "essay",
    "points": 5,
    "subchapter": "1-1",
@@ -981,8 +981,8 @@
    "conceptName": "화폐의 시간가치(TVM) 6공식",
    "topicId": "1-1",
    "unitCode": "1",
-   "level": 2,
-   "difficulty": 2,
+   "level": 1,
+   "difficulty": 1,
    "format": "essay",
    "points": 5,
    "subchapter": "1-1",
@@ -1034,8 +1034,8 @@
    "conceptName": "화폐의 시간가치(TVM) 6공식",
    "topicId": "1-1",
    "unitCode": "1",
-   "level": 2,
-   "difficulty": 2,
+   "level": 1,
+   "difficulty": 1,
    "format": "essay",
    "points": 5,
    "subchapter": "1-1",
@@ -1087,8 +1087,8 @@
    "conceptName": "화폐의 시간가치(TVM) 6공식",
    "topicId": "1-1",
    "unitCode": "1",
-   "level": 3,
-   "difficulty": 3,
+   "level": 1,
+   "difficulty": 1,
    "format": "essay",
    "points": 15,
    "subchapter": "1-1",
@@ -1153,8 +1153,8 @@
    "conceptName": "화폐의 시간가치(TVM) 6공식",
    "topicId": "1-1",
    "unitCode": "1",
-   "level": 3,
-   "difficulty": 3,
+   "level": 1,
+   "difficulty": 1,
    "format": "essay",
    "points": 15,
    "subchapter": "1-1",
@@ -1202,7 +1202,190 @@
    "keyPoints": [],
    "answerFormat": "practice",
    "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-25",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "투자 순현가(NPV)",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 초기투자 **2억원**, 매년 말 순수익 **3,000만원**(5년), 5년 말 재매도 **2.5억원**, 할인율 10%일 때 **순현가(NPV)**를 구하시오. (PVAF 3.79079, PVF 0.62092)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$$NPV = -200,000,000 + 30,000,000\\times3.79079 + 250,000,000\\times0.62092$$\n$$= -200,000,000 + 113,723,700 + 155,230,000 = \\mathbf{+68,953,700원}$$ (투자 타당)",
+   "lesson": {
+    "scoringKeys": [
+     "연금 113,723,700",
+     "복귀 155,230,000",
+     "NPV +68,953,700"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-26",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "적립 + 예치 미래가치",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 매년 말 **1,000만원**씩 5년 적립하고, 동시에 현재 **2,000만원**을 예치한다(r=10%). **5년 후 총액**은? (FVAF 6.10510, FVF 1.61051)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- 적립: $10,000,000\\times6.10510 = 61,051,000$\n- 예치: $20,000,000\\times1.61051 = 32,210,200$\n$$합계 = \\mathbf{93,261,200원}$$",
+   "lesson": {
+    "scoringKeys": [
+     "적립 61,051,000",
+     "예치 32,210,200",
+     "합 93,261,200"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-27",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "분할매입 vs 일시불 현가비교",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 토지를 **일시불 5억원** 또는 **매년 말 1.2억원×5년** 중 선택할 수 있다(r=10%). 분할매입의 현재가치를 구하고 유리한 쪽을 판단하시오. (PVAF 3.79079)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "분할매입 현가 $= 120,000,000\\times3.79079 = 454,894,800원$.\n일시불 500,000,000원 > 분할 454,894,800원 → **분할매입이 유리**.",
+   "lesson": {
+    "scoringKeys": [
+     "분할 현가 454,894,800",
+     "분할 유리"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-28",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "월 적립 미래가치",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 매월 말 **50만원**씩 **10년**(120개월) 적립한다(월이율 0.5%). **10년 후 총액**은? (월 연금내가계수 FVAF = 163.8793)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "월 단위 적용: $500,000 \\times 163.8793 = \\mathbf{81,939,650원}$.\n> 월 적립은 월이율(0.5%)·월수(120)로 계산.",
+   "lesson": {
+    "scoringKeys": [
+     "월 적용",
+     "81,939,650"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-29",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "거치 후 상환",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** **2억원**을 연 8%로 차입, **3년 거치(이자만)** 후 **5년 원리금균등상환**한다. 상환기 매년 상환액과 총상환액을 구하시오. (MC(8%,5) = 0.25046)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- 거치기간(3년) 연이자: $200,000,000\\times0.08 = 16,000,000$ → 3년간 48,000,000\n- 상환기(5년) 매년: $200,000,000\\times0.25046 = 50,092,000$ → 5년간 250,460,000\n$$총상환 \\approx 48,000,000 + 250,460,000 = \\mathbf{298,460,000원}$$",
+   "lesson": {
+    "scoringKeys": [
+     "거치이자 48,000,000",
+     "상환 50,092,000/년",
+     "총 298,460,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
   }
  ],
- "count": 29
+ "count": 34
 }
