@@ -4,7 +4,7 @@
  "chapter": "6b",
  "chapterTitle": "토지보상 공법상제한·특수",
  "source": "official",
- "count": 0,
+ "count": 2,
  "withAnswer": 0,
  "matchedAnswer": 12,
  "rounds": [
@@ -12,5 +12,64 @@
   28,
   34
  ],
- "questions": []
+ "questions": [
+  {
+   "id": "ki-r5-q4",
+   "subject": "감정평가실무",
+   "chapter": "6b",
+   "source": "official",
+   "visionTranscribed": true,
+   "bodyFormat": "markdown",
+   "round": 5,
+   "questionNum": 4,
+   "points": 10,
+   "level": 2,
+   "difficulty": 2,
+   "subchapter": "공법상 제한 토지 보상",
+   "topic": "공원구역 안 토지 보상평가 약술",
+   "logicalPoints": [
+    "공법상 제한받는 토지",
+    "공원구역 보상",
+    "개별적/일반적 제한"
+   ],
+   "lawRefs": [
+    "토지보상법 시행규칙 §23"
+   ],
+   "body": "【문제 4】 (10점) 공원구역 안의 토지 보상평가에 대하여 설명하시오.",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "answerFormat": "essay-narrative",
+   "sourcePdf": "감정평가실무_기출문제지 [1-36회]"
+  },
+  {
+   "id": "ki-r6-q5",
+   "subject": "감정평가실무",
+   "chapter": "6b",
+   "source": "official",
+   "visionTranscribed": true,
+   "bodyFormat": "markdown",
+   "round": 6,
+   "questionNum": 5,
+   "points": 10,
+   "level": 2,
+   "difficulty": 2,
+   "subchapter": "환매권·환매금액",
+   "topic": "환매토지의 환매금액 결정방법 약술",
+   "logicalPoints": [
+    "환매권",
+    "환매금액 산정",
+    "인근 유사토지 지가변동률"
+   ],
+   "lawRefs": [
+    "토지보상법 §91"
+   ],
+   "body": "【문제 5】 (10점) 「공익사업을 위한 토지 등의 취득 및 보상에 관한 법률」상 환매토지의 환매금액 결정방법을 약술하시오.",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "answerFormat": "essay-narrative",
+   "sourcePdf": "감정평가실무_기출문제지 [1-36회]"
+  }
+ ]
 }
