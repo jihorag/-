@@ -4,12 +4,42 @@
  "chapter": "8b",
  "chapterTitle": "표준지·정비·불의타",
  "source": "official",
- "count": 0,
+ "count": 1,
  "withAnswer": 0,
  "matchedAnswer": 7,
  "rounds": [
   7,
   33
  ],
- "questions": []
+ "questions": [
+  {
+   "id": "ki-r2-q4",
+   "subject": "감정평가실무",
+   "chapter": "8b",
+   "source": "official",
+   "visionTranscribed": true,
+   "bodyFormat": "markdown",
+   "round": 2,
+   "questionNum": 4,
+   "points": 5,
+   "level": 1,
+   "difficulty": 1,
+   "subchapter": "표준지공시지가",
+   "topic": "공시지가 표준지 선정원칙·평가기준 약술",
+   "logicalPoints": [
+    "표준지공시지가",
+    "비교표준지 선정원칙"
+   ],
+   "lawRefs": [
+    "감칙 §14",
+    "부동산공시법"
+   ],
+   "body": "【문제 4】 (5점) 공시지가 표준지의 선정원칙과 표준지의 평가기준을 약술하라.",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "answerFormat": "essay-narrative",
+   "sourcePdf": "감정평가실무_기출문제지 [1-36회]"
+  }
+ ]
 }
