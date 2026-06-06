@@ -1,7 +1,7 @@
 {
  "built_at": "2026-05-31T06:04:01.250547+00:00",
  "subject": "감정평가실무",
- "total": 1567,
+ "total": 1583,
  "chapters": [
   {
    "id": "kichul",
@@ -866,8 +866,8 @@
    "id": "gs3",
    "title": "📕 실무 GS 3기 (10회분·예시답안)",
    "file": "gs3.json",
-   "count": 23,
-   "withAnswer": 23,
+   "count": 39,
+   "withAnswer": 39,
    "matchedAnswer": 0,
    "rounds": [
     101,
@@ -875,7 +875,11 @@
     301,
     401,
     501,
-    601
+    601,
+    701,
+    801,
+    901,
+    1001
    ],
    "generatedCount": 0,
    "subchapters": []
