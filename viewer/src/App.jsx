@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import { ArrowLeft, House, Compass, RotateCcw, ChartColumn, BookOpen, Sparkles } from 'lucide-react';
+import { ArrowLeft, House, Compass, RotateCcw, BookOpen, Sparkles, Calendar } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
 import VizGallery from './viz/VizGallery';
@@ -7,6 +7,9 @@ import WeaknessPanel from './WeaknessPanel';
 import DDayPlanner from './DDayPlanner';
 import NotesPanel from './NotesPanel';
 import StreakBadge from './StreakBadge';
+import JourneyTimeline from './JourneyTimeline';
+import StudyPlanner from './StudyPlanner';
+import { addStudySeconds } from './studyTime';
 import UsageDashboard from './UsageDashboard';
 import ToastContainer, { toast } from './Toast';
 import CmdK from './CmdK';
@@ -180,6 +183,10 @@ const EXAM_DEFAULT_MIN = { '감정평가사': 120 };
 
 // 감정평가사 1차 5과목 (taxonomy.json 의 subject 명과 정확히 일치해야 함)
 const APPRAISER_1ST_SUBJECTS = ['민법', '경제학원론', '부동산학원론', '감정평가관계법규', '회계학'];
+
+// 시험별/연도별 '실제' 드릴 스코프만 true. 문제풀이 홈에서 과목 진입 시 설정하는
+// {key,label} 마커(kind 없음)는 false → 뒤로가기 시 tax_subjects(과목 그리드)를 건너뛰고 홈으로.
+const isRealScope = (sc) => !!sc && (sc.kind === 'exam' || sc.kind === 'year');
 
 // 감정평가사 2차 4과목 (essay 시험 — manifest 의 subject 명과 일치)
 const APPRAISER_2ND_SUBJECTS = ['감정평가실무', '감정평가이론', '감정평가관계법규', '감정평가 및 보상법규'];
@@ -595,6 +602,29 @@ const parseNav = (hash) => {
 // SafeImage / ParsedText — './ParsedText' 모듈에서 import (모의고사도 동일 렌더 공유)
 
 // Interactive Question Component
+// 연습문제 선지별 메타(왜 옳은지/틀렸는지 · 조문 · 법리 · 판례 요지) — 채점 후 표시.
+function OptionMeta({ om, selected }) {
+  if (!om) return null;
+  const good = !!om.correct;
+  const chip = { fontSize: '0.72rem', fontWeight: 700, padding: '2px 8px', borderRadius: 999, background: '#fff', border: '1px solid #d1d5db', color: '#374151', whiteSpace: 'nowrap' };
+  return (
+    <div style={{ margin: '6px 0 2px 6px', padding: '8px 12px', borderLeft: `3px solid ${good ? '#16a34a' : '#ef4444'}`, background: good ? '#f0fdf4' : '#fef2f2', borderRadius: 6, fontSize: '0.83rem', color: '#374151', lineHeight: 1.55 }}>
+      <div>
+        <b style={{ color: good ? '#16a34a' : '#dc2626' }}>{good ? 'O 옳은 선지' : 'X 틀린 선지'}{selected ? ' · 내 선택' : ''}</b>
+        {om.why ? <> — {om.why}</> : null}
+      </div>
+      {(om.principle || (om.articles && om.articles.length) || om.case?.no) && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 6, alignItems: 'center' }}>
+          {om.principle && <span style={{ ...chip, background: '#eff6ff', borderColor: '#bfdbfe', color: '#1d4ed8' }}>⚖ {om.principle}</span>}
+          {(om.articles || []).map((a, i) => <span key={i} style={chip}>{a}</span>)}
+          {om.case?.no && <span style={chip}>{om.case.no}</span>}
+        </div>
+      )}
+      {om.case?.holding && <div style={{ marginTop: 6, color: '#6b7280', fontSize: '0.79rem' }}>📌 판례: {om.case.holding}</div>}
+    </div>
+  );
+}
+
 const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard }) => {
   const [selectedOpt, setSelectedOpt] = useState(prior ? (prior.sel ?? null) : null);
   const isRevealed = selectedOpt !== null;
@@ -710,29 +740,32 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
             if (isRevealed) { bgColor = '#fff'; }
           }
 
+          const om = Array.isArray(q.option_meta) ? q.option_meta[optIdx] : null;
           return (
-            <button
-              key={optIdx}
-              type="button"
-              className={`opt-btn ${anim}`.trim()}
-              onClick={() => handleOptionClick(optIdx)}
-              disabled={isRevealed}
-              aria-pressed={isSelected}
-              aria-label={`${optIdx + 1}번 보기${showCorrect ? ' (정답)' : showWrong ? ' (오답·내 선택)' : ''}`}
-              style={{ background: bgColor, borderColor }}
-            >
-              <span style={{
-                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                width: '26px', height: '26px', borderRadius: '50%',
-                background: badgeBg, color: badgeColor, border: badgeBorder,
-                fontSize: '0.875rem', fontWeight: '700', flexShrink: 0
-              }}>
-                {showCorrect ? '✓' : showWrong ? '✕' : optIdx + 1}
-              </span>
-              {opt
-                ? <span className="q-opt" style={{ lineHeight: '1.5', color: '#1f2937' }}><ParsedText text={opt} /></span>
-                : <span className="q-opt" style={{ color: '#6b7280' }}>{optIdx + 1}번</span>}
-            </button>
+            <div key={optIdx}>
+              <button
+                type="button"
+                className={`opt-btn ${anim}`.trim()}
+                onClick={() => handleOptionClick(optIdx)}
+                disabled={isRevealed}
+                aria-pressed={isSelected}
+                aria-label={`${optIdx + 1}번 보기${showCorrect ? ' (정답)' : showWrong ? ' (오답·내 선택)' : ''}`}
+                style={{ background: bgColor, borderColor }}
+              >
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  width: '26px', height: '26px', borderRadius: '50%',
+                  background: badgeBg, color: badgeColor, border: badgeBorder,
+                  fontSize: '0.875rem', fontWeight: '700', flexShrink: 0
+                }}>
+                  {showCorrect ? '✓' : showWrong ? '✕' : optIdx + 1}
+                </span>
+                {opt
+                  ? <span className="q-opt" style={{ lineHeight: '1.5', color: '#1f2937' }}><ParsedText text={opt} /></span>
+                  : <span className="q-opt" style={{ color: '#6b7280' }}>{optIdx + 1}번</span>}
+              </button>
+              {isRevealed && om && <OptionMeta om={om} selected={isSelected} />}
+            </div>
           );
         })}
       </div>
@@ -818,6 +851,23 @@ function BrowseCard({ icon, badge, badgeStyle, badge2, badge2Style, subtitle, ti
       )}
       {extra}
       {!disabled && <div className="play-btn">{cta}</div>}
+    </button>
+  );
+}
+
+// ── 문제풀이 드릴 — 토스 스타일 리스트 행 (1차 과목 장/절/관 단계용) ──
+function BrowseRow({ title, total, pct, answered, isAll, onClick }) {
+  return (
+    <button className={`browse-row${isAll ? ' browse-row--all' : ''}`} onClick={onClick}>
+      <div className="browse-row__main">
+        <div className="browse-row__title">{title}</div>
+        {answered > 0 && <div className="browse-row__bar"><div style={{ width: `${Math.max(2, pct)}%` }} /></div>}
+      </div>
+      <div className="browse-row__meta">
+        {answered > 0 && <span className="browse-row__pct">{pct}%</span>}
+        <span className="browse-row__count">{total}문제</span>
+        <span className="browse-row__chev">›</span>
+      </div>
     </button>
   );
 }
@@ -1030,13 +1080,19 @@ const App = () => {
     let ctx = 'home';
     if (currentView === 'civil') ctx = 'ai';
     else if (currentView === 'reviewHome' || currentView === 'today' || currentView === 'review') ctx = 'review';
-    else if (currentView === 'status') ctx = 'status';
+    else if (currentView === 'planner') ctx = 'home';
     else if (currentView === 'home') ctx = 'home';
     else ctx = 'practice';
     openSettings(ctx);
   };
   // 5과목 AI 학습 leaves — 4탭 공통 참조용. 백그라운드 로드.
   const [leavesBySubject, setLeavesBySubject] = useState({});
+  // 실무 연습문제 토픽 인덱스 (AI 학습 ↔ 문제풀이 호응용)
+  const [practiceIndex, setPracticeIndex] = useState(null);
+  useEffect(() => {
+    fetch('/data/study/appraisal_practice/practice_index.json')
+      .then((r) => r.ok ? r.json() : null).then((d) => { if (d) setPracticeIndex(d); }).catch(() => {});
+  }, []);
   useEffect(() => {
     // 1차 5과목 (taxonomy 트리)
     ['civil', 'economics', 'realestate', 'law', 'accounting'].forEach((sid) => {
@@ -1096,6 +1152,36 @@ const App = () => {
     setCurrentView('civil');
     window.scrollTo(0, 0);
   }, []);
+  // 문항의 분류 경로(과목/세부과목/장/절/관)로 AI 학습 leaf 찾기 — 풀이 화면용
+  const aiLeafForQuestion = useCallback((q) => {
+    if (!q) return null;
+    return findAiLeafForTax({
+      subject: q.taxSubjectName,
+      sub_subject: q.taxSubSubjectName,
+      chapter: q.taxChapterName,
+      section: q.taxSectionName,
+      item: q.taxItemName,
+    });
+  }, [findAiLeafForTax]);
+  // 🎓 AI 튜터로 이 단원 배우기 링크 (드릴 그리드·풀이 화면 공통)
+  const renderAiTutorLink = (aiLeaf) => aiLeaf ? (
+    <div style={{ padding: '8px 20px 0' }}>
+      <button
+        onClick={() => jumpToAILearn(aiLeaf)}
+        style={{
+          width: '100%', padding: '10px 14px', background: 'var(--primary-light)',
+          border: '1px solid var(--border-color)', borderRadius: 10, color: 'var(--primary-dark)',
+          fontSize: '0.88rem', fontWeight: 700, cursor: 'pointer',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        }}
+      >
+        <span>🎓 AI 튜터로 이 단원 배우기</span>
+        <span style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 600 }}>
+          {aiLeaf.path.slice(-1)[0]} ›
+        </span>
+      </button>
+    </div>
+  ) : null;
   const [essayManifest, setEssayManifest] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadPct, setLoadPct] = useState(0);
@@ -1187,7 +1273,7 @@ const App = () => {
   const [essayChapter, setEssayChapter] = useState(null);
   const [essayQuestionId, setEssayQuestionId] = useState(null);
   // 문제풀이 탭에서 특정 2차 과목으로 바로 진입할 때 EssayMode에 과목을 강제 지정 (nonce로 매 진입 동기화)
-  const [essayEntry, setEssayEntry] = useState({ key: null, nonce: 0 });
+  const [essayEntry, setEssayEntry] = useState({ key: null, nonce: 0, chapter: null, subchapter: null });
 
   // 시험 일정 — 3시험 동시 준비 시 D-DAY 표시·일일 권장량 계산용
   const [examDates, setExamDatesState] = useState(loadExamDates);
@@ -1201,6 +1287,7 @@ const App = () => {
   const [reviewSubject, setReviewSubject] = useState(null); // 오답 복습 2단계 드릴(과목 선택)
   const [nowTs] = useState(() => Date.now()); // 세션 기준 현재시각(렌더 순수성)
   const [trendDays, setTrendDays] = useState(7); // 학습 추이 기간(7|30)
+  const [showDetails, setShowDetails] = useState(false); // 홈 상세 분석 접기/펼치기
   const [dailyGoal, setDailyGoalState] = useState(() => {
     try { const n = parseInt(localStorage.getItem('quiz-daily-goal'), 10); return [10, 20, 30, 50].includes(n) ? n : 20; }
     catch { return 20; }
@@ -1301,6 +1388,8 @@ const App = () => {
   const [taxSection, setTaxSection] = useState(bootNav?.taxSection || null);
   // 시험별/연도별 진입 시 적용되는 분류 스코프: null | {kind:'exam'|'year', value, label}
   const [taxScope, setTaxScope] = useState(bootNav?.taxScope || null);
+  // 문제 소스 필터 (단원 드릴): all(기출+연습) | official(기출만) | practice(연습만)
+  const [sourceFilter, setSourceFilter] = useState('all');
 
   // 데이터 불러오기 — manifest → 시험별 chunk 병렬 fetch (E2 chunk loading)
   // 단일 24MB 파일 대신 13개 chunk를 HTTP/2 병렬로 받아 첫 로드 체감 속도와
@@ -1389,7 +1478,7 @@ const App = () => {
       if (inField) return;
       if (mod && e.key >= '1' && e.key <= '5') {
         e.preventDefault();
-        const map = { '1': 'home', '2': 'civil', '3': 'dashboard', '4': 'reviewHome', '5': 'status' };
+        const map = { '1': 'home', '2': 'civil', '3': 'dashboard', '4': 'reviewHome', '5': 'planner' };
         const v = map[e.key];
         if (v) { setCurrentView(v); window.scrollTo(0, 0); }
         return;
@@ -1498,14 +1587,20 @@ const App = () => {
   // browseExam: 둘러보기 상단 모드 픽커 — taxScope 없을 때만 작동(taxScope가 더 구체적)
   const baseFilter = useCallback((item) => {
     if (!item.isClassified) return false;
+    const isPractice = item.source === 'practice';
+    // 기출/연습 소스 토글
+    if (sourceFilter === 'official' && isPractice) return false;
+    if (sourceFilter === 'practice' && !isPractice) return false;
     if (taxScope) {
       if (taxScope.kind === 'exam') return item.exam === taxScope.value;
       if (taxScope.kind === 'year') return String(item.year) === String(taxScope.value);
       return true;
     }
+    // 연습문제는 기출 시험명(browseExam) 필터를 받지 않고 단원 축에 항상 포함(소스 토글로만 제어).
+    if (isPractice) return true;
     if (browseExam && item.exam !== browseExam) return false;
     return true;
-  }, [taxScope, browseExam]);
+  }, [taxScope, browseExam, sourceFilter]);
 
   const scopedClassified = useMemo(
     () => processedData.filter(baseFilter),
@@ -1776,6 +1871,27 @@ const App = () => {
     () => processedData.filter(q => q.isClassified),
     [processedData]
   );
+
+  // 선지-법리 취약점 — 연습문제(option_meta)에서 정답 선지의 법리를 핵심 법리로 보고,
+  // 사용자가 틀린 비율이 높은 법리를 모은다. (별도 저장 없이 progress.sel/correct로 계산)
+  const weakPrinciples = useMemo(() => {
+    const tally = {};
+    for (const q of classifiedList) {
+      if (!Array.isArray(q.option_meta) || !q.answerNorm) continue;
+      const p = progress[qid(q)];
+      if (!p || (p.correct !== true && p.correct !== false)) continue;
+      const ai = parseInt(q.answerNorm, 10) - 1;
+      const om = q.option_meta[ai];
+      const principle = om && om.principle;
+      if (!principle) continue;
+      const t = tally[principle] || (tally[principle] = { principle, total: 0, wrong: 0, item: q.taxItemName, section: q.taxSectionName });
+      t.total++; if (p.correct === false) t.wrong++;
+    }
+    return Object.values(tally)
+      .filter((t) => t.wrong >= 1)
+      .sort((a, b) => b.wrong - a.wrong || (b.wrong / b.total) - (a.wrong / a.total))
+      .slice(0, 10);
+  }, [classifiedList, progress]);
 
   const bookmarkedList = useMemo(
     () => classifiedList.filter(q => bm[qid(q)]),
@@ -2185,7 +2301,7 @@ const App = () => {
       else if (taxChapter) setCurrentView('tax_sections');
       else if (taxSubSubject) setCurrentView('tax_chapters');
       else if (taxSubject) setCurrentView('tax_sub_subjects');
-      else if (taxScope) setCurrentView('tax_subjects');
+      else if (isRealScope(taxScope)) setCurrentView('tax_subjects');
       else setCurrentView('dashboard');
       setSelectedGroup(null);
     } else if (currentView === 'tax_items') {
@@ -2198,7 +2314,7 @@ const App = () => {
       setCurrentView('tax_sub_subjects');
       setTaxSubSubject(null);
     } else if (currentView === 'tax_sub_subjects') {
-      setCurrentView(taxScope ? 'tax_subjects' : 'dashboard');
+      setCurrentView(isRealScope(taxScope) ? 'tax_subjects' : 'dashboard');
       setTaxSubject(null);
     } else if (currentView === 'tax_subjects') {
       setCurrentView('dashboard');
@@ -2244,7 +2360,7 @@ const App = () => {
       || currentView === 'essay_subjects' || currentView === 'essay_chapters'
       || currentView === 'essay_questions' || currentView === 'essay_result') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'review'
-    : currentView === 'status' ? 'status'
+    : currentView === 'planner' ? 'planner'
     : currentView === 'civil' ? 'ai'
     : 'browse'; // dashboard + tax_* + search(둘러보기 흡수)
   const goTab = (t) => {
@@ -2253,15 +2369,62 @@ const App = () => {
     else if (t === 'browse') setCurrentView('dashboard');
     else if (t === 'review') { setReviewSubject(null); setCurrentView('reviewHome'); }
     else if (t === 'ai') setCurrentView('civil');
-    else if (t === 'status') setCurrentView('status');
+    else if (t === 'planner') setCurrentView('planner');
     window.scrollTo(0, 0);
   };
+
+  // 🕒 자동 공부시간 기록 (열품타 스타일) — AI 학습/문제풀이 화면에 머문 시간을
+  // '단원'별로 누적. 탭이 숨겨졌거나(다른 창) 일정 시간 무동작이면 카운트하지 않는다.
+  const studyCategory = navTab === 'ai' ? 'ai' : navTab === 'browse' ? 'quiz' : null;
+  // 최신 컨텍스트(현재 뷰 + 풀이 세션 제목)를 ref로 유지 — 단원 라벨 산출용
+  const trackCtxRef = useRef({});
+  useEffect(() => { trackCtxRef.current = { currentView, title: selectedGroup?.title }; });
+  useEffect(() => {
+    if (!studyCategory) return;
+    const IDLE_MS = 120000; // 2분 무동작 시 일시정지
+    const TICK = 5000;
+    let last = Date.now();
+    let lastActivity = Date.now();
+    const onActivity = () => { lastActivity = Date.now(); };
+    const evs = ['mousemove', 'keydown', 'mousedown', 'touchstart', 'scroll'];
+    evs.forEach((e) => window.addEventListener(e, onActivity, { passive: true }));
+    // 현재 공부 맥락 { subjectId, unit } — AI는 ailearn-current, 문제풀이는 세션 제목에서 과목 추론
+    const currentContext = () => {
+      if (studyCategory === 'ai') {
+        try {
+          const cur = JSON.parse(localStorage.getItem('ailearn-current') || 'null');
+          const leaf = cur && Object.values(leavesBySubject).flat().find((l) => l.id === cur.leaf_id);
+          return { subjectId: cur?.subject || null, unit: leaf ? leaf.path.slice(-1)[0] : null };
+        } catch { return { subjectId: null, unit: null }; }
+      }
+      if (studyCategory === 'quiz' && trackCtxRef.current.currentView === 'study') {
+        const title = trackCtxRef.current.title || '';
+        const sm = AI_SUBJECTS.find((s) => title.includes(s.title));
+        return { subjectId: sm?.id || null, unit: title || null };
+      }
+      return { subjectId: null, unit: null };
+    };
+    const flush = () => {
+      const now = Date.now();
+      const delta = now - last;
+      last = now;
+      if (document.hidden) return;            // 다른 탭/최소화 → 미집계
+      if (now - lastActivity > IDLE_MS) return; // 무동작 → 미집계
+      if (delta > 0 && delta < TICK * 4) {
+        const { subjectId, unit } = currentContext();
+        addStudySeconds(studyCategory, delta / 1000, subjectId, unit);
+      }
+    };
+    const id = setInterval(flush, TICK);
+    return () => { clearInterval(id); flush(); evs.forEach((e) => window.removeEventListener(e, onActivity)); };
+  }, [studyCategory, leavesBySubject]);
+
   const NAV_ITEMS = [
     ['home', House, '홈'],
     ['ai', Sparkles, 'AI 학습'],
     ['browse', Compass, '문제풀이'],
     ['review', RotateCcw, '복습'],
-    ['status', ChartColumn, '현황'],
+    ['planner', Calendar, '플래너'],
   ];
   const bottomNav = (
     <nav className="bottom-nav">
@@ -2750,8 +2913,16 @@ const App = () => {
         weakPathsBySubject={aiWeakPathsBySubject}
         leavesBySubject={leavesBySubject}
         onJumpToBrowse={(leaf) => {
-          // leaf.path → tax 드릴 위치로 점프 (가장 구체적인 단계)
           const subjId = (leaf.id || '').split('__')[0];
+          // 2차 실무: AI 학습 토픽 → 해당 단원·토픽 연습문제(EssayMode)로 호응 점프
+          if (subjId === 'appraisal_practice') {
+            const topicId = leaf.leaf_type === 'topic' ? (leaf.id || '').split('__').pop() : null;
+            setEssayEntry((e) => ({ key: 'practice', nonce: (e.nonce || 0) + 1, chapter: leaf.unit_code, subchapter: topicId }));
+            setCurrentView('essay_questions');
+            window.scrollTo(0, 0);
+            return;
+          }
+          // leaf.path → tax 드릴 위치로 점프 (가장 구체적인 단계)
           const subjName = AI_SUBJECT_TO_QUIZ[subjId];
           if (!subjName || !taxonomyData) return;
           const hasSubs = !!taxonomyData[subjName]?.has_subjects;
@@ -2770,7 +2941,14 @@ const App = () => {
           window.scrollTo(0, 0);
         }}
         getQuizCountForLeaf={(leaf) => {
-          if (!leaf || !classifiedList?.length) return 0;
+          if (!leaf) return 0;
+          const sid = (leaf.id || '').split('__')[0];
+          if (sid === 'appraisal_practice') {
+            const topics = practiceIndex?.topics || {};
+            if (leaf.leaf_type === 'topic') return topics[(leaf.id || '').split('__').pop()]?.total || 0;
+            return Object.values(topics).filter((t) => t.unitCode === leaf.unit_code).reduce((a, t) => a + (t.total || 0), 0);
+          }
+          if (!classifiedList?.length) return 0;
           return questionsInLeaf(classifiedList, leaf).length;
         }}
         quizStatsByLeaf={quizStatsByLeaf}
@@ -2831,6 +3009,8 @@ const App = () => {
         fontScale={fontScale}
         entrySubject={essayEntry.key}
         entryNonce={essayEntry.nonce}
+        entryChapter={essayEntry.chapter}
+        entrySubchapter={essayEntry.subchapter}
       />
     );
   }
@@ -2847,6 +3027,8 @@ const App = () => {
           fontScale={fontScale}
           entrySubject={essayEntry.key}
           entryNonce={essayEntry.nonce}
+          entryChapter={essayEntry.chapter}
+          entrySubchapter={essayEntry.subchapter}
         />
         {overlays}
       </div>
@@ -2960,6 +3142,8 @@ const App = () => {
             ⌨ 단축키: <b>1-9</b> 보기 선택 · <b>← →</b> 이전/다음 · <b>Enter</b> 다음
           </div>
         </div>
+
+        {renderAiTutorLink(aiLeafForQuestion(q))}
 
         <main
           style={{ padding: '20px', maxWidth: '800px', margin: '0 auto', paddingBottom: 'calc(40px + env(safe-area-inset-bottom, 0px))' }}
@@ -3119,6 +3303,8 @@ const App = () => {
           })()}
         </div>
 
+        {renderAiTutorLink(aiLeafForQuestion(filteredQuestions[0]))}
+
         <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto', paddingBottom: 'calc(40px + env(safe-area-inset-bottom, 0px))' }}>
           {filteredQuestions.map((q) => (
             <QuestionItem
@@ -3208,6 +3394,9 @@ const App = () => {
         item: isItemGrid ? group.title : null,
       });
     };
+    // 1차 과목은 장·절·관(드릴 하위 단계)을 토스 스타일 리스트로. 과목·세부과목(첫 진입)은 블럭 유지.
+    const listMode = APPRAISER_1ST_SUBJECTS.includes(taxSubject)
+      && ['tax_chapters', 'tax_sections', 'tax_items'].includes(currentView);
     return (
     <div className="app-container">
       {drillHeader()}
@@ -3217,27 +3406,38 @@ const App = () => {
         <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '4px' }}>{subtitle}</div>
         <h1 className="screen-title">{title}</h1>
       </div>
-      {aiLeaf && (
-        <div style={{ padding: '8px 20px 0' }}>
-          <button
-            onClick={() => jumpToAILearn(aiLeaf)}
-            style={{
-              width: '100%', padding: '10px 14px',
-              background: 'var(--primary-light)',
-              border: '1px solid var(--border-color)', borderRadius: 10, color: 'var(--primary-dark)',
-              fontSize: '0.88rem', fontWeight: 700, cursor: 'pointer',
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-            }}
-          >
-            <span>🎓 AI 튜터로 이 단원 배우기</span>
-            <span style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 600 }}>
-              {aiLeaf.path.slice(-1)[0]} ›
-            </span>
-          </button>
+      {['tax_chapters', 'tax_sections', 'tax_items'].includes(currentView) && (
+        <div style={{ padding: '0 20px', display: 'flex', gap: 4, background: 'transparent' }}>
+          <div style={{ display: 'inline-flex', gap: 4, background: 'var(--primary-light)', padding: 3, borderRadius: 10, border: '1px solid var(--border-color)' }}>
+            {[['all', '전체'], ['official', '기출'], ['practice', '연습문제']].map(([k, lab]) => (
+              <button key={k} onClick={() => setSourceFilter(k)}
+                style={{ padding: '5px 12px', borderRadius: 7, border: 'none', cursor: 'pointer',
+                  background: sourceFilter === k ? 'var(--primary)' : 'transparent',
+                  color: sourceFilter === k ? '#fff' : 'var(--primary-dark)', fontWeight: 700, fontSize: '0.78rem' }}>
+                {lab}
+              </button>
+            ))}
+          </div>
         </div>
       )}
-      
+      {renderAiTutorLink(aiLeaf)}
+
       <main className="main-content" style={{ marginTop: '20px' }}>
+        {listMode ? (
+          <div className="browse-list">
+            {groups.map((group, idx) => {
+              // '전체 풀기' 집계 행만 강조. 관(款)은 leaf라 play_all 타입이지만 일반 행으로.
+              const isAll = group.tag === '전체';
+              const s = progressStats(cardQuestions(group), progress);
+              const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
+              return (
+                <BrowseRow key={idx} title={group.title} total={group.total}
+                  pct={pct} answered={s.answered} isAll={isAll}
+                  onClick={() => handleGroupClick(group)} />
+              );
+            })}
+          </div>
+        ) : (
         <div className="study-grid">
           {groups.map((group, idx) => {
             const isAll = group.type && group.type.startsWith('play_all');
@@ -3274,6 +3474,7 @@ const App = () => {
             );
           })}
         </div>
+        )}
       </main>
     </div>
     );
@@ -3556,7 +3757,13 @@ const App = () => {
     );
   }
 
-  if (currentView === 'status') {
+  // ===== 스터디 플래너 탭 — 월간 캘린더 =====
+  if (currentView === 'planner') {
+    return shell(<StudyPlanner examDates={examDates} primaryExam={PRIMARY_EXAM} />);
+  }
+
+  // ===== 홈 '상세 분석' 렌더 (구 현황 탭 내용) — showDetails 토글로 펼침 =====
+  const renderHomeDetails = () => {
     // ─── 데이터 통합 ────────────────────────────────────────
     const cv = modeCoverage || coverage;
     const coachUsed = modeCoach || coach;
@@ -3696,47 +3903,10 @@ const App = () => {
       const found = subjectMatrix.find((x) => x.s.id === s.id);
       return found || { s, score: 0, aiCov: 0, quizCov: 0, quizAcc: 0 };
     });
-    return shell(
-      <div className="app-container">
-        <div className="screen-head">
-          <h1 className="screen-title">
-            📊 학습 현황
-            {browseExam && (
-              <span style={{ marginLeft: 8, fontSize: '0.78rem', color: '#1d4ed8',
-                fontWeight: 700, padding: '3px 9px', background: '#eff6ff',
-                borderRadius: 999, verticalAlign: 'middle' }}>
-                {browseExam} 모드
-              </span>
-            )}
-          </h1>
-        </div>
-        <main className="main-content" style={{ marginTop: '16px' }}>
-          {/* 모드 pill — status 통계의 범위를 시험별로 전환 */}
+    return (
+      <>
+          {/* 모드 pill — 통계 범위를 시험별로 전환 */}
           <div style={{ marginBottom: 14 }}>{renderModePicker()}</div>
-
-          {/* ① D-DAY 미니 카드 (1차/2차) */}
-          {(() => {
-            const d1 = daysUntil(examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM]);
-            const d2 = daysUntil(examDates[`${PRIMARY_EXAM}_2차`]);
-            if (d1 == null && d2 == null) return null;
-            const dColor = (d) => d == null ? '#9ca3af'
-              : d < 0 ? '#9ca3af' : d <= 30 ? '#dc2626' : d <= 90 ? '#ea580c' : '#1d4ed8';
-            const dPill = (label, d) => d == null ? null : (
-              <div style={{ flex: 1, background: '#fff', borderRadius: 12, padding: '10px 12px',
-                display: 'flex', alignItems: 'center', gap: 8, boxShadow: 'var(--shadow-sm)' }}>
-                <span style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 700 }}>{label}</span>
-                <span style={{ marginLeft: 'auto', fontSize: '1.05rem', fontWeight: 800, color: dColor(d) }}>
-                  D{d > 0 ? '-' : '+'}{Math.abs(d)}
-                </span>
-              </div>
-            );
-            return (
-              <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
-                {dPill('1차', d1)}
-                {dPill('2차', d2)}
-              </div>
-            );
-          })()}
 
           {/* ② 종합 KPI — quiz + AI 통합 */}
           <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
@@ -4165,7 +4335,7 @@ const App = () => {
                   if (!ids.length) return null;
                   const m = BM_META[r];
                   return (
-                    <button key={r} onClick={() => startReview(ids, `북마크 · ${m.label}`, 'status')}
+                    <button key={r} onClick={() => startReview(ids, `북마크 · ${m.label}`, 'home')}
                       style={{ border: `1px solid ${m.color}`, background: '#fff', color: m.color, borderRadius: '999px',
                         padding: '7px 13px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
                       {m.icon} {m.label} {ids.length}
@@ -4206,6 +4376,26 @@ const App = () => {
               }}
             />
           </div>
+          {weakPrinciples.length > 0 && (
+            <div style={{ marginBottom: 12, background: '#fff', borderRadius: 14, padding: 16, boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827', marginBottom: 4 }}>⚖️ 자주 틀리는 법리</div>
+              <div style={{ fontSize: '0.76rem', color: '#9ca3af', marginBottom: 12 }}>연습문제 선지별 법리 분석 — 오답이 잦은 법리부터</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {weakPrinciples.map((t) => {
+                  const rate = Math.round((t.wrong / t.total) * 100);
+                  return (
+                    <div key={t.principle} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <span style={{ flex: 1, minWidth: 0, fontSize: '0.88rem', fontWeight: 700, color: '#374151', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.principle}</span>
+                      <div style={{ width: 90, height: 6, background: '#f3f4f6', borderRadius: 999, overflow: 'hidden' }}>
+                        <div style={{ width: `${rate}%`, height: '100%', background: rate >= 50 ? '#dc2626' : '#f59e0b' }} />
+                      </div>
+                      <span style={{ fontSize: '0.76rem', color: '#6b7280', fontWeight: 700, width: 64, textAlign: 'right' }}>{t.wrong}/{t.total} 틀림</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
           <div style={{ marginBottom: 12 }}>
             <NotesPanel
               onJump={(leafId) => {
@@ -4221,10 +4411,9 @@ const App = () => {
             📈 관측 데이터
           </h2>
           <UsageDashboard />
-        </main>
-      </div>
+      </>
     );
-  }
+  };
 
   if (currentView === 'today') {
     const fmtDate = (ms) => {
@@ -4421,94 +4610,32 @@ const App = () => {
           <p style={{ marginTop: '6px', opacity: 0.85, fontSize: '0.9rem', fontWeight: 500 }}>
             {nickname ? `${nickname}님, 오늘도 한 걸음 더` : '오늘도 한 걸음 더'}
           </p>
-          <div style={{ marginTop: 8 }}>
+          <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
             <StreakBadge compact />
+            {(() => {
+              // 시험일 — 가장 임박한 미래 시험 하나만 D-237 식으로 간단 표기
+              const d1 = daysUntil(examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM]);
+              const d2 = daysUntil(examDates[`${PRIMARY_EXAM}_2차`]);
+              const near = [{ label: '1차', d: d1 }, { label: '2차', d: d2 }]
+                .filter((x) => x.d != null && x.d >= 0).sort((a, b) => a.d - b.d)[0];
+              return (
+                <button onClick={() => openSettings('home')}
+                  title="시험일 설정"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 5,
+                    background: 'rgba(255,255,255,0.28)', border: '1px solid rgba(255,255,255,0.3)',
+                    borderRadius: 999, padding: '4px 11px', color: '#fff', cursor: 'pointer',
+                    fontSize: '0.82rem', fontWeight: 700 }}>
+                  📅 {near ? `${near.label} ${fmtDday(near.d)}` : '시험일 등록'}
+                </button>
+              );
+            })()}
           </div>
         </div>
       </div>
 
       <main className="main-content">
-        {/* 감정평가사 D-DAY 카드 — 1차/2차 두 단계 + 일일 권장량 자동 계산 */}
-        {(() => {
-          const d1 = daysUntil(examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM]);
-          const d2 = daysUntil(examDates[`${PRIMARY_EXAM}_2차`]);
-          const hasAny = d1 != null || d2 != null;
-          const dColor = (d) => d == null ? '#9ca3af'
-            : d < 0 ? '#9ca3af'
-            : d <= 30 ? '#dc2626'
-            : d <= 90 ? '#ea580c'
-            : '#1d4ed8';
-          // 가장 임박한 미래 시험을 기준으로 일일 권장량 계산
-          // 미응답 ÷ 남은일 (최소 5, 최대 100문제/일)
-          const focusD = [d1, d2].filter(x => x != null && x > 0).sort((a, b) => a - b)[0];
-          const remain1stQs = classifiedList.filter(q =>
-            q.exam === PRIMARY_EXAM && !progress[qid(q)]).length;
-          const rec = focusD ? Math.max(5, Math.min(100, Math.ceil(remain1stQs / focusD))) : null;
-          return (
-            <section style={{ background: '#fff', borderRadius: 16,
-              padding: '14px 16px', boxShadow: 'var(--shadow-md)', marginBottom: 14 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between',
-                alignItems: 'center', marginBottom: hasAny ? 10 : 0 }}>
-                <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827' }}>
-                  📅 {PRIMARY_EXAM} 시험일
-                </span>
-                <button onClick={() => openSettings('home')}
-                  style={{ fontSize: '0.72rem', color: '#6b7280',
-                    background: 'none', border: 'none', cursor: 'pointer' }}>
-                  {hasAny ? '수정 →' : '입력하기 →'}
-                </button>
-              </div>
-              {hasAny ? (
-                <>
-                  <div style={{ display: 'flex', gap: 10 }}>
-                    {[
-                      { label: '1차', d: d1, date: examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM] },
-                      { label: '2차', d: d2, date: examDates[`${PRIMARY_EXAM}_2차`] },
-                    ].map(({ label, d, date }) => (
-                      <div key={label} style={{ flex: 1, padding: '10px 12px',
-                        borderRadius: 10, border: '1px solid #e5e7eb',
-                        background: d != null && d <= 30 ? '#fef2f2' : '#f9fafb' }}>
-                        <div style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 600 }}>
-                          {label}
-                        </div>
-                        <div style={{ fontSize: '1.1rem', fontWeight: 800,
-                          color: dColor(d), marginTop: 2 }}>
-                          {d != null ? fmtDday(d) : '—'}
-                        </div>
-                        <div style={{ fontSize: '0.68rem', color: '#9ca3af', marginTop: 2 }}>
-                          {date || '미입력'}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  {rec != null && remain1stQs > 0 && (
-                    <div style={{ marginTop: 10, padding: '8px 12px',
-                      background: '#eff6ff', borderRadius: 8,
-                      fontSize: '0.78rem', color: '#1e40af', textAlign: 'center' }}>
-                      💡 합격까지 미학습 {remain1stQs}문제 · 하루 <b>{rec}문제</b> 추천
-                      {dailyGoal !== rec && (
-                        <button onClick={() => {
-                          const nearest = [10, 20, 30, 50].reduce((p, c) =>
-                            Math.abs(c - rec) < Math.abs(p - rec) ? c : p, 20);
-                          setDailyGoal(nearest);
-                        }}
-                          style={{ marginLeft: 6, fontSize: '0.72rem', color: '#1d4ed8',
-                            fontWeight: 800, background: 'none', border: 'none', cursor: 'pointer' }}>
-                          목표로 설정
-                        </button>
-                      )}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <div style={{ fontSize: '0.78rem', color: '#9ca3af', textAlign: 'center',
-                  padding: '8px 0' }}>
-                  시험일을 등록하면 D-DAY와 일일 권장 학습량을 추천해드려요
-                </div>
-              )}
-            </section>
-          );
-        })()}
+        {/* 🗺️ 합격까지의 여정 타임라인 — 연도별 12칸(월) 그리드 + 1차/2차 마커 */}
+        <JourneyTimeline />
         {/* 오늘 할 일 — 4탭 통합 액션 (우선순위: SRS 기출 → AI 복습 → 약점 → 추천) */}
         {(() => {
           const aiDueLocal = getAiDue();
@@ -4556,12 +4683,6 @@ const App = () => {
           const allLeavesFlat = Object.values(leavesBySubject).flat();
           const aiCurLeaf = aiCur ? allLeavesFlat.find((l) => l.id === aiCur.leaf_id) : null;
           const aiMastered = Object.values(aiMastery).filter((m) => m?.status === 'mastered').length;
-          const overallPct = (() => {
-            const total = allLeavesFlat.length || 1;
-            const cov = allLeavesFlat.reduce((a, l) => a + (aiMastery[l.id]?.coverage || 0), 0) / total;
-            const quizPct = overall.total ? (overall.answered / overall.total) : 0;
-            return Math.round((cov * 0.5 + quizPct * 0.5) * 100);
-          })();
           return (
             <section style={{ marginBottom: 14 }}>
               <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#111827', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -4629,22 +4750,22 @@ const App = () => {
                     🔥 {analytics.streak}일 연속
                   </div>
                 </button>
-                {/* 📊 현황 */}
+                {/* 📅 플래너 */}
                 <button
-                  onClick={() => setCurrentView('status')}
+                  onClick={() => setCurrentView('planner')}
                   style={{
                     padding: 14, textAlign: 'left', cursor: 'pointer',
                     background: 'linear-gradient(160deg, #fce7f3 0%, #ffffff 100%)',
                     border: '1px solid #fbcfe8', borderRadius: 12,
                     display: 'flex', flexDirection: 'column', gap: 4,
                   }}>
-                  <div style={{ fontSize: '1.3rem' }}>📊</div>
-                  <div style={{ fontWeight: 800, color: '#9d174d', fontSize: '1rem' }}>현황</div>
+                  <div style={{ fontSize: '1.3rem' }}>📅</div>
+                  <div style={{ fontWeight: 800, color: '#9d174d', fontSize: '1rem' }}>플래너</div>
                   <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
-                    종합 학습률 {overallPct}%
+                    월간 학습 계획
                   </div>
                   <div style={{ fontSize: '0.72rem', color: '#475569', marginTop: 2 }}>
-                    {coach?.readiness != null ? `합격 준비도 ${coach.readiness}%` : '레이더·잔디·통계'}
+                    날짜별 할 일 관리
                   </div>
                 </button>
               </div>
@@ -4678,10 +4799,10 @@ const App = () => {
                 <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827' }}>
                   🎯 1차 5과목 진척 <b style={{ color: 'var(--primary)', fontSize: '0.78rem' }}>합격선 {COACH_TARGET}%</b>
                 </span>
-                <button onClick={() => setCurrentView('status')}
+                <button onClick={() => setShowDetails(true)}
                   style={{ fontSize: '0.72rem', color: '#1d4ed8',
                     background: 'none', border: 'none', cursor: 'pointer', fontWeight: 700 }}>
-                  현황 상세 →
+                  상세 분석 →
                 </button>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
@@ -4916,17 +5037,24 @@ const App = () => {
 
           {overall.answered > 0 && (
             <button
-              onClick={() => setCurrentView('status')}
+              onClick={() => setShowDetails((v) => !v)}
               style={{ width: '100%', textAlign: 'center', padding: '12px', marginTop: '14px', borderRadius: '12px',
                 border: '1px solid #bfdbfe', background: '#eff6ff', color: '#1d4ed8', cursor: 'pointer',
                 fontWeight: 700, fontSize: '0.9rem' }}
             >
-              📊 학습 현황 자세히 보기 →
+              📊 상세 분석 {showDetails ? '접기 ▲' : '펼치기 ▼'}
             </button>
           )}
         </section>
 
-        {/* 시험별 진척 / 복습 알림 카드는 status 탭·Settings로 이관 — 홈 간소화 */}
+        {/* 📊 상세 분석 — 구 현황 탭 통합 (KPI·합격코치·레이더·56일 캘린더·8과목 도넛·추세 등) */}
+        <button onClick={() => setShowDetails((v) => !v)}
+          style={{ width: '100%', textAlign: 'center', padding: '13px', marginTop: 2, marginBottom: 14,
+            borderRadius: 12, border: '1px solid #e5e7eb', background: '#fff', color: '#374151',
+            cursor: 'pointer', fontWeight: 800, fontSize: '0.92rem', boxShadow: 'var(--shadow-sm)' }}>
+          📊 상세 분석 {showDetails ? '접기 ▲' : '펼치기 ▼'}
+        </button>
+        {showDetails && renderHomeDetails()}
 
       </main>
     </div>
@@ -5125,9 +5253,6 @@ const App = () => {
         <h1 className="screen-title">📚 문제풀이</h1>
       </div>
       <main className="main-content" style={{ marginTop: '16px' }}>
-        {/* 시험 모드 (감정평가사 ↔ 전체 DB 토글) */}
-        <div style={{ marginBottom: '16px' }}>{renderModePicker()}</div>
-
         {/* 통합 검색 */}
         <button
           onClick={() => setCurrentView('search')}
@@ -5151,7 +5276,7 @@ const App = () => {
               </div>
               <span style={{ fontSize: '0.82rem', color: 'var(--text-sub)', fontWeight: 600 }}>{subjects.length}과목</span>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', rowGap: 14, columnGap: 12, alignItems: 'start' }}>
               {subjects.map((s) => {
                 const subjStat = analytics.subjects.find((x) => x.name === s.title);
                 const totalN = subjStat?.total || 0;
@@ -5184,6 +5309,67 @@ const App = () => {
                   else setCurrentView('tax_chapters');
                   window.scrollTo(0, 0);
                 };
+                // AI 학습 홈처럼 — 세부과목(민법총칙/물권법 등)이 2~4개면 카드 하단에 바로가기 칩 노출.
+                const subjData = !isStage2 ? taxonomyData?.[s.title] : null;
+                const divisions = subjData?.has_subjects
+                  ? Object.keys(subjData.subjects).filter((dv) =>
+                      scopedClassified.some((q) => q.taxSubjectName === s.title && q.taxSubSubjectName === dv))
+                  : [];
+                const showDivs = active && divisions.length >= 2 && divisions.length <= 4;
+                const enterDivision = (dv) => {
+                  setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
+                  setTaxSubject(s.title); setTaxSubSubject(dv);
+                  setTaxChapter(null); setTaxSection(null);
+                  setCurrentView('tax_chapters');
+                  window.scrollTo(0, 0);
+                };
+                // 1차 5과목 카드 — AI 학습 탭과 동일한 TOSS 카드 디자인.
+                //   세부과목 2~4개: 분류 칩(민법총칙/물권법 등) / 없으면: 단일 과목 버튼.
+                if (!isStage2 && active) {
+                  const T = { card: '#FFFFFF', blue: '#3182F6', blueWeak: '#E8F1FE', ink: '#191F28', sub: '#8B95A1', track: '#E5E8EB', shadow: '0 2px 8px rgba(0, 23, 51, 0.06)', radius: 20 };
+                  const chipStyle = {
+                    padding: '11px 6px', fontSize: '0.84rem', fontWeight: 700,
+                    background: T.blueWeak, color: T.blue, border: 'none',
+                    borderRadius: 10, cursor: 'pointer', whiteSpace: 'nowrap',
+                    overflow: 'hidden', textOverflow: 'ellipsis', textAlign: 'center',
+                  };
+                  return (
+                    <div key={s.id} style={{ background: T.card, border: 'none', borderRadius: T.radius, position: 'relative', display: 'flex', flexDirection: 'column', boxShadow: T.shadow }}>
+                      <button onClick={onClick} style={{ padding: '20px 18px 16px', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', width: '100%', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                        <div style={{ display: 'flex' }}>
+                          <span style={{ fontSize: '0.7rem', fontWeight: 800, background: T.blueWeak, color: T.blue, padding: '3px 9px', borderRadius: 999 }}>1차</span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                          <div style={{ minWidth: 0, flex: 1 }}>
+                            <div style={{ fontWeight: 800, color: T.ink, fontSize: '1.2rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
+                            <div style={{ fontSize: '0.82rem', color: T.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 4 }}>{s.title}</div>
+                          </div>
+                          <div style={{ fontSize: '2rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
+                        </div>
+                        <div>
+                          <div style={{ height: 6, background: T.track, borderRadius: 999, overflow: 'hidden' }}>
+                            <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: T.blue, borderRadius: 999 }} />
+                          </div>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', marginTop: 8 }}>
+                            <span style={{ fontWeight: 800, color: T.ink }}>{pct}%</span>
+                            <span style={{ color: T.sub, fontWeight: 600 }}>{answeredN > 0 ? `정답률 ${acc}%` : `${totalN}문제`}</span>
+                          </div>
+                        </div>
+                      </button>
+                      {showDivs ? (
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, padding: '0 18px 16px' }}>
+                          {divisions.map((dv) => (
+                            <button key={dv} onClick={() => enterDivision(dv)} title={dv} style={chipStyle}>{dv}</button>
+                          ))}
+                        </div>
+                      ) : (
+                        <div style={{ padding: '0 18px 16px' }}>
+                          <button onClick={onClick} style={{ ...chipStyle, width: '100%' }}>{s.title}</button>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
                 return (
                   <BrowseCard
                     key={s.id}
