@@ -795,7 +795,7 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
 };
 
 // ── 문제풀이 탭 통일 카드 — 드릴/둘러보기/과목 그리드 공통(study-card 토큰 기반) ──
-function BrowseCard({ icon, badge, badgeStyle, subtitle, title, pct, footerLeft, footerRight, cta = '선택', highlight, disabled, onClick }) {
+function BrowseCard({ icon, badge, badgeStyle, badge2, badge2Style, subtitle, title, pct, footerLeft, footerRight, extra, cta = '선택', highlight, disabled, onClick }) {
   return (
     <button className="study-card" onClick={disabled ? undefined : onClick} disabled={disabled}
       style={{
@@ -804,13 +804,19 @@ function BrowseCard({ icon, badge, badgeStyle, subtitle, title, pct, footerLeft,
         ...(disabled ? { opacity: 0.55, cursor: 'not-allowed' } : {}),
       }}>
       {icon && <div className="card-ico">{icon}</div>}
-      {badge && <span className="card-badge" style={{ marginBottom: 10, ...badgeStyle }}>{badge}</span>}
+      {(badge || badge2) && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10, flexWrap: 'wrap' }}>
+          {badge && <span className="card-badge" style={{ marginBottom: 0, ...badgeStyle }}>{badge}</span>}
+          {badge2 && <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '3px 9px', borderRadius: 999, ...badge2Style }}>{badge2}</span>}
+        </div>
+      )}
       {subtitle && <div className="card-subtitle" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{subtitle}</div>}
       <h3 className="card-title" style={{ fontSize: '1.1rem', marginBottom: 10, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{title}</h3>
       {pct != null && <div className="card-progress-container"><div className="card-progress-fill" style={{ width: `${Math.max(2, pct)}%` }} /></div>}
       {(footerLeft != null || footerRight != null) && (
         <div className="card-foot"><span className="pct">{footerLeft}</span><span>{footerRight}</span></div>
       )}
+      {extra}
       {!disabled && <div className="play-btn">{cta}</div>}
     </button>
   );
@@ -3217,14 +3223,14 @@ const App = () => {
             onClick={() => jumpToAILearn(aiLeaf)}
             style={{
               width: '100%', padding: '10px 14px',
-              background: 'linear-gradient(90deg, #eef2ff 0%, #fce7f3 100%)',
-              border: '1px solid #c7d2fe', borderRadius: 10, color: '#4338ca',
+              background: 'var(--primary-light)',
+              border: '1px solid var(--border-color)', borderRadius: 10, color: 'var(--primary-dark)',
               fontSize: '0.88rem', fontWeight: 700, cursor: 'pointer',
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
             }}
           >
             <span>🎓 AI 튜터로 이 단원 배우기</span>
-            <span style={{ fontSize: '0.75rem', color: '#6366f1', fontWeight: 600 }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 600 }}>
               {aiLeaf.path.slice(-1)[0]} ›
             </span>
           </button>
@@ -3238,39 +3244,33 @@ const App = () => {
             const s = progressStats(cardQuestions(group), progress);
             const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
             const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
+            const gLeaf = groupAiLeaf(group);
+            const gm = gLeaf ? aiMastery[gLeaf.id] : null;
+            const aiPct = gm && gm.coverage ? Math.round(gm.coverage * 100) : null;
             return (
-              <div key={idx} className="study-card" onClick={() => handleGroupClick(group)} style={isAll ? { background: '#eff6ff', borderColor: '#bfdbfe' } : {}}>
-                <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                  <div className="card-badge" style={isAll ? { background: 'var(--primary)', color: '#fff', border: 'none' } : {}}>{group.tag}</div>
-                  {dm && (
-                    <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '2px 8px', borderRadius: '999px', background: dm.bg, color: dm.fg }}>
-                      난이도 {s.avgDiff.toFixed(1)}
-                    </span>
-                  )}
-                </div>
-                <div className="card-subtitle">{group.subtitle}</div>
-                <h3 className="card-title" style={{ fontSize: '1.1rem' }}>{group.title}</h3>
-                <div className="card-total">총 {group.total} 문제 {s.answered > 0 && <span style={{ color: 'var(--primary)', fontWeight: 700 }}>· {pct}%</span>}</div>
-                <div className="card-progress-container">
-                  <div className="card-progress-fill" style={{ width: `${pct}%` }}></div>
-                </div>
-                {(() => {
-                  const gLeaf = groupAiLeaf(group);
-                  const gm = gLeaf ? aiMastery[gLeaf.id] : null;
-                  if (!gm || !gm.coverage) return null;
-                  const aiPct = Math.round(gm.coverage * 100);
-                  return (
-                    <div style={{ marginTop: 4, fontSize: '0.72rem', color: '#4338ca', display: 'flex', alignItems: 'center', gap: 4 }}>
-                      <span>🎓 AI {aiPct}%</span>
-                      <div style={{ flex: 1, height: 3, background: '#e5e7eb', borderRadius: 2, overflow: 'hidden' }}>
-                        <div style={{ width: `${aiPct}%`, height: '100%', background: '#4f46e5' }} />
-                      </div>
-                      {gm.status === 'mastered' && <span style={{ color: '#047857' }}>✓</span>}
+              <BrowseCard
+                key={idx}
+                badge={group.tag}
+                badgeStyle={isAll ? { background: 'var(--primary)', color: '#fff', border: 'none' } : undefined}
+                badge2={dm ? `난이도 ${s.avgDiff.toFixed(1)}` : null}
+                badge2Style={dm ? { background: dm.bg, color: dm.fg } : undefined}
+                subtitle={group.subtitle}
+                title={group.title}
+                pct={pct}
+                footerLeft={`총 ${group.total}문제`}
+                footerRight={s.answered > 0 ? `${pct}%` : ''}
+                highlight={isAll}
+                onClick={() => handleGroupClick(group)}
+                extra={aiPct != null && (
+                  <div style={{ marginTop: 4, fontSize: '0.72rem', color: 'var(--primary-dark)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                    <span>🎓 AI {aiPct}%</span>
+                    <div style={{ flex: 1, height: 3, background: '#e5e7eb', borderRadius: 2, overflow: 'hidden' }}>
+                      <div style={{ width: `${aiPct}%`, height: '100%', background: 'var(--primary)' }} />
                     </div>
-                  );
-                })()}
-                <div className="play-btn" style={isAll ? { background: 'var(--primary)', color: '#fff' } : {}}>선택</div>
-              </div>
+                    {gm.status === 'mastered' && <span style={{ color: '#047857' }}>✓</span>}
+                  </div>
+                )}
+              />
             );
           })}
         </div>
@@ -5132,9 +5132,9 @@ const App = () => {
         <button
           onClick={() => setCurrentView('search')}
           style={{ width: '100%', textAlign: 'left', padding: '14px 16px', marginBottom: '20px',
-            border: '1px solid #c7d2fe', borderRadius: '12px',
-            background: 'linear-gradient(160deg, #eff6ff 0%, #ffffff 100%)',
-            color: '#1f2937', fontSize: '0.95rem', cursor: 'pointer', fontWeight: 600 }}
+            border: '1px solid var(--border-color)', borderRadius: '12px',
+            background: 'var(--primary-light)',
+            color: 'var(--text-main)', fontSize: '0.95rem', cursor: 'pointer', fontWeight: 600 }}
         >
           🔍 통합 검색·필터 (시험·과목·연도·난이도·키워드)
         </button>
@@ -5146,10 +5146,10 @@ const App = () => {
         ].map(({ stage, label, subjects }) => (
           <div key={stage} style={{ marginBottom: 18 }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
-              <div style={{ fontSize: '1rem', color: '#111827', fontWeight: 800 }}>
+              <div style={{ fontSize: '1rem', color: 'var(--text-main)', fontWeight: 800 }}>
                 {stage === 1 ? '📖' : '✍️'} {label}
               </div>
-              <span style={{ fontSize: '0.82rem', color: '#1f2937', fontWeight: 600 }}>{subjects.length}과목</span>
+              <span style={{ fontSize: '0.82rem', color: 'var(--text-sub)', fontWeight: 600 }}>{subjects.length}과목</span>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10 }}>
               {subjects.map((s) => {
@@ -5210,18 +5210,18 @@ const App = () => {
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             marginBottom: 10, gap: 8, flexWrap: 'wrap',
           }}>
-            <div style={{ fontSize: '1rem', color: '#111827', fontWeight: 800, display: 'flex', alignItems: 'center', gap: 6 }}>
+            <div style={{ fontSize: '1rem', color: 'var(--text-main)', fontWeight: 800, display: 'flex', alignItems: 'center', gap: 6 }}>
               🗂️ 다른 방식으로 둘러보기
             </div>
-            <div style={{ display: 'flex', gap: 4, background: '#eef2ff', padding: 3, borderRadius: 10, border: '1px solid #c7d2fe' }}>
+            <div style={{ display: 'flex', gap: 4, background: 'var(--primary-light)', padding: 3, borderRadius: 10, border: '1px solid var(--border-color)' }}>
               {viewModeTabs.map(([mode, label]) => (
                 <button
                   key={mode}
                   onClick={() => switchTab(mode)}
                   style={{
                     padding: '6px 12px', borderRadius: 7, border: 'none',
-                    background: viewMode === mode ? '#4f46e5' : 'transparent',
-                    color: viewMode === mode ? '#fff' : '#4338ca',
+                    background: viewMode === mode ? 'var(--primary)' : 'transparent',
+                    color: viewMode === mode ? '#fff' : 'var(--primary-dark)',
                     fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer',
                     transition: 'all 0.15s',
                   }}
