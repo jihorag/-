@@ -1,7 +1,7 @@
 {
  "built_at": "2026-05-31T06:04:01.250547+00:00",
  "subject": "감정평가실무",
- "total": 1322,
+ "total": 1333,
  "chapters": [
   {
    "id": "kichul",
@@ -616,13 +616,16 @@
    "id": "gs1",
    "title": "📗 실무 GS 1기 (20회분·예시답안)",
    "file": "gs1.json",
-   "count": 12,
-   "withAnswer": 12,
+   "count": 23,
+   "withAnswer": 23,
    "matchedAnswer": 81,
    "rounds": [
     101,
     102,
-    201
+    201,
+    202,
+    301,
+    302
    ],
    "generatedCount": 0
   },
