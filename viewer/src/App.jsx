@@ -794,6 +794,28 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
   );
 };
 
+// ── 문제풀이 탭 통일 카드 — 드릴/둘러보기/과목 그리드 공통(study-card 토큰 기반) ──
+function BrowseCard({ icon, badge, badgeStyle, subtitle, title, pct, footerLeft, footerRight, cta = '선택', highlight, disabled, onClick }) {
+  return (
+    <button className="study-card" onClick={disabled ? undefined : onClick} disabled={disabled}
+      style={{
+        textAlign: 'left', border: '1px solid transparent',
+        ...(highlight ? { background: 'var(--primary-light)', borderColor: 'var(--primary-light)' } : {}),
+        ...(disabled ? { opacity: 0.55, cursor: 'not-allowed' } : {}),
+      }}>
+      {icon && <div className="card-ico">{icon}</div>}
+      {badge && <span className="card-badge" style={{ marginBottom: 10, ...badgeStyle }}>{badge}</span>}
+      {subtitle && <div className="card-subtitle" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{subtitle}</div>}
+      <h3 className="card-title" style={{ fontSize: '1.1rem', marginBottom: 10, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{title}</h3>
+      {pct != null && <div className="card-progress-container"><div className="card-progress-fill" style={{ width: `${Math.max(2, pct)}%` }} /></div>}
+      {(footerLeft != null || footerRight != null) && (
+        <div className="card-foot"><span className="pct">{footerLeft}</span><span>{footerRight}</span></div>
+      )}
+      {!disabled && <div className="play-btn">{cta}</div>}
+    </button>
+  );
+}
+
 // ── 합격 전략 도구: 과목별 목표/버리기 보드 + 회독 타이머 + 검산 위젯 ──
 function StrategyTools({ stage1 }) {
   const [tab, setTab] = useState('board'); // board | timer | check
@@ -5142,72 +5164,40 @@ const App = () => {
                 const essayKey = isStage2 ? s.id.replace('appraisal_', '') : null;
                 const active = isStage2 ? true : totalN > 0;
                 const hasQuiz = active;
+                const onClick = () => {
+                  if (!active) return;
+                  if (isStage2) {
+                    setEssayChapter(null);
+                    setEssayQuestionId(null);
+                    setEssayEntry((e) => ({ key: essayKey, nonce: e.nonce + 1 }));
+                    setCurrentView('essay_chapters');
+                    window.scrollTo(0, 0);
+                    return;
+                  }
+                  setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
+                  setTaxSubject(s.title);
+                  setTaxSubSubject(null);
+                  setTaxChapter(null);
+                  setTaxSection(null);
+                  const tax = taxonomyData?.[s.title];
+                  if (tax?.has_subjects) setCurrentView('tax_sub_subjects');
+                  else setCurrentView('tax_chapters');
+                  window.scrollTo(0, 0);
+                };
                 return (
-                  <button
+                  <BrowseCard
                     key={s.id}
-                    onClick={() => {
-                      if (!active) return;
-                      if (isStage2) {
-                        // 2차 논술 기출풀이로 직행 (해당 과목 단원 목록)
-                        setEssayChapter(null);
-                        setEssayQuestionId(null);
-                        setEssayEntry((e) => ({ key: essayKey, nonce: e.nonce + 1 }));
-                        setCurrentView('essay_chapters');
-                        window.scrollTo(0, 0);
-                        return;
-                      }
-                      setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
-                      setTaxSubject(s.title);
-                      setTaxSubSubject(null);
-                      setTaxChapter(null);
-                      setTaxSection(null);
-                      const tax = taxonomyData?.[s.title];
-                      if (tax?.has_subjects) setCurrentView('tax_sub_subjects');
-                      else setCurrentView('tax_chapters');
-                      window.scrollTo(0, 0);
-                    }}
+                    icon={s.icon}
+                    badge={isStage2 ? '2차' : null}
+                    subtitle={s.title}
+                    title={s.short}
+                    pct={isStage2 ? null : pct}
+                    footerLeft={isStage2 ? null : `${pct}%`}
+                    footerRight={isStage2 ? null : `${answeredN}/${totalN}${acc > 0 ? ` · 정답률 ${acc}%` : ''}`}
+                    cta={isStage2 ? '논술 풀이' : '풀이'}
                     disabled={!active}
-                    style={{
-                      padding: 16, textAlign: 'left',
-                      background: hasQuiz
-                        ? 'linear-gradient(160deg, #eff6ff 0%, #ffffff 100%)'
-                        : 'linear-gradient(160deg, #f9fafb 0%, #ffffff 100%)',
-                      border: hasQuiz ? '1px solid #c7d2fe' : '1px solid #e5e7eb',
-                      borderRadius: 12, cursor: hasQuiz ? 'pointer' : 'not-allowed',
-                      display: 'flex', flexDirection: 'column', gap: 6, position: 'relative',
-                      opacity: hasQuiz ? 1 : 0.6,
-                    }}
-                  >
-                    {isStage2 && (
-                      <span style={{ position: 'absolute', top: 10, right: 10, fontSize: '0.7rem', fontWeight: 800,
-                        background: '#4f46e5', color: '#fff', padding: '3px 8px', borderRadius: 999 }}>2차</span>
-                    )}
-                    <div style={{ fontSize: '1.8rem', lineHeight: 1 }}>{s.icon}</div>
-                    <div style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '1.1rem' }}>{s.short}</div>
-                    <div style={{ fontSize: '0.82rem', color: '#1f2937', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {s.title}
-                    </div>
-                    {isStage2 ? (
-                      <div style={{ marginTop: 8, fontSize: '0.82rem', color: '#4338ca', fontWeight: 700 }}>
-                        📝 논술 기출 풀이 →
-                      </div>
-                    ) : (<>
-                      <div style={{ marginTop: 8, height: 5, background: '#dbeafe', borderRadius: 3, overflow: 'hidden' }}>
-                        <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#4f46e5' }} />
-                      </div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#111827', marginTop: 4 }}>
-                        <span style={{ fontWeight: 800 }}>{pct}%</span>
-                        <span style={{ color: '#1f2937', fontWeight: 600 }}>
-                          {hasQuiz ? `${answeredN}/${totalN}` : '기출 없음'}
-                        </span>
-                      </div>
-                      {hasQuiz && acc > 0 && (
-                        <div style={{ fontSize: '0.76rem', color: '#374151', marginTop: -2 }}>
-                          정답률 {acc}%
-                        </div>
-                      )}
-                    </>)}
-                  </button>
+                    onClick={onClick}
+                  />
                 );
               })}
             </div>
@@ -5252,48 +5242,20 @@ const App = () => {
                 : viewMode === 'year' ? '📅' : '📂';
               const hasQuiz = group.total > 0;
               return (
-                <button
+                <BrowseCard
                   key={idx}
-                  onClick={() => handleGroupClick(group)}
+                  icon={modeIcon}
+                  badge={dm ? `난이도 ${s.avgDiff.toFixed(1)}` : null}
+                  badgeStyle={dm ? { background: dm.bg, color: dm.fg } : undefined}
+                  subtitle={group.subtitle || null}
+                  title={group.title}
+                  pct={hasQuiz ? pct : null}
+                  footerLeft={hasQuiz ? `${pct}%` : null}
+                  footerRight={hasQuiz ? `${s.answered}/${group.total}` : '기출 없음'}
+                  cta="풀이"
                   disabled={!hasQuiz}
-                  style={{
-                    padding: 16, textAlign: 'left',
-                    background: hasQuiz
-                      ? 'linear-gradient(160deg, #eff6ff 0%, #ffffff 100%)'
-                      : 'linear-gradient(160deg, #f9fafb 0%, #ffffff 100%)',
-                    border: hasQuiz ? '1px solid #c7d2fe' : '1px solid #e5e7eb',
-                    borderRadius: 12, cursor: hasQuiz ? 'pointer' : 'not-allowed',
-                    display: 'flex', flexDirection: 'column', gap: 6, position: 'relative',
-                    opacity: hasQuiz ? 1 : 0.6,
-                  }}
-                >
-                  {dm && (
-                    <span style={{ position: 'absolute', top: 10, right: 10, fontSize: '0.7rem', fontWeight: 800,
-                      background: dm.fg, color: '#fff', padding: '3px 8px', borderRadius: 999 }}>
-                      난이도 {s.avgDiff.toFixed(1)}
-                    </span>
-                  )}
-                  <div style={{ fontSize: '1.8rem', lineHeight: 1 }}>{modeIcon}</div>
-                  <div style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '1.05rem',
-                    overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    {group.title}
-                  </div>
-                  {group.subtitle && (
-                    <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 500,
-                      overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {group.subtitle}
-                    </div>
-                  )}
-                  <div style={{ marginTop: 8, height: 5, background: '#dbeafe', borderRadius: 3, overflow: 'hidden' }}>
-                    <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#4f46e5' }} />
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#111827', marginTop: 4 }}>
-                    <span style={{ fontWeight: 800 }}>{pct}%</span>
-                    <span style={{ color: '#1f2937', fontWeight: 600 }}>
-                      {s.answered}/{group.total}
-                    </span>
-                  </div>
-                </button>
+                  onClick={() => handleGroupClick(group)}
+                />
               );
             })}
           </div>

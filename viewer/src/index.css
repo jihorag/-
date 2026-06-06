@@ -374,6 +374,28 @@ body {
 .study-card:hover .play-btn { transform: scale(1.05); }
 .study-card:active .play-btn { transform: scale(0.97); }
 
+/* 카드 진행바 (드릴·둘러보기 카드 공통) — 그동안 CSS 누락으로 안 보이던 것 복구 */
+.card-progress-container {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.card-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+/* 문제풀이 카드 상단 아이콘 + 통일된 푸터 통계 */
+.study-card .card-ico { font-size: 1.7rem; line-height: 1; margin-bottom: 8px; }
+.study-card .card-foot {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 0.85rem; color: var(--text-sub); font-weight: 600;
+}
+.study-card .card-foot .pct { font-weight: 800; color: var(--text-main); }
+
 /* Question List Spacing */
 .q-container {
   max-width: 800px;
