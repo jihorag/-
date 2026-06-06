@@ -42,6 +42,22 @@ const loadProfile = () => {
 const saveProfile = (p) => {
   try { localStorage.setItem('quiz-profile', JSON.stringify(p)); } catch { /* SSR */ }
 };
+// 오답 회독(round) 추적 — "틀린 것만 반복해서 0이 될 때까지" 학습 루프의 회독 카운터.
+const WRONG_ROUNDS_KEY = 'wrong-rounds-v1';
+const getWrongRounds = () => {
+  try { return JSON.parse(localStorage.getItem(WRONG_ROUNDS_KEY) || '{}') || {}; }
+  catch { return {}; }
+};
+const bumpWrongRound = (currentWrongCount) => {
+  const cur = getWrongRounds();
+  const next = {
+    rounds: (cur.rounds || 0) + 1,
+    lastStartCount: currentWrongCount,   // 이번 회독 시작 시 오답 수
+    startedAt: Date.now(),
+  };
+  try { localStorage.setItem(WRONG_ROUNDS_KEY, JSON.stringify(next)); } catch { /* noop */ }
+  return next;
+};
 const exportUserData = () => {
   // 백업 시각 기록(백업 후 수집되도록 먼저 저장)
   saveProfile({ ...loadProfile(), lastBackup: new Date().toISOString() });
@@ -4718,6 +4734,49 @@ const App = () => {
             {wrongList.length > 0 ? '틀린 문제를 과목·절별로 다시 풀기 →' : '아직 틀린 문제가 없어요'}
           </div>
         </div>
+        {/* 오답 회독 — "틀린 것만 0이 될 때까지 반복" 루프 + 회독 카운터 (합격 수기 다회독 전략) */}
+        {(() => {
+          const wr = getWrongRounds();
+          const rounds = wr.rounds || 0;
+          const graduated = (wr.lastStartCount != null && wrongList.length < wr.lastStartCount)
+            ? wr.lastStartCount - wrongList.length : 0;
+          const has = wrongList.length > 0;
+          return (
+            <div style={{ padding: '18px', marginTop: '12px', borderRadius: '12px',
+              border: `1px solid ${has ? '#fdba74' : '#e5e7eb'}`,
+              background: has ? '#fff7ed' : '#fff' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <div style={{ fontWeight: 700, fontSize: '1.05rem', color: has ? '#c2410c' : '#9ca3af' }}>
+                  🔂 오답 회독
+                </div>
+                {rounds > 0 && (
+                  <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#c2410c',
+                    background: '#ffedd5', padding: '3px 10px', borderRadius: 999 }}>
+                    누적 {rounds}회독
+                  </span>
+                )}
+              </div>
+              <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: '4px' }}>
+                {has
+                  ? `남은 오답 ${wrongList.length}문 — 맞히면 자동으로 빠져요. 0이 될 때까지 반복!`
+                  : '틀린 문제가 모이면 회독을 시작할 수 있어요'}
+              </div>
+              {graduated > 0 && (
+                <div style={{ fontSize: '0.78rem', color: '#047857', fontWeight: 700, marginTop: 6 }}>
+                  ✅ 지난 회독 이후 {graduated}문 졸업!
+                </div>
+              )}
+              {has && (
+                <button
+                  onClick={() => { bumpWrongRound(wrongList.length); startReview(wrongList.map(qid), `${rounds + 1}회독 · 오답 전체`, 'reviewHome'); }}
+                  style={{ marginTop: 12, width: '100%', padding: '11px', borderRadius: 8, border: 'none',
+                    background: '#ea580c', color: '#fff', fontWeight: 700, fontSize: '0.9rem', cursor: 'pointer', minHeight: 44 }}>
+                  ▶ {rounds + 1}번째 회독 시작 ({wrongList.length}문)
+                </button>
+              )}
+            </div>
+          );
+        })()}
         <div style={{ padding: '18px', marginTop: '12px', borderRadius: '12px',
           border: `1px solid ${bookmarkedList.length ? '#fde68a' : '#e5e7eb'}`,
           background: bookmarkedList.length ? '#fffbeb' : '#fff' }}>

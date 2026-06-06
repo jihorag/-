@@ -176,6 +176,8 @@ export const ANSWER_RULES = `
   · 구조 (목차·골격) /10
   · 내용 (키워드·조문/판례·식·단위) /15
   · 완성도 (분량·결론·유의사항) /5
+- **완주율(completion_pct)**: 합격 답안의 핵심은 "잘 쓰기보다 다 쓰기"다. 요구되는 목차·분량 대비 학생이 실제로 채운 정도를 0~100%로 평가하라. 빈 목차·미작성 논점이 많으면 낮게.
+- **득점/감점 지점은 '어느 목차·논점에서'인지 구체적으로** 짚어라(합격생은 채점평의 득점/감점 지점을 답안지에 옮겨 반복 학습한다). 추상적("내용 부족") 금지, "Ⅱ.2 최유효이용 판단 누락" 처럼 위치를 명시.
 - 반드시 다음 JSON을 메시지 끝에 첨부:
 \`\`\`json
 {
@@ -187,6 +189,9 @@ export const ANSWER_RULES = `
   "structure_score": 8,
   "content_score": 10,
   "completeness_score": 4,
+  "completion_pct": 75,
+  "scored_points": ["Ⅰ.개요 감칙 근거 정확", "Ⅱ.1 거래사례비교법 산식·단위 정확"],
+  "lost_points": ["Ⅱ.2 최유효이용 판단 목차 누락", "Ⅲ.결론 유의사항 미기재 → 완주 미달"],
   "strengths": ["목차 명확", "키워드 포함"],
   "missed": ["분량 부족", "결론 약함"],
   "rewrite_hint": "Ⅲ.결론에 유의사항 3가지 추가",
@@ -194,6 +199,7 @@ export const ANSWER_RULES = `
   "time_target_min": 20
 }
 \`\`\`
+- scored_points·lost_points는 각 2~4개, '목차/논점 위치 + 사유'로. completion_pct는 정수.
 - 점수 70%+ = 합격선, 60%+ = 통과권, 미만 = 보강.`;
 
 export const MOCK_FULL_RULES = `

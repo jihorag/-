@@ -839,6 +839,26 @@ function ScoringResultCard({ result, onRewrite, onShowModel }) {
           {tier} {Math.round(pct)}%
         </span>
       </div>
+      {result.completion_pct != null && (() => {
+        const cp = Math.max(0, Math.min(100, result.completion_pct));
+        const cpCol = cp >= 90 ? '#16a34a' : cp >= 70 ? '#ea580c' : '#dc2626';
+        return (
+          <div style={{ marginTop: 10, padding: '8px 10px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 8 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 5 }}>
+              <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#111827' }}>🏁 완주율 (다 채웠나)</span>
+              <span style={{ fontSize: '0.82rem', fontWeight: 800, color: cpCol }}>{cp}%</span>
+            </div>
+            <div style={{ height: 7, background: '#e5e7eb', borderRadius: 4, overflow: 'hidden' }}>
+              <div style={{ width: `${cp}%`, height: '100%', background: cpCol }} />
+            </div>
+            {cp < 90 && (
+              <div style={{ fontSize: '0.68rem', color: '#9a3412', marginTop: 4 }}>
+                "잘 쓰기보다 다 쓰기" — 빈 목차·미작성 논점을 채우면 점수가 더 오릅니다.
+              </div>
+            )}
+          </div>
+        );
+      })()}
       {(result.structure_score != null || result.content_score != null) && (
         <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', gap: 4 }}>
           {[
@@ -856,22 +876,30 @@ function ScoringResultCard({ result, onRewrite, onShowModel }) {
           ))}
         </div>
       )}
-      {(result.strengths?.length || result.missed?.length) && (
-        <div style={{ marginTop: 10, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-          {result.strengths?.length > 0 && (
-            <div>
-              <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#047857', marginBottom: 4 }}>✅ 강점</div>
-              {result.strengths.map((s, i) => <div key={i} style={{ fontSize: '0.72rem', color: '#374151' }}>· {s}</div>)}
-            </div>
-          )}
-          {result.missed?.length > 0 && (
-            <div>
-              <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#9a3412', marginBottom: 4 }}>⚠️ 보강</div>
-              {result.missed.map((m, i) => <div key={i} style={{ fontSize: '0.72rem', color: '#374151' }}>· {m}</div>)}
-            </div>
-          )}
-        </div>
-      )}
+      {(() => {
+        // 득점/감점 지점(구체적 목차·논점)이 있으면 우선 표시, 없으면 강점/보강으로 폴백
+        const scored = result.scored_points?.length ? result.scored_points : result.strengths;
+        const lost = result.lost_points?.length ? result.lost_points : result.missed;
+        const scoredLabel = result.scored_points?.length ? '✅ 득점 지점' : '✅ 강점';
+        const lostLabel = result.lost_points?.length ? '➖ 감점·누락 지점' : '⚠️ 보강';
+        if (!scored?.length && !lost?.length) return null;
+        return (
+          <div style={{ marginTop: 10, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+            {scored?.length > 0 && (
+              <div>
+                <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#047857', marginBottom: 4 }}>{scoredLabel}</div>
+                {scored.map((s, i) => <div key={i} style={{ fontSize: '0.72rem', color: '#374151', marginBottom: 2 }}>· {s}</div>)}
+              </div>
+            )}
+            {lost?.length > 0 && (
+              <div>
+                <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#9a3412', marginBottom: 4 }}>{lostLabel}</div>
+                {lost.map((m, i) => <div key={i} style={{ fontSize: '0.72rem', color: '#374151', marginBottom: 2 }}>· {m}</div>)}
+              </div>
+            )}
+          </div>
+        );
+      })()}
       {result.rewrite_hint && (
         <div style={{ marginTop: 10, padding: 8, background: '#fffbeb', border: '1px solid #fde68a', borderRadius: 6, fontSize: '0.78rem', color: '#92400e' }}>
           💡 {result.rewrite_hint}
@@ -1473,6 +1501,9 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             structure_score: b.structure_score,
             content_score: b.content_score,
             completeness_score: b.completeness_score,
+            completion_pct: b.completion_pct,
+            scored_points: b.scored_points || [],
+            lost_points: b.lost_points || [],
             strengths: b.strengths || [],
             missed: b.missed || [],
             rewrite_hint: b.rewrite_hint || '',
