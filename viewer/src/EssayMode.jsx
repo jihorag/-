@@ -102,12 +102,20 @@ const ESSAY_SUBJECTS = [
   { key: 'law', dir: '/data/essay/law/', title: '감정평가 및 보상법규', short: '보상법규', icon: '⚖️', color: '#be123c', bg: '#fff1f2', border: '#fecdd3', desc: '행정법·보상 논술' },
 ];
 
-const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuestionId, fontScale, entrySubject, entryNonce }) => {
+const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuestionId, fontScale, entrySubject, entryNonce, entryChapter, entrySubchapter }) => {
   const [subjKey, setSubjKey] = useState(entrySubject || 'practice'); // 현재 2차 과목
   const subj = ESSAY_SUBJECTS.find((s) => s.key === subjKey) || ESSAY_SUBJECTS[0];
   // 문제풀이 탭 등에서 특정 과목으로 진입할 때 동기화 (nonce가 바뀔 때마다)
   useEffect(() => {
     if (entrySubject && ESSAY_SUBJECTS.some((s) => s.key === entrySubject)) setSubjKey(entrySubject);
+    // AI 학습 토픽 → 해당 단원·토픽(subchapter) 연습문제로 딥링크
+    if (entryChapter) {
+      setChapter(entryChapter);
+      setQuestionId(null);
+      ensureChapter(entryChapter);
+      setSubchapterFilter(entrySubchapter || null);
+      onNavigate('essay_questions');
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entryNonce]);
   const [manifest, setManifest] = useState(null);
