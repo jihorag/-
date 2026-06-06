@@ -2014,7 +2014,1469 @@
    "keyPoints": [],
    "answerFormat": "practice",
    "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-35",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "내가(FVF) 변형",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 5,000,000원을 연 **7%**로 **8년** 예치 시 미래가치는? (FVF=1.71819)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$5,000,000 \\times 1.71819 = \\mathbf{8,590,931원}$",
+   "lesson": {
+    "scoringKeys": [
+     "8,590,931"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-36",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "현가(PVF) 변형",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** **8년 후 1억원**의 현재가치는? (r=7%, PVF=0.58201)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$100,000,000 \\times 0.58201 = \\mathbf{58,201,000원}$",
+   "lesson": {
+    "scoringKeys": [
+     "58,201,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-37",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "연금내가(적립종가)",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 매년 말 300만원씩 **10년** 적립(r=8%) 시 종가는? (FVAF=14.48656)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$3,000,000 \\times 14.48656 = \\mathbf{43,459,680원}$",
+   "lesson": {
+    "scoringKeys": [
+     "43,459,680"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-38",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "연금현가",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 매년 말 500만원씩 **7년** 수령의 현가는? (r=9%, PVAF=5.03295)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$5,000,000 \\times 5.03295 = \\mathbf{25,164,750원}$",
+   "lesson": {
+    "scoringKeys": [
+     "25,164,750"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-39",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "저당상수(상환액)",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 3억원, 연 **7%**, **25년** 원리금균등의 매년 상환액은? (MC=0.08581)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$300,000,000 \\times 0.08581 = \\mathbf{25,743,000원}$",
+   "lesson": {
+    "scoringKeys": [
+     "25,743,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-40",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "감채기금(적립액)",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** **10년 후 5억원** 마련 위한 매년 적립액은? (r=6%, SFF=0.07587)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$500,000,000 \\times 0.07587 = \\mathbf{37,935,000원}$",
+   "lesson": {
+    "scoringKeys": [
+     "37,935,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-41",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "투자 NPV",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 초기 5억 + 매년 8천만(8년) + 8년말 4억, 할인율 9% → NPV. (PVAF=5.53482, PVF=0.50187)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$-500,000,000 + 80,000,000\\times5.53482 + 400,000,000\\times0.50187 = \\mathbf{+143,533,000원}$ (타당)",
+   "lesson": {
+    "scoringKeys": [
+     "+143,533,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-42",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "대출 잔금",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 2억, 연6%, 20년 원리금균등, **10년 경과 잔금**. (MC(6%,20)=0.08718, PVAF(6%,10)=7.36009)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "상환액 $=200,000,000\\times0.08718=17,436,000$ → 잔금 $=17,436,000\\times7.36009=\\mathbf{128,337,000원}$",
+   "lesson": {
+    "scoringKeys": [
+     "128,337,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-43",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "월 적립 종가",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 매월 30만원, **15년**(180개월), 월이율 0.5% 적립 종가? (월 FVAF=290.819)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$300,000 \\times 290.819 = \\mathbf{87,245,700원}$",
+   "lesson": {
+    "scoringKeys": [
+     "87,245,700"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-44",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "반기복리 미래가치",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 1억원, 연 **8%(반기복리)**, **5년** 예치. (반기 4%·10기 → 1.04^10=1.48024)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "반기 적용: $100,000,000\\times1.48024 = \\mathbf{148,024,000원}$",
+   "lesson": {
+    "scoringKeys": [
+     "148,024,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-45",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "연금+일시 현가",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 매년 1천만(5년) + 5년말 2천만의 현가(10%). (PVAF=3.79079, PVF=0.62092)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$10,000,000\\times3.79079 + 20,000,000\\times0.62092 = \\mathbf{50,326,300원}$",
+   "lesson": {
+    "scoringKeys": [
+     "50,326,300"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-46",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "적립+예치 미래",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 매년 500만 적립 + 현재 3천만 예치, r=7%, 6년 후 총액. (FVAF=7.15329, FVF=1.50073)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$5,000,000\\times7.15329 + 30,000,000\\times1.50073 = \\mathbf{80,788,400원}$",
+   "lesson": {
+    "scoringKeys": [
+     "80,788,400"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-47",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "연금 적립 종가",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 매년 200만씩 10년 적립(5%) 후 일시 인출액? (FVAF=12.57789)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$2,000,000\\times12.57789 = \\mathbf{25,155,780원}$",
+   "lesson": {
+    "scoringKeys": [
+     "25,155,780"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-48",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "두 시점 유불리",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 지금 1억 vs 5년 후 1.5억, 할인율 8%. 어느 쪽이 유리한가? (PVF=0.68058)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "5년 후 1.5억의 현가 $=150,000,000\\times0.68058=102,087,000$ > 1억 → **5년 후 수령이 유리**",
+   "lesson": {
+    "scoringKeys": [
+     "102,087,000",
+     "5년후 유리"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-49",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "만기일시상환 이자총액",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 1억, 연 8%, 3년 **만기일시상환**(매년 이자만 납부). 총이자와 만기 원금은?",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "연이자 $=100,000,000\\times8\\%=8,000,000$ → 총이자 **24,000,000원**, 만기 원금 **100,000,000원**",
+   "lesson": {
+    "scoringKeys": [
+     "24,000,000",
+     "원금 1억"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-50",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "essay",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "복리 횟수 효과",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 1억원 연 10%를 **연 1회** 복리 vs **반기** 복리로 1년 운용 시 차이는?",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "연1회 $=110,000,000$. 반기 $=100,000,000\\times1.05^2=110,250,000$. → 반기복리가 **250,000원 더 큼**(복리횟수↑ 실효이율↑)",
+   "lesson": {
+    "scoringKeys": [
+     "110,250,000",
+     "반기 250,000 더"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-8",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 6,
+   "subchapter": "1-1",
+   "topic": "회수기간 역산",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[6점]** 초기투자 2억, 매년 말 6천만원 회수. 할인율 10%에서 **투자원금을 회수(NPV≥0)하는 데 걸리는 기간**을 보간으로 추정하시오. (PVAF(10%,4)=3.16987, PVAF(10%,5)=3.79079)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "목표 PVAF $=200,000,000/60,000,000=3.3333$. 4년(3.16987)~5년(3.79079) 사이.\n$$n \\approx 4 + \\dfrac{3.3333-3.16987}{3.79079-3.16987} = 4 + 0.26 = \\mathbf{약 4.26년}$$",
+   "lesson": {
+    "scoringKeys": [
+     "목표 PVAF 3.3333",
+     "약 4.26년"
+    ],
+    "traps": [
+     "단순 200/60=3.33년(할인 무시)"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-9",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 6,
+   "subchapter": "1-1",
+   "topic": "성장률 역산",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[6점]** 1기 NOI 5,000만원인 부동산의 가치가 **8.33억원**, 요구수익률이 8%일 때, 내재된 **영구 성장률 g**를 구하시오.",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "영구성장: $V=NOI_1/(r-g)$ → $r-g = NOI_1/V$.\n$$g = r - \\dfrac{NOI_1}{V} = 0.08 - \\dfrac{50,000,000}{833,333,333} = 0.08-0.06 = \\mathbf{2\\%}$$",
+   "lesson": {
+    "scoringKeys": [
+     "g=r−NOI/V",
+     "2%"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-10",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 8,
+   "subchapter": "1-1",
+   "topic": "등차 증가 현금흐름",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[8점]** 1년 말 1,000만원, 이후 매년 **100만원씩 증가**(5년), 할인율 10%일 때 현재가치를 구하시오. (PVF 10%: 0.90909·0.82645·0.75131·0.68301·0.62092)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "연도별 1,000·1,100·1,200·1,300·1,400만원을 각각 할인 후 합산.\n$$≈ 9,090,900+9,090,950+9,015,720+8,879,130+8,692,880 = \\mathbf{약 44,769,600원}$$\n> 등차증가는 등비(성장)연금 공식이 안 맞아 **연도별 개별 할인**한다.",
+   "lesson": {
+    "scoringKeys": [
+     "연도별 개별 할인",
+     "약 44,769,600"
+    ],
+    "traps": [
+     "등비공식 적용"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-11",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 5,
+   "subchapter": "1-1",
+   "topic": "영구연금",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[5점]** 매년 말 4,000만원이 **영구히** 발생하고 할인율이 8%일 때 현재가치를 구하고, 유한연금과의 차이를 서술하시오.",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$$V = \\dfrac{4,000만}{0.08} = \\mathbf{500,000,000원}$$\n> 영구연금 = 연금/r. 유한연금(PVAF)은 기간이 길수록 이 값에 수렴.",
+   "lesson": {
+    "scoringKeys": [
+     "연금/r",
+     "500,000,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-12",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 6,
+   "subchapter": "1-1",
+   "topic": "실효이자율",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[6점]** 표면금리 연 6%가 **월복리**일 때 **연 실효이자율**을 구하고 표면금리와의 차이를 서술하시오.",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$$(1+0.06/12)^{12}-1 = (1.005)^{12}-1 = \\mathbf{6.168\\%}$$\n> 복리횟수가 많을수록 실효이율 > 표면이율.",
+   "lesson": {
+    "scoringKeys": [
+     "(1+r/12)^12−1",
+     "6.168%"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-13",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 6,
+   "subchapter": "1-1",
+   "topic": "등가 현금흐름(적립)",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[6점]** **5년 후 1억원**을 마련하는 것과 등가인 **매년 말 균등 적립액**을 구하시오. (r=8%, SFF(8%,5)=0.17046)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$$100,000,000 \\times 0.17046 = \\mathbf{17,045,645원/년}$$\n> 목표 미래액 × 감채기금계수 = 등가 연금.",
+   "lesson": {
+    "scoringKeys": [
+     "목표×SFF",
+     "17,045,645"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-14",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 8,
+   "subchapter": "1-1",
+   "topic": "감채기금적립 = 원리금균등 동치",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[8점]** 1억원 대출(연 8%, 10년)을 **(가) 매년 이자납부+원금은 감채기금 적립**으로 갚는 경우와 **(나) 원리금균등상환**의 매년 부담이 같음을 보이시오. (SFF(8%,10)=0.06903, MC(8%,10)=0.14903)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "(가) 이자 $100,000,000\\times8\\%=8,000,000$ + 감채기금 적립 $100,000,000\\times0.06903=6,902,949$ = **14,902,949**\n(나) 원리금균등 $100,000,000\\times0.14903=$ **14,902,949**\n→ 동일. **MC = SFF + r** ($0.06903+0.08=0.14903$)이 성립하기 때문.",
+   "lesson": {
+    "scoringKeys": [
+     "(가)이자+적립=14,902,949",
+     "(나)MC=14,902,949",
+     "MC=SFF+r"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-15",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 8,
+   "subchapter": "1-1",
+   "topic": "잔금 두 방법 일치",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[8점]** 1억원(연 10%, 5년 원리금균등) 차입 후 **2년 경과 잔금**을 ① 소급법(원금 누적공제)과 ② 연금현가법(잔여 상환액 현가)으로 각각 구해 일치함을 보이시오. (상환액 26,380,000, PVAF(10%,3)=2.48685)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "② 연금현가법: $26,380,000\\times2.48685 = \\mathbf{65,603,000}$\n① 소급법: 1회 원금 16,380,000, 2회 원금 18,018,000(=16,380,000×1.1) → 누적 34,398,000 → 잔금 $100,000,000-34,398,000=65,602,000$\n→ (반올림 차) 사실상 일치.",
+   "lesson": {
+    "scoringKeys": [
+     "연금현가법 65,603,000",
+     "소급법 65,602,000",
+     "일치"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-16",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 6,
+   "subchapter": "1-1",
+   "topic": "피셔 실질수익률",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[6점]** 명목수익률 8%, 기대인플레이션 3%일 때 **실질수익률**을 피셔식으로 구하시오.",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$$실질 = \\dfrac{1+0.08}{1+0.03}-1 = \\dfrac{1.08}{1.03}-1 = \\mathbf{4.854\\%}$$\n> 단순 차감(8−3=5%)은 근사. 정확히는 (1+명목)/(1+물가)−1.",
+   "lesson": {
+    "scoringKeys": [
+     "(1.08/1.03)−1",
+     "4.854%"
+    ],
+    "traps": [
+     "8−3=5%로 단순 차감"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-17",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 8,
+   "subchapter": "1-1",
+   "topic": "Hoskold 환원율",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[8점]** 상각자산의 환원율을 **Hoskold법**으로 구하시오. (할인율 10%, 잔존 20년, 축적이율(안전율) 4%, SFF(4%,20)=0.03358)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$$환원율 = 할인율 + SFF(안전율,n) = 0.10 + 0.03358 = \\mathbf{0.13358(13.36\\%)}$$\n> Hoskold는 **회수액을 안전율로 재투자** 가정(Inwood는 할인율로 재투자).",
+   "lesson": {
+    "scoringKeys": [
+     "할인율+SFF(안전율)",
+     "13.36%"
+    ],
+    "traps": [
+     "Inwood(SFF 할인율)와 혼동"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-18",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 8,
+   "subchapter": "1-1",
+   "topic": "거치연금 현가",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[8점]** **3년 거치** 후 4~8년 매년 말 3,000만원(5년)을 받는다. 현재가치를 구하시오(r=10%). (PVAF(10%,5)=3.79079, PVF(10%,3)=0.75131)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "거치연금 = 연금현가 × 거치기간 일시불현가.\n$$30,000,000 \\times 3.79079 \\times 0.75131 = \\mathbf{약 85,442,000원}$$\n> 거치 후 시작하는 연금은 보통 연금(PVAF) 산정 후 거치기간만큼 추가 할인(×PVF).",
+   "lesson": {
+    "scoringKeys": [
+     "PVAF×PVF",
+     "85,442,000"
+    ],
+    "traps": [
+     "거치 미반영"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-19",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 8,
+   "subchapter": "1-1",
+   "topic": "원금균등 vs 원리금균등",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[8점]** 1억원(연 10%, 5년) **원금균등분할상환**의 1·2회차 상환액을 구하고, 원리금균등과의 차이를 서술하시오.",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "매년 원금 $=100,000,000/5=20,000,000$ 균등.\n- 1회차: 원금 20,000,000 + 이자(1억×10%) 10,000,000 = **30,000,000**\n- 2회차: 원금 20,000,000 + 이자(8천만×10%) 8,000,000 = **28,000,000**\n> 원금균등은 상환액이 **체감**(초기 부담↑). 원리금균등은 매기 동일(26,380,000).",
+   "lesson": {
+    "scoringKeys": [
+     "1회 30,000,000",
+     "2회 28,000,000",
+     "체감(원리금균등은 일정)"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l2-20",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 2,
+   "difficulty": 2,
+   "format": "essay",
+   "points": 6,
+   "subchapter": "1-1",
+   "topic": "연금현가 → 매기 인출액",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[6점]** 현재 **5억원**을 연 7%로 운용하며 **25년간 매년 균등 인출**할 때 매기 인출액을 구하시오. (MC(7%,25)=0.08581)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$$500,000,000 \\times 0.08581 = \\mathbf{42,905,000원/년}$$\n> 원금(현가)에 저당상수(=연금현가계수의 역수)를 곱하면 매기 인출 가능액(자본회수 포함).",
+   "lesson": {
+    "scoringKeys": [
+     "현가×MC",
+     "42,905,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l3-6",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 3,
+   "difficulty": 3,
+   "format": "essay",
+   "points": 15,
+   "subchapter": "1-1",
+   "topic": "매입 vs 임차 의사결정",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식",
+    "투자타당성"
+   ],
+   "lawRefs": [],
+   "body": "**[15점]** 동일 부동산을 (가) **5억원에 매입**(5년 후 5.5억 매각) 또는 (나) **연 임차료 4,000만원**(5년)으로 사용할 수 있다. 할인율 8%로 **순현재비용**을 비교해 유리한 안을 판단하시오. (PVF 0.68058, PVAF 3.99271)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- (가) 매입: $500,000,000 - 550,000,000\\times0.68058 = 500,000,000-374,319,000 = 125,679,000$\n- (나) 임차: $40,000,000\\times3.99271 = 159,708,400$\n→ 매입 순현재비용(125,679,000) < 임차(159,708,400) → **매입이 유리**.",
+   "lesson": {
+    "scoringKeys": [
+     "매입 순비용 125,679,000",
+     "임차 159,708,400",
+     "매입 유리"
+    ],
+    "traps": [
+     "매각 회수 무시",
+     "임차료 단순합"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l3-7",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 3,
+   "difficulty": 3,
+   "format": "essay",
+   "points": 12,
+   "subchapter": "1-1",
+   "topic": "재건축 타당성",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식",
+    "투자타당성"
+   ],
+   "lawRefs": [],
+   "body": "**[12점]** 현 건물 유지 시 매년 NOI 3,000만원(영구), 재건축(공사비 2.5억) 시 매년 NOI 6,000만원(영구). 환원율 10%로 재건축 타당성을 판단하시오.",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- 현상유지 가치 $=30,000,000/0.1 = 300,000,000$\n- 재건축 후 가치 $=60,000,000/0.1 = 600,000,000$, 순가치 $=600,000,000-250,000,000=350,000,000$\n→ 재건축 순가치(3.5억) > 현상(3억) → **재건축 타당**.",
+   "lesson": {
+    "scoringKeys": [
+     "현상 3억",
+     "재건축 순 3.5억",
+     "재건축"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l3-8",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 3,
+   "difficulty": 3,
+   "format": "essay",
+   "points": 15,
+   "subchapter": "1-1",
+   "topic": "분양 vs 임대 개발",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식",
+    "투자타당성"
+   ],
+   "lawRefs": [],
+   "body": "**[15점]** 개발비 6억원(현재 투입). (가) 2년 후 **분양 10억** 또는 (나) 2년 후부터 **NOI 8,000만 영구**(임대). 할인율 10%로 NPV를 비교하시오. (PVF(10%,2)=0.82645)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- (가) 분양: $1,000,000,000\\times0.82645 - 600,000,000 = 226,450,000$\n- (나) 임대: 임대가치 $=80,000,000/0.1=800,000,000$ → $800,000,000\\times0.82645 - 600,000,000 = 61,160,000$\n→ 분양 NPV(226백만) > 임대(61백만) → **분양이 유리**.",
+   "lesson": {
+    "scoringKeys": [
+     "분양 226,450,000",
+     "임대 61,160,000",
+     "분양"
+    ],
+    "traps": [
+     "임대 영구가치 산정 누락"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l3-9",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 3,
+   "difficulty": 3,
+   "format": "essay",
+   "points": 15,
+   "subchapter": "1-1",
+   "topic": "차환(refinancing) 의사결정",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식",
+    "투자타당성"
+   ],
+   "lawRefs": [],
+   "body": "**[15점]** 잔금 **1억원**(잔여 5년, 현재 금리 9%)을 금리 **6%**로 차환할 수 있다(차환수수료 300만원). 차환의 타당성을 판단하시오. (MC(9%,5)=0.25709, MC(6%,5)=0.23740, PVAF(6%,5)=4.21236)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- 현재 상환액 $100,000,000\\times0.25709=25,709,000$ / 차환 후 $100,000,000\\times0.23740=23,740,000$\n- 연 절감 $1,969,000$ → 절감액 현가 $1,969,000\\times4.21236 ≈ 8,294,000$\n→ 절감 현가(829만) > 차환수수료(300만) → **차환 유리**.",
+   "lesson": {
+    "scoringKeys": [
+     "연절감 1,969,000",
+     "절감현가 8,294,000",
+     "차환 유리"
+    ],
+    "traps": [
+     "수수료 무시",
+     "연절감만 보고 판단"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l3-10",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 3,
+   "difficulty": 3,
+   "format": "essay",
+   "points": 12,
+   "subchapter": "1-1",
+   "topic": "부채감당률(DCR) 최대대출",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식",
+    "투자타당성"
+   ],
+   "lawRefs": [],
+   "body": "**[12점]** NOI **6,000만원**, 대출 요구조건 **부채감당률(DCR) 1.25**, 대출 연 7%·25년. **최대 대출가능액**을 산정하시오. (MC(7%,25)=0.08581)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- 최대 부채서비스 $=NOI/DCR = 60,000,000/1.25 = 48,000,000$\n- 최대 대출 $=부채서비스/MC = 48,000,000/0.08581 ≈ \\mathbf{559,372,000원}$",
+   "lesson": {
+    "scoringKeys": [
+     "부채서비스=NOI/DCR=48,000,000",
+     "대출=부채서비스/MC",
+     "559,372,000"
+    ],
+    "traps": [
+     "NOI를 그대로 부채서비스로"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l3-11",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 3,
+   "difficulty": 3,
+   "format": "essay",
+   "points": 12,
+   "subchapter": "1-1",
+   "topic": "세후현금흐름(ATCF)",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식",
+    "투자타당성"
+   ],
+   "lawRefs": [],
+   "body": "**[12점]** 순영업소득(NOI) 5,000만원, 대출이자 1,500만원, 감가상각 1,000만원, 세율 30%일 때 **세후현금흐름(ATCF)**을 산정하시오.",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- 과세소득 $=NOI-이자-감가 = 50,000,000-15,000,000-10,000,000=25,000,000$ → 세금 $7,500,000$\n- 세전현금흐름(BTCF) $=NOI-이자 = 35,000,000$ (감가는 비현금)\n- ATCF $=BTCF-세금 = 35,000,000-7,500,000 = \\mathbf{27,500,000원}$",
+   "lesson": {
+    "scoringKeys": [
+     "과세소득 25,000,000",
+     "세금 7,500,000",
+     "ATCF 27,500,000"
+    ],
+    "traps": [
+     "감가상각을 현금유출로 차감",
+     "BTCF에서 감가 차감"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l3-12",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 3,
+   "difficulty": 3,
+   "format": "essay",
+   "points": 15,
+   "subchapter": "1-1",
+   "topic": "단계적 개발사업 NPV",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식",
+    "투자타당성"
+   ],
+   "lawRefs": [],
+   "body": "**[15점]** 현재 토지매입 **3억**, 1년 후 공사비 **4억**, 2년 후 분양수입 **10억**. 할인율 12%로 NPV를 산정하고 타당성을 판단하시오. (PVF(12%,1)=0.89286, PVF(12%,2)=0.79719)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "$$NPV = -300,000,000 - 400,000,000\\times0.89286 + 1,000,000,000\\times0.79719$$\n$$= -300,000,000 - 357,144,000 + 797,190,000 = \\mathbf{+140,046,000원}$$ → 타당.",
+   "lesson": {
+    "scoringKeys": [
+     "시점별 할인",
+     "NPV +140,046,000",
+     "타당"
+    ],
+    "traps": [
+     "공사비 할인 누락",
+     "분양수입 시점 오류"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l3-13",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 3,
+   "difficulty": 3,
+   "format": "essay",
+   "points": 15,
+   "subchapter": "1-1",
+   "topic": "최적 매각시점",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식",
+    "투자타당성"
+   ],
+   "lawRefs": [],
+   "body": "**[15점]** 매년 NOI 5,000만원. 5년 말 매각가 8억 vs 6년 말 매각가 8.2억. 할인율 10%로 **어느 시점 매각이 유리**한지 판단하시오. (PVAF 5년 3.79079·6년 4.35526, PVF 5년 0.62092·6년 0.56447)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- 5년 보유: $50,000,000\\times3.79079 + 800,000,000\\times0.62092 = 686,276,000$\n- 6년 보유: $50,000,000\\times4.35526 + 820,000,000\\times0.56447 = 680,632,000$\n→ 5년 보유 현재가치(686백만) > 6년(681백만) → **5년 말 매각이 유리**.",
+   "lesson": {
+    "scoringKeys": [
+     "5년 686,276,000",
+     "6년 680,632,000",
+     "5년 매각"
+    ],
+    "traps": [
+     "매각가 상승만 보고 6년 선택"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l3-14",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 3,
+   "difficulty": 3,
+   "format": "essay",
+   "points": 12,
+   "subchapter": "1-1",
+   "topic": "지분배당률·레버리지 분석",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식",
+    "투자타당성"
+   ],
+   "lawRefs": [],
+   "body": "**[12점]** 부동산 10억(자기자본 4억 + 대출 6억, 연 6% 이자만), NOI 7,000만원. **종합환원율**과 **지분배당률**을 구하고 레버리지 효과를 판단하시오.",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- 종합환원율 $=70,000,000/1,000,000,000=7\\%$\n- 지분배당(BTCF) $=NOI-이자 = 70,000,000-36,000,000=34,000,000$ → 지분배당률 $=34,000,000/400,000,000=8.5\\%$\n→ 지분배당률(8.5%) > 종합환원율(7%) → **정(+)의 레버리지**(차입금리 6% < 종합 7%).",
+   "lesson": {
+    "scoringKeys": [
+     "종합환원율 7%",
+     "지분배당률 8.5%",
+     "정의 레버리지"
+    ],
+    "traps": [
+     "지분배당을 NOI 전체로"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l3-15",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 3,
+   "difficulty": 3,
+   "format": "essay",
+   "points": 15,
+   "subchapter": "1-1",
+   "topic": "종합 투자 타당성(자기자본 NPV)",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식",
+    "투자타당성"
+   ],
+   "lawRefs": [],
+   "body": "**[15점]** 상가 매입 8억(자기자본 3억 + 대출 5억, 연 5% 이자만), 5년 보유, 매년 NOI 6,000만, 5년 말 9억 매각(대출 5억 상환). 자기자본 요구수익률 10%로 NPV 판단. (PVAF 3.79079, PVF 0.62092)",
+   "options": [],
+   "answer": null,
+   "modelAnswer": "- 자기자본 −300,000,000 / BTCF $=60,000,000-25,000,000=35,000,000$ / 지분복귀 $=900,000,000-500,000,000=400,000,000$\n$$NPV = -300,000,000 + 35,000,000\\times3.79079 + 400,000,000\\times0.62092$$\n$$= -300,000,000 + 132,677,650 + 248,368,000 = \\mathbf{+81,046,000원}$$ → 타당.",
+   "lesson": {
+    "scoringKeys": [
+     "BTCF 35,000,000",
+     "지분복귀 4억",
+     "NPV +81,046,000",
+     "타당"
+    ],
+    "traps": [
+     "초기를 매입가 8억으로",
+     "지분복귀에 대출상환 누락"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
   }
  ],
- "count": 46
+ "count": 85
 }
