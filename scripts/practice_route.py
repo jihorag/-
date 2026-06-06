@@ -15,10 +15,11 @@ def entry(p):
     return {
         'id': p['id'], 'subject': '감정평가실무', 'chapter': p['unit'],
         'source': 'practice-set', 'bodyFormat': 'markdown',
-        'conceptNo': p['conceptNo'], 'conceptName': p['conceptName'],
+        'conceptNo': p.get('conceptNo', ''), 'conceptName': p.get('conceptName', ''),
+        'topicId': p.get('topicId'), 'unitCode': p['unit'],
         'level': p['level'], 'difficulty': p['level'], 'format': p['format'],
         'points': p.get('points', 0),
-        'subchapter': f"연습 {p['conceptNo']} {p['conceptName']}",
+        'subchapter': p.get('topicId') or f"연습 {p.get('conceptNo', '')} {p.get('conceptName', '')}".strip(),
         'topic': p.get('topic', p['conceptName']),
         'logicalPoints': p.get('logicalPoints', [p['conceptName']]),
         'lawRefs': p.get('lawRefs', []),
@@ -58,5 +59,6 @@ def route(problems):
     mf.write_text(json.dumps(m, ensure_ascii=False, indent=1), encoding='utf-8')
 
     for p in problems:
-        print(f"  [{p['id']}] L{p['level']} {p['format']:5s} 논점{p['conceptNo']} {p['conceptName']} ({p['unit']})")
+        tag = p.get('topicId') or p.get('conceptNo', '')
+        print(f"  [{p['id']}] L{p['level']} {p['format']:5s} [{tag}] {p.get('conceptName', '')} ({p['unit']})")
     print(f"manifest total {m['total']}")

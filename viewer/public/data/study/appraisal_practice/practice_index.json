@@ -3,6 +3,43 @@
  "source": "essay/practice (practice-set)",
  "note": "AI 학습 토픽별 연습문제 인덱스. EssayMode 데이터(2a.json 등)에 source=practice-set로 존재.",
  "topics": {
+  "1-1": {
+   "title": "화폐의 시간가치(TVM) — 6공식",
+   "unitCode": "1",
+   "total": 24,
+   "countsByLevel": {
+    "1": 24
+   },
+   "idsByLevel": {
+    "1": [
+     "pr-1-1-l1-1",
+     "pr-1-1-l1-10",
+     "pr-1-1-l1-11",
+     "pr-1-1-l1-12",
+     "pr-1-1-l1-13",
+     "pr-1-1-l1-14",
+     "pr-1-1-l1-15",
+     "pr-1-1-l1-16",
+     "pr-1-1-l1-17",
+     "pr-1-1-l1-18",
+     "pr-1-1-l1-19",
+     "pr-1-1-l1-2",
+     "pr-1-1-l1-20",
+     "pr-1-1-l1-21",
+     "pr-1-1-l1-22",
+     "pr-1-1-l1-23",
+     "pr-1-1-l1-24",
+     "pr-1-1-l1-3",
+     "pr-1-1-l1-4",
+     "pr-1-1-l1-5",
+     "pr-1-1-l1-6",
+     "pr-1-1-l1-7",
+     "pr-1-1-l1-8",
+     "pr-1-1-l1-9"
+    ]
+   },
+   "essayChapter": "1"
+  },
   "2a-1": {
    "title": "공시지가기준법 — 의의·산식",
    "unitCode": "2a",

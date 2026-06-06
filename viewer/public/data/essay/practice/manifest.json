@@ -1,13 +1,13 @@
 {
  "built_at": "2026-05-31T06:04:01.250547+00:00",
  "subject": "감정평가실무",
- "total": 1700,
+ "total": 1724,
  "chapters": [
   {
    "id": "1",
    "title": "감정평가실무 기초",
    "file": "1.json",
-   "count": 0,
+   "count": 24,
    "withAnswer": 0,
    "generatedCount": 0,
    "subchapters": [
@@ -32,7 +32,8 @@
      "title": "용도지역·이용상황 분류"
     }
    ],
-   "aiUnit": true
+   "aiUnit": true,
+   "practiceCount": 24
   },
   {
    "id": "2a",

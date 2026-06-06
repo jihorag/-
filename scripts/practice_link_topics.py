@@ -23,7 +23,9 @@ for u in ai['units']:
 
 
 def topic_of(q):
-    """연습문제 → topicId (키워드 규칙). 현재 단원 2a(공시지가기준법)만 채워짐."""
+    """연습문제 → topicId. 명시적 topicId 우선, 없으면 키워드 규칙(2a)."""
+    if q.get('topicId'):
+        return q['topicId']
     t = q.get('topic', '') + ' ' + ' '.join(q.get('logicalPoints', []))
     u = q.get('chapter', '')
     if u == '2a':
@@ -54,8 +56,8 @@ for ch in mani['chapters']:
     for q in d['questions']:
         if q.get('source') != 'practice-set':
             continue
-        if not q.get('conceptNo'):
-            continue  # 정성 제작(conceptNo 보유)만 토픽 연결
+        if not (q.get('conceptNo') or q.get('topicId')):
+            continue  # 정성 제작(conceptNo/topicId 보유)만 토픽 연결
         tid = topic_of(q)
         q['topicId'] = tid
         q['unitCode'] = cid

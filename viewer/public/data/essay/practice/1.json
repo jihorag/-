@@ -2,6 +2,922 @@
  "subject": "감정평가실무",
  "chapter": "1",
  "chapterTitle": "감정평가실무 기초",
- "questions": [],
- "count": 0
+ "questions": [
+  {
+   "id": "pr-1-1-l1-1",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "6공식 이름",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[단답]** 화폐의 시간가치(TVM) **6가지 계수**의 이름을 모두 쓰시오.",
+   "options": [],
+   "answer": "① 일시불 내가계수(복리종가율) ② 일시불 현가계수(복리현가율) ③ 연금 내가계수(연금종가율) ④ 감채기금계수(상환기금율) ⑤ 연금 현가계수(연금현가율) ⑥ 저당상수(연부상환율·자본회수계수)",
+   "modelAnswer": "",
+   "lesson": {
+    "definition": "TVM 6공식: 일시불 내가/현가, 연금 내가/현가, 감채기금, 저당상수.",
+    "mnemonic": "내가↔현가 역수 / 적립=SFF / 상환=MC / MC=SFF+r",
+    "scoringKeys": [
+     "일시불 내가/현가",
+     "연금 내가/현가",
+     "감채기금",
+     "저당상수"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-2",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "일시불 내가계수 산식",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[단답]** **일시불 내가계수(복리종가율)**의 산식을 쓰시오. (이자율 r, 기간 n)",
+   "options": [],
+   "answer": "$(1+r)^n$  — 현재 1원의 n년 후 가치",
+   "modelAnswer": "",
+   "lesson": {
+    "why": "복리로 불어난 미래가치. r=10%,n=5 → 1.61051.",
+    "scoringKeys": [
+     "(1+r)^n"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-3",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "일시불 현가계수 산식",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[단답]** **일시불 현가계수(복리현가율)**의 산식을 쓰시오.",
+   "options": [],
+   "answer": "$\\dfrac{1}{(1+r)^n}$  — n년 후 1원의 현재가치",
+   "modelAnswer": "",
+   "lesson": {
+    "why": "내가계수의 역수. r=10%,n=5 → 0.62092.",
+    "scoringKeys": [
+     "1/(1+r)^n"
+    ],
+    "pitfalls": [
+     "내가계수와 혼동"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-4",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "연금 내가계수 산식",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[단답]** **연금 내가계수(연금종가율)**의 산식을 쓰시오. (매기말 1원 적립)",
+   "options": [],
+   "answer": "$\\dfrac{(1+r)^n-1}{r}$",
+   "modelAnswer": "",
+   "lesson": {
+    "why": "매년 말 1원씩 적립한 돈의 n년 후 합. r=10%,n=5 → 6.10510.",
+    "scoringKeys": [
+     "((1+r)^n-1)/r"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-5",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "감채기금계수 산식",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[단답]** **감채기금계수(상환기금율, SFF)**의 산식을 쓰시오.",
+   "options": [],
+   "answer": "$\\dfrac{r}{(1+r)^n-1}$",
+   "modelAnswer": "",
+   "lesson": {
+    "why": "n년 후 1원을 만들기 위해 매년 적립할 금액. 연금내가계수의 역수. r=10%,n=5 → 0.16380.",
+    "scoringKeys": [
+     "r/((1+r)^n-1)"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-6",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "연금 현가계수 산식",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[단답]** **연금 현가계수(연금현가율, PVAF)**의 산식을 쓰시오.",
+   "options": [],
+   "answer": "$\\dfrac{1-(1+r)^{-n}}{r}$",
+   "modelAnswer": "",
+   "lesson": {
+    "why": "매년 말 1원씩 n년 받는 현금흐름의 현재가치. r=10%,n=5 → 3.79079.",
+    "scoringKeys": [
+     "(1-(1+r)^-n)/r"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-7",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "저당상수 산식",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[단답]** **저당상수(연부상환율, MC)**의 산식을 쓰시오.",
+   "options": [],
+   "answer": "$\\dfrac{r}{1-(1+r)^{-n}}$",
+   "modelAnswer": "",
+   "lesson": {
+    "why": "1원 대출의 매기 원리금 균등상환액. 연금현가계수의 역수. r=10%,n=5 → 0.26380.",
+    "scoringKeys": [
+     "r/(1-(1+r)^-n)"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-8",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "저당상수·감채기금 관계",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[5지선다]** 저당상수(MC)와 감채기금계수(SFF), 이자율(r)의 관계로 **옳은 것**은?",
+   "options": [
+    "MC = SFF − r",
+    "MC = SFF + r",
+    "MC = SFF × r",
+    "MC = SFF ÷ r",
+    "MC = r − SFF"
+   ],
+   "answer": 1,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "저당상수 = 감채기금계수 + 이자율 (MC = SFF + r). r=10%,n=5: 0.16380+0.10=0.26380.",
+    "optionRationale": [
+     "②✓ MC=SFF+r",
+     "나머지✗"
+    ],
+    "scoringKeys": [
+     "MC=SFF+r"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-9",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "역수 관계",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[5지선다]** 다음 중 서로 **역수 관계**가 **아닌** 것은?",
+   "options": [
+    "일시불 현가계수 ↔ 일시불 내가계수",
+    "감채기금계수 ↔ 연금 내가계수",
+    "저당상수 ↔ 연금 현가계수",
+    "연금 현가계수 ↔ 연금 내가계수",
+    "복리현가율 ↔ 복리종가율"
+   ],
+   "answer": 3,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "역수쌍: PVF·FVF=1, SFF·FVAF=1, MC·PVAF=1. ④ 연금현가↔연금내가는 역수가 아님.",
+    "optionRationale": [
+     "①②③⑤✓ 역수",
+     "④✗ 역수 아님"
+    ],
+    "scoringKeys": [
+     "PVF·FVF",
+     "SFF·FVAF",
+     "MC·PVAF"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-10",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "MC·PVAF 관계",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[단답]** 저당상수(MC)와 연금 현가계수(PVAF)의 곱은 얼마인가? 그 의미도 한 줄로 쓰시오.",
+   "options": [],
+   "answer": "MC × PVAF = **1** (서로 역수). 1원 대출의 상환액(MC)에 연금현가(PVAF)를 곱하면 원금 1원으로 환원됨.",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "MC×PVAF=1",
+     "역수"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-11",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "내가 계산",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 현재 **1,000,000원**을 연 **10%**로 **5년** 예치하면 5년 후 금액은? (일시불 내가계수 1.61051)",
+   "options": [],
+   "answer": "1,610,510원 (= 1,000,000 × 1.61051)",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "1,610,510"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-12",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "현가 계산",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** **5년 후 1,000,000원**의 현재가치는? (r=10%, 일시불 현가계수 0.62092)",
+   "options": [],
+   "answer": "620,920원 (= 1,000,000 × 0.62092)",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "620,920",
+     "620,921"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-13",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "연금 내가(적립 종가)",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 매년 말 **1,000,000원**씩 **5년** 적립(r=10%)하면 5년 후 합계는? (연금 내가계수 6.10510)",
+   "options": [],
+   "answer": "6,105,100원 (= 1,000,000 × 6.10510)",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "6,105,100"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-14",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "연금 현가",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 매년 말 **1,000,000원**씩 **5년** 받는 현금흐름의 현재가치는? (r=10%, 연금현가계수 3.79079)",
+   "options": [],
+   "answer": "3,790,790원 (≈ 1,000,000 × 3.79079)",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "3,790,790",
+     "3,790,787"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-15",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "저당상수(연부상환액)",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** **1억원**을 연 **10%**, **5년** 원리금균등상환할 때 **매년 상환액**은? (저당상수 0.26380)",
+   "options": [],
+   "answer": "26,380,000원 (= 100,000,000 × 0.26380)",
+   "modelAnswer": "",
+   "lesson": {
+    "why": "매기 원리금 균등상환액 = 대출액 × 저당상수.",
+    "scoringKeys": [
+     "26,380,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-16",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "감채기금(적립액)",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** **5년 후 1억원**을 만들기 위해 매년 말 적립할 금액은? (r=10%, 감채기금계수 0.16380)",
+   "options": [],
+   "answer": "16,380,000원 (= 100,000,000 × 0.16380)",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "16,380,000"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-17",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "내가계수 변형",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 일시불 내가계수를 **r=8%, n=10년**으로 구하시오. (소수 다섯째자리)",
+   "options": [],
+   "answer": "2.15892 (= 1.08^10)",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "2.15892"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-18",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "연금현가 변형",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 연금 현가계수를 **r=12%, n=20년**으로 구하시오.",
+   "options": [],
+   "answer": "7.46944 (= (1−1.12⁻²⁰)/0.12)",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "7.46944"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-19",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "저당상수 변형",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** 저당상수를 **r=6%, n=30년**으로 구하시오.",
+   "options": [],
+   "answer": "0.07265 (= 0.06/(1−1.06⁻³⁰))",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "0.07265"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-20",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "현가 변형",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[계산]** **3년 후 1원**의 현재가치(일시불 현가계수)를 **r=5%**로 구하시오.",
+   "options": [],
+   "answer": "0.86384 (= 1/1.05³)",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "0.86384"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-21",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "용도 식별 — 목돈 현가",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[5지선다]** \"**5년 후** 받을 **목돈** 1억의 **현재가치**\"를 구할 때 쓰는 계수는?",
+   "options": [
+    "일시불 내가계수",
+    "일시불 현가계수",
+    "연금 현가계수",
+    "저당상수",
+    "감채기금계수"
+   ],
+   "answer": 1,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "미래 한 시점의 목돈 → 현재가치: 일시불 현가계수(복리현가율).",
+    "optionRationale": [
+     "②✓",
+     "③✗ 연금은 매기 흐름"
+    ],
+    "scoringKeys": [
+     "일시불 현가계수"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-22",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "용도 식별 — 상환액",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[5지선다]** \"대출 1억의 **매기 원리금 균등상환액**\"을 구할 때 쓰는 계수는?",
+   "options": [
+    "연금 현가계수",
+    "연금 내가계수",
+    "저당상수",
+    "감채기금계수",
+    "일시불 내가계수"
+   ],
+   "answer": 2,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "대출 원금 × 저당상수 = 매기 상환액.",
+    "optionRationale": [
+     "③✓ 저당상수"
+    ],
+    "scoringKeys": [
+     "저당상수"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-23",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "용도 식별 — 적립액",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[5지선다]** \"**n년 후 목표액**을 만들기 위한 **매기 적립액**\"을 구할 때 쓰는 계수는?",
+   "options": [
+    "저당상수",
+    "감채기금계수",
+    "연금 현가계수",
+    "일시불 현가계수",
+    "연금 내가계수"
+   ],
+   "answer": 1,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "목표액 × 감채기금계수 = 매기 적립액.",
+    "optionRationale": [
+     "②✓ 감채기금"
+    ],
+    "scoringKeys": [
+     "감채기금계수"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-1-1-l1-24",
+   "subject": "감정평가실무",
+   "chapter": "1",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "",
+   "conceptName": "화폐의 시간가치(TVM) 6공식",
+   "topicId": "1-1",
+   "unitCode": "1",
+   "level": 1,
+   "difficulty": 1,
+   "format": "short",
+   "points": 0,
+   "subchapter": "1-1",
+   "topic": "저당상수 의미 약술",
+   "logicalPoints": [
+    "화폐의 시간가치",
+    "TVM 6공식"
+   ],
+   "lawRefs": [],
+   "body": "**[단답·약술]** **저당상수(MC)**의 의미와 산식, 활용을 한 줄로 쓰시오.",
+   "options": [],
+   "answer": "저당상수 = $\\dfrac{r}{1-(1+r)^{-n}}$. 1원을 대출받았을 때 매기 갚아야 할 원리금 균등상환액의 비율. 대출액에 곱하면 매기 상환액이 된다.",
+   "modelAnswer": "",
+   "lesson": {
+    "scoringKeys": [
+     "r/(1-(1+r)^-n)",
+     "원리금 균등상환액",
+     "대출×MC"
+    ]
+   },
+   "refAnchors": [],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  }
+ ],
+ "count": 24
 }
