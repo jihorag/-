@@ -1,7 +1,7 @@
 {
  "built_at": "2026-05-31T06:04:01.250547+00:00",
  "subject": "감정평가실무",
- "total": 1626,
+ "total": 1622,
  "chapters": [
   {
    "id": "kichul",
@@ -20,7 +20,7 @@
    "id": "2a",
    "title": "3방식기초 공시지가·거래사례·원가",
    "file": "2a.json",
-   "count": 68,
+   "count": 67,
    "withAnswer": 318,
    "matchedAnswer": 304,
    "rounds": [
@@ -206,7 +206,7 @@
    "id": "3",
    "title": "건물·복합·구분·임대료",
    "file": "3.json",
-   "count": 75,
+   "count": 76,
    "withAnswer": 267,
    "matchedAnswer": 61,
    "rounds": [
@@ -866,8 +866,8 @@
    "id": "gs3",
    "title": "📕 실무 GS 3기 (10회분·예시답안)",
    "file": "gs3.json",
-   "count": 43,
-   "withAnswer": 43,
+   "count": 39,
+   "withAnswer": 39,
    "matchedAnswer": 0,
    "rounds": [
     101,
@@ -921,8 +921,8 @@
     }
    ],
    "tagCounts": {
-    "2a": 6,
-    "3": 7,
+    "2a": 5,
+    "3": 8,
     "4": 6,
     "5": 9,
     "6a": 4,
