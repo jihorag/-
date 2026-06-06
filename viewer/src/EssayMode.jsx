@@ -478,7 +478,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       </div>
       <main className="main-content" style={{ marginTop: 16 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          {manifest.chapters.filter(c => (c.count || 0) > 0).map(c => {
+          {manifest.chapters.filter(c => (c.count || 0) > 0 || c.aiUnit).map(c => {
             const cd = chapterCache[c.id];
             const done = cd ? cd.questions.filter(q => progress[q.id]?.attempts?.length).length : 0;
             const pct = c.count ? Math.round((done / c.count) * 100) : 0;
