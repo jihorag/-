@@ -1158,6 +1158,8 @@ const App = () => {
   // 2차 essay 모드 — 단원/문항 선택 상태 (URL에는 미반영, 세션 내 navigation 용)
   const [essayChapter, setEssayChapter] = useState(null);
   const [essayQuestionId, setEssayQuestionId] = useState(null);
+  // 문제풀이 탭에서 특정 2차 과목으로 바로 진입할 때 EssayMode에 과목을 강제 지정 (nonce로 매 진입 동기화)
+  const [essayEntry, setEssayEntry] = useState({ key: null, nonce: 0 });
 
   // 시험 일정 — 3시험 동시 준비 시 D-DAY 표시·일일 권장량 계산용
   const [examDates, setExamDatesState] = useState(loadExamDates);
@@ -2799,6 +2801,8 @@ const App = () => {
         setQuestionId={setEssayQuestionId}
         onNavigate={(v) => { setCurrentView(v); window.scrollTo(0, 0); }}
         fontScale={fontScale}
+        entrySubject={essayEntry.key}
+        entryNonce={essayEntry.nonce}
       />
     );
   }
@@ -2813,6 +2817,8 @@ const App = () => {
           setQuestionId={setEssayQuestionId}
           onNavigate={(v) => { setCurrentView(v); window.scrollTo(0, 0); }}
           fontScale={fontScale}
+          entrySubject={essayEntry.key}
+          entryNonce={essayEntry.nonce}
         />
         {overlays}
       </div>
@@ -5132,12 +5138,24 @@ const App = () => {
                 const pct = totalN > 0 ? Math.round((answeredN / totalN) * 100) : 0;
                 const acc = answeredN > 0 ? Math.round((correctN / answeredN) * 100) : 0;
                 const isStage2 = s.stage === 2;
-                const hasQuiz = totalN > 0;
+                // 2차는 객관식 quiz가 없지만 '논술 기출풀이(EssayMode)'로 진입 가능 → 활성
+                const essayKey = isStage2 ? s.id.replace('appraisal_', '') : null;
+                const active = isStage2 ? true : totalN > 0;
+                const hasQuiz = active;
                 return (
                   <button
                     key={s.id}
                     onClick={() => {
-                      if (!hasQuiz) return;
+                      if (!active) return;
+                      if (isStage2) {
+                        // 2차 논술 기출풀이로 직행 (해당 과목 단원 목록)
+                        setEssayChapter(null);
+                        setEssayQuestionId(null);
+                        setEssayEntry((e) => ({ key: essayKey, nonce: e.nonce + 1 }));
+                        setCurrentView('essay_chapters');
+                        window.scrollTo(0, 0);
+                        return;
+                      }
                       setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
                       setTaxSubject(s.title);
                       setTaxSubSubject(null);
@@ -5148,7 +5166,7 @@ const App = () => {
                       else setCurrentView('tax_chapters');
                       window.scrollTo(0, 0);
                     }}
-                    disabled={!hasQuiz}
+                    disabled={!active}
                     style={{
                       padding: 16, textAlign: 'left',
                       background: hasQuiz
@@ -5169,20 +5187,26 @@ const App = () => {
                     <div style={{ fontSize: '0.82rem', color: '#1f2937', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {s.title}
                     </div>
-                    <div style={{ marginTop: 8, height: 5, background: '#dbeafe', borderRadius: 3, overflow: 'hidden' }}>
-                      <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#4f46e5' }} />
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#111827', marginTop: 4 }}>
-                      <span style={{ fontWeight: 800 }}>{pct}%</span>
-                      <span style={{ color: '#1f2937', fontWeight: 600 }}>
-                        {hasQuiz ? `${answeredN}/${totalN}` : '기출 없음'}
-                      </span>
-                    </div>
-                    {hasQuiz && acc > 0 && (
-                      <div style={{ fontSize: '0.76rem', color: '#374151', marginTop: -2 }}>
-                        정답률 {acc}%
+                    {isStage2 ? (
+                      <div style={{ marginTop: 8, fontSize: '0.82rem', color: '#4338ca', fontWeight: 700 }}>
+                        📝 논술 기출 풀이 →
                       </div>
-                    )}
+                    ) : (<>
+                      <div style={{ marginTop: 8, height: 5, background: '#dbeafe', borderRadius: 3, overflow: 'hidden' }}>
+                        <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#4f46e5' }} />
+                      </div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#111827', marginTop: 4 }}>
+                        <span style={{ fontWeight: 800 }}>{pct}%</span>
+                        <span style={{ color: '#1f2937', fontWeight: 600 }}>
+                          {hasQuiz ? `${answeredN}/${totalN}` : '기출 없음'}
+                        </span>
+                      </div>
+                      {hasQuiz && acc > 0 && (
+                        <div style={{ fontSize: '0.76rem', color: '#374151', marginTop: -2 }}>
+                          정답률 {acc}%
+                        </div>
+                      )}
+                    </>)}
                   </button>
                 );
               })}
