@@ -4,7 +4,7 @@
  "chapter": "2a",
  "chapterTitle": "3방식기초 공시지가·거래사례·원가",
  "source": "official",
- "count": 111,
+ "count": 126,
  "withAnswer": 36,
  "matchedAnswer": 22,
  "rounds": [
@@ -4133,6 +4133,802 @@
     ],
     "scoringKeys": [
      "공시지가기준법"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-1",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "공시지가기준 vs 거래사례비교",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14①",
+    "감칙 §12"
+   ],
+   "body": "**[5지선다]** 공시지가기준법과 거래사례비교법의 비교로 **옳지 않은 것**은?",
+   "options": [
+    "공시지가기준법의 기준은 비교표준지 공시지가, 거래사례비교법의 기준은 실제 거래가격이다",
+    "거래사례비교법은 사정보정을 거치나 공시지가기준법은 사정보정이 불요하다",
+    "두 방법 모두 시점수정·지역요인·개별요인 비교를 거친다",
+    "토지의 주된 평가방법은 거래사례비교법이고 공시지가기준법은 합리성 검토에 쓴다",
+    "공시지가기준법은 감칙 §14, 거래사례비교법은 감칙 §12에 근거한다"
+   ],
+   "answer": 3,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "토지의 **주된 방법은 공시지가기준법**(§14①), 거래사례비교법 등은 합리성 검토(§12). ④가 반대로 서술됨.",
+    "compareTable": [
+     [
+      "구분",
+      "공시지가기준법",
+      "거래사례비교법"
+     ],
+     [
+      "기준가격",
+      "비교표준지 공시지가",
+      "실제 거래사례"
+     ],
+     [
+      "사정보정",
+      "불요",
+      "필요"
+     ],
+     [
+      "근거",
+      "감칙 §14(토지 주방법)",
+      "감칙 §12"
+     ],
+     [
+      "역할",
+      "토지 주된 방법",
+      "합리성 검토 등"
+     ]
+    ],
+    "scoringKeys": [
+     "토지 주방법=공시지가기준법"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-2",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "short",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "시점수정 vs 사정보정",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14②3",
+    "감칙 §12"
+   ],
+   "body": "**[한 줄 서술]** **시점수정**과 **사정보정**의 차이를 한 문장으로 구분해 쓰시오.",
+   "options": [],
+   "answer": "시점수정은 공시기준일→기준시점의 시간차에 따른 지가변동을 반영하는 것이고, 사정보정은 거래에 개입된 특수한 사정을 정상화(제거)하는 것이다.",
+   "modelAnswer": "",
+   "lesson": {
+    "compareTable": [
+     [
+      "구분",
+      "시점수정",
+      "사정보정"
+     ],
+     [
+      "대상",
+      "시간차(지가변동)",
+      "거래의 특수사정"
+     ],
+     [
+      "공시지가기준법",
+      "적용",
+      "불요"
+     ],
+     [
+      "거래사례비교법",
+      "적용",
+      "적용"
+     ]
+    ],
+    "scoringKeys": [
+     "시점차 지가변동",
+     "특수사정 제거"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-3",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "short",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "지역요인 vs 개별요인",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14②4"
+   ],
+   "body": "**[한 줄 서술]** **지역요인 비교**와 **개별요인 비교**는 각각 무엇의 격차를 보는지 구분해 쓰시오.",
+   "options": [],
+   "answer": "지역요인은 비교표준지가 속한 지역과 대상토지 인근지역 간 **지역 단위 가격수준 격차**, 개별요인은 표준지와 대상토지의 **개별 토지 특성(가로·접근·환경·획지·행정·기타) 격차**이다.",
+   "modelAnswer": "",
+   "lesson": {
+    "compareTable": [
+     [
+      "구분",
+      "지역요인",
+      "개별요인"
+     ],
+     [
+      "단위",
+      "지역 간",
+      "개별 토지 간"
+     ],
+     [
+      "같은 인근지역",
+      "1.000(대등)",
+      "개별 차이 반영"
+     ],
+     [
+      "항목",
+      "지역 가격수준",
+      "가·접·환·획·행·기"
+     ]
+    ],
+    "scoringKeys": [
+     "지역 가격수준",
+     "개별 토지 특성"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-4",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "적정가격 vs 시장가치",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §5",
+    "표준지 조사·평가기준 §15"
+   ],
+   "body": "**[5지선다]** 적정가격과 시장가치에 관한 설명으로 **옳은 것**은?",
+   "options": [
+    "적정가격은 급매·특수관계 거래에서 성립하는 가격이다",
+    "시장가치는 「감칙」 제5조의 기준가치이고, 적정가격은 부동산공시법상 표준지 평가의 기준 개념이다",
+    "적정가격은 시장가치보다 항상 낮다",
+    "시장가치는 소유자의 주관적 희망가격이다",
+    "두 개념은 서로 무관하다"
+   ],
+   "answer": 1,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "둘 다 “통상적 시장에서 정상적으로 성립 가능한 가격”으로 사실상 동질. 시장가치는 감칙 §5의 기준가치, 적정가격은 부동산공시법·표준지 평가기준(§15)의 용어.",
+    "optionRationale": [
+     "①✗ 정상거래 기준",
+     "②✓",
+     "③✗ 동질",
+     "④✗ 객관적",
+     "⑤✗ 동질 개념"
+    ],
+    "compareTable": [
+     [
+      "구분",
+      "적정가격",
+      "시장가치"
+     ],
+     [
+      "근거",
+      "부동산공시법·조사평가기준 §15",
+      "감칙 §5"
+     ],
+     [
+      "성격",
+      "공시제도 용어",
+      "감정평가 기준가치"
+     ]
+    ],
+    "scoringKeys": [
+     "정상시장 성립가능 가격",
+     "동질 개념"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-5",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "short",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "그밖요인 표준지기준 vs 대상기준",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14②5"
+   ],
+   "body": "**[한 줄 서술]** 그 밖의 요인 보정치 산정의 **표준지 기준 방식**과 **대상토지 기준 방식**의 차이를 한 문장으로 쓰시오.",
+   "options": [],
+   "answer": "표준지 기준은 평가·거래사례를 시·지·개 보정으로 **비교표준지 수준에 맞춰** 격차율을 구하고, 대상토지 기준은 사례와 표준지를 모두 **대상토지 수준에 맞춰** 격차율을 구하는 것으로, 보통 결과는 유사하다.",
+   "modelAnswer": "",
+   "lesson": {
+    "compareTable": [
+     [
+      "구분",
+      "표준지 기준",
+      "대상토지 기준"
+     ],
+     [
+      "보정 기준",
+      "사례→표준지",
+      "사례·표준지→대상토지"
+     ],
+     [
+      "결과",
+      "대체로 유사",
+      "대체로 유사"
+     ]
+    ],
+    "scoringKeys": [
+     "사례→표준지",
+     "사례→대상",
+     "결과 유사"
+    ],
+    "sources": [
+     "gs0-1-1-q2 예시답안"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-6",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "적정 비교표준지 선정",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14②1"
+   ],
+   "body": "**[5지선다·박스형]** 대상토지가 **「일반상업지역·상업용·광대한면」**일 때, 다음 표준지 중 **비교표준지로 가장 적절한 것**은?",
+   "options": [
+    "일반상업·상업용·인근지역 (광대한면)",
+    "제2종일반주거·주거용",
+    "준주거·주거용",
+    "일반상업·상업용이나 동일수급권 밖 원격지",
+    "일반상업·공업용"
+   ],
+   "answer": 0,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "선정기준 = 용도지역·이용상황·주변환경 유사한 **인근지역** 표준지. ①이 모두 부합.",
+    "optionRationale": [
+     "①✓",
+     "②✗ 용도·이용 상이",
+     "③✗ 용도 상이",
+     "④✗ 원격(대표성 결여)",
+     "⑤✗ 이용상황 상이"
+    ],
+    "scoringKeys": [
+     "용도지역·이용상황·인근 일치"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-7",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "배제사유 판단",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14②1"
+   ],
+   "body": "**[5지선다]** 비교표준지 선정에서 **배제사유에 해당하지 않는** 표준지는?",
+   "options": [
+    "용도지역이 대상과 다른 표준지",
+    "대상과 용도지역·이용상황이 유사한 인근지역 표준지",
+    "지나치게 원격이어서 대표성이 떨어지는 표준지",
+    "이용상황이 대상과 현저히 다른 표준지",
+    "공법상 제한이 대상과 본질적으로 다른 표준지"
+   ],
+   "answer": 1,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "②는 오히려 선정 대상. 나머지는 전형적 배제사유.",
+    "optionRationale": [
+     "②✓ 선정대상",
+     "나머지✗ 배제"
+    ],
+    "scoringKeys": [
+     "유사 인근=선정"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-8",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "개별요인 항목 분류",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14②4"
+   ],
+   "body": "**[5지선다]** 다음 중 **행정적 조건**으로 분류되는 것은?",
+   "options": [
+    "도로의 폭과 계통",
+    "버스정류장까지의 거리",
+    "토지의 형상과 면적",
+    "용도지역·지구 등 공법상 규제",
+    "인근의 혐오시설 유무"
+   ],
+   "answer": 3,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "①가로 ②접근 ③획지 ④행정 ⑤환경.",
+    "optionRationale": [
+     "④✓ 행정",
+     "나머지 다른 조건"
+    ],
+    "scoringKeys": [
+     "공법상 규제=행정조건"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-9",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "일시적 이용·나지상정 판단",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "표준지 조사·평가기준 §16",
+    "§17"
+   ],
+   "body": "**[5지선다]** 표준지 평가기준 적용에 관한 판단으로 **옳은 것**은?",
+   "options": [
+    "대(垈)를 임시 주차장으로 쓰면 주차장 이용상황으로 평가한다",
+    "건물이 있는 토지는 건물 가치를 합산하여 평가한다",
+    "일시적 이용상황은 고려하지 않고, 정착물은 없는 나지상태로 상정한다",
+    "사법상 임차권이 있으면 그 부담을 반영해 감액한다",
+    "공부상 지목이 ‘전’이면 반드시 전으로 평가한다"
+   ],
+   "answer": 2,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "§16 일시적 이용 미고려 + §17 나지상정. ①②④⑤는 모두 위반.",
+    "optionRationale": [
+     "③✓",
+     "①✗ 일시적 미고려",
+     "②✗ 나지상정",
+     "④✗ 나지상정",
+     "⑤✗ 실제용도"
+    ],
+    "scoringKeys": [
+     "일시적 이용 미고려",
+     "나지상정"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-10",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "일단지 성립요건 판단",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "표준지 조사·평가기준 §20"
+   ],
+   "body": "**[5지선다]** 다음 중 **일단지 평가**가 적용될 가능성이 가장 높은 경우는?",
+   "options": [
+    "소유자만 같고 용도가 전혀 다른 두 필지",
+    "한 건물의 부지로 용도상 불가분하게 함께 이용되는 두 필지",
+    "도로로 완전히 단절된 두 필지",
+    "일시적으로 한 데 묶어 자재를 쌓아둔 두 필지",
+    "소유자가 다르고 이용도 분리된 두 필지"
+   ],
+   "answer": 1,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "일단지 = **용도상 불가분 관계**(사회·경제·행정적으로 합리적). 한 건물 부지가 전형적 예.",
+    "optionRationale": [
+     "②✓ 용도상 불가분",
+     "나머지✗"
+    ],
+    "scoringKeys": [
+     "용도상 불가분"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-11",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "개발이익 반영 가부",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "표준지 조사·평가기준 §19"
+   ],
+   "body": "**[5지선다]** 표준지 평가 시 **반영할 수 있는 개발이익**은?",
+   "options": [
+    "아직 계획 단계인 막연한 기대이익",
+    "공시기준일 현재 현실화·구체화된 개발이익",
+    "소유자가 주장하는 장래 개발이익",
+    "투기적 거래로 형성된 가격 상승분",
+    "인접 토지의 미실현 잠재이익"
+   ],
+   "answer": 1,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "§19: 공시기준일 현재 **현실화·구체화된** 개발이익만 반영, 미실현·투기는 배제.",
+    "optionRationale": [
+     "②✓",
+     "나머지✗ 미실현/투기"
+    ],
+    "scoringKeys": [
+     "현실화·구체화"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-12",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "시점수정 지수 선택",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14②3"
+   ],
+   "body": "**[5지선다]** 공시지가기준법의 시점수정에 관한 설명으로 **옳은 것**은?",
+   "options": [
+    "언제나 생산자물가상승률만 사용한다",
+    "비교표준지 소재 시·군·구의 해당 용도지역 지가변동률을 원칙으로 하되, 적용이 곤란하면 생산자물가상승률을 쓴다",
+    "대상토지 소유자가 정한 비율을 쓴다",
+    "전국 평균 지가변동률만 쓴다",
+    "시점수정은 생략하는 것이 원칙이다"
+   ],
+   "answer": 1,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "원칙=해당 시군구·용도지역 지가변동률, 예외=생산자물가상승률.",
+    "optionRationale": [
+     "②✓",
+     "나머지✗"
+    ],
+    "scoringKeys": [
+     "지가변동률 원칙",
+     "생산자물가 예외"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-13",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "short",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "그밖요인 보정 필요성",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14②5"
+   ],
+   "body": "**[한 줄 서술]** 공시지가기준법에서 **그 밖의 요인 보정**을 하지 않으면 어떤 문제가 생기는지 한 문장으로 쓰시오.",
+   "options": [],
+   "answer": "공시지가가 시세에 미달하는 경우 그 보정을 누락하면 감정평가액이 정상적인 시장가치(적정가격)에 미달하게 된다.",
+   "modelAnswer": "",
+   "lesson": {
+    "why": "그밖요인은 공시지가-시세 괴리를 메우는 단계. 누락 시 시세 미달 평가.",
+    "scoringKeys": [
+     "시세 미달",
+     "시장가치 괴리"
+    ],
+    "pitfalls": [
+     "보정치만 적고 산정근거(사례) 누락"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-14",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "mcq",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "사정보정 적용 오류",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14"
+   ],
+   "body": "**[5지선다]** 어느 수험생이 공시지가기준법으로 토지를 평가하며 **잘못 적용한 것**은?",
+   "options": [
+    "비교표준지를 인근지역에서 선정했다",
+    "지가변동률로 시점수정했다",
+    "비교표준지 공시지가에 거래사례비교법처럼 사정보정을 적용했다",
+    "개별요인을 가로·접근·환경·획지·행정·기타로 비교했다",
+    "그 밖의 요인 보정치를 평가사례로 산정했다"
+   ],
+   "answer": 2,
+   "modelAnswer": "",
+   "lesson": {
+    "why": "공시지가는 공적 적정가격이라 **사정보정 불요**. ③이 오류.",
+    "optionRationale": [
+     "③✗ 사정보정 오적용",
+     "나머지 정상"
+    ],
+    "scoringKeys": [
+     "공시지가 사정보정 불요"
+    ]
+   },
+   "refAnchors": [
+    "gs0-1-1-q1",
+    "gs0-1-1-q2"
+   ],
+   "keyPoints": [],
+   "answerFormat": "practice",
+   "sourcePdf": "자체제작(기출 역설계)"
+  },
+  {
+   "id": "pr-001-l2-15",
+   "subject": "감정평가실무",
+   "chapter": "2a",
+   "source": "practice-set",
+   "bodyFormat": "markdown",
+   "conceptNo": "001",
+   "conceptName": "공시지가기준법",
+   "level": 2,
+   "difficulty": 2,
+   "format": "short",
+   "points": 0,
+   "subchapter": "연습 001 공시지가기준법",
+   "topic": "산식 한 줄 세우기",
+   "logicalPoints": [
+    "공시지가기준법"
+   ],
+   "lawRefs": [
+    "감칙 §14"
+   ],
+   "body": "**[한 줄 서술·계산]** 비교표준지 공시지가 **5,000,000원/㎡**, 시점수정 **1.05**, 지역요인 **1.000**, 개별요인 **0.95**, 그 밖의 요인 **1.10**일 때, **산식을 세우고** 토지단가를 구하시오.",
+   "options": [],
+   "answer": "5,000,000 × 1.05 × 1.000 × 0.95 × 1.10 = **@5,486,250원/㎡**",
+   "modelAnswer": "",
+   "lesson": {
+    "formula": "단가 = 표준지공시지가 × 시점 × 지역 × 개별 × 그밖요인",
+    "why": "5,000,000×1.05=5,250,000 → ×0.95=4,987,500 → ×1.10=5,486,250.",
+    "scoringKeys": [
+     "5,486,250"
     ]
    },
    "refAnchors": [
