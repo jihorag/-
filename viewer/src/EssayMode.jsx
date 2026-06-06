@@ -95,9 +95,19 @@ const matchAll = (answerText, keyPoints) => {
   return keyPoints.map(kp => ({ kp, matched: matchKeyword(answerText, kp) }));
 };
 
+// 2차 논술 3과목 레지스트리 — 과목별 데이터 디렉토리
+const ESSAY_SUBJECTS = [
+  { key: 'practice', dir: '/data/essay/practice/', title: '감정평가실무', short: '실무', icon: '🏛️', color: '#7c3aed', bg: '#f5f3ff', border: '#ddd6fe', desc: '계산·산식 위주 논술' },
+  { key: 'theory', dir: '/data/essay/theory/', title: '감정평가이론', short: '이론', icon: '📚', color: '#0d9488', bg: '#f0fdfa', border: '#99f6e4', desc: '논점 서술형 논술' },
+  { key: 'law', dir: '/data/essay/law/', title: '감정평가 및 보상법규', short: '보상법규', icon: '⚖️', color: '#be123c', bg: '#fff1f2', border: '#fecdd3', desc: '행정법·보상 논술' },
+];
+
 const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuestionId, fontScale }) => {
+  const [subjKey, setSubjKey] = useState('practice'); // 현재 2차 과목
+  const subj = ESSAY_SUBJECTS.find((s) => s.key === subjKey) || ESSAY_SUBJECTS[0];
   const [manifest, setManifest] = useState(null);
   const [manifestErr, setManifestErr] = useState(null);
+  const [subjMeta, setSubjMeta] = useState({}); // {key: {subject, total, chapters}} — 과목 카드용 요약
   const [chapterCache, setChapterCache] = useState({});  // { [id]: chapterData (questions merged official+generated) }
   const [chapterErrors, setChapterErrors] = useState({}); // { [id]: errMsg } — 로드 실패 시 재시도 안내용
   const [progress, setProgressState] = useState(() => loadProgress());
@@ -124,12 +134,13 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
   const [rubric, setRubric] = useState({});
   const [notes, setNotes] = useState('');
 
-  // ─────────── manifest 로드 ───────────
+  // ─────────── manifest 로드 (현재 과목) ───────────
   useEffect(() => {
     let cancelled = false;
+    setManifest(null); setManifestErr(null); setChapterCache({}); setChapterErrors({});
     (async () => {
       try {
-        const r = await fetch('/data/essay/practice/manifest.json');
+        const r = await fetch(`${subj.dir}manifest.json`);
         if (!r.ok) throw new Error(`manifest ${r.status}`);
         const m = await r.json();
         if (!cancelled) setManifest(m);
@@ -137,6 +148,20 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         if (!cancelled) setManifestErr(e.message);
       }
     })();
+    return () => { cancelled = true; };
+  }, [subj.dir]);
+
+  // ─────────── 과목 카드 요약(총 문항·단원수) 미리 로드 ───────────
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all(ESSAY_SUBJECTS.map(async (s) => {
+      try {
+        const r = await fetch(`${s.dir}manifest.json`);
+        if (!r.ok) return [s.key, null];
+        const m = await r.json();
+        return [s.key, { subject: m.subject, total: m.total, chapters: (m.chapters || []).length }];
+      } catch { return [s.key, null]; }
+    })).then((pairs) => { if (!cancelled) setSubjMeta(Object.fromEntries(pairs)); });
     return () => { cancelled = true; };
   }, []);
 
@@ -211,8 +236,8 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     if (chapterCache[id]) return chapterCache[id];
     try {
       const [official, generated] = await Promise.all([
-        fetch(`/data/essay/practice/${id}.json`).then(r => r.ok ? r.json() : null),
-        fetch(`/data/essay/practice/${id}-generated.json`).then(r => r.ok ? r.json() : null),
+        fetch(`${subj.dir}${id}.json`).then(r => r.ok ? r.json() : null),
+        fetch(`${subj.dir}${id}-generated.json`).then(r => r.ok ? r.json() : null),
       ]);
       if (!official) throw new Error(`chapter ${id} not found`);
       const genQ = generated?.questions || [];
@@ -230,7 +255,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       setChapterErrors(prev => ({ ...prev, [id]: e.message || '로드 실패' }));
       return null;
     }
-  }, [chapterCache]);
+  }, [chapterCache, subj.dir]);
 
   const retryChapter = useCallback((id) => {
     setChapterErrors(prev => { const n = { ...prev }; delete n[id]; return n; });
@@ -355,51 +380,63 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     </header>
   );
 
-  if (manifestErr) {
+  // ═══════════════════ subjects (3과목 선택 — manifest 가드보다 먼저) ═══════════════════
+  if (mode === 'essay_subjects') {
     return shell(<>
       {header('2차 준비', '홈', 'home')}
-      <div style={{ padding: 24, color: '#dc2626' }}>
-        2차 데이터 로드 실패: {manifestErr}
-        <div style={{ marginTop: 8, fontSize: '0.85rem', color: '#9ca3af' }}>
-          빌드 시 essay 데이터가 누락된 것 같습니다. `python3 scripts/build_essay.py` 후 다시 시도.
+      <div className="screen-head"><h1 className="screen-title">📝 2차 논술</h1>
+        <p style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
+          과목을 골라 논술 기출을 풀고, 모범답안·AI 채점으로 점검하세요
+        </p>
+      </div>
+      <main className="main-content" style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {ESSAY_SUBJECTS.map((s) => {
+          const meta = subjMeta[s.key];
+          const ready = meta && meta.total > 0;
+          return (
+            <button key={s.key}
+              onClick={() => { if (s.key !== subjKey) setSubjKey(s.key); setChapter(null); setQuestionId(null); onNavigate('essay_chapters'); }}
+              style={{ width: '100%', textAlign: 'left', padding: '18px', borderRadius: 14,
+                border: `1px solid ${s.border}`, background: s.bg, cursor: 'pointer' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ fontSize: '1.6rem' }}>{s.icon}</span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#111827' }}>{s.title}</div>
+                  <div style={{ fontSize: '0.78rem', color: '#6b7280', marginTop: 2 }}>{s.desc}</div>
+                </div>
+                <span style={{ fontSize: '0.82rem', fontWeight: 800, color: s.color }}>시작 →</span>
+              </div>
+              <div style={{ fontSize: '0.8rem', color: s.color, marginTop: 8, fontWeight: 700 }}>
+                {meta == null ? '· 불러오는 중…' : (ready ? `${meta.chapters}개 단원 · ${meta.total}문항` : '· 준비 중')}
+              </div>
+            </button>
+          );
+        })}
+        <div style={{ marginTop: 4, padding: 12, borderRadius: 10,
+          background: '#fafafa', border: '1px solid #e5e7eb', fontSize: '0.76rem', color: '#6b7280' }}>
+          실무는 기출 11~36회 예시답안 포함. 이론·법규는 기출 논점 기반으로 단계적 확장 중입니다.
         </div>
+      </main>
+    </>);
+  }
+
+  if (manifestErr) {
+    return shell(<>
+      {header('2차 준비', '과목', 'essay_subjects')}
+      <div style={{ padding: 24, color: '#dc2626' }}>
+        {subj.title} 데이터 로드 실패: {manifestErr}
+        <div style={{ marginTop: 8, fontSize: '0.85rem', color: '#9ca3af' }}>
+          이 과목 데이터가 아직 없거나 누락됐을 수 있어요. 다른 과목을 선택해 주세요.
+        </div>
+        <button onClick={() => onNavigate('essay_subjects')}
+          style={{ marginTop: 14, padding: '10px 18px', borderRadius: 8, fontWeight: 700, border: 'none', background: '#2563eb', color: '#fff', cursor: 'pointer', minHeight: 44 }}>
+          ← 과목 선택
+        </button>
       </div>
     </>);
   }
   if (!manifest) {
     return shell(<div style={{ padding: 24, color: '#9ca3af' }}>데이터 불러오는 중…</div>);
-  }
-
-  // ═══════════════════ subjects ═══════════════════
-  if (mode === 'essay_subjects') {
-    return shell(<>
-      {header('2차 준비', '홈', 'home')}
-      <div className="screen-head"><h1 className="screen-title">📝 2차 준비</h1>
-        <p style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
-          논술형 기출 풀이 → 모범답안 확인 → 자기 채점
-        </p>
-      </div>
-      <main className="main-content" style={{ marginTop: 16 }}>
-        <button onClick={() => { setChapter(null); setQuestionId(null); onNavigate('essay_chapters'); }}
-          style={{ width: '100%', textAlign: 'left', padding: '18px', borderRadius: 14,
-            border: '1px solid #fde68a', background: '#fffbeb', cursor: 'pointer' }}>
-          <div style={{ fontSize: '1.5rem' }}>💼</div>
-          <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#111827', marginTop: 8 }}>
-            {manifest.subject}
-          </div>
-          <div style={{ fontSize: '0.82rem', color: '#92400e', marginTop: 4 }}>
-            {manifest.chapters.length}개 단원 · {manifest.total}문항 (기출 11~36회)
-          </div>
-          <div style={{ marginTop: 10, fontSize: '0.82rem', color: '#a16207', fontWeight: 700 }}>
-            시작 →
-          </div>
-        </button>
-        <div style={{ marginTop: 16, padding: 12, borderRadius: 10,
-          background: '#fafafa', border: '1px solid #e5e7eb', fontSize: '0.78rem', color: '#6b7280' }}>
-          📌 현재 v1: 감정평가실무만. 이론·법규는 다음 라운드에 추가.
-        </div>
-      </main>
-    </>);
   }
 
   // ═══════════════════ chapters ═══════════════════
@@ -1051,8 +1088,10 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
           </section>
         ) : (
           <section style={{ background: '#fafafa', borderRadius: 12, padding: 14,
-            border: '1px dashed #e5e7eb', marginBottom: 14, fontSize: '0.85rem', color: '#9ca3af' }}>
-            모범답안 없음 (이 문제는 답안집에 미수록 또는 자동 매칭 실패)
+            border: '1px dashed #e5e7eb', marginBottom: 14, fontSize: '0.85rem', color: '#6b7280' }}>
+            {subj.key === 'practice'
+              ? '모범답안 없음 (이 문제는 답안집에 미수록 또는 자동 매칭 실패)'
+              : '📝 모범답안은 단계적으로 추가 중이에요. 아래 자기채점(키워드)과 AI 학습 탭의 답안 채점으로 점검해 보세요.'}
           </section>
         )}
 
