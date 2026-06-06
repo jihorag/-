@@ -517,14 +517,16 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         : <div style={{ padding: 24, color: '#6b7280' }}>단원 데이터 불러오는 중…</div>
     );
 
-    // source별 카운트 — 실문제(official/gs/past) / 연습문제(practice-set) / AI 명확히 구분
-    const isOfficial = (q) => q.source === 'official' || q.source === 'gs' || q.source == null;
+    // source별 카운트 — 기출(official/past) / GS 모의(gs) / 연습문제(practice-set) / AI 명확히 구분
+    const isOfficial = (q) => q.source === 'official' || q.source === 'past' || q.source == null;
+    const isGS = (q) => q.source === 'gs';
     const isPractice = (q) => q.source === 'practice-set';
     const isAIVary = (q) => q.source === 'ai-generated' && q.genMode === 'vary';
     const isAINew = (q) => q.source === 'ai-generated' && q.genMode === 'new';
     const counts = {
       all: cd.questions.length,
       official: cd.questions.filter(isOfficial).length,
+      gs: cd.questions.filter(isGS).length,
       'practice-set': cd.questions.filter(isPractice).length,
       'ai-vary': cd.questions.filter(isAIVary).length,
       'ai-new': cd.questions.filter(isAINew).length,
@@ -532,6 +534,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     const filterChips = [
       { id: 'all',          label: '전체',          count: counts.all },
       { id: 'official',     label: '📘 실문제(기출)', count: counts.official },
+      { id: 'gs',           label: '📗 GS 모의(예시답안)', count: counts.gs },
       { id: 'practice-set', label: '📝 연습문제',    count: counts['practice-set'] },
       { id: 'ai-vary',      label: '🤖 AI 변형',    count: counts['ai-vary'] },
       { id: 'ai-new',       label: '🤖 AI 신규',    count: counts['ai-new'] },
@@ -551,6 +554,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
 
     const visible = cd.questions.filter(q => {
       if (sourceFilter === 'official' && !isOfficial(q)) return false;
+      if (sourceFilter === 'gs' && !isGS(q)) return false;
       if (sourceFilter === 'practice-set' && !isPractice(q)) return false;
       if (sourceFilter === 'ai-vary' && !isAIVary(q)) return false;
       if (sourceFilter === 'ai-new' && !isAINew(q)) return false;
@@ -580,7 +584,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       {header(`단원 ${chapter}`, '단원 목록', 'essay_chapters')}
       <div className="screen-head"><h1 className="screen-title">{meta?.title || chapter}</h1>
         <p style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
-          기출 {cd.officialCount}문항{cd.generatedCount > 0 && <> · 🤖 AI/큐레이션 {cd.generatedCount}문항</>}
+          기출 {counts.official}문항{counts.gs > 0 && <> · 📗 GS {counts.gs}문항</>}{cd.generatedCount > 0 && <> · 🤖 AI/큐레이션 {cd.generatedCount}문항</>}
           {stats.attempted > 0 && (
             <> · 풀이 <b style={{ color: '#1d4ed8' }}>{stats.attempted}</b>
               · 평균 <b style={{ color: '#16a34a' }}>{stats.avgScore}점</b>

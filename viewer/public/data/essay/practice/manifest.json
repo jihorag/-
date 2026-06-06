@@ -1,7 +1,7 @@
 {
  "built_at": "2026-05-31T06:04:01.250547+00:00",
  "subject": "감정평가실무",
- "total": 1245,
+ "total": 1322,
  "chapters": [
   {
    "id": "kichul",
@@ -20,7 +20,7 @@
    "id": "2a",
    "title": "3방식기초 공시지가·거래사례·원가",
    "file": "2a.json",
-   "count": 30,
+   "count": 52,
    "withAnswer": 318,
    "matchedAnswer": 304,
    "rounds": [
@@ -199,13 +199,14 @@
       "준공·산업단지"
      ]
     }
-   ]
+   ],
+   "gsCount": 22
   },
   {
    "id": "3",
    "title": "건물·복합·구분·임대료",
    "file": "3.json",
-   "count": 24,
+   "count": 40,
    "withAnswer": 267,
    "matchedAnswer": 61,
    "rounds": [
@@ -315,13 +316,14 @@
       "임대 상가"
      ]
     }
-   ]
+   ],
+   "gsCount": 16
   },
   {
    "id": "4",
    "title": "유형별 평가",
    "file": "4.json",
-   "count": 13,
+   "count": 23,
    "withAnswer": 252,
    "matchedAnswer": 4,
    "rounds": [
@@ -334,13 +336,14 @@
      "title": "유형별 평가",
      "keywords": []
     }
-   ]
+   ],
+   "gsCount": 10
   },
   {
    "id": "5",
    "title": "비가치추계·기업가치·무형자산",
    "file": "5.json",
-   "count": 24,
+   "count": 33,
    "withAnswer": 266,
    "matchedAnswer": 34,
    "rounds": [
@@ -385,13 +388,14 @@
       "저작권"
      ]
     }
-   ]
+   ],
+   "gsCount": 9
   },
   {
    "id": "6a",
    "title": "토지보상 기본·원칙",
    "file": "6a.json",
-   "count": 19,
+   "count": 29,
    "withAnswer": 260,
    "matchedAnswer": 22,
    "rounds": [
@@ -424,13 +428,14 @@
       "비교표준지"
      ]
     }
-   ]
+   ],
+   "gsCount": 10
   },
   {
    "id": "6b",
    "title": "토지보상 공법상제한·특수",
    "file": "6b.json",
-   "count": 18,
+   "count": 21,
    "withAnswer": 258,
    "matchedAnswer": 12,
    "rounds": [
@@ -460,13 +465,14 @@
       "입체이용"
      ]
     }
-   ]
+   ],
+   "gsCount": 3
   },
   {
    "id": "7",
    "title": "건축물·영업·기타 보상",
    "file": "7.json",
-   "count": 13,
+   "count": 14,
    "withAnswer": 259,
    "matchedAnswer": 13,
    "rounds": [
@@ -509,13 +515,14 @@
       "주거이전"
      ]
     }
-   ]
+   ],
+   "gsCount": 1
   },
   {
    "id": "8a",
    "title": "목적별 평가",
    "file": "8a.json",
-   "count": 20,
+   "count": 24,
    "withAnswer": 258,
    "matchedAnswer": 18,
    "rounds": [
@@ -556,13 +563,14 @@
       "매각"
      ]
     }
-   ]
+   ],
+   "gsCount": 4
   },
   {
    "id": "8b",
    "title": "표준지·정비·불의타",
    "file": "8b.json",
-   "count": 13,
+   "count": 15,
    "withAnswer": 251,
    "matchedAnswer": 7,
    "rounds": [
@@ -601,7 +609,8 @@
       "기타"
      ]
     }
-   ]
+   ],
+   "gsCount": 2
   },
   {
    "id": "gs1",
