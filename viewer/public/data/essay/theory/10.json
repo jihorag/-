@@ -1,21 +1,20 @@
 {
- "built_at": "2026-06-06T03:29:10.463036+00:00",
+ "built_at": "2026-06-06T04:33:28.244274+00:00",
  "subject": "감정평가이론",
  "chapter": "10",
  "chapterTitle": "부동산정책론·기타논점",
  "source": "official",
- "count": 8,
+ "count": 10,
  "withAnswer": 0,
  "matchedAnswer": 0,
  "rounds": [
   16,
   18,
-  19,
   20,
+  23,
   24,
   26,
-  31,
-  36
+  31
  ],
  "questions": [
   {
@@ -30,7 +29,32 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "공시지가",
+    "표준지"
+   ],
+   "level": 3,
    "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "10-1"
+  },
+  {
+   "id": "ki-theory-c10-r16-q6",
+   "subject": "감정평가이론",
+   "chapter": "10",
+   "source": "official",
+   "round": 16,
+   "questionNum": 6,
+   "points": 10,
+   "body": "공동주택 재건축사업의 시행시 미동의자에 대한 매도청구 및 시가(時價)의 개념에 \n대해 약술하시오.(10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "매도청구"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "10-1"
   },
@@ -46,22 +70,31 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "공시지가",
+    "표준지"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "10-1"
   },
   {
-   "id": "ki-theory-c10-r19-q4",
+   "id": "ki-theory-c10-r20-q2",
    "subject": "감정평가이론",
    "chapter": "10",
    "source": "official",
-   "round": 19,
-   "questionNum": 4,
-   "points": 10,
-   "body": "부동산 가격공시 및 감정평가에 관한 법률의 표준지 공시지가를 기준으로 평가한 보상\n평가가격과 적정가격, 실거래가격과의 관계를 설명하시오.(10점)",
+   "round": 20,
+   "questionNum": 2,
+   "points": 20,
+   "body": "공동주택 분양가상한제를 설명하고, 이 제도와 관련된 감정평가사의 역할에 대하여 \n논하시오.(20점)",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "분양가상한제"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "10-1"
@@ -78,7 +111,51 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "공시제도"
+   ],
+   "level": 2,
+   "difficulty": 2,
+   "answerFormat": "",
+   "subchapter": "10-1"
+  },
+  {
+   "id": "ki-theory-c10-r23-q3",
+   "subject": "감정평가이론",
+   "chapter": "10",
+   "source": "official",
+   "round": 23,
+   "questionNum": 3,
+   "points": 20,
+   "body": "다음 사항을 설명하시오.(20점)\n(1) 실물옵션(10점)\n(2) 재건축정비사업에 있어서 매도청구소송목적의 감정평가(10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "매도청구"
+   ],
+   "level": 3,
    "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "10-1"
+  },
+  {
+   "id": "ki-theory-c10-r23-q4",
+   "subject": "감정평가이론",
+   "chapter": "10",
+   "source": "official",
+   "round": 23,
+   "questionNum": 4,
+   "points": 10,
+   "body": "국토해양부의 부동산 실거래가 자료축적의 의의와 한계극복을 위한 감정평가사의 역할에 \n대해서 설명하시오.(10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "실거래가"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "10-1"
   },
@@ -94,6 +171,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "공시지가",
+    "표준지"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "10-1"
@@ -110,7 +192,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "담보평가",
+    "경매"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "10-1"
   },
@@ -126,23 +213,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
-   "answerFormat": "",
-   "subchapter": "10-1"
-  },
-  {
-   "id": "ki-theory-c10-r36-q2",
-   "subject": "감정평가이론",
-   "chapter": "10",
-   "source": "official",
-   "round": 36,
-   "questionNum": 2,
-   "points": 30,
-   "body": "“감정평가”란 토지등의 경제적 가치를 판정하여 그 결과를 가액(價額)으로 표시하는 \n것을 말한다. 다음 물음에 답하시오. (30점)\n물음 1) 감정평가의 정의(定義)에 규정된 ‘경제적 가치’와 ‘판정’의 의의를 각각 쓰시오. (10점)\n물음 2) 관련 법령에 따라 ‘복수(複數)감정평가’를 하는 공시지가평가, 보상평가, 재개발사업 종전\n자산평가의 경제적 가치 판정에 있어 유의할 점을 각각 쓰시오. \n (단, 감정평가 대상물건은 토지에 한함) (20점)\n<참고 사항>\n○ 공시지가평가: 「부동산 가격공시에 관한 법률」에 따른 표준지공시지가 조사 ㆍ 평가\n○ 보상평가: 「공익사업을 위한 토지 등의 취득 및 보상에 관한 법률」등 법령에 따라 \n 공익사업을 목적으로 취득하는 토지에 대한 손실보상을 위한 감정평가\n○ 재개발사업 종전자산평가: 「도시 및 주거환경정비법」에 따른 재개발사업의 관리 처분계획 \n수립과 관련된 종전자산의 감정평가",
-   "modelAnswer": "",
-   "modelAnswerSource": "",
-   "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "공시지가",
+    "표준지"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "10-1"
   }

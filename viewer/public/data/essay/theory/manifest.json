@@ -1,5 +1,5 @@
 {
- "built_at": "2026-06-06T03:29:10.463036+00:00",
+ "built_at": "2026-06-06T04:33:28.244274+00:00",
  "subject": "감정평가이론",
  "total": 154,
  "classified": 154,
@@ -8,34 +8,24 @@
    "id": "1",
    "title": "감정평가 기초·분류·절차",
    "file": "1.json",
-   "count": 42,
+   "count": 18,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [
     1,
-    6,
     7,
-    8,
-    10,
-    11,
-    12,
-    13,
     16,
-    17,
-    19,
     20,
     22,
     23,
     25,
-    28,
     29,
     30,
     31,
     32,
     33,
     34,
-    35,
-    36
+    35
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -50,23 +40,30 @@
    "id": "2",
    "title": "부동산 가치이론·가격형성",
    "file": "2.json",
-   "count": 18,
+   "count": 27,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [
     2,
     4,
     5,
+    6,
     8,
     10,
     11,
+    12,
     15,
+    16,
     17,
     18,
+    19,
     21,
     24,
+    28,
     29,
-    30
+    30,
+    33,
+    34
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -81,7 +78,7 @@
    "id": "3",
    "title": "가격제원칙·시장론·시장분석",
    "file": "3.json",
-   "count": 24,
+   "count": 25,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [
@@ -93,10 +90,11 @@
     8,
     9,
     10,
+    11,
     12,
     13,
     14,
-    16,
+    19,
     22,
     24,
     25,
@@ -149,12 +147,13 @@
    "id": "5",
    "title": "원가법",
    "file": "5.json",
-   "count": 3,
+   "count": 4,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [
     7,
     9,
+    17,
     35
    ],
    "generatedCount": 0,
@@ -170,7 +169,7 @@
    "id": "6",
    "title": "수익환원법",
    "file": "6.json",
-   "count": 7,
+   "count": 6,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [
@@ -178,7 +177,6 @@
     9,
     10,
     13,
-    18,
     33,
     34
    ],
@@ -195,7 +193,7 @@
    "id": "7",
    "title": "기타방식·임료",
    "file": "7.json",
-   "count": 5,
+   "count": 8,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [
@@ -203,7 +201,10 @@
     2,
     6,
     7,
-    9
+    9,
+    10,
+    20,
+    23
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -218,7 +219,7 @@
    "id": "8",
    "title": "기업가치·물건별 평가",
    "file": "8.json",
-   "count": 31,
+   "count": 39,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [
@@ -234,17 +235,22 @@
     14,
     15,
     16,
+    17,
     18,
     19,
+    20,
     21,
+    22,
     24,
     25,
     26,
     27,
     28,
     30,
+    31,
     33,
-    35
+    35,
+    36
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -259,13 +265,14 @@
    "id": "9",
    "title": "부동산투자·금융론",
    "file": "9.json",
-   "count": 3,
+   "count": 4,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [
     11,
     12,
-    14
+    14,
+    36
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -280,18 +287,17 @@
    "id": "10",
    "title": "부동산정책론·기타논점",
    "file": "10.json",
-   "count": 8,
+   "count": 10,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [
     16,
     18,
-    19,
     20,
+    23,
     24,
     26,
-    31,
-    36
+    31
    ],
    "generatedCount": 0,
    "subchapters": [

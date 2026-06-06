@@ -1,26 +1,33 @@
 {
- "built_at": "2026-06-06T03:29:10.463036+00:00",
+ "built_at": "2026-06-06T04:33:28.244274+00:00",
  "subject": "감정평가이론",
  "chapter": "2",
  "chapterTitle": "부동산 가치이론·가격형성",
  "source": "official",
- "count": 18,
+ "count": 27,
  "withAnswer": 0,
  "matchedAnswer": 0,
  "rounds": [
   2,
   4,
   5,
+  6,
   8,
   10,
   11,
+  12,
   15,
+  16,
   17,
   18,
+  19,
   21,
   24,
+  28,
   29,
-  30
+  30,
+  33,
+  34
  ],
  "questions": [
   {
@@ -35,7 +42,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "지대"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -51,7 +62,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "지역분석",
+    "개별분석"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -67,6 +83,30 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "가치이론"
+   ],
+   "level": 5,
+   "difficulty": 5,
+   "answerFormat": "",
+   "subchapter": "2-1"
+  },
+  {
+   "id": "ki-theory-c2-r6-q2",
+   "subject": "감정평가이론",
+   "chapter": "2",
+   "source": "official",
+   "round": 6,
+   "questionNum": 2,
+   "points": 30,
+   "body": "정상가격과 지가공시법상 규정한 적정가격의 개념을 비교하여 논하시오.(30점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "정상가격과"
+   ],
+   "level": 4,
    "difficulty": 4,
    "answerFormat": "",
    "subchapter": "2-1"
@@ -83,7 +123,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "희소성"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -99,7 +143,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "가격형성"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -115,7 +163,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "위치지대",
+    "지대"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -131,6 +184,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "지역분석",
+    "개별분석"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "2-1"
@@ -147,7 +205,31 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "지대"
+   ],
+   "level": 2,
+   "difficulty": 2,
+   "answerFormat": "",
+   "subchapter": "2-1"
+  },
+  {
+   "id": "ki-theory-c2-r12-q4",
+   "subject": "감정평가이론",
+   "chapter": "2",
+   "source": "official",
+   "round": 12,
+   "questionNum": 4,
+   "points": 10,
+   "body": "다음 사항을 약술하시오.(각 10점)\n(1) 경제적 감가수정\n(2) 감정평가시 기준시점의 필요성\n(3) 자본회수율과 자본회수방법\n(4) 인근지역의 Age-cycle의 단계별 부동산 감정평가시 유의점",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "인근지역"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -163,7 +245,51 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "입지"
+   ],
+   "level": 2,
+   "difficulty": 2,
+   "answerFormat": "",
+   "subchapter": "2-1"
+  },
+  {
+   "id": "ki-theory-c2-r16-q4",
+   "subject": "감정평가이론",
+   "chapter": "2",
+   "source": "official",
+   "round": 16,
+   "questionNum": 4,
+   "points": 10,
+   "body": "감정평가사 김씨는 K은행으로부터 대상부동산에 대한 담보감정평가를 의뢰받았다. \n감정평가사 김씨는 현장조사 및 자료분석을 통하여 아래와 같은 자료를 수집하였다. 아래 대상\n부동산의 시장분석자료를 근거로 감정평가사 김씨가 K은행 대출 담당자에게 담보가격의 결정\n에 대한 이론적 근거에 대해 부동산 가격제원칙을 중심으로 기술하시오. (10점)\n[ 대상부동산 ]\n 서울시 00구 00동 XXX-X번지 AA빌라 3층 301호 100평형\n· 대상부동산 분양예정가 : 10억\n[ 현장조사 및 자료분석내용 ]\n· 분양성검토 : 대형평형으로 인해 인근지역내에서 분양성 악화가 우려됨.\n· 인근지역의 표준적 이용상황 : 40~50평형\n· 인근지역의 담보평가가격수준 : 3.6억 ~ 4.5억원\n· 거래가능가격(표준적이용상황기준) : 평형당 1,000만원",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "인근지역"
+   ],
+   "level": 2,
+   "difficulty": 2,
+   "answerFormat": "",
+   "subchapter": "2-1"
+  },
+  {
+   "id": "ki-theory-c2-r16-q5",
+   "subject": "감정평가이론",
+   "chapter": "2",
+   "source": "official",
+   "round": 16,
+   "questionNum": 5,
+   "points": 10,
+   "body": "인근지역의 개념, 요건 및 경계와 범위를 설명하시오.(10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "인근지역"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -179,7 +305,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "가격형성",
+    "가격형성요인"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -195,7 +326,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "투자가치"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -211,7 +346,31 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "가격형성"
+   ],
+   "level": 3,
    "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "2-1"
+  },
+  {
+   "id": "ki-theory-c2-r18-q1",
+   "subject": "감정평가이론",
+   "chapter": "2",
+   "source": "official",
+   "round": 18,
+   "questionNum": 1,
+   "points": 30,
+   "body": "개별부동산을 평가함에 있어 통계적 평가방법에 의한 가격이 전통적인 감정평가3방\n식에 의한 가격보다 정상가격과의 차이가 크게 나타날 가능성이 있다. 그 이유를 설명하시오.\n(30점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "정상가격과"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -227,7 +386,32 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "지역분석",
+    "개별분석"
+   ],
+   "level": 3,
    "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "2-1"
+  },
+  {
+   "id": "ki-theory-c2-r19-q4",
+   "subject": "감정평가이론",
+   "chapter": "2",
+   "source": "official",
+   "round": 19,
+   "questionNum": 4,
+   "points": 10,
+   "body": "부동산 가격공시 및 감정평가에 관한 법률의 표준지 공시지가를 기준으로 평가한 보상\n평가가격과 적정가격, 실거래가격과의 관계를 설명하시오.(10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "적정가격"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -243,7 +427,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "가격형성",
+    "가격형성요인"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -259,7 +448,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "가격형성"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -275,7 +468,31 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "지역분석"
+   ],
+   "level": 4,
+   "difficulty": 4,
+   "answerFormat": "",
+   "subchapter": "2-1"
+  },
+  {
+   "id": "ki-theory-c2-r28-q1",
+   "subject": "감정평가이론",
+   "chapter": "2",
+   "source": "official",
+   "round": 28,
+   "questionNum": 1,
+   "points": 40,
+   "body": "제시된 자료를 참고하여 다음 물음에 답하시오.(40점)\n감정평가사 甲은 감정평가사 乙이 작성한 일반상업지역 내 업무용 부동산(대지면적 : 3,000\n㎡, 건물 : 30년 경과된 철근콘크리트조 6층)에 대한 감정평가서를 심사하고 있다. 동 감정평\n가서에 따르면, 인근지역은 일반적으로 대지면적 200㎡ ~ 500㎡ 내외 2층 규모의 상업용으\n로 이용되고 있으며, 최근 본건 부동산 인근에 본건과 대지면적이 유사한 토지에 20층 규모\n의 주거 및 상업 복합용도 부동산이 신축되어 입주(점) 중에 있는 것으로 조사되어 있다. 검토\n결과 원가방식(면적 400㎡ 상업용 나대지의 최근 매매사례 단가를 적용한 토지가치에 물리\n적 감가수정만을 행한 건물가치 합산)에 의한 시산가치가 수익방식(현재 본건 계약임대료 기\n준)에 의한 시산가치보다 높게 산출되어 있다.\n(1) 심사 감정평가사 甲은 감정평가사 乙에게 추가적으로 최유효이용 분석을 요청하였는 바, \n 최유효이용 판단기준을 설명하고, 구체적인 최유효이용 분석방법을 설명하시오.(20점)\n(2) 최유효이용에 대한 두 가지 분석 유형(방법)에 따른 결과가 다르다면, 그 이유와 그것이 \n 의미하는 바를 설명하시오.(10점)\n(3) 원가방식에 의한 시산가치가 수익방식에 의한 시산가치보다 높게 산출된 것이 타당한 것인지 \n감정평가 원리(원칙)를 기준으로 설명하고, 올바른 원가방식 적용방법에 관하여 설명하시오.\n (10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "인근지역"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -291,7 +508,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "지역분석"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "2-1"
   },
@@ -307,7 +528,51 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "가치이론"
+   ],
+   "level": 4,
+   "difficulty": 4,
+   "answerFormat": "",
+   "subchapter": "2-1"
+  },
+  {
+   "id": "ki-theory-c2-r33-q3",
+   "subject": "감정평가이론",
+   "chapter": "2",
+   "source": "official",
+   "round": 33,
+   "questionNum": 3,
+   "points": 20,
+   "body": "다음 자료를 참고하여 물음에 답하시오.(20점)\n[ 자료 ]\n법원감정인인 감정평가사 甲은 손해배상(기) 사건에서 원고가 주장하는 손해액을 구하고 있다. \n본 사건 부동산(제2종일반주거지역<건폐율 60%, 용적률 200%>) 매매 당시 매수자인 원고\n는 부지 내에 차량 2대의 주차가 가능하다는 피고의 주장을 믿고 소유권이전을 완료하였으\n나, 부지 내의 공간(공지) 부족으로 현실적으로는 주차가 불가능함을 알게 되었다.\n현장조사 결과 대상 건물(연와조)의 외벽과 인접부동산 담장 사이에 공간이 일부 있으나 협소\n하여 주차가 불가능한 것으로 나타났다.\n기준시점 현재 대상 건물은 용적률 110%로 신축 후 50년이 경과하였으나 5년전 단독주택에\n서 근린생활시설(사무소)로 용도변경 허가를 받은 후 수선을 하여 경제적 잔존내용연수는 10\n년인 것으로 판단되었다.\n대상부동산의 인근지역은 기존주택지역에서 소규모 사무실로 변화하는 특성을 보이고 있고 \n현재 건물의 용도(이용상황)에 비추어 차량 2대의 주차공간 확보가 최유효이용에 해당한다고 \n조사되었다.\n물음 1) 이 사안에서 시장자료(market data)를 통하여 손해액을 구하기 위한 감정평가방법과 \n해당 감정평가방법의 유용성 및 한계점에 대하여 설명하시오.(10점)\n물음 2) 만일 물음 1)에서 시장자료(market data)를 구할 수 없는 경우, 적용 가능한 다른 감정\n평가방법들에 대하여 설명하고 이러한 접근방식을 따르는 경우 손해액의 상한은 어떻게 \n판단하는 것이 합리적인지 설명하시오. (10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "인근지역"
+   ],
+   "level": 3,
    "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "2-1"
+  },
+  {
+   "id": "ki-theory-c2-r34-q2",
+   "subject": "감정평가이론",
+   "chapter": "2",
+   "source": "official",
+   "round": 34,
+   "questionNum": 2,
+   "points": 30,
+   "body": "감정평가와 관련한 다음 물음에 답하시오. (30점)\n물음 1) 기준가치의 중요성에 대하여 설명하고, 택지비 목적의 감정평가서에 기재할 기준가치에 \n대하여 논하시오. (15점)\n물음 2) 감정평가사 甲은 한국감정평가사협회가 설치·운영하는 감정평가심사위원회의 심사위원\n으로서 택지비 목적의 감정평가서를 심사하고 있다. 감정평가서에 기재된 공시지가기준\n법상 그 밖의 요인 보정에 관한 내용은 다음의 표와 같으며, 甲은 심사결과 감정평가서의 \n보완이 필요하다고 판단하고 있다. 甲의 입장에서 공시지가기준법상 그 밖의 요인 보정에 \n있어 ‘지역요인 비교 내용의 적정성’에 대하여 세부 심사의견을 기술하시오. (15점)\n1) 그 밖의 요인 보정치 산정 방법 : 인근지역 또는 동일수급권 내 유사지역의 가치형성요인\n이 유사한 감정평가사례 중 적정한 비교사례를 선정하여 비교사례기준 비교표준지의 감\n정평가액과 비교표준지 공시지가에 시점수정을 한 가액의 비율을 기준으로 산정함\n2) 인근지역 또는 동일수급권 내 유사지역의 택지비 감정평가사례\n기호 소재지 및 지번 용도지역 이용상황 도로조건 면적\n(㎡)\n감정평가단가\n(원/㎡) 기준시점\n㉮ 서울특별시 \nA구 ㄱ동 65\n제3종\n일반주거 아파트 광대소각 234,000 18,900,000 2022. 08. 20\n㉯ 서울특별시 \nB구 ㄹ동 10\n제3종\n일반주거 아파트 광대소각 150,000 21,000,000 2022. 09. 20\n3) 비교사례의 선정 : 감정평가사례 중 비교표준지(A구 ㄱ동 5)와 지리적으로 근접하고(A구\n와 B구는 서로 인접함), 토지이용계획 및 감정평가목적이 동일하거나 유사하여 비교가능\n성이 높은 기호 ㉯를 비교사례로 선정하였음\n4) 시점수정치의 산정 : (감정평가서에 기재되어 있으나 생략함)\n \n53\n5) 지역요인의 비교\n조건 항목 세항목\n격차율\n비교내용\n사례 표준지\n가로조건 가로의 폭, 구조 등의 상태\n폭, 포장, 보도\n1.00 1.00 유사함\n계통 및 연속성\n접근조건\n도심과의 거리 및 \n교통시설의 상태\n인근교통시설의 편의성, \n인근교통시설의 도시중심 접근성\n1.00 1.20\n표준지는\n사례대비\n도시철도와의\n거리 및 \n편익시설 \n배치상태에서 \n우세함\n상가의 배치상태 인근상가의 편의성, 인근상가의 품격\n공공 및 편익시설의 배치상태 학교, 공원, 병원, 관공서 등\n환경조건\n기상조건, 자연환경 일조, 온도, 조망, 지반, 지질 등\n1.00 1.20\n표준지는 \n사례대비 \n조망 및 \n획지의 \n상태에서\n우세함\n사회환경 거주자의 직업, 학군 등\n획지의 상태 획지의 표준적인 면적, 획지의 정연성, \n주변의 이용상황 등\n공급 및 처리시설의 상태 상수도, 하수도, 도시가스 등\n위험 및 혐오시설 변전소 등의 유무, 특별고압선 등의 통과 유무\n재해발생 위험성, \n공해발생의 정도 홍수, 절벽붕괴, 소음, 대기오염 등\n행정적\n조건 행정상의 규제정도\n용도지역, 지구, 구역 등\n1.00 1.00 유사함\n기타 규제\n기타조건 기타 장래의 동향, 기타 1.00 1.00 유사함\n합계 1.00 1.44\n6) 개별요인의 비교 : (감정평가서에 기재되어 있으나 생략함)\n7) 그 밖의 요인 보정치의 산정 : (감정평가서에 기재되어 있으나 생략함)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "인근지역"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "2-1"
   }

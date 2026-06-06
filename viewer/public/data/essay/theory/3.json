@@ -1,10 +1,10 @@
 {
- "built_at": "2026-06-06T03:29:10.463036+00:00",
+ "built_at": "2026-06-06T04:33:28.244274+00:00",
  "subject": "감정평가이론",
  "chapter": "3",
  "chapterTitle": "가격제원칙·시장론·시장분석",
  "source": "official",
- "count": 24,
+ "count": 25,
  "withAnswer": 0,
  "matchedAnswer": 0,
  "rounds": [
@@ -16,10 +16,11 @@
   8,
   9,
   10,
+  11,
   12,
   13,
   14,
-  16,
+  19,
   22,
   24,
   25,
@@ -42,7 +43,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "부동산시장"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -58,7 +63,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "최유효이용"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -74,6 +83,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "경기변동"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "3-1"
@@ -90,7 +103,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "최유효이용",
+    "예측의 원칙"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -106,6 +124,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "최유효이용"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "3-1"
@@ -122,6 +144,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "경기변동"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "3-1"
@@ -138,7 +164,31 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "최유효이용"
+   ],
+   "level": 3,
    "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "3-1"
+  },
+  {
+   "id": "ki-theory-c3-r8-q5",
+   "subject": "감정평가이론",
+   "chapter": "3",
+   "source": "official",
+   "round": 8,
+   "questionNum": 5,
+   "points": 10,
+   "body": "도시지역에서 TOPEKA현상을 설명하시오.(10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "TOPEKA"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -154,7 +204,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "시장흡수율",
+    "흡수율"
+   ],
+   "level": 1,
+   "difficulty": 1,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -170,6 +225,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "부동산시장"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "3-1"
@@ -186,6 +245,31 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "시장분석",
+    "시장성"
+   ],
+   "level": 2,
+   "difficulty": 2,
+   "answerFormat": "",
+   "subchapter": "3-1"
+  },
+  {
+   "id": "ki-theory-c3-r11-q6",
+   "subject": "감정평가이론",
+   "chapter": "3",
+   "source": "official",
+   "round": 11,
+   "questionNum": 6,
+   "points": 15,
+   "body": "다음의 용어에 대하여 약술하시오.(15점)\n(1) Reilly의 소매인력법칙\n(2) 복합불황\n(3) 주택여과현상",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "소매인력"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "3-1"
@@ -202,6 +286,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "대체의 원칙"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "3-1"
@@ -218,6 +306,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "최유효이용"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "3-1"
@@ -234,23 +326,32 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "시장분석",
+    "시장성"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "3-1"
   },
   {
-   "id": "ki-theory-c3-r16-q4",
+   "id": "ki-theory-c3-r19-q5",
    "subject": "감정평가이론",
    "chapter": "3",
    "source": "official",
-   "round": 16,
-   "questionNum": 4,
+   "round": 19,
+   "questionNum": 5,
    "points": 10,
-   "body": "감정평가사 김씨는 K은행으로부터 대상부동산에 대한 담보감정평가를 의뢰받았다. \n감정평가사 김씨는 현장조사 및 자료분석을 통하여 아래와 같은 자료를 수집하였다. 아래 대상\n부동산의 시장분석자료를 근거로 감정평가사 김씨가 K은행 대출 담당자에게 담보가격의 결정\n에 대한 이론적 근거에 대해 부동산 가격제원칙을 중심으로 기술하시오. (10점)\n[ 대상부동산 ]\n 서울시 00구 00동 XXX-X번지 AA빌라 3층 301호 100평형\n· 대상부동산 분양예정가 : 10억\n[ 현장조사 및 자료분석내용 ]\n· 분양성검토 : 대형평형으로 인해 인근지역내에서 분양성 악화가 우려됨.\n· 인근지역의 표준적 이용상황 : 40~50평형\n· 인근지역의 담보평가가격수준 : 3.6억 ~ 4.5억원\n· 거래가능가격(표준적이용상황기준) : 평형당 1,000만원",
+   "body": "상권분석에서 일반적으로 사용되는 허프(Huff)모형의 원리와 실무 적용상의 장단점을 \n설명하시오.(10점)",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "허프"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -266,7 +367,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "최유효이용"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -282,7 +387,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "최유효이용",
+    "부동산시장"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -298,7 +408,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "부동산시장"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -314,7 +428,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "부동산시장"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -330,7 +448,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "부동산시장"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -346,7 +468,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "최유효이용"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -362,7 +488,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "경기변동",
+    "부동산시장"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "3-1"
   },
@@ -378,22 +509,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
-   "answerFormat": "",
-   "subchapter": "3-1"
-  },
-  {
-   "id": "ki-theory-c3-r36-q3",
-   "subject": "감정평가이론",
-   "chapter": "3",
-   "source": "official",
-   "round": 36,
-   "questionNum": 3,
-   "points": 20,
-   "body": "감정평가와 관련한 다음 물음에 답하시오. (20점)\n물음 1) 부동산 프로젝트 파이낸싱(Project Financing, PF)의 개념과 특징을 설명 하고, 부동산시장 \n침체기에서 PF사업의 부실위험이 증가하는 요인을 쓰시오. (10점)\n물음 2) 부동산시장 침체기의 감정평가에서 거래사례비교법을 적용할 때 발생할수 있는 문제점과 \n대응방안에 대해 논하시오. (10점)",
-   "modelAnswer": "",
-   "modelAnswerSource": "",
-   "keyPoints": [],
+   "logicalPoints": [
+    "최유효이용"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "3-1"
@@ -410,7 +529,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "부동산시장"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "3-1"
   }

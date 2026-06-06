@@ -1,15 +1,16 @@
 {
- "built_at": "2026-06-06T03:29:10.463036+00:00",
+ "built_at": "2026-06-06T04:33:28.244274+00:00",
  "subject": "감정평가이론",
  "chapter": "5",
  "chapterTitle": "원가법",
  "source": "official",
- "count": 3,
+ "count": 4,
  "withAnswer": 0,
  "matchedAnswer": 0,
  "rounds": [
   7,
   9,
+  17,
   35
  ],
  "questions": [
@@ -25,6 +26,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "기능적 감가"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "5-1"
@@ -41,7 +46,33 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "원가법",
+    "감가수정",
+    "내용연수"
+   ],
+   "level": 3,
    "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "5-1"
+  },
+  {
+   "id": "ki-theory-c5-r17-q4",
+   "subject": "감정평가이론",
+   "chapter": "5",
+   "source": "official",
+   "round": 17,
+   "questionNum": 4,
+   "points": 10,
+   "body": "건물의 치유불가능한 기능적 감가의 개념과 사례를 기술하고, 이 경우 감정평가시 고려\n해야 할 사항에 대하여 설명하시오.(10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "기능적 감가"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "5-1"
   },
@@ -57,7 +88,13 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "원가법",
+    "재조달원가",
+    "감가수정"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "5-1"
   }

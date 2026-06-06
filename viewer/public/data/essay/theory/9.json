@@ -1,16 +1,17 @@
 {
- "built_at": "2026-06-06T03:29:10.463036+00:00",
+ "built_at": "2026-06-06T04:33:28.244274+00:00",
  "subject": "감정평가이론",
  "chapter": "9",
  "chapterTitle": "부동산투자·금융론",
  "source": "official",
- "count": 3,
+ "count": 4,
  "withAnswer": 0,
  "matchedAnswer": 0,
  "rounds": [
   11,
   12,
-  14
+  14,
+  36
  ],
  "questions": [
   {
@@ -25,7 +26,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "포트폴리오"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "9-1"
   },
@@ -41,6 +46,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "REITs",
+    "부동산투자"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "9-1"
@@ -57,6 +67,32 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "수익률",
+    "부동산투자"
+   ],
+   "level": 3,
+   "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "9-1"
+  },
+  {
+   "id": "ki-theory-c9-r36-q3",
+   "subject": "감정평가이론",
+   "chapter": "9",
+   "source": "official",
+   "round": 36,
+   "questionNum": 3,
+   "points": 20,
+   "body": "감정평가와 관련한 다음 물음에 답하시오. (20점)\n물음 1) 부동산 프로젝트 파이낸싱(Project Financing, PF)의 개념과 특징을 설명 하고, 부동산시장 \n침체기에서 PF사업의 부실위험이 증가하는 요인을 쓰시오. (10점)\n물음 2) 부동산시장 침체기의 감정평가에서 거래사례비교법을 적용할 때 발생할수 있는 문제점과 \n대응방안에 대해 논하시오. (10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "Project Financing",
+    "PF"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "9-1"

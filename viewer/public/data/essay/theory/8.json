@@ -1,10 +1,10 @@
 {
- "built_at": "2026-06-06T03:29:10.463036+00:00",
+ "built_at": "2026-06-06T04:33:28.244274+00:00",
  "subject": "감정평가이론",
  "chapter": "8",
  "chapterTitle": "기업가치·물건별 평가",
  "source": "official",
- "count": 31,
+ "count": 39,
  "withAnswer": 0,
  "matchedAnswer": 0,
  "rounds": [
@@ -20,17 +20,22 @@
   14,
   15,
   16,
+  17,
   18,
   19,
+  20,
   21,
+  22,
   24,
   25,
   26,
   27,
   28,
   30,
+  31,
   33,
-  35
+  35,
+  36
  ],
  "questions": [
   {
@@ -45,7 +50,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -57,10 +66,14 @@
    "round": 5,
    "questionNum": 2,
    "points": 20,
-   "body": "공장의 감정평가방법(20점)",
+   "body": "「공장의 감정평가방법」에 관하여 약술하시오. (20점)",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "공장"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -77,7 +90,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -93,6 +110,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산",
+    "구분소유"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -109,6 +131,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "영업권"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -125,7 +151,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -141,7 +171,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -157,7 +191,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -173,6 +211,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -189,6 +231,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "타당성"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -205,6 +251,30 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 3,
+   "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "8-1"
+  },
+  {
+   "id": "ki-theory-c8-r13-q4",
+   "subject": "감정평가이론",
+   "chapter": "8",
+   "source": "official",
+   "round": 13,
+   "questionNum": 4,
+   "points": 20,
+   "body": "다음을 약술하시오.(20점)\n(1) 건부감가의 판단기준과 산출방법\n(2) 용어설명\n① Project Financing\n② Sensitivity Analysis",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "건부감가"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -221,6 +291,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -237,6 +311,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -253,6 +331,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -269,6 +351,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -285,7 +371,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -301,23 +391,53 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산",
+    "소음",
+    "오염"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
   },
   {
-   "id": "ki-theory-c8-r18-q1",
+   "id": "ki-theory-c8-r17-q5",
+   "subject": "감정평가이론",
+   "chapter": "8",
+   "source": "official",
+   "round": 17,
+   "questionNum": 5,
+   "points": 10,
+   "body": "다음 사항을 약술하시오.(10점)\n(1) 비상장주식의 평가(5점)\n(2) 사모주식펀드(PEF : Private Equity Fund) (5점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "비상장주식"
+   ],
+   "level": 2,
+   "difficulty": 2,
+   "answerFormat": "",
+   "subchapter": "8-1"
+  },
+  {
+   "id": "ki-theory-c8-r18-q4",
    "subject": "감정평가이론",
    "chapter": "8",
    "source": "official",
    "round": 18,
-   "questionNum": 1,
+   "questionNum": 4,
    "points": 30,
-   "body": "개별부동산을 평가함에 있어 통계적 평가방법에 의한 가격이 전통적인 감정평가3방\n식에 의한 가격보다 정상가격과의 차이가 크게 나타날 가능성이 있다. 그 이유를 설명하시오.\n(30점)",
+   "body": "다음 사항을 약술하시오.(30점)\n(1) 공적평가에서 복수평가의 필요성(10점)\n(2) 동적DCF분석법과 정적DCF분석법의 비교(10점)\n(3) 건부증가와 건부감가의 성립논리(10점)",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "건부감가"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -333,6 +453,10 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -349,6 +473,30 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "무형자산"
+   ],
+   "level": 3,
+   "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "8-1"
+  },
+  {
+   "id": "ki-theory-c8-r20-q3",
+   "subject": "감정평가이론",
+   "chapter": "8",
+   "source": "official",
+   "round": 20,
+   "questionNum": 3,
+   "points": 20,
+   "body": "일단지평가에 관한 다음 물음에 답하시오.(20점)\n(1) 일단지의 개념과 판단시 고려할 사항에 대하여 설명하시오.(10점)\n(2) 일단지평가가 당해 토지가격에 미치는 영향을 설명하고, 일단지평가의 사례 3가지를 서술하시오.\n (10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "일단지"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -365,6 +513,32 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "특허",
+    "공장",
+    "타당성"
+   ],
+   "level": 4,
+   "difficulty": 4,
+   "answerFormat": "",
+   "subchapter": "8-1"
+  },
+  {
+   "id": "ki-theory-c8-r22-q3",
+   "subject": "감정평가이론",
+   "chapter": "8",
+   "source": "official",
+   "round": 22,
+   "questionNum": 3,
+   "points": 20,
+   "body": "정비사업은 도시환경을 개선하고 주거생활의 질을 높이는 것이 목적인데 그 중 주택\n재개발사업은 정비기반시설이 열악하고 노후*불량건축물이 밀접한 지역의 주거환경을 개선하기 \n위한 사업이다. 이에 관한 감정평가사의 역할이 중요한 바, 다음의 물음에 답하시오.(20점)\n(1) 주택재개발사업의 추진 단계별 목적에 따른 감정평가업무를 분류하고 설명하시오.(10점)\n(2) 종전자산(종전의 토지 또는 건축물)과 종후자산(분양예정인 대지 또는 건축물의 추산액)과\n의 관계를 설명하시오.(10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "정비사업"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -381,7 +555,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -397,7 +575,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "권리금"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -413,7 +595,13 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "동산",
+    "집합건물",
+    "타당성"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -429,7 +617,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "기업가치",
+    "무형자산"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -445,6 +638,32 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산",
+    "소음",
+    "오염"
+   ],
+   "level": 3,
+   "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "8-1"
+  },
+  {
+   "id": "ki-theory-c8-r28-q3",
+   "subject": "감정평가이론",
+   "chapter": "8",
+   "source": "official",
+   "round": 28,
+   "questionNum": 3,
+   "points": 20,
+   "body": "정비사업의 관리처분계획을 수립하기 위한 종후자산 감정평가에 대한 다음 물음에 \n답하시오.(20점)\n(1) 종후자산 감정평가의 기준가치에 관하여 설명하시오.(10점)\n(2) 종후자산 감정평가의 성격을 감정평가방식과 관련하여 설명하시오.(10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "정비사업"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -461,7 +680,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "권리금",
+    "영업권"
+   ],
+   "level": 2,
+   "difficulty": 2,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -477,6 +701,30 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
+   "logicalPoints": [
+    "동산"
+   ],
+   "level": 2,
+   "difficulty": 2,
+   "answerFormat": "",
+   "subchapter": "8-1"
+  },
+  {
+   "id": "ki-theory-c8-r31-q3",
+   "subject": "감정평가이론",
+   "chapter": "8",
+   "source": "official",
+   "round": 31,
+   "questionNum": 3,
+   "points": 20,
+   "body": "A 토지는 ○○재개발사업구역에 소재하고 있다. A 토지에 대하여 재개발사업의 절차상 \n종전자산의 감정평가를 하는 경우와 손실보상(현금청산)을 위한 감정평가를 하는 경우에 다음의 물\n음에 답하시오. (20점)\n(1) 각각의 감정평가에 있어 기준시점, 감정평가액의 성격 및 감정평가액 결정시 고려할 점에 관\n하여 설명하시오. (10점)\n(2) 각각의 감정평가에 있어 재개발사업으로 인한 개발이익의 반영여부에 관하여 설명하시오. \n(10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "종전자산"
+   ],
+   "level": 3,
    "difficulty": 3,
    "answerFormat": "",
    "subchapter": "8-1"
@@ -493,7 +741,11 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 4,
+   "logicalPoints": [
+    "지식재산"
+   ],
+   "level": 5,
+   "difficulty": 5,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -509,7 +761,12 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "동산",
+    "집합건물"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "8-1"
   },
@@ -525,7 +782,52 @@
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [],
-   "difficulty": 3,
+   "logicalPoints": [
+    "동산",
+    "환경"
+   ],
+   "level": 2,
+   "difficulty": 2,
+   "answerFormat": "",
+   "subchapter": "8-1"
+  },
+  {
+   "id": "ki-theory-c8-r36-q1",
+   "subject": "감정평가이론",
+   "chapter": "8",
+   "source": "official",
+   "round": 36,
+   "questionNum": 1,
+   "points": 40,
+   "body": "다음 자료를 참고하여 물음에 답하시오. (단, 각 물음은 서로 독립적임) (40점)\n1. 농업인인 甲은 거주 목적의 단독주택을 신축하기 위해 A광역시 B군에 소재하는 토지 2필\n지를 매수하고 소유권이전등기를 한 후, 건축비용 마련을 위해 금융회사에 담보대출을 \n 신청함 \n2. 매매계약일: 2024. 06. 01., 매매대금: 2억원, 소유권이전등기일: 2025. 06. 01.\n3. 매매대상토지의 내용은 다음과 같음(매매계약일 기준)\n4. 매매대상토지는 서로 접한 토지로서 자연취락과 인접한 남측하향 완경사지대에 위치함 \n5. 매도인은 매매대상토지를 하나의 대지로 하여 2023. 12. 01. 단독주택 건축허가를 받았고, \n건축공사에 착수하지는 않았음 \n6. 매매계약의 특약사항으로 매매대상토지에 소재하는 나무도 매매대상물건에 포함 되며, \n매도인은 건축허가와 관련된 일체의 권리에 대해 매수인에게 무상으로 양도하기로 함 \n7. 금융회사는 매매대상토지에 대해 감정평가사 乙에게 담보목적의 감정평가를 의뢰함 \n8. 기준시점(2025. 07. 01.) 현재 甲은 B군수로부터 건축관계자명의변경신고필증을 교부\n 받았음 \n9. 인근지역에 소재하는 단독주택의 표준적인 획지는 대지면적이 500㎡ 내외임\n구분 면적(㎡) 지목 용도지역 비고\n토지 1 200 과수원 자연\n녹지지역 수령 약 20년생 복숭아나무 15주 소재\n토지 2 300 임야 자연\n녹지지역 관상수로 식재한 수고 약 10m의 소나무 10주 소재\n \n59\n물음 1) 乙은 대상물건의 일단지 성립여부를 분석하고 있다. 일단지 성립을 긍정하는 입장에서 \n그 근거를 논하시오. (15점)\n물음 2) 乙은 대상물건의 최유효이용분석을 하고 있다. 최유효이용의 판정기준 중경제적 타당성\n여부를 분석할 때 검토해야 할 사항에 대해 쓰시오. (15점)\n물음 3) 乙은 본건 매매사례(거래사례)를 토대로 인근지역의 지가수준을 분석하고 있다. 이 경우 \n검토해야 할 사항에 대해 쓰시오. (10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "일단지"
+   ],
+   "level": 5,
+   "difficulty": 5,
+   "answerFormat": "",
+   "subchapter": "8-1"
+  },
+  {
+   "id": "ki-theory-c8-r36-q2",
+   "subject": "감정평가이론",
+   "chapter": "8",
+   "source": "official",
+   "round": 36,
+   "questionNum": 2,
+   "points": 30,
+   "body": "“감정평가”란 토지등의 경제적 가치를 판정하여 그 결과를 가액(價額)으로 표시하는 \n것을 말한다. 다음 물음에 답하시오. (30점)\n물음 1) 감정평가의 정의(定義)에 규정된 ‘경제적 가치’와 ‘판정’의 의의를 각각 쓰시오. (10점)\n물음 2) 관련 법령에 따라 ‘복수(複數)감정평가’를 하는 공시지가평가, 보상평가, 재개발사업 종전\n자산평가의 경제적 가치 판정에 있어 유의할 점을 각각 쓰시오. \n (단, 감정평가 대상물건은 토지에 한함) (20점)\n<참고 사항>\n○ 공시지가평가: 「부동산 가격공시에 관한 법률」에 따른 표준지공시지가 조사 ㆍ 평가\n○ 보상평가: 「공익사업을 위한 토지 등의 취득 및 보상에 관한 법률」등 법령에 따라 \n 공익사업을 목적으로 취득하는 토지에 대한 손실보상을 위한 감정평가\n○ 재개발사업 종전자산평가: 「도시 및 주거환경정비법」에 따른 재개발사업의 관리 처분계획 \n수립과 관련된 종전자산의 감정평가",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [],
+   "logicalPoints": [
+    "종전자산"
+   ],
+   "level": 4,
+   "difficulty": 4,
    "answerFormat": "",
    "subchapter": "8-1"
   }
