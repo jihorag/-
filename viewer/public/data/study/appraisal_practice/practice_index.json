@@ -1,0 +1,185 @@
+{
+ "subject": "appraisal_practice",
+ "source": "essay/practice (practice-set)",
+ "note": "AI 학습 토픽별 연습문제 인덱스. EssayMode 데이터(2a.json 등)에 source=practice-set로 존재.",
+ "topics": {
+  "2a-1": {
+   "title": "공시지가기준법 — 의의·산식",
+   "unitCode": "2a",
+   "total": 37,
+   "countsByLevel": {
+    "1": 37
+   },
+   "idsByLevel": {
+    "1": [
+     "pr-001-l1-1",
+     "pr-001-l1-10",
+     "pr-001-l1-11",
+     "pr-001-l1-12",
+     "pr-001-l1-13",
+     "pr-001-l1-14",
+     "pr-001-l1-15",
+     "pr-001-l1-16",
+     "pr-001-l1-17",
+     "pr-001-l1-18",
+     "pr-001-l1-19",
+     "pr-001-l1-2",
+     "pr-001-l1-21",
+     "pr-001-l1-27",
+     "pr-001-l1-34",
+     "pr-001-l1-35",
+     "pr-001-l1-36",
+     "pr-001-l1-37",
+     "pr-001-l1-38",
+     "pr-001-l1-39",
+     "pr-001-l1-40",
+     "pr-001-l1-41",
+     "pr-001-l1-43",
+     "pr-001-l1-44",
+     "pr-001-l1-45",
+     "pr-001-l1-48",
+     "pr-001-l1-49",
+     "pr-001-l1-50",
+     "pr-001-l2-10",
+     "pr-001-l2-11",
+     "pr-001-l2-14",
+     "pr-001-l2-15",
+     "pr-001-l2-4",
+     "pr-001-l2-9",
+     "pr-001-l3-7",
+     "pr-001-l3-8",
+     "pr-001-l3-9"
+    ]
+   },
+   "essayChapter": "2a"
+  },
+  "2a-2": {
+   "title": "비교표준지 선정 — 우선순위",
+   "unitCode": "2a",
+   "total": 11,
+   "countsByLevel": {
+    "1": 10,
+    "2": 1
+   },
+   "idsByLevel": {
+    "1": [
+     "pr-001-l1-20",
+     "pr-001-l1-3",
+     "pr-001-l1-31",
+     "pr-001-l1-32",
+     "pr-001-l1-33",
+     "pr-001-l1-4",
+     "pr-001-l2-6",
+     "pr-001-l2-7",
+     "pr-001-l3-1",
+     "pr-001-l3-6"
+    ],
+    "2": [
+     "pr-001-l2h-1"
+    ]
+   },
+   "essayChapter": "2a"
+  },
+  "2a-3": {
+   "title": "시점수정 — 지가변동률·생산자물가",
+   "unitCode": "2a",
+   "total": 9,
+   "countsByLevel": {
+    "1": 7,
+    "2": 1,
+    "3": 1
+   },
+   "idsByLevel": {
+    "1": [
+     "pr-001-l1-22",
+     "pr-001-l1-23",
+     "pr-001-l1-28",
+     "pr-001-l1-5",
+     "pr-001-l2-12",
+     "pr-001-l2-2",
+     "pr-001-l3-4"
+    ],
+    "2": [
+     "pr-001-l2h-2"
+    ],
+    "3": [
+     "pr-001-l3h-1"
+    ]
+   },
+   "essayChapter": "2a"
+  },
+  "2a-4": {
+   "title": "지역요인 비교",
+   "unitCode": "2a",
+   "total": 2,
+   "countsByLevel": {
+    "1": 2
+   },
+   "idsByLevel": {
+    "1": [
+     "pr-001-l1-6",
+     "pr-001-l2-3"
+    ]
+   },
+   "essayChapter": "2a"
+  },
+  "2a-5": {
+   "title": "개별요인 비교 — 격자형 정리",
+   "unitCode": "2a",
+   "total": 8,
+   "countsByLevel": {
+    "1": 8
+   },
+   "idsByLevel": {
+    "1": [
+     "pr-001-l1-24",
+     "pr-001-l1-25",
+     "pr-001-l1-29",
+     "pr-001-l1-46",
+     "pr-001-l1-47",
+     "pr-001-l1-7",
+     "pr-001-l2-8",
+     "pr-001-l3-5"
+    ]
+   },
+   "essayChapter": "2a"
+  },
+  "2a-6": {
+   "title": "그밖의 요인 보정 — 산정·검증",
+   "unitCode": "2a",
+   "total": 9,
+   "countsByLevel": {
+    "1": 9
+   },
+   "idsByLevel": {
+    "1": [
+     "pr-001-l1-26",
+     "pr-001-l1-30",
+     "pr-001-l1-42",
+     "pr-001-l1-8",
+     "pr-001-l1-9",
+     "pr-001-l2-13",
+     "pr-001-l2-5",
+     "pr-001-l3-2",
+     "pr-001-l3-3"
+    ]
+   },
+   "essayChapter": "2a"
+  },
+  "2a-7": {
+   "title": "거래사례비교법 — 사례 선택·배제",
+   "unitCode": "2a",
+   "total": 2,
+   "countsByLevel": {
+    "1": 2
+   },
+   "idsByLevel": {
+    "1": [
+     "pr-001-l2-1",
+     "pr-001-l3-10"
+    ]
+   },
+   "essayChapter": "2a"
+  }
+ }
+}
