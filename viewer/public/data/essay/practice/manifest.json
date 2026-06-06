@@ -1,7 +1,7 @@
 {
  "built_at": "2026-05-31T06:04:01.250547+00:00",
  "subject": "감정평가실무",
- "total": 1065,
+ "total": 1080,
  "chapters": [
   {
    "id": "kichul",
@@ -20,7 +20,7 @@
    "id": "2a",
    "title": "3방식기초 공시지가·거래사례·원가",
    "file": "2a.json",
-   "count": 17,
+   "count": 19,
    "withAnswer": 318,
    "matchedAnswer": 304,
    "rounds": [
@@ -205,7 +205,7 @@
    "id": "3",
    "title": "건물·복합·구분·임대료",
    "file": "3.json",
-   "count": 11,
+   "count": 14,
    "withAnswer": 267,
    "matchedAnswer": 61,
    "rounds": [
@@ -321,7 +321,7 @@
    "id": "4",
    "title": "유형별 평가",
    "file": "4.json",
-   "count": 6,
+   "count": 7,
    "withAnswer": 252,
    "matchedAnswer": 4,
    "rounds": [
@@ -340,7 +340,7 @@
    "id": "5",
    "title": "비가치추계·기업가치·무형자산",
    "file": "5.json",
-   "count": 11,
+   "count": 13,
    "withAnswer": 266,
    "matchedAnswer": 34,
    "rounds": [
@@ -391,7 +391,7 @@
    "id": "6a",
    "title": "토지보상 기본·원칙",
    "file": "6a.json",
-   "count": 13,
+   "count": 14,
    "withAnswer": 260,
    "matchedAnswer": 22,
    "rounds": [
@@ -466,7 +466,7 @@
    "id": "7",
    "title": "건축물·영업·기타 보상",
    "file": "7.json",
-   "count": 6,
+   "count": 8,
    "withAnswer": 259,
    "matchedAnswer": 13,
    "rounds": [
@@ -515,7 +515,7 @@
    "id": "8a",
    "title": "목적별 평가",
    "file": "8a.json",
-   "count": 6,
+   "count": 9,
    "withAnswer": 258,
    "matchedAnswer": 18,
    "rounds": [
@@ -562,7 +562,7 @@
    "id": "8b",
    "title": "표준지·정비·불의타",
    "file": "8b.json",
-   "count": 4,
+   "count": 5,
    "withAnswer": 251,
    "matchedAnswer": 7,
    "rounds": [
