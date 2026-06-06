@@ -17,6 +17,7 @@ import { getProviderForModel } from './aiProviders';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
 import { ParsedText } from './ParsedText';
+import { SpeakButton } from './Speech';
 import { useScrollLock } from './uiHooks';
 import {
   getStudyPlan, setSubjectTarget, addAbandoned, removeAbandoned,
@@ -742,8 +743,12 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
         const accent = !hasAnswer ? '#6b7280' : (correct ? '#16a34a' : '#ef4444');
         return (
           <div className="result-box" style={{ padding: '16px', background: '#f3f4f6', borderRadius: '8px', borderLeft: `4px solid ${accent}` }}>
-            <div style={{ fontWeight: '700', marginBottom: q.explanation ? '8px' : '0', fontSize: '0.95rem', display: 'flex', justifyContent: 'space-between' }}>
-              <span>{q.explanation ? '해설' : '결과'}</span>
+            <div style={{ fontWeight: '700', marginBottom: q.explanation ? '8px' : '0', fontSize: '0.95rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                {q.explanation ? '해설' : '결과'}
+                {/* 청각 복습 — 해설 읽어주기 (이동 중 듣기) */}
+                {q.explanation && <SpeakButton text={`${q.question}. 해설. ${q.explanation}`} />}
+              </span>
               <span style={{ color: accent }}>
                 {!hasAnswer ? 'ℹ 공식 정답 미공개 · 해설로 학습' : (correct ? '✓ 정답입니다!' : '✕ 오답입니다.')}
               </span>
