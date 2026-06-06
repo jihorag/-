@@ -18,6 +18,19 @@ import MockExam from './MockExam';
 import EssayMode from './EssayMode';
 import { ParsedText } from './ParsedText';
 import { useScrollLock } from './uiHooks';
+import {
+  getStudyPlan, setSubjectTarget, addAbandoned, removeAbandoned,
+  getTimerLogs, addTimerLog, getGyeomsanStats, bumpGyeomsan,
+  getConfidence, setConfidence, getConfidenceMap,
+} from './studyMeta';
+// 셀프진단 신뢰도 라벨 메타
+const CONF_META = {
+  know: { label: '안다', icon: '✓', color: '#16a34a', bg: '#dcfce7' },
+  fuzzy: { label: '애매', icon: '~', color: '#b45309', bg: '#fef3c7' },
+  unknown: { label: '모른다', icon: '✗', color: '#dc2626', bg: '#fee2e2' },
+};
+const CONF_CYCLE = [null, 'know', 'fuzzy', 'unknown'];
+const CALC_SUBJECTS = ['경제학원론', '회계학']; // 검산 리마인더 대상(계산 과목)
 
 // ===== 사용자 데이터 관리 (백업/복원/초기화) =====
 // 모든 학습 상태는 localStorage 의 quiz-* 키에 저장됨. 계정 동기화의 단일 레이어.
@@ -586,6 +599,16 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
   const isRevealed = selectedOpt !== null;
   const hasAnswer = !!q.answerNorm;          // 정답 정보가 유효한 문항인가
   const noOptions = !q.options || q.options.length === 0;
+  // ★4 셀프진단 신뢰도 라벨 (문항별 안다/애매/모른다) — 자기완결 localStorage
+  const [conf, setConf] = useState(() => getConfidence(qid(q)));
+  const cycleConf = () => {
+    const i = CONF_CYCLE.indexOf(conf);
+    const next = CONF_CYCLE[(i + 1) % CONF_CYCLE.length];
+    setConf(next); setConfidence(qid(q), next);
+  };
+  // ★2 검산 — 계산 과목에서 검산 자기보고 (한 번만)
+  const isCalc = CALC_SUBJECTS.includes(q.taxSubjectName);
+  const [gyeomLogged, setGyeomLogged] = useState(false);
 
   const handleOptionClick = (optIdx) => {
     if (isRevealed) return; // 응답 후 변경 방지
@@ -728,12 +751,236 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
             {q.explanation
               ? <div className="q-exp" style={{ lineHeight: '1.6', color: '#4b5563' }}><ParsedText text={q.explanation} /></div>
               : (hasAnswer && <div style={{ fontSize: '0.9rem', color: '#6b7280' }}>정답: {q.answerNorm}번</div>)}
+            {/* ★4 셀프진단: 정말 알았나? 안다/애매/모른다 — '이해 착시' 깨기 */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '0.74rem', color: '#6b7280' }}>정말 알았나요?</span>
+              {['know', 'fuzzy', 'unknown'].map((k) => {
+                const m = CONF_META[k]; const on = conf === k;
+                return (
+                  <button key={k} onClick={() => { setConf(on ? null : k); setConfidence(qid(q), on ? null : k); }}
+                    style={{ padding: '4px 10px', borderRadius: 999, cursor: 'pointer', fontSize: '0.74rem', fontWeight: 700, minHeight: 30,
+                      border: `1px solid ${on ? m.color : '#e5e7eb'}`, background: on ? m.bg : '#fff', color: on ? m.color : '#9ca3af' }}>
+                    {m.icon} {m.label}
+                  </button>
+                );
+              })}
+              {conf && <span style={{ fontSize: '0.68rem', color: '#9ca3af' }}>· '애매/모른다'만 모아 다시 볼 수 있어요</span>}
+            </div>
+            {/* ★2 검산: 계산 과목은 다른 방식으로 검산했는지 자기보고 */}
+            {isCalc && (
+              gyeomLogged ? (
+                <div style={{ marginTop: 10, fontSize: '0.74rem', color: '#047857', fontWeight: 700 }}>✓ 검산 기록됨 — 현황 탭에서 적발률을 볼 수 있어요</div>
+              ) : (
+                <div style={{ marginTop: 10, padding: '8px 10px', background: '#fff7ed', border: '1px solid #fed7aa', borderRadius: 8 }}>
+                  <div style={{ fontSize: '0.74rem', color: '#9a3412', marginBottom: 6 }}>🧮 <b>다른 방식으로 검산</b>했나요? (역연산·괄호계산)</div>
+                  <div style={{ display: 'flex', gap: 6 }}>
+                    <button onClick={() => { bumpGyeomsan(false); setGyeomLogged(true); }}
+                      style={{ flex: 1, padding: '6px', borderRadius: 6, border: '1px solid #fdba74', background: '#fff', color: '#c2410c', fontWeight: 700, cursor: 'pointer', fontSize: '0.76rem', minHeight: 36 }}>검산함</button>
+                    <button onClick={() => { bumpGyeomsan(true); setGyeomLogged(true); }}
+                      style={{ flex: 1, padding: '6px', borderRadius: 6, border: 'none', background: '#ea580c', color: '#fff', fontWeight: 700, cursor: 'pointer', fontSize: '0.76rem', minHeight: 36 }}>실수 잡음</button>
+                  </div>
+                </div>
+              )
+            )}
           </div>
         );
       })()}
     </div>
   );
 };
+
+// ── 합격 전략 도구: 과목별 목표/버리기 보드 + 회독 타이머 + 검산 위젯 ──
+function StrategyTools({ stage1 }) {
+  const [tab, setTab] = useState('board'); // board | timer | check
+  const tabs = [['board', '🎯 목표·버리기'], ['timer', '⏱ 회독 타이머'], ['check', '🧮 검산']];
+  return (
+    <div style={{ border: '1px solid #e5e7eb', borderRadius: 14, background: '#fff', overflow: 'hidden', marginBottom: 16 }}>
+      <div style={{ display: 'flex', borderBottom: '1px solid #f3f4f6' }}>
+        {tabs.map(([k, label]) => (
+          <button key={k} onClick={() => setTab(k)}
+            style={{ flex: 1, padding: '10px 6px', border: 'none', cursor: 'pointer', fontSize: '0.82rem', fontWeight: 700,
+              background: tab === k ? '#eef2ff' : '#fff', color: tab === k ? '#4338ca' : '#6b7280',
+              borderBottom: tab === k ? '2px solid #4f46e5' : '2px solid transparent' }}>
+            {label}
+          </button>
+        ))}
+      </div>
+      <div style={{ padding: 14 }}>
+        {tab === 'board' && <TargetBoard stage1={stage1} />}
+        {tab === 'timer' && <RoundTimer />}
+        {tab === 'check' && <GyeomsanWidget />}
+      </div>
+    </div>
+  );
+}
+
+// ★1 과목별 목표점수·버리기 단원
+function TargetBoard({ stage1 }) {
+  const [plan, setPlan] = useState(getStudyPlan);
+  const [newAb, setNewAb] = useState({}); // {subject: text}
+  const subjects = (stage1 || []).map((x) => x.s.title);
+  return (
+    <div>
+      <div style={{ fontSize: '0.74rem', color: '#6b7280', marginBottom: 10 }}>
+        과목별 목표점수를 정하고, 전략적으로 버릴 단원을 적어두세요. (합격생 다수의 "버리기+목표점수" 전략)
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {stage1.map(({ s, quizAcc, quizScored }) => {
+          const subj = s.title;
+          const target = plan.targets[subj] ?? '';
+          const cur = quizAcc != null ? Math.round(quizAcc * 100) : null; // 추정 정답률(%)
+          const ab = plan.abandoned[subj] || [];
+          const meet = target !== '' && cur != null && cur >= Number(target);
+          return (
+            <div key={subj} style={{ border: '1px solid #f1f5f9', borderRadius: 10, padding: 10 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'space-between' }}>
+                <span style={{ fontWeight: 800, fontSize: '0.9rem', color: '#111827' }}>{subj}</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ fontSize: '0.72rem', color: '#9ca3af' }}>목표</span>
+                  <input type="number" inputMode="numeric" min={0} max={100}
+                    value={target}
+                    onChange={(e) => { const v = e.target.value; setPlan(setSubjectTarget(subj, v === '' ? '' : Math.max(0, Math.min(100, Number(v))))); }}
+                    placeholder="60"
+                    style={{ width: 52, padding: '4px 6px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '16px', textAlign: 'right' }} />
+                  <span style={{ fontSize: '0.72rem', color: '#9ca3af' }}>점</span>
+                </span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 8 }}>
+                <span style={{ fontSize: '0.7rem', color: '#6b7280', width: 60 }}>
+                  현재 {cur != null ? `${cur}%` : '–'}
+                </span>
+                <div style={{ flex: 1, height: 6, background: '#f3f4f6', borderRadius: 3, overflow: 'hidden', position: 'relative' }}>
+                  <div style={{ width: `${cur || 0}%`, height: '100%', background: meet ? '#16a34a' : '#4f46e5' }} />
+                  {target !== '' && (
+                    <div style={{ position: 'absolute', top: -2, left: `${Math.min(100, Number(target))}%`, width: 2, height: 10, background: '#ef4444' }} title={`목표 ${target}`} />
+                  )}
+                </div>
+                <span style={{ fontSize: '0.7rem', fontWeight: 700, color: meet ? '#16a34a' : '#9a3412', width: 44, textAlign: 'right' }}>
+                  {target === '' ? '' : (cur == null ? '–' : (meet ? '달성✓' : `${Number(target) - cur}↑`))}
+                </span>
+              </div>
+              {quizScored < 5 && <div style={{ fontSize: '0.66rem', color: '#9ca3af', marginTop: 3 }}>· 5문 이상 풀면 현재 정답률이 표시돼요</div>}
+              <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginTop: 8, alignItems: 'center' }}>
+                {ab.map((label) => (
+                  <span key={label} style={{ fontSize: '0.7rem', background: '#fef2f2', color: '#b91c1c', border: '1px solid #fecaca', borderRadius: 999, padding: '2px 8px', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                    버림: {label}
+                    <button onClick={() => setPlan(removeAbandoned(subj, label))} style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#b91c1c', padding: 0, fontSize: '0.8rem' }}>✕</button>
+                  </span>
+                ))}
+                <input value={newAb[subj] || ''}
+                  onChange={(e) => setNewAb((m) => ({ ...m, [subj]: e.target.value }))}
+                  onKeyDown={(e) => { if (e.key === 'Enter' && !e.nativeEvent.isComposing && (newAb[subj] || '').trim()) { setPlan(addAbandoned(subj, newAb[subj].trim())); setNewAb((m) => ({ ...m, [subj]: '' })); } }}
+                  placeholder="버릴 단원 +"
+                  style={{ width: 96, padding: '3px 8px', border: '1px dashed #d1d5db', borderRadius: 999, fontSize: '16px' }} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ★3 메타인지 회독 타이머
+function RoundTimer() {
+  const [running, setRunning] = useState(false);
+  const [startMs, setStartMs] = useState(0);
+  const [nowMs, setNowMs] = useState(0);
+  const [logs, setLogs] = useState(getTimerLogs);
+  const [pending, setPending] = useState(null); // {ms}
+  const [label, setLabel] = useState('회독');
+  const [items, setItems] = useState('');
+  useEffect(() => {
+    if (!running) return undefined;
+    const t = setInterval(() => setNowMs(Date.now()), 250);
+    return () => clearInterval(t);
+  }, [running]);
+  const fmt = (ms) => { const s = Math.floor(ms / 1000); return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; };
+  const elapsed = running ? nowMs - startMs : 0;
+  const start = () => { setStartMs(Date.now()); setNowMs(Date.now()); setRunning(true); };
+  const stop = () => { setRunning(false); setPending({ ms: Date.now() - startMs }); };
+  const save = () => {
+    setLogs(addTimerLog({ label: label || '회독', ms: pending.ms, items: Number(items) || 0 }));
+    setPending(null); setItems('');
+  };
+  const recent = logs.slice(-6).reverse();
+  return (
+    <div>
+      <div style={{ fontSize: '0.74rem', color: '#6b7280', marginBottom: 10 }}>
+        한 단원·회독에 걸린 시간을 재보세요. <b>시간이 줄어드는 것 = 숙달</b>의 객관적 신호예요.
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, justifyContent: 'center', padding: '8px 0' }}>
+        <span style={{ fontSize: '2rem', fontWeight: 800, fontVariantNumeric: 'tabular-nums', color: running ? '#4f46e5' : '#111827' }}>{fmt(elapsed)}</span>
+        {!running
+          ? <button onClick={start} style={{ padding: '8px 18px', borderRadius: 8, border: 'none', background: '#4f46e5', color: '#fff', fontWeight: 700, cursor: 'pointer', minHeight: 40 }}>▶ 시작</button>
+          : <button onClick={stop} style={{ padding: '8px 18px', borderRadius: 8, border: 'none', background: '#dc2626', color: '#fff', fontWeight: 700, cursor: 'pointer', minHeight: 40 }}>⏹ 정지</button>}
+      </div>
+      {pending && (
+        <div style={{ background: '#eef2ff', border: '1px solid #c7d2fe', borderRadius: 8, padding: 10, marginTop: 6 }}>
+          <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#4338ca', marginBottom: 6 }}>{fmt(pending.ms)} 기록</div>
+          <div style={{ display: 'flex', gap: 6 }}>
+            <input value={label} onChange={(e) => setLabel(e.target.value)} placeholder="단원/구간"
+              style={{ flex: 1, padding: '6px 8px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '16px' }} />
+            <input value={items} onChange={(e) => setItems(e.target.value)} placeholder="문항수" inputMode="numeric"
+              style={{ width: 70, padding: '6px 8px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '16px' }} />
+            <button onClick={save} style={{ padding: '6px 12px', borderRadius: 6, border: 'none', background: '#4f46e5', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>저장</button>
+          </div>
+        </div>
+      )}
+      {recent.length > 0 && (
+        <div style={{ marginTop: 12 }}>
+          <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#374151', marginBottom: 4 }}>최근 기록</div>
+          {recent.map((l, i) => {
+            const perItem = l.items > 0 ? l.ms / l.items : null;
+            return (
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#4b5563', padding: '3px 0', borderBottom: '1px solid #f3f4f6' }}>
+                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '50%' }}>{l.label}</span>
+                <span>{fmt(l.ms)}{perItem ? ` · ${(perItem / 1000).toFixed(1)}초/문` : ''}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ★2 검산 위젯 (자기보고 카운터)
+function GyeomsanWidget() {
+  const [s, setS] = useState(getGyeomsanStats);
+  const rate = s.checks > 0 ? Math.round((s.caught / s.checks) * 100) : 0;
+  return (
+    <div>
+      <div style={{ fontSize: '0.74rem', color: '#6b7280', marginBottom: 10 }}>
+        계산 문제는 <b>다른 방식으로 검산</b>하세요(같은 방식 재계산은 실수를 못 잡아요). 검산할 때마다 기록하면 실수 패턴이 보여요.
+      </div>
+      <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+        <div style={{ flex: 1, textAlign: 'center', background: '#f8fafc', borderRadius: 8, padding: '10px 0' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#4f46e5' }}>{s.checks}</div>
+          <div style={{ fontSize: '0.68rem', color: '#6b7280' }}>검산 횟수</div>
+        </div>
+        <div style={{ flex: 1, textAlign: 'center', background: '#fef2f2', borderRadius: 8, padding: '10px 0' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#dc2626' }}>{s.caught}</div>
+          <div style={{ fontSize: '0.68rem', color: '#6b7280' }}>실수 적발</div>
+        </div>
+        <div style={{ flex: 1, textAlign: 'center', background: '#fff7ed', borderRadius: 8, padding: '10px 0' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ea580c' }}>{rate}%</div>
+          <div style={{ fontSize: '0.68rem', color: '#6b7280' }}>적발률</div>
+        </div>
+      </div>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <button onClick={() => setS(bumpGyeomsan(false))}
+          style={{ flex: 1, padding: '10px', borderRadius: 8, border: '1px solid #c7d2fe', background: '#fff', color: '#4338ca', fontWeight: 700, cursor: 'pointer', minHeight: 44 }}>
+          ✓ 검산함 (이상 없음)
+        </button>
+        <button onClick={() => setS(bumpGyeomsan(true))}
+          style={{ flex: 1, padding: '10px', borderRadius: 8, border: 'none', background: '#dc2626', color: '#fff', fontWeight: 700, cursor: 'pointer', minHeight: 44 }}>
+          ⚠ 검산으로 실수 잡음
+        </button>
+      </div>
+    </div>
+  );
+}
 
 const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
@@ -3466,6 +3713,9 @@ const App = () => {
             {kpi(todoCount, '오늘 할 일', todoCount > 0 ? '#dc2626' : '#9ca3af')}
           </div>
 
+          {/* 합격 전략 도구 — 과목별 목표/버리기 보드 + 회독 타이머 + 검산 (합격 수기 기반) */}
+          {matrixStage1.length > 0 && <StrategyTools stage1={matrixStage1} />}
+
           {/* ②.5 합격 코치 + 5과목 레이더 — 종합 시각화 */}
           {coachUsed.readiness != null && (
             <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
@@ -4774,6 +5024,24 @@ const App = () => {
                   ▶ {rounds + 1}번째 회독 시작 ({wrongList.length}문)
                 </button>
               )}
+            </div>
+          );
+        })()}
+        {/* ★4 셀프진단 보충 — '애매/모른다' 라벨 문항만 모아 복습 */}
+        {(() => {
+          const cmap = getConfidenceMap();
+          const ids = classifiedList.filter((q) => { const c = cmap[qid(q)]; return c === 'fuzzy' || c === 'unknown'; });
+          if (ids.length === 0) return null;
+          return (
+            <div style={{ padding: '18px', marginTop: '12px', borderRadius: '12px', border: '1px solid #fde68a', background: '#fffbeb' }}>
+              <div style={{ fontWeight: 700, fontSize: '1.05rem', color: '#b45309' }}>🤔 셀프진단 보충 {ids.length}문제</div>
+              <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: '4px' }}>
+                스스로 '애매·모른다'로 표시한 문항만 모아 약점을 좁혀요 ('이해 착시' 깨기)
+              </div>
+              <button onClick={() => startReview(ids.map(qid), '셀프진단 보충 (애매·모른다)', 'reviewHome')}
+                style={{ marginTop: 12, width: '100%', padding: '11px', borderRadius: 8, border: 'none', background: '#d97706', color: '#fff', fontWeight: 700, fontSize: '0.9rem', cursor: 'pointer', minHeight: 44 }}>
+                ▶ 보충 학습 시작 ({ids.length}문)
+              </button>
             </div>
           );
         })()}
