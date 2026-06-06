@@ -236,13 +236,22 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     return candidates.slice(0, 3);
   };
 
+  // 없는 파일이면 dev 서버가 index.html(200)을 폴백으로 주므로, JSON 파싱 실패는 null 처리
+  const safeJson = async (url) => {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) return null;
+      return await r.json();          // HTML(<!doctype)이면 파싱 예외 → null
+    } catch { return null; }
+  };
+
   // ─────────── chapter 데이터 lazy fetch (official + generated 병합) ───────────
   const ensureChapter = useCallback(async (id) => {
     if (chapterCache[id]) return chapterCache[id];
     try {
       const [official, generated] = await Promise.all([
-        fetch(`${subj.dir}${id}.json`).then(r => r.ok ? r.json() : null),
-        fetch(`${subj.dir}${id}-generated.json`).then(r => r.ok ? r.json() : null),
+        safeJson(`${subj.dir}${id}.json`),
+        safeJson(`${subj.dir}${id}-generated.json`),
       ]);
       if (!official) throw new Error(`chapter ${id} not found`);
       const genQ = generated?.questions || [];
@@ -461,7 +470,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       </div>
       <main className="main-content" style={{ marginTop: 16 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          {manifest.chapters.map(c => {
+          {manifest.chapters.filter(c => (c.count || 0) > 0).map(c => {
             const cd = chapterCache[c.id];
             const done = cd ? cd.questions.filter(q => progress[q.id]?.attempts?.length).length : 0;
             const pct = c.count ? Math.round((done / c.count) * 100) : 0;
