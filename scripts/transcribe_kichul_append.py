@@ -219,45 +219,80 @@ Q_1_4_BODY = """【문제 4】 (10점) 보통상업지역내에 일면이 가로
 ③ 면적 보정률: 0.93
 ④ 30m 깊이 가격체감률: 0.93"""
 
+# 분류: chapter(단원) + subchapter + logicalPoints(논점, LOGUMS 기반) + lawRefs(근거조문) + level(배점기반)
 PROBLEMS = [
     {'id': 'ki-r1-q1', 'round': 1, 'questionNum': 1, 'points': 45, 'level': 5,
-     'topic': '토지 4방식(원가·비교·수익·공시) 종합', 'subchapter': '제1회', 'body': Q_1_1_BODY},
+     'chapter': '2a', 'subchapter': '3방식 종합', 'topic': '토지 4방식(원가·비교·수익·공시) 종합',
+     'logicalPoints': ['공시지가기준법', '거래사례비교법', '원가법', '수익환원법'],
+     'lawRefs': ['감칙 §14', '감칙 §12', '감칙 §15'], 'body': Q_1_1_BODY},
     {'id': 'ki-r1-q2', 'round': 1, 'questionNum': 2, 'points': 25, 'level': 4,
-     'topic': '영업보상(폐업·휴업) — 손익계산서·기계 매각차손/이전비', 'subchapter': '제1회', 'body': Q_1_2_BODY},
+     'chapter': '7', 'subchapter': '영업·영농 보상', 'topic': '영업보상(폐업·휴업) — 손익계산서·기계 매각차손/이전비',
+     'logicalPoints': ['폐업보상', '휴업보상', '기계장치 이전비'], 'lawRefs': ['토지보상법 §77', '시행규칙 §46·§47'], 'body': Q_1_2_BODY},
     {'id': 'ki-r1-q3', 'round': 1, 'questionNum': 3, 'points': 20, 'level': 3,
-     'topic': '임대사례비교법 — 토지·건물 일체 수익가격', 'subchapter': '제1회', 'body': Q_1_3_BODY},
+     'chapter': '3', 'subchapter': '임대료·복합부동산', 'topic': '임대사례비교법 — 토지·건물 일체 수익가격',
+     'logicalPoints': ['임대사례비교법', '복합부동산 수익가격', '잔여환원법'], 'lawRefs': ['감칙 §22', '감칙 §11'], 'body': Q_1_3_BODY},
     {'id': 'ki-r1-q4', 'round': 1, 'questionNum': 4, 'points': 10, 'level': 2,
-     'topic': '삼각지 획지 단가(노선가·각도/깊이/면적 보정)', 'subchapter': '제1회', 'body': Q_1_4_BODY},
+     'chapter': '4', 'subchapter': '유형별 토지(획지)', 'topic': '삼각지 획지 단가(노선가·각도/깊이/면적 보정)',
+     'logicalPoints': ['용도별 토지', '노선가식 획지평가'], 'lawRefs': [], 'body': Q_1_4_BODY},
 ]
 
 
-def main():
-    f = DATA / 'kichul.json'
-    d = json.loads(f.read_text(encoding='utf-8'))
-    byid = {q['id']: q for q in d.get('questions', [])}
-    for p in PROBLEMS:
-        byid[p['id']] = {
-            'id': p['id'], 'subject': '감정평가실무', 'chapter': 'kichul',
-            'source': 'official', 'visionTranscribed': True, 'bodyFormat': 'markdown',
-            'round': p['round'], 'questionNum': p['questionNum'], 'points': p['points'],
-            'level': p['level'], 'difficulty': p['level'], 'subchapter': p['subchapter'],
-            'topic': p['topic'], 'body': p['body'], 'modelAnswer': '', 'modelAnswerSource': '',
-            'keyPoints': [], 'logicalPoints': [], 'answerFormat': 'essay-narrative',
-            'sourcePdf': '감정평가실무_기출문제지 [1-36회]',
-        }
-    qs = sorted(byid.values(), key=lambda q: (q['round'], q['questionNum']))
-    d['questions'] = qs
-    d['count'] = len(qs)
-    d['rounds'] = sorted({q['round'] for q in qs})
-    f.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding='utf-8')
+def entry(p):
+    return {
+        'id': p['id'], 'subject': '감정평가실무', 'chapter': p['chapter'],
+        'source': 'official', 'visionTranscribed': True, 'bodyFormat': 'markdown',
+        'round': p['round'], 'questionNum': p['questionNum'], 'points': p['points'],
+        'level': p['level'], 'difficulty': p['level'],
+        'subchapter': p['subchapter'], 'topic': p['topic'],
+        'logicalPoints': p.get('logicalPoints', []), 'lawRefs': p.get('lawRefs', []),
+        'body': p['body'], 'modelAnswer': '', 'modelAnswerSource': '',
+        'keyPoints': [], 'answerFormat': 'essay-narrative',
+        'sourcePdf': '감정평가실무_기출문제지 [1-36회]',
+    }
 
+
+def main():
+    # 단원별로 라우팅 (분류). 각 {chapter}.json에 전사분 병합(기존 전사분은 교체)
+    from collections import defaultdict
+    by_ch = defaultdict(list)
+    for p in PROBLEMS:
+        by_ch[p['chapter']].append(entry(p))
+
+    affected = {}
+    for ch, items in by_ch.items():
+        f = DATA / f'{ch}.json'
+        d = json.loads(f.read_text(encoding='utf-8')) if f.exists() else {
+            'subject': '감정평가실무', 'chapter': ch, 'questions': []}
+        # 기존 전사분(visionTranscribed) 제거 후 재적재 → 멱등
+        keep = [q for q in d.get('questions', []) if not q.get('visionTranscribed')]
+        newids = {p['id'] for p in items}
+        keep = [q for q in keep if q.get('id') not in newids]
+        d['questions'] = keep + items
+        d['count'] = len(d['questions'])
+        d['withAnswer'] = sum(1 for q in d['questions'] if q.get('modelAnswer'))
+        f.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding='utf-8')
+        affected[ch] = len(d['questions'])
+
+    # kichul 단원 비우기(전사분은 이제 단원으로 분류됨)
+    kf = DATA / 'kichul.json'
+    if kf.exists():
+        kf.write_text(json.dumps({'built_at': NOW, 'chapter': 'kichul',
+            'chapterTitle': '📜 실무 기출문제 (원본 전사)', 'count': 0, 'rounds': [], 'questions': []},
+            ensure_ascii=False, indent=1), encoding='utf-8')
+
+    # manifest: 영향 단원 count(기출+generated) 재계산, kichul 0
     m = json.loads((DATA / 'manifest.json').read_text(encoding='utf-8'))
     for ch in m['chapters']:
-        if ch['id'] == 'kichul':
-            ch['count'] = len(qs); ch['rounds'] = d['rounds']
+        cid = ch['id']
+        if cid in affected:
+            ch['count'] = affected[cid] + ch.get('generatedCount', 0)
+        if cid == 'kichul':
+            ch['count'] = 0
     m['total'] = sum(ch.get('count', 0) for ch in m['chapters'])
     (DATA / 'manifest.json').write_text(json.dumps(m, ensure_ascii=False, indent=1), encoding='utf-8')
-    print(f"kichul 전사 누적: {len(qs)}문 (회차 {d['rounds']}). manifest total {m['total']}")
+    print(f"전사+분류 라우팅: {dict(affected)} | manifest total {m['total']}")
+    for p in PROBLEMS:
+        print(f"  {p['round']}회-{p['questionNum']} → 단원 {p['chapter']}({p['subchapter']}) L{p['level']} · {p['topic'][:30]}")
 
 
 if __name__ == '__main__':
