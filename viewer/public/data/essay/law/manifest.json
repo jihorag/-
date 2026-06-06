@@ -1,8 +1,8 @@
 {
- "built_at": "2026-06-06T03:13:13.605211+00:00",
+ "built_at": "2026-06-06T03:19:25.718739+00:00",
  "subject": "감정평가 및 보상법규",
- "total": 150,
- "classified": 150,
+ "total": 128,
+ "classified": 128,
  "chapters": [
   {
    "id": "1",
@@ -30,7 +30,7 @@
    "id": "2",
    "title": "행정입법·행정행위",
    "file": "2.json",
-   "count": 16,
+   "count": 14,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [],
@@ -50,7 +50,7 @@
    "id": "3",
    "title": "행정계획·인허가의제·공법상계약",
    "file": "3.json",
-   "count": 16,
+   "count": 14,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [],
@@ -71,7 +71,7 @@
    "id": "4",
    "title": "행정절차·실효성확보수단",
    "file": "4.json",
-   "count": 16,
+   "count": 14,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [],
@@ -91,10 +91,12 @@
    "id": "5",
    "title": "행정쟁송(심판·취소소송)",
    "file": "5.json",
-   "count": 16,
+   "count": 15,
    "withAnswer": 0,
    "matchedAnswer": 0,
-   "rounds": [],
+   "rounds": [
+    29
+   ],
    "generatedCount": 0,
    "subchapters": [
     {
@@ -112,7 +114,7 @@
    "id": "6",
    "title": "행정상 손해전보",
    "file": "6.json",
-   "count": 16,
+   "count": 14,
    "withAnswer": 0,
    "matchedAnswer": 0,
    "rounds": [],
@@ -132,10 +134,25 @@
    "id": "7",
    "title": "공용수용(사업인정·재결)",
    "file": "7.json",
-   "count": 16,
+   "count": 15,
    "withAnswer": 0,
    "matchedAnswer": 0,
-   "rounds": [],
+   "rounds": [
+    3,
+    6,
+    10,
+    16,
+    19,
+    22,
+    25,
+    26,
+    30,
+    31,
+    32,
+    34,
+    35,
+    36
+   ],
    "generatedCount": 0,
    "subchapters": [
     {
@@ -153,10 +170,25 @@
    "id": "8",
    "title": "손실보상(보상기준·환매·생활보상)",
    "file": "8.json",
-   "count": 16,
+   "count": 20,
    "withAnswer": 0,
    "matchedAnswer": 0,
-   "rounds": [],
+   "rounds": [
+    3,
+    9,
+    13,
+    14,
+    15,
+    17,
+    18,
+    20,
+    23,
+    26,
+    28,
+    30,
+    33,
+    36
+   ],
    "generatedCount": 0,
    "subchapters": [
     {
@@ -175,10 +207,18 @@
    "id": "9",
    "title": "부동산 가격공시법",
    "file": "9.json",
-   "count": 16,
+   "count": 7,
    "withAnswer": 0,
    "matchedAnswer": 0,
-   "rounds": [],
+   "rounds": [
+    1,
+    13,
+    19,
+    24,
+    29,
+    31,
+    32
+   ],
    "generatedCount": 0,
    "subchapters": [
     {
@@ -195,10 +235,18 @@
    "id": "10",
    "title": "감정평가법·도정법",
    "file": "10.json",
-   "count": 16,
+   "count": 9,
    "withAnswer": 0,
    "matchedAnswer": 0,
-   "rounds": [],
+   "rounds": [
+    2,
+    25,
+    29,
+    32,
+    33,
+    34,
+    36
+   ],
    "generatedCount": 0,
    "subchapters": [
     {

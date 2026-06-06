@@ -1,28 +1,32 @@
 {
- "built_at": "2026-06-06T03:13:13.605211+00:00",
+ "built_at": "2026-06-06T03:19:25.718739+00:00",
  "subject": "감정평가 및 보상법규",
  "chapter": "5",
  "chapterTitle": "행정쟁송(심판·취소소송)",
- "source": "past-topic",
- "count": 16,
+ "source": "mixed",
+ "count": 15,
  "withAnswer": 0,
  "matchedAnswer": 0,
- "rounds": [],
+ "rounds": [
+  29
+ ],
  "questions": [
   {
    "id": "tl-law-c5-q1",
    "subject": "감정평가 및 보상법규",
    "chapter": "5",
-   "source": "past-topic",
-   "round": null,
+   "source": "official",
+   "round": 29,
    "questionNum": 1,
    "points": 25,
-   "body": "「행정심판의 대상」에 관하여 설명하시오.",
+   "body": "위반사유를 추가하는 것이 허용되는가?",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "행정심판의",
-    "대상"
+    "위반사유를",
+    "추가하는",
+    "것이",
+    "허용되는가?"
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -36,11 +40,14 @@
    "round": null,
    "questionNum": 2,
    "points": 25,
-   "body": "「행정심판기관」에 관하여 설명하시오.",
+   "body": "「행정심판의 대상」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "행정심판기관"
+    "「행정심판의",
+    "대상」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -54,12 +61,13 @@
    "round": null,
    "questionNum": 3,
    "points": 25,
-   "body": "「행정심판의 조정」에 관하여 설명하시오.",
+   "body": "「행정심판기관」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "행정심판의",
-    "조정"
+    "「행정심판기관」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -73,12 +81,14 @@
    "round": null,
    "questionNum": 4,
    "points": 25,
-   "body": "「행정심판의 재결」에 관하여 설명하시오.",
+   "body": "「행정심판의 조정」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "행정심판의",
-    "재결"
+    "「행정심판의",
+    "조정」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -92,12 +102,14 @@
    "round": null,
    "questionNum": 5,
    "points": 25,
-   "body": "「인용재결의 종류」에 관하여 설명하시오.",
+   "body": "「행정심판의 재결」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "인용재결의",
-    "종류"
+    "「행정심판의",
+    "재결」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -111,12 +123,14 @@
    "round": null,
    "questionNum": 6,
    "points": 25,
-   "body": "「재결의 효력」에 관하여 설명하시오.",
+   "body": "「인용재결의 종류」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "재결의",
-    "효력"
+    "「인용재결의",
+    "종류」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -130,13 +144,14 @@
    "round": null,
    "questionNum": 7,
    "points": 25,
-   "body": "「재결에 대한 불복」에 관하여 설명하시오.",
+   "body": "「재결의 효력」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "재결에",
-    "대한",
-    "불복"
+    "「재결의",
+    "효력」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -150,12 +165,15 @@
    "round": null,
    "questionNum": 8,
    "points": 25,
-   "body": "「행정소송의 의의」에 관하여 설명하시오.",
+   "body": "「재결에 대한 불복」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "행정소송의",
-    "의의"
+    "「재결에",
+    "대한",
+    "불복」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -169,12 +187,14 @@
    "round": null,
    "questionNum": 9,
    "points": 25,
-   "body": "「행정소송의 종류」에 관하여 설명하시오.",
+   "body": "「행정소송의 의의」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "행정소송의",
-    "종류"
+    "「행정소송의",
+    "의의」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -188,12 +208,14 @@
    "round": null,
    "questionNum": 10,
    "points": 25,
-   "body": "「무명항고소송의 인정여부」에 관하여 설명하시오.",
+   "body": "「행정소송의 종류」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "무명항고소송의",
-    "인정여부"
+    "「행정소송의",
+    "종류」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -207,12 +229,14 @@
    "round": null,
    "questionNum": 11,
    "points": 25,
-   "body": "「신고의 수리거부」에 관하여 설명하시오.",
+   "body": "「무명항고소송의 인정여부」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "신고의",
-    "수리거부"
+    "「무명항고소송의",
+    "인정여부」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -226,15 +250,14 @@
    "round": null,
    "questionNum": 12,
    "points": 25,
-   "body": "「재결자체의 내용상 위법이 있는 경우」에 관하여 설명하시오.",
+   "body": "「신고의 수리거부」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "재결자체의",
-    "내용상",
-    "위법이",
-    "있는",
-    "경우"
+    "「신고의",
+    "수리거부」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -248,15 +271,16 @@
    "round": null,
    "questionNum": 13,
    "points": 25,
-   "body": "「인용재결에 고유한 위법이 있는 경우」에 관하여 설명하시오.",
+   "body": "「재결자체의 내용상 위법이 있는 경우」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "인용재결에",
-    "고유한",
+    "「재결자체의",
+    "내용상",
     "위법이",
     "있는",
-    "경우"
+    "경우」에",
+    "관하여"
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -270,14 +294,16 @@
    "round": null,
    "questionNum": 14,
    "points": 25,
-   "body": "「인용재결의 경우 소의 대상」에 관하여 설명하시오.",
+   "body": "「인용재결에 고유한 위법이 있는 경우」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "인용재결의",
-    "경우",
-    "소의",
-    "대상"
+    "「인용재결에",
+    "고유한",
+    "위법이",
+    "있는",
+    "경우」에",
+    "관하여"
    ],
    "difficulty": 3,
    "answerFormat": "",
@@ -291,32 +317,16 @@
    "round": null,
    "questionNum": 15,
    "points": 25,
-   "body": "「원고적격의 의의」에 관하여 설명하시오.",
+   "body": "「인용재결의 경우 소의 대상」에 관하여 설명하시오.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "원고적격의",
-    "의의"
-   ],
-   "difficulty": 3,
-   "answerFormat": "",
-   "subchapter": "5-1"
-  },
-  {
-   "id": "tl-law-c5-q16",
-   "subject": "감정평가 및 보상법규",
-   "chapter": "5",
-   "source": "past-topic",
-   "round": null,
-   "questionNum": 16,
-   "points": 25,
-   "body": "「법률상 이익의 의미」에 관하여 설명하시오.",
-   "modelAnswer": "",
-   "modelAnswerSource": "",
-   "keyPoints": [
-    "법률상",
-    "이익의",
-    "의미"
+    "「인용재결의",
+    "경우",
+    "소의",
+    "대상」에",
+    "관하여",
+    "설명하시오."
    ],
    "difficulty": 3,
    "answerFormat": "",

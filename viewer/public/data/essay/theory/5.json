@@ -1,29 +1,79 @@
 {
- "built_at": "2026-06-06T03:13:13.605211+00:00",
+ "built_at": "2026-06-06T03:19:25.718739+00:00",
  "subject": "감정평가이론",
  "chapter": "5",
  "chapterTitle": "원가법",
- "source": "past-topic",
- "count": 1,
+ "source": "mixed",
+ "count": 3,
  "withAnswer": 0,
  "matchedAnswer": 0,
- "rounds": [],
+ "rounds": [
+  12
+ ],
  "questions": [
   {
    "id": "tl-theory-c5-q1",
    "subject": "감정평가이론",
    "chapter": "5",
-   "source": "past-topic",
+   "source": "official",
    "round": null,
    "questionNum": 1,
-   "points": 40,
-   "body": "「원가법」에 관하여 논술하시오. (기출 5회 출제 · 약 40점)",
+   "points": 30,
+   "body": "복성식평가법에 있어서 감가수정의 방법은 내용연수를 표준으로 하는 방법과 관찰감가법의 두 가지가 있다.",
    "modelAnswer": "",
    "modelAnswerSource": "",
    "keyPoints": [
-    "원가법"
+    "복성식평가법에",
+    "있어서",
+    "감가수정의",
+    "방법은",
+    "내용연수를",
+    "표준으로"
    ],
-   "difficulty": 4,
+   "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "5-1"
+  },
+  {
+   "id": "tl-theory-c5-q2",
+   "subject": "감정평가이론",
+   "chapter": "5",
+   "source": "official",
+   "round": 12,
+   "questionNum": 2,
+   "points": 10,
+   "body": "경제적 감가수정 (12회.10점)",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [
+    "경제적",
+    "감가수정",
+    "12회.10점"
+   ],
+   "difficulty": 3,
+   "answerFormat": "",
+   "subchapter": "5-1"
+  },
+  {
+   "id": "tl-theory-c5-q3",
+   "subject": "감정평가이론",
+   "chapter": "5",
+   "source": "official",
+   "round": null,
+   "questionNum": 3,
+   "points": 30,
+   "body": "건물의 치유불가능한 기능적 감가의 개념과 사례를 기술하고,",
+   "modelAnswer": "",
+   "modelAnswerSource": "",
+   "keyPoints": [
+    "건물의",
+    "치유불가능한",
+    "기능적",
+    "감가의",
+    "개념과",
+    "사례를"
+   ],
+   "difficulty": 3,
    "answerFormat": "",
    "subchapter": "5-1"
   }
