@@ -1,7 +1,7 @@
 {
  "built_at": "2026-05-31T06:04:01.250547+00:00",
  "subject": "감정평가실무",
- "total": 1544,
+ "total": 1556,
  "chapters": [
   {
    "id": "kichul",
@@ -861,6 +861,21 @@
     "8a": 4,
     "8b": 2
    }
+  },
+  {
+   "id": "gs3",
+   "title": "📕 실무 GS 3기 (10회분·예시답안)",
+   "file": "gs3.json",
+   "count": 12,
+   "withAnswer": 12,
+   "matchedAnswer": 0,
+   "rounds": [
+    101,
+    201,
+    301
+   ],
+   "generatedCount": 0,
+   "subchapters": []
   }
  ],
  "classified": 2522,
