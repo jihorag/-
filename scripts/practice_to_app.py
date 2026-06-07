@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PRACTICE_DIRS = [
     ROOT / 'viewer/public/data/practice/economics',
-    # ROOT / 'viewer/public/data/practice/civil-law',
+    ROOT / 'viewer/public/data/practice/civil-law',
     ROOT / 'viewer/public/data/practice/realestate',
     ROOT / 'viewer/public/data/practice/law'
 ]
