@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제15절 독점적 경쟁시장",
+    "item": "제1관 독점적 경쟁의 특징",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "독점적 경쟁(monopolistic competition)의 특징은?",
+      "options": [
+        "다수 기업·차별화된 제품·자유 진입 (완전경쟁 + 독점 혼합)",
+        "한 기업 독점",
+        "동질 제품·소수 기업",
+        "정부 규제 시장",
+        "외국 기업"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁(Chamberlin·Robinson 1933): ① 다수 기업 ② 차별화된 제품 ③ 자유 진입·퇴출 ④ 약간의 시장지배력. 예: 식당·미용실·의류 브랜드."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 사례가 아닌 것은?",
+      "options": [
+        "전력 공급 (자연독점)",
+        "식당",
+        "미용실",
+        "의류 브랜드",
+        "치킨 프랜차이즈"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁: 차별화된 제품·서비스 + 다수 기업. 식당·미용실·의류·치킨·카페·서점. 전력은 자연독점."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-003",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "독점적 경쟁이 직면하는 수요곡선은?",
+      "options": [
+        "우하향 (차별화로 약간의 시장지배력), but 완전경쟁보다 더 탄력적",
+        "완전탄력 (수평)",
+        "완전비탄력 (수직)",
+        "우상향",
+        "변동"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁: 제품 차별화로 약간의 가격결정력 → 우하향 수요곡선. 대체재 존재로 완전 독점보다 탄력적. 가격 인상 시 일부 고객 이탈."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-004",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 독점적 경쟁 장기균형 그래프의 특성은?\n\n[IMAGE: data/practice/economics/graphs/monopolistic-competition.svg]",
+      "options": [
+        "P = ATC (이윤 0) · ATC가 수요곡선과 접 · P > MC (DWL 존재)",
+        "P > ATC, 초과이윤",
+        "P = MC, 효율",
+        "P = LRAC min (완전경쟁과 동일)",
+        "MC = 0"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁 장기: 자유 진입으로 이윤 0 (P = ATC). 수요와 ATC가 접. 그러나 P > MC (독점 요소) → DWL 존재. ATC 최저점 아님 → 과잉 능력."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-005",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 과잉설비(excess capacity)란?",
+      "options": [
+        "장기균형 산출이 ATC 최저보다 적음 → 설비 효율 미달",
+        "FC가 너무 큼",
+        "Q = 0",
+        "MC = 0",
+        "정부 규제"
+      ],
+      "answer": "1",
+      "explanation": "장기균형: 수요가 ATC에 접 (P=ATC, MR=MC). 접점은 ATC 최저 왼쪽 → 산출량이 효율 산출보다 적음 → 과잉 설비. 차별화의 사회비용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-006",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 사회비용으로 옳지 않은 것은?",
+      "options": [
+        "사회후생 증가",
+        "사중손실 (P > MC)",
+        "과잉 설비",
+        "광고·마케팅 비용",
+        "비효율적 다양성"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁 사회비용: ① DWL (P > MC) ② 과잉설비 ③ 광고비 ④ 과도 다양성. 다양성의 편익 vs 비효율 비교 필요."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-007",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 후생 분석은?",
+      "options": [
+        "다양성 편익 vs 비효율 사회비용. 학자별 견해 차이",
+        "항상 비효율",
+        "항상 효율",
+        "후생 0",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁 후생: ① 다양성·차별화로 소비자 만족 ↑ (Dixit·Stiglitz 1977) ② 그러나 DWL·과잉설비. 두 효과의 trade-off. Chamberlin은 시장 옹호, 비판자는 비효율 강조."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-008",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "독점적 경쟁 기업 수요 $P = 50 - Q$, $TC = 20 + Q^2$. 단기 이윤은?",
+      "options": [
+        "Q = 12.5, P = 37.5, π ≈ 292.5",
+        "Q = 25, P = 25, π = 0",
+        "Q = 10, P = 40",
+        "Q = 50, π = 0",
+        "Q = 0"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 50 - 2Q$, $MC = 2Q$.\n$50 - 2Q = 2Q \\Rightarrow Q = 12.5$.\n$P = 50 - 12.5 = 37.5$.\nTR = 468.75, TC = 20 + 156.25 = 176.25.\nπ = 292.5."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-009",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "장기에 신규 진입의 효과는?",
+      "options": [
+        "기존 기업의 수요곡선이 왼쪽 이동 → 이윤 0까지",
+        "수요곡선 오른쪽 이동",
+        "수요 불변",
+        "독점화",
+        "정부 규제"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁 단기 이윤 → 신규 진입 → 기존 기업의 수요(차별화 시장 분담) 왼쪽 이동 → 가격·산출 ↓ → 이윤 0까지. 자유 진입의 장기 동학."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-010",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "독점적 경쟁의 광고·차별화 활동의 의미는?",
+      "options": [
+        "수요곡선 우측 이동·탄력성 감소 → 시장지배력 강화 시도",
+        "비용 절감",
+        "정부 결정",
+        "MR 변화 없음",
+        "수요 0"
+      ],
+      "answer": "1",
+      "explanation": "광고·차별화: ① 수요 우측 이동(인지·선호 확대) ② 탄력성 감소(브랜드 충성도) → 더 높은 가격·이윤 가능. 그러나 광고비가 비용 증가."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-011",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Chamberlin(1933)의 핵심 통찰은?",
+      "options": [
+        "완전경쟁·독점 사이의 현실적 시장 구조 모형화 (제품 차별화)",
+        "완전경쟁만 분석",
+        "독점만 분석",
+        "정부 가격",
+        "외부효과"
+      ],
+      "answer": "1",
+      "explanation": "Chamberlin (1933) 「The Theory of Monopolistic Competition」: 완전경쟁(동질·다수)·독점(차별·단수) 사이의 현실 시장 모형화. 차별화 + 다수 기업 = 일상 시장의 특성."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-012",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "기업 수요 $P = 100 - Q$, $TC = 200 + 20Q + Q^2/2$. 이윤극대 Q, π는?",
+      "options": [
+        "Q ≈ 26.67, P ≈ 73.33, π ≈ 866.67",
+        "Q = 50, P = 50",
+        "Q = 10, P = 90",
+        "Q = 100, P = 0",
+        "Q = 30, P = 70"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 100 - 2Q$, $MC = 20 + Q$.\n$100 - 2Q = 20 + Q \\Rightarrow 80 = 3Q \\Rightarrow Q ≈ 26.67$.\n$P = 100 - 26.67 = 73.33$.\nTR = 1955.5, TC = 200 + 533.3 + 355.6 ≈ 1088.9.\nπ ≈ 866.6."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점적 경쟁과 완전경쟁의 비교에서 차이가 아닌 것은?",
+      "options": [
+        "둘 다 장기에 이윤 0",
+        "독점적 경쟁: 차별화 / 완전경쟁: 동질",
+        "독점적 경쟁: P > MC / 완전경쟁: P = MC",
+        "독점적 경쟁: 과잉설비 / 완전경쟁: 효율",
+        "독점적 경쟁: DWL > 0 / 완전경쟁: DWL = 0"
+      ],
+      "answer": "1",
+      "explanation": "둘 다 자유 진입으로 장기 이윤 0은 공통. 차이: 제품 동질성·가격결정력·효율성·DWL 등."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-014",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 시장 정의 (반독점 분석) 어려움은?",
+      "options": [
+        "제품 차별화로 시장 경계 모호 (스타벅스 vs 일반 카페)",
+        "시장 정의 쉬움",
+        "동질 제품이라 명확",
+        "정부 결정",
+        "차별화 없음"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁의 반독점 분석: 차별화로 시장 경계 불분명. 스타벅스가 일반 카페와 같은 시장? SSNIP 테스트 등으로 정의 시도."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-015",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "한국의 독점적 경쟁 시장 예는?",
+      "options": [
+        "치킨 프랜차이즈, 카페, 미용실, 학원, 자동차 브랜드",
+        "한국전력",
+        "삼성전자 (반도체)",
+        "공기업",
+        "외국 정부"
+      ],
+      "answer": "1",
+      "explanation": "한국 독점적 경쟁: 치킨(BBQ·교촌·BHC), 카페(스타벅스·이디야·메가커피), 미용실, 학원, 자동차 브랜드. 차별화 + 다수 기업."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-016",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 비가격 경쟁의 형태는?",
+      "options": [
+        "광고·브랜드·디자인·서비스·위치·품질 차별화",
+        "가격 인하만",
+        "공급 증가만",
+        "정부 보조",
+        "노동 절감"
+      ],
+      "answer": "1",
+      "explanation": "비가격 경쟁: 광고·브랜드·디자인·서비스·위치(편의)·품질. 가격 경쟁이 비탄력적 수요로 어려운 환경에서 주된 경쟁 수단."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-017",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $P = 30 - Q/2$, $TC = 40 + 10Q$. 단기 이윤은?",
+      "options": [
+        "Q = 20, P = 20, π = 160",
+        "Q = 10, P = 25, π = 110",
+        "Q = 40, P = 10, π = 0",
+        "Q = 5, P = 27.5, π = 47.5",
+        "Q = 30, P = 15, π = 110"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 30 - Q = 10 \\Rightarrow Q = 20, P = 20$.\nTR = 400, TC = 40 + 200 = 240, π = 160."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-018",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 장기 진입·퇴출 동학은?",
+      "options": [
+        "단기 이윤 → 진입 → 수요 분산 → 이윤 0 / 손실 → 퇴출 → 수요 회복",
+        "변화 없음",
+        "독점화",
+        "이윤 무한",
+        "퇴출 없음"
+      ],
+      "answer": "1",
+      "explanation": "장기 동학: 이윤 발생 → 신규 진입 → 기존 기업 수요 ↓ → 이윤 0. 손실 → 퇴출 → 잔존 기업 수요 ↑. 결국 P = ATC (정상이윤)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-019",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $P = 100 - 2Q$, $TC = 50 + 20Q + Q^2/2$. 단기 이윤은?",
+      "options": [
+        "Q = 16, P = 68, π ≈ 590",
+        "Q = 40, P = 20, π = 0",
+        "Q = 25, P = 50",
+        "Q = 10, P = 80",
+        "Q = 20, P = 60"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 100 - 4Q$, $MC = 20 + Q$.\n$100 - 4Q = 20 + Q \\Rightarrow 80 = 5Q \\Rightarrow Q = 16$.\n$P = 100 - 32 = 68$.\nTR = 1088, TC = 50 + 320 + 128 = 498, π = 590."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-020",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁 vs 과점의 비교로 옳은 것은?",
+      "options": [
+        "독점적 경쟁: 다수 기업·차별화·진입자유 / 과점: 소수 기업·전략적 상호작용",
+        "둘은 동일",
+        "독점적 경쟁이 더 적은 기업",
+        "과점이 자유 진입",
+        "둘 다 동질 제품"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁: 다수 기업, 자유 진입, 차별화. 과점: 소수 기업, 진입장벽, 전략적 상호작용(게임이론). 시장 구조의 핵심 차이."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-021",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 효율성·다양성 trade-off에 관한 옳은 평가는?",
+      "options": [
+        "DWL·과잉설비 vs 다양성 편익. 후생 평가는 두 요인 종합 필요",
+        "항상 효율",
+        "항상 비효율",
+        "차별화 무관",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁: 효율 손실(DWL·과잉설비·광고비) vs 다양성 편익(소비자 선택). Dixit·Stiglitz(1977)는 다양성 가치 강조. 정책 결정 시 두 측면 모두 고려."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-022",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "독점적 경쟁 기업 $P = 60 - 2Q$, $TC = 100 + 10Q + Q^2$. 이윤은?",
+      "options": [
+        "Q ≈ 8.33, P ≈ 43.33, π ≈ 108.3",
+        "Q = 15, P = 30",
+        "Q = 20, P = 20",
+        "Q = 5, P = 50",
+        "Q = 25, P = 10"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 60 - 4Q$, $MC = 10 + 2Q$.\n$60 - 4Q = 10 + 2Q \\Rightarrow 50 = 6Q \\Rightarrow Q ≈ 8.33$.\n$P = 60 - 16.67 = 43.33$.\nTR = 361.1, TC = 100 + 83.3 + 69.4 = 252.7.\nπ ≈ 108.4."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 진입장벽이 약한 이유는?",
+      "options": [
+        "차별화 가능·자본 진입 비용 낮음·정부 규제 적음",
+        "특허 보호",
+        "규모의 경제",
+        "정부 면허",
+        "수요 부족"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁: 진입장벽 낮음(자본 적게, 정부 면허 없음). 차별화로 시장 분담. 신규 진입자가 새 제품으로 시장 진입 가능."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-024",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Lancaster(1971)의 제품 특성 접근법(characteristic approach)은?",
+      "options": [
+        "제품을 여러 특성(맛·디자인·기능)의 묶음으로 분석 → 차별화 미시 기초",
+        "제품 동질로 분석",
+        "단일 가격만",
+        "정부 결정",
+        "수요 무관"
+      ],
+      "answer": "1",
+      "explanation": "Lancaster(1971): 제품을 여러 특성의 묶음. 소비자는 특성의 효용 추구. 차별화 미시 기초. 헤도닉 가격분석·신선시장 응용. 신무역이론에도 활용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item01-025",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 정책 시사점은?",
+      "options": [
+        "자유 진입 보장 + 광고·소비자 보호 규제 적정 수준",
+        "독점 강화",
+        "가격 통제",
+        "공기업화",
+        "방치"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁 정책: ① 자유 진입 보장 (경쟁 유지) ② 광고·표시 규제(허위·과대광고 금지) ③ 소비자 정보 보호 ④ M&A 심사. 다양성·효율의 균형."
+    }
+  ]
+}

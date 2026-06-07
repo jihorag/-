@@ -9,8 +9,10 @@
 //  - 환각 방지 system rules.
 //  - 오프라인 안내.
 
+/* eslint-disable react-hooks/set-state-in-effect */
+/* eslint-disable react-refresh/only-export-components */
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Send, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play, BarChart3, ArrowRight } from 'lucide-react';
+import { Send, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play, BarChart3, ArrowRight, Download, Upload } from 'lucide-react';
 import ParsedText from './ParsedText';
 import {
   getByok, setByok, getPrefs, setPrefs,
@@ -19,6 +21,7 @@ import {
   recordGrade, recordAnswerScore, getDueChapters,
   getSessions, addSession, updateSession,
   getRoomMessages, appendRoomMessage, popRoomMessage, clearRoom, getAllRooms,
+  buildRoomExport, parseRoomImport, importRoomMessages,
   bumpUsage, canSendMessage, getUsage,
   pruneOldConversations,
   addAssessment,
@@ -44,6 +47,41 @@ const indexUrl = (subjectId) => {
 };
 const handoverUrl = (subjectId) => `/data/study/${subjectId}/handover.md`;
 const studyBase = (subjectId) => `/data/study/${subjectId}/`;
+
+// 홈 과목 카드의 대분류 버튼.
+// DIV_GROUPS: 여러 path[0]를 한 버튼으로 묶고 라벨을 지정. 정의된 과목은 이 그룹만 노출.
+// 정의가 없는 과목은 path[0]별로 자동 생성(아래 DIV_EXCLUDE로 일부 숨김 가능).
+const DIV_GROUPS = {
+  economics: [
+    { label: '미시경제', tops: ['미시경제학'] },
+    { label: '거시경제', tops: ['거시경제학', '국제경제학'] }, // 국제경제학을 거시에 포함
+    // 재정학은 홈 버튼에서 제외(어느 그룹에도 안 넣음)
+  ],
+  accounting: [
+    { label: '재무회계', tops: ['재무회계'] },
+    { label: '원가회계', tops: ['원가관리회계'] },
+  ],
+};
+const DIV_EXCLUDE = {};
+const DIV_LABEL_MAP = {
+  '원가관리회계': '원가회계', // 버튼 폭에서 잘리지 않게 축약
+};
+
+// 토스(Toss) 스타일 디자인 토큰 — 연회색 배경 + 순백 카드 + 부드러운 그림자 + 단일 포인트색
+const TOSS = {
+  bg: '#F2F4F6',      // 페이지 배경
+  card: '#FFFFFF',    // 카드 표면
+  blue: '#3182F6',    // 포인트(토스블루)
+  blueDark: '#1B64DA',
+  blueWeak: '#E8F1FE',// 포인트 약한 배경
+  ink: '#191F28',     // 주요 텍스트
+  sub: '#8B95A1',     // 보조 텍스트
+  chipBg: '#F2F4F6',  // 칩 배경
+  chipInk: '#4E5968', // 칩 텍스트
+  track: '#E5E8EB',   // 진행바 트랙
+  shadow: '0 2px 8px rgba(0, 23, 51, 0.06)',
+  radius: 20,
+};
 
 // PC(≥1024px) 감지 — 2컬럼 레이아웃 분기용. 모바일/태블릿은 기존 단일 컬럼 유지.
 function useIsDesktop() {
@@ -1136,10 +1174,14 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [indexMeta, setIndexMeta] = useState(null);
   const [leaves, setLeaves] = useState([]);
   const initCur = getCurrent();
-  const [subjectId, setSubjectId] = useState(initCur?.subject || 'civil');
+  // 저장된 subject가 잘못됐을 수 있어(레거시 하드코딩) leaf_id의 prefix에서 과목을 우선 도출.
+  const [subjectId, setSubjectId] = useState(
+    (initCur?.leaf_id || '').split('__')[0] || initCur?.subject || 'civil'
+  );
   const [current, setCurrentState] = useState(initCur);
-  // 자체 홈 화면 ↔ 학습 화면. 매 진입 시 홈으로 시작.
-  const [aiView, setAiView] = useState('home'); // 'home' | 'study'
+  // 자체 홈 화면 ↔ 학습 화면.
+  // 마지막에 보던 단원이 있으면 그 학습 화면으로 자동 복원 (재진입 시 "초기화된 듯" 보이는 문제 해결).
+  const [aiView, setAiView] = useState(() => (initCur?.leaf_id ? 'study' : 'home')); // 'home' | 'study'
   const [mastery, setMasteryState] = useState(getMastery());
   const [handoverMd, setHandoverMd] = useState('');
   const [unitMd, setUnitMd] = useState('');
@@ -1175,6 +1217,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       }).catch(() => {});
     });
   }, [showAnalytics]); // eslint-disable-line
+  // 홈 화면: 과목 카드의 대분류 버튼을 위해 1차 과목 leaves 미리 로드
+  useEffect(() => {
+    if (aiView !== 'home') return;
+    SUBJECTS_BY_STAGE[1].forEach((s) => {
+      if (leavesBySubject[s.id]?.length) return;
+      fetch(indexUrl(s.id)).then((r) => r.json()).then((raw) => {
+        const idx = raw?.stage === 2 ? normalizeStage2Index(raw) : raw;
+        setLeavesBySubject((prev) => ({ ...prev, [s.id]: idx.leaves || [] }));
+      }).catch(() => {});
+    });
+  }, [aiView]); // eslint-disable-line
   const [sessionId, setSessionId] = useState(null);
   const [idlePromptShown, setIdlePromptShown] = useState(false);
   const [weakSuggestion, setWeakSuggestion] = useState([]);
@@ -1197,6 +1250,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const stickBottomRef = useRef(true); // 채팅 자동 스크롤: 바닥 근처 여부
   const inputRef = useRef(null); // 전송 후 포커스 복원용
   const idleTimerRef = useRef(null);
+  const importInputRef = useRef(null); // 세이브파일 불러오기용 숨김 input
 
   // 인덱스·인수인계서 로드 — subjectId 변경 시 재로드
   useEffect(() => {
@@ -1204,8 +1258,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       const idx = raw?.stage === 2 ? normalizeStage2Index(raw) : raw;
       setIndexMeta(idx);
       setLeaves(idx.leaves || []);
-      const exists = current?.leaf_id && (idx.leaves || []).some((l) => l.id === current.leaf_id);
-      if (!exists && idx.default_leaf) {
+      const subjectChanged = current?.subject !== subjectId;
+      const exists = !subjectChanged && current?.leaf_id && (idx.leaves || []).some((l) => l.id === current.leaf_id);
+      // 저장된 단원이 인덱스에 없더라도 채팅 기록이 남아 있으면 덮어쓰지 않는다.
+      // (인덱스 변동·타이밍으로 current가 기본 단원으로 리셋되어 이전 대화가 안 보이던 문제 방지)
+      const hasRoom = !subjectChanged && current?.leaf_id && getRoomMessages(current.leaf_id).length > 0;
+      if ((subjectChanged || (!exists && !hasRoom)) && idx.default_leaf) {
         const def = idx.leaves.find((l) => l.id === idx.default_leaf) || idx.leaves[0];
         if (def) {
           const next = { subject: subjectId, leaf_id: def.id };
@@ -1287,9 +1345,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   useEffect(() => { setRecentRooms(getAllRooms()); }, [messages]);
 
   // 이전/다음 leaf 계산 (taxonomy index 순)
-  const curIndex = leaves.findIndex((l) => l.id === current?.leaf_id);
-  const prevLeaf = curIndex > 0 ? leaves[curIndex - 1] : null;
-  const nextLeaf = curIndex >= 0 && curIndex < leaves.length - 1 ? leaves[curIndex + 1] : null;
+  // 활성 대분류(division)로 학습 범위를 한정(scope). null이면 과목 전체.
+  // 홈에서 '민법총칙'·'미시경제' 등 대분류 버튼으로 들어오면 그 분류 단원만 다룬다.
+  const activeDivision = current?.division || null; // 표시용 라벨
+  // 실제 필터용: 묶인 path[0] 집합. 구버전 호환(divisionTops 없으면 division 단일값 사용).
+  const activeTops = current?.divisionTops || (activeDivision ? [activeDivision] : null);
+  const scopedLeaves = activeTops
+    ? leaves.filter((l) => activeTops.includes(l.path && l.path[0]))
+    : leaves;
+  const curIndex = scopedLeaves.findIndex((l) => l.id === current?.leaf_id);
+  const prevLeaf = curIndex > 0 ? scopedLeaves[curIndex - 1] : null;
+  const nextLeaf = curIndex >= 0 && curIndex < scopedLeaves.length - 1 ? scopedLeaves[curIndex + 1] : null;
 
   // 취약 leaf 매칭 — 과목별 dict 우선, 단일 props weakPaths fallback
   useEffect(() => {
@@ -1330,10 +1396,70 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   }, []);
   useEffect(() => () => clearIdleTimer(), [clearIdleTimer]);
 
-  const pickLeaf = (leaf) => {
-    const next = { subject: 'civil', leaf_id: leaf.id };
+  // division 인자: undefined=현재 스코프 유지(이전/다음 이동 등) / null=해제 / {label,tops}=새 스코프
+  const pickLeaf = (leaf, division = undefined) => {
+    // 과목은 leaf id prefix에서 도출 (이전엔 'civil' 하드코딩 버그).
+    const sid = (leaf?.id || '').split('__')[0] || subjectId || 'civil';
+    let label = null, tops = null;
+    if (division === undefined) {            // 유지
+      label = current?.division || null;
+      tops = current?.divisionTops || (current?.division ? [current.division] : null);
+    } else if (division) {                    // 새 스코프
+      label = division.label || null;
+      tops = division.tops || (division.label ? [division.label] : null);
+    }                                         // division === null → 해제(label·tops null)
+    const next = { subject: sid, leaf_id: leaf.id, division: label, divisionTops: tops };
     setCurrentState(next);
     setCurrent(next);
+  };
+
+  // 홈 대분류 버튼 → 그 분류로 진입(범위 한정). division = path[0] 원문.
+  const jumpToLeaf = (sid, leaf, division = null) => {
+    if (!leaf) return;
+    if (sid !== subjectId) switchSubject(sid, true); else setAiView('study');
+    setTimeout(() => pickLeaf(leaf, division), 50);
+  };
+  // 과목 전체 학습 진입 — 대분류 스코프 해제
+  const enterSubjectWhole = (sid) => {
+    if (sid !== subjectId) { switchSubject(sid, true); return; } // 타 과목: default_leaf가 division 없이 설정됨
+    setAiView('study');
+    if (current?.division && current?.leaf_id) {
+      const lf = leaves.find((l) => l.id === current.leaf_id) || { id: current.leaf_id };
+      pickLeaf(lf, null);
+    }
+  };
+  // 학습 화면에서 현재 단원은 유지하고 분류 스코프만 해제(전체 보기)
+  const clearDivision = () => {
+    if (!current?.division || !current?.leaf_id) return;
+    const lf = leaves.find((l) => l.id === current.leaf_id) || { id: current.leaf_id };
+    pickLeaf(lf, null);
+  };
+  // 과목의 대분류(path[0]) 목록 — 각 그룹의 첫 leaf로 진입할 수 있게 반환
+  // DIV_EXCLUDE: 홈 버튼에서 숨길 대분류 (학습 화면 단원 트리에선 그대로 접근 가능)
+  const divisionsFor = (sid) => {
+    const lvs = (leavesBySubject[sid]?.length ? leavesBySubject[sid] : (sid === subjectId ? leaves : [])) || [];
+    // 그룹 정의가 있으면 그룹 단위로 (여러 path[0]를 한 버튼으로 묶음)
+    const groups = DIV_GROUPS[sid];
+    if (groups) {
+      return groups
+        .map((g) => ({ label: g.label, tops: g.tops, leaf: lvs.find((l) => g.tops.includes(l.path && l.path[0])) }))
+        .filter((g) => g.leaf);
+    }
+    // 그룹 정의가 없으면 path[0]별 자동 (각자 단일 그룹)
+    const ex = DIV_EXCLUDE[sid];
+    const map = new Map();
+    for (const l of lvs) {
+      const top = l.path && l.path[0];
+      if (!top || map.has(top)) continue;
+      if (ex && ex.has(top)) continue;
+      map.set(top, l);
+    }
+    return Array.from(map, ([top, leaf]) => ({ label: top, tops: [top], leaf }));
+  };
+  const cleanDivLabel = (s) => {
+    const raw = String(s || '');
+    if (DIV_LABEL_MAP[raw]) return DIV_LABEL_MAP[raw];
+    return raw.replace(/^PART\s*\d+\s*/i, '').replace(/^Chapter\s*\d+\s*/i, '').trim();
   };
 
   const startNewSession = () => {
@@ -1651,6 +1777,61 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     setConfirmAction({ label, danger: !!danger, onYes });
   };
 
+  // ── 세이브파일: 현재 단원 채팅 내보내기 / 불러오기 ──────────
+  const exportRoom = () => {
+    if (!curLeaf) return;
+    if (messages.length === 0) {
+      if (typeof window !== 'undefined') window.alert('이 단원엔 아직 대화가 없습니다.');
+      return;
+    }
+    const data = buildRoomExport(curLeaf.id, { path: curLeaf.path, subject: subjectId });
+    const safe = (curLeaf.path?.slice(-1)[0] || curLeaf.id).replace(/[\\/:*?"<>|\s]+/g, '_').slice(0, 40);
+    const stamp = new Date().toISOString().slice(0, 10);
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `AI학습_${safe}_${stamp}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  };
+  const onImportFile = (e) => {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = ''; // 같은 파일 재선택 허용
+    if (!file || !curLeaf) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const parsed = parseRoomImport(reader.result);
+      if (!parsed) {
+        if (typeof window !== 'undefined') window.alert('저장 파일 형식이 올바르지 않습니다.');
+        return;
+      }
+      const incoming = parsed.messages;
+      if (incoming.length === 0) {
+        if (typeof window !== 'undefined') window.alert('저장 파일에 대화가 없습니다.');
+        return;
+      }
+      const fromPath = Array.isArray(parsed.meta.leafPath) ? parsed.meta.leafPath.slice(-1)[0] : null;
+      const note = fromPath && fromPath !== curLeaf.path.slice(-1)[0] ? `\n(저장 출처: "${fromPath}")` : '';
+      askConfirm(
+        `"${curLeaf.path.slice(-1)[0]}"에 저장 파일 불러오기 — 현재 ${messages.length}개를 ${incoming.length}개로 교체${note}`,
+        true,
+        () => {
+          if (abortRef.current) abortRef.current.abort();
+          importRoomMessages(curLeaf.id, incoming, 'replace');
+          setMessages(getRoomMessages(curLeaf.id));
+          setPendingNext(null);
+          setIdlePromptShown(false);
+          setRecentRooms(getAllRooms());
+        }
+      );
+    };
+    reader.onerror = () => { if (typeof window !== 'undefined') window.alert('파일을 읽지 못했습니다.'); };
+    reader.readAsText(file);
+  };
+
   // 학습 진척 즉시 초기화 — native confirm 사용해 항상 보이도록
   const doResetProgress = useCallback(() => {
     if (typeof window !== 'undefined' && !window.confirm(
@@ -1701,17 +1882,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
   return (
     aiView === 'home' ? (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0, height: 'calc(100dvh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 960, margin: '0 auto', width: '100%' }}>
-      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '8px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'static', minHeight: 0, flex: '0 0 auto' }}>
-        <h2 style={{ margin: 0, fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: 6, color: '#111827' }}>
-          <Sparkles size={20} color="#4f46e5" /> AI 학습
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0, height: 'calc(100dvh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 960, margin: '0 auto', width: '100%', background: TOSS.bg }}>
+      <header className="top-nav" style={{ background: TOSS.bg, padding: '14px 18px 8px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'static', minHeight: 0, flex: '0 0 auto' }}>
+        <h2 style={{ margin: 0, fontSize: '1.35rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: 7, color: TOSS.ink, letterSpacing: '-0.02em' }}>
+          <Sparkles size={22} color={TOSS.blue} /> AI 학습
         </h2>
         <div style={{ display: 'flex', gap: 2 }}>
-          <button className="icon-btn" onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
-            <BarChart3 size={18} color={showAnalytics ? '#4f46e5' : '#6b7280'} />
+          <button className="icon-btn" onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: showAnalytics ? TOSS.blueWeak : 'none', border: 'none', cursor: 'pointer', padding: 8, borderRadius: 10 }}>
+            <BarChart3 size={20} color={showAnalytics ? TOSS.blue : TOSS.sub} />
           </button>
-          <button className="icon-btn" onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}>
-            <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
+          <button className="icon-btn" onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: showHistory ? TOSS.blueWeak : 'none', border: 'none', cursor: 'pointer', padding: 8, borderRadius: 10 }}>
+            <Calendar size={20} color={showHistory ? TOSS.blue : TOSS.sub} />
           </button>
         </div>
       </header>
@@ -1723,7 +1904,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             onJump={(leaf) => {
               const sid = (leaf.id || '').split('__')[0];
               if (sid !== subjectId) switchSubject(sid, true); else setAiView('study');
-              setTimeout(() => pickLeaf(leaf), 50);
+              setTimeout(() => pickLeaf(leaf, null), 50); // 다른 분류일 수 있어 스코프 해제
               setShowHistory(false);
             }}
             onClearRoom={(leafId) => {
@@ -1741,7 +1922,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             onClose={() => setShowAnalytics(false)}
             onJump={(leaf, sid) => {
               if (sid !== subjectId) switchSubject(sid, true); else setAiView('study');
-              setTimeout(() => pickLeaf(leaf), 50);
+              setTimeout(() => pickLeaf(leaf, null), 50); // 다른 분류일 수 있어 스코프 해제
               setShowAnalytics(false);
             }}
           />
@@ -1757,7 +1938,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           }}>
             <div style={{ flex: 1, fontSize: '0.88rem', fontWeight: 600 }}>{confirmAction.label}?</div>
             <button onClick={() => { const a = confirmAction; setConfirmAction(null); a.onYes && a.onYes(); }}
-              style={{ padding: '6px 14px', fontSize: '0.85rem', fontWeight: 700, background: confirmAction.danger ? '#dc2626' : '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
+              style={{ padding: '6px 14px', fontSize: '0.85rem', fontWeight: 700, background: confirmAction.danger ? '#dc2626' : TOSS.blue, color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>
               네
             </button>
             <button onClick={() => setConfirmAction(null)}
@@ -1767,7 +1948,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           </div>
         </div>
       )}
-      <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: '14px 14px 30px' }}>
+      <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: '8px 18px 32px' }}>
         {/* 이어서 학습 카드 */}
         {curLeaf && messages.length > 0 && (() => {
           const m = mastery[curLeaf.id] || {};
@@ -1776,23 +1957,24 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             <button
               onClick={() => setAiView('study')}
               style={{
-                width: '100%', textAlign: 'left', padding: 14,
-                background: `linear-gradient(135deg, ${sMeta.color}15 0%, #fff 100%)`,
-                border: `1.5px solid ${sMeta.color}`,
-                borderRadius: 14, cursor: 'pointer', marginBottom: 16,
+                width: '100%', textAlign: 'left', padding: 18,
+                background: TOSS.blue,
+                border: 'none',
+                borderRadius: TOSS.radius, cursor: 'pointer', marginBottom: 18,
+                boxShadow: '0 6px 16px rgba(49, 130, 246, 0.28)',
               }}
             >
-              <div style={{ fontSize: '0.72rem', color: sMeta.color, fontWeight: 700, marginBottom: 4 }}>
-                ▶️ 이어서 학습 — {sMeta.icon} {sMeta.short}
+              <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.85)', fontWeight: 700, marginBottom: 6, display: 'flex', alignItems: 'center', gap: 4 }}>
+                <Play size={13} fill="#fff" color="#fff" /> 이어서 학습 · {sMeta.short}
               </div>
-              <div style={{ fontSize: '1rem', fontWeight: 800, color: '#111827' }}>
+              <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.01em' }}>
                 {curLeaf.path.slice(-1)[0]}
               </div>
-              <div style={{ fontSize: '0.78rem', color: '#6b7280', marginTop: 2 }}>
+              <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.8)', marginTop: 4 }}>
                 {curLeaf.path.slice(0, -1).join(' › ')}
               </div>
-              <div style={{ fontSize: '0.72rem', color: '#374151', marginTop: 6 }}>
-                {messages.length}건 · 진척 {Math.round((m.coverage || 0) * 100)}%
+              <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.92)', marginTop: 10, fontWeight: 600 }}>
+                대화 {messages.length}건 · 진척 {Math.round((m.coverage || 0) * 100)}%
               </div>
             </button>
           );
@@ -1800,17 +1982,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
         {/* 1차 / 2차 섹션 분리 그리드 */}
         {[
-          { stage: 1, label: '1차 시험 — 객관식 5지선다', subjects: SUBJECTS_BY_STAGE[1] },
-          { stage: 2, label: '2차 시험 — 서술형·답안 작성', subjects: SUBJECTS_BY_STAGE[2] },
+          { stage: 1, label: '1차 객관식', subjects: SUBJECTS_BY_STAGE[1] },
+          { stage: 2, label: '2차 서술형', subjects: SUBJECTS_BY_STAGE[2] },
         ].map(({ stage, label, subjects }) => (
-          <div key={stage} style={{ marginBottom: 18 }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
-              <div style={{ fontSize: '1rem', color: '#111827', fontWeight: 800 }}>
-                {stage === 1 ? '📖' : '✍️'} {label}
+          <div key={stage} style={{ marginBottom: 24 }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 12, paddingLeft: 2 }}>
+              <div style={{ fontSize: '1.05rem', color: TOSS.ink, fontWeight: 800, letterSpacing: '-0.01em' }}>
+                {label}
               </div>
-              <span style={{ fontSize: '0.82rem', color: '#1f2937', fontWeight: 600 }}>{subjects.length}과목</span>
+              <span style={{ fontSize: '0.82rem', color: TOSS.sub, fontWeight: 600 }}>{subjects.length}과목</span>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', rowGap: 14, columnGap: 12, alignItems: 'stretch', gridAutoRows: '1fr' }}>
               {subjects.map((s) => {
                 // stage1: ailearn-mastery 키가 'civil__...' prefix
                 // stage2: 단원 id가 'appraisal_practice_1' 형태
@@ -1821,38 +2003,89 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                 const weakN = ((weakPathsBySubject || {})[s.id] || []).length;
                 const pct = Math.round(covAvg * 100);
                 const isStage2 = s.stage === 2;
+                const divisions = isStage2 ? [] : divisionsFor(s.id);
+                // 대분류 2~4개(민법·경제·회계) → 분류 버튼들 / 5개↑(부동산·법규)·2차 → 과목 버튼 1개
+                const showDivs = !isStage2 && divisions.length >= 2 && divisions.length <= 4;
+                const showSingle = isStage2 || (!isStage2 && divisions.length >= 5);
+                const chipStyle = {
+                  padding: '11px 6px', fontSize: '0.84rem', fontWeight: 700,
+                  background: TOSS.blue, color: '#fff', border: 'none',
+                  borderRadius: 10, cursor: 'pointer', whiteSpace: 'nowrap',
+                  overflow: 'hidden', textOverflow: 'ellipsis', textAlign: 'center',
+                };
+                // 1차/2차 태그 — 연한 배경 + 진한 글자(토스풍). 카드 윗줄에 배치
+                const stageTag = isStage2
+                  ? { label: '2차', bg: '#F0EBFF', fg: '#7C3AED' }
+                  : { label: '1차', bg: TOSS.blueWeak, fg: TOSS.blue };
                 return (
-                  <button
+                  <div
                     key={s.id}
-                    onClick={() => switchSubject(s.id, true)}
                     style={{
-                      padding: 16, textAlign: 'left',
-                      background: 'linear-gradient(160deg, #eff6ff 0%, #ffffff 100%)',
-                      border: '1px solid #c7d2fe', borderRadius: 12, cursor: 'pointer',
-                      display: 'flex', flexDirection: 'column', gap: 6, position: 'relative',
+                      background: TOSS.card,
+                      border: 'none', borderRadius: TOSS.radius, position: 'relative',
+                      display: 'flex', flexDirection: 'column', height: '100%',
+                      boxShadow: TOSS.shadow,
                     }}
                   >
-                    {isStage2 && (
-                      <span style={{ position: 'absolute', top: 10, right: 10, fontSize: '0.7rem', fontWeight: 800,
-                        background: '#4f46e5', color: '#fff', padding: '3px 8px', borderRadius: 999 }}>2차</span>
-                    )}
-                    <div style={{ fontSize: '1.8rem', lineHeight: 1 }}>{s.icon}</div>
-                    <div style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '1.1rem' }}>{s.short}</div>
-                    <div style={{ fontSize: '0.82rem', color: '#1f2937', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.title}</div>
-                    <div style={{ marginTop: 8, height: 5, background: '#dbeafe', borderRadius: 3, overflow: 'hidden' }}>
-                      <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#4f46e5' }} />
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#111827', marginTop: 4 }}>
-                      <span style={{ fontWeight: 800 }}>{pct}%</span>
-                      <span style={{ color: '#1f2937', fontWeight: 600 }}>{isStage2 ? `답안 ${masterN}` : `마스터 ${masterN}`}</span>
-                    </div>
-                    {(dueN > 0 || weakN > 0) && (
-                      <div style={{ marginTop: 2, fontSize: '0.78rem', color: '#92400e', display: 'flex', gap: 6, fontWeight: 700 }}>
-                        {dueN > 0 && <span>🔁 {dueN}</span>}
-                        {weakN > 0 && <span>⚠️ {weakN}</span>}
+                    {/* 과목 헤더 — 클릭 시 과목 전체로 진입. 텍스트 좌측 / 이모지 우측 */}
+                    <button
+                      onClick={() => enterSubjectWhole(s.id)}
+                      style={{
+                        padding: '20px 18px 16px', textAlign: 'left', background: 'none', border: 'none',
+                        cursor: 'pointer', width: '100%',
+                        display: 'flex', flexDirection: 'column', gap: 12,
+                      }}
+                    >
+                      {/* 윗줄: 1차/2차 태그 */}
+                      <div style={{ display: 'flex' }}>
+                        <span style={{ fontSize: '0.7rem', fontWeight: 800, background: stageTag.bg, color: stageTag.fg, padding: '3px 9px', borderRadius: 999 }}>
+                          {stageTag.label}
+                        </span>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                        <div style={{ minWidth: 0, flex: 1 }}>
+                          <div style={{ fontWeight: 800, color: TOSS.ink, fontSize: '1.2rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
+                          <div style={{ fontSize: '0.82rem', color: TOSS.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 4 }}>{s.title}</div>
+                        </div>
+                        <div style={{ fontSize: '2rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
+                      </div>
+                      <div>
+                        <div style={{ height: 6, background: TOSS.track, borderRadius: 999, overflow: 'hidden' }}>
+                          <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: TOSS.blue, borderRadius: 999 }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', marginTop: 8 }}>
+                          <span style={{ fontWeight: 800, color: TOSS.ink }}>{pct}%</span>
+                          <span style={{ color: TOSS.sub, fontWeight: 600 }}>{isStage2 ? `답안 ${masterN}` : `마스터 ${masterN}`}</span>
+                        </div>
+                      </div>
+                      {(dueN > 0 || weakN > 0) && (
+                        <div style={{ fontSize: '0.78rem', color: '#FF8A00', display: 'flex', gap: 8, fontWeight: 700 }}>
+                          {dueN > 0 && <span>🔁 복습 {dueN}</span>}
+                          {weakN > 0 && <span>⚠️ 약점 {weakN}</span>}
+                        </div>
+                      )}
+                    </button>
+                    {/* 카드 안 하단: 대분류 바로가기. 민법총칙/물권법 누르면 해당 분류 학습 */}
+                    {showDivs && (
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 6, padding: '0 18px 16px', marginTop: 'auto' }}>
+                        {divisions.map((d) => (
+                          <button key={d.label} onClick={() => jumpToLeaf(s.id, d.leaf, { label: d.label, tops: d.tops })} title={d.label} style={chipStyle}>
+                            {cleanDivLabel(d.label)}
+                          </button>
+                        ))}
                       </div>
                     )}
-                  </button>
+                    {showSingle && (
+                      <div style={{ padding: '0 18px 16px', marginTop: 'auto', marginBottom: 'auto' }}>
+                        <button
+                          onClick={() => enterSubjectWhole(s.id)}
+                          style={{ ...chipStyle, width: '100%' }}
+                        >
+                          {s.title}
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 );
               })}
             </div>
@@ -1861,7 +2094,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
         {/* 비어있는 첫 사용자 가이드 */}
         {!curLeaf && Object.keys(mastery).length === 0 && (
-          <div style={{ marginTop: 20, padding: 14, background: '#f9fafb', border: '1px dashed #d1d5db', borderRadius: 12, fontSize: '0.85rem', color: '#6b7280', textAlign: 'center' }}>
+          <div style={{ marginTop: 20, padding: 18, background: TOSS.card, border: 'none', borderRadius: TOSS.radius, boxShadow: TOSS.shadow, fontSize: '0.88rem', color: TOSS.sub, textAlign: 'center', lineHeight: 1.5 }}>
             과목을 선택하면 단원 트리에서 학습할 곳을 고르고 대화를 시작할 수 있어요
           </div>
         )}
@@ -1890,15 +2123,30 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           display: 'flex', flexDirection: 'column', overflow: 'hidden', minHeight: 0,
         }}>
           <div style={{ padding: '10px 12px', borderBottom: '1px solid #e5e7eb', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ fontWeight: 800, fontSize: '0.88rem', color: '#111827' }}>📂 {getSubjectMeta(subjectId)?.title || '과목'}</div>
-            <button onClick={() => setAiView('home')} title="과목 변경" style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '0.75rem', fontWeight: 700 }}>
-              과목 ▾
-            </button>
+            <div style={{ minWidth: 0 }}>
+              <div style={{ fontWeight: 800, fontSize: '0.88rem', color: '#111827', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                📂 {getSubjectMeta(subjectId)?.title || '과목'}
+              </div>
+              {activeDivision && (
+                <div style={{ fontSize: '0.72rem', color: TOSS.blue, fontWeight: 700, marginTop: 2 }}>
+                  {cleanDivLabel(activeDivision)} 범위
+                </div>
+              )}
+            </div>
+            {activeDivision ? (
+              <button onClick={clearDivision} title="이 과목 전체 단원 보기" style={{ background: TOSS.blueWeak, border: 'none', cursor: 'pointer', color: TOSS.blue, fontSize: '0.72rem', fontWeight: 800, padding: '4px 9px', borderRadius: 999, flex: '0 0 auto' }}>
+                전체 보기
+              </button>
+            ) : (
+              <button onClick={() => setAiView('home')} title="과목 변경" style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '0.75rem', fontWeight: 700, flex: '0 0 auto' }}>
+                과목 ▾
+              </button>
+            )}
           </div>
           <div style={{ flex: 1, overflowY: 'auto', padding: 8 }}>
             <LeafPicker
               inline
-              leaves={leaves}
+              leaves={scopedLeaves}
               current={current}
               onPick={(leaf) => pickLeaf(leaf)}
               mastery={mastery}
@@ -1997,6 +2245,31 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         >
           <ChevronRight size={20} color="#374151" />
         </button>
+        {curLeaf && (
+          <>
+            <input
+              ref={importInputRef}
+              type="file"
+              accept="application/json,.json"
+              onChange={onImportFile}
+              style={{ display: 'none' }}
+            />
+            <button
+              onClick={exportRoom}
+              title={messages.length > 0 ? `이 단원 채팅 저장파일 내보내기 (${messages.length}개)` : '이 단원엔 대화 없음'}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, opacity: messages.length === 0 ? 0.35 : 1 }}
+            >
+              <Download size={16} color="#4f46e5" />
+            </button>
+            <button
+              onClick={() => importInputRef.current && importInputRef.current.click()}
+              title="저장파일 불러오기 (현재 단원 채팅 교체)"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+            >
+              <Upload size={16} color="#0891b2" />
+            </button>
+          </>
+        )}
         {curLeaf && (
           <button
             onClick={() => {
@@ -2153,14 +2426,23 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             animation: 'cmdkIn 0.2s cubic-bezier(0.22, 0.61, 0.36, 1)',
             overflow: 'hidden',
           }}>
-            <div style={{ padding: '12px 14px', borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <div style={{ fontWeight: 800, color: '#111827' }}>📂 단원 선택</div>
-              <button onClick={() => setShowLeafPickerModal(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '1.1rem' }}>✕</button>
+            <div style={{ padding: '12px 14px', borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+              <div style={{ fontWeight: 800, color: '#111827', minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                📂 단원 선택{activeDivision && <span style={{ color: TOSS.blue, marginLeft: 6 }}>· {cleanDivLabel(activeDivision)}</span>}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: '0 0 auto' }}>
+                {activeDivision && (
+                  <button onClick={() => { clearDivision(); }} title="이 과목 전체 단원 보기" style={{ background: TOSS.blueWeak, border: 'none', cursor: 'pointer', color: TOSS.blue, fontSize: '0.74rem', fontWeight: 800, padding: '4px 9px', borderRadius: 999 }}>
+                    전체 보기
+                  </button>
+                )}
+                <button onClick={() => setShowLeafPickerModal(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '1.1rem' }}>✕</button>
+              </div>
             </div>
             <div style={{ overflowY: 'auto', flex: 1 }}>
               <LeafPicker
                 inline
-                leaves={leaves}
+                leaves={scopedLeaves}
                 current={current}
                 onPick={(leaf) => { pickLeaf(leaf); setShowLeafPickerModal(false); }}
                 mastery={mastery}
@@ -2177,7 +2459,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           <HistoryPanel
             leaves={leaves}
             onClose={() => setShowHistory(false)}
-            onJump={(leaf) => { pickLeaf(leaf); setShowHistory(false); }}
+            onJump={(leaf) => { pickLeaf(leaf, null); setShowHistory(false); }}
             onClearRoom={(leafId) => {
               clearRoom(leafId);
               if (leafId === current?.leaf_id) setMessages([]);
@@ -2195,7 +2477,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             onJump={(leaf, sid) => {
               if (sid !== subjectId) switchSubject(sid, true);
               else setAiView('study');
-              setTimeout(() => pickLeaf(leaf), 50);
+              setTimeout(() => pickLeaf(leaf, null), 50); // 다른 분류일 수 있어 스코프 해제
               setShowAnalytics(false);
             }}
           />
@@ -2430,7 +2712,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               {weakSuggestion.map((w) => (
                 <button
                   key={w.leaf.id}
-                  onClick={() => { pickLeaf(w.leaf); setWeakSuggestion([]); }}
+                  onClick={() => { pickLeaf(w.leaf, null); setWeakSuggestion([]); }}
                   style={{
                     textAlign: 'left', padding: '8px 10px', background: '#fff',
                     border: '1px solid #fed7aa', borderRadius: 8, cursor: 'pointer',
@@ -2708,6 +2990,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                 <option value="gpt-5.4-mini">🔵 GPT-5.4 mini</option>
               </optgroup>
               <optgroup label="Google (CORS 통과 가능 / 일부 프록시 필요)">
+                <option value="gemini-3.5-flash">🟢 Gemini 3.5 Flash</option>
                 <option value="gemini-3.1-pro-preview">🟢 Gemini 3.1 Pro</option>
                 <option value="gemini-3.1-flash-lite">🟢 Gemini 3.1 Flash Lite</option>
               </optgroup>

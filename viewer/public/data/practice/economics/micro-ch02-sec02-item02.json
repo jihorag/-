@@ -6,9 +6,9 @@
     "section": "제4절 수요와 공급의 탄력성",
     "item": "제2관 수요의 소득탄력성·교차탄력성",
     "source": "practice-set",
-    "version": "v2-handcrafted",
-    "created": "2026-06-01",
-    "count": 30
+    "version": "v2-handcrafted-high-quality",
+    "created": "2026-06-07",
+    "count": 50
   },
   "questions": [
     {
@@ -28,7 +28,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-002",
-      "difficulty": 1,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "정상재(normal good)의 소득탄력성 부호로 옳은 것은?",
       "options": [
@@ -73,7 +73,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-005",
-      "difficulty": 1,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "대체재(substitutes)의 교차탄력성 부호로 옳은 것은?",
       "options": [
@@ -118,7 +118,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-008",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 독립재(independent goods)의 교차탄력성 값으로 옳은 것은?",
       "options": [
@@ -133,9 +133,9 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-009",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "엥겔곡선(Engel curve)의 의미로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "엥겔곡선(Engel curve)의 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">소득 (I)</text>\n  <text x=\"25\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  \n  <!-- 정상재 사치재 (위로 휨) -->\n  <path d=\"M 50 200 Q 150 160 300 50\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <text x=\"240\" y=\"70\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\" font-weight=\"bold\">사치재 (ε_I > 1)</text>\n  \n  <!-- 정상재 필수재 (아래로 완만해짐) -->\n  <path d=\"M 50 200 Q 200 150 320 120\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"240\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">필수재 (0 < ε_I < 1)</text>\n  \n  <!-- 열등재 (우하향) -->\n  <path d=\"M 50 200 Q 120 120 180 180\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" />\n  <text x=\"140\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">열등재 (ε_I < 0)</text>\n</svg>\n```\n",
       "options": [
         "가격과 수요량의 관계 곡선",
         "소득과 수요량의 관계 곡선",
@@ -148,9 +148,9 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-010",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "엥겔의 법칙(Engel's law)의 내용으로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "엥겔의 법칙(Engel's law)의 내용으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">소득 (I)</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">엥겔 계수 (w)</text>\n  \n  <!-- 엥겔계수 감소 곡선 -->\n  <path d=\"M 60 60 Q 150 140 320 160\" fill=\"none\" stroke=\"#db2777\" stroke-width=\"2.5\" />\n  <text x=\"200\" y=\"130\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#db2777\" font-weight=\"bold\">엥겔의 법칙 (식료품비 비중 감소)</text>\n  \n  <text x=\"30\" y=\"65\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">50% (빈곤)</text>\n  <line x1=\"50\" y1=\"60\" x2=\"320\" y2=\"60\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  \n  <text x=\"30\" y=\"165\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">15% (부유)</text>\n  <line x1=\"50\" y1=\"160\" x2=\"320\" y2=\"160\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n</svg>\n```\n",
       "options": [
         "가격이 오르면 수요량이 감소한다.",
         "소득이 증가할수록 가계 지출 중 식료품비의 비중(엥겔 계수)이 감소한다.",
@@ -164,17 +164,17 @@
     {
       "id": "practice-econ-micro-ch02-sec02-item02-011",
       "difficulty": 2,
-      "question_type": "옳은 것 고르기",
-      "question": "다음 중 소득탄력성에 따른 재화 분류 예시로 옳은 것은?",
+      "question_type": "이론형",
+      "question": "소비자의 소득 수준에 따라 소득탄력성이 양수($\\varepsilon_I > 0$)에서 음수($\\varepsilon_I < 0$)로 이행할 수 있는 비선형 엥겔 곡선을 가질 때, 동일한 재화임에도 소득 증가에 따라 발생하는 재화의 성격 변화에 대한 서술로 옳은 것은?",
       "options": [
-        "고급 와인(εI = 2.5): 사치재",
-        "쌀(εI = 0.5): 필수재",
-        "라면(εI = -0.3): 열등재",
-        "①, ②, ③ 모두 옳다.",
-        "①만 옳다."
+        "저소득 하에서는 정상재(필수재)였다가, 일정 소득 수준을 넘어서면 열등재로 변한다.",
+        "저소득 하에서는 열등재였다가, 고소득에 도달하면 사치재로 승격된다.",
+        "재화의 성격은 소득 수준과 관계없이 원천적으로 일정하게 고정된다.",
+        "저소득 하에서는 사치재였다가, 고소득에 도달하면 필수재를 거치지 않고 직접 열등재로 낙인찍힌다.",
+        "수요의 소득탄력성은 부호 변환을 대수적으로 허용하지 않는다."
       ],
-      "answer": "4",
-      "explanation": "①②③ 모두 옳다.\n① 고급 와인 (εI = 2.5 > 1): 사치재 - 소득 증가 시 수요가 더 빠르게 증가\n② 쌀 (0 < εI = 0.5 < 1): 필수재 - 수요가 소득보다 천천히 증가\n③ 라면 (εI < 0): 열등재 - 소득 증가 시 수요 감소(외식·고급 식품으로 대체)"
+      "answer": "1",
+      "explanation": "현실의 가계 소비 행동에서 많은 재화(예: 라면, 대중교통, 자전거 등)는 소득 수준에 따라 성격이 동태적으로 변합니다. 저소득 수준에서는 소득 증가에 따라 수요를 늘리는 정상재(필수재)의 거동을 보이지만, 소득이 충분히 높아지면 다른 고급 대체재(외식, 자가용)로 전환하면서 수요량이 감소하는 열등재의 형태($\\varepsilon_I < 0$)로 이행합니다. 엥겔 곡선이 우상향하다가 변곡점을 지나 우하향하는 구조를 의미합니다. 따라서 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-012",
@@ -193,9 +193,9 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-013",
-      "difficulty": 3,
-      "question_type": "이론형",
-      "question": "소득탄력성 계산: 소득이 100에서 120으로 증가했을 때 수요량이 50에서 60으로 증가했다. 소득탄력성은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소득탄력성 계산: 소득이 100에서 120으로 증가했을 때 수요량이 50에서 60으로 증가했다. 소득탄력성은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">소득 (I)</text>\n  <text x=\"25\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Q</text>\n  \n  <line x1=\"50\" y1=\"200\" x2=\"250\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <circle cx=\"150\" cy=\"125\" r=\"4.5\" fill=\"#1e293b\" />\n  <circle cx=\"190\" cy=\"95\" r=\"4.5\" fill=\"#1e293b\" />\n  \n  <line x1=\"150\" y1=\"125\" x2=\"150\" y2=\"200\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"125\" x2=\"150\" y2=\"125\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"190\" y1=\"95\" x2=\"190\" y2=\"200\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"95\" x2=\"190\" y2=\"95\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <text x=\"145\" y=\"212\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">100</text>\n  <text x=\"185\" y=\"212\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">120</text>\n  <text x=\"35\" y=\"129\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">50</text>\n  <text x=\"35\" y=\"99\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">60</text>\n</svg>\n```\n",
       "options": [
         "0.5",
         "1",
@@ -208,9 +208,9 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-014",
-      "difficulty": 3,
-      "question_type": "이론형",
-      "question": "교차탄력성 계산: Y재 가격이 100에서 110으로 상승했을 때 X재 수요량이 200에서 240으로 증가했다. 교차탄력성과 두 재화의 관계는?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "교차탄력성 계산: Y재 가격이 100에서 110으로 상승했을 때 X재 수요량이 200에서 240으로 증가했다. 교차탄력성과 두 재화의 관계는?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <g transform=\"translate(0,0)\">\n    <line x1=\"30\" y1=\"180\" x2=\"180\" y2=\"180\" stroke=\"#475569\" stroke-width=\"1.5\" />\n    <line x1=\"30\" y1=\"40\" x2=\"30\" y2=\"180\" stroke=\"#475569\" stroke-width=\"1.5\" />\n    <text x=\"50\" y=\"30\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재 시장 (가격 상승)</text>\n    <line x1=\"45\" y1=\"140\" x2=\"165\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2\" />\n    <circle cx=\"105\" cy=\"100\" r=\"3.5\" fill=\"#1e293b\" />\n    <circle cx=\"135\" cy=\"80\" r=\"3.5\" fill=\"#ef4444\" />\n    <path d=\"M 105 100 L 135 80\" stroke=\"#6b7280\" stroke-width=\"1\" stroke-dasharray=\"2\" />\n  </g>\n  <g transform=\"translate(190,0)\">\n    <line x1=\"30\" y1=\"180\" x2=\"180\" y2=\"180\" stroke=\"#475569\" stroke-width=\"1.5\" />\n    <line x1=\"30\" y1=\"40\" x2=\"30\" y2=\"180\" stroke=\"#475569\" stroke-width=\"1.5\" />\n    <text x=\"50\" y=\"30\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재 시장 (수요 증가)</text>\n    <line x1=\"45\" y1=\"60\" x2=\"145\" y2=\"160\" stroke=\"#94a3b8\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n    <line x1=\"75\" y1=\"60\" x2=\"175\" y2=\"160\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n    <path d=\"M 95 110 Q 115 100 125 110\" fill=\"none\" stroke=\"#475569\" stroke-width=\"1\" marker-end=\"url(#arrow)\" />\n  </g>\n</svg>\n```\n",
       "options": [
         "εxy = 2, 대체재",
         "εxy = -2, 보완재",
@@ -253,37 +253,37 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-017",
-      "difficulty": 3,
-      "question_type": "옳은 것 고르기",
-      "question": "다음 중 소득탄력성의 응용 사례로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "정상재인 A재의 가격탄력성은 $\\varepsilon_d = 1.5$ 이고 소득탄력성은 $\\varepsilon_I = 0.5$ 이다. 소비자의 소득이 $6\\%$ 증가하는 동시에, A재의 시장 가격이 $2\\%$ 상승하였다. 두 변화가 동시에 발생할 때, 전미분 근사를 이용한 A재 수요량의 최종 변동률로 옳은 것은?",
       "options": [
-        "기업이 경기 둔화 시 사치재(εI > 1)의 매출이 더 크게 감소함을 예상",
-        "정부가 경제발전 단계별 식료품 지출 패턴 분석",
-        "농산물 수요 증가율이 산업 발전과 함께 둔화됨을 예측",
-        "위 ①, ②, ③ 모두 옳다.",
-        "①만 옳다."
+        "수요량 $3\\%$ 증가",
+        "수요량 $3\\%$ 감소",
+        "수요량 변동이 유발되지 않는다 (0%)",
+        "수요량 $6\\%$ 증가",
+        "수요량 $1.5\\%$ 감소"
       ],
-      "answer": "4",
-      "explanation": "①②③ 모두 소득탄력성의 실용적 응용 사례.\n① 사치재 매출은 경기에 민감 (소득↓ 시 큰 폭 감소)\n② 엥겔 계수의 국가·시기 비교\n③ 산업화에 따라 농업의 GDP 비중 감소 (페티-클락 법칙)\n소득탄력성은 기업 전략·정부 정책·국제 비교의 핵심 정보이다."
+      "answer": "3",
+      "explanation": "수요량의 근사적 변동률은 가격 및 소득의 각각의 변화율에 탄력성을 곱한 기여분의 합으로 결정됩니다.\\n$$\\dfrac{dQ}{Q} \\approx -\\varepsilon_d \\dfrac{dP}{P} + \\varepsilon_I \\dfrac{dI}{I}$$\\n- 가격 인상에 따른 기여분: $-\\varepsilon_d \\cdot \\% \\Delta P = -1.5 \\times 2\\% = -3.0\\%$.\\n- 소득 증가에 따른 기여분: $+\\varepsilon_I \\cdot \\% \\Delta I = +0.5 \\times 6\\% = +3.0\\%$.\\n- 종합 변동률: $-3.0\\% + 3.0\\% = 0\\%$ 입니다.\\n수요량 변동이 완전히 상쇄되어 최종 변동율은 $0\\%$가 됩니다. 따라서 정답은 3번입니다."
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-018",
       "difficulty": 3,
-      "question_type": "이론형",
-      "question": "다음 중 페티-클락의 법칙(Petty-Clark's law)에 관한 옳은 설명은?",
+      "question_type": "계산형",
+      "question": "어느 재화의 소득소비곡선(ICC)이 원점을 통과하는 직선 $Y = 2X$ 형태를 띤다. 이때 X재의 소득탄력성($\\varepsilon_I$)의 크기로 옳은 수치는?",
       "options": [
-        "경제 발전과 함께 1차산업(농업) → 2차산업(공업) → 3차산업(서비스업) 순으로 비중 이동",
-        "소득과 가격은 무관",
-        "공급은 항상 수요를 창출",
-        "정부 지출은 항상 효과적",
-        "기술은 항상 진보한다."
+        "$\u000barepsilon_I = 1.0$",
+        "$\u000barepsilon_I = 2.0$",
+        "$\u000barepsilon_I = 0.5$",
+        "$\u000barepsilon_I = 0$",
+        "소득 수준에 따라 유동적이다."
       ],
       "answer": "1",
-      "explanation": "페티-클락의 법칙(W. Petty 17C, C. Clark 1940년대): 경제발전 단계에 따라 산업 구조가 1차(농업, εI 작음) → 2차(공업) → 3차(서비스업, εI 큼)으로 이동한다. 농산물 소득탄력성이 작아 농업 비중 감소, 서비스 소득탄력성이 커서 서비스 비중 증가가 핵심 메커니즘이다."
+      "explanation": "소득소비곡선(ICC)이 원점을 통과하는 직선이라는 것은 소득이 증가할 때 두 재화의 소비 비율($Y/X$)이 항상 일정하게 유지됨을 의미합니다. 이는 동차 효용함수(대표적으로 콥-더글라스 효용함수) 하에서 도출되는 전형적인 성질입니다. 이 경우 소득의 임의 증가 비율에 대해 두 재화의 소비량도 정확히 동일한 비율로 비례하여 증가하므로, 각 재화의 소득탄력성은 소득소비곡선의 기울기 수치와 관계없이 언제나 정확하게 $1.0$이 됩니다. 따라서 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-019",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "보기 결합형",
       "question": "다음 중 교차탄력성의 응용 사례로 옳은 것을 모두 고른 것은?\n\nㄱ. 시장 정의(market definition) - 어떤 재화들이 같은 시장에 속하는지 판단 (높은 (+) 교차탄력성 → 같은 시장)\nㄴ. 반독점 규제 - 기업 합병 심사 시 시장 점유율 평가 기준\nㄷ. 가격 차별 - 시장별 가격 책정 전략\nㄹ. 신상품 출시 효과 분석 - 기존 제품과의 대체·보완 관계 분석",
       "options": [
@@ -313,18 +313,18 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-021",
-      "difficulty": 3,
-      "question_type": "옳은 것 고르기",
-      "question": "다음 중 한국의 산업 구조 변화에 페티-클락 법칙을 적용한 옳은 설명은?",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "Y재의 가격이 $10\\%$ 인상되었을 때, X재의 수요량은 $20\\%$ 감소하였다. 이때 두 재화 간의 관계와 수요의 교차탄력성($\\varepsilon_{xy}$)의 부호를 바르게 연결한 것은?",
       "options": [
-        "1960년대: 농업 비중 30%대 → 2020년대: 농업 비중 2% 미만",
-        "1960년대: 서비스업 비중 50% → 1980년대: 70% (변화 적음)",
-        "농업 비중은 지속 증가",
-        "공업 비중은 지속 증가",
-        "한국은 페티-클락 법칙을 따르지 않는다."
+        "대체재 관계, $\u000barepsilon_{xy} > 0$",
+        "보완재 관계, $\u000barepsilon_{xy} < 0$",
+        "독립재 관계, $\u000barepsilon_{xy} = 0$",
+        "대체재 관계, $\u000barepsilon_{xy} < 0$",
+        "보완재 관계, $\u000barepsilon_{xy} > 0$"
       ],
-      "answer": "1",
-      "explanation": "한국의 산업 구조 변화는 페티-클락 법칙의 전형 사례.\n1960년대: 1차 30%대 → 1980년대: 2차 30%대 (제조업 집중) → 2020년대: 3차 60%대 + 1차 2% 미만\n농산물(εI < 1)의 비중 감소와 서비스(εI > 1)의 비중 증가가 동시 진행되었다. 이는 경제발전의 보편 패턴이다."
+      "answer": "2",
+      "explanation": "1) 교차탄력성 계산: Y재 가격 변동률($+10\\%$)에 대한 X재 수요량 변동률($-20\\%$)의 비입니다.\\n   $$\\varepsilon_{xy} = \\dfrac{-20\\%}{10\\%} = -2.0 < 0$$\\n2) 판별: 교차탄력성이 음수($\\varepsilon_{xy} < 0$)이므로 한 재화(Y재) 가격이 상승할 때 연동재화(X재)의 소비도 동반하여 수축합니다. 이는 두 재화가 보완재 관계에 있음을 나타냅니다(예: 커피와 설탕, 프린터와 잉크). 따라서 정답은 2번입니다."
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-022",
@@ -344,8 +344,8 @@
     {
       "id": "practice-econ-micro-ch02-sec02-item02-023",
       "difficulty": 4,
-      "question_type": "이론형",
-      "question": "다음 중 슬루츠키 방정식(Slutsky equation)에서 가격탄력성을 대체·소득 효과로 분해한 식으로 옳은 것은?",
+      "question_type": "이론/그래프형",
+      "question": "다음 중 슬루츠키 방정식(Slutsky equation)에서 가격탄력성을 대체·소득 효과로 분해한 식으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Y</text>\n  \n  <!-- 예산선 예시 -->\n  <line x1=\"50\" y1=\"160\" x2=\"250\" y2=\"200\" stroke=\"#475569\" stroke-width=\"1.5\" /> <!-- BL_0 -->\n  <line x1=\"50\" y1=\"160\" x2=\"160\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"1.5\" /> <!-- BL_1 (과세) -->\n  <line x1=\"80\" y1=\"145\" x2=\"190\" y2=\"185\" stroke=\"#10b981\" stroke-width=\"1\" stroke-dasharray=\"2\" /> <!-- BL_c -->\n  \n  <circle cx=\"110\" cy=\"148\" r=\"4\" fill=\"#1e293b\" />\n  <circle cx=\"85\" cy=\"146\" r=\"4\" fill=\"#ef4444\" />\n  \n  <text x=\"90\" y=\"138\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1e293b\">E₀</text>\n  <text x=\"75\" y=\"158\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">E₁</text>\n</svg>\n```\n",
       "options": [
         "ε = ε_substitution + s × εI (s: 지출 비중)",
         "ε = ε_substitution - s × εI",
@@ -358,7 +358,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-024",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 시장 정의에 활용되는 SSNIP 테스트에 관한 옳은 설명은?",
       "options": [
@@ -373,7 +373,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-025",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음은 엥겔의 법칙과 그 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 엥겔(E. Engel, 1857): 식료품비/총소비 = 엥겔 계수, 소득이 증가할수록 감소\nㄴ. 엥겔 계수가 50% 이상이면 절대 빈곤 가구로 분류\nㄷ. 한국의 평균 엥겔 계수: 1970년대 50%+ → 2020년대 12~15%\nㄹ. 엥겔 계수는 국가의 경제 발전 수준의 지표로 사용된다.\nㅁ. 엥겔 계수는 정부 정책에 의해 강제로 변경 가능하다.",
       "options": [
@@ -388,7 +388,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-026",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 슈바베의 법칙(Schwabe's law)의 내용으로 옳은 것은?",
       "options": [
@@ -404,21 +404,21 @@
     {
       "id": "practice-econ-micro-ch02-sec02-item02-027",
       "difficulty": 4,
-      "question_type": "옳은 것 고르기",
-      "question": "다음 중 한국 가계 소비의 소득별 변화 패턴에 관한 옳은 설명은?",
+      "question_type": "이론형",
+      "question": "가계의 식료품 지출 비중(엥겔 계수)이 소득 상승에 따라 감소하는 현상을 설명하는 엥겔의 법칙을 수학적으로 입증하기 위한 미분 조건식으로 옳은 것은? (단, $w$는 식료품 예산 점유율, $I$는 소득, $\\varepsilon_I$는 소득탄력성임)",
       "options": [
-        "한국의 엥겔 계수는 1970년대 50%+ → 2020년대 12~15%로 큰 폭 감소. 동시에 교육비·의료비·여가비 비중이 증가",
-        "한국의 엥겔 계수는 변동 없음",
-        "한국은 엥겔 법칙을 따르지 않음",
-        "한국은 항상 엥겔 계수 30%",
-        "엥겔 계수는 정부 통계에 포함되지 않음"
+        "$\\dfrac{dw}{dI} < 0 \\iff \u000barepsilon_I < 1$",
+        "$\\dfrac{dw}{dI} < 0 \\iff \u000barepsilon_I > 1$",
+        "$\\dfrac{dw}{dI} < 0 \\iff \u000barepsilon_I = 1$",
+        "$\\dfrac{dw}{dI} > 0 \\iff \u000barepsilon_I < 1$",
+        "점유율의 미분 격차는 소득탄력성과 대수적 관계가 없다."
       ],
       "answer": "1",
-      "explanation": "한국 가계의 소비 패턴 변화(1970~2020):\n식료품(엥겔 계수): 50%+ → 12~15% (감소, εI < 1)\n주거비(슈바베 계수): 감소 추세 (필수재)\n교육비, 의료비, 통신비, 여가비: 비중 증가 (사치재 특성 강함, εI > 1)\n해외여행, 명품: 가구당 지출 폭증 (사치재)\n이는 페티-클락 법칙과 결합되어 산업 구조 변화를 추동한다."
+      "explanation": "식료품 예산 비중은 $w = \\dfrac{P X}{I}$ 입니다. 이를 소득 $I$에 대해 미분하면 다음과 같습니다.\\n$$\\dfrac{dw}{dI} = \\dfrac{P \\dfrac{\\partial X}{\\partial I} I - P X}{I^2} = \\dfrac{P X}{I^2} \\left[ \\dfrac{\\partial X}{\\partial I} \\dfrac{I}{X} - 1 \\right] = \\dfrac{w}{I} \\left[ \\varepsilon_I - 1 \\right]$$\\n따라서 소득 증가 시 엥겔 계수가 감소하려면 미분 부호가 음수이어야 하므로, 괄호 안의 소득탄력성이 1보다 작아야 합니다 ($\\varepsilon_I < 1$). 즉 식료품이 필수재이므로 엥겔의 법칙이 성립합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-028",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음은 탄력성과 산업 분석에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 엥겔의 법칙: 식료품 비중 감소\nㄴ. 슈바베의 법칙: 주거비 비중 감소\nㄷ. 페티-클락의 법칙: 1차 → 2차 → 3차 산업 비중 이동\nㄹ. 보몰의 비용 질병(Baumol's cost disease): 서비스업의 생산성 정체와 가격 상승\nㅁ. 엥겔·페티-클락 법칙은 산업 구조 변화의 메커니즘이며 일관성 있게 작용한다.",
       "options": [
@@ -433,7 +433,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-029",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 교차탄력성과 산업조직론의 응용에 관한 옳은 설명은?",
       "options": [
@@ -448,7 +448,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec02-item02-030",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음은 수요탄력성의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 가격탄력성: 가격 변화에 대한 수요량 반응\nㄴ. 소득탄력성: 소득 변화에 대한 수요량 반응 (정상재·열등재·필수재·사치재 구분)\nㄷ. 교차탄력성: 한 재화 가격 변화가 다른 재화 수요에 미치는 영향 (대체재·보완재·독립재 구분)\nㄹ. 슬루츠키 방정식: 가격탄력성 = 대체효과 - 예산비중 × 소득탄력성\nㅁ. 탄력성은 시장 분석·정책 평가·기업 전략의 핵심 도구이다.",
       "options": [
@@ -460,6 +460,306 @@
       ],
       "answer": "5",
       "explanation": "5가지 모두 옳다. 수요탄력성의 3가지 형태(가격·소득·교차)와 그 응용(슬루츠키 분해, 정책·전략 적용)이 정확하게 정리되어 있다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-031",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 재화의 시장수요함수가 $Q_d = 800 - 3P + 0.4 I - 2 P_y$ (단, $I$는 소득, $P_y$는 연관재 가격)이다. 현재 시장변수가 $P = 100, I = 1,000, P_y = 50$ 이다. 소득이 $I = 1,100$ 으로 늘어나고 동시에 Y재 가격이 $P_y = 100$ 으로 상승했을 때, X재 시장 수요량의 변동 방향과 크기로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <line x1=\"70\" y1=\"60\" x2=\"270\" y2=\"180\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"90\" y1=\"60\" x2=\"290\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  \n  <circle cx=\"170\" cy=\"120\" r=\"4\" fill=\"#475569\" />\n  <circle cx=\"190\" cy=\"120\" r=\"4\" fill=\"#3b82f6\" />\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Q</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">P</text>\n</svg>\n```\n",
+      "options": [
+        "수요량 $60$ 증가",
+        "수요량 $60$ 감소",
+        "수요량 $100$ 증가",
+        "수요량 $100$ 감소",
+        "수요량 변동이 유발되지 않는다."
+      ],
+      "answer": "2",
+      "explanation": "1) 초기 균형 수요량: $Q_0 = 800 - 3(100) + 0.4(1,000) - 2(50) = 800 - 300 + 400 - 100 = 800$.\\n2) 변화 후 수요량: 소득 $I=1,100$, Y재 가격 $P_y=100$ 대입.\\n   $Q_1 = 800 - 3(100) + 0.4(1,100) - 2(100) = 800 - 300 + 440 - 200 = 740$.\\n3) 격차 비교: $Q_1 - Q_0 = 740 - 800 = -60$ 입니다. 따라서 수요량은 $60$ 감소합니다. 정답은 2번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-032",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "자체의 가격탄력성($\\varepsilon_d$)을 힉스 보상수요탄력성(대체효과 탄력성, $\\varepsilon_s$)과 소득탄력성($\\varepsilon_I$) 및 예산점유율($s$)로 표현한 슬루츠키 방정식의 대수적 분해 관계식 $\\varepsilon_d = \\varepsilon_s - s \\cdot \\varepsilon_I$ 에 관한 서술 중 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 슬루츠키 분해 그래프 -->\n  <line x1=\"50\" y1=\"170\" x2=\"270\" y2=\"200\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"170\" x2=\"170\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  <line x1=\"90\" y1=\"150\" x2=\"210\" y2=\"180\" stroke=\"#10b981\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  \n  <circle cx=\"140\" cy=\"148\" r=\"4\" fill=\"#1e293b\" />\n  <circle cx=\"110\" cy=\"147\" r=\"4\" fill=\"#10b981\" />\n  <circle cx=\"90\" cy=\"160\" r=\"4\" fill=\"#ef4444\" />\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Y</text>\n</svg>\n```\n",
+      "options": [
+        "정상재의 경우 소득효과 부호가 음(-)이 되어 가격상승 시 대체효과와 동일한 하락 방향으로 가격탄력성의 절댓값을 키운다.",
+        "열등재의 경우 대체효과와 소득효과의 작용 방향이 일치한다.",
+        "기펜재(Giffen Good)는 가격 상승 시 대체효과의 크기가 소득효과의 크기보다 절대적으로 커서 가격이 오를 때 수요량이 늘어나는 재화이다.",
+        "예산점유율 $s$가 0에 가깝다면 슬루츠키 분해상 대체효과 탄력성과 일반 가격탄력성은 크게 유리된다.",
+        "소득탄력성이 양수이면 가격 상승 시 소득효과로 인해 수요량이 증가한다."
+      ],
+      "answer": "1",
+      "explanation": "정상재인 경우 $\\varepsilon_I > 0$ 이므로 가격이 오르면 실질소득이 감소하여 소득효과로 인해 수요가 추가로 수축합니다. 즉, 가격 상승 시 대체효과로 인한 수량 감소(음의 방향)와 소득효과로 인한 수량 감소(음의 방향)가 중첩 작용하여 가격탄력성의 절댓값 크기가 힉스 보상수요탄력성보다 커집니다. 따라서 1번이 정확합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-033",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 식료품 엥겔 곡선이 $X = 10 + 2\\sqrt{I}$ (단, $I$는 소득)로 추정되었다. 소득 수준이 $I = 25$ 일 때 도출되는 식료품의 소득탄력성($\\varepsilon_I$)의 크기로 옳은 수치는?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 루트 형태의 엥겔곡선 -->\n  <path d=\"M 50 200 Q 150 120 320 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <text x=\"240\" y=\"120\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\" font-weight=\"bold\">X = a + b√I</text>\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">소득 (I)</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Q_x</text>\n</svg>\n```\n",
+      "options": [
+        "$0.50$",
+        "$0.25$",
+        "$0.80$",
+        "$0.40$",
+        "$1.00$"
+      ],
+      "answer": "2",
+      "explanation": "1) 소득 $I = 25$ 일 때의 식료품 수요량 $X$를 구합니다.\\n   $$X = 10 + 2\\sqrt{25} = 10 + 10 = 20$$\\n2) 엥겔 곡선을 소득 $I$에 대해 미분합니다.\\n   $$\\dfrac{dX}{dI} = 2 \\cdot \\dfrac{1}{2\\sqrt{I}} = \\dfrac{1}{\\sqrt{I}} \\implies \\left.\\dfrac{dX}{dI}\\right|_{I=25} = \\dfrac{1}{5} = 0.2$$\\n3) 소득탄력성 공식에 대입합니다.\\n   $$\\varepsilon_I = \\dfrac{dX}{dI} \\cdot \\dfrac{I}{X} = 0.2 \\times \\dfrac{25}{20} = 0.2 \\times 1.25 = 0.25$$\\n소득탄력성이 $0.25$ 로 필수재 성격을 가집니다. 따라서 정답은 2번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "X재와 Y재 두 대체재에 관해 두 개의 소비자 그룹(A그룹과 B그룹)이 존재한다. Y재 가격 상승에 따른 A그룹의 X재 수요 교차탄력성은 $\\varepsilon_{xy}^A = 2.0$ 이고 X재 전체 소비량의 $30\\%$를 차지하며, B그룹의 교차탄력성은 $\\varepsilon_{xy}^B = 1.0$ 이고 전체 소비량의 $70\\%$를 차지한다. 시장 전체의 합산된 교차탄력성($\\varepsilon_{xy}^{total}$)으로 옳은 수치는?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 가중평균교차탄력성 -->\n  <line x1=\"50\" y1=\"100\" x2=\"160\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"70\" x2=\"200\" y2=\"180\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  <path d=\"M 50 70 L 100 110 L 310 180\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Q</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">P</text>\n</svg>\n```\n",
+      "options": [
+        "$1.30$",
+        "$1.50$",
+        "$1.70$",
+        "$1.20$",
+        "$1.60$"
+      ],
+      "answer": "1",
+      "explanation": "시장 전체의 교차탄력성 역시 각 그룹의 교차탄력성을 그 그룹의 X재 소비 점유율로 가중평균하여 구합니다.\\n$$\\varepsilon_{xy}^{total} = w_A \\varepsilon_{xy}^A + w_B \\varepsilon_{xy}^B$$\\n- 가중치: $w_A = 0.30$, $w_B = 0.70$\\n- 각 교차탄력성: $\\varepsilon_{xy}^A = 2.0$, $\\varepsilon_{xy}^B = 1.0$\\n$$\\varepsilon_{xy}^{total} = 0.30(2.0) + 0.70(1.0) = 0.60 + 0.70 = 1.30$$\\n따라서 전체 시장 교차탄력성은 $1.30$인 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-035",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "보완재 관계인 X재의 소득탄력성은 $\\varepsilon_I = 0.6$ 이고 Y재 가격에 대한 X재 수요 교차탄력성은 $\\varepsilon_{xy} = -0.4$ 이다. 가계 소득이 $5\\%$ 증가함과 동시에 보완재인 Y재의 가격이 $10\\%$ 인상되었다. 이 두 변화가 동시에 발생할 때, 전미분 근사를 이용한 X재 수요량의 최종 변동률로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <line x1=\"70\" y1=\"60\" x2=\"270\" y2=\"180\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"60\" x2=\"250\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  \n  <circle cx=\"170\" cy=\"120\" r=\"4\" fill=\"#475569\" />\n  <circle cx=\"150\" cy=\"120\" r=\"4\" fill=\"#3b82f6\" />\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Q</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">P</text>\n</svg>\n```\n",
+      "options": [
+        "수요량 $1\\%$ 증가",
+        "수요량 $1\\%$ 감소",
+        "수요량 변동 없음 (0%)",
+        "수요량 $7\\%$ 감소",
+        "수요량 $4\\%$ 증가"
+      ],
+      "answer": "2",
+      "explanation": "수요량의 미세 변화율은 소득 및 교차 가격 변동에 따른 기여분의 합으로 근사할 수 있습니다.\\n$$\\dfrac{dX}{X} \\approx \\varepsilon_I \\dfrac{dI}{I} + \\varepsilon_{xy} \\dfrac{dP_y}{P_y}$$\\n- 소득 증가 효과: $+0.6 \\times 5\\% = +3.0\\%$.\\n- Y재 가격 상승 효과: $-0.4 \\times 10\\% = -4.0\\%$.\\n- 종합 변동률: $+3.0\\% - 4.0\\% = -1.0\\%$.\\n따라서 X재 수요량은 약 $1\\%$ 감소하는 2번이 정답입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-036",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자가 X재와 Y재를 항상 $1:2$의 비율로 함께 소비하는 완전보완재(레온티에프 효용함수 $U = \\min(X, 2Y)$)를 선호한다. X재의 가격이 $P_x$, Y재의 가격이 $P_y$, 소득이 $I$ 일 때, 내부해 기준 X재 수요의 소득탄력성($\\varepsilon_I$)과 Y재 가격에 대한 교차탄력성($\\varepsilon_{xy}$)의 조합으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 레온티에프 무차별곡선과 ICC -->\n  <path d=\"M 100 50 L 100 150 L 250 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <path d=\"M 150 70 L 150 120 L 300 120\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <line x1=\"50\" y1=\"200\" x2=\"250\" y2=\"40\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"210\" y=\"55\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">ICC (y = a x)</text>\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Y</text>\n</svg>\n```\n",
+      "options": [
+        "$\u000barepsilon_I = 1.0$, $\u000barepsilon_{xy} = -\\dfrac{P_y}{2P_x + P_y}$",
+        "$\u000barepsilon_I = 1.0$, $\u000barepsilon_{xy} = 0$",
+        "$\u000barepsilon_I = 0.5$, $\u000barepsilon_{xy} = -\\dfrac{P_y}{P_x + P_y}$",
+        "$\u000barepsilon_I = 2.0$, $\u000barepsilon_{xy} = 1.0$",
+        "$\u000barepsilon_I = 1.0$, $\u000barepsilon_{xy} = -\\dfrac{2P_y}{2P_x + P_y}$"
+      ],
+      "answer": "1",
+      "explanation": "1) 최적 소비 궤적: $X = 2Y \\implies Y = 0.5X$ 입니다.\\n2) 예산제약선 대입: $P_x X + P_y (0.5X) = I \\implies X^* \\left( P_x + 0.5P_y \\right) = I \\implies X^* = \\dfrac{2I}{2P_x + P_y}$ 입니다.\\n3) 탄력성 계산:\\n   - 소득탄력성: $X^*$ 는 소득 $I$에 선형 비례하므로 $\\varepsilon_I = 1.0$ 입니다.\\n   - 교차 가격탄력성: $X^* = 2I (2P_x + P_y)^{-1} \\implies \\dfrac{\\partial X^*}{\\partial P_y} = -2I(2P_x + P_y)^{-2}$.\\n     $$\\varepsilon_{xy} = \\dfrac{\\partial X^*}{\\partial P_y} \\cdot \\dfrac{P_y}{X^*} = -\\dfrac{2I}{(2P_x+P_y)^2} \\cdot \\dfrac{P_y (2P_x+P_y)}{2I} = -\\dfrac{P_y}{2P_x + P_y}$$\\n따라서 정답 조합은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 효용함수가 콥-더글라스 형태인 $U(X,Y) = X Y^2$ 로 주어지는 경우, 소득 $I$ 가 증가함에 따라 X재와 Y재의 소비 변화를 나타내는 소득소비곡선(ICC)의 기울기와 두 재화의 소득탄력성에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 원점 통과 직선 엥겔곡선 -->\n  <line x1=\"50\" y1=\"200\" x2=\"300\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <text x=\"250\" y=\"65\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\" font-weight=\"bold\">엥겔곡선 (ε_I = 1)</text>\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">소득 (I)</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Q_x</text>\n</svg>\n```\n",
+      "options": [
+        "ICC는 원점을 지나며 기울기가 $2 \\dfrac{P_x}{P_y}$ 인 직선이고, 두 재화의 소득탄력성은 소득 수준에 관계없이 항상 1이다.",
+        "ICC는 원점을 지나며 기울기가 $\\dfrac{P_x}{P_y}$ 인 직선이고, X재의 소득탄력성은 Y재의 2배이다.",
+        "ICC는 수평선이고, X재의 소득탄력성은 0이다.",
+        "소득이 오를수록 두 재화의 소비 비율이 가변적이므로 소득탄력성은 고정되지 않는다.",
+        "ICC는 원점에서 오목한 곡선 형태이며 소득탄력성들의 합은 항상 0이다."
+      ],
+      "answer": "1",
+      "explanation": "콥-더글라스 효용함수의 소비량 비율: $MRS_{xy} = \\dfrac{Y}{2X} = \\dfrac{P_x}{P_y} \\implies Y = 2 \\dfrac{P_x}{P_y} X$ 입니다. 따라서 소득소비곡선(ICC)은 원점을 통과하며 기울기가 $2 \\dfrac{P_x}{P_y}$ 인 직선이 됩니다. 원점을 지나는 직선의 ICC를 갖는 모든 상사 효용함수의 경우 두 재화의 소득탄력성은 소득 수준 및 기울기 값에 관계없이 언제나 완벽하게 $1.0$이 유지됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-038",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "X재와 Y재는 밀접한 대체재 관계에 있다. A시장에서 X재의 생산 기술 혁신으로 인해 X재의 대대적인 공급 증가가 발생하였다. 이 충격이 Y재 시장에 미치는 균형 조정 및 탄력성 파급 효과로 가장 적합한 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- X재와 Y재 패널 -->\n  <g transform=\"translate(0,0)\">\n    <line x1=\"30\" y1=\"180\" x2=\"180\" y2=\"180\" stroke=\"#475569\" stroke-width=\"1.5\" />\n    <line x1=\"30\" y1=\"40\" x2=\"30\" y2=\"180\" stroke=\"#475569\" stroke-width=\"1.5\" />\n    <text x=\"70\" y=\"30\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재 시장 (공급 증가)</text>\n    <line x1=\"45\" y1=\"160\" x2=\"165\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n    <line x1=\"75\" y1=\"160\" x2=\"195\" y2=\"60\" stroke=\"#dc2626\" stroke-width=\"2\" />\n  </g>\n  <g transform=\"translate(190,0)\">\n    <line x1=\"30\" y1=\"180\" x2=\"180\" y2=\"180\" stroke=\"#475569\" stroke-width=\"1.5\" />\n    <line x1=\"30\" y1=\"40\" x2=\"30\" y2=\"180\" stroke=\"#475569\" stroke-width=\"1.5\" />\n    <text x=\"70\" y=\"30\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재 시장 (대체재 수요 감소)</text>\n    <line x1=\"45\" y1=\"60\" x2=\"165\" y2=\"160\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n    <line x1=\"25\" y1=\"60\" x2=\"145\" y2=\"160\" stroke=\"#2563eb\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  </g>\n</svg>\n```\n",
+      "options": [
+        "X재 가격 상승 $\\implies$ Y재 수요곡선 우측 이동 $\\implies$ Y재 가격 상승",
+        "X재 가격 하락 $\\implies$ Y재 수요곡선 좌측 이동 $\\implies$ Y재 가격 하락",
+        "X재 가격 하락 $\\implies$ Y재 공급곡선 우측 이동 $\\implies$ Y재 가격 하락",
+        "X재와 Y재가 대체재이므로 X재 공급 증가는 Y재 시장에 아무런 변동을 유발하지 않는다.",
+        "X재 가격 하락 $\\implies$ Y재 수요곡선 우측 이동 $\\implies$ Y재 가격 상승"
+      ],
+      "answer": "2",
+      "explanation": "연쇄 조정 메커니즘:\\n1) X재 공급 증가 $\\implies$ X재 시장 가격($P_x$) 하락.\\n2) X재와 Y재는 대체재 관계 $\\implies$ 값비싸진 Y재 대신 소비자들이 저렴해진 X재로 대체 소비함 $\\implies$ Y재 시장의 수요가 감소하여 Y재 수요곡선이 좌측으로 평행 이동합니다.\\n3) Y재 수요 감소에 따라 Y재 시장의 균형 가격은 하락하고 거래량도 수축합니다.\\n따라서 옳은 파급 경로는 2번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-039",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "슈바베의 법칙(Schwabe's law)에 의하면 가계 소득이 증가함에 따라 가계 총지출 중에서 주거비(임대료 등)가 차지하는 예산 비중이 점차 하락하는 경향을 보인다. 이 실증 법칙이 성립하기 위해 요구되는 주거비 수요의 소득탄력성($\\varepsilon_I$)의 대수적 범위 조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 60 60 Q 150 140 320 160\" fill=\"none\" stroke=\"#db2777\" stroke-width=\"2.5\" />\n  <text x=\"200\" y=\"130\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#db2777\" font-weight=\"bold\">주거비 예산 비중 감소 (ε_I < 1)</text>\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">소득 (I)</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">주거비 비중</text>\n</svg>\n```\n",
+      "options": [
+        "$\u000barepsilon_I < 1$ (주거비는 필수재 혹은 열등재여야 한다)",
+        "$\u000barepsilon_I > 1$ (주거비는 사치재여야 한다)",
+        "$\u000barepsilon_I = 1$ (주거비는 단위 소득탄력적이어야 한다)",
+        "$\u000barepsilon_I < 0$ (주거비는 열등재여야만 한다)",
+        "주거비 비중은 소득탄력성의 크기와 대수적 연관이 없다."
+      ],
+      "answer": "1",
+      "explanation": "엥겔의 법칙과 마찬가지로, 소득이 늘어날 때 어떤 재화 지출 비중이 하락하기 위해서는 그 재화 수요의 소득탄력성이 1보다 작아야 합니다 ($\\varepsilon_I < 1$). 소득 증가 비율에 비해 주거 서비스 소비의 증가율이 느려 필수재 성격(또는 아주 고소득에서는 일부 열등재 성격)을 갖기 때문에 점유율이 하락하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-040",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "정부가 수입하는 특정 사치재에 고율의 관세를 부과하여 세수를 확보하고자 한다. 이 사치재의 소득탄력성이 매우 클 때($\\varepsilon_I > 2$), 경기 변동에 따른 정부 관세 세수 수입의 장기적 변동 양상에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <line x1=\"70\" y1=\"50\" x2=\"270\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <line x1=\"70\" y1=\"180\" x2=\"270\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <!-- 관세 쐐기 -->\n  <line x1=\"50\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"100\" x2=\"300\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2\" />\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Q</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">P</text>\n</svg>\n```\n",
+      "options": [
+        "경기 상황과 무관하게 관세 세수는 매년 일정하게 안정적으로 징수된다.",
+        "사치재는 소득 변화에 극도로 탄력적으로 반응하므로, 경기 호황 시 관세 세입이 큰 폭으로 폭증하고 불황 시에는 세수가 급격히 결손되는 등 세수 변동성이 극대화된다.",
+        "경기 불황 시에도 사치재 소비량은 줄어들지 않아 세수의 안정성이 보장된다.",
+        "정부의 관세율에 비례하여 세수 변화폭이 고정된다.",
+        "수입 사치재의 소득탄력성은 관세 세수와 연동되지 않는다."
+      ],
+      "answer": "2",
+      "explanation": "소득탄력성이 매우 큰 사치재($\\varepsilon_I > 2$)의 경우, 경기 불황으로 가계 소득이 소폭만 감소해도 해당 재화의 수입량과 소비량은 2배 이상의 급격한 비율로 급감합니다. 이에 따라 정부가 부과하는 관세 세입 또한 호황과 불황 등 경기 주기 변동에 맞물려 엄청난 진폭의 불안정성(호황기 세수 급증, 불황기 세수 급락)을 겪게 됩니다. 따라서 정답은 2번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-041",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "소비자가 $N$개의 재화를 소비할 때 성립하는 엥겔 응집성(Engel Aggregation) 조건 $\\sum_{i=1}^N s_i \\varepsilon_{Ii} = 1$ (단, $s_i$는 예산비중, $\\varepsilon_{Ii}$는 소득탄력성)에 대한 설명과 대수적 유도로 옳지 않은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <line x1=\"50\" y1=\"170\" x2=\"250\" y2=\"200\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <path d=\"M 80 80 Q 120 130 200 170\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Y</text>\n</svg>\n```\n",
+      "options": [
+        "가계의 예산제약선 $\\sum P_i X_i = I$ 를 소득 $I$ 에 대해 편미분함으로써 유도할 수 있다.",
+        "이 공식은 소득 증가 시 모든 재화에 대한 소비 증가액의 총합이 소득 증가분 자체와 일치해야 한다는 예산 제약의 일관성 법칙에 기인한다.",
+        "시장 전체 재화 중에서 필수재(또는 열등재, $\u000barepsilon_{Ii} < 1$)가 존재한다면, 예산 제약을 충족하기 위해 반드시 최소한 하나 이상의 사치재($\u000barepsilon_{Ij} > 1$)가 존재해야만 한다.",
+        "모든 재화가 동시에 사치재($\u000barepsilon_I > 1$)가 될 수 있다.",
+        "어떤 가구의 소비재 중 엥겔 계수(식료품 비중)가 크고 식료품의 소득탄력성이 매우 작다면, 남은 다른 재화의 소득탄력성 가중평균값은 상대적으로 1보다 훨씬 커야 한다."
+      ],
+      "answer": "4",
+      "explanation": "엥겔 응집성 조건 $\\sum s_i \\varepsilon_{Ii} = 1$ 은 각 재화의 소득탄력성을 예산 비중으로 가중평균한 값이 반드시 1이어야 함을 명시합니다. 만약 모든 재화가 동시에 사치재($\\varepsilon_i > 1$)가 된다면 가중 평균값이 1을 초과하므로 예산 제약을 위반하게 됩니다. 따라서 모든 재화가 동시에 사치재가 되는 것은 원천적으로 불가능합니다. 4번이 거짓이므로 정답입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-042",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "수요함수의 0차 동차성(Homogeneity of degree zero in prices and income) 정리로부터 성립하는 개별 재화 X의 자체가격탄력성($\\varepsilon_{xx}$), 다른 재화 가격에 대한 교차탄력성들의 합($\\sum_{j \\neq x} \\varepsilon_{xj}$), 그리고 소득탄력성($\\varepsilon_{Ix}$) 간의 동차성 조건(Homogeneity Condition)으로 옳은 수식은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 동차성 확산 -->\n  <line x1=\"50\" y1=\"160\" x2=\"250\" y2=\"200\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"120\" x2=\"350\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2\" />\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Y</text>\n</svg>\n```\n",
+      "options": [
+        "$\u000barepsilon_{xx} + \\sum_{j \neq x} \u000barepsilon_{xj} + \u000barepsilon_{Ix} = 0$ (단, 부호 포함 탄력성 기준)",
+        "$\u000barepsilon_{xx} + \\sum_{j \neq x} \u000barepsilon_{xj} + \u000barepsilon_{Ix} = 1$",
+        "$\u000barepsilon_{xx} - \\sum_{j \neq x} \u000barepsilon_{xj} + \u000barepsilon_{Ix} = 0$",
+        "$\u000barepsilon_{xx} + \\sum_{j \neq x} \u000barepsilon_{xj} - \u000barepsilon_{Ix} = 0$",
+        "세 탄력성 간에는 어떠한 동차성 총합 제약도 수립되지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "모든 가격과 소득이 동시에 동일한 비율($k$배)로 증가하면 실질 소득과 가격 비율이 불변이므로 수요량은 변화하지 않습니다(수요함수의 0차 동차성).\\n오일러 정리를 적용하여 수요함수 $X(P_1, P_2, \\dots, P_n, I)$ 에 대해 동차성을 전개하고 이를 탄력성으로 변환하면, 가격탄력성과 교차탄력성 및 소득탄력성의 종합 합계(부호 포함 기준)는 정확하게 $0$이 되어야 합니다.\\n$$\\varepsilon_{xx} + \\sum_{j \\neq x} \\varepsilon_{xj} + \\varepsilon_{Ix} = 0$$\\n따라서 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-043",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 효용함수가 준선형 형태인 $U(X, Y) = \\ln X + Y$ 이고, 예산제약식이 $P_x X + P_y Y = I$ 이다. 소비 지출의 내부해 영역 하에서 도출되는 X재와 Y재의 소득탄력성 조합($\\varepsilon_{Ix}, \\varepsilon_{Iy}$)으로 옳은 공식은? (단, $s_x$와 $s_y$는 두 재화의 예산 비중임)\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <line x1=\"150\" y1=\"40\" x2=\"150\" y2=\"180\" stroke=\"#8b5cf6\" stroke-width=\"3\" />\n  <text x=\"156\" y=\"55\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#8b5cf6\" font-weight=\"bold\">ICC (수직: ε_Ix = 0)</text>\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Y</text>\n</svg>\n```\n",
+      "options": [
+        "$\u000barepsilon_{Ix} = 0$, $\u000barepsilon_{Iy} = \\dfrac{1}{s_y}$",
+        "$\u000barepsilon_{Ix} = 1.0$, $\u000barepsilon_{Iy} = 1.0$",
+        "$\u000barepsilon_{Ix} = 0$, $\u000barepsilon_{Iy} = 1.0$",
+        "$\u000barepsilon_{Ix} = \\dfrac{1}{s_x}$, $\u000barepsilon_{Iy} = 0$",
+        "$\u000barepsilon_{Ix} = 0.5$, $\u000barepsilon_{Iy} = 0.5$"
+      ],
+      "answer": "1",
+      "explanation": "1) 최적 X재 조건: $MRS_{xy} = \\dfrac{1/X}{1} = \\dfrac{P_x}{P_y} \\implies X^* = \\dfrac{P_y}{P_x}$ 입니다.\\n   - $X^*$ 는 소득 $I$ 와 무관하므로 소득탄력성은 $\\varepsilon_{Ix} = 0$ 입니다.\\n2) Y재의 최적 소비량: 예산제약에 대입합니다.\\n   - $P_y Y^* = I - P_x X^* = I - P_x \\left(\\dfrac{P_y}{P_x}\\right) = I - P_y \\implies Y^* = \\dfrac{I}{P_y} - 1$.\\n3) Y재의 소득탄력성 계산:\\n   - $\\dfrac{\\partial Y^*}{\\partial I} = \\dfrac{1}{P_y} \\implies \\varepsilon_{Iy} = \\dfrac{1}{P_y} \\cdot \\dfrac{I}{Y^*} = \\dfrac{I}{P_y Y^*} = \\dfrac{1}{s_y}$ 입니다.\\n(참고: 엥겔 응집성 검증: $s_x \\varepsilon_{Ix} + s_y \\varepsilon_{Iy} = s_x(0) + s_y(1/s_y) = 1$ 이 확실히 성립합니다.)\\n따라서 정답 조합은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-044",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 효용함수가 CES 형태인 $U(X,Y) = (X^\\rho + Y^\\rho)^{1/\\rho}$ 로 주어질 때 유도되는 대체탄력성이 $\\sigma = 2$ 이다. 이 소비자의 소득탄력성($\\varepsilon_I$)과 두 재화 간의 교차탄력성($\\varepsilon_{xy}$)에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 70 50 Q 150 150 320 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Y</text>\n</svg>\n```\n",
+      "options": [
+        "소득탄력성은 두 재화 모두 항상 1이고, 교차 가격의 상승은 대체효과가 지배적이어서 교차탄력성이 양수($\u000barepsilon_{xy} > 0$)가 되어 두 재화는 대체재 관계를 갖는다.",
+        "소득탄력성은 1이지만, 가격 교차탄력성은 보완 효과가 지배적이어서 음수이다.",
+        "CES 효용 하의 대체탄력성 $\\sigma = 2$ 이므로 가격 교차탄력성은 무조건 0이다.",
+        "소득탄력성과 교차탄력성 모두 $\\sigma$값에 연동되어 가변적이며 0에 수렴한다.",
+        "대체탄력성이 1보다 크면 두 재화의 소득탄력성은 1보다 작아져 필수재가 된다."
+      ],
+      "answer": "1",
+      "explanation": "CES 효용함수는 동차(homogeneous) 효용함수의 성격을 지니므로 엥겔곡선이 원점을 통과하는 직선이 되어 두 재화의 소득탄력성은 언제나 $1.0$이 유지됩니다. 대체탄력성이 $\\sigma = 2 > 1$ 인 경우 두 재화는 높은 대체성을 지녀 교차 탄력성의 부호가 양수($\\varepsilon_{xy} > 0$)가 됩니다(대체효과가 소득효과를 압도함). 따라서 대체재 관계에 속하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-045",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 최소 필수 소비량(subsistence minimum)이 반영된 스톤-기어리(Stone-Geary) 효용함수 $U(X,Y) = (X - \\gamma_x)^{0.4} (Y - \\gamma_y)^{0.6}$ (단, $\\gamma_x, \\gamma_y > 0$ 은 생존에 필수적인 최소 소비량)가 작동 중이다. 이 경제에서 소비자의 소득 $I$가 증가함에 따라 관찰되는 X재의 소득탄력성($\\varepsilon_{Ix}$)의 동태적 거동에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 스톤-기어리 최소소비선 임계선 -->\n  <line x1=\"100\" y1=\"40\" x2=\"100\" y2=\"200\" stroke=\"#059669\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"105\" y=\"55\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">최소필수량 γ_x</text>\n  \n  <path d=\"M 120 50 Q 180 150 320 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Y</text>\n</svg>\n```\n",
+      "options": [
+        "소득탄력성은 소득 수준에 무관하게 항상 $0.4$로 일정하다.",
+        "매우 저소득 수준에서는 필수 최소량을 채워야 하므로 소득탄력성이 1보다 크지만, 소득이 극한으로 증가하면 1에 점차 수렴한다.",
+        "소득이 오를수록 가격탄력성은 일정하고 소득탄력성은 영원히 하락하여 음수에 도달한다.",
+        "소득탄력성은 언제나 1로 일정하다.",
+        "생존 필수량 조건으로 인해 소득탄력성은 저소득 수준에서 0이었다가 고소득에서 1보다 커진다."
+      ],
+      "answer": "2",
+      "explanation": "스톤-기어리 효용 하에서 X재의 최적 소비량은 $X^* = \\gamma_x + \\dfrac{0.4}{P_x} (I - P_x \\gamma_x - P_y \\gamma_y)$ 입니다.\\n- 소득탄력성 유도:\\n  $$\\varepsilon_{Ix} = \\dfrac{\\partial X^*}{\\partial I} \\cdot \\dfrac{I}{X^*} = \\dfrac{0.4}{P_x} \\cdot \\dfrac{I}{\\gamma_x + \\dfrac{0.4}{P_x}(I - P_x \\gamma_x - P_y \\gamma_y)} = \\dfrac{0.4 I}{0.6 P_x \\gamma_x - 0.4 P_y \\gamma_y + 0.4 I}$$\\n- 분석: 소득 $I$가 최소 생존 예산에 근접한 수준($I \\rightarrow P_x \\gamma_x + P_y \\gamma_y$)에서는 분모가 작아져 $\\varepsilon_{Ix} > 1$의 사치재 성격을 띠지만, 소득이 무한대로 커지면($I \\rightarrow \\infty$) 분모와 분자의 최고차항 비가 $\\dfrac{0.4I}{0.4I} = 1$ 이 되어 점차 1로 수렴해 갑니다. 따라서 정답은 2번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-046",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "X, Y, Z 세 가지 재화만 존재하는 소비 체계에서 X재와 Y재는 대체재($\\varepsilon_{xy} > 0$)이고, X재와 Z재는 보완재($\\varepsilon_{xz} < 0$) 관계에 있다. Y재의 가격 상승과 Z재의 가격 상승이 동시에 발생할 때, Y재 가격 상승에 따른 X재 수요량 증가 분과 Z재 가격 상승에 따른 X재 수요량 감소 분의 상대 크기에 의해 결정되는 X재 최종 수요량의 변동 양상으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 세 가지 재화 피드백 루프 -->\n  <circle cx=\"100\" cy=\"120\" r=\"25\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <circle cx=\"200\" cy=\"120\" r=\"25\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"300\" cy=\"120\" r=\"25\" fill=\"#dcfce7\" stroke=\"#10b981\" stroke-width=\"2\" />\n  \n  <text x=\"93\" y=\"123\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"193\" y=\"123\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"293\" y=\"123\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Z재</text>\n  \n  <line x1=\"125\" y1=\"120\" x2=\"175\" y2=\"120\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <line x1=\"225\" y1=\"120\" x2=\"275\" y2=\"120\" stroke=\"#475569\" stroke-width=\"1.5\" />\n</svg>\n```\n",
+      "options": [
+        "두 효과의 부호가 반대이므로, 두 가격 변동 폭과 각각의 교차탄력성의 상대적 크기에 따라 X재 수요량의 최종 증감이 조건부로 결정된다.",
+        "두 효과가 같은 방향으로 작용하므로 X재 수요량은 무조건 증가한다.",
+        "두 효과가 같은 방향으로 작용하므로 X재 수요량은 무조건 감소한다.",
+        "X재 수요량은 Y재와 Z재의 가격 변화와 수학적으로 무관하다.",
+        "X재 수요량은 언제나 변하지 않고 균형을 유지한다."
+      ],
+      "answer": "1",
+      "explanation": "Y재 가격 상승 $\\implies$ 대체재 관계이므로 X재 수요 증가 요인 ($+P_y \\rightarrow +Q_x$).\\nZ재 가격 상승 $\\implies$ 보완재 관계이므로 X재 수요 감소 요인 ($+P_z \\rightarrow -Q_x$).\\n두 파급 효과의 방향이 정반대이므로, 최종 X재 수요량의 변동은 두 가격의 실제 인상률 크기와 각 교차탄력성 절댓값 수치 간의 상호 작용 결과에 따라 증가할 수도 감소할 수도 있어 애매하게(조건부로) 결정됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-047",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "소비자 이론에서 유도되는 슬루츠키 대칭성(Slutsky Symmetry) 정리 $S_{xy} = S_{yx}$ (단, $S_{ij}$는 힉스 보상수요의 가격 미분값)를 활용하여, 소득탄력성과 교차탄력성 간의 상호 제약 관계에 관한 설명 중 가장 올바른 명제는?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 슬루츠키 대칭 대수 행렬 형태 -->\n  <rect x=\"100\" y=\"60\" width=\"200\" height=\"120\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"95\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">S_xx</text>\n  <text x=\"230\" y=\"95\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">S_xy</text>\n  <text x=\"120\" y=\"145\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">S_yx</text>\n  <text x=\"230\" y=\"145\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">S_yy</text>\n  \n  <path d=\"M 230 105 L 150 135\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"170\" y=\"120\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">대칭: S_xy = S_yx</text>\n</svg>\n```\n",
+      "options": [
+        "X재 가격 변화에 따른 Y재의 마샬 교차효과와 Y재 가격 변화에 따른 X재의 마샬 교차효과는 항상 대칭적이다.",
+        "일반 마샬 수요의 교차효과는 소득 효과의 비대칭성 때문에 대칭이 성립하지 않지만, 소득효과를 제거한 순수 대체효과(힉스 보상수요 미분)의 수준에서는 항상 완벽한 대칭성이 수립된다.",
+        "슬루츠키 대칭성에 의해 두 재화의 가격 교차탄력성($\u000barepsilon_{xy}, \u000barepsilon_{yx}$)의 크기는 언제나 일치한다.",
+        "대칭성은 완전보완재 관계에서만 제한적으로 작동한다.",
+        "소득탄력성이 음수인 열등재가 결합되면 대체효과의 대칭성마저 소멸한다."
+      ],
+      "answer": "2",
+      "explanation": "마샬 수요의 교차효과 $\\dfrac{\\partial X}{\\partial P_y}$ 와 $\\dfrac{\\partial Y}{\\partial P_x}$ 는 가계의 소득 효과 격차($-Y \\dfrac{\\partial X}{\\partial I} \\neq -X \\dfrac{\\partial Y}{\\partial I}$)로 인해 비대칭적입니다. 그러나 슬루츠키 방정식에 의해 소득 효과가 소거된 대체효과인 힉스 보상수요의 교차 미분 격차는 힉스 지출함수의 2차 교차편미분의 연속성에 의해 언제나 완벽하게 대칭($S_{xy} = S_{yx}$)을 이룹니다. 따라서 정답은 2번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-048",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "사치재와 필수재가 혼합되어 있는 시장 구조에서 사회 전체적인 소득 분배 상태(소득 불평등도)가 심화되어 고소득층으로 소득 쏠림이 가중되었다. 이때 시장 전체의 평균적인 수요 소득탄력성에 미치는 영향과 이로 인한 가계 소비 패턴 왜곡에 대한 분석으로 가장 옳은 판단은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 지니계수 로렌츠곡선 -->\n  <line x1=\"50\" y1=\"200\" x2=\"250\" y2=\"50\" stroke=\"#94a3b8\" />\n  <path d=\"M 50 200 Q 150 170 250 50\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">인구비율</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">소득비율</text>\n</svg>\n```\n",
+      "options": [
+        "고소득층의 소비 비중이 높아짐에 따라 소득탄력성이 1보다 큰 사치재의 시장 전체 수요가 필수재에 비해 상대적으로 크게 팽창하고 시장 평균 소득탄력성이 상승한다.",
+        "소득 분배 상태 변화는 시장 전체의 소득탄력성에 아무런 영향을 주지 않는다.",
+        "소득 불평등 심화는 필수재 수요만 팽창시키고 사치재 시장을 붕괴시킨다.",
+        "사회 전체의 엥겔 계수가 오히려 인위적으로 상승하게 된다.",
+        "모든 소비재의 소득탄력성이 0에 가깝게 수축하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "소득 불평등도가 심화되어 고소득 가계의 소득 점유율이 높아지면, 사회 전체 소비 가중치가 고소득층의 소비 패턴으로 수렴합니다. 고소득 가계는 소득탄력성이 1보다 큰 사치재(명품, 레저 등) 소비 비중이 높으므로, 필수재(식료품 등)에 비해 사치재 시장의 수요 규모가 더 가속적으로 팽창하고 가중평균 가격/소득탄력성 왜곡이 초래됩니다. 따라서 1번이 타당합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-049",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "소비자의 시차 적응이 반영된 동태적 소득 수요 함수가 $Q_t = 100 + 0.4 I_t + 0.5 Q_{t-1}$ (단, $I$는 소득)로 주어진다. 이 모형에서 유도되는 단기 소득탄력성($\\varepsilon_{I,SR}$)과 장기 소득탄력성($\\varepsilon_{I,LR}$)의 격차배율(장기탄력성 / 단기탄력성)의 크기로 옳은 수치는? (단, 분석 지점의 소득과 거래량 비율은 단기와 장기가 동일하다고 가정함)\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 단기와 장기 엥겔곡선 교차 -->\n  <line x1=\"50\" y1=\"200\" x2=\"200\" y2=\"100\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"200\" x2=\"300\" y2=\"120\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  \n  <text x=\"180\" y=\"90\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">단기 엥겔 (비탄력)</text>\n  <text x=\"270\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">장기 엥겔 (탄력적)</text>\n  \n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">I</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">Q</text>\n</svg>\n```\n",
+      "options": [
+        "$2.0$ 배",
+        "$0.5$ 배",
+        "$1.0$ 배 (단기와 장기가 같다)",
+        "$2.5$ 배",
+        "$1.5$ 배"
+      ],
+      "answer": "1",
+      "explanation": "1) 단기 반응: 당기 소득 $I_t$ 에 대한 당기 수요량 $Q_t$ 의 미분격차는 전기 수요 $Q_{t-1}$ 을 상수로 취급하므로 $\\dfrac{\\partial Q_t}{\\partial I_t} = 0.4$ 입니다. 따라서 단기 소득탄력성은 $\\varepsilon_{I,SR} = 0.4 \\dfrac{I}{Q}$ 입니다.\\n2) 장기 반응: 장기 균형 상태($Q_t = Q_{t-1} = Q^*$, $I_t = I^*$)를 대입하여 정상적인 장기 엥겔 함수를 유도합니다.\\n   $$Q^* = 100 + 0.4 I^* + 0.5 Q^* \\implies 0.5 Q^* = 100 + 0.4 I^* \\implies Q^* = 200 + 0.8 I^*$$\\n   따라서 장기 미분격차는 $\\dfrac{\\partial Q^*}{\\partial I^*} = 0.8$ 이며, 장기 소득탄력성은 $\\varepsilon_{I,LR} = 0.8 \\dfrac{I}{Q}$ 입니다.\\n3) 격차 배율: $\\dfrac{\\varepsilon_{I,LR}}{\\varepsilon_{I,SR}} = \\dfrac{0.8}{0.4} = 2.0$ 배 입니다. 따라서 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item02-050",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "소비 지출의 예산제약하 일반균형 체계에서 왈라스 법칙과 동차성 정리를 결합하여 유도되는 다음 성질 중, 모든 소비재의 소득탄력성에 관해 수학적으로 입증할 수 있는 가장 타당한 한계 명제는?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 다재화 일반균형 -->\n  <circle cx=\"120\" cy=\"120\" r=\"30\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <circle cx=\"280\" cy=\"120\" r=\"30\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <text x=\"110\" y=\"123\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">1시장</text>\n  <text x=\"270\" y=\"123\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">2시장</text>\n  \n  <path d=\"M 150 120 L 250 120\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <path d=\"M 250 130 L 150 130\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n</svg>\n```\n",
+      "options": [
+        "모든 소비재가 동시에 필수재($\u000barepsilon_I < 1$)가 되거나 동시에 사치재($\u000barepsilon_I > 1$)가 되는 것은 예산 제약상 절대 불가능하다.",
+        "모든 소비재가 동시에 필수재가 되는 것은 가능하지만, 사치재가 되는 것은 불가능하다.",
+        "모든 소비재가 동시에 사치재가 되는 것은 가능하지만, 필수재가 되는 것은 불가능하다.",
+        "소득탄력성들의 합은 항상 0이어야 한다.",
+        "소득탄력성들의 제곱 합은 언제나 1로 일정하다."
+      ],
+      "answer": "1",
+      "explanation": "엥겔 응집성 $\\sum s_i \\varepsilon_{Ii} = 1$ (예산점유율의 가중합은 1)에 의거하여:\\n1) 만약 모든 재화가 동시에 필수재($\\varepsilon_i < 1$)라면 가중합 $\\sum s_i \\varepsilon_i < \\sum s_i = 1$ 이 되어 1보다 작아지므로 모순입니다.\\n2) 만약 모든 재화가 동시에 사치재($\\varepsilon_i > 1$)라면 가중합 $\\sum s_i \\varepsilon_i > \\sum s_i = 1$ 이 되어 1보다 커지므로 역시 모순입니다.\\n따라서 사회 전체의 모든 재화가 동시에 필수재가 되거나 동시에 사치재가 되는 것은 대수적으로 절대 불가능하며, 최소한 하나의 사치재와 필수재가 혼재되어 균형을 이루어야 합니다. 정답은 1번입니다."
     }
   ]
 }

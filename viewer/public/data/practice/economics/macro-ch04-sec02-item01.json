@@ -8,84 +8,84 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-macro-ch04-sec02-item01-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "재정정책(fiscal policy)의 정의는?",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "IS-LM 모형에서 정부의 확장적 재정정책(Government purchase increase)이 거시경제 균형에 미치는 효과에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- IS_0 (Downward sloping) -->\n  <path d=\"M 60 60 Q 150 140 260 180\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"265\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS_0</text>\n  <!-- IS_1 (Shift Right) -->\n  <path d=\"M 120 60 Q 210 140 320 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"325\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">IS_1 (재정팽창)</text>\n  <!-- Shift Arrow -->\n  <line x1=\"140\" y1=\"110\" x2=\"200\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" />\n  <polygon points=\"205,110 197,106 197,114\" fill=\"#a855f7\" />\n  <text x=\"145\" y=\"100\" font-size=\"8\" fill=\"#a855f7\">정부지출(G) ↑</text>\n  <text x=\"290\" y=\"222\" font-size=\"8.5\" fill=\"#64748b\">국민소득 (Y)</text>\n  <text x=\"15\" y=\"35\" font-size=\"8.5\" fill=\"#64748b\">이자율 (r)</text>\n</svg>\n```",
       "options": [
-        "정부 지출 (G)·조세 (T) 조절로 총수요·산출·고용 영향",
-        "통화정책",
-        "관계 없음",
-        "독점",
-        "Pareto"
+        "확장적 재정정책은 IS 곡선을 좌측으로 이동시키며 이자율과 국민소득을 모두 하락시킨다",
+        "정부 지출의 증가는 실질화폐 공급량을 늘려 LM 곡선을 우측으로 이동시킨다",
+        "확장적 재정정책은 생산물시장의 총수요를 늘려 IS 곡선을 우측으로 이동시키고, 이에 따라 균형 국민소득과 균형 이자율이 모두 상승한다",
+        "조세 감면 정책은 정부 지출 증가 정책보다 항상 소득 증대 효과가 크게 나타난다",
+        "재정정책의 승수 효과는 화폐 시장의 이자율 변동과 완벽하게 무관하다"
       ],
-      "answer": "1",
-      "explanation": "재정정책: G·T 조절 → AD 영향 → Y·고용 영향. 케인즈 (1936) 일반이론의 핵심. 한국 기재부 담당. 통화정책과 양대 거시 도구."
+      "answer": "3",
+      "explanation": "확장적 재정정책(G 증가, T 감소)은 생산물시장의 총수요를 늘려 IS 곡선을 우측 시프트시킵니다. 새로운 균형점에서 소득($Y$)이 증가하면서 화폐 시장의 거래적 화폐수요가 늘어나 균형 이자율($r$) 또한 상승하게 됩니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "재정정책의 IS-LM 효과는?",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 경제의 거시 모형이 다음과 같이 주어져 있다.\n- IS 곡선: $Y = 1,200 + 4G - 2,000r$\n- LM 곡선: $Y = 600 + 3,000r$\n현재 정부지출 $G = 100$조 원이다. 정부가 시중 경기를 부양하기 위해 정부지출을 200조 원으로 100조 원만큼 추가 증액하였다. 이 재정정책으로 인해 발생하는 최종 균형 소득($Y^*$)의 실제 증가폭은?",
       "options": [
-        "G ↑·T ↓ → IS 우측 → Y ↑·r ↑ (LM 일정 시, 구축효과 일부)",
-        "LM 우측",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "120조 원",
+        "150조 원",
+        "180조 원",
+        "240조 원",
+        "400조 원"
       ],
-      "answer": "1",
-      "explanation": "재정정책: IS 우측 (G·T) → Y ↑·r ↑. LM 일정 시 r ↑로 구축효과 일부 발생. 통화 협조 시 r 안정·Y ↑↑."
+      "answer": "4",
+      "explanation": "1) 기존 연립 ($G=100$): IS는 $Y = 1600 - 2000r$. LM과 연립: $1600 - 2000r = 600 + 3000r \\\\\\\\Rightarrow 5000r = 1000 \\\\\\\\Rightarrow r_0 = 0.20$. 소득 $Y_0 = 1600 - 2000(0.20) = 1200$조 원.\n2) 신규 연립 ($G=200$, 100증가): IS는 $Y = 1200 + 4(200) - 2000r = 2000 - 2000r$. LM과 연립: $2000 - 2000r = 600 + 3000r \\\\\\\\Rightarrow 5000r = 1400 \\\\\\\\Rightarrow r_1 = 0.28$. 소득 $Y_1 = 2000 - 2000(0.28) = 1440$조 원.\n3) 소득 증가폭: $\\\\\\\\Delta Y = 1440 - 1200 = 240$조 원이 됩니다. (단순 재정승수 효과 400에 비해 이자율 상승으로 160만큼 덜 늘어났습니다). 정답은 ④입니다."
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-003",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
-      "question": "정부지출승수의 단순 공식은?",
+      "question": "다음 중 확장적 재정정책의 소득 증대 효과를 크게 만드는 거시 경제학적 조건으로 옳은 것은?",
       "options": [
-        "$1/(1 - c)$ (폐쇄·세금 외생)",
-        "$c$",
-        "$1/c$",
-        "$1$",
-        "$0$"
+        "투자의 이자율 탄력성이 매우 크고, 화폐 수요의 이자율 탄력성은 0에 가깝다",
+        "투자의 이자율 탄력성이 매우 작고, 화폐 수요의 이자율 탄력성은 대단히 크다",
+        "한계소비성향(MPC)이 0에 가까워 승수효과가 미미하다",
+        "은행의 지급준비율이 상승하여 통화 승수가 급락한다",
+        "조세율이 극도로 높아서 가처분소득이 감소한다"
       ],
-      "answer": "1",
-      "explanation": "단순 정부지출승수 = $1/(1-MPC)$. MPC = 0.8 → 승수 5. 모든 G ↑ 1단위가 Y ↑ 5단위. 케인지언 단순 모형."
+      "answer": "2",
+      "explanation": "재정정책의 효과를 극대화하려면 이자율 상승에 따른 부작용(구축효과)이 작아야 합니다. 즉, 금리가 올라도 민간 투자가 덜 줄어들고(투자의 이자율 탄력성 소), 금리 상승폭 자체가 완만해야(화폐수요의 이자율 탄력성 대) 효과가 큽니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-004",
-      "difficulty": 2,
-      "question_type": "계산형",
-      "question": "MPC = 0.75. $G$ ↑ 100. 단순 $\\Delta Y$는?",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "소득세율이 20%($t = 0.2$)이고 한계소비성향이 0.75인 경제가 있다. 정부가 시중 경기를 진작하기 위해 정부 지출을 20조 원 늘렸다. 이자율 변동을 무시할 때(단순 승수효과만 고려), 이 정책이 유도하는 총수요(IS 곡선)의 우측 이동폭은?",
       "options": [
-        "$\\Delta Y = 400$",
-        "100",
-        "75",
-        "500",
-        "0"
+        "20조 원",
+        "30조 원",
+        "40조 원",
+        "50조 원",
+        "80조 원"
       ],
-      "answer": "1",
-      "explanation": "승수 = $1/(1-0.75) = 4$. $\\Delta Y = 4 \\times 100 = 400$. 단순 케인지언."
+      "answer": "4",
+      "explanation": "1) 소득세가 존재하는 정부지출 승수 = $1 / (1 - c(1-t)) = 1 / (1 - 0.75(1-0.2)) = 1 / (1 - 0.75 \\\\\\\\times 0.8) = 1 / (1 - 0.6) = 1 / 0.4 = 2.5$ 입니다.\n2) 총수요 증가폭 = $20조 원 \\\\\\\\times 2.5 = 50$조 원이 됩니다. 정답은 ④입니다."
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-005",
       "difficulty": 2,
       "question_type": "이론형",
-      "question": "조세승수의 단순 공식은?",
+      "question": "재정정책의 내부시차(Lag)와 외부시차에 관한 설명으로 가장 옳은 것은?",
       "options": [
-        "$-c/(1-c)$ — 정부지출승수보다 작음 (절대값)",
-        "$1/(1-c)$",
-        "0",
-        "$-1$",
-        "$c$"
+        "재정정책은 의회 심의 및 예산 편성이 신속하므로 내부시차가 통화정책보다 대수적으로 훨씬 짧다",
+        "재정정책은 예산안 편성 및 의회 통과 과정이 필요하므로 내부시차가 상대적으로 길지만, 정부 예산 집행이 총수요에 즉각 유입되므로 외부시차는 통화정책에 비해 매우 짧다",
+        "재정정책은 내부시차와 외부시차가 모두 존재하지 않는 완전 즉각적 정책이다",
+        "통화정책과 재정정책은 내부시차의 경로가 완벽히 동일하다",
+        "외부시차는 오직 세금 인하를 통해서만 0으로 단축시킬 수 있다"
       ],
-      "answer": "1",
-      "explanation": "조세 ↓ 1단위 → 가처분소득 ↑ 1 → 소비 ↑ $c$ → 승수 효과 $c/(1-c)$. T ↓ 직접 ↑ 아님 (G와 달리). 정부지출승수 ($1/(1-c)$) 보다 작음."
+      "answer": "2",
+      "explanation": "재정정책은 법 개정과 정당 간의 예산 합의(의회 절차)가 필요하여 내부시차가 매우 길다는 한계가 있습니다. 그러나 예산이 통과되면 토목 공사나 보조금 지급 등이 곧바로 집행되어 실물 수요에 유입되므로 외부시차는 매우 짧고 확실합니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-006",
@@ -94,17 +94,17 @@
       "question": "균형재정승수(balanced budget multiplier)란?",
       "options": [
         "G ↑ = T ↑ 시 승수 = 1 — Haavelmo 정리",
-        "0",
+        "해당 개념에 부합하지 않는 총수요총공급적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
         "관계 없음",
         "정부 결정",
-        "$\\infty$"
+        "$\\\\infty$"
       ],
       "answer": "1",
-      "explanation": "Haavelmo (1945·1989 노벨) 정리: G ↑ = T ↑ 시 $\\Delta Y = G - cT = (1-c)G = G \\cdot$ (균형 시 1). 정부 균형 시도 시 작아도 부양 효과 1."
+      "explanation": "Haavelmo (1945·1989 노벨) 정리: G ↑ = T ↑ 시 $\\\\Delta Y = G - cT = (1-c)G = G \\\\cdot$ (균형 시 1). 정부 균형 시도 시 작아도 부양 효과 1."
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-007",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "재정정책 \"구축효과\"의 IS-LM 분석은?",
       "options": [
@@ -119,12 +119,12 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-008",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Blanchard-Leigh (2013) 재정승수 추정의 의의는?",
       "options": [
         "위기 시 (저금리 + 함정) 재정승수 1-2 수준 — 단순 모형 (0.5) 보다 큼",
-        "0",
+        "해당 개념에 부합하지 않는 총수요총공급적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
         "관계 없음",
         "정부 결정",
         "Pareto"
@@ -134,7 +134,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-009",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Ricardian 등가성(Barro 1974)의 함의는?",
       "options": [
@@ -149,12 +149,12 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-010",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "한국 \"2020 코로나 재난지원금\" 의 재정승수 추정은?",
       "options": [
         "MPC 0.25-0.4 (KDI·노동연구원) → 승수 약 0.5-1 — 위기·소득 분포 효과",
-        "0",
+        "해당 개념에 부합하지 않는 총수요총공급적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
         "관계 없음",
         "정부 결정",
         "Pareto"
@@ -164,7 +164,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-011",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "자동안정장치(automatic stabilizers)란?",
       "options": [
@@ -179,7 +179,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-012",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"자동안정장치 강화\" 의 정책 함의는?",
       "options": [
@@ -194,7 +194,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-013",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"재정 건전성 vs 부양\" 의 trade-off는?",
       "options": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-014",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "케인즈 \"재정정책\" 의 학파별 평가는?",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-015",
-      "difficulty": 5,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"국채 발행 ↑ → r ↑\" 의 구축효과 사례는?",
       "options": [
@@ -246,15 +246,15 @@
         "$1/(1-c+m) = 1/0.5 = 2$",
         "$1/0.3 = 3.33$",
         "5",
-        "0",
+        "해당 개념에 부합하지 않는 총수요총공급적 설명 또는 잘못된 지표 (오답 방지 선지 3)",
         "관계 없음"
       ],
       "answer": "1",
-      "explanation": "개방경제 승수 = $1/(1-c+m)$. 한국 수입 의존 ↑ ($m \\approx 0.4$) → 승수 ↓. 한국 실제 정부지출승수 1-2 (Blanchard-Leigh 추정과 부합)."
+      "explanation": "개방경제 승수 = $1/(1-c+m)$. 한국 수입 의존 ↑ ($m \\\\approx 0.4$) → 승수 ↓. 한국 실제 정부지출승수 1-2 (Blanchard-Leigh 추정과 부합)."
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-017",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"수출 의존 → 재정승수 ↓\" 의 분석은?",
       "options": [
@@ -269,7 +269,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-018",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"감세 vs 지출 확대\" 의 정책 효과 차이는?",
       "options": [
@@ -284,7 +284,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-019",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Auerbach-Gorodnichenko (2012) 비선형 재정승수 모형은?",
       "options": [
@@ -299,7 +299,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-020",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"인플레이션 시기 재정 긴축\" 의 효과는?",
       "options": [
@@ -314,7 +314,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-021",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 정부의 \"재정 준칙\" 도입 논의는?",
       "options": [
@@ -329,7 +329,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-022",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Sims (2011 노벨) \"재정 이론 of 물가\" 의 함의는?",
       "options": [
@@ -344,7 +344,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-023",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"고령화·재정 지출\" 의 장기 분석은?",
       "options": [
@@ -359,7 +359,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-024",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"기본소득\" 논쟁의 재정정책 분석은?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec02-item01-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 재정정책의 종합 평가는?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "한국 재정정책 평가: ① 단기 부양 (위기 시 강력, Blanchard-Leigh) ② 자동안정 (강화 필요) ③ 장기 건전성 (부채·인구) ④ 사회 (복지·재분배) 종합. 한국 정책 과제: 단기-장기 균형 + 재정 준칙 검토."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-026",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "거시경제학에서 재정정책 효과을 모형화할 때 전제되는 가장 본질적인 기본 가정과 학설별 논리를 다룬 설명으로 가장 옳지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "정부지출 확대의 조정이 단기적으로 지연된다는 경직성 가정이 중심이 된다.",
+        "조세 인하감세이 항상 무한대의 속도로 즉시 조정되어 시장이 매초 완벽히 청산된다는 신고전학파의 균형 경로가 기본이 된다.",
+        "IS 우측이동은 자원의 외생적 유출 요인으로 작용하여 균형 궤적을 아래로 당긴다.",
+        "승수효과 변동의 동학은 실물 생산력뿐만 아니라 가격 결정에도 중요한 거시적 피드백 효과를 준다.",
+        "모든 경제주체가 완벽한 합리적 기대를 하여 예측된 정책의 단기 실물 효과는 0이 된다는 것이 새고전학파의 주장이다."
+      ],
+      "answer": "2",
+      "explanation": "재정정책 효과 분석 시 조세 인하감세이 나노초 단위로 초신축 조정된다는 것은 고전학파 또는 새고전학파의 극단적인 가정이며, 거시경제 일반의 공통 가정으로 보기에는 한계가 있습니다. 따라서 ②가 옳지 않은 오답 선지입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-027",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 가상의 거시경제 모형에서 재정정책 효과을 수학적으로 유도하고자 한다. 가계의 한계소비성향이 $c = 0.8$ 이고 비례 소득세율이 $t = 0.2$ 로 주어졌을 때, 이 경제의 정부지출 승수의 크기로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "2.28",
+        "2.78",
+        "3.28",
+        "5.0",
+        "4.0"
+      ],
+      "answer": "2",
+      "explanation": "비례세가 존재하는 경제의 정부지출 승수 공식은 $m_G = 1 / [1 - c(1 - t)]$ 입니다. 모수를 대입하면 $1 / [1 - 0.8(1 - 0.2)] = 1 / [1 - 0.8(0.8)] = 1 / [1 - 0.64] = 1 / 0.36 = 2.78$ 입니다. 따라서 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-028",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "첨부된 재정정책 효과 모형의 HSL SVG 그래프를 참조할 때, 외생적 충격으로 인해 '정부지출 확대'이 급격히 증가(우측 이동)하는 경우 발생하는 균형점의 단기적 이동 경로와 실물 경제 변수들의 변화 조합으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "균형 산출량은 하락하고 조세 인하감세은 비례하여 대수적으로 폭락한다.",
+        "총수요/총지출 증대로 인해 단기 균형 생산량이 증가하고, 경로 상에서 조세 인하감세의 동반 상승 압력이 유발된다.",
+        "이자율과 IS 우측이동이 동시에 0으로 수렴하는 장기 정체 국면이 발생한다.",
+        "공급 능력의 영구적 파괴로 인해 승수효과 변동이 마이너스로 돌아선다.",
+        "대외 교역조건이 항상 2배 이상 개선되어 순수출이 즉각 폭증한다."
+      ],
+      "answer": "2",
+      "explanation": "그래프 모형상 정부지출 확대의 증가 충격(총수요 또는 주입 증대)은 균형점을 우상향으로 이동시켜 단기적으로 산출량을 증대시키며, 연쇄 피드백 과정에서 물가나 조세 인하감세의 상승 압력을 동반하게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-029",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "재정정책 효과의 분석 경로 상에서 나타나는 핵심 쟁점인 'IS 우측이동'의 역할에 대하여 고전학파와 케인즈 학파의 학문적 입장 차이를 가장 바르게 비교한 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "고전학파는 IS 우측이동이 단기 가격 경직성의 원인이라고 주장하나, 케인즈는 장기적 공급능력의 원천이라고 본다.",
+        "고전학파는 IS 우측이동이 실물적 요인에 의해 사후 청산된다고 보는 반면, 케인즈 학파는 화폐적 충격 및 승수효과 변동의 정보 비대칭 마찰이 작용하여 단기에 시장 실패를 유발할 수 있다고 본다.",
+        "두 학파 모두 정부의 임위적 통화 통제만이 경제를 청산시키는 유일한 도구라고 확신한다.",
+        "케인즈 학파는 IS 우측이동이 완전 예견되면 실물 효과가 0이 된다는 루카스 정리를 절대 신봉한다.",
+        "고전학파는 단기 불황에 대응하여 정부 재정 적자 재정을 필연적으로 확장해야 한다고 믿는다."
+      ],
+      "answer": "2",
+      "explanation": "고전학파는 장기적으로 실물 요인이 IS 우측이동 등을 조율하며 시장 자율 회복을 신뢰하는 반면, 케인즈 학파는 시장 마찰(정보 비대칭, 가격 경직성 등)로 인해 단기 불균형이 만성화될 수 있으므로 정부의 적절한 총수요 개입이 필수적이라고 봅니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-030",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "정부가 거시경제적 안정화를 도모하기 위해 총수요 진작을 목적으로 '승수효과 변동'을 조절하는 거시 정책을 시행하였다. 이에 대한 파급 효과 중 가장 타당하지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "승수효과 변동의 변동은 가계의 가처분소득 채널을 통해 민간 소비지출 규모를 좌우하게 된다.",
+        "승수효과 변동을 하락 조정하더라도 정부지출 확대의 민감도가 극도로 높으면 투자 유발 효과가 전혀 발생하지 않고 물가만 2배로 폭등한다.",
+        "장기적으로는 조세 인하감세의 왜곡을 방지하기 위해 규칙과 신뢰성에 기반한 정책 설계가 중시된다.",
+        "통화정책적 시각에서는 승수효과 변동의 임의적 조절이 경기 변동을 오히려 불안정하게 키우는 역효과를 줄 수 있다고 경고한다.",
+        "재정 및 통화 당국 간의 정책 조합(Policy Mix)에 따라 최종 IS 우측이동 수준은 다르게 수착된다."
+      ],
+      "answer": "2",
+      "explanation": "승수효과 변동을 완화하는 정책은 투자의 이자율 민감도가 높을 때 투자 유발 효과가 크게 발생하게 됩니다. 민감도가 극도로 낮을 때 효과가 전혀 없다고 볼 순 있어도 '물가만 2배로 무조건 폭등한다'는 단정적인 설명은 타당하지 않습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-031",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 재정정책 효과 모형 하에서 가계의 저축 심리가 급증하고 동시에 해외 원자재 가격이 상승하는 '복합 충격'이 가해졌을 때, 경기 궤적에 미치는 파급 경로로 가장 타당한 판단은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "총수요 곡선이 우측 이동하고 총공급 곡선이 좌측 이동하여 물가가 안정된다.",
+        "저축 증가에 의한 소비 위축(총수요 감소)과 원자재 가격 상승(총공급 위축)이 연쇄적으로 겹치면, 실질 GDP 정부지출 확대의 급격한 하락과 경기 불황(스태그플레이션 우려)이 심화된다.",
+        "이자율이 하락하여 조세 인하감세이 기하급수적으로 즉각 폭증하게 된다.",
+        "정부의 세수 조세가 자동으로 흑자 전환되어 국가 부채가 완전 소멸된다.",
+        "대외 환율 가치가 0으로 고정되어 순수출이 장기 평탄화를 이룬다."
+      ],
+      "answer": "2",
+      "explanation": "저축 성향 상승(소비 위축 -> AD 좌측 이동)과 생산 비용 상승(AS 좌측 이동)이 겹치면 총산출량(실질 GDP)은 무조건 감소하게 되며, 경기 위축과 고용 사태가 심각해집니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 가상의 단순 폐쇄경제에서 국민소득 균형 모형식이 다음과 같이 주어진다.\n- 소비지출: $C = 200 + 0.8(Y - T)$\n- 투자 및 정부지출: $I = 100, G = 100$\n- 정액세: $T = 50$\n이 경제의 사후적 균형 국민소득($Y^*$)의 값으로 가장 올바른 수치는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "1200",
+        "1300",
+        "1400",
+        "1500",
+        "1100"
+      ],
+      "answer": "2",
+      "explanation": "균형 국민소득 항등식 $Y = C + I + G$ 에 수식을 대입하면, $Y = 200 + 0.8(Y - 50) + 100 + 100$ 이며, 정리하면 $Y = 200 + 0.8Y - 50_50 + 200 \\\\\\\\Rightarrow 0.2Y = 360 \\\\\\\\Rightarrow Y^* = 1300$ 이 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-033",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "한국의 과거 거시경제 발전 및 외환위기, 금융위기 수습 과정에서 재정정책 효과의 변수 조정 경로를 실증 분석한 결과로 가장 적절한 설명은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "외환위기 직후 자국화 가치 폭락(환율 급등)에도 순수출은 즉각 100% 구축 소멸하였다.",
+        "금융 마찰 및 정보 비대칭이 심화되었을 때 정부지출 확대의 담보 가치가 떨어져 은행 신용 공급이 급격히 수축(신용 경색)되면서 민간 투자가 극도로 위축되었다.",
+        "정부의 확장적 기준금리 인하 정책은 언제나 대수적으로 실질 이자율을 10%포인트 이상 폭등시켰다.",
+        "소비평탄화 성향으로 인해 한국 가계의 단기 MPC는 항상 1.0을 초과 기록해왔다.",
+        "고령화가 진전될수록 저축 성향이 선형적으로 폭증하여 잠재성장률이 매년 5%대 이상 반등하고 있다."
+      ],
+      "answer": "2",
+      "explanation": "외환위기나 금융위기 시기에는 담보 가치 하락과 재무 대차대조표 악화(Net Worth 감소)로 대리인 비용 및 신용 프리미엄이 급등하여 투자가 위축되는 대차대조표 효과(금융가속기)가 실증적으로 뚜렷이 나타났습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "재정정책 효과에 근거할 때, 단기 불균형 상태에서 장기 균제상태(Steady State)로 수렴해 나가는 조정 메커니즘에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "단기 불균형은 이자율을 항상 0으로 강제 수축시키며 자율 청산을 저해한다.",
+        "단기적인 가격 경직성(임금 및 가격의 불완전 조정)이 장기로 가면서 점차 신축적으로 변화하여, 실제 산출량이 잠재 생산 능력인 IS 우측이동 수준으로 수렴하게 된다.",
+        "자본 축적률이 인구증가율을 항상 하회하므로 경제는 영구 파멸 경로에 빠진다.",
+        "화폐 공급을 늘리면 장기에도 실질 변수가 비례 팽창하여 성장이 지속된다.",
+        "대외 무역 장벽을 쌓을 때에만 장기 균형이 조건 없이 달성된다."
+      ],
+      "answer": "2",
+      "explanation": "거시경제 모형에서 단기에는 임금과 가격의 경직성으로 인해 생산량갭이 생길 수 있지만, 장기로 가면서 가격 메커니즘이 신축적으로 작동하므로 경제는 자원의 잠재 생산량(잠재 GDP) 수준으로 사후 수렴하게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-035",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 재정정책 효과 모형의 HSL SVG 그래프를 참조할 때, 경제의 장기 잠재 성장성 제고를 위해 'IS 우측이동'을 향상시키는 구조개혁(Supply-side 정책)을 단행했을 때 발생하는 장기 균형의 이동 형태로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "총공급 곡선이 수평선으로 고정되어 물가가 하락 압박에서 벗어난다.",
+        "장기 총공급(LRAS) 곡선 또는 잠재 성장 경로가 우측(상방)으로 이동하여, 장기적으로 물가 수준은 안정되면서 실질 GDP 정부지출 확대의 지속적인 확장을 도모한다.",
+        "단기 총수요 곡선이 완전 수직이 되어 화폐 중립성이 즉시 붕괴된다.",
+        "투자 및 저축 성향이 음(-)의 값으로 수렴하여 경제적 이자율이 소멸한다.",
+        "해외 수입 의존도가 2배로 폭증하여 무역 손실이 경기 성장을 저해한다."
+      ],
+      "answer": "2",
+      "explanation": "생산성 향상, 기술 혁신, 규제 완화 등 공급측 개혁(IS 우측이동 향상)은 국가의 잠재 생산 능력을 높여 장기 총공급 곡선을 우측으로 이동시키며, 이는 물가 안정과 지속 가능한 실물 성장(정부지출 확대 증가)을 가능케 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-036",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 국가의 총생산함수가 $Y = A K^{0.3} L^{0.7}$ 로 추정되는 거시경제에서 최근 10년간 다음과 같은 성장 데이터가 보고되었다.\n- 실질 GDP 성장률: 연평균 4.0%\n- 자본(K) 증가율: 연평균 2.0%\n- 노동(L) 증가율: 연평균 1.0%\n성장회계(Growth Accounting) 분해식에 근거할 때, 이 국가의 연평균 총요소생산성(TFP, A)의 증가율은?",
+      "options": [
+        "2.2%",
+        "2.7%",
+        "3.2%",
+        "1.0%",
+        "2.5%"
+      ],
+      "answer": "2",
+      "explanation": "성장회계 공식 \\\\Delta Y/Y = \\\\Delta A/A + 0.3 \\\\Delta K/K + 0.7 \\\\Delta L/L 에 대입하면,\n4.0% = \\\\Delta A/A + 0.3(2.0%) + 0.7(1.0%)\n4.0% = \\\\Delta A/A + 0.6% + 0.7% = \\\\Delta A/A + 1.3%\n따라서 총요소생산성 증가율 \\\\Delta A/A = 4.0% - 1.3% = 2.7% 입니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "재정정책 효과의 극단적인 특수 상황(예: 대공황, 유동성 함정, 하이퍼인플레이션 등)에 관한 설명으로 가장 올바른 경제학적 판단은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "이자율이 무한대로 치솟아 채권 가격이 0으로 폭락하게 된다.",
+        "극심한 경제 위기나 유동성 제약 하에서는 가계가 정부지출 확대의 장기 항상소득 대신 현재의 가처분소득에 민감하게 소비 반응을 보이며, 이로 인해 단기적 재정/통화 정책의 충격 증폭도가 커진다.",
+        "정부가 세율을 100%로 올릴 때 조세 수입이 대수적으로 극대화된다.",
+        "화폐 유통 속도가 매초 기하급수적으로 폭증하여 물가가 0으로 수축한다.",
+        "국가 신용 프리미엄이 음(-)으로 고착되어 대출 시장이 완전 청산된다."
+      ],
+      "answer": "2",
+      "explanation": "경제주체들이 유동성 제약(Liquidity Constraint)이나 극심한 신용 경색에 처하게 되면 항상소득(정부지출 확대 등)이나 미래 지출 평탄화가 불가능해져 현재 수입에 전적으로 의존하게 되며, 이로 인해 거시적 소비 변동의 충격 폭이 커집니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-038",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "고전학파의 '장기 거시경제 이분법(Classical Dichotomy)' 및 '화폐의 중립성' 가설이 재정정책 효과의 변수 관계식에 시사하는 바에 대한 설명으로 옳은 것은?",
+      "options": [
+        "통화량의 변동은 장기적으로 실질 GDP인 정부지출 확대의 성장률을 비례하여 증가시킨다.",
+        "장기적으로 명목 통화 공급의 증가는 정부지출 확대과 같은 실질 변수에는 아무런 영향을 주지 못하고, 오직 물가 수준이나 조세 인하감세 같은 명목 변수만을 비례적으로 상승시킨다.",
+        "실질 이자율 r이 물가 상승률과 무관하게 항상 0으로 수렴한다.",
+        "노동 공급곡선이 수평이 되어 실업률이 0으로 완전 고착된다.",
+        "대외 경상수지가 항상 흑자 균형으로 고정 수착된다."
+      ],
+      "answer": "2",
+      "explanation": "고전학파 이분법은 장기에 화폐 공급량의 변화가 물가와 명목 임금 등 명목 지표만 비례 조정할 뿐, 실질 GDP나 고용량 등 실질 변수에는 영구적인 파급 효과를 주지 못한다는 '화폐의 중립성'을 설명합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-039",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 재정정책 효과의 정책 시나리오 하에서, 합리적 기대를 하는 경제주체들이 정부의 총수요 관리 정책을 완벽하게 '사전 예상'한 경우 발생하는 균형의 변동 경로를 설명한 것으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "총수요 곡선이 이동하여 산출량 정부지출 확대만 크게 증가하고 물가 수준은 변하지 않는다.",
+        "사전에 완전 예견된 정책은 가계와 기업의 즉각적인 기대 물가 조정을 유발하므로, 실물 생산량 정부지출 확대에는 아무런 영향을 주지 못하고 물가 상승(인플레이션 유발) 효과만 낳는다.",
+        "이자율이 하락하여 조세 인하감세의 폭증 경로가 영구 보존된다.",
+        "정부 부채가 즉각 소멸하여 리카도 대등정리가 완전 붕괴된다.",
+        "대외 수출이 수입을 100% 초과하는 강제 흑자 경로를 유발한다."
+      ],
+      "answer": "2",
+      "explanation": "합리적 기대 학파(루카스 등)에 따르면 사전에 완벽히 예상된(anticipated) 정책은 경제주체들의 합리적 가격 반응으로 인해 AS 곡선을 동시에 좌상향 이동시키므로, 실물 효과(GDP 상승) 없이 물가만 올리게 됩니다(정책 무력성 정리). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-040",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "어느 국가의 금융 시장에서 국채의 명목 수익률(명목 이자율)이 연 6.0%로 형성되어 있다. 경제학적 합리적 기대에 근거한 올해의 기대 인플레이션율이 연 2.0%일 때, 피셔 방정식(Fisher Equation)에 의거하여 도출되는 사후적 '실질 이자율'의 크기는?",
+      "options": [
+        "3.0%",
+        "4.0%",
+        "5.0%",
+        "8.0%",
+        "3.0%"
+      ],
+      "answer": "2",
+      "explanation": "피셔 근사식 i \\\\approx r + \\\\pi^e (명목 이자율 = 실질 이자율 + 기대 인플레이션)에 대입하면, 실질 이자율 r \\\\approx i - \\\\pi^e = 6.0% - 2.0% = 4.0% 가 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-041",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "현대 거시경제학에서 중시하는 '조세 인하감세'이 금융 마찰(정보 비대칭성 및 대리인 비용) 하에서 경기 변동 충격을 확대 전파하는 메커니즘에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "정보 비대칭이 완화될 때 대리인 비용이 급증하여 투자가 위축된다.",
+        "경기 하강기에 자산 가치 하락으로 기업의 순자산(조세 인하감세)이 감소하면, 은행이 요구하는 리스크 프리미엄이 급등하여 차입 금리가 오르고 투자가 추가로 급락(경기침체 증폭)하는 금융가속기(Financial Accelerator) 효과가 발생한다.",
+        "이자율이 하락하면 누출액이 주입액을 항상 초과하여 경기 불황이 고착된다.",
+        "가계의 저축 성향이 극대화되어 실질 GDP 정부지출 확대의 장기 잠재 성장 추세선이 수평이 된다.",
+        "대외 환율의 평가 절하 속도가 생산 기술 향상 속도를 압도하게 된다."
+      ],
+      "answer": "2",
+      "explanation": "금융 마찰이 존재하는 시장에서는 차입자(기업 등)의 순자산(조세 인하감세) 규모가 담보 역할을 해 대리 비용을 완화시킵니다. 경기 불황으로 담보 가치가 떨어지면 은행 대출 금리 할증(외부자금 프리미엄)이 급등하여 민간 투자가 더욱 위축됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-042",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 재정정책 효과 모형의 HSL SVG 그래프를 참조할 때, 경제에 비례 소득세 제도와 실업급여 같은 '자동 안정화 장치(Automatic Stabilizer)'가 작동할 경우의 경제학적 효과를 가장 바르게 설명한 것은?",
+      "options": [
+        "단기 총수요(AD) 곡선을 완벽히 수직으로 만들어 통화정책의 효과를 극대화한다.",
+        "경기 호황기에는 누출(세수 증가)을 자동으로 늘려 과열을 막고, 경기 수축기에는 누출을 줄여(가처분소득 보존) 경기 변동 폭을 스스로 완화시키는 역할을 하며, 이는 단기 승수 효과를 감소시킨다.",
+        "저축 성향을 영구히 하락시켜 정부지출 확대을 잠재 생산량 이상으로 2배 폭증시킨다.",
+        "실질 이자율 r의 변동성을 무한대로 증폭시키는 부작용만 낳는다.",
+        "경상수지 적자를 유발하여 무역 조건을 악화시킨다."
+      ],
+      "answer": "2",
+      "explanation": "자동 안정화 장치(비례세 등)는 경기가 호황일 때는 세수를 늘려(누출 확대) 과열을 식히고, 불황일 때는 세수를 줄여 소비 충격을 완충합니다. 이는 전체 경기 변동 폭을 줄여주는 유익한 역할을 하지만, 수학적으로 단기 승수의 분모를 키우므로 승수 효과의 절댓값 크기는 축소시킵니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-043",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "최근 거시경제 주요 쟁점인 정부의 재정 적자 누적 및 국가 채무의 지속 가능성(Debt Sustainability) 조건에 관한 경제학적 판단으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "정부의 실질 이자율(r)이 실질 경제성장률(g)보다 월등히 낮을수록 부채 비율은 폭발적으로 급증한다.",
+        "실질 이자율(r)이 실질 경제성장률(g)보다 높고 기초 재정수지가 적자를 지속하는 조건 하에서는, GDP 대비 국가 채무 비율이 수렴하지 않고 지속적으로 발산(재정 위기 우려)할 가능성이 높다.",
+        "조세를 감세 인하하면 리카도 대등정리에 의해 항상 소비 정부지출 확대이 2배로 폭증한다.",
+        "국가 부채가 늘어나면 언제나 통화 승수율이 0으로 강제 수축된다.",
+        "대차대조표 상의 자산 가치가 물가 수준과 완벽하게 무관해진다."
+      ],
+      "answer": "2",
+      "explanation": "GDP 대비 부채 비율의 동태적 방정식에 따르면, 실질 이자율(r)이 실질 경제성장률(g)을 웃돌 때, 기초 재정수지마저 적자 상황이면 부채 비율은 기하급수적으로 폭발하게 됩니다. 이를 막으려면 기초 재정수지를 흑자로 돌려야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-044",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "오쿤의 법칙(Okun's Law)이 다음과 같이 주어진다: 산출량 갭(GDP Gap, %) = -2.5 \\\\times (u - u_n) (단, u는 실제 실업률, u_n은 자연실업률).\n실제 실업률이 자연실업률보다 2%포인트 초과 상승하였을 때, 오쿤의 법칙에 의거하여 추정되는 이 경제의 산출량 갭(%)의 크기로 올바른 것은?",
+      "options": [
+        "-3.5%",
+        "-5.0%",
+        "-6.5%",
+        "-2%",
+        "-0.8%"
+      ],
+      "answer": "2",
+      "explanation": "오쿤의 법칙 공식에 실제 수치를 대입하면, 산출량 갭 = -2.5 \\\\times 2% = -5.0% 입니다. 즉, 실질 GDP가 잠재 GDP 수준 대비 5.0%만큼 아래로 깎여나갔음을 나타냅니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-045",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "재정정책 효과의 분석 경로 상에서 나타나는 대표적인 항상소득가설(Permanent Income Hypothesis) 및 쿠즈네츠 실증 연구의 경제학적 주장에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "가계는 현재 소득의 일시적 변동인 일시소득에 대해서만 100% 반응하여 소비를 즉각 결정한다.",
+        "가계는 장기 평균 소득인 항상소득에 반응해 소비를 결정하므로, 일시적 보너스나 임시 감세 같은 일시소득의 증가는 소비가 아닌 주로 저축으로 흡수되어 단기 MPC가 매우 낮으며, 쿠즈네츠의 장장기 실증 모순을 완벽히 해명한다.",
+        "항상소득은 언제나 지니계수 하락에 정비례하여 수축한다.",
+        "소비의 유동성 제약이 완화되면 항상소득이 무조건 0으로 소멸한다.",
+        "대외 순수출의 규모가 항상소득 규모의 2배로 고정 고착된다."
+      ],
+      "answer": "2",
+      "explanation": "프리드먼의 항상소득가설은 소비가 단기적으로 고정된 소비가 아니라 장기의 항상적 소득 여건에 연동됨을 증명하여, 단기 소득 변동 시 소비의 미지근한 반응(낮은 단기 MPC)과 쿠즈네츠의 장기 APC 안정성을 성공적으로 설명해 냈습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-046",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 공급 중시 경제학(Supply-side Economics)의 핵심 이론인 '래퍼 곡선(Laffer Curve)'의 경제학적 시사점과 그래프 변화에 관한 설명으로 가장 올바른 것은?",
+      "options": [
+        "세율을 100%로 무한히 인상할 때 정부의 총조세 수입이 대수적으로 극대화된다.",
+        "세율이 일정 임계점(최적 세율)보다 높은 금지 영역(Prohibitive range)에 처해 있는 경우, 세율을 오히려 인하하면 경제주체들의 근로 의욕과 투자 유인이 제고되어 장기적으로 총 산출량이 늘어나고 조세 수입도 증가할 수 있다.",
+        "정부의 기준금리를 하락 조정할 때에만 래퍼 곡선이 우측 정부지출 확대 방향으로 평탄화된다.",
+        "이자율이 하락하면 래퍼 곡선상의 최적 세율 한계점이 0으로 수축한다.",
+        "모든 국가의 조세 분배 형태가 항상 로렌츠 곡선과 완전 일치함을 뜻한다."
+      ],
+      "answer": "2",
+      "explanation": "래퍼 곡선에 따르면 세율이 너무 높으면 경제 활동(노동과 투자)을 위축시켜 세원 자체가 쪼그라듭니다. 이 금지 영역에서는 감세(세율 인하) 정책이 경제의 활력과 생산 능력을 높여 사후적으로 정부의 총 세수를 더 증대시키는 선순환을 유발할 수 있습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-047",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "솔로우 성장 모형에서 자본 축적 경로가 '동태적 비효율성(Dynamic Inefficiency)' 상태에 빠져 있다는 것의 거시경제학적 정의와 이에 따른 개선 방안으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "현재 경제의 자본 축적량이 황금률 수준보다 작아 소비를 늘리기 위해 저축을 대폭 늘려야 하는 상태이다.",
+        "현재 자본량이 황금률 자본량($k^*_g$)을 초과하여 자본 유지 감가상각 비용이 너무 큰 상태이며, 저축률을 낮추어 소비와 저축을 동시에 장단기적으로 모두 증대시킬 수 있는 상태이다.",
+        "자원 배분이 파레토 최적을 항상 만족하여 더 이상의 정부지출 확대 조정이 불가능한 상태이다.",
+        "실질 성장률 g가 이자율 r을 항상 상회하여 자본이 0으로 소멸하는 상태이다.",
+        "수출 대금으로 징수한 외화잔액이 국가 저축의 100%를 차지하는 상태이다."
+      ],
+      "answer": "2",
+      "explanation": "동태적 비효율성 상태는 균제상태 자본량이 황금률 자본량을 초과한 과잉 자본 상태를 뜻합니다. 이때는 저축률(s)을 낮추면 당장 소비가 늘어날 뿐만 아니라, 유지 비용((n+d)k)이 크게 줄어 장기 균제상태의 1인당 소비도 이전보다 많아집니다. 즉, 세대간 희생 없이 무조건 후생을 개선할 수 있는 비효율 상태입니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-048",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "보움-토빈(Baumol-Tobin) 거래적 화폐수요 모형에 따를 때, 어느 가계의 연간 총거래지출(소득, Y)이 400만 원이고, 은행을 방문하여 자금을 인출할 때마다 발생하는 거래비용(b)이 2만 원이다. 연간 실질 이자율이 r = 0.04 (4%)로 일정하다고 할 때, 현금 보유에 따른 기회비용을 극소화하는 이 가계의 최적 평균 현금 보유액(M*)은 몇 만 원인가?",
+      "options": [
+        "50",
+        "100",
+        "150",
+        "200",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "보움-토빈 모형의 최적 평균현금보유액 공식은 M^* = \\\\sqrt{ \\\\frac{b \\\\cdot Y}{2 \\\\cdot r} } 입니다. 주어진 수치를 대입하면,\nM^* = \\\\sqrt{ \\\\frac{ 2 \\\\times 400 }{ 2 \\\\times 0.04 } } = \\\\sqrt{ \\\\frac{ 800 }{ 0.08 } } = \\\\sqrt{ 10000 } = 100 만 원이 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-049",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "거시경제 모형에서 원자재 가격 폭등이나 노동생산성 급감과 같은 '부정적 총공급 충격(Stagflation 충격)'이 가해졌을 때 나타나는 거시 지표들의 연쇄 반응으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">IS 곡선</text>\n  <line x1=\"60\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LM 곡선</text>\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n</svg>\n```",
+      "options": [
+        "총공급 곡선이 우측 이동하여 물가는 내리고 실질 GDP 정부지출 확대은 증가한다.",
+        "단기 총공급(SRAS) 곡선이 좌상향 이동하여 실질 GDP 정부지출 확대이 감소함과 동시에 인플레이션 물가가 폭등하는 스태그플레이션(Stagflation) 현상이 유발된다.",
+        "실질 이자율 r이 0으로 고정되어 금융 가속기 신용 프리미엄이 완전 소멸한다.",
+        "가계의 가처분소득 비율이 자동으로 흑자 반등하게 된다.",
+        "대외 환율의 대수적 스프레드가 영구 평탄화 경로를 달성한다."
+      ],
+      "answer": "2",
+      "explanation": "부정적 총공급 충격(AS 좌측 이동)은 가격 상승과 생산량 위축을 동시에 일으켜 물가 폭등 및 실업 문제를 가져오는 스태그플레이션을 초래합니다. 이때는 재정/통화 정책으로 물가와 고용을 동시에 안정시키기 어려운 딜레마에 빠지게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec02-item01-050",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 현대 통화 신용 정책 이론인 '동태적 불일치(Time Inconsistency)' 현상이 시사하는 바와, 인플레이션 바이어스를 해소하기 위해 제안되는 정책 수단으로 가장 옳은 것은?",
+      "options": [
+        "정부는 매달 재량 정책을 전면 활성화하여 시장의 기대를 끊임없이 왜곡 교란해야 한다.",
+        "정부나 통화 당국이 단기적인 고용 증대(실업률 저하)를 꾀하려 사후에 약속을 깨고 팽창적 정책을 쓸 유인(동태적 불일치)이 있으므로, 이를 차단하기 위해 준칙(Rule)에 입각한 통화정책을 펴고 통화 당국의 독립성을 보장하여 정책 신뢰도를 제고해야 한다.",
+        "중앙은행을 전면 해체하고 정부지출 확대의 이자율 조정을 국유화 기업에 일임한다.",
+        "지니계수가 1이 될 때에만 동태적 불일치가 자동으로 소멸한다.",
+        "해외 원자재 수입에 대해 100% 관세 장벽을 쌓을 때 통화 신뢰성이 완성된다."
+      ],
+      "answer": "2",
+      "explanation": "Kydland와 Prescott(1977)이 제기한 동태적 불일치 이론에 따르면, 정부가 재량에 따라 정책을 펴면 국민들이 인플레이션 기대를 올려 실물 효과는 없이 기대 인플레만 오르는 바이어스가 생깁니다. 이를 해소하기 위해서는 중앙은행의 신뢰도와 독립성을 확보하고 약속된 준칙을 지키는 제도적 안정이 필수적입니다. 정답은 ②입니다."
     }
   ]
 }

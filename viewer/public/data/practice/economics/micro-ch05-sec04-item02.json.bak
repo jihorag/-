@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제16절 과점시장",
+    "item": "제2관 쿠르노·베르트랑·슈타켈베르크 모형",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "쿠르노 모형(1838)의 핵심 가정은?",
+      "options": [
+        "동시 수량 결정, 상대 산출량을 주어진 것으로 인식",
+        "동시 가격 결정",
+        "선도자가 먼저 결정",
+        "카르텔",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "쿠르노 모형: 동시 수량 경쟁. 각 기업이 상대방 산출을 주어진 것으로 보고 자기 최적 산출 결정. 반응함수의 교점이 내쉬균형."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-002",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 쿠르노 균형 그래프에서 N 점의 의미는?\n\n[IMAGE: data/practice/economics/graphs/cournot-equilibrium.svg]",
+      "options": [
+        "두 반응함수 교점 = 내쉬균형 (상호 최적반응)",
+        "독점점",
+        "완전경쟁점",
+        "선도자균형",
+        "교점 없음"
+      ],
+      "answer": "1",
+      "explanation": "쿠르노 N점: 두 반응함수의 교점. 각 기업이 상대 산출 주어졌을 때 자기 최적 = 상대도 그렇게 행동. 내쉬균형 정의 만족."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-003",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "수요 $P = 60 - Q$, MC1 = MC2 = 12. 쿠르노 균형 (q_i, P, π_i)는?",
+      "options": [
+        "q_i = 16, P = 28, π_i = 256",
+        "q_i = 24, P = 12, π_i = 0",
+        "q_i = 12, P = 36, π_i = 288",
+        "q_i = 48, P = -36",
+        "q_i = 30"
+      ],
+      "answer": "1",
+      "explanation": "쿠르노 2기업 일반식: $q_i = (a - MC)/3$ (P = a - Q).\n$q_i = (60-12)/3 = 16$.\nQ = 32, P = 28.\nπ_i = (28-12)·16 = 256."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-004",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "위 문제(003)의 베르트랑 균형은?",
+      "options": [
+        "P = 12, Q = 48, π_i = 0",
+        "P = 28, π = 256",
+        "P = 36",
+        "독점가격",
+        "P = MC = 0"
+      ],
+      "answer": "1",
+      "explanation": "베르트랑(동질): P = MC = 12. Q = 60 - 12 = 48. 시장 양분 q_i = 24.\nπ_i = (12-12)·24 = 0.\n쿠르노 256보다 작음."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-005",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "위 문제(003)의 카르텔(독점 분할) 균형은?",
+      "options": [
+        "Q_M = 24, P = 36, π_total = 576, π_i = 288",
+        "Q = 32, π_i = 256",
+        "Q = 48, π = 0",
+        "Q = 60, P = 0",
+        "P = MC"
+      ],
+      "answer": "1",
+      "explanation": "카르텔 = 결합 독점.\n$MR = 60 - 2Q = MC = 12 \\Rightarrow Q = 24, P = 36$.\nπ_total = (36-12)·24 = 576. 균등 분할: π_i = 288.\n쿠르노(256) < 카르텔(288)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-006",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "위 문제(003)의 슈타켈베르크 균형은?",
+      "options": [
+        "q_L = 24, q_F = 12, P = 24, π_L = 288, π_F = 144",
+        "q_L = q_F = 16",
+        "q_L = 16, q_F = 24",
+        "q_L = 48, q_F = 0",
+        "P = 36"
+      ],
+      "answer": "1",
+      "explanation": "추종자 반응: $q_F = (48 - q_L)/2$ (잔여수요 풀이).\n선도자 이윤: $\\pi_L = (60 - q_L - q_F - 12)q_L = (48 - q_L - (48-q_L)/2)q_L = (24 - q_L/2)q_L$.\n극대: 24 - q_L = 0 → q_L = 24. q_F = 12. Q = 36, P = 24.\nπ_L = 12·24 = 288, π_F = 12·12 = 144."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-007",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "위 세 모형의 산출량 순서는?",
+      "options": [
+        "베르트랑(48) > 슈타켈베르크(36) > 쿠르노(32) > 카르텔(24)",
+        "쿠르노 > 베르트랑",
+        "역순",
+        "동일",
+        "독점 = 베르트랑"
+      ],
+      "answer": "1",
+      "explanation": "산출량: 베르트랑(48, 완경) > 슈타켈베르크(36) > 쿠르노(32) > 카르텔(24, 독점).\n가격은 정반대 순. 경쟁 강도에 따른 균형 차이."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-008",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "베르트랑 역설(Bertrand Paradox)이란?",
+      "options": [
+        "2기업만으로도 P = MC (완전경쟁 결과)",
+        "독점 결과",
+        "협력 결과",
+        "수량 경쟁",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "베르트랑 역설: 2기업·동질·가격 경쟁 → 1원 인하로 시장 전체 차지 → 무한 경쟁 → P = MC. 적은 기업 수에도 완전경쟁 결과. 현실과 거리 → 해결책 필요."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-009",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "베르트랑 역설의 해결책이 아닌 것은?",
+      "options": [
+        "수요 무한",
+        "용량 제약(Edgeworth)",
+        "제품 차별화",
+        "반복 게임",
+        "비용 비대칭"
+      ],
+      "answer": "1",
+      "explanation": "베르트랑 역설 해결: ① 용량 제약(Edgeworth) ② 제품 차별화 → 가격 다양 ③ 반복 게임 (협력) ④ 비용 비대칭 → 일부 기업 이윤. 수요 무한은 역설 강화."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-010",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "슈타켈베르크 선도자의 우위 원인은?",
+      "options": [
+        "선도자가 추종자 반응을 예상하고 결정 → 더 큰 산출·이윤 (first-mover advantage)",
+        "추종자가 유리",
+        "균등",
+        "정부 결정",
+        "우위 없음"
+      ],
+      "answer": "1",
+      "explanation": "선도자: 먼저 결정 + 추종자 반응 예상 → 자기 이윤 극대. 쿠르노보다 큰 q_L, 작은 q_F. 선점 효과 (first-mover advantage)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-011",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $P = 100 - Q$, MC = 0. 3기업 쿠르노 균형은?",
+      "options": [
+        "q_i = 25, P = 25, π_i = 625",
+        "q_i = 33.3, P = 0",
+        "q_i = 20, P = 40",
+        "q_i = 50",
+        "q_i = 100/3"
+      ],
+      "answer": "1",
+      "explanation": "쿠르노 n기업: $q_i = a/(n+1) = 100/4 = 25$.\nQ = 75, P = 25.\nπ_i = 25·25 = 625."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-012",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쿠르노 균형의 사회후생은?",
+      "options": [
+        "독점 < 쿠르노 < 완전경쟁. 거래량은 1/n 비율로 P = MC와 격차",
+        "독점과 동일",
+        "완전경쟁과 동일",
+        "최대 후생",
+        "0"
+      ],
+      "answer": "1",
+      "explanation": "쿠르노 후생: 독점 < 쿠르노 < 완전경쟁. 일반식: Q_쿠르노 = n/(n+1)·Q_완경. n → ∞면 완경 수렴."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-013",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "쿠르노 4기업, 수요 $P = 50 - Q$, MC = 10. 균형은?",
+      "options": [
+        "q_i = 8, P = 18, π_i = 64",
+        "q_i = 10, P = 10",
+        "q_i = 5, P = 30",
+        "q_i = 4, P = 34",
+        "q_i = 40"
+      ],
+      "answer": "1",
+      "explanation": "n=4: $q_i = (50-10)/5 = 8$.\nQ = 32, P = 18.\nπ_i = (18-10)·8 = 64."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-014",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쿠르노 균형에서 기업 수 n 증가 효과는?",
+      "options": [
+        "Q ↑, P ↓, π_i ↓. n → ∞이면 완전경쟁 수렴",
+        "P 일정",
+        "Q 일정",
+        "변화 없음",
+        "독점화"
+      ],
+      "answer": "1",
+      "explanation": "쿠르노 n기업: Q = na/(n+1), P = a/(n+1). n ↑ → Q ↑, P ↓ → MC.\n각 기업 이윤 ↓. n → ∞: 완전경쟁."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-015",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "쿠르노 2기업, 수요 P = 80 - Q. MC1 = 0, MC2 = 20 (비대칭). 균형은?",
+      "options": [
+        "q_1 = 100/3 ≈ 33.3, q_2 = 40/3 ≈ 13.3, P ≈ 33.3",
+        "q_1 = q_2 = 20",
+        "q_1 = 0, q_2 = 40",
+        "P = MC",
+        "둘 다 0"
+      ],
+      "answer": "1",
+      "explanation": "반응함수:\n$q_1 = (80 - q_2)/2$\n$q_2 = (60 - q_1)/2$\n대입: $q_1 = 40 - (30 - q_1/2)/1 = 40 - 30 + q_1/4 = 10 + q_1/4$? \n정확: $q_1 = (80-0-q_2)/2 = 40 - q_2/2$. $q_2 = (80-20-q_1)/2 = 30 - q_1/2$.\n$q_1 = 40 - (30-q_1/2)/2 = 40 - 15 + q_1/4 = 25 + q_1/4 → 3q_1/4 = 25 → q_1 = 33.3$.\n$q_2 = 30 - 16.67 = 13.33$.\nP = 80 - 46.67 ≈ 33.3."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-016",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "쿠르노·베르트랑·슈타켈베르크 모형의 핵심 차이는?",
+      "options": [
+        "결정 변수(수량 vs 가격), 시점(동시 vs 순차), 정보(완전 vs 비완전)",
+        "차이 없음",
+        "정부 결정만 차이",
+        "수요만",
+        "MC만"
+      ],
+      "answer": "1",
+      "explanation": "차이: ① 결정 변수: 쿠르노·슈타켈베르크(수량) vs 베르트랑(가격) ② 시점: 쿠르노·베르트랑(동시) vs 슈타켈베르크(순차) ③ 정보·기대."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-017",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "베르트랑 차별화: 두 기업 수요 $q_1 = 100 - 2p_1 + p_2$, $q_2 = 100 - 2p_2 + p_1$, MC = 10. 대칭 균형은?",
+      "options": [
+        "p_1 = p_2 = 40, q_i = 60",
+        "p_1 = p_2 = 10 (역설)",
+        "p_1 = p_2 = 50",
+        "p_1 = 80",
+        "p_1 = 30"
+      ],
+      "answer": "1",
+      "explanation": "이윤 $\\pi_1 = (p_1 - 10)(100 - 2p_1 + p_2)$.\n$\\partial \\pi_1/\\partial p_1 = (100 - 2p_1 + p_2) - 2(p_1 - 10) = 0 \\Rightarrow 100 - 4p_1 + p_2 + 20 = 0 \\Rightarrow p_1 = (120 + p_2)/4$.\n대칭: $p_1 = p_2 = p$ → $p = (120 + p)/4 → 4p - p = 120 → p = 40$.\nq_i = 100 - 80 + 40 = 60.\n차별화로 P > MC."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-018",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쿠르노 모형의 현실 적용 사례는?",
+      "options": [
+        "원유 (OPEC·생산량 결정), 광물·농산물 등 동질 상품 시장",
+        "통신 (가격 경쟁)",
+        "패션 (차별화)",
+        "정부 독점",
+        "외국 시장"
+      ],
+      "answer": "1",
+      "explanation": "쿠르노 적용: 동질 상품·수량 경쟁 시장 - 원유(OPEC 생산 쿼터), 광물(철광석), 농산물, 화학. 가격 경쟁 시장은 베르트랑 적합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-019",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "베르트랑 모형의 현실 적용 사례는?",
+      "options": [
+        "동질 차별화 어려운 시장의 가격 경쟁 - 항공권 (특정 노선·시간 동일), 휘발유 (브랜드별 차별 작음)",
+        "쿠르노만 적용",
+        "모든 시장",
+        "독점",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "베르트랑 적용: 가격 경쟁이 주된 시장 - 항공권 (가격 비교 사이트), 휘발유 (브랜드별 차이 작음), 디지털 콘텐츠. 차별화 어려운 시장."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-020",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "슈타켈베르크 모형 사례는?",
+      "options": [
+        "선점 기업이 시장 점유율로 후발자 압박 - 자동차·반도체·플랫폼",
+        "동시 경쟁만",
+        "독점",
+        "정부 결정",
+        "베르트랑"
+      ],
+      "answer": "1",
+      "explanation": "슈타켈베르크 사례: 선점 기업이 first-mover advantage 활용 - 도요타 vs 후발 자동차, 삼성·TSMC 반도체, 페이스북 SNS. 선도자 우위."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-021",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "과점 모형의 일반적 균형 정의는?",
+      "options": [
+        "내쉬균형 (각자 자기 전략 변경의 인센티브 없음)",
+        "독점균형",
+        "정부 결정",
+        "수요·공급 균형",
+        "MC = 0"
+      ],
+      "answer": "1",
+      "explanation": "과점 균형의 표준: 내쉬균형 (Nash 1950). 각 기업이 다른 기업의 전략 주어진 상태에서 자기 최적 → 변경 인센티브 없음. 쿠르노·베르트랑·슈타켈베르크 모두 내쉬균형."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-022",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 P = 100 - Q. 쿠르노 2기업 MC=0. 슈타켈베르크 비교는?",
+      "options": [
+        "쿠르노 q_i = 33.3, π_i ≈ 1111 / 슈타켈 q_L = 50, q_F = 25, π_L = 1250, π_F = 625",
+        "둘 동일",
+        "쿠르노가 큼",
+        "슈타켈이 균등",
+        "Q = 100"
+      ],
+      "answer": "1",
+      "explanation": "쿠르노: q_i = 100/3 ≈ 33.3, Q ≈ 66.7, P ≈ 33.3. π_i ≈ 1111.\n슈타켈베르크: 추종자 q_F = (100-q_L)/2. 선도자 π_L = (100-q_L-q_F)q_L = (100-q_L-(100-q_L)/2)q_L = (50-q_L/2)q_L. 극대 q_L = 50. q_F = 25, Q = 75, P = 25. π_L = 25·50 = 1250, π_F = 25·25 = 625.\n선도자 > 쿠르노 > 추종자."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-023",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "과점 모형 비교에서 사회후생 순서는?",
+      "options": [
+        "베르트랑(완경) > 슈타켈 > 쿠르노 > 카르텔(독점) > (DWL 역순)",
+        "모두 동일",
+        "독점 최대 후생",
+        "정부 결정",
+        "역순"
+      ],
+      "answer": "1",
+      "explanation": "후생(거래량 큰 순): 베르트랑(P=MC) > 슈타켈베르크 > 쿠르노 > 카르텔(=독점). DWL은 반대 순. 베르트랑이 가장 효율, 카르텔이 가장 비효율."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-024",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 P = 120 - 2Q, MC1 = MC2 = 12. 쿠르노 균형 (q_i, π_i)는?",
+      "options": [
+        "q_i = 18, P = 48, π_i = 648",
+        "q_i = 27, P = 12, π_i = 0",
+        "q_i = 12, P = 72, π_i = 720",
+        "q_i = 36, π_i = 0",
+        "q_i = 54"
+      ],
+      "answer": "1",
+      "explanation": "수요 P = 120 - 2Q. 쿠르노 2기업: q_i = (120-12)/(3·2) = 108/6 = 18.\nQ = 36, P = 120 - 72 = 48.\nπ_i = (48-12)·18 = 648."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item02-025",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쿠르노 vs 베르트랑의 현실 결정 요인은?",
+      "options": [
+        "용량 사전 결정(공장 규모) → 쿠르노 / 즉시 가격 책정 → 베르트랑",
+        "기업 수만",
+        "정부 정책",
+        "수요 크기",
+        "MC"
+      ],
+      "answer": "1",
+      "explanation": "Kreps-Scheinkman(1983): 1단계 용량 결정(쿠르노적) + 2단계 가격 결정(베르트랑적) → 쿠르노 결과. 실제 산업은 용량 사전 결정 → 쿠르노 가까움. 가격은 빨리 조정 가능."
+    }
+  ]
+}

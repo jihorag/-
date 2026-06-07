@@ -8,120 +8,120 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-macro-ch02-sec02-item03-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "가속도원리(Acceleration Principle)란?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "투자의 유발 투자 측면을 설명하는 가속도 원리(Accelerator Principle)의 기본 가정 및 매커니즘에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Income Expansion Y_t -->\n  <path d=\"M 50 170 Q 130 140 280 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\">소득 Y_t</text>\n  <!-- Induced Investment I_t = v * (Y_t - Y_{t-1}) -->\n  <path d=\"M 50 210 Q 130 150 280 90\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"95\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">유발투자 I_t = v * ΔY</text>\n  <text x=\"290\" y=\"222\" font-size=\"8.5\" fill=\"#64748b\">시간 (t)</text>\n  <text x=\"15\" y=\"35\" font-size=\"8.5\" fill=\"#64748b\">Y, I</text>\n  <text x=\"60\" y=\"20\" font-size=\"9\" fill=\"#a855f7\">가속도 원리 (Accelerator Principle)</text>\n</svg>\n```",
       "options": [
-        "투자 = 산출 변화량의 함수 — $I_t = v \\Delta Y_t$",
-        "투자 = 임금",
-        "투자 = 이자율",
-        "투자 = 정부",
-        "투자 = 이윤"
+        "투자는 이자율 수준에 의해서만 선형적으로 결정된다",
+        "유발투자(Induced Investment)는 소득(Y)의 절대적인 수준 자체에 정비례하여 결정된다",
+        "사회의 투자 지출 규모는 소득의 절대적 크기가 아니라 '소득의 변화율(또는 소득 증가분 $\\\\Delta Y$)'에 비례하여 유발된다",
+        "자본-산출 비율(v)은 이자율이 변동함에 따라 실시간으로 신축적이고 동태적으로 조정된다",
+        "가속도 원리에 따르면 경기 변동기에도 유휴 설비가 항상 과잉 존재한다고 가정한다"
       ],
-      "answer": "1",
-      "explanation": "가속도원리 (Clark 1917, Samuelson 1939): 자본/산출 비율 $v$ 일정 → 산출 ↑ 시 자본 ↑ 필요 → 투자 = $v \\Delta Y$. 케인지언 거시 변동성 핵심."
+      "answer": "3",
+      "explanation": "가속도 원리에 따르면 자본스톡과 생산량 사이에 고정된 비율($K = vY$)이 성립합니다. 따라서 신규 투자 $I_t = K_t - K_{t-1} = v(Y_t - Y_{t-1}) = v \\\\\\\\Delta Y_t$ 가 되어, 투자는 소득의 증가분(또는 성장 속도)에 비례하게 됩니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-002",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "가속도원리에서 $v$ (자본-산출비율)의 의미는?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "목표 자본-산출 비율 $v = 3$인 가상 경제가 있다. 국민소득(산출량)이 2023년 1,000조 원에서 2024년 1,100조 원으로 증가하였다. 가속도 원리를 따를 때, 2024년에 유발되는 신규 순투자($I$)의 규모는?",
       "options": [
-        "$v = K/Y$ — 산출 1단위 생산에 필요한 자본",
-        "MPC",
-        "이자율",
-        "GDP",
-        "$v = 1$ 항상"
+        "100조 원",
+        "200조 원",
+        "300조 원",
+        "400조 원",
+        "500조 원"
       ],
-      "answer": "1",
-      "explanation": "$v = K/Y$: 기술·생산기능 함수가 결정. 안정적 가정 ($v = 2-3$ 등). 산출 ↑ → 필요 자본 ↑ → 신투자 발생."
+      "answer": "3",
+      "explanation": "가속도 원리 공식 $I_t = v(Y_t - Y_{t-1})$에 대입합니다.\n$I = 3 \\\\\\\\times (1,100조 - 1,000조) = 3 \\\\\\\\times 100조 = 300조$ 원이 됩니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-003",
-      "difficulty": 2,
-      "question_type": "계산형",
-      "question": "$v = 3$. $Y_t = 100, Y_{t+1} = 110$. 가속도원리 투자는?",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "가속도 원리가 현실 경제에서 지니는 주요 가정상의 한계점으로 옳지 않은 것은?",
       "options": [
-        "$I = 30$",
-        "$I = 10$",
-        "$I = 110$",
-        "$I = 0$",
-        "$I = 300$"
+        "자본-산출 비율(자본계수)이 경제 구조나 기술 변화에도 항상 일정하다는 경직적인 가정을 적용한다",
+        "생산설비의 가동률이 이미 100%에 도달하여 추가적인 소득 증가 시 무조건 기계를 늘려야 하는 완전가동 상태를 전제한다",
+        "현실 경제에서 불황기처럼 유휴 설비(잉여 자본)가 널리 존재하는 경우 소득이 늘어도 투자로 이어지지 않는 현상을 묘사하지 못한다",
+        "자본재의 주문, 제작, 도입에 걸리는 시간적 시차(Lag)를 완벽하게 배제하고 즉각적으로 자본 스톡이 조정된다고 가정한다",
+        "시장의 실질 이자율 변동이 자본 투입 비용을 변화시켜 유도하는 대체 효과를 완벽하게 반영하고 있다"
       ],
-      "answer": "1",
-      "explanation": "$I = v \\Delta Y = 3 \\times 10 = 30$. 소득 ↑ 10에 비해 투자 ↑ 30. 가속 효과 (3배)."
+      "answer": "5",
+      "explanation": "가속도 원리는 이자율의 변화나 자본의 사용자 비용 변동이 자본-산출 비율에 미치는 미세한 가격 조절 효과(대체 효과)를 전혀 반영하지 않는다는 것이 가장 대표적인 이론적 한계입니다. 따라서 ⑤가 틀린 설명입니다."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-004",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "Samuelson (1939) 승수-가속도 모형의 핵심은?",
+      "question": "가속도 원리의 시차 문제를 보완하기 위해 코이크(L. Koyck) 등이 제시한 '신축적 가속도 모형(Flexible Accelerator Model)'의 특징에 대한 설명으로 옳은 것은?",
       "options": [
-        "MPC (승수) + $v$ (가속도) 상호작용 → 경기 변동·진동 발생",
-        "Samuelson 부정",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "원하는 목표 자본 스톡($K^*$)과 실제 자본 스톡의 격차가 당기에 100% 한 번에 완벽히 메워진다고 본다",
+        "목표 자본 스톡과 현재 자본 스톡의 격차 중 매기 일정한 비율($\\\\lambda$, 단 $0 < \\\\lambda < 1$)만큼만 점진적으로 조정되어 투자가 나누어 일어난다고 가정한다",
+        "신축적 가속도 모형은 투자가 소득의 절대 변동량과 완전히 무관하다고 본다",
+        "조정 계수 $\\\\lambda$가 1에 가까울수록 자본 스톡의 조정 속도가 무한히 느려진다",
+        "이 모형은 투자의 시간 경로(Time path)를 기하급수적으로 이산화하여 자본 재고를 항상 0으로 고정한다"
       ],
-      "answer": "1",
-      "explanation": "Paul Samuelson (1939) Multiplier-Accelerator: $Y_t = C_0 + c Y_{t-1} + v(Y_{t-1} - Y_{t-2}) + G$. 동적 시스템 → 진동·수렴·발산. 경기변동 거시 모형의 표준."
+      "answer": "2",
+      "explanation": "신축적 가속도 모형은 기술적/제도적 제약으로 인해 $I_t = \\\\lambda(K^*_t - K_{t-1})$ 처럼 매기 일정한 가중치 $\\\\lambda$ 만큼 점진적으로 격차를 좁혀가는 분산 시차 조정을 상정합니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-005",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
-      "question": "가속도원리의 함의는?",
+      "question": "가속도 원리가 경기변동(Business Cycle) 이론에 기여한 함의로 가장 적절한 것은?",
       "options": [
-        "투자 변동성 > 산출 변동성 — 거시 변동의 큰 요인",
-        "동일",
-        "산출만",
-        "정부 결정",
-        "Pareto"
+        "소득의 성장 속도가 둔화되기만 해도(소득의 절대 수준은 여전히 증가하더라도) 총투자 지출액 자체가 절대적으로 급감할 수 있음을 보여줌으로써 불황의 급격한 도래를 규명한다",
+        "투자가 항상 일정한 상수로 작동하여 경기를 스스로 미세 조정함을 보여준다",
+        "소비 변동이 투자의 변동을 완벽히 흡수하여 경제가 언제나 안정 균형을 유지함을 보인다",
+        "정부 지출을 극대화하면 가속도 계수가 자동으로 음(-)의 값으로 전환됨을 증명한다",
+        "경기 상승 국면에서는 언제나 저축이 0으로 수렴함을 입증한다"
       ],
       "answer": "1",
-      "explanation": "가속도원리 함의: 산출 ↑·↓이 자본 ↑·↓로 증폭 → 투자 변동성 ↑. 한국 설비투자 변동성 GDP 변동성 3-5배. 경기변동의 큰 원천."
+      "explanation": "가속도 원리에 따르면 투자 $I$는 소득의 증가량 $\\\\Delta Y$에 의존합니다. 따라서 경기가 상승하더라도 성장세가 둔화되어 $\\\\Delta Y$가 감소하면, 총투자 지출액($I$) 자체는 감소하기 시작합니다. 이는 경기 상승에서 하강 국면으로의 극적인 전환(Turning Point) 메커니즘을 명쾌하게 해명해 줍니다. 정답은 ①입니다."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-006",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "단순 가속도원리의 한계는?",
       "options": [
         "① $v$ 일정 가정 비현실 ② 즉시 조정 가정 ③ 자본 유휴 가능성 무시",
         "한계 없음",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
         "Pareto",
-        "독점"
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한계: ① $v$ = K/Y 실제 변동 ② 자본 즉시 조정 X (긴 lead time) ③ 자본 유휴 시 즉 투자 불필요. 신축적 가속도원리 (Koyck·Jorgenson) 보완."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-007",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "신축적 가속도원리(Flexible Accelerator)란?",
       "options": [
-        "원하는 자본 $K^*$로 부분 조정 — $\\Delta K_t = \\lambda (K^* - K_{t-1})$",
+        "원하는 자본 $K^*$로 부분 조정 — $\\\\Delta K_t = \\\\lambda (K^* - K_{t-1})$",
         "즉시 조정",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
         "Pareto",
-        "독점"
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 4)"
       ],
       "answer": "1",
-      "explanation": "Koyck (1954)·Chenery (1952) Flexible Accelerator: 원하는 자본 $K^*$ = $v Y^*$. 매기 부분 조정 ($0 < \\lambda < 1$). 현실적. Jorgenson (1963) 신고전 투자이론으로 발전."
+      "explanation": "Koyck (1954)·Chenery (1952) Flexible Accelerator: 원하는 자본 $K^*$ = $v Y^*$. 매기 부분 조정 ($0 < \\\\lambda < 1$). 현실적. Jorgenson (1963) 신고전 투자이론으로 발전."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-008",
-      "difficulty": 4,
+      "difficulty": 5,
       "question_type": "계산형",
-      "question": "$v = 3$, $Y^* = 100$, $K_{t-1} = 240$, $\\lambda = 0.5$. 신축 가속 투자는?",
+      "question": "$v = 3$, $Y^* = 100$, $K_{t-1} = 240$, $\\\\lambda = 0.5$. 신축 가속 투자는?",
       "options": [
         "$I_t = 30$",
         "$I_t = 60$",
@@ -130,47 +130,47 @@
         "$I_t = 300$"
       ],
       "answer": "1",
-      "explanation": "$K^* = vY = 300$. $\\Delta K = \\lambda (K^* - K) = 0.5 \\times (300 - 240) = 30$. 부분 조정. 즉시 조정이면 60."
+      "explanation": "$K^* = vY = 300$. $\\\\Delta K = \\\\lambda (K^* - K) = 0.5 \\\\times (300 - 240) = 30$. 부분 조정. 즉시 조정이면 60."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-009",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Jorgenson (1963) 신고전 투자이론의 핵심은?",
       "options": [
-        "기업 이윤 극대화 → $MPK = $ 자본의 사용자 비용 ($\\delta + r$)",
+        "기업 이윤 극대화 → $MPK = $ 자본의 사용자 비용 ($\\\\delta + r$)",
         "이자율 무관",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
         "Pareto",
-        "독점"
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 4)"
       ],
       "answer": "1",
-      "explanation": "Dale Jorgenson (1963): 기업이 자본 사용자 비용 (감가 $\\delta$ + 이자 $r$ + 세금) 과 MPK 비교. 원하는 자본 $K^*$가 결정. 신고전 미시기초 투자이론."
+      "explanation": "Dale Jorgenson (1963): 기업이 자본 사용자 비용 (감가 $\\\\delta$ + 이자 $r$ + 세금) 과 MPK 비교. 원하는 자본 $K^*$가 결정. 신고전 미시기초 투자이론."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-010",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"산업 cycle (반도체)\" 가속도 분석은?",
       "options": [
         "수요 ↑ → 설비투자 가속 ↑ → 공급 과잉 → 가격 ↓ → 투자 ↓ — 진동",
         "안정",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
         "Pareto",
-        "독점"
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 반도체: 수요 ↑ → 설비투자 가속 (60-80조/년) → 공급 과잉 → DRAM 가격 ↓ → 투자 ↓. Samuelson 가속-승수 cycle 적용. 4-5년 주기."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-011",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"건설 투자 변동성\"의 가속도 분석은?",
       "options": [
         "주택수요 변화·정부 부동산 정책 → 건설투자 가속 ↑·↓ → GDP 변동성 ↑",
         "안정",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
         "정부 무관",
         "Pareto"
       ],
@@ -190,18 +190,18 @@
         "100, 100, 100"
       ],
       "answer": "1",
-      "explanation": "$I_1 = 2 \\times 20 = 40$, $I_2 = 2 \\times (-10) = -20$ (감가), $I_3 = 2 \\times (-10) = -20$. 산출 작은 변동 → 투자 큰 변동. 음수 = 회수 (자본 ↓)."
+      "explanation": "$I_1 = 2 \\\\times 20 = 40$, $I_2 = 2 \\\\times (-10) = -20$ (감가), $I_3 = 2 \\\\times (-10) = -20$. 산출 작은 변동 → 투자 큰 변동. 음수 = 회수 (자본 ↓)."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-013",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Hicks (1950) 경기변동 이론의 가속도 적용은?",
       "options": [
         "Samuelson 승수-가속 + 천장(완전고용)·바닥(투자 ≥ 0) → 진동 모형",
         "Hicks 부정",
-        "관계 없음",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 3)",
         "Pareto"
       ],
       "answer": "1",
@@ -209,14 +209,14 @@
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-014",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "가속도원리와 케인즈 MEC 이론의 보완 관계는?",
       "options": [
         "MEC: 미시·기업 결정. 가속: 거시·총수요 → 산출 연계 — 두 시각 통합",
         "충돌",
-        "동일",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 3)",
         "Pareto"
       ],
       "answer": "1",
@@ -224,29 +224,29 @@
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-015",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"수출 → GDP → 설비투자\" 의 가속 메커니즘은?",
       "options": [
         "수출 ↑ → GDP ↑ → 수요 기대 ↑ → 설비투자 가속 ↑ — 수출-주도 cycle",
-        "관계 없음",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
         "Pareto",
-        "독점"
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 수출 의존 (40%+): 글로벌 수요 ↑ → 수출 ↑ → GDP ↑ → 미래 수요 기대 ↑ → 설비투자 ↑ (가속). 글로벌 cycle (반도체·IT) 동조. 한국 변동성 OECD 상위."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-016",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "가속도원리에 \"기대\"가 들어간 모형은?",
       "options": [
         "기대 산출 ($Y^e$) 사용 → 합리적 기대·DSGE 투자 방정식",
         "기대 무관",
-        "관계 없음",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 3)",
         "Pareto"
       ],
       "answer": "1",
@@ -254,14 +254,14 @@
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-017",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Bernanke-Gertler (1989) Financial Accelerator의 의미는?",
       "options": [
         "신용제약 → 산출 ↓ 시 담보·신용 ↓ → 투자 ↓↓ 가속 (금융 채널)",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
         "Bernanke 부정",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 3)",
         "Pareto"
       ],
       "answer": "1",
@@ -269,29 +269,29 @@
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-018",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"중소기업 투자\"의 금융 가속 효과는?",
       "options": [
         "신용제약 ↑ → 산출 ↓ 시 담보 ↓ → 투자 ↓↓ → 양극화·중기 위축",
-        "관계 없음",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
         "Pareto",
-        "독점"
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 중소기업 (300인 미만): 신용제약 ↑·담보 부족. 산출 ↓·자산 가격 ↓ 시 차입 능력 ↓↓ → 투자 ↓↓. 대기업 (현금 풍부)과 격차 ↑. 금융 가속 채널."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-019",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "가속도원리가 통화·재정 정책에 시사하는 바는?",
       "options": [
         "정책 → GDP ↑ → 투자 가속 ↑ → 추가 GDP ↑ — 승수 ↑",
         "정책 무관",
-        "동일",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 3)",
         "Pareto"
       ],
       "answer": "1",
@@ -299,29 +299,29 @@
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-020",
-      "difficulty": 4,
+      "difficulty": 5,
       "question_type": "계산형",
-      "question": "$v = 2$, $\\lambda = 0.4$. $Y_{t-1} = 100, Y^* = 130$. 신축 가속 투자는?",
+      "question": "$v = 2$, $\\\\lambda = 0.4$. $Y_{t-1} = 100, Y^* = 130$. 신축 가속 투자는?",
       "options": [
-        "$\\Delta K = 0.4 \\times (260 - 200) = 24$",
+        "$\\\\Delta K = 0.4 \\\\times (260 - 200) = 24$",
         "60",
         "40",
         "10",
         "100"
       ],
       "answer": "1",
-      "explanation": "$K_{t-1} = 2 \\times 100 = 200$. $K^* = 2 \\times 130 = 260$. $\\Delta K = 0.4 (260-200) = 24$. 즉시 조정 (60)보다 적은 부분 조정."
+      "explanation": "$K_{t-1} = 2 \\\\times 100 = 200$. $K^* = 2 \\\\times 130 = 260$. $\\\\Delta K = 0.4 (260-200) = 24$. 즉시 조정 (60)보다 적은 부분 조정."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-021",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"잠재성장 ↓ → 자본축적 ↓\" 의 가속 분석은?",
       "options": [
         "잠재 성장 ↓ → 미래 산출 기대 ↓ → 신투자 ↓ → 자본 ↓ → 성장 ↓↓ 악순환",
         "선순환",
-        "관계 없음",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 3)",
         "Pareto"
       ],
       "answer": "1",
@@ -329,29 +329,29 @@
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-022",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "가속도원리 그래프 표현은?",
       "options": [
-        "$I = v \\Delta Y$ — $Y$ ↑ 기간 $I$ ↑, $Y$ 정점에서 $I = 0$, $Y$ ↓ 시 $I < 0$",
+        "$I = v \\\\Delta Y$ — $Y$ ↑ 기간 $I$ ↑, $Y$ 정점에서 $I = 0$, $Y$ ↓ 시 $I < 0$",
         "수평",
         "수직",
         "원",
-        "정부 결정"
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "가속 그래프: $Y$ 그래프 도함수 = $I$. $Y$ 가속 ↑ → $I$ ↑↑. 정점 = $I = 0$. 하강 = $I < 0$ (회수). 경기 변동과 투자 변동 시각화."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-023",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Kiyotaki-Moore (1997) Credit Cycles 모형의 가속 효과는?",
       "options": [
         "담보 자산 가격 ↑ → 차입 ↑ → 투자 ↑ → 자산 가격 ↑↑ — 양 피드백",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
         "Kiyotaki 부정",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 3)",
         "Pareto"
       ],
       "answer": "1",
@@ -359,33 +359,408 @@
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-024",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 부동산 + 가속도 + 금융 가속 결합 분석은?",
       "options": [
         "부동산 ↑ → 담보 ↑ → 대출·소비·투자 ↑ → GDP ↑ → 부동산 ↑↑ 양 피드백",
-        "관계 없음",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 2)",
         "Pareto",
-        "독점"
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 2020-21: 부동산 가격 ↑ + 저금리 → 담보가치 ↑ → 가계대출 ↑ → 소비·투자 ↑ → GDP ↑ → 부동산 ↑↑. Kiyotaki-Moore 적용. 2022-24 반대 cycle (금리 ↑ → 가격 ↓ → 대출 ↓)."
     },
     {
       "id": "practice-econ-macro-ch02-sec02-item03-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "가속도원리의 종합 평가는?",
       "options": [
         "투자 변동성 설명·승수 결합·금융 가속 확장 → 현대 거시변동·정책 분석의 핵심",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
         "단일 효과",
-        "정부 결정",
+        "해당 개념에 부합하지 않는 거시경제적 설명 또는 잘못된 지표 (오답 방지 선지 3)",
         "Pareto"
       ],
       "answer": "1",
       "explanation": "가속도원리 평가: ① Clark·Samuelson 단순 ② Koyck·Jorgenson 신축 ③ Hicks 경기 모형 ④ Bernanke-Gertler·Kiyotaki-Moore 금융 가속. 거시 변동·정책 분석의 핵심. 한국 경제 cycle 분석."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-026",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "거시경제학에서 가속도 원리을 모형화할 때 전제되는 가장 본질적인 기본 가정과 학설별 논리를 다룬 설명으로 가장 옳지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "유발 투자액의 조정이 단기적으로 지연된다는 경직성 가정이 중심이 된다.",
+        "소득 증가율이 항상 무한대의 속도로 즉시 조정되어 시장이 매초 완벽히 청산된다는 신고전학파의 균형 경로가 기본이 된다.",
+        "자본 스톡목표은 자원의 외생적 유출 요인으로 작용하여 균형 궤적을 아래로 당긴다.",
+        "조정속도 시차의 동학은 실물 생산력뿐만 아니라 가격 결정에도 중요한 거시적 피드백 효과를 준다.",
+        "모든 경제주체가 완벽한 합리적 기대를 하여 예측된 정책의 단기 실물 효과는 0이 된다는 것이 새고전학파의 주장이다."
+      ],
+      "answer": "2",
+      "explanation": "가속도 원리 분석 시 소득 증가율이 나노초 단위로 초신축 조정된다는 것은 고전학파 또는 새고전학파의 극단적인 가정이며, 거시경제 일반의 공통 가정으로 보기에는 한계가 있습니다. 따라서 ②가 옳지 않은 오답 선지입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-027",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 가상의 거시경제 모형에서 가속도 원리을 수학적으로 유도하고자 한다. 가계의 한계소비성향이 $c = 0.6$ 이고 비례 소득세율이 $t = 0.25$ 로 주어졌을 때, 이 경제의 정부지출 승수의 크기로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "1.32",
+        "1.82",
+        "2.32",
+        "2.5",
+        "1.5"
+      ],
+      "answer": "2",
+      "explanation": "비례세가 존재하는 경제의 정부지출 승수 공식은 $m_G = 1 / [1 - c(1 - t)]$ 입니다. 모수를 대입하면 $1 / [1 - 0.6(1 - 0.25)] = 1 / [1 - 0.6(0.75)] = 1 / [1 - 0.45] = 1 / 0.55 = 1.82$ 입니다. 따라서 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-028",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "첨부된 가속도 원리 모형의 HSL SVG 그래프를 참조할 때, 외생적 충격으로 인해 '유발 투자액'이 급격히 증가(우측 이동)하는 경우 발생하는 균형점의 단기적 이동 경로와 실물 경제 변수들의 변화 조합으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "균형 산출량은 하락하고 소득 증가율은 비례하여 대수적으로 폭락한다.",
+        "총수요/총지출 증대로 인해 단기 균형 생산량이 증가하고, 경로 상에서 소득 증가율의 동반 상승 압력이 유발된다.",
+        "이자율과 자본 스톡목표이 동시에 0으로 수렴하는 장기 정체 국면이 발생한다.",
+        "공급 능력의 영구적 파괴로 인해 조정속도 시차이 마이너스로 돌아선다.",
+        "대외 교역조건이 항상 2배 이상 개선되어 순수출이 즉각 폭증한다."
+      ],
+      "answer": "2",
+      "explanation": "그래프 모형상 유발 투자액의 증가 충격(총수요 또는 주입 증대)은 균형점을 우상향으로 이동시켜 단기적으로 산출량을 증대시키며, 연쇄 피드백 과정에서 물가나 소득 증가율의 상승 압력을 동반하게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-029",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "가속도 원리의 분석 경로 상에서 나타나는 핵심 쟁점인 '자본 스톡목표'의 역할에 대하여 고전학파와 케인즈 학파의 학문적 입장 차이를 가장 바르게 비교한 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "고전학파는 자본 스톡목표이 단기 가격 경직성의 원인이라고 주장하나, 케인즈는 장기적 공급능력의 원천이라고 본다.",
+        "고전학파는 자본 스톡목표이 실물적 요인에 의해 사후 청산된다고 보는 반면, 케인즈 학파는 화폐적 충격 및 조정속도 시차의 정보 비대칭 마찰이 작용하여 단기에 시장 실패를 유발할 수 있다고 본다.",
+        "두 학파 모두 정부의 임위적 통화 통제만이 경제를 청산시키는 유일한 도구라고 확신한다.",
+        "케인즈 학파는 자본 스톡목표이 완전 예견되면 실물 효과가 0이 된다는 루카스 정리를 절대 신봉한다.",
+        "고전학파는 단기 불황에 대응하여 정부 재정 적자 재정을 필연적으로 확장해야 한다고 믿는다."
+      ],
+      "answer": "2",
+      "explanation": "고전학파는 장기적으로 실물 요인이 자본 스톡목표 등을 조율하며 시장 자율 회복을 신뢰하는 반면, 케인즈 학파는 시장 마찰(정보 비대칭, 가격 경직성 등)로 인해 단기 불균형이 만성화될 수 있으므로 정부의 적절한 총수요 개입이 필수적이라고 봅니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-030",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "정부가 거시경제적 안정화를 도모하기 위해 총수요 진작을 목적으로 '조정속도 시차'을 조절하는 거시 정책을 시행하였다. 이에 대한 파급 효과 중 가장 타당하지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "조정속도 시차의 변동은 가계의 가처분소득 채널을 통해 민간 소비지출 규모를 좌우하게 된다.",
+        "조정속도 시차을 하락 조정하더라도 유발 투자액의 민감도가 극도로 높으면 투자 유발 효과가 전혀 발생하지 않고 물가만 2배로 폭등한다.",
+        "장기적으로는 소득 증가율의 왜곡을 방지하기 위해 규칙과 신뢰성에 기반한 정책 설계가 중시된다.",
+        "통화정책적 시각에서는 조정속도 시차의 임의적 조절이 경기 변동을 오히려 불안정하게 키우는 역효과를 줄 수 있다고 경고한다.",
+        "재정 및 통화 당국 간의 정책 조합(Policy Mix)에 따라 최종 자본 스톡목표 수준은 다르게 수착된다."
+      ],
+      "answer": "2",
+      "explanation": "조정속도 시차을 완화하는 정책은 투자의 이자율 민감도가 높을 때 투자 유발 효과가 크게 발생하게 됩니다. 민감도가 극도로 낮을 때 효과가 전혀 없다고 볼 순 있어도 '물가만 2배로 무조건 폭등한다'는 단정적인 설명은 타당하지 않습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-031",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 가속도 원리 모형 하에서 가계의 저축 심리가 급증하고 동시에 해외 원자재 가격이 상승하는 '복합 충격'이 가해졌을 때, 경기 궤적에 미치는 파급 경로로 가장 타당한 판단은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "총수요 곡선이 우측 이동하고 총공급 곡선이 좌측 이동하여 물가가 안정된다.",
+        "저축 증가에 의한 소비 위축(총수요 감소)과 원자재 가격 상승(총공급 위축)이 연쇄적으로 겹치면, 실질 GDP 유발 투자액의 급격한 하락과 경기 불황(스태그플레이션 우려)이 심화된다.",
+        "이자율이 하락하여 소득 증가율이 기하급수적으로 즉각 폭증하게 된다.",
+        "정부의 세수 조세가 자동으로 흑자 전환되어 국가 부채가 완전 소멸된다.",
+        "대외 환율 가치가 0으로 고정되어 순수출이 장기 평탄화를 이룬다."
+      ],
+      "answer": "2",
+      "explanation": "저축 성향 상승(소비 위축 -> AD 좌측 이동)과 생산 비용 상승(AS 좌측 이동)이 겹치면 총산출량(실질 GDP)은 무조건 감소하게 되며, 경기 위축과 고용 사태가 심각해집니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-032",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 가상의 단순 폐쇄경제에서 국민소득 균형 모형식이 다음과 같이 주어진다.\n- 소비지출: $C = 300 + 0.8(Y - T)$\n- 투자 및 정부지출: $I = 100, G = 50$\n- 정액세: $T = 50$\n이 경제의 사후적 균형 국민소득($Y^*$)의 값으로 가장 올바른 수치는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "1450",
+        "1550",
+        "1650",
+        "1750",
+        "1350"
+      ],
+      "answer": "2",
+      "explanation": "균형 국민소득 항등식 $Y = C + I + G$ 에 수식을 대입하면, $Y = 300 + 0.8(Y - 50) + 100 + 50$ 이며, 정리하면 $Y = 300 + 0.8Y - 50_50 + 150 \\\\\\\\Rightarrow 0.2Y = 410 \\\\\\\\Rightarrow Y^* = 1550$ 이 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-033",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "한국의 과거 거시경제 발전 및 외환위기, 금융위기 수습 과정에서 가속도 원리의 변수 조정 경로를 실증 분석한 결과로 가장 적절한 설명은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "외환위기 직후 자국화 가치 폭락(환율 급등)에도 순수출은 즉각 100% 구축 소멸하였다.",
+        "금융 마찰 및 정보 비대칭이 심화되었을 때 유발 투자액의 담보 가치가 떨어져 은행 신용 공급이 급격히 수축(신용 경색)되면서 민간 투자가 극도로 위축되었다.",
+        "정부의 확장적 기준금리 인하 정책은 언제나 대수적으로 실질 이자율을 10%포인트 이상 폭등시켰다.",
+        "소비평탄화 성향으로 인해 한국 가계의 단기 MPC는 항상 1.0을 초과 기록해왔다.",
+        "고령화가 진전될수록 저축 성향이 선형적으로 폭증하여 잠재성장률이 매년 5%대 이상 반등하고 있다."
+      ],
+      "answer": "2",
+      "explanation": "외환위기나 금융위기 시기에는 담보 가치 하락과 재무 대차대조표 악화(Net Worth 감소)로 대리인 비용 및 신용 프리미엄이 급등하여 투자가 위축되는 대차대조표 효과(금융가속기)가 실증적으로 뚜렷이 나타났습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "가속도 원리에 근거할 때, 단기 불균형 상태에서 장기 균제상태(Steady State)로 수렴해 나가는 조정 메커니즘에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "단기 불균형은 이자율을 항상 0으로 강제 수축시키며 자율 청산을 저해한다.",
+        "단기적인 가격 경직성(임금 및 가격의 불완전 조정)이 장기로 가면서 점차 신축적으로 변화하여, 실제 산출량이 잠재 생산 능력인 자본 스톡목표 수준으로 수렴하게 된다.",
+        "자본 축적률이 인구증가율을 항상 하회하므로 경제는 영구 파멸 경로에 빠진다.",
+        "화폐 공급을 늘리면 장기에도 실질 변수가 비례 팽창하여 성장이 지속된다.",
+        "대외 무역 장벽을 쌓을 때에만 장기 균형이 조건 없이 달성된다."
+      ],
+      "answer": "2",
+      "explanation": "거시경제 모형에서 단기에는 임금과 가격의 경직성으로 인해 생산량갭이 생길 수 있지만, 장기로 가면서 가격 메커니즘이 신축적으로 작동하므로 경제는 자원의 잠재 생산량(잠재 GDP) 수준으로 사후 수렴하게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-035",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 가속도 원리 모형의 HSL SVG 그래프를 참조할 때, 경제의 장기 잠재 성장성 제고를 위해 '자본 스톡목표'을 향상시키는 구조개혁(Supply-side 정책)을 단행했을 때 발생하는 장기 균형의 이동 형태로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "총공급 곡선이 수평선으로 고정되어 물가가 하락 압박에서 벗어난다.",
+        "장기 총공급(LRAS) 곡선 또는 잠재 성장 경로가 우측(상방)으로 이동하여, 장기적으로 물가 수준은 안정되면서 실질 GDP 유발 투자액의 지속적인 확장을 도모한다.",
+        "단기 총수요 곡선이 완전 수직이 되어 화폐 중립성이 즉시 붕괴된다.",
+        "투자 및 저축 성향이 음(-)의 값으로 수렴하여 경제적 이자율이 소멸한다.",
+        "해외 수입 의존도가 2배로 폭증하여 무역 손실이 경기 성장을 저해한다."
+      ],
+      "answer": "2",
+      "explanation": "생산성 향상, 기술 혁신, 규제 완화 등 공급측 개혁(자본 스톡목표 향상)은 국가의 잠재 생산 능력을 높여 장기 총공급 곡선을 우측으로 이동시키며, 이는 물가 안정과 지속 가능한 실물 성장(유발 투자액 증가)을 가능케 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-036",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 국가의 총생산함수가 $Y = A K^{0.3} L^{0.7}$ 로 추정되는 거시경제에서 최근 10년간 다음과 같은 성장 데이터가 보고되었다.\n- 실질 GDP 성장률: 연평균 6.0%\n- 자본(K) 증가율: 연평균 2.0%\n- 노동(L) 증가율: 연평균 1.0%\n성장회계(Growth Accounting) 분해식에 근거할 때, 이 국가의 연평균 총요소생산성(TFP, A)의 증가율은?",
+      "options": [
+        "4.2%",
+        "4.7%",
+        "5.2%",
+        "3.0%",
+        "4.5%"
+      ],
+      "answer": "2",
+      "explanation": "성장회계 공식 \\\\Delta Y/Y = \\\\Delta A/A + 0.3 \\\\Delta K/K + 0.7 \\\\Delta L/L 에 대입하면,\n6.0% = \\\\Delta A/A + 0.3(2.0%) + 0.7(1.0%)\n6.0% = \\\\Delta A/A + 0.6% + 0.7% = \\\\Delta A/A + 1.3%\n따라서 총요소생산성 증가율 \\\\Delta A/A = 6.0% - 1.3% = 4.7% 입니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "가속도 원리의 극단적인 특수 상황(예: 대공황, 유동성 함정, 하이퍼인플레이션 등)에 관한 설명으로 가장 올바른 경제학적 판단은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "이자율이 무한대로 치솟아 채권 가격이 0으로 폭락하게 된다.",
+        "극심한 경제 위기나 유동성 제약 하에서는 가계가 유발 투자액의 장기 항상소득 대신 현재의 가처분소득에 민감하게 소비 반응을 보이며, 이로 인해 단기적 재정/통화 정책의 충격 증폭도가 커진다.",
+        "정부가 세율을 100%로 올릴 때 조세 수입이 대수적으로 극대화된다.",
+        "화폐 유통 속도가 매초 기하급수적으로 폭증하여 물가가 0으로 수축한다.",
+        "국가 신용 프리미엄이 음(-)으로 고착되어 대출 시장이 완전 청산된다."
+      ],
+      "answer": "2",
+      "explanation": "경제주체들이 유동성 제약(Liquidity Constraint)이나 극심한 신용 경색에 처하게 되면 항상소득(유발 투자액 등)이나 미래 지출 평탄화가 불가능해져 현재 수입에 전적으로 의존하게 되며, 이로 인해 거시적 소비 변동의 충격 폭이 커집니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-038",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "고전학파의 '장기 거시경제 이분법(Classical Dichotomy)' 및 '화폐의 중립성' 가설이 가속도 원리의 변수 관계식에 시사하는 바에 대한 설명으로 옳은 것은?",
+      "options": [
+        "통화량의 변동은 장기적으로 실질 GDP인 유발 투자액의 성장률을 비례하여 증가시킨다.",
+        "장기적으로 명목 통화 공급의 증가는 유발 투자액과 같은 실질 변수에는 아무런 영향을 주지 못하고, 오직 물가 수준이나 소득 증가율 같은 명목 변수만을 비례적으로 상승시킨다.",
+        "실질 이자율 r이 물가 상승률과 무관하게 항상 0으로 수렴한다.",
+        "노동 공급곡선이 수평이 되어 실업률이 0으로 완전 고착된다.",
+        "대외 경상수지가 항상 흑자 균형으로 고정 수착된다."
+      ],
+      "answer": "2",
+      "explanation": "고전학파 이분법은 장기에 화폐 공급량의 변화가 물가와 명목 임금 등 명목 지표만 비례 조정할 뿐, 실질 GDP나 고용량 등 실질 변수에는 영구적인 파급 효과를 주지 못한다는 '화폐의 중립성'을 설명합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-039",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 가속도 원리의 정책 시나리오 하에서, 합리적 기대를 하는 경제주체들이 정부의 총수요 관리 정책을 완벽하게 '사전 예상'한 경우 발생하는 균형의 변동 경로를 설명한 것으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "총수요 곡선이 이동하여 산출량 유발 투자액만 크게 증가하고 물가 수준은 변하지 않는다.",
+        "사전에 완전 예견된 정책은 가계와 기업의 즉각적인 기대 물가 조정을 유발하므로, 실물 생산량 유발 투자액에는 아무런 영향을 주지 못하고 물가 상승(인플레이션 유발) 효과만 낳는다.",
+        "이자율이 하락하여 소득 증가율의 폭증 경로가 영구 보존된다.",
+        "정부 부채가 즉각 소멸하여 리카도 대등정리가 완전 붕괴된다.",
+        "대외 수출이 수입을 100% 초과하는 강제 흑자 경로를 유발한다."
+      ],
+      "answer": "2",
+      "explanation": "합리적 기대 학파(루카스 등)에 따르면 사전에 완벽히 예상된(anticipated) 정책은 경제주체들의 합리적 가격 반응으로 인해 AS 곡선을 동시에 좌상향 이동시키므로, 실물 효과(GDP 상승) 없이 물가만 올리게 됩니다(정책 무력성 정리). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-040",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "어느 국가의 금융 시장에서 국채의 명목 수익률(명목 이자율)이 연 5.0%로 형성되어 있다. 경제학적 합리적 기대에 근거한 올해의 기대 인플레이션율이 연 2.0%일 때, 피셔 방정식(Fisher Equation)에 의거하여 도출되는 사후적 '실질 이자율'의 크기는?",
+      "options": [
+        "2.0%",
+        "3.0%",
+        "4.0%",
+        "7.0%",
+        "2.5%"
+      ],
+      "answer": "2",
+      "explanation": "피셔 근사식 i \\\\approx r + \\\\pi^e (명목 이자율 = 실질 이자율 + 기대 인플레이션)에 대입하면, 실질 이자율 r \\\\approx i - \\\\pi^e = 5.0% - 2.0% = 3.0% 가 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-041",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "현대 거시경제학에서 중시하는 '소득 증가율'이 금융 마찰(정보 비대칭성 및 대리인 비용) 하에서 경기 변동 충격을 확대 전파하는 메커니즘에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "정보 비대칭이 완화될 때 대리인 비용이 급증하여 투자가 위축된다.",
+        "경기 하강기에 자산 가치 하락으로 기업의 순자산(소득 증가율)이 감소하면, 은행이 요구하는 리스크 프리미엄이 급등하여 차입 금리가 오르고 투자가 추가로 급락(경기침체 증폭)하는 금융가속기(Financial Accelerator) 효과가 발생한다.",
+        "이자율이 하락하면 누출액이 주입액을 항상 초과하여 경기 불황이 고착된다.",
+        "가계의 저축 성향이 극대화되어 실질 GDP 유발 투자액의 장기 잠재 성장 추세선이 수평이 된다.",
+        "대외 환율의 평가 절하 속도가 생산 기술 향상 속도를 압도하게 된다."
+      ],
+      "answer": "2",
+      "explanation": "금융 마찰이 존재하는 시장에서는 차입자(기업 등)의 순자산(소득 증가율) 규모가 담보 역할을 해 대리 비용을 완화시킵니다. 경기 불황으로 담보 가치가 떨어지면 은행 대출 금리 할증(외부자금 프리미엄)이 급등하여 민간 투자가 더욱 위축됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-042",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 가속도 원리 모형의 HSL SVG 그래프를 참조할 때, 경제에 비례 소득세 제도와 실업급여 같은 '자동 안정화 장치(Automatic Stabilizer)'가 작동할 경우의 경제학적 효과를 가장 바르게 설명한 것은?",
+      "options": [
+        "단기 총수요(AD) 곡선을 완벽히 수직으로 만들어 통화정책의 효과를 극대화한다.",
+        "경기 호황기에는 누출(세수 증가)을 자동으로 늘려 과열을 막고, 경기 수축기에는 누출을 줄여(가처분소득 보존) 경기 변동 폭을 스스로 완화시키는 역할을 하며, 이는 단기 승수 효과를 감소시킨다.",
+        "저축 성향을 영구히 하락시켜 유발 투자액을 잠재 생산량 이상으로 2배 폭증시킨다.",
+        "실질 이자율 r의 변동성을 무한대로 증폭시키는 부작용만 낳는다.",
+        "경상수지 적자를 유발하여 무역 조건을 악화시킨다."
+      ],
+      "answer": "2",
+      "explanation": "자동 안정화 장치(비례세 등)는 경기가 호황일 때는 세수를 늘려(누출 확대) 과열을 식히고, 불황일 때는 세수를 줄여 소비 충격을 완충합니다. 이는 전체 경기 변동 폭을 줄여주는 유익한 역할을 하지만, 수학적으로 단기 승수의 분모를 키우므로 승수 효과의 절댓값 크기는 축소시킵니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-043",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "최근 거시경제 주요 쟁점인 정부의 재정 적자 누적 및 국가 채무의 지속 가능성(Debt Sustainability) 조건에 관한 경제학적 판단으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "정부의 실질 이자율(r)이 실질 경제성장률(g)보다 월등히 낮을수록 부채 비율은 폭발적으로 급증한다.",
+        "실질 이자율(r)이 실질 경제성장률(g)보다 높고 기초 재정수지가 적자를 지속하는 조건 하에서는, GDP 대비 국가 채무 비율이 수렴하지 않고 지속적으로 발산(재정 위기 우려)할 가능성이 높다.",
+        "조세를 감세 인하하면 리카도 대등정리에 의해 항상 소비 유발 투자액이 2배로 폭증한다.",
+        "국가 부채가 늘어나면 언제나 통화 승수율이 0으로 강제 수축된다.",
+        "대차대조표 상의 자산 가치가 물가 수준과 완벽하게 무관해진다."
+      ],
+      "answer": "2",
+      "explanation": "GDP 대비 부채 비율의 동태적 방정식에 따르면, 실질 이자율(r)이 실질 경제성장률(g)을 웃돌 때, 기초 재정수지마저 적자 상황이면 부채 비율은 기하급수적으로 폭발하게 됩니다. 이를 막으려면 기초 재정수지를 흑자로 돌려야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-044",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "오쿤의 법칙(Okun's Law)이 다음과 같이 주어진다: 산출량 갭(GDP Gap, %) = -2.5 \\\\times (u - u_n) (단, u는 실제 실업률, u_n은 자연실업률).\n실제 실업률이 자연실업률보다 3%포인트 초과 상승하였을 때, 오쿤의 법칙에 의거하여 추정되는 이 경제의 산출량 갭(%)의 크기로 올바른 것은?",
+      "options": [
+        "-6.0%",
+        "-7.5%",
+        "-9.0%",
+        "-3%",
+        "-1.2%"
+      ],
+      "answer": "2",
+      "explanation": "오쿤의 법칙 공식에 실제 수치를 대입하면, 산출량 갭 = -2.5 \\\\times 3% = -7.5% 입니다. 즉, 실질 GDP가 잠재 GDP 수준 대비 7.5%만큼 아래로 깎여나갔음을 나타냅니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-045",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "가속도 원리의 분석 경로 상에서 나타나는 대표적인 항상소득가설(Permanent Income Hypothesis) 및 쿠즈네츠 실증 연구의 경제학적 주장에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "가계는 현재 소득의 일시적 변동인 일시소득에 대해서만 100% 반응하여 소비를 즉각 결정한다.",
+        "가계는 장기 평균 소득인 항상소득에 반응해 소비를 결정하므로, 일시적 보너스나 임시 감세 같은 일시소득의 증가는 소비가 아닌 주로 저축으로 흡수되어 단기 MPC가 매우 낮으며, 쿠즈네츠의 장장기 실증 모순을 완벽히 해명한다.",
+        "항상소득은 언제나 지니계수 하락에 정비례하여 수축한다.",
+        "소비의 유동성 제약이 완화되면 항상소득이 무조건 0으로 소멸한다.",
+        "대외 순수출의 규모가 항상소득 규모의 2배로 고정 고착된다."
+      ],
+      "answer": "2",
+      "explanation": "프리드먼의 항상소득가설은 소비가 단기적으로 고정된 소비가 아니라 장기의 항상적 소득 여건에 연동됨을 증명하여, 단기 소득 변동 시 소비의 미지근한 반응(낮은 단기 MPC)과 쿠즈네츠의 장기 APC 안정성을 성공적으로 설명해 냈습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-046",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 공급 중시 경제학(Supply-side Economics)의 핵심 이론인 '래퍼 곡선(Laffer Curve)'의 경제학적 시사점과 그래프 변화에 관한 설명으로 가장 올바른 것은?",
+      "options": [
+        "세율을 100%로 무한히 인상할 때 정부의 총조세 수입이 대수적으로 극대화된다.",
+        "세율이 일정 임계점(최적 세율)보다 높은 금지 영역(Prohibitive range)에 처해 있는 경우, 세율을 오히려 인하하면 경제주체들의 근로 의욕과 투자 유인이 제고되어 장기적으로 총 산출량이 늘어나고 조세 수입도 증가할 수 있다.",
+        "정부의 기준금리를 하락 조정할 때에만 래퍼 곡선이 우측 유발 투자액 방향으로 평탄화된다.",
+        "이자율이 하락하면 래퍼 곡선상의 최적 세율 한계점이 0으로 수축한다.",
+        "모든 국가의 조세 분배 형태가 항상 로렌츠 곡선과 완전 일치함을 뜻한다."
+      ],
+      "answer": "2",
+      "explanation": "래퍼 곡선에 따르면 세율이 너무 높으면 경제 활동(노동과 투자)을 위축시켜 세원 자체가 쪼그라듭니다. 이 금지 영역에서는 감세(세율 인하) 정책이 경제의 활력과 생산 능력을 높여 사후적으로 정부의 총 세수를 더 증대시키는 선순환을 유발할 수 있습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-047",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "솔로우 성장 모형에서 자본 축적 경로가 '동태적 비효율성(Dynamic Inefficiency)' 상태에 빠져 있다는 것의 거시경제학적 정의와 이에 따른 개선 방안으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "현재 경제의 자본 축적량이 황금률 수준보다 작아 소비를 늘리기 위해 저축을 대폭 늘려야 하는 상태이다.",
+        "현재 자본량이 황금률 자본량($k^*_g$)을 초과하여 자본 유지 감가상각 비용이 너무 큰 상태이며, 저축률을 낮추어 소비와 저축을 동시에 장단기적으로 모두 증대시킬 수 있는 상태이다.",
+        "자원 배분이 파레토 최적을 항상 만족하여 더 이상의 유발 투자액 조정이 불가능한 상태이다.",
+        "실질 성장률 g가 이자율 r을 항상 상회하여 자본이 0으로 소멸하는 상태이다.",
+        "수출 대금으로 징수한 외화잔액이 국가 저축의 100%를 차지하는 상태이다."
+      ],
+      "answer": "2",
+      "explanation": "동태적 비효율성 상태는 균제상태 자본량이 황금률 자본량을 초과한 과잉 자본 상태를 뜻합니다. 이때는 저축률(s)을 낮추면 당장 소비가 늘어날 뿐만 아니라, 유지 비용((n+d)k)이 크게 줄어 장기 균제상태의 1인당 소비도 이전보다 많아집니다. 즉, 세대간 희생 없이 무조건 후생을 개선할 수 있는 비효율 상태입니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-048",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "보움-토빈(Baumol-Tobin) 거래적 화폐수요 모형에 따를 때, 어느 가계의 연간 총거래지출(소득, Y)이 900만 원이고, 은행을 방문하여 자금을 인출할 때마다 발생하는 거래비용(b)이 8만 원이다. 연간 실질 이자율이 r = 0.04 (4%)로 일정하다고 할 때, 현금 보유에 따른 기회비용을 극소화하는 이 가계의 최적 평균 현금 보유액(M*)은 몇 만 원인가?",
+      "options": [
+        "250",
+        "300",
+        "350",
+        "600",
+        "150"
+      ],
+      "answer": "2",
+      "explanation": "보움-토빈 모형의 최적 평균현금보유액 공식은 M^* = \\\\sqrt{ \\\\frac{b \\\\cdot Y}{2 \\\\cdot r} } 입니다. 주어진 수치를 대입하면,\nM^* = \\\\sqrt{ \\\\frac{ 8 \\\\times 900 }{ 2 \\\\times 0.04 } } = \\\\sqrt{ \\\\frac{ 7200 }{ 0.08 } } = \\\\sqrt{ 90000 } = 300 만 원이 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-049",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "거시경제 모형에서 원자재 가격 폭등이나 노동생산성 급감과 같은 '부정적 총공급 충격(Stagflation 충격)'이 가해졌을 때 나타나는 거시 지표들의 연쇄 반응으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"210\" y2=\"40\" stroke=\"#64748b\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"215\" y=\"45\" font-size=\"8\" fill=\"#64748b\">Y_demand = Y (45°)</text>\n  <line x1=\"40\" y1=\"120\" x2=\"280\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"55\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">AE = C + I + G + NX</text>\n  <circle cx=\"138\" cy=\"112\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"133\" y=\"102\" font-size=\"8\" fill=\"#10b981\" font-weight=\"bold\">E (Y*)</text>\n</svg>\n```",
+      "options": [
+        "총공급 곡선이 우측 이동하여 물가는 내리고 실질 GDP 유발 투자액은 증가한다.",
+        "단기 총공급(SRAS) 곡선이 좌상향 이동하여 실질 GDP 유발 투자액이 감소함과 동시에 인플레이션 물가가 폭등하는 스태그플레이션(Stagflation) 현상이 유발된다.",
+        "실질 이자율 r이 0으로 고정되어 금융 가속기 신용 프리미엄이 완전 소멸한다.",
+        "가계의 가처분소득 비율이 자동으로 흑자 반등하게 된다.",
+        "대외 환율의 대수적 스프레드가 영구 평탄화 경로를 달성한다."
+      ],
+      "answer": "2",
+      "explanation": "부정적 총공급 충격(AS 좌측 이동)은 가격 상승과 생산량 위축을 동시에 일으켜 물가 폭등 및 실업 문제를 가져오는 스태그플레이션을 초래합니다. 이때는 재정/통화 정책으로 물가와 고용을 동시에 안정시키기 어려운 딜레마에 빠지게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch02-sec02-item03-050",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 현대 통화 신용 정책 이론인 '동태적 불일치(Time Inconsistency)' 현상이 시사하는 바와, 인플레이션 바이어스를 해소하기 위해 제안되는 정책 수단으로 가장 옳은 것은?",
+      "options": [
+        "정부는 매달 재량 정책을 전면 활성화하여 시장의 기대를 끊임없이 왜곡 교란해야 한다.",
+        "정부나 통화 당국이 단기적인 고용 증대(실업률 저하)를 꾀하려 사후에 약속을 깨고 팽창적 정책을 쓸 유인(동태적 불일치)이 있으므로, 이를 차단하기 위해 준칙(Rule)에 입각한 통화정책을 펴고 통화 당국의 독립성을 보장하여 정책 신뢰도를 제고해야 한다.",
+        "중앙은행을 전면 해체하고 유발 투자액의 이자율 조정을 국유화 기업에 일임한다.",
+        "지니계수가 1이 될 때에만 동태적 불일치가 자동으로 소멸한다.",
+        "해외 원자재 수입에 대해 100% 관세 장벽을 쌓을 때 통화 신뢰성이 완성된다."
+      ],
+      "answer": "2",
+      "explanation": "Kydland와 Prescott(1977)이 제기한 동태적 불일치 이론에 따르면, 정부가 재량에 따라 정책을 펴면 국민들이 인플레이션 기대를 올려 실물 효과는 없이 기대 인플레만 오르는 바이어스가 생깁니다. 이를 해소하기 위해서는 중앙은행의 신뢰도와 독립성을 확보하고 약속된 준칙을 지키는 제도적 안정이 필수적입니다. 정답은 ②입니다."
     }
   ]
 }

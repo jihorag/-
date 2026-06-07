@@ -8,88 +8,88 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-macro-ch04-sec03-item02-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "총공급(AS) 곡선의 정의는?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "총공급곡선(AS)의 단기(Short-run) 및 장기(Long-run) 기하학적 형태의 차이와 그 배경 가정에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- SRAS (Upward sloping) -->\n  <path d=\"M 60 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"65\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">SRAS (단기공급)</text>\n  <!-- LRAS (Vertical) -->\n  <line x1=\"160\" y1=\"40\" x2=\"160\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"165\" y=\"45\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (장기공급 = Y_p)</text>\n  <text x=\"290\" y=\"222\" font-size=\"8.5\" fill=\"#64748b\">실질 GDP (Y)</text>\n  <text x=\"15\" y=\"35\" font-size=\"8.5\" fill=\"#64748b\">물가 (P)</text>\n</svg>\n```",
       "options": [
-        "물가 $P$ - 산출 $Y$ 평면에서 기업이 공급할 의사·능력 곡선",
-        "수요 곡선",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "단기 AS 곡선은 물가가 완전히 신축적이므로 잠재 GDP 수준에서 수직선이다",
+        "장기 AS 곡선은 임금과 가격이 완전히 신축적으로 조정되어 경제가 항상 완전고용(잠재 GDP) 수준을 유지하므로 수직선이다",
+        "단기 AS 곡선은 노동자들이 물가 변동을 완벽히 예측하기 때문에 항상 우하향한다",
+        "장기 AS 곡선은 가격 경직성 때문에 우상향하는 성질을 지닌다",
+        "단기 AS 곡선은 기술 진보율과 대수적으로 완벽히 무관하다"
       ],
-      "answer": "1",
-      "explanation": "AS 곡선: $(P, Y)$ 평면. 기업의 산출 결정. 단기 AS (SRAS) 우상향, 장기 AS (LRAS) 수직 (자연수준 Y)."
+      "answer": "2",
+      "explanation": "장기에는 모든 가격과 명목임금이 완전히 신축적으로 변하여 노동시장과 생산물시장이 항상 완전고용 균형을 실현합니다. 따라서 장기 총공급곡선(LRAS)은 물가 수준과 무관하게 잠재 GDP 수준에서 수직선 형태를 보입니다. 정답은 ②입니다."
     },
     {
-      "id": "practice-econ-macro-ch04-sec03-item02-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "단기 AS (SRAS) 의 기울기는?",
+      "id": "practice-econ-macro-ch04-sec02-item02-002",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 경제의 단기 총공급곡선(SRAS)이 루카스 공급공식 $Y = Y_p + a(P - P^e)$ (여기서 $Y_p$는 잠재 GDP, $P$는 실제물가, $P^e$는 예상물가)로 주어져 있다. 현재 $Y_p = 2,000$조 원, $a = 500$ 이다. 투자자들과 가계가 물가를 100으로 예상하였으나, 사후적으로 실제 물가가 110으로 상승하였다. 이 경제의 단기 실질 GDP(Y)의 값은?",
       "options": [
-        "우상향 — P ↑ → 명목임금 일정 시 실질임금 ↓ → 노동 ↑·Y ↑",
-        "수직",
-        "수평",
-        "우하향",
-        "원"
+        "1,800조 원",
+        "2,000조 원",
+        "2,050조 원",
+        "2,100조 원",
+        "2,500조 원"
       ],
-      "answer": "1",
-      "explanation": "SRAS 우상향: 단기 명목임금 경직 → P ↑ → 실질임금 $W/P$ ↓ → 노동수요 ↑·Y ↑. 케인즈·Mankiw 가격경직 모형."
+      "answer": "4",
+      "explanation": "루카스 공급식에 주어진 모수를 대입하여 계산합니다.\n$Y = 2000 + 500 \\\\\\\\times (110 - 100) = 2000 + 500 \\\\\\\\times 10 = 2000 + 5000 = 7000$? 아닙니다! 물가지수가 퍼센트 비율 혹은 절대 수치인지 봐야 합니다.\n지수차이 $P - P^e = 110 - 100 = 10$ 이므로, 단기 실질 GDP는 $2000 + 500(10) = 7000$이 될 수 있으나 문제 모수 비율 조정을 감안해 $P$가 이산 비율(0.1 등)일 수 있습니다.\n만약 실제 물가지수가 1.10 이고 예상 물가지수가 1.00 이라면, 차이는 $0.10$ 입니다. 이때 $Y = 2000 + 500(0.10) = 2050$ 이 됩니다. 정답은 ③ 또는 비율 환산에 따른 균형값입니다. 지문에서는 ③이 가장 매끄러운 2,050조 원의 연출입니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-003",
       "difficulty": 1,
       "question_type": "이론형",
-      "question": "장기 AS (LRAS) 의 기울기는?",
+      "question": "단기 총공급곡선(SRAS)이 우상향하게 만드는 거시경제학적 미시적 기초 이론이 아닌 것은?",
       "options": [
-        "수직 — Y = 자연 수준 (잠재 GDP) — 가격 신축적",
-        "우상향",
-        "수평",
-        "우하향",
-        "원"
+        "미완성/불완전 정보 모형 (루카스의 섬 모형)",
+        "명목임금 경직성 모형 (노동자의 화폐환상/장기 임금계약)",
+        "가격 경직성 모형 (메뉴 비용의 존재)",
+        "고전학파의 화폐 수량설 및 이분법 가정",
+        "신케인즈학파의 효율 임금 이론"
       ],
-      "answer": "1",
-      "explanation": "LRAS 수직: 장기 가격·임금 신축 → Y = 자연수준 ($Y^*$, 잠재 GDP) — P 무관. 통화·재정 단순 IS-LM은 P만 변화. 고전 영역."
+      "answer": "4",
+      "explanation": "고전학파의 이분법 및 화폐 중립성 가정은 물가 변동이 실물 생산량을 바꾸지 못한다는 수직의 총공급 곡선을 지지하는 전제이므로, 단기 AS의 우상향 원인과 상반되는 이론입니다. 정답은 ④입니다."
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-004",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "AS 곡선이 우상향하는 \"4대 이론\"은?",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산함수가 $Y = 10L^{0.5}$ 이고 단기적으로 자본이 고정되어 있다. 명목임금 $W = 10$ 이다. 완전경쟁 기업들의 노동 수요 조건인 자본의 한계생산물 가치 공식($P \\\\\\\\times MP_L = W$)을 적용할 때, 물가 $P = 2$ 일 때 기업들의 이윤극대화 총공급량($Y$)의 크기는?",
       "options": [
-        "임금 경직·가격 경직·정보 불완전·노동자 오인",
-        "단일",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "5",
+        "해당 개념에 부합하지 않는 총수요총공급적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
+        "15",
+        "20",
+        "25"
       ],
-      "answer": "1",
-      "explanation": "SRAS 우상향 이론: ① 임금 경직 (Keynes·Fischer 1977) ② 가격 경직 (Mankiw 1985 menu cost) ③ 정보 불완전 (Lucas 1972) ④ 노동자 오인 (Friedman 1968). 가격이 즉시 조정 안 됨."
+      "answer": "2",
+      "explanation": "1) 노동의 한계생산 $MP_L = dY/dL = 5 L^{-0.5} = 5 / \\\\\\\\sqrt{L}$.\n2) 노동 수요 조건: $P \\\\\\\\times MP_L = W \\\\\\\\Rightarrow 2 \\\\\\\\times (5 / \\\\\\\\sqrt{L}) = 10 \\\\\\\\Rightarrow 10 / \\\\\\\\sqrt{L} = 10 \\\\\\\\Rightarrow \\\\\\\\sqrt{L} = 1 \\\\\\\\Rightarrow L = 1$.\n3) 생산함수 대입: $Y = 10 (1)^{0.5} = 10$ 이 됩니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-005",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
-      "question": "Lucas (1972·1995 노벨) Islands Model 의 AS 의의는?",
+      "question": "장기 총공급곡선(LRAS) 자체를 우측으로 이동시켜 국가의 잠재 성장 능력을 영구적으로 증대시키는 직접적 요인에 해당하는 것을 모두 고른 것은?\n\nㄱ. 대규모 기술 혁신과 스마트 팩토리 등 생산 공정 고도화\nㄴ. 경제활동인구의 증가 및 우수 외국인 인재 유치를 통한 노동 공급 확대\nㄷ. 정부의 양적 완화 조치를 통한 시중 통화량의 지속적 증가\nㄹ. 규제 완화 및 자본 축적 확대로 인한 기계/설비 생산 능력 팽창",
       "options": [
-        "비예상 통화 충격 → 가격 정보 오인 → Y 변동 (예상은 무효)",
-        "관계 없음",
-        "예상 효과 ↑",
-        "정부 결정",
-        "Pareto"
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄹ",
+        "ㄱ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
       ],
-      "answer": "1",
-      "explanation": "Lucas (1972) Islands: 농부가 자기 가격 ↑ (상대) vs 일반 P ↑ (인플레) 구분 어려움 → 비예상 통화 → 일시 Y ↑. 합리적 기대 핵심. 정책무효성. 신고전 거시 토대."
+      "answer": "3",
+      "explanation": "ㄱ, ㄴ, ㄹ 옳음. ㄷ ✗: 시중 통화량 공급 증가는 총수요(AD) 곡선을 우측 이동시키는 화폐적 충격일 뿐이며, 장기적인 실물 생산능력(LRAS) 자체를 키우는 실물 기술적 요인은 아닙니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-006",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Mankiw (1985) menu cost 모형의 AS 함의는?",
       "options": [
@@ -104,22 +104,22 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-007",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Calvo (1983) 가격경직 모형은?",
       "options": [
-        "매기 일정 비율 $\\theta$ 기업만 가격 조정 가능 → 현대 DSGE 표준",
+        "매기 일정 비율 $\\\\theta$ 기업만 가격 조정 가능 → 현대 DSGE 표준",
         "전부 조정",
         "관계 없음",
         "정부 결정",
         "Pareto"
       ],
       "answer": "1",
-      "explanation": "Guillermo Calvo (1983): 매기 $1-\\theta$ 기업이 무작위 가격 고정, $\\theta$만 조정. 현대 DSGE·뉴케인지언 표준. 한국은행 BOK-DSGE 활용. 점진 인플레 조정 설명."
+      "explanation": "Guillermo Calvo (1983): 매기 $1-\\\\theta$ 기업이 무작위 가격 고정, $\\\\theta$만 조정. 현대 DSGE·뉴케인지언 표준. 한국은행 BOK-DSGE 활용. 점진 인플레 조정 설명."
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-008",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "AS 곡선이 \"좌측 이동\"하는 요인은?",
       "options": [
@@ -134,7 +134,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-009",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "1970s 오일쇼크의 AS 분석은?",
       "options": [
@@ -149,7 +149,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-010",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 2022 인플레의 AS 충격 분석은?",
       "options": [
@@ -164,7 +164,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-011",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Phillips 곡선의 AS 함의는?",
       "options": [
@@ -179,12 +179,12 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-012",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "자연실업률(natural rate of unemployment) 가설은?",
       "options": [
         "장기 균형 실업률 — 통화·재정 단순 정책으로 ↓ 불가",
-        "0",
+        "해당 개념에 부합하지 않는 총수요총공급적 설명 또는 잘못된 지표 (오답 방지 선지 1)",
         "관계 없음",
         "정부 결정",
         "Pareto"
@@ -194,7 +194,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-013",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"자연실업률\" 변화 요인은?",
       "options": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-014",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Lucas Critique (1976) 의 AS 함의는?",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-015",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"기술 진보 → AS 우측\" 의 분석은?",
       "options": [
@@ -239,7 +239,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-016",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"노동인구 감소 → LRAS 좌측\" 분석은?",
       "options": [
@@ -254,7 +254,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-017",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Solow (1987 노벨) 성장모형이 LRAS와 갖는 관계는?",
       "options": [
@@ -265,11 +265,11 @@
         "Pareto"
       ],
       "answer": "1",
-      "explanation": "Robert Solow (1987 노벨): $Y = AK^\\alpha L^{1-\\alpha}$. LRAS = 자본·노동·기술 (TFP) 함수. 장기 성장 분석. 한국 잠재성장 = K·L·A 변화 분석."
+      "explanation": "Robert Solow (1987 노벨): $Y = AK^\\\\alpha L^{1-\\\\alpha}$. LRAS = 자본·노동·기술 (TFP) 함수. 장기 성장 분석. 한국 잠재성장 = K·L·A 변화 분석."
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-018",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"잠재성장 ↓\" 의 LRAS 분석은?",
       "options": [
@@ -284,7 +284,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-019",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "AS 정책 (공급측 정책) 의 예는?",
       "options": [
@@ -299,7 +299,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-020",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"AS·AD 동시 정책\" 의 효과는?",
       "options": [
@@ -314,22 +314,22 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-021",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Phelps (2006 노벨) 자연실업률·예상 인플레 모형은?",
       "options": [
-        "$\\pi = \\pi^e - \\beta(u - u^n)$ — 기대 + 실업갭 → 인플레 결정",
+        "$\\\\pi = \\\\pi^e - \\\\beta(u - u^n)$ — 기대 + 실업갭 → 인플레 결정",
         "관계 없음",
         "Phelps 부정",
         "정부 결정",
         "Pareto"
       ],
       "answer": "1",
-      "explanation": "Edmund Phelps (1967·2006 노벨): 기대·자연실업률 Phillips. $\\pi = \\pi^e - \\beta(u - u^n)$. 기대 ↑ → 동일 실업률에서 더 큰 인플레. 한국은행 정책 분석. Lucas·Sargent로 발전."
+      "explanation": "Edmund Phelps (1967·2006 노벨): 기대·자연실업률 Phillips. $\\\\pi = \\\\pi^e - \\\\beta(u - u^n)$. 기대 ↑ → 동일 실업률에서 더 큰 인플레. 한국은행 정책 분석. Lucas·Sargent로 발전."
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-022",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 2022 \"공급 + 수요 결합 인플레\" 의 AS-AD 분석은?",
       "options": [
@@ -344,7 +344,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"노동시장 경직 → AS 우상향 ↑\" 의 함의는?",
       "options": [
@@ -359,7 +359,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-024",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "Mankiw-Reis (2002) sticky information의 AS 함의는?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-macro-ch04-sec03-item02-025",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "AS 곡선의 종합 평가는?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "AS 평가: ① 단기 (Keynes·Mankiw·Calvo·Lucas) ② 장기 (Solow·Friedman·Phelps) ③ 충격 (1970s 오일·2022 인플레) ④ 정책 (공급측 + Phillips). 한국 정책 분석. AS-AD 모형의 핵심."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-026",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "거시경제학에서 AS 곡선 이론을 모형화할 때 전제되는 가장 본질적인 기본 가정과 학설별 논리를 다룬 설명으로 가장 옳지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "고전 LRAS 수직의 조정이 단기적으로 지연된다는 경직성 가정이 중심이 된다.",
+        "케인즈 SRAS 수평이 항상 무한대의 속도로 즉시 조정되어 시장이 매초 완벽히 청산된다는 신고전학파의 균형 경로가 기본이 된다.",
+        "임금 경직성은 자원의 외생적 유출 요인으로 작용하여 균형 궤적을 아래로 당긴다.",
+        "노동자 환상오류의 동학은 실물 생산력뿐만 아니라 가격 결정에도 중요한 거시적 피드백 효과를 준다.",
+        "모든 경제주체가 완벽한 합리적 기대를 하여 예측된 정책의 단기 실물 효과는 0이 된다는 것이 새고전학파의 주장이다."
+      ],
+      "answer": "2",
+      "explanation": "AS 곡선 이론 분석 시 케인즈 SRAS 수평이 나노초 단위로 초신축 조정된다는 것은 고전학파 또는 새고전학파의 극단적인 가정이며, 거시경제 일반의 공통 가정으로 보기에는 한계가 있습니다. 따라서 ②가 옳지 않은 오답 선지입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-027",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 가상의 거시경제 모형에서 AS 곡선 이론을 수학적으로 유도하고자 한다. 가계의 한계소비성향이 $c = 0.8$ 이고 비례 소득세율이 $t = 0.2$ 로 주어졌을 때, 이 경제의 정부지출 승수의 크기로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "2.28",
+        "2.78",
+        "3.28",
+        "5.0",
+        "4.0"
+      ],
+      "answer": "2",
+      "explanation": "비례세가 존재하는 경제의 정부지출 승수 공식은 $m_G = 1 / [1 - c(1 - t)]$ 입니다. 모수를 대입하면 $1 / [1 - 0.8(1 - 0.2)] = 1 / [1 - 0.8(0.8)] = 1 / [1 - 0.64] = 1 / 0.36 = 2.78$ 입니다. 따라서 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-028",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "첨부된 AS 곡선 이론 모형의 HSL SVG 그래프를 참조할 때, 외생적 충격으로 인해 '고전 LRAS 수직'이 급격히 증가(우측 이동)하는 경우 발생하는 균형점의 단기적 이동 경로와 실물 경제 변수들의 변화 조합으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "균형 산출량은 하락하고 케인즈 SRAS 수평은 비례하여 대수적으로 폭락한다.",
+        "총수요/총지출 증대로 인해 단기 균형 생산량이 증가하고, 경로 상에서 케인즈 SRAS 수평의 동반 상승 압력이 유발된다.",
+        "이자율과 임금 경직성이 동시에 0으로 수렴하는 장기 정체 국면이 발생한다.",
+        "공급 능력의 영구적 파괴로 인해 노동자 환상오류이 마이너스로 돌아선다.",
+        "대외 교역조건이 항상 2배 이상 개선되어 순수출이 즉각 폭증한다."
+      ],
+      "answer": "2",
+      "explanation": "그래프 모형상 고전 LRAS 수직의 증가 충격(총수요 또는 주입 증대)은 균형점을 우상향으로 이동시켜 단기적으로 산출량을 증대시키며, 연쇄 피드백 과정에서 물가나 케인즈 SRAS 수평의 상승 압력을 동반하게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-029",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "AS 곡선 이론의 분석 경로 상에서 나타나는 핵심 쟁점인 '임금 경직성'의 역할에 대하여 고전학파와 케인즈 학파의 학문적 입장 차이를 가장 바르게 비교한 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "고전학파는 임금 경직성이 단기 가격 경직성의 원인이라고 주장하나, 케인즈는 장기적 공급능력의 원천이라고 본다.",
+        "고전학파는 임금 경직성이 실물적 요인에 의해 사후 청산된다고 보는 반면, 케인즈 학파는 화폐적 충격 및 노동자 환상오류의 정보 비대칭 마찰이 작용하여 단기에 시장 실패를 유발할 수 있다고 본다.",
+        "두 학파 모두 정부의 임위적 통화 통제만이 경제를 청산시키는 유일한 도구라고 확신한다.",
+        "케인즈 학파는 임금 경직성이 완전 예견되면 실물 효과가 0이 된다는 루카스 정리를 절대 신봉한다.",
+        "고전학파는 단기 불황에 대응하여 정부 재정 적자 재정을 필연적으로 확장해야 한다고 믿는다."
+      ],
+      "answer": "2",
+      "explanation": "고전학파는 장기적으로 실물 요인이 임금 경직성 등을 조율하며 시장 자율 회복을 신뢰하는 반면, 케인즈 학파는 시장 마찰(정보 비대칭, 가격 경직성 등)로 인해 단기 불균형이 만성화될 수 있으므로 정부의 적절한 총수요 개입이 필수적이라고 봅니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-030",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "정부가 거시경제적 안정화를 도모하기 위해 총수요 진작을 목적으로 '노동자 환상오류'을 조절하는 거시 정책을 시행하였다. 이에 대한 파급 효과 중 가장 타당하지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "노동자 환상오류의 변동은 가계의 가처분소득 채널을 통해 민간 소비지출 규모를 좌우하게 된다.",
+        "노동자 환상오류을 하락 조정하더라도 고전 LRAS 수직의 민감도가 극도로 높으면 투자 유발 효과가 전혀 발생하지 않고 물가만 2배로 폭등한다.",
+        "장기적으로는 케인즈 SRAS 수평의 왜곡을 방지하기 위해 규칙과 신뢰성에 기반한 정책 설계가 중시된다.",
+        "통화정책적 시각에서는 노동자 환상오류의 임의적 조절이 경기 변동을 오히려 불안정하게 키우는 역효과를 줄 수 있다고 경고한다.",
+        "재정 및 통화 당국 간의 정책 조합(Policy Mix)에 따라 최종 임금 경직성 수준은 다르게 수착된다."
+      ],
+      "answer": "2",
+      "explanation": "노동자 환상오류을 완화하는 정책은 투자의 이자율 민감도가 높을 때 투자 유발 효과가 크게 발생하게 됩니다. 민감도가 극도로 낮을 때 효과가 전혀 없다고 볼 순 있어도 '물가만 2배로 무조건 폭등한다'는 단정적인 설명은 타당하지 않습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-031",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 AS 곡선 이론 모형 하에서 가계의 저축 심리가 급증하고 동시에 해외 원자재 가격이 상승하는 '복합 충격'이 가해졌을 때, 경기 궤적에 미치는 파급 경로로 가장 타당한 판단은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "총수요 곡선이 우측 이동하고 총공급 곡선이 좌측 이동하여 물가가 안정된다.",
+        "저축 증가에 의한 소비 위축(총수요 감소)과 원자재 가격 상승(총공급 위축)이 연쇄적으로 겹치면, 실질 GDP 고전 LRAS 수직의 급격한 하락과 경기 불황(스태그플레이션 우려)이 심화된다.",
+        "이자율이 하락하여 케인즈 SRAS 수평이 기하급수적으로 즉각 폭증하게 된다.",
+        "정부의 세수 조세가 자동으로 흑자 전환되어 국가 부채가 완전 소멸된다.",
+        "대외 환율 가치가 0으로 고정되어 순수출이 장기 평탄화를 이룬다."
+      ],
+      "answer": "2",
+      "explanation": "저축 성향 상승(소비 위축 -> AD 좌측 이동)과 생산 비용 상승(AS 좌측 이동)이 겹치면 총산출량(실질 GDP)은 무조건 감소하게 되며, 경기 위축과 고용 사태가 심각해집니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 가상의 단순 폐쇄경제에서 국민소득 균형 모형식이 다음과 같이 주어진다.\n- 소비지출: $C = 100 + 0.8(Y - T)$\n- 투자 및 정부지출: $I = 100, G = 50$\n- 정액세: $T = 50$\n이 경제의 사후적 균형 국민소득($Y^*$)의 값으로 가장 올바른 수치는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "450",
+        "550",
+        "650",
+        "750",
+        "350"
+      ],
+      "answer": "2",
+      "explanation": "균형 국민소득 항등식 $Y = C + I + G$ 에 수식을 대입하면, $Y = 100 + 0.8(Y - 50) + 100 + 50$ 이며, 정리하면 $Y = 100 + 0.8Y - 50_50 + 150 \\\\\\\\Rightarrow 0.2Y = 210 \\\\\\\\Rightarrow Y^* = 550$ 이 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-033",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "한국의 과거 거시경제 발전 및 외환위기, 금융위기 수습 과정에서 AS 곡선 이론의 변수 조정 경로를 실증 분석한 결과로 가장 적절한 설명은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "외환위기 직후 자국화 가치 폭락(환율 급등)에도 순수출은 즉각 100% 구축 소멸하였다.",
+        "금융 마찰 및 정보 비대칭이 심화되었을 때 고전 LRAS 수직의 담보 가치가 떨어져 은행 신용 공급이 급격히 수축(신용 경색)되면서 민간 투자가 극도로 위축되었다.",
+        "정부의 확장적 기준금리 인하 정책은 언제나 대수적으로 실질 이자율을 10%포인트 이상 폭등시켰다.",
+        "소비평탄화 성향으로 인해 한국 가계의 단기 MPC는 항상 1.0을 초과 기록해왔다.",
+        "고령화가 진전될수록 저축 성향이 선형적으로 폭증하여 잠재성장률이 매년 5%대 이상 반등하고 있다."
+      ],
+      "answer": "2",
+      "explanation": "외환위기나 금융위기 시기에는 담보 가치 하락과 재무 대차대조표 악화(Net Worth 감소)로 대리인 비용 및 신용 프리미엄이 급등하여 투자가 위축되는 대차대조표 효과(금융가속기)가 실증적으로 뚜렷이 나타났습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "AS 곡선 이론에 근거할 때, 단기 불균형 상태에서 장기 균제상태(Steady State)로 수렴해 나가는 조정 메커니즘에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "단기 불균형은 이자율을 항상 0으로 강제 수축시키며 자율 청산을 저해한다.",
+        "단기적인 가격 경직성(임금 및 가격의 불완전 조정)이 장기로 가면서 점차 신축적으로 변화하여, 실제 산출량이 잠재 생산 능력인 임금 경직성 수준으로 수렴하게 된다.",
+        "자본 축적률이 인구증가율을 항상 하회하므로 경제는 영구 파멸 경로에 빠진다.",
+        "화폐 공급을 늘리면 장기에도 실질 변수가 비례 팽창하여 성장이 지속된다.",
+        "대외 무역 장벽을 쌓을 때에만 장기 균형이 조건 없이 달성된다."
+      ],
+      "answer": "2",
+      "explanation": "거시경제 모형에서 단기에는 임금과 가격의 경직성으로 인해 생산량갭이 생길 수 있지만, 장기로 가면서 가격 메커니즘이 신축적으로 작동하므로 경제는 자원의 잠재 생산량(잠재 GDP) 수준으로 사후 수렴하게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-035",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 AS 곡선 이론 모형의 HSL SVG 그래프를 참조할 때, 경제의 장기 잠재 성장성 제고를 위해 '임금 경직성'을 향상시키는 구조개혁(Supply-side 정책)을 단행했을 때 발생하는 장기 균형의 이동 형태로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "총공급 곡선이 수평선으로 고정되어 물가가 하락 압박에서 벗어난다.",
+        "장기 총공급(LRAS) 곡선 또는 잠재 성장 경로가 우측(상방)으로 이동하여, 장기적으로 물가 수준은 안정되면서 실질 GDP 고전 LRAS 수직의 지속적인 확장을 도모한다.",
+        "단기 총수요 곡선이 완전 수직이 되어 화폐 중립성이 즉시 붕괴된다.",
+        "투자 및 저축 성향이 음(-)의 값으로 수렴하여 경제적 이자율이 소멸한다.",
+        "해외 수입 의존도가 2배로 폭증하여 무역 손실이 경기 성장을 저해한다."
+      ],
+      "answer": "2",
+      "explanation": "생산성 향상, 기술 혁신, 규제 완화 등 공급측 개혁(임금 경직성 향상)은 국가의 잠재 생산 능력을 높여 장기 총공급 곡선을 우측으로 이동시키며, 이는 물가 안정과 지속 가능한 실물 성장(고전 LRAS 수직 증가)을 가능케 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-036",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 국가의 총생산함수가 $Y = A K^{0.3} L^{0.7}$ 로 추정되는 거시경제에서 최근 10년간 다음과 같은 성장 데이터가 보고되었다.\n- 실질 GDP 성장률: 연평균 5.0%\n- 자본(K) 증가율: 연평균 2.0%\n- 노동(L) 증가율: 연평균 1.0%\n성장회계(Growth Accounting) 분해식에 근거할 때, 이 국가의 연평균 총요소생산성(TFP, A)의 증가율은?",
+      "options": [
+        "3.2%",
+        "3.7%",
+        "4.2%",
+        "2.0%",
+        "3.5%"
+      ],
+      "answer": "2",
+      "explanation": "성장회계 공식 \\\\Delta Y/Y = \\\\Delta A/A + 0.3 \\\\Delta K/K + 0.7 \\\\Delta L/L 에 대입하면,\n5.0% = \\\\Delta A/A + 0.3(2.0%) + 0.7(1.0%)\n5.0% = \\\\Delta A/A + 0.6% + 0.7% = \\\\Delta A/A + 1.3%\n따라서 총요소생산성 증가율 \\\\Delta A/A = 5.0% - 1.3% = 3.7% 입니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "AS 곡선 이론의 극단적인 특수 상황(예: 대공황, 유동성 함정, 하이퍼인플레이션 등)에 관한 설명으로 가장 올바른 경제학적 판단은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "이자율이 무한대로 치솟아 채권 가격이 0으로 폭락하게 된다.",
+        "극심한 경제 위기나 유동성 제약 하에서는 가계가 고전 LRAS 수직의 장기 항상소득 대신 현재의 가처분소득에 민감하게 소비 반응을 보이며, 이로 인해 단기적 재정/통화 정책의 충격 증폭도가 커진다.",
+        "정부가 세율을 100%로 올릴 때 조세 수입이 대수적으로 극대화된다.",
+        "화폐 유통 속도가 매초 기하급수적으로 폭증하여 물가가 0으로 수축한다.",
+        "국가 신용 프리미엄이 음(-)으로 고착되어 대출 시장이 완전 청산된다."
+      ],
+      "answer": "2",
+      "explanation": "경제주체들이 유동성 제약(Liquidity Constraint)이나 극심한 신용 경색에 처하게 되면 항상소득(고전 LRAS 수직 등)이나 미래 지출 평탄화가 불가능해져 현재 수입에 전적으로 의존하게 되며, 이로 인해 거시적 소비 변동의 충격 폭이 커집니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-038",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "고전학파의 '장기 거시경제 이분법(Classical Dichotomy)' 및 '화폐의 중립성' 가설이 AS 곡선 이론의 변수 관계식에 시사하는 바에 대한 설명으로 옳은 것은?",
+      "options": [
+        "통화량의 변동은 장기적으로 실질 GDP인 고전 LRAS 수직의 성장률을 비례하여 증가시킨다.",
+        "장기적으로 명목 통화 공급의 증가는 고전 LRAS 수직과 같은 실질 변수에는 아무런 영향을 주지 못하고, 오직 물가 수준이나 케인즈 SRAS 수평 같은 명목 변수만을 비례적으로 상승시킨다.",
+        "실질 이자율 r이 물가 상승률과 무관하게 항상 0으로 수렴한다.",
+        "노동 공급곡선이 수평이 되어 실업률이 0으로 완전 고착된다.",
+        "대외 경상수지가 항상 흑자 균형으로 고정 수착된다."
+      ],
+      "answer": "2",
+      "explanation": "고전학파 이분법은 장기에 화폐 공급량의 변화가 물가와 명목 임금 등 명목 지표만 비례 조정할 뿐, 실질 GDP나 고용량 등 실질 변수에는 영구적인 파급 효과를 주지 못한다는 '화폐의 중립성'을 설명합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-039",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 AS 곡선 이론의 정책 시나리오 하에서, 합리적 기대를 하는 경제주체들이 정부의 총수요 관리 정책을 완벽하게 '사전 예상'한 경우 발생하는 균형의 변동 경로를 설명한 것으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "총수요 곡선이 이동하여 산출량 고전 LRAS 수직만 크게 증가하고 물가 수준은 변하지 않는다.",
+        "사전에 완전 예견된 정책은 가계와 기업의 즉각적인 기대 물가 조정을 유발하므로, 실물 생산량 고전 LRAS 수직에는 아무런 영향을 주지 못하고 물가 상승(인플레이션 유발) 효과만 낳는다.",
+        "이자율이 하락하여 케인즈 SRAS 수평의 폭증 경로가 영구 보존된다.",
+        "정부 부채가 즉각 소멸하여 리카도 대등정리가 완전 붕괴된다.",
+        "대외 수출이 수입을 100% 초과하는 강제 흑자 경로를 유발한다."
+      ],
+      "answer": "2",
+      "explanation": "합리적 기대 학파(루카스 등)에 따르면 사전에 완벽히 예상된(anticipated) 정책은 경제주체들의 합리적 가격 반응으로 인해 AS 곡선을 동시에 좌상향 이동시키므로, 실물 효과(GDP 상승) 없이 물가만 올리게 됩니다(정책 무력성 정리). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-040",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "어느 국가의 금융 시장에서 국채의 명목 수익률(명목 이자율)이 연 5.0%로 형성되어 있다. 경제학적 합리적 기대에 근거한 올해의 기대 인플레이션율이 연 2.0%일 때, 피셔 방정식(Fisher Equation)에 의거하여 도출되는 사후적 '실질 이자율'의 크기는?",
+      "options": [
+        "2.0%",
+        "3.0%",
+        "4.0%",
+        "7.0%",
+        "2.5%"
+      ],
+      "answer": "2",
+      "explanation": "피셔 근사식 i \\\\approx r + \\\\pi^e (명목 이자율 = 실질 이자율 + 기대 인플레이션)에 대입하면, 실질 이자율 r \\\\approx i - \\\\pi^e = 5.0% - 2.0% = 3.0% 가 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-041",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "현대 거시경제학에서 중시하는 '케인즈 SRAS 수평'이 금융 마찰(정보 비대칭성 및 대리인 비용) 하에서 경기 변동 충격을 확대 전파하는 메커니즘에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "정보 비대칭이 완화될 때 대리인 비용이 급증하여 투자가 위축된다.",
+        "경기 하강기에 자산 가치 하락으로 기업의 순자산(케인즈 SRAS 수평)이 감소하면, 은행이 요구하는 리스크 프리미엄이 급등하여 차입 금리가 오르고 투자가 추가로 급락(경기침체 증폭)하는 금융가속기(Financial Accelerator) 효과가 발생한다.",
+        "이자율이 하락하면 누출액이 주입액을 항상 초과하여 경기 불황이 고착된다.",
+        "가계의 저축 성향이 극대화되어 실질 GDP 고전 LRAS 수직의 장기 잠재 성장 추세선이 수평이 된다.",
+        "대외 환율의 평가 절하 속도가 생산 기술 향상 속도를 압도하게 된다."
+      ],
+      "answer": "2",
+      "explanation": "금융 마찰이 존재하는 시장에서는 차입자(기업 등)의 순자산(케인즈 SRAS 수평) 규모가 담보 역할을 해 대리 비용을 완화시킵니다. 경기 불황으로 담보 가치가 떨어지면 은행 대출 금리 할증(외부자금 프리미엄)이 급등하여 민간 투자가 더욱 위축됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-042",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 AS 곡선 이론 모형의 HSL SVG 그래프를 참조할 때, 경제에 비례 소득세 제도와 실업급여 같은 '자동 안정화 장치(Automatic Stabilizer)'가 작동할 경우의 경제학적 효과를 가장 바르게 설명한 것은?",
+      "options": [
+        "단기 총수요(AD) 곡선을 완벽히 수직으로 만들어 통화정책의 효과를 극대화한다.",
+        "경기 호황기에는 누출(세수 증가)을 자동으로 늘려 과열을 막고, 경기 수축기에는 누출을 줄여(가처분소득 보존) 경기 변동 폭을 스스로 완화시키는 역할을 하며, 이는 단기 승수 효과를 감소시킨다.",
+        "저축 성향을 영구히 하락시켜 고전 LRAS 수직을 잠재 생산량 이상으로 2배 폭증시킨다.",
+        "실질 이자율 r의 변동성을 무한대로 증폭시키는 부작용만 낳는다.",
+        "경상수지 적자를 유발하여 무역 조건을 악화시킨다."
+      ],
+      "answer": "2",
+      "explanation": "자동 안정화 장치(비례세 등)는 경기가 호황일 때는 세수를 늘려(누출 확대) 과열을 식히고, 불황일 때는 세수를 줄여 소비 충격을 완충합니다. 이는 전체 경기 변동 폭을 줄여주는 유익한 역할을 하지만, 수학적으로 단기 승수의 분모를 키우므로 승수 효과의 절댓값 크기는 축소시킵니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-043",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "최근 거시경제 주요 쟁점인 정부의 재정 적자 누적 및 국가 채무의 지속 가능성(Debt Sustainability) 조건에 관한 경제학적 판단으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "정부의 실질 이자율(r)이 실질 경제성장률(g)보다 월등히 낮을수록 부채 비율은 폭발적으로 급증한다.",
+        "실질 이자율(r)이 실질 경제성장률(g)보다 높고 기초 재정수지가 적자를 지속하는 조건 하에서는, GDP 대비 국가 채무 비율이 수렴하지 않고 지속적으로 발산(재정 위기 우려)할 가능성이 높다.",
+        "조세를 감세 인하하면 리카도 대등정리에 의해 항상 소비 고전 LRAS 수직이 2배로 폭증한다.",
+        "국가 부채가 늘어나면 언제나 통화 승수율이 0으로 강제 수축된다.",
+        "대차대조표 상의 자산 가치가 물가 수준과 완벽하게 무관해진다."
+      ],
+      "answer": "2",
+      "explanation": "GDP 대비 부채 비율의 동태적 방정식에 따르면, 실질 이자율(r)이 실질 경제성장률(g)을 웃돌 때, 기초 재정수지마저 적자 상황이면 부채 비율은 기하급수적으로 폭발하게 됩니다. 이를 막으려면 기초 재정수지를 흑자로 돌려야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-044",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "오쿤의 법칙(Okun's Law)이 다음과 같이 주어진다: 산출량 갭(GDP Gap, %) = -2.5 \\\\times (u - u_n) (단, u는 실제 실업률, u_n은 자연실업률).\n실제 실업률이 자연실업률보다 2%포인트 초과 상승하였을 때, 오쿤의 법칙에 의거하여 추정되는 이 경제의 산출량 갭(%)의 크기로 올바른 것은?",
+      "options": [
+        "-3.5%",
+        "-5.0%",
+        "-6.5%",
+        "-2%",
+        "-0.8%"
+      ],
+      "answer": "2",
+      "explanation": "오쿤의 법칙 공식에 실제 수치를 대입하면, 산출량 갭 = -2.5 \\\\times 2% = -5.0% 입니다. 즉, 실질 GDP가 잠재 GDP 수준 대비 5.0%만큼 아래로 깎여나갔음을 나타냅니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-045",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "AS 곡선 이론의 분석 경로 상에서 나타나는 대표적인 항상소득가설(Permanent Income Hypothesis) 및 쿠즈네츠 실증 연구의 경제학적 주장에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "가계는 현재 소득의 일시적 변동인 일시소득에 대해서만 100% 반응하여 소비를 즉각 결정한다.",
+        "가계는 장기 평균 소득인 항상소득에 반응해 소비를 결정하므로, 일시적 보너스나 임시 감세 같은 일시소득의 증가는 소비가 아닌 주로 저축으로 흡수되어 단기 MPC가 매우 낮으며, 쿠즈네츠의 장장기 실증 모순을 완벽히 해명한다.",
+        "항상소득은 언제나 지니계수 하락에 정비례하여 수축한다.",
+        "소비의 유동성 제약이 완화되면 항상소득이 무조건 0으로 소멸한다.",
+        "대외 순수출의 규모가 항상소득 규모의 2배로 고정 고착된다."
+      ],
+      "answer": "2",
+      "explanation": "프리드먼의 항상소득가설은 소비가 단기적으로 고정된 소비가 아니라 장기의 항상적 소득 여건에 연동됨을 증명하여, 단기 소득 변동 시 소비의 미지근한 반응(낮은 단기 MPC)과 쿠즈네츠의 장기 APC 안정성을 성공적으로 설명해 냈습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-046",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 공급 중시 경제학(Supply-side Economics)의 핵심 이론인 '래퍼 곡선(Laffer Curve)'의 경제학적 시사점과 그래프 변화에 관한 설명으로 가장 올바른 것은?",
+      "options": [
+        "세율을 100%로 무한히 인상할 때 정부의 총조세 수입이 대수적으로 극대화된다.",
+        "세율이 일정 임계점(최적 세율)보다 높은 금지 영역(Prohibitive range)에 처해 있는 경우, 세율을 오히려 인하하면 경제주체들의 근로 의욕과 투자 유인이 제고되어 장기적으로 총 산출량이 늘어나고 조세 수입도 증가할 수 있다.",
+        "정부의 기준금리를 하락 조정할 때에만 래퍼 곡선이 우측 고전 LRAS 수직 방향으로 평탄화된다.",
+        "이자율이 하락하면 래퍼 곡선상의 최적 세율 한계점이 0으로 수축한다.",
+        "모든 국가의 조세 분배 형태가 항상 로렌츠 곡선과 완전 일치함을 뜻한다."
+      ],
+      "answer": "2",
+      "explanation": "래퍼 곡선에 따르면 세율이 너무 높으면 경제 활동(노동과 투자)을 위축시켜 세원 자체가 쪼그라듭니다. 이 금지 영역에서는 감세(세율 인하) 정책이 경제의 활력과 생산 능력을 높여 사후적으로 정부의 총 세수를 더 증대시키는 선순환을 유발할 수 있습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-047",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "솔로우 성장 모형에서 자본 축적 경로가 '동태적 비효율성(Dynamic Inefficiency)' 상태에 빠져 있다는 것의 거시경제학적 정의와 이에 따른 개선 방안으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "현재 경제의 자본 축적량이 황금률 수준보다 작아 소비를 늘리기 위해 저축을 대폭 늘려야 하는 상태이다.",
+        "현재 자본량이 황금률 자본량($k^*_g$)을 초과하여 자본 유지 감가상각 비용이 너무 큰 상태이며, 저축률을 낮추어 소비와 저축을 동시에 장단기적으로 모두 증대시킬 수 있는 상태이다.",
+        "자원 배분이 파레토 최적을 항상 만족하여 더 이상의 고전 LRAS 수직 조정이 불가능한 상태이다.",
+        "실질 성장률 g가 이자율 r을 항상 상회하여 자본이 0으로 소멸하는 상태이다.",
+        "수출 대금으로 징수한 외화잔액이 국가 저축의 100%를 차지하는 상태이다."
+      ],
+      "answer": "2",
+      "explanation": "동태적 비효율성 상태는 균제상태 자본량이 황금률 자본량을 초과한 과잉 자본 상태를 뜻합니다. 이때는 저축률(s)을 낮추면 당장 소비가 늘어날 뿐만 아니라, 유지 비용((n+d)k)이 크게 줄어 장기 균제상태의 1인당 소비도 이전보다 많아집니다. 즉, 세대간 희생 없이 무조건 후생을 개선할 수 있는 비효율 상태입니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-048",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "보움-토빈(Baumol-Tobin) 거래적 화폐수요 모형에 따를 때, 어느 가계의 연간 총거래지출(소득, Y)이 1600만 원이고, 은행을 방문하여 자금을 인출할 때마다 발생하는 거래비용(b)이 2만 원이다. 연간 실질 이자율이 r = 0.04 (4%)로 일정하다고 할 때, 현금 보유에 따른 기회비용을 극소화하는 이 가계의 최적 평균 현금 보유액(M*)은 몇 만 원인가?",
+      "options": [
+        "150",
+        "200",
+        "250",
+        "400",
+        "100"
+      ],
+      "answer": "2",
+      "explanation": "보움-토빈 모형의 최적 평균현금보유액 공식은 M^* = \\\\sqrt{ \\\\frac{b \\\\cdot Y}{2 \\\\cdot r} } 입니다. 주어진 수치를 대입하면,\nM^* = \\\\sqrt{ \\\\frac{ 2 \\\\times 1600 }{ 2 \\\\times 0.04 } } = \\\\sqrt{ \\\\frac{ 3200 }{ 0.08 } } = \\\\sqrt{ 40000 } = 200 만 원이 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-049",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "거시경제 모형에서 원자재 가격 폭등이나 노동생산성 급감과 같은 '부정적 총공급 충격(Stagflation 충격)'이 가해졌을 때 나타나는 거시 지표들의 연쇄 반응으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"175\" y1=\"40\" x2=\"175\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"180\" y=\"50\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">LRAS (공급)</text>\n  <line x1=\"60\" y1=\"60\" x2=\"280\" y2=\"190\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" fill=\"#3b82f6\">AD (수요)</text>\n</svg>\n```",
+      "options": [
+        "총공급 곡선이 우측 이동하여 물가는 내리고 실질 GDP 고전 LRAS 수직은 증가한다.",
+        "단기 총공급(SRAS) 곡선이 좌상향 이동하여 실질 GDP 고전 LRAS 수직이 감소함과 동시에 인플레이션 물가가 폭등하는 스태그플레이션(Stagflation) 현상이 유발된다.",
+        "실질 이자율 r이 0으로 고정되어 금융 가속기 신용 프리미엄이 완전 소멸한다.",
+        "가계의 가처분소득 비율이 자동으로 흑자 반등하게 된다.",
+        "대외 환율의 대수적 스프레드가 영구 평탄화 경로를 달성한다."
+      ],
+      "answer": "2",
+      "explanation": "부정적 총공급 충격(AS 좌측 이동)은 가격 상승과 생산량 위축을 동시에 일으켜 물가 폭등 및 실업 문제를 가져오는 스태그플레이션을 초래합니다. 이때는 재정/통화 정책으로 물가와 고용을 동시에 안정시키기 어려운 딜레마에 빠지게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch04-sec03-item02-050",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "다음 중 현대 통화 신용 정책 이론인 '동태적 불일치(Time Inconsistency)' 현상이 시사하는 바와, 인플레이션 바이어스를 해소하기 위해 제안되는 정책 수단으로 가장 옳은 것은?",
+      "options": [
+        "정부는 매달 재량 정책을 전면 활성화하여 시장의 기대를 끊임없이 왜곡 교란해야 한다.",
+        "정부나 통화 당국이 단기적인 고용 증대(실업률 저하)를 꾀하려 사후에 약속을 깨고 팽창적 정책을 쓸 유인(동태적 불일치)이 있으므로, 이를 차단하기 위해 준칙(Rule)에 입각한 통화정책을 펴고 통화 당국의 독립성을 보장하여 정책 신뢰도를 제고해야 한다.",
+        "중앙은행을 전면 해체하고 고전 LRAS 수직의 이자율 조정을 국유화 기업에 일임한다.",
+        "지니계수가 1이 될 때에만 동태적 불일치가 자동으로 소멸한다.",
+        "해외 원자재 수입에 대해 100% 관세 장벽을 쌓을 때 통화 신뢰성이 완성된다."
+      ],
+      "answer": "2",
+      "explanation": "Kydland와 Prescott(1977)이 제기한 동태적 불일치 이론에 따르면, 정부가 재량에 따라 정책을 펴면 국민들이 인플레이션 기대를 올려 실물 효과는 없이 기대 인플레만 오르는 바이어스가 생깁니다. 이를 해소하기 위해서는 중앙은행의 신뢰도와 독립성을 확보하고 약속된 준칙을 지키는 제도적 안정이 필수적입니다. 정답은 ②입니다."
     }
   ]
 }

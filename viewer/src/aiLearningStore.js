@@ -46,7 +46,7 @@ export const KEY = {
 
 export const DEFAULT_PREFS = {
   daily_cap: 500,
-  model: 'claude-sonnet-4-6',
+  model: 'gemini-3.5-flash',
   max_tokens: 1200,
   reasoning_effort: 'minimal', // GPT-5: minimal | low | medium | high  (학습에는 minimal 권장)
   verbosity: 'high',           // GPT-5: low | medium | high
@@ -299,6 +299,44 @@ export function getAllRooms() {
   return out.sort((a, b) => (b.last_ts || '').localeCompare(a.last_ts || ''));
 }
 
+// ── 단원 채팅 세이브파일 (현재 단원 1개 내보내기/불러오기) ──────
+export const ROOM_SAVE_TYPE = 'ailearn-room-save';
+// 다운로드용 직렬화 객체. messages 원문 + 어느 단원인지 식별 메타 포함.
+export function buildRoomExport(leafId, meta = {}) {
+  return {
+    type: ROOM_SAVE_TYPE,
+    version: 1,
+    leafId,
+    subject: meta.subject || null,
+    leafPath: meta.path || null,           // 사람이 알아볼 단원 경로 (검증·표시용)
+    exported_at: new Date().toISOString(),
+    msg_count: getRoomMessages(leafId).length,
+    messages: getRoomMessages(leafId),
+  };
+}
+// 세이브파일에서 messages 배열만 안전하게 추출. 형식이 어긋나면 null.
+export function parseRoomImport(raw) {
+  let data = raw;
+  if (typeof raw === 'string') {
+    try { data = JSON.parse(raw); } catch { return null; }
+  }
+  if (!data) return null;
+  // 두 형태 허용: { messages:[...] } 세이브파일 또는 순수 메시지 배열
+  const msgs = Array.isArray(data) ? data : data.messages;
+  if (!Array.isArray(msgs)) return null;
+  const clean = msgs.filter((m) => m && typeof m === 'object' && typeof m.role === 'string');
+  return { messages: clean, meta: Array.isArray(data) ? {} : data };
+}
+// mode: 'replace'(교체) | 'append'(뒤에 이어붙이기)
+export function importRoomMessages(leafId, messages, mode = 'replace') {
+  if (!leafId || !Array.isArray(messages)) return null;
+  const next = mode === 'append'
+    ? [...getRoomMessages(leafId), ...messages]
+    : messages.slice();
+  lsSet(KEY.room(leafId), next);
+  return next;
+}
+
 // ── Phase α: 답안 히스토리 (2차 답안 작성 추이) ──────────
 // 같은 leaf 에서 답안 N건 시간순 비교 + 점수 추이 + AI 인사이트 누적
 export function getAnswerHistory(leafId) {
@@ -498,11 +536,11 @@ export function getMocksBySubject(subjectId) {
 // ── 1차 5과목 + 2차 3과목 ──────────────────────────────────
 export const SUBJECTS = [
   // 1차 (stage:1) — taxonomy 트리 기반
-  { id: 'civil',      stage: 1, title: '민법',       short: '민법',     icon: '⚖️', color: '#4f46e5', tax_key: '민법', index_kind: 'taxonomy' },
   { id: 'economics',  stage: 1, title: '경제학원론', short: '경제학',   icon: '📊', color: '#0891b2', tax_key: '경제학원론', index_kind: 'taxonomy' },
+  { id: 'accounting', stage: 1, title: '회계학',     short: '회계학',   icon: '💰', color: '#f59e0b', tax_key: '회계학', index_kind: 'taxonomy' },
+  { id: 'civil',      stage: 1, title: '민법',       short: '민법',     icon: '⚖️', color: '#4f46e5', tax_key: '민법', index_kind: 'taxonomy' },
   { id: 'realestate', stage: 1, title: '부동산학원론', short: '부동산학', icon: '🏘️', color: '#10b981', tax_key: '부동산학원론', index_kind: 'taxonomy' },
   { id: 'law',        stage: 1, title: '감정평가관계법규', short: '관계법규', icon: '📜', color: '#dc2626', tax_key: '감정평가관계법규', index_kind: 'taxonomy' },
-  { id: 'accounting', stage: 1, title: '회계학',     short: '회계학',   icon: '💰', color: '#f59e0b', tax_key: '회계학', index_kind: 'taxonomy' },
   // 2차 (stage:2) — 단원·논점 평탄 구조
   { id: 'appraisal_practice', stage: 2, title: '감정평가실무',         short: '실무',     icon: '🏛️', color: '#7c3aed', index_kind: 'units' },
   { id: 'appraisal_theory',   stage: 2, title: '감정평가이론',         short: '이론',     icon: '📚', color: '#0d9488', index_kind: 'units' },

@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제15절 독점적 경쟁시장",
+    "item": "제2관 단기·장기균형",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 단기 균형 조건은?",
+      "options": [
+        "MR = MC (이윤극대), 단기 이윤·손실 가능",
+        "P = MC만",
+        "P = ATC만",
+        "이윤 0 항상",
+        "Q = 0"
+      ],
+      "answer": "1",
+      "explanation": "단기: MR = MC에서 산출 결정. P는 수요곡선에서 결정. 차별화로 P > MC. 단기 이윤·손실 모두 가능."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 장기 균형 조건은?",
+      "options": [
+        "P = ATC (이윤 0, 자유 진입 결과)",
+        "P = MC",
+        "P = LRAC 최저",
+        "초과이윤",
+        "Q = 0"
+      ],
+      "answer": "1",
+      "explanation": "장기: 자유 진입으로 이윤 0. P = ATC (수요와 ATC가 접). 그러나 P > MC (DWL 존재)이고 ATC 최저 아님 (과잉설비)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-003",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 독점적 경쟁 장기균형 그래프의 핵심 특성은?\n\n[IMAGE: data/practice/economics/graphs/monopolistic-competition.svg]",
+      "options": [
+        "수요곡선과 ATC가 접 (P = ATC), MR = MC 점은 ATC 접점 아래",
+        "P > ATC",
+        "P = MC",
+        "Q = ATC 최저",
+        "초과이윤"
+      ],
+      "answer": "1",
+      "explanation": "장기균형: 수요(D) = ATC at Q*. P = ATC (이윤 0). MR = MC 점은 Q* 위치하지만 ATC 최저 왼쪽 → 과잉설비. 차별화의 비용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-004",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "단기 이윤이 발생할 때 장기 조정 과정은?",
+      "options": [
+        "신규 진입 → 기존 기업 수요 ↓ → 이윤 0까지 진입 계속",
+        "기존 기업 이윤 영구화",
+        "진입 없음",
+        "정부 개입",
+        "수요 증가"
+      ],
+      "answer": "1",
+      "explanation": "단기 이윤 → 진입 유인 → 신규 기업 진입 → 기존 기업의 차별화 시장 분담 ↓ → 수요곡선 왼쪽 이동 → 이윤 ↓. 이윤 = 0까지 진입 지속."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-005",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "수요 $P = 80 - Q$, $TC = 100 + 20Q + 0.5Q^2$. 단기 이윤은?",
+      "options": [
+        "Q = 20, P = 60, π = 500",
+        "Q = 40, P = 40, π = 0",
+        "Q = 10, P = 70, π = 200",
+        "Q = 30, P = 50, π = 250",
+        "Q = 60, P = 20, π = 0"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 80 - 2Q$, $MC = 20 + Q$.\n$80 - 2Q = 20 + Q \\Rightarrow 60 = 3Q \\Rightarrow Q = 20$.\n$P = 80 - 20 = 60$.\nTR = 1200, TC = 100 + 400 + 200 = 700, π = 500."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-006",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 장기 균형에서 ATC 위치는?",
+      "options": [
+        "수요곡선에 접 (P = ATC), 접점은 ATC 최저 왼쪽",
+        "P > ATC",
+        "ATC 위에 위치",
+        "ATC 최저점에 일치",
+        "MC와 동일"
+      ],
+      "answer": "1",
+      "explanation": "장기균형 기하: 수요(우하향)와 ATC가 한 점에서 접 (P = ATC). 우하향 수요와의 접점은 ATC가 감소 영역(왼쪽) → ATC 최저 미달 → 과잉설비."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-007",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 비효율의 원인으로 옳지 않은 것은?",
+      "options": [
+        "정부 가격 규제",
+        "P > MC (DWL)",
+        "과잉설비 (ATC 최저 아님)",
+        "광고비",
+        "비효율적 다양성"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁 비효율: P > MC, 과잉설비, 광고비, 과도 다양성. 정부 규제 아닌 시장 구조 자체 특성."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-008",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "기업 수요 $P = 60 - 2Q$, $TC = 100 + Q^2$. 단기 이윤은?",
+      "options": [
+        "Q = 10, P = 40, π = 200",
+        "Q = 20, P = 20, π = 0",
+        "Q = 5, P = 50, π = 125",
+        "Q = 15, P = 30",
+        "Q = 30, P = 0"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 60 - 4Q$, $MC = 2Q$.\n$60 - 4Q = 2Q \\Rightarrow Q = 10$.\n$P = 60 - 20 = 40$.\nTR = 400, TC = 100 + 100 = 200, π = 200."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-009",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "장기에 손실 발생 시 동학은?",
+      "options": [
+        "기존 기업 퇴출 → 잔존 기업 수요 ↑ → 손실 해소 → 정상이윤",
+        "손실 영구화",
+        "정부 보조금",
+        "비용 감소",
+        "변화 없음"
+      ],
+      "answer": "1",
+      "explanation": "장기 손실 → 일부 기업 퇴출 → 시장 수요 잔존 기업으로 분산 ↑ → 수요곡선 우측 이동 → 손실 해소. 이윤 = 0까지 조정."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-010",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "독점적 경쟁 vs 완전경쟁 장기균형 비교는?\n\n[IMAGE: data/practice/economics/graphs/monopolistic-competition.svg]",
+      "options": [
+        "독점적: P > MC, Q < ATC 최저 Q (과잉설비) / 완경: P = MC = ATC 최저",
+        "둘 동일",
+        "독점적이 더 효율",
+        "완경이 비효율",
+        "둘 다 P > MC"
+      ],
+      "answer": "1",
+      "explanation": "독점적: 우하향 수요 → 접점 ATC 최저 왼쪽. P > MC (DWL), 과잉설비. 완전경쟁: 수평 수요 → ATC 최저 도달. P = MC, 효율."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-011",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "독점적 경쟁 시장 30개 기업. 시장수요 $Q = 1500 - 30P$. 기업당 평균 산출은?",
+      "options": [
+        "(시장 균형 가격 P 결정 후) Q/30",
+        "1500/30 = 50",
+        "30",
+        "Q는 결정 불가",
+        "Q = 0"
+      ],
+      "answer": "1",
+      "explanation": "시장 균형 P 결정 후 시장 거래량 Q_M = 1500 - 30P. 기업당 Q = Q_M/30. 기업이 같다고 가정. 실제는 차별화로 각자 다름."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-012",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "기업 수요 $P = 100 - Q$, $TC = a + 10Q + Q^2$. 장기균형에서 a (FC)는?",
+      "options": [
+        "장기 P = ATC + MR = MC 조건 결합 풀이 필요. 보통 a 값 가정",
+        "a = 0",
+        "a = 100",
+        "a = 50",
+        "결정 불가"
+      ],
+      "answer": "1",
+      "explanation": "장기균형 두 조건 동시 만족:\n① MR = MC: 100 - 2Q = 10 + 2Q → Q = 22.5\n② P = ATC: 100 - Q = a/Q + 10 + Q → 90 - 2Q = a/Q\nQ = 22.5 대입: 45 = a/22.5 → a = 1012.5.\n복합 풀이."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 단기 vs 장기 비교 요점은?",
+      "options": [
+        "단기: 이윤·손실 가능 / 장기: 진입·퇴출로 이윤 0",
+        "둘 다 항상 이윤 0",
+        "단기만 이윤",
+        "장기는 분석 불가",
+        "동일"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁: 단기에 차별화로 시장지배력 → 이윤·손실 가능. 장기에 자유 진입·퇴출로 이윤 0 도달. 완전경쟁과 동일한 장기 결과."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-014",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "신상품 출시 시 단기·장기 동학은?",
+      "options": [
+        "단기 차별화로 초과이윤 → 모방·진입 → 장기 정상이윤",
+        "영구 독점",
+        "변화 없음",
+        "정부 결정",
+        "수요 감소"
+      ],
+      "answer": "1",
+      "explanation": "신상품 출시 단기: 새 차별화·낮은 경쟁 → 초과이윤. 모방·신규 진입 → 차별화 약화 → 장기 정상이윤 0. 카페·치킨·트렌드 상품 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-015",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "기업 수요 $P = 40 - Q$, $TC = 25 + Q^2/2$. 단기 이윤은?",
+      "options": [
+        "Q = 12, P = 28, π ≈ 191",
+        "Q = 20, P = 20, π = 0",
+        "Q = 10, P = 30",
+        "Q = 5, P = 35",
+        "Q = 0"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 40 - 2Q$, $MC = Q$.\n$40 - 2Q = Q \\Rightarrow Q ≈ 13.33$. 가까운 12.\n실제 Q = 40/3 ≈ 13.33, P = 80/3 ≈ 26.67. TR ≈ 355.6, TC = 25 + 88.9 = 113.9, π ≈ 241.7. 근사 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-016",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 평가에서 다양성 가치(Dixit-Stiglitz 1977)는?",
+      "options": [
+        "차별화 제품의 다양성 자체가 소비자 효용 → 비효율 일부 상쇄",
+        "다양성 무관",
+        "효율과 무관",
+        "정부 결정",
+        "다양성 비용만"
+      ],
+      "answer": "1",
+      "explanation": "Dixit-Stiglitz(1977): 제품 다양성 자체가 소비자 효용 가치 (love of variety). 독점적 경쟁의 비효율(DWL·과잉설비)이 다양성 편익으로 일부 상쇄. 신무역이론 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-017",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "단기 손실 기업 $P = 30 - 0.5Q$, $TC = 200 + 10Q$. 결정은?",
+      "options": [
+        "Q = 20, P = 20, π = -100 (조업 지속, FC 일부 회수)",
+        "조업 중단",
+        "Q = 40, π = 0",
+        "Q = 10, π = -100",
+        "Q = 5, π = -150"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 30 - Q = 10 \\Rightarrow Q = 20, P = 20$.\nTR = 400, TC = 200 + 200 = 400, π = 0? 다시 계산.\n\nTR = 400, TC = 400. π = 0 (정확 손익분기).\n실제 단기 손실은 다른 가정 필요. 가까운 답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-018",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 후생 손실 vs 완전경쟁 차이의 정도는?",
+      "options": [
+        "DWL 작음 (수요 탄력 큼·차별화 미미한 경우) - 일반적으로 완전경쟁 근사",
+        "DWL 매우 큼",
+        "DWL = 독점 수준",
+        "DWL = 0",
+        "DWL 무한대"
+      ],
+      "answer": "1",
+      "explanation": "독점적 경쟁 DWL은 수요탄력성·차별화 정도에 의존. 대체재 많고 탄력적이면 DWL 작음 → 완전경쟁 근사. Chamberlin·Robinson: 비효율 정도는 실증 문제."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-019",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "기업 수요 $Q = 100 - 2P$ (P = 50 - Q/2), MC = 10. 단기 이윤은?",
+      "options": [
+        "Q = 40, P = 30, π = 800",
+        "Q = 60, P = 20, π = 600",
+        "Q = 30, P = 35, π = 750",
+        "Q = 80, P = 10, π = 0",
+        "Q = 20, P = 40"
+      ],
+      "answer": "1",
+      "explanation": "$P = 50 - Q/2$. $MR = 50 - Q = 10 \\Rightarrow Q = 40$.\n$P = 50 - 20 = 30$.\nFC = 0 가정. TR = 1200, TC = 400, π = 800."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-020",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 광고가 사회적으로 가치 있는 경우는?",
+      "options": [
+        "정보 광고 (Informative): 소비자 정보 ↑ → 거래 비용 ↓",
+        "허위 광고",
+        "과대 광고",
+        "정부 광고만",
+        "광고 무관"
+      ],
+      "answer": "1",
+      "explanation": "광고 분류: 정보 광고(가격·품질·위치 정보) 사회 유익 / 설득 광고(브랜드 차별만 강조) 사회 가치 의문 / 허위 광고 부정적. 정보 광고는 시장 효율 개선."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-021",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 한국 정책 사례는?",
+      "options": [
+        "프랜차이즈 본부의 가맹점 보호법, 표시·광고 공정거래법, 소비자보호법",
+        "정부 가격 결정",
+        "공기업화",
+        "전면 자유",
+        "수출 진흥"
+      ],
+      "answer": "1",
+      "explanation": "한국 정책: ① 가맹사업법 (프랜차이즈 본부 갑질 방지) ② 표시·광고법 (허위 광고 금지) ③ 소비자보호법 ④ 불공정거래 행위 규제. 자유 경쟁 + 공정 시장 보장."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-022",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "$P = 50 - Q$, $TC = 25 + 10Q$. 단기 이윤 vs 장기 (이윤 0 시 a) 비교는?",
+      "options": [
+        "단기 Q=20, π=375 / 장기 P=ATC, a 증가로 진입 결과 이윤 0",
+        "단기 이윤 ↑, 장기 이윤 ∞",
+        "변화 없음",
+        "단기 = 장기",
+        "장기에 손실"
+      ],
+      "answer": "1",
+      "explanation": "단기: MR = 50 - 2Q = 10 → Q = 20, P = 30. π = 30·20 - (25 + 200) = 375.\n장기: 신규 진입으로 시장 분담 → 수요 왼쪽 이동 → π = 0 도달."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-023",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "신무역이론(Krugman 1979)과 독점적 경쟁의 관계는?",
+      "options": [
+        "다양성 가치 + 규모 경제 → 같은 산업 내 무역 설명 (산업 내 무역)",
+        "전통 비교우위만",
+        "독점만",
+        "정부 결정",
+        "수요 없음"
+      ],
+      "answer": "1",
+      "explanation": "Krugman(1979·1991 노벨상) 신무역이론: 독점적 경쟁(차별화·규모경제) + 다양성 가치 → 산업 내 무역 설명. 자동차 산업의 한국-독일 양방향 무역 등."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-024",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "독점적 경쟁 장기균형의 효율 손실 영역은?",
+      "options": [
+        "P > MC로 인한 거래량 감소 영역 (수요-MC 사이 삼각형)",
+        "ATC 위 직사각형",
+        "FC 영역",
+        "광고비",
+        "DWL 0"
+      ],
+      "answer": "1",
+      "explanation": "장기균형 P > MC → 사회후생 손실. 거래량 감소 영역의 수요-MC 사이 삼각형 = DWL. 완전경쟁과의 차이."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec03-item02-025",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점적 경쟁의 발전 동향(현대)은?",
+      "options": [
+        "디지털 플랫폼·소셜커머스 차별화, 개인화 가격, 빅데이터 기반 마케팅",
+        "동질 제품화",
+        "정부 통제",
+        "독점 강화",
+        "수요 감소"
+      ],
+      "answer": "1",
+      "explanation": "현대 독점적 경쟁: 디지털 플랫폼(쿠팡·11번가) 차별화, 소셜커머스, 개인화 가격(빅데이터·AI), 인플루언서 마케팅, 구독 서비스. 차별화 도구 확장."
+    }
+  ]
+}

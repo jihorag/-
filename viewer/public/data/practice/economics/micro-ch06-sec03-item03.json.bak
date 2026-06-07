@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제6장 생산요소시장과 소득분배",
+    "section": "제20절 소득분배이론",
+    "item": "제3관 분배이론 (한계생산력설 등)",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-03",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "한계생산력설(Marginal productivity theory)의 핵심은?",
+      "options": [
+        "각 생산요소의 보수는 그 요소의 한계생산물가치(VMP)에 의해 결정",
+        "노동가치설",
+        "효용가치설",
+        "정부 결정",
+        "역사적 관습"
+      ],
+      "answer": "1",
+      "explanation": "신고전학파 분배이론. 노동 = $VMP_L = P \\cdot MP_L$, 자본 = $VMP_K$. 완전경쟁 가정 시 효율적 + 공정한 분배라는 주장. J.B. Clark (1899) 정립."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "한계생산력설을 정립한 경제학자는?",
+      "options": [
+        "John Bates Clark (1899) The Distribution of Wealth",
+        "Adam Smith",
+        "Karl Marx",
+        "Keynes",
+        "Friedman"
+      ],
+      "answer": "1",
+      "explanation": "J.B. Clark (1847-1938): 한계생산력설 체계화. \"각자는 자신이 기여한 만큼 받는다\" 명제로 자본주의 분배의 도덕적 정당화. 미국 경제학회 클락 메달의 그 클락."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-003",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "한계생산력설의 주요 가정은?",
+      "options": [
+        "완전경쟁 + 동질적 노동 + 자유 이동 + 완전 정보",
+        "독점 + 차별",
+        "정부 개입",
+        "노동조합 강함",
+        "자연독점"
+      ],
+      "answer": "1",
+      "explanation": "한계생산력설 적용 조건: ① 완전경쟁 요소·상품시장 ② 동질적 노동 ③ 노동 이동 자유 ④ 완전 정보. 위반 시 (수요독점·차별·정보비대칭) 분배가 한계생산력과 다름."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item003-004",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Marx의 노동가치설(Labor theory of value)이 한계생산력설과 다른 점은?",
+      "options": [
+        "가치는 투입된 사회적 필요노동시간에서 발생 → 자본수익은 잉여가치 착취",
+        "효용",
+        "수요공급",
+        "MR=MC",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "Marx (Das Kapital, 1867): 상품 가치 = 사회적 필요노동시간. 노동자는 노동력의 가치(생존비)만 받음, 추가 생산물은 자본가가 가져감(잉여가치). 분배 = 권력관계."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-005",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Cambridge Capital Controversy (1960s)에서 한계생산력설에 대한 주된 비판은?",
+      "options": [
+        "자본 측정 문제: 자본을 어떻게 합산할지 가격에 의존 → 순환 논리 가능",
+        "한계생산력설은 완벽",
+        "계산 어려움",
+        "공급 측 무시",
+        "이윤 0"
+      ],
+      "answer": "1",
+      "explanation": "Sraffa, Robinson (Cambridge UK) vs Samuelson, Solow (MIT). 핵심: 이질적 자본재를 합산하려면 가격(이자율)이 필요한데, 이자율은 자본의 한계생산력으로 결정 → 순환. 논쟁 종결되지 않음."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-006",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "Ricardo의 차액지대설(Differential rent theory)의 핵심은?",
+      "options": [
+        "토지 비옥도 차이로 한계 토지(rent = 0)와 비옥 토지(rent > 0) 사이 지대 발생",
+        "토지 무관",
+        "노동만",
+        "자본만",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "Ricardo (1817): 가장 비옥한 토지부터 경작 → 인구 ↑로 한계 토지 (가장 비옥 안 한) 경작 → 비옥 토지에 차액 지대 발생. 지대는 생산물 가격이 높아서 생김 (cost가 아닌 가격의 잔여)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-007",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 노동시장 그래프에서 한계생산력설에 따라 노동이 받는 보수는?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
+      "options": [
+        "공급곡선 위 임금 $w^* = VMP_L^*$",
+        "VMP 위 임금",
+        "MFC 위 임금",
+        "0",
+        "임금 = 평균"
+      ],
+      "answer": "1",
+      "explanation": "완전경쟁: $w^* = VMP_L^*$. 한계생산력설 = \"노동은 한계 생산 가치만큼 받는다\" — 공평한 분배 주장의 근거."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-008",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "한계생산력설의 윤리적 함의에 대한 비판은?",
+      "options": [
+        "한계생산력은 능력·우연·초기 부에 의존 → 분배 결과의 \"공정성\" 논쟁적",
+        "한계생산력설은 윤리적",
+        "정부 개입 필요 없음",
+        "분배 공평함",
+        "분배 결정 안 됨"
+      ],
+      "answer": "1",
+      "explanation": "비판: ① 한계생산력은 운·상속·교육에 의존, 노력만은 아님 ② \"평등한 기회\"가 없으면 한계생산력에 따른 분배가 윤리적 정당화 약함 ③ Rawls 정의론 등 다른 분배 정의 기준 존재."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-009",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "Cobb-Douglas 생산함수 $Y = K^{0.3} L^{0.7}$. 노동의 한계생산물은? ($K = 100$, $L = 100$ 시)",
+      "options": [
+        "$MP_L = 0.7$",
+        "$MP_L = 1.0$",
+        "$MP_L = 0.3$",
+        "$MP_L = 70$",
+        "$MP_L = 100$"
+      ],
+      "answer": "1",
+      "explanation": "$\\dfrac{\\partial Y}{\\partial L} = 0.7 K^{0.3} L^{-0.3} = 0.7 (K/L)^{0.3}$. $K/L = 1$ → $MP_L = 0.7$. $Y = 100$이라면 노동소득분배율 = $\\dfrac{wL}{Y} = \\dfrac{0.7 \\cdot 100}{100} = 0.7$ (Cobb-Douglas 분배율은 지수)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item003-010",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "$Y = K^{0.4} L^{0.6}$ Cobb-Douglas 생산함수 + 완전경쟁 시 노동소득분배율은?",
+      "options": [
+        "60% (노동 지수와 동일)",
+        "40%",
+        "50%",
+        "100%",
+        "결정 불가"
+      ],
+      "answer": "1",
+      "explanation": "Cobb-Douglas $Y = K^{\\alpha} L^{1-\\alpha}$ + 완전경쟁 → 노동소득분배율 = $1 - \\alpha = 0.6 = 60\\%$. 자본소득분배율 = $\\alpha = 40\\%$. 분배 지수 = 한계생산력 지수와 동일."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-011",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "오일러 정리(Euler theorem)와 한계생산력설의 관계는?",
+      "options": [
+        "1차 동차 생산함수 시 $Y = MP_L \\cdot L + MP_K \\cdot K$ — 한계보수가 생산물 모두 소진",
+        "오일러 정리 무관",
+        "생산함수와 무관",
+        "정부 정책",
+        "위험회피도"
+      ],
+      "answer": "1",
+      "explanation": "1차 동차 (규모수익불변) 생산함수에 오일러 정리 적용 → $Y = \\dfrac{\\partial Y}{\\partial L} L + \\dfrac{\\partial Y}{\\partial K} K$. 즉 각 요소에 한계생산물만큼 분배해도 생산물 정확히 다 분배됨 (이윤 = 0). 한계생산력설의 수학적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-012",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Schumpeter의 분배이론(혁신과 일시적 이윤)의 핵심은?",
+      "options": [
+        "기업가 혁신으로 일시적 독점이윤 발생, 모방 후 소멸 (\"창조적 파괴\")",
+        "이윤은 0",
+        "이윤은 영구",
+        "이윤 = VMP",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "Joseph Schumpeter (1942) Capitalism, Socialism and Democracy: 정상 이윤 외 \"기업가 이윤\"은 혁신으로 발생, 모방으로 사라짐. \"창조적 파괴\" (creative destruction). 한국 IT 산업의 카카오·네이버 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-013",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Piketty의 분배이론이 한계생산력설과 다른 점은?",
+      "options": [
+        "분배는 자본수익률(r)과 성장률(g)의 비율 + 정치·제도가 결정",
+        "한계생산력만",
+        "정부 결정",
+        "Marx와 동일",
+        "한계비용과 한계수입"
+      ],
+      "answer": "1",
+      "explanation": "Piketty (2014) Capital in the 21st Century: 한계생산력설은 단기·정태. 장기 분배는 r > g (자본수익률 > 성장률)일 때 자본 집중 → 부 불평등 ↑. 정치·세제·전쟁 등이 추세 결정."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-014",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "Rawls 정의론의 분배 원칙(차등의 원칙)은?",
+      "options": [
+        "최소수혜자(maxmin)의 후생을 극대화하는 분배가 정의",
+        "평균 후생 극대화",
+        "총합 후생 극대화",
+        "한계생산력 분배",
+        "Pareto 효율"
+      ],
+      "answer": "1",
+      "explanation": "John Rawls (1971) A Theory of Justice: \"무지의 베일\" 뒤에서 사람들은 최악의 처지(최소수혜자)를 최대로 좋게 만드는 분배에 합의 → 차등의 원칙. 평등 + 기회균등 + 차등 3원칙."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-015",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Nozick의 자유지상주의 분배이론(소유권 이론)은?",
+      "options": [
+        "정당한 취득·이전·교정 절차로 형성된 분배는 모두 정당",
+        "평등 분배만 정당",
+        "한계생산력만",
+        "복지 극대화",
+        "Rawls와 동일"
+      ],
+      "answer": "1",
+      "explanation": "Robert Nozick (1974) Anarchy, State, and Utopia: 분배의 \"결과\"가 아닌 \"절차\"가 정의 결정. 절차가 정당하면 어떤 분배도 정당. 최소국가만 정당화. Rawls와 정반대."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item003-016",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Sen의 잠재력 접근(Capability Approach)이 분배 관점에서 시사하는 바는?",
+      "options": [
+        "소득만 아니라 \"무엇을 할 수 있는가\"(잠재력)이 진정한 후생 — 분배는 잠재력 기준",
+        "소득 평등만 중요",
+        "효용 극대화",
+        "한계생산력",
+        "정부 무관"
+      ],
+      "answer": "1",
+      "explanation": "Amartya Sen (1985) Commodities and Capabilities: 후생 = 기능(functioning) + 잠재력(capability). 소득 동일해도 장애·교육·자유 등에 따라 실질 후생 다름. 분배는 잠재력 평등 추구. 1998 노벨상."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-017",
+      "difficulty": 4,
+      "question_type": "그래프형",
+      "question": "다음 그래프(노동시장)에서 차별이 존재할 때 한계생산력설의 함의는?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
+      "options": [
+        "차별 받는 집단은 $w < VMP_L$ → 한계생산력설이 어긋남 → 차별이 분배 결정 요인",
+        "차별은 한계생산력에 자동 반영",
+        "차별 무관",
+        "차별 ↑ → 한계생산력 ↑",
+        "차별 ↑ → VMP ↑"
+      ],
+      "answer": "1",
+      "explanation": "Becker (1957) 차별 경제학: 차별 받는 집단은 동일 한계생산력에도 임금 낮음. 한계생산력설 가정(동질적 처우) 위반. 시장 경쟁이 장기적으로 차별 줄이는지는 논쟁적."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-018",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "한국 임금 분배의 \"이중구조\" 현상의 분배이론적 함의는?",
+      "options": [
+        "동일 한계생산력이라도 정규/비정규·대기업/중소기업 임금 격차 → 한계생산력설로 설명 불완전",
+        "한계생산력설 완벽 적용",
+        "정부 직접 결정",
+        "노조만 영향",
+        "교육 차이만"
+      ],
+      "answer": "1",
+      "explanation": "한국 노동시장 이중구조: 동일 직무·생산성에도 정규/비정규 임금 30~40% 차이, 대/중소 임금 50%+ 차이. 분단된 시장 + 권력 격차 → 한계생산력만으로 설명 불가. 제도·정치적 분배이론 필요."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-019",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "$Y = AK^{0.3} L^{0.7}$. $A = 2$, $K = 8$, $L = 16$ 시 노동의 한계생산물은?",
+      "options": [
+        "$MP_L = 1.4 \\cdot (8/16)^{0.3} \\approx 1.14$",
+        "약 0.7",
+        "약 2.0",
+        "약 0.5",
+        "약 1.5"
+      ],
+      "answer": "1",
+      "explanation": "$MP_L = 0.7 A K^{0.3} L^{-0.3} = 0.7 \\cdot 2 \\cdot 8^{0.3} \\cdot 16^{-0.3}$. $8^{0.3} \\approx 1.866$, $16^{-0.3} \\approx 0.434$. $MP_L \\approx 1.4 \\cdot 1.866 \\cdot 0.434 \\approx 1.13$. 답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "한국 호봉제(연공임금)가 한계생산력설로 설명되지 않는 이유는?",
+      "options": [
+        "임금이 한계생산물보다 \"연차\"에 따라 결정 — 신규 채용은 한계생산력보다 낮고, 고령자는 높음",
+        "한계생산력과 정확 일치",
+        "정부 규정",
+        "노조 의무",
+        "교육 의무"
+      ],
+      "answer": "1",
+      "explanation": "한국 호봉제: 임금이 연차·근속에 따라 자동 인상. 신규 직원 임금 < 한계생산력 (\"훈련 보조\"), 고령 직원 임금 > 한계생산력 (조기 퇴직 압박). Lazear (1979) deferred compensation 이론."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-021",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Stiglitz의 \"불완전 정보 분배이론\"의 핵심은?",
+      "options": [
+        "정보 비대칭으로 임금이 한계생산력과 다름 + 시장 실패로 불평등 ↑",
+        "정보는 완전",
+        "한계생산력 + 정부",
+        "Marx와 동일",
+        "Rawls와 동일"
+      ],
+      "answer": "1",
+      "explanation": "Joseph Stiglitz (2001 노벨상): 정보 비대칭(신호·선별·도덕적 해이) → 임금이 한계생산력과 어긋남. 효율임금(efficiency wage) — 동기부여를 위해 균형 위 임금. 분배는 정보 구조의 함수."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item003-022",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "효율임금이론(Efficiency wage theory)의 분배적 의미는?",
+      "options": [
+        "동기부여·이직 방지·신호를 위해 균형보다 높은 임금 → 실업·임금 격차 발생",
+        "임금 = 한계생산력",
+        "임금 0",
+        "임금 = MC",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "Akerlof, Yellen, Shapiro-Stiglitz: 기업이 \"높은 임금\"을 지급 → 노동자 노력 ↑, 이직 ↓, 양질 인재 모집. 균형이 노동시장 청산보다 높은 임금에서 발생 → 비자발적 실업 + 임금격차 영구화."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item003-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 정부의 EITC(근로장려세제)가 분배이론에서 갖는 의미는?",
+      "options": [
+        "노동공급 보조 + 저소득층 소득 보전 — 한계생산력 분배에 재분배 layer 추가",
+        "최저임금 대체",
+        "노조 대체",
+        "한계생산력 부정",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "EITC(Earned Income Tax Credit): 저소득 근로가구에 세액공제·환급. 분배이론적: 한계생산력 기반 분배 결과의 불공평을 정부 재분배로 보완. 노동공급 유인도 유지. 한국 2008년 도입, 점진 확대."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-024",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Atkinson의 분배이론에서 \"이전·세제 패키지\"의 중요성은?",
+      "options": [
+        "단일 정책 아닌 세제·이전·근로조건 종합 패키지로 불평등 결정",
+        "단일 세금만",
+        "단일 보조금만",
+        "정부 무관",
+        "한계생산력만"
+      ],
+      "answer": "1",
+      "explanation": "Anthony Atkinson (1944-2017): 불평등은 단일 정책으로 해결 안 됨. 세제(누진)·이전(이전소득)·노동시장(최저임금·노조)·교육 패키지 + 글로벌 자본세 제안. 2015년 \"Inequality: What Can Be Done?\"."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item03-025",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "현대 분배이론의 종합적 시사점은?",
+      "options": [
+        "한계생산력 + 권력관계 + 정치제도 + 정보·차별 등 복합 결정 → 다각적 분배 정책 필요",
+        "한계생산력만",
+        "Marx만",
+        "정부 무관",
+        "노조만"
+      ],
+      "answer": "1",
+      "explanation": "현대 종합: ① 한계생산력 (기본 메커니즘) ② 권력관계 (노조·기업 협상력) ③ 제도 (세제·복지·노동법) ④ 정보·차별 (시장 불완전) ⑤ 자본축적 (r > g). 분배는 다요인. 다각적 정책 (세제·이전·노동시장·교육) 필요."
+    }
+  ]
+}

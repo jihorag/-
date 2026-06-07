@@ -30,11 +30,17 @@ export const AI_SUBJECT_TO_QUIZ = Object.fromEntries(
 export function findLeafByPath(leaves, path) {
   if (!Array.isArray(leaves) || !leaves.length || !Array.isArray(path) || !path.length) return null;
   const key = path.join('|');
-  // 정확 일치
+  // 1) 정확 일치
   for (const l of leaves) {
     if ((l.path || []).join('|') === key) return l;
   }
-  // path 길이 줄여가며
+  // 2) 하위(descendant) 일치 — 장/절을 눌렀는데 leaf는 더 깊을 때(관 단위 등):
+  //    주어진 path로 시작하는 첫 leaf 반환 (예: 제1장 서론 → 제1절 …의 첫 leaf)
+  const prefix = key + '|';
+  for (const l of leaves) {
+    if ((l.path || []).join('|').startsWith(prefix)) return l;
+  }
+  // 3) 상위(ancestor) 일치 — path를 줄여가며
   for (let n = path.length - 1; n >= 1; n--) {
     const k = path.slice(0, n).join('|');
     for (const l of leaves) {

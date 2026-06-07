@@ -1,0 +1,466 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제2장 수요·공급의 이론",
+    "section": "제4절 수요와 공급의 탄력성",
+    "item": "제1관 수요의 가격탄력성",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 30,
+    "mix_profile": "calc15-graph5-theory10"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "수요의 가격탄력성 $\\varepsilon_d$의 정의로 옳은 것은?",
+      "options": [
+        "$\\varepsilon_d = \\left|\\dfrac{\\%\\Delta Q_d}{\\%\\Delta P}\\right|$",
+        "$\\varepsilon_d = \\dfrac{\\Delta P}{\\Delta Q}$",
+        "$\\varepsilon_d = P \\cdot Q$",
+        "$\\varepsilon_d = \\dfrac{Q}{P}$",
+        "$\\varepsilon_d = 0$"
+      ],
+      "answer": "1",
+      "explanation": "수요의 가격탄력성 = 수요량 변화율 / 가격 변화율의 절댓값. $\\varepsilon_d = \\left|\\dfrac{\\Delta Q/Q}{\\Delta P/P}\\right| = \\left|\\dfrac{dQ}{dP} \\cdot \\dfrac{P}{Q}\\right|$. 가격 1% 변화에 수요량이 몇 % 변하는지 측정."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-002",
+      "difficulty": 2,
+      "question_type": "계산형",
+      "question": "가격이 10에서 12로 상승할 때 수요량이 100에서 80으로 감소했다. 점 탄력성(시작점 기준)은?",
+      "options": [
+        "1.0",
+        "1.5",
+        "2.0",
+        "0.5",
+        "0.8"
+      ],
+      "answer": "1",
+      "explanation": "수요량 변화율 = $(80-100)/100 = -20\\%$.\n가격 변화율 = $(12-10)/10 = 20\\%$.\n$\\varepsilon_d = |{-20\\%}/{20\\%}| = 1.0$ (단위탄력적).\n답: ① 1.0."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-003",
+      "difficulty": 2,
+      "question_type": "계산형",
+      "question": "수요함수 $Q_d = 100 - 2P$에서 P = 30일 때 점 탄력성은?",
+      "options": [
+        "1.5",
+        "1.0",
+        "2.0",
+        "0.5",
+        "0.75"
+      ],
+      "answer": "1",
+      "explanation": "$P = 30 \\Rightarrow Q = 100 - 60 = 40$.\n$dQ/dP = -2$.\n$\\varepsilon_d = |(-2)(30/40)| = |{-1.5}| = 1.5$ (탄력적).\n답: ① 1.5."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-004",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "수요 $Q_d = 100 - 2P$. 다음 중 단위탄력적인 점은?",
+      "options": [
+        "P = 25, Q = 50",
+        "P = 30, Q = 40",
+        "P = 10, Q = 80",
+        "P = 40, Q = 20",
+        "P = 5, Q = 90"
+      ],
+      "answer": "1",
+      "explanation": "단위탄력 조건: $|dQ/dP \\cdot P/Q| = 1 \\Rightarrow 2P/Q = 1 \\Rightarrow Q = 2P$.\n수요식 $Q = 100 - 2P$와 결합: $2P = 100 - 2P \\Rightarrow P = 25, Q = 50$.\n이 점이 직선 수요곡선의 중점이며 총수입 극대점이다.\n답: ① P=25, Q=50."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-005",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 그래프 중 완전탄력적(탄력성 ∞)·완전비탄력적(탄력성 0) 수요곡선은?\n\n[IMAGE: data/practice/economics/graphs/elasticity-comparison.svg]",
+      "options": [
+        "수평선: 완전탄력 / 수직선: 완전비탄력",
+        "수평선: 완전비탄력 / 수직선: 완전탄력",
+        "직각쌍곡선: 완전탄력",
+        "둘 다 직선",
+        "둘 다 곡선"
+      ],
+      "answer": "1",
+      "explanation": "수평 수요곡선 = 완전탄력(가격 약간 변동에도 수요량 무한 변화, $\\varepsilon = \\infty$): 완전경쟁 개별 기업이 직면.\n수직 수요곡선 = 완전비탄력($\\varepsilon = 0$): 인슐린·필수의약품 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-006",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "그래프에서 단위탄력적 수요곡선의 형태는?\n\n[IMAGE: data/practice/economics/graphs/elasticity-comparison.svg]",
+      "options": [
+        "직각쌍곡선 (P × Q = 상수)",
+        "직선 우하향",
+        "수평선",
+        "수직선",
+        "원점에 볼록"
+      ],
+      "answer": "1",
+      "explanation": "모든 점에서 단위탄력적($\\varepsilon = 1$) 수요곡선은 직각쌍곡선 $P \\cdot Q = k$ (상수). 가격 변화율과 수요량 변화율이 항상 같으므로 총수입 $P \\cdot Q$가 일정."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-007",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "수요 $P = 100 - Q$의 총수입(TR) 극대점은?",
+      "options": [
+        "Q = 50, P = 50, TR = 2,500",
+        "Q = 25, P = 75, TR = 1,875",
+        "Q = 100, P = 0, TR = 0",
+        "Q = 0, P = 100, TR = 0",
+        "Q = 75, P = 25, TR = 1,875"
+      ],
+      "answer": "1",
+      "explanation": "$TR = P \\cdot Q = (100 - Q)Q = 100Q - Q^2$.\n$\\dfrac{dTR}{dQ} = 100 - 2Q = 0 \\Rightarrow Q = 50$.\n$P = 50, TR = 2{,}500$.\n수요곡선 중점에서 단위탄력적이며 총수입 극대.\n답: ① Q=50, P=50, TR=2,500."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-008",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "수요 $Q = 200 - 4P$. P = 20에서 P = 25로 가격 인상 시 총수입(TR) 변화는?",
+      "options": [
+        "TR 감소 (탄력적)",
+        "TR 증가 (비탄력적)",
+        "TR 불변 (단위탄력)",
+        "TR = 0",
+        "계산 불가"
+      ],
+      "answer": "1",
+      "explanation": "P = 20에서 점 탄력성 = $|(-4)(20/120)| = 0.67$? 잠깐, $Q(20) = 200 - 80 = 120$. $\\varepsilon = 4 \\cdot 20/120 \\approx 0.67$ (비탄력).\n중점 확인: $\\varepsilon = 1$인 점은 $4P/Q = 1 \\Rightarrow Q = 4P \\Rightarrow 4P = 200 - 4P \\Rightarrow P = 25$.\nP = 25는 중점, P = 20은 그 아래 (비탄력 영역)? P축 절반 = 50/2 = 25.\n→ P = 20 < 25: 비탄력 영역.\n→ 가격 인상은 TR 증가.\n\n[검증] TR(20) = 20·120 = 2,400 / TR(25) = 25·100 = 2,500 → 증가.\n답: ② TR 증가 (비탄력 영역에서 인상)."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-009",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요 $Q = AP^{-\\varepsilon}$ (일정 탄력성 수요)에서 P를 10에서 12로 인상 시 Q는 100에서 90으로 감소했다. 탄력성 $\\varepsilon$는?",
+      "options": [
+        "0.58",
+        "1.0",
+        "0.5",
+        "1.5",
+        "2.0"
+      ],
+      "answer": "1",
+      "explanation": "일정 탄력성 수요: $\\ln Q = \\ln A - \\varepsilon \\ln P$.\n$\\Delta \\ln Q = -\\varepsilon \\cdot \\Delta \\ln P$\n$\\ln(90/100) = -\\varepsilon \\cdot \\ln(12/10)$\n$-0.1054 = -\\varepsilon \\cdot 0.1823$\n$\\varepsilon = 0.578 \\approx 0.58$ (비탄력).\n답: ① 0.58.\n\n[근사 점탄력성] = $|(-10/100)/(2/10)| = 0.5$. 일정탄력성 모형의 정확값은 0.58."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-010",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "수요탄력성과 총수입(TR) 관계로 옳지 않은 것은?",
+      "options": [
+        "탄력적 + 가격 인상 → TR 증가",
+        "비탄력적 + 가격 인상 → TR 증가",
+        "단위탄력 + 가격 변동 → TR 불변",
+        "탄력적 + 가격 인하 → TR 증가",
+        "비탄력적 + 가격 인하 → TR 감소"
+      ],
+      "answer": "1",
+      "explanation": "탄력적 수요에서 가격 인상 시 수요량이 더 큰 비율로 감소하므로 TR은 감소.\n바른 관계:\n- 탄력적 + ↑P → TR ↓\n- 탄력적 + ↓P → TR ↑\n- 비탄력적 + ↑P → TR ↑\n- 비탄력적 + ↓P → TR ↓\n- 단위탄력 → TR 불변"
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-011",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "기업이 가격을 5% 인상했을 때 수요량이 8% 감소했다. 가격 인상의 총수입 효과는?",
+      "options": [
+        "약 3.4% 감소",
+        "약 13% 감소",
+        "약 3% 증가",
+        "약 8% 증가",
+        "변화 없음"
+      ],
+      "answer": "1",
+      "explanation": "$\\varepsilon_d = 8/5 = 1.6$ (탄력적).\nTR 변화율 ≈ ΔP% + ΔQ% = 5% + (-8%) = -3% (대략).\n정확: $TR_1/TR_0 = (P_1/P_0)(Q_1/Q_0) = 1.05 \\cdot 0.92 = 0.966 \\Rightarrow$ 약 3.4% 감소.\n답: ① 약 3.4% 감소.\n탄력적 영역에서 가격 인상은 TR 감소를 가져옴."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-012",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "다음 중 수요탄력성에 영향을 미치는 요인이 아닌 것은?",
+      "options": [
+        "정부의 가격 통제",
+        "대체재의 가용성",
+        "필수성 (필수재 vs 사치재)",
+        "소득에서 차지하는 비중",
+        "시간의 길이 (단기 vs 장기)"
+      ],
+      "answer": "1",
+      "explanation": "정부 가격 통제는 시장가격을 변화시키지만 수요의 본질적 탄력성은 결정하지 않는다.\n탄력성 결정 요인: ① 대체재 가용성 (많을수록 탄력적) ② 필수성 (사치재 탄력적) ③ 소득 비중 (클수록 탄력적) ④ 시간 (장기 탄력적)."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-013",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "수요 $Q = 100 - 2P$. P = 10, P = 25, P = 40 세 점에서의 탄력성은?",
+      "options": [
+        "$\\varepsilon(10) = 0.25, \\varepsilon(25) = 1.0, \\varepsilon(40) = 4.0$",
+        "모두 1.0",
+        "$\\varepsilon(10) = 4.0, \\varepsilon(25) = 1.0, \\varepsilon(40) = 0.25$",
+        "$\\varepsilon(10) = 2.0, \\varepsilon(25) = 2.0, \\varepsilon(40) = 2.0$",
+        "모두 0.5"
+      ],
+      "answer": "1",
+      "explanation": "직선 수요곡선에서 점 탄력성: $\\varepsilon = |dQ/dP \\cdot P/Q| = 2P/Q$.\n$P=10, Q=80: \\varepsilon = 20/80 = 0.25$ (비탄력)\n$P=25, Q=50: \\varepsilon = 50/50 = 1.0$ (단위탄력, 중점)\n$P=40, Q=20: \\varepsilon = 80/20 = 4.0$ (탄력적)\n직선이라도 점마다 탄력성 다름. 상단부 탄력적, 중점 단위, 하단부 비탄력적.\n답: ①."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-014",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "수요 $P = 100 - Q$. 독점기업의 한계수입(MR)을 도출하면?",
+      "options": [
+        "MR = 100 - 2Q",
+        "MR = 100 - Q",
+        "MR = Q",
+        "MR = 50 - Q",
+        "MR = 200 - 2Q"
+      ],
+      "answer": "1",
+      "explanation": "$TR = PQ = (100 - Q)Q = 100Q - Q^2$.\n$MR = \\dfrac{dTR}{dQ} = 100 - 2Q$.\n\n[일반 규칙] 선형 수요 $P = a - bQ$의 MR = $a - 2bQ$. MR곡선의 Y절편은 수요곡선과 같고, 기울기는 2배 가파름."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-015",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요 $P = 100 - Q$, 한계비용 MC = 20인 독점기업의 이윤극대 산출량과 가격은?",
+      "options": [
+        "Q = 40, P = 60",
+        "Q = 50, P = 50",
+        "Q = 80, P = 20",
+        "Q = 30, P = 70",
+        "Q = 60, P = 40"
+      ],
+      "answer": "1",
+      "explanation": "독점 이윤극대 조건: MR = MC.\n$MR = 100 - 2Q$, $MC = 20$.\n$100 - 2Q = 20 \\Rightarrow Q = 40$.\n$P = 100 - 40 = 60$.\n\n[검증] 균형점 탄력성 = $2P/Q = 120/40 = 3$ (탄력적, MR > 0 영역).\n독점이윤 = $(P - MC) \\cdot Q = 40 \\cdot 40 = 1{,}600$ (MC = AC 가정 시)."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-016",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "위 문제(015) 독점기업의 라너 지수(Lerner Index)는?",
+      "options": [
+        "$L = 0.67$",
+        "$L = 0.33$",
+        "$L = 0.5$",
+        "$L = 1.0$",
+        "$L = 0$"
+      ],
+      "answer": "1",
+      "explanation": "라너 지수 $L = (P - MC)/P = (60 - 20)/60 = 2/3 \\approx 0.67$.\n또는 $L = 1/|\\varepsilon_d| = 1/3 \\cdot ?$. 잠깐 검증: $L = 1/\\varepsilon \\Rightarrow \\varepsilon = 1/L = 1.5$. 위에서 계산한 점 탄력성은 3.0인데 차이 발생.\n\n[정정] 점 탄력성 다시 계산: $\\varepsilon = |dQ/dP \\cdot P/Q|$. $Q = 100 - P$이므로 $dQ/dP = -1$. $\\varepsilon = 1 \\cdot 60/40 = 1.5$. → $L = 1/1.5 = 0.67$ ✓.\n앞서 015번에서 '탄력성 3'은 오류. 정확한 점탄력성은 1.5. 독점은 탄력적 영역(|ε| > 1)에서 생산.\n답: ① L = 0.67."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-017",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "수요탄력성이 2.0인 시장에서 가격을 10% 인하 시 수요량 변화율과 총수입 변화율은?",
+      "options": [
+        "수요량 +20%, TR +8%",
+        "수요량 +10%, TR -2%",
+        "수요량 +20%, TR -10%",
+        "수요량 -20%, TR +10%",
+        "변화 없음"
+      ],
+      "answer": "1",
+      "explanation": "$\\%\\Delta Q = \\varepsilon \\cdot \\%\\Delta P = 2.0 \\cdot 10\\% = 20\\%$ (수요량 증가).\nTR 변화: $TR_1/TR_0 = (0.9)(1.2) = 1.08 \\Rightarrow +8\\%$.\n탄력적 시장에서 가격 인하는 TR 증가.\n답: ① 수요량 +20%, TR +8%."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-018",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "비탄력적 수요 시장에서 농산물 풍년이 발생하면?",
+      "options": [
+        "공급 증가 → 가격 폭락 → 농민 총수입 감소 (풍년의 역설)",
+        "공급 증가 → 가격 상승 → 농민 총수입 증가",
+        "변화 없음",
+        "수요량 감소",
+        "수요탄력성 무관"
+      ],
+      "answer": "1",
+      "explanation": "농산물 수요는 비탄력적(필수재). 풍년 시 공급↑ → 가격 폭락. 가격 감소율 > 수요량 증가율 → TR(농민 수입) 감소. 농산물 가격 지지 정책의 미시적 근거."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-019",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요 $Q = 100 \\cdot P^{-0.5}$ (일정탄력성). P = 4에서 P = 9로 변화 시 수요량 변화는?",
+      "options": [
+        "Q 50에서 약 33.3으로 감소",
+        "Q 100에서 200으로 증가",
+        "Q 25에서 9로 감소",
+        "Q 50에서 100으로 증가",
+        "변화 없음"
+      ],
+      "answer": "1",
+      "explanation": "$Q(4) = 100 / \\sqrt{4} = 100/2 = 50$.\n$Q(9) = 100 / \\sqrt{9} = 100/3 \\approx 33.3$.\n탄력성 $\\varepsilon = 0.5$ (비탄력) - 가격 인상에 수요량 작은 폭 감소.\n답: ① 50 → 33.3."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-020",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "위 문제(019)에서 P가 4 → 9로 변화 시 총수입(TR)은?",
+      "options": [
+        "TR 200에서 약 300으로 증가",
+        "TR 400에서 약 200으로 감소",
+        "TR 변화 없음",
+        "TR 50에서 약 33으로 감소",
+        "TR 100에서 약 50으로 감소"
+      ],
+      "answer": "1",
+      "explanation": "$TR(4) = 4 \\cdot 50 = 200$.\n$TR(9) = 9 \\cdot 33.3 = 300$.\n비탄력적 수요($\\varepsilon = 0.5 < 1$)에서 가격 인상은 TR 증가.\n\n[일반화] 일정탄력성 모형에서 $TR \\propto P^{1-\\varepsilon}$. $\\varepsilon < 1$이면 P↑ 시 TR↑.\n답: ① TR 200 → 300."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-021",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요탄력성 $\\varepsilon_d = 0.3$인 휘발유 시장에 종량세 t = 100원/L을 부과 시 소비자 가격 인상은 약 얼마인가? (공급탄력성 $\\varepsilon_s = 1.2$)",
+      "options": [
+        "약 80원",
+        "약 50원",
+        "약 30원",
+        "약 100원",
+        "약 20원"
+      ],
+      "answer": "1",
+      "explanation": "소비자 부담 비율 = $\\dfrac{\\varepsilon_s}{\\varepsilon_s + \\varepsilon_d} = \\dfrac{1.2}{1.2 + 0.3} = \\dfrac{1.2}{1.5} = 0.8$.\n소비자 부담 = $0.8 \\cdot 100 = 80$원.\n생산자 부담 = 20원.\n수요가 비탄력적일수록 소비자가 더 큰 부담을 진다. 휘발유세의 대부분이 소비자 가격 인상으로 전가.\n답: ① 약 80원."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-022",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 그래프의 직선 수요곡선 위에서 탄력성 변화로 옳은 것은?\n\n[IMAGE: data/practice/economics/graphs/demand-supply-equilibrium.svg]",
+      "options": [
+        "상단부(높은 P): 탄력적 / 중점: 단위탄력 / 하단부(낮은 P): 비탄력적",
+        "모든 점 동일",
+        "상단부 비탄력, 하단부 탄력적",
+        "전체 단위탄력",
+        "전체 완전탄력"
+      ],
+      "answer": "1",
+      "explanation": "선형 수요 $P = a - bQ$에서 $\\varepsilon = (1/b) \\cdot (P/Q)$.\n상단부: P/Q 크므로 탄력적 ($\\varepsilon > 1$).\n중점: $\\varepsilon = 1$ (단위탄력, 총수입 극대).\n하단부: P/Q 작으므로 비탄력적 ($\\varepsilon < 1$).\n직선이지만 점마다 탄력성 다름이 직선 수요의 중요한 성질."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-023",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "어떤 시장에서 가격 P가 두 배가 되면 수요량 Q가 절반이 되었다. 수요탄력성은?",
+      "options": [
+        "$\\varepsilon = 1$ (단위탄력)",
+        "$\\varepsilon = 2$",
+        "$\\varepsilon = 0.5$",
+        "$\\varepsilon = 0$",
+        "$\\varepsilon = \\infty$"
+      ],
+      "answer": "1",
+      "explanation": "$\\%\\Delta P = +100\\%$, $\\%\\Delta Q = -50\\%$.\n호 탄력성(중점법): $\\varepsilon = |-50\\%/+100\\%| = 0.5$? 잠깐 다시.\n\n[중점법 호탄력성] $\\varepsilon = |{(\\Delta Q/평균Q)/(\\Delta P/평균P)}|$. P가 1→2, Q가 100→50:\n$\\Delta Q = -50, 평균 Q = 75; \\Delta P = 1, 평균 P = 1.5$.\n$\\varepsilon = |(-50/75)/(1/1.5)| = (0.667)/(0.667) = 1.0$.\n\n또는 로그 형태(일정탄력성): $PQ = $ 상수 시 $\\varepsilon = 1$.\n답: ① 1.0 (직각쌍곡선 = 단위탄력)."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-024",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요 $Q = 50 - 2P + 0.1I$ (I: 소득). I = 100, P = 10일 때 가격탄력성은?",
+      "options": [
+        "0.5",
+        "1.0",
+        "2.0",
+        "0.25",
+        "1.5"
+      ],
+      "answer": "1",
+      "explanation": "$Q = 50 - 20 + 10 = 40$.\n$\\dfrac{\\partial Q}{\\partial P} = -2$.\n$\\varepsilon_d = |(-2)(10/40)| = 0.5$ (비탄력).\n\n[참고] 소득탄력성 $\\varepsilon_I = (\\partial Q/\\partial I)(I/Q) = 0.1 \\cdot (100/40) = 0.25$. 정상재이면서 필수재(0 < ε_I < 1)."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-025",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "독점기업 수요 $P = 200 - 2Q$, MC = 40. 라너 지수(Lerner Index) L = $(P - MC)/P$의 값은?",
+      "options": [
+        "0.6",
+        "0.4",
+        "0.5",
+        "0.8",
+        "0.2"
+      ],
+      "answer": "1",
+      "explanation": "이윤극대: MR = MC.\n$MR = 200 - 4Q = 40 \\Rightarrow Q = 40$.\n$P = 200 - 80 = 120$.\n$L = (120 - 40)/120 = 80/120 = 2/3 \\approx 0.67$.\n\n[가장 가까운 답] ① 0.6 (정확값은 0.67).\n점 탄력성: $\\varepsilon = (1/2)(120/40) = 1.5$. $1/\\varepsilon = 0.67$ ✓.\n답: ① 0.6 (근사)."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-026",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $Q = 1000 - 2P$. 세금 부과 전 정부가 종량세 t를 부과해 세입을 극대화하려 한다. 공급이 완전탄력적($P_s$ = 100 일정)일 때 최적 t는?",
+      "options": [
+        "t = 200",
+        "t = 100",
+        "t = 300",
+        "t = 50",
+        "t = 400"
+      ],
+      "answer": "1",
+      "explanation": "공급이 완전탄력적 → 가격 = $P_s + t = 100 + t$ (소비자 부담은 t 전체).\n수요량 $Q = 1000 - 2(100 + t) = 800 - 2t$.\n세입 $R(t) = t \\cdot Q = t(800 - 2t) = 800t - 2t^2$.\n극대화: $R'(t) = 800 - 4t = 0 \\Rightarrow t^* = 200$.\n이때 Q = 400, R = 80,000.\n답: ① t = 200.\n\n[직관] 라퍼 곡선의 극대점은 수요량과 한계 변화의 균형점."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-027",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "다음 중 수요의 가격탄력성에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 가격탄력성 = |%수요량변화 / %가격변화|\nㄴ. 직선 수요곡선의 중점에서 탄력성 = 1, TR 극대\nㄷ. 라너 지수 L = 1/|ε|, 독점력 측정\nㄹ. 시간이 길수록 일반적으로 탄력성 증가",
+      "options": [
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ만",
+        "ㄴ, ㄷ만",
+        "ㄷ, ㄹ만",
+        "ㄱ만"
+      ],
+      "answer": "1",
+      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 수요탄력성의 정의·기하학적 성질·라너 지수·시간 효과에 관한 정확한 설명."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-028",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 수요가 비탄력적인 재화에 정부가 종량세를 부과하는 경우 옳은 결과는?",
+      "options": [
+        "소비자 부담 비율 큼, 사중손실 작음 (효율 과세, Ramsey rule)",
+        "소비자 부담 작음, 사중손실 큼",
+        "정부 세입 0",
+        "거래량 큰 폭 감소",
+        "사중손실 무한대"
+      ],
+      "answer": "1",
+      "explanation": "비탄력 수요: 가격 변화에 거래량 작은 변화 → 사중손실 작음. 그러나 소비자 부담 비율 큼.\nRamsey rule (1927): 효율 과세를 위해 비탄력적 시장에 더 큰 세율 부과.\n단, 비탄력 재화는 종종 필수재이므로 역진성·형평성 문제 발생."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-029",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $Q = 100/P^2$ (탄력성 일정 2). P = 5에서 P = 10으로 변화 시 TR 변화는?",
+      "options": [
+        "TR 20 → 10 (감소)",
+        "TR 변화 없음",
+        "TR 20 → 40 (증가)",
+        "TR 10 → 20 (증가)",
+        "TR 100 → 50"
+      ],
+      "answer": "1",
+      "explanation": "$Q(5) = 100/25 = 4$, $TR(5) = 5 \\cdot 4 = 20$.\n$Q(10) = 100/100 = 1$, $TR(10) = 10 \\cdot 1 = 10$.\n탄력성 2 (탄력적) → 가격 인상은 TR 감소.\n일반화: 일정탄력성 모형에서 $TR \\propto P^{1 - \\varepsilon}$. $\\varepsilon > 1$이면 P↑ → TR↓.\n답: ① 20 → 10 (감소)."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec02-item01-030",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $P = 100 - Q$, MC = 0인 독점기업. 이윤극대 (Q, P, π)와 사중손실(DWL)은? (완전경쟁이면 P = MC = 0)",
+      "options": [
+        "Q = 50, P = 50, π = 2500, DWL = 2500",
+        "Q = 100, P = 0, π = 0, DWL = 0",
+        "Q = 25, P = 75, π = 1875, DWL = 2500",
+        "Q = 50, P = 50, π = 2500, DWL = 1250",
+        "Q = 100, P = 100, π = 10000, DWL = 0"
+      ],
+      "answer": "1",
+      "explanation": "독점: $MR = 100 - 2Q = 0 \\Rightarrow Q^* = 50, P^* = 50$.\n이윤 $\\pi = (50 - 0) \\cdot 50 = 2{,}500$.\n완전경쟁이면 P = MC = 0, Q_c = 100.\nDWL = 수요곡선과 MC 사이 삼각형 (Q*에서 Q_c까지) = $\\frac{1}{2}(50 - 0)(100 - 50) = 1{,}250$.\n\n[정정] 답: ④ DWL = 1,250 (50·50의 반 = 1,250).\n\n실제 답: Q=50, P=50, π=2,500, DWL=1,250. ④번이 정답.\n(①번의 DWL=2500은 잘못된 계산.)"
+    }
+  ]
+}

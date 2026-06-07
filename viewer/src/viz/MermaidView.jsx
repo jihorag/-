@@ -11,8 +11,7 @@ function loadMermaid() {
   if (!_mermaidPromise) {
     // Vite v8 정적 분석 우회 — 변수에 담은 문자열로 import 하면
     // 빌드 타임에 모듈 해석을 시도하지 않음. 패키지 미설치 시 런타임에 reject.
-    const pkg = ['merm', 'aid'].join('');
-    _mermaidPromise = import(pkg).then((mod) => {
+    _mermaidPromise = import('mermaid').then((mod) => {
       const m = mod.default || mod;
       m.initialize({
         startOnLoad: false,
@@ -23,7 +22,8 @@ function loadMermaid() {
         sequence: { useMaxWidth: true, mirrorActors: false },
       });
       return m;
-    }).catch(() => {
+    }).catch((e) => {
+      console.error(e);
       throw new Error('mermaid 패키지 미설치 — viewer 디렉터리에서 `npm install` 실행 후 새로고침해주세요.');
     });
   }

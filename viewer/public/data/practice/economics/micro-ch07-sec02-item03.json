@@ -8,84 +8,84 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch07-sec02-item03-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "Arrow의 불가능성 정리(Impossibility Theorem)의 핵심 결론은?",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "애로우의 불가능성 정리(Arrow's Impossibility Theorem)에서 제시하는 사회적 의사결정 방식의 4대 합리성 공리에 해당하지 않는 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
       "options": [
-        "5가지 합리적 조건을 모두 만족하는 사회적 선호 집계 규칙은 존재하지 않음 (독재 제외)",
-        "민주주의는 불가능",
-        "투표는 무의미",
-        "사회적 후생 측정 불가",
-        "정부 결정만 가능"
+        "파레토 원칙 (Weak Pareto Principle)",
+        "비독점성 (Non-dictatorship)",
+        "무관한 대안으로부터의 독립성 (Independence of Irrelevant Alternatives, IIA)",
+        "비제한적 영역 (Unrestricted Domain)",
+        "선호의 완전비탄력성 (Perfect Inelasticity)"
       ],
-      "answer": "1",
-      "explanation": "Arrow (1951, 1963) Social Choice and Individual Values: 합리적 사회 선택 함수의 5조건 (보편영역·만장일치·무관대안독립·비독재·집단합리성)을 동시 만족 불가. 독재만 모든 조건 충족."
+      "answer": "5",
+      "explanation": "케네스 애로우(Kenneth Arrow)가 제시한 4대 합리성 공리는 ① 파레토 원칙, ② 비독점성, ③ 무관한 대안으로부터의 독립성(IIA), ④ 완비성과 이행성을 갖춘 비제한적 영역(U)의 공리입니다. ⑤는 존재하지 않는 무관한 개념입니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-002",
-      "difficulty": 1,
+      "difficulty": 4,
       "question_type": "이론형",
-      "question": "Arrow가 1972년 노벨상을 받은 이유는?",
+      "question": "다수결 투표제 하에서 발생하는 '투표의 역설(Voting Paradox, 콘도르세의 배반)'과 애로우 정리의 연결에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
       "options": [
-        "일반균형이론 + 사회선택이론 발전",
-        "거시경제학",
-        "노동경제학",
-        "재정학",
-        "환경경제학"
+        "투표의 역설은 개별 투표자가 비합리적이기 때문에 발생한다",
+        "개별 투표자들의 선호가 이행성을 만족하더라도, 다수결 집계 과정에서 이행성(Transitivity) 공리가 깨져 순환선호(Cycle)가 나타날 수 있음을 뜻하며, 이는 합리적 사회후생함수 구성의 불가능성을 보여주는 일례이다",
+        "다수결제는 언제나 독점적 의사결정을 유도한다",
+        "순환선호 현상은 오직 2개의 대안만 있을 때 발생한다",
+        "투표 역설은 누진세율의 증가로 인해 완벽하게 소멸한다"
       ],
-      "answer": "1",
-      "explanation": "Kenneth Arrow (1921-2017): 1972년 Hicks와 공동 수상. 일반균형 존재정리(Arrow-Debreu)와 사회선택이론(불가능성 정리). 현대 경제이론의 핵심 인물."
+      "answer": "2",
+      "explanation": "투표의 역설은 개별 사회 구성원들의 선호가 모두 합리적(완비적, 이행적)이더라도, 집단적 다수결 제도 하에서는 이행성 공리($A > B, B > C \\\\Rightarrow A > C$)를 위반하는 선호 순환 구조가 나타나는 현상입니다. 이는 민주적이고 합리적인 집단 의사결정의 본질적 한계를 지적합니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-003",
-      "difficulty": 2,
+      "difficulty": 4,
       "question_type": "이론형",
-      "question": "Arrow의 5가지 조건 중 \"보편영역\"(unrestricted domain)이란?",
+      "question": "무관한 대안으로부터의 독립성(IIA, Independence of Irrelevant Alternatives) 공리의 정의로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
       "options": [
-        "개인이 어떤 선호 순위를 가지든 사회 결정이 가능해야 함",
-        "특정 선호만 허용",
-        "정부 결정 가능",
-        "효율 선호만",
-        "한 명만 결정"
+        "대안의 수가 많아질수록 다수결 결과가 항상 무효가 되는 성질",
+        "임의의 두 대안 A와 B에 대한 사회적 선호 순위는, 두 대안과 직접 관련이 없는 제3의 대안 C의 존재나 선호 순위 변화에 영향을 받지 않고 오직 A와 B에 대한 구성원들의 사적 선호에 의해서만 결정되어야 한다는 공리",
+        "독재자가 선택하는 대안이 다른 사람의 선호와 일치해야 한다는 공리",
+        "정부가 사회적 대안을 외생적으로 지정해야 한다는 공리",
+        "선호가 항상 레온티에프 형태로 고정되어야 한다는 가정"
       ],
-      "answer": "1",
-      "explanation": "보편영역(U): 개인 선호에 사전 제약 없이 어떤 조합이든 입력 가능. 후일 Black의 단봉선호(single-peaked) 같은 제약 추가하면 정리 회피 가능."
+      "answer": "2",
+      "explanation": "IIA 공리란 A와 B 사이의 사회적 선호 순위가 무관한 제3의 대안 C의 등장으로 인해 역전되거나 흔들리지 않아야 한다는 공리입니다. 현실 투표에서 캐스팅보트 대안의 등장으로 1, 2위 순위가 뒤바뀌는 현상(민주적 의사결정의 왜곡)을 억제하려는 합리성 조건입니다. 정답 ②."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-004",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
-      "question": "\"파레토 만장일치\"(Pareto unanimity) 조건이란?",
+      "question": "애로우의 불가능성 정리가 가져다 준 후생경제학 및 공공선택이론 상의 핵심 결론으로 가장 적합한 것은?",
       "options": [
-        "모든 사람이 A를 B보다 선호하면 사회도 A를 B보다 선호해야 함",
-        "한 사람이 선호하면 사회도 선호",
-        "다수결",
-        "Rawls 원칙",
-        "독재 가능"
+        "시장에 독점이 존재할 때만 다수결이 효율적이다",
+        "정의된 4대 합리적 공리를 동시에 충족시키면서 논리적으로 모순이 없는 완비적·이행적 민주적 사회후생함수(또는 룰)는 존재할 수 없다",
+        "정액세를 도입하면 다수결 순환 문제를 해결할 수 있다",
+        "중위투표자 정리와 불가능성 정리는 완벽히 동일한 정리이다",
+        "독재자가 존재하는 사회만이 가장 윤리적으로 완전한 사회임을 증명한다"
       ],
-      "answer": "1",
-      "explanation": "파레토 만장일치(P): 모두 동의하면 사회도 동의. 가장 기본적 합리성. 만약 위반 시 \"사람들이 모두 A 선호하나 사회는 B 선호\" — 비상식."
+      "answer": "2",
+      "explanation": "애로우의 불가능성 정리의 결론은 '민주적이면서 동시에 이치에 맞는 합리적 집단 의사결정 룰은 대수적으로 부재하다'는 것입니다. 즉, 공리를 다 충족시키려 하면 결국 누군가의 선호가 100% 관철되는 독재성(dictatorship)만 남게 됩니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-005",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "\"무관 대안 독립\"(Independence of Irrelevant Alternatives, IIA)이란?",
+      "question": "던컨 블랙(Duncan Black)의 중위투표자 정리(Median Voter Theorem)가 성립하기 위해, 개별 투표자들의 선호 체계에 요구되는 제약 조건으로 옳은 것은?",
       "options": [
-        "A와 B의 사회적 순위는 제3 대안 C에 대한 선호와 무관해야 함",
-        "모든 대안 동시 고려",
-        "비교 불가",
-        "다수결",
-        "독재 가능"
+        "모든 투표자의 선호가 다봉선호(Multi-peaked preferences) 구조를 취해야 한다",
+        "모든 투표자의 선호가 단봉선호(Single-peaked preferences)를 충족해야 하며, 대안들이 단일 차원 상에 배열되어야 한다",
+        "투표자들이 투표를 전면 보이콧해야 한다",
+        "모든 대안에 대해 무차별한 태도를 취해야 한다",
+        "규모의 경제적 우위를 갖는 후보만 선호해야 한다"
       ],
-      "answer": "1",
-      "explanation": "IIA: A>B 결정은 오직 A와 B 사이 선호에만 의존. C와 무관. 직관적이나 강한 가정 — 특히 \"강도(strength) 정보\"를 버림."
+      "answer": "2",
+      "explanation": "다수결제 하에서 투표의 역설(순환)이 발생하지 않고 중위투표자의 선호가 최종 타결책으로 확실히 선택받기 위한 조건은 모든 투표자의 선호가 하나의 극대값(Peak)만 갖는 '단봉선호(Single-peaked)'를 만족할 때입니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-006",
@@ -119,7 +119,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-008",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Condorcet 역설(Condorcet paradox)의 예시는?",
       "options": [
@@ -134,7 +134,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-009",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Arrow 정리의 시사점은?",
       "options": [
@@ -149,7 +149,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-010",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Black의 \"단봉선호\"(single-peaked preferences) 정리는?",
       "options": [
@@ -164,7 +164,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-011",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "중위투표자 정리(Median Voter Theorem)의 시사점은?",
       "options": [
@@ -179,7 +179,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-012",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Gibbard-Satterthwaite 정리의 시사점은?",
       "options": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-014",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Arrow 정리 회피 방안의 하나는?",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-015",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Borda 점수투표(Borda count)는 어떤 조건을 위반하는가?",
       "options": [
@@ -239,7 +239,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-016",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Arrow 정리가 \"사회후생함수\"에 미친 영향은?",
       "options": [
@@ -254,7 +254,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-017",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 대선·총선이 다수결 단순 적용 시 가질 수 있는 한계는?",
       "options": [
@@ -269,7 +269,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-018",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "May (1952)의 \"단순 다수결\" 특성화 정리는?",
       "options": [
@@ -284,7 +284,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-019",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Arrow 정리의 학제적 의의는?",
       "options": [
@@ -299,7 +299,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-020",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Maskin (2007 노벨상)의 \"메커니즘 디자인\"이 Arrow와 다른 점은?",
       "options": [
@@ -314,7 +314,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-021",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 헌법재판소가 다수결 한계를 보완하는 역할의 의미는?",
       "options": [
@@ -329,7 +329,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-022",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Buchanan-Tullock (1962) Calculus of Consent 의 정치경제 시사점은?",
       "options": [
@@ -344,7 +344,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-023",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Arrow 정리에 대한 Saari (2008)의 기하학적 해석은?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item03-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Arrow의 일생 작업이 후생경제학과 일반균형이론을 잇는 의미는?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "Arrow의 두 정리: ① 일반균형 존재정리 (개인 선택) ② 불가능성 정리 (집단 선택). 둘 다 \"합리적 선택\"의 수학적 분석. 현대 경제이론 (특히 미시·후생) 의 출발점. 1972 노벨상."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-026",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-027",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-028",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-029",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-030",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-032",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-034",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-035",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-036",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-037",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-038",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-039",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-040",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-041",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-042",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-043",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-044",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-045",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-046",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-047",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-048",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-049",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "애로우의 불가능성 정리에서 개별 구성원들의 임의의 모든 합리적 선호 체계를 사회적 선호로 집계해 낼 수 있어야 함을 요구하는 '비제한적 영역(Unrestricted Domain)' 공리에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 300 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"150\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4\" />\n  <circle cx=\"150\" cy=\"50\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"146\" y=\"54\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">A</text>\n  <circle cx=\"85\" cy=\"155\" r=\"15\" fill=\"#ef4444\" />\n  <text x=\"81\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">B</text>\n  <circle cx=\"215\" cy=\"155\" r=\"15\" fill=\"#10b981\" />\n  <text x=\"211\" y=\"159\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">C</text>\n  <!-- 화살표 순환선 표시 -->\n  <path d=\"M 135 60 Q 95 95 85 135\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 100 165 Q 150 185 200 165\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <path d=\"M 215 135 Q 205 95 165 60\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">A &gt; B</text>\n  <text x=\"140\" y=\"178\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">B &gt; C</text>\n  <text x=\"180\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">C &gt; A</text>\n</svg>\n```",
+      "options": [
+        "독재자의 선호만 영역 내에 존재해야 한다는 공리",
+        "사회 구성원들이 어떠한 합리적(완비성과 이행성을 갖춘) 선호 체계를 갖더라도 사회적 의사결정 룰은 이를 모두 수용하여 단일 결론을 낼 수 있어야 한다는 공리",
+        "대안의 범위를 항상 2개 이하로 제한해야 한다는 규칙",
+        "특정 선호 구조(예: 단봉선호)만 강제로 수용해야 한다는 조건",
+        "개인 선호의 사람 간 비교가 영구히 허용되어야 한다는 가정"
+      ],
+      "answer": "2",
+      "explanation": "비제한적 영역(U) 공리는 사회적 선택 기구가 사람들의 임의의 다양한 선호 프로필(profile)을 전부 처리하여 단일한 이행적 사회선호로 이끌 수 있어야 함을 나타냅니다. 특정 선호만 걸러내는 편법을 금지하는 공리입니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item03-050",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "애로우의 불가능성 정리에서 제시한 '독재성(Dictatorship)'에 대한 수리 미시경제학적 정의로 옳은 것은?",
+      "options": [
+        "정부가 선거 없이 독재자를 지목하여 의사결정을 내리는 제도",
+        "사회의 모든 대안의 선호 순위가, 다른 모든 구성원의 선호와 상관없이 특정 1인의 선호 순위와 항시 100% 동일하게 결정되는 상태",
+        "다수결 제도가 완벽하게 조율되는 상태",
+        "다수결 결과에 대해 독재자가 거부권만 행사하는 상태",
+        "경제적 지니계수가 1에 수렴하여 자원이 한 사람에게 집중되는 상태"
+      ],
+      "answer": "2",
+      "explanation": "애로우의 독재성이란, 집단 내의 특정 구성원 $i$가 존재하여 다른 구성원의 선호가 어떻든 간에 사회적 선호 순위가 항상 구성원 $i$의 개인 선호 순위와 일치하도록 의사결정이 파생되는 비민주적 상태를 말합니다. 정답 ②."
     }
   ]
 }

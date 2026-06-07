@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제6장 생산요소시장과 소득분배",
+    "section": "제20절 소득분배이론",
+    "item": "제2관 로렌츠곡선과 지니계수",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-03",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "로렌츠곡선(Lorenz curve)이란?",
+      "options": [
+        "누적 인구비율(x)과 누적 소득비율(y)의 관계 곡선",
+        "소득과 효용의 관계",
+        "수요와 공급",
+        "임금과 노동",
+        "물가와 실업"
+      ],
+      "answer": "1",
+      "explanation": "로렌츠곡선: 인구를 소득순으로 정렬, x축 = 누적 인구비율, y축 = 누적 소득비율. 완전 평등 시 45° 대각선, 불평등할수록 아래로 처짐. Max Lorenz (1905) 개발."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "지니계수(Gini coefficient)란?",
+      "options": [
+        "로렌츠곡선과 45° 평등선이 만드는 면적 / 평등선 아래 전체 삼각형 면적",
+        "임금 / 평균",
+        "5분위 배율의 역수",
+        "최상위 / 최하위",
+        "평균 / 중위값"
+      ],
+      "answer": "1",
+      "explanation": "지니계수 $G = \\dfrac{A}{A+B}$ ($A$ = 평등선과 로렌츠 사이 면적, $B$ = 로렌츠 아래 면적). 범위 $[0, 1]$. 0 = 완전평등, 1 = 완전불평등."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-003",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 로렌츠곡선 그래프에서 지니계수의 그래프적 해석은?\n\n[IMAGE: data/practice/economics/graphs/lorenz-gini.svg]",
+      "options": [
+        "음영 영역 A의 면적 / 삼각형 (A + B) 면적",
+        "로렌츠 아래 전체 면적",
+        "평등선의 길이",
+        "음영 면적 ÷ 단위정사각형",
+        "삼각형 둘레"
+      ],
+      "answer": "1",
+      "explanation": "지니 = $A / (A+B) = 2A$. 단위정사각형 가정 시 $A + B = 0.5$. 따라서 $G = 2 \\cdot A$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-004",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "지니계수의 범위는?",
+      "options": [
+        "0 ≤ G ≤ 1 (0 = 완전평등, 1 = 완전불평등)",
+        "-1 ≤ G ≤ 1",
+        "0 ≤ G ≤ 100",
+        "G ≥ 0",
+        "G의 범위 없음"
+      ],
+      "answer": "1",
+      "explanation": "$G \\in [0, 1]$. 완전평등 (모든 사람 같은 소득) → 로렌츠 = 대각선 → A = 0 → G = 0. 한 사람이 모든 소득 → A = B → G = 1. 한국 약 0.33."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-005",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "5명의 소득 = (10, 20, 30, 40, 50). 누적 소득비율은?",
+      "options": [
+        "(7%, 20%, 40%, 67%, 100%)",
+        "(10%, 30%, 60%, 100%, 150%)",
+        "(20%, 40%, 60%, 80%, 100%)",
+        "(7%, 13%, 20%, 27%, 33%)",
+        "(50%, 75%, 88%, 95%, 100%)"
+      ],
+      "answer": "1",
+      "explanation": "총소득 = 150. 누적 = $(10, 30, 60, 100, 150)/150 = (6.67\\%, 20\\%, 40\\%, 66.7\\%, 100\\%)$. ① 근사."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-006",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "5분위별 점유율 (20%, 20%, 20%, 20%, 20%)이면 지니계수는?",
+      "options": [
+        "0",
+        "0.5",
+        "1.0",
+        "0.2",
+        "0.8"
+      ],
+      "answer": "1",
+      "explanation": "완전평등 분포 (모두 동일 점유율) → 로렌츠 = 45° 대각선 → A = 0 → 지니 = 0."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-007",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "5분위별 점유율 (0%, 0%, 0%, 0%, 100%)이면 지니계수는?",
+      "options": [
+        "0.8",
+        "0.5",
+        "1.0",
+        "0.2",
+        "0"
+      ],
+      "answer": "1",
+      "explanation": "한 분위만 모든 소득 → 로렌츠 = (0,0)→(0.8,0)→(1,1). 삼각형 면적 A는 단위정사각형 안에서 최대 0.4. $G = 2A = 0.8$. (인원수 무한 시 G = 1, 5명에서는 최대 0.8.)"
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-008",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "지니계수 근사식 $G = \\dfrac{1}{2n^2 \\bar{y}} \\sum_i \\sum_j |y_i - y_j|$ 에 의해 소득 (1, 2, 3) 분포의 지니는?",
+      "options": [
+        "$\\dfrac{2}{9}$",
+        "$\\dfrac{1}{3}$",
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{1}{6}$",
+        "$\\dfrac{1}{9}$"
+      ],
+      "answer": "1",
+      "explanation": "$\\bar{y} = 2$, $n = 3$. 절대값 차이의 합: $|1-2|+|1-3|+|2-1|+|2-3|+|3-1|+|3-2| = 1+2+1+1+2+1 = 8$. $G = \\dfrac{8}{2 \\cdot 9 \\cdot 2} = \\dfrac{8}{36} = \\dfrac{2}{9} \\approx 0.222$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-009",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 그래프에서 로렌츠곡선 A와 B가 교차하는 경우의 의미는?\n\n[IMAGE: data/practice/economics/graphs/lorenz-gini.svg]",
+      "options": [
+        "지니계수만으로 불평등 순위 비교 불가 — 같은 G라도 분포 다를 수 있음",
+        "두 분포 동일",
+        "A가 항상 더 평등",
+        "B가 항상 더 평등",
+        "교차 불가능"
+      ],
+      "answer": "1",
+      "explanation": "로렌츠곡선 교차 시 한 분포가 다른 분포를 \"로렌츠 지배\"(Lorenz dominance)하지 않음 → 지니 같아도 불평등 순위 모호. Atkinson 등 다른 지수 활용."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-010",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "로렌츠 지배(Lorenz dominance)란?",
+      "options": [
+        "한 분포의 로렌츠곡선이 다른 분포 위에 완전히 있을 때 — 그 분포가 더 평등",
+        "두 곡선의 평균",
+        "로렌츠곡선이 직선일 때",
+        "교차 회수",
+        "기준 없음"
+      ],
+      "answer": "1",
+      "explanation": "A의 로렌츠가 B의 로렌츠 위에 모든 인구 비율에서 위치 → A 분포가 B보다 항상 더 평등 (Lorenz dominance). 이 경우 모든 합리적 불평등 지수에서 동일 순위."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-011",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "한국 가처분소득 기준 지니계수는 OECD 중 어디에 위치하는가?",
+      "options": [
+        "중상위 (약 0.33, OECD 평균 0.31 보다 약간 높음)",
+        "최상위 (가장 평등)",
+        "최하위",
+        "OECD 평균",
+        "측정 불가"
+      ],
+      "answer": "1",
+      "explanation": "한국 가처분소득 지니 약 0.33 (2022 통계청). OECD 평균 약 0.31. 미국 0.38(불평등), 북유럽 0.25~0.28(평등). 한국은 중상위 불평등."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-012",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "지니계수의 한계 중 \"분포 차이 무시\" 문제란?",
+      "options": [
+        "동일 G라도 상위 집중·하위 집중 등 다양한 분포 가능 — 같은 값이 다른 의미",
+        "지니는 항상 0~1 사이",
+        "정규분포 가정",
+        "표본 크기 무관",
+        "측정 비용 ↑"
+      ],
+      "answer": "1",
+      "explanation": "지니는 단일 수치 → 분포 형태 정보 손실. 예: G = 0.4 라도 \"상위 1%가 모든 소득\" vs \"하위 50%가 매우 가난\"이 모두 가능. 보완으로 Atkinson, Theil, P90/P10 함께 사용."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-013",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "Theil 지수의 장점은?",
+      "options": [
+        "집단별 분해(decomposition) 가능 — 집단 내 + 집단 간 불평등 분리 계산",
+        "범위 0~1",
+        "계산 단순",
+        "지니와 동일",
+        "정규분포 가정 불필요"
+      ],
+      "answer": "1",
+      "explanation": "Theil 지수: 엔트로피 기반. 전체 = 집단 내 + 집단 간 불평등 합. 도시-농촌, 성별 등 집단별 기여도 정확 분해. 단 직관성은 지니가 우세."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-014",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "로렌츠곡선과 비스마르크 분배 관계는?",
+      "options": [
+        "곡선이 아래로 처질수록 분배 불평등",
+        "위로 휠수록 불평등",
+        "변화 없음",
+        "직선일수록 불평등",
+        "원점 통과 시 평등"
+      ],
+      "answer": "1",
+      "explanation": "로렌츠 = 45° 대각선 → 완전평등. 아래로 처질수록 → 같은 인구비율에 소득이 적게 누적 → 불평등. 가장 극단적 처짐 = L자형 (한 명이 모두 가짐)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-015",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "10분위별 소득 점유율: (1%, 2%, 4%, 6%, 8%, 10%, 12%, 15%, 18%, 24%). 누적 인구 50%일 때 누적 소득은?",
+      "options": [
+        "21%",
+        "35%",
+        "50%",
+        "15%",
+        "30%"
+      ],
+      "answer": "1",
+      "explanation": "하위 50% (1~5분위) 누적 = $1 + 2 + 4 + 6 + 8 = 21\\%$. 평등이라면 50%여야 하지만 21%만 차지 → 불평등 분포."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-016",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "Pareto 분포가 상위 소득 분포를 잘 설명한다는 \"Pareto의 법칙\"이란?",
+      "options": [
+        "상위 소득 분포는 $f(y) \\propto y^{-\\alpha-1}$ — 멱법칙(power-law)",
+        "정규분포",
+        "지수분포",
+        "균등분포",
+        "감마분포"
+      ],
+      "answer": "1",
+      "explanation": "Vilfredo Pareto (1896): 상위 소득은 멱법칙. 약 \"80-20 법칙\" (상위 20%가 부의 80%) 기원. $\\alpha$ = Pareto 지수, 낮을수록 상위 집중. 한국 부동산 가치, 미국 부에서 잘 맞음."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-017",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "다음 로렌츠곡선 그래프에서 시장소득 곡선과 가처분소득 곡선의 차이가 의미하는 바는?\n\n[IMAGE: data/practice/economics/graphs/lorenz-gini.svg]",
+      "options": [
+        "정부 재분배(세금 + 이전소득) 효과",
+        "측정 오차",
+        "환율 영향",
+        "물가 영향",
+        "외환위기 영향"
+      ],
+      "answer": "1",
+      "explanation": "시장 지니 > 가처분 지니 → 재분배 효과. 차이 = 세금·복지에 의해 줄어든 불평등 크기. 한국 약 5~7%p 격차 (OECD 평균 15%p보다 낮음, 즉 재분배 약함)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-018",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Piketty가 사용한 \"Top 10% 소득 점유율\"이 지니계수보다 갖는 장점은?",
+      "options": [
+        "최상위 집중을 직접 측정 + 직관적 + 장기 비교 가능",
+        "지니가 항상 정확함",
+        "Pareto 분포 가정 필요",
+        "범위 0~1",
+        "정부 통계 사용 안 함"
+      ],
+      "answer": "1",
+      "explanation": "Piketty: 지니는 상위 변화에 둔감. \"Top 10% / Top 1% 점유율\"이 부 집중 잘 잡음. 한국 Top 10% 소득 점유율 약 35~40% (미국 50%+ 보다 낮음)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-019",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "지니계수의 인구·소득 척도 불변 성질은?",
+      "options": [
+        "모든 소득에 상수 곱해도 지니 불변 (scale invariance), 인구 복제해도 불변 (population invariance)",
+        "소득 ↑ → 지니 ↑",
+        "인구 ↑ → 지니 ↑",
+        "소득·인구 모두 영향",
+        "성질 없음"
+      ],
+      "answer": "1",
+      "explanation": "지니의 4대 성질: ① scale invariance (소득 상수배 → 불변) ② population invariance (인구 복제 → 불변) ③ Pigou-Dalton (저소득→고소득 이전 시 지니 ↑) ④ 익명성. 좋은 불평등 지수의 표준."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Pigou-Dalton 이전 원칙(transfer principle)이란?",
+      "options": [
+        "고소득에서 저소득으로 소득 이전 시 불평등 지수가 감소해야 함",
+        "고소득 → 더 고소득",
+        "저소득 → 평균",
+        "정부 이전",
+        "이전 무관"
+      ],
+      "answer": "1",
+      "explanation": "Pigou-Dalton: 누진재분배(저소득자에게 작은 양 이전)로 불평등 지수 감소. 좋은 지수의 필요조건. 지니·Atkinson·Theil 모두 만족. 5분위 배율은 일부 위반 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-021",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Sen이 지적한 \"지니계수의 후생경제학적 한계\"란?",
+      "options": [
+        "지니는 사회후생함수와 명시적 연결 부족 → 가치판단 묵시화",
+        "측정 어려움",
+        "단순함",
+        "표본 크기 영향",
+        "정규분포 가정"
+      ],
+      "answer": "1",
+      "explanation": "Sen (1973): 지니계수는 \"왜 평등이 좋은가\" 가치판단을 묵시적으로 포함. Atkinson 지수는 사회후생함수 명시. 다양한 가치판단 비교에 Atkinson 유용. Sen 자신은 발전과 정의 관점에서 Capability Approach 제안."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-022",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "두 분포 A = (1, 2, 3, 4) 와 B = (0, 2, 3, 5). 지니계수가 더 큰 것은?",
+      "options": [
+        "B (불평등 더 큼)",
+        "A",
+        "같음",
+        "지니 비교 불가",
+        "정보 부족"
+      ],
+      "answer": "1",
+      "explanation": "A 평균 2.5, B 평균 2.5 (동일). B는 최하 0 → 분산 ↑ → 지니 ↑. 직관: B에는 더 가난한 사람과 더 부유한 사람 존재 → 불평등 ↑."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-023",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "한국 지니계수가 OECD 평균보다 약간 높은데 \"국제 비교 시 주의점\" 은?",
+      "options": [
+        "측정 단위(개인 vs 가구), 시기, 자영업자 처리 방식 등 차이 → 직접 비교 한계",
+        "OECD가 잘못 측정",
+        "한국이 작은 나라",
+        "통계청만 신뢰",
+        "지니는 항상 비교 가능"
+      ],
+      "answer": "1",
+      "explanation": "국제 지니 비교 시: ① 개인소득 vs 가구균등화소득 ② 시장 vs 가처분 ③ 자영업자 소득 분리 방식 ④ 조사 방법(가계조사 vs 행정자료). OECD-한국 표준 다소 차이."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-024",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국에서 \"가구 균등화 소득\"(equivalised income)을 사용하는 이유는?",
+      "options": [
+        "가구 규모에 따른 규모의 경제 반영 — 가족 4명이 1명의 4배 소비하지 않음",
+        "가구 수 계산을 위해",
+        "소득 측정 단순화",
+        "복지 정책 결정",
+        "환율 조정"
+      ],
+      "answer": "1",
+      "explanation": "가구원 1인은 가구 자원의 약 $1/\\sqrt{n}$ 만 사용 (OECD 균등화 척도). 가구 총소득을 균등화 → 개인 단위 소득. 더 정확한 분배 측정. 한국 통계청 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec03-item02-025",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국에서 노인 빈곤율(상대적 빈곤율)이 OECD 최악 수준인 이유는?",
+      "options": [
+        "국민연금 도입 늦음 + 사적 노후준비 부족 + 자영업 노후 보장 약함",
+        "고령자 노동 가능",
+        "정부 지원 충분",
+        "가족 부양 강함",
+        "기초연금 도입"
+      ],
+      "answer": "1",
+      "explanation": "한국 노인 상대빈곤율 약 40% (OECD 평균 14%) — 최악. 원인: 1988년 국민연금 도입(짧은 기여 기간), 자영업자 60% 이상 미가입, 자녀 부양 의식 약화. 기초연금 인상으로 다소 개선 중."
+    }
+  ]
+}

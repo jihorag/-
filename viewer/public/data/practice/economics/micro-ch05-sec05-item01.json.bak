@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제17절 게임이론",
+    "item": "제1관 전략형 게임과 내쉬균형",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "게임이론의 4가지 요소가 아닌 것은?",
+      "options": [
+        "정부 결정",
+        "참여자 (Players)",
+        "전략 (Strategies)",
+        "보수 (Payoffs)",
+        "정보 (Information)"
+      ],
+      "answer": "1",
+      "explanation": "게임의 4요소: ① 참여자 ② 전략 ③ 보수 ④ 정보. 정부 결정은 게임이론과 별개."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "내쉬균형(Nash 1950)의 정의는?",
+      "options": [
+        "각 참여자가 다른 참여자 전략 주어진 상태에서 자기 최적 전략 선택 → 변경 인센티브 없음",
+        "협력 전략",
+        "정부 강제 균형",
+        "MC = MR",
+        "독점 균형"
+      ],
+      "answer": "1",
+      "explanation": "내쉬균형: 모든 참여자가 다른 사람 전략 고정 시 자기 전략 변경의 인센티브 없음. Nash(1950, 1994 노벨상). 게임이론의 기본 균형 개념."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-003",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "지배전략(dominant strategy)이란?",
+      "options": [
+        "상대방 전략에 관계없이 항상 우월한 전략",
+        "약한 전략",
+        "협력 전략",
+        "정부 결정",
+        "혼합 전략"
+      ],
+      "answer": "1",
+      "explanation": "지배전략: 상대가 어떻게 하든 자기에게 유리한 전략. 두 참여자 모두 지배전략 보유 시 그 조합이 내쉬균형 (지배전략 균형)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-004",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 죄수의 딜레마에서 내쉬균형은?\n\n[IMAGE: data/practice/economics/graphs/game-payoff-prisoner.svg]",
+      "options": [
+        "(A 자백, B 자백) = (-5, -5)",
+        "(A 침묵, B 침묵) = (-1, -1)",
+        "(A 자백, B 침묵)",
+        "(A 침묵, B 자백)",
+        "균형 없음"
+      ],
+      "answer": "1",
+      "explanation": "양쪽이 '자백'이 지배전략 (상대가 무엇하든 자백이 유리). 내쉬균형 = (자백, 자백) = (-5, -5). 협력(-1, -1)이 더 좋지만 도달 못함 = 딜레마."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-005",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마의 핵심 시사점은?",
+      "options": [
+        "개인 합리성이 집단 최적과 충돌 → 협력 어려움 (자유시장 한계)",
+        "협력 보장",
+        "독점 우월",
+        "정부 무용",
+        "내쉬균형 = 파레토 최적"
+      ],
+      "answer": "1",
+      "explanation": "딜레마: 각자 합리적(지배전략 = 자백) → 집단 비최적 결과. 협력(침묵)이 모두에게 좋지만 도달 못함. 카르텔·환경·공유자원 등 광범위 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-006",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Nash(1950) 정리의 핵심 결과는?",
+      "options": [
+        "유한 참여자·유한 전략 게임은 (혼합전략 포함) 적어도 하나의 내쉬균형 존재",
+        "균형 항상 유일",
+        "협력 보장",
+        "정부 결정",
+        "균형 없음"
+      ],
+      "answer": "1",
+      "explanation": "Nash 정리(1950): 유한 게임은 적어도 하나의 내쉬균형 존재 (혼합전략 포함). 균형 존재성 증명. Nash 1994 노벨상."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-007",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "혼합전략(mixed strategy)이란?",
+      "options": [
+        "여러 순수전략 중 확률적 선택. 순수전략 균형 없을 때도 균형 존재",
+        "정부 결정",
+        "고정 전략",
+        "무전략",
+        "협력 전략"
+      ],
+      "answer": "1",
+      "explanation": "혼합전략: 순수전략들을 확률적으로 선택. 가위바위보처럼 순수전략 균형 없는 게임에도 혼합전략 균형 존재 (Nash 정리)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-008",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "두 기업 가격 경쟁: (높음, 낮음) 보수행렬. 한 행위자가 '높음 100·낮음 80', 다른 '낮음 90·높음 60'. 두 사람 모두 ('낮음') 지배전략. 균형 보수는?",
+      "options": [
+        "(80, 90)",
+        "(100, 60)",
+        "(90, 80)",
+        "(60, 100)",
+        "(0, 0)"
+      ],
+      "answer": "1",
+      "explanation": "행위자1: 높음 100·낮음 80 → 높음 지배.\n행위자2: 낮음 90·높음 60 → 낮음 지배.\n균형: (높음, 낮음)? 잠깐 재확인.\n\n[정정] 문제 구조상 두 사람 모두 '낮음' 지배라면 균형 (낮음, 낮음). 보수: 행위자1: 낮음 80, 행위자2: 낮음 90. 답 (80, 90).\n\n전략적 상호의존 게임의 표준 분석."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-009",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "내쉬균형이 파레토 최적과 다른 사례는?",
+      "options": [
+        "죄수의 딜레마, 공공재 무임승차, 카르텔 깨짐",
+        "모든 게임",
+        "협력 게임만",
+        "독점",
+        "완전경쟁"
+      ],
+      "answer": "1",
+      "explanation": "내쉬균형 ≠ 파레토 최적 사례:\n① 죄수의 딜레마: (자백, 자백) vs (침묵, 침묵)\n② 공공재 무임승차\n③ 카르텔 cheating\n개인 합리성과 집단 최적의 충돌."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-010",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "내쉬균형이 다수일 수 있는 게임 예는?",
+      "options": [
+        "Battle of Sexes, Coordination Game, Hawk-Dove",
+        "죄수의 딜레마",
+        "독점",
+        "완전경쟁",
+        "오로지 1개"
+      ],
+      "answer": "1",
+      "explanation": "다수 내쉬균형 게임: ① Battle of Sexes (선호 조정 + 갈등) ② Coordination Game ③ Hawk-Dove (진화 게임). 균형 선택 문제 (focal point, Schelling)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-011",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "동전 맞추기 (Matching Pennies): 같으면 A 1·B -1, 다르면 A -1·B 1. 내쉬균형은?",
+      "options": [
+        "혼합전략 (각자 50%·50%)",
+        "(앞, 앞)",
+        "(뒤, 뒤)",
+        "균형 없음",
+        "(앞, 뒤)"
+      ],
+      "answer": "1",
+      "explanation": "순수전략 내쉬균형 없음. 혼합전략: A·B 모두 앞·뒤 50% → 상대 전략에 무차별. 가위바위보와 유사."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-012",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "공공재 게임의 무임승차 결과는?",
+      "options": [
+        "모두 무임승차 → 공공재 공급 부족 (DWL)",
+        "협력 보장",
+        "공급 과잉",
+        "정부 결정",
+        "독점"
+      ],
+      "answer": "1",
+      "explanation": "공공재 게임: 각자 기여 비용 부담 / 혜택 공유 → 무임승차가 지배전략 → 모두 무임승차 → 공급 부족. 죄수의 딜레마 다인 버전. 정부 강제 필요."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "협력 게임의 핵심 특징은?",
+      "options": [
+        "구속력 있는 합의 가능 → 협력 균형 (Shapley value 등)",
+        "구속 없음",
+        "협력 불가",
+        "정부 결정",
+        "내쉬균형만"
+      ],
+      "answer": "1",
+      "explanation": "협력 게임(cooperative game): 구속력 있는 합의 가능. 보수 분배 분석 (Shapley value, core). 비협력 게임은 합의 강제 불가 → 자율적 균형."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-014",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "전략형 게임(normal form)의 표현은?",
+      "options": [
+        "보수행렬(payoff matrix)로 참여자·전략·보수 동시 표시",
+        "확장형 (트리)",
+        "그림",
+        "수식 표만",
+        "글로 설명"
+      ],
+      "answer": "1",
+      "explanation": "전략형: 참여자·전략·보수의 동시 표시. 2인 게임은 보수행렬 (matrix), 다인은 텐서. 동시 결정 게임에 적합. 순차 게임은 확장형(extensive form, 트리)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-015",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "쿠르노 2기업: 수요 P = 30 - Q, MC = 0. 내쉬균형은?",
+      "options": [
+        "q_i = 10, P = 10, π_i = 100",
+        "q_i = 15, P = 0",
+        "q_i = 7.5, P = 15",
+        "q_i = 30",
+        "q_i = 0"
+      ],
+      "answer": "1",
+      "explanation": "쿠르노: q_i = a/(n+1) = 30/3 = 10. Q = 20, P = 10. π_i = 10·10 = 100.\n반응함수 교점이 내쉬균형."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-016",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "내쉬균형의 한계로 옳지 않은 것은?",
+      "options": [
+        "균형 결과가 항상 사회 최적",
+        "복수 균형 시 선택 문제",
+        "행동 합리성 가정",
+        "신뢰·약속 문제",
+        "정보 비대칭 무시"
+      ],
+      "answer": "1",
+      "explanation": "내쉬균형 한계: ① 사회 최적 미보장(딜레마) ② 복수 균형 선택 ③ 완전 합리성 가정 ④ 신뢰·약속 문제. 사회 최적이라는 명제는 오류."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-017",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "치킨 게임 (Chicken Game): 둘 다 직진 → -10/-10, 한쪽 회전 → -1/1, 둘 다 회전 → 0/0. 내쉬균형은?",
+      "options": [
+        "두 순수전략 균형 (직진, 회전), (회전, 직진) + 혼합전략",
+        "(직진, 직진)",
+        "(회전, 회전)",
+        "균형 없음",
+        "확정 불가"
+      ],
+      "answer": "1",
+      "explanation": "치킨 게임: 두 순수 균형 (한쪽 직진·한쪽 회전). 선점 우위 게임. 혼합전략 균형도 존재. 핵억지·외교 등 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-018",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "신뢰 가능 약속(credible commitment)의 사례는?",
+      "options": [
+        "선점 투자로 대안 차단 → 후발자에게 신호",
+        "단순 협박",
+        "정부 약속만",
+        "구두 약속",
+        "변경 가능"
+      ],
+      "answer": "1",
+      "explanation": "신뢰 가능 약속(Schelling): 자기 대안을 차단·줄임으로 후발자에 신호. 선점 투자(대규모 공장), 자기 강제 메커니즘. 슈타켈베르크 선도자 우위의 미시 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-019",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "게임이론의 경제학·사회과학 응용 분야는?",
+      "options": [
+        "과점, 협상, 경매, 입찰, 카르텔, 외교, 진화",
+        "독점만",
+        "농업만",
+        "노동만",
+        "수요만"
+      ],
+      "answer": "1",
+      "explanation": "게임이론 응용: ① 과점·기업 전략 ② 협상·중재 ③ 경매·입찰 (FCC 통신 면허) ④ 카르텔·담합 ⑤ 외교·전쟁 ⑥ 진화·생물. 사회과학 광범위."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-020",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "두 기업 광고 결정: 둘 다 광고 (10, 10), 한쪽만 광고 (20, 5), 둘 다 안함 (15, 15). 내쉬균형은?",
+      "options": [
+        "(광고, 광고) = (10, 10) (지배전략 균형)",
+        "(안함, 안함) = (15, 15)",
+        "(광고, 안함)",
+        "혼합",
+        "균형 없음"
+      ],
+      "answer": "1",
+      "explanation": "각자 광고가 지배전략 (안함 vs 광고: 한쪽만 광고 시 20 > 15 → 광고 우월). 둘 다 광고: (10, 10). 협력(안함, 안함 = 15, 15)이 더 좋지만 도달 못함. 광고 죄수딜레마."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-021",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "메커니즘 디자인(Mechanism Design)의 의미는?",
+      "options": [
+        "원하는 결과 달성하도록 게임 규칙 설계 (역방향)",
+        "기존 게임 분석만",
+        "정부 결정",
+        "수요만",
+        "공급만"
+      ],
+      "answer": "1",
+      "explanation": "메커니즘 디자인(Hurwicz·Maskin·Myerson, 2007 노벨상): 원하는 사회적 결과를 위한 규칙 설계 - 역방향 게임이론. 경매 디자인 (FCC 통신), VCG 메커니즘."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-022",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "다음 보수행렬에서 죄수의 딜레마 구조를 갖는 사례는?\n\n[IMAGE: data/practice/economics/graphs/game-payoff-prisoner.svg]",
+      "options": [
+        "카르텔(가격 담합), 공공재 기부, 환경 보호, 군비 경쟁",
+        "독점",
+        "완전경쟁",
+        "정부 보조금",
+        "수요·공급"
+      ],
+      "answer": "1",
+      "explanation": "딜레마 구조: ① 카르텔 (각자 cheating 유인) ② 공공재 (무임승차) ③ 환경 (각국 배출) ④ 군비 경쟁. 개인 합리성 → 집단 비최적."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-023",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "내쉬균형의 행동경제학적 비판은?",
+      "options": [
+        "공정성·이타심·신뢰가 실제 행동에 영향 → 표준 모형과 다른 결과",
+        "완벽한 모형",
+        "비판 무용",
+        "정부 결정",
+        "표준 옹호"
+      ],
+      "answer": "1",
+      "explanation": "행동경제학 비판 (Ultimatum 게임 등): 사람은 공정성·이타심 고려 → 표준 합리성 모형과 다른 행동. Fehr·Schmidt(1999): 불평등 회피 모형. 신뢰 게임에서 협력 증가."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-024",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Subgame Perfect Equilibrium(SPE)의 의미는?",
+      "options": [
+        "확장형 게임의 모든 부분게임에서 내쉬균형. 비신뢰 협박 배제",
+        "정태 게임만",
+        "단순 내쉬균형",
+        "정부 결정",
+        "협력만"
+      ],
+      "answer": "1",
+      "explanation": "SPE (Selten, 1965): 확장형 게임의 모든 부분게임에서 내쉬균형. 백워드 인덕션으로 도출. 비신뢰 협박(non-credible threat) 배제. 슈타켈베르크가 SPE."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-025",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "현대 게임이론의 발전 방향은?",
+      "options": [
+        "진화 게임 + 행동 게임 + 메커니즘 디자인 + 신호 게임",
+        "표준 분석만",
+        "협력 게임만",
+        "정부 결정만",
+        "단순화"
+      ],
+      "answer": "1",
+      "explanation": "현대 게임이론: ① 진화 게임(생물·사회) ② 행동 게임(공정성) ③ 메커니즘 디자인(경매) ④ 신호·선별 게임(정보 비대칭). 노벨상 다수 (Nash 1994, Harsanyi·Selten 1994, Aumann·Schelling 2005, Hurwicz 2007 등)."
+    }
+  ]
+}

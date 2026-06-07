@@ -8,7 +8,7 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-01",
-    "count": 30
+    "count": 50
   },
   "questions": [
     {
@@ -58,7 +58,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item02-004",
-      "difficulty": 1,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "경제학에서 가장 보편적인 가정 두 가지는?",
       "options": [
@@ -88,7 +88,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item02-006",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "내생변수(endogenous variable)와 외생변수(exogenous variable)의 구분에 관한 옳은 설명은?",
       "options": [
@@ -178,7 +178,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item02-012",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음 중 경제 모형의 구성요소에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 가정은 분석의 단순화를 위한 전제이다.\nㄴ. 변수는 내생변수와 외생변수로 구분된다.\nㄷ. 함수관계는 변수 간의 구조적 관계를 명시한다.\nㄹ. 가설은 검증 가능한 명제이어야 한다.",
       "options": [
@@ -418,7 +418,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item02-028",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 경제학 방법론의 발전사이다. 시기 순서대로 옳게 나열한 것은?\n\nㄱ. 마샬의 부분균형분석과 「경제학원리」(1890)\nㄴ. 왈라스의 일반균형이론과 「순수경제학요론」(1874)\nㄷ. 사무엘슨의 수학적 방법과 「경제분석의 기초」(1947)\nㄹ. 프리드만의 도구주의 방법론(1953)\nㅁ. 루카스 비판과 새고전학파의 미시적 기초 강조(1976)\nㅂ. 행동경제학과 제한된 합리성(Simon 1957, Kahneman·Tversky 1970년대~)",
       "options": [
@@ -433,7 +433,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item02-029",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 '미시적 기초(microfoundations)'에 관한 옳은 설명은?",
       "options": [
@@ -448,7 +448,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item02-030",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 경제 모형의 가정과 검증에 관한 종합 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 좋은 모형은 가정의 단순성과 예측의 정확성의 균형이 중요하다.\nㄴ. 프리드만의 도구주의에 따르면 가정이 다소 비현실적이더라도 예측이 정확하면 좋은 모형이다.\nㄷ. 루카스 비판은 거시경제 모형의 미시적 기초의 중요성을 강조하였다.\nㄹ. 포퍼의 반증주의는 과학적 명제의 기준을 반증 가능성으로 제시하였다.\nㅁ. 모든 모형은 가치판단을 적극 도입해야 좋은 모형이다.",
       "options": [
@@ -460,6 +460,306 @@
       ],
       "answer": "2",
       "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 모형은 분석 도구로서 객관성을 추구해야 하며, 가치판단은 가능한 한 명시적으로 분리되어야 한다(미르달의 가치전제 명시). 가치판단의 적극 도입이 좋은 모형의 기준이라는 주장은 잘못이다. 정책 권고에서는 실증 모형 + 가치판단의 결합이 필요하나 모형 자체는 실증적이어야 한다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-031",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 재화 X의 시장 수요함수가 $Q_d = 120 - P$ 이고, 공급함수는 $Q_s = 20 + P - T$ (단, $T$는 정부가 생산자에게 부과하는 단위당 세금이며 외생변수임)로 명시되어 있다.\n외생적인 세금 정책 변동이 내생변수인 균형 가격($P^*$)과 균형 거래량($Q^*$)에 미치는 비교정태분석(Comparative Statics)의 결과로서, 세금 변동에 따른 가격 및 거래량의 편미분 변화율($\\dfrac{\\partial P^*}{\\partial T}$, $\\dfrac{\\partial Q^*}{\\partial T}$)의 크기를 바르게 구한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 수요선 Q = 120 - P -->\n  <line x1=\"50\" y1=\"70\" x2=\"230\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  \n  <!-- 초기 공급선 S0 (T=0) -> Q = 20 + P -> P = Q - 20 -> x=50(y=50 스케일), x=200(y=200 스케일) -->\n  <!-- 스케일 매핑: Q=10단위 -> 20픽셀 -->\n  <line x1=\"50\" y1=\"130\" x2=\"170\" y2=\"10\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <!-- 세금 부과 후 공급선 S1 (T=20) -> P = Q - 20 + T -> 상향 이동 -->\n  <line x1=\"50\" y1=\"90\" x2=\"170\" y2=\"30\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <!-- 균형 이동 화살표 -->\n  <path d=\"M 120 100 L 100 120\" stroke=\"#ef4444\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\" />\n</svg>\n```",
+      "options": [
+        "$\\dfrac{\\partial P^*}{\\partial T} = 1.0$, $\\dfrac{\\partial Q^*}{\\partial T} = -1.0$",
+        "$\\dfrac{\\partial P^*}{\\partial T} = 0.5$, $\\dfrac{\\partial Q^*}{\\partial T} = -0.5$ 이며, 세금 부과 시 균형 가격은 세금의 절반만큼 상승하고 거래량은 그만큼 감소한다.",
+        "$\\dfrac{\\partial P^*}{\\partial T} = -0.5$, $\\dfrac{\\partial Q^*}{\\partial T} = 0.5$",
+        "$\\dfrac{\\partial P^*}{\\partial T} = 2.0$, $\\dfrac{\\partial Q^*}{\\partial T} = -2.0$",
+        "세금 T는 외생변수이므로 내생 균형인 P와 Q를 물리적으로 변화시킬 수 없다."
+      ],
+      "answer": "2",
+      "explanation": "정태적 모형 분석의 핵심 도구인 비교정태분석(Comparative Statics)을 연립 편미분을 통해 계산하는 L4 수리 문항입니다.\n1) **내생변수의 축약형(Reduced Form) 도출**:\n   - 모형의 시장 균형 조건인 수요량 = 공급량($Q_d = Q_s$)을 적용합니다.\n   - $120 - P = 20 + P - T \\implies 2P = 100 + T \\implies P^* = 50 + 0.5T$\n   - 이를 수요함수에 대입하여 균형 거래량을 구합니다.\n   - $Q^* = 120 - (50 + 0.5T) = 70 - 0.5T$\n2) **외생변수 $T$ 에 대한 편미분 실행**:\n   - $\\dfrac{\\partial P^*}{\\partial T} = \\dfrac{\\partial (50 + 0.5T)}{\\partial T} = 0.5$\n   - $\\dfrac{\\partial Q^*}{\\partial T} = \\dfrac{\\partial (70 - 0.5T)}{\\partial T} = -0.5$\n3) **결론**: 세금($T$)의 1단위 증가는 내생변수인 가격($P^*$)을 $0.5$만큼 상승시키고, 거래량($Q^*$)을 $0.5$만큼 감소시키는 효과를 가져옵니다. (수요와 공급 곡선의 기울기 절대값이 동일하므로 세금이 정확히 반씩 귀착되는 현상입니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-032",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 농산물 시장의 동태적 조정 과정을 묘사하는 거미줄 모형(Cobweb Model)이 다음과 같이 차분방정식 구조로 구축되어 있다.\n- $t$ 기의 수요함수: $Q_{dt} = 100 - 2 P_t$\n- $t$ 기의 공급함수: $Q_{st} = -20 + P_{t-1}$ (생산 시차 전제)\n이 시장에 외부 충격이 발생하여 균형이 흩어진 후, 시간이 흐름에 따라 가격($P_t$)이 장기 균형 가격 수준으로 다시 안정적으로 수렴(Convergence)해 가는지에 대한 판단과 가격의 안정적 수렴 조건을 바르게 분석한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n\n  <!-- 가파른 공급선 S (기울기 절대값 1) -> x=50(y=200), x=150(y=100) -->\n  <line x1=\"90\" y1=\"230\" x2=\"190\" y2=\"30\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"175\" y=\"55\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">공급 S (완곡)</text>\n  \n  <!-- 완만한 수요선 D (기울기 절대값 0.5) -> x=50(y=100), x=250(y=200) -->\n  <line x1=\"50\" y1=\"70\" x2=\"250\" y2=\"230\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"235\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\">수요 D (가파름)</text>\n\n  <!-- 거미줄 수렴 나선 경로 묘사 -->\n  <!-- 시작점 P0=150(y=100) -> Q0=80(x=170) -> P1 -> Q1 수렴 사각형 -->\n  <path d=\"M 120 180 L 160 180 L 160 100 L 100 100 L 100 150 L 140 150 L 140 120 L 120 120\" stroke=\"#1e293b\" stroke-width=\"1.2\" fill=\"none\" />\n</svg>\n```",
+      "options": [
+        "이 시장은 공급 곡선이 수요 곡선보다 더 완만하므로(기울기 절대값이 더 작으므로) 가격이 수렴하지 않고 영원히 발산(Divergence)한다.",
+        "이 시장은 수요의 가격탄력성이 공급의 가격탄력성보다 크며(수요 곡선 기울기 절대값 $b=2$ 의 역수 $0.5$ 대 공급 기울기 $d=1$ 의 역수 $1.0$), 즉 공급 곡선 기울기 절대값($1.0$)이 수요 곡선 기울기 절대값($2.0$)보다 작으므로 가격은 장기 균형점(40)을 향해 소용돌이치며 안정적으로 수렴한다.",
+        "공급 시차가 존재할 때는 항상 가격 변동이 멈추어 정태 균형만 성립한다.",
+        "장기 균형 가격은 항상 0으로 하락하여 시장이 자동 소멸한다.",
+        "안정성 조건은 오직 인플레이션 기조하에서만 성립한다."
+      ],
+      "answer": "2",
+      "explanation": "생산 시차가 반영된 시장의 동태적 거미줄 모형(Cobweb Model)의 수리적 수렴 조건을 도출하는 L4 계산/이론 문항입니다.\n1) **장기 균형 가격($P^*$) 계산**:\n   - $Q_{dt} = Q_{st} \\implies 100 - 2P^* = -20 + P^* \\implies 3P^* = 120 \\implies P^* = 40$\n2) **차분방정식을 통한 동태 안정성 판정**:\n   - $100 - 2P_t = -20 + P_{t-1} \\implies -2(P_t - 40) = (P_{t-1} - 40) \\implies P_t - 40 = -0.5(P_{t-1} - 40)$\n   - 일반해: $P_t - 40 = (-0.5)^t (P_0 - 40)$\n3) **수렴성 판정**:\n   - 시차 항의 계수인 $(-0.5)$ 의 절대값이 $1$ 보다 작습니다($|-0.5| < 1$).\n   - 즉, 공급 곡선 기울기 절대값($1$)이 수요 곡선 기울기 절대값($2$)보다 작으므로 가격 편차는 매 기마다 정확히 반으로 줄어들며 진동 수렴(감쇠진동)하게 됩니다. 따라서 이 시장의 균형은 동태적으로 **안정적(Stable)**입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-033",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "거시 경제의 총량적 변동 모형인 루카스 공급곡선(Lucas Supply Curve)이 다음과 같은 함수 관계로 수립되어 있다.\n- $Y_t = Y_n + 2(P_t - P_t^e)$ (단, $Y_n = 100$ 은 자연실질생산량이며 외생변수이고, $P_t$는 실제 물가, $P_t^e$는 기대 물가임)\n경제주체들이 가용한 모든 정보를 효율적으로 활용하는 합리적 기대 가설(Rational Expectations Hypothesis)을 적용하여 미래의 정부 정책 기조에 따라 기대 물가($P_t^e = P_t$)를 완벽하게 예측하여 선제 조율한다고 전제한다.\n이 모형 하에서 정부가 총수요 팽창 정책을 통해 실질 총생산($Y_t$)을 자연율($Y_n$) 이상으로 증가시킬 수 있는지 여부(정책무력성 정리)와 장기 총공급곡선의 기하학적 형태를 옳게 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">생산량 (Y)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">물가 (P)</text>\n\n  <!-- 수직의 LRAS선 (Yn = 100) -> x=170 (50+120=170) -->\n  <line x1=\"170\" y1=\"50\" x2=\"170\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"175\" y=\"70\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">장기 AS선 (수직)</text>\n  \n  <!-- 우상향 SRAS선 (예상치 못한 경우) -->\n  <line x1=\"90\" y1=\"210\" x2=\"250\" y2=\"90\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <text x=\"220\" y=\"130\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">단기 AS선</text>\n</svg>\n```",
+      "options": [
+        "예상된 정책이더라도 생산량을 증가시킬 수 있으며, 공급곡선은 완만하게 우상향한다.",
+        "합리적 기대 하에서는 예상된 통화/재정 정책은 기대 물가에 즉각 반영($P_t^e = P_t$)되므로 실질생산량은 자연율($Y_n=100$)에 고정되어 정책 효과가 무력화(Policy Ineffectiveness)되며, 이에 대응하는 장기 총공급곡선(AS)은 자연율 수준에서 수직(Vertical)의 형태를 띤다.",
+        "합리적 기대를 도입하면 총생산은 0으로 몰락한다.",
+        "공급곡선은 물가 수준이 하락할 때만 우측으로 평행 이동하여 팽창한다.",
+        "기대가 변하더라도 단기 공급곡선은 언제나 가로축에 수평으로 고정된다."
+      ],
+      "answer": "2",
+      "explanation": "합리적 기대(REH)가 경제 모형의 정책 함의에 미치는 영향(정책무력성 정리)을 총공급곡선의 기울기 및 형태를 통해 분석하는 L4 문항입니다.\n1) **루카스 공급곡선 상의 기대 물가 작용**:\n   - $Y_t = Y_n + 2(P_t - P_t^e)$\n2) **합리적 기대 가설의 대입**:\n   - 경제주체가 체계적 오차 없이 물가를 예상하므로, 예상된 정책 충격에 대해서는 $P_t^e = P_t$ 가 만족됩니다.\n   - 따라서 $Y_t = Y_n + 2(0) = Y_n = 100$\n3) **경제학적 함의**:\n   - 정부가 사전에 공표하거나 예측 가능한 통화량 확대 정책을 단행하여 총수요($AD$)를 우측으로 확장하면, 소비자와 근로자는 이를 즉각 인지하여 명목 임금과 물가 기대를 올립니다.\n   - 이에 따라 단기 총공급선($SRAS$)이 동반 상향하여, 실질 생산량 증대 효과 없이 물가($P^*$)만 상승하게 됩니다. 즉, 합리적 기대 하의 장기 총공급곡선은 자연생산량 수준($100$)에서 완벽하게 수직이 되어 정책적 개입의 무력화를 유도합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-034",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "완전 정보와 대표적 행위자를 전제로 하는 표준 시장 모형의 한계를 보완하기 위해 조지 애커로프(G. Akerlof)가 도입한 '정보 비대칭성(Asymmetric Information)' 가정 하에서의 역선택(Adverse Selection) 수리 모형이다.\n중고차 시장에 우등품(가치 2,000만 원)과 불량품(레몬, 가치 1,000만 원) 중고차가 각각 $50\\%$의 동일한 확률로 부존되어 있다.\n- 판매자 유보가격(최저 수용 가격): 우등품 판매자는 1,800만 원, 불량품 판매자는 900만 원\n- 구매자는 중고차의 개별 품질을 식별할 수 없어 평균적 기대 가치로 유보가격을 지불함\n이 시장에서 정보 비대칭성으로 인해 최종적으로 우등품 중고차가 유통되지 못하고 불량품만 남는 '시장 붕괴(Market Collapse)' 현상의 수학적 판정 과정을 옳게 설명한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">중고차 수량</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (만 원)</text>\n\n  <!-- 가치 수준 표시선들 -->\n  <!-- 우등품 가치 2000 (y=90 스케일) -->\n  <line x1=\"50\" y1=\"90\" x2=\"300\" y2=\"90\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <text x=\"305\" y=\"94\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">우등품 가치 (2000)</text>\n\n  <!-- 구매자 기대가치 1500 (y=140 스케일) -->\n  <line x1=\"50\" y1=\"140\" x2=\"300\" y2=\"140\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"144\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">기대가치 E(V) = 1500</text>\n\n  <!-- 불량품 가치 1000 (y=190 스케일) -->\n  <line x1=\"50\" y1=\"190\" x2=\"300\" y2=\"190\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <text x=\"305\" y=\"194\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">불량품 가치 (1000)</text>\n</svg>\n```",
+      "options": [
+        "기대가치가 우등품 유보가격보다 높아서 전량 거래된다.",
+        "구매자의 기대 가격은 $1,500$만 원으로 책정되지만, 이는 우등품 판매자의 최저 수용 가격($1,800$만 원)보다 낮으므로 우등품 판매자들이 시장에서 이탈(공급 철회)하게 되며, 결과적으로 시장에는 불량품(레몬)만 유통되는 역선택이 유발된다.",
+        "불량품 판매자가 이탈하고 우등품만 독점적으로 생존하게 된다.",
+        "정보 비대칭이 도입되면 지니계수가 강제로 0으로 하락하여 평등 시장이 즉각 달성된다.",
+        "기대가치는 항상 두 판매자 유보가격의 합산으로 결정된다."
+      ],
+      "answer": "2",
+      "explanation": "정보 비대칭성 가정이 경제 모형의 시장 균형 성립 여부에 미치는 영향(역선택)을 수리적으로 판정하는 L4 문항입니다.\n1) **구매자의 기대 가치($E(V)$) 산정**:\n   - 우등품 가치 $2,000$만 원, 불량품 가치 $1,000$만 원, 확률 반반($0.5$).\n   - $E(V) = 0.5 \\times 2,000 + 0.5 \\times 1,000 = 1,500$만 원.\n   - 정보가 차단된 구매자는 품질을 구분할 수 없으므로 최대 $1,500$만 원까지만 지불할 용의가 있습니다.\n2) **판매자의 반응 및 이탈 판정**:\n   - 우등품 판매자의 유보가격(1,800만 원) $> 1,500$만 원 $\\implies$ 우등품 공급자는 이 가격에 손해를 보므로 판매를 포기하고 중고차를 시장에서 회수합니다.\n   - 반면 불량품 판매자의 유보가격(900만 원) $< 1,500$만 원 $\\implies$ 불량품 판매자는 초과 이득을 보므로 적극적으로 매물을 내놓습니다.\n3) **최종 균형**: 우등품의 공급 철회로 시장에는 쓰레기차(레몬)만 공급되며, 구매자들도 이를 인지하여 결국 시장은 불량 중고차만 가치 1,000만 원(실질 거래가 900만 원 ~ 1,000만 원 선)에 조화 거래되거나 시장 자체가 마비(붕괴)되는 실패를 겪게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-035",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 단일 재화 시장의 동태적 가격 조정 과정(왈라스적 조정)이 초과수요함수 $ED(P) = 100 - 2P$ 에 기초하여 움직인다.\n이 시장의 시간에 따른 가격 변동 경로가 다음 미분방정식 수식으로 묘사되어 있을 때, 초기 가격 $P_0 = 80$ 에서 출발하여 시간 $t$ 가 무한대로 흐를 때 도달하게 되는 장기 가격 수준 $P(\\infty)$와 가격의 동태적 수렴 경로를 바르게 계산한 것은?\n- 가격 조정 미분방정식: $\\dfrac{dP}{dt} = 0.5 ED(P)$\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">시간 t</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 P(t)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 장기 균형선 P* = 50 (y=150 스케일) -->\n  <line x1=\"50\" y1=\"150\" x2=\"330\" y2=\"150\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <text x=\"300\" y=\"140\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">장기 균형 P* = 50</text>\n  \n  <!-- 초기점 P0 = 80 (y=90 스케일) 에서 50으로 지수 수렴 곡선 -->\n  <path d=\"M 50 90 Q 150 145 330 149\" stroke=\"#ef4444\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"80\" y=\"110\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">가격 경로 P(t)</text>\n</svg>\n```",
+      "options": [
+        "장기 가격 $P^* = 100$, 가격은 무한히 발산한다.",
+        "장기 가격 $P^* = 50$, 경로 수식은 $P(t) = 50 + 30 e^{-t}$ 이며 시간이 지남에 따라 균형으로 점차 지수 수렴한다.",
+        "장기 가격 $P^* = 50$, 경로 수식은 $P(t) = 50 + 30 e^{t}$ 이다.",
+        "장기 가격 $P^* = 20$, 가격은 0으로 강하한다.",
+        "왈라스적 동태 조정 모형은 시간에 따른 미분이 항상 불가능하다."
+      ],
+      "answer": "2",
+      "explanation": "미분방정식을 이용하여 가격의 동태적 조정 수렴 경로를 계산하는 L4 수리 문항입니다.\n1) **미분방정식 대입 및 정리**:\n   - $\\dfrac{dP}{dt} = 0.5 (100 - 2P) = 50 - P$\n   - $\\dfrac{dP}{dt} + P = 50$\n2) **미분방정식 풀이**:\n   - 변수분리 또는 적분인자를 적용합니다.\n   - $\\dfrac{dP}{50 - P} = dt \\implies -\\ln|50 - P| = t + C \\implies 50 - P = A e^{-t} \\implies P(t) = 50 - A e^{-t}$\n3) **초기조건 대입**:\n   - $t=0$ 일 때 가격 $P(0) = 80$ 입니다.\n   - $80 = 50 - A \\implies A = -30$\n   - 따라서 최종 가격 시간 경로는 **$P(t) = 50 + 30 e^{-t}$** 입니다.\n4) **장기 가격**:\n   - $t \\rightarrow \\infty$ 일 때, $e^{-t} \\rightarrow 0$ 이므로 $P(\\infty) = 50$ 으로 수렴합니다. 이는 초과수요가 0이 되는 정태적 장기 균형점과 일치합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-036",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 시장의 정태적 비교우위 분석을 수행하고자 한다. X재의 수요곡선이 $Q_d = 100 - P + 2P_Y$ (단, $P_Y$는 연관재 Y의 가격이며 외생변수이고 초기값은 10원임)로 주어져 있고, 공급곡선은 $Q_s = -20 + P$ 이다.\n연관재 가격이 $P_Y = 10$ 에서 $P_Y = 20$ 으로 상승할 때(비교정태 충격), 내생변수인 이 시장의 균형 가격($P^*$)의 변동 방향과 크기를 구하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n\n  <!-- 공급선 Qs = -20 + P -> x=50(y=70 스케일), x=230(y=250 스케일) -->\n  <line x1=\"50\" y1=\"180\" x2=\"250\" y2=\"30\" stroke=\"#94a3b8\" stroke-width=\"1.5\" />\n  \n  <!-- 초기 수요선 D0 (PY=10) -> Q = 120 - P -->\n  <line x1=\"50\" y1=\"70\" x2=\"230\" y2=\"250\" stroke=\"#3b82f6\" stroke-dasharray=\"2\" />\n  \n  <!-- 신규 수요선 D1 (PY=20) -> Q = 140 - P (우측 이동) -->\n  <line x1=\"50\" y1=\"50\" x2=\"250\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  \n  <!-- 균형점 이동 화살표 -->\n  <path d=\"M 130 110 L 150 90\" stroke=\"#ef4444\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\" />\n</svg>\n```",
+      "options": [
+        "균형 가격이 70원에서 80원으로 10원 상승한다.",
+        "균형 가격이 70원에서 60원으로 10원 하락한다.",
+        "균형 가격이 100원에서 고정되어 유지된다.",
+        "균형 가격이 50원에서 150원으로 100원 폭등한다.",
+        "연관재 가격은 외생변수이므로 본질적으로 X재 균형에 파급효과를 미치지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "외생변수 충격에 따른 균형 가격의 비교정태적 변동 크기를 연산하는 L4 문항입니다.\n1) **내생변수 가격($P^*$)의 축약형 도출**:\n   - $Q_d = Q_s \\implies 100 - P + 2P_Y = -20 + P \\implies 2P = 120 + 2P_Y \\implies P^* = 60 + P_Y$\n2) **외생변수 $P_Y$ 값 대입 및 비교**:\n   - 초기 상태 ($P_Y = 10$): $P_0^* = 60 + 10 = 70$원\n   - 충격 후 상태 ($P_Y = 20$): $P_1^* = 60 + 20 = 80$원\n3) **변화 판정**:\n   - Y재는 X재의 대체재이므로, 대체재 가격($P_Y$)의 상승은 X재의 수요를 우측으로 이동(수요선 확장)시킵니다.\n   - 이에 따라 균형 가격은 기존 70원에서 80원으로 정확히 **10원 상승**하게 됩니다. ($\\dfrac{\\partial P^*}{\\partial P_Y} = 1.0$ 임을 적용해도 대칭적 도출이 가능합니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-037",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 농산물 시장에서 생산 시차로 인해 가격 변동 진폭이 발산하는 불안정한 거미줄 모형을 관측하였다. 이 시장의 동태적 조건이 다음과 같을 때, 가격 편차가 장기 균형 가격에서 이탈하여 매 기마다 폭발적으로 발산(Divergence)하는 동태적 수학적 이유로 옳은 것은?\n- 수요함수: $Q_{dt} = 100 - P_t$\n- 공급함수: $Q_{st} = -20 + 2 P_{t-1}$\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n\n  <!-- 완만한 공급선 S (기울기 절대값 0.5) -->\n  <line x1=\"50\" y1=\"180\" x2=\"250\" y2=\"80\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"220\" y=\"70\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">공급 S (완만)</text>\n\n  <!-- 가파른 수요선 D (기울기 절대값 1) -->\n  <line x1=\"50\" y1=\"70\" x2=\"230\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"220\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">수요 D (가파름)</text>\n\n  <!-- 발산 경로 사각형 (밖으로 뻗어나가는 사각형) -->\n  <path d=\"M 130 150 L 130 120 L 170 120 L 170 180 L 100 180 L 100 100 L 200 100 L 200 210\" stroke=\"#1e293b\" stroke-width=\"1.2\" fill=\"none\" />\n</svg>\n```",
+      "options": [
+        "공급 기울기 절대값보다 수요 기울기 절대값이 크므로 가격이 수렴한다.",
+        "수요 곡선 기울기 절대값($b=1.0$)에 비해 생산 시차 공급 곡선의 기울기 절대값($d=2.0$)이 더 크므로(즉, 공급의 가격탄력성이 수요보다 더 크며, 가격 편차의 동태적 점화식 계수 절대값이 $|-2.0| > 1$ 이므로) 가격의 조정 폭이 균형에서 점차 이탈하여 바깥으로 발산 진동한다.",
+        "두 곡선이 모두 우하향하여 만나지 못하므로 발산한다.",
+        "농산물 파동은 정태적 균형 가격이 양수가 되지 못해 발생한다.",
+        "발산 현상은 유보가격의 소멸로 인하여 즉각 중단된다."
+      ],
+      "answer": "2",
+      "explanation": "거미줄 모형의 발산(Divergent unstable) 조건을 차분방정식 수리 유도를 통해 분석하는 L4 문항입니다.\n1) **차분방정식 관계 도출**:\n   - $Q_{dt} = Q_{st} \\implies 100 - P_t = -20 + 2P_{t-1} \\implies P_t - 40 = -2(P_{t-1} - 40)$\n2) **일반해 분석**:\n   - $P_t - 40 = (-2)^t (P_0 - 40)$\n3) **안정성 계수 판정**:\n   - 일반해의 진폭을 결정하는 계수의 절대값이 $2.0$ 으로서 $1$ 보다 큽니다($|-2| > 1$).\n   - 이는 매 기마다 이전 기의 가격 편차가 반대 방향으로 2배씩 증폭되어 튕겨나감을 뜻합니다.\n   - 즉, 공급 곡선이 수요 곡선보다 더 완만한 기울기(탄력성이 더 큼)를 가질 때 기하학적으로 가격이 균형 밖으로 뱅글뱅글 돌며 무한 발산하는 불안정 거미줄 파동이 발생합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-038",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 시장의 수요함수가 $Q_d = 100 - P_d$ 이고, 공급함수는 $Q_s = P_s$ 이다. 정부가 시장에 개입하여 생산자에게 단위당 $T = 10$ 원의 소비세(조세)를 부과하는 규제 가정을 도입하려 한다.\n세금 부과에 따라 발생하는 '사중손실(Deadweight Loss)'의 수학적 면적 크기와 조세 귀착에 따른 소비자 부담 분배액을 구하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n\n  <!-- 수요선 Q = 100 - P -> x=50(y=50), x=250(y=250) -->\n  <!-- 스케일 매핑: 10단위 -> 20픽셀 -->\n  <line x1=\"50\" y1=\"50\" x2=\"250\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  \n  <!-- 공급선 Qs = Ps -> x=50(y=250), x=250(y=50) -->\n  <line x1=\"50\" y1=\"250\" x2=\"250\" y2=\"50\" stroke=\"#94a3b8\" stroke-width=\"1.5\" />\n  \n  <!-- 세금 부과 후 공급선 S' (T=10 -> y값 20픽셀 위로 평행이동) -->\n  <line x1=\"50\" y1=\"230\" x2=\"250\" y2=\"30\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <!-- 사중손실 삼각형 빗금/영역 표시 (x=140, y=140) 부근 -->\n  <polygon points=\"140,140 140,160 150,150\" fill=\"#f87171\" opacity=\"0.6\" />\n  <text x=\"160\" y=\"155\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">사중손실 (DWL)</text>\n</svg>\n```",
+      "options": [
+        "사중손실 면적 = 50, 소비자 부담 = 10원",
+        "사중손실 면적 = 25, 소비자 부담 = 5원 이며, 조세 귀착은 수요와 공급의 상대적 기울기 비율에 비례하여 동일하게 분담된다.",
+        "사중손실 면적 = 10, 소비자 부담 = 0원",
+        "사중손실 면적 = 100, 소비자 부담 = 50원",
+        "정부 규제 시에는 시장이 즉각 소멸하므로 사중손실은 무한대이다."
+      ],
+      "answer": "2",
+      "explanation": "정부 과세의 경제적 후생 왜곡 모형(사중손실 및 조세 귀착)을 수리 연산하는 L4 문항입니다.\n1) **세금 부과 전 자유시장 균형**:\n   - $Q_d = Q_s \\implies 100 - P = P \\implies P_0^* = 50, Q_0^* = 50$\n2) **세금 부과 후 균형**:\n   - 공급자가 받는 가격 $P_s = P_d - T = P_d - 10$\n   - 이를 공급량에 대입: $Q_s = P_d - 10$\n   - 균형 성립: $100 - P_d = P_d - 10 \\implies 2P_d = 110 \\implies P_d^* = 55$원\n   - 생산자 수취 가격 $P_s^* = 55 - 10 = 45$원\n   - 신규 균형 거래량 $Q_1^* = 100 - 55 = 45$\n3) **소비자 부담액 및 사중손실 계산**:\n   - 소비자 부담 분배액: $P_d^* - P_0^* = 55 - 50 = 5$원\n   - 사중손실(Deadweight Loss) 면적: 조세 쐐기 삼각형의 면적이므로,\n     $$DWL = \\dfrac{1}{2} \\times T \\times (Q_0^* - Q_1^*) = \\dfrac{1}{2} \\times 10 \\times (50 - 45) = 25$$\n따라서 사중손실 면적은 25이며, 소비자 세금 부담액은 5원입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-039",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "칼 포퍼(K. Popper)의 과학철학적 '반증 가능성(Falsifiability)' 기준에 입각하여 경제학 가설의 과학적 건전성을 검증하려 한다. 다음 중 분석적 타당성이 결여된 '반증 불가능한 순환 논리(Tautology) 모형'에 관한 설명으로 가장 적절한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#ef4444\" />\n    </marker>\n  </defs>\n  <!-- 순환 논리 루프 묘사 -->\n  <circle cx=\"200\" cy=\"150\" r=\"40\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <text x=\"200\" y=\"130\" text-anchor=\"middle\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">가정: 합리적 행동</text>\n  <path d=\"M 240 150 L 240 160\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <text x=\"200\" y=\"180\" text-anchor=\"middle\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">사후 해석: 행동=선호</text>\n  <path d=\"M 160 150 L 160 140\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n\n  <text x=\"200\" y=\"80\" text-anchor=\"middle\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">반증이 원천 차단된 동의어반복(Tautology)</text>\n</svg>\n```",
+      "options": [
+        "수학적으로 모순되는 가정이 포함되어 있는 가설을 가리킨다.",
+        "관측된 데이터나 실험 결과가 가설에 위배되더라도 '모든 인간은 합리적이므로 그 행동은 사후적으로 관측된 선호일 뿐이다'와 같이, 어떠한 경험적 사실에 의해서도 반증(Falsification)을 허용하지 않고 사후 해석으로 끼워 맞추어 항상 참이 되도록 설계된 명제는 실증 과학적 가설로서 가치가 없다.",
+        "반증 불가능한 모형이 가장 우수하며 언제나 진리로 칭송받는다.",
+        "가정이 지나치게 현실적인 모형을 가리키는 프리드만의 방법론 용어이다.",
+        "반증 가능성은 오직 거시경제학에서만 선택적으로 준수된다."
+      ],
+      "answer": "2",
+      "explanation": "실증 가설의 유효 기준인 포퍼(K. Popper)의 반증 가능성을 묻는 L4 이론 명제 문항입니다.\n1) **반증 가능성의 정의**:\n   - 어떤 가설이 과학적 실증 이론이 되려면, 그 가설이 기각될 수 있는 반대되는 관측(경험적 증거)의 존재가 논리적으로 열려 있어야 합니다.\n2) **동의어반복(Tautology)의 맹점**:\n   - 예컨대 \"인간은 항상 자신의 효용을 극대화한다\"라는 가정을 전제한 뒤, 이타적 행동이나 비합리적 중독 행동을 보고도 \"이것 또한 이타심을 통해 주관적 효용을 높인 합리적 행동이다\"라고 사후적으로 꼬리를 꿰맞추는 논리는 어떤 상황에서도 참이 되므로 반증이 불가능합니다.\n3) **결론**: 이러한 명제는 경험적 정보 가치가 전혀 없으므로 실증경제학의 과학적 가설로 기능할 수 없다는 비판을 받습니다. (현시선호이론 등에서 약공리를 도입하여 관측 일관성을 통제하는 이유가 바로 이러한 반증 가능성을 확보하기 위함입니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-040",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "대표적 행위자(Representative Agent) 모형 하에서 한 가계가 2기간에 걸쳐 일생의 최적 소비를 결정하는 시점간 선택(Intertemporal Choice) 모형이다.\n- 가계의 평생 효용 함수: $U(C_1, C_2) = \\ln C_1 + \\ln C_2$\n- 1기 소득 $Y_1 = 110$만 원, 2기 소득 $Y_2 = 110$만 원이며 시장 이자율 $r = 10\\%$ 임\n이 가계가 자본시장에서 자유롭게 차입과 저축을 통해 일생의 효용을 극대화하고자 할 때, 결정되는 최적 1기 소비량($C_1^*$)과 2기 소비량($C_2^*$)을 구하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">1기 소비 C1</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">2기 소비 C2</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 시점간 예산선: C1 + C2/1.1 = 110 + 110/1.1 = 210 -> C1절편 210, C2절편 231 -->\n  <!-- 스케일 매핑: 10단위 -> 10픽셀 -->\n  <line x1=\"50\" y1=\"69\" x2=\"260\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  \n  <!-- 무차별곡선 접점 E* (105, 115.5) -> x=155, y=134.5 -->\n  <circle cx=\"155\" cy=\"134.5\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"165\" y=\"130\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">최적점 E* (105, 115.5)</text>\n</svg>\n```",
+      "options": [
+        "최적 소비: $C_1^* = 110$만 원, $C_2^* = 110$만 원",
+        "최적 소비: $C_1^* = 105$만 원, $C_2^* = 115.5$만 원 이며, 이자율의 보상 이익으로 인해 2기 소비가 더 확대된다.",
+        "최적 소비: $C_1^* = 100$만 원, $C_2^* = 121$만 원",
+        "최적 소비: $C_1^* = 120$만 원, $C_2^* = 99$만 원",
+        "시점간 예산선 하에서는 미래 예측 가치 마비로 최적화가 성립하지 않는다."
+      ],
+      "answer": "2",
+      "explanation": "대표적 행위자의 의사결정 수리 모형(시점간 소비 선택)을 계산하는 L4 문항입니다.\n1) **예산제약식 수립**:\n   - $C_1 + \\dfrac{C_2}{1+r} = Y_1 + \\dfrac{Y_2}{1+r} \\implies C_1 + \\dfrac{C_2}{1.1} = 110 + \\dfrac{110}{1.1} = 110 + 100 = 210$만 원.\n   - 예산선: $1.1 C_1 + C_2 = 231$\n2) **한계대체율($MRS$) 도출**:\n   - $U = \\ln C_1 + \\ln C_2 \\implies MRS = \\dfrac{MU_{C_1}}{MU_{C_2}} = \\dfrac{1/C_1}{1/C_2} = \\dfrac{C_2}{C_1}$\n3) **효용극대화 조건($MRS = 1+r$) 연립**:\n   - $\\dfrac{C_2}{C_1} = 1.1 \\implies C_2 = 1.1 C_1$\n4) **예산선 대입**:\n   - $C_1 + \\dfrac{1.1 C_1}{1.1} = 2C_1 = 210 \\implies C_1^* = 105$만 원.\n   - $C_2^* = 1.1 \\times 105 = 115.5$만 원.\n따라서 최적 1기 소비는 105만 원, 2기 소비는 115.5만 원이 됩니다. (가계는 1기에 5만 원을 저축하여 2기에 이자 수익을 포함해 총 5.5만 원의 소비 확장을 누립니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-041",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 특수한 상품 시장의 수요 및 공급 조건이 아래와 같이 우하향하는 구조로 묘사되어 규모의 경제가 강하게 반영되어 있다.\n- 시장수요곡선: $P = 100 - Q$\n- 시장공급곡선: $P = 120 - 2Q$ (공급곡선이 수요곡선보다 가파르게 우하향함)\n이 시장에 일시적인 외부 충격이 가해졌을 때 도출되는 왈라스적 가격 조정 안정성(Walrasian Stability)과 마샬적 수량 조정 안정성(Marshallian Stability)의 성립 여부에 대한 설명으로 가장 옳은 분석은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n\n  <!-- 완만한 수요선 D: P = 100 - Q -> x=50(y=150), x=250(y=50) -->\n  <!-- 스케일 매핑: Q=10 -> 20픽셀, P=10 -> 20픽셀 -->\n  <line x1=\"50\" y1=\"70\" x2=\"210\" y2=\"230\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"220\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">수요 D</text>\n  \n  <!-- 가파른 우하향 공급선 S: P = 120 - 2Q -> x=50(y=210), x=210(y=50) -->\n  <line x1=\"50\" y1=\"30\" x2=\"190\" y2=\"230\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"195\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">공급 S (더 가파름)</text>\n  \n  <!-- 교점 E* (20, 80) -> x=90, y=90 -->\n  <circle cx=\"90\" cy=\"90\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"100\" y=\"85\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">교점 E* (20, 80)</text>\n</svg>\n```",
+      "options": [
+        "이 시장은 두 조정 방식 모두에 대해 극도로 안정적이다.",
+        "이 시장은 왈라스(Walras)적 가격 조정 메커니즘 하에서는 안정적(Stable)이지만, 마샬(Marshall)적 수량 조정 메커니즘 하에서는 불안정적(Unstable)인 상충 모순 결과를 낳는다.",
+        "이 시장은 왈라스적으로는 불안정하며 마샬적으로만 안정적이다.",
+        "우하향 공급곡선 하에서는 어떠한 정태적 균형 가격도 양수로 성립하지 못한다.",
+        "두 안정성 지표는 예산 규모가 0으로 강하할 때만 완전 일치한다."
+      ],
+      "answer": "2",
+      "explanation": "공급곡선이 수요곡선보다 더 가파르게 우하향하는 특수한 경우를 상정하여 왈라스적 및 마샬적 안정성 수리 조건을 정밀하게 대조 판정하는 L5 최고난도 연산 문제입니다.\n1) **장기 정태 균형점 도출**:\n   - $100 - Q = 120 - 2Q \\implies Q^* = 20, P^* = 80$원.\n2) **왈라스적 안정성(Walrasian Stability) 검증**:\n   - 가격 조정 속도 조건: 가격이 오를 때 초과수요가 감소해야 안정적입니다 ($\\dfrac{d(ED)}{dP} < 0$).\n   - 수요함수 역함수: $Q_d = 100 - P$\n   - 공급함수 역함수: $Q_s = 60 - 0.5P$\n   - 초과수요($ED$): $Q_d - Q_s = (100 - P) - (60 - 0.5P) = 40 - 0.5P$\n   - 가격에 대해 미분: $\\dfrac{d(ED)}{dP} = -0.5 < 0 \\implies$ **왈라스적 안정성 충족** (초과수요가 가격에 반비례하여 줄어듦).\n3) **마샬적 안정성(Marshallian Stability) 검증**:\n   - 수량 조정 속도 조건: 수량이 늘어날 때 초과수요가격(수요가격 - 공급가격)이 감소해야 안정적입니다 ($\\dfrac{d(EP)}{dQ} < 0$).\n   - 초과수요가격($EP$): $P_d - P_s = (100 - Q) - (120 - 2Q) = -20 + Q$\n   - 수량에 대해 미분: $\\dfrac{d(EP)}{dQ} = 1.0 > 0 \\implies$ **마샬적 불안정성** (수량이 증가할수록 가격 편차가 되려 누적 확장됨).\n따라서 이 시장은 왈라스적 조정에서는 균형으로 수렴하나, 마샬적 조정에서는 발산하게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-042",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "동태적 일반균형 자산 배분 모형인 돈부시 오버슈팅(Dornbusch Overshooting) 모델에서 시장 간의 '비대칭적 조정 속도' 전제하에 발생하는 균형 변동이다.\n- 자산(외환)시장: 환율($S$)과 이자율은 충격 발생 시 즉각(instantaneously) 청산되어 조정됨.\n- 상품시장: 물가($P$)는 단기에는 완전히 경직적(sticky)이며, 장기에만 서서히 조정됨.\n이 경제체제 하에서 통화 공급량($M$)이 영구적으로 10%만큼 불시에 팽창 유입되었을 때, 충격 발생 직후인 '단기(Short-run)'와 물가 조정이 완료된 '장기(Long-run)'에서의 명목 환율($S$, 원/달러)의 시간 경로(Time Path) 변동 양상을 바르게 분석한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">시간 t</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">환율 S(t)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 초기 환율 S0 (y=200 스케일) -->\n  <line x1=\"50\" y1=\"200\" x2=\"330\" y2=\"200\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <text x=\"310\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">초기 S0</text>\n  \n  <!-- 신장기 균형 S_bar (10% 상승 -> y=170 스케일) -->\n  <line x1=\"50\" y1=\"170\" x2=\"330\" y2=\"170\" stroke=\"#22c55e\" stroke-dasharray=\"2\" />\n  <text x=\"310\" y=\"165\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1b5e20\">장기 S* (+10%)</text>\n  \n  <!-- 단기 팽창 오버슈팅 경로: t=100(x=150)에서 통화팽창 발생 -> 수직 폭등(y=100 스케일) 후 장기 균형 170으로 하향 수렴 -->\n  <path d=\"M 50 200 L 150 200 L 150 100 Q 210 160 330 170\" stroke=\"#ef4444\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"155\" y=\"115\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">오버슈팅 점</text>\n  \n  <text x=\"145\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">t0 (충격)</text>\n</svg>\n```",
+      "options": [
+        "단기와 장기 환율은 모두 변화 없이 평행을 유지한다.",
+        "단기에는 물가가 고정된 상태에서 이자율 하락과 합리적 기대 반응이 겹쳐 환율이 새로운 장기 균형 상승분(10%)을 초과하여 대폭 폭등(Overshooting)한 후, 장기적으로 물가가 서서히 오름에 따라 이자율이 회복되어 환율은 장기 수준인 +10% 지점으로 점차 하향 수렴한다.",
+        "단기에는 환율이 10% 하락했다가 장기에 20% 상승한다.",
+        "돈부시 오버슈팅 모형에서는 환율이 매 순간 무작위(Random Walk)로만 변동한다.",
+        "장기 물가 경직성 가정이 소멸하면 오버슈팅의 폭은 무한대로 폭발한다."
+      ],
+      "answer": "2",
+      "explanation": "정보 및 자산의 비대칭적 조정 속도 모형(돈부시 오버슈팅)의 동태적 시간 경로를 분석하는 L5 최고난도 문항입니다.\n1) **단기 충격 효과 (물가 경직성)**:\n   - 통화 공급 $M$의 $10\\%$ 증가는 실질 통화량($M/P$)의 증가를 가져오고 국내 명목이자율을 하락시킵니다.\n   - 유인되지 않는 이자율 평가설(UIP, $r = r^* + \\Delta S^e$)에 따라, 국내 이자율의 하락은 미래 환율의 절하(상승) 기대를 상쇄하기 위해 단기 환율($S$)의 격렬한 즉각 수직 상승(원화 가치의 폭락)을 초래합니다.\n   - 이때 환율은 최종 장기 균형 증가분인 $10\\%$를 넘어서는 수준(예: $20\\%$)으로 오버슈팅하게 됩니다.\n2) **장기 수렴 조정**:\n   - 단기 충격 이후 상품 시장에서 물가($P$)가 공급 팽창에 따라 서서히 상승하기 시작합니다.\n   - 물가가 상승하면 실질 통화량이 도로 감소하여 국내 이자율이 원래 수준으로 복귀하기 시작합니다.\n   - 이에 따라 오버슈팅했던 환율은 서서히 하락(절상)하면서 최종 화폐 중립성 균형에 상응하는 $+10\\%$ 수준인 $S^*$ 로 안정적으로 수렴해 내려옵니다. 이 동학은 상품과 금융 시장의 조정 시차가 야기하는 가격의 동태적 과잉 반응을 입증하는 대표적인 모형 분석 사례입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-043",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "로버트 루카스(R. Lucas)의 '루카스 비판(Lucas Critique)' 방법론이 기존 전통적 거시 계량 모형(가정 설정)에 던진 비판의 핵심과 이로부터 유도되는 필립스 곡선(Phillips Curve)의 모수 붕괴 양상이다. 이에 관한 가장 옳은 추론은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">실업률 (u)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">인플레이션율 (π)</text>\n\n  <!-- 수직의 장기 필립스곡선 LRPC (un = 100) -> x=170 -->\n  <line x1=\"170\" y1=\"50\" x2=\"170\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"175\" y=\"70\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">장기 PC선 (u_n에서 수직)</text>\n\n  <!-- 우하향 단기 필립스곡선 SRPC0 -->\n  <line x1=\"70\" y1=\"130\" x2=\"270\" y2=\"230\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"240\" y=\"210\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">SRPC0</text>\n\n  <!-- 기대 인플레 상승으로 상향 이동한 SRPC1 -->\n  <line x1=\"70\" y1=\"80\" x2=\"270\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"240\" y=\"160\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">SRPC1 (기대 반영 후)</text>\n</svg>\n```",
+      "options": [
+        "기존 거시적 관계는 정부 정책이 어떻게 변하든 상관없이 고정불변의 모수(기울기)를 가진다.",
+        "루카스 비판의 핵심은 경제주체들이 정부 정책 기조 변화에 맞춰 미래를 대비하는 합리적 기대를 형성하므로 기존 정책 평가지표(필립스 곡선 상대계수)가 정책의 변화에 따라 붕괴되어 무용지물이 된다는 것이며, 실업을 낮추기 위한 인플레이션 유발은 장기적으로 실업률을 낮추지 못하고 필립스 곡선만 상향 이동(수직화)시키는 결과를 낳는다.",
+        "인플레이션 상승은 실업률을 영구적으로 소멸시킨다.",
+        "필립스 곡선은 가정이 가치중립적일 때만 우하향 형태를 영구 보장한다.",
+        "루카스는 가설 검정 방법론 자체의 소멸을 적극 옹호하였다."
+      ],
+      "answer": "2",
+      "explanation": "모형의 정책 적용에 관한 방법론적 이정표인 루카스 비판(Lucas Critique)과 필립스 곡선의 동태적 이동을 연결하는 L5 최고난도 이론 문제형 문항입니다.\n1) **루카스 비판의 요지**:\n   - 과거 역사적 데이터로부터 도출한 계수(예: 물가상승과 실업률 사이의 우하향 관계)를 가지고 새로운 정책 효과를 평가하려는 계량 모형은 오류에 봉착합니다.\n   - 경제주체는 합리적 기대를 형성하므로, 정책이 변하면 자신들의 기대와 의사결정 방식(함수적 행동방식)을 변경시키기 때문입니다. 즉, 정책적 변화가 모형 내부의 행동 모수 자체를 깨뜨리게 됩니다.\n2) **기하학적 매핑 효과**:\n   - 정부가 실업률을 자연실업률($U_n$) 이하로 유도하려는 목적을 공표하여 지속적으로 인플레이션을 유도하면, 경제주체는 이를 기동적으로 반영하여 기대인플레이션($\\pi_t^e$)을 상승시킵니다.\n   - 이에 따라 단기 필립스 곡선($SRPC$)은 상향 이동하여 물가만 오르고 실업은 원래의 $U_n$ 으로 회귀하며 결국 수직선($LRPC$)으로 붕괴합니다. 이는 거시 정책 수립 시 합리적 미시적 기초가 전제되어야 함을 강력히 지지하는 방법론적 사례입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-044",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 경제체제의 미래 인플레이션 기대 형성 과정이 다음 두 가설 모형으로 각각 적용될 수 있다.\n- (1) 적응적 기대(Adaptive Expectations) 모형: $\\pi_t^e = \\pi_{t-1}$ (전기 물가가 미래 기대를 지배함)\n- (2) 합리적 기대(Rational Expectations) 모형: $\\pi_t^e = E_{t-1}(\\pi_t)$ (체계적 오차 없음)\n현재 실제 인플레이션율이 통화당국의 불시 공급 변동에 의해 다음과 같이 외생적 확률 경로를 띠고 있다: $\\pi_t = 10\\% + u_t$ (단, $u_t$는 평균이 0인 무작위 충격이며 외생변수이고, 당국은 $t$ 기의 통화공급 성장률을 기존 $10\\%$에서 $20\\%$로 영구 팽창하기로 $t$ 기 기초에 사전 발표함).\n발표에 기초하여 $t$ 기에 예상된 정책이 시행될 때, 두 기대 가설 하에서의 기대오차 크기($\\pi_t - \\pi_t^e$)를 바르게 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">시간 t</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">인플레율 π</text>\n\n  <!-- 실제 인플레 상승: 10% -> 20%로 급등 -->\n  <!-- 스케일 매핑: 10% -> y=180 스케일, 20% -> y=120 스케일 -->\n  <path d=\"M 50 180 L 170 180 L 170 120 L 330 120\" stroke=\"#ef4444\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"260\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">실제 인플레 (20%)</text>\n  \n  <!-- 적응적 기대 지연 수렴 경로 -->\n  <path d=\"M 50 180 L 170 180 L 230 180 L 230 120 L 330 120\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" fill=\"none\" />\n  <text x=\"175\" y=\"195\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">적응적 기대 (한 기 지연 예측)</text>\n</svg>\n```",
+      "options": [
+        "(1) 적응적 기대오차 = $u_t$, (2) 합리적 기대오차 = $u_t$",
+        "(1) 적응적 기대오차 = $10\\% + u_t$, (2) 합리적 기대오차 = $u_t$ 이며, 정보가 즉각 반영되는 합리적 기대 하에서는 평균적인 예측 오차가 무작위 충격으로 고정된다.",
+        "(1) 적응적 기대오차 = $u_t$, (2) 합리적 기대오차 = $10\\% + u_t$",
+        "(1) 적응적 기대오차 = $20\\%$, (2) 합리적 기대오차 = $10\\%$",
+        "두 가설의 오차 수준은 어떠한 정책의 성격 변동에 상관없이 100% 일정하다."
+      ],
+      "answer": "2",
+      "explanation": "적응적 기대와 합리적 기대 가설의 차이를 구체적인 외생변수 정책 충격에 입각하여 수리 도출하는 L5 최고난도 연산 문항입니다.\n1) **(1) 적응적 기대 가설(Adaptive Expectations)의 예측 오차**:\n   - $t-1$ 기의 인플레이션 평균은 $10\\%$ 였습니다.\n   - 따라서 $t$ 기의 기대치는 $\\pi_t^e = \\pi_{t-1} = 10\\%$ (과거에 얽매임).\n   - $t$ 기에 실질적으로 실행된 정책 하의 인플레이션은 $\\pi_t = 20\\% + u_t$ 입니다.\n   - 적응적 기대오차: $\\pi_t - \\pi_t^e = (20\\% + u_t) - 10\\% = 10\\% + u_t$\n   - (즉, 체계적인 예측 실패인 $10\\%$ 만큼의 오차가 무조건 발생하게 됩니다).\n2) **(2) 합리적 기대 가설(Rational Expectations)의 예측 오차**:\n   - $t$ 기에 정책이 수립되어 집행될 것을 사전에 인지하였고 가용한 정보에 이 선언이 포함되므로, 기대치는 $E_{t-1}(\\pi_t) = E_{t-1}(20\\% + u_t) = 20\\%$ 입니다.\n   - 합리적 기대오차: $\\pi_t - \\pi_t^e = (20\\% + u_t) - 20\\% = u_t$\n   - (즉, 사전 발표된 정책에 대해서는 체계적 오차가 0이 되며, 오직 예측 불가능한 무작위 충격인 $u_t$에 의해서만 단기 오차가 유발됩니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-045",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "노동시장의 동태적 조정 과정(마샬적 수량 조정)을 묘사하는 수리 모형이다.\n- 노동 공급 가격 함수: $W_s = 20 + 2L$\n- 노동 수요 가격 함수: $W_d = 100 - 2L$ (단, $L$은 노동량이며 내생변수임)\n노동시장의 수량 조정 속도가 초과수요가격(수요임금 - 공급임금)의 $0.25$배 비율로 즉각 반응한다고 다음 미분방정식으로 전제할 때, 초기 노동량 $L_0 = 10$ 에서 출발하여 시간 $t$ 가 무한대로 흐를 때 수렴하게 되는 장기 안정 균형 노동량 $L^*$ 와 동태적 수량 변화 경로 $L(t)$의 수식으로 옳은 것은?\n- 수량 조정 미분방정식: $\\dfrac{dL}{dt} = 0.25 (W_d - W_s)$\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">시간 t</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">노동량 L(t)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 장기 균형선 L* = 20 (y=150 스케일) -->\n  <line x1=\"50\" y1=\"150\" x2=\"330\" y2=\"150\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <text x=\"300\" y=\"140\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">장기 균형 L* = 20</text>\n  \n  <!-- 초기점 L0 = 10 (y=200 스케일) 에서 20으로 지수 수렴 곡선 -->\n  <path d=\"M 50 200 Q 150 155 330 151\" stroke=\"#22c55e\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"80\" y=\"170\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#22c55e\" font-weight=\"bold\">노동량 경로 L(t)</text>\n</svg>\n```",
+      "options": [
+        "장기 노동량 $L^* = 40$, 경로 수식은 $L(t) = 40 - 30 e^{-t}$",
+        "장기 노동량 $L^* = 20$, 경로 수식은 $L(t) = 20 - 10 e^{-t}$ 이며 시간이 지남에 따라 가격 차가 좁혀져 안정 균형으로 수렴한다.",
+        "장기 노동량 $L^* = 20$, 경로 수식은 $L(t) = 20 - 10 e^{t}$",
+        "장기 노동량 $L^* = 10$, 경로 수식은 $L(t) = 10$ (고정)",
+        "수량 조정 속도가 양수이면 시장은 언제나 수렴하지 않고 영구 발산 진동한다."
+      ],
+      "answer": "2",
+      "explanation": "마샬적 수량 조정 메커니즘을 동태적 미분방정식으로 풀이하는 L5 최고난도 계산 문제입니다.\n1) **미분방정식 전개**:\n   - $W_d - W_s = (100 - 2L) - (20 + 2L) = 80 - 4L$\n   - $\\dfrac{dL}{dt} = 0.25 (80 - 4L) = 20 - L$\n   - $\\dfrac{dL}{dt} + L = 20$\n2) **미분방정식 해 도출**:\n   - $L(t) = 20 - A e^{-t}$\n3) **초기조건 대입 ($t=0, L_0=10$)**:\n   - $10 = 20 - A \\implies A = 10$\n   - 따라서 최종 수량 경로 식은 **$L(t) = 20 - 10 e^{-t}$** 입니다.\n4) **장기 균형**:\n   - $t \\rightarrow \\infty$ 일 때 $e^{-t} \\rightarrow 0$ 이므로, 장기 안정 노동량은 $L^* = 20$ 으로 수렴하게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-046",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "가정의 단순성과 모형의 기하학적 정밀성을 증명하기 위해, 라그랑주 극대화 모형의 파라미터 변화 정리인 '포괄선 정리(Envelope Theorem)'를 소비자 선택 이론에 적용하려 한다.\n- 가계의 주관적 효용 함수: $U(X, Y) = X Y$\n- 예산 제약: $P_X X + P_Y Y = I$ (단, $I$는 소득이며 외생변수임)\n최적화 조건(라그랑주 승수 $\\lambda^*$) 하에서 도출되는 극대화된 효용 함수인 '간접효용함수($\\mathcal{V}$)'의 수식과, 소득의 한계 증가가 극대화된 효용에 미치는 한계 가치를 포괄선 정리에 따라 미분한 크기($\\dfrac{\\partial \\mathcal{V}}{\\partial I}$)를 바르게 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">소비 X</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">소비 Y</text>\n\n  <!-- 초기 예산선 I0 -> x=50(y=150), x=150(y=250) 형태 접점 -->\n  <line x1=\"50\" y1=\"170\" x2=\"170\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <!-- 소득 증가 후 예산선 I1 -> 평행 이동 -->\n  <line x1=\"50\" y1=\"130\" x2=\"210\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  \n  <!-- 최적화 경로선 (소득소비곡선 ICC) -> 원점 통과하는 45도선 -->\n  <line x1=\"50\" y1=\"250\" x2=\"200\" y2=\"100\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  <text x=\"180\" y=\"120\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">소득소비경로 (ICC)</text>\n</svg>\n```",
+      "options": [
+        "간접효용함수 $\\mathcal{V} = \\dfrac{I^2}{4 P_X P_Y}$, $\\dfrac{\\partial \\mathcal{V}}{\\partial I} = \\lambda^* = \\dfrac{I}{2 P_X P_Y}$ 이며, 이는 소득 1단위 증가에 따른 효용의 잠재가치(라그랑주 승수)와 완벽히 일치한다.",
+        "간접효용함수 $\\mathcal{V} = I - P_X - P_Y$, $\\dfrac{\\partial \\mathcal{V}}{\\partial I} = 1.0$",
+        "간접효용함수 $\\mathcal{V} = \\dfrac{I^2}{P_X P_Y}$, $\\dfrac{\\partial \\mathcal{V}}{\\partial I} = 0.0$",
+        "간접효용함수 $\\mathcal{V} = \\ln I$, $\\dfrac{\\partial \\mathcal{V}}{\\partial I} = \\dfrac{1}{I}$",
+        "엔벨로프 정리 하에서는 소득 증가 시 효용이 무조건 음(-)의 무한대로 하락한다."
+      ],
+      "answer": "1",
+      "explanation": "포괄선 정리(Envelope Theorem) 및 라그랑주 승수의 경제학적 잠재 가격 의미를 미분을 통해 규명하는 L5 최고난도 수리 문항입니다.\n1) **라그랑주 함수 수립 및 최적화**:\n   - $\\mathcal{L} = XY + \\lambda(I - P_X X - P_Y Y)$\n   - 일계 조건: $\\dfrac{\\partial \\mathcal{L}}{\\partial X} = Y - \\lambda P_X = 0$, $\\dfrac{\\partial \\mathcal{L}}{\\partial Y} = X - \\lambda P_Y = 0$\n   - $\\dfrac{Y}{X} = \\dfrac{P_X}{P_Y} \\implies P_X X = P_Y Y$\n   - 예산선 대입: $P_X X + P_X X = 2P_X X = I \\implies X^* = \\dfrac{I}{2P_X}, Y^* = \\dfrac{I}{2P_Y}$\n2) **간접효용함수($\\mathcal{V}$) 도출**:\n   - $V(I, P_X, P_Y) = X^* Y^* = \\left(\\dfrac{I}{2P_X}\\right) \\left(\\dfrac{I}{2P_Y}\\right) = \\dfrac{I^2}{4 P_X P_Y}$\n3) **포괄선 정리(Envelope Theorem) 적용**:\n   - 포괄선 정리에 따르면, 극대화된 값함수(Value Function) $V$의 소득 $I$ 에 대한 편미분은 라그랑주 함수의 소득 $I$ 에 대한 편미분과 완벽하게 같습니다. (내생적 조정을 거친 미분과 고정된 상태의 미분이 합치됨).\n   - $\\dfrac{\\partial \\mathcal{V}}{\\partial I} = \\dfrac{\\partial \\mathcal{L}^*}{\\partial I} = \\lambda^*$\n   - 실제로 미분 실행: $\\dfrac{\\partial \\mathcal{V}}{\\partial I} = \\dfrac{\\partial}{\\partial I}\\left(\\dfrac{I^2}{4 P_X P_Y}\\right) = \\dfrac{2I}{4 P_X P_Y} = \\dfrac{I}{2 P_X P_Y}$\n   - 이는 최적 라그랑주 승수인 $\\lambda^* = \\dfrac{Y^*}{P_X} = \\dfrac{I/(2P_Y)}{P_X} = \\dfrac{I}{2 P_X P_Y}$ 와 완벽하게 정합합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-047",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "칼 포퍼(K. Popper)의 반증주의 가설 검정 방법론을 구체적인 표본 검정력 수식에 적용한 모형이다.\n귀무가설 $H_0: \\mu = \\mu_0$ 에 대해 표본 크기 $N$을 활용하여 통계적 검정을 단행하려 한다.\n- 가설의 유의수준(1종 오류의 허용한계)이 $\\alpha$ 로 완전 고정되어 있다.\n연구자가 표본 크기 $N$을 4배 확충(예: $N_0 = 100 \\rightarrow N_1 = 400$)할 때, 2종 오류의 확률 $\\beta$의 크기 변화 방향과 이를 바탕으로 도출되는 '검정력 함수(Power Function, $1-\\beta$)' 곡선의 기울기 변동 양상을 가장 옳게 분석한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"330\" y=\"265\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">실제 모수치 μ</text>\n  <text x=\"20\" y=\"45\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">검정력 1-β</text>\n\n  <!-- 가상의 귀무가설 정점 u0 -> x=200 -->\n  <line x1=\"200\" y1=\"50\" x2=\"200\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <text x=\"190\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">u0 (기각 기준)</text>\n\n  <!-- 완만한 검정력 곡선 (N=100) -> U자형 (u0에서 알파=0.05 로 최소값을 가짐) -->\n  <path d=\"M 50 80 Q 200 240 350 80\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" fill=\"none\" />\n  <text x=\"70\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">완만한 검정력선 (N=100)</text>\n\n  <!-- 가파른 검정력 곡선 (N=400) -> 뾰족한 U자형 -->\n  <path d=\"M 50 60 Q 200 245 350 60\" stroke=\"#ef4444\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"70\" y=\"75\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">가파른 검정력선 (N=400)</text>\n</svg>\n```",
+      "options": [
+        "표본 크기를 늘리면 2종 오류 $\\beta$가 증가하여 검정력이 0으로 떨어진다.",
+        "표본 크기 $N$을 4배 늘리면 표준오차($\\sigma/\\sqrt{N}$)가 절반으로 축소되므로 귀무가설이 거짓일 때 이를 기각하지 못하는 오류인 2종 오류의 확률 $\\beta$가 대폭 하락하게 되며, 이에 따라 검정력($1-\\beta$, 빨간 실선) 곡선은 균형 점($\\mu_0$)에서 더 날카롭고 가파르게 솟구치는 뾰족한 U자 형태(검정력 향상)를 그리게 된다.",
+        "유의수준 $\u0007lpha$가 고정되면 표본의 크기는 검정력에 아무런 수학적 영향을 주지 못한다.",
+        "포퍼의 기준 하에서는 표본 크기를 늘릴 때 1종 오류도 비례하여 무한 증가한다.",
+        "검정력 함수는 실제 평균과 무관하게 항상 가로축에 평행한 수평선이다."
+      ],
+      "answer": "2",
+      "explanation": "포퍼의 반증주의적 실증 가설 검정 모형에서 표본 규모($N$)가 검정력함수(Power Function)에 미치는 수리적 효과를 연산하는 L5 최고난도 이론/계산 융합 문항입니다.\n1) **검정력과 표준오차의 연동**:\n   - 표본평균의 표준편차인 표준오차는 $SE = \\dfrac{\\sigma}{\\sqrt{N}}$ 입니다.\n   - 표본 크기 $N$이 4배 증가하면 분모가 $\\sqrt{4} = 2$배가 되므로 표준오차는 정확히 **기존의 $1/2$로 절반 수축**합니다.\n2) **오류 및 검정력 변동**:\n   - 표준오차가 줄어들어 추정의 정밀도가 올라가면, 귀무가설의 분포와 대립가설의 분포가 겹치는 면적이 좁아집니다.\n   - 이에 따라 1종 오류 $\\alpha$를 고정할 때 2종 오류 $\\beta$의 크기는 극적으로 작아집니다.\n3) **검정력 곡선 변동**:\n   - 검정력 $1-\\beta$는 귀무가설이 거짓일 때 기각하는 확률이므로, 실제 모수 $\\mu$가 설정치 $\\mu_0$에서 미세하게만 어긋나도 즉각 귀무가설을 깨부술 수 있게 됩니다.\n   - 따라서 검정력 함수 곡선은 $\\mu_0$ 지점(유의수준 $\\alpha$ 위치)을 최저점으로 하여 양쪽으로 가파르게 치솟는 날카로운 붉은 곡선 형태로 업그레이드됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-048",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "농산물 시장의 동태적 거미줄 가격 변동 궤적을 묘사하는 일반화된 2계 차분방정식 수리 모형이다.\n- 수요함수: $Q_{dt} = a - b P_t$\n- 공급함수: $Q_{st} = -c + d P_{t-1}$ (단, $a, b, c, d > 0$ 이며 모형의 파라미터임)\n이 시장에 충격이 가해진 후, 시간이 흐름에 따라 가격 편차가 요동치는 형태가 감쇠하며 균형으로 복귀(감쇠진동), 일정 수준 유지(영구진동), 무한히 발산(발산진동)하는 3가지 안정성 상태의 경계 조건을 파라미터 비율($d/b$)을 통해 바르게 유도하여 판정한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">시간 t</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 P(t)</text>\n\n  <!-- 감쇠 진동 (d/b < 1) -> 서서히 좁혀지며 150(중앙)으로 수렴 -->\n  <path d=\"M 50 100 L 100 200 L 150 120 L 200 170 L 250 140 L 300 155 L 330 150\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"260\" y=\"125\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">감쇠 (d/b &lt; 1)</text>\n\n  <!-- 발산 진동 (d/b > 1) -> 점점 넓어짐 -->\n  <path d=\"M 50 140 L 90 160 L 130 110 L 170 200 L 210 80 L 250 240\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"3\" fill=\"none\" />\n  <text x=\"150\" y=\"60\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">발산 (d/b &gt; 1)</text>\n</svg>\n```",
+      "options": [
+        "감쇠진동: $d/b > 1$, 영구진동: $d/b = 1$, 발산진동: $d/b < 1$",
+        "감쇠진동: $d/b < 1$ (공급 탄력성이 수요보다 상대적으로 작음), 영구진동: $d/b = 1$, 발산진동: $d/b > 1$ (공급 탄력성이 수요보다 커서 가격 편차가 폭발함)",
+        "세 가지 진동 상태의 조건은 모형의 가치 편향에 의해서만 수시로 결정된다.",
+        "감쇠진동: $d/b = 0$ 이며, 나머지 상태는 수학적으로 존재할 수 없다.",
+        "발산진동 시에는 기회비용 체증 법칙으로 인해 100% 무조건 감쇠진동으로 조기 강제 전환된다."
+      ],
+      "answer": "2",
+      "explanation": "차분방정식의 해를 일반화하여 거미줄 모형의 3가지 동태적 진동 상태를 분류 판정하는 L5 최고난도 계산 문제입니다.\n1) **동태적 균형 가격 차분방정식 유도**:\n   - $Q_{dt} = Q_{st} \\implies a - b P_t = -c + d P_{t-1} \\implies b P_t + d P_{t-1} = a + c$\n   - $P_t + \\left(\\dfrac{d}{b}\\right) P_{t-1} = \\dfrac{a + c}{b}$\n2) **차분방정식의 일반해 계산**:\n   - 특수해(장기 균형): $P^* = \\dfrac{a + c}{b + d}$\n   - 일반해: $P_t - P^* = \\left(-\\dfrac{d}{b}\\right)^t (P_0 - P^*)$\n3) **진폭의 계수 비교를 통한 안정성 상태 분류**:\n   - 일반해의 밑(base)인 $\\left(-\\dfrac{d}{b}\\right)$ 의 크기에 의해 시간이 지남에 따른 진동 진폭의 경향이 결정됩니다.\n   - **$d/b < 1$ 일 때**: 계수 절대값이 1보다 작으므로 가격은 점차 진폭이 좁아지며 $P^*$ 로 수렴합니다 (**감쇠진동**).\n   - **$d/b = 1$ 일 때**: 계수 절대값이 정확히 1이므로 가격은 동일한 진폭을 영구히 반복 요동합니다 (**영구진동**).\n   - **$d/b > 1$ 일 때**: 계수 절대값이 1보다 크므로 가격 진폭은 폭발적으로 벌어지며 이탈합니다 (**발산진동**)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-049",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "대표적 행위자 가정 대신에 가계의 이질성(품질 분류)을 명시하고 정보 비대칭성을 전제한 스펜스(M. Spence)의 '신호 발송(Signaling)' 수리 모형이다.\n노동 시장에 고생산성 노동자(사고나 이윤 창출 가치 $V_H = 1,000$만 원)와 저생산성 노동자(가치 $V_L = 500$만 원)가 각각 $50\\%$의 확률로 부존되어 있다.\n- 교육 수준(학력, $e$)을 획득하는 신호 발송 비용: 고생산성 그룹은 $C_H(e) = 50e$, 저생산성 그룹은 $C_L(e) = 100e$ 임\n기업이 고생산성 노동자에게는 임금 $W_H = 1,000$만 원을 주고, 저생산성 노동자에게는 $W_L = 500$만 원을 주는 고용 계약 체계를 설계하려 한다.\n저생산성 노동자가 고생산성으로 위장하는 유인을 차단하고 저위험/고생산성 그룹만 스스로를 분리해내게 만드는 '최적 분리균형(Separating Equilibrium) 학력 기준($e^*$)'의 수학적 임계 범위로 옳은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">학력 수준 e</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수익/비용</text>\n\n  <!-- 저생산성 노동자 비용선 CL = 100e -> 기울기 100 -->\n  <!-- 스케일 매핑: e=1단위 -> 20픽셀. 비용 500만 원 -> 100픽셀 -->\n  <!-- e=5(x=150) 일 때 CL=500(y=150) -->\n  <line x1=\"50\" y1=\"250\" x2=\"150\" y2=\"150\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"130\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">CL(e) = 100e</text>\n  \n  <!-- 고생산성 노동자 비용선 CH = 50e -> 기울기 50 -->\n  <!-- e=10(x=250) 일 때 CH=500(y=150) -->\n  <line x1=\"50\" y1=\"250\" x2=\"250\" y2=\"150\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"235\" y=\"130\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">CH(e) = 50e</text>\n\n  <!-- 임금 상승분 델타W = 500만 원선 (y=150 수평선) -->\n  <line x1=\"50\" y1=\"150\" x2=\"300\" y2=\"150\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <text x=\"305\" y=\"154\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">임금 격차 (500)</text>\n\n  <!-- 임계 지점들 표시 -->\n  <circle cx=\"150\" cy=\"150\" r=\"4\" fill=\"#1e293b\" />\n  <text x=\"145\" y=\"170\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">e=5</text>\n  \n  <circle cx=\"250\" cy=\"150\" r=\"4\" fill=\"#1e293b\" />\n  <text x=\"245\" y=\"170\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">e=10</text>\n</svg>\n```",
+      "options": [
+        "$e^* < 5$",
+        "$5 < e^* < 10$ 이며, 이 구간 내에서만 저생산성 노동자는 학력 획득 비용이 임금 이득보다 커서 위장을 포기하고 고생산성 노동자만 선별된다.",
+        "$e^* > 10$",
+        "$e^* = 5$",
+        "학력 신호는 분리 균형을 무조건 파괴하므로 역선택이 100% 지속된다."
+      ],
+      "answer": "2",
+      "explanation": "정보 비대칭을 극복하기 위한 신호발송(Signaling) 수리 모형에서 분리균형(Separating Equilibrium) 성립 범위를 연산하는 L5 최고난도 문제입니다.\n1) **저생산성(L) 노동자의 모방 차단 조건 (자가선택 제약)**:\n   - 저생산성 노동자가 교육을 위장 획득하여 $W_H = 1,000$ 을 받는 것보다, 교육을 받지 않고 $W_L = 500$ 을 선택하는 것이 나아야 모방하지 않습니다.\n   - $W_L - C_L(0) > W_H - C_L(e^*) \\implies 500 - 0 > 1,000 - 100e^* \\implies 100e^* > 500 \\implies e^* > 5$\n2) **고생산성(H) 노동자의 참가 조건 (개별합리성 제약)**:\n   - 고생산성 노동자는 교육을 이수하여 $W_H = 1,000$ 을 획득하는 것이, 교육 없이 $W_L = 500$ 을 받는 것보다 나아야 기꺼이 교육을 받습니다.\n   - $W_H - C_H(e^*) > W_L - C_H(0) \\implies 1,000 - 50e^* > 500 - 0 \\implies 500 > 50e^* \\implies e^* < 10$\n3) **공통 분리균형 범위 산정**:\n   - 위 두 조건을 결합합니다.\n   - $5 < e^* < 10$\n따라서 분리균형이 만족되는 학력 조건 임계치 범위는 $5 < e^* < 10$ 입니다. (이 범위의 학력을 획득할 때만 저생산성 그룹의 모방 위장이 차단되고 고생산성 그룹만 시장에 차별 식별되어 임금 격차를 실현할 수 있습니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item02-050",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "일반균형분석(General Equilibrium) 모형 하에서 모든 재화 시장의 상호 의존성을 담보하는 '왈라스 법칙(Walras' Law)'의 수학적 증명 구조이다.\n어느 국가에 3가지 재화 1, 2, 3이 유통되며, 각 재화의 가격을 $P_1, P_2, P_3$ (단, 가격은 모두 양수임), 초과수요함수를 $ED_1, ED_2, ED_3$ 라 전제한다.\n이 경제체제 하에서 왈라스 법칙 항등식에 입각해, 1시장과 2시장이 개별적으로 균형 상태($ED_1 = 0, ED_2 = 0$)에 도달했음을 확인했을 때 3시장의 초과수요($ED_3$) 상태를 수학적으로 바르게 판정한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 / 상품 차원</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">초과수요 ED</text>\n\n  <!-- 3개 시장 벡터 평면의 합 = 0 도해 (왈라스 평면) -->\n  <line x1=\"100\" y1=\"100\" x2=\"200\" y2=\"100\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"120\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">1시장: ED1 = 0</text>\n  \n  <line x1=\"200\" y1=\"100\" x2=\"200\" y2=\"200\" stroke=\"#22c55e\" stroke-width=\"2.5\" />\n  <text x=\"210\" y=\"150\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#22c55e\" font-weight=\"bold\">2시장: ED2 = 0</text>\n  \n  <!-- 3시장 항등 균형으로 복귀하는 화살표 -->\n  <path d=\"M 200 200 Q 150 150 100 100\" stroke=\"#ef4444\" stroke-width=\"2\" stroke-dasharray=\"3\" marker-end=\"url(#arrow)\" />\n  <text x=\"80\" y=\"170\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">3시장: ED3 = 0 (자동 균형)</text>\n</svg>\n```",
+      "options": [
+        "3시장은 대칭적인 초과공급 상태($ED_3 > 0$)가 강제 유지된다.",
+        "왈라스 법칙 항등식 $P_1 ED_1 + P_2 ED_2 + P_3 ED_3 \\equiv 0$ 에 따라, 다른 모든 시장(1, 2시장)이 균형에 도달하고 마지막 재화의 가격($P_3$)이 양수라면, 나머지 3시장 역시 사회 전체의 예산 제약상 반드시 자동으로 초과수요가 0인 균형 상태($ED_3 = 0$)에 귀착된다.",
+        "3시장은 불안정한 거미줄 모형을 취해 가격이 무한히 폭등한다.",
+        "3시장의 초과수요는 1시장과 2시장 초과수요의 합산 가격 곱과 항상 같다.",
+        "일반균형 법칙 하에서는 임의의 재화 가격이 음(-)으로 추락하여 왈라스 법칙이 상실된다."
+      ],
+      "answer": "2",
+      "explanation": "일반균형의 핵심 뼈대인 왈라스 법칙(Walras' Law)의 수학적 성격을 항등식 증명을 통해 도출하는 L5 최고난도 이론/수리 융합 문항입니다.\n1) **왈라스 법칙(Walras' Law)의 전제**:\n   - 가계의 평생 예산 제약식으로부터 유도됩니다: 한 경제의 모든 주체의 지출 합계는 소득 합계와 항상 같아야 합니다.\n   - 이를 초과수요 가치로 집계하면, 임의의 가격 체계하에서도 항상 다음의 가치 항등식이 성립합니다:\n     $$\\sum_{i=1}^{n} P_i ED_i \\equiv 0 \\implies P_1 ED_1 + P_2 ED_2 + P_3 ED_3 \\equiv 0$$\n2) **균형 연립 대수 증명**:\n   - 1시장 균형: $ED_1 = 0 \\implies P_1 ED_1 = 0$\n   - 2시장 균형: $ED_2 = 0 \\implies P_2 ED_2 = 0$\n   - 왈라스 법칙 항등식에 대입: $0 + 0 + P_3 ED_3 \\equiv 0 \\implies P_3 ED_3 \\equiv 0$\n3) **최종 판정**:\n   - $P_3 > 0$ 이므로, 위 항등식을 만족하기 위해서는 반드시 **$ED_3 = 0$** 이어야 합니다.\n   - 즉, $n$ 개의 시장 중 $n-1$ 개의 시장이 균형에 도달하면 마지막 1개의 시장은 시장 기구의 자율성에 의해 무조건 자동으로 균형 상태에 있게 됩니다."
     }
   ]
 }

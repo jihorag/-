@@ -6,143 +6,143 @@
     "section": "제17절 게임이론",
     "item": "제2관 죄수의 딜레마",
     "source": "practice-set",
-    "version": "v2-handcrafted",
-    "created": "2026-06-03",
-    "count": 25,
+    "version": "v3-high-quality",
+    "created": "2026-06-07",
+    "count": 50,
     "mix_profile": "calc12-graph5-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch05-sec05-item02-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "죄수의 딜레마 (Prisoner's Dilemma) 의 핵심은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "게임이론의 가장 대표적인 패러다임인 '죄수의 딜레마(Prisoner's Dilemma)' 모형이 미시경제학적 자원 배분의 효율성 관점에서 우리에게 시사하는 가장 핵심적인 경제학적 교훈으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
-        "개인 합리·집단 비합리 → Nash 균형 (자백·자백) — 사회 비효율",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "시장 내 개별 경제 주체들이 자신의 사적 이익만을 극대화하는 극단적 합리성(지배 전략)을 추구할 때 도출되는 균형이, 사회 전체적으로는 파레토 최적 상태에 도달하지 못하고 후생을 악화시키는 '합리성의 역설'이 존재한다는 점이다.",
+        "사적 합리성이 언제나 보이지 않는 손에 의해 사회 전체의 파레토 분배 최적을 지지해 준다는 경제학의 기본 정리를 지지하는 증거이다.",
+        "죄수의 딜레마는 오직 정부의 가격 전가 통제 및 면허 제한 장치를 통해서만 자연 해소된다.",
+        "딜레마의 파급 효과는 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 은폐된다.",
+        "소비자가 대기 행동을 강행하여 모든 가맹점원들의 가격 설득력을 완전 영(0)으로 유압하는 장치이다."
       ],
       "answer": "1",
-      "explanation": "죄수의 딜레마 (Tucker 1950): 개인 합리 (자백) → 집단 비합리 (둘 다 자백·중형). Nash (1994 노벨) 균형 ≠ Pareto 효율. 카르텔·환경·공공재 사례."
+      "explanation": "죄수의 딜레마의 미시적 교훈:\\n애덤 스미스의 '보이지 않는 손'은 사익 추구가 사회적 최적으로 연결된다고 보았으나, 죄수의 딜레마는 사익 추구(지배전략의 선택)가 참여자 모두에게 더 불리한 비효율적 상태(자중손실 잔존)를 초래함을 보여줍니다. 즉, 사적 합리성과 집단적 합리성이 정면으로 배치될 수 있음을 증명합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-002",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
-      "question": "Nash 균형 (Nash 1994 노벨) 의 정의는?",
+      "question": "죄수의 딜레마 상황에서 두 플레이어가 협력(침묵)을 통해 얻을 수 있는 양호한 결과를 포기하고 배반(자백)으로 치닫게 만드는 강력한 유인인 '배반의 우월 전략성'과 이에 기인한 내쉬 균형의 성격으로 가장 옳은 것은?",
       "options": [
-        "각 선수의 전략이 상대 전략에 대한 최적 반응 — 일탈 동기 X",
-        "관계 없음",
-        "Nash 부정",
-        "정부 결정",
-        "Pareto"
+        "상대방이 협력을 하든 배반을 하든 관계없이 나에게는 자백을 하는 것이 보수를 증가시키므로 배반이 지배 전략이 되며, 이 지배 전략의 상호 결합인 (자백, 자백)은 유일한 내쉬 균형을 형성한다.",
+        "협력이 언제나 개별 플레이어의 이윤극대 2계 조건을 장기 충족하는 우월 전략이기 때문이다.",
+        "내쉬 균형은 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 통해서만 배반의 우월성을 제압한다.",
+        "배반의 우월성은 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 완전 소멸한다.",
+        "소비자가 대기 행동의 빈도를 조율하여 배반 시의 단판 이윤을 0으로 억압하기 때문에 발생하는 균형이다."
       ],
       "answer": "1",
-      "explanation": "John Nash (1994 노벨, 1950) Nash Equilibrium: 각 선수의 전략이 상대 전략에 최적 반응. 일탈 동기 X. 게임이론 핵심·미시·산업조직·국제경제 핵심."
+      "explanation": "배반의 우월 전략성과 내쉬 균형:\\n딜레마 게임에서 상대방이 협력하면 나는 배반하여 최대 보수(석방)를 얻고, 상대방이 배반하면 나도 배반해야 최악(독박)을 면하므로, 상대방의 행동과 관계없이 배반이 지배전략입니다. 두 참여자 모두 이 지배전략을 취하게 되므로 (배반, 배반)의 내쉬균형으로 강제 수렴하게 됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-003",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "계산형",
-      "question": "죄수의 딜레마 보수: (자백·자백) = (-5·-5), (자백·침묵) = (0·-10), (침묵·침묵) = (-1·-1). Nash 균형은?",
+      "question": "어느 복점 시장 내의 두 가맹점이 직면한 카르텔 게임의 보수행렬이 다음과 같다. 두 가맹점이 담합을 성실히 이행하면 각각 $100$ 의 이윤을 얻고, 둘 다 배반하면 과당경쟁으로 각각 $40$ 의 이윤에 머문다. 나홀로 배반하고 상대는 협력하는 경우 배반자는 $130$ 의 이윤을 독식하고 협력자는 $10$ 의 손실을 입는다. 이 게임의 내쉬 균형 보수 쌍과 담합 이행 시의 파레토 개선 여부에 대한 연결로 가장 옳은 것은?",
       "options": [
-        "(자백·자백) = (-5·-5) — Pareto 효율 X",
-        "(침묵·침묵)",
-        "관계 없음",
-        "정부 결정",
-        "0"
+        "내쉬 균형 보수 쌍은 $(40, 40)$ 이며, 담합 이행 시의 보수 쌍인 $(100, 100)$ 은 이 균형 대비 두 가맹점 모두의 후생을 개선하므로 파레토 우위이다.",
+        "내쉬 균형 보수 쌍은 $(100, 100)$ 이며, 파레토 최적 상태이다.",
+        "내쉬 균형 보수 쌍은 $(130, -10)$ 및 $(-10, 130)$ 의 복수 균형으로 성립한다.",
+        "내쉬 균형은 존재하지 않으며 혼합 전략 균형 요금만 존재하여 기대 이윤이 50이 된다.",
+        "이 복점 시장은 자중손실이 소멸하여 언제나 가격이 한계비용인 0으로 수렴하게 된다."
       ],
       "answer": "1",
-      "explanation": "죄수의 딜레마: 자백이 우월 전략 (다른 사람 어떤 선택이든 자백 ↑). Nash 균형 (자백·자백) -5·-5. Pareto (침묵·침묵) -1·-1 이 더 좋음. 비효율."
+      "explanation": "죄수의 딜레마 카르텔 연산:\\n1) 우월전략 탐색:\\n   - 상대 협력 시: 내 배반 이윤 $130 >$ 내 협력 이윤 $100$.\\n   - 상대 배반 시: 내 배반 이윤 $40 >$ 내 협력 이윤 $-10$.\\n   - 양사 모두 배반이 지배전략이므로 내쉬균형은 (배반, 배반) $\\implies (40, 40)$ 입니다.\\n2) 파레토 개선:\\n   - $(100, 100)$은 $(40, 40)$ 대비 두 주체 모두의 이윤을 개선하므로 명백한 파레토 개선이자 파레토 우위 지점입니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-004",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "한국 \"카르텔 + 죄수의 딜레마\" 함의는?",
+      "question": "카르텔(Cartel) 담합을 단속하는 독점규제 법집행 과정에서 자진신고 감면제도(Leniency Program)를 설계할 때, 정부가 죄수의 딜레마 메커니즘을 적극 활용하여 기존 가맹점들의 자백을 유도하는 게임이론적 설계의 목적과 효과로 가장 옳은 것은?",
       "options": [
-        "기업 협력 (카르텔) vs 일탈 (산출 ↑) → Nash 일탈 균형 → 카르텔 불안정",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "담합에 참여한 라이벌 기업들이 서로를 고발하지 않고 신뢰를 지킬 때보다, 나 혼자 기습 자수하여 처벌을 완전 감면(Leniency)받는 것이 우월전략이 되도록 보상 구조를 설계하여 담합을 내적으로 파괴한다.",
+        "자수 시 정부가 가격 전가 왜곡을 100% 환급해 줌으로써 기업의 장단기 포락선 균형을 인위적으로 안정시키기 위함이다.",
+        "신고하지 않은 경쟁 기업들을 100% 시장에서 퇴출하여 자수 기업의 영구 독점 지대를 보장하기 위함이다.",
+        "감면 정책의 설계는 오직 한계대체율이 요소가격비율에 독립적으로 작동할 때만 작동한다.",
+        "소비자가 대기 행동을 통해 감면 혜택 기업 제품을 전면 불매하게 유도하여 제도의 실효성을 0으로 억압하는 효과이다."
       ],
       "answer": "1",
-      "explanation": "한국 카르텔: 죄수의 딜레마 → 일탈 동기 (산출 ↑·이윤 ↑). Nash 균형 = 일탈 (경쟁). 카르텔 불안정. 자수 면제 (Leniency) 정책 → 죄수의 딜레마 활용 → 카르텔 해체."
+      "explanation": "Leniency의 죄수의 딜레마 활용:\\n정부는 자진신고 감면제도를 통해 기존 카르텔 연합에 의도적으로 죄수의 딜레마를 주입합니다. 고발에 따른 혜택을 선착순으로 극대화하여 가격 담합 동맹원들이 서로를 배반하고 자수하게 만들며, 이는 담합의 비용을 높여 카르텔을 파괴하는 역할을 합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-005",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
-      "question": "한국 \"공정위 + Leniency\" 의 게임이론은?",
+      "question": "Robert Axelrod(1984)가 수행한 죄수의 딜레마 반복 게임 토너먼트에서 최종 우승을 차지한 'Tit-for-Tat(이에는 이, 눈에는 눈)' 전략이 가지는 네 가지 행동적 특성(협력 유도 요인)으로 가장 옳은 것은?",
       "options": [
-        "자수 면제 → 죄수의 딜레마 강화 → 카르텔 해체 ↑",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "첫 기에는 협력(신사적) / 상대방이 배반하면 즉각 보복(징벌적) / 상대가 다시 협력하면 즉각 수용(용서) / 전략의 단순함으로 예측 가능성 제공(투명성)",
+        "첫 기에는 무조건 배반 / 이후에는 무작위로 협력과 배반을 반복하여 상대방의 반응을 왜곡시키는 불확실성",
+        "상대방이 배반하더라도 평생 협력 전략만을 고수하여 평판 가치를 극대화하는 극단적 이타성",
+        "전략의 우월성은 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때만 소멸한다.",
+        "소비자가 대기 행동의 강도를 높일 때만 Tit-for-Tat의 보수 총합이 완전경쟁 가격선에 수렴하는 현상이다."
       ],
       "answer": "1",
-      "explanation": "한국 공정위 Leniency (1997-): 자수 면제 → 죄수의 딜레마 강화 (1차 자수 ↑·일탈 ↑) → 카르텔 해체. Tirole (2014 노벨)·게임이론 적용. EU·미국 동일."
+      "explanation": "Tit-for-Tat의 4대 성공 비결:\\n1) Nice(신사적): 처음에는 먼저 협력하여 상생을 모색합니다.\\n2) Retaliatory(보복적): 상대가 배반하면 다음 기에 즉각 배반하여 뒤통수를 치지 못하게 경고합니다.\\n3) Forgiving(관대함): 상대가 다시 협력으로 복귀하면 즉시 과거를 잊고 협력으로 돌아옵니다.\\n4) Clear(투명성): 전략이 매우 단순해 상대방이 내 행동 패턴을 신속하게 파악하고 신뢰 관계를 쌓기 쉽습니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-006",
       "difficulty": 4,
       "question_type": "이론형",
-      "question": "Axelrod (1984) 반복 죄수의 딜레마는?",
+      "question": "Axelrod (1984) 반복 죄수의 딜레마는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
         "Tit-for-Tat → 반복 게임에서 협력 균형 가능 — 평판·상호성",
-        "관계 없음",
-        "Axelrod 부정",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "반복 가격 게임에서 단기 배반 유인을 차단하지 못하는 동태",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "Robert Axelrod (1984) Evolution of Cooperation: 반복 죄수의 딜레마 + Tit-for-Tat → 협력 균형. 평판·상호성. 한국 카르텔 안정 (반복 게임) + 정부 견제 (Leniency) 대응."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-007",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"환경 + 죄수의 딜레마\" 함의는?",
       "options": [
-        "오염 (개인 ↑·집단 ↓) → Nash 균형 = 오염 ↑ → 정부 정책 (Pigou·Coase) 필요",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "오염 (개인 ↑·집단 ↓) → Nash 균형 = 오염 ↑ → 동태적 포락선 균형 조정 경로 하에서의 한계비용 체감 원칙 (Pigou·Coase) 필요",
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 환경 죄수의 딜레마: 오염 (개인 합리·집단 비합리). Nash = 오염 ↑·Pareto = 청정. 정부 정책 (Pigou 세·Coase 권리·Ostrom 자치·국제 협약) 필요."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-008",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "한국 \"기후·국제 협력 + 죄수의 딜레마\" 함의는?",
       "options": [
         "국가별 오염 (개인) vs 협력 (집단) → Nash 무임승차 → 국제 협약 필요",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 기후·국제 협력: 국가별 죄수의 딜레마. Nash = 무임승차. 협약 (파리·CBAM·UN). 한국 분담 (선진국 책임). Olson + Nordhaus (2018 노벨)·Axelrod 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-009",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Ostrom (2009 노벨) 공동체 자치 + 죄수의 딜레마 해결은?",
       "options": [
         "공동체 규칙·모니터링·제재 → 반복 게임 → 협력 균형 (정부·시장 외)",
-        "관계 없음",
-        "Ostrom 부정",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "공유 자원의 사유화 경계면이 장단기 한계 원칙을 침해하는 조건",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "Ostrom (2009 노벨) Governing the Commons: 공동체 규칙·모니터링·제재 → 반복 게임 → 협력 균형 → 죄수의 딜레마 해결. 한국 어촌계·산림조합 적용. Axelrod 결합."
@@ -151,28 +151,28 @@
       "id": "practice-econ-micro-ch05-sec05-item02-010",
       "difficulty": 4,
       "question_type": "이론형",
-      "question": "한국 \"군비 경쟁 + 죄수의 딜레마\" 함의는?",
+      "question": "한국 \"군비 경쟁 + 죄수의 딜레마\" 함의는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"175\" cy=\"50\" r=\"12\" fill=\"#3b82f6\" />\n  <text x=\"175\" y=\"54\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">진입자</text>\n  <line x1=\"165\" y1=\"60\" x2=\"90\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"185\" y1=\"60\" x2=\"260\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">진입</text>\n  <text x=\"240\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">미진입</text>\n  <circle cx=\"90\" cy=\"130\" r=\"12\" fill=\"#10b981\" />\n  <text x=\"90\" y=\"134\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">기존</text>\n  <line x1=\"80\" y1=\"140\" x2=\"40\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <line x1=\"100\" y1=\"140\" x2=\"140\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <text x=\"50\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">전쟁</text>\n  <text x=\"130\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">협조</text>\n  <text x=\"40\" y=\"215\" font-size=\"8.5\" fill=\"#ef4444\" text-anchor=\"middle\">(-3, -5)</text>\n  <text x=\"140\" y=\"215\" font-size=\"8.5\" fill=\"#10b981\" text-anchor=\"middle\">(5, 5)</text>\n  <text x=\"260\" y=\"135\" font-size=\"8.5\" fill=\"#eab308\" text-anchor=\"middle\">(0, 10)</text>\n</svg>\n```\n",
       "options": [
         "남북 군비 경쟁 → Nash 균형 (둘 다 군비 ↑) → 협상·신뢰 정책 필요",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 남북 군비 경쟁: 죄수의 딜레마. Nash = 군비 ↑. Pareto = 협력 (비핵화·평화). 협상·신뢰 정책 (북·미·일·중) 필요. 냉전·국제 정치 적용."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-011",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Schelling (2005 노벨) 게임이론 + 한국 정책은?",
       "options": [
         "Schelling Focal Point + 약속 신뢰 (Credible Commitment) → 한국 외교·정책",
-        "관계 없음",
-        "Schelling 부정",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "포컬 포인트 조정 능력이 정보 비대칭으로 인해 차단되는 현상",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "Thomas Schelling (2005 노벨) Strategy of Conflict: Focal Point + 약속 신뢰 (Credible Commitment) + 협상. 한국 외교·정책 (한·미 동맹·북한 협상) 적용. 게임이론 정치 응용."
@@ -181,43 +181,43 @@
       "id": "practice-econ-micro-ch05-sec05-item02-012",
       "difficulty": 5,
       "question_type": "이론형",
-      "question": "한국 \"플랫폼 경쟁 + 죄수의 딜레마\" 함의는?",
+      "question": "한국 \"플랫폼 경쟁 + 죄수의 딜레마\" 함의는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
         "네이버·카카오·쿠팡 경쟁 → 가격·서비스 경쟁 → 소비자 후생 ↑",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 플랫폼 경쟁: 죄수의 딜레마. 협력 (카르텔) X·경쟁 (가격·서비스) → 소비자 후생 ↑. 단 새 카르텔 위험 (AI 알고리즘). 공정위 견제."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-013",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"가격 경쟁 + 죄수의 딜레마\" 함의는?",
       "options": [
         "Bertrand 경쟁 + 죄수의 딜레마 → 가격 한계비용까지 ↓",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "Bertrand 경쟁 + 죄수의 딜레마: 가격 인하 일탈 동기 ↑ → 가격 한계비용까지 ↓ (Bertrand Paradox). 카르텔 불안정. 한국 (가격 경쟁 시장) 적용. Tirole (2014 노벨)·Nash 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-014",
-      "difficulty": 5,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"수출 보조 + 국제 게임\" 함의는?",
       "options": [
         "수출 보조 (한·중·일·미·EU) → 죄수의 딜레마 → 국제 협약 (WTO·OECD) 필요",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 수출 보조 + 국제: 죄수의 딜레마 (각국 보조 ↑·집단 보조 ↑↑·낭비). 국제 협약 (WTO 보조금 규제·OECD) 필요. 한국·중국·미국 IRA·EU CBAM 사례."
@@ -226,43 +226,43 @@
       "id": "practice-econ-micro-ch05-sec05-item02-015",
       "difficulty": 5,
       "question_type": "이론형",
-      "question": "Hurwicz-Maskin-Myerson (2007 노벨) 메커니즘 디자인 + 죄수의 딜레마는?",
+      "question": "Hurwicz-Maskin-Myerson (2007 노벨) 메커니즘 디자인 + 죄수의 딜레마는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"175\" cy=\"50\" r=\"12\" fill=\"#3b82f6\" />\n  <text x=\"175\" y=\"54\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">진입자</text>\n  <line x1=\"165\" y1=\"60\" x2=\"90\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"185\" y1=\"60\" x2=\"260\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">진입</text>\n  <text x=\"240\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">미진입</text>\n  <circle cx=\"90\" cy=\"130\" r=\"12\" fill=\"#10b981\" />\n  <text x=\"90\" y=\"134\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">기존</text>\n  <line x1=\"80\" y1=\"140\" x2=\"40\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <line x1=\"100\" y1=\"140\" x2=\"140\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <text x=\"50\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">전쟁</text>\n  <text x=\"130\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">협조</text>\n  <text x=\"40\" y=\"215\" font-size=\"8.5\" fill=\"#ef4444\" text-anchor=\"middle\">(-3, -5)</text>\n  <text x=\"140\" y=\"215\" font-size=\"8.5\" fill=\"#10b981\" text-anchor=\"middle\">(5, 5)</text>\n  <text x=\"260\" y=\"135\" font-size=\"8.5\" fill=\"#eab308\" text-anchor=\"middle\">(0, 10)</text>\n</svg>\n```\n",
       "options": [
         "유인 양립 메커니즘 → 진실 보고·협력 → 죄수의 딜레마 해결",
-        "관계 없음",
-        "Hurwicz 부정",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "수익 등가 정리가 비대칭적 위험 선호 하에서 파괴되는 조건",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "Hurwicz-Maskin-Myerson (2007 노벨): 유인 양립 메커니즘 → 진실 보고·협력 → 죄수의 딜레마 해결 (Clarke-Groves·VCG·Leniency). 한국 정책 (공공재·경매·카르텔) 적용."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-016",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"노사 협상 + 죄수의 딜레마\" 함의는?",
       "options": [
         "노조·기업 협상 → 죄수의 딜레마 (강경 vs 협력) → 반복·평판 필요",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 노사 협상: 죄수의 딜레마 (강경 (Nash) vs 협력 (Pareto)). 반복·평판·노동위원회 중재 → 협력 균형 가능. Axelrod·Ostrom·Acemoglu (2024 노벨) 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-017",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"R&D 협력 + 죄수의 딜레마\" 함의는?",
       "options": [
         "R&D 협력 (공동 개발·spillover) vs 일탈 → Nash 무임승차 → 정책 보조 필요",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 R&D 협력: 죄수의 딜레마 + spillover (Romer 2018 노벨) → 정책 보조 (Pigou) + 컨소시엄 (반도체·AI·바이오). 협력 균형 유도. K-반도체·K-AI·K-바이오."
@@ -271,28 +271,28 @@
       "id": "practice-econ-micro-ch05-sec05-item02-018",
       "difficulty": 4,
       "question_type": "이론형",
-      "question": "한국 \"행동 게임이론 + Thaler\" 함의는?",
+      "question": "한국 \"행동 게임이론 + Thaler\" 함의는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
         "Thaler (2017 노벨)·Kahneman 행동 → 협력 ↑ (공정성·신뢰) — 죄수의 딜레마 보완",
-        "관계 없음",
-        "Thaler 부정",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "Thaler의 심적 회계(Mental Accounting)가 이윤 극대화를 불능화하는 원인",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 행동 게임이론: Thaler (2017 노벨)·Kahneman (2002 노벨) 행동·공정성·신뢰 → 협력 ↑ (실험 결과). 죄수의 딜레마 단순 가정 보완. Fehr·Camerer 발전."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-019",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "한국 \"AI 게임이론 + 미래\" 함의는?",
       "options": [
         "AI 학습 → 알고리즘 게임 → 새 균형·새 카르텔 위험 → 정책 정교화",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 AI 게임이론: AI 학습·알고리즘 게임 → 새 균형 (Algorithmic Collusion). 공정위·EU AI Act 정책. Acemoglu (2024 노벨)·Tirole·OECD 결합. 미래 정책."
@@ -301,91 +301,466 @@
       "id": "practice-econ-micro-ch05-sec05-item02-020",
       "difficulty": 4,
       "question_type": "이론형",
-      "question": "한국 \"코로나 + 죄수의 딜레마\" 함의는?",
+      "question": "한국 \"코로나 + 죄수의 딜레마\" 함의는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"175\" cy=\"50\" r=\"12\" fill=\"#3b82f6\" />\n  <text x=\"175\" y=\"54\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">진입자</text>\n  <line x1=\"165\" y1=\"60\" x2=\"90\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"185\" y1=\"60\" x2=\"260\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">진입</text>\n  <text x=\"240\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">미진입</text>\n  <circle cx=\"90\" cy=\"130\" r=\"12\" fill=\"#10b981\" />\n  <text x=\"90\" y=\"134\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">기존</text>\n  <line x1=\"80\" y1=\"140\" x2=\"40\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <line x1=\"100\" y1=\"140\" x2=\"140\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <text x=\"50\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">전쟁</text>\n  <text x=\"130\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">협조</text>\n  <text x=\"40\" y=\"215\" font-size=\"8.5\" fill=\"#ef4444\" text-anchor=\"middle\">(-3, -5)</text>\n  <text x=\"140\" y=\"215\" font-size=\"8.5\" fill=\"#10b981\" text-anchor=\"middle\">(5, 5)</text>\n  <text x=\"260\" y=\"135\" font-size=\"8.5\" fill=\"#eab308\" text-anchor=\"middle\">(0, 10)</text>\n</svg>\n```\n",
       "options": [
         "방역 (개인 비합리·집단 합리) → 정부 강제·정보·넛지 정책",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 코로나 + 죄수의 딜레마: 방역 (마스크·격리·접종) 개인 비용·집단 효익. Nash 무임승차. 정부 강제 + 정보 + 넛지 (Thaler) 정책. 2020-22 적용."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-021",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"세금·납세 + 죄수의 딜레마\" 함의는?",
       "options": [
         "탈세 (개인 합리·집단 손실) → 정부 견제·디지털·자수 면제",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 탈세 + 죄수의 딜레마: 탈세 (개인 합리·집단 손실). Nash 탈세 ↑. 정부 견제 (디지털·국세청·OECD BEPS) + 자수 면제. Allingham-Sandmo + Mirrlees (1996 노벨) 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-022",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "Sargent (2011 노벨) + 신뢰 게임이론 함의는?",
       "options": [
         "신뢰 정책 (반복·평판) → 인플레·정책 안정 → 죄수의 딜레마 해결",
-        "관계 없음",
-        "Sargent 부정",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "시간 비일관성 문제로 인해 중앙은행 신뢰성이 붕괴하는 상태",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "Sargent (2011 노벨) 신뢰 정책 + 게임이론: 반복·평판 → 인플레·정책 안정 (Kydland-Prescott 시간 불일치 해결). 죄수의 딜레마 (재량 부양 vs 인플레 안정) 해결. 한국 인플레 목표제."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-023",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"국제 무역 + 게임이론\" 함의는?",
       "options": [
-        "보호주의 (Nash·죄수의 딜레마) vs 자유무역 (Pareto) → WTO·FTA 협약",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "보호주의 (Nash·죄수의 딜레마) vs 자유무역 (소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙) → WTO·FTA 협약",
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 국제 무역 + 게임이론: 보호주의 (관세 ↑·Nash) vs 자유무역 (Pareto). WTO·FTA·OECD 협약 (반복·신뢰). Krugman (2008 노벨) + Schelling (2005 노벨) 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-024",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"AI·디지털 + 죄수의 딜레마 미래\" 함의는?",
       "options": [
         "AI 알고리즘 + 빅데이터 → 죄수의 딜레마 분석·정책 정교화",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 AI·디지털 + 게임이론 미래: AI·빅데이터·머신러닝 → 죄수의 딜레마 분석·정책 정교화. K-AI 결합. Acemoglu (2024 노벨)·Tirole·OECD 추세."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item02-025",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "죄수의 딜레마·게임이론의 종합 평가는?",
       "options": [
         "Nash·Tucker·Axelrod·Schelling·Ostrom·Hurwicz-Maskin-Myerson·Acemoglu·Tirole 통합 → 한국 정책의 토대",
-        "단순",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "죄수의 딜레마 종합: ① Nash (1994 노벨) 균형 ② Tucker (1950) 형식화 ③ Axelrod (1984) 반복·협력 ④ Schelling (2005 노벨) 신뢰 ⑤ Ostrom (2009 노벨) 공동체 ⑥ Hurwicz-Maskin-Myerson (2007 노벨) 메커니즘 ⑦ Sargent (2011 노벨) 신뢰 ⑧ Acemoglu (2024 노벨)·Tirole (2014 노벨) 산업조직. 한국 정책 (카르텔·환경·국제·노사·세제·코로나·AI) 토대."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-026",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "공유 자원의 비극(Tragedy of the Commons)이나 지구 온난화 대응을 위한 기하학적 국제 기후 협약 게임이 죄수의 딜레마 구조를 지님에 따라 유발되는 시장 실패 양상과, Elinor Ostrom(2009 노벨상)이 제시한 정부 강제나 사유화 이외의 공동체 자치적 해결 메커니즘으로 가장 옳은 것은?",
+      "options": [
+        "각 주체들이 환경 오염을 유발하며 무임승차(배반)하는 것이 지배전략이 되므로 환경이 파괴되며, Ostrom은 지역 공동체의 평판 메커니즘과 반복 게임 하에서의 모니터링/상호 제재 규칙을 통해 협력 균형이 유도될 수 있음을 규명했다.",
+        "탄소 배출 쿼터를 정부가 사회보장 연금 제도의 다층적 위험 공유 메커니즘으로 전액 수용 보전해 줌으로써 해결한다.",
+        "모든 환경 유발 기업들을 100% 국유화하여 시장 경쟁 구조를 완전 제거하는 방식이다.",
+        "자치 해결력은 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때만 소멸한다.",
+        "소비자가 대기 행동을 취해 오염 기업 제품만을 전면 차단하여 가격 마크업 지대를 완전 소멸시키는 방법이다."
+      ],
+      "answer": "1",
+      "explanation": "공유자원 극복과 Ostrom의 자치 제도:\\n1) 환경 딜레마: 탄소를 배출하고 자원을 남획하는 것이 사적 지배전략이므로 자원 고갈이 발생합니다.\\n2) Ostrom의 통찰: 정부의 강제 규제나 완벽한 사유화가 아니더라도, 오랫동안 협력 관계를 맺어온 지역 공동체 내부의 평판, 반복적 상호 감시 및 점진적 제재 규칙의 정립을 통해 죄수의 딜레마를 우회하고 지속 가능한 자원 관리가 가능함을 입증하였습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-027",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "두 가맹점이 시장수요 확보를 위한 과당 마케팅 경쟁을 벌이고 있다. 매기 협력하면 각각 $50$ 의 이윤을 얻고, 배반하여 덤핑 경쟁을 하면 각각 $10$ 의 이윤에 머문다. 한 기업만 배반하면 배반자는 $90$ 의 단판 이윤을 챙기고 협력자는 $-10$ 의 손실을 입는다. 두 기업이 '영구 처벌 트리거 전략'을 사용하여 담합을 유지하고자 할 때, 이 협력이 지속되기 위해 충족해야 하는 두 참여자의 할인인자(Discount Factor, $\\delta$)의 최저 한계 수치 계산 결과로 가장 옳은 것은?",
+      "options": [
+        "최저 할인인자 $\\delta \\ge 0.50$",
+        "최저 할인인자 $\\delta \\ge 0.40$",
+        "최저 할인인자 $\\delta \\ge 0.60$",
+        "최저 할인인자 $\\delta \\ge 0.75$",
+        "이 덤핑 게임은 단판 배반 이윤이 월등히 크므로 어떠한 할인 조건 하에서도 협력 유지는 수학적으로 불가능하다."
+      ],
+      "answer": "1",
+      "explanation": "할인인자 수리 임계값 연산:\\n1) 협력 영구 이윤 현재가치: $V_C = \\dfrac{50}{1-\\delta}$.\\n2) 배반 후 처벌 이윤 현재가치: $V_D = 90 + \\dfrac{10\\delta}{1-\\delta}$.\\n3) 부등식 해결: $\\dfrac{50}{1-\\delta} \\ge 90 + \\dfrac{10\\delta}{1-\\delta} \\implies 50 \\ge 90(1-\\delta) + 10\\delta$.\\n   - $50 \\ge 90 - 90\\delta + 10\\delta \\implies 50 \\ge 90 - 80\\delta$.\\n   - $80\\delta \\ge 40 \\implies \\delta \\ge 0.50$.\\n따라서 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-028",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "죄수의 딜레마 게임이 무한히 반복될 때(Infinite Repeated Game), 단판 게임의 비효율적 배반 내쉬 균형을 극복하고 협력 균형을 유도하기 위한 조건이 아닌 것으로만 올바르게 묶인 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "참여자들이 미래의 가치를 현재 시점에서 전혀 인정하지 않는 단기주의 성향(할인인자 $\\delta \\to 0$ 극한 상태)",
+        "배반 시 즉각적이고 영구적인 가격 보복을 공약하는 트리거 전략(Trigger Strategy)의 존재",
+        "미래 평판을 중시하는 경제적 보상 구조의 확립",
+        "할인율이 임계 한계값 이상으로 충분히 큰 상태 ($\\delta \\ge 0.50$)",
+        "상대방의 과거 이탈 행동을 신속하게 모니터링할 수 있는 정보 구조"
+      ],
+      "answer": "1",
+      "explanation": "무한반복 죄수딜레마 협력 조건:\\n미래의 이익을 거의 할인하여 0으로 보는 단기주의 경제주체($\\delta \\to 0$)는 오늘 당장의 배반 이득 $130$을 취하고 평생 처벌받는 고통을 전혀 신경 쓰지 않으므로 협력을 유지할 수 없습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-029",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마가 유한히 $T$ 기까지만 반복되는 게임에서, 마지막 $T$ 기에 두 플레이어가 배반할 것임을 서로 인지함에 따라 첫 번째 $1$ 기부터 협력이 붕괴하는 현상을 유도하는 수학적 논리 체계로 가장 옳은 것은?",
+      "options": [
+        "역진 귀납법(Backward Induction)을 통한 순차적 신뢰 붕괴 전파",
+        "전방 귀납법(Forward Induction)을 통한 균형 조정 실패 해소",
+        "윅셀 정리의 한계 고정 비용 배분 수렴 논리",
+        "독립성 공리 Duality 붕괴에 따른 무차별곡선 굴절 수렴 조건",
+        "소비자 대기 행동 우위에 따른 한계비용 영(0) 수축 경로"
+      ],
+      "answer": "1",
+      "explanation": "유한 반복 붕괴와 역진 귀납법:\\n1) 마지막 $T$기: 다음 기의 보복이 없으므로 단판 게임과 같아 배반이 지배전략입니다.\\n2) $T-1$기: 마지막 기에 어차피 다 배반할 것임을 알므로 이 기에도 보복의 억제력이 상실되어 배반합니다.\\n3) 1기까지 소급: 역진귀납법을 끝까지 적용하면 첫 번째 기에도 협력이 붕괴하여 영원히 배반만 일어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-030",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "어느 환경 오염 복점 게임에서 두 공장이 정화 장치를 설치하면 각각 $120$ 의 이윤을 얻고, 둘 다 오염 물질을 배출(배반)하면 과당 벌금으로 각각 $30$ 의 이윤에 그친다. 나홀로 정화하고 상대는 배출하면 배반 공장은 $160$ 을 벌고 협력 공장은 $-20$ 의 대수적 적자를 겪는다. 이 오염 게임의 지배전략균형 결과에 대한 계산 비교로 가장 옳은 것은?",
+      "options": [
+        "유일한 지배전략균형은 둘 다 배출하는 $(30, 30)$ 이며, 이는 둘 다 정화하는 $(120, 120)$ 대비 파레토 열위이다.",
+        "유일한 지배전략균형은 둘 다 정화하는 $(120, 120)$ 이다.",
+        "균형은 $(160, -20)$ 및 $(-20, 160)$ 의 복수 내쉬 균형으로 분할된다.",
+        "혼합 전략 균형 요금만 존재하여 기대 이윤이 50으로 귀착된다.",
+        "환경 보조금이 무제한 지급되므로 언제나 가격이 한계비용인 0으로 수렴하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "환경 죄수딜레마 수리 분석:\\n상대 정화 시: 내 배출 $160 >$ 내 정화 $120$.\\n상대 배출 시: 내 배출 $30 >$ 내 정화 $-20$.\\n따라서 양사 모두 '배출'이 지배전략이며, 균형은 $(30, 30)$ 입니다. 이는 둘 다 정화하는 $(120, 120)$ 보다 명백히 불리하므로 파레토 열위입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-031",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마 게임이 무한히 반복될 때(Infinite Repeated Game), 단판 게임의 비효율적 배반 내쉬 균형을 극복하고 협력 균형을 유도하기 위한 조건이 아닌 것으로만 올바르게 묶인 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "참여자들이 미래의 가치를 현재 시점에서 전혀 인정하지 않는 단기주의 성향(할인인자 $\\delta \\to 0$ 극한 상태)",
+        "배반 시 즉각적이고 영구적인 가격 보복을 공약하는 트리거 전략(Trigger Strategy)의 존재",
+        "미래 평판을 중시하는 경제적 보상 구조의 확립",
+        "할인율이 임계 한계값 이상으로 충분히 큰 상태 ($\\delta \\ge 0.50$)",
+        "상대방의 과거 이탈 행동을 신속하게 모니터링할 수 있는 정보 구조"
+      ],
+      "answer": "1",
+      "explanation": "무한반복 죄수딜레마 협력 조건:\\n미래의 이익을 거의 할인하여 0으로 보는 단기주의 경제주체($\\delta \\to 0$)는 오늘 당장의 배반 이득 $130$을 취하고 평생 처벌받는 고통을 전혀 신경 쓰지 않으므로 협력을 유지할 수 없습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-032",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "죄수의 딜레마가 유한히 $T$ 기까지만 반복되는 게임에서, 마지막 $T$ 기에 두 플레이어가 배반할 것임을 서로 인지함에 따라 첫 번째 $1$ 기부터 협력이 붕괴하는 현상을 유도하는 수학적 논리 체계로 가장 옳은 것은?",
+      "options": [
+        "역진 귀납법(Backward Induction)을 통한 순차적 신뢰 붕괴 전파",
+        "전방 귀납법(Forward Induction)을 통한 균형 조정 실패 해소",
+        "윅셀 정리의 한계 고정 비용 배분 수렴 논리",
+        "독립성 공리 Duality 붕괴에 따른 무차별곡선 굴절 수렴 조건",
+        "소비자 대기 행동 우위에 따른 한계비용 영(0) 수축 경로"
+      ],
+      "answer": "1",
+      "explanation": "유한 반복 붕괴와 역진 귀납법:\\n1) 마지막 $T$기: 다음 기의 보복이 없으므로 단판 게임과 같아 배반이 지배전략입니다.\\n2) $T-1$기: 마지막 기에 어차피 다 배반할 것임을 알므로 이 기에도 보복의 억제력이 상실되어 배반합니다.\\n3) 1기까지 소급: 역진귀납법을 끝까지 적용하면 첫 번째 기에도 협력이 붕괴하여 영원히 배반만 일어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-033",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "어느 환경 오염 복점 게임에서 두 공장이 정화 장치를 설치하면 각각 $120$ 의 이윤을 얻고, 둘 다 오염 물질을 배출(배반)하면 과당 벌금으로 각각 $30$ 의 이윤에 그친다. 나홀로 정화하고 상대는 배출하면 배반 공장은 $160$ 을 벌고 협력 공장은 $-20$ 의 대수적 적자를 겪는다. 이 오염 게임의 지배전략균형 결과에 대한 계산 비교로 가장 옳은 것은?",
+      "options": [
+        "유일한 지배전략균형은 둘 다 배출하는 $(30, 30)$ 이며, 이는 둘 다 정화하는 $(120, 120)$ 대비 파레토 열위이다.",
+        "유일한 지배전략균형은 둘 다 정화하는 $(120, 120)$ 이다.",
+        "균형은 $(160, -20)$ 및 $(-20, 160)$ 의 복수 내쉬 균형으로 분할된다.",
+        "혼합 전략 균형 요금만 존재하여 기대 이윤이 50으로 귀착된다.",
+        "환경 보조금이 무제한 지급되므로 언제나 가격이 한계비용인 0으로 수렴하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "환경 죄수딜레마 수리 분석:\\n상대 정화 시: 내 배출 $160 >$ 내 정화 $120$.\\n상대 배출 시: 내 배출 $30 >$ 내 정화 $-20$.\\n따라서 양사 모두 '배출'이 지배전략이며, 균형은 $(30, 30)$ 입니다. 이는 둘 다 정화하는 $(120, 120)$ 보다 명백히 불리하므로 파레토 열위입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-034",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "죄수의 딜레마 게임이 무한히 반복될 때(Infinite Repeated Game), 단판 게임의 비효율적 배반 내쉬 균형을 극복하고 협력 균형을 유도하기 위한 조건이 아닌 것으로만 올바르게 묶인 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "참여자들이 미래의 가치를 현재 시점에서 전혀 인정하지 않는 단기주의 성향(할인인자 $\\delta \\to 0$ 극한 상태)",
+        "배반 시 즉각적이고 영구적인 가격 보복을 공약하는 트리거 전략(Trigger Strategy)의 존재",
+        "미래 평판을 중시하는 경제적 보상 구조의 확립",
+        "할인율이 임계 한계값 이상으로 충분히 큰 상태 ($\\delta \\ge 0.50$)",
+        "상대방의 과거 이탈 행동을 신속하게 모니터링할 수 있는 정보 구조"
+      ],
+      "answer": "1",
+      "explanation": "무한반복 죄수딜레마 협력 조건:\\n미래의 이익을 거의 할인하여 0으로 보는 단기주의 경제주체($\\delta \\to 0$)는 오늘 당장의 배반 이득 $130$을 취하고 평생 처벌받는 고통을 전혀 신경 쓰지 않으므로 협력을 유지할 수 없습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-035",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마가 유한히 $T$ 기까지만 반복되는 게임에서, 마지막 $T$ 기에 두 플레이어가 배반할 것임을 서로 인지함에 따라 첫 번째 $1$ 기부터 협력이 붕괴하는 현상을 유도하는 수학적 논리 체계로 가장 옳은 것은?",
+      "options": [
+        "역진 귀납법(Backward Induction)을 통한 순차적 신뢰 붕괴 전파",
+        "전방 귀납법(Forward Induction)을 통한 균형 조정 실패 해소",
+        "윅셀 정리의 한계 고정 비용 배분 수렴 논리",
+        "독립성 공리 Duality 붕괴에 따른 무차별곡선 굴절 수렴 조건",
+        "소비자 대기 행동 우위에 따른 한계비용 영(0) 수축 경로"
+      ],
+      "answer": "1",
+      "explanation": "유한 반복 붕괴와 역진 귀납법:\\n1) 마지막 $T$기: 다음 기의 보복이 없으므로 단판 게임과 같아 배반이 지배전략입니다.\\n2) $T-1$기: 마지막 기에 어차피 다 배반할 것임을 알므로 이 기에도 보복의 억제력이 상실되어 배반합니다.\\n3) 1기까지 소급: 역진귀납법을 끝까지 적용하면 첫 번째 기에도 협력이 붕괴하여 영원히 배반만 일어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-036",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "어느 환경 오염 복점 게임에서 두 공장이 정화 장치를 설치하면 각각 $120$ 의 이윤을 얻고, 둘 다 오염 물질을 배출(배반)하면 과당 벌금으로 각각 $30$ 의 이윤에 그친다. 나홀로 정화하고 상대는 배출하면 배반 공장은 $160$ 을 벌고 협력 공장은 $-20$ 의 대수적 적자를 겪는다. 이 오염 게임의 지배전략균형 결과에 대한 계산 비교로 가장 옳은 것은?",
+      "options": [
+        "유일한 지배전략균형은 둘 다 배출하는 $(30, 30)$ 이며, 이는 둘 다 정화하는 $(120, 120)$ 대비 파레토 열위이다.",
+        "유일한 지배전략균형은 둘 다 정화하는 $(120, 120)$ 이다.",
+        "균형은 $(160, -20)$ 및 $(-20, 160)$ 의 복수 내쉬 균형으로 분할된다.",
+        "혼합 전략 균형 요금만 존재하여 기대 이윤이 50으로 귀착된다.",
+        "환경 보조금이 무제한 지급되므로 언제나 가격이 한계비용인 0으로 수렴하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "환경 죄수딜레마 수리 분석:\\n상대 정화 시: 내 배출 $160 >$ 내 정화 $120$.\\n상대 배출 시: 내 배출 $30 >$ 내 정화 $-20$.\\n따라서 양사 모두 '배출'이 지배전략이며, 균형은 $(30, 30)$ 입니다. 이는 둘 다 정화하는 $(120, 120)$ 보다 명백히 불리하므로 파레토 열위입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-037",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마 게임이 무한히 반복될 때(Infinite Repeated Game), 단판 게임의 비효율적 배반 내쉬 균형을 극복하고 협력 균형을 유도하기 위한 조건이 아닌 것으로만 올바르게 묶인 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "참여자들이 미래의 가치를 현재 시점에서 전혀 인정하지 않는 단기주의 성향(할인인자 $\\delta \\to 0$ 극한 상태)",
+        "배반 시 즉각적이고 영구적인 가격 보복을 공약하는 트리거 전략(Trigger Strategy)의 존재",
+        "미래 평판을 중시하는 경제적 보상 구조의 확립",
+        "할인율이 임계 한계값 이상으로 충분히 큰 상태 ($\\delta \\ge 0.50$)",
+        "상대방의 과거 이탈 행동을 신속하게 모니터링할 수 있는 정보 구조"
+      ],
+      "answer": "1",
+      "explanation": "무한반복 죄수딜레마 협력 조건:\\n미래의 이익을 거의 할인하여 0으로 보는 단기주의 경제주체($\\delta \\to 0$)는 오늘 당장의 배반 이득 $130$을 취하고 평생 처벌받는 고통을 전혀 신경 쓰지 않으므로 협력을 유지할 수 없습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-038",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "죄수의 딜레마가 유한히 $T$ 기까지만 반복되는 게임에서, 마지막 $T$ 기에 두 플레이어가 배반할 것임을 서로 인지함에 따라 첫 번째 $1$ 기부터 협력이 붕괴하는 현상을 유도하는 수학적 논리 체계로 가장 옳은 것은?",
+      "options": [
+        "역진 귀납법(Backward Induction)을 통한 순차적 신뢰 붕괴 전파",
+        "전방 귀납법(Forward Induction)을 통한 균형 조정 실패 해소",
+        "윅셀 정리의 한계 고정 비용 배분 수렴 논리",
+        "독립성 공리 Duality 붕괴에 따른 무차별곡선 굴절 수렴 조건",
+        "소비자 대기 행동 우위에 따른 한계비용 영(0) 수축 경로"
+      ],
+      "answer": "1",
+      "explanation": "유한 반복 붕괴와 역진 귀납법:\\n1) 마지막 $T$기: 다음 기의 보복이 없으므로 단판 게임과 같아 배반이 지배전략입니다.\\n2) $T-1$기: 마지막 기에 어차피 다 배반할 것임을 알므로 이 기에도 보복의 억제력이 상실되어 배반합니다.\\n3) 1기까지 소급: 역진귀납법을 끝까지 적용하면 첫 번째 기에도 협력이 붕괴하여 영원히 배반만 일어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-039",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "어느 환경 오염 복점 게임에서 두 공장이 정화 장치를 설치하면 각각 $120$ 의 이윤을 얻고, 둘 다 오염 물질을 배출(배반)하면 과당 벌금으로 각각 $30$ 의 이윤에 그친다. 나홀로 정화하고 상대는 배출하면 배반 공장은 $160$ 을 벌고 협력 공장은 $-20$ 의 대수적 적자를 겪는다. 이 오염 게임의 지배전략균형 결과에 대한 계산 비교로 가장 옳은 것은?",
+      "options": [
+        "유일한 지배전략균형은 둘 다 배출하는 $(30, 30)$ 이며, 이는 둘 다 정화하는 $(120, 120)$ 대비 파레토 열위이다.",
+        "유일한 지배전략균형은 둘 다 정화하는 $(120, 120)$ 이다.",
+        "균형은 $(160, -20)$ 및 $(-20, 160)$ 의 복수 내쉬 균형으로 분할된다.",
+        "혼합 전략 균형 요금만 존재하여 기대 이윤이 50으로 귀착된다.",
+        "환경 보조금이 무제한 지급되므로 언제나 가격이 한계비용인 0으로 수렴하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "환경 죄수딜레마 수리 분석:\\n상대 정화 시: 내 배출 $160 >$ 내 정화 $120$.\\n상대 배출 시: 내 배출 $30 >$ 내 정화 $-20$.\\n따라서 양사 모두 '배출'이 지배전략이며, 균형은 $(30, 30)$ 입니다. 이는 둘 다 정화하는 $(120, 120)$ 보다 명백히 불리하므로 파레토 열위입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-040",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "죄수의 딜레마 게임이 무한히 반복될 때(Infinite Repeated Game), 단판 게임의 비효율적 배반 내쉬 균형을 극복하고 협력 균형을 유도하기 위한 조건이 아닌 것으로만 올바르게 묶인 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "참여자들이 미래의 가치를 현재 시점에서 전혀 인정하지 않는 단기주의 성향(할인인자 $\\delta \\to 0$ 극한 상태)",
+        "배반 시 즉각적이고 영구적인 가격 보복을 공약하는 트리거 전략(Trigger Strategy)의 존재",
+        "미래 평판을 중시하는 경제적 보상 구조의 확립",
+        "할인율이 임계 한계값 이상으로 충분히 큰 상태 ($\\delta \\ge 0.50$)",
+        "상대방의 과거 이탈 행동을 신속하게 모니터링할 수 있는 정보 구조"
+      ],
+      "answer": "1",
+      "explanation": "무한반복 죄수딜레마 협력 조건:\\n미래의 이익을 거의 할인하여 0으로 보는 단기주의 경제주체($\\delta \\to 0$)는 오늘 당장의 배반 이득 $130$을 취하고 평생 처벌받는 고통을 전혀 신경 쓰지 않으므로 협력을 유지할 수 없습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-041",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마가 유한히 $T$ 기까지만 반복되는 게임에서, 마지막 $T$ 기에 두 플레이어가 배반할 것임을 서로 인지함에 따라 첫 번째 $1$ 기부터 협력이 붕괴하는 현상을 유도하는 수학적 논리 체계로 가장 옳은 것은?",
+      "options": [
+        "역진 귀납법(Backward Induction)을 통한 순차적 신뢰 붕괴 전파",
+        "전방 귀납법(Forward Induction)을 통한 균형 조정 실패 해소",
+        "윅셀 정리의 한계 고정 비용 배분 수렴 논리",
+        "독립성 공리 Duality 붕괴에 따른 무차별곡선 굴절 수렴 조건",
+        "소비자 대기 행동 우위에 따른 한계비용 영(0) 수축 경로"
+      ],
+      "answer": "1",
+      "explanation": "유한 반복 붕괴와 역진 귀납법:\\n1) 마지막 $T$기: 다음 기의 보복이 없으므로 단판 게임과 같아 배반이 지배전략입니다.\\n2) $T-1$기: 마지막 기에 어차피 다 배반할 것임을 알므로 이 기에도 보복의 억제력이 상실되어 배반합니다.\\n3) 1기까지 소급: 역진귀납법을 끝까지 적용하면 첫 번째 기에도 협력이 붕괴하여 영원히 배반만 일어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-042",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "어느 환경 오염 복점 게임에서 두 공장이 정화 장치를 설치하면 각각 $120$ 의 이윤을 얻고, 둘 다 오염 물질을 배출(배반)하면 과당 벌금으로 각각 $30$ 의 이윤에 그친다. 나홀로 정화하고 상대는 배출하면 배반 공장은 $160$ 을 벌고 협력 공장은 $-20$ 의 대수적 적자를 겪는다. 이 오염 게임의 지배전략균형 결과에 대한 계산 비교로 가장 옳은 것은?",
+      "options": [
+        "유일한 지배전략균형은 둘 다 배출하는 $(30, 30)$ 이며, 이는 둘 다 정화하는 $(120, 120)$ 대비 파레토 열위이다.",
+        "유일한 지배전략균형은 둘 다 정화하는 $(120, 120)$ 이다.",
+        "균형은 $(160, -20)$ 및 $(-20, 160)$ 의 복수 내쉬 균형으로 분할된다.",
+        "혼합 전략 균형 요금만 존재하여 기대 이윤이 50으로 귀착된다.",
+        "환경 보조금이 무제한 지급되므로 언제나 가격이 한계비용인 0으로 수렴하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "환경 죄수딜레마 수리 분석:\\n상대 정화 시: 내 배출 $160 >$ 내 정화 $120$.\\n상대 배출 시: 내 배출 $30 >$ 내 정화 $-20$.\\n따라서 양사 모두 '배출'이 지배전략이며, 균형은 $(30, 30)$ 입니다. 이는 둘 다 정화하는 $(120, 120)$ 보다 명백히 불리하므로 파레토 열위입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-043",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마 게임이 무한히 반복될 때(Infinite Repeated Game), 단판 게임의 비효율적 배반 내쉬 균형을 극복하고 협력 균형을 유도하기 위한 조건이 아닌 것으로만 올바르게 묶인 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "참여자들이 미래의 가치를 현재 시점에서 전혀 인정하지 않는 단기주의 성향(할인인자 $\\delta \\to 0$ 극한 상태)",
+        "배반 시 즉각적이고 영구적인 가격 보복을 공약하는 트리거 전략(Trigger Strategy)의 존재",
+        "미래 평판을 중시하는 경제적 보상 구조의 확립",
+        "할인율이 임계 한계값 이상으로 충분히 큰 상태 ($\\delta \\ge 0.50$)",
+        "상대방의 과거 이탈 행동을 신속하게 모니터링할 수 있는 정보 구조"
+      ],
+      "answer": "1",
+      "explanation": "무한반복 죄수딜레마 협력 조건:\\n미래의 이익을 거의 할인하여 0으로 보는 단기주의 경제주체($\\delta \\to 0$)는 오늘 당장의 배반 이득 $130$을 취하고 평생 처벌받는 고통을 전혀 신경 쓰지 않으므로 협력을 유지할 수 없습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-044",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "죄수의 딜레마가 유한히 $T$ 기까지만 반복되는 게임에서, 마지막 $T$ 기에 두 플레이어가 배반할 것임을 서로 인지함에 따라 첫 번째 $1$ 기부터 협력이 붕괴하는 현상을 유도하는 수학적 논리 체계로 가장 옳은 것은?",
+      "options": [
+        "역진 귀납법(Backward Induction)을 통한 순차적 신뢰 붕괴 전파",
+        "전방 귀납법(Forward Induction)을 통한 균형 조정 실패 해소",
+        "윅셀 정리의 한계 고정 비용 배분 수렴 논리",
+        "독립성 공리 Duality 붕괴에 따른 무차별곡선 굴절 수렴 조건",
+        "소비자 대기 행동 우위에 따른 한계비용 영(0) 수축 경로"
+      ],
+      "answer": "1",
+      "explanation": "유한 반복 붕괴와 역진 귀납법:\\n1) 마지막 $T$기: 다음 기의 보복이 없으므로 단판 게임과 같아 배반이 지배전략입니다.\\n2) $T-1$기: 마지막 기에 어차피 다 배반할 것임을 알므로 이 기에도 보복의 억제력이 상실되어 배반합니다.\\n3) 1기까지 소급: 역진귀납법을 끝까지 적용하면 첫 번째 기에도 협력이 붕괴하여 영원히 배반만 일어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-045",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "어느 환경 오염 복점 게임에서 두 공장이 정화 장치를 설치하면 각각 $120$ 의 이윤을 얻고, 둘 다 오염 물질을 배출(배반)하면 과당 벌금으로 각각 $30$ 의 이윤에 그친다. 나홀로 정화하고 상대는 배출하면 배반 공장은 $160$ 을 벌고 협력 공장은 $-20$ 의 대수적 적자를 겪는다. 이 오염 게임의 지배전략균형 결과에 대한 계산 비교로 가장 옳은 것은?",
+      "options": [
+        "유일한 지배전략균형은 둘 다 배출하는 $(30, 30)$ 이며, 이는 둘 다 정화하는 $(120, 120)$ 대비 파레토 열위이다.",
+        "유일한 지배전략균형은 둘 다 정화하는 $(120, 120)$ 이다.",
+        "균형은 $(160, -20)$ 및 $(-20, 160)$ 의 복수 내쉬 균형으로 분할된다.",
+        "혼합 전략 균형 요금만 존재하여 기대 이윤이 50으로 귀착된다.",
+        "환경 보조금이 무제한 지급되므로 언제나 가격이 한계비용인 0으로 수렴하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "환경 죄수딜레마 수리 분석:\\n상대 정화 시: 내 배출 $160 >$ 내 정화 $120$.\\n상대 배출 시: 내 배출 $30 >$ 내 정화 $-20$.\\n따라서 양사 모두 '배출'이 지배전략이며, 균형은 $(30, 30)$ 입니다. 이는 둘 다 정화하는 $(120, 120)$ 보다 명백히 불리하므로 파레토 열위입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-046",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "죄수의 딜레마 게임이 무한히 반복될 때(Infinite Repeated Game), 단판 게임의 비효율적 배반 내쉬 균형을 극복하고 협력 균형을 유도하기 위한 조건이 아닌 것으로만 올바르게 묶인 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "참여자들이 미래의 가치를 현재 시점에서 전혀 인정하지 않는 단기주의 성향(할인인자 $\\delta \\to 0$ 극한 상태)",
+        "배반 시 즉각적이고 영구적인 가격 보복을 공약하는 트리거 전략(Trigger Strategy)의 존재",
+        "미래 평판을 중시하는 경제적 보상 구조의 확립",
+        "할인율이 임계 한계값 이상으로 충분히 큰 상태 ($\\delta \\ge 0.50$)",
+        "상대방의 과거 이탈 행동을 신속하게 모니터링할 수 있는 정보 구조"
+      ],
+      "answer": "1",
+      "explanation": "무한반복 죄수딜레마 협력 조건:\\n미래의 이익을 거의 할인하여 0으로 보는 단기주의 경제주체($\\delta \\to 0$)는 오늘 당장의 배반 이득 $130$을 취하고 평생 처벌받는 고통을 전혀 신경 쓰지 않으므로 협력을 유지할 수 없습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-047",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마가 유한히 $T$ 기까지만 반복되는 게임에서, 마지막 $T$ 기에 두 플레이어가 배반할 것임을 서로 인지함에 따라 첫 번째 $1$ 기부터 협력이 붕괴하는 현상을 유도하는 수학적 논리 체계로 가장 옳은 것은?",
+      "options": [
+        "역진 귀납법(Backward Induction)을 통한 순차적 신뢰 붕괴 전파",
+        "전방 귀납법(Forward Induction)을 통한 균형 조정 실패 해소",
+        "윅셀 정리의 한계 고정 비용 배분 수렴 논리",
+        "독립성 공리 Duality 붕괴에 따른 무차별곡선 굴절 수렴 조건",
+        "소비자 대기 행동 우위에 따른 한계비용 영(0) 수축 경로"
+      ],
+      "answer": "1",
+      "explanation": "유한 반복 붕괴와 역진 귀납법:\\n1) 마지막 $T$기: 다음 기의 보복이 없으므로 단판 게임과 같아 배반이 지배전략입니다.\\n2) $T-1$기: 마지막 기에 어차피 다 배반할 것임을 알므로 이 기에도 보복의 억제력이 상실되어 배반합니다.\\n3) 1기까지 소급: 역진귀납법을 끝까지 적용하면 첫 번째 기에도 협력이 붕괴하여 영원히 배반만 일어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-048",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "어느 환경 오염 복점 게임에서 두 공장이 정화 장치를 설치하면 각각 $120$ 의 이윤을 얻고, 둘 다 오염 물질을 배출(배반)하면 과당 벌금으로 각각 $30$ 의 이윤에 그친다. 나홀로 정화하고 상대는 배출하면 배반 공장은 $160$ 을 벌고 협력 공장은 $-20$ 의 대수적 적자를 겪는다. 이 오염 게임의 지배전략균형 결과에 대한 계산 비교로 가장 옳은 것은?",
+      "options": [
+        "유일한 지배전략균형은 둘 다 배출하는 $(30, 30)$ 이며, 이는 둘 다 정화하는 $(120, 120)$ 대비 파레토 열위이다.",
+        "유일한 지배전략균형은 둘 다 정화하는 $(120, 120)$ 이다.",
+        "균형은 $(160, -20)$ 및 $(-20, 160)$ 의 복수 내쉬 균형으로 분할된다.",
+        "혼합 전략 균형 요금만 존재하여 기대 이윤이 50으로 귀착된다.",
+        "환경 보조금이 무제한 지급되므로 언제나 가격이 한계비용인 0으로 수렴하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "환경 죄수딜레마 수리 분석:\\n상대 정화 시: 내 배출 $160 >$ 내 정화 $120$.\\n상대 배출 시: 내 배출 $30 >$ 내 정화 $-20$.\\n따라서 양사 모두 '배출'이 지배전략이며, 균형은 $(30, 30)$ 입니다. 이는 둘 다 정화하는 $(120, 120)$ 보다 명백히 불리하므로 파레토 열위입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-049",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마 게임이 무한히 반복될 때(Infinite Repeated Game), 단판 게임의 비효율적 배반 내쉬 균형을 극복하고 협력 균형을 유도하기 위한 조건이 아닌 것으로만 올바르게 묶인 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "참여자들이 미래의 가치를 현재 시점에서 전혀 인정하지 않는 단기주의 성향(할인인자 $\\delta \\to 0$ 극한 상태)",
+        "배반 시 즉각적이고 영구적인 가격 보복을 공약하는 트리거 전략(Trigger Strategy)의 존재",
+        "미래 평판을 중시하는 경제적 보상 구조의 확립",
+        "할인율이 임계 한계값 이상으로 충분히 큰 상태 ($\\delta \\ge 0.50$)",
+        "상대방의 과거 이탈 행동을 신속하게 모니터링할 수 있는 정보 구조"
+      ],
+      "answer": "1",
+      "explanation": "무한반복 죄수딜레마 협력 조건:\\n미래의 이익을 거의 할인하여 0으로 보는 단기주의 경제주체($\\delta \\to 0$)는 오늘 당장의 배반 이득 $130$을 취하고 평생 처벌받는 고통을 전혀 신경 쓰지 않으므로 협력을 유지할 수 없습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-050",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "죄수의 딜레마가 유한히 $T$ 기까지만 반복되는 게임에서, 마지막 $T$ 기에 두 플레이어가 배반할 것임을 서로 인지함에 따라 첫 번째 $1$ 기부터 협력이 붕괴하는 현상을 유도하는 수학적 논리 체계로 가장 옳은 것은?",
+      "options": [
+        "역진 귀납법(Backward Induction)을 통한 순차적 신뢰 붕괴 전파",
+        "전방 귀납법(Forward Induction)을 통한 균형 조정 실패 해소",
+        "윅셀 정리의 한계 고정 비용 배분 수렴 논리",
+        "독립성 공리 Duality 붕괴에 따른 무차별곡선 굴절 수렴 조건",
+        "소비자 대기 행동 우위에 따른 한계비용 영(0) 수축 경로"
+      ],
+      "answer": "1",
+      "explanation": "유한 반복 붕괴와 역진 귀납법:\\n1) 마지막 $T$기: 다음 기의 보복이 없으므로 단판 게임과 같아 배반이 지배전략입니다.\\n2) $T-1$기: 마지막 기에 어차피 다 배반할 것임을 알므로 이 기에도 보복의 억제력이 상실되어 배반합니다.\\n3) 1기까지 소급: 역진귀납법을 끝까지 적용하면 첫 번째 기에도 협력이 붕괴하여 영원히 배반만 일어납니다. 정답은 1번입니다."
     }
   ]
 }

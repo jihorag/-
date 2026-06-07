@@ -8,384 +8,759 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-macro-ch05-sec02-item02-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "자연실업률(natural rate of unemployment)이란?",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "노동 시장의 미스매치와 구인 활동의 매칭 효율성을 나타내는 베버리지 곡선(Beveridge Curve)의 성질과 각 실업 유형에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Beveridge Curve (Downward sloping) -->\n  <path d=\"M 60 60 Q 110 160 270 180\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"260\" y=\"170\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">베버리지 곡선 (BC_0)</text>\n  <!-- Shifted Beveridge Curve (Outward - Mismatch increase) -->\n  <path d=\"M 110 60 Q 160 160 320 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"150\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">BC_1 (매칭 효율성 ↓)</text>\n  <!-- Shift Arrow -->\n  <line x1=\"130\" y1=\"120\" x2=\"175\" y2=\"135\" stroke=\"#a855f7\" stroke-width=\"1.5\" />\n  <polygon points=\"179,136 171,131 173,139\" fill=\"#a855f7\" />\n  <text x=\"290\" y=\"222\" font-size=\"8.5\" fill=\"#64748b\">실업률 (u)</text>\n  <text x=\"15\" y=\"35\" font-size=\"8.5\" fill=\"#64748b\">구인율 (v)</text>\n</svg>\n```",
       "options": [
-        "장기 균형 실업률 — 마찰·구조 실업의 합. 통화·재정 정책 영향 ↓",
-        "0",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "베버리지 곡선은 실업률과 구인율(빈일자리율) 간의 우상향하는 상관관계를 묘사한다",
+        "마찰적 실업은 산업 구조의 변화나 기술 혁신으로 발생하므로 정부의 재훈련 정책이 특효약이다",
+        "경기적 실업이 늘어나 경기 침체로 갈 때, 경제는 베버리지 곡선 자체를 좌상향으로 시프트시킨다",
+        "구인율과 실업률이 동시에 증가하여 베버리지 곡선 자체가 원점으로부터 바깥쪽(우상향)으로 이동하는 것은 노동시장 내 정보 비대칭이나 구조적 불일치(Mismatch)가 심화되었음을 보여준다",
+        "탐색적 실업은 유효수요가 부족하여 공장이 가동을 멈추었을 때 필연적으로 발생한다"
       ],
-      "answer": "1",
-      "explanation": "자연실업률 $u^n$: Friedman (1968)·Phelps (2006 노벨) 도입. 장기 균형. 단순 정책으로 ↓ 불가. 한국 약 3.5%."
+      "answer": "4",
+      "explanation": "베버리지 곡선은 구인율($v$)과 실업률($u$) 간의 반비례(우하향) 관계를 보여줍니다. 곡선 상의 이동은 경기적 변화(침체 시 우하방 이동)를 나타내며, 곡선 자체의 바깥쪽 이동(우상향 시프트)은 노동시장의 매칭 효율성이 떨어졌거나 정보 불일치, 구조적 미스매치가 심해졌음을 증명합니다. 정답은 ④입니다."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "Phillips 곡선의 단기·장기 형태는?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 경제의 마찰적 실업률이 2.5%, 구조적 실업률이 3.0%로 조사되었다. 현재 경제의 실제 실업률이 7.5%일 때, 이 경제의 자연실업률(Natural Rate of Unemployment)과 경기적 실업률(Cyclical Unemployment Rate)의 값은?",
       "options": [
-        "단기 우하향 (인플레-실업 trade-off) ·장기 수직 ($u^n$)",
-        "둘 다 수직",
-        "둘 다 우하향",
-        "관계 없음",
-        "정부 결정"
+        "자연실업률 = 3.0%, 경기적 실업률 = 4.5%",
+        "자연실업률 = 5.5%, 경기적 실업률 = 2.0%",
+        "자연실업률 = 5.5%, 경기적 실업률 = 7.5%",
+        "자연실업률 = 2.5%, 경기적 실업률 = 5.0%",
+        "자연실업률 = 5.0%, 경기적 실업률 = 2.5%"
       ],
-      "answer": "1",
-      "explanation": "Phillips (1958) 우하향. Friedman·Phelps: 단기만, 장기 수직. 통화로 영구 실업 ↓ 불가. 한국은행 정책의 기초."
+      "answer": "2",
+      "explanation": "1) 자연실업률 = 마찰적 실업률 + 구조적 실업률 = $2.5\\\\% + 3.0\\\\% = 5.5\\\\%$.\n2) 경기적 실업률 = 실제 실업률 - 자연실업률 = $7.5\\\\% - 5.5\\\\% = 2.0\\\\%$. 따라서 정답은 ②입니다."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-003",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
-      "question": "기대 인플레가 추가된 Phillips 곡선 식은?",
+      "question": "각 실업의 유형과 그 극복을 위한 정부의 맞춤형 정책 대안이 가장 올바르게 연결되지 않은 것은?",
       "options": [
-        "$\\pi = \\pi^e - \\beta(u - u^n)$",
-        "$\\pi = u$",
-        "$\\pi = 0$",
-        "관계 없음",
-        "$\\pi = MPC$"
+        "마찰적 실업: 전국적인 구인·구직 정보망 확충 및 직업소개소 활성화",
+        "구조적 실업: 쇠퇴 산업 노동자를 위한 재교육 및 전업 훈련 프로그램 제공",
+        "경기적 실업: 정부지출 확대 및 금리 인하 등 강력한 총수요 부양책 시행",
+        "마찰적 실업: 정부의 일방적인 최저임금 대폭 인상 정책 강화",
+        "구조적 실업: 노동력 수요가 있는 신성장 산업으로의 노동 인구 이동 촉진 유인책"
       ],
-      "answer": "1",
-      "explanation": "Phelps (1967)·Friedman (1968) 확장: $\\pi = \\pi^e - \\beta(u - u^n)$. 기대 + 실업 갭. 한국은행 활용. Lucas·Sargent 합리적 기대로 발전."
+      "answer": "4",
+      "explanation": "최저임금의 인상은 오히려 실질임금을 시장 균형 수준 위로 설정하게 하여 '구조적 실업'을 악화시키는 주요인입니다. 마찰적 실업은 구인-구직자 간의 정보 탐색 시차로 생기므로 정보 인프라 개선이 해법입니다. 정답은 ④입니다."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-004",
-      "difficulty": 3,
-      "question_type": "계산형",
-      "question": "$\\pi = \\pi^e - 0.5(u - 3.5)$. $\\pi^e = 2\\%$, $u = 2\\%$. 인플레는?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "베버리지 곡선 모형 하에서, 매칭 함수가 $M = 2 \\\\sqrt{U \\\\cdot V}$ 로 주어진다 (단, M은 신규 매칭 성사 건수, U는 실업자 수, V는 빈 일자리 수). 이 경제의 실업자 수가 100명이고 빈 일자리가 100개일 때 발생하는 신규 고용 매칭 성사 건수는?",
       "options": [
-        "$\\pi = 2 - 0.5(-1.5) = 2.75\\%$",
-        "2",
-        "5",
-        "0",
-        "관계 없음"
+        "50건",
+        "100건",
+        "200건",
+        "400건",
+        "800건"
       ],
-      "answer": "1",
-      "explanation": "$u = 2 < u^n = 3.5$ → 갭 -1.5. $\\pi = 2 - 0.5(-1.5) = 2.75\\%$. 실업 < 자연 시 인플레 ↑ 압력."
+      "answer": "3",
+      "explanation": "매칭 공식 대입: $M = 2 \\\\sqrt{100 \\\\times 100} = 2 \\\\sqrt{10000} = 2 \\\\times 100 = 200$건. 따라서 정답은 ③입니다."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-005",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
-      "question": "Friedman의 \"가속도 명제\"란?",
+      "question": "다음 중 노동의 공급 측면에서 발생하는 마찰적 실업(Frictional Unemployment)의 본질적 특징으로 옳은 것은?",
       "options": [
-        "$u < u^n$ 유지 시 인플레 지속 ↑ → 인플레 안정 불가",
-        "관계 없음",
-        "정상",
-        "정부 결정",
-        "Pareto"
+        "노동생산성이 정체되어 기업이 고용을 무기한 거부하는 실업이다",
+        "더 나은 조건의 직장을 구하기 위해 기존 직장을 그만두고 자발적으로 탐색하는 기간 동안 발생하는 일시적 실업이다",
+        "경기가 불황 국면에 접어들어 제품 재고가 쌓여 대규모 정리해고로 발생하는 실업이다",
+        "기술 변화로 기존 직무가 소멸하여 재교육을 받지 않으면 영구 불가능한 실업이다",
+        "정부가 법적으로 이직을 전면 통제할 때 완벽히 소멸한다"
       ],
-      "answer": "1",
-      "explanation": "Friedman (1968) Accelerationist Hypothesis: $u < u^n$ → 기대 ↑·인플레 ↑↑·기대 ↑↑·인플레 ↑↑↑. 안정 인플레 = $u = u^n$. 자연실업률 가설의 핵심."
+      "answer": "2",
+      "explanation": "마찰적 실업은 노동자가 자기 적성에 더 잘 맞거나 임금 조건이 좋은 일자리를 찾아 이동하는 과정에서 필수적으로 수반되는 자발적, 탐색적 성격의 일시적 실업입니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-006",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "NAIRU (Non-Accelerating Inflation Rate of Unemployment) 란?",
       "options": [
         "인플레 가속 X 최저 실업률 — 자연실업률과 거의 동일",
-        "관계 없음",
-        "0",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 2)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "NAIRU = 자연실업률 (현대). Modigliani-Papademos (1975) 도입. $u < $ NAIRU 시 인플레 ↑ 가속. 한국 약 3.5%."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-007",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "자연실업률 결정 요인은?",
       "options": [
         "노동시장 마찰 + 노조·최저임금 + 산업 변동 + 실업급여 + 노동 유연성",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "고정",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "$u^n$ 결정: ① 마찰·매칭 효율 ② 노조·최저임금 (높을수록 $u^n$ ↑) ③ 산업 변동 ④ 실업급여 (관대 시 ↑) ⑤ 노동 유연성. 한국 정책 영향."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-008",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Lucas 합리적 기대 Phillips 곡선의 함의는?",
       "options": [
         "기대 즉시 조정 → 단기에도 trade-off ↓ → 비예상 정책만 효과",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "trade-off ↑",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "Lucas (1972·1995 노벨) 합리적 기대: 정책 변경 시 기대 즉시 조정 → Phillips 곡선 자체 이동 → trade-off ↓. 정책무효성. 신고전 거시. 한국은행 포워드 가이던스의 토대."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-009",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 자연실업률 ↓의 정책은?",
       "options": [
         "노동시장 유연 + 매칭 효율 ↑ + 교육·재훈련 + 적정 노동 보호",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "노동 경직",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 $u^n$ 감소 정책: ① 노동 유연 (이중구조 해소) ② 매칭 효율 (워크넷·플랫폼) ③ 재교육 (HRD·평생교육) ④ 적정 보호 균형. Mortensen-Pissarides·Acemoglu 적용."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-010",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"이력효과 (hysteresis)\"의 함의는?",
       "options": [
         "장기 실업 ↑ → 기술·동기 ↓·고용 ↓ → $u^n$ 자체 ↑ (영구적)",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "이력 X",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "Blanchard-Summers (1986) Hysteresis: 1980s EU 실업률 ↑ 후 안 ↓. 장기 실업 ↑ → 기술·동기·매칭 ↓ → $u^n$ ↑. 한국 코로나 후 일부 우려. 적극 노동시장 정책 필요."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-011",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Phillips 곡선이 \"평탄화\" (1990s-2010s) 의 원인은?",
       "options": [
         "글로벌화·기대 anchoring·노동 약화 → 단기 trade-off ↓",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "강화",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "Phillips 평탄화 (1990s-2010s): ① 글로벌화·중국 효과 ② 인플레 목표제 → 기대 anchoring ③ 노조·노동 약화. 미국·한국 부분 적용. 2022 충격 후 약간 부활."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-012",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"인플레 기대 anchoring\" 의 정책 함의는?",
       "options": [
         "기대 안정 → Phillips 평탄 → 정책 trade-off ↓ + 위기 시 침체 비용 ↓",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "효과 X",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "한국은행 인플레 목표제 (1998-)·신뢰: 기대 2% anchor → Phillips 평탄. 2022 인플레 충격 후 빠르게 진정 (5.6% → 3% 1년). 디스인플레 비용 ↓. Sargent (2011 노벨) 신뢰 이론."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-013",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 2022 인플레 vs 1970s 비교 (Phillips 관점)는?",
       "options": [
         "둘 다 AS 충격이나 2022 진정 빠름 — 신뢰·인플레 목표제 성공",
-        "동일",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 2)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "1970s 인플레: 기대 unanchored → 인플레 13%+ 장기·Phillips 무력. 2022 충격 더 작음 (5-9%) → 빠른 진정. 인플레 목표제 + 독립 한국은행 성공. Kydland-Prescott (2004 노벨)."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-014",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"디스인플레 (disinflation)\" 비용은?",
       "options": [
-        "Sacrifice Ratio (Y 손실 / $\\pi$ ↓) — 신뢰 ↑ 시 ↓ (한국 2022 사례 작음)",
-        "관계 없음",
-        "0",
-        "정부 결정",
-        "Pareto"
+        "Sacrifice Ratio (Y 손실 / $\\\\pi$ ↓) — 신뢰 ↑ 시 ↓ (한국 2022 사례 작음)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 2)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "Sacrifice Ratio: 1980s 미국 5 (Volcker 큰 비용). 한국 2022 1-2 (신뢰 ↑). Phillips 평탄 + anchored → 작은 비용. 단 가계부채·부동산 부담 (한국 특수)."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-015",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"자연실업률 ↓ 추이\" 의 분석은?",
       "options": [
         "1990s 4% → 2020s 3% 수준 — 인구·구조 변화·정책으로 점진 ↓",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "↑",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 $u^n$ 추정: 1990s 4-4.5% → 2020s 3-3.5%. 인구 (고령화 → 실업 동기 ↓) + 노동 유연 일부 + 매칭 효율 ↑. 일본 (2-3%) 와 유사 추세."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-016",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"노동시장 이중구조 → $u^n$ ↑\" 의 분석은?",
       "options": [
         "정규·비정규 격차 → 매칭 비효율 → $u^n$ ↑ → Phillips 정책 비효율",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "$u^n$ ↓",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 이중구조: 비정규 ↑·정규 진입 ↓ → 매칭 비효율 → $u^n$ ↑ 압력. 정책 trade-off (단기 vs 구조). 노동 개혁 + 사회 안전망 필요."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-017",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"실업급여 확대 → $u^n$ ↑\" 의 trade-off는?",
       "options": [
         "관대 시 도덕적 해이·$u^n$ ↑이나 소득 안전·재훈련 ↑ — 균형 정책 필요",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "효과 X",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "실업급여 trade-off: ① 도덕적 해이 (Mortensen-Pissarides) ② 자동안정·소득 안전 ③ 탐색 시간·매칭 ↑. 북유럽 (flexicurity) 균형 모델. 한국 정책 검토."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-018",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Mankiw-Reis (2002) sticky information Phillips의 함의는?",
       "options": [
         "정보 지연 → Phillips 점진 조정·인플레 관성 → 정책 효과 점진·지속",
-        "즉시",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 2)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "Mankiw-Reis (2002): 합리적 기대 + 정보 갱신 지연 → Phillips 점진. 인플레 관성 (persistence). Lucas 즉시·Keynes 영구 절충. 한국은행 BOK-DSGE 활용."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-019",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"적극 노동시장 정책\" (ALMP) 의 의의는?",
       "options": [
         "재교육·고용보조·일자리 매칭 → $u^n$ ↓·이력 효과 회피",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "정부 무관",
-        "Pareto",
-        "독점"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "ALMP (Active Labor Market Policies): 한국 HRD·고용보조·청년 인턴·일자리 매칭. $u^n$ ↓·hysteresis 회피. 북유럽 (덴마크 flexicurity) 모범. 한국 점진 확대."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-020",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"청년 자연실업률 ↑\" 의 정책 대응은?",
       "options": [
         "교육·인턴·창업·노동 개혁 → 청년 $u^n$ ↓·노동시장 유연",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "정부 무관",
-        "Pareto",
-        "독점"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 청년 (15-29) $u^n$ 7-8%: 정책 ① 교육 (실업 → 일 매칭) ② 인턴·실습 ③ 창업 (기금·교육) ④ 노동 개혁 (이중구조 해소). 일본 \"청년 일자리\" 정책 참고."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-021",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"여성 자연실업률 ↑\" 의 원인·정책은?",
       "options": [
         "출산·육아·문화 → 참가 ↓·경력 단절. 정책 (육아·일·문화) 필요",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "정부 무관",
-        "Pareto",
-        "독점"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 여성 노동: 출산 후 경력 단절 (M-curve) → 잠재 노동 ↓. 정책: ① 육아휴직·돌봄 ② 일·가정 양립 ③ 문화 변화. 일본 \"우먼노믹스\" 참고. 잠재 노동 ↑ 잠재성장 ↑."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-022",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "Acemoglu (2024 노벨) 노동·기술 변화의 자연실업률 함의는?",
       "options": [
         "AI·자동화 → 노동 대체 시 $u^n$ ↑ — 제도 (재교육·소득)로 보완 필요",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "Acemoglu 부정",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "Acemoglu (2024 노벨) Power and Progress: AI가 노동 대체 (Replacing) 강 시 $u^n$ ↑·양극화 ↑. 제도 (재교육·소득 안전·노동 보호) 가 보완 (Augmenting) 방향 유도. 한국 정책 시사."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"인플레-실업 곡선 (1990-2024)\" 패턴은?",
       "options": [
         "Phillips 평탄 + anchored — 2022 일시 충격 후 빠른 진정",
-        "관계 없음",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
         "강한 trade-off",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 Phillips (1990-2024): ① 평탄 (anchored) ② 2022 충격 후 빠른 회복 (인플레 5.6% → 3% 1년·실업 ↑ 미미) ③ 자연실업률 ↓ 추세. 한국은행 정책 + 글로벌 환경 결합."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-024",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"노동 vs 통화\" 정책 trade-off는?",
       "options": [
         "통화 = 단기 (Phillips 단기) / 노동 = 장기 ($u^n$) — 보완 필요",
-        "동일",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 1)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 2)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 정책: 통화 (단기 Phillips trade-off) + 노동 (장기 $u^n$). 보완. 통화 단독으로 실업 영구 ↓ X (Friedman·Phelps). 노동·교육·산업 정책 필수."
     },
     {
       "id": "practice-econ-macro-ch05-sec02-item02-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "자연실업률·Phillips 곡선 이론의 종합 평가는?",
       "options": [
         "Friedman-Phelps 토대 + Lucas-Sargent 합리적 기대 + Mortensen-Pissarides 마찰 + Acemoglu 기술 — 현대 통합",
         "단순",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 2)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 3)",
+        "해당 개념에 부합하지 않는 거시경제학적 설명 또는 오답 방지용 오선지 (선지 4)"
       ],
       "answer": "1",
       "explanation": "이론 종합: ① Phillips (1958)·Samuelson-Solow (1960) 발견 ② Friedman (1968)·Phelps (2006 노벨) 자연실업률 ③ Lucas (1995 노벨)·Sargent (2011 노벨) 합리적 기대 ④ Mortensen-Pissarides (2010 노벨) 마찰 ⑤ Acemoglu (2024 노벨) 기술. 한국 정책 종합."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-026",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "거시경제학에서 실업의 종류을 모형화할 때 전제되는 가장 본질적인 기본 가정과 학설별 논리를 다룬 설명으로 가장 옳지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "마찰적 실업의 조정이 단기적으로 지연된다는 경직성 가정이 중심이 된다.",
+        "구조적 실업이 항상 무한대의 속도로 즉시 조정되어 시장이 매초 완벽히 청산된다는 신고전학파의 균형 경로가 기본이 된다.",
+        "경기적 실업은 자원의 외생적 유출 요인으로 작용하여 균형 궤적을 아래로 당긴다.",
+        "구직포기 단념자의 동학은 실물 생산력뿐만 아니라 가격 결정에도 중요한 거시적 피드백 효과를 준다.",
+        "모든 경제주체가 완벽한 합리적 기대를 하여 예측된 정책의 단기 실물 효과는 0이 된다는 것이 새고전학파의 주장이다."
+      ],
+      "answer": "2",
+      "explanation": "실업의 종류 분석 시 구조적 실업이 나노초 단위로 초신축 조정된다는 것은 고전학파 또는 새고전학파의 극단적인 가정이며, 거시경제 일반의 공통 가정으로 보기에는 한계가 있습니다. 따라서 ②가 옳지 않은 오답 선지입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-027",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 가상의 거시경제 모형에서 실업의 종류을 수학적으로 유도하고자 한다. 가계의 한계소비성향이 $c = 0.6$ 이고 비례 소득세율이 $t = 0.2$ 로 주어졌을 때, 이 경제의 정부지출 승수의 크기로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "1.42",
+        "1.92",
+        "2.42",
+        "2.5",
+        "1.5"
+      ],
+      "answer": "2",
+      "explanation": "비례세가 존재하는 경제의 정부지출 승수 공식은 $m_G = 1 / [1 - c(1 - t)]$ 입니다. 모수를 대입하면 $1 / [1 - 0.6(1 - 0.2)] = 1 / [1 - 0.6(0.8)] = 1 / [1 - 0.48] = 1 / 0.52 = 1.92$ 입니다. 따라서 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-028",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "첨부된 실업의 종류 모형의 HSL SVG 그래프를 참조할 때, 외생적 충격으로 인해 '마찰적 실업'이 급격히 증가(우측 이동)하는 경우 발생하는 균형점의 단기적 이동 경로와 실물 경제 변수들의 변화 조합으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "균형 산출량은 하락하고 구조적 실업은 비례하여 대수적으로 폭락한다.",
+        "총수요/총지출 증대로 인해 단기 균형 생산량이 증가하고, 경로 상에서 구조적 실업의 동반 상승 압력이 유발된다.",
+        "이자율과 경기적 실업이 동시에 0으로 수렴하는 장기 정체 국면이 발생한다.",
+        "공급 능력의 영구적 파괴로 인해 구직포기 단념자이 마이너스로 돌아선다.",
+        "대외 교역조건이 항상 2배 이상 개선되어 순수출이 즉각 폭증한다."
+      ],
+      "answer": "2",
+      "explanation": "그래프 모형상 마찰적 실업의 증가 충격(총수요 또는 주입 증대)은 균형점을 우상향으로 이동시켜 단기적으로 산출량을 증대시키며, 연쇄 피드백 과정에서 물가나 구조적 실업의 상승 압력을 동반하게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-029",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "실업의 종류의 분석 경로 상에서 나타나는 핵심 쟁점인 '경기적 실업'의 역할에 대하여 고전학파와 케인즈 학파의 학문적 입장 차이를 가장 바르게 비교한 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "고전학파는 경기적 실업이 단기 가격 경직성의 원인이라고 주장하나, 케인즈는 장기적 공급능력의 원천이라고 본다.",
+        "고전학파는 경기적 실업이 실물적 요인에 의해 사후 청산된다고 보는 반면, 케인즈 학파는 화폐적 충격 및 구직포기 단념자의 정보 비대칭 마찰이 작용하여 단기에 시장 실패를 유발할 수 있다고 본다.",
+        "두 학파 모두 정부의 임위적 통화 통제만이 경제를 청산시키는 유일한 도구라고 확신한다.",
+        "케인즈 학파는 경기적 실업이 완전 예견되면 실물 효과가 0이 된다는 루카스 정리를 절대 신봉한다.",
+        "고전학파는 단기 불황에 대응하여 정부 재정 적자 재정을 필연적으로 확장해야 한다고 믿는다."
+      ],
+      "answer": "2",
+      "explanation": "고전학파는 장기적으로 실물 요인이 경기적 실업 등을 조율하며 시장 자율 회복을 신뢰하는 반면, 케인즈 학파는 시장 마찰(정보 비대칭, 가격 경직성 등)로 인해 단기 불균형이 만성화될 수 있으므로 정부의 적절한 총수요 개입이 필수적이라고 봅니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-030",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "정부가 거시경제적 안정화를 도모하기 위해 총수요 진작을 목적으로 '구직포기 단념자'을 조절하는 거시 정책을 시행하였다. 이에 대한 파급 효과 중 가장 타당하지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "구직포기 단념자의 변동은 가계의 가처분소득 채널을 통해 민간 소비지출 규모를 좌우하게 된다.",
+        "구직포기 단념자을 하락 조정하더라도 마찰적 실업의 민감도가 극도로 높으면 투자 유발 효과가 전혀 발생하지 않고 물가만 2배로 폭등한다.",
+        "장기적으로는 구조적 실업의 왜곡을 방지하기 위해 규칙과 신뢰성에 기반한 정책 설계가 중시된다.",
+        "통화정책적 시각에서는 구직포기 단념자의 임의적 조절이 경기 변동을 오히려 불안정하게 키우는 역효과를 줄 수 있다고 경고한다.",
+        "재정 및 통화 당국 간의 정책 조합(Policy Mix)에 따라 최종 경기적 실업 수준은 다르게 수착된다."
+      ],
+      "answer": "2",
+      "explanation": "구직포기 단념자을 완화하는 정책은 투자의 이자율 민감도가 높을 때 투자 유발 효과가 크게 발생하게 됩니다. 민감도가 극도로 낮을 때 효과가 전혀 없다고 볼 순 있어도 '물가만 2배로 무조건 폭등한다'는 단정적인 설명은 타당하지 않습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-031",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 실업의 종류 모형 하에서 가계의 저축 심리가 급증하고 동시에 해외 원자재 가격이 상승하는 '복합 충격'이 가해졌을 때, 경기 궤적에 미치는 파급 경로로 가장 타당한 판단은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "총수요 곡선이 우측 이동하고 총공급 곡선이 좌측 이동하여 물가가 안정된다.",
+        "저축 증가에 의한 소비 위축(총수요 감소)과 원자재 가격 상승(총공급 위축)이 연쇄적으로 겹치면, 실질 GDP 마찰적 실업의 급격한 하락과 경기 불황(스태그플레이션 우려)이 심화된다.",
+        "이자율이 하락하여 구조적 실업이 기하급수적으로 즉각 폭증하게 된다.",
+        "정부의 세수 조세가 자동으로 흑자 전환되어 국가 부채가 완전 소멸된다.",
+        "대외 환율 가치가 0으로 고정되어 순수출이 장기 평탄화를 이룬다."
+      ],
+      "answer": "2",
+      "explanation": "저축 성향 상승(소비 위축 -> AD 좌측 이동)과 생산 비용 상승(AS 좌측 이동)이 겹치면 총산출량(실질 GDP)은 무조건 감소하게 되며, 경기 위축과 고용 사태가 심각해집니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 가상의 단순 폐쇄경제에서 국민소득 균형 모형식이 다음과 같이 주어진다.\n- 소비지출: $C = 300 + 0.8(Y - T)$\n- 투자 및 정부지출: $I = 100, G = 100$\n- 정액세: $T = 100$\n이 경제의 사후적 균형 국민소득($Y^*$)의 값으로 가장 올바른 수치는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "1500",
+        "1600",
+        "1700",
+        "1800",
+        "1400"
+      ],
+      "answer": "2",
+      "explanation": "균형 국민소득 항등식 $Y = C + I + G$ 에 수식을 대입하면, $Y = 300 + 0.8(Y - 100) + 100 + 100$ 이며, 정리하면 $Y = 300 + 0.8Y - 100_100 + 200 \\\\\\\\Rightarrow 0.2Y = 420 \\\\\\\\Rightarrow Y^* = 1600$ 이 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-033",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "한국의 과거 거시경제 발전 및 외환위기, 금융위기 수습 과정에서 실업의 종류의 변수 조정 경로를 실증 분석한 결과로 가장 적절한 설명은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "외환위기 직후 자국화 가치 폭락(환율 급등)에도 순수출은 즉각 100% 구축 소멸하였다.",
+        "금융 마찰 및 정보 비대칭이 심화되었을 때 마찰적 실업의 담보 가치가 떨어져 은행 신용 공급이 급격히 수축(신용 경색)되면서 민간 투자가 극도로 위축되었다.",
+        "정부의 확장적 기준금리 인하 정책은 언제나 대수적으로 실질 이자율을 10%포인트 이상 폭등시켰다.",
+        "소비평탄화 성향으로 인해 한국 가계의 단기 MPC는 항상 1.0을 초과 기록해왔다.",
+        "고령화가 진전될수록 저축 성향이 선형적으로 폭증하여 잠재성장률이 매년 5%대 이상 반등하고 있다."
+      ],
+      "answer": "2",
+      "explanation": "외환위기나 금융위기 시기에는 담보 가치 하락과 재무 대차대조표 악화(Net Worth 감소)로 대리인 비용 및 신용 프리미엄이 급등하여 투자가 위축되는 대차대조표 효과(금융가속기)가 실증적으로 뚜렷이 나타났습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "실업의 종류에 근거할 때, 단기 불균형 상태에서 장기 균제상태(Steady State)로 수렴해 나가는 조정 메커니즘에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "단기 불균형은 이자율을 항상 0으로 강제 수축시키며 자율 청산을 저해한다.",
+        "단기적인 가격 경직성(임금 및 가격의 불완전 조정)이 장기로 가면서 점차 신축적으로 변화하여, 실제 산출량이 잠재 생산 능력인 경기적 실업 수준으로 수렴하게 된다.",
+        "자본 축적률이 인구증가율을 항상 하회하므로 경제는 영구 파멸 경로에 빠진다.",
+        "화폐 공급을 늘리면 장기에도 실질 변수가 비례 팽창하여 성장이 지속된다.",
+        "대외 무역 장벽을 쌓을 때에만 장기 균형이 조건 없이 달성된다."
+      ],
+      "answer": "2",
+      "explanation": "거시경제 모형에서 단기에는 임금과 가격의 경직성으로 인해 생산량갭이 생길 수 있지만, 장기로 가면서 가격 메커니즘이 신축적으로 작동하므로 경제는 자원의 잠재 생산량(잠재 GDP) 수준으로 사후 수렴하게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-035",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 실업의 종류 모형의 HSL SVG 그래프를 참조할 때, 경제의 장기 잠재 성장성 제고를 위해 '경기적 실업'을 향상시키는 구조개혁(Supply-side 정책)을 단행했을 때 발생하는 장기 균형의 이동 형태로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "총공급 곡선이 수평선으로 고정되어 물가가 하락 압박에서 벗어난다.",
+        "장기 총공급(LRAS) 곡선 또는 잠재 성장 경로가 우측(상방)으로 이동하여, 장기적으로 물가 수준은 안정되면서 실질 GDP 마찰적 실업의 지속적인 확장을 도모한다.",
+        "단기 총수요 곡선이 완전 수직이 되어 화폐 중립성이 즉시 붕괴된다.",
+        "투자 및 저축 성향이 음(-)의 값으로 수렴하여 경제적 이자율이 소멸한다.",
+        "해외 수입 의존도가 2배로 폭증하여 무역 손실이 경기 성장을 저해한다."
+      ],
+      "answer": "2",
+      "explanation": "생산성 향상, 기술 혁신, 규제 완화 등 공급측 개혁(경기적 실업 향상)은 국가의 잠재 생산 능력을 높여 장기 총공급 곡선을 우측으로 이동시키며, 이는 물가 안정과 지속 가능한 실물 성장(마찰적 실업 증가)을 가능케 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-036",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 국가의 총생산함수가 $Y = A K^{0.3} L^{0.7}$ 로 추정되는 거시경제에서 최근 10년간 다음과 같은 성장 데이터가 보고되었다.\n- 실질 GDP 성장률: 연평균 5.0%\n- 자본(K) 증가율: 연평균 2.0%\n- 노동(L) 증가율: 연평균 1.0%\n성장회계(Growth Accounting) 분해식에 근거할 때, 이 국가의 연평균 총요소생산성(TFP, A)의 증가율은?",
+      "options": [
+        "3.2%",
+        "3.7%",
+        "4.2%",
+        "2.0%",
+        "3.5%"
+      ],
+      "answer": "2",
+      "explanation": "성장회계 공식 \\\\Delta Y/Y = \\\\Delta A/A + 0.3 \\\\Delta K/K + 0.7 \\\\Delta L/L 에 대입하면,\n5.0% = \\\\Delta A/A + 0.3(2.0%) + 0.7(1.0%)\n5.0% = \\\\Delta A/A + 0.6% + 0.7% = \\\\Delta A/A + 1.3%\n따라서 총요소생산성 증가율 \\\\Delta A/A = 5.0% - 1.3% = 3.7% 입니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "실업의 종류의 극단적인 특수 상황(예: 대공황, 유동성 함정, 하이퍼인플레이션 등)에 관한 설명으로 가장 올바른 경제학적 판단은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "이자율이 무한대로 치솟아 채권 가격이 0으로 폭락하게 된다.",
+        "극심한 경제 위기나 유동성 제약 하에서는 가계가 마찰적 실업의 장기 항상소득 대신 현재의 가처분소득에 민감하게 소비 반응을 보이며, 이로 인해 단기적 재정/통화 정책의 충격 증폭도가 커진다.",
+        "정부가 세율을 100%로 올릴 때 조세 수입이 대수적으로 극대화된다.",
+        "화폐 유통 속도가 매초 기하급수적으로 폭증하여 물가가 0으로 수축한다.",
+        "국가 신용 프리미엄이 음(-)으로 고착되어 대출 시장이 완전 청산된다."
+      ],
+      "answer": "2",
+      "explanation": "경제주체들이 유동성 제약(Liquidity Constraint)이나 극심한 신용 경색에 처하게 되면 항상소득(마찰적 실업 등)이나 미래 지출 평탄화가 불가능해져 현재 수입에 전적으로 의존하게 되며, 이로 인해 거시적 소비 변동의 충격 폭이 커집니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-038",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "고전학파의 '장기 거시경제 이분법(Classical Dichotomy)' 및 '화폐의 중립성' 가설이 실업의 종류의 변수 관계식에 시사하는 바에 대한 설명으로 옳은 것은?",
+      "options": [
+        "통화량의 변동은 장기적으로 실질 GDP인 마찰적 실업의 성장률을 비례하여 증가시킨다.",
+        "장기적으로 명목 통화 공급의 증가는 마찰적 실업과 같은 실질 변수에는 아무런 영향을 주지 못하고, 오직 물가 수준이나 구조적 실업 같은 명목 변수만을 비례적으로 상승시킨다.",
+        "실질 이자율 r이 물가 상승률과 무관하게 항상 0으로 수렴한다.",
+        "노동 공급곡선이 수평이 되어 실업률이 0으로 완전 고착된다.",
+        "대외 경상수지가 항상 흑자 균형으로 고정 수착된다."
+      ],
+      "answer": "2",
+      "explanation": "고전학파 이분법은 장기에 화폐 공급량의 변화가 물가와 명목 임금 등 명목 지표만 비례 조정할 뿐, 실질 GDP나 고용량 등 실질 변수에는 영구적인 파급 효과를 주지 못한다는 '화폐의 중립성'을 설명합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-039",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 실업의 종류의 정책 시나리오 하에서, 합리적 기대를 하는 경제주체들이 정부의 총수요 관리 정책을 완벽하게 '사전 예상'한 경우 발생하는 균형의 변동 경로를 설명한 것으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "총수요 곡선이 이동하여 산출량 마찰적 실업만 크게 증가하고 물가 수준은 변하지 않는다.",
+        "사전에 완전 예견된 정책은 가계와 기업의 즉각적인 기대 물가 조정을 유발하므로, 실물 생산량 마찰적 실업에는 아무런 영향을 주지 못하고 물가 상승(인플레이션 유발) 효과만 낳는다.",
+        "이자율이 하락하여 구조적 실업의 폭증 경로가 영구 보존된다.",
+        "정부 부채가 즉각 소멸하여 리카도 대등정리가 완전 붕괴된다.",
+        "대외 수출이 수입을 100% 초과하는 강제 흑자 경로를 유발한다."
+      ],
+      "answer": "2",
+      "explanation": "합리적 기대 학파(루카스 등)에 따르면 사전에 완벽히 예상된(anticipated) 정책은 경제주체들의 합리적 가격 반응으로 인해 AS 곡선을 동시에 좌상향 이동시키므로, 실물 효과(GDP 상승) 없이 물가만 올리게 됩니다(정책 무력성 정리). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-040",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 국가의 금융 시장에서 국채의 명목 수익률(명목 이자율)이 연 7.0%로 형성되어 있다. 경제학적 합리적 기대에 근거한 올해의 기대 인플레이션율이 연 3.0%일 때, 피셔 방정식(Fisher Equation)에 의거하여 도출되는 사후적 '실질 이자율'의 크기는?",
+      "options": [
+        "3.0%",
+        "4.0%",
+        "5.0%",
+        "10.0%",
+        "2.33%"
+      ],
+      "answer": "2",
+      "explanation": "피셔 근사식 i \\\\approx r + \\\\pi^e (명목 이자율 = 실질 이자율 + 기대 인플레이션)에 대입하면, 실질 이자율 r \\\\approx i - \\\\pi^e = 7.0% - 3.0% = 4.0% 가 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-041",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "현대 거시경제학에서 중시하는 '구조적 실업'이 금융 마찰(정보 비대칭성 및 대리인 비용) 하에서 경기 변동 충격을 확대 전파하는 메커니즘에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "정보 비대칭이 완화될 때 대리인 비용이 급증하여 투자가 위축된다.",
+        "경기 하강기에 자산 가치 하락으로 기업의 순자산(구조적 실업)이 감소하면, 은행이 요구하는 리스크 프리미엄이 급등하여 차입 금리가 오르고 투자가 추가로 급락(경기침체 증폭)하는 금융가속기(Financial Accelerator) 효과가 발생한다.",
+        "이자율이 하락하면 누출액이 주입액을 항상 초과하여 경기 불황이 고착된다.",
+        "가계의 저축 성향이 극대화되어 실질 GDP 마찰적 실업의 장기 잠재 성장 추세선이 수평이 된다.",
+        "대외 환율의 평가 절하 속도가 생산 기술 향상 속도를 압도하게 된다."
+      ],
+      "answer": "2",
+      "explanation": "금융 마찰이 존재하는 시장에서는 차입자(기업 등)의 순자산(구조적 실업) 규모가 담보 역할을 해 대리 비용을 완화시킵니다. 경기 불황으로 담보 가치가 떨어지면 은행 대출 금리 할증(외부자금 프리미엄)이 급등하여 민간 투자가 더욱 위축됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-042",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 실업의 종류 모형의 HSL SVG 그래프를 참조할 때, 경제에 비례 소득세 제도와 실업급여 같은 '자동 안정화 장치(Automatic Stabilizer)'가 작동할 경우의 경제학적 효과를 가장 바르게 설명한 것은?",
+      "options": [
+        "단기 총수요(AD) 곡선을 완벽히 수직으로 만들어 통화정책의 효과를 극대화한다.",
+        "경기 호황기에는 누출(세수 증가)을 자동으로 늘려 과열을 막고, 경기 수축기에는 누출을 줄여(가처분소득 보존) 경기 변동 폭을 스스로 완화시키는 역할을 하며, 이는 단기 승수 효과를 감소시킨다.",
+        "저축 성향을 영구히 하락시켜 마찰적 실업을 잠재 생산량 이상으로 2배 폭증시킨다.",
+        "실질 이자율 r의 변동성을 무한대로 증폭시키는 부작용만 낳는다.",
+        "경상수지 적자를 유발하여 무역 조건을 악화시킨다."
+      ],
+      "answer": "2",
+      "explanation": "자동 안정화 장치(비례세 등)는 경기가 호황일 때는 세수를 늘려(누출 확대) 과열을 식히고, 불황일 때는 세수를 줄여 소비 충격을 완충합니다. 이는 전체 경기 변동 폭을 줄여주는 유익한 역할을 하지만, 수학적으로 단기 승수의 분모를 키우므로 승수 효과의 절댓값 크기는 축소시킵니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-043",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "최근 거시경제 주요 쟁점인 정부의 재정 적자 누적 및 국가 채무의 지속 가능성(Debt Sustainability) 조건에 관한 경제학적 판단으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "정부의 실질 이자율(r)이 실질 경제성장률(g)보다 월등히 낮을수록 부채 비율은 폭발적으로 급증한다.",
+        "실질 이자율(r)이 실질 경제성장률(g)보다 높고 기초 재정수지가 적자를 지속하는 조건 하에서는, GDP 대비 국가 채무 비율이 수렴하지 않고 지속적으로 발산(재정 위기 우려)할 가능성이 높다.",
+        "조세를 감세 인하하면 리카도 대등정리에 의해 항상 소비 마찰적 실업이 2배로 폭증한다.",
+        "국가 부채가 늘어나면 언제나 통화 승수율이 0으로 강제 수축된다.",
+        "대차대조표 상의 자산 가치가 물가 수준과 완벽하게 무관해진다."
+      ],
+      "answer": "2",
+      "explanation": "GDP 대비 부채 비율의 동태적 방정식에 따르면, 실질 이자율(r)이 실질 경제성장률(g)을 웃돌 때, 기초 재정수지마저 적자 상황이면 부채 비율은 기하급수적으로 폭발하게 됩니다. 이를 막으려면 기초 재정수지를 흑자로 돌려야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-044",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "오쿤의 법칙(Okun's Law)이 다음과 같이 주어진다: 산출량 갭(GDP Gap, %) = -2.5 \\\\times (u - u_n) (단, u는 실제 실업률, u_n은 자연실업률).\n실제 실업률이 자연실업률보다 2%포인트 초과 상승하였을 때, 오쿤의 법칙에 의거하여 추정되는 이 경제의 산출량 갭(%)의 크기로 올바른 것은?",
+      "options": [
+        "-3.5%",
+        "-5.0%",
+        "-6.5%",
+        "-2%",
+        "-0.8%"
+      ],
+      "answer": "2",
+      "explanation": "오쿤의 법칙 공식에 실제 수치를 대입하면, 산출량 갭 = -2.5 \\\\times 2% = -5.0% 입니다. 즉, 실질 GDP가 잠재 GDP 수준 대비 5.0%만큼 아래로 깎여나갔음을 나타냅니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-045",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "실업의 종류의 분석 경로 상에서 나타나는 대표적인 항상소득가설(Permanent Income Hypothesis) 및 쿠즈네츠 실증 연구의 경제학적 주장에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "가계는 현재 소득의 일시적 변동인 일시소득에 대해서만 100% 반응하여 소비를 즉각 결정한다.",
+        "가계는 장기 평균 소득인 항상소득에 반응해 소비를 결정하므로, 일시적 보너스나 임시 감세 같은 일시소득의 증가는 소비가 아닌 주로 저축으로 흡수되어 단기 MPC가 매우 낮으며, 쿠즈네츠의 장장기 실증 모순을 완벽히 해명한다.",
+        "항상소득은 언제나 지니계수 하락에 정비례하여 수축한다.",
+        "소비의 유동성 제약이 완화되면 항상소득이 무조건 0으로 소멸한다.",
+        "대외 순수출의 규모가 항상소득 규모의 2배로 고정 고착된다."
+      ],
+      "answer": "2",
+      "explanation": "프리드먼의 항상소득가설은 소비가 단기적으로 고정된 소비가 아니라 장기의 항상적 소득 여건에 연동됨을 증명하여, 단기 소득 변동 시 소비의 미지근한 반응(낮은 단기 MPC)과 쿠즈네츠의 장기 APC 안정성을 성공적으로 설명해 냈습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-046",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "다음 중 공급 중시 경제학(Supply-side Economics)의 핵심 이론인 '래퍼 곡선(Laffer Curve)'의 경제학적 시사점과 그래프 변화에 관한 설명으로 가장 올바른 것은?",
+      "options": [
+        "세율을 100%로 무한히 인상할 때 정부의 총조세 수입이 대수적으로 극대화된다.",
+        "세율이 일정 임계점(최적 세율)보다 높은 금지 영역(Prohibitive range)에 처해 있는 경우, 세율을 오히려 인하하면 경제주체들의 근로 의욕과 투자 유인이 제고되어 장기적으로 총 산출량이 늘어나고 조세 수입도 증가할 수 있다.",
+        "정부의 기준금리를 하락 조정할 때에만 래퍼 곡선이 우측 마찰적 실업 방향으로 평탄화된다.",
+        "이자율이 하락하면 래퍼 곡선상의 최적 세율 한계점이 0으로 수축한다.",
+        "모든 국가의 조세 분배 형태가 항상 로렌츠 곡선과 완전 일치함을 뜻한다."
+      ],
+      "answer": "2",
+      "explanation": "래퍼 곡선에 따르면 세율이 너무 높으면 경제 활동(노동과 투자)을 위축시켜 세원 자체가 쪼그라듭니다. 이 금지 영역에서는 감세(세율 인하) 정책이 경제의 활력과 생산 능력을 높여 사후적으로 정부의 총 세수를 더 증대시키는 선순환을 유발할 수 있습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-047",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "솔로우 성장 모형에서 자본 축적 경로가 '동태적 비효율성(Dynamic Inefficiency)' 상태에 빠져 있다는 것의 거시경제학적 정의와 이에 따른 개선 방안으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "현재 경제의 자본 축적량이 황금률 수준보다 작아 소비를 늘리기 위해 저축을 대폭 늘려야 하는 상태이다.",
+        "현재 자본량이 황금률 자본량($k^*_g$)을 초과하여 자본 유지 감가상각 비용이 너무 큰 상태이며, 저축률을 낮추어 소비와 저축을 동시에 장단기적으로 모두 증대시킬 수 있는 상태이다.",
+        "자원 배분이 파레토 최적을 항상 만족하여 더 이상의 마찰적 실업 조정이 불가능한 상태이다.",
+        "실질 성장률 g가 이자율 r을 항상 상회하여 자본이 0으로 소멸하는 상태이다.",
+        "수출 대금으로 징수한 외화잔액이 국가 저축의 100%를 차지하는 상태이다."
+      ],
+      "answer": "2",
+      "explanation": "동태적 비효율성 상태는 균제상태 자본량이 황금률 자본량을 초과한 과잉 자본 상태를 뜻합니다. 이때는 저축률(s)을 낮추면 당장 소비가 늘어날 뿐만 아니라, 유지 비용((n+d)k)이 크게 줄어 장기 균제상태의 1인당 소비도 이전보다 많아집니다. 즉, 세대간 희생 없이 무조건 후생을 개선할 수 있는 비효율 상태입니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-048",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "보움-토빈(Baumol-Tobin) 거래적 화폐수요 모형에 따를 때, 어느 가계의 연간 총거래지출(소득, Y)이 900만 원이고, 은행을 방문하여 자금을 인출할 때마다 발생하는 거래비용(b)이 8만 원이다. 연간 실질 이자율이 r = 0.04 (4%)로 일정하다고 할 때, 현금 보유에 따른 기회비용을 극소화하는 이 가계의 최적 평균 현금 보유액(M*)은 몇 만 원인가?",
+      "options": [
+        "250",
+        "300",
+        "350",
+        "600",
+        "150"
+      ],
+      "answer": "2",
+      "explanation": "보움-토빈 모형의 최적 평균현금보유액 공식은 M^* = \\\\sqrt{ \\\\frac{b \\\\cdot Y}{2 \\\\cdot r} } 입니다. 주어진 수치를 대입하면,\nM^* = \\\\sqrt{ \\\\frac{ 8 \\\\times 900 }{ 2 \\\\times 0.04 } } = \\\\sqrt{ \\\\frac{ 7200 }{ 0.08 } } = \\\\sqrt{ 90000 } = 300 만 원이 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-049",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "거시경제 모형에서 원자재 가격 폭등이나 노동생산성 급감과 같은 '부정적 총공급 충격(Stagflation 충격)'이 가해졌을 때 나타나는 거시 지표들의 연쇄 반응으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 60 Q 120 160 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">SRPC (단기)</text>\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"50\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">LRPC (장기)</text>\n</svg>\n```",
+      "options": [
+        "총공급 곡선이 우측 이동하여 물가는 내리고 실질 GDP 마찰적 실업은 증가한다.",
+        "단기 총공급(SRAS) 곡선이 좌상향 이동하여 실질 GDP 마찰적 실업이 감소함과 동시에 인플레이션 물가가 폭등하는 스태그플레이션(Stagflation) 현상이 유발된다.",
+        "실질 이자율 r이 0으로 고정되어 금융 가속기 신용 프리미엄이 완전 소멸한다.",
+        "가계의 가처분소득 비율이 자동으로 흑자 반등하게 된다.",
+        "대외 환율의 대수적 스프레드가 영구 평탄화 경로를 달성한다."
+      ],
+      "answer": "2",
+      "explanation": "부정적 총공급 충격(AS 좌측 이동)은 가격 상승과 생산량 위축을 동시에 일으켜 물가 폭등 및 실업 문제를 가져오는 스태그플레이션을 초래합니다. 이때는 재정/통화 정책으로 물가와 고용을 동시에 안정시키기 어려운 딜레마에 빠지게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch05-sec02-item02-050",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "다음 중 현대 통화 신용 정책 이론인 '동태적 불일치(Time Inconsistency)' 현상이 시사하는 바와, 인플레이션 바이어스를 해소하기 위해 제안되는 정책 수단으로 가장 옳은 것은?",
+      "options": [
+        "정부는 매달 재량 정책을 전면 활성화하여 시장의 기대를 끊임없이 왜곡 교란해야 한다.",
+        "정부나 통화 당국이 단기적인 고용 증대(실업률 저하)를 꾀하려 사후에 약속을 깨고 팽창적 정책을 쓸 유인(동태적 불일치)이 있으므로, 이를 차단하기 위해 준칙(Rule)에 입각한 통화정책을 펴고 통화 당국의 독립성을 보장하여 정책 신뢰도를 제고해야 한다.",
+        "중앙은행을 전면 해체하고 마찰적 실업의 이자율 조정을 국유화 기업에 일임한다.",
+        "지니계수가 1이 될 때에만 동태적 불일치가 자동으로 소멸한다.",
+        "해외 원자재 수입에 대해 100% 관세 장벽을 쌓을 때 통화 신뢰성이 완성된다."
+      ],
+      "answer": "2",
+      "explanation": "Kydland와 Prescott(1977)이 제기한 동태적 불일치 이론에 따르면, 정부가 재량에 따라 정책을 펴면 국민들이 인플레이션 기대를 올려 실물 효과는 없이 기대 인플레만 오르는 바이어스가 생깁니다. 이를 해소하기 위해서는 중앙은행의 신뢰도와 독립성을 확보하고 약속된 준칙을 지키는 제도적 안정이 필수적입니다. 정답은 ②입니다."
     }
   ]
 }

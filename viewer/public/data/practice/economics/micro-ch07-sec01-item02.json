@@ -8,88 +8,88 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch07-sec01-item02-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "에지워스 상자(Edgeworth box)란?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 자원 배분이 '파레토 효율적(Pareto Efficient)'이기 위한 조건에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
       "options": [
-        "2명 소비자·2재화 경제의 자원 배분을 사각형 안에서 분석하는 도구",
-        "독점기업 분석 도구",
-        "정부 예산 분석",
-        "거시 모형",
-        "환율 분석"
+        "두 소비자의 무차별곡선이 서로 교차하는 점에서 효율적이다",
+        "상자 내부의 모든 점에서 항상 파레토 효율적이다",
+        "두 소비자의 한계대체율이 일치하는 무차별곡선의 접점에서 파레토 효율이 충족된다",
+        "한 사람의 후생을 낮추지 않고도 다른 사람의 후생을 올릴 수 있는 상태를 의미한다",
+        "두 재화의 상대가격이 원점과 일치할 때 파레토 효율을 얻는다"
       ],
-      "answer": "1",
-      "explanation": "Francis Edgeworth (1881) 개발, Bowley 발전. 사각형 안에 양 소비자의 무차별곡선과 자원 배분 표시. 일반균형·Pareto 효율 분석의 핵심 시각화 도구."
+      "answer": "3",
+      "explanation": "에지워스 상자에서 교환의 파레토 효율성 조건은 두 소비자 A, B의 무차별곡선이 접하는 지점, 즉 한계대체율이 일치하는 조건($MRS_A = MRS_B$)이 만족되는 곳입니다. 교차하는 점에서는 파레토 개선이 여전히 가능합니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "파레토 효율(Pareto efficiency)이란?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "에지워스 상자 내의 2인 효용함수가 다음과 같다.\n- A의 효용: $U_A = X_A \\\\cdot Y_A$\n- B의 효용: $U_B = X_B^2 \\\\cdot Y_B$\n두 재화의 총부존량이 $X = 30, Y = 30$일 때, 파레토 효율적인 배분점들의 궤적인 '계약곡선(Contract Curve)'의 방정식은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
       "options": [
-        "한 사람의 후생을 높이려면 다른 사람의 후생을 낮춰야 하는 상태",
-        "모두가 동일 후생",
-        "총효용 극대화",
-        "정부 결정",
-        "균등 분배"
+        "$Y_A = X_A$",
+        "$Y_A = 2X_A$",
+        "$Y_A = \\\\dfrac{X_A \\\\cdot Y_B}{X_B}$",
+        "$Y_A = \\\\dfrac{2X_A(30 - Y_A)}{30 - X_A}$ (수식 정리형)",
+        "계약곡선은 정의되지 않는다"
       ],
-      "answer": "1",
-      "explanation": "Vilfredo Pareto (1906): \"누구도 더 나빠지지 않고 누군가를 더 좋게 만들 수 없는\" 배분. 효율 = 최소 조건이지만 공평성과 무관. Pareto 효율 배분은 무수히 많음."
+      "answer": "4",
+      "explanation": "1) $MRS_A = Y_A / X_A$\n2) $MRS_B = 2Y_B / X_B = \\\\dfrac{2(30 - Y_A)}{30 - X_A}$\n3) 효율성 조건: $MRS_A = MRS_B \\\\Rightarrow \\\\dfrac{Y_A}{X_A} = \\\\dfrac{2(30 - Y_A)}{30 - X_A} \\\\Rightarrow Y_A(30 - X_A) = 2X_A(30 - Y_A) \\\\Rightarrow Y_A = \\\\dfrac{2X_A(30 - Y_A)}{30 - X_A}$ 로 정리됩니다. ④가 정답입니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-003",
-      "difficulty": 2,
-      "question_type": "그래프형",
-      "question": "다음 에지워스 박스 그래프에서 \"계약곡선\"(contract curve)이란?\n\n[IMAGE: data/practice/economics/graphs/edgeworth-box.svg]",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "에지워스 상자 내에서 코어(Core)와 계약곡선(Contract Curve)의 관계에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
       "options": [
-        "양 소비자의 무차별곡선이 접하는 점들의 집합 — 모든 Pareto 효율 배분",
-        "박스 가운데 점",
-        "박스 대각선",
-        "원점",
-        "무차별곡선 교차점"
+        "코어는 계약곡선 전체와 완벽히 일치한다",
+        "코어는 계약곡선 중 초기 부존점을 통과하는 두 소비자의 무차별곡선으로 둘러싸인 렌즈(Lens) 모양의 파레토 개선 영역 내에 위치하는 계약곡선의 일부분이다",
+        "코어 영역 내에서는 파레토 개선이 여전히 가능하다",
+        "코어는 경쟁 균형과 완벽하게 무관한 개념이다",
+        "소비자가 많아질수록 코어의 범위는 무한히 확장된다"
       ],
-      "answer": "1",
-      "explanation": "계약곡선 = $MRS^A = MRS^B$ 점들 연결. 양 소비자의 무차별곡선이 접 (한쪽이 더 가질 수 없음 → 다른 쪽이 손해). 박스 두 모서리(완전 배분) 사이를 잇는 곡선."
+      "answer": "2",
+      "explanation": "코어(Core)는 계약곡선 상에 존재하는 파레토 효율적인 점들 중, 초기 부존 상태와 비교하여 두 소비자 모두에게 자발적 교환의 이득이 보장되는(파레토 개선이 가능한 영역의 경계 내에 위치하는) 계약곡선의 세그먼트(일부분)를 의미합니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-004",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
-      "question": "교환의 Pareto 효율 조건은?",
+      "question": "파레토 효율성(Pareto Efficiency) 개념의 한계와 의의에 관한 다음 설명 중 옳지 않은 것은?",
       "options": [
-        "$MRS_{12}^A = MRS_{12}^B$ (양 소비자의 한계대체율 동일)",
-        "$MRS = 0$",
-        "$MRS = 1$",
-        "한 사람의 MRS만 결정",
-        "$MRS \\to \\infty$"
+        "후생경제학의 효율적 배분 기준으로 널리 쓰이나, 분배의 형평성(Fairness)을 평가하지 못한다",
+        "독점이 존재하면 파레토 효율적 상태에서 이탈하게 된다",
+        "파레토 개선이 불가능한 상태가 파레토 효율적 상태이다",
+        "파레토 효율적인 자원배분 상태는 사회적으로 유일하게 한 점으로만 존재한다",
+        "외부효과나 공공재가 존재하는 경제에서는 자유경쟁에 의한 파레토 최적 달성이 방해된다"
       ],
-      "answer": "1",
-      "explanation": "교환 Pareto 효율: 양 소비자의 두 재화 간 한계대체율이 동일해야 추가 거래로 양쪽 모두 이익 안 됨. 가격이 이를 자동 매개 ($MRS = p_1/p_2$)."
+      "answer": "4",
+      "explanation": "파레토 효율적인 자원배분 상태는 에지워스 상자 내 계약곡선 상의 무한히 많은 점으로 존재합니다. 그 중 어떤 배분이 사회적으로 바람직한지는 분배 가치판단을 요하므로 ④는 틀렸습니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-005",
       "difficulty": 3,
-      "question_type": "계산형",
-      "question": "소비자 A: $U^A = x_1^A x_2^A$, 소비자 B: $U^B = x_1^B x_2^B$. 부존자원 $(\\omega_1^A, \\omega_2^A) = (4, 2)$, $(\\omega_1^B, \\omega_2^B) = (2, 4)$. 일반균형 가격비 $p_1/p_2$ 는?",
+      "question_type": "이론형",
+      "question": "교환의 효율성($MRS_A = MRS_B$)이 달성되지 않았을 때 발생할 수 있는 현상으로 가장 옳은 것은?",
       "options": [
-        "$p_1/p_2 = 1$ (대칭으로 동일)",
-        "$p_1/p_2 = 2$",
-        "$p_1/p_2 = 0.5$",
-        "$p_1/p_2 = 4$",
-        "$p_1/p_2 = 0$"
+        "두 소비자가 직면하는 상대가격이 항상 일치하고 거래는 단절된다",
+        "소비자 A와 B 사이에 자발적인 추가 거래(교환)를 통해 두 사람 모두의 후생을 동시에 개선할 수 있는 여지가 남는다",
+        "생산가능곡선이 원점에 대해 오목해지는 기술 왜곡이 나타난다",
+        "사회후생함수가 항상 롤스형으로 수축한다",
+        "지니계수가 0으로 즉각 수렴하게 된다"
       ],
-      "answer": "1",
-      "explanation": "콥-더글러스 + 부존 대칭 (총 $(\\omega_1, \\omega_2) = (6, 6)$) → 두 재화 총공급 동일 → 균형 상대가격 1 (대칭 경제)."
+      "answer": "2",
+      "explanation": "두 소비자의 한계대체율이 다르면 상호 주관적 교환비율이 다르다는 의미입니다. 이 경우 서로 다른 만족율에 따라 재화를 재배분함으로써 파레토 개선(두 사람 후생 동반 상승)을 이끌어 낼 수 있습니다. 정답 ②."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-006",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Pareto 개선(Pareto improvement)이란?",
       "options": [
@@ -104,7 +104,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-007",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "에지워스 박스에서 \"중심점\"(균등분배)은 항상 Pareto 효율인가?",
       "options": [
@@ -121,7 +121,7 @@
       "id": "practice-econ-micro-ch07-sec01-item02-008",
       "difficulty": 4,
       "question_type": "계산형",
-      "question": "$U^A = x_1^A + x_2^A$ (완전대체), $U^B = \\min(x_1^B, x_2^B)$ (완전보완). 부존자원 $(\\omega_1^A, \\omega_2^A) = (2, 0)$, $(\\omega_1^B, \\omega_2^B) = (0, 2)$. 일반균형 가격비는?",
+      "question": "$U^A = x_1^A + x_2^A$ (완전대체), $U^B = \\\\\\\\\\\\\\\\min(x_1^B, x_2^B)$ (완전보완). 부존자원 $(\\\\\\\\\\\\\\\\omega_1^A, \\\\\\\\\\\\\\\\omega_2^A) = (2, 0)$, $(\\\\\\\\\\\\\\\\omega_1^B, \\\\\\\\\\\\\\\\omega_2^B) = (0, 2)$. 일반균형 가격비는?",
       "options": [
         "$p_1/p_2 = 1$ (A는 무차별, B는 1:1)",
         "$p_1/p_2 = 2$",
@@ -130,11 +130,11 @@
         "결정 안 됨"
       ],
       "answer": "1",
-      "explanation": "B는 완전보완 (Leontief) → $x_1^B = x_2^B$ 만 효용. 균형에서 B의 수요 비율 = 1:1. A는 완전대체 (무차별곡선이 직선). 균형 가격비 1, A는 일부 양 거래."
+      "explanation": "B는 완전보완 (Leontief) → $x_1^$$$B = x$$$_2^B$ 만 효용. 균형에서 B의 수요 비율 = 1:1. A는 완전대체 (무차별곡선이 직선). 균형 가격비 1, A는 일부 양 거래."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-009",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "그래프형",
       "question": "다음 에지워스 박스에서 \"코어\"(core)란?\n\n[IMAGE: data/practice/economics/graphs/edgeworth-box.svg]",
       "options": [
@@ -164,7 +164,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-011",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Edgeworth (1881)이 \"코어가 일반균형에 수렴한다\"(core convergence)고 보인 것은?",
       "options": [
@@ -179,7 +179,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-012",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 부동산 시장에서 에지워스 분석이 응용되는 사례는?",
       "options": [
@@ -196,7 +196,7 @@
       "id": "practice-econ-micro-ch07-sec01-item02-013",
       "difficulty": 4,
       "question_type": "계산형",
-      "question": "$U^A = x_1^{0.5} x_2^{0.5}$, $U^B = x_1^{0.5} x_2^{0.5}$. 총 부존 $(\\omega_1, \\omega_2) = (10, 10)$, $A$의 부존 $(4, 6)$. 일반균형에서 A의 소비량은?",
+      "question": "$U^A = x_1^{0.5} x_2^{0.5}$, $U^B = x_1^{0.5} x_2^{0.5}$. 총 부존 $(\\\\\\\\\\\\\\\\omega_1, \\\\\\\\\\\\\\\\omega_2) = (10, 10)$, $A$의 부존 $(4, 6)$. 일반균형에서 A의 소비량은?",
       "options": [
         "$x_1^A = 5, x_2^A = 5$",
         "$x_1^A = 4, x_2^A = 6$",
@@ -205,11 +205,11 @@
         "$x_1^A = 0, x_2^A = 10$"
       ],
       "answer": "1",
-      "explanation": "대칭 콥-더글러스: 가격비 = 1. A의 소득 = $4 + 6 = 10$. A 효용극대화 → $x_1^A = x_2^A = 5$. 총공급 = $(10, 10)$이므로 균형."
+      "explanation": "대칭 콥-더글러스: 가격비 = 1. A의 소득 = $4 + 6 = 10$. A 효용극대화 → $x_1^$$$A = x$$$_2^$$$A = 5$$$$. 총공급 = $(10, 10)$이므로 균형."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-014",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Pareto 효율의 한계 중 \"공평성\"과의 관계는?",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-015",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "후생경제학 제1정리가 시사하는 바는?",
       "options": [
@@ -239,7 +239,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-016",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "후생경제학 제2정리가 시사하는 바는?",
       "options": [
@@ -254,7 +254,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-017",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "그래프형",
       "question": "다음 에지워스 박스에서 초기 부존자원 점에서 \"양쪽 모두 이익되는 거래 영역\"은?\n\n[IMAGE: data/practice/economics/graphs/edgeworth-box.svg]",
       "options": [
@@ -273,18 +273,18 @@
       "question_type": "이론형",
       "question": "교환의 Pareto 효율이 성립할 때 가격비와 한계대체율 관계는?",
       "options": [
-        "$\\dfrac{p_1}{p_2} = MRS_{12}^A = MRS_{12}^B$",
-        "$p_1 \\cdot p_2 = MRS$",
+        "$\\\\\\\\\\\\\\\\dfrac{p_1}{p_2} = MRS_{12}^A = MRS_{12}^B$",
+        "$p_1 \\\\\\\\\\\\\\\\cdot p_2 = MRS$",
         "$p_1/p_2 < MRS$",
         "$p_1/p_2 > MRS$",
         "관계 없음"
       ],
       "answer": "1",
-      "explanation": "효용극대화 1차 조건: 각 소비자가 $MRS = p_1/p_2$ 까지 거래. 가격이 동일 → 양 소비자의 MRS 동일 → Pareto 효율. 시장의 가격기구가 분권화 효율 달성."
+      "explanation": "효용극대화 1차 조건: 각 소비자가 $$$$MRS = p$$$_1/p_2$ 까지 거래. 가격이 동일 → 양 소비자의 MRS 동일 → Pareto 효율. 시장의 가격기구가 분권화 효율 달성."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-019",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 정부의 부동산 재분배 정책(공시지가 인상·종부세 강화)이 후생경제학 제2정리와 갖는 관계는?",
       "options": [
@@ -316,7 +316,7 @@
       "id": "practice-econ-micro-ch07-sec01-item02-021",
       "difficulty": 4,
       "question_type": "계산형",
-      "question": "$U^A = 2 \\ln x_1^A + \\ln x_2^A$, 부존 $(2, 4)$. 가격 $p_1 = 1, p_2 = 1$ 시 A의 수요는?",
+      "question": "$U^A = 2 \\\\\\\\\\\\\\\\ln x_1^A + \\\\\\\\\\\\\\\\ln x_2^A$, 부존 $(2, 4)$. 가격 $p_1 = 1, p_2 = 1$ 시 A의 수요는?",
       "options": [
         "$x_1^A = 4, x_2^A = 2$",
         "$x_1^A = 2, x_2^A = 4$",
@@ -325,11 +325,11 @@
         "$x_1^A = 0, x_2^A = 6$"
       ],
       "answer": "1",
-      "explanation": "소득 = $1 \\cdot 2 + 1 \\cdot 4 = 6$. 콥-더글러스 (지수 2:1) → 비중 2/3, 1/3. $x_1^A = (2/3) \\cdot 6 = 4$, $x_2^A = (1/3) \\cdot 6 = 2$."
+      "explanation": "소득 = $1 \\\\\\\\\\\\\\\\cdot 2 + 1 \\\\\\\\\\\\\\\\cdot 4 = 6$. 콥-더글러스 (지수 2:1) → 비중 2/3, 1/3. $x_1^A = (2/3) \\\\\\\\\\\\\\\\cdot 6 = 4$, $x_2^A = (1/3) \\\\\\\\\\\\\\\\cdot 6 = 2$."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-022",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Sen의 \"Pareto 자유주의 불가능 정리\"(impossibility of a Paretian liberal)의 의미는?",
       "options": [
@@ -344,7 +344,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "후생경제학 제2정리의 실현에 \"정액(lump-sum) 이전\"이 필요한 이유는?",
       "options": [
@@ -359,7 +359,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-024",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Walras-Pareto 일반균형이론이 거시경제학과 만나는 지점은?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item02-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Arrow-Debreu 일반균형의 \"완비시장\"(complete market) 가정이 실제 정책 분석에 갖는 함의는?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "Arrow-Debreu 가정 = 모든 미래 상태에 대한 완비 보험 시장. 현실은 불완전 → 일반균형 비효율 → 공적 보험·연금·실업급여 정당화. 한국 사회보장 정책의 이론 기반 중 하나."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-026",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-027",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-028",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-029",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-030",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-034",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-035",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-036",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-037",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-038",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-039",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-040",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-041",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-042",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-043",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-044",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-045",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-046",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-047",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-048",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-049",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "에지워스 상자(Edgeworth Box) 내에서 초기 배분점으로부터 자발적인 교환을 통해 파레토 개선(Pareto Improvement)을 이끌어 낼 수 있는 영역의 기하학적 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"25\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"305\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  <!-- 계약곡선 (Contract Curve) -->\n  <path d=\"M 40 200 Q 150 140 300 40\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"120\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">계약곡선 (파레토 최적)</text>\n  <!-- 무차별곡선 접점 E -->\n  <path d=\"M 60 140 Q 120 150 200 200\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.8\" />\n  <path d=\"M 100 40 Q 180 90 280 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <circle cx=\"150\" cy=\"144\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"145\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRS_A = MRS_B)</text>\n</svg>\n```",
+      "options": [
+        "상자 내부의 계약곡선 위 모든 영역",
+        "상자 네 모퉁이의 구석해 영역",
+        "초기 배분점을 통과하는 두 소비자의 무차별곡선에 의해 둘러싸인 렌즈(Lens) 모양의 닫힌 공간 및 그 경계",
+        "두 소비자의 예산선이 교차하는 점선 영역",
+        "사회의 효용가능경계선 바깥쪽 영역"
+      ],
+      "answer": "3",
+      "explanation": "자발적 교환에 의해 두 사람 모두 후생이 상승(또는 한 사람 유지, 다른 사람 상승)하는 파레토 개선 영역은 초기 부존 배분점을 통과하는 두 무차별곡선 안쪽의 렌즈 모양 영역입니다. 계약곡선 상에 도달하더라도 초기 무차별곡선 안쪽이어야 자발적 교환의 동기가 생깁니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item02-050",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "총부존량이 X재 20단위, Y재 20단위인 에지워스 상자가 있다. 두 사람의 효용함수가 $U_A = X_A + Y_A$, $U_B = \\min(X_B, Y_B)$ 일 때, 이 상자 내의 계약곡선(Contract Curve)을 옳게 설명한 것은?",
+      "options": [
+        "계약곡선은 존재하지 않는다",
+        "A와 B의 MRS가 일치하는 한 점으로만 수축한다",
+        "계약곡선은 $X_B = Y_B$ 인 대각선 궤적으로 나타난다",
+        "상자의 가로축과 세로축 전체 경계선이다",
+        "A의 무차별곡선 접선들의 기울기가 0이 되는 지점들의 합이다"
+      ],
+      "answer": "3",
+      "explanation": "B의 효용함수가 레온티에프 $\\min(X_B, Y_B)$ 이므로, B의 꺾임점인 $X_B = Y_B$ 를 벗어나면 B의 한계대체율이 0 또는 무한대가 되어 A의 $MRS_A = 1$ 과 절대 접할 수 없습니다. 따라서 계약곡선은 B의 꺾임점들의 집합인 $X_B = Y_B$ 선 상에서 파레토 효율을 완벽히 달성하게 됩니다. 정답 ③."
     }
   ]
 }

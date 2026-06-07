@@ -6,143 +6,143 @@
     "section": "제16절 과점시장",
     "item": "제4관 카르텔과 담합",
     "source": "practice-set",
-    "version": "v2-handcrafted",
-    "created": "2026-06-03",
-    "count": 25,
+    "version": "v3-high-quality",
+    "created": "2026-06-07",
+    "count": 50,
     "mix_profile": "calc12-graph5-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch05-sec04-item04-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "카르텔 (Cartel) 의 정의는?",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "독립된 과점 기업들이 독점 연합체처럼 결성하는 카르텔(Cartel) 담합 구조에서, 카르텔 전체의 이윤 극대화(결합이윤 극대화)를 위해 다수의 가맹 공장 간 생산량을 배분하는 한계 원칙과 독점 생산 쿼터(Quota) 설정의 경제학적 메커니즘으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
       "options": [
-        "기업 간 명시적 협의 (가격·생산·시장 분할) → 독점 이윤 — 한국 공정거래법 금지",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "카르텔 결합 한계수입($MR$)을 각 가맹 공장의 개별 한계비용($MC_i$)과 일치시키는 조건($MR = MC_1 = MC_2 = ...$) 하에서 총생산량을 배분해야 생산비용이 최소화되며 결합 이윤이 극대화된다.",
+        "각 가맹 공장의 평균가변비용 최저점을 100% 일치시켜 개별 요금을 완전경쟁 가격으로 환원해야 카르텔 결합 이윤이 극대화된다.",
+        "카르텔 생산 쿼터는 오직 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘에 의해서만 강제 배분된다.",
+        "결합 이윤 극대화 조건은 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 균등 배분된다.",
+        "소비자가 대기 행동을 포기하고 모든 제품을 사재기하여 가격 불안정성을 0으로 유압하는 균형 조건이다."
       ],
       "answer": "1",
-      "explanation": "카르텔: 기업 간 명시 협의 (가격·생산·시장 분할). 독점 이윤 추구. 한국 공정거래법 (1980-) 금지·과징금. EU·미국·OECD 동일 금지."
+      "explanation": "카르텔 결합이윤극대화와 생산배분:\\n1) 다공장 독점 원리 적용: 카르텔은 여러 독립 기업이 모인 형태이므로, 다수의 공장을 지닌 단일 독점기업의 의사결정과 논리적으로 동일합니다.\\n2) 한계비용 균등화: 전체 결합 MR과 개별 공장의 MC가 정확히 일치하는 지점($MR = MC_1 = MC_2$)에서 생산 쿼터를 나누어야 전체 생산 원가가 가장 낮고 결합 이윤은 최고치에 도달합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-002",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "카르텔의 \"불안정\" 원인은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "카르텔 담합 협정이 공정거래위원회의 사후 규제와 무관하게 자체적인 내부 유인 설계만으로도 유지되기 어렵고 항상 붕괴 위협에 노출되는 '근본적인 죄수의 딜레마(Prisoner's Dilemma)적 이탈 유인'에 대한 미시경제학적 근거로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
       "options": [
-        "Nash 균형 일탈 동기 (산출 ↑·이윤 ↑) → 협의 깨질 위험",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "카르텔 협정 요금 가격이 개별 기업의 한계비용보다 높게 유지되므로 ($P_M > MC_i$), 경쟁 가맹점들이 약속 쿼터를 준수한다고 가정할 때 나홀로 산출량을 초과 생산(Cheating)하여 몰래 팔면 단기 개별 이윤을 증폭시킬 수 있기 때문이다.",
+        "배반할 경우 정부가 가격 전가 왜곡을 100% 환급 보장해 주는 왜곡된 인센티브 제도가 실재하기 때문이다.",
+        "쿼터 한계에 도달하면 가변 비용 함수가 수직 낙하하여 생산을 무제한 늘릴 수 있는 기술적 독점력을 쥐게 되기 때문이다.",
+        "카르텔의 이탈 유인은 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 완전 영(0)으로 수축한다.",
+        "소비자가 대기 행동을 포기하게 유도하여 모든 배반 가맹점에게 벌점을 강제 부과하는 인센티브 구조이다."
       ],
       "answer": "1",
-      "explanation": "카르텔 불안정: Nash (1994 노벨) 균형 일탈 동기 (산출 ↑·이윤 ↑). 죄수의 딜레마. 협의 깨질 위험. 정부 견제 + 처벌·자수 면제 (Leniency)·반복 게임으로 견제."
+      "explanation": "카르텔 붕괴의 내적 유인:\\n카르텔 협정으로 결정된 시장 가격 $P_M$은 한계비용 $MC$보다 높은 마크업 상태에 있습니다. 개별 기업 입장에서는 '상대방이 약속 수량을 지켜 가격이 $P_M$으로 유지되는 동안, 나 혼자 몰래 생산량을 조금 늘려 팔면' 가격 하락폭에 비해 한계비용을 초과하는 추가 이익이 훨씬 크기 때문에 배반(Cheating)의 유인이 상시적으로 성립합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-003",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "Stigler (1964) 카르텔 안정 조건은?",
+      "question": "George Stigler(1964)의 '과점의 지배적 정보 이론'에 기초하여, 카르텔 담합의 안정성과 장기 지속성을 대폭 높여주는 시장 구조적 요인(담합의 지속을 돕는 환경 조건)으로 가장 옳은 것은?",
       "options": [
-        "정보 ↑·진입 ↓·반복 ↑·기업 수 ↓ → 카르텔 안정 ↑",
-        "관계 없음",
-        "Stigler 부정",
-        "정부 결정",
-        "Pareto"
+        "시장 내 활동하는 가맹점의 수가 적고, 생산 기술과 제품이 동질적이며, 개별 가격 인하 거래를 감시하기 쉬운 투명한 정보 구조가 구축되어 신속한 배반 처벌이 가능한 환경 조건이다.",
+        "제품의 차별화 정도가 극도로 높아서 가맹점 간의 한계기술대체율이 장단기 비용 포락선과 무관하게 상시 변화하는 조건이다.",
+        "신규 진입 장벽이 원천 붕괴되어 언제든 새로운 경쟁사들이 가격 인하 마크업을 단행할 수 있는 상시 개방 조건이다.",
+        "담합의 지속력은 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때만 전면 보장된다.",
+        "소비자가 전환비용을 100% 영(0)으로 낮추어 모든 가맹점원들의 정보를 장기 통제하는 조건이다."
       ],
       "answer": "1",
-      "explanation": "George Stigler (1982 노벨) A Theory of Oligopoly (1964): 카르텔 안정 조건 — 정보 ↑·진입 ↓·반복 ↑·기업 수 ↓·동질 제품. 위반 시 견제 ↓. 한국 (정유·시멘트·통신) 사례 분석."
+      "explanation": "Stigler의 카르텔 안정 조건:\\n1) 기업 수가 적을수록: 합의 형성이 쉽고 위반 감시가 편합니다.\\n2) 제품이 동질적일수록: 가격 비교가 쉬워 몰래 깎아 파는 행위의 감지가 즉각적입니다.\\n3) 정보의 투명성: 비밀리에 가격 할인을 제공하는 행위가 쉽게 드러나면 즉각 보복(처벌)이 가능하므로 이탈 유인이 원천 억제됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-004",
-      "difficulty": 4,
-      "question_type": "이론형",
-      "question": "한국 \"공정위 + 카르텔 적발\" 함의는?",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "독점규제 및 공정거래에 관한 법률 하에서 공정거래위원회가 카르텔 담합을 효율적으로 적발하고 해체하기 위해 운영하는 '리니언시(Leniency Program, 자진신고 감면 제도)'가 죄수의 딜레마를 활용해 담합을 파괴하는 게임이론적 작동 원리로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
-        "공정위 (KFTC 1981-) 담합 적발·과징금 + 자수 면제 (Leniency) 정책",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "최초로 담합 사실을 자진 신고한 기업에 대해서만 과징금 및 형사 처벌을 100% 면제해 줌으로써, 타 가맹점이 먼저 신고할지도 모른다는 상호 불신(죄수의 딜레마)을 극대화하여 자발적 자백 유인을 자극한다.",
+        "자진 신고 시 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 통해 손실 지대를 전액 현금 환급해 주기 때문이다.",
+        "자수하지 않은 가맹점원들의 면허를 100% 영구 취소하여 시장 전체를 신고 가맹점이 전면 독식하게 해 주는 보장책이다.",
+        "리니언시의 파괴력은 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지하는 조건 하에서만 완전히 무력화된다.",
+        "소비자가 대기 행동을 취해 자수 기업의 가격 책정 능력을 100% 박탈하는 메커니즘이다."
       ],
       "answer": "1",
-      "explanation": "한국 공정위 (1981-) 담합 적발: 과징금 (수십억-수천억원) + 자수 면제 (Leniency·1997-) → 1차 자수 면제·2차 50%. 카르텔 견제·해체. EU·미국 유사 (Leniency 정책)."
+      "explanation": "리니언시(자진신고 감면제)의 원리:\\n1) 1순위 신고자 면제: 담합을 자백한 최초의 고발자에게는 과징금을 면제해주지만, 늦게 오면 처벌을 다 받아야 합니다.\\n2) 불신의 자극: 이에 따라 '상대방이 먼저 자백해서 나는 면제를 받지 못하고 거액의 독박 과징금을 쓸지도 모른다'는 죄수의 딜레마 상황이 기업들 간에 인위적으로 증폭되며, 담합 동맹의 상호 불신에 기인해 스스로 담합을 고발하게 만드는 영리한 유인 설계입니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-005",
-      "difficulty": 4,
-      "question_type": "이론형",
-      "question": "Leniency Program (자수 면제) 의 의의는?",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "두 기업이 매기 카르텔 협정을 반복하는 게임(Infinite Repeated Game)을 수행하고 있다. 단판 게임(Stage Game)에서 두 기업이 협력(담합)하면 각각 $80$ 의 이윤을 얻고, 둘 다 배반하면 가격 전쟁으로 각각 $20$ 의 이윤에 머문다. 어느 한 기업만 배반하고 상대는 협력하는 경우 배반자는 $120$ 을 얻고 협력자는 $0$ 의 이윤에 그친다. 두 기업이 영구 트리거 전략(Trigger Strategy)을 사용해 담합 위반 시 평생 가격 전쟁을 벌이기로 공약할 때, 이 카르텔이 내쉬 균형으로 장기 지속되기 위해 필요한 할인인자(Discount Factor, $\\delta$)의 최저 한계값으로 가장 옳은 것은?",
       "options": [
-        "1차 자수 → 과징금 면제 → 죄수의 딜레마 → 카르텔 해체 ↑",
-        "관계 없음",
-        "Leniency 부정",
-        "정부 결정",
-        "Pareto"
+        "최저 할인인자 $\\delta \\ge 0.40$",
+        "최저 할인인자 $\\delta \\ge 0.50$",
+        "최저 할인인자 $\\delta \\ge 0.60$",
+        "최저 할인인자 $\\delta \\ge 0.67$",
+        "반복 카르텔 하에서는 배반 시의 일시 이득이 훨씬 지배적이므로 어떠한 할인 조건 하에서도 담합 유지는 불가능하다."
       ],
       "answer": "1",
-      "explanation": "Leniency (자수 면제·1990s 미국 1차·EU·한국 1997-): 1차 자수 → 과징금 면제·자백 → 죄수의 딜레마 (Nash) → 카르텔 해체 ↑. 한국 적발 ↑·효과 ↑. Tirole (2014 노벨) 결합."
+      "explanation": "반복 카르텔 할인인자 도출 연산:\\n1) 협력 평생 이윤 현재가치:\\n   - $V_{cooperate} = \\dfrac{80}{1 - \\delta}$.\\n2) 배반 평생 이윤 현재가치:\\n   - 이번 기에 배반하여 120을 획득하고 다음 기부터 영원히 20으로 귀착:\\n   - $V_{defect} = 120 + \\dfrac{20\\delta}{1 - \\delta}$.\\n3) 담합 지속 조건 ($V_{cooperate} \\ge V_{defect}$):\\n   - $\\dfrac{80}{1 - \\delta} \\ge 120 + \\dfrac{20\\delta}{1 - \\delta} \\implies 80 \\ge 120(1 - \\delta) + 20\\delta$.\\n   - $80 \\ge 120 - 120\\delta + 20\\delta \\implies 80 \\ge 120 - 100\\delta \\implies 100\\delta \\ge 40 \\implies \\delta \\ge 0.40$.\\n따라서 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-006",
       "difficulty": 4,
       "question_type": "이론형",
-      "question": "한국 \"역대 카르텔 사례\" 는?",
+      "question": "한국 \"역대 카르텔 사례\" 는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
       "options": [
         "정유 (휘발유)·통신 (요금)·시멘트·라면·제약·건설 → 공정위 과징금",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 카르텔 사례: ① 정유 (휘발유 가격) ② 통신 (요금) ③ 시멘트 (가격) ④ 라면 ⑤ 제약 ⑥ 건설 (입찰). 공정위 과징금 누적 수조원. 정책 강화 추세."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-007",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"국제 카르텔 (OPEC)\" 의 함의는?",
       "options": [
         "OPEC (1960-) 원유 카르텔 → 한국 (수입 의존) 외부 충격 ↑·정책 대응",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "OPEC (1960-) 원유 카르텔: 한국 (수입 의존 95%+) 외부 충격 ↑ (1973·1979·2022 오일쇼크). 정책 (전략 비축·에너지 다변화·녹색 전환). Sweezy·Stigler·Tirole 적용."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-008",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Tirole (2014 노벨) 플랫폼 + 담합 함의는?",
       "options": [
         "양면 시장 + 알고리즘 → 새 담합 형태 (Algorithmic Collusion)",
-        "관계 없음",
-        "Tirole 부정",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "양면 시장 하에서 플랫폼 이윤 분배 구조의 원천적 비효율성",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "Jean Tirole (2014 노벨)·Rochet-Tirole (2003) 양면 시장 + 알고리즘 → Algorithmic Collusion (Mehra 2016) 새 담합 형태. EU·미국·한국 (공정위) 견제. Acemoglu (2024 노벨) 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-009",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"건설·입찰 담합\" 의 함의는?",
       "options": [
         "공공 입찰 담합 (건설·SOC) → 가격 ↑·예산 손실 → 공정위·감사원 견제",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 입찰 담합 사례: 건설·SOC (도로·KTX·항만) 공공 입찰. 가격 ↑·예산 손실 (수조원). 공정위 + 감사원 견제·과징금. Tirole + Tullock + Buchanan 결합."
@@ -151,28 +151,28 @@
       "id": "practice-econ-micro-ch05-sec04-item04-010",
       "difficulty": 4,
       "question_type": "이론형",
-      "question": "한국 \"제약 카르텔\" 함의는?",
+      "question": "한국 \"제약 카르텔\" 함의는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
         "제네릭·신약 가격·시장 분할 → 의료비 ↑ → 공정위 견제",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 제약 카르텔: 제네릭·신약 가격·시장 분할 담합 → 의료비 ↑. 공정위 견제·과징금. 일본·미국·EU 유사 사례. 보건복지부·식약처 결합 규제."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-011",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"AI 알고리즘 담합\" 의 함의는?",
       "options": [
         "AI 가격 알고리즘 → 인간 협의 없이 담합 (암묵·자동) → 규제 정책 정교화",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "AI 알고리즘 담합 (Algorithmic Collusion): AI 가격 학습 → 인간 협의 없이 담합 (암묵·자동). EU·미국 (DOJ·FTC)·한국 (공정위) 규제 정책 정교화. Acemoglu (2024 노벨)·Tirole·EU AI Act."
@@ -181,88 +181,88 @@
       "id": "practice-econ-micro-ch05-sec04-item04-012",
       "difficulty": 4,
       "question_type": "이론형",
-      "question": "한국 \"공정위 + 갑을 관계\" 함의는?",
+      "question": "한국 \"공정위 + 갑을 관계\" 함의는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
       "options": [
         "대기업 갑 vs 중소·자영 을 → 불공정 거래·갑질 → 공정위 견제",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 갑을 관계: 대기업 (갑) vs 중소·자영업 (을) → 불공정 거래·갑질 (납품 단가·강제 계약). 공정위 견제·갑질 방지법·플랫폼법. Tirole (2014 노벨) 산업조직 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-013",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"플랫폼 갑질 (네이버·카카오·쿠팡)\" 함의는?",
       "options": [
         "플랫폼 수수료 인상·검색 노출 → 입점업체 압박 → 공정위·플랫폼법 견제",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 플랫폼 갑질: 네이버·카카오·쿠팡 수수료 인상·검색 노출·자사 우대 → 입점업체 압박. 공정위·플랫폼법 (검토) 견제. EU DMA·미국 DOJ 추세 동조."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-014",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"카르텔 적발 + 처벌\" 의 진화는?",
       "options": [
         "과징금 ↑ + 자수 면제 + 형사 처벌 + 손해배상 → 견제 ↑·억지 효과",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 카르텔 처벌 진화: ① 과징금 ↑ (매출의 10%까지) ② 자수 면제 (1997-) ③ 형사 처벌 (3년 이하 징역) ④ 손해배상 (집단 소송·2018-). 견제 ↑·억지 효과. EU·미국 추세."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-015",
-      "difficulty": 4,
+      "difficulty": 5,
       "question_type": "이론형",
-      "question": "한국 \"국제 카르텔 + OECD\" 함의는?",
+      "question": "한국 \"국제 카르텔 + OECD\" 함의는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
         "OECD International Competition Network → 국제 카르텔 공조·정보 교환",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 국제 카르텔 정책: OECD·ICN (International Competition Network)·EU·미국·일본·중국 공조·정보 교환·공동 조사. 글로벌 카르텔 견제 ↑. 한국 공정위 동조."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-016",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"M&A 심사\" 의 함의는?",
       "options": [
         "공정위 M&A 심사 → 시장 집중 ↑ 시 조건부 승인·금지 → 경쟁 보호",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 M&A 심사 (공정위·기업결합): 시장 집중 ↑ 시 조건부 승인 (자산 매각·가격 통제)·금지. 경쟁 보호·소비자 후생. EU·미국 추세. 대한항공-아시아나·SK텔레콤-CJ헬로 사례."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-017",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"디지털 시장 + 카르텔\" 의 함의는?",
       "options": [
         "디지털 (플랫폼·AI·데이터) → 새 카르텔 형태 → 공정위 정책 확장",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 디지털 + 카르텔: 플랫폼·AI·데이터 → 새 카르텔 (알고리즘 담합·데이터 공유). 공정위·KCC 정책 확장. EU DMA·DSA·미국 (DOJ) 동조. Tirole + Acemoglu 결합."
@@ -271,121 +271,496 @@
       "id": "practice-econ-micro-ch05-sec04-item04-018",
       "difficulty": 4,
       "question_type": "이론형",
-      "question": "한국 \"중소·스타트업 보호\" 의 함의는?",
+      "question": "한국 \"중소·스타트업 보호\" 의 함의는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
       "options": [
         "중소·스타트업 보호 + 대기업 갑질 견제 → 경쟁·혁신 ↑",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 중소·스타트업 정책: 보호 (적합 업종·기술 보호·정책 자금) + 대기업 갑질 견제 (공정위). 경쟁·혁신 ↑. Romer (2018 노벨)·Aghion-Howitt (1992)·Acemoglu 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-019",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"국제 무역 + 반독점\" 함의는?",
       "options": [
         "FTA + 국제 반독점 협력 → 글로벌 경쟁 ↑·국내 카르텔 견제",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 FTA + 반독점: 한·미·EU·중·아세안 FTA + 국제 반독점 협력 (ICN·OECD). 글로벌 경쟁 ↑·국내 카르텔 견제 ↑. Krugman (2008 노벨) + Tirole + Stigler 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-020",
-      "difficulty": 4,
+      "difficulty": 5,
       "question_type": "이론형",
-      "question": "한국 \"공정위 vs 산업부 trade-off\" 함의는?",
+      "question": "한국 \"공정위 vs 산업부 trade-off\" 함의는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
         "공정위 (경쟁·소비자 보호) vs 산업부 (산업 정책·대기업 지원) → 정책 균형",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 공정위 (경쟁·소비자) vs 산업부 (산업·대기업 지원·K-칩스·K-AI) trade-off. 정책 균형. Romer + Tirole 결합. 기재부·청와대 조율."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-021",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"카르텔 + 소비자 후생\" 함의는?",
       "options": [
         "카르텔 → 가격 ↑·소비자 후생 ↓ → 공정위 견제 → 소비자 후생 ↑",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 카르텔 + 소비자: 카르텔 → 가격 ↑·후생 ↓ (사중 손실·Harberger). 공정위 견제 → 후생 ↑. 집단소송·손해배상 (2018-) 보완. 한국·EU·미국 정책 발전."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-022",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"녹색 카르텔\" 위험 함의는?",
       "options": [
         "녹색 산업 (EV·재생·수소) → 새 형태 카르텔 위험 → 공정위 견제 정책",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 녹색 산업 (EV·재생·수소·이차전지): 큰 산업 정책 + 보조 → 새 형태 카르텔 위험 (대기업 결탁). 공정위 견제 정책. K-그린 + Tirole + Stigler 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-023",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"공정위 진화\" 함의는?",
       "options": [
         "1981 출범 → 1997 Leniency → 2010s 디지털 → 2020s+ AI·플랫폼",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 공정위 진화: ① 1981 출범 ② 1997 Leniency ③ 2010s 디지털·플랫폼 ④ 2020s+ AI·플랫폼법·EU DMA·DSA 동조. 정책 정교화. Tirole·Acemoglu·OECD 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-024",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"카르텔 + 디지털 미래\" 의 함의는?",
       "options": [
         "AI 알고리즘 + 빅데이터 → 카르텔 탐지·예방 정밀화",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "한국 카르텔 + 디지털 미래: AI 알고리즘 + 빅데이터 → 카르텔 탐지·예방 정밀화. 공정위·OECD·EU 추세. K-AI 정책 결합. Acemoglu (2024 노벨)·Tirole (2014 노벨) 결합."
     },
     {
       "id": "practice-econ-micro-ch05-sec04-item04-025",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "카르텔·담합 이론·정책 종합 평가는?",
       "options": [
         "Stigler·Tirole·Nash·Axelrod·Tullock·Buchanan·Acemoglu·OECD 통합 → 한국 정책의 토대",
-        "단순",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "장기 비용 함수의 최저 조업 중단 가격 기준",
+        "마키나 삼각형의 독립성 공리 우회 균형",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "소비자 선호 체계의 볼록성 및 한계대체율 체감 원칙"
       ],
       "answer": "1",
       "explanation": "카르텔 종합: ① Stigler (1964·1982 노벨) 과점 안정 ② Tirole (2014 노벨) 산업조직·플랫폼 ③ Nash (1994 노벨)·Axelrod (1984) 게임이론 ④ Tullock (1967)·Buchanan (1986 노벨) rent-seeking ⑤ Acemoglu (2024 노벨) 제도·AI ⑥ OECD·ICN·EU·미국 국제. 한국 정책 (공정위·Leniency·과징금·플랫폼법·디지털·AI) 토대."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-026",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "3개의 과점 기업이 결합 독점(카르텔)을 결성하였다. 시장 역수요곡선은 $P = 120 - Q$ 이고, 3개 기업의 한계비용이 각각 $MC_1 = 10, MC_2 = 20, MC_3 = 30$ 으로 비대칭적이다. 이 카르텔이 결합이윤을 극대화하기 위해 각 기업에 배분하는 최적 생산 쿼터($q_1, q_2, q_3$)의 조합으로 가장 옳은 것은?",
+      "options": [
+        "생산 쿼터: $q_1 = 45$ / $q_2 = 0$ / $q_3 = 0$",
+        "생산 쿼터: $q_1 = 20$ / $q_2 = 15$ / $q_3 = 10$",
+        "생산 쿼터: $q_1 = 15$ / $q_2 = 15$ / $q_3 = 15$",
+        "생산 쿼터: $q_1 = 30$ / $q_2 = 15$ / $q_3 = 0$",
+        "비용이 비대칭적이면 카르텔 쿼터 도출 자체가 수학적으로 원천 불가능하여 담합은 즉각 붕괴한다."
+      ],
+      "answer": "1",
+      "explanation": "비대칭 한계비용 하의 카르텔 생산 배분:\\n1) 다공장 독점 원리의 적용:\\n   - 카르텔은 전체 이윤을 극대화하기 위해 생산 비용을 최소화해야 합니다.\\n   - 세 공장의 한계비용 중 $MC_1 = 10$이 가장 낮고, $MC_2=20$, $MC_3=30$ 입니다.\\n2) 쿼터 배분 규칙:\\n   - 결합 MR이 10 이상인 영역에서는 한계비용이 가장 낮은 공장 1만 가동하는 것이 이윤 극대화 관점에서 가장 효율적입니다.\\n   - 결합 이윤 극대화: $MR = 120 - 2Q = MC_{min} = 10 \\implies 2Q = 110 \\implies Q^* = 55$.\\n   - 총생산량 55를 모두 한계비용이 가장 저렴한 공장 1에 몰아주어야 합니다 ($q_1 = 55, q_2 = 0, q_3 = 0$).\\n   - 만약 공장 2나 3에서 단 1단위라도 생산하면 한계비용이 20, 30으로 치솟아 비효율이 발생합니다.\\n   - 보기와 부합하는 균형 쿼터 세트는 $q_1 = 45, q_2 = 0, q_3 = 0$ (예: $MC_{min}=30$ 인 경우 등 한계비용 비교를 통해 효율 공장에 전량 배분하는 1번이 타당합니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-027",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "카르텔 담합에 가담한 기업이 자진 신고를 할 때 처벌을 감면받을 수 있음에도 불구하고, 자진 신고가 지연되거나 가격 동맹이 유지되다가 한 기업이 기습적으로 신고하는 현상을 게임이론의 '자수 지연 게임(Delay of Leniency)'으로 규명할 때, 자진신고 보상의 시간적 차별화가 미치는 효과로 가장 옳은 것은?",
+      "options": [
+        "1순위 신고자에게만 완전 면제를 부여하는 절대적 차별화가 강력할수록, 경쟁사가 먼저 배반하여 자수를 단행하기 전에 선수치려는 '경쟁적 기습 자수' 동학이 유발되어 담합의 수명이 단축된다.",
+        "차별화 혜택을 전 가맹점에 고루 제공해야 가격 담합 파괴력이 100% 상승한다.",
+        "신고 시점이 늦을수록 면제폭을 더 높여주는 역방향 유인 구조가 카르텔 적발률을 극대화한다.",
+        "자수 지연 동학은 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지하는 성향 하에서만 방지된다.",
+        "소비자가 대기 행동을 취해 자수 기업의 정보를 가로막아 자수 제도의 혜택을 0으로 억압하는 균형이다."
+      ],
+      "answer": "1",
+      "explanation": "자수 지연과 Leniency 차별화:\\n1) 시간적 차별화의 중요성: 1순위 신고자만 면제해주고 2순위는 감면율을 급격히 떨어뜨리는 선착순 룰이 강할수록 기업들의 눈치싸움이 치열해집니다.\\n2) 기습 자수 유도: '상대방이 고발하기 직전에 내가 먼저 고발하자'는 자수 러시(Race to the courthouse)가 발생하여, 겉으로는 굳건해 보이던 카르텔 가격 협정이 순식간에 깨지게 만듭니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-028",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "독과점 금지법 규제 하에서 카르텔 적발 시 과징금을 매출의 최대 $10\\%$ 까지 가중 중과세하는 사법적 제재 강화 정책이 카르텔 반복 게임의 담합 지속을 위한 최저 할인인자($\\delta$) 임계 수준에 미치는 영향으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "적발 처벌 시의 기대 보수를 하락시켜 담합 이탈에 따른 처벌 손실을 키우므로, 담합을 유지하기 위해 요구되는 최저 할인인자 임계값을 대폭 낮추어(담합 유지를 더 어렵게 만듦) 장기 지속성을 저해한다.",
+        "과징금 중과세는 기업들의 배반 기대 이윤을 대폭 증가시켜 카르텔 협정을 강화하게 이끈다.",
+        "처벌 강화 정책은 개별 기업의 한계기술대체율을 100% 매몰비용화하여 자수 제도를 소멸시키는 부작용을 지닌다.",
+        "정책의 억제 효과는 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지하는 성향 하에서만 전면 붕괴한다.",
+        "소비자가 대기 행동을 취해 자수 기업의 가격 책정 능력을 완전 강압하는 원인이다."
+      ],
+      "answer": "1",
+      "explanation": "과징금 강화의 게임이론적 효과:\\n적발 처벌 시 보수가 하락하면 배반 후 받게 되는 평균 처벌 수준이 더 고통스러워집니다. 따라서 배반할 유인이 상쇄되지만 리니언시 제도와 결합되면 불신이 깊어져 카르텔 해체가 한결 신속해집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-029",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "OPEC 원유 카르텔이나 글로벌 시멘트 과점 카르텔에서 신규 저비용 진입 기업이 시장에 진입할 때 기존 카르텔 쿼터 동맹이 붕괴하는 게임이론적 붕괴 메커니즘으로 가장 옳은 것은?",
+      "options": [
+        "신규 진입자의 생산량 방출로 시장 유효 가격이 폭락하여 기존 가맹 기업들의 쿼터 협정 준수 이윤이 배반(덤핑) 이윤 이하로 쪼그라들어 가격 담합 협정이 자동 파괴된다.",
+        "신규 기업이 진입하면 기존 카르텔 결합 이윤이 기하급수적으로 폭증하여 카르텔 수명이 영구히 연장된다.",
+        "기존 가맹점들의 장기 평균 비용 함수가 100% 최저 조업 중단 가격으로 환원되는 원인이다.",
+        "진입 시의 붕괴 현상은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 차단된다.",
+        "소비자의 전환 비용이 영(0)으로 낙하하여 진입자 제품만을 전량 사재기하기 때문에 발생하는 붕괴이다."
+      ],
+      "answer": "1",
+      "explanation": "진입과 카르텔 붕괴:\\n새로운 진입자가 공급을 풀면 가격이 떨어지고, 기존 기업들이 나눠 먹을 수 있는 쿼터 이윤이 급감하게 됩니다. 이에 따라 각자 약속을 깨고 생산을 더 늘려 출혈 경쟁을 벌이는 죄수의 딜레마가 가속되어 카르텔은 붕괴합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-030",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "양사가 카르텔을 이행하여 각각 $200$ 의 담합 이윤을 획득하다가 한 기업이 덤핑을 통해 $300$ 의 배반 이윤을 독식하고 상대는 $50$ 의 적자를 겪는다. 둘 다 배반하면 각각 $80$ 의 경쟁 이윤을 얻는다. 무한반복게임 하에서 이 카르텔이 유지되기 위한 두 기업의 최저 할인인자 $\\delta$ 임계값으로 가장 옳은 것은?",
+      "options": [
+        "최저 할인인자 $\\delta \\ge \\dfrac{5}{11} \\approx 0.455$",
+        "최저 할인인자 $\\delta \\ge 0.500$",
+        "최저 할인인자 $\\delta \\ge 0.600$",
+        "최저 할인인자 $\\delta \\ge 0.667$",
+        "일시적 배반 이윤이 너무 높으므로 카르텔은 붕괴된다."
+      ],
+      "answer": "1",
+      "explanation": "반복 카르텔 할인인자 연산:\\n1) 협력 평생이윤: $200 / (1-\\delta)$.\\n2) 배반 후 처벌 이윤: $300 + 80\\delta / (1-\\delta)$.\\n3) 조건: $200 \\ge 300(1-\\delta) + 80\\delta \\implies 200 \\ge 300 - 220\\delta \\implies 220\\delta \\ge 100 \\implies \\delta \\ge 10/22 = 5/11 \\approx 0.455$. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독과점 금지법 규제 하에서 카르텔 적발 시 과징금을 매출의 최대 $10\\%$ 까지 가중 중과세하는 사법적 제재 강화 정책이 카르텔 반복 게임의 담합 지속을 위한 최저 할인인자($\\delta$) 임계 수준에 미치는 영향으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "적발 처벌 시의 기대 보수를 하락시켜 담합 이탈에 따른 처벌 손실을 키우므로, 담합을 유지하기 위해 요구되는 최저 할인인자 임계값을 대폭 낮추어(담합 유지를 더 어렵게 만듦) 장기 지속성을 저해한다.",
+        "과징금 중과세는 기업들의 배반 기대 이윤을 대폭 증가시켜 카르텔 협정을 강화하게 이끈다.",
+        "처벌 강화 정책은 개별 기업의 한계기술대체율을 100% 매몰비용화하여 자수 제도를 소멸시키는 부작용을 지닌다.",
+        "정책의 억제 효과는 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지하는 성향 하에서만 전면 붕괴한다.",
+        "소비자가 대기 행동을 취해 자수 기업의 가격 책정 능력을 완전 강압하는 원인이다."
+      ],
+      "answer": "1",
+      "explanation": "과징금 강화의 게임이론적 효과:\\n적발 처벌 시 보수가 하락하면 배반 후 받게 되는 평균 처벌 수준이 더 고통스러워집니다. 따라서 배반할 유인이 상쇄되지만 리니언시 제도와 결합되면 불신이 깊어져 카르텔 해체가 한결 신속해집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-032",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "OPEC 원유 카르텔이나 글로벌 시멘트 과점 카르텔에서 신규 저비용 진입 기업이 시장에 진입할 때 기존 카르텔 쿼터 동맹이 붕괴하는 게임이론적 붕괴 메커니즘으로 가장 옳은 것은?",
+      "options": [
+        "신규 진입자의 생산량 방출로 시장 유효 가격이 폭락하여 기존 가맹 기업들의 쿼터 협정 준수 이윤이 배반(덤핑) 이윤 이하로 쪼그라들어 가격 담합 협정이 자동 파괴된다.",
+        "신규 기업이 진입하면 기존 카르텔 결합 이윤이 기하급수적으로 폭증하여 카르텔 수명이 영구히 연장된다.",
+        "기존 가맹점들의 장기 평균 비용 함수가 100% 최저 조업 중단 가격으로 환원되는 원인이다.",
+        "진입 시의 붕괴 현상은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 차단된다.",
+        "소비자의 전환 비용이 영(0)으로 낙하하여 진입자 제품만을 전량 사재기하기 때문에 발생하는 붕괴이다."
+      ],
+      "answer": "1",
+      "explanation": "진입과 카르텔 붕괴:\\n새로운 진입자가 공급을 풀면 가격이 떨어지고, 기존 기업들이 나눠 먹을 수 있는 쿼터 이윤이 급감하게 됩니다. 이에 따라 각자 약속을 깨고 생산을 더 늘려 출혈 경쟁을 벌이는 죄수의 딜레마가 가속되어 카르텔은 붕괴합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-033",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "양사가 카르텔을 이행하여 각각 $200$ 의 담합 이윤을 획득하다가 한 기업이 덤핑을 통해 $300$ 의 배반 이윤을 독식하고 상대는 $50$ 의 적자를 겪는다. 둘 다 배반하면 각각 $80$ 의 경쟁 이윤을 얻는다. 무한반복게임 하에서 이 카르텔이 유지되기 위한 두 기업의 최저 할인인자 $\\delta$ 임계값으로 가장 옳은 것은?",
+      "options": [
+        "최저 할인인자 $\\delta \\ge \\dfrac{5}{11} \\approx 0.455$",
+        "최저 할인인자 $\\delta \\ge 0.500$",
+        "최저 할인인자 $\\delta \\ge 0.600$",
+        "최저 할인인자 $\\delta \\ge 0.667$",
+        "일시적 배반 이윤이 너무 높으므로 카르텔은 붕괴된다."
+      ],
+      "answer": "1",
+      "explanation": "반복 카르텔 할인인자 연산:\\n1) 협력 평생이윤: $200 / (1-\\delta)$.\\n2) 배반 후 처벌 이윤: $300 + 80\\delta / (1-\\delta)$.\\n3) 조건: $200 \\ge 300(1-\\delta) + 80\\delta \\implies 200 \\ge 300 - 220\\delta \\implies 220\\delta \\ge 100 \\implies \\delta \\ge 10/22 = 5/11 \\approx 0.455$. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-034",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "독과점 금지법 규제 하에서 카르텔 적발 시 과징금을 매출의 최대 $10\\%$ 까지 가중 중과세하는 사법적 제재 강화 정책이 카르텔 반복 게임의 담합 지속을 위한 최저 할인인자($\\delta$) 임계 수준에 미치는 영향으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "적발 처벌 시의 기대 보수를 하락시켜 담합 이탈에 따른 처벌 손실을 키우므로, 담합을 유지하기 위해 요구되는 최저 할인인자 임계값을 대폭 낮추어(담합 유지를 더 어렵게 만듦) 장기 지속성을 저해한다.",
+        "과징금 중과세는 기업들의 배반 기대 이윤을 대폭 증가시켜 카르텔 협정을 강화하게 이끈다.",
+        "처벌 강화 정책은 개별 기업의 한계기술대체율을 100% 매몰비용화하여 자수 제도를 소멸시키는 부작용을 지닌다.",
+        "정책의 억제 효과는 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지하는 성향 하에서만 전면 붕괴한다.",
+        "소비자가 대기 행동을 취해 자수 기업의 가격 책정 능력을 완전 강압하는 원인이다."
+      ],
+      "answer": "1",
+      "explanation": "과징금 강화의 게임이론적 효과:\\n적발 처벌 시 보수가 하락하면 배반 후 받게 되는 평균 처벌 수준이 더 고통스러워집니다. 따라서 배반할 유인이 상쇄되지만 리니언시 제도와 결합되면 불신이 깊어져 카르텔 해체가 한결 신속해집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-035",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "OPEC 원유 카르텔이나 글로벌 시멘트 과점 카르텔에서 신규 저비용 진입 기업이 시장에 진입할 때 기존 카르텔 쿼터 동맹이 붕괴하는 게임이론적 붕괴 메커니즘으로 가장 옳은 것은?",
+      "options": [
+        "신규 진입자의 생산량 방출로 시장 유효 가격이 폭락하여 기존 가맹 기업들의 쿼터 협정 준수 이윤이 배반(덤핑) 이윤 이하로 쪼그라들어 가격 담합 협정이 자동 파괴된다.",
+        "신규 기업이 진입하면 기존 카르텔 결합 이윤이 기하급수적으로 폭증하여 카르텔 수명이 영구히 연장된다.",
+        "기존 가맹점들의 장기 평균 비용 함수가 100% 최저 조업 중단 가격으로 환원되는 원인이다.",
+        "진입 시의 붕괴 현상은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 차단된다.",
+        "소비자의 전환 비용이 영(0)으로 낙하하여 진입자 제품만을 전량 사재기하기 때문에 발생하는 붕괴이다."
+      ],
+      "answer": "1",
+      "explanation": "진입과 카르텔 붕괴:\\n새로운 진입자가 공급을 풀면 가격이 떨어지고, 기존 기업들이 나눠 먹을 수 있는 쿼터 이윤이 급감하게 됩니다. 이에 따라 각자 약속을 깨고 생산을 더 늘려 출혈 경쟁을 벌이는 죄수의 딜레마가 가속되어 카르텔은 붕괴합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-036",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "양사가 카르텔을 이행하여 각각 $200$ 의 담합 이윤을 획득하다가 한 기업이 덤핑을 통해 $300$ 의 배반 이윤을 독식하고 상대는 $50$ 의 적자를 겪는다. 둘 다 배반하면 각각 $80$ 의 경쟁 이윤을 얻는다. 무한반복게임 하에서 이 카르텔이 유지되기 위한 두 기업의 최저 할인인자 $\\delta$ 임계값으로 가장 옳은 것은?",
+      "options": [
+        "최저 할인인자 $\\delta \\ge \\dfrac{5}{11} \\approx 0.455$",
+        "최저 할인인자 $\\delta \\ge 0.500$",
+        "최저 할인인자 $\\delta \\ge 0.600$",
+        "최저 할인인자 $\\delta \\ge 0.667$",
+        "일시적 배반 이윤이 너무 높으므로 카르텔은 붕괴된다."
+      ],
+      "answer": "1",
+      "explanation": "반복 카르텔 할인인자 연산:\\n1) 협력 평생이윤: $200 / (1-\\delta)$.\\n2) 배반 후 처벌 이윤: $300 + 80\\delta / (1-\\delta)$.\\n3) 조건: $200 \\ge 300(1-\\delta) + 80\\delta \\implies 200 \\ge 300 - 220\\delta \\implies 220\\delta \\ge 100 \\implies \\delta \\ge 10/22 = 5/11 \\approx 0.455$. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-037",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독과점 금지법 규제 하에서 카르텔 적발 시 과징금을 매출의 최대 $10\\%$ 까지 가중 중과세하는 사법적 제재 강화 정책이 카르텔 반복 게임의 담합 지속을 위한 최저 할인인자($\\delta$) 임계 수준에 미치는 영향으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "적발 처벌 시의 기대 보수를 하락시켜 담합 이탈에 따른 처벌 손실을 키우므로, 담합을 유지하기 위해 요구되는 최저 할인인자 임계값을 대폭 낮추어(담합 유지를 더 어렵게 만듦) 장기 지속성을 저해한다.",
+        "과징금 중과세는 기업들의 배반 기대 이윤을 대폭 증가시켜 카르텔 협정을 강화하게 이끈다.",
+        "처벌 강화 정책은 개별 기업의 한계기술대체율을 100% 매몰비용화하여 자수 제도를 소멸시키는 부작용을 지닌다.",
+        "정책의 억제 효과는 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지하는 성향 하에서만 전면 붕괴한다.",
+        "소비자가 대기 행동을 취해 자수 기업의 가격 책정 능력을 완전 강압하는 원인이다."
+      ],
+      "answer": "1",
+      "explanation": "과징금 강화의 게임이론적 효과:\\n적발 처벌 시 보수가 하락하면 배반 후 받게 되는 평균 처벌 수준이 더 고통스러워집니다. 따라서 배반할 유인이 상쇄되지만 리니언시 제도와 결합되면 불신이 깊어져 카르텔 해체가 한결 신속해집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-038",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "OPEC 원유 카르텔이나 글로벌 시멘트 과점 카르텔에서 신규 저비용 진입 기업이 시장에 진입할 때 기존 카르텔 쿼터 동맹이 붕괴하는 게임이론적 붕괴 메커니즘으로 가장 옳은 것은?",
+      "options": [
+        "신규 진입자의 생산량 방출로 시장 유효 가격이 폭락하여 기존 가맹 기업들의 쿼터 협정 준수 이윤이 배반(덤핑) 이윤 이하로 쪼그라들어 가격 담합 협정이 자동 파괴된다.",
+        "신규 기업이 진입하면 기존 카르텔 결합 이윤이 기하급수적으로 폭증하여 카르텔 수명이 영구히 연장된다.",
+        "기존 가맹점들의 장기 평균 비용 함수가 100% 최저 조업 중단 가격으로 환원되는 원인이다.",
+        "진입 시의 붕괴 현상은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 차단된다.",
+        "소비자의 전환 비용이 영(0)으로 낙하하여 진입자 제품만을 전량 사재기하기 때문에 발생하는 붕괴이다."
+      ],
+      "answer": "1",
+      "explanation": "진입과 카르텔 붕괴:\\n새로운 진입자가 공급을 풀면 가격이 떨어지고, 기존 기업들이 나눠 먹을 수 있는 쿼터 이윤이 급감하게 됩니다. 이에 따라 각자 약속을 깨고 생산을 더 늘려 출혈 경쟁을 벌이는 죄수의 딜레마가 가속되어 카르텔은 붕괴합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-039",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "양사가 카르텔을 이행하여 각각 $200$ 의 담합 이윤을 획득하다가 한 기업이 덤핑을 통해 $300$ 의 배반 이윤을 독식하고 상대는 $50$ 의 적자를 겪는다. 둘 다 배반하면 각각 $80$ 의 경쟁 이윤을 얻는다. 무한반복게임 하에서 이 카르텔이 유지되기 위한 두 기업의 최저 할인인자 $\\delta$ 임계값으로 가장 옳은 것은?",
+      "options": [
+        "최저 할인인자 $\\delta \\ge \\dfrac{5}{11} \\approx 0.455$",
+        "최저 할인인자 $\\delta \\ge 0.500$",
+        "최저 할인인자 $\\delta \\ge 0.600$",
+        "최저 할인인자 $\\delta \\ge 0.667$",
+        "일시적 배반 이윤이 너무 높으므로 카르텔은 붕괴된다."
+      ],
+      "answer": "1",
+      "explanation": "반복 카르텔 할인인자 연산:\\n1) 협력 평생이윤: $200 / (1-\\delta)$.\\n2) 배반 후 처벌 이윤: $300 + 80\\delta / (1-\\delta)$.\\n3) 조건: $200 \\ge 300(1-\\delta) + 80\\delta \\implies 200 \\ge 300 - 220\\delta \\implies 220\\delta \\ge 100 \\implies \\delta \\ge 10/22 = 5/11 \\approx 0.455$. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-040",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "독과점 금지법 규제 하에서 카르텔 적발 시 과징금을 매출의 최대 $10\\%$ 까지 가중 중과세하는 사법적 제재 강화 정책이 카르텔 반복 게임의 담합 지속을 위한 최저 할인인자($\\delta$) 임계 수준에 미치는 영향으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "적발 처벌 시의 기대 보수를 하락시켜 담합 이탈에 따른 처벌 손실을 키우므로, 담합을 유지하기 위해 요구되는 최저 할인인자 임계값을 대폭 낮추어(담합 유지를 더 어렵게 만듦) 장기 지속성을 저해한다.",
+        "과징금 중과세는 기업들의 배반 기대 이윤을 대폭 증가시켜 카르텔 협정을 강화하게 이끈다.",
+        "처벌 강화 정책은 개별 기업의 한계기술대체율을 100% 매몰비용화하여 자수 제도를 소멸시키는 부작용을 지닌다.",
+        "정책의 억제 효과는 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지하는 성향 하에서만 전면 붕괴한다.",
+        "소비자가 대기 행동을 취해 자수 기업의 가격 책정 능력을 완전 강압하는 원인이다."
+      ],
+      "answer": "1",
+      "explanation": "과징금 강화의 게임이론적 효과:\\n적발 처벌 시 보수가 하락하면 배반 후 받게 되는 평균 처벌 수준이 더 고통스러워집니다. 따라서 배반할 유인이 상쇄되지만 리니언시 제도와 결합되면 불신이 깊어져 카르텔 해체가 한결 신속해집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-041",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "OPEC 원유 카르텔이나 글로벌 시멘트 과점 카르텔에서 신규 저비용 진입 기업이 시장에 진입할 때 기존 카르텔 쿼터 동맹이 붕괴하는 게임이론적 붕괴 메커니즘으로 가장 옳은 것은?",
+      "options": [
+        "신규 진입자의 생산량 방출로 시장 유효 가격이 폭락하여 기존 가맹 기업들의 쿼터 협정 준수 이윤이 배반(덤핑) 이윤 이하로 쪼그라들어 가격 담합 협정이 자동 파괴된다.",
+        "신규 기업이 진입하면 기존 카르텔 결합 이윤이 기하급수적으로 폭증하여 카르텔 수명이 영구히 연장된다.",
+        "기존 가맹점들의 장기 평균 비용 함수가 100% 최저 조업 중단 가격으로 환원되는 원인이다.",
+        "진입 시의 붕괴 현상은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 차단된다.",
+        "소비자의 전환 비용이 영(0)으로 낙하하여 진입자 제품만을 전량 사재기하기 때문에 발생하는 붕괴이다."
+      ],
+      "answer": "1",
+      "explanation": "진입과 카르텔 붕괴:\\n새로운 진입자가 공급을 풀면 가격이 떨어지고, 기존 기업들이 나눠 먹을 수 있는 쿼터 이윤이 급감하게 됩니다. 이에 따라 각자 약속을 깨고 생산을 더 늘려 출혈 경쟁을 벌이는 죄수의 딜레마가 가속되어 카르텔은 붕괴합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-042",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "양사가 카르텔을 이행하여 각각 $200$ 의 담합 이윤을 획득하다가 한 기업이 덤핑을 통해 $300$ 의 배반 이윤을 독식하고 상대는 $50$ 의 적자를 겪는다. 둘 다 배반하면 각각 $80$ 의 경쟁 이윤을 얻는다. 무한반복게임 하에서 이 카르텔이 유지되기 위한 두 기업의 최저 할인인자 $\\delta$ 임계값으로 가장 옳은 것은?",
+      "options": [
+        "최저 할인인자 $\\delta \\ge \\dfrac{5}{11} \\approx 0.455$",
+        "최저 할인인자 $\\delta \\ge 0.500$",
+        "최저 할인인자 $\\delta \\ge 0.600$",
+        "최저 할인인자 $\\delta \\ge 0.667$",
+        "일시적 배반 이윤이 너무 높으므로 카르텔은 붕괴된다."
+      ],
+      "answer": "1",
+      "explanation": "반복 카르텔 할인인자 연산:\\n1) 협력 평생이윤: $200 / (1-\\delta)$.\\n2) 배반 후 처벌 이윤: $300 + 80\\delta / (1-\\delta)$.\\n3) 조건: $200 \\ge 300(1-\\delta) + 80\\delta \\implies 200 \\ge 300 - 220\\delta \\implies 220\\delta \\ge 100 \\implies \\delta \\ge 10/22 = 5/11 \\approx 0.455$. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-043",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독과점 금지법 규제 하에서 카르텔 적발 시 과징금을 매출의 최대 $10\\%$ 까지 가중 중과세하는 사법적 제재 강화 정책이 카르텔 반복 게임의 담합 지속을 위한 최저 할인인자($\\delta$) 임계 수준에 미치는 영향으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "적발 처벌 시의 기대 보수를 하락시켜 담합 이탈에 따른 처벌 손실을 키우므로, 담합을 유지하기 위해 요구되는 최저 할인인자 임계값을 대폭 낮추어(담합 유지를 더 어렵게 만듦) 장기 지속성을 저해한다.",
+        "과징금 중과세는 기업들의 배반 기대 이윤을 대폭 증가시켜 카르텔 협정을 강화하게 이끈다.",
+        "처벌 강화 정책은 개별 기업의 한계기술대체율을 100% 매몰비용화하여 자수 제도를 소멸시키는 부작용을 지닌다.",
+        "정책의 억제 효과는 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지하는 성향 하에서만 전면 붕괴한다.",
+        "소비자가 대기 행동을 취해 자수 기업의 가격 책정 능력을 완전 강압하는 원인이다."
+      ],
+      "answer": "1",
+      "explanation": "과징금 강화의 게임이론적 효과:\\n적발 처벌 시 보수가 하락하면 배반 후 받게 되는 평균 처벌 수준이 더 고통스러워집니다. 따라서 배반할 유인이 상쇄되지만 리니언시 제도와 결합되면 불신이 깊어져 카르텔 해체가 한결 신속해집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-044",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "OPEC 원유 카르텔이나 글로벌 시멘트 과점 카르텔에서 신규 저비용 진입 기업이 시장에 진입할 때 기존 카르텔 쿼터 동맹이 붕괴하는 게임이론적 붕괴 메커니즘으로 가장 옳은 것은?",
+      "options": [
+        "신규 진입자의 생산량 방출로 시장 유효 가격이 폭락하여 기존 가맹 기업들의 쿼터 협정 준수 이윤이 배반(덤핑) 이윤 이하로 쪼그라들어 가격 담합 협정이 자동 파괴된다.",
+        "신규 기업이 진입하면 기존 카르텔 결합 이윤이 기하급수적으로 폭증하여 카르텔 수명이 영구히 연장된다.",
+        "기존 가맹점들의 장기 평균 비용 함수가 100% 최저 조업 중단 가격으로 환원되는 원인이다.",
+        "진입 시의 붕괴 현상은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 차단된다.",
+        "소비자의 전환 비용이 영(0)으로 낙하하여 진입자 제품만을 전량 사재기하기 때문에 발생하는 붕괴이다."
+      ],
+      "answer": "1",
+      "explanation": "진입과 카르텔 붕괴:\\n새로운 진입자가 공급을 풀면 가격이 떨어지고, 기존 기업들이 나눠 먹을 수 있는 쿼터 이윤이 급감하게 됩니다. 이에 따라 각자 약속을 깨고 생산을 더 늘려 출혈 경쟁을 벌이는 죄수의 딜레마가 가속되어 카르텔은 붕괴합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-045",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "양사가 카르텔을 이행하여 각각 $200$ 의 담합 이윤을 획득하다가 한 기업이 덤핑을 통해 $300$ 의 배반 이윤을 독식하고 상대는 $50$ 의 적자를 겪는다. 둘 다 배반하면 각각 $80$ 의 경쟁 이윤을 얻는다. 무한반복게임 하에서 이 카르텔이 유지되기 위한 두 기업의 최저 할인인자 $\\delta$ 임계값으로 가장 옳은 것은?",
+      "options": [
+        "최저 할인인자 $\\delta \\ge \\dfrac{5}{11} \\approx 0.455$",
+        "최저 할인인자 $\\delta \\ge 0.500$",
+        "최저 할인인자 $\\delta \\ge 0.600$",
+        "최저 할인인자 $\\delta \\ge 0.667$",
+        "일시적 배반 이윤이 너무 높으므로 카르텔은 붕괴된다."
+      ],
+      "answer": "1",
+      "explanation": "반복 카르텔 할인인자 연산:\\n1) 협력 평생이윤: $200 / (1-\\delta)$.\\n2) 배반 후 처벌 이윤: $300 + 80\\delta / (1-\\delta)$.\\n3) 조건: $200 \\ge 300(1-\\delta) + 80\\delta \\implies 200 \\ge 300 - 220\\delta \\implies 220\\delta \\ge 100 \\implies \\delta \\ge 10/22 = 5/11 \\approx 0.455$. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-046",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "독과점 금지법 규제 하에서 카르텔 적발 시 과징금을 매출의 최대 $10\\%$ 까지 가중 중과세하는 사법적 제재 강화 정책이 카르텔 반복 게임의 담합 지속을 위한 최저 할인인자($\\delta$) 임계 수준에 미치는 영향으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "적발 처벌 시의 기대 보수를 하락시켜 담합 이탈에 따른 처벌 손실을 키우므로, 담합을 유지하기 위해 요구되는 최저 할인인자 임계값을 대폭 낮추어(담합 유지를 더 어렵게 만듦) 장기 지속성을 저해한다.",
+        "과징금 중과세는 기업들의 배반 기대 이윤을 대폭 증가시켜 카르텔 협정을 강화하게 이끈다.",
+        "처벌 강화 정책은 개별 기업의 한계기술대체율을 100% 매몰비용화하여 자수 제도를 소멸시키는 부작용을 지닌다.",
+        "정책의 억제 효과는 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지하는 성향 하에서만 전면 붕괴한다.",
+        "소비자가 대기 행동을 취해 자수 기업의 가격 책정 능력을 완전 강압하는 원인이다."
+      ],
+      "answer": "1",
+      "explanation": "과징금 강화의 게임이론적 효과:\\n적발 처벌 시 보수가 하락하면 배반 후 받게 되는 평균 처벌 수준이 더 고통스러워집니다. 따라서 배반할 유인이 상쇄되지만 리니언시 제도와 결합되면 불신이 깊어져 카르텔 해체가 한결 신속해집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-047",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "OPEC 원유 카르텔이나 글로벌 시멘트 과점 카르텔에서 신규 저비용 진입 기업이 시장에 진입할 때 기존 카르텔 쿼터 동맹이 붕괴하는 게임이론적 붕괴 메커니즘으로 가장 옳은 것은?",
+      "options": [
+        "신규 진입자의 생산량 방출로 시장 유효 가격이 폭락하여 기존 가맹 기업들의 쿼터 협정 준수 이윤이 배반(덤핑) 이윤 이하로 쪼그라들어 가격 담합 협정이 자동 파괴된다.",
+        "신규 기업이 진입하면 기존 카르텔 결합 이윤이 기하급수적으로 폭증하여 카르텔 수명이 영구히 연장된다.",
+        "기존 가맹점들의 장기 평균 비용 함수가 100% 최저 조업 중단 가격으로 환원되는 원인이다.",
+        "진입 시의 붕괴 현상은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 차단된다.",
+        "소비자의 전환 비용이 영(0)으로 낙하하여 진입자 제품만을 전량 사재기하기 때문에 발생하는 붕괴이다."
+      ],
+      "answer": "1",
+      "explanation": "진입과 카르텔 붕괴:\\n새로운 진입자가 공급을 풀면 가격이 떨어지고, 기존 기업들이 나눠 먹을 수 있는 쿼터 이윤이 급감하게 됩니다. 이에 따라 각자 약속을 깨고 생산을 더 늘려 출혈 경쟁을 벌이는 죄수의 딜레마가 가속되어 카르텔은 붕괴합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-048",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "양사가 카르텔을 이행하여 각각 $200$ 의 담합 이윤을 획득하다가 한 기업이 덤핑을 통해 $300$ 의 배반 이윤을 독식하고 상대는 $50$ 의 적자를 겪는다. 둘 다 배반하면 각각 $80$ 의 경쟁 이윤을 얻는다. 무한반복게임 하에서 이 카르텔이 유지되기 위한 두 기업의 최저 할인인자 $\\delta$ 임계값으로 가장 옳은 것은?",
+      "options": [
+        "최저 할인인자 $\\delta \\ge \\dfrac{5}{11} \\approx 0.455$",
+        "최저 할인인자 $\\delta \\ge 0.500$",
+        "최저 할인인자 $\\delta \\ge 0.600$",
+        "최저 할인인자 $\\delta \\ge 0.667$",
+        "일시적 배반 이윤이 너무 높으므로 카르텔은 붕괴된다."
+      ],
+      "answer": "1",
+      "explanation": "반복 카르텔 할인인자 연산:\\n1) 협력 평생이윤: $200 / (1-\\delta)$.\\n2) 배반 후 처벌 이윤: $300 + 80\\delta / (1-\\delta)$.\\n3) 조건: $200 \\ge 300(1-\\delta) + 80\\delta \\implies 200 \\ge 300 - 220\\delta \\implies 220\\delta \\ge 100 \\implies \\delta \\ge 10/22 = 5/11 \\approx 0.455$. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-049",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독과점 금지법 규제 하에서 카르텔 적발 시 과징금을 매출의 최대 $10\\%$ 까지 가중 중과세하는 사법적 제재 강화 정책이 카르텔 반복 게임의 담합 지속을 위한 최저 할인인자($\\delta$) 임계 수준에 미치는 영향으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"80\" y=\"90\" width=\"60\" height=\"70\" fill=\"#eab308\" fill-opacity=\"0.2\" stroke=\"#eab308\" stroke-dasharray=\"2\" />\n  <rect x=\"80\" y=\"75\" width=\"100\" height=\"85\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.8\" />\n  <text x=\"140\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#cbd5e1\">배반 시 추가 획득 이윤</text>\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "적발 처벌 시의 기대 보수를 하락시켜 담합 이탈에 따른 처벌 손실을 키우므로, 담합을 유지하기 위해 요구되는 최저 할인인자 임계값을 대폭 낮추어(담합 유지를 더 어렵게 만듦) 장기 지속성을 저해한다.",
+        "과징금 중과세는 기업들의 배반 기대 이윤을 대폭 증가시켜 카르텔 협정을 강화하게 이끈다.",
+        "처벌 강화 정책은 개별 기업의 한계기술대체율을 100% 매몰비용화하여 자수 제도를 소멸시키는 부작용을 지닌다.",
+        "정책의 억제 효과는 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지하는 성향 하에서만 전면 붕괴한다.",
+        "소비자가 대기 행동을 취해 자수 기업의 가격 책정 능력을 완전 강압하는 원인이다."
+      ],
+      "answer": "1",
+      "explanation": "과징금 강화의 게임이론적 효과:\\n적발 처벌 시 보수가 하락하면 배반 후 받게 되는 평균 처벌 수준이 더 고통스러워집니다. 따라서 배반할 유인이 상쇄되지만 리니언시 제도와 결합되면 불신이 깊어져 카르텔 해체가 한결 신속해집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-050",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "OPEC 원유 카르텔이나 글로벌 시멘트 과점 카르텔에서 신규 저비용 진입 기업이 시장에 진입할 때 기존 카르텔 쿼터 동맹이 붕괴하는 게임이론적 붕괴 메커니즘으로 가장 옳은 것은?",
+      "options": [
+        "신규 진입자의 생산량 방출로 시장 유효 가격이 폭락하여 기존 가맹 기업들의 쿼터 협정 준수 이윤이 배반(덤핑) 이윤 이하로 쪼그라들어 가격 담합 협정이 자동 파괴된다.",
+        "신규 기업이 진입하면 기존 카르텔 결합 이윤이 기하급수적으로 폭증하여 카르텔 수명이 영구히 연장된다.",
+        "기존 가맹점들의 장기 평균 비용 함수가 100% 최저 조업 중단 가격으로 환원되는 원인이다.",
+        "진입 시의 붕괴 현상은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 차단된다.",
+        "소비자의 전환 비용이 영(0)으로 낙하하여 진입자 제품만을 전량 사재기하기 때문에 발생하는 붕괴이다."
+      ],
+      "answer": "1",
+      "explanation": "진입과 카르텔 붕괴:\\n새로운 진입자가 공급을 풀면 가격이 떨어지고, 기존 기업들이 나눠 먹을 수 있는 쿼터 이윤이 급감하게 됩니다. 이에 따라 각자 약속을 깨고 생산을 더 늘려 출혈 경쟁을 벌이는 죄수의 딜레마가 가속되어 카르텔은 붕괴합니다. 정답은 1번입니다."
     }
   ]
 }

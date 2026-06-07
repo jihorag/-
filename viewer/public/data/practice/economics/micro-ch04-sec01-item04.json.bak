@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제4장 생산자이론",
+    "section": "제11절 생산이론",
+    "item": "제4관 규모에 대한 수익",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 30
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "규모에 대한 수익(returns to scale)의 정의로 옳은 것은?",
+      "options": [
+        "모든 요소를 같은 비율로 늘릴 때 산출이 어떤 비율로 변하는지",
+        "한 요소만 변화",
+        "수요 변화",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "규모 수익: 모든 생산요소 (L, K)를 동일 비율 k배로 늘릴 때 산출 Q의 변화 비율. 단기 분석 (한 요소 고정·수확 체감)과 다른 장기 분석의 핵심 개념. 산업·기업의 규모 결정의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "규모 수익의 3가지 분류로 옳은 것은?",
+      "options": [
+        "CRS (Constant), IRS (Increasing), DRS (Decreasing)",
+        "단기·중기·장기",
+        "정부·시장·기업",
+        "수요·공급·균형",
+        "한 분류만"
+      ],
+      "answer": "1",
+      "explanation": "규모 수익 3분류:\nCRS (Constant Returns to Scale): k배 → 정확히 k배\nIRS (Increasing Returns to Scale): k배 → k배 이상\nDRS (Decreasing Returns to Scale): k배 → k배 이하\n장기 생산함수 분석의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-003",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "CRS(Constant Returns to Scale)의 수학적 정의로 옳은 것은?",
+      "options": [
+        "f(kL, kK) = k·f(L, K) (정확히 비례)",
+        "f(kL, kK) > k·f(L, K)",
+        "f(kL, kK) < k·f(L, K)",
+        "f(kL, kK) = 0",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "CRS의 수학적 정의:\nf(kL, kK) = k·f(L, K) (모든 k > 0)\n동차성(homogeneity) degree 1\n해석: 모든 요소 2배 → 산출 2배 (정확히)\n예: 농지 2배 + 노동 2배 = 수확 2배 (조건 동일)\n표준 분석에서 흔한 가정 (장기 균형)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-004",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "IRS의 원인으로 옳지 않은 것은?",
+      "options": [
+        "분업·전문화",
+        "고정 비용 분산",
+        "학습 효과·경험",
+        "관리 부담 증가",
+        "네트워크 효과·표준화"
+      ],
+      "answer": "4",
+      "explanation": "IRS의 원인:\n① 분업·전문화: A. Smith (1776) 「국부론」 - 핀 공장 사례\n② 고정 비용 분산: R&D·브랜드·인프라\n③ 학습 효과·경험 (learning by doing): 산출 ↑ → 비용 ↓\n④ 네트워크 효과: 가치 ∝ 사용자 수² (Metcalfe)\n⑤ 표준화·표준 자본\n④ 관리 부담 증가는 DRS의 원인이다.\nIT·플랫폼 산업에서 강하게 작동."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-005",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "DRS의 원인으로 옳은 것은?",
+      "options": [
+        "관리 부담·조정 비용 증가\n정보 비대칭 (큰 조직 내부)\n관료주의",
+        "분업·전문화",
+        "학습 효과",
+        "네트워크 효과",
+        "고정비용 분산"
+      ],
+      "answer": "1",
+      "explanation": "DRS의 원인:\n① 관리 부담·조정 비용 증가 (대기업 비효율)\n② 정보 비대칭 (큰 조직 내부 정보 손실)\n③ 관료주의·동기 부족\n④ 자원 한계 (천연 자원·숙련 노동)\n⑤ 거리·물류 비용\n예: 거대 다국적 기업의 관리 어려움\nCoase (1937)의 기업 한계 이론 - DRS가 기업 규모를 결정."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-006",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "콥-더글러스 Q = A·L^α·K^β의 규모 수익 판정으로 옳은 것은?",
+      "options": [
+        "α + β = 1: CRS / α + β > 1: IRS / α + β < 1: DRS",
+        "α + β와 무관",
+        "α = β = 1 항상",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "콥-더글러스의 규모 수익:\nα + β = 1: CRS (정확히 비례)\nα + β > 1: IRS (가속 증가)\nα + β < 1: DRS (감속 증가)\n확인: f(kL, kK) = A·(kL)^α·(kK)^β = k^(α+β)·A·L^α·K^β = k^(α+β)·f(L, K)\n장기 분석의 핵심 매개변수."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-007",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "규모 경제(economies of scale)의 의미로 옳은 것은?",
+      "options": [
+        "산출 ↑ 시 평균비용 (LRAC) ↓ - IRS와 밀접한 관계",
+        "수요 경제",
+        "정부 결정",
+        "가치판단",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "규모 경제 (Economies of Scale):\n산출 ↑ 시 장기 평균비용 (LRAC) ↓\nIRS와 밀접한 관계 (IRS 시 LRAC 감소)\n원인: IRS의 원인과 동일 (분업·고정비용 분산·학습효과·네트워크)\n응용:\n자연 독점 (전력·수도·철도) - 강한 규모 경제\n대량 생산의 이점\nLRAC가 감소하는 영역에서 큰 기업 유리\nMES (최소 효율 규모, Minimum Efficient Scale): LRAC가 더 이상 감소 안 하는 산출 수준."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-008",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "장기 평균비용 (LRAC) 곡선의 일반적 형태로 옳은 것은?",
+      "options": [
+        "U자형 - 규모 경제 (감소) → 최소 효율 규모 (MES) → 규모 부경제 (증가)",
+        "L자형",
+        "수평",
+        "수직",
+        "역 U자형"
+      ],
+      "answer": "1",
+      "explanation": "LRAC 곡선의 일반 형태:\nU자형:\n초기 (작은 Q): 규모 경제 → LRAC ↓\n중간 (MES): LRAC 극소 - 최소 효율 규모\n후기 (큰 Q): 규모 부경제 → LRAC ↑\n특수:\n자연 독점: LRAC가 큰 Q에서도 계속 감소 (L자형)\nIT·플랫폼: 거의 평탄 (한계비용 0)\n산업·기술별 다른 형태."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-009",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "자연 독점(natural monopoly)의 의미로 옳은 것은?",
+      "options": [
+        "강한 규모 경제로 한 기업이 전체 시장에 가장 효율적으로 공급할 수 있는 산업 - LRAC가 시장 전체 산출에서도 감소",
+        "정부가 강제로 만든 독점",
+        "한 기업 독점",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "자연 독점:\n강한 규모 경제 - LRAC가 시장 전체 산출 영역에서도 감소\n결과: 한 큰 기업이 여러 작은 기업보다 효율적\n예:\n전력·수도·가스·철도 (인프라)\n도시 가스 송배전\n인터넷·통신 인프라\n자연 독점 시 정부 정책: 규제 (가격·품질) 또는 공기업\n시장 실패의 대표 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-010",
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 규모 수익의 산업 사례로 옳은 것은?",
+      "options": [
+        "IRS: IT·반도체·자동차 (대량 생산)\nCRS: 일반 제조 (장기 균형)\nDRS: 농업 (토지 한계)·소규모 수공예",
+        "모든 산업 동일",
+        "산업은 가치판단",
+        "산업은 정부 결정",
+        "산업은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "산업별 규모 수익:\n① IRS:\nIT·소프트웨어 (개발 후 복제 거의 0)\n반도체 (R&D·팹 비용 큼)\n자동차 (대량 생산 이점)\n플랫폼·SNS (네트워크 효과)\n② CRS: 일반 제조 (장기 균형)\n③ DRS:\n농업 (토지 한계)\n수공예·예술 (개인 능력 한계)\n외식업 (장소·인력 한계)\n산업 분석의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-011",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "최소 효율 규모(MES, Minimum Efficient Scale)의 의미로 옳은 것은?",
+      "options": [
+        "LRAC가 더 이상 감소하지 않는 최소 산출 수준 - 산업의 기업 규모와 시장 구조 결정",
+        "최대 규모",
+        "최소 규모",
+        "정부 결정",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "최소 효율 규모 (MES):\nLRAC가 더 이상 감소하지 않는 최소 산출 수준\n산업의 기업 규모·시장 구조 결정\nMES 작음 → 많은 작은 기업 (경쟁) - 농업·서비스\nMES 큼 → 소수 큰 기업 (과점·독점) - 반도체·자동차\nMES > 시장 수요 → 자연 독점 (전력)\n산업조직론의 핵심 개념.\n반독점·M&A 분석의 도구."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-012",
+      "difficulty": 2,
+      "question_type": "보기 결합형",
+      "question": "다음 중 규모 수익에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. CRS·IRS·DRS - 모든 요소 비례 변화의 결과\nㄴ. 콥-더글러스 α+β로 판정\nㄷ. 규모 경제 ↔ IRS, 규모 부경제 ↔ DRS\nㄹ. LRAC 곡선 U자형 - MES에서 극소",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 규모 수익의 4가지 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "콥-더글러스 Q = L^0.6 · K^0.6의 규모 수익은?",
+      "options": [
+        "IRS (α + β = 1.2)",
+        "CRS",
+        "DRS",
+        "변동",
+        "측정 불가"
+      ],
+      "answer": "1",
+      "explanation": "Q = L^0.6 · K^0.6:\nα + β = 0.6 + 0.6 = 1.2 > 1 → IRS\n확인: f(kL, kK) = (kL)^0.6·(kK)^0.6 = k^1.2·L^0.6·K^0.6 = k^1.2·Q\nk = 2: 산출 ≈ 2.3배 (2^1.2 ≈ 2.297)\n해석: 모든 요소 2배 → 산출 2.3배 (강한 규모 경제)\n분배율 (α + β > 1) → 노동 + 자본 합 분배가 산출보다 큼 - 이윤 음수 가능 (완전경쟁 시)\n표준 모형의 한 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-014",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 규모 수익과 시장 구조의 관계로 옳은 것은?",
+      "options": [
+        "IRS·강한 규모 경제 → 자연 독점·과점 / CRS → 경쟁 시장 (작은 기업 가능) / DRS → 작은 기업 우세",
+        "규모 수익과 시장 구조 무관",
+        "시장은 가치판단",
+        "시장은 정부 결정",
+        "시장은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "규모 수익과 시장 구조:\nIRS·강한 규모 경제:\nMES 큼 (또는 LRAC 계속 감소)\n자연 독점 (한 기업이 효율) 또는 과점 (소수)\n예: 전력·통신·자동차·반도체\nCRS:\n장기 균형에서 작은 기업 가능\n경쟁 시장\n예: 일반 제조·서비스\nDRS:\n작은 기업 우세 (큰 기업은 비효율)\n경쟁·진입 자유\n예: 농업·식당·전문 서비스\n산업조직론의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-015",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 자연 독점의 정책 대응으로 옳은 것은?",
+      "options": [
+        "공기업 (한국 한국전력공사·한국가스공사)\n가격 규제 (한국 통신 요금)\n경쟁 도입 (영국·미국의 전력·통신 자유화)\n위 ①, ②, ③ 모두 정책",
+        "①만 옳다",
+        "정책 없음",
+        "정책은 가치판단",
+        "정책은 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "자연 독점의 정책 대응:\n① 공기업 (Public Enterprise):\n한국전력공사 (전력)\n한국가스공사 (가스)\n한국수자원공사 (수도)\n한국토지주택공사 (LH)\n② 가격 규제:\n한국 통신 (KT·SKT·LG U+) - 요금 인가\n수도·가스 요금 규제\n③ 경쟁 도입 (자유화):\n영국·미국·EU의 전력·통신 자유화\n공동 인프라 (망) + 경쟁 서비스 모델\n시장 구조와 정책의 상호 작용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-016",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 IT·플랫폼 경제의 규모 수익으로 옳은 것은?",
+      "options": [
+        "강한 IRS - 한계비용 거의 0, 네트워크 효과 강력\n예: 카카오·네이버·구글·페이스북·우버·에어비앤비\n시장 집중도 ↑, 슈퍼스타 기업 - 자연 독점 경향",
+        "IT는 IRS 없음",
+        "IT는 가치판단",
+        "IT는 정부 결정",
+        "IT는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "IT·플랫폼 경제의 규모 수익:\n강한 IRS의 원인:\n한계비용 거의 0 (소프트웨어 복제)\n네트워크 효과 (가치 ∝ 사용자 수²)\n빅데이터 (사용자 ↑ → 데이터 ↑ → 서비스 ↑)\n표준·생태계\n결과:\n시장 집중도 ↑ - 슈퍼스타 기업\n자연 독점 경향 (Google 검색, Facebook SNS, Amazon e-commerce, Microsoft OS)\n한국: 카카오 (메신저·교통), 네이버 (검색·쇼핑)\n정책 도전: 반독점·플랫폼 규제 (EU·미국·한국).\n현대 디지털 경제의 핵심 현상."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-017",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 규모 경제와 규모 부경제의 균형으로 옳은 것은?",
+      "options": [
+        "기업 규모 ↑ 시 초기 규모 경제 (분업·고정비용 분산) > 규모 부경제 (관리·정보) → LRAC ↓\n어떤 규모 (MES) 이후 역전 → LRAC ↑\n→ U자형",
+        "균형은 정부 결정",
+        "균형은 가치판단",
+        "균형은 효과 없음",
+        "균형은 무관"
+      ],
+      "answer": "1",
+      "explanation": "규모 경제·부경제의 균형:\n초기 (작은 기업): 규모 경제 우세 (분업·고정비용 분산·학습)\n→ LRAC 감소\n중간 (MES): 두 효과 균형 → LRAC 극소\n후기 (큰 기업): 규모 부경제 우세 (관리·정보·관료)\n→ LRAC 증가\n결과: U자형 LRAC\n산업·기술에 따라 형태 다름:\nIT: 거의 평탄 (마진 작음)\n자연 독점: 계속 감소\n수공예: 빠른 부경제\n기업 규모 결정 (Coase 1937)의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-018",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 학습 효과(learning by doing)와 규모 수익으로 옳은 것은?",
+      "options": [
+        "누적 산출 ↑ 시 경험·노하우 축적으로 단위 비용 ↓ - 동학적 규모 경제\nKenneth Arrow (1962) 분석\n예: 신산업 초기 비용 하락 (반도체·태양광)",
+        "학습 효과는 정부 결정",
+        "학습 효과는 가치판단",
+        "학습 효과는 무관",
+        "학습 효과는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "학습 효과 (Learning by Doing):\n누적 산출 ↑ 시 경험·노하우 축적 → 단위 비용 ↓\nKenneth Arrow (1962) 「The Economic Implications of Learning by Doing」\n학습 곡선 (Learning Curve): AC = a·Q^(-b) (Q: 누적 산출)\n예:\n반도체: 매년 비용 30% 하락 (Moore의 법칙)\n태양광·풍력: 10년에 80% 이상 비용 하락\n항공기 제조: 비용 학습 곡선 유명\n동학적 규모 경제 - 시간에 따른 비용 감소.\n현대 신산업·신기술 분석의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-019",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "다음 중 규모 수익의 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 기업의 최적 규모 결정\nㄴ. 시장 구조 (경쟁·과점·독점)\nㄷ. 산업 정책 (반독점·자연 독점 규제)\nㄹ. 신산업 (학습 효과)\nㅁ. 디지털 경제·플랫폼",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 규모 수익의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 분업과 규모 경제로 옳은 것은?",
+      "options": [
+        "Adam Smith (1776) 「국부론」: 핀 공장 사례 - 분업으로 1인당 산출 240배 증가. 규모가 커야 분업 가능 → IRS의 미시적 기초.",
+        "분업은 효과 없음",
+        "분업은 가치판단",
+        "분업은 정부 결정",
+        "분업은 IRS와 무관"
+      ],
+      "answer": "1",
+      "explanation": "분업과 규모 경제:\nA. Smith (1776) 「국부론」 첫 번째 장:\n핀 공장 사례 - 1인 1일 1핀 생산 가능\n분업 (18단계로 나눔) - 10인 1일 48,000핀 (1인당 4,800핀 = 4,800배 향상)\nSmith가 24배 강조 (240배 아님), 실제 핀 공장에서 더 큼\n핵심: 분업·전문화로 1인당 산출 증가\n그러나 분업하려면 규모가 커야 함 (시장 규모가 분업 한계)\n→ 시장 규모와 분업의 상호 작용 - 경제 성장의 미시적 기초\nSmith의 핵심 통찰 - 250년 후에도 유효."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-021",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 한국 산업의 규모 수익 사례로 옳은 것은?",
+      "options": [
+        "반도체 (삼성·SK): 강한 IRS, R&D·팹 비용 분산\n자동차 (현대·기아): 대량 생산 규모 경제\n조선 (HD현대·삼성중공업): MES 큼\n플랫폼 (네이버·카카오): 네트워크 효과",
+        "한국 산업은 동일",
+        "한국은 가치판단",
+        "한국은 정부 결정만",
+        "한국은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "한국 산업의 규모 수익 사례:\n① 반도체 (삼성·SK 하이닉스): 강한 IRS - R&D ($10억+/년)·팹 ($100억+/공장) 비용 분산\n② 자동차 (현대·기아): 대량 생산 규모 경제 - 글로벌 5위 그룹\n③ 조선 (HD현대중공업·삼성중공업): MES 큼 - 세계 시장 점유율 30%+\n④ 플랫폼 (네이버·카카오): 네트워크 효과·데이터 경제\n⑤ 화학·정유 (LG화학·SK이노베이션): 규모 경제·통합 시너지\n⑥ 통신 (KT·SKT·LG U+): 자연 독점 경향\n한국 경제의 대기업·재벌 구조의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-022",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 규모 부경제의 사례로 옳은 것은?",
+      "options": [
+        "대기업 관리 어려움 (예: GE의 분할)\n관료주의·동기 부족\n정보 비대칭 (큰 조직 내부)\n조정 비용 증가",
+        "규모 부경제 없음",
+        "부경제는 정부 결정",
+        "부경제는 가치판단",
+        "부경제는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "규모 부경제의 실제 사례:\n① 대기업 관리 어려움:\nGE (제너럴 일렉트릭) 2021년 3사 분할 (의료·항공·에너지) - 거대 콩글로머릿의 한계\n도시바·소니의 사업 재편\n② 관료주의·동기 부족: 큰 조직의 의사결정 느림·혁신 부족\n③ 정보 비대칭: 본사 - 자회사·해외 지사 정보 손실\n④ 조정 비용: 부서 간 협조 어려움\n⑤ 대량 해고·구조조정의 어려움\n현실 기업 분석의 핵심.\nCoase (1937, 1991 노벨상)의 기업 한계 이론."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 규모의 경제와 범위의 경제(economies of scope)의 차이로 옳은 것은?",
+      "options": [
+        "규모 경제: 한 제품 산출 ↑ → AC ↓ / 범위 경제: 다양한 제품 결합 생산 시 비용 < 분리 생산 비용 (공통 자원 활용)",
+        "두 경제는 동일",
+        "두 경제는 가치판단",
+        "두 경제는 정부 결정",
+        "두 경제는 무관"
+      ],
+      "answer": "1",
+      "explanation": "규모 경제 vs 범위 경제:\n규모 경제 (Economies of Scale): 한 제품의 산출 ↑ → AC ↓\n범위 경제 (Economies of Scope, Panzar·Willig 1981): 다양한 제품 결합 생산 시 비용 < 분리 생산 비용\nC(Q1, Q2) < C(Q1, 0) + C(0, Q2)\n원인: 공통 자원 활용 (브랜드·R&D·유통)\n예:\n삼성: 반도체·휴대폰·가전\n구글: 검색·유튜브·안드로이드\n맥도날드: 햄버거·음료·디저트\n현대 콩글로머릿 분석의 핵심.\n다각화·M&A의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-024",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 규모 경제와 글로벌 시장의 관계로 옳은 것은?",
+      "options": [
+        "MES 큰 산업 → 작은 국내 시장 한계 → 수출·글로벌화로 규모 달성\n한국 대기업의 성장 패턴\n(예: 삼성·현대·LG·SK)",
+        "글로벌화는 무관",
+        "글로벌은 가치판단",
+        "글로벌은 정부 결정",
+        "글로벌은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "규모 경제와 글로벌 시장:\nMES 큰 산업 (반도체·자동차·조선·항공·플랫폼):\n작은 국내 시장으로 MES 달성 어려움\n수출·글로벌화로 규모 달성\n한국 대기업의 성장 패턴:\n삼성: 반도체·휴대폰 글로벌 1~3위\n현대·기아: 자동차 글로벌 3~5위\nLG: 가전·디스플레이\nSK: 반도체·통신\n수출 비중 큰 한국 경제의 미시적 기초.\n국제 무역과 규모 경제의 결합 (Krugman 1979·1991 노벨상)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-025",
+      "difficulty": 4,
+      "question_type": "보기 결합형",
+      "question": "다음은 규모 수익 이론의 발전과 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. Adam Smith (1776): 분업·전문화·규모 경제 시초\nㄴ. Marshall (1890): 외부·내부 경제 구분\nㄷ. Coase (1937): 기업 한계 이론 (거래 비용)\nㄹ. Krugman (1979, 2008 노벨상): 규모 경제와 국제 무역\nㅁ. Romer (1986, 2018 노벨상): 내생적 성장·IRS",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "5단계 모두 옳다. 규모 수익 이론의 발전사."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-026",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 내부 경제(internal economies)와 외부 경제(external economies)의 차이로 옳은 것은?",
+      "options": [
+        "내부 경제: 한 기업 규모 ↑ 시 AC ↓ (분업·고정비용) / 외부 경제: 산업 전체 규모 ↑ 시 개별 기업 AC ↓ (클러스터·인프라·지식)",
+        "두 경제 동일",
+        "내부만 중요",
+        "외부만 중요",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "Marshall (1890) 내부·외부 경제 구분:\n내부 경제 (Internal Economies):\n한 기업 규모 ↑ 시 AC ↓\n원인: 분업·전문화·고정 비용 분산·학습\n표준 규모 경제 분석\n외부 경제 (External Economies):\n산업 전체 규모 ↑ 시 개별 기업 AC ↓\n원인: 산업 클러스터·인프라·지식 spillover·노동 풀\n예: 실리콘 밸리·서울 G밸리·중관춘\n장기 공급 곡선이 우하향 (DEC: Decreasing External Cost)\n신경제지리학·지역 경제의 기초.\nMarshall의 핵심 통찰."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-027",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 산업 클러스터(industrial cluster)와 외부 경제로 옳은 것은?",
+      "options": [
+        "한 지역에 같은·관련 산업 집중 → 외부 경제 (지식·노동·공급사) → 개별 기업 경쟁력 ↑\n예: 실리콘밸리·서울 G밸리·중관춘·도이칠란트 자동차 벨트",
+        "클러스터는 무관",
+        "클러스터는 가치판단",
+        "클러스터는 정부 결정만",
+        "클러스터는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "산업 클러스터와 외부 경제 (Porter 1990, Krugman 1991):\n한 지역에 같은·관련 산업 집중\n외부 경제 발생:\n지식 spillover (지리적 근접)\n전문 노동 풀\n공급사·전문 서비스\n공동 인프라\n경쟁·협력 동시 가능\n예:\n실리콘밸리 (IT)\n서울 G밸리·판교 (IT)\n중관춘 (베이징 IT)\n도이칠란트 자동차 벨트 (BMW·메르세데스·VW)\n인도 방갈로르 (소프트웨어)\n선전 (제조)\n산업 정책·지역 발전의 핵심.\n신경제지리학 (Krugman 2008 노벨상)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-028",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 규모 수익의 종합적 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기업 규모·시장 구조\nㄴ. 산업 정책 (자연 독점·반독점)\nㄷ. 국제 무역·글로벌화\nㄹ. 학습 효과·신산업\nㅁ. 산업 클러스터·지역 발전",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 규모 수익의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-029",
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 디지털 경제·플랫폼과 규모 수익의 미래로 옳은 것은?",
+      "options": [
+        "강한 IRS·네트워크 효과로 슈퍼스타 기업 집중\n반독점·플랫폼 규제 도전 (EU DMA·미국·한국)\n데이터·AI 경제의 새 규모 경제\n기존 산업 정책의 재검토 필요",
+        "디지털은 변화 없음",
+        "디지털은 가치판단",
+        "디지털은 정부 결정만",
+        "디지털은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "디지털 경제·플랫폼과 규모 수익의 미래:\n① 강한 IRS·네트워크 효과 - 슈퍼스타 기업 (FAANG·BAT·한국 카카오·네이버) 집중\n② 반독점·플랫폼 규제:\nEU DMA (Digital Markets Act 2024)\n미국 - Big Tech 반독점 소송\n한국 - 카카오·네이버 규제 논의\n③ 데이터·AI 경제의 새 규모 경제 - 데이터 ↑ → 더 좋은 AI → 더 많은 사용자\n④ 기존 산업 정책의 재검토:\n전통 반독점 vs 디지털 시장 특수성\n글로벌·세무·노동 문제\n현대 산업·정책의 큰 도전.\n향후 10년 핵심 화두."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-030",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 규모에 대한 수익의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. CRS·IRS·DRS - 모든 요소 비례 변화의 결과\nㄴ. 콥-더글러스 α+β로 판정\nㄷ. 규모 경제·부경제 - LRAC U자형, MES에서 극소\nㄹ. 자연 독점·산업 구조·반독점 정책의 미시적 기초\nㅁ. 모든 산업은 동일한 규모 수익",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "2",
+      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 산업·기술에 따라 규모 수익이 다르다 (반도체·자동차 IRS, 일반 제조 CRS, 농업·수공예 DRS). '모든 산업 동일'은 잘못이다."
+    }
+  ]
+}

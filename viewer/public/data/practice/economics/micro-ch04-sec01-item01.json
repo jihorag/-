@@ -6,9 +6,9 @@
     "section": "제11절 생산이론",
     "item": "제1관 생산함수와 생산요소",
     "source": "practice-set",
-    "version": "v2-handcrafted",
-    "created": "2026-06-01",
-    "count": 30
+    "version": "v3-high-quality",
+    "created": "2026-06-07",
+    "count": 50
   },
   "questions": [
     {
@@ -58,7 +58,7 @@
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-004",
-      "difficulty": 1,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "기술적 효율(technical efficiency)의 의미로 옳은 것은?",
       "options": [
@@ -88,18 +88,18 @@
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-006",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "다음 중 콥-더글러스 생산함수의 일반 형태로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 콥-더글러스 생산함수의 일반 형태로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 콥-더글러스 지수 변화에 따른 확장 경로 및 등량곡선 전개 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 원점으로부터의 방사 확장선 -->\n  <line x1=\"40\" y1=\"210\" x2=\"260\" y2=\"50\" stroke=\"#94a3b8\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"240\" y=\"45\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">확장 경로 (Expansion Path)</text>\n  \n  <!-- $CRS$ 등량곡선들 (간격이 일정함) -->\n  <path d=\"M 80 100 Q 140 140 210 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  <path d=\"M 120 70 Q 180 110 250 150\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  <path d=\"M 160 40 Q 220 80 290 120\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  \n  <text x=\"50\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">Q=10</text>\n  <text x=\"90\" y=\"60\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">Q=20</text>\n  <text x=\"130\" y=\"30\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">Q=30</text>\n</svg>\n```\n",
       "options": [
         "Q = A · L^α · K^β (A: 기술, α+β: 규모 수익)",
         "Q = L + K",
         "Q = L × K",
         "Q = L^L · K^K",
-        "Q = 정부 결정"
+        "Q = 사회보장 연금 제도의 다층적 위험 공유 메커니즘"
       ],
       "answer": "1",
-      "explanation": "콥-더글러스 생산함수:\nQ = A · L^α · K^β\nA: 기술 수준 (technological progress)\nα, β: 요소 탄력성 (지수)\nα + β = 1: 규모 수익 일정 (CRS - Constant Returns to Scale)\nα + β > 1: 규모 수익 체증 (IRS)\nα + β < 1: 규모 수익 체감 (DRS)\n1928년 Cobb-Douglas 도입. 가장 흔한 분석 도구."
+      "explanation": "콥-더글러스 생산함수:\nQ = A · L^α · K^β\nA: 기술 수준 (technological progress)\nα, β: 요소 탄력성 (지수)\nα + β = 1: 규모 수익 일정 ($CRS$ - Constant Returns to Scale)\nα + β > 1: 규모 수익 체증 ($IRS$)\nα + β < 1: 규모 수익 체감 ($DRS$)\n1928년 Cobb-Douglas 도입. 가장 흔한 분석 도구."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-007",
@@ -109,12 +109,12 @@
       "options": [
         "모든 요소를 동일 비율 k배로 늘릴 때 산출 변화. k배 → 정확히 k배 (CRS) / k배 이상 (IRS) / k배 이하 (DRS)",
         "한 요소만 변경",
-        "정부 결정",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "수익은 무관",
-        "가치판단"
+        "Kaldor-Hicks 효율 기준 하 잠재적 보상 원리"
       ],
       "answer": "1",
-      "explanation": "규모 수익:\n모든 요소 동시 k배 증가 시 산출 변화\nCRS (Constant): f(kL, kK) = kf(L, K) - 정확히 k배\nIRS (Increasing): f(kL, kK) > kf(L, K) - k배 이상\nDRS (Decreasing): f(kL, kK) < kf(L, K) - k배 이하\n원인:\nIRS: 분업·전문화·고정 비용 분산\nDRS: 관리 부담·정보 비대칭\n장기 분석의 핵심 개념."
+      "explanation": "규모 수익:\n모든 요소 동시 k배 증가 시 산출 변화\n$CRS$ (Constant): f(kL, kK) = kf(L, K) - 정확히 k배\n$IRS$ (Increasing): f(kL, kK) > kf(L, K) - k배 이상\n$DRS$ (Decreasing): f(kL, kK) < kf(L, K) - k배 이하\n원인:\n$IRS$: 분업·전문화·고정 비용 분산\n$DRS$: 관리 부담·정보 비대칭\n장기 분석의 핵심 개념."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-008",
@@ -125,7 +125,7 @@
         "다른 요소 일정한 채 한 요소만 늘리면 일정 시점 후 한계생산이 감소",
         "수확 체증",
         "수확 일정",
-        "정부 결정",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "수확과 무관"
       ],
       "answer": "1",
@@ -138,10 +138,10 @@
       "question": "다음 중 생산함수의 응용 영역으로 옳은 것은?",
       "options": [
         "기업의 생산·비용 결정\n노동·자본 시장 (요소 수요)\n경제 성장 (Solow 모형)\n위 ①, ②, ③ 모두",
-        "①만 옳다",
-        "응용 없음",
-        "정부 결정만",
-        "가치판단"
+        "기대효용의 가중 평균값이 확실성 상태를 완벽히 압도하는 지점",
+        "Epstein-Zin 체계의 동학적 Euler 조건 식 도출 실패",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘만",
+        "Kaldor-Hicks 효율 기준 하 잠재적 보상 원리"
       ],
       "answer": "1",
       "explanation": "생산함수의 응용:\n① 기업 생산·비용 결정\n② 노동·자본 시장 - 요소 수요 도출 (MP × 가격 = 요소 가격)\n③ 경제 성장 - Solow 모형, 내생적 성장 모형\n④ 거시 총생산함수 - GDP\n⑤ 국제 무역 - 비교우위·HOS 모형\n⑥ 산업 분석 - 효율성 측정\n응용 미시·거시·국제경제학의 기초."
@@ -154,27 +154,27 @@
       "options": [
         "동일 투입으로 더 큰 산출 가능 - 생산함수 자체의 상방 이동 (A 증가)",
         "투입 증가",
-        "정부 결정",
-        "효과 없음",
-        "가치판단"
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "Kimball의 신중성 파라미터가 0으로 수렴하는 상태",
+        "Kaldor-Hicks 효율 기준 하 잠재적 보상 원리"
       ],
       "answer": "1",
       "explanation": "기술 진보:\n동일 투입 (L, K)으로 더 큰 산출 가능\n생산함수의 상방 이동 (A ↑)\n예: 콥-더글러스 Q = A·L^α·K^β에서 A 증가\n원인: R&D·교육·혁신·외국 기술 도입\n경제 성장의 주요 원천 (Solow 1956: 미국 성장의 80%+ 기술 진보)\n현대 내생적 성장 모형 (Romer 1986, 1990, 2018 노벨상)."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-011",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 생산함수의 유형 분류로 옳은 것은?",
       "options": [
         "콥-더글러스 (Q = A·L^α·K^β)\n레온티에프 (Q = min(aL, bK))\nCES (Constant Elasticity of Substitution)\n선형 (Q = aL + bK)\n위 ①, ②, ③, ④ 모두 주요 유형",
         "콥-더글러스만",
         "한 유형만",
-        "정부 결정만",
-        "가치판단만"
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘만",
+        "Kaldor-Hicks 효율 기준 하 잠재적 보상 원리만"
       ],
       "answer": "1",
-      "explanation": "주요 생산함수 유형:\n① 콥-더글러스 (Cobb-Douglas 1928): Q = A·L^α·K^β - 가장 흔함\n② 레온티에프 (Leontief): Q = min(aL, bK) - 완전 보완 (요소 결합 비율 고정)\n③ CES (Constant Elasticity of Substitution, Arrow-Chenery-Minhas-Solow 1961): 일반화\n④ 선형: Q = aL + bK - 완전 대체\n다양한 산업·기술 모형의 응용."
+      "explanation": "주요 생산함수 유형:\n① 콥-더글러스 (Cobb-Douglas 1928): Q = A·L^α·K^β - 가장 흔함\n② 레온티에프 (Leontief): Q = min(aL, bK) - 완전 보완 (요소 결합 비율 고정)\n③ $CES$ (Constant Elasticity of Substitution, Arrow-Chenery-Minhas-Solow 1961): 일반화\n④ 선형: Q = aL + bK - 완전 대체\n다양한 산업·기술 모형의 응용."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-012",
@@ -204,11 +204,11 @@
         "측정 불가"
       ],
       "answer": "1",
-      "explanation": "Q = L^0.5 · K^0.5:\nα = 0.5, β = 0.5, α + β = 1 → CRS (Constant Returns to Scale)\n확인: f(kL, kK) = (kL)^0.5 · (kK)^0.5 = k · L^0.5 · K^0.5 = k·Q\n모든 요소 k배 → 산출 k배 (정확히 비례)\n표준 분석에서 흔한 가정 (장기 균형 분석)."
+      "explanation": "Q = L^0.5 · K^0.5:\nα = 0.5, β = 0.5, α + β = 1 → $CRS$ (Constant Returns to Scale)\n확인: f(kL, kK) = (kL)^0.5 · (kK)^0.5 = k · L^0.5 · K^0.5 = k·Q\n모든 요소 k배 → 산출 k배 (정확히 비례)\n표준 분석에서 흔한 가정 (장기 균형 분석)."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-014",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "콥-더글러스 Q = L^0.7 · K^0.5의 규모 수익은?",
       "options": [
@@ -219,7 +219,7 @@
         "측정 불가"
       ],
       "answer": "1",
-      "explanation": "Q = L^0.7 · K^0.5:\nα + β = 0.7 + 0.5 = 1.2 > 1 → IRS (Increasing Returns to Scale)\n확인: f(kL, kK) = k^0.7·L^0.7 · k^0.5·K^0.5 = k^1.2 · Q\nk배 투입 → k^1.2배 산출 (더 큰 비율)\n원인: 분업·전문화·고정 비용 분산.\n네트워크 산업 (소프트웨어·플랫폼)에서 흔함."
+      "explanation": "Q = L^0.7 · K^0.5:\nα + β = 0.7 + 0.5 = 1.2 > 1 → $IRS$ (Increasing Returns to Scale)\n확인: f(kL, kK) = k^0.7·L^0.7 · k^0.5·K^0.5 = k^1.2 · Q\nk배 투입 → k^1.2배 산출 (더 큰 비율)\n원인: 분업·전문화·고정 비용 분산.\n네트워크 산업 (소프트웨어·플랫폼)에서 흔함."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-015",
@@ -229,8 +229,8 @@
       "options": [
         "농업: 토지·노동·자본 결합. 한국 농업의 특수성: 토지 부족, 기계화·시설 농업 발전, 농업 인구 고령화",
         "농업 생산함수 없음",
-        "농업은 가치판단",
-        "농업은 정부 결정만",
+        "농업은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "농업은 사회보장 연금 제도의 다층적 위험 공유 메커니즘만",
         "농업은 무관"
       ],
       "answer": "1",
@@ -244,8 +244,8 @@
       "options": [
         "Becker (1964), Schultz (1961): 교육·훈련·경험을 인적자본으로 분석. 노동의 질적 차이가 생산함수에 반영.",
         "인적자본은 비요소",
-        "인적자본은 가치판단",
-        "인적자본은 정부 결정",
+        "인적자본은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "인적자본은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "인적자본은 무관"
       ],
       "answer": "1",
@@ -259,12 +259,12 @@
       "options": [
         "Y = F(K, AL) (A: 노동 증대 기술 진보) - 콥-더글러스 형태 자주 사용",
         "Solow 모형은 생산함수 없음",
-        "Solow는 가치판단",
-        "Solow는 정부 결정",
+        "Solow는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "Solow는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "Solow는 무관"
       ],
       "answer": "1",
-      "explanation": "Solow 성장 모형 (R. Solow 1956, 1987 노벨상):\n생산함수: Y = F(K, AL)\nA: 노동 증대 기술 진보 (labor-augmenting)\nL: 노동, K: 자본\n자주 콥-더글러스 형태: Y = K^α · (AL)^(1-α)\n특징:\nCRS 가정\n수확 체감 (자본의 한계 생산 감소)\n장기 균형: 1인당 변수 안정\n결과: 자본 축적만으로 성장 한계 (정상 상태) - 기술 진보 (A 증가)가 지속 성장의 원천\nRomer (2018 노벨상)의 내생적 성장 이론으로 확장."
+      "explanation": "Solow 성장 모형 (R. Solow 1956, 1987 노벨상):\n생산함수: Y = F(K, AL)\nA: 노동 증대 기술 진보 (labor-augmenting)\nL: 노동, K: 자본\n자주 콥-더글러스 형태: Y = K^α · (AL)^(1-α)\n특징:\n$CRS$ 가정\n수확 체감 (자본의 한계 생산 감소)\n장기 균형: 1인당 변수 안정\n결과: 자본 축적만으로 성장 한계 (정상 상태) - 기술 진보 (A 증가)가 지속 성장의 원천\nRomer (2018 노벨상)의 내생적 성장 이론으로 확장."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-018",
@@ -274,9 +274,9 @@
       "options": [
         "노동 생산성: Q/L (1인당 산출)\n자본 생산성: Q/K (자본 1단위당 산출)\n총요소생산성 (TFP): Solow residual - 요소로 설명되지 않는 잔차",
         "생산성은 측정 불가",
-        "생산성은 가치판단",
-        "생산성은 정부 결정",
-        "생산성은 효과 없음"
+        "생산성은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "생산성은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "생산성은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "생산성 측정:\n① 노동 생산성: Q/L - 1인당 산출 (가장 흔함)\n② 자본 생산성: Q/K - 자본 1단위 산출\n③ 다요소 생산성 (MFP)·총요소생산성 (TFP):\nSolow residual: Q/(L^α·K^β)\n요소 투입으로 설명되지 않는 부분 - 기술·효율의 영향\n경제 성장 회계 (growth accounting):\nΔY/Y = α·ΔK/K + β·ΔL/L + ΔA/A\nA: TFP 변화 = 잔차\n경제 성장 분석의 핵심.\n한국 성장의 큰 부분이 TFP."
@@ -306,7 +306,7 @@
         "MP와 AP는 무관",
         "AP가 항상 큼",
         "MP가 항상 큼",
-        "가치판단"
+        "Kaldor-Hicks 효율 기준 하 잠재적 보상 원리"
       ],
       "answer": "1",
       "explanation": "AP와 MP의 관계:\nAP_L = Q/L (평균 생산)\nMP_L = ∂Q/∂L (한계 생산)\n관계:\nMP > AP → AP 증가 (위로 끌어올림)\nMP < AP → AP 감소 (아래로 끌어내림)\nMP = AP → AP 극대점 (교차점)\n예: 추가 신입사원의 생산이 평균보다 크면 평균 ↑\n표준 단기 생산 분석의 결과."
@@ -319,9 +319,9 @@
       "options": [
         "Q = A·L^α·K^β에서 α: 노동 분배율, β: 자본 분배율. 한계생산성 가격결정 가정 시 노동 임금 = α·Q/L·P, 자본 이자율 = β·Q/K·P",
         "분배는 무관",
-        "분배는 가치판단",
-        "분배는 정부 결정",
-        "분배는 효과 없음"
+        "분배는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "분배는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "분배는 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "콥-더글러스의 요소 분배 함의:\nQ = A·L^α·K^β\n한계 생산성 가격 결정 (신고전학파):\n노동 한계 가치 = w (임금) → α·A·L^(α-1)·K^β · P = w\nα = (w·L)/(P·Q) = 노동 분배율\n자본 분배율 β\n실증: 미국 노동 분배율 약 0.7, 자본 0.3\n최근 감소 추세 (자동화·AI)\n분배 이론의 미시적 기초.\n분배 격차·자본 vs 노동 논쟁의 분석 도구."
@@ -334,8 +334,8 @@
       "options": [
         "물적 자본 (machinery·building·infrastructure)\n금융 자본 (현금·증권·신용)\n인적 자본 (교육·기술)\n사회적 자본 (제도·신뢰)\n위 ①, ②, ③, ④ 모두 자본 분류",
         "자본은 한 종류만",
-        "자본은 정부 결정",
-        "자본은 가치판단",
+        "자본은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "자본은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
         "자본은 무관"
       ],
       "answer": "1",
@@ -343,18 +343,18 @@
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
-      "question": "다음 중 CES 생산함수의 일반 형태와 특수 사례로 옳은 것은?",
+      "question": "다음 중 $CES$ 생산함수의 일반 형태와 특수 사례로 옳은 것은?",
       "options": [
         "Q = A·(α·L^ρ + (1-α)·K^ρ)^(1/ρ). ρ → 1: 선형 (대체) / ρ → 0: 콥-더글러스 / ρ → -∞: 레온티에프 (보완)",
         "CES는 한 형태만",
-        "CES는 가치판단",
-        "CES는 정부 결정",
-        "CES는 효과 없음"
+        "CES는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "CES는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "CES는 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
-      "explanation": "CES 생산함수 (Arrow·Chenery·Minhas·Solow 1961):\nQ = A·(α·L^ρ + (1-α)·K^ρ)^(1/ρ)\nA: 효율 파라미터\nα: 요소 비중\nρ: 대체 파라미터 → 대체탄력성 σ = 1/(1-ρ)\n특수 사례:\nρ → 1 (σ → ∞): 선형 (완전 대체)\nρ → 0 (σ = 1): 콥-더글러스\nρ → -∞ (σ → 0): 레온티에프 (완전 보완)\n다양한 산업·기술 모형의 일반화.\n거시·국제경제·성장이론에 광범위하게 사용."
+      "explanation": "$CES$ 생산함수 (Arrow·Chenery·Minhas·Solow 1961):\nQ = A·(α·L^ρ + (1-α)·K^ρ)^(1/ρ)\nA: 효율 파라미터\nα: 요소 비중\nρ: 대체 파라미터 → 대체탄력성 σ = 1/(1-ρ)\n특수 사례:\nρ → 1 (σ → ∞): 선형 (완전 대체)\nρ → 0 (σ = 1): 콥-더글러스\nρ → -∞ (σ → 0): 레온티에프 (완전 보완)\n다양한 산업·기술 모형의 일반화.\n거시·국제경제·성장이론에 광범위하게 사용."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-024",
@@ -363,9 +363,9 @@
       "question": "다음 중 한국 경제 성장의 요소 분석으로 옳은 것은?",
       "options": [
         "한국 성장의 큰 부분: 자본 축적 + 노동 (1960~80년대), TFP (1990년대~), 인적자본 (지속). 최근 TFP·기술 진보의 중요성 증가.",
-        "한국 성장은 효과 없음",
-        "한국 성장은 가치판단",
-        "한국 성장은 정부 결정만",
+        "한국 성장은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태",
+        "한국 성장은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "한국 성장은 사회보장 연금 제도의 다층적 위험 공유 메커니즘만",
         "한국 성장은 무관"
       ],
       "answer": "1",
@@ -375,7 +375,7 @@
       "id": "practice-econ-micro-ch04-sec01-item01-025",
       "difficulty": 4,
       "question_type": "보기 결합형",
-      "question": "다음은 생산함수 이론의 발전사이다. 옳은 것을 모두 고른 것은?\n\nㄱ. Cobb-Douglas (1928): 콥-더글러스 함수\nㄴ. Leontief (1953): 입출 분석·고정 비율\nㄷ. Solow (1956, 1987 노벨상): 외생 성장 모형\nㄹ. Arrow-Chenery-Minhas-Solow (1961): CES 함수\nㅁ. Romer (1986, 2018 노벨상): 내생적 성장",
+      "question": "다음은 생산함수 이론의 발전사이다. 옳은 것을 모두 고른 것은?\n\nㄱ. Cobb-Douglas (1928): 콥-더글러스 함수\nㄴ. Leontief (1953): 입출 분석·고정 비율\nㄷ. Solow (1956, 1987 노벨상): 외생 성장 모형\nㄹ. Arrow-Chenery-Minhas-Solow (1961): $CES$ 함수\nㅁ. Romer (1986, 2018 노벨상): 내생적 성장",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -394,12 +394,12 @@
       "options": [
         "IT·AI·플랫폼 - 한계 비용 거의 0, IRS, 네트워크 효과. 전통 생산함수의 새 도전.",
         "디지털은 무관",
-        "디지털은 가치판단",
-        "디지털은 정부 결정",
-        "디지털은 효과 없음"
+        "디지털은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "디지털은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "디지털은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
-      "explanation": "디지털 경제와 생산함수:\n특성:\n한계 비용 거의 0 (소프트웨어·디지털 콘텐츠)\nIRS (강한 규모 수익)\n네트워크 효과 (가치 ∝ 사용자 수²)\n원격·재택 가능 - 노동의 지리 자유\n전통 생산함수의 새 도전:\n자본 축적 vs 데이터·아이디어\n자본 분배율 vs 슈퍼스타 기업\n새 산업 분석 - 플랫폼 경제·AI\n현대 산업조직론·성장이론의 발전 방향."
+      "explanation": "디지털 경제와 생산함수:\n특성:\n한계 비용 거의 0 (소프트웨어·디지털 콘텐츠)\n$IRS$ (강한 규모 수익)\n네트워크 효과 (가치 ∝ 사용자 수²)\n원격·재택 가능 - 노동의 지리 자유\n전통 생산함수의 새 도전:\n자본 축적 vs 데이터·아이디어\n자본 분배율 vs 슈퍼스타 기업\n새 산업 분석 - 플랫폼 경제·AI\n현대 산업조직론·성장이론의 발전 방향."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-027",
@@ -409,16 +409,16 @@
       "options": [
         "환경 자본 (자연 자원·생태계)을 생산요소로 포함 → 환경경제학·지속가능 성장 분석. 환경 파괴는 자본 감소로 분석.",
         "환경은 생산함수와 무관",
-        "환경은 가치판단",
-        "환경은 정부 결정만",
-        "환경은 효과 없음"
+        "환경은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "환경은 사회보장 연금 제도의 다층적 위험 공유 메커니즘만",
+        "환경은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "환경 자본과 생산함수:\n전통 생산함수: L, K, N (토지)\n현대 확장: 환경 자본 (자연 자원·생태계·기후)을 자본의 한 형태\n환경 파괴 = 자본 감소\n지속가능 성장 (sustainable growth):\n환경 자본을 유지하는 성장\n약한 지속성 (자본 간 대체) vs 강한 지속성 (환경 자본 보호)\n응용:\n자원 경제학 (Hotelling 1931)\n탄소세·신재생\n그린 뉴딜 정책\n현대 환경·성장 이론의 결합."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-028",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음은 생산함수의 응용 사례에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기업·산업 분석 - 효율성 측정 (DEA, SFA)\nㄴ. 거시 경제 - 성장 회계·정책 분석\nㄷ. 국제 무역 - 비교우위·HOS 모형\nㄹ. 노동 시장 - 임금·요소 수요\nㅁ. 환경 정책 - 자원·기후",
       "options": [
@@ -433,24 +433,24 @@
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-029",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 현대 생산함수 분석의 동향으로 옳은 것은?",
       "options": [
         "디지털 경제·AI 영향\n인적자본·R&D·지식의 중심성\n환경·지속가능성 통합\n비대칭 산업 (슈퍼스타 기업) 분석\n빅데이터·머신러닝의 생산성 영향",
         "생산함수는 변화 없음",
-        "현대는 가치판단",
-        "현대는 정부 결정만",
-        "현대는 효과 없음"
+        "현대는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "현대는 사회보장 연금 제도의 다층적 위험 공유 메커니즘만",
+        "현대는 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "현대 생산함수 분석 동향:\n① 디지털·AI 영향: 새 산업·자동화\n② 인적자본·R&D·지식: Romer (2018 노벨상)\n③ 환경·지속가능성: Nordhaus (2018 노벨상)\n④ 비대칭 산업 - 슈퍼스타 기업·시장 집중\n⑤ 빅데이터·머신러닝 활용\n⑥ 글로벌 가치사슬·국제 분업\n⑦ 무형 자본 (브랜드·데이터·소프트웨어) 중요\n전통 모형의 확장과 새 도구의 발전."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item01-030",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
-      "question": "다음은 생산함수와 생산요소의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 생산함수 Q = f(L, K, ...) - 투입과 산출의 기술적 관계\nㄴ. 단기 (요소 일부 고정) vs 장기 (모두 가변)\nㄷ. 수확 체감 (단기) vs 규모 수익 (장기)\nㄹ. 콥-더글러스·CES·레온티에프 등 유형\nㅁ. 모든 산업이 동일한 생산함수",
+      "question": "다음은 생산함수와 생산요소의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 생산함수 Q = f(L, K, ...) - 투입과 산출의 기술적 관계\nㄴ. 단기 (요소 일부 고정) vs 장기 (모두 가변)\nㄷ. 수확 체감 (단기) vs 규모 수익 (장기)\nㄹ. 콥-더글러스·$CES$·레온티에프 등 유형\nㅁ. 모든 산업이 동일한 생산함수",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -460,6 +460,306 @@
       ],
       "answer": "2",
       "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 산업별로 생산함수가 다르다 (농업 - 토지 중심, 제조 - 자본·노동, 서비스 - 인적자본 중심, IT - 지식·네트워크). '모든 산업 동일'은 잘못이다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-031",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "기업의 생산비용 극대화/극소화 이중성(Duality)을 나타내는 셰퍼드의 정리(Shephard's Lemma)에 관한 설명이다. 총비용함수 $C(w, r, Q)$ 가 주어졌을 때, 셰퍼드 정리를 활용하여 가격 변수에 대한 편미분을 통해 조건부 요소 수요함수(Conditional Factor Demand)를 도출하는 대수적 원리로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Shephard 보조정리와 비용최소화 조건부 요소 수요 유도 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">노동 (L)</text>\n  <text x=\"20\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\">자본 (K)</text>\n  \n  <!-- 등량곡선 Q_bar -->\n  <path d=\"M 60 50 Q 130 130 280 170\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <!-- 등비용선 (기울기 -w/r) -->\n  <line x1=\"50\" y1=\"180\" x2=\"230\" y2=\"60\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  \n  <!-- 접점 (최적 투입 점 L*, K*) -->\n  <circle cx=\"127\" cy=\"128\" r=\"4\" fill=\"#ef4444\" />\n  <line x1=\"127\" y1=\"210\" x2=\"127\" y2=\"128\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <line x1=\"40\" y1=\"128\" x2=\"127\" y2=\"128\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  \n  <text x=\"120\" y=\"222\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">L*(w,r,Q)</text>\n  <text x=\"45\" y=\"123\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">K*(w,r,Q)</text>\n</svg>\n```\n",
+      "options": [
+        "노동 가격 $w$ 에 대해 비용함수를 편미분하면 최적 노동 수요량 $L^*(w,r,Q) = \\dfrac{\\partial C(w,r,Q)}{\\partial w}$ 가 직접 도출되며, 이는 포락선 정리(Envelope Theorem)의 대수적 결과이다.",
+        "셰퍼드 보조정리는 오직 기업의 생산함수가 비선형 콥-더글러스 형태를 탈피해 레온티에프 기술로 굴절될 때만 성립한다.",
+        "비용함수를 산출량 $Q$ 에 대해 편미분하면 자본의 한계 생산 대체율 $RTS$ 가 유도되어 조건부 요소 수요의 부호가 양(+)으로 변환된다.",
+        "셰퍼드의 정리에 따르면, 노동 가격 $w$ 가 상승하면 조건부 노동 수요의 크기가 노동의 시점간 대체탄력성 역수에 비례해 상승하게 된다.",
+        "보조정리는 기업이 이윤극대화를 달성하지 않고 단지 시장 점유율만을 극대화하려는 왜곡 상황 하에서만 유효성을 갖는다."
+      ],
+      "answer": "1",
+      "explanation": "Shephard's Lemma와 조건부 요소수요:\\n1) 셰퍼드의 정리: 기업이 주어진 산출량 $Q$ 를 달성하기 위해 비용을 최소화할 때 도출되는 간접비용함수 $C(w, r, Q)$ 를 요소 가격에 대해 편미분하면 조건부 요소수요함수가 도출됩니다.\\n   $$\\dfrac{\\partial C(w, r, Q)}{\\partial w} = L^*(w, r, Q)$$\\n   $$\\dfrac{\\partial C(w, r, Q)}{\\partial r} = K^*(w, r, Q)$$\\n2) 증명 논리: 비용 최소화 문제의 Lagrangian 식 $L = wL + rK + \\lambda(Q - f(L, K))$ 에 대해 포락선 정리(Envelope Theorem)를 적용하면 파라미터인 $w$ 에 대한 총비용의 변화율은 직접적인 투입량 $L$ 과 정확히 일치함이 입증됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-032",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "대체탄력성이 일정한 CES(Constant Elasticity of Substitution) 생산함수 $Q = A [a L^\\rho + (1-a) K^\\rho]^{1/\\rho}$ (단, $\\rho \\le 1, \\rho \\neq 0$)가 주어졌다. 이 생산함수에서 두 투입 요소 간의 대체탄력성 $\\sigma$ 를 파라미터 $\\rho$ 를 활용해 올바르게 유도한 공식과 $\\rho$ 가 가질 수 있는 기하학적 범위의 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- CES 대체 매개변수 로에 따른 곡률 변화 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 로 = 1 (완전대체, 직선) -->\n  <line x1=\"40\" y1=\"160\" x2=\"200\" y2=\"210\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  \n  <!-- 로 = 0.5 (대체성 높음, 완만한 곡선) -->\n  <path d=\"M 60 45 Q 120 120, 280 170\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  \n  <!-- 로 = 0 (콥-더글러스) -->\n  <path d=\"M 60 45 Q 95 95, 280 170\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <!-- 로 = -무한대 (레온티에프 L자) -->\n  <path d=\"M 95 45 L 95 95 L 280 95\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n</svg>\n```\n",
+      "options": [
+        "$\\sigma = \\dfrac{1}{1-\\rho}$ 이며, $\\rho$ 가 $1$ 에 가까워질수록 요소 간 대체성이 극대화되고, $-\\infty$ 로 갈수록 레온티에프 보완 관계로 고착된다.",
+        "$\\sigma = 1 - \\rho$ 이며, $\\rho = 0$ 일 때 완전 대체의 선형 생산함수로 이행하게 된다.",
+        "$\\sigma = \\dfrac{\\rho}{1-\\rho}$ 이며, 이는 오직 노동 분배 비율 $a$ 가 $0.5$ 로 대칭일 때만 수학적 유효성을 지닌다.",
+        "대체탄력성 $\\sigma$ 는 기술 진보 변수 A의 역수에 비례하여 자본 스톡의 팽창 속도를 규제하게 만든다.",
+        "CES 생산함수의 대체탄력성은 노동과 자본의 투입 비율 $K/L$ 에 정비례하여 계속 가변하는 구조를 지닌다."
+      ],
+      "answer": "1",
+      "explanation": "CES 생산함수의 대체탄력성 유도:\\n1) 한계기술대체율(RTS) 연산:\\n   $$RTS = \\dfrac{MP_L}{MP_K} = \\dfrac{a}{1-a} \\left(\\dfrac{K}{L}\\right)^{1-\\rho}$$\\n2) 양변에 자연로그를 취함:\\n   $$\\ln RTS = \\ln\\left(\\dfrac{a}{1-a}\\right) + (1-\\rho) \\ln\\left(\\dfrac{K}{L}\\right)$$\\n3) 대체탄력성 $\\sigma$ 의 수학적 정의:\\n   $$\\sigma = \\dfrac{d \\ln(K/L)}{d \\ln RTS} = \\dfrac{1}{1-\\rho}$$\\n4) 파라미터 범위 및 극한:\\n   - $\\rho = 1 \\implies \\sigma = \\infty$ (완전 대체, 선형 생산함수)\\n   - $\\rho \\to 0 \\implies \\sigma = 1$ (콥-더글러스 생산함수)\\n   - $\\rho \\to -\\infty \\implies \\sigma = 0$ (레온티에프 생산함수)\\n따라서 1번이 정확한 설명입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-033",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "동차생산함수(Homogeneous Production Function)와 동형생산함수(Homothetic Production Function)의 수학적 포함 관계 및 이 기술들의 기하학적 등량곡선 특징에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 동형생산함수 방사상 RTS 대칭성 증명 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 방사선 -->\n  <line x1=\"40\" y1=\"210\" x2=\"260\" y2=\"50\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <!-- 평행한 두 등량곡선과 접선 -->\n  <path d=\"M 60 140 Q 130 150 220 190\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <path d=\"M 110 75 Q 170 98 250 140\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <!-- 동일 방사선 상의 두 교점에서의 접선 기울기가 평행함을 묘사 -->\n  <line x1=\"120\" y1=\"165\" x2=\"180\" y2=\"125\" stroke=\"#ef4444\" stroke-width=\"1\" />\n  <line x1=\"155\" y1=\"118\" x2=\"215\" y2=\"78\" stroke=\"#ef4444\" stroke-width=\"1\" />\n</svg>\n```\n",
+      "options": [
+        "모든 동차생산함수는 동형생산함수의 특수 사례에 해당하며, 동형생산함수 기술 하에서는 원점으로부터 뻗어나가는 방사선(Radial ray) 상에서 측정하는 모든 등량곡선의 한계기술대체율($RTS$)의 크기가 일정하게 대칭을 이룬다.",
+        "동형생산함수는 동차생산함수를 포함하지 못하는 완벽하게 고립된 기수적 비선형 모형이다.",
+        "동차생산함수 하에서는 원점 방사선 상에서 투입 비율 $K/L$ 이 변화할 때만 한계기술대체율이 상수로 수평을 유지한다.",
+        "동형생산함수는 규모에 대한 수익(RTS)이 CRS일 때만 성립이 유효하며, IRS나 DRS로 진입 시 동형성이 즉각 붕괴한다.",
+        "동형성의 정의는 투입 요소 간의 교차 편미분 $f_{LK}$ 의 부호가 음(-)이 됨을 입증하는 필요충분조건이다."
+      ],
+      "answer": "1",
+      "explanation": "동차성과 동형생산함수의 기하학:\\n1) 정의:\\n   - 동형함수(Homothetic function)는 동차함수(Homogeneous function)의 단조 증가 변환으로 정의됩니다: $F(L, K) = g(f(L, K))$ (단, $f$ 는 동차함수, $g' > 0$). 따라서 모든 동차함수는 동형함수에 포함되는 특수 사례입니다.\\n2) 기하학적 성질: 동차함수 $f$ 의 1계 편미분 비율(RTS)은 차수가 소거되므로 오직 요소 투입 비율 $K/L$ 만의 함수가 됩니다. 단조 증가 변환 $g$ 를 취해도 미분비율인 RTS의 값은 변하지 않습니다.\\n3) 결론: 따라서 원점에서 뻗어나가는 임의의 직선(방사선, $K/L$ 일정) 상에서는 등량곡선의 높이와 상관없이 한계기술대체율(RTS)이 정확히 동일하게 유지됩니다. 이는 기업의 확장경로가 요소가격이 일정할 때 원점을 지나는 직선이 됨을 보증합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "솔로우 성장 회계(Solow Growth Accounting)의 이론적 기초를 미분법을 활용해 규명하고자 한다. 거시 총생산함수 $Y_t = A_t F(K_t, L_t)$ 가 1차 동차(CRS) 함수를 따르고 생산요소 시장이 완전 경쟁적일 때, 경제성장률($\\Delta Y/Y$)을 자본 기여율, 노동 기여율, 그리고 총요소생산성(TFP) 변화율로 분해하는 전미분 전개 단계로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 솔로우 성장 회계 TFP 잔차 분해 기하도해 -->\n  <rect x=\"50\" y=\"40\" width=\"220\" height=\"150\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 노동 기여율 레이어 -->\n  <rect x=\"50\" y=\"140\" width=\"220\" height=\"50\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"1\" />\n  <text x=\"110\" y=\"170\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">노동 기여 (β·ΔL/L)</text>\n  \n  <!-- 자본 기여율 레이어 -->\n  <rect x=\"50\" y=\"80\" width=\"220\" height=\"60\" fill=\"#dbeafe\" stroke=\"#3b82f6\" stroke-width=\"1\" />\n  <text x=\"110\" y=\"115\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">자본 기여 (α·ΔK/K)</text>\n  \n  <!-- TFP 잔차 레이어 -->\n  <rect x=\"50\" y=\"40\" width=\"220\" height=\"40\" fill=\"#d1fae5\" stroke=\"#10b981\" stroke-width=\"1\" />\n  <text x=\"100\" y=\"65\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">총요소생산성 TFP (ΔA/A)</text>\n</svg>\n```\n",
+      "options": [
+        "$\\dfrac{dY}{Y} = \\dfrac{dA}{A} + \\alpha \\dfrac{dK}{K} + (1-\\alpha) \\dfrac{dL}{L}$ 이며, $\\alpha = \\dfrac{K \\cdot MP_K}{Y}$ 는 자본의 분배 탄력성(소득분배율)이다.",
+        "$\\dfrac{dY}{Y} = \\alpha \\dfrac{dA}{A} + \\dfrac{dK}{K} + \\dfrac{dL}{L}$ 이며, TFP 변화율에 자본분배율 $\\alpha$ 가 곱해져 기여도가 결정된다.",
+        "성장 회계 공식 하에서 노동의 기여도는 기술진보 인자 $A_t$ 의 역수에 비례하여 자발적으로 수축하는 동학을 보인다.",
+        "솔로우 잔차는 노동 성장률과 자본 성장률의 공분산에 비례하므로 경기 침체 시에는 무조건 음(-)의 상수를 지닌다.",
+        "총요소생산성(TFP)은 오직 노동과 자본의 투입량의 물리적 가중합과 대수적으로 일치해야만 측정 가능하다."
+      ],
+      "answer": "1",
+      "explanation": "Solow Growth Accounting 유도 과정:\\n1) 총생산함수: $Y = A \\cdot F(K, L)$\\n2) 양변에 전미분 적용:\\n   $$dY = dA \\cdot F(K, L) + A \\cdot [F_K dK + F_L dL]$$\\n3) 양변을 $Y = A \\cdot F(K, L)$ 로 나눔:\\n   $$\\dfrac{dY}{Y} = \\dfrac{dA \\cdot F(K, L)}{A \\cdot F(K, L)} + \\dfrac{A \\cdot F_K dK}{Y} + \\dfrac{A \\cdot F_L dL}{Y}$$\\n   $$\\dfrac{dY}{Y} = \\dfrac{dA}{A} + \\left(\\dfrac{K \\cdot F_K}{Y}\\right) \\dfrac{dK}{K} + \\left(\\dfrac{L \\cdot F_L}{Y}\\right) \\dfrac{dL}{L}$$\\n4) $\\alpha = \\dfrac{K \\cdot F_K}{Y} = \\dfrac{K \\cdot MP_K}{Y}$ (자본 탄력성), $\\beta = \\dfrac{L \\cdot F_L}{Y} = \\dfrac{L \\cdot MP_L}{Y}$ (노동 탄력성)로 정의합니다.\\n5) CRS 가정이므로 $\\alpha + \\beta = 1$ 이며, 요소 시장이 완전경쟁적이면 각 탄력성은 자본소득분배율 및 노동소득분배율과 정확히 같아집니다.\\n   $$\\dfrac{dY}{Y} = \\dfrac{dA}{A} + \\alpha \\dfrac{dK}{K} + (1-\\alpha) \\dfrac{dL}{L}$$\\n정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-035",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "루카스(Lucas, 1988)의 인적 자본 축적 내생적 성장 모형에서 개별 기업 $i$ 가 직면한 생산함수가 $Y_i = A K_i^\\alpha (u_i h_i L_i)^{1-\\alpha} h_a^\\gamma$ 로 주어진다. 여기서 $h_i$ 는 개별 노동자의 인적 자본 수준이고, $h_a$ 는 경제 전체의 평균 인적 자본 수준(외부효과)이다. 외부성 인자 $\\gamma > 0$ 의 존재가 개별 한계생산성과 사회 전체의 균형 성장 경로에 미치는 파급 효과로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 루카스 인적자본 스필오버 외부효과 격차 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">인적 자본 (h)</text>\n  <text x=\"15\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\">한계생산성 (MP_h)</text>\n  \n  <!-- 사적 한계생산 곡선 (우하향) -->\n  <path d=\"M 60 80 Q 150 140 280 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <text x=\"210\" y=\"150\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">사적 생산성 (PMB)</text>\n  \n  <!-- 사회적 한계생산 곡선 (외부효과 가산으로 위에 위치) -->\n  <path d=\"M 60 50 Q 150 100 280 135\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"200\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">사회적 생산성 (SMB)</text>\n</svg>\n```\n",
+      "options": [
+        "인적 자본의 사회적 외부효과($h_a^\\gamma$)로 인해 사회 전체의 총생산함수는 자본과 인적자본에 대해 규모에 대한 수익 체증(IRS)을 보여 지속적 성장을 유발하지만, 사적 주체들은 외부성을 과소평가하여 인적자본 투자가 사회적 최적 수준보다 낮게 형성된다.",
+        "외부성 $\\gamma$ 가 양수이면 개별 기업의 노동 한계생산성이 $0$으로 급격히 수축하여 사적 투자가 전면 중단된다.",
+        "Lucas 모형에 따르면 인적 자본의 축적 속도는 시점간 대체탄력성의 역수인 상대위험회피계수에 반비례하여 완전히 소멸한다.",
+        "사회적 외부성은 개별 가계의 임금을 강제로 인하시키는 부정적 외부불경제 요인으로 작동한다.",
+        "지속적 성장은 오직 사회적 외부효과 $\\gamma$ 가 $0$일 때만 콥-더글러스 CRS 균형 경로 상에서 안정적으로 확보된다."
+      ],
+      "answer": "1",
+      "explanation": "Lucas(1988) 모형의 외부성과 과소투자:\\n1) 사적 생산함수: 기업 $i$ 는 평균 인적자본 $h_a$ 를 외생적으로 취급하므로, 자신이 통제 가능한 $K_i, L_i, h_i$ 에 대해서는 CRS($\\alpha + 1 - \\alpha = 1$)로 인식합니다.\\n2) 사회적 생산함수: 일반균형 상에서 모든 가계의 인적자본이 같아져 $h_i = h_a = h$ 가 되므로, 사회 전체의 총생산함수는 다음과 같습니다:\\n   $$Y = A K^\\alpha (u h L)^{1-\\alpha} h^\\gamma = A K^\\alpha (u L)^{1-\\alpha} h^{1-\\alpha+\\gamma}$$\\n3) 규모수익 판정: $K$ 와 $h$ 의 투입 지수 합은 $\\alpha + 1 - \\alpha + \\gamma = 1 + \\gamma > 1$ 이 되어, 인적자본의 스필오버 외부효과로 인해 규모에 대한 수익 체증(IRS)이 작동합니다. 이는 솔로우 모형과 달리 한계생산성이 체감하지 않고 지속적으로 내생적 성장(Endogenous Growth)을 유지할 수 있는 동력이 됩니다.\\n4) 비효율 발생: 그러나 사적 주체들은 자신이 사회 전체의 지식 스톡($h_a$)을 높이는 긍정적 외부효과를 의사결정에 반영하지 않으므로, 사적 인적 자본 투자율은 사회적 최적(Social Optimum) 수준보다 항상 작아지는 시장 실패가 일어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-036",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "레온티에프(Leontief) 생산기술 $Q = \\min(aL, bK)$ 를 지닌 기업이 단기에 자본 투입량을 $K = \\bar{K}$ 로 고정시킨 채 생산을 진행하고 있다. 이 상황에서 노동 투입량 $L$ 을 $L > \\dfrac{b}{a}\\bar{K}$ 수준으로 초과 증가시킬 때 발생하는 기술적 보틀넥(Bottleneck) 현상과 노동의 한계생산($MP_L$)의 대수적 변화로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 레온티에프 기술 하 생산 보틀넥 기하 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"10\" font-family=\"sans-serif\">노동 (L)</text>\n  <text x=\"20\" y=\"25\" font-size=\"10\" font-family=\"sans-serif\">자본 (K)</text>\n  \n  <!-- 고정 자본선 K_bar -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#94a3b8\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"240\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">고정 자본 K_bar</text>\n  \n  <!-- 레온티에프 등량곡선 L자 -->\n  <path d=\"M 130 30 L 130 120 L 300 120\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <!-- 보틀넥 포인트 -->\n  <circle cx=\"130\" cy=\"120\" r=\"4\" fill=\"#ef4444\" />\n  <text x=\"135\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">기술적 보틀넥</text>\n</svg>\n```\n",
+      "options": [
+        "고정 자본 제약에 가로막혀 노동 투입을 아무리 늘려도 산출량은 $b\\bar{K}$ 로 고정되며, 이 보틀넥 구간에서 노동의 한계생산($MP_L$)은 정확히 $0$이 된다.",
+        "초과 투입된 노동은 자본을 대체하게 되므로 산출량 $Q$ 가 선형적으로 계속 증가하여 $MP_L = a$ 가 유지된다.",
+        "보틀넥 구간에서는 노동의 한계생산이 음(-)의 무한대로 급락하여 총생산 $Q$ 가 강제로 $0$으로 함몰한다.",
+        "레온티에프 기술 하에서는 단기 고정 자본 장벽이 발생하면 대체탄력성이 자발적으로 무한대로 팽창한다.",
+        "노동 투입의 증가는 기업의 규모에 대한 수익을 DRS에서 즉각 IRS로 반전시킨다."
+      ],
+      "answer": "1",
+      "explanation": "Leontief 기술과 단기 생산 보틀넥:\\n1) 생산함수 식: $Q = \\min(aL, b\\bar{K})$\\n2) 투입 임계치: 노동 투입량 $L$ 이 $L^* = \\dfrac{b}{a}\\bar{K}$ 일 때 두 요소의 비율이 정확히 균형을 이룹니다.\\n3) 초과 투입 시: $L > \\dfrac{b}{a}\\bar{K} \\implies aL > b\\bar{K}$ 이므로, $\\min(aL, b\\bar{K}) = b\\bar{K}$ 가 됩니다.\\n4) 한계생산성: 노동을 이 임계치보다 더 투입해봐야 산출량 $Q$ 는 전혀 변하지 않고 $b\\bar{K}$ 로 묶여 있습니다. 따라서 추가 노동 1단위에 따른 산출 증가분인 한계생산 $MP_L$ 은 정확하게 $0$이 되는 기술적 보틀넥을 빚게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "생산 가능 프론티어(Production Possibility Frontier, PPF)의 기하학적 형태가 원점에 대해 오목한(Concave) 성질을 갖는 원인과, 이를 노동과 자본 등 생산요소의 업종 간 배분 및 한계전환율(Marginal Rate of Transformation, $MRT_{X,Y}$) 체증 법칙으로 설명한 서술 중 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- PPF의 오목성과 MRT 체증 관계 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"10\" font-family=\"sans-serif\">X재 생산량</text>\n  <text x=\"15\" y=\"25\" font-size=\"10\" font-family=\"sans-serif\">Y재 생산량</text>\n  \n  <!-- 원점에 대해 오목한 PPF 곡선 -->\n  <path d=\"M 40 50 Q 200 60, 260 210\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 접선 기울기 (MRT 체증 표시) -->\n  <line x1=\"80\" y1=\"70\" x2=\"200\" y2=\"150\" stroke=\"#ef4444\" stroke-dasharray=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "각 재화의 생산함수가 요소 투입에 대해 한계생산 체감의 법칙을 따르거나 업종 간 요소 투입 비율의 비대칭성이 존재할 때, X재 생산을 늘릴수록 포기해야 하는 Y재의 수량이 체증하므로 PPF는 원점에 오목한 형태를 취한다.",
+        "PPF의 오목성은 생산 기술이 강한 규모에 대한 수익 체증(IRS)을 만족할 때만 유일하게 성립한다.",
+        "한계전환율 $MRT_{X,Y}$ 가 체감할수록 PPF는 원점에 대해 볼록한 형태를 띠며 기수적 효율을 상승시킨다.",
+        "재화 간의 한계전환율은 요소 가격의 비율 $w/r$ 에만 반비례하여 언제나 생산량 평면에서 완벽한 수평 직선이 된다.",
+        "오목한 PPF는 가계의 한계소비성향이 1에 도달해 저축률이 소멸할 때 리카도 대등정리에 의해 붕괴한다."
+      ],
+      "answer": "1",
+      "explanation": "PPF의 오목성과 MRT 체증:\\n1) 오목성의 원인: \\n   - 첫째, 단기 수확 체감의 법칙(한계생산 체감)으로 인해 X재 생산을 늘리기 위해 노동을 투입할 때 노동 1단위당 획득하는 X재 증가율은 점차 감소하는 반면, Y재 생산을 줄이며 방출하는 노동 1단위당 Y재 감소율은 점차 커집니다.\\n   - 둘째, 두 재화의 요소 집약도(Factor Intensity)가 다른 경우, 한 산업에서 다른 산업으로 요소를 재배치할 때 비효율이 발생합니다.\\n2) MRT와의 관계: 이에 따라 $MRT_{X,Y} = -\\dfrac{dY}{dX} = \\dfrac{MC_X}{MC_Y}$ 는 X재 생산량이 증가할수록 가파르게 체증(기울기의 절대값 상승)하며, 이는 기하학적으로 생산가능곡선이 원점에 대해 오목한 형태를 띠도록 유도합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-038",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "신고전학파 기술 진보 분류법에 입각할 때 힉스 중립적(Hicks Neutral), 해로드 중립적(Harrod Neutral), 솔로우 중립적(Solow Neutral) 기술 진보의 수리적 정의에 관한 설명이다. 각 기술 진보 하에서 요소 분배의 동학에 관한 서술 중 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Hicks/Harrod 중립적 기술진보 등량곡선 수축 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 기술 진보 전 등량곡선 -->\n  <path d=\"M 80 50 Q 150 150, 300 170\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  \n  <!-- 기술 진보 후 원점 수축 등량곡선 -->\n  <path d=\"M 50 35 Q 100 100, 280 145\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">기술 진보 후 수축</text>\n</svg>\n```\n",
+      "options": [
+        "힉스 중립적 기술 진보는 $Q = A \\cdot f(L, K)$ 로 표현되며, 자본-노동 비율($K/L$)이 일정할 때 한계기술대체율($RTS$)의 크기가 기술 진보 전후로 불변하여 노동과 자본의 상대 소득 분배율을 고정시킨다.",
+        "해로드 중립적 기술 진보는 자본 증대형 기술 진보($Q = f(L, AK)$)이며, 이자율이 일정할 때 자본-산출 비율을 영구히 하락시킨다.",
+        "솔로우 중립적 기술 진보는 노동 증대형 기술 진보($Q = f(AL, K)$)를 뜻하며, 노동 분배율만을 외생적으로 체증시킨다.",
+        "힉스 중립 하에서는 기술 진보가 일어나면 자본가에게만 총생산의 100%가 무조건 귀속되는 분배 왜곡이 일어난다.",
+        "모든 기술 진보는 대체탄력성 $\\sigma$ 가 $0$일 때만 세 종류의 중립성 조건들이 대수적으로 완벽하게 상호 일치하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "기술 진보의 중립성 분류:\\n1) Hicks 중립: $Y = A \\cdot f(K, L)$. 기술진보가 자본과 노동의 생산성을 대칭적으로 증가시킵니다. 따라서 $K/L$ 비율이 일정하다면 $RTS = \\dfrac{f_L}{f_K}$ 의 비율이 변하지 않고 일정하므로, 요소의 상대적 소득분배비율($\\dfrac{rK}{wL}$)이 기술진보 후에도 완벽히 유지됩니다.\\n2) Harrod 중립: $Y = f(K, AL)$ (노동 증대형). 임금과 자본-산출 비율의 안정성 분석(Steady State 성장)에 필수적입니다.\\n3) Solow 중립: $Y = f(AK, L)$ (자본 증대형). \\n따라서 힉스 중립에 관한 1번 설명이 정확하게 일치합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-039",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "다변수 생산함수 $Q = f(L, K)$ 의 2계 교차 편미분계수 $f_{LK} = \\dfrac{\\partial^2 Q}{\\partial L \\partial K}$ 의 부호가 가지는 기술적 의미에 관한 설명이다. 투입 요소 노동($L$)과 자본($K$)이 기술적 보완재(Technical Complements) 또는 기술적 대체재(Technical Substitutes)가 되기 위한 대수적 조건과 경제학적 효과로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Hicks 기술적 대체재/보완재 한계 생산성 궤적 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 40 180 Q 150 80, 280 50\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" />\n  <path d=\"M 40 120 Q 150 150, 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "$f_{LK} > 0$ 이면 자본의 추가 투입이 노동의 한계생산성($MP_L$)을 상승시키는 기술적 보완재 관계이며, $f_{LK} < 0$ 이면 자본 투입이 노동의 한계생산성을 떨어뜨리는 기술적 대체재 관계이다.",
+        "기술적 대체재인 경우 자본 투입이 늘어날 때 노동의 한계기술대체율($RTS$)의 절대값이 기하급수적으로 폭증하게 된다.",
+        "콥-더글러스 생산함수 하에서는 지수 합과 관계없이 노동과 자본이 언제나 기술적 대체재($f_{LK} < 0$) 관계만을 형성한다.",
+        "기술적 보완재 관계 하에서는 자본 축적이 일어나면 노동의 한계 가치인 균형 실질임금이 무조건 삭감된다.",
+        "교차 편미분의 부호는 오직 규모에 대한 수익(RTS)이 DRS인 감축 상태에서만 수학적 변동성을 지닌다."
+      ],
+      "answer": "1",
+      "explanation": "기술적 대체재와 보완재의 대수적 판정:\\n1) 한계생산성과 교차편미분의 관계:\\n   $$\\dfrac{\\partial MP_L}{\\partial K} = \\dfrac{\\partial^2 Q}{\\partial L \\partial K} = f_{LK}$$\\n2) 판정:\\n   - $f_{LK} > 0$ (보완재): 자본 $K$ 가 많이 투입되면 노동의 한계생산 $MP_L$ 도 덩달아 올라갑니다. 콥-더글러스 생산함수($Q = A L^\\alpha K^\\beta$)의 경우 $f_{LK} = \\alpha\\beta A L^{\\alpha-1} K^{\\beta-1} > 0$ 이므로 항상 기술적 보완재입니다.\\n   - $f_{LK} < 0$ (대체재): 자본 $K$ 가 증가하면 노동의 한계생산 $MP_L$ 은 체감하여 감소하게 됩니다 (노동 대체형 기계화 등).\\n따라서 1번이 정확한 설명입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-040",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "정보기술(IT) 및 디지털 경제 하에서 정보 무형 자본(Information Assets)이 지닌 고유한 생산 기술적 특성에 관한 설명이다. 디지털 재화의 극단적인 무한 복제성(Infinite Reproducibility)과 초기 고정 비용(First-copy Cost)의 구조가 전통적 콥-더글러스 생산함수의 전제 조건들을 위배하며 초래하는 일반균형 변화로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 디지털 경제 하 정보 무형자본 강한 규모의 경제(IRS) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"10\" font-family=\"sans-serif\">산출량 (Q)</text>\n  <text x=\"15\" y=\"25\" font-size=\"10\" font-family=\"sans-serif\">단위 비용</text>\n  \n  <!-- 평균비용 AC 곡선 (Q 증가 시 0으로 급격히 수축) -->\n  <path d=\"M 50 40 Q 80 190, 300 200\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <text x=\"240\" y=\"180\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\">평균 비용 AC</text>\n  \n  <!-- 한계비용 MC 곡선 (0에 수렴하는 수평선에 가까움) -->\n  <line x1=\"40\" y1=\"205\" x2=\"300\" y2=\"205\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"180\" y=\"195\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">한계 비용 MC ≈ 0</text>\n</svg>\n```\n",
+      "options": [
+        "초기 마스터 카피 제작에 막대한 고정 비용이 들지만 추가 복제 한계비용은 거의 $0$에 수렴하여, 생산량이 팽창할수록 평균비용이 지속 하락하는 극단적 규모의 경제(IRS)가 작동하며 독과점적 시장 구조를 촉진한다.",
+        "디지털 생산 기술은 산출량 증가 시 평균비용이 비례적으로 급증하는 규모에 대한 수익 체감(DRS)을 보장한다.",
+        "한계비용이 0에 도달하므로 한계생산성 균형 분배 시 노동 분배율이 100%를 초과하는 완전 고갈 현상이 발생한다.",
+        "디지털 재화는 자본과의 대체탄력성 $\\sigma$ 가 정확히 $0$으로 수축하는 레온티에프 고정 비율만을 강제한다.",
+        "디지털 경제의 팽창은 기업의 고정비용을 자발적으로 소멸시켜 시장을 완벽한 다자간 완전경쟁 상태로 회귀시킨다."
+      ],
+      "answer": "1",
+      "explanation": "디지털 무형자본과 규모의 경제:\\n1) 구조: 디지털 재화(예: 소프트웨어, 음원, OS, AI 모델)는 최초 복사본 제작에 막대한 고정 자본($F$)이 요구되지만, 복사본을 찍어내는 한계비용($MC$)은 거의 $0$에 가깝습니다.\\n2) 수리 동학: 총비용 $TC = F + c \\cdot Q$ (단, $c \\approx 0$).\\n   평균비용 $AC = \\dfrac{F}{Q} + c$ 이므로, 산출량 $Q$ 가 증가할수록 평균비용은 계속해서 떨어져 규모에 대한 수익 체증(IRS)이 전역적으로 지배합니다.\\n3) 파급 효과: 이는 다수의 소규모 기업이 공존할 수 없게 만들어, 선두 슈퍼스타 기업이 시장을 통째로 잠식하는 독과점 및 자연독점(Natural Monopoly) 균형을 형성하여 전통적 완전경쟁 시장 구조를 붕괴시킵니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-041",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "아로우(Arrow, 1962)의 학습을 통한 학습(Learning-by-Doing) 모형 하에서, 기업의 기술 수준 $A_t$ 가 개별 연구개발(R&D) 투자가 아닌 사회 전체의 누적 투자/생산 경험(Cumulative Output, $G_t = \\int_0^t Y_s ds$)의 함수 $A_t = G_t^\\phi$ (단, $\\phi > 0$)로 외생 결정된다고 상정한다. 누적 생산 증가에 따른 생산성 제고 메커니즘과 이로 인해 발생하는 동학적 규모의 경제(Dynamic Economies of Scale)에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 아로우(1962) 학습곡선 (누적 산출에 의한 단위당 필요 투입 감소) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">누적 생산량 (G)</text>\n  <text x=\"15\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\">단위당 투입량 (L/Q)</text>\n  \n  <!-- 학습 곡선 (우하향) -->\n  <path d=\"M 50 40 Q 100 130, 300 150\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <text x=\"200\" y=\"110\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#8b5cf6\" font-weight=\"bold\">학습 곡선 (Learning Curve)</text>\n</svg>\n```\n",
+      "options": [
+        "누적 생산 경험이 축적될수록 생산 기술선이 상방 이동하며 단위당 필요 투입 노동량이 하락하며, $\\phi \\ge 1$ 인 경우 한계생산성 체감을 무력화하여 장기적으로 무한한 자기강화적 성장을 보장한다.",
+        "학습 효과는 개별 가계의 시간 할인율 $\\beta$ 가 이자율보다 클 때만 한계비용을 일시적으로 인상시키는 부작용을 야기한다.",
+        "누적 생산량 $G_t$ 의 증가는 노동과 자본의 대체탄력성 $\\sigma$ 를 $0$으로 수축시켜 레온티에프 병목 상태로 고착시킨다.",
+        "아로우 모형에 따르면 학습 효과는 사적 기업들에게 초과 이윤 마진을 제공하므로 정부의 어떠한 보조금 지급도 불필요하게 만든다.",
+        "동학적 규모의 경제는 오직 기업의 생산함수가 단기적으로 완전 선형 대체 기술을 따를 때만 2차 미분계수가 성립한다."
+      ],
+      "answer": "1",
+      "explanation": "Arrow(1962) Learning-by-doing과 동학적 규모의 경제:\\n1) 원리: 기업은 생산을 거듭하면서 시행착오를 극복하고 공정을 개선하는 학습(Learning)을 겪습니다. 이 학습의 지표는 '누적 생산량 $G_t$'로 대변됩니다.\\n2) 외부성: 개별 기업의 생산 행위는 사회 전체의 지식 스톡 $A_t$ 를 올리는 공공재적 스필오버를 창출합니다.\\n3) 동학적 경제: 시간 경과에 따라 $G_t$ 가 커지면 $A_t$ 가 상승하므로, 동일한 $L, K$ 를 넣어도 얻는 산출량이 우상향 팽창하고 단위당 노동 비용이 하락하는 동학적 규모의 경제(Dynamic economies of scale)가 작동합니다. 특히 $\\phi \\ge 1$ 이면 자본 축적 시 발생하는 한계생산성 체감을 완전히 상쇄하여 정상 상태로의 수렴 없이 경제가 계속 성장할 수 있는 동학적 안정 경로를 제공합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-042",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "3가지 생산요소인 노동($L$), 물적 자본($K$), 에너지/원자재($E$)를 투입하는 생산함수 $Q = f(L, K, E)$ 가 존재한다. 3개 이상 요소 평면 상에서 요소 간의 대체성 강도를 정밀 측정하는 앨런 한계대체탄력성(Allen Elasticity of Substitution, $\\sigma_{ij}^A$)의 수학적 정의와, 헤시안 행렬(Hessian Matrix)의 테두리 행렬식(Bordered Determinant)을 활용한 수리적 결론으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 3요소 Allen 대체탄력성 등고구면 묘사 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 등고 평면 구면들 -->\n  <path d=\"M 60 210 Q 150 90 300 80\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "$\\sigma_{ij}^A = \\dfrac{\\sum f_k x_k}{x_i x_j} \\cdot \\dfrac{F_{ij}}{F}$ 이며, $F$ 는 Bordered Hessian 행렬의 행렬식이고 $F_{ij}$ 는 원소 $f_{ij}$ 의 여인수(Cofactor)로 3요소 간의 부분 대체 강도를 정확히 포착한다.",
+        "앨런 대체탄력성은 요소 수와 상관없이 항상 모든 쌍에 대해 양(+)의 대칭적 상수만을 유지하도록 설계된다.",
+        "헤시안 행렬식이 $0$에 도달하는 순간, 세 요소는 상호 간의 기술적 대체성이 무한대로 팽창하여 선형 기술로 수렴한다.",
+        "$\\sigma_{ij}^A$ 가 음(-)의 값을 취하게 되면 두 요소 $i, j$ 는 거시 경제 성장 모형 하에서 파레토 비효율적 낭비 요소로 폐기된다.",
+        "3요소 탄력성은 오직 세 요소의 소득 분배율의 가중합이 $1$을 완벽하게 위배할 때만 대수적 판정력을 확보한다."
+      ],
+      "answer": "1",
+      "explanation": "Allen 대체탄력성과 Bordered Hessian:\\n1) 정의: 2요소의 경우 대체탄력성 정의가 단일하지만, 3요소 이상으로 가거나 다재화 생산으로 확장되면 다른 요소들의 투입 조정을 함께 고려해야 하므로 부분 대체탄력성(Partial Elasticity of Substitution)을 구해야 합니다.\\n2) Allen-Uzawa 정의 식:\\n   $$\\sigma_{ij}^A = \\dfrac{\\sum_{k} f_k x_k}{x_i x_j} \\cdot \\dfrac{F_{ij}}{F}$$\\n   (단, $F$ 는 Bordered Hessian 행렬의 행렬식, $F_{ij}$ 는 교차 편미분 원소 $f_{ij}$ 의 Cofactor)\\n3) 해석: $\\sigma_{ij}^A > 0$ 이면 두 요소 $i, j$ 는 앨런 대체재이고, $\\sigma_{ij}^A < 0$ 이면 앨런 보완재입니다. 이는 다차원 요소 시장에서 자본 축적이 일어날 때 원자재 수요나 노동 임금에 미치는 미시 수리적 파급 효과를 연산하는 기준이 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-043",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "2단계 중첩적 CES 생산함수(Nested CES Production Function) $Q = \\left[ a L_L^\\rho + (1-a) \\left( b K^\\theta + (1-b) L_H^\\theta \\right)^{\\rho/\\theta} \\right]^{1/\\rho}$ 하에서, $L_H$ 는 숙련 노동, $L_L$ 은 비숙련 노동, $K$ 는 물적 자본이다. 크루셀(Krusell et al., 2000)의 '자본-숙련보완성 가설(Capital-Skill Complementarity Hypothesis)'이 만족되기 위한 대체 매개변수들의 상대적 크기 조건($\\rho$ 와 $\\theta$ 의 관계)과 자본 축적 시 발생하는 숙련 임금 프리미엄 격차 변화에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Nested CES 자본축적 시 숙련 격차 심화 동학 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">자본 스톡 (K)</text>\n  <text x=\"15\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\">상대 임금 (w_H / w_L)</text>\n  \n  <!-- 상대임금 격차 상승선 (기술편향) -->\n  <path d=\"M 60 180 Q 160 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">자본-숙련보완성 효과</text>\n</svg>\n```\n",
+      "options": [
+        "$\\theta < \\rho \\le 1$ (즉, 자본과 숙련노동 간의 대체탄력성이 자본과 비숙련노동 간보다 작음)이 성립해야 하며, 자본 축적 시 숙련노동의 한계생산성이 상대적으로 더 크게 늘어나 숙련 프리미엄 격차($w_H/w_L$)가 심화된다.",
+        "$\\theta > \\rho$ 이 성립할 때 자본 축적이 비숙련 노동자의 임금만을 급등시켜 임금 불평등을 자발적으로 완화시킨다.",
+        "두 매개변수가 일치하여 $\\rho = \\theta$ 가 되면 중첩 구조가 붕괴하여 어떠한 자본 투자도 노동 수요를 유도하지 못한다.",
+        "중첩 CES 하의 임금 격차는 오직 기술 진보가 해로드 중립성을 완전히 상실할 때만 0으로 수축한다.",
+        "숙련 프리미엄은 물적 자본 $K$ 가 소멸하여 감가상각율이 $100\\%$ 에 도달하는 순간 극대화된다."
+      ],
+      "answer": "1",
+      "explanation": "자본-숙련보완성 가설(Capital-Skill Complementarity)의 수리 조건:\\n1) 구조: 자본 $K$ 와 숙련노동 $L_H$ 가 하위 네스트(Nested)에서 먼저 결합하여 하나의 가상 복합재를 이루고, 이것이 상위 네스트에서 비숙련노동 $L_L$ 과 최종 결합합니다.\\n2) 탄력성 관계:\\n   - 자본-숙련노동 간의 대체탄력성: $\\sigma_{KH} = \\dfrac{1}{1-\\theta}$\\n   - 자본-비숙련노동 간의 대체탄력성: $\\sigma_{KL} = \\dfrac{1}{1-\\rho}$\\n3) 가설 만족 조건: 자본과 숙련노동이 상대적으로 더 강한 보완재여야 하므로, 대체탄력성은 $\\sigma_{KH} < \\sigma_{KL}$ 이어야 합니다.\\n   $$\\dfrac{1}{1-\\theta} < \\dfrac{1}{1-\\rho} \\implies 1-\\theta > 1-\\rho \\implies \\theta < \\rho$$\\n4) 파급 효과: 이 조건($\\theta < \\rho$)이 만족될 때, 경제에 자본 $K$ 가 축적되면 비숙련노동 $L_L$ 은 쉽게 자본으로 대체되어 수요가 위축되지만, 숙련노동 $L_H$ 는 자본의 보완재이므로 수요가 폭증하여 숙련-비숙련 노동자 간의 상대 임금 격차(임금 불평등)가 확대되는 현상이 일어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-044",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "어느 기업의 콥-더글러스 생산함수가 $Q = 2 L^{0.6} K^{0.4}$ 이다. 노동의 단위당 가격 $w = 6$, 자본의 단위당 가격 $r = 4$ 이며, 기업의 단기 총비용 지출 한도가 $C = 1,200$ 으로 예산 제약이 주어졌다. 비용 제약 하에서 산출량을 극대화하고자 하는 기업의 최적 노동 투입량 $L^*$, 최적 자본 투입량 $K^*$, 그리고 이 기업이 달성 가능한 최대 산출량 $Q^*$ 를 대수적으로 연산하여 옳게 나열한 것은?",
+      "options": [
+        "$L^* = 120$, $K^* = 120$, $Q^* = 240$",
+        "$L^* = 100$, $K^* = 150$, $Q^* = 200$",
+        "$L^* = 150$, $K^* = 75$, $Q^* = 240$",
+        "$L^* = 120$, $K^* = 120$, $Q^* = 120$",
+        "$L^* = 80$, $K^* = 180$, $Q^* = 180$"
+      ],
+      "answer": "1",
+      "explanation": "비용제약 하 산출량 극대화 대수 연산:\\n1) 목적함수 및 제약식:\\n   - 극대화: $Q = 2 L^{0.6} K^{0.4}$\\n   - 제약식: $6L + 4K = 1,200$\\n2) 한계기술대체율(RTS) 조건:\\n   $$RTS_{L,K} = \\dfrac{MP_L}{MP_K} = \\dfrac{2 \\cdot 0.6 L^{-0.4} K^{0.4}}{2 \\cdot 0.4 L^{0.6} K^{-0.6}} = \\dfrac{0.6 K}{0.4 L} = 1.5 \\dfrac{K}{L}$$\\n3) 비용 극소화 최적 조건 ($RTS_{L,K} = w/r$):\\n   $$1.5 \\dfrac{K}{L} = \\dfrac{6}{4} = 1.5 \\implies \\dfrac{K}{L} = 1 \\implies K = L$$\\n4) 제약식 대입:\\n   $$6L + 4K = 1,200 \\implies 6L + 4L = 1200 \\implies 10L = 1200 \\implies L^* = 120$$\\n   $$K^* = L^* = 120$$\\n5) 최대 산출량 $Q^*$ 계산:\\n   $$Q^* = 2 \\cdot (120)^{0.6} \\cdot (120)^{0.4} = 2 \\cdot (120)^{0.6+0.4} = 2 \\cdot 120 = 240$$\\n따라서 $L^* = 120, K^* = 120, Q^* = 240$ 입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-045",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "자료포락분석(Data Envelopment Analysis, DEA) 모형 하에서 가변규모수익(Variable Returns to Scale, VRS) 가정 하의 투입지향(Input-oriented) 효율성 지표 $\\theta^*$ 를 리니어 프로그래밍(Linear Programming)의 쌍대성(Duality)을 활용해 도출하고자 한다. 평가 대상 DMU(의사결정단위) $o$ 의 투입 벡터 $x_o$, 산출 벡터 $y_o$ 가 주어질 때, 쌍대 조건식의 제약 조건과 볼록성 조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- DEA 비모수적 효율성 프론티어 Envelop -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 볼록 효율적 경계 꺾은선 (Envelop) -->\n  <path d=\"M 40 180 L 120 120 L 220 70 L 300 60\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.5\" />\n  <text x=\"230\" y=\"55\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#059669\">DEA Frontier (VRS)</text>\n  \n  <!-- 비효율적 기업 포지셔닝 점들 -->\n  <circle cx=\"150\" cy=\"150\" r=\"4\" fill=\"#ef4444\" />\n  <circle cx=\"200\" cy=\"110\" r=\"4\" fill=\"#ef4444\" />\n</svg>\n```\n",
+      "options": [
+        "$\\sum_{j=1}^J \\lambda_j y_{rj} \\ge y_{ro}$ (모든 산출 $r$), $\\sum_{j=1}^J \\lambda_j x_{ij} \\le \\theta x_{io}$ (모든 투입 $i$), 그리고 볼록성 제약 $\\sum_{j=1}^J \\lambda_j = 1$ 을 충족하는 $\\theta^*$ 의 최소값을 구한다.",
+        "제약 조건식에서 투입 벡터의 곱합이 $\\theta$ 의 역수에 비례해야 하며, 볼록성 제약은 절대 존재하지 않아야 CRS가 성립한다.",
+        "DEA 효율성은 오직 모든 가중치 $\\lambda_j$ 가 음(-)의 무한대로 하락하는 코너 영역에서만 쌍대 해가 도출된다.",
+        "VRS 효율성 지표 $\\theta^*$ 는 투입 예산 제약의 한계 가치에 직접 비례하므로 항상 $1$을 초과하는 수치를 보인다.",
+        "쌍대 LP 모형은 오직 개별 DMU의 투입 요소 간 대체탄력성이 완전 대체적일 때만 기술적 수렴이 보장된다."
+      ],
+      "answer": "1",
+      "explanation": "DEA VRS 모형의 리니어 프로그래밍 수식:\\n1) DEA 투입지향 VRS primal LP식:\\n   - 목적식: $\\min_{\\theta, \\lambda} \\theta$\\n   - 제약식:\\n     $$\\sum_{j=1}^J \\lambda_j y_{rj} \\ge y_{ro} \\quad (r=1, \\dots, R \\text{ 산출 제약})$$\\n     $$\\sum_{j=1}^J \\lambda_j x_{ij} \\le \\theta x_{io} \\quad (i=1, \\dots, I \\text{ 투입 제약})$$\\n     $$\\sum_{j=1}^J \\lambda_j = 1 \\quad (\\text{볼록성 제약, VRS 조건})$$\\n     $$\\lambda_j \\ge 0 \\quad (j=1, \\dots, J)$$\\n2) 해석: 이 리니어 프로그래밍은 대상 기업 $o$ 의 생산 효율성을 다수의 비교 대상 기업들의 볼록 결합(Envelop) 내부로 투사시켜, 동일한 아웃풋을 내기 위해 투입을 얼마나 줄일 수 있는지 비율 $\\theta$ 의 최소값을 연산하는 표준 기법입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-046",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "로머(Romer, 1990)의 지식 축적 내생적 성장 모형 하에서 지식 생산함수가 $\\dot{A}_t = \\delta L_{A,t} A_t^\\phi$ 로 설계되어 있다. 여기서 $L_{A,t}$ 는 연구개발(R&D) 부문 노동 투입이고, $A_t$ 는 기존의 누적된 지식 스톡(아이디어)이다. 지식 스필오버(Spillover) 매개변수 $\\phi$ 의 크기가 지식 성장의 정상 상태(Steady State) 분기 및 경제의 영구적 내생 성장에 미치는 파급 효과로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 로머 지식축적 내생적 성장 분기동학 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"10\" font-family=\"sans-serif\">시간 (t)</text>\n  <text x=\"20\" y=\"25\" font-size=\"10\" font-family=\"sans-serif\">지식 스톡 A(t)</text>\n  \n  <!-- 지수적 성장 곡선 (phi = 1, 내생적 지속 성장) -->\n  <path d=\"M 40 200 Q 150 160 280 50\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <text x=\"210\" y=\"100\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#8b5cf6\" font-weight=\"bold\">지수 성장 (φ = 1)</text>\n</svg>\n```\n",
+      "options": [
+        "$\\phi = 1$ 인 경우 경제 전체의 R&D 노동 투입량이 일정하더라도 지식 축적률($\\dot{A}/A$)이 양(+)의 상수로 유지되어 지속적인 내생 성장이 가능하며, $\\phi < 1$ 이면 연구 노력을 늘려도 결국 한계생산성 체감으로 성장이 지연된다.",
+        "$\\phi > 1$ 이면 지식 축적이 일정 수준 후 $0$으로 급격히 수축하여 사적 연구 투자가 원천 차단된다.",
+        "Romer 모형 하에서 지속 성장은 오직 지식 스필오버 변수 $\\phi$ 가 음(-)의 무한대로 하락할 때만 수리적으로 안정화된다.",
+        " R&D 부문 노동의 기여도는 지식 스톡 $A_t$ 의 역수에 비례하여 동학적 경로 상에서 항상 감소한다.",
+        " Romer 지식 축적은 오직 거시 소비 대체탄력성이 $0$인 선형 할인 상태 하에서만 안정 균형점을 형성한다."
+      ],
+      "answer": "1",
+      "explanation": "Romer(1990) 지식생산함수와 스필오버 동학:\\n1) 지식 축적률 식:\\n   $$\\dfrac{\\dot{A}_t}{A_t} = \\delta L_{A,t} A_t^{\\phi - 1}$$\\n2) 케이스 분류:\\n   - $\\phi = 1$ (선형 지식 생산): R&D 부문 투입 노동 $L_A$ 가 일정해도, 성장률 $\\dfrac{\\dot{A}}{A} = \\delta L_A$ 은 일정 상수로 영구히 유지됩니다. 즉, 인구 증가가 없더라도 경제가 지속 성장하는 내생적 성장(Endogenous Growth)의 핵심 토대를 제공합니다.\\n   - $\\phi < 1$ (지식 스필오버 체감): 지식 축적이 누적될수록 지식 생산의 한계생산성이 체감합니다. 장기 성장을 유지하려면 인구가 지속적으로 늘어나 $L_A$ 가 늘어나야 하는 준내생적 성장(Semi-endogenous growth, Jones 모형)으로 회귀합니다.\\n   - $\\phi > 1$ (스필오버 체증): 지식이 지식을 폭발적으로 낳아 유한한 시간 내에 지식 스톡이 무한대로 발산하는 폭발적 특이점(Singularity) 문제를 안게 됩니다.\\n따라서 1번이 정확한 동태적 분기 설명입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-047",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "확률적 프론티어 분석(Stochastic Frontier Analysis, SFA) 모형 하에서 기업의 생산함수 실증 오차항이 $v_i - u_i$ 의 혼합 오차 구조를 지닌다. 여기서 $v_i \\sim N(0, \\sigma_v^2)$ 은 통제 불가능한 대칭적 백색 잡음(White Noise)이고, $u_i \\sim N^+(0, \\sigma_u^2)$ 은 하프 노멀(Half-normal) 분포를 따르는 비대칭적 기술적 비효율 오차이다. 이 SFA 모형 하에서 최종 잔차 $\\epsilon_i = v_i - u_i$ 의 확률밀도함수(PDF)를 올바르게 유도한 식의 구성 성분으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- SFA 모형 하 비대칭 오차 분포도 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 대칭 정규분포 점선 -->\n  <path d=\"M 50 210 Q 175 40 300 210\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <!-- 비대칭 SFA 오차 분포 (왼쪽으로 긴 꼬리) -->\n  <path d=\"M 40 210 Q 120 180, 210 50 T 300 210\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "$f(\\epsilon_i) = \\dfrac{2}{\\sigma} \\phi\\left(\\dfrac{\\epsilon_i}{\\sigma}\\right) \\Phi\\left(-\\dfrac{\\epsilon_i \\lambda}{\\sigma}\\right)$ 이며, $\\sigma^2 = \\sigma_v^2 + \\sigma_u^2$, $\\lambda = \\dfrac{\\sigma_u}{\\sigma_v}$ 이고 $\\phi$ 와 $\\Phi$ 는 각각 표준정규분포의 PDF와 CDF이다.",
+        "$f(\\epsilon_i) = \\phi(\\epsilon_i) \\cdot \\Phi(\\epsilon_i)$ 이며, 대칭성 오류가 소멸하므로 오직 하프 노멀 분포만으로 우도함수가 단순화된다.",
+        "SFA 우도함수는 통제 불가능 오차의 분산 $\\sigma_v^2$ 이 극도로 팽창할 때 항상 카이제곱 분포로 자발적 이행을 보인다.",
+        "비대칭 지표 $\\lambda$ 의 크기가 $0$으로 수렴할 때 SFA 모형은 완전한 레온티에프 고정 기술 프론티어로 회귀한다.",
+        "SFA 잔차 적분은 오직 한계기술대체율이 생산 평면 상에서 직선일 때만 닫힌 해(Closed-form) 형태로 적분 가능하다."
+      ],
+      "answer": "1",
+      "explanation": "SFA 모형 잔차의 합성 분포 유도:\\n1) 합성 오차: $\\epsilon_i = v_i - u_i$\\n2) $v_i$ 의 정규분포 PDF와 $u_i$ 의 하프 노멀 PDF를 합성곱(Convolution)하여 적분 정리:\\n   $$f(\\epsilon_i) = \\int_0^\\infty f_v(\\epsilon_i + u) f_u(u) du$$\\n3) 적분을 계산하여 대수적으로 정리하면 다음과 같은 아키-도널드(Aigner, Lovell, and Schmidt, 1977)의 표준 수식이 도출됩니다:\\n   $$f(\\epsilon_i) = \\dfrac{2}{\\sigma} \\phi\\left(\\dfrac{\\epsilon_i}{\\sigma}\\right) \\left[ 1 - \\Phi\\left(\\dfrac{\\epsilon_i \\lambda}{\\sigma}\\right) \\right] = \\dfrac{2}{\\sigma} \\phi\\left(\\dfrac{\\epsilon_i}{\\sigma}\\right) \\Phi\\left(-\\dfrac{\\epsilon_i \\lambda}{\\sigma}\\right)$$\\n   (단, $\\sigma = \\sqrt{\\sigma_v^2 + \\sigma_u^2}$, $\\lambda = \\dfrac{\\sigma_u}{\\sigma_v}$)\\n4) $\\lambda$ 는 기술적 비효율성 오차의 상대적 크기를 나타내며, 이 우도함수를 극대화하여(MLE) 프론티어 파라미터와 개별 효율성을 추정합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-048",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "자본 투자 조정 비용(Adjustment Costs of Capital, Uzawa-Lucas 모형)이 존재하는 동학적 최적화 상황을 가정한다. 기업이 직면한 단위당 투자 조정 비용 함수가 $C(I, K) = \\dfrac{\\gamma}{2}\\dfrac{I^2}{K}$ (단, $\\gamma > 0$)로 설계되어 자본 스톡 $K$ 의 팽창 속도를 규제한다. 기업의 이윤극대화 해로부터 도출되는 토빈의 큐(Tobin's q)와 투자율($I/K$)의 동학적 선형 미분 방정식 관계와, 이를 안장경로(Saddle Path)로 수렴시키는 고유치(Eigenvalues)의 부호로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 자본 조정 비용 q-이론 안장경로 수렴 위상도 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"10\" font-family=\"sans-serif\">자본 (k)</text>\n  <text x=\"20\" y=\"25\" font-size=\"10\" font-family=\"sans-serif\">Tobin's q</text>\n  \n  <!-- dq/dt = 0 (우하향) 및 dk/dt = 0 (수평) -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#94a3b8\" stroke-width=\"1.5\" />\n  <path d=\"M 40 50 Q 170 120 300 190\" fill=\"none\" stroke=\"#94a3b8\" stroke-width=\"1.5\" />\n  \n  <!-- 안장경로 (Saddle Path) -->\n  <path d=\"M 60 60 Q 170 120 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "투자율 $\\dfrac{I}{K} = \\dfrac{q - 1}{\\gamma}$ 이며, 정상상태 주변에서 야코비안 행렬(Jacobian Matrix)의 두 고유치가 서로 부호가 반대인 실근($\\lambda_1 > 0, \\lambda_2 < 0$)을 가져 안장점 안정성(Saddle-path Stability)이 충족된다.",
+        "투자율은 토빈의 q의 제곱에 반비례하며 고유치는 언제나 두 허근을 지녀 나선형으로 무한 발산한다.",
+        "조정 비용이 상승하면 $q = 1$ 인 지점에서 자본의 한계가치가 0으로 급락하여 어떠한 신규 투자도 차단된다.",
+        "동학적 최적화 경로는 오직 조정 비용 파라미터 $\\gamma$ 가 $0$에 도달하여 수확 체감이 무력화될 때만 안장경로를 이탈한다.",
+        "투자율 동학은 가계의 시간 할인율 $\\beta$ 와 무관하게 포트폴리오 다양화의 한계 편익 감소 속도에 의해서만 결정된다."
+      ],
+      "answer": "1",
+      "explanation": "자본투자 조정비용과 Tobin's q 동학:\\n1) 해밀토니안 식의 투자 $I$ 에 대한 FOC:\\n   $$1 + \\gamma \\dfrac{I}{K} = q \\implies \\dfrac{I}{K} = \\dfrac{q - 1}{\\gamma}$$\\n   (단, $q$ 는 자본의 한계 가치인 Tobin's q)\\n2) 정상상태 안정성: 자본 축적식 $\\dot{K} = I - \\delta K$ 와 해밀토니안의 자본가치 축적식 $\\dot{q}$ 를 정상상태 주변에서 1차 테일러 선형화하여 Jacobian Matrix $J$ 를 구합니다.\\n3) 고유치 판정: 행렬식 $\\det(J)$ 의 부호가 음(-)이 됨이 수학적으로 보장됩니다 (Trace는 할인율 $\\rho > 0$, Determinant는 음수). 이는 두 고유치가 서로 부호가 다른 실근($\\lambda_1 > 0, \\lambda_2 < 0$)을 가짐을 뜻하므로, 2차원 위상도 상에서 유일한 안장경로(Saddle Path)를 따라 정상상태로 수렴하는 안정적 동학을 형성합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-049",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "아제모글루(Acemoglu, 2002)의 편향적 기술 진보(Directed Technical Change) 모형에 관한 설명이다. 생산자 기술이 숙련 노동과 비숙련 노동을 투입하는 CES 결합 형태를 취할 때, 숙련 노동의 상대적 공급 크기 팽창($H/L$ 증가)이 기술 개발 유인에 미치는 두 효과인 가격 효과(Price Effect)와 시장 규모 효과(Market Size Effect)의 상충관계 및 이들이 상대 임금(숙련 프리미엄, $w_H/w_L$)을 장기적으로 상승시키기 위해 요구되는 두 노동 간의 대체탄력성($\\sigma$)의 임계치 조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Acemoglu 편향적 기술진보 대체탄력성 임계치 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 60 180 Q 160 100 280 80\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <path d=\"M 60 80 Q 160 100 280 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "대체탄력성 $\\sigma > 1$ (보다 구체적으로 $\\sigma > 2$ 부근의 임계 조건을 초과)이어야 시장 규모 효과가 가격 효과를 압도하여, 숙련 노동의 공급이 늘어날 때 기업이 숙련 편향적 기술을 더욱 집중 개발하여 장기적으로 상대 임금을 오히려 상승시킨다.",
+        "대체탄력성 $\\sigma < 1$ 일 때만 시장 규모 효과가 작동하여 비숙련 노동자의 실질 임금이 극대화된다.",
+        "두 노동 간의 대체성이 완벽하여 $\\sigma = \\infty$ 가 성립하는 경우에만 기술 편향의 방향성이 무력화되어 임금 격차가 0으로 수축한다.",
+        "임금 프리미엄의 장기 상승은 오직 정부가 연구 개발 부문에 매기는 소득세율을 100%로 설정할 때만 수리적으로 보장된다.",
+        " Directed Technical Change는 가계의 한계소비성향이 0에 도달해 예비적 저축이 소멸하는 균형 상에서 붕괴한다."
+      ],
+      "answer": "1",
+      "explanation": "Acemoglu(2002) Directed Technical Change의 조건:\\n1) 두 효과:\\n   - 가격 효과: 특정 노동의 공급이 늘어나면 해당 노동의 상대 가격이 하락하여, 기업은 그 노동을 절약하는(반대 방향) 기술을 개발하고자 합니다.\\n   - 시장 규모 효과: 특정 노동의 공급이 늘어나면 그 노동을 사용하는 기술의 시장 규모가 커지므로, 기업은 그 노동을 더 많이 활용하는(같은 방향) 기술을 개발하고자 합니다.\\n2) 임계치 도출: 두 효과의 알짜 방향은 대체탄력성 $\\sigma$ 에 의해 좌우됩니다. 계산에 따르면, 상대 임금 반응성 식은 다음과 같습니다:\\n   $$\\dfrac{d \\ln(w_H/w_L)}{d \\ln(H/L)} = \\sigma - 2 \\quad (\\text{기술 수준 조정을 반영한 장기})$$\\n3) 따라서 $\\sigma > 1$ 이면 기술 개발 유인이 시장 규모 효과에 의해 숙련 편향적으로 흐르며, 특히 장기적으로 $\\sigma > 2$ 이면 숙련 공급 $H/L$ 이 증가할 때 장기 상대임금 $w_H/w_L$ 이 오히려 상승하는 역설적이고 실증적인 결과(Directed Technical Change)를 만족합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-050",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "동학적 램지-카스-쿠프만스(Ramsey-Cass-Koopmans) 신고전학파 성장 모형 하에서 가계의 Euler 조건식 $\\dfrac{\\dot{c}_t}{c_t} = \\dfrac{1}{\\theta} [f'(k_t) - \\delta - \\rho]$ 가 성립한다. 1인당 총생산함수 $f(k)$ 가 한계생산 체감 법칙($f'' < 0$)을 엄격히 충족할 때, 자본 축적 동학에서 $f(k)$ 의 2계 도함수의 크기가 자본-소비 평면 위상도 상에서 정상 상태(Steady State)의 국소적 안장경로(Saddle Path)의 기하학적 기울기 방향에 미치는 영향으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 램지모형 총생산과 Euler 정상상태 수렴 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 40 210 Q 150 80 300 75\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" />\n  <line x1=\"170\" y1=\"30\" x2=\"170\" y2=\"210\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "$f''(k)$ 의 절대값이 클수록(즉, 자본의 한계생산 체감 속도가 빠를수록) 자본 팽창에 따른 이자율 하락 속도가 가속화되므로 안장경로의 기하학적 기울기가 더 완만해지며 정상상태로의 수렴 속도가 빨라진다.",
+        "한계생산의 체감 속도가 $0$에 도달하는 선형 기술 하에서만 안장경로가 영구적으로 수직선 형태를 취하게 된다.",
+        "램지 모형 하에서 안장경로의 동학적 경로는 기술 진보 변수 A가 존재할 때 수렴 안정성을 완전히 상실하고 무한 발산한다.",
+        "자본의 한계생산성 곡률이 커지면 대표 가계는 예비적 소비를 늘리고 자본 축적을 전면 차단하게 유도한다.",
+        "수렴 경로는 오직 대표 가계의 상대위험회피계수 $\\theta$ 가 $0$인 위험 중립 상태에서만 가격 탄력성을 상실한다."
+      ],
+      "answer": "1",
+      "explanation": "Ramsey 모형의 선형화 및 수렴 속도:\\n1) Euler 및 자본축적 동학:\\n   $$\\dot{k} = f(k) - c - (n+\\delta)k$$\\n   $$\\dot{c} = \\dfrac{c}{\\theta} [f'(k) - \\delta - \\rho]$$\\n2) 정상상태 $(k^*, c^*)$ 주변에서 야코비안 행렬 $J$ 를 구하여 선형화하면:\\n   $$J = \\begin{bmatrix} f'(k^*) - (n+\\delta) & -1 \\\\ \\dfrac{c^*}{\\theta} f''(k^*) & 0 \\end{bmatrix} = \\begin{bmatrix} \\rho - n & -1 \\\\ \\dfrac{c^*}{\\theta} f''(k*) & 0 \\end{bmatrix}$$\\n3) 고유치 판정: $\\det(J) = \\dfrac{c^*}{\\theta} f''(k^*) < 0$ 이므로 두 고유치는 이질적 부호의 실근을 가져 안장점 안정을 충족합니다.\\n4) 수렴 속도 영향: 음의 고유치의 크기(수렴 속도)는 $\\det(J)$ 의 절대값이 클수록 커집니다. 즉, $f''(k^*)$ 의 절대값이 클수록(체감이 급격할수록) 고유치 $\\lambda_{negative}$ 의 절대값이 커져 수렴 속도가 빨라집니다. 기하학적으로는 안장경로(Saddle path)의 기울기가 완만해지며 정상상태로 급격히 유도됩니다. 정답은 1번입니다."
     }
   ]
 }

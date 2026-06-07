@@ -8,84 +8,84 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch08-sec01-item03-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "공공재(public good)의 두 가지 특성은?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "A와 B 두 소비자로만 구성된 사회에서 공공재(G)에 대한 개별 수요 곡선이 다음과 같다.\n- A의 수요: $P_A = 100 - G$\n- B의 수요: $P_B = 150 - 2G$\n공공재 공급의 한계비용이 $MC = 70$ 으로 일정하다고 할 때, 사뮤엘슨 조건(Samuelson Condition)에 의한 사회적 최적 공공재 공급량 $G^*$의 크기는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
       "options": [
-        "비경합성(non-rivalry) + 비배제성(non-excludability)",
-        "경합성 + 배제성",
-        "효율성 + 공정성",
-        "독점 + 차별",
-        "대량생산 + 저비용"
+        "40",
+        "50",
+        "60",
+        "70",
+        "80"
       ],
-      "answer": "1",
-      "explanation": "공공재: ① 비경합성 — 한 사람 소비가 다른 사람 소비 방해 안 함 ② 비배제성 — 대가 안 낸 사람도 사용 가능. 예: 국방, 가로등, 깨끗한 공기."
+      "answer": "3",
+      "explanation": "공공재는 비경합성을 가지므로 개별 수요곡선(한계편익)을 수직합하여 사회적 수요곡선을 구합니다.\n1) 사회적 편익의 합: $\\\\sum MB = P_A + P_B = (100 - G) + (150 - 2G) = 250 - 3G$.\n2) 최적 조건 ($\\\\sum MB = MC$): $250 - 3G = 70 \\\\Rightarrow 3G = 180 \\\\Rightarrow G^* = 60$ 이 도출됩니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "Samuelson (1954) 의 공공재 분류는?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "위 최적 공급 상태($G^* = 60$)에서 린다알(Lindahl) 가격 설정 원칙에 따라 자발적 선호를 밝힌 두 소비자가 부담해야 하는 개인별 단위당 가격(세금 부담 비율) $p_A, p_B$의 값은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
       "options": [
-        "사적재 vs 공공재 vs 클럽재 vs 공유자원 (배제·경합 2×2)",
-        "사적재만",
-        "공공재만",
-        "독점재만",
-        "자유재만"
+        "$p_A = 40, p_B = 30$",
+        "$p_A = 30, p_B = 40$",
+        "$p_A = 50, p_B = 20$",
+        "$p_A = 20, p_B = 50$",
+        "$p_A = 60, p_B = 10$"
       ],
       "answer": "1",
-      "explanation": "Samuelson (1954) The Pure Theory of Public Expenditure: 배제성·경합성 2축 분류. ① 사적재 (배제·경합) ② 공공재 (비배제·비경합) ③ 클럽재 (배제·비경합 예: 케이블) ④ 공유자원 (비배제·경합 예: 어업)."
+      "explanation": "린다알 가격은 개별 소비자가 사회적 최적 수량 하에서 느끼는 한계편익과 일치해야 합니다.\n1) A의 린다알 가격: $p_A = MB_A(G^*) = 100 - 60 = 40$.\n2) B의 린다알 가격: $p_B = MB_B(G^*) = 150 - 2(60) = 30$.\n3) 두 가격의 합 ($40 + 30 = 70 = MC$)이 공급비용을 정확히 보전합니다. 정답은 ①입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-003",
-      "difficulty": 2,
-      "question_type": "그래프형",
-      "question": "다음 공공재 그래프에서 사회적 수요곡선은 어떻게 도출되는가?\n\n[IMAGE: data/practice/economics/graphs/public-good.svg]",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "공공재 선호를 진실되게 유도하기 위한 Vickrey-Clarke-Groves (VCG) 메커니즘에 관한 설명 중 가장 옳지 않은 것은?",
       "options": [
-        "개별 수요곡선의 수직합 (각자 같은 양에 대해 지불의향 합산)",
-        "수평합",
-        "교차점",
-        "평균",
-        "최대값"
+        "각 개인의 진실한 선호 표명이 항상 지배 전략(Dominant Strategy)이 되도록 유도한다",
+        "개별 소비자가 사회 전체의 의사결정에 미친 영향력(외부성)의 크기에 비례하여 세금(Clarke Tax)을 부과한다",
+        "메커니즘 실행 결과 정부의 재정이 항상 완전한 균형(적자나 흑자 없음)을 보장한다",
+        "기존의 단순 투표제에 비해 선호 노출 왜곡을 차단할 수 있는 강점을 지닌다",
+        "공공재뿐만 아니라 복수 품목 경매 및 자원 배분에도 폭넓게 적용할 수 있다"
       ],
-      "answer": "1",
-      "explanation": "공공재: 비경합 → 모든 사람이 동일 양 소비. 따라서 각자 그 양에 대한 지불의향을 \"수직합\" → 사회적 수요. 사적재(수평합)와 정반대. Samuelson 조건의 기초."
+      "answer": "3",
+      "explanation": "VCG 메커니즘 하에서는 인센티브 양립성을 위해 세금(Clarke tax)을 징수하므로, 일반적으로 양(+)의 재정 흑자(정부 세수 잔여)가 발생하여 이를 분배해야 하는 문제가 있어 재정 중립성이 만족되기 어렵습니다. 따라서 ③이 오답입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-004",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
-      "question": "공공재의 효율적 생산 조건(Samuelson 조건)은?",
+      "question": "티부(Tiebout)의 '발로 하는 투표(Voting with feet)' 가설을 통해 지방 공공재(Local Public Goods) 공급이 시장 기구처럼 효율적으로 달성되기 위한 필요 전제 조건에 해당하지 않는 것은?",
       "options": [
-        "$\\sum MB_i = MC$ (개별 한계편익의 합 = 한계비용)",
-        "$MB = MC$ (한 사람만)",
-        "$\\sum MB = AC$",
-        "$MB_i = MC_i$ (각자)",
-        "$MR = MC$"
+        "모든 소비자는 각 지역의 공공재 및 조세 수준에 대한 완전한 정보를 가진다",
+        "소비자의 거주지 선택과 이동에 따른 비용이 존재하지 않는다",
+        "지역 간 일자리나 소득 기회의 격차가 있어 주민 이동을 제한한다",
+        "공공 서비스 공급에 따른 규모의 경제가 발생하지 않는다",
+        "공공재 소비로 인한 외부효과가 다른 지역으로 파급(Spillover)되지 않는다"
       ],
-      "answer": "1",
-      "explanation": "공공재 사회 최적: $\\sum_i MB_i = MC$. 사적재 ($MB_i = MC$, 각자)와 다름. 비경합으로 모든 사람의 한계편익이 \"합산\". Samuelson (1954) 공식."
+      "answer": "3",
+      "explanation": "티부 가설이 성립하려면 직업 기회에 기인한 거주 제약이 없어야 합니다. 즉, 주민들이 오직 '세금과 공공재의 묶음선호'만 고려하여 자유롭게 이동할 수 있도록 지역 간 일자리 등 외생적 이동 장벽이 존재하지 않아야 합니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-005",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "공공재의 시장 공급 실패 원인은?",
+      "question": "디지털 재화(예: 소프트웨어, OTT 콘텐츠)의 공공재적 성격과 시장 공급 방식에 관한 설명으로 가장 옳은 것은?",
       "options": [
-        "무임승차(free-rider) — 비배제성 때문에 \"대가 안 내고 누리려는\" 인센티브",
-        "기술 부족",
-        "수요 부족",
-        "정부 통제",
-        "독점 결정"
+        "디지털 재화는 한계비용이 0에 가까워 경합성을 띠지만, 암호화가 어려워 비배제성을 유지하므로 사적 공급이 원천 차단된다",
+        "디지털 재화는 한계 복제 비용이 0에 수렴하여 비경합성을 띠지만, DRM 및 계정 구독제 등으로 소비의 배제성을 만족하므로 전형적인 '클럽재(Club Goods)'로서 다국적 플랫폼에 의해 효율적 가격 규제 하에 독점 유통된다",
+        "한계비용 가격설정($P = MC = 0$)을 강제 적용하면 언제나 사회적 순생산량이 극대화되고 기업 이윤도 유지된다",
+        "디지털 재화는 전형적인 사적재이므로 시장 왜곡을 유발하지 않는다",
+        "지식재산권 보호가 강화될수록 정보 비대칭성은 0으로 수렴한다"
       ],
-      "answer": "1",
-      "explanation": "비배제성 → 대가 안 내도 사용 가능 → 자발적 지불 거부 → 시장 공급 0 또는 과소. 무임승차 문제. 정부 강제 세금으로 해결 (국방·치안 등)."
+      "answer": "2",
+      "explanation": "디지털 재화는 복제 한계비용이 0이므로 비경합성을 가지며, 암호화나 로그인 계정 통제를 통해 배제가 가능해지므로 '클럽재(Club goods)' 형태의 성격을 띱니다. 따라서 플랫폼의 지배력 및 독점 마크업에 의해 $P > MC$ 상태로 이부요금제나 구독 모델로 시장 공급이 이루어집니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-006",
@@ -100,7 +100,7 @@
         "$Q^* = 2$"
       ],
       "answer": "1",
-      "explanation": "사회적 수요 = 수직합 = $3(10 - Q) = 30 - 3Q$. $\\sum MB = MC$ → $30 - 3Q = 12$ → $Q^* = 6$."
+      "explanation": "사회적 수요 = 수직합 = $3(10 - Q) = 30 - 3Q$. $\\\\\\\\sum MB = MC$ → $30 - 3Q = 12$ → $Q^* = 6$."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-007",
@@ -134,7 +134,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-009",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Lindahl 가격의 현실적 한계는?",
       "options": [
@@ -149,7 +149,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-010",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 공공재 사례 3가지는?",
       "options": [
@@ -164,7 +164,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-011",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "공공재의 \"무임승차\" 문제 해결 방법은?",
       "options": [
@@ -179,7 +179,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-012",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Vickrey-Clarke-Groves (VCG) 메커니즘은?",
       "options": [
@@ -194,7 +194,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-013",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "지방공공재(local public goods) 이론은?",
       "options": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item003-014",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "공공재 vs 클럽재의 차이는?",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item03-015",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "디지털 정보재(소프트웨어·콘텐츠)의 공공재적 성격은?",
       "options": [
@@ -254,7 +254,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item003-017",
-      "difficulty": 5,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Coase (1974)의 등대 사례 \"공공재는 정부 공급만 가능한가?\"에 대한 입장은?",
       "options": [
@@ -269,7 +269,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item003-018",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "공공재의 \"적정 공급량\" 결정의 어려움은?",
       "options": [
@@ -284,7 +284,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item003-019",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"기초연구·R&D\" 가 공공재적 성격을 갖는 이유는?",
       "options": [
@@ -299,7 +299,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item003-020",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "공공재 공급 \"수익자 부담 원칙\" 한계는?",
       "options": [
@@ -314,7 +314,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item003-021",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "글로벌 공공재(global public good)의 사례는?",
       "options": [
@@ -344,7 +344,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item003-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "공공재 공급의 \"세대 간 형평\" 문제는?",
       "options": [
@@ -359,7 +359,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item003-024",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "공공재 이론이 한국 \"오픈소스 SW·위키피디아\" 같은 사례에 시사하는 바는?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item003-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "AI·데이터의 공공재적 성격에 대한 정책 함의는?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "데이터·AI 모델: 비경합 (한 명 학습 → 모두 학습 가능) + 네트워크 외부효과 + 학습 파급. 공공 데이터 공유 (한국 공공데이터포털)·AI 거버넌스 (EU AI Act, 한국 AI 윤리헌장) 정당화. 새 공공재 정책 영역."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-026",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-027",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-028",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-029",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-030",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-034",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-035",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-036",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-037",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-038",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-039",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-040",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-041",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-042",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-043",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-044",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-045",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-046",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-047",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-048",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-049",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "비경합성을 갖는 순수 공공재의 사회적 최적 공급량을 결정하는 과정에서 개별 소비자들의 한계편익(MB)을 합산하여 사회적 수요곡선을 도출하는 기하학적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Individual demands -->\n  <line x1=\"40\" y1=\"150\" x2=\"200\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_A</text>\n  <line x1=\"40\" y1=\"110\" x2=\"250\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"255\" y=\"213\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MB_B</text>\n  <!-- Social demand (Vertical Sum) -->\n  <path d=\"M 40 70 L 200 130 L 250 210\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">∑ MB (수직합)</text>\n  <!-- Supply MC -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"305\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MC</text>\n  <circle cx=\"180\" cy=\"120\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"175\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (∑ MB = MC)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity (Q)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price (P)</text>\n</svg>\n```",
+      "options": [
+        "개별 소비자가 임의의 가격 하에서 소비하고자 하는 수량을 수평적으로 합산(수평합)한다",
+        "모든 소비자가 공공재의 동일한 수량을 소비하므로, 특정 수량 하에서 각 소비자가 지불하고자 하는 한계 편익(의사 지불액)을 수직적으로 합산(수직합)한다",
+        "개별 수요곡선의 평균값을 구하여 공급 한계비용과 일치시킨다",
+        "지방 정부가 제시하는 린다알 가격을 단순 평균하여 수렴한다",
+        "가장 수요가 많은 한 사람의 편익 곡선만 채택한다"
+      ],
+      "answer": "2",
+      "explanation": "공공재는 비경합성으로 인해 소비 배제가 없고 동일한 양을 함께 누립니다. 따라서 임의의 양 $Q$에 대해 각 구성원의 한계편익(지불의사액)을 수직으로 더해 사회적 수요($\\\\sum MB$)를 구합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item03-050",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 사회에 구성원 A, B 두 명이 있다. 공공재(G)에 대한 수요가 각각 $P_A = 60 - G$, $P_B = 40 - G$ 이다. 공공재 공급의 한계비용이 $MC = 50$ 으로 일정할 때, 이 사회의 최적 공공재 양 $G^*$의 크기는?",
+      "options": [
+        "15",
+        "25",
+        "35",
+        "45",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "1) 사회적 한계편익의 수직합: $\\\\sum MB = (60 - G) + (40 - G) = 100 - 2G$.\n2) 사뮤엘슨 조건 ($\\\\sum MB = MC$): $100 - 2G = 50 \\\\Rightarrow 2G = 50 \\\\Rightarrow G^* = 25$ 가 됩니다. 정답은 ②입니다."
     }
   ]
 }

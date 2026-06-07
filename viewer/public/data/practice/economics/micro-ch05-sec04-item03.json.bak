@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제16절 과점시장",
+    "item": "제3관 굴절수요곡선·가격선도",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-03",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "Sweezy (1939) 굴절수요곡선의 핵심은?",
+      "options": [
+        "과점기업 가격 인상 → 추종 X (수요 ↓ ↑) / 인하 → 추종 (수요 ↓ 약함)",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Paul Sweezy (1939) Kinked Demand Curve: 과점 기업 가격 인상 시 경쟁자 추종 X (수요 ↓ 큼)·인하 시 추종 (수요 ↓ 작음). 굴절·가격 경직성 설명."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-002",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "굴절수요곡선의 \"MR 불연속\" 의미는?",
+      "options": [
+        "굴절점에서 MR 수직 점프 → MC 변동에도 가격 일정 → 가격 경직성",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "굴절수요 시 MR 곡선이 굴절점에서 수직 점프 (불연속). MC 변동이 점프 구간 내면 가격 일정. 과점 가격 경직성 설명. 1970s 오일쇼크 일부 부합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-003",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "굴절수요곡선의 한계는?",
+      "options": [
+        "굴절점 = 시장 가격 가정 X (어떻게 결정?)·실증 약함",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Sweezy 굴절수요 한계: ① 굴절점 (시장 가격) 결정 메커니즘 설명 X ② 1970s-80s 가격 변동성 ↑ 시 부합 X ③ 실증 약함. 후속 게임이론 (Cournot·Bertrand·Stackelberg) 으로 대체."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-004",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "가격선도 (Price Leadership) 의 정의는?",
+      "options": [
+        "지배 기업이 가격 설정 → 다른 기업 추종 — 시장 안정·암묵적 카르텔",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "가격선도: 지배 (or barometric) 기업이 가격 설정 → 다른 기업 추종. 명시적 카르텔 (Cartel·금지) 회피·시장 안정. Stigler (1947)·Markham (1951) 분석."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-005",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "가격선도 유형은?",
+      "options": [
+        "지배기업 (Dominant Firm) + 효율기업 (Low-cost) + 신호기업 (Barometric)",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "가격선도 유형: ① Dominant (큰 시장점유) ② Low-cost (효율) ③ Barometric (신호·시장 정보 ↑). Markham (1951) 분류. 산업별 패턴."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-006",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"통신·은행 가격선도\" 사례는?",
+      "options": [
+        "SKT·KT·LGU+ (통신) / KB·신한·하나 (은행) → 암묵적 가격선도 패턴",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 가격선도 사례: ① 통신 (SKT·KT·LGU+) 요금제 ② 은행 (KB·신한·하나) 예금·대출금리 ③ 정유 (SK·GS·S-Oil) 휘발유. 암묵적 가격선도. 공정위 (KFTC) 견제."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-007",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"카르텔 vs 가격선도\" 차이는?",
+      "options": [
+        "카르텔 (명시 협의·금지) vs 가격선도 (암묵·법적 모호) — 공정위 견제",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 카르텔 (담합·공정거래법 금지·과징금) vs 가격선도 (암묵·법적 모호·신호 게임). 공정위 (KFTC) 견제·과징금. Stigler·Tirole (2014 노벨) 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-008",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Stigler (1964) 과점 안정 + 가격선도는?",
+      "options": [
+        "정보 ↑ → 가격 일치 ↑ → 카르텔·가격선도 안정 — 단 새 진입자 불안정",
+        "관계 없음",
+        "Stigler 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "George Stigler (1982 노벨) A Theory of Oligopoly (1964): 정보 ↑ → 가격 일치 ↑·카르텔 안정. 새 진입·정보 비대칭 시 불안정. 한국 과점 (통신·은행·정유) 분석."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-009",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Tirole (2014 노벨) 과점 분석은?",
+      "options": [
+        "Cournot·Bertrand·Stackelberg + 차별·반복 게임 → 과점 정밀 분석",
+        "관계 없음",
+        "Tirole 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Jean Tirole (2014 노벨)·Tirole (1988) Industrial Organization: Cournot·Bertrand·Stackelberg + 차별·반복 게임. 과점·산업조직 정밀 분석. 한국 공정위·플랫폼 정책 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-010",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "Stackelberg 모형: 시장 수요 $Q = 100 - P$, $MC = 0$. 선도 기업 산출은?",
+      "options": [
+        "$q_L = 50$, $q_F = 25$, $P = 25$",
+        "$Q = 50$",
+        "0",
+        "관계 없음",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "Stackelberg: 선도자 (Leader) $q_L = 50$·후행자 (Follower) $q_F = 25$·총 75·$P = 100 - 75 = 25$. Cournot (33.3·33.3) 보다 선도 유리."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-011",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"공정위 (KFTC) 과점 규제\" 함의는?",
+      "options": [
+        "통신·은행·정유 → 담합·가격선도 견제 → 소비자 후생 ↑",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 공정위 (1981-): 통신·은행·정유·플랫폼 → 담합·가격선도 견제·과징금 (수십억원). 소비자 후생 ↑. Tirole (2014 노벨)·Stigler (1982 노벨) 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-012",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"플랫폼 + 가격선도\" 의 함의는?",
+      "options": [
+        "네이버·카카오·쿠팡 가격·수수료 → 암묵적 선도 + 플랫폼 양면 시장",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 플랫폼 (네이버·카카오·쿠팡): 가격·수수료 (입점·배달) 암묵적 선도 + Tirole 양면 시장. 새 형태 과점. 공정위·플랫폼법 견제. EU·미국·일본 동조."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-013",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"가격선도 + 반복 게임\" 함의는?",
+      "options": [
+        "Axelrod 반복 게임 → 협력 균형 → 가격선도 안정 — Tit-for-Tat",
+        "관계 없음",
+        "Axelrod 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 가격선도 + 반복 게임: Axelrod (1984)·Friedman (1971) 반복 게임 → 협력 균형 (Tit-for-Tat). 가격선도 안정. 단 외부 충격·새 진입 시 붕괴."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-014",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"새 진입 + 가격선도 붕괴\" 함의는?",
+      "options": [
+        "새 진입자 (테슬라·중국 EV·디지털 은행) → 가격선도 붕괴·경쟁 ↑",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 새 진입자: 테슬라 (자동차)·BYD (EV)·디지털 은행 (카카오뱅크·토스뱅크). 가격선도 붕괴·경쟁 ↑. 소비자 후생 ↑. Stigler·Tirole 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-015",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"산업 정책 + 과점\" 의 함의는?",
+      "options": [
+        "산업 정책 (K-칩스법·K-AI·K-그린) → 과점 강화 위험 ↔ 양 외부성 균형",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 산업 정책: K-칩스법·K-AI·K-그린 → 대기업 과점 강화 위험 vs 양 외부성 (Romer 2018 노벨)·R&D. 균형. 공정위 + 산업부 + 기재부 협력."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-016",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"디지털 + 과점 + AI\" 의 함의는?",
+      "options": [
+        "AI 가격 알고리즘 → 암묵적 담합 + Acemoglu (2024 노벨) 제도 대응",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 AI + 과점: AI 가격 알고리즘 (Tacit Algorithmic Collusion) → 암묵적 담합 위험. Acemoglu (2024 노벨)·EU·미국 규제. 한국 정책 (공정위·AI법) 검토."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-017",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"굴절수요 + 실증\" 함의는?",
+      "options": [
+        "1980s-90s 일부 부합·2000s+ 가격 변동성 ↑ → 굴절수요 한계 → 게임이론",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 굴절수요 실증: 1980s-90s 일부 부합 (안정·경직)·2000s+ 가격 변동성 ↑ (외부 충격·기술·국제) → 한계 → 게임이론 (Cournot·Bertrand·Stackelberg)·Tirole 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-018",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"통신 시장 가격선도 진화\" 의 함의는?",
+      "options": [
+        "SKT (지배) → KT·LGU+ → 5G·6G → 알뜰폰 → 경쟁 ↑·가격선도 약화",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 통신 시장 진화: SKT (1984·지배)·KT (1981)·LGU+ (1996). 5G·6G + 알뜰폰 (MVNO·2010-) → 경쟁 ↑·가격선도 약화. 정책 (KCC·공정위)·소비자 후생."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-019",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"정유 시장 가격선도\" 의 함의는?",
+      "options": [
+        "SK·GS·S-Oil·현대오일뱅크 → 휘발유 가격 동조·암묵적 선도 — 공정위 견제",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 정유 (SK·GS·S-Oil·현대오일뱅크): 휘발유 가격 동조·암묵적 선도 (국제 유가 + 환율 + 세금). 공정위 견제·국제 비교. Tirole·Stigler 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-020",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"은행 금리 가격선도\" 의 함의는?",
+      "options": [
+        "KB·신한·하나·우리 → 예금·대출금리 동조·한국은행 기준금리 반응",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 은행 (KB·신한·하나·우리): 예금·대출금리 동조 + 한국은행 기준금리 반응. 금융감독원·공정위 견제. 디지털 은행 (카카오뱅크·토스) 도전. Stigler·Tirole 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-021",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"FTA + 과점 + 경쟁\" 의 함의는?",
+      "options": [
+        "FTA → 수입 ↑·외국 기업 진입 → 과점 약화·경쟁 ↑",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 FTA (한·미·EU·중·아세안): 수입 ↑·외국 기업 진입 → 과점 약화·경쟁 ↑. 소비자 후생 ↑. Krugman (2008 노벨) 신무역 + Tirole 산업조직."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-022",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"AI + 가격선도 + 새 경쟁\" 미래는?",
+      "options": [
+        "AI 가격 알고리즘 + 디지털 전환 → 가격선도 동학 변동 — 정책 정교화",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 AI·디지털 + 가격선도 미래: AI 알고리즘 + 디지털 전환 → 가격선도 동학 변동·새 경쟁. EU·미국 규제 추세. Acemoglu (2024 노벨)·Tirole 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"공정위 + 디지털 시장\" 정책 진화는?",
+      "options": [
+        "전통 (담합·M&A) + 디지털 (플랫폼·AI·데이터) → 공정위 정책 확장",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 공정위 정책 진화: 전통 (담합·M&A·갑을 관계) + 디지털 (플랫폼·AI·데이터·반독점). EU·미국 (DMA·DSA·반독점) 추세 동조. K-플랫폼법 검토."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-024",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"양극화 vs 경쟁\" 의 함의는?",
+      "options": [
+        "대기업 (양극화·과점) vs 중소·신규 (경쟁·진입) → 정책 균형",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 양극화 vs 경쟁: 대기업 (삼성·SK·LG·현대·롯데) 양극화·과점 ↑ vs 중소·스타트업·신규 진입 경쟁. 정책 균형 (중소 보호·경쟁 촉진). Acemoglu (2024 노벨) 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item03-025",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "굴절수요·가격선도 종합 평가는?",
+      "options": [
+        "Sweezy·Stigler·Tirole·Markham·Axelrod·Acemoglu 통합 → 한국 정책 토대",
+        "단순",
+        "관계 없음",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "과점·가격선도 종합: ① Sweezy (1939) 굴절수요 ② Markham (1951) 가격선도 유형 ③ Stigler (1982 노벨) 과점 안정·정보 ④ Tirole (2014 노벨) 산업조직·플랫폼 ⑤ Axelrod (1984) 반복 게임·협력 ⑥ Acemoglu (2024 노벨) 제도·AI. 한국 정책 (공정위·통신·은행·정유·플랫폼·디지털) 토대."
+    }
+  ]
+}

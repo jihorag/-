@@ -396,6 +396,54 @@ body {
 }
 .study-card .card-foot .pct { font-weight: 800; color: var(--text-main); }
 
+/* 문제풀이 드릴 — 토스 스타일 리스트 (1차 과목 장/절/관 단계).
+   행 높이가 고정이라 글자 크기에 따라 카드가 들쭉날쭉하지 않는다. */
+.browse-list {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.browse-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 18px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+.browse-row:last-child { border-bottom: none; }
+.browse-row:hover { background: var(--primary-light); }
+.browse-row:active { background: #e0e9ff; }
+.browse-row__main { flex: 1; min-width: 0; }
+.browse-row__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.browse-row__bar {
+  height: 4px;
+  background: #eef2f7;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.browse-row__bar > div { height: 100%; background: var(--primary); border-radius: 999px; }
+.browse-row__meta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.browse-row__count { font-size: 0.82rem; color: var(--text-sub); font-weight: 600; white-space: nowrap; }
+.browse-row__pct { font-size: 0.8rem; font-weight: 800; color: var(--primary); white-space: nowrap; }
+.browse-row__chev { color: #c4ccd6; font-size: 1.15rem; line-height: 1; }
+.browse-row--all { background: var(--primary-light); }
+.browse-row--all .browse-row__title { color: var(--primary-dark); font-weight: 800; }
+
 /* Question List Spacing */
 .q-container {
   max-width: 800px;

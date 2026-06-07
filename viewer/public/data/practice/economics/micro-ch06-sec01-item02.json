@@ -8,84 +8,84 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch06-sec01-item02-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "개별 노동자의 노동공급은 무엇의 선택 결과로 설명되는가?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "여가와 소비재가 모두 정상재(Normal Goods)일 때, 임금 상승이 노동공급에 미치는 '소득효과'와 '대체효과'의 작용 및 후방굴절 노동공급곡선에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "여가와 소득의 효용극대화 선택",
-        "고용주와의 단체교섭",
-        "정부의 최저임금 결정",
-        "한계생산물가치",
-        "총수입 극대화"
+        "대체효과는 여가의 상대가격 하락을 의미하므로 노동공급을 항상 감소시킨다",
+        "소득효과와 대체효과가 반대로 작용할 때, 소득효과가 대체효과보다 크면 임금 상승 시 노동공급이 증가한다",
+        "대체효과가 소득효과보다 크면 노동공급곡선은 우하향하는 영역을 가진다",
+        "임금이 매우 높은 수준에 도달하여 소득효과가 대체효과를 압도하면, 임금 상승 시 노동공급량이 감소하여 노동공급곡선이 후방으로 굴절한다",
+        "여가가 열등재인 경우에도 임금이 상승하면 반드시 후방굴절하는 공급곡선이 나타난다"
       ],
-      "answer": "1",
-      "explanation": "개별 노동공급 = 여가(L)와 소득(Y)에 대한 효용극대화 문제. 시간 제약 24시간 = 여가 + 노동, 임금 w 가 여가의 기회비용."
+      "answer": "4",
+      "explanation": "임금 상승은 여가의 기회비용(상대가격) 상승을 의미한다. ① 대체효과: 여가를 줄이고 노동을 늘린다(노동공급 증가). ② 소득효과: 실질소득 증가로 정상재인 여가 소비를 늘리고 노동을 줄인다(노동공급 감소). 고임금 구간에서 소득효과가 대체효과보다 커지면 임금이 오를 때 노동공급이 줄어들며 우하향(후방굴절)하는 공급곡선이 형성된다. 여가가 열등재이면 소득효과 역시 노동을 늘리게 하므로 절대 후방굴절하지 않는다."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "여가가 정상재일 때 임금 상승이 노동공급에 미치는 효과는?",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "소비자의 효용함수가 $U(C, H) = C \\\\cdot H$ (단, $C$는 소비, $H$는 하루의 여가시간)이다. 하루 총 시간은 24시간이며, 비근로소득(자산소득)은 전혀 없다. 시장 임금이 $w$이고 소비재 가격 $P = 1$일 때, 이 소비자의 이윤극대화 노동공급시간 $L^*$은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "대체효과는 노동 증가, 소득효과는 노동 감소",
-        "대체효과·소득효과 모두 노동 증가",
-        "대체효과·소득효과 모두 노동 감소",
-        "대체효과는 노동 감소, 소득효과는 노동 증가",
-        "효과 없음"
+        "$L^* = 8$시간 (임금 w와 무관)",
+        "$L^* = 12$시간 (임금 w와 무관)",
+        "$L^* = 16$시간 (임금 w와 무관)",
+        "$L^* = 24 - 12/w$",
+        "임금 $w$가 오를수록 노동시간이 선형적으로 무한히 증가한다"
       ],
-      "answer": "1",
-      "explanation": "임금 ↑ → 여가의 기회비용 ↑ → 여가 ↓ 노동 ↑ (대체효과). 임금 ↑ → 실질소득 ↑ → 정상재 여가 ↑ 노동 ↓ (소득효과). 두 효과 반대 방향."
+      "answer": "2",
+      "explanation": "하루 총 시간 제약: $H + L = 24 \\\\Rightarrow H = 24 - L$. 예산제약식: $C = w \\\\cdot L = w(24 - H) \\\\Rightarrow C + wH = 24w$. 콥-더글라스 효용함수 $U = C \\\\cdot H$의 균형 분배 공식에 의해, 소득 $24w$의 정확히 절반을 여가 $H$ 소비에 지출한다. 즉, $w \\\\cdot H = 0.5(24w) \\\\Rightarrow H^* = 12$시간이다. 따라서 노동공급시간 $L^* = 24 - 12 = 12$시간으로 임금 $w$와 무관하게 12시간으로 항상 고정된다. 이는 대체효과와 소득효과의 크기가 정확히 같기 때문이다."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-003",
-      "difficulty": 2,
-      "question_type": "그래프형",
-      "question": "다음 그래프는 후방굴절 노동공급곡선이다. 이 형태가 나타나는 조건은?\n\n[IMAGE: data/practice/economics/graphs/labor-backward-bending.svg]",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "위 문항 시나리오에서, 정부가 비근로 자산소득 $V = 12w$를 추가로 보조해 주었다. 소비자의 예산제약식이 $C = w(24 - H) + V$로 바뀔 때, 새로운 균형 여가시간 $H^*$과 노동공급시간 $L^*$은 각각 얼마인가?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "고임금 구간에서 소득효과 > 대체효과",
-        "저임금 구간에서 소득효과 > 대체효과",
-        "전 구간에서 대체효과만 작용",
-        "여가가 열등재일 때",
-        "기펜재일 때"
+        "$H^* = 12, L^* = 12$",
+        "$H^* = 15, L^* = 9$",
+        "$H^* = 18, L^* = 6$",
+        "$H^* = 20, L^* = 4$",
+        "$H^* = 24, L^* = 0$ (노동 공급 없음)"
       ],
-      "answer": "1",
-      "explanation": "후방굴절: 일정 임금까지는 대체효과 우세 → 노동 ↑. 충분히 높은 임금에서는 소득효과 우세 → 노동 ↓. 곡선이 우상향했다가 좌측으로 굴절."
+      "answer": "3",
+      "explanation": "새로운 총 예산은 $24w + V = 24w + 12w = 36w$가 된다. 효용함수가 $U = C \\\\cdot H$이므로 예산의 절반을 여가에 쓴다: $w \\\\cdot H = 0.5(36w) = 18w \\\\Rightarrow H^* = 18$시간이다. 이에 대응하는 노동공급시간 $L^* = 24 - H^* = 24 - 18 = 6$시간이 된다. 자산소득(비근로소득) 증가에 의한 순수 소득효과로 여가가 늘고 노동공급이 감소한 결과이다."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-004",
-      "difficulty": 2,
-      "question_type": "계산형",
-      "question": "효용함수 $U(L, Y) = L \\cdot Y$, 가용시간 24시간, 임금률 $w = 10$, 비근로소득 0. 효용극대화 노동공급 시간은?",
+      "difficulty": 3,
+      "question_type": "이론/계산형",
+      "question": "정부가 근로소득에 대해 비례 세율 $t$의 소득세를 부과하였다. 납세 후 예산선이 $C = w(1-t)L$이 될 때, 효용함수가 $U(C, H) = C \\\\cdot H$인 소비자의 노동공급에 소득세 부과가 미친 영향으로 옳은 것은?",
       "options": [
-        "12시간",
-        "8시간",
-        "16시간",
-        "10시간",
-        "14시간"
+        "대체효과가 소득효과보다 커서 노동공급이 감소한다",
+        "소득효과가 대체효과보다 커서 노동공급이 증가한다",
+        "세율 $t$가 오를수록 노동시간이 점차 감소한다",
+        "대체효과와 소득효과의 크기가 같아 노동공급량은 소득세 부과 전과 동일하게 유지된다",
+        "소득세 부과로 인해 노동을 아예 공급하지 않는다"
       ],
-      "answer": "1",
-      "explanation": "예산 $Y = w(24-L)$. $U = L \\cdot w(24-L) = 10L(24-L)$. $dU/dL = 10(24-2L) = 0$ → $L^* = 12$. 노동 = $24 - 12 = 12$시간."
+      "answer": "4",
+      "explanation": "소득세 부과는 실질임금을 $w$에서 $w(1-t)$로 하락시키는 효과를 낸다. 콥-더글라스 효용함수 $U = C \\\\cdot H$의 경우, 실질임금 변동에 대한 대체효과(노동 감소)와 소득효과(노동 증가)의 크기가 항상 정확히 일치한다. 따라서 세전 예산선에서 노동시간이 12시간이었던 것처럼, 세후 예산선 $C + w(1-t)H = 24w(1-t)$에서도 $H^* = 12$가 되어 고용량은 동일하게 유지된다. 정답은 ④이다."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-005",
       "difficulty": 3,
-      "question_type": "계산형",
-      "question": "비근로소득 $M = 40$, 임금률 $w = 5$, 효용 $U = L \\cdot Y$, 가용시간 24시간일 때 최적 여가시간은?",
+      "question_type": "이론형",
+      "question": "정부가 저소득층 근로 의욕을 고취하기 위해 도입한 근로장려세제(EITC)의 구간별 노동공급 효과에 관한 분석으로 가장 옳지 않은 것은?",
       "options": [
-        "16시간",
-        "12시간",
-        "20시간",
-        "8시간",
-        "10시간"
+        "점증구간(Phase-in)에서는 보조금율에 의해 실질 임금이 상승하는 효과가 있어 대체효과는 노동공급을 증가시킨다",
+        "평탄구간(Flat)에서는 추가적인 근로에 대한 보조금 증액은 없으나 소득 수준이 늘어나므로 노동공급을 감소시키는 소득효과만 작동한다",
+        "점감구간(Phase-out)에서는 소득 증가에 따른 소득효과와 실질 임금 감소(급여 환수)에 따른 대체효과가 모두 노동공급을 줄이는 방향으로 결합된다",
+        "제도 도입의 총 효과로 미취업자의 경제활동 참가율(노동시장 진입)은 대체로 낮아진다",
+        "점감구간에 직면한 근로자들은 세법상 급여 환수율 때문에 노동 공급을 줄일 유인이 강해진다"
       ],
-      "answer": "1",
-      "explanation": "예산: $Y = 40 + 5(24-L) = 160 - 5L$. $U = L(160-5L)$, $dU/dL = 160 - 10L = 0$ → $L^* = 16$. 노동 = 8시간."
+      "answer": "4",
+      "explanation": "EITC는 노동시장 미진입자(노동 공급 0인 상태)에게 근로 참가 시 보조금을 제공하므로 노동시장 참여율(참가율)은 크게 향상(진입 촉진)시키는 긍정적 유인을 가진다. 따라서 진입율이 '낮아진다'는 ④는 명백히 틀린 설명이다. 점증, 평탄, 점감 구간의 개별 노동시간 변화 분석은 대단히 표준적이고 옳다."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-006",
@@ -104,7 +104,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-007",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "계산형",
       "question": "노동공급함수 $L_s = 100 + 20w$ ($w$ 시급, 만 원/시간). 임금 $w = 1$ 에서 $w = 1.5$ 로 인상 시 공급량 변화는?",
       "options": [
@@ -119,18 +119,18 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-008",
-      "difficulty": 2,
+      "difficulty": 4,
       "question_type": "계산형",
       "question": "노동공급의 임금탄력성을 계산하라. $L_s = 100 + 20w$, $w = 1$ 시점에서.",
       "options": [
-        "$\\varepsilon_s = \\dfrac{1}{6}$",
-        "$\\varepsilon_s = 1$",
-        "$\\varepsilon_s = 2$",
-        "$\\varepsilon_s = \\dfrac{1}{2}$",
-        "$\\varepsilon_s = 6$"
+        "$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\varepsilon_s = \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\dfrac{1}{6}$",
+        "$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\varepsilon_s = 1$",
+        "$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\varepsilon_s = 2$",
+        "$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\varepsilon_s = \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\dfrac{1}{2}$",
+        "$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\varepsilon_s = 6$"
       ],
       "answer": "1",
-      "explanation": "$\\varepsilon_s = \\dfrac{dL}{dw} \\cdot \\dfrac{w}{L} = 20 \\cdot \\dfrac{1}{120} \\approx 0.167$. 비탄력적."
+      "explanation": "$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\varepsilon_s = \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\dfrac{dL}{dw} \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\dfrac{w}{L} = 20 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\dfrac{1}{120} \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\approx 0.167$. 비탄력적."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-009",
@@ -151,7 +151,7 @@
       "id": "practice-econ-micro-ch06-sec01-item02-010",
       "difficulty": 3,
       "question_type": "계산형",
-      "question": "효용 $U = Y^{0.5} \\cdot L^{0.5}$, 가용시간 16시간, 임금률 $w = 8$, 비근로소득 0. 최적 노동시간은?",
+      "question": "효용 $U = Y^{0.5} \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot L^{0.5}$, 가용시간 16시간, 임금률 $w = 8$, 비근로소득 0. 최적 노동시간은?",
       "options": [
         "8시간",
         "12시간",
@@ -160,11 +160,11 @@
         "6시간"
       ],
       "answer": "1",
-      "explanation": "콥-더글러스 동일 지수 → 예산을 절반씩 배분. 최대 소득 $= 8 \\cdot 16 = 128$. 여가 가치 $wL = 64$ → $L = 8$. 노동 = 8시간."
+      "explanation": "콥-더글러스 동일 지수 → 예산을 절반씩 배분. 최대 소득 $= 8 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 16 = 128$. 여가 가치 $$$$$wL = 64$$$$$ → $$$$$L = 8$$$$$. 노동 = 8시간."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-011",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "이중노동시장(dual labor market) 가설에 따르면 1차 시장과 2차 시장의 노동공급 차이는?",
       "options": [
@@ -179,7 +179,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-012",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "계산형",
       "question": "효용 $U = L + Y$ (완전대체, 여가 한계효용 = 1), 가용시간 24시간, 임금 $w = 1.5$, 비근로소득 0. 최적 노동시간은?",
       "options": [
@@ -190,11 +190,11 @@
         "16시간"
       ],
       "answer": "1",
-      "explanation": "완전대체 효용 + $w = 1.5 > 1$ (여가 한계효용) → 노동에 전부 배분. $L = 0$, 노동 = 24시간 (코너해)."
+      "explanation": "완전대체 효용 + $$$$$w = 1$$$$.5 > 1$ (여가 한계효용) → 노동에 전부 배분. $$$$$L = 0$$$$$, 노동 = 24시간 (코너해)."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-013",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "그래프형",
       "question": "다음 노동시장 그래프에서 노동공급곡선이 우상향하는 이유로 가장 적절한 것은?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-015",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "기본소득(UBI) 도입이 노동공급에 미치는 효과의 이론적 예측은?",
       "options": [
@@ -239,9 +239,9 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-016",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "계산형",
-      "question": "효용 $U = \\ln L + 2 \\ln Y$, 가용시간 12시간, 임금 $w = 10$, 비근로소득 0. 최적 노동시간은?",
+      "question": "효용 $U = \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ln L + 2 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ln Y$, 가용시간 12시간, 임금 $w = 10$, 비근로소득 0. 최적 노동시간은?",
       "options": [
         "8시간",
         "4시간",
@@ -250,11 +250,11 @@
         "10시간"
       ],
       "answer": "1",
-      "explanation": "콥-더글러스 비중 1:2 → 여가 비중 $\\dfrac{1}{3}$. 최대 소득 $= 120$. 여가 화폐 가치 $= \\dfrac{1}{3} \\cdot 120 = 40 = wL$ → $L = 4$. 노동 = $12 - 4 = 8$시간."
+      "explanation": "콥-더글러스 비중 1:2 → 여가 비중 $\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\dfrac{1}{3}$. 최대 소득 $= 120$. 여가 화폐 가치 $= \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\dfrac{1}{3} \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 120 = 40 = wL$ → $$$$$L = 4$$$$$. 노동 = $12 - 4 = 8$시간."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-017",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "여성의 경제활동참가율이 임금 상승에 양(+)으로 반응하는 주된 이유는?",
       "options": [
@@ -269,7 +269,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-018",
-      "difficulty": 4,
+      "difficulty": 5,
       "question_type": "계산형",
       "question": "효용 $U = L^{0.4} Y^{0.6}$, 가용시간 24시간, 임금 $w = 5$, 비근로소득 $M = 20$. 최적 노동시간은?",
       "options": [
@@ -280,7 +280,7 @@
         "20시간"
       ],
       "answer": "1",
-      "explanation": "최대 소득 $= 20 + 24 \\cdot 5 = 140$. 콥-더글러스 비중 0.4:0.6 → 여가 화폐 $= 0.4 \\cdot 140 = 56 = wL = 5L$ → $L = 11.2$. 노동 = $24 - 11.2 = 12.8$시간."
+      "explanation": "최대 소득 $= 20 + 24 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 5 = 140$. 콥-더글러스 비중 0.4:0.6 → 여가 화폐 $= 0.4 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 140 = 56 = $$$$wL = 5L$$$$$ → $$$$$L = 11$$$$.2$. 노동 = $24 - 11.2 = 12.8$시간."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-019",
@@ -295,11 +295,11 @@
         "원점통과 직선"
       ],
       "answer": "1",
-      "explanation": "$\\varepsilon_s = 0$ → 임금 변화에 양 변화 없음 → 수직 공급곡선. 단기 의사·전문직 등 극단 비탄력 사례."
+      "explanation": "$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\varepsilon_$$$$s = 0$$$$$ → 임금 변화에 양 변화 없음 → 수직 공급곡선. 단기 의사·전문직 등 극단 비탄력 사례."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-020",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "노동공급의 가족 결정 모형(unitary family model)에서 가구 효용 극대화 결과로 옳은 것은?",
       "options": [
@@ -314,7 +314,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-021",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "계산형",
       "question": "현재 노동공급 1,000명. 임금 25% 인상, 노동공급 임금탄력성 0.2. 새 공급량은?",
       "options": [
@@ -325,11 +325,11 @@
         "1,500명"
       ],
       "answer": "1",
-      "explanation": "$\\dfrac{\\Delta L}{L} = \\varepsilon_s \\cdot \\dfrac{\\Delta w}{w} = 0.2 \\cdot 0.25 = 0.05$. $1{,}000 \\times 1.05 = 1{,}050$명."
+      "explanation": "$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\dfrac{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Delta L}{L} = \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\varepsilon_s \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\dfrac{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Delta w}{w} = 0.2 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 0.25 = 0.05$. $1{,}000 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\times 1.05 = 1{,}050$명."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-022",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 통계청에 따르면 한국 경제활동참가율이 OECD 평균보다 낮은 주요 원인은?",
       "options": [
@@ -344,7 +344,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-023",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "그래프형",
       "question": "다음 그래프에서 A 구간(저임금)과 B 구간(고임금)의 노동공급 변화 방향이 다른 이유는?\n\n[IMAGE: data/practice/economics/graphs/labor-backward-bending.svg]",
       "options": [
@@ -359,7 +359,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-024",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "계산형",
       "question": "효용 $U(L, Y) = L^{1/3} Y^{2/3}$, 가용시간 30시간, 임금 $w = 2$, 비근로소득 $M = 30$. 최적 노동시간은?",
       "options": [
@@ -370,11 +370,11 @@
         "5시간"
       ],
       "answer": "1",
-      "explanation": "최대 소득 $= 30 + 2 \\cdot 30 = 90$. 콥-더글러스 비중 1:2 → 여가 화폐 가치 $= \\dfrac{1}{3} \\cdot 90 = 30 = wL = 2L$ → $L = 15$. 노동 = $30 - 15 = 15$시간."
+      "explanation": "최대 소득 $= 30 + 2 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 30 = 90$. 콥-더글러스 비중 1:2 → 여가 화폐 가치 $= \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\dfrac{1}{3} \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 90 = 30 = $$$$wL = 2L$$$$$ → $$$$$L = 15$$$$$. 노동 = $30 - 15 = 15$시간."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item02-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "비근로소득(자산·연금) 증가가 노동공급에 미치는 영향에 대한 실증 연구 결과는?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "음의 소득세(Mincome) 실험·UBI 파일럿 등: 비근로소득 ↑ → 노동공급 소폭 ↓ (작은 음의 효과). 직종·연령·성별·자녀 유무 차이 큼. Hum & Simpson, Hoynes & Rothstein 리뷰 참조."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-026",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-027",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-028",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-029",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-030",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-032",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-034",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-035",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-036",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-037",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-038",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-039",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-040",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-041",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-042",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-043",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-044",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-045",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-046",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-047",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-048",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-049",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "소비자의 하루 시간 제약 24시간 하에서 임금이 $w$에서 $2w$로 상승할 때, 대체효과가 소득효과보다 더 강하게 작용한 결과 나타나는 노동공급시간의 변화는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 60 190 Q 220 120 180 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"185\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L (노동공급)</text>\n  <line x1=\"40\" y1=\"110\" x2=\"197\" y2=\"110\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"200\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">대체효과 = 소득효과 (임금 w*)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "노동 공급시간이 감소한다",
+        "노동 공급시간이 증가한다",
+        "노동 공급시간이 변하지 않는다",
+        "임금 상승률에 반비례하여 감소한다",
+        "노동을 영구 중단한다"
+      ],
+      "answer": "2",
+      "explanation": "임금 상승 시 대체효과는 여가의 기회비용 상승에 따라 여가를 줄이고 노동 공급을 늘리는 방향으로 작용한다. 소득효과는 정상재인 여가를 늘려 노동 공급을 줄인다. 대체효과가 소득효과보다 강하므로 노동공급시간이 증가한다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-050",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "소득세 부과율이 높아질 때 소비자의 실질 임금이 감소한다. 여가가 열등재(Inferior Goods)라고 가정할 경우, 실질 임금 하락이 노동공급에 미치는 영향은?",
+      "options": [
+        "대체효과와 소득효과가 모두 노동 공급을 감소시켜 노동 공급은 반드시 감소한다",
+        "대체효과는 노동 공급을 증가시키고 소득효과는 감소시키므로 총효과는 모호하다",
+        "대체효과는 노동 공급을 감소시키고 소득효과는 증가시키므로 총효과는 모호하다",
+        "대체효과와 소득효과가 모두 노동 공급을 증가시키므로 노동 공급은 반드시 증가한다",
+        "임금률 하락에도 노동공급량은 소득효과 때문에 100% 보존된다"
+      ],
+      "answer": "3",
+      "explanation": "임금 하락 시: 1) 대체효과는 여가의 기회비용 하락으로 여가를 늘려 노동 공급을 감소시킨다. 2) 소득효과는 실질소득 감소에 따라 열등재인 여가를 감소시키고 노동 공급을 증가시킨다. 따라서 두 효과가 서로 반대 방향으로 작용하므로 총효과는 모호하다."
     }
   ]
 }

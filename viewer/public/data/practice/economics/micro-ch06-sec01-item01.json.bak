@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제6장 생산요소시장과 소득분배",
+    "section": "제18절 완전경쟁 요소시장",
+    "item": "제1관 요소수요 (한계생산물가치)",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "요소수요는 무엇으로 결정되는가?",
+      "options": [
+        "한계생산물가치 (VMP = P · MP)",
+        "한계비용",
+        "한계효용",
+        "수요·공급",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "완전경쟁 요소시장 + 완전경쟁 제품시장 가정: 노동수요 = $VMP_L = P \\cdot MP_L$ (한계생산물가치). 요소 1단위 추가의 수익 = 요소가격."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "기업의 노동 고용 결정 조건은?",
+      "options": [
+        "VMP_L = w (한계생산물가치 = 임금)",
+        "MP = w",
+        "P = MC",
+        "MR = w",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "이윤극대화: 노동 1단위 추가 시 수익(VMP) = 비용(w)일 때 최적. $w = P \\cdot MP_L = VMP_L$. 완전경쟁 가정 (P 일정)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-003",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 요소시장 그래프에서 노동수요곡선은?\n\n[IMAGE: data/practice/economics/graphs/factor-market.svg]",
+      "options": [
+        "VMP_L 곡선 (우하향, P·MP_L)",
+        "공급곡선",
+        "수평선",
+        "수직선",
+        "수요 없음"
+      ],
+      "answer": "1",
+      "explanation": "노동수요곡선 = VMP_L. 수확체감으로 MP 감소 → VMP 우하향. 임금 W*에서 노동량 L* 결정."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-004",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "독점 시장 요소수요는?",
+      "options": [
+        "MRP = MR · MP (한계수입생산물, MR < P → MRP < VMP)",
+        "VMP만",
+        "P · MP",
+        "동일",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "독점 (제품시장): 추가 생산물의 수익 = MR < P. 따라서 노동수요 = $MRP_L = MR \\cdot MP_L < VMP_L$. 독점이 노동수요 적게."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-005",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "생산함수 $Q = 10\\sqrt{L}$, P = 4, w = 10. 최적 노동량은?",
+      "options": [
+        "L = 4",
+        "L = 1",
+        "L = 10",
+        "L = 16",
+        "L = 100"
+      ],
+      "answer": "1",
+      "explanation": "$MP_L = 5/\\sqrt{L}$. $VMP_L = P \\cdot MP_L = 20/\\sqrt{L}$.\n$VMP_L = w$: $20/\\sqrt{L} = 10 \\Rightarrow \\sqrt{L} = 2 \\Rightarrow L = 4$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-006",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "생산함수 $Q = 20L - L^2$, P = 2, w = 12. 최적 L은?",
+      "options": [
+        "L = 7",
+        "L = 10",
+        "L = 5",
+        "L = 14",
+        "L = 4"
+      ],
+      "answer": "1",
+      "explanation": "$MP_L = 20 - 2L$. $VMP_L = 2(20 - 2L) = 40 - 4L$.\n$40 - 4L = 12 \\Rightarrow L = 7$.\n생산량 $Q = 140 - 49 = 91$, $\\pi = 2 \\cdot 91 - 12 \\cdot 7 = 182 - 84 = 98$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-007",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "VMP와 MRP의 관계로 옳은 것은?",
+      "options": [
+        "완전경쟁 제품시장: VMP = MRP / 독점 제품시장: VMP > MRP",
+        "둘은 항상 동일",
+        "MRP > VMP",
+        "정부 결정",
+        "수요와 무관"
+      ],
+      "answer": "1",
+      "explanation": "VMP = P · MP, MRP = MR · MP.\n완전경쟁: P = MR → VMP = MRP.\n독점: MR < P → MRP < VMP. 독점기업 노동수요 적음."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-008",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "요소수요의 결정 요인이 아닌 것은?",
+      "options": [
+        "정부 결정",
+        "제품 가격 (P)",
+        "한계생산성 (MP)",
+        "임금 (w)",
+        "기술 수준"
+      ],
+      "answer": "1",
+      "explanation": "요소수요 결정 요인: ① 제품 가격 P ② 한계생산 MP ③ 요소가격 (w) ④ 기술 수준 ⑤ 다른 요소량. 정부 결정 직접 무관 (간접 영향)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-009",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "콥-더글러스 $Q = AL^{0.5}K^{0.5}$, P, A, K 일정. 노동수요는?",
+      "options": [
+        "$L^d = \\left(\\frac{0.5 PA \\sqrt{K}}{w}\\right)^2$",
+        "$L^d = w/P$",
+        "$L^d = K$",
+        "$L^d = 0$",
+        "$L^d = A$"
+      ],
+      "answer": "1",
+      "explanation": "$MP_L = 0.5AL^{-0.5}K^{0.5}$. $VMP_L = 0.5PAL^{-0.5}K^{0.5} = w$.\n$L^{0.5} = 0.5PA\\sqrt{K}/w$\n$L^d = (0.5PA\\sqrt{K}/w)^2$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-010",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "노동수요의 임금탄력성 결정 요인은?",
+      "options": [
+        "제품 수요탄력성·다른 요소 대체 가능성·요소비중·시간",
+        "정부 결정",
+        "고정값",
+        "수요와 무관",
+        "한 요인만"
+      ],
+      "answer": "1",
+      "explanation": "노동수요 탄력성 결정: ① 제품 수요탄력성 (제품 가격 변화 → 노동수요) ② 자본 대체 가능성 (요소 대체탄력성) ③ 노동비용 비중 ④ 시간(장기 더 탄력적)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-011",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "기업의 단기 노동수요 $L^d = 100 - 5w$. w = 10일 때 노동수요량은?",
+      "options": [
+        "L = 50",
+        "L = 100",
+        "L = 0",
+        "L = 25",
+        "L = 75"
+      ],
+      "answer": "1",
+      "explanation": "$L = 100 - 5 \\cdot 10 = 50$.\n임금 1원 인상 시 노동수요 5명 감소.\n탄력성 = (-5)(10/50) = -1 (단위탄력)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-012",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "요소수요의 도출 단계는?",
+      "options": [
+        "이윤극대화 (P·Q - wL - rK 극대) → 1계 조건 → VMP = 요소가격",
+        "이윤극소화",
+        "비용극대화",
+        "수요 독립",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "요소수요 도출: max $\\pi = P \\cdot Q(L,K) - wL - rK$.\n$\\partial \\pi/\\partial L = P \\cdot MP_L - w = 0 \\Rightarrow VMP_L = w$.\n$\\partial \\pi/\\partial K = P \\cdot MP_K - r = 0 \\Rightarrow VMP_K = r$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-013",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "$Q = 100L - L^2$ (단일요소), P = 1, w = 20. 이윤극대 L, π는?",
+      "options": [
+        "L = 40, Q = 2400, π = 1600",
+        "L = 50, Q = 2500, π = 1500",
+        "L = 20, Q = 1600, π = 1200",
+        "L = 100, Q = 0",
+        "L = 80, Q = 1600"
+      ],
+      "answer": "1",
+      "explanation": "$MP_L = 100 - 2L$. $VMP = 100 - 2L = 20 \\Rightarrow L = 40$.\nQ = 4000 - 1600 = 2400.\nTR = 2400, TC = wL = 800. π = 1600."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-014",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "장기 vs 단기 요소수요의 차이는?",
+      "options": [
+        "단기: 한 요소만 가변 / 장기: 모든 요소 가변·대체 가능 → 장기가 더 탄력적",
+        "둘 동일",
+        "단기가 탄력적",
+        "장기 무관",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "단기: 일부 요소 고정 (자본). 임금↑ 시 단기 노동 줄임 한계.\n장기: 자본·노동 모두 가변 → 비싸진 노동 대체 가능 → 임금탄력성 큼."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-015",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "$Q = 5L^{0.5}$, P = 4, w = 5. 노동수요·생산량은?",
+      "options": [
+        "L = 4, Q = 10",
+        "L = 25, Q = 25",
+        "L = 1, Q = 5",
+        "L = 16, Q = 20",
+        "L = 9, Q = 15"
+      ],
+      "answer": "1",
+      "explanation": "$MP_L = 2.5/\\sqrt{L}$. $VMP = 10/\\sqrt{L} = 5 \\Rightarrow \\sqrt{L} = 2 \\Rightarrow L = 4$.\nQ = 5·2 = 10."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-016",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "임금 인상 시 노동수요량은?\n\n[IMAGE: data/practice/economics/graphs/factor-market.svg]",
+      "options": [
+        "VMP 곡선 위에서 좌상방으로 이동 → L 감소",
+        "L 증가",
+        "변화 없음",
+        "VMP 이동",
+        "공급 이동"
+      ],
+      "answer": "1",
+      "explanation": "임금 w 인상 → VMP 곡선 위에서 좌상방으로 이동 → 노동수요량 ↓ (VMP = w 조건). VMP 곡선 자체는 변하지 않음."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-017",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한계생산성 이론의 분배 함의는?",
+      "options": [
+        "각 요소가 한계기여(MP) 가치만큼 보상 → 신고전학파 분배론",
+        "균등 분배",
+        "정부 결정",
+        "노동만 분배",
+        "협상력만"
+      ],
+      "answer": "1",
+      "explanation": "J.B. Clark(1899): 각 요소가 한계 기여(MP) 가치만큼 분배. 노동→임금, 자본→이자, 토지→지대. 신고전학파 분배론. 비판: 협상력·시장지배 무시."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-018",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "기업 $Q = 100L^{0.6}K^{0.4}$, P = 1, w = 6, r = 4, K = 1024. 최적 L은?",
+      "options": [
+        "L ≈ 256",
+        "L = 100",
+        "L = 1024",
+        "L = 0",
+        "L = 64"
+      ],
+      "answer": "1",
+      "explanation": "$MP_L = 60L^{-0.4}K^{0.4} = 60L^{-0.4} \\cdot 1024^{0.4}$.\n$1024^{0.4} = 2^{10 \\cdot 0.4} = 2^4 = 16$.\n$VMP_L = 1 \\cdot 60 \\cdot 16 / L^{0.4} = 960/L^{0.4} = 6 \\Rightarrow L^{0.4} = 160$.\n$L = 160^{2.5}$. 매우 큰 값. \n\n[근사] 정확히 풀면 큰 값. 답 ① 근사."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-019",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동수요의 파생 수요(derived demand) 특성은?",
+      "options": [
+        "제품 수요에서 파생 → 제품 수요 변화가 노동수요 변화 야기",
+        "독립 수요",
+        "정부 결정",
+        "노동만 결정",
+        "자본 무관"
+      ],
+      "answer": "1",
+      "explanation": "요소수요는 파생 수요(derived demand): 제품 수요에서 파생. 제품 수요 ↑ → 가격 ↑ → VMP ↑ → 노동수요 ↑. 코로나 시 의료 수요 → 의료진 수요."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-020",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "기업의 노동수요 $L^d = 20 - 0.5w + 0.2P$ (P: 제품가). w=10, P=20일 때 L은?",
+      "options": [
+        "L = 19",
+        "L = 15",
+        "L = 25",
+        "L = 10",
+        "L = 0"
+      ],
+      "answer": "1",
+      "explanation": "$L = 20 - 5 + 4 = 19$. 임금 인상 시 ↓, 제품가 상승 시 ↑."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-021",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Hicks-Marshall 노동수요탄력성 4법칙은?",
+      "options": [
+        "① 제품수요 탄력 ↑ ② 자본 대체 쉬움 ③ 다른 요소 공급 탄력 ④ 노동비용 비중 ↑ → 노동수요 탄력성 ↑",
+        "고정",
+        "1개 요인",
+        "정부 결정",
+        "기업 규모만"
+      ],
+      "answer": "1",
+      "explanation": "Hicks-Marshall 노동수요탄력성 4법칙:\n① 제품수요 탄력성 ↑\n② 자본 대체 용이성 ↑\n③ 다른 요소 공급 탄력성 ↑\n④ 노동비용 비중 ↑\n→ 노동수요 탄력성 ↑"
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-022",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "$Q = 50L - 2L^2$, P = 1, w = 30. L, π는?",
+      "options": [
+        "L = 5, Q = 200, π = 50",
+        "L = 10, Q = 300, π = 0",
+        "L = 25, π = 0",
+        "L = 12.5, π = 312.5",
+        "L = 20, π = -300"
+      ],
+      "answer": "1",
+      "explanation": "$MP_L = 50 - 4L$. $VMP = 50 - 4L = 30 \\Rightarrow L = 5$.\nQ = 250 - 50 = 200. TR = 200, TC = 150, π = 50."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-023",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "노동수요 곡선이 우측 이동하는 요인은?",
+      "options": [
+        "기술 진보·자본 증가·제품 수요 증가·제품 가격 상승",
+        "임금 인상",
+        "정부 임금 규제",
+        "수요 감소",
+        "MP 감소"
+      ],
+      "answer": "1",
+      "explanation": "노동수요 우측 이동: ① 기술 진보 (MP ↑) ② 자본 증가 (보완재) ③ 제품 수요 증가 → P ↑ ④ 제품 가격 상승. 임금 변화는 곡선 위 이동만."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-024",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한계생산성 이론의 한계는?",
+      "options": [
+        "협상력·시장지배·정보 비대칭·인적자본 차이 무시",
+        "한계 없음",
+        "정부 결정만",
+        "협상력 포함",
+        "완벽한 이론"
+      ],
+      "answer": "1",
+      "explanation": "한계생산성 이론 한계: ① 협상력 (노조) ② 시장지배 (단조: monopsony) ③ 정보 비대칭 ④ 인적자본 차이 ⑤ 보상임금 ⑥ 차별. 표준 모형의 단순화."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-025",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "기업 시장수요 $Q = 200 - P$, 생산 $Q = 10\\sqrt{L}$. 노동수요는?",
+      "options": [
+        "비선형 - $w = (200 - 10\\sqrt{L}) \\cdot 5/\\sqrt{L}$ 풀이 필요",
+        "L = w",
+        "L = 100",
+        "L = 0",
+        "L = 200"
+      ],
+      "answer": "1",
+      "explanation": "독점 + 단일요소: P = 200 - Q = 200 - 10√L. TR = (200 - 10√L)·10√L = 2000√L - 100L.\n$dTR/dL = 1000/\\sqrt{L} - 100 = w$.\n$\\sqrt{L} = 1000/(100 + w) \\Rightarrow L = 10^6/(100 + w)^2$.\n비선형 노동수요. 답 ①."
+    }
+  ]
+}

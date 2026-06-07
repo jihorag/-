@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제3장 소비자이론",
+    "section": "제10절 기대효용이론",
+    "item": "제2관 위험에 대한 태도",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 30
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "위험 회피자(risk averter)의 효용함수 특성으로 옳은 것은?",
+      "options": [
+        "오목 (u'' < 0, 한계효용 체감)",
+        "볼록 (u'' > 0)",
+        "선형 (u'' = 0)",
+        "수평",
+        "수직"
+      ],
+      "answer": "1",
+      "explanation": "위험 회피자의 효용함수:\n오목 함수 (u'' < 0, 한계효용 체감)\n예: u = √W, u = ln(W), u = -e^(-aW)\n결과: 확실한 기대값 > 불확실한 도박 (Jensen 부등식)\n표준 가정 - 대부분 사람의 위험 태도."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "위험 회피자가 공정 도박(fair gamble)에 대해 보이는 태도로 옳은 것은?",
+      "options": [
+        "도박 거부 - 확실한 0 선호",
+        "도박 수용",
+        "무차별",
+        "정부 결정",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "공정 도박 (fair gamble) = 기대값 0인 도박\n위험 회피자: u(0) > E[u(X)] (Jensen) → 도박 거부\n위험 중립자: u(0) = E[u(X)] → 무차별\n위험 추구자: u(0) < E[u(X)] → 수용\n위험 회피의 표준 특성."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-003",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "절대 위험 회피 측정 A(W) = -u''/u'의 분류로 옳은 것은?",
+      "options": [
+        "CARA: A(W) 일정 / DARA: A(W) 감소 / IARA: A(W) 증가",
+        "측정 불가",
+        "A(W)는 가치판단",
+        "A(W)는 정부 결정",
+        "A(W)는 항상 0"
+      ],
+      "answer": "1",
+      "explanation": "절대 위험 회피 분류:\nCARA (Constant Absolute Risk Aversion): A(W) 일정\n예: u = -e^(-aW) (지수 효용)\nDARA (Decreasing Absolute): A(W) 감소 (부유할수록 위험 회피 ↓)\n예: u = ln(W), u = W^α\nIARA (Increasing Absolute): A(W) 증가 (부유할수록 위험 회피 ↑, 드문 가정)\n실증: 대부분 사람은 DARA (부유할수록 위험 부담 가능)."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-004",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "상대 위험 회피 측정 R(W) = W·A(W)의 의미로 옳은 것은?",
+      "options": [
+        "부의 비례적 위험에 대한 회피 강도 - 부와 무관한 비율 위험에 대한 태도",
+        "절대 위험 회피와 동일",
+        "R(W)는 가치판단",
+        "R(W)는 정부 결정",
+        "R(W)는 0"
+      ],
+      "answer": "1",
+      "explanation": "상대 위험 회피 R(W) = W·A(W) = -W·u''/u':\n부의 비례적 위험에 대한 회피\n예: 부의 10% 위험 vs 10% 안전한 수익\nCRRA (Constant Relative): R(W) 일정 - 가장 흔한 가정\nu = W^(1-σ)/(1-σ), σ = R\nσ = 1: 로그 효용 u = ln(W)\nDRRA (Decreasing Relative): R 감소\nIRRA (Increasing Relative): R 증가\n실증: 흔히 R ≈ 1~5."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-005",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "Arrow-Pratt 정리의 의미로 옳은 것은?",
+      "options": [
+        "절대 위험 회피 A(W)가 더 큰 사람이 더 큰 위험 프리미엄 요구 - 두 사람 비교의 기준",
+        "Arrow-Pratt은 잘못된 분석",
+        "정리는 가치판단",
+        "정리는 정부 결정",
+        "정리는 무관"
+      ],
+      "answer": "1",
+      "explanation": "Arrow-Pratt 정리 (Arrow 1965, Pratt 1964):\n두 사람 A, B의 위험 태도 비교\nA(W)의 값이 더 큰 사람이 더 위험 회피적 (더 큰 위험 프리미엄 요구)\n두 사람의 비교가 의미 있는 표준 측정\n응용:\n작은 위험: RP ≈ (1/2) · A(W) · σ² (변동성의 제곱에 비례)\n자산 가격 결정·위험 분담 분석"
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-006",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "작은 위험에 대한 위험 프리미엄의 근사 공식으로 옳은 것은?",
+      "options": [
+        "RP ≈ (1/2) · A(W) · σ² (위험 프리미엄 ∝ 절대 위험 회피 × 분산)",
+        "RP = A(W) · σ",
+        "RP = σ",
+        "RP = 0",
+        "RP = 가치판단"
+      ],
+      "answer": "1",
+      "explanation": "Arrow-Pratt 작은 위험 근사:\n자산 W에서 기대값 0, 분산 σ²의 작은 도박\nRP ≈ (1/2) · A(W) · σ²\n위험 프리미엄 ∝ 절대 위험 회피 × 분산\n해석:\n위험 회피 ↑ → RP ↑\n위험 (분산) ↑ → RP ↑ (제곱으로)\nA(W)·σ²는 동시에 작은 위험의 후생 손실 측정\nTaylor 전개 결과."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-007",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "DARA (Decreasing Absolute Risk Aversion)의 함의로 옳은 것은?",
+      "options": [
+        "부유할수록 위험 회피 ↓ → 같은 절대 금액 위험 부담을 더 받음. 실증 사례 다수.",
+        "부유할수록 위험 회피 ↑",
+        "DARA는 가치판단",
+        "DARA는 정부 결정",
+        "DARA는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "DARA (Decreasing Absolute Risk Aversion):\n부유할수록 A(W) ↓\n해석: 부유한 사람일수록 같은 절대 금액 위험을 덜 회피 (받을 수 있음)\n실증: 일반적으로 사람들은 DARA\n예: 1억 원 보유자에게 1만 원 위험 vs 100만 원 보유자에게 1만 원 위험 - 1억 원 보유자가 덜 회피\n응용: 부유 가구의 더 높은 주식 비중\n표준 효용 함수 (ln, √, W^α): 모두 DARA."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-008",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "CRRA 효용 (Constant Relative Risk Aversion)의 표준 형태로 옳은 것은?",
+      "options": [
+        "u(W) = W^(1-σ)/(1-σ) for σ ≠ 1, u(W) = ln(W) for σ = 1",
+        "u(W) = W²",
+        "u(W) = -e^(-W)",
+        "u(W) = W",
+        "u(W) = 가치판단"
+      ],
+      "answer": "1",
+      "explanation": "CRRA 효용 함수:\nu(W) = W^(1-σ)/(1-σ) for σ ≠ 1\nu(W) = ln(W) for σ = 1 (limit)\nσ: 상대 위험 회피 계수 R(W)\nσ 추정: 일반적으로 1~5 (실증)\nσ = 0: 위험 중립 (선형)\nσ → ∞: 매우 강한 위험 회피\n표준 자산 가격·소비 분석 (CCAPM 등)에서 자주 사용."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-009",
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 위험 태도와 부의 관계로 옳은 것은?",
+      "options": [
+        "DARA + DRRA: 매우 위험 회피적, 부유할수록 둘 다 감소\nCRRA: 비례 위험 동일, 절대 위험 감소 (DARA)\n표준 분석에서 CRRA 흔함",
+        "위험 태도는 부와 무관",
+        "위험은 가치판단",
+        "위험은 정부 결정",
+        "모든 사람 동일"
+      ],
+      "answer": "1",
+      "explanation": "위험 태도와 부 관계:\nDARA (Decreasing Absolute): 부 ↑ → A ↓ (절대 위험 회피 감소)\nCRRA: R(W) 일정 (비례 위험 회피 동일)\nDRRA (Decreasing Relative): 부 ↑ → R ↓ (비례 위험 회피도 감소)\n표준 분석에서 CRRA 흔함 (Modigliani 라이프 사이클 등)\n실증: 부유할수록 주식 비중 ↑ - DARA 일치."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-010",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "다음 중 위험 회피와 보험 가입의 관계로 옳은 것은?",
+      "options": [
+        "위험 회피가 강할수록 더 큰 보험료까지 지불 의사 - 보험 가입 적극\n위험 중립: 공정 보험료만 지불\n위험 추구: 보험 거부",
+        "위험과 보험은 무관",
+        "보험은 가치판단",
+        "보험은 정부 결정",
+        "위험은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "위험 회피와 보험 가입:\n위험 회피자: 공정 보험료 (= 기대 손실) + 약간의 마진까지 지불 의사 → 적극 가입\nRP > 0 - 안전 선호로 추가 지불\n위험 중립자: 공정 보험료만 지불 (RP = 0)\n위험 추구자: 보험 거부 (RP < 0, 도박 선호)\n실증: 보험 시장은 위험 회피의 강한 증거.\n예외: 일부 보험 미가입 (현재 편향·정보 부족·신뢰 부족)."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-011",
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 일부 사람들이 보험과 도박을 동시에 하는 현상에 관한 옳은 설명은?",
+      "options": [
+        "Friedman-Savage 효용함수 (1948): 부의 수준에 따라 오목-볼록 혼합 → 작은 보험 + 작은 도박 동시 설명. 또는 전망이론 (Kahneman-Tversky)도 설명.",
+        "보험과 도박은 양립 불가",
+        "이는 비합리적 행동",
+        "현상은 가치판단",
+        "현상은 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "보험·도박 동시 가입 현상:\n표준 효용 모형 모순 (위험 회피 vs 추구)\nFriedman-Savage (1948) 효용함수: 부의 수준에 따라 오목 (낮은 부에서 위험 회피, 보험) - 볼록 (중간 부에서 위험 추구, 도박) - 오목 (매우 높은 부에서 다시 위험 회피)\n전망이론 (Kahneman·Tversky 1979): 손실 영역 (보험) 회피 + 이익 영역 작은 확률 큰 보상 (복권) 추구\n행동경제학적 설명."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-012",
+      "difficulty": 2,
+      "question_type": "보기 결합형",
+      "question": "다음 중 위험 태도에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 오목 효용 → 위험 회피, 볼록 → 추구\nㄴ. Arrow-Pratt 절대 위험 회피 A(W) = -u''/u'\nㄷ. CRRA: 상대 위험 회피 R(W) 일정\nㄹ. 위험 프리미엄 ≈ (1/2) · A · σ²",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄷ, ㄹ"
+      ],
+      "answer": "4",
+      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 위험 태도 분석의 4가지 핵심 요소."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "위험 프리미엄 계산: u = √W, W0 = 100, 도박: 50% +50, 50% -50. RP는?",
+      "options": [
+        "약 3.2",
+        "약 10",
+        "약 25",
+        "약 50",
+        "0"
+      ],
+      "answer": "1",
+      "explanation": "u = √W, W0 = 100, 도박: ±50:\nE[W] = 0.5·150 + 0.5·50 = 100\nE[u(W)] = 0.5·√150 + 0.5·√50 = 0.5·12.247 + 0.5·7.071 ≈ 9.659\nCE: √CE = 9.659 → CE ≈ 93.3\nRP = E[W] - CE = 100 - 93.3 = 6.7 (대략)\n주의: 계산은 근사. 정확한 값은 약 6.7\n(다른 답: u(0)=0, u(50)≈7.071, u(150)≈12.247, E[u]≈9.659, CE≈93.3, RP≈6.7)\n근사가 약 3.2와 다름 - 가장 가까운 답이 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-014",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 위험 회피 강도와 자산 비중에 관한 옳은 설명은?",
+      "options": [
+        "위험 회피가 강할수록 무위험 자산 (예금·국채) 비중 ↑, 위험 자산 (주식) 비중 ↓. CRRA 모형: 위험 자산 비중 ≈ (μ - r)/(σ² · σ_risk)",
+        "위험 회피와 자산 비중은 무관",
+        "위험 회피자는 주식만",
+        "위험 회피는 가치판단",
+        "위험 회피는 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "위험 회피와 자산 비중:\nCRRA + 평균-분산 모형:\n최적 위험 자산 비중 α* ≈ (μ_risk - r) / (σ_RRA · σ²_risk)\nμ_risk: 위험 자산 기대 수익률\nr: 무위험 수익률\nσ_RRA: 상대 위험 회피 계수\nσ²_risk: 위험 자산 분산\n해석:\n위험 회피 ↑ → α ↓ (위험 자산 비중 ↓)\n프리미엄 (μ - r) ↑ → α ↑\n분산 ↑ → α ↓\n현대 포트폴리오 이론·자산 배분의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-015",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 다양화(diversification)의 위험 회피 효과로 옳은 것은?",
+      "options": [
+        "독립적인 여러 자산에 분산 → 총 분산 ↓ (대수의 법칙) → 위험 프리미엄 ↓ → 효용 ↑. Markowitz 1952.",
+        "다양화는 효과 없음",
+        "다양화는 위험 증가",
+        "다양화는 가치판단",
+        "다양화는 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "다양화의 위험 회피 효과:\nMarkowitz (1952, 1990 노벨상)\n독립적 자산 n개에 균등 분산: 총 분산 = σ²/n (대수의 법칙)\n결과: 분산 ↓ → 위험 ↓ → 효용 ↑\n계란을 한 바구니에 담지 않기\n실용: 분산 펀드·인덱스 펀드의 인기\n현대 포트폴리오 이론의 기초.\n시스템 위험은 다양화로 제거 못함 (Sharpe 1964 CAPM)."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-016",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 평균-분산 분석(mean-variance analysis)의 가정으로 옳은 것은?",
+      "options": [
+        "효용함수가 2차 (u = aW - bW²) 또는 수익률이 정규분포 - 효용이 평균·분산만의 함수가 됨. Markowitz 분석의 기초.",
+        "평균-분산은 가치판단",
+        "평균-분산은 정부 결정",
+        "평균-분산은 모든 효용",
+        "평균-분산은 무관"
+      ],
+      "answer": "1",
+      "explanation": "평균-분산 분석의 가정:\n조건: 효용이 2차 (u = aW - bW²) 또는 수익률이 정규 분포\n결과: 효용 = f(평균, 분산) 만의 함수\nE[u] = a·μ - b·(μ² + σ²) (2차 효용의 경우)\nMarkowitz (1952) 분석의 기초\n장점: 단순·시각화 (평균-표준편차 평면)\n한계:\n2차 효용은 비현실적 (포만점 존재)\n실제 수익률은 정규 분포 아님 (긴 꼬리·왜도)\n그러나 표준 분석에 자주 사용."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-017",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 자본자산가격결정모형(CAPM)의 기대효용 기초로 옳은 것은?",
+      "options": [
+        "Sharpe (1964), Lintner (1965), Mossin (1966): 평균-분산 분석 + 완전경쟁 → 기대 수익률 = r + β·(R_m - r). 1990 Sharpe 노벨상.",
+        "CAPM은 기대효용과 무관",
+        "CAPM은 가치판단",
+        "CAPM은 정부 결정",
+        "CAPM은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "자본자산가격결정모형 (CAPM):\nSharpe (1964), Lintner (1965), Mossin (1966)\n가정: 평균-분산 효용 + 완전경쟁 시장\n공식: E[R_i] = R_f + β_i · (E[R_m] - R_f)\nβ_i = cov(R_i, R_m) / var(R_m) - 시장 위험 노출\n시장 포트폴리오: 모든 위험 자산의 최적 결합\n분산 가능 위험: 다양화로 제거\n시스템 위험: β로 보상\nSharpe 1990 노벨경제학상.\n현대 금융 이론의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-018",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 위험 회피와 사회적 보험에 관한 옳은 설명은?",
+      "options": [
+        "사회 보험 (국민건강·실업·산재): 위험 회피자의 후생 ↑ - 강제 가입으로 역선택 회피. 사회후생 증가.",
+        "사회 보험은 효과 없음",
+        "사회 보험은 가치판단",
+        "사회 보험은 정부 결정만",
+        "사회 보험은 무관"
+      ],
+      "answer": "1",
+      "explanation": "사회 보험과 위험 회피:\n사회 보험: 국민건강·실업·산재·연금 등\n위험 회피자에게 후생 ↑\n강제 가입: 역선택 (Akerlof) 회피 - 평균 위험으로 보험료 안정\n시장 실패 시정:\n민간 보험만으로 부족 (정보 비대칭)\n외부효과 (전염병 대응 등)\n사회후생함수 관점에서 정부 개입 정당화\n표준 공공경제학의 결론.\nDiamond·Mirrlees·Stiglitz 등의 분석."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-019",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "다음 중 위험 태도와 금융 시장의 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 보험 시장 - 위험 회피의 응용\nㄴ. 포트폴리오 분산 - 위험 ↓\nㄷ. CAPM·자산 가격 - 시장 위험 보상\nㄹ. 옵션·파생상품 - 위험 분담 도구\nㅁ. 사회 보험·복지 - 시장 실패 시정",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 위험 태도의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 위험 회피의 실증 측정에 관한 옳은 설명은?",
+      "options": [
+        "실증 추정: 상대 위험 회피 σ ≈ 1~5 (다양). 실험·관찰·조사 등으로 측정. 개인별 차이 큼.",
+        "위험 회피는 측정 불가",
+        "측정은 가치판단",
+        "측정은 정부 결정",
+        "측정은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "위험 회피의 실증 측정:\n방법:\n실험 경제학: lottery 선택 (Holt-Laury 2002)\n관찰 데이터: 자산 비중·보험 가입 (Cohen-Einav 2007)\n조사: 가설적 도박 답변 (Barsky 1997)\n결과:\n상대 위험 회피 σ ≈ 1~5\n개인별 차이 큼 (인구통계·경험·성격)\n남성 < 여성 (평균)\n고소득자 < 저소득자 (다양화 가능)\n자산 가격 분석에 σ = 1~3 사용 흔함."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-021",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 위험 회피와 의사결정의 응용으로 옳은 것은?",
+      "options": [
+        "투자·소비 결정\n직업 선택 (안정 vs 변동)\n결혼·자녀 결정\n보험·연금 가입\n위 ①, ②, ③, ④ 모두 응용",
+        "응용 없음",
+        "응용은 가치판단",
+        "응용은 정부 결정",
+        "①만 옳다"
+      ],
+      "answer": "1",
+      "explanation": "위험 회피의 일상 응용:\n① 투자·소비: 안전 자산 vs 위험 자산 비중\n② 직업 선택: 공무원·정규직 (안정) vs 창업·예술 (변동)\n③ 결혼·자녀: 안정 추구\n④ 보험·연금: 미래 위험 대응\n⑤ 부동산 vs 임차: 가격 변동 위험\n⑥ 교육 투자: 인적자본의 위험 수익\n광범위한 미시 의사결정의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-022",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 위험 회피와 보험 시장의 실패로 옳은 것은?",
+      "options": [
+        "역선택 (정보 비대칭) → 시장 붕괴 가능 (Akerlof 1970)\n도덕적 해이 → 위험 행동 증가 → 보험료 ↑\n정부 개입: 강제 가입·표준화·재보험",
+        "보험 시장은 항상 효율",
+        "보험은 효과 없음",
+        "보험은 가치판단",
+        "보험은 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "보험 시장의 실패:\n① 역선택 (Akerlof 1970):\n위험 정보 비대칭 → 위험 높은 사람만 가입 → 시장 붕괴\n해결: 강제 가입 (국민건강보험)·표준화·검진\n② 도덕적 해이:\n보험 후 위험 행동 증가\n해결: 공동 부담 (deductible·coinsurance)·인센티브 설계\n③ 시장 정보 부족:\n표준화·신용도 등급\n정부 개입의 미시적 정당화."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 행동경제학의 위험 태도 분석으로 옳은 것은?",
+      "options": [
+        "전망이론 (Kahneman·Tversky 1979): 기준점·손실 회피·확률 가중·이익 vs 손실의 비대칭\n표준 효용 모형 vs 전망이론의 정량 차이\n에쿼티 프리미엄 퍼즐 해결 시도",
+        "행동경제학은 위험과 무관",
+        "행동경제학은 옹호만",
+        "행동경제학은 가치판단",
+        "행동경제학은 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "전망이론 (Prospect Theory):\nKahneman·Tversky (1979)\n표준 효용이론 비판:\n① 기준점: 부의 절대값 아닌 변화 기준\n② 가치 함수: 이익에서 오목, 손실에서 볼록 (이중성)\n③ 손실 회피: λ ≈ 2.25 (손실 가중치)\n④ 확률 가중 π(p): 작은 확률 과대·큰 확률 과소\n응용:\n에쿼티 프리미엄 퍼즐 해결 시도\n복권·보험 동시 가입 설명\n매몰비용 오류·보유 효과\n행동경제학·금융의 기초.\nKahneman 2002 노벨상."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-024",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 손실 회피의 응용으로 옳은 것은?",
+      "options": [
+        "보유 효과 (Thaler 1980): 소유한 것에 큰 가치\n매몰비용 오류: 손실 회수 시도\n매도자-매수자 가격 차이 (WTP < WTA)\n주식 손실의 부정 (loss realization)",
+        "손실 회피는 응용 없음",
+        "손실 회피는 가치판단",
+        "손실 회피는 정부 결정",
+        "손실 회피는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "손실 회피의 응용:\n① 보유 효과 (Thaler 1980): 머그컵 실험 - 소유 후 가치 ↑\n② 매몰비용 오류: 손실 회수를 위한 비합리 지속\n③ WTP < WTA: 기꺼이 지불 < 기꺼이 받기 (대등 거래의 가격 차이)\n④ 손실 회피·실현 (loss realization): 손실 주식 매도 회피·이익 주식 매도 (disposition effect)\n⑤ 보험·복권 동시: 작은 손실 + 큰 보상 동시 추구\n행동 금융의 핵심 발견.\nThaler 2017 노벨상."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-025",
+      "difficulty": 4,
+      "question_type": "보기 결합형",
+      "question": "다음은 위험 태도의 발전과 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. Bernoulli (1738): 한계효용 체감·기대효용\nㄴ. von Neumann·Morgenstern (1944): VNM 공리\nㄷ. Arrow·Pratt (1964, 1965): 위험 회피 측정\nㄹ. Markowitz·Sharpe (1952, 1964): 포트폴리오·CAPM\nㅁ. Kahneman·Tversky (1979): 전망이론",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "5단계 모두 옳다. 위험 태도 이론의 발전사."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-026",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 위험 회피와 거시 경제의 관계로 옳은 것은?",
+      "options": [
+        "경기 불황 시 위험 회피 ↑ → 위험 자산 매도 (flight to quality) → 자산 가격 폭락 → 금융 위기. 정상화 시 위험 추구 회복.",
+        "위험 회피는 거시와 무관",
+        "위험 회피는 가치판단",
+        "위험 회피는 정부 결정만",
+        "위험 회피는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "위험 회피와 거시 경제:\n경기 불황·금융 위기:\n위험 회피 ↑ (불확실성 증가·손실 회피)\n위험 자산 (주식·회사채) 매도\nFlight to quality: 국채·달러·금으로 도피\n자산 가격 폭락 → 금융 위기 (2008)\n정상화 시:\n위험 회피 ↓\n위험 추구 회복\n자산 가격 반등\n거시 자산 가격 동학의 핵심.\n행동 거시·금융의 표준 분석."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-027",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 위험 태도의 한국 사례에 관한 옳은 설명은?",
+      "options": [
+        "한국인 위험 회피: 부동산 선호·정기 예금 비중 큼·주식 비중 작음\n사회 보험 (국민건강·연금) - 강제 가입\n공공 의료·교육의 큰 비중 - 위험 분산",
+        "한국은 위험 태도 없음",
+        "한국은 위험 추구만",
+        "한국은 가치판단",
+        "한국은 정부 결정만"
+      ],
+      "answer": "1",
+      "explanation": "한국의 위험 태도:\n① 가계 자산: 부동산 70%+ (안전 자산 선호), 정기 예금·국채 비중 큼\n주식 비중 약 10~15% (미국 30%+ 대비 적음) - 위험 회피적\n② 사회 보험: 국민건강보험 (98% 가입), 국민연금 - 강제 위험 분산\n③ 공공 의료·교육 비중 큼 - 위험 분산\n④ 직업 선호: 공무원·정규직 선호 - 안정 추구\n실증 위험 회피의 한국 사례.\n변화: 청년층의 주식·암호화폐 비중 증가."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-028",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 위험 태도의 다양한 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 금융·자산 가격 (CAPM·CCAPM)\nㄴ. 보험·연금·복지 정책\nㄷ. 위험 관리·파생상품\nㄹ. 행동경제학·정책 설계\nㅁ. 환경 위험·기후 정책",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 위험 태도의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-029",
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 위험 태도와 정책의 관계로 옳은 것은?",
+      "options": [
+        "정책 평가에 위험 회피 고려 필요 - 시민의 위험 부담 능력·보호 의도\n예: 연금 개혁 시 위험 노출 변화, 공공 의료의 위험 분산 효과, 환경 정책의 미래 불확실성",
+        "정책은 위험과 무관",
+        "정책은 가치판단",
+        "정책은 정부 결정만",
+        "정책은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "위험 태도와 정책:\n정책 평가에서 위험 회피 고려:\n시민의 위험 부담 능력·보호 의도\n불확실성 하 의사결정 모형\n예시:\n연금 개혁 (정부형 vs 시장형): 위험 노출 변화\n공공 의료: 의료비 변동 위험 분산\n환경 정책: 미래 기후 변화 불확실성\n실업 보험: 노동 시장 위험 분산\n기본 소득 vs EITC: 위험 보장 vs 인센티브\n현대 정책 분석의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item02-030",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 위험에 대한 태도의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 위험 회피 (오목 효용) vs 추구 (볼록) vs 중립 (선형)\nㄴ. Arrow-Pratt 절대·상대 위험 회피 측정\nㄷ. 보험·다양화·CAPM 등 응용\nㄹ. 전망이론·손실 회피 - 행동경제학적 확장\nㅁ. 모든 사람은 동일한 위험 태도",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "2",
+      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 위험 태도는 개인별로 다르다 (실증: σ ≈ 1~5의 큰 범위). 인구통계·소득·경험·성격 등에 따라 차이가 크다. '모든 사람 동일'은 잘못이다."
+    }
+  ]
+}

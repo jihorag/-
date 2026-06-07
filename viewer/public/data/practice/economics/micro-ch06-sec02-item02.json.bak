@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제6장 생산요소시장과 소득분배",
+    "section": "제19절 불완전경쟁 요소시장",
+    "item": "제2관 공급독점 (노동조합)",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-03",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "공급독점(monopoly supply) 노동시장에서 공급 측 독점 주체는 누구인가?",
+      "options": [
+        "노동조합 (단일 노동공급자)",
+        "정부",
+        "단일 기업",
+        "교육기관",
+        "노동시장 전체"
+      ],
+      "answer": "1",
+      "explanation": "노동공급 측에서 노동조합이 회원의 노동을 묶어 단일 매도자처럼 행동 → 공급독점. 임금·고용 결정에 영향력. 수요독점(매수자 1)의 대칭."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-002",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "노동조합의 일반적 목표 3가지를 가장 잘 묶은 것은?",
+      "options": [
+        "임금 인상 / 고용 유지·증대 / 근로 조건 개선",
+        "이윤 극대화 / 가격 차별 / 진입 차단",
+        "효용 극대화 / 비용 최소화 / 위험 회피",
+        "투자 / 저축 / 소비",
+        "조세 회피 / 보조금 수령 / 자본 축적"
+      ],
+      "answer": "1",
+      "explanation": "노조 3대 목표: ① 임금 인상 ② 고용 보장·확대 ③ 근로 조건(시간·안전·복지) 개선. 단 ①과 ②는 trade-off (임금 ↑ → 수요 ↓ → 고용 ↓)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-003",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 노동시장 그래프에서 노동조합이 임금을 균형 $w^*$ 보다 높은 $w_u$ 로 강제할 때 결과는?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
+      "options": [
+        "고용 감소 + 잔존 조합원 임금 ↑",
+        "고용 증가 + 임금 ↓",
+        "효과 없음",
+        "수요 증가",
+        "공급 증가"
+      ],
+      "answer": "1",
+      "explanation": "노조 임금 $w_u > w^*$ → 수요 ↓ → 고용 ↓. 단 일자리를 유지한 조합원은 임금 ↑. 일자리 잃은 인원과 trade-off."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-004",
+      "difficulty": 2,
+      "question_type": "계산형",
+      "question": "노동수요 $L_d = 100 - 2w$. 노조가 임금 $w_u = 30$ 으로 강제 시 조합원 임금소득 총액은?",
+      "options": [
+        "$w_u L = 30 \\cdot 40 = 1{,}200$",
+        "$1{,}500$",
+        "$2{,}000$",
+        "$800$",
+        "$3{,}000$"
+      ],
+      "answer": "1",
+      "explanation": "$L = 100 - 60 = 40$. 임금 총소득 = $30 \\cdot 40 = 1{,}200$. (균형이 $w^* = 20$, $L^* = 60$ 이면 임금총소득 = $1{,}200$ 동일 가능 — 탄력성=1 케이스)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-005",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "노동수요 $L_d = 60 - w$ 일 때 노조가 \"조합원 총 임금소득(wL)\" 극대화를 목표로 한다면 최적 임금은?",
+      "options": [
+        "$w^{u} = 30$",
+        "$w^{u} = 20$",
+        "$w^{u} = 40$",
+        "$w^{u} = 15$",
+        "$w^{u} = 50$"
+      ],
+      "answer": "1",
+      "explanation": "총임금 $TR = wL = w(60 - w) = 60w - w^2$. $\\dfrac{dTR}{dw} = 60 - 2w = 0$ → $w^u = 30$. $L = 30$. 총소득 = $900$ (수요 단위탄력 점)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-006",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "노조가 \"고용 보장(L 극대화)\" 만 목표로 한다면 임금은 어떻게 결정되는가?",
+      "options": [
+        "공급곡선 위 어디든 수요와 만나는 가장 낮은 임금 — 사실상 시장균형 채택",
+        "VMP 위 임금",
+        "MFC 위 임금",
+        "임금 0",
+        "임금 무한대"
+      ],
+      "answer": "1",
+      "explanation": "고용만 극대화 → 수요 곡선이 가장 클 때 임금 ↓. 사실상 시장 균형(또는 더 낮음)에서 결정. 단 노동공급 측에서 임금이 최저생계 수준 아래는 거부 → 사실상 균형."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-007",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "노조 목표가 \"잉여(rent) = 임금 - 비조합 임금\" 극대화일 때 결정 원리는?",
+      "options": [
+        "한계수입(MR)과 비조합 임금(또는 대체임금)이 같아지는 점",
+        "VMP = MFC",
+        "임금 = 한계비용",
+        "공급 = 수요",
+        "임금 = 평균비용"
+      ],
+      "answer": "1",
+      "explanation": "노조를 독점기업처럼 분석: 임금 = P, 노동량 = Q. 노동수요 = D. $MR$ 와 대체임금($w_0$, 공급의 한계비용)의 교차에서 노동량 결정 → 그 노동량의 수요곡선 위 임금."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-008",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요 $L_d = 80 - 2w$, 대체임금(공급의 한계비용) = 10. 노조의 잉여 극대화 임금은?",
+      "options": [
+        "$w^u = 25$",
+        "$w^u = 20$",
+        "$w^u = 30$",
+        "$w^u = 15$",
+        "$w^u = 35$"
+      ],
+      "answer": "1",
+      "explanation": "역수요: $w = 40 - 0.5L$. $TR(L) = wL = 40L - 0.5L^2$, $MR = 40 - L$. $MR = w_0$: $40 - L = 10$ → $L = 30$. $w^u = 40 - 15 = 25$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-009",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "양방독점(bilateral monopoly)에서 임금 결정의 특징은?",
+      "options": [
+        "협상력에 따라 수요독점 임금~공급독점 임금 사이에서 결정",
+        "항상 균형임금",
+        "한 측만 결정",
+        "정부가 결정",
+        "임금 0"
+      ],
+      "answer": "1",
+      "explanation": "수요독점 임금(낮음) ≤ 협상임금 ≤ 공급독점 임금(높음). 협상력·정보·외부 옵션이 결정. 한국 대기업-금속노조 단체협약 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-010",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "한국 헌법은 노동조합의 어떤 권리를 보장하는가?",
+      "options": [
+        "단결권·단체교섭권·단체행동권 (노동 3권)",
+        "기업 경영 참여권",
+        "주식 보유권",
+        "정부 보조금",
+        "세제 혜택"
+      ],
+      "answer": "1",
+      "explanation": "헌법 제33조: 노동 3권 (단결권·단체교섭권·단체행동권). 공무원·필수공익사업종사자 일부는 제한. 한국 노조 가입률은 OECD 하위권 (약 14%)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-011",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "노동수요 $L = 200 - 4w$, 대체임금 = 20. 노조 잉여 극대화 임금과 고용은?",
+      "options": [
+        "$w^u = 35$, $L^u = 60$",
+        "$w^u = 30$, $L^u = 80$",
+        "$w^u = 40$, $L^u = 40$",
+        "$w^u = 25$, $L^u = 100$",
+        "$w^u = 45$, $L^u = 20$"
+      ],
+      "answer": "1",
+      "explanation": "역수요: $w = 50 - 0.25L$. $MR = 50 - 0.5L$. $MR = 20$ → $L = 60$. $w^u = 50 - 15 = 35$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-012",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "다음 그래프에서 노조 임금 협상 후 균형이 $(L_u, w_u)$ 이고 시장균형이 $(L^*, w^*)$ 이다. 사회 후생 손실(DWL)은?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
+      "options": [
+        "$(L^* - L_u)$ 만큼 거래 손실 — VMP와 공급곡선 사이 삼각형",
+        "0",
+        "$w_u \\cdot L_u$",
+        "$w^* \\cdot L^*$",
+        "$(w_u - w^*) \\cdot L_u$"
+      ],
+      "answer": "1",
+      "explanation": "노조 임금 ↑ → 고용 ↓ → 사라진 거래 $(L^* - L_u)$ 의 잉여 손실 = VMP와 공급곡선 사이 삼각형. 정통 견해 (단 수요독점 시장이면 효율성 ↑ 가능)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-013",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "노조 임금 인상이 비조합원 노동시장에 미치는 효과(spillover)는?",
+      "options": [
+        "조합에서 밀려난 노동자가 비조합 시장으로 유입 → 그 시장 임금 ↓",
+        "비조합 시장 임금 ↑",
+        "효과 없음",
+        "비조합 시장 수요 ↑",
+        "전체 임금 동조"
+      ],
+      "answer": "1",
+      "explanation": "노조 임금 ↑ → 노조 시장 고용 ↓ → 잉여 노동력이 비조합 시장으로 → 그 시장 공급 ↑ → 비조합 임금 ↓. 결과적으로 노조-비조합 임금 격차 ↑."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-014",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "노조의 \"내부자-외부자(insider-outsider)\" 이론이 시사하는 바는?",
+      "options": [
+        "조합원(내부자)의 임금·고용 보장 강조 → 신규 채용(외부자) 위축",
+        "외부자 채용 우선",
+        "내·외부 동일 대우",
+        "정부가 임금 결정",
+        "임금 변동 없음"
+      ],
+      "answer": "1",
+      "explanation": "Lindbeck-Snower 모형: 내부자 보호 우선 → 외부자(실업자·청년) 진입 어려움. 한국의 \"노노갈등\"(정규-비정규, 대기업-중소기업) 분석 도구."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-015",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노조 가입률이 노조 효과에 미치는 영향에 대한 실증 발견은?",
+      "options": [
+        "가입률 높을수록 임금 프리미엄·근로조건 개선 효과 ↑ — 한국은 가입률 낮아 효과 제한적",
+        "가입률 무관",
+        "가입률 낮을수록 효과 ↑",
+        "가입률 100%만 효과",
+        "결과 없음"
+      ],
+      "answer": "1",
+      "explanation": "OECD 보고서: 노조 밀도(union density)·단체협약 적용률(coverage)이 모두 높을수록 임금 프리미엄·격차 완화 효과 ↑. 한국 가입률 약 14%, 단협 적용률 약 15% — OECD 평균(약 30%·56%)보다 낮아 효과 제한적."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-016",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "노조 가입자 임금 프리미엄 = 15%. 비조합 임금 = 100만 원. 조합원 임금은?",
+      "options": [
+        "115만 원",
+        "120만 원",
+        "110만 원",
+        "85만 원",
+        "150만 원"
+      ],
+      "answer": "1",
+      "explanation": "프리미엄 15% → $100 \\cdot 1.15 = 115$ 만 원. 한국 실증 연구는 정규직 노조 임금 프리미엄 약 10~20% 수준 보고 (한국노동연구원)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-017",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "효율적 단체협상(efficient bargaining) 모형의 핵심 시사점은?",
+      "options": [
+        "노조와 기업이 임금과 고용을 동시에 협상하면 수요곡선 위(임금↑·고용 유지)에서 균형 가능",
+        "임금만 협상",
+        "고용만 협상",
+        "정부 개입 필요",
+        "협상 불필요"
+      ],
+      "answer": "1",
+      "explanation": "McDonald-Solow (1981) 효율적 협상: 임금만 협상하면 노조곡선이 수요곡선 따라가 고용 ↓. 임금·고용 동시 협상하면 무관계 곡선과 등이익 곡선의 접점 — 수요곡선 우상방. 사회 후생 ↑."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-018",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Freeman & Medoff (1984) What Do Unions Do? 가 제시한 노조의 \"two faces\" 는?",
+      "options": [
+        "독점력으로 인한 비효율(monopoly face) + 발언(voice face)으로 인한 효율성 개선",
+        "임금 인상만",
+        "고용 보장만",
+        "노동조건 개선만",
+        "정부 개입만"
+      ],
+      "answer": "1",
+      "explanation": "Freeman & Medoff: ① Monopoly face — 임금 ↑·고용 ↓·DWL. ② Voice face — 노동자 발언권으로 이직률 ↓, 근로조건 개선, 생산성 ↑. 노조 종합 효과는 두 얼굴의 합. 실증은 voice face가 적지 않다는 것."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-019",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요독점 + 노조 양방독점 사례. $w = 5 + L$ (공급), $VMP = 30 - L$. 협상력 50:50 단순 평균 시 협상임금은?",
+      "options": [
+        "약 21.25",
+        "약 17.5",
+        "약 25",
+        "약 15",
+        "약 20"
+      ],
+      "answer": "1",
+      "explanation": "수요독점 임금: $MFC = 5 + 2L$, $VMP = MFC$ → $30 - L = 5 + 2L$ → $L^m = 8.33$, $w^m = 13.33$. 공급독점 임금: 양분(MR=MC) → 약 $w^u = 29.17$(상한 VMP 수준). 50:50 단순평균 $\\approx 21.25$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-020",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "노조의 임금 인상이 노조-비조합 격차 외에 \"숙련-미숙련 임금격차\"에 미치는 영향은?",
+      "options": [
+        "노조가 주로 숙련직에 집중되면 격차 ↑",
+        "격차 ↓",
+        "변화 없음",
+        "미숙련 임금만 ↑",
+        "숙련 임금만 ↓"
+      ],
+      "answer": "1",
+      "explanation": "노조 가입이 숙련·정규직에 집중 → 그 부문 임금 ↑ → 미숙련·비정규 임금과의 격차 확대. 한국 노조가 대기업·정규직 중심이라 격차 ↑ 작용."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-021",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "노조의 \"임금 압축(wage compression)\" 효과란?",
+      "options": [
+        "조합 내 고-저 임금 격차 축소 (단체협약·동일임금 추진)",
+        "조합 간 격차 확대",
+        "임금 0 수렴",
+        "임금 변동 없음",
+        "임금 분산 증가"
+      ],
+      "answer": "1",
+      "explanation": "노조는 조합원 내 동일 작업·동일 임금 추구 → 저임 직군 임금 ↑, 고임 직군 인상 억제 → 임금 분산 ↓. 스웨덴·독일은 산업별 단협으로 임금 압축 효과 강함."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-022",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 그래프(공급독점)에서 노조가 \"임금 = MC = 한계공급비용\" 점에서 임금 결정한다면 결과는?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
+      "options": [
+        "사실상 시장 균형 — 노조 영향 없음",
+        "임금 최대화",
+        "고용 0",
+        "DWL 0",
+        "독점 이윤 0"
+      ],
+      "answer": "1",
+      "explanation": "$w = MC^{공급}$ → 시장 균형 ($w^*$, $L^*$) 점. 노조 임금 결정권을 \"공급의 한계비용\"에 맞추면 사실상 시장 경쟁과 동일."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 금속노조 사례에서 임금 협상이 산업별 단체협약 형태인 이유는?",
+      "options": [
+        "회사별 협상 분산을 막고 협상력 집중 + 임금 표준화",
+        "정부 의무",
+        "기업 요청",
+        "외국 자본 압력",
+        "헌법 명령"
+      ],
+      "answer": "1",
+      "explanation": "산업별 단협 → 협상력 집중, 임금 격차 축소, 비조합원에도 적용 가능 (단협 효력 확장). 한국은 회사별 협상이 주류이나 금속·보건·금융 일부는 산업별 단협 진행."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-024",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 사회적 대화 기구(경사노위)가 노동시장에 미치는 영향에 대한 평가는?",
+      "options": [
+        "최저임금·근로시간 등 핵심 의제 협의 기구이나 실질 합의도출은 어려움",
+        "모든 노동조건 결정 기구",
+        "노조만 참여",
+        "정부 단독 결정 기구",
+        "법적 강제력 없음"
+      ],
+      "answer": "1",
+      "explanation": "경제사회노동위원회(전 경사정위): 노·사·정·공익 4자 협의. 2018-2019 최저임금, 주 52시간 등 합의 시도. 단 노동계·경영계 입장차로 합의 도출 자주 실패. 합의 시 입법화 효과."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-025",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "노조 가입률(union density)이 높은 국가에서 소득 불평등이 낮은 인과 채널은?",
+      "options": [
+        "임금 프리미엄 + 임금 압축 + 정치적 영향으로 재분배 정책 → 지니계수 ↓",
+        "노조 가입자 수만 증가",
+        "임금 무관",
+        "복지 폐지",
+        "교육 효과만"
+      ],
+      "answer": "1",
+      "explanation": "Western & Rosenfeld (2011) 등: 노조 약화 → 저임금 노동자 임금 프리미엄 ↓ + 재분배 정책 약화 → 소득 불평등 ↑. 미국·영국 1980년대 이후 노조 약화와 불평등 ↑ 동행. 북유럽(노조 60%+)은 지니 0.3 미만 유지."
+    }
+  ]
+}

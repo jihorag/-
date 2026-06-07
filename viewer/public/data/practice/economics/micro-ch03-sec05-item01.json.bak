@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제3장 소비자이론",
+    "section": "제10절 기대효용이론",
+    "item": "제1관 기대값과 기대효용",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 30
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "기대값(expected value, E[X])의 정의로 옳은 것은?",
+      "options": [
+        "각 결과의 확률 × 결과값의 합 (E[X] = Σ pi·xi)",
+        "결과값의 합",
+        "확률의 곱",
+        "정부 결정",
+        "최대값"
+      ],
+      "answer": "1",
+      "explanation": "기대값 E[X] = Σ pi·xi: 각 결과 xi가 발생할 확률 pi와의 곱의 합. 평균적 결과를 의미. 공정 도박 (E[X] = 0)·이익 도박 (E[X] > 0)·손실 도박 (E[X] < 0) 등 분류."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "기대값 계산: 동전 던지기에서 앞면 → +100원, 뒷면 → -100원. 기대값은?",
+      "options": [
+        "0 - 공정 도박",
+        "+100",
+        "-100",
+        "+50",
+        "200"
+      ],
+      "answer": "1",
+      "explanation": "확률 0.5 × (+100) + 0.5 × (-100) = 50 - 50 = 0\n공정 도박 (fair gamble): 기대값 = 0\n위험 회피자: 거부 (확실한 0 선호)\n위험 중립자: 무차별\n위험 추구자: 수용 (도박 선호)"
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-003",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "기대효용(expected utility)의 정의로 옳은 것은?",
+      "options": [
+        "각 결과의 효용 × 확률의 합 (E[u(X)] = Σ pi · u(xi))",
+        "각 결과의 합",
+        "확률의 곱",
+        "정부 결정",
+        "최대 효용"
+      ],
+      "answer": "1",
+      "explanation": "기대효용 E[u(X)] = Σ pi · u(xi):\n각 결과 xi에 대한 효용 u(xi)와 확률 pi의 가중합\n불확실성 하의 선택에서 의사결정 기준\n베르누이(1738)·VNM(1944) 정식화\n표준 합리적 선택 이론의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-004",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "위험 회피(risk aversion)의 의미로 옳은 것은?",
+      "options": [
+        "같은 기대값의 두 도박 중 확실한(분산 작은) 도박 선호",
+        "위험 도박 선호",
+        "무차별",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "위험 회피 (risk-averse):\n같은 기대값의 두 도박 중 확실한 결과 또는 분산 작은 도박 선호\n수학적: u(E[X]) > E[u(X)] (Jensen의 부등식)\n오목 효용함수 (u'' < 0, 한계효용 체감)\n예: 보험 가입·다양화 투자\n대부분 사람의 위험 태도."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-005",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "위험 중립(risk neutral)의 의미로 옳은 것은?",
+      "options": [
+        "기대값이 같으면 모든 도박 무차별 - 분산 무관",
+        "위험 회피",
+        "위험 추구",
+        "정부 결정",
+        "효용 측정 불가"
+      ],
+      "answer": "1",
+      "explanation": "위험 중립 (risk-neutral):\n기대값이 같으면 모든 도박 무차별\n수학적: u(E[X]) = E[u(X)] (선형 효용함수)\n선형 효용함수 (u'' = 0)\n예: 대기업의 작은 투자 결정 (분산이 작아 영향 미미)\n표준 경제 분석의 단순화 가정으로 자주 사용."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-006",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "위험 추구(risk seeking)의 의미로 옳은 것은?",
+      "options": [
+        "기대값이 같아도 분산 큰 도박 선호",
+        "확실한 결과 선호",
+        "무차별",
+        "정부 결정",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "위험 추구 (risk-loving):\n기대값이 같아도 분산이 큰 도박 선호\n수학적: u(E[X]) < E[u(X)]\n볼록 효용함수 (u'' > 0, 한계효용 체증)\n예: 도박장·복권 구매·일부 투자\n표준 모형에서 드문 가정\n전망이론의 손실 영역에서 관찰 (Kahneman·Tversky)."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-007",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "효용함수의 형태와 위험 태도의 관계로 옳은 것은?",
+      "options": [
+        "오목 (u'' < 0): 위험 회피 / 선형 (u'' = 0): 위험 중립 / 볼록 (u'' > 0): 위험 추구",
+        "효용함수와 위험은 무관",
+        "효용함수는 가치판단",
+        "효용함수는 정부 결정",
+        "효용함수는 항상 선형"
+      ],
+      "answer": "1",
+      "explanation": "효용함수와 위험 태도:\n오목 함수 (u'' < 0): 한계효용 체감 → 위험 회피\n예: u = ln(x), u = √x, u = -e^(-x)\n선형 함수 (u'' = 0): 한계효용 일정 → 위험 중립\n예: u = x\n볼록 함수 (u'' > 0): 한계효용 체증 → 위험 추구\n예: u = x²\n위험 태도의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-008",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "Jensen의 부등식의 의미로 옳은 것은?",
+      "options": [
+        "오목 효용함수: u(E[X]) > E[u(X)] - 확실한 기대값의 효용 > 도박의 기대효용 → 위험 회피",
+        "u(E[X]) < E[u(X)] 항상",
+        "두 측정 동일",
+        "Jensen은 가치판단",
+        "Jensen은 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "Jensen의 부등식:\n오목 함수 f: f(E[X]) ≥ E[f(X)] (등호는 X가 상수일 때만)\n효용 분석:\n오목 효용 (u'' < 0): u(E[X]) > E[u(X)]\n해석: 확실한 기대값의 효용이 도박의 기대효용보다 큼\n→ 위험 회피 (Jensen)\n위험 회피의 수학적 기초.\n반대: 볼록 함수에서 위험 추구."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-009",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "확실 등가(certainty equivalent, CE)의 정의로 옳은 것은?",
+      "options": [
+        "도박의 기대효용과 같은 효용을 주는 확실한 금액 - u(CE) = E[u(X)]",
+        "기대값과 동일",
+        "정부 결정",
+        "가치판단",
+        "효용 측정"
+      ],
+      "answer": "1",
+      "explanation": "확실 등가 CE:\n주어진 도박을 받는 대신 확실히 받으면 무차별인 금액\nu(CE) = E[u(X)]\n위험 회피자: CE < E[X] (확실한 적은 금액 선호)\n위험 중립자: CE = E[X]\n위험 추구자: CE > E[X]\n도박의 주관적 가치 측정."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-010",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "위험 프리미엄(risk premium)의 정의로 옳은 것은?",
+      "options": [
+        "기대값 - 확실 등가 (RP = E[X] - CE) - 위험을 감수하기 위해 필요한 추가 보상",
+        "위험 추구자의 비용",
+        "정부 결정",
+        "0 항상",
+        "효용 측정"
+      ],
+      "answer": "1",
+      "explanation": "위험 프리미엄 RP:\nRP = E[X] - CE\n위험을 감수하기 위해 필요한 추가 보상\n위험 회피자: RP > 0 (도박 회피를 위해 더 받아야 함)\n위험 중립자: RP = 0\n위험 추구자: RP < 0 (도박을 위해 더 내려고 함)\n응용: 보험료, 주식 프리미엄 (equity premium), 자산 가격 결정."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-011",
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 위험 회피의 사례로 옳은 것은?",
+      "options": [
+        "보험 가입 - 위험 분산",
+        "다양화 투자 - 포트폴리오",
+        "안정적인 직업 선호 - 임금 변동성 낮음",
+        "위 ①, ②, ③ 모두 위험 회피 사례",
+        "①만 옳다"
+      ],
+      "answer": "4",
+      "explanation": "위험 회피의 일상 사례:\n① 보험 가입: 자동차·생명·건강·재산 - 위험 분산\n② 다양화 투자: 한 자산에 집중 vs 분산 (Markowitz 1952)\n③ 안정적 직업: 공무원·교사 (변동성 낮음) vs 창업·예술 (변동성 높음)\n④ 다양한 금융 상품: 정기 예금 > 주식 (안정성)\n표준 위험 회피 가정의 다양한 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-012",
+      "difficulty": 2,
+      "question_type": "보기 결합형",
+      "question": "다음 중 기대효용과 위험 태도에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 기대효용 = Σ pi · u(xi)\nㄴ. 오목 효용 → 위험 회피 (Jensen)\nㄷ. 위험 프리미엄 = 기대값 - 확실 등가\nㄹ. 보험 시장 → 위험 회피의 응용",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 기대효용 이론의 4가지 핵심 요소."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "기대효용 계산: u(W) = √W. 도박: 50% 0원, 50% 100원. 기대효용·확실 등가·위험 프리미엄은?",
+      "options": [
+        "E[u] = 5, CE = 25, RP = 25",
+        "E[u] = 50, CE = 50, RP = 0",
+        "E[u] = 0, CE = 0, RP = 50",
+        "E[u] = 10, CE = 100, RP = -50",
+        "E[u] = 25, CE = 50, RP = 25"
+      ],
+      "answer": "1",
+      "explanation": "u(W) = √W의 위험 회피 분석:\nE[u] = 0.5·u(0) + 0.5·u(100) = 0.5·0 + 0.5·10 = 5\nCE: u(CE) = 5 → √CE = 5 → CE = 25\nE[X] = 50\nRP = E[X] - CE = 50 - 25 = 25\n위험 회피자: CE(25) < E[X](50), RP > 0\n도박 기대값 50이나 확실한 25와 무차별 (위험 25 만큼 회피)."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-014",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "절대 위험 회피 (Arrow-Pratt) 측정으로 옳은 것은?",
+      "options": [
+        "A(W) = -u''(W)/u'(W) - 자산 W에서의 위험 회피 강도",
+        "A(W) = u'(W)",
+        "A(W) = u(W)",
+        "A(W) = 0",
+        "A(W) = 가치판단"
+      ],
+      "answer": "1",
+      "explanation": "Arrow-Pratt 절대 위험 회피 측정:\nA(W) = -u''(W)/u'(W)\n자산 W에서의 위험 회피 강도\n표준 분류:\nCARA (Constant Absolute Risk Aversion): A(W) 일정 - u = -e^(-aW)\nCRRA (Constant Relative Risk Aversion): R(W) = W·A(W) 일정 - u = W^(1-σ)/(1-σ)\nDARA (Decreasing Absolute): 부유할수록 위험 회피 줄어듦\nArrow-Pratt 정리: 절대 위험 회피가 두 사람 비교의 기준."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-015",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "상대 위험 회피 측정으로 옳은 것은?",
+      "options": [
+        "R(W) = -W·u''(W)/u'(W) = W · A(W) - 부의 비례에 대한 위험 회피 강도",
+        "R(W) = u(W)",
+        "R(W) = 0",
+        "R(W) = 가치판단",
+        "R(W) = 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "상대 위험 회피 측정 (Relative Risk Aversion):\nR(W) = W · A(W) = -W·u''(W)/u'(W)\n부의 비례 변화에 대한 위험 회피 강도\nCRRA (Constant Relative): R 일정 - 가장 흔한 가정\nu = W^(1-σ)/(1-σ), σ = R\nσ ≈ 1: 로그 효용 (자주 사용)\n실증 추정: σ ≈ 0.5~5 (다양)\n자산 가격 결정·생애 소비 분석의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-016",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 보험 시장의 기대효용 분석으로 옳은 것은?",
+      "options": [
+        "위험 회피자는 공정 보험료 (= 기대 손실)에 모든 위험 보험 가입. 보험회사는 다수 위험 풀로 위험 분산.",
+        "위험 회피자는 보험 거부",
+        "위험 중립자는 모든 보험 가입",
+        "보험은 후생 손실",
+        "보험은 정부 결정만"
+      ],
+      "answer": "1",
+      "explanation": "보험 시장의 기대효용 분석:\n위험 회피자는 공정 보험료 (premium = 기대 손실)에 모든 위험 보험 가입\n이유: 위험 회피 → 확실한 작은 손실 (보험료) 선호 vs 불확실한 큰 손실\n보험 회사 측: 다수 가입자의 위험 풀 → 대수의 법칙으로 위험 분산\n시장 균형: 위험 회피자 (가입) + 위험 중립 보험사 (제공) + 약간의 행정 비용\n베르누이 분석의 표준 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-017",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "역선택(adverse selection)의 의미로 옳은 것은?",
+      "options": [
+        "정보 비대칭으로 위험 높은 사람만 보험 가입 → 평균 위험 ↑ → 보험료 ↑ → 위험 낮은 사람 탈퇴 → ... → 시장 붕괴 (Akerlof 1970)",
+        "역선택은 보험과 무관",
+        "역선택은 가치판단",
+        "역선택은 정부 결정",
+        "역선택은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "역선택 (Adverse Selection):\nAkerlof (1970, 2001 노벨상)\n정보 비대칭: 가입자가 자기 위험 정보 (보험회사 모름)\n과정:\n위험 높은 사람만 보험 가치 큼 → 가입\n평균 위험 ↑ → 보험료 ↑\n위험 낮은 사람 탈퇴\n반복 → 시장 붕괴\n해결책: 의무 가입 (국민건강보험), 표준화·검진, 신호 (Spence 1973), 선별 (Stiglitz)\n정보경제학의 핵심 문제."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-018",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 도덕적 해이(moral hazard)의 의미로 옳은 것은?",
+      "options": [
+        "보험 가입 후 위험 행동 증가 - 보험으로 위험 부담이 보험사로 이전되어 가입자의 위험 회피 동기 감소",
+        "도덕적 해이는 보험과 무관",
+        "도덕적 해이는 가치판단",
+        "도덕적 해이는 정부 결정",
+        "도덕적 해이는 항상 좋음"
+      ],
+      "answer": "1",
+      "explanation": "도덕적 해이 (Moral Hazard):\n보험 가입 후 위험 행동 증가\n예: 자동차 보험 후 부주의 운전, 화재 보험 후 화재 예방 소홀\n원인: 위험이 보험사로 이전되어 가입자의 위험 회피 동기 감소\n해결책:\n공동 부담 (deductible, coinsurance) - 일부 위험 부담\n모니터링\n인센티브 설계\n정보경제학의 또 다른 핵심 문제 (Holmstrom·Hart·Stiglitz)."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-019",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "다음 중 기대효용 이론의 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 보험 시장 - 위험 회피의 응용\nㄴ. 포트폴리오 선택 - 분산 투자\nㄷ. 자산 가격 결정 (CAPM·CCAPM)\nㄹ. 위험 관리·금융 파생상품",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 기대효용 이론의 응용:\nㄱ 보험 시장\nㄴ 포트폴리오 선택 (Markowitz 1952, 1990 노벨상)\nㄷ 자산 가격 결정 (Sharpe 1964, CAPM, 1990 노벨상)\nㄹ 위험 관리·금융 파생상품"
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 상트페테르부르크 역설(St. Petersburg Paradox)의 의미로 옳은 것은?",
+      "options": [
+        "기대값이 무한대인 도박에 사람들이 작은 금액만 지불 (Bernoulli 1738). 한계효용 체감·위험 회피의 시초.",
+        "역설은 잘못된 분석",
+        "역설은 가치판단",
+        "역설은 정부 결정",
+        "역설은 효용과 무관"
+      ],
+      "answer": "1",
+      "explanation": "상트페테르부르크 역설 (St. Petersburg Paradox):\nBernoulli (1738)\n도박: 동전 던지기 - 첫 앞면이 n번째에 나오면 2^n 받기\n기대값 E[X] = (1/2)·2 + (1/4)·4 + ... = Σ 1 = ∞\n하지만 실제 사람들은 작은 금액 (10~30원)만 지불\nBernoulli 해법: 화폐의 한계효용 체감 → 큰 금액의 효용이 그만큼 크지 않음 → 기대효용 (E[u(X)]) < ∞\n위험 회피·기대효용 이론의 시초.\n현대 표준 분석의 출발점."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-021",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 폰 노이만-모르겐스턴(VNM) 효용 이론의 공리로 옳은 것은?",
+      "options": [
+        "① 완전성 (모든 lottery 비교 가능) ② 이행성 ③ 연속성 ④ 독립성",
+        "공리는 없음",
+        "VNM은 가치판단",
+        "VNM은 정부 결정",
+        "VNM은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "VNM 합리성 공리 (von Neumann·Morgenstern 1944):\n① 완전성: 모든 lottery 쌍에 대해 비교 가능 (A ≿ B 또는 B ≿ A 또는 A ~ B)\n② 이행성: A ≿ B, B ≿ C → A ≿ C\n③ 연속성: 좋아하는 정도 사이에 lottery 존재\n④ 독립성 (independence): A ≿ B → αA+(1-α)C ≿ αB+(1-α)C (공통 결과 추가에 무관)\n네 공리 만족 → 기대효용 표현 가능 (VNM 정리)\n불확실성 하 합리적 선택의 표준."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-022",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 알레의 역설(Allais Paradox)의 의미로 옳은 것은?",
+      "options": [
+        "실제 사람들의 선택이 VNM 독립성 공리를 위반하는 사례 (Allais 1953) - 확실성 효과·전망이론의 출발점",
+        "알레의 역설은 VNM 옹호",
+        "역설은 가치판단",
+        "역설은 정부 결정",
+        "역설은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "알레의 역설 (Allais Paradox, M. Allais 1953):\n예: 두 쌍의 도박 비교\n쌍 1: A1 (확실한 100만원) vs B1 (89% 100만원 + 10% 500만원 + 1% 0원)\n쌍 2: A2 (11% 100만원) vs B2 (10% 500만원)\n실제 선택: A1 (확실) but B2 (큰 보상)\n→ VNM 독립성 위반 (같은 차이의 두 쌍을 다르게 처리)\n원인: 확실성 효과 (certainty effect) - 확실한 결과를 과대평가\n전망이론 (Kahneman·Tversky 1979) 의 출발점.\nAllais 1988 노벨상."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 전망이론(Prospect Theory)의 핵심 요소로 옳은 것은?",
+      "options": [
+        "기준점 (reference point) 중심, 이익에서 위험 회피·손실에서 위험 추구, 손실 회피 (손실이 이익보다 약 2배 강함), 확률 가중 함수 (작은 확률 과대·큰 확률 과소)",
+        "전망이론은 효용 부정",
+        "전망이론은 가치판단",
+        "전망이론은 정부 결정",
+        "전망이론은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "전망이론 (Prospect Theory, Kahneman·Tversky 1979, 2002 Kahneman 노벨상):\n표준 효용이론 비판\n핵심 요소:\n① 기준점 (reference point): 절대 부가 아닌 변화 기준\n② 가치 함수: 이익에서 오목 (위험 회피), 손실에서 볼록 (위험 추구)\n③ 손실 회피 (loss aversion): 손실의 가치 < 이익의 가치 (약 2배 강함)\n④ 확률 가중 함수 π(p): 작은 확률 과대 평가, 큰 확률 과소 평가\n복권·보험 등 동시 가입 설명 가능\n행동경제학의 핵심 이론."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-024",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 손실 회피(loss aversion)의 의미와 측정으로 옳은 것은?",
+      "options": [
+        "같은 크기의 손실의 부의 효용 ≈ 2 × 이익의 양의 효용 (Tversky·Kahneman 1992). 보유 효과·매몰비용 오류·현상 유지 편향의 원인.",
+        "손실 회피는 효과 없음",
+        "손실 회피는 가치판단",
+        "손실 회피는 정부 결정",
+        "손실 회피는 효용과 무관"
+      ],
+      "answer": "1",
+      "explanation": "손실 회피 (Loss Aversion):\nTversky·Kahneman (1992) 측정: λ ≈ 2.25 (손실 vs 이익 가중치 비율)\n예: -100원의 효용 ≈ -2.25 × +100원의 효용\n응용·결과:\n보유 효과 (endowment effect, Thaler 1980): 소유한 것에 더 큰 가치\n매몰비용 오류: 손실 회수 시도\n현상 유지 편향 (status quo bias): 변화 회피\nProfit·Loss의 비대칭\n행동경제학의 핵심 발견."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-025",
+      "difficulty": 4,
+      "question_type": "보기 결합형",
+      "question": "다음은 기대효용 이론과 행동경제학의 발전사이다. 옳은 것을 모두 고른 것은?\n\nㄱ. Bernoulli (1738): 상트페테르부르크·기대효용 시초\nㄴ. von Neumann·Morgenstern (1944): VNM 기대효용 이론 정식화\nㄷ. Arrow·Pratt (1964, 1965): 위험 회피 측정\nㄹ. Allais (1953): 독립성 공리 위반 (역설)\nㅁ. Kahneman·Tversky (1979): 전망이론·행동경제학",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "5단계 모두 옳다. 기대효용·행동경제학의 발전사."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-026",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 에쿼티 프리미엄 퍼즐(Equity Premium Puzzle)의 의미로 옳은 것은?",
+      "options": [
+        "Mehra·Prescott (1985): 미국 주식 평균 수익률 - 무위험 수익률 ≈ 6%. 표준 기대효용 모형은 비현실적으로 큰 위험 회피 (σ > 30) 필요. 표준 모형의 실증적 위기.",
+        "에쿼티 퍼즐은 잘못된 분석",
+        "퍼즐은 가치판단",
+        "퍼즐은 정부 결정",
+        "퍼즐은 효용과 무관"
+      ],
+      "answer": "1",
+      "explanation": "에쿼티 프리미엄 퍼즐 (Equity Premium Puzzle, Mehra·Prescott 1985):\n미국 주식 평균 실질 수익률 ≈ 7%\n무위험 수익률 ≈ 1%\n프리미엄 ≈ 6%\n표준 기대효용 모형으로 설명하려면 σ > 30 (비현실적으로 큰 위험 회피) 필요\n해결 시도:\n행동 모형 (전망이론·손실 회피)\n습관 형성 (Constantinides 1990)\n분리 위험·기간 (Epstein-Zin)\n장기 위험 (Bansal-Yaron)\n미해결 - 표준 모형의 실증적 위기.\n금융경제학의 큰 도전."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-027",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 기대효용 이론의 응용 분야로 옳은 것은?",
+      "options": [
+        "보험·금융·자산 가격\n포트폴리오 선택 (Markowitz·Sharpe)\n게임 이론·경매·메커니즘 디자인\n행동경제학·정책 (넛지·default)\n위 ①, ②, ③, ④ 모두 응용",
+        "응용 없음",
+        "응용은 가치판단",
+        "응용은 정부 결정",
+        "①만 옳다"
+      ],
+      "answer": "1",
+      "explanation": "기대효용 이론의 응용:\n① 보험·금융·자산 가격: CAPM·CCAPM·옵션 가격\n② 포트폴리오 선택: Markowitz (1952, 1990 노벨상) · Sharpe (1964)\n③ 게임 이론: Nash 균형의 효용극대화 (Nash 1994 노벨상)\n④ 경매·메커니즘 디자인: Vickrey·Mirrlees·Maskin\n⑤ 행동경제학·정책: 넛지 (Thaler·Sunstein 2008)\n⑥ 보건경제학: 의료 결정 모형\n현대 응용 미시·금융·정책의 핵심 도구."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-028",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 기대효용 이론의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기대효용 E[u(X)] = Σ pi · u(xi)\nㄴ. 위험 태도: 오목 → 회피, 선형 → 중립, 볼록 → 추구\nㄷ. 확실 등가 CE, 위험 프리미엄 RP\nㄹ. VNM 공리 - 표준 합리성의 기초\nㅁ. 행동경제학 (전망이론) - 표준 모형의 비판·확장",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 기대효용 이론의 5가지 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-029",
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 기대효용 이론의 현대 발전으로 옳은 것은?",
+      "options": [
+        "Epstein-Zin (1989): 시점간 대체와 위험 회피 분리\nGul (1991): 실망 회피 모형\nKreps-Porteus: 시점간 위험\nMaccheroni·Marinacci·Rustichini: 변동성 회피 등",
+        "기대효용은 변화 없음",
+        "현대는 가치판단",
+        "현대는 정부 결정",
+        "기대효용은 폐기됨"
+      ],
+      "answer": "1",
+      "explanation": "기대효용 이론의 현대 발전:\nEpstein-Zin (1989): 시점간 대체와 위험 회피 분리 - 에쿼티 퍼즐 해결 시도\nGul (1991): 실망 회피 (disappointment aversion)\nKreps-Porteus (1978): 시점간 위험과 정보 가치\nMaccheroni·Marinacci·Rustichini (2006): 변동성 회피·ambiguity\n비표준 효용 모형: 보유 효과·습관 형성·내생 위험 등\n현대 금융·소비·자산 가격 연구의 발전."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-030",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 기대효용·위험 분석의 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 보험·금융 시장의 미시적 기초\nㄴ. 포트폴리오 선택·자산 가격\nㄷ. 행동경제학적 정책 설계\nㄹ. 보건 의료·환경 위험 평가\nㅁ. 정치·법·전쟁의 불확실성 분석",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 기대효용·위험 분석의 광범위한 응용."
+    }
+  ]
+}

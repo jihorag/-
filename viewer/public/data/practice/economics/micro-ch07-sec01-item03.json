@@ -8,84 +8,84 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch07-sec01-item03-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "경제적 효율성의 3대 조건은?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "생산의 파레토 효율성 조건($MRTS_L^X = MRTS_L^Y$)과 생산가능곡선(PPF)의 관계에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
       "options": [
-        "교환 효율 + 생산 효율 + 종합(생산물 구성) 효율",
-        "수요·공급·균형",
-        "단기·장기·시점간",
-        "노동·자본·토지",
-        "재정·금융·통화"
+        "생산의 효율성이 만족되는 계약곡선 상의 배분점들을 재화 평면으로 옮겨 그린 궤적이 생산가능곡선이다",
+        "생산가능곡선 내부의 한 점은 기술적으로 효율적인 생산 상태를 나타낸다",
+        "한계기술대체율이 일치하더라도 생산의 효율성은 충족되지 않는다",
+        "생산가능곡선의 접선의 기울기는 두 소비자의 한계대체율의 합과 같다",
+        "생산요소의 완전경쟁 시장이 와해될 때 생산가능곡선은 원점에서 먼 쪽으로 확장된다"
       ],
       "answer": "1",
-      "explanation": "Pareto 효율 3조건: ① 교환 효율 (MRS_AB = MRS_BC) ② 생산 효율 (MRTS_K_L 모든 기업 동일) ③ 종합 효율 (MRS = MRT — 소비자와 생산자 한계기술 일치)."
+      "explanation": "생산 에지워스 상자에서 두 재화 X, Y의 등량곡선이 접하는 계약곡선 상의 배분점들을 X-Y 생산량 평면으로 매핑하여 그린 궤적이 바로 생산가능곡선(PPF)입니다. 따라서 ①이 옳고, 내부의 점은 비효율적 상태(②)입니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "교환의 Pareto 효율 조건(MRS)이란?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "사회의 총생산가능곡선(PPF)이 $X^2 + Y^2 = 200$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\\\cdot Y$ 일 때, 생산과 소비의 종합적 효율성(Pareto Optimal)을 만족하는 X재와 Y재의 생산 조합 $(X^*, Y^*)$ 은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
       "options": [
-        "모든 소비자의 두 재화 간 한계대체율이 동일 — $MRS^A = MRS^B$",
-        "MRS = 0",
-        "MRS = 1",
-        "한 소비자만 만족",
-        "MRS = MC"
+        "$(X^*, Y^*) = (10, 10)$",
+        "$(X^*, Y^*) = (8, 12)$",
+        "$(X^*, Y^*) = (12, 8)$",
+        "$(X^*, Y^*) = (14, 2)$",
+        "$(X^*, Y^*) = (5, 15)$"
       ],
       "answer": "1",
-      "explanation": "교환 효율: 양 소비자의 MRS 다르면 교환으로 양측 효용 ↑ 가능 → 비효율. 시장에서 가격이 매개: $MRS = p_1/p_2$ 동일하게 만듦."
+      "explanation": "1) PPF 음함수 미분을 통한 한계변환율 도출: $2X dX + 2Y dY = 0 \\\\Rightarrow MRT_{XY} = -dY/dX = X/Y$.\n2) 효용함수 $U = X \\\\cdot Y$ 로부터 한계대체율 도출: $MRS_{XY} = Y/X$.\n3) 종합적 효율성 조건: $MRT_{XY} = MRS_{XY} \\\\Rightarrow X/Y = Y/X \\\\Rightarrow X^2 = Y^2 \\\\Rightarrow X = Y$.\n4) PPF 식에 대입: $X^2 + X^2 = 200 \\\\Rightarrow 2X^2 = 200 \\\\Rightarrow X^2 = 100 \\\\Rightarrow X^* = 10, Y^* = 10$ 이 도출됩니다. 정답은 ①입니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-003",
-      "difficulty": 2,
+      "difficulty": 4,
       "question_type": "이론형",
-      "question": "생산의 Pareto 효율 조건(MRTS)이란?",
+      "question": "파레토 효율성을 달성하기 위한 3대 효율성 조건(교환, 생산, 종합)이 모두 완전경쟁 시장 기구에 의해 동시에 충족되는 균형 수리 조건으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
       "options": [
-        "모든 기업의 노동-자본 한계기술대체율 동일 — $MRTS_{LK}^X = MRTS_{LK}^Y$",
-        "MRTS = 0",
-        "MRTS = 한계비용",
-        "MRTS = 한계수입",
-        "한 기업만 효율"
+        "$MRS_{XY} = P_Y / P_X$ 이고 $MRTS_{LK} = w/r$ 이다",
+        "$MRS_{XY}^A = MRS_{XY}^B = P_X / P_Y = MRT_{XY} = MC_X / MC_Y$",
+        "$MRT_{XY} = P_Y / P_X$ 이며 생산의 파레토 개선이 종료된다",
+        "사회적 한계편익이 사적 한계비용과 일치하는 앳킨슨 균형 상태를 의미한다",
+        "모든 소비자의 한계효용 비율이 0에 도달할 때 성립한다"
       ],
-      "answer": "1",
-      "explanation": "생산 효율: 자원(노동·자본) 배분이 모든 기업에서 효율적이려면 MRTS 동일. 다르면 자원 재배분으로 두 기업 모두 산출 ↑ 가능 → 비효율. 시장: 임금/자본가격 동일하게 매개."
+      "answer": "2",
+      "explanation": "시장기구가 작동할 때: ① 교환의 효율: $MRS_{XY}^A = MRS_{XY}^B = P_X / P_Y$ 이 성립.\n② 생산의 효율: $MRTS_{LK}^X = MRTS_{LK}^Y = w/r$.\n③ 종합적 효율: 생산자는 이윤극대 조건 $P = MC$에 의해 $MC_X / MC_Y = P_X / P_Y$를 적용하여 $MRT_{XY}$와 상대가격을 연동시킵니다. 결합하면 $MRS_A = MRS_B = P_X / P_Y = MRT = MC_X / MC_Y$ 가 충족됩니다. 정답 ②."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-004",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
-      "question": "종합 효율(생산물 구성 효율) 조건은?",
+      "question": "생산가능곡선(PPF)이 원점에 대해 오목한(Concave) 보편적 기하학 형태를 띠게 만드는 경제학적 요인으로 옳은 것은?",
       "options": [
-        "$MRS_{XY} = MRT_{XY}$ — 소비자의 한계대체율 = 생산자의 한계변환율",
-        "MRS = 0",
-        "MRT = 0",
-        "MRS > MRT",
-        "MRS < MRT"
+        "각 재화 생산에 사용되는 생산기술이 규모에 대해 수확체증(IRS)하기 때문",
+        "생산에 투입되는 두 생산요소(노동, 자본)의 한계생산성이 무한히 체증하기 때문",
+        "각 산업의 기술적 요소집약도가 다르거나 한계대체율이 체감하고, 기회비용이 체증하기 때문",
+        "소비자의 선호가 완전비탄력적이기 때문",
+        "정부의 관세 부과 정책 때문"
       ],
-      "answer": "1",
-      "explanation": "종합 효율: 소비자가 X를 Y로 바꾸려는 비율 = 생산자가 X 한 단위 더 생산하려 Y를 포기하는 비율. 시장에서 $MRS = p_X/p_Y$, $MRT = p_X/p_Y$ → 자동 충족."
+      "answer": "3",
+      "explanation": "PPF가 오목한(기회비용이 체증하는) 이유는 각 재화의 생산에 사용되는 자원의 특성(요소집약도)이 달라 한 재화를 늘릴수록 그에 덜 적합한 자원을 투입해야 하거나, 기술적으로 한계수확이 체감하기 때문입니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-005",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "한계변환율(MRT, Marginal Rate of Transformation)이란?",
+      "question": "종합적 효율성($MRS_{XY} = MRT_{XY}$)이 깨지고 불일치할 때 발생하는 왜곡에 관한 설명으로 옳은 것은?",
       "options": [
-        "생산가능곡선의 기울기 절대값 — X 한 단위 더 생산 시 포기해야 하는 Y의 양",
-        "한계비용",
-        "한계수입",
-        "한계효용",
-        "한계생산물"
+        "소비자의 한계 만족 비율보다 생산의 한계 기회비용 비율이 커서, 소비를 줄이고 생산을 무한히 늘리게 된다",
+        "소비자가 주관적으로 생각하는 두 재화의 가치 비율과 사회적으로 생산하는 기회비용 비율이 달라, 재화 생산 배분을 조정함으로써 사회 총 만족도를 올릴 수 있는 비효율 상태를 의미한다",
+        "시장 이윤이 즉시 0에 도달하여 시장이 완전 폐쇄된다",
+        "두 재화가 항상 완전보완재 형태로 굳어진다",
+        "외부 경제 효과가 100% 소멸하게 된다"
       ],
-      "answer": "1",
-      "explanation": "$MRT_{XY} = \\dfrac{MC_X}{MC_Y}$ = X 추가 생산의 기회비용. 생산가능곡선이 오목 (Y로 표시) → $MRT$ 증가 → 한 재화에 집중할수록 기회비용 ↑."
+      "answer": "2",
+      "explanation": "종합적 효율성이 깨진 경우($MRS \\ne MRT$), 소비자가 느끼는 상대 가치와 생산에 따르는 실제 자원의 기회비용이 어긋나 있어 생산량 구조(X, Y의 투입 비중)를 변경하여 후생 개선이 가능합니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-006",
@@ -100,7 +100,7 @@
         "PPC 밖"
       ],
       "answer": "1",
-      "explanation": "종합 효율: PPC 위 (생산 효율) + 무차별곡선이 PPC에 접 (MRS = MRT). 사회 후생 극대화 점. PPC 위 아닌 점은 생산 비효율, PPC 위라도 MRS ≠ MRT면 종합 비효율."
+      "explanation": "종합 효율: PPC 위 (생산 효율) + 무차별곡선이 PPC에 접 ($$MRS = MRT$$). 사회 후생 극대화 점. PPC 위 아닌 점은 생산 비효율, PPC 위라도 MRS ≠ MRT면 종합 비효율."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-007",
@@ -115,7 +115,7 @@
         "$MRS^A = 0$"
       ],
       "answer": "1",
-      "explanation": "$U = x_1 x_2$. $MU_1 = x_2$, $MU_2 = x_1$. $MRS_{12} = MU_1/MU_2 = x_2/x_1 = 4/2 = 2$. 즉 $x_1$ 한 단위 더 받으려면 $x_2$ 2단위 포기 가능."
+      "explanation": "$$$U = x$$_1 x_2$. $MU_1 = x_2$, $MU_2 = x_1$. $MRS_{12} = MU_1/MU_2 = x_2/x_1 = 4/2 = 2$. 즉 $x_1$ 한 단위 더 받으려면 $x_2$ 2단위 포기 가능."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-008",
@@ -127,14 +127,14 @@
         "$MRT = 1$",
         "$MRT = 1.33$",
         "$MRT = 0$",
-        "$MRT = \\infty$"
+        "$MRT = \\\\\\\\infty$"
       ],
       "answer": "1",
-      "explanation": "$Y = \\sqrt{100 - X^2}$. $dY/dX = -X/\\sqrt{100-X^2}$. $X = 6$ → $Y = 8$. $MRT = |dY/dX| = 6/8 = 0.75$."
+      "explanation": "$Y = \\\\\\\\sqrt{100 - X^2}$. $dY/dX = -X/\\\\\\\\sqrt{100-X^2}$. $$$X = 6$$$ → $$$Y = 8$$$. $MRT = |dY/$$dX| = 6$$/8 = 0.75$."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-009",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "완전경쟁이 Pareto 효율을 보장하는 이유는?",
       "options": [
@@ -149,7 +149,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-010",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "독점이 Pareto 비효율을 야기하는 메커니즘은?",
       "options": [
@@ -160,11 +160,11 @@
         "공급 ↓만 영향"
       ],
       "answer": "1",
-      "explanation": "독점기업: 가격 > MC (이윤 마크업). 소비자 MRS = $p$ > MC = MRT → 종합 효율 위반. 사회는 X를 더 생산하면 효용 ↑ 가능. 사중손실(DWL) 발생."
+      "explanation": "독점기업: 가격 > MC (이윤 마크업). 소비자 MRS = $p$ > $$MC = MRT$$ → 종합 효율 위반. 사회는 X를 더 생산하면 효용 ↑ 가능. 사중손실(DWL) 발생."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-011",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "외부효과가 Pareto 효율을 위반하는 이유는?",
       "options": [
@@ -179,7 +179,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item003-012",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "계산형",
       "question": "X 재화 $MC = 4$, Y 재화 $MC = 6$. 효율 조건의 가격비 $p_X/p_Y$ 는?",
       "options": [
@@ -190,11 +190,11 @@
         "$p_X/p_Y = 0.25$"
       ],
       "answer": "1",
-      "explanation": "완전경쟁 효율: $p = MC$. 가격비 = $MC_X/MC_Y = 4/6 = 2/3$. 소비자 MRS 도 2/3 → 사회 효율 달성."
+      "explanation": "완전경쟁 효율: $$$p = MC$$$. 가격비 = $MC_X/MC_$$Y = 4$$/6 = 2/3$. 소비자 MRS 도 2/3 → 사회 효율 달성."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-013",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "이차 정리(second-best theorem)의 시사점은?",
       "options": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item003-014",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 통신·금융 등 규제 산업에서 효율성 조건이 위반되는 이유는?",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item003-015",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Pareto 효율과 Kaldor-Hicks 효율의 차이는?",
       "options": [
@@ -254,7 +254,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item03-017",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "그래프형",
       "question": "다음 PPC 그래프에서 점 $A$ 가 PPC 안쪽에 있을 때 비효율의 의미는?\n\n[IMAGE: data/practice/economics/graphs/ppc.svg]",
       "options": [
@@ -269,7 +269,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item003-018",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 정부의 \"산업구조조정\" 정책이 Pareto 효율 측면에서 의미하는 바는?",
       "options": [
@@ -284,7 +284,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item003-019",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "효율성 조건이 충족되지 않는 한국의 사례 중 \"외부효과\" 사례는?",
       "options": [
@@ -310,11 +310,11 @@
         "$X^* = 8, Y^* = 2$"
       ],
       "answer": "1",
-      "explanation": "$MRS = Y/X$, $MRT = 1/2$. $Y/X = 1/2$ → $X = 2Y$. PPC: $2Y + 2Y = 12$ → $Y = 3$, $X = 6$. 효용 $= \\sqrt{18} \\approx 4.24$."
+      "explanation": "$$$MRS = Y$$/X$, $$$MRT = 1$$/2$. $Y/$$X = 1$$/2$ → $$$X = 2Y$$$. PPC: $2Y + 2$$Y = 12$$$ → $$$Y = 3$$$, $$$X = 6$$$. 효용 $= \\\\\\\\sqrt{18} \\\\\\\\approx 4.24$."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item003-021",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "효율성 조건이 위반될 때 정부 개입의 정당화는?",
       "options": [
@@ -329,7 +329,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item003-022",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 그린뉴딜·탄소중립 정책의 Pareto 효율 분석은?",
       "options": [
@@ -344,7 +344,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item003-023",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Boiteux-Ramsey 가격 결정의 효율성 시사점은?",
       "options": [
@@ -355,11 +355,11 @@
         "MR = MC"
       ],
       "answer": "1",
-      "explanation": "자연독점($AC > MC$)에 $p = MC$ 부과 → 손실. 정부 보조 또는 마크업. 효율 손실 최소화하려면 가격탄력성 역비례 마크업 (Ramsey 가격) → 한국 전력·가스·철도 가격 결정 원리."
+      "explanation": "자연독점($AC > MC$)에 $$$p = MC$$$ 부과 → 손실. 정부 보조 또는 마크업. 효율 손실 최소화하려면 가격탄력성 역비례 마크업 (Ramsey 가격) → 한국 전력·가스·철도 가격 결정 원리."
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item003-024",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 한국전력 적자 누적과 효율 가격 정책의 trade-off는?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec01-item003-025",
-      "difficulty": 5,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "디지털 경제에서 효율성 조건의 새로운 도전은?",
       "options": [
@@ -385,7 +385,382 @@
         "한계효용 ↑"
       ],
       "answer": "1",
-      "explanation": "디지털 재화 특징: ① 네트워크 외부효과 → 자연독점 ② 한계비용 ≈ 0 → $p = MC = 0$ 시 수익 0 ③ 데이터 비배제성. 한국 카카오톡·네이버 무료 모델 + 광고 → 효율 정의 재고. Hal Varian (2010s) 활발 연구."
+      "explanation": "디지털 재화 특징: ① 네트워크 외부효과 → 자연독점 ② 한계비용 ≈ 0 → $$$p = MC$$ = 0$ 시 수익 0 ③ 데이터 비배제성. 한국 카카오톡·네이버 무료 모델 + 광고 → 효율 정의 재고. Hal Varian (2010s) 활발 연구."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-026",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-027",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-028",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-029",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-030",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-034",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-035",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-036",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-037",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-038",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-039",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-040",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-041",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-042",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-043",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-044",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-045",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-046",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-047",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-048",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-049",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한 경제가 생산가능곡선(PPF) 상의 한 지점에서 한계변환율 $MRT_{XY} = 3$ 을 적용하여 생산하고 있고, 모든 소비자가 한계대체율 $MRS_{XY} = 2$ 를 적용하여 소비하고 있다. 파레토 효율성을 회복하기 위한 생산량 조정 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 생산가능곡선 PPF (원점에 오목) -->\n  <path d=\"M 40 50 Q 200 60 270 210\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF (생산가능곡선)</text>\n  <!-- 소비 무차별곡선 접점 E -->\n  <path d=\"M 120 70 Q 210 110 260 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"210\" cy=\"110\" r=\"4.5\" fill=\"#10b981\" />\n  <text x=\"180\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E (MRT = MRS)</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">X재 (X)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Y재 (Y)</text>\n</svg>\n```",
+      "options": [
+        "X재 생산을 늘리고 Y재 생산을 줄여야 한다",
+        "X재 생산을 줄이고 Y재 생산을 늘려야 한다",
+        "생산량을 조정하지 않고 가격만 3배 인상한다",
+        "두 재화의 생산을 동시에 3배 늘려야 한다",
+        "생산을 영구 중단해야 한다"
+      ],
+      "answer": "2",
+      "explanation": "종합적 효율성 불일치 조정:\n- $MRT_{XY} = 3$ : X재 1단위를 추가 생산하기 위해 Y재 3단위를 포기해야 함.\n- $MRS_{XY} = 2$ : 소비자는 X재 1단위를 추가 소비하기 위해 Y재 2단위만 포기할 의사가 있음.\n즉, 소비자가 느끼는 X재의 가치(2)보다 생산에 드는 사회적 비용(3)이 더 크므로, X재 생산을 줄이고 Y재 생산을 늘려야 파레토 효율이 회복됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec01-item03-050",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 생산가능곡선이 $X^2 + 4Y^2 = 100$ 이다. 소비자의 효용함수가 $U(X, Y) = X \\cdot Y$ 일 때, 종합적 효율성을 달성하는 X재 생산량 $X^*$의 크기는?",
+      "options": [
+        "$X^* = 5$",
+        "$X^* = 5\\sqrt{2}$",
+        "$X^* = 10$",
+        "$X^* = 2\\sqrt{5}$",
+        "$X^* = 8$"
+      ],
+      "answer": "2",
+      "explanation": "1) 음함수 미분: $2X dX + 8Y dY = 0 \\\\Rightarrow MRT = X / 4Y$.\n2) 효용함수: $MRS = Y / X$.\n3) 종합적 효율 조건: $X / 4Y = Y / X \\\\Rightarrow X^2 = 4Y^2 \\\\Rightarrow X = 2Y$.\n4) PPF 식 대입: $X^2 + 4Y^2 = 100 \\\\Rightarrow (2Y)^2 + 4Y^2 = 100 \\\\Rightarrow 8Y^2 = 100 \\\\Rightarrow Y^2 = 12.5 \\\\Rightarrow X^2 = 4(12.5) = 50 \\\\Rightarrow X^* = \\sqrt{50} = 5\\sqrt{2}$. 정답 ②."
     }
   ]
 }

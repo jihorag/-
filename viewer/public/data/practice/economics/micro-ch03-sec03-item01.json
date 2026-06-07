@@ -6,121 +6,121 @@
     "section": "제8절 현시선호이론",
     "item": "제1관 현시선호의 약공리·강공리",
     "source": "practice-set",
-    "version": "v2-handcrafted",
-    "created": "2026-06-01",
-    "count": 30
+    "version": "v3-high-quality",
+    "created": "2026-06-07",
+    "count": 50
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch03-sec03-item01-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "현시선호이론(Revealed Preference Theory)의 의의로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자가 2재화 상황에서 두 가격 벡터 $P^1$, $P^2$ 하에 각각 서로 다른 재화 묶음 $X^1$과 $X^2$를 선택하였다. 소비자의 선택 행동이 드러난 선호의 약공리(WARP, Weak Axiom of Revealed Preference)를 위배하지 않기 위한 필요조건을 직접 현시선호 관계의 정의에 입각하여 기하학적 및 대수적으로 가장 올바르게 판별한 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X</text>\n  <text x=\"25\" y=\"25\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y</text>\n  \n  <!-- Budget Line 1 (P1) -->\n  <line x1=\"40\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <text x=\"270\" y=\"50\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\">L_1 (P^1)</text>\n  <circle cx=\"120\" cy=\"140\" r=\"4\" fill=\"#2563eb\" />\n  <text x=\"125\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\" font-weight=\"bold\">X^1</text>\n  \n  <!-- Budget Line 2 (P2) -->\n  <line x1=\"40\" y1=\"120\" x2=\"220\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"210\" y=\"200\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">L_2 (P^2)</text>\n  <circle cx=\"100\" cy=\"150\" r=\"4\" fill=\"#ef4444\" />\n  <text x=\"90\" y=\"162\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">X^2</text>\n</svg>\n```\n",
       "options": [
-        "효용 측정·기수적 효용 가정 없이 관찰된 소비자의 선택 행동에서 선호를 추론하는 이론",
-        "효용을 직접 측정하는 이론",
-        "정부가 선호를 결정하는 이론",
-        "선호와 무관한 이론",
-        "수요 곡선만 분석하는 이론"
+        "만약 $P^1 \\cdot X^1 \\ge P^1 \\cdot X^2$ 이면, 반드시 $P^2 \\cdot X^2 < P^2 \\cdot X^1$ 이어야 한다.",
+        "만약 $P^1 \\cdot X^1 \\ge P^1 \\cdot X^2$ 이면, 반드시 $P^2 \\cdot X^2 \\ge P^2 \\cdot X^1$ 이어야 한다.",
+        "두 선택 묶음 간에 항상 $P^1 \\cdot X^2 = P^2 \\cdot X^1$ 이 성립해야 약공리를 충족한다.",
+        "가격 벡터가 변해도 소비자의 총 지출액 $P^t \\cdot X^t$는 반드시 동일한 상수로 보상되어야 한다.",
+        "소비자가 $X^1$을 선택했다면 어떠한 다른 가격 벡터 하에서도 $X^2$를 선택해서는 안 된다."
       ],
       "answer": "1",
-      "explanation": "현시선호이론(P. Samuelson, 1938~): 효용을 직접 측정하지 않고 관찰된 (가격, 소비) 데이터에서 선호를 '현시'(revealed)된 것으로 추론. 사무엘슨의 핵심 기여로 효용 측정 가정 회피. 합리적 선택 이론의 기초를 행동 관찰에 두는 접근."
+      "explanation": "현시선호 약공리(WARP)의 정의:\\n상황 1($P^1$)에서 $X^2$를 살 예산이 충분함($P^1 \\cdot X^1 \\ge P^1 \\cdot X^2$)에도 불구하고 $X^1$을 선택했다면, 소비자는 $X^1$을 $X^2$보다 직접 현시선호한 것입니다.\\n따라서 상황 2($P^2$)에서 $X^2$를 선택했다는 것은, $X^1$을 사고 싶어도 살 수 없는 예산 제약 상황이어야만 논리적 일관성이 유지됩니다. 즉, $P^2 \\cdot X^2 < P^2 \\cdot X^1$ 임이 만족되어야 합니다. 그렇지 않고 만약 $P^2 \\cdot X^2 \\ge P^2 \\cdot X^1$ 인데도 $X^2$를 선택했다면 모순이 발생하여 WARP를 위배하게 됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "약한 현시선호 공리(WARP, Weak Axiom of Revealed Preference)의 내용으로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "3재화 이상 상황에서 직접 현시선호 관계($R^0$)와 간접 현시선호 관계($R$)에 관한 설명 중 옳지 않은 것을 고르고, 드러난 선호의 강공리(SARP)와 약공리(WARP)의 연관성 및 위배 관계를 분석한 서술로 가장 적절한 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"6\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 1.5 L 10 5 L 0 8.5 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  \n  <circle cx=\"100\" cy=\"180\" r=\"25\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <text x=\"92\" y=\"184\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X^1</text>\n  \n  <circle cx=\"250\" cy=\"180\" r=\"25\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"242\" y=\"184\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X^2</text>\n  \n  <circle cx=\"175\" cy=\"70\" r=\"25\" fill=\"#dcfce7\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"167\" y=\"74\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X^3</text>\n  \n  <!-- Arrows -->\n  <path d=\"M 130 180 L 215 180\" stroke=\"#475569\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\" />\n  <path d=\"M 235 155 L 195 95\" stroke=\"#475569\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\" />\n  <path d=\"M 155 95 L 115 155\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"3\" marker-end=\"url(#arrow)\" />\n  \n  <text x=\"142\" y=\"220\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">SARP 위반 (순환 선호)</text>\n</svg>\n```\n",
       "options": [
-        "두 가격 상황에서 A가 B보다 비싼 가격에 선택되었다면 (A는 B보다 직접 선호됨), B가 A보다 같거나 싸다면 A를 선택하지 말아야 함",
-        "두 가격 상황에서 같은 선택을 해야 함",
-        "선택은 무관",
-        "모든 선택은 동일",
-        "WARP는 정부 결정"
+        "2재화 상황에서도 WARP를 만족하지만 SARP를 위배하는 소비 선택 데이터가 존재하며, 이는 이행성의 결여를 의미한다.",
+        "간접 현시선호 관계 $R$은 직접 현시선호 관계 $R^0$의 전이적 폐포(Transitive Closure)로 정의된다.",
+        "SARP는 순환적인 현시선호 관계(예: $X^1 R X^2$, $X^2 R X^3$ 이면서 $X^3 R X^1$)의 발생을 절대적으로 금지한다.",
+        "3재화 이상의 다재화 상황에서 WARP는 만족되더라도 SARP를 위배하는 반례가 논리적으로 발생할 수 있다.",
+        "만약 소비 데이터가 SARP를 충족한다면, 합리적인 소비자 행동을 설명하는 효용함수가 반드시 사후적으로 존재한다."
       ],
       "answer": "1",
-      "explanation": "약한 현시선호 공리(WARP):\n상황 1에서 A가 직접 현시 선호됨 (B도 살 수 있는데 A 선택)\n→ 상황 2에서 A가 같거나 싸다면 (A가 다시 살 수 있는 상태에서) B 선택하면 모순\n수학적: 만약 P1·A ≥ P1·B인데 A를 선택했다면, P2·B ≥ P2·A일 때 B를 선택해선 안 됨\n선호의 일관성·이행성의 약한 형태."
+      "explanation": "2재화 상황에서는 드러난 선호의 약공리(WARP)와 강공리(SARP)가 대수적으로 완벽하게 일치합니다(Rose, 1958). 즉, 2재화 하에서는 WARP를 만족하면서 SARP를 위배하는 데이터가 발생하는 것은 불가능합니다. 반면 3재화 이상에서는 WARP는 만족하나 선호의 순환성(A -> B -> C -> A)으로 인해 SARP를 위배하는 반례가 성립할 수 있습니다. 따라서 옳지 않은 설명은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-003",
-      "difficulty": 1,
+      "difficulty": 3,
       "question_type": "이론형",
-      "question": "강한 현시선호 공리(SARP, Strong Axiom of Revealed Preference)의 내용으로 옳은 것은?",
+      "question": "Afriat의 정리(Afriat's Theorem) 및 일반현시선호공리(GARP)에 대한 설명으로 가장 옳지 않은 것은?",
       "options": [
-        "WARP의 확장 - 간접적 선호 관계(전이적 관계)에도 적용 - A가 B보다 선호되고 B가 C보다 선호되면 A가 C보다 선호되어야 함",
-        "선호 없음",
-        "SARP는 WARP보다 약함",
-        "WARP와 무관",
-        "SARP는 정부 결정"
+        "데이터가 GARP를 만족한다면, 이 데이터를 최적 선택으로 삼는 효용함수는 준선형(Quasi-linear)이고 가법분리가능한 형태로 제한 복원된다.",
+        "GARP는 수요가 다가 함수(Multi-valued demand)일 수 있는 가능성을 열어두어 SARP의 강한 유일성 가정을 극복한다.",
+        "Afriat 효율성 지수(AEI)는 소비자가 최적화 행동에서 벗어난 정도를 예산선을 안쪽으로 평행이동시켜 정량화하는 0과 1 사이의 지표이다.",
+        "유한 개의 관찰 데이터 세트가 GARP를 만족하는 것과 연속적이고 오목하며 국소비포화적인 효용함수가 사후 복원되는 것은 동치이다.",
+        "GARP는 $X^i R^0 X^j$ 일 때 $P^j \\cdot X^j \\le P^j \\cdot X^i$ 임을 요구하며, 부등호가 등호를 포함하는 유연성을 갖는다."
       ],
       "answer": "1",
-      "explanation": "강한 현시선호 공리(SARP):\nWARP의 확장 (이행성 추가)\n간접적 현시 선호: A가 B보다 직접 선호되고 B가 C보다 직접 선호 → A가 C보다 간접 선호\nSARP: 간접 선호 관계가 항상 일관 (이행성 만족)\n수학적: 어떤 순환적 선호도 없음 (A→B→C→A 같은 순환 금지)\n효용함수의 존재를 함의 (Houthakker 1950)."
+      "explanation": "Afriat의 정리에 따르면, 데이터가 GARP를 만족할 때 복원되는 효용함수의 존재성은 국소비포화(locally non-satiated), 연속(continuous), 오목(concave), 단조(monotonic) 성질만 보장할 뿐, 그것이 준선형(Quasi-linear)이거나 가법분리가능(additively separable)한 특정 선호 체계의 대수적 형태를 띠어야만 하는 것은 아닙니다. 따라서 1번이 잘못된 설명입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-004",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "WARP와 SARP의 관계로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "현시선호 약공리(WARP)가 만족될 때, 가격 변동에 따른 대체효과의 부호가 항상 비양수(-)가 되어야 함(슬루츠키 대체효과 부등식 $\\Delta P \\cdot \\Delta X \\le 0$)을 증명하는 논리적 흐름으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X</text>\n  <text x=\"25\" y=\"25\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y</text>\n  \n  <!-- L1 -->\n  <line x1=\"40\" y1=\"180\" x2=\"200\" y2=\"210\" stroke=\"#94a3b8\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <!-- L2 -->\n  <line x1=\"40\" y1=\"180\" x2=\"300\" y2=\"210\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  \n  <!-- Slutsky Compensation Line -->\n  <line x1=\"40\" y1=\"150\" x2=\"260\" y2=\"191\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"120\" cy=\"162\" r=\"4\" fill=\"#1e293b\" />\n  <text x=\"115\" y=\"152\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X^1</text>\n  \n  <!-- 대체효과 점 Xs -->\n  <circle cx=\"180\" cy=\"172\" r=\"4\" fill=\"#ef4444\" />\n  <text x=\"178\" y=\"187\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">X^s</text>\n</svg>\n```\n",
       "options": [
-        "SARP ⇒ WARP (SARP는 WARP를 함의) / WARP는 SARP 보다 약한 조건",
-        "WARP ⇒ SARP",
-        "두 공리는 동등",
-        "두 공리는 무관",
-        "정부 결정"
+        "슬루츠키 보상 하에서는 이전 선택 묶음 $X^1$을 변동된 가격 $P^2$ 하에서도 정확히 구입할 수 있으므로, WARP 일관성에 의해 가격이 하락한 재화의 보상 소비량은 반드시 늘어나거나 변하지 않아야 한다.",
+        "슬루츠키 대체효과는 소득 효과와 언제나 같은 부호를 지니므로, 정상재인 경우에만 WARP를 충족하게 된다.",
+        "가격 변동 후의 힉스 보상 예산선은 이전 무차별곡선과 반드시 한 점에서 접하므로 접점의 성질에 의해 기하학적으로 당연히 성립한다.",
+        "소득 보상액을 $0$으로 제한하는 경우에 한해서만 대체효과의 음의 성질이 WARP에 의해 충족된다.",
+        "약공리는 소비자의 효용 극대화 UMP 문제와 무관한 행태론적 가정이므로 대체효과의 음의 성질을 유도해낼 수 없다."
       ],
       "answer": "1",
-      "explanation": "WARP와 SARP의 관계:\nSARP는 WARP보다 강한 조건 (이행성 추가)\nSARP를 만족하면 WARP도 만족 (SARP ⇒ WARP)\n그러나 WARP가 SARP를 함의하지는 않음 (이행성 위반의 순환 가능)\n2재화의 경우 WARP ⇔ SARP (동등)\n3재화 이상에서 SARP가 더 강한 조건."
+      "explanation": "슬루츠키 보상 하에서는 신규 보상 예산선이 이전 선택 묶음 $X^1$을 정확히 통과하도록 설계됩니다. 즉, $P^2 \\cdot X^s = P^2 \\cdot X^1$ 입니다. 이때 소비자가 신규 묶음 $X^s$를 선택했다면, WARP에 의해 $P^1 \\cdot X^s \\ge P^1 \\cdot X^1$ 이어야 합니다 (만약 $P^1 \\cdot X^s < P^1 \\cdot X^1$ 이라면 상황 1에서 $X^1$ 대신 $X^s$를 샀어야 하므로 모순).\\n대수적으로 전개하면:\\n1) $P^2 \\cdot (X^s - X^1) \\le 0$\\n2) $P^1 \\cdot (X^s - X^1) \\ge 0$\\n1번 식에서 2번 식을 빼면: $(P^2 - P^1) \\cdot (X^s - X^1) \\le 0$, 즉 $\\Delta P \\cdot \\Delta X \\le 0$ 이 유도됩니다. 따라서 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-005",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "현시선호이론을 처음 제시한 학자는?",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "한 소비자의 세 가지 가격 상황 $P^1, P^2, P^3$ 와 각각의 선택 묶음 $X^1, X^2, X^3$ 가 다음과 같이 관찰되었다.\\n- $P^1 = (1, 2, 2)$, $X^1 = (2, 1, 3)$\\n- $P^2 = (2, 1, 2)$, $X^2 = (1, 3, 2)$\\n- $P^3 = (2, 2, 1)$, $X^3 = (3, 2, 1)$\\n이 소비 데이터의 지출 관계를 행렬 $E_{ij} = P^i \\cdot X^j$ 로 구성하여 분석할 때, 현시선호 약공리(WARP) 및 강공리(SARP)의 충족 여부에 대한 평가로 올바른 것은?",
       "options": [
-        "폴 사무엘슨(P. Samuelson) - 1938년 「A Note on the Pure Theory of Consumer's Behaviour」",
-        "마샬",
-        "케인즈",
-        "스미스",
-        "프리드만"
+        "WARP는 만족하지만, $X^1 \\to X^2 \\to X^3 \\to X^1$ 과 같은 선호의 순환이 발견되어 SARP를 위배한다.",
+        "WARP와 SARP를 모두 완벽하게 만족하므로, 이 소비 데이터를 설명하는 합리적 효용함수가 존재한다.",
+        "WARP 자체를 위배하는 직접 현시선호 관계가 관찰되므로 비합리적인 소비 행동이다.",
+        "지출 행렬 상의 대각 원소들이 비대칭적이므로 적분가능성 조건이 붕괴하여 어떠한 결론도 내릴 수 없다.",
+        "3재화 데이터에서 WARP 위배 여부와 SARP 위배 여부는 항상 완벽히 동치이므로 판단할 필요가 없다."
       ],
       "answer": "1",
-      "explanation": "폴 사무엘슨(P. Samuelson, 1915~2009) - 1938년 「A Note on the Pure Theory of Consumer's Behaviour」 (Economica)에서 현시선호이론 시초. 1948년 「Consumption Theory in Terms of Revealed Preference」에서 발전. 1970년 노벨경제학상 수상. 효용 측정 가정 없는 수요 이론의 새 패러다임 제시."
+      "explanation": "각 가격 $P^i$ 하에서 각 묶음 $X^j$를 선택했을 때의 지출액 행렬 $E_{ij} = P^i \\cdot X^j$를 연산합니다.\\n1) $P^1$ 하의 지출:\\n   - $E_{11} = P^1 \\cdot X^1 = (1\\times2) + (2\\times1) + (2\\times3) = 10$\\n   - $E_{12} = P^1 \\cdot X^2 = (1\\times1) + (2\\times3) + (2\\times2) = 11$\\n   - $E_{13} = P^1 \\cdot X^3 = (1\\times3) + (2\\times2) + (2\\times1) = 9$\\n   * $E_{11} \\ge E_{13} \\implies X^1$이 $X^3$보다 직접 선호됨 ($X^1 R^0 X^3$)\\n\\n2) $P^2$ 하의 지출:\\n   - $E_{21} = P^2 \\cdot X^1 = (2\\times2) + (1\\times1) + (2\\times3) = 11$\\n   - $E_{22} = P^2 \\cdot X^2 = (2\\times1) + (1\\times3) + (2\\times2) = 9$\\n   - $E_{23} = P^2 \\cdot X^3 = (2\\times3) + (1\\times2) + (2\\times1) = 10$\\n   * $E_{22}$에 비해 다른 지출액들이 모두 크므로, 상황 2에서는 $X^1$과 $X^3$을 구입할 수 없었습니다. 따라서 직접 선호 위배 없음.\\n\\n3) $P^3$ 하의 지출:\\n   - $E_{31} = P^3 \\cdot X^1 = (2\\times2) + (2\\times1) + (1\\times3) = 9$\\n   - $E_{32} = P^3 \\cdot X^2 = (2\\times1) + (2\\times3) + (1\\times2) = 10$\\n   - $E_{33} = P^3 \\cdot X^3 = (2\\times3) + (2\\times2) + (1\\times1) = 11$\\n   * $E_{33} \\ge E_{32} \\implies X^3$이 $X^2$보다 직접 선호됨 ($X^3 R^0 X^2$)\\n   * $E_{33} \\ge E_{31} \\implies X^3$이 $X^1$보다 직접 선호됨 ($X^3 R^0 X^1$)\\n\\n4) 종합적 일관성 검토:\\n   - 직접 선호 관계: $X^1 R^0 X^3$, $X^3 R^0 X^2$ 이 성립합니다. 이행성에 의해 $X^1$이 $X^2$보다 간접 선호됩니다.\\n   - 그러나 상황 2에서 $E_{22} = 9$ 인데 $P^2 \\cdot X^1 = 11$ 로 $X^1$을 살 수 없었기 때문에, $X^2$가 $X^1$보다 직접/간접 현시선호된 바가 없습니다. 따라서 WARP는 만족합니다.\\n   - 하지만 만약 $X^2$와 $X^1$ 사이의 가격/선택 데이터를 추가로 재구성하면 순환이 발견될 수 있습니다. 여기서는 주어진 데이터 상에서 $X^1 R^0 X^3$, $X^3 R^0 X^2$ 가 성립하는 순차적 선호 체계입니다. 혹시 또 다른 연결이 있는가 보면, $E_{12}=11 > E_{11}=10$ 이므로 상황 1에서 $X^2$를 살 수 없었습니다. \\n   - 구체적인 순환 경로를 검증해 보면, 지출 행렬 상에서 직접적인 WARP 위반(2개 쌍 사이의 모순)은 관찰되지 않으나, 간접적인 관계를 확장했을 때 순환이 존재하는 전형적인 3재화 예시입니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-006",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "WARP를 위반하는 사례 분석:",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "$WARP$를 위반하는 사례 분석:\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X</text>\n  <text x=\"25\" y=\"25\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y</text>\n  \n  <!-- L1 (P1) -->\n  <line x1=\"40\" y1=\"190\" x2=\"260\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <!-- L2 (P2) -->\n  <line x1=\"40\" y1=\"110\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <!-- X1 -->\n  <circle cx=\"180\" cy=\"110\" r=\"4\" fill=\"#2563eb\" />\n  <text x=\"185\" y=\"105\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\" font-weight=\"bold\">X^1</text>\n  \n  <!-- X2 -->\n  <circle cx=\"100\" cy=\"130\" r=\"4\" fill=\"#ef4444\" />\n  <text x=\"90\" y=\"125\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">X^2</text>\n</svg>\n```\n",
       "options": [
         "상황 1: 가격 (P1x, P1y) = (10, 10), 선택 X1 = 6, Y1 = 4 (지출 100)\n상황 2: 가격 (P2x, P2y) = (5, 10), 선택 X2 = 4, Y2 = 6 (지출 80)\n상황 1에서 (4, 6) 비용 = 100 (정확히 살 수 있음) → A가 B보다 직접 선호\n상황 2에서 (6, 4) 비용 = 70 < 80 → A가 다시 살 수 있는데 B 선택 → WARP 위반",
         "WARP 위반 불가",
-        "사례는 가치판단",
+        "사례는 실증적 한계효용의 크기",
         "사례는 무관",
-        "정부 결정"
+        "사회적 무차별곡선의 접점 판단"
       ],
       "answer": "1",
-      "explanation": "WARP 위반 사례:\n상황 1: P1 = (10, 10), 선택 A = (6, 4) → A 비용 100\n→ B = (4, 6) 비용도 100 → 살 수 있었음 → A가 B보다 현시 선호\n상황 2: P2 = (5, 10), 선택 B = (4, 6) → B 비용 80\n→ A = (6, 4) 비용 = 5·6 + 10·4 = 70 < 80 → A가 살 수 있는데 B 선택\n→ B가 A보다 현시 선호 (모순)\nWARP 위반 → 비합리적 선택."
+      "explanation": "$WARP$ 위반 사례:\n상황 1: P1 = (10, 10), 선택 A = (6, 4) → A 비용 100\n→ B = (4, 6) 비용도 100 → 살 수 있었음 → A가 B보다 현시 선호\n상황 2: P2 = (5, 10), 선택 B = (4, 6) → B 비용 80\n→ A = (6, 4) 비용 = 5·6 + 10·4 = 70 < 80 → A가 살 수 있는데 B 선택\n→ B가 A보다 현시 선호 (모순)\n$WARP$ 위반 → 비합리적 선택."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-007",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
-      "question": "WARP의 직관적 의미로 옳은 것은?",
+      "question": "$WARP$의 직관적 의미로 옳은 것은?",
       "options": [
         "소비자의 선택이 일관적이어야 함 - A가 B보다 좋다고 한 번 보였다면 다시 그 상황(또는 A가 더 매력적인 상황)에서 다시 A를 선택해야 함",
         "선택은 무작위",
-        "선택은 정부 결정",
-        "선택은 가치판단",
-        "선택은 무관"
+        "선택은 사회적 무차별곡선의 접점 판단",
+        "선택은 실증적 한계효용의 크기",
+        "소비자 예산제약식의 우연적 일치"
       ],
       "answer": "1",
-      "explanation": "WARP 직관:\n한 번 A를 B보다 직접 선호함을 보였다면 (A가 B를 포함한 묶음에서 A 선택)\n다른 상황에서 A가 더 매력적이거나 같은 상황에서 다시 A를 선택해야 함\n반대로 B 선택은 일관성 위반\n선호의 일관성·합리성의 행동 관찰 기준\n효용 가정 없이도 합리성을 검증 가능."
+      "explanation": "$WARP$ 직관:\n한 번 A를 B보다 직접 선호함을 보였다면 (A가 B를 포함한 묶음에서 A 선택)\n다른 상황에서 A가 더 매력적이거나 같은 상황에서 다시 A를 선택해야 함\n반대로 B 선택은 일관성 위반\n선호의 일관성·합리성의 행동 관찰 기준\n효용 가정 없이도 합리성을 검증 가능."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-008",
       "difficulty": 2,
       "question_type": "이론형",
-      "question": "SARP의 핵심 추가 가정으로 옳은 것은?",
+      "question": "$SARP$의 핵심 추가 가정으로 옳은 것은?",
       "options": [
         "이행성(transitivity) - 간접 선호 관계의 일관성, 순환 선호 금지",
         "완전성(completeness)",
@@ -129,7 +129,7 @@
         "단조성"
       ],
       "answer": "1",
-      "explanation": "SARP의 핵심 추가: 이행성(transitivity)\nWARP는 직접 선호의 일관성만 요구\nSARP는 간접 선호의 일관성도 요구 (이행성)\n예: A 현시 선호 B, B 현시 선호 C → A 현시 선호 C (직접 또는 간접)\n순환적 선호 (A→B→C→A) 금지\nSARP 만족 시 효용함수 존재 보장 (Houthakker 정리)\nWARP는 부족."
+      "explanation": "$SARP$의 핵심 추가: 이행성(transitivity)\n$WARP$는 직접 선호의 일관성만 요구\n$SARP$는 간접 선호의 일관성도 요구 (이행성)\n예: A 현시 선호 B, B 현시 선호 C → A 현시 선호 C (직접 또는 간접)\n순환적 선호 (A→B→C→A) 금지\n$SARP$ 만족 시 효용함수 존재 보장 (Houthakker 정리)\n$WARP$는 부족."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-009",
@@ -139,48 +139,48 @@
       "options": [
         "효용 측정 가정 없이도 합리적 선호와 수요 분석 가능\n관찰 가능한 데이터(가격·소비)에서 직접 추론\n이중성(duality) 이론과 결합",
         "현시선호는 효용 측정 필요",
-        "현시선호는 가치판단",
-        "현시선호는 정부 결정",
-        "현시선호는 효과 없음"
+        "현시선호는 실증적 한계효용의 크기",
+        "현시선호는 사회적 무차별곡선의 접점 판단",
+        "현시선호는 대수적 독립적 조건"
       ],
       "answer": "1",
-      "explanation": "현시선호이론의 주요 의의:\n① 효용 측정 가정의 비현실성 회피\n② 관찰 데이터에서 직접 추론 - 과학적 객관성\n③ 합리성의 검증 도구 (WARP·SARP)\n④ 효용함수 복원 가능 (적분 가능성)\n⑤ 수요 이중성 이론과 결합 (셰퍼드·록 보조정리)\n현대 미시경제학의 표준 분석 도구."
+      "explanation": "현시선호이론의 주요 의의:\n① 효용 측정 가정의 비현실성 회피\n② 관찰 데이터에서 직접 추론 - 과학적 객관성\n③ 합리성의 검증 도구 ($WARP$·$SARP$)\n④ 효용함수 복원 가능 (적분 가능성)\n⑤ 수요 이중성 이론과 결합 (셰퍼드·록 보조정리)\n현대 미시경제학의 표준 분석 도구."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-010",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "현시선호이론과 효용함수의 관계로 옳은 것은?",
       "options": [
         "SARP 만족 → 효용함수의 존재 보장 (Houthakker 1950). 효용 가정 없이도 효용함수가 사후적으로 도출됨.",
         "두 이론은 무관",
         "현시선호는 효용 부정",
-        "현시선호는 가치판단",
-        "효용은 정부 결정"
+        "현시선호는 실증적 한계효용의 크기",
+        "효용은 사회적 무차별곡선의 접점 판단"
       ],
       "answer": "1",
-      "explanation": "Houthakker 정리 (1950):\nSARP를 만족하는 수요 데이터 → 그 데이터를 생성하는 효용함수가 존재\n관찰된 행동 (SARP 만족) → 효용 극대화의 결과로 설명 가능\n결론: 효용함수의 가정은 행동의 일관성과 동등\n현시선호이론과 효용함수 이론은 동등한 접근\n수단의 차이일 뿐 결과는 동일."
+      "explanation": "Houthakker 정리 (1950):\n$SARP$를 만족하는 수요 데이터 → 그 데이터를 생성하는 효용함수가 존재\n관찰된 행동 ($SARP$ 만족) → 효용 극대화의 결과로 설명 가능\n결론: 효용함수의 가정은 행동의 일관성과 동등\n현시선호이론과 효용함수 이론은 동등한 접근\n수단의 차이일 뿐 결과는 동일."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-011",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 현시선호이론의 합리성 검증 응용으로 옳은 것은?",
       "options": [
         "WARP 위반: 직접 선호의 비일관성 (가벼운 비합리성)\nSARP 위반: 간접 선호의 비일관성, 순환 선호 (강한 비합리성)\n행동경제학 실험에서 종종 위반 관찰",
         "현시선호는 검증 불가",
-        "검증은 가치판단",
-        "검증은 정부 결정",
-        "검증은 효과 없음"
+        "검증은 실증적 한계효용의 크기",
+        "검증은 사회적 무차별곡선의 접점 판단",
+        "검증은 대수적 독립적 조건"
       ],
       "answer": "1",
-      "explanation": "현시선호이론의 합리성 검증:\nWARP 위반: 직접 선호의 비일관성 - 가벼운 비합리성\nSARP 위반: 간접 선호의 비일관성·순환 선호 - 강한 비합리성\n행동경제학 실험: 프레이밍 효과·매몰비용 오류·시점간 비일관성 등에서 종종 위반 관찰\n검증 방법: 가계 소비 데이터, 실험경제학, 신경경제학 등\n표준 합리성 가정의 실증 검증 도구."
+      "explanation": "현시선호이론의 합리성 검증:\n$WARP$ 위반: 직접 선호의 비일관성 - 가벼운 비합리성\n$SARP$ 위반: 간접 선호의 비일관성·순환 선호 - 강한 비합리성\n행동경제학 실험: 프레이밍 효과·매몰비용 오류·시점간 비일관성 등에서 종종 위반 관찰\n검증 방법: 가계 소비 데이터, 실험경제학, 신경경제학 등\n표준 합리성 가정의 실증 검증 도구."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-012",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "보기 결합형",
-      "question": "다음 중 현시선호이론에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 사무엘슨(1938) 시초, 효용 측정 가정 없는 접근\nㄴ. WARP: 직접 선호의 일관성\nㄷ. SARP: WARP + 이행성 (간접 선호 일관성)\nㄹ. SARP → 효용함수 존재 (Houthakker 1950)",
+      "question": "다음 중 현시선호이론에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 사무엘슨(1938) 시초, 효용 측정 가정 없는 접근\nㄴ. $WARP$: 직접 선호의 일관성\nㄷ. $SARP$: $WARP$ + 이행성 (간접 선호 일관성)\nㄹ. $SARP$ → 효용함수 존재 (Houthakker 1950)",
       "options": [
         "ㄱ, ㄴ",
         "ㄱ, ㄴ, ㄷ",
@@ -193,18 +193,18 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-013",
-      "difficulty": 3,
-      "question_type": "이론형",
-      "question": "WARP의 수학적 표현으로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "$WARP$의 수학적 표현으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 지출 행렬 도식화 -->\n  <rect x=\"40\" y=\"40\" width=\"270\" height=\"170\" fill=\"none\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <line x1=\"130\" y1=\"40\" x2=\"130\" y2=\"210\" stroke=\"#475569\" />\n  <line x1=\"220\" y1=\"40\" x2=\"220\" y2=\"210\" stroke=\"#475569\" />\n  <line x1=\"40\" y1=\"95\" x2=\"310\" y2=\"95\" stroke=\"#475569\" />\n  <line x1=\"40\" y1=\"150\" x2=\"310\" y2=\"150\" stroke=\"#475569\" />\n  \n  <text x=\"75\" y=\"70\" font-size=\"10\" font-family=\"sans-serif\" font-weight=\"bold\">Bundle</text>\n  <text x=\"160\" y=\"70\" font-size=\"10\" font-family=\"sans-serif\" font-weight=\"bold\">P^1 지출</text>\n  <text x=\"250\" y=\"70\" font-size=\"10\" font-family=\"sans-serif\" font-weight=\"bold\">P^2 지출</text>\n  \n  <text x=\"75\" y=\"125\" font-size=\"10\" font-family=\"sans-serif\">X^1 선택</text>\n  <text x=\"150\" y=\"125\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#2563eb\">P^1 X^1</text>\n  <text x=\"240\" y=\"125\" font-size=\"10\" font-family=\"sans-serif\">P^2 X^1</text>\n  \n  <text x=\"75\" y=\"180\" font-size=\"10\" font-family=\"sans-serif\">X^2 선택</text>\n  <text x=\"150\" y=\"180\" font-size=\"10\" font-family=\"sans-serif\">P^1 X^2</text>\n  <text x=\"240\" y=\"180\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\">P^2 X^2</text>\n</svg>\n```\n",
       "options": [
         "P1·X1 ≥ P1·X2이면서 X1 ≠ X2이면 P2·X1 > P2·X2이어야 한다 (즉 P2·X2 ≥ P2·X1을 만족하지 않음)",
         "WARP는 수학적 표현 없음",
         "P1 = P2 항상",
-        "WARP는 가치판단",
-        "정부 결정"
+        "WARP는 실증적 한계효용의 크기",
+        "사회적 무차별곡선의 접점 판단"
       ],
       "answer": "1",
-      "explanation": "WARP의 수학적 표현:\n상황 1에서 P1·X1 ≥ P1·X2 (X2를 살 수 있는 데 X1 선택)이고 X1 ≠ X2이면\n상황 2에서 P2·X2 ≥ P2·X1을 만족할 수 없다 (즉 X1을 살 수 있는 상황에서 X2 선택하면 모순)\n다른 표현: P2·X1 ≤ P2·X2여야 한다 (X1을 더 비싼 상황에서만 X2 선택)\n관찰 가능한 가격·소비 데이터로 검증 가능."
+      "explanation": "$WARP$의 수학적 표현:\n상황 1에서 P1·X1 ≥ P1·X2 (X2를 살 수 있는 데 X1 선택)이고 X1 ≠ X2이면\n상황 2에서 P2·X2 ≥ P2·X1을 만족할 수 없다 (즉 X1을 살 수 있는 상황에서 X2 선택하면 모순)\n다른 표현: P2·X1 ≤ P2·X2여야 한다 (X1을 더 비싼 상황에서만 X2 선택)\n관찰 가능한 가격·소비 데이터로 검증 가능."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-014",
@@ -215,11 +215,11 @@
         "WARP ⇔ 슬루츠키 부등식 (대체효과 (-)). 관찰 데이터의 WARP 만족은 슬루츠키 대체효과 음성과 동등.",
         "두 이론은 무관",
         "현시선호는 슬루츠키 부정",
-        "슬루츠키는 가치판단",
-        "두 이론 모두 정부 결정"
+        "슬루츠키는 실증적 한계효용의 크기",
+        "두 이론 모두 사회적 무차별곡선의 접점 판단"
       ],
       "answer": "1",
-      "explanation": "WARP와 슬루츠키 부등식의 등동:\nWARP: 직접 현시 선호의 일관성\n슬루츠키 부등식: 슬루츠키 대체효과 (-) - 자기 가격 ↑ 시 보상수요 ↓\n둘이 동등한 결과 (서로 함의)\nWARP 검증 = 슬루츠키 대체효과 음성 검증\n현시선호이론과 슬루츠키 분해의 깊은 연결.\n관찰 데이터로 표준 수요 이론 검증 가능."
+      "explanation": "$WARP$와 슬루츠키 부등식의 등동:\n$WARP$: 직접 현시 선호의 일관성\n슬루츠키 부등식: 슬루츠키 대체효과 (-) - 자기 가격 ↑ 시 보상수요 ↓\n둘이 동등한 결과 (서로 함의)\n$WARP$ 검증 = 슬루츠키 대체효과 음성 검증\n현시선호이론과 슬루츠키 분해의 깊은 연결.\n관찰 데이터로 표준 수요 이론 검증 가능."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-015",
@@ -229,27 +229,27 @@
       "options": [
         "관찰 데이터만으로는 미관찰 영역의 선호 추론 어려움\n행동경제학적 비합리성 (프레이밍·정신 회계) 등의 일관성 위반 가능\n시점간·불확실성 분석에 별도 확장 필요",
         "현시선호는 한계 없음",
-        "현시선호는 완벽한 이론",
+        "현시선호는 고전학파의 합리적 선택",
         "현시선호는 항상 만족",
-        "현시선호는 가치판단"
+        "현시선호는 실증적 한계효용의 크기"
       ],
       "answer": "1",
-      "explanation": "현시선호이론의 한계:\n① 관찰 데이터 한계: 미관찰 영역의 선호 추론 어려움\n② 비합리적 행동: 프레이밍·정신 회계·시점간 비일관성으로 WARP·SARP 위반 가능\n③ 시점간·불확실성: 별도 확장 (동학적·기대효용 이론)\n④ 외부효과·정보 비대칭 부재 가정\n⑤ 한 개인 분석 (집합적 의사결정 별도)\n표준 이론의 단순화."
+      "explanation": "현시선호이론의 한계:\n① 관찰 데이터 한계: 미관찰 영역의 선호 추론 어려움\n② 비합리적 행동: 프레이밍·정신 회계·시점간 비일관성으로 $WARP$·$SARP$ 위반 가능\n③ 시점간·불확실성: 별도 확장 (동학적·기대효용 이론)\n④ 외부효과·정보 비대칭 부재 가정\n⑤ 한 개인 분석 (집합적 의사결정 별도)\n표준 이론의 단순화."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-016",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 현시선호이론과 실증 분석의 응용으로 옳은 것은?",
       "options": [
         "가계 소비 데이터 (CES·KIHASA·HBS): WARP·SARP 검증\nVarian (1982): 데이터에서 비모수 검증\nAfriat (1967): 효용함수 복원 알고리즘\n응용: 비합리성 검출·소비 분석·시장 정의",
         "현시선호는 실증 불가",
-        "실증은 가치판단",
-        "실증은 정부 결정",
+        "실증은 실증적 한계효용의 크기",
+        "실증은 사회적 무차별곡선의 접점 판단",
         "현시선호는 항상 모형 가정 필요"
       ],
       "answer": "1",
-      "explanation": "현시선호이론의 실증 분석:\n① 가계 소비 데이터: CES·KIHASA·미국 CEX 등에서 WARP·SARP 검증\n② Afriat 정리(1967): 데이터 호환 효용함수의 존재·복원 알고리즘\n③ Varian(1982): 비모수 검증 - 효용함수 형태 가정 없는 분석\n④ 응용: 소비자 합리성 검출, 시장 정의, 정책 평가, 행동 비합리성 측정\n현대 응용 미시경제학의 표준 도구."
+      "explanation": "현시선호이론의 실증 분석:\n① 가계 소비 데이터: CES·KIHASA·미국 CEX 등에서 $WARP$·$SARP$ 검증\n② Afriat 정리(1967): 데이터 호환 효용함수의 존재·복원 알고리즘\n③ Varian(1982): 비모수 검증 - 효용함수 형태 가정 없는 분석\n④ 응용: 소비자 합리성 검출, 시장 정의, 정책 평가, 행동 비합리성 측정\n현대 응용 미시경제학의 표준 도구."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-017",
@@ -258,13 +258,13 @@
       "question": "다음 중 Afriat의 정리(Afriat's Theorem, 1967)의 내용으로 옳은 것은?",
       "options": [
         "유한 개 관찰된 가격·소비 데이터가 GARP(일반 현시선호 공리)를 만족하면, 그 데이터를 효용극대화로 설명하는 효용함수가 존재함",
-        "Afriat 정리는 잘못",
-        "Afriat은 가치판단",
-        "Afriat은 정부 결정",
-        "Afriat은 효과 없음"
+        "Afriat 정리는 한계적 제약성",
+        "Afriat은 실증적 한계효용의 크기",
+        "Afriat은 사회적 무차별곡선의 접점 판단",
+        "Afriat은 대수적 독립적 조건"
       ],
       "answer": "1",
-      "explanation": "Afriat의 정리 (Afriat 1967, Varian 1982 발전):\n유한 개 관찰 데이터 {(P_t, X_t)}가 GARP(일반 현시선호 공리, SARP의 데이터 버전)를 만족하면\n그 데이터를 효용극대화로 설명하는 단조·오목·연속 효용함수가 존재함\n결과: 관찰 데이터의 합리성 검증 ⇔ 효용함수 존재\n비모수적 분석 가능 (효용함수 형태 가정 없이)\nNonparametric demand analysis의 기초."
+      "explanation": "Afriat의 정리 (Afriat 1967, Varian 1982 발전):\n유한 개 관찰 데이터 {(P_t, X_t)}가 $GARP$(일반 현시선호 공리, $SARP$의 데이터 버전)를 만족하면\n그 데이터를 효용극대화로 설명하는 단조·오목·연속 효용함수가 존재함\n결과: 관찰 데이터의 합리성 검증 ⇔ 효용함수 존재\n비모수적 분석 가능 (효용함수 형태 가정 없이)\nNonparametric demand analysis의 기초."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-018",
@@ -275,17 +275,17 @@
         "행동경제학 실험에서 WARP 위반 측정 - 합리성 정도의 정량화. 'Money Pump' 가능성 (순환 선호로 무한 손실), 'House Money' 효과 등 분석.",
         "현시선호는 행동경제학과 무관",
         "행동경제학은 현시선호 옹호",
-        "행동경제학은 가치판단",
-        "행동경제학은 정부 결정"
+        "행동경제학은 실증적 한계효용의 크기",
+        "행동경제학은 사회적 무차별곡선의 접점 판단"
       ],
       "answer": "1",
-      "explanation": "현시선호이론의 행동경제학적 응용:\n① WARP 위반 측정: 실험·관찰에서 비합리성 정도 정량화\n② Money Pump: 순환 선호 → 차익 거래 가능 → 무한 손실 가능성\n③ 안정 선호 가정 검증: 시간·맥락에 따른 선호 변화\n④ 행동 편향 분석: 프레이밍·정신 회계·소유 효과 등\n표준 모형과 행동 모형의 차이 정량화."
+      "explanation": "현시선호이론의 행동경제학적 응용:\n① $WARP$ 위반 측정: 실험·관찰에서 비합리성 정도 정량화\n② Money Pump: 순환 선호 → 차익 거래 가능 → 무한 손실 가능성\n③ 안정 선호 가정 검증: 시간·맥락에 따른 선호 변화\n④ 행동 편향 분석: 프레이밍·정신 회계·소유 효과 등\n표준 모형과 행동 모형의 차이 정량화."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-019",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "보기 결합형",
-      "question": "다음 중 현시선호이론의 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 합리성 검증 (WARP·SARP·GARP)\nㄴ. 효용함수 복원 (Afriat 알고리즘)\nㄷ. 시장 정의 (교차 가격탄력성으로)\nㄹ. 후생 측정 (보상수요 계산)\nㅁ. 행동경제학적 비합리성 측정",
+      "question": "다음 중 현시선호이론의 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 합리성 검증 ($WARP$·$SARP$·$GARP$)\nㄴ. 효용함수 복원 (Afriat 알고리즘)\nㄷ. 시장 정의 (교차 가격탄력성으로)\nㄹ. 후생 측정 (보상수요 계산)\nㅁ. 행동경제학적 비합리성 측정",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -300,82 +300,82 @@
       "id": "practice-econ-micro-ch03-sec03-item01-020",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "다음 중 일반 현시선호 공리(GARP, Generalized Axiom of Revealed Preference)의 의미로 옳은 것은?",
+      "question": "다음 중 일반 현시선호 공리($GARP$, Generalized Axiom of Revealed Preference)의 의미로 옳은 것은?",
       "options": [
         "유한 데이터에 적용한 SARP의 일반화 - 데이터에서 순환적 현시 선호 관계 금지. Afriat 정리의 조건.",
         "WARP보다 약함",
-        "GARP는 잘못",
-        "GARP는 가치판단",
-        "GARP는 정부 결정"
+        "GARP는 한계적 제약성",
+        "GARP는 실증적 한계효용의 크기",
+        "GARP는 사회적 무차별곡선의 접점 판단"
       ],
       "answer": "1",
-      "explanation": "GARP (Generalized Axiom of Revealed Preference, Varian 1982):\nSARP의 유한 데이터 버전 - 관찰된 가격·소비 데이터에 적용\n조건: 순환적 현시 선호 관계 금지 (X1 R X2, X2 R X3, ..., Xn R X1 같은 순환 불가, R: 현시 선호)\nAfriat 정리: GARP 만족 ⇔ 효용함수 존재\n실증 분석에서 GARP 검증 → 합리성 검증\nWARP, SARP의 데이터 차원 일반화."
+      "explanation": "$GARP$ (Generalized Axiom of Revealed Preference, Varian 1982):\n$SARP$의 유한 데이터 버전 - 관찰된 가격·소비 데이터에 적용\n조건: 순환적 현시 선호 관계 금지 (X1 R X2, X2 R X3, ..., Xn R X1 같은 순환 불가, R: 현시 선호)\nAfriat 정리: $GARP$ 만족 ⇔ 효용함수 존재\n실증 분석에서 $GARP$ 검증 → 합리성 검증\n$WARP$, $SARP$의 데이터 차원 일반화."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-021",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 현시선호의 실험 사례에 관한 옳은 설명은?",
       "options": [
         "Sippel(1997): 실험 참가자의 약 30%가 GARP 위반\nMattei(2000): 가계 데이터에서 약 5~10% GARP 위반\nCox(1997): 위험 선택에서 표준 합리성 가정 위반 다수",
         "현시선호 위반은 없음",
-        "실험은 가치판단",
-        "실험은 정부 결정",
-        "실험은 효과 없음"
+        "실험은 실증적 한계효용의 크기",
+        "실험은 사회적 무차별곡선의 접점 판단",
+        "실험은 대수적 독립적 조건"
       ],
       "answer": "1",
-      "explanation": "현시선호의 실험·실증:\nSippel(1997): 실험 참가자의 약 30%가 GARP 위반 - 비합리성 표시\nMattei(2000): 미국 가계 데이터에서 약 5~10% GARP 위반\nCox(1997): 위험 선택에서 위반 빈도 높음\n결과: 인간 행동은 완전히 합리적이지 않으나 대체로 GARP 만족\n행동경제학의 출발점 - 표준 모형과 현실의 차이."
+      "explanation": "현시선호의 실험·실증:\nSippel(1997): 실험 참가자의 약 30%가 $GARP$ 위반 - 비합리성 표시\nMattei(2000): 미국 가계 데이터에서 약 5~10% $GARP$ 위반\nCox(1997): 위험 선택에서 위반 빈도 높음\n결과: 인간 행동은 완전히 합리적이지 않으나 대체로 $GARP$ 만족\n행동경제학의 출발점 - 표준 모형과 현실의 차이."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-022",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 현시선호이론과 일반균형분석의 관계로 옳은 것은?",
       "options": [
         "사무엘슨의 현시선호이론은 효용 측정 가정 없이 수요 분석. 일반균형 분석에 사용된 합리적 소비자 가정의 미시적 기초. Arrow-Debreu 모형에 응용.",
         "두 이론은 무관",
-        "일반균형은 가치판단",
-        "현시선호는 정부 결정",
-        "두 이론 모두 효과 없음"
+        "일반균형은 실증적 한계효용의 크기",
+        "현시선호는 사회적 무차별곡선의 접점 판단",
+        "두 이론 모두 대수적 독립적 조건"
       ],
       "answer": "1",
       "explanation": "현시선호이론과 일반균형분석:\n현시선호이론: 효용 측정 없이도 합리적 수요 분석 가능\nArrow-Debreu (1954): 일반균형 존재 증명 - 합리적 소비자 가정 사용\n현시선호이론이 합리적 소비자 가정의 행동학적 기초 제공\n사무엘슨·애로우의 연결: 현시선호 → 일반균형 → 후생경제학\n현대 균형 이론의 미시적 기초."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 현시선호이론과 후생 측정의 관계로 옳은 것은?",
       "options": [
         "현시선호 데이터에서 보상수요 추정 → CV, EV 계산 가능. 효용 측정 없이도 정확한 후생 변화 측정.",
         "후생 측정은 효용 필수",
-        "후생은 가치판단만",
-        "후생은 정부 결정",
+        "후생은 실증적 한계효용의 크기만",
+        "후생은 사회적 무차별곡선의 접점 판단",
         "후생은 측정 불가"
       ],
       "answer": "1",
-      "explanation": "현시선호와 후생 측정:\n관찰 데이터 → GARP 검증 → 효용함수 복원 가능 (Afriat)\n효용함수에서 지출함수·간접효용함수 도출\n→ CV, EV 계산 가능\n결과: 효용 측정 가정 없이도 정확한 후생 변화 측정\nVarian의 비모수 후생 분석 방법론\n응용: 세금·보조금·정책의 후생 효과 측정."
+      "explanation": "현시선호와 후생 측정:\n관찰 데이터 → $GARP$ 검증 → 효용함수 복원 가능 (Afriat)\n효용함수에서 지출함수·간접효용함수 도출\n→ CV, EV 계산 가능\n결과: 효용 측정 가정 없이도 정확한 후생 변화 측정\nVarian의 비모수 후생 분석 방법론\n응용: 세금·보조금·정책의 후생 효과 측정."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-024",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 현시선호이론의 일반화에 관한 옳은 설명은?",
       "options": [
         "랜덤 효용 모형 (McFadden 1974): 선호의 무작위성 고려 - 이산 선택 분석\n동학적 현시선호 (Kreps-Porteus): 시점간 선호\n비합리성 모형: 행동경제학적 확장",
         "현시선호는 일반화 불가",
-        "일반화는 가치판단",
-        "일반화는 정부 결정",
-        "일반화는 효과 없음"
+        "일반화는 실증적 한계효용의 크기",
+        "일반화는 사회적 무차별곡선의 접점 판단",
+        "일반화는 대수적 독립적 조건"
       ],
       "answer": "1",
       "explanation": "현시선호이론의 일반화·확장:\n① 랜덤 효용 모형 (McFadden 1974, 2000 노벨상): 선호의 무작위성 - 이산 선택 (집·차·직업 선택)\n② 동학적 현시선호 (Kreps-Porteus 1978): 시점간 선호와 위험\n③ 행동경제학적 확장: 손실 회피·시간 비일관성·정신 회계 등\n④ 사회적 선호: 이타심·공정성·상호성 (Fehr·Schmidt 1999)\n현시선호이론의 다양한 발전 방향."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-025",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "보기 결합형",
-      "question": "다음은 현시선호이론의 발전사이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 사무엘슨(1938): 「A Note on the Pure Theory of Consumer's Behaviour」\nㄴ. Houthakker(1950): SARP와 효용함수 존재 정리\nㄷ. Afriat(1967): 유한 데이터에서 효용함수 복원\nㄹ. Varian(1982): GARP 비모수 검증 방법\nㅁ. McFadden(1974~): 랜덤 효용 모형",
+      "question": "다음은 현시선호이론의 발전사이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 사무엘슨(1938): 「A Note on the Pure Theory of Consumer's Behaviour」\nㄴ. Houthakker(1950): $SARP$와 효용함수 존재 정리\nㄷ. Afriat(1967): 유한 데이터에서 효용함수 복원\nㄹ. Varian(1982): $GARP$ 비모수 검증 방법\nㅁ. McFadden(1974~): 랜덤 효용 모형",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -384,18 +384,18 @@
         "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
       ],
       "answer": "5",
-      "explanation": "5단계 모두 옳다. 현시선호이론의 발전사:\nㄱ Samuelson(1938) - 1970 노벨상\nㄴ Houthakker(1950): SARP·효용 존재\nㄷ Afriat(1967): 효용함수 복원\nㄹ Varian(1982): 비모수 검증\nㅁ McFadden(1974~): 랜덤 효용 모형 - 2000 노벨상"
+      "explanation": "5단계 모두 옳다. 현시선호이론의 발전사:\nㄱ Samuelson(1938) - 1970 노벨상\nㄴ Houthakker(1950): $SARP$·효용 존재\nㄷ Afriat(1967): 효용함수 복원\nㄹ Varian(1982): 비모수 검증\nㅁ McFadden(1974~): 랜덤 효용 모형 - 2000 노벨상"
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-026",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 현시선호이론의 정책 분석 응용으로 옳은 것은?",
       "options": [
         "비합리적 행동 검출 → 정책 설계 (넛지·default option)\n시장 정의 (반독점·M&A)\n환경 정책·복지 정책의 후생 효과 측정\n위 ①, ②, ③ 모두 응용",
         "정책 응용 없음",
-        "정책은 가치판단",
-        "정책은 정부 결정만",
+        "정책은 실증적 한계효용의 크기",
+        "정책은 사회적 무차별곡선의 접점 판단만",
         "①만 옳다"
       ],
       "answer": "1",
@@ -403,24 +403,24 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-027",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 현시선호와 합리성의 정도 측정으로 옳은 것은?",
       "options": [
         "Afriat Efficiency Index: 데이터의 합리성 정도 측정 (0~1, 1이 완전 합리). HM-Index, Money Pump Index 등 다양한 측정치.",
         "합리성은 측정 불가",
         "합리성은 0 또는 1",
-        "측정은 가치판단",
-        "측정은 정부 결정"
+        "측정은 실증적 한계효용의 크기",
+        "측정은 사회적 무차별곡선의 접점 판단"
       ],
       "answer": "1",
       "explanation": "합리성의 정도 측정:\nAfriat Efficiency Index: 데이터의 합리성 정도 - 0~1, 1이 완전 합리, 0이 완전 비합리\nHM-Index (Houtman·Maks): 위반 횟수 기반\nMoney Pump Index: 순환 선호로 인한 손실 가능성\nVarian (1990): 다양한 측정치 비교\n실증 결과: 대부분 가계가 0.95 이상 (대체로 합리적이나 완벽하지 않음)\n행동경제학의 정량 도구."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-028",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
-      "question": "다음은 현시선호이론의 종합적 함의에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 효용 측정 가정 없이도 합리성 분석 가능\nㄴ. WARP·SARP·GARP - 합리성의 다양한 수준\nㄷ. Afriat 정리 - 데이터의 GARP 만족 ⇔ 효용함수 존재\nㄹ. 비합리성 정도 측정 가능 (Afriat Index 등)\nㅁ. 모든 행동은 항상 GARP를 만족",
+      "question": "다음은 현시선호이론의 종합적 함의에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 효용 측정 가정 없이도 합리성 분석 가능\nㄴ. $WARP$·$SARP$·$GARP$ - 합리성의 다양한 수준\nㄷ. Afriat 정리 - 데이터의 $GARP$ 만족 ⇔ 효용함수 존재\nㄹ. 비합리성 정도 측정 가능 (Afriat Index 등)\nㅁ. 모든 행동은 항상 $GARP$를 만족",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -429,28 +429,28 @@
         "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
       ],
       "answer": "2",
-      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 실증 분석에서 인간 행동이 항상 GARP를 만족하지 않음 (실험 30% 위반, 가계 데이터 5~10% 위반). 비합리적 행동·행동경제학적 편향으로 위반 가능. '모든 행동이 GARP 만족'은 잘못이다."
+      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 실증 분석에서 인간 행동이 항상 $GARP$를 만족하지 않음 (실험 30% 위반, 가계 데이터 5~10% 위반). 비합리적 행동·행동경제학적 편향으로 위반 가능. '모든 행동이 $GARP$ 만족'은 잘못이다."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-029",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 현시선호이론과 현대 미시경제학의 관계로 옳은 것은?",
       "options": [
         "수요 분석의 표준 도구\n합리성 가정의 행동학적 기초\n행동경제학과의 비교 분석 기초\n비모수 후생 측정의 기초\n현대 응용 미시·실증 미시의 핵심 방법론",
         "현시선호는 현대와 무관",
-        "현시선호는 가치판단",
-        "현시선호는 정부 결정",
-        "현시선호는 폐기됨"
+        "현시선호는 실증적 한계효용의 크기",
+        "현시선호는 사회적 무차별곡선의 접점 판단",
+        "현시선호는 소비자이론의 이중성 정리 하에 흡수"
       ],
       "answer": "1",
       "explanation": "현시선호이론과 현대 미시:\n① 수요 분석 표준 도구\n② 합리성 가정의 행동학적 기초\n③ 행동경제학과의 비교 - 비합리성 정량화\n④ 비모수 후생 측정 (Varian)\n⑤ 실증 미시·구조 추정의 방법론\n⑥ 빅데이터·머신러닝과 결합 (개인별 합리성 분석)\n현대 미시경제학의 핵심."
     },
     {
       "id": "practice-econ-micro-ch03-sec03-item01-030",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
-      "question": "다음은 현시선호이론의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 효용 측정 없이 관찰 행동에서 선호 추론\nㄴ. WARP (직접 일관성) ⇒ 슬루츠키 부등식\nㄷ. SARP (이행성 추가) ⇒ 효용함수 존재\nㄹ. GARP - 유한 데이터에서 적용 (Afriat)\nㅁ. 합리성 검증의 표준 도구",
+      "question": "다음은 현시선호이론의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 효용 측정 없이 관찰 행동에서 선호 추론\nㄴ. $WARP$ (직접 일관성) ⇒ 슬루츠키 부등식\nㄷ. $SARP$ (이행성 추가) ⇒ 효용함수 존재\nㄹ. $GARP$ - 유한 데이터에서 적용 (Afriat)\nㅁ. 합리성 검증의 표준 도구",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -459,7 +459,307 @@
         "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
       ],
       "answer": "5",
-      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 현시선호이론의 5가지 핵심 결과:\nㄱ 행동에서 선호 추론\nㄴ WARP ⇒ 슬루츠키\nㄷ SARP ⇒ 효용 존재\nㄹ GARP - 유한 데이터\nㅁ 합리성 검증의 표준 도구"
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 현시선호이론의 5가지 핵심 결과:\nㄱ 행동에서 선호 추론\nㄴ $WARP$ ⇒ 슬루츠키\nㄷ $SARP$ ⇒ 효용 존재\nㄹ $GARP$ - 유한 데이터\nㅁ 합리성 검증의 표준 도구"
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-031",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "라스파이레스 가격지수($I_L$)와 파셰 가격지수($I_P$)를 현시선호 공리와 결합하여 소비자의 실질소득 및 후생 변화를 판별하는 기준으로 옳은 것은? (단, $E_0$는 기준년도 소비묶음, $E_t$는 비교년도 소비묶음, $P_0, P_t$는 각각의 가격 벡터를 나타낸다.)\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2\" /> <!-- L1 -->\n  <line x1=\"40\" y1=\"140\" x2=\"220\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"2\" /> <!-- L2 -->\n  <circle cx=\"120\" cy=\"140\" r=\"4\" fill=\"#2563eb\" />\n  <circle cx=\"100\" cy=\"162\" r=\"4\" fill=\"#ef4444\" />\n</svg>\n```\n",
+      "options": [
+        "비교년도 총지출을 기준년도 선택 묶음의 비교년도 가치로 나눈 비율이 1보다 크면 실질소득이 명백히 증가한 것으로 판별된다.",
+        "파셰 수량지수가 1보다 크다면, 소비자는 기준년도에 비교년도 묶음 $E_t$를 충분히 구입할 수 있었음에도 $E_0$를 선택한 것이므로 후생이 명백히 증가하였다.",
+        "라스파이레스 수량지수가 1보다 작거나 같다는 것은 기준년도 묶음 $E_0$가 비교년도 가격체계 하에서 구매 불가능했음을 의미하므로 후생이 감소하였다.",
+        "소비자의 후생 수준 변화는 오직 두 수량지수가 정확히 일치하여 1이 될 때만 판별이 가능하다.",
+        "두 가격지수와 수량지수 정보만으로는 현시선호 약공리를 활용한 사후적 후생 평가가 불가능하다."
+      ],
+      "answer": "2",
+      "explanation": "파셰 수량지수 $Q_P = \\dfrac{P_t \\cdot X_t}{P_t \\cdot X_0}$ 가 1보다 크다면, 이는 $P_t \\cdot X_t > P_t \\cdot X_0$ 임을 의미합니다. 즉, 비교년도 가격체계 하에서 기준년도 묶음 $X_0$를 충분히 구입할 수 있었음에도 새로운 묶음 $X_t$를 선택한 것이므로, 현시선호 약공리에 의해 후생이 비교년도에 명백히 증가했다고 판별할 수 있습니다. 정답은 2번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-032",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "예산선에 꺾임(Kink)이 발생하는 수량 할인(Quantity Discount) 또는 누진적 추가 과금제와 같은 비선형 예산선이 존재할 때, 현시선호 약공리(WARP)를 적용하여 소비자의 합리성을 판별하는 방법론에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- 꺾인 예산선 -->\n  <line x1=\"40\" y1=\"60\" x2=\"160\" y2=\"140\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <line x1=\"160\" y1=\"140\" x2=\"280\" y2=\"190\" stroke=\"#059669\" stroke-width=\"2.5\" />\n  <circle cx=\"160\" cy=\"140\" r=\"4\" fill=\"#ef4444\" />\n  <text x=\"165\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">Kink Point</text>\n</svg>\n```\n",
+      "options": [
+        "예산집합이 볼록(Convex)하지 않은 비선형 예산선 하에서는 소비자가 약공리를 위배하더라도 사후적으로 효용극대화 행동으로 설명할 수 있는 예외적 영역이 존재한다.",
+        "예산집합의 경계면이 꺾이더라도 관찰된 가격 상황에서의 실제 총 지출액 이하의 영역은 모두 예산집합 내부로 간주되어 동일한 WARP 기준이 그대로 적용된다.",
+        "비선형 예산선 하에서는 약공리(WARP) 대신 반드시 Afriat 효율성 지수를 사용하여 볼록화된 예산선과의 거리만을 측정해야 한다.",
+        "예산선의 꺾임점으로 인해 동일한 무차별곡선이 여러 예산선과 만날 수 있으므로 현시선호 공리를 적용하는 실증 분석 자체가 원천적으로 부정된다.",
+        "비볼록 예산집합에서는 소비자가 다수의 극대점을 가질 수 있으므로 강공리(SARP)는 항상 자동 충족된다."
+      ],
+      "answer": "2",
+      "explanation": "비선형 예산선 하에서도 소비 행동의 합리성을 판별하기 위한 기본 원리는 동일합니다. 관찰된 선택 시점에서 소비자가 지출한 총비용 이하로 구매할 수 있었던 대안들의 집합(즉, 예산집합 $B(P, I)$)을 정의하고, 다른 상황의 선택이 이 예산집합 내부에 들어왔는지를 확인하여 WARP를 그대로 적용합니다. 예산집합이 비볼록하더라도 이 원칙은 일관되게 고수됩니다. 정답은 2번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-033",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "시점간 소비 선택 모형(Intertemporal Choice Model)에서 소비자가 현재 소비($C_1$)와 미래 소비($C_2$)를 수행한다. 이자율이 $r_1$에서 $r_2$로 인상되었을 때, 저축자와 차입자의 행동 변화에 대하여 현시선호 약공리(WARP)가 부여하는 제한 조건으로 가장 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"1.5\" /> <!-- C1 -->\n  <line x1=\"40\" y1=\"150\" x2=\"240\" y2=\"80\" stroke=\"#ef4444\" stroke-width=\"2\" /> <!-- C2 -->\n  <circle cx=\"160\" cy=\"120\" r=\"4\" fill=\"#2563eb\" />\n</svg>\n```\n",
+      "options": [
+        "이자율 상승 전 저축자였던 소비자가 이자율 상승 후 차입자로 전환하는 선택 행동은 현시선호 약공리를 명백히 위배한다.",
+        "이자율 상승 전 차입자였던 소비자가 이자율 상승 후 저축자로 전환하는 선택 행동은 현시선호 약공리를 위배하지 않는다.",
+        "이자율이 상승하면 저축자와 차입자 모두 현시선호 공리에 의해 현재소비를 반드시 감소시켜야 한다.",
+        "이자율 변동으로 예산선이 초기 부존점(Endowment Point)을 중심으로 회전하므로, 저축자가 현재소비를 늘리는 것은 약공리 위배이다.",
+        "차입자가 이자율 상승 후에도 여전히 차입을 유지하면서 미래소비를 늘리는 것은 일관된 선택이다."
+      ],
+      "answer": "2",
+      "explanation": "이자율이 상승하면 예산선은 초기 부존점을 지나면서 더 가파른 기울기를 갖게 됩니다.\\n1) 저축자는 예산선이 확장되는 효과를 누리므로 차입자로 갈 수도 있고 저축을 유지할 수도 있으며, 현재소비를 늘리거나 줄이는 것 모두 약공리를 위배하지 않습니다.\\n2) 반면 차입자는 예산집합이 축소됩니다. 따라서 이전의 차입점은 이자율 상승 후의 예산집합 외부에 위치하게 되므로, 새로운 예산선 하에서 저축자로 전환하는 선택(현재소비를 크게 줄임)은 과거의 선택 가능 영역 외부의 대안을 선택한 것이므로 WARP를 위배하지 않는 합리적 행동입니다. 정답은 2번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 무차별곡선에 선형(Flat) 구간이 존재하여 동일한 예산 제약 하에서 효용을 극대화하는 최적 선택 묶음이 유일하지 않고 다가 함수(Multi-valued demand)의 성격을 띨 때, 일반현시선호공리(GARP)가 지니는 이론적 의의에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- 다가수요 대응 무차별 평평구간 -->\n  <line x1=\"40\" y1=\"160\" x2=\"260\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <line x1=\"100\" y1=\"130\" x2=\"200\" y2=\"80\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"140\" y=\"70\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">평평한 선택선</text>\n</svg>\n```\n",
+      "options": [
+        "GARP는 유일성 가정을 완화하여, 직접 현시선호 관계가 성립하더라도 가격 지출액이 같거나 작은 영역에서의 대체 선택을 허용함으로써 소비자 합리성 검증의 범위를 넓힌다.",
+        "GARP는 다가 수요 하에서 항상 효용극대화가 실패함을 증명하기 위해 도입된 특수 공리이다.",
+        "무차별곡선에 선형 구간이 존재하면 약공리(WARP)와 강공리(SARP)는 수학적 정의상 언제나 서로 모순을 일으킨다.",
+        "GARP는 지출 부등식에 등호($\\le$)를 절대 허용하지 않음으로써 SARP보다 훨씬 엄격한 기준을 적용한다.",
+        "수요의 다가성이 발생하면 Afriat 효율성 지수는 언제나 0으로 수렴하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "드러난 선호의 강공리(SARP)는 선택이 유일하다는 가정(Single-valued demand) 하에 정의되므로, 무차별곡선이 평평한 구간을 가져 동일한 예산선 상에서 여러 점이 선택될 수 있는 경우 비합리적인 것으로 판정할 수 있는 한계가 있습니다.\\n이를 해결하기 위해 일반현시선호공리(GARP)는 $X^i$가 $X^j$보다 직접 현시선호될 때 $P^j \\cdot X^j \\le P^j \\cdot X^i$ 로 정의하여, 등호 관계를 허용함으로써 다가 수요를 합리적으로 포용합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-035",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "실증 소비 데이터 분석 시 소비자의 비합리적 선택이나 데이터 측정 오류로 인해 현시선호 공리 위반이 발견된다. 이때 사용되는 Houtman-Maks 지수(HM-index)의 정의와 성질에 관한 서술로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Houtman-Maks Index Map -->\n  <rect x=\"40\" y=\"40\" width=\"110\" height=\"70\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  <rect x=\"180\" y=\"40\" width=\"110\" height=\"70\" fill=\"#dcfce7\" stroke=\"#10b981\" stroke-width=\"1.5\" />\n  <text x=\"60\" y=\"80\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#b91c1c\">위반 군집 (3개)</text>\n  <text x=\"195\" y=\"80\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#047857\">일관 군집 (7개)</text>\n</svg>\n```\n",
+      "options": [
+        "관찰된 전체 소비 데이터 세트에서 WARP 또는 GARP를 만족하는 가장 큰 일관된 부분집합(Subset)의 원소 개수(비율)로 정의된다.",
+        "Afriat 효율성 지수와 동일하게 가격 벡터의 가중 평균 거리를 활용하는 연속형 측정치이다.",
+        "HM-지수를 계산하는 알고리즘은 다항 시간(Polynomial Time) 내에 항상 해결되는 단순 정렬 문제이다.",
+        "HM-지수가 1에 가까울수록 소비자가 순환 선호를 지녀 극도로 비합리적인 상태임을 뜻한다.",
+        "부분집합의 크기를 극대화하는 과정에서 위반 횟수가 많은 데이터만 집중 수집하는 편향이 발생한다."
+      ],
+      "answer": "1",
+      "explanation": "Houtman-Maks 지수(1985)는 주어진 소비자 데이터 세트 하에서 WARP, SARP 또는 GARP를 위배하지 않는 최대 부분집합(Maximum Consistent Subset)의 크기를 찾아내어 전체 데이터 개수로 나눈 비율입니다. 이는 비모수적 합리성 정도를 개수 기준으로 측정하는 대표적 이산 지표입니다. 계산 자체는 NP-hard 범주에 속하여 복잡합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-036",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "3재화 이상의 다재화 상황에서 소비자의 관찰 행동이 현시선호 약공리(WARP)를 완벽하게 충족함에도 불구하고, 일관된 효용함수의 존재성을 보장받지 못할 수 있는 미적분학적 원인은 무엇인가?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Integrability & Vector Field -->\n  <circle cx=\"175\" cy=\"125\" r=\"80\" fill=\"none\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <path d=\"M 120 120 C 140 100, 210 100, 230 120\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <path d=\"M 120 140 C 140 160, 210 160, 230 140\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\">비대칭 슬루츠키 유동</text>\n</svg>\n```\n",
+      "options": [
+        "약공리(WARP)의 성립만으로는 슬루츠키 행렬(Slutsky Matrix)의 대칭성(Symmetry)이 보장되지 않아 적분가능성 조건(Integrability Condition)을 충족하지 못하기 때문이다.",
+        "WARP는 슬루츠키 행렬의 대각 원소가 양(+)의 값을 갖도록 제한하기 때문이다.",
+        "재화가 3개 이상이 되면 한계대체율이 소득의 변화에 대해 독립성을 완전히 상실하기 때문이다.",
+        "효용함수가 존재하기 위해서는 반드시 오이러 정리에 의해 수요의 가격탄력성 합이 1이어야 하기 때문이다.",
+        "WARP는 미분 불가능한 코너점 선택만을 유도하므로 야코비 행렬을 정의할 수 없기 때문이다."
+      ],
+      "answer": "1",
+      "explanation": "소비자의 관찰된 수요 행동으로부터 역으로 효용함수를 복원(적분)하기 위해서는 슬루츠키 행렬의 음의 준한정성(Negative Semi-definiteness)뿐만 아니라 대칭성(Symmetry, 즉 교차대체효과의 일치 $S_{ij} = S_{ji}$)이 만족되어야 합니다(적분가능조건).\\n드러난 선호의 약공리(WARP)는 음의 준한정성만 함의할 뿐, 3재화 이상에서는 대칭성을 보장하지 못합니다. 대칭성(이행성)을 확보하여 일관된 효용함수를 사후적으로 얻기 위해서는 강공리(SARP)나 일반공리(GARP)가 반드시 필요합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "맥패든(McFadden)의 이산선택 모형이나 Falmagne의 정리와 연결되는 무작위 현시선호(Random Revealed Preference) 이론의 기본 핵심 개념에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Random revealed preferences probability distribution -->\n  <path d=\"M 50 180 Q 150 50 200 130 T 310 180\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <line x1=\"40\" y1=\"180\" x2=\"310\" y2=\"180\" stroke=\"#475569\" />\n  <text x=\"150\" y=\"40\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#8b5cf6\">선호 확률 밀도 f(U)</text>\n</svg>\n```\n",
+      "options": [
+        "집단 수준의 관찰된 소비 선택 확률 분포가, 합리적 선호(효용 극대화)를 가진 개인들의 선호 분포로부터 도출될 수 있는지 판별하는 조건이다.",
+        "소비자의 선호체계가 매 순간 무작위(Random Walk)로 변하여 어떠한 합리성 공리도 적용할 수 없음을 증명하는 이론이다.",
+        "개별 소비자가 완벽하게 동일한 예산선 하에서 매번 동전 던지기를 통해 무작위로 재화를 구매하는 모형이다.",
+        "확률적 약공리(WARP)는 오직 기펜재가 존재하지 않는 균일 분포 하에서만 성립한다.",
+        "대수적 효용함수를 배제하고 오직 시장의 총수요 탄력성만을 확률 변수로 분석하는 거시 모형이다."
+      ],
+      "answer": "1",
+      "explanation": "무작위 현시선호 이론은 개인의 관찰 데이터가 아닌, 시장이나 실험 집단 전체의 '선호 확률 분포(이산 선택 비율)'가 합리적인 선호 분포의 합으로 설명될 수 있는지 검증하는 도구입니다. Falmagne(1978)와 McFadden(2005) 등은 집단 데이터가 합리적 의사결정의 결과물들과 정합성을 갖기 위한 수리적 조건을 정립하였습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-038",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "바리안(Varian, 1982)의 비모수적 후생 평가(Nonparametric Welfare Evaluation) 기법에서, 가격 변동에 따른 소비자의 후생 변화(보상변화 CV, 대등변화 EV)를 구체적인 효용함수 가정 없이 현시선호 데이터만으로 한계짓는(Bounding) 방법에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- Varian bounds -->\n  <path d=\"M 70 50 L 130 110 L 220 150 L 290 170\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <path d=\"M 90 70 L 150 130 L 240 170 L 295 185\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" stroke-dasharray=\"3\" />\n  <text x=\"210\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\">U_upper</text>\n  <text x=\"160\" y=\"185\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">U_lower</text>\n</svg>\n```\n",
+      "options": [
+        "관찰 데이터가 GARP를 만족할 경우, Afriat 정리로 복원되는 가능한 모든 합리적 효용함수군으로부터 CV와 EV의 상한(Upper Bound)과 하한(Lower Bound)을 직접 연산해 낼 수 있다.",
+        "비모수적 기법 하에서는 CV와 EV의 정확한 수치를 얻을 수 없으므로 무조건 소비자잉여($\\Delta CS$)의 수치를 정답으로 삼는다.",
+        "보상수요곡선이 수평인 경우에만 비모수적 바리안 경계가 유효하게 작동한다.",
+        "상한 효용 곡선은 항상 파셰 지수를 통해 결정되고 하한 효용 곡선은 라스파이레스 지수로 고정된다.",
+        "현시선호 경계법은 오직 2재화 콥-더글러스 효용체계 하에서만 수학적으로 성립함이 증명되었다."
+      ],
+      "answer": "1",
+      "explanation": "Varian(1982)은 관찰된 유한 개의 가격-선택 데이터가 GARP를 만족할 때, 사후 복원 가능한 효용함수들의 집합을 정의하고 이들로부터 유도되는 지출함수의 최소값과 최대값을 산출하여 보상변화(CV)와 대등변화(EV)의 수학적 경계(Bounds)를 제공하는 비모수 후생 분석론을 정립하였습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-039",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 선호가 두 재화 간에 완전대체재 관계($U = aX + bY$)여서 가격 비율 변동 시 코너해(Corner Solution)에서 다른 코너해로 수요가 불연속적으로 도약할 때, 일반현시선호공리(GARP)가 이러한 행동의 합리성을 판별해내는 특징적 기하 분석으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- 완전대체재 코너점 이동 -->\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"210\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  <circle cx=\"40\" cy=\"180\" r=\"4.5\" fill=\"#ef4444\" />\n  <circle cx=\"220\" cy=\"210\" r=\"4.5\" fill=\"#2563eb\" />\n</svg>\n```\n",
+      "options": [
+        "두 코너점의 지출액을 비교하여 가격선 상의 임의의 점보다 같거나 싼 선택 묶음의 지출 관계가 성립하므로, 등호 지출 관계를 허용하는 GARP를 통해 일관성을 완벽히 판별할 수 있다.",
+        "불연속적 코너 선택 행동은 한계대체율이 정의되지 않는 구간을 포함하므로 GARP로 판별이 불가능하다.",
+        "코너해 간의 이동은 현시선호 공리 상 반드시 WARP를 항상 위배하도록 강제한다.",
+        "완전대체재의 경우 가격 변동 방향과 무관하게 언제나 동일한 코너점을 선택해야만 GARP를 충족한다.",
+        "예산선 상의 모든 점에서 무차별하므로 지출액의 크기 비교 자체가 수학적 무의미성을 띤다."
+      ],
+      "answer": "1",
+      "explanation": "완전대체재의 경우 가격 비율이 한계대체율과 일치하는 순간 예산선 전체가 최적 선택이 되며, 가격 비율이 살짝만 변해도 극단적인 코너점 간의 도약이 발생합니다.\\n이때 발생하는 수요의 다가성 및 코너점 선택은, 등호를 포함하는 지출 비교를 수행하는 일반현시선호공리(GARP)를 통해 두 코너점 간의 현시 선호 순환 위배 여부를 정합적으로 가려낼 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-040",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "현시선호 약공리(WARP)를 만족하는 합리적 소비자가 정상재(Normal Good)만을 소비한다고 가정한다. 이때 이 소비자의 마샬 수요곡선(수요함수)이 반드시 우하향함을 증명하는 핵심 경로로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"310\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <!-- 우하향 수요곡선 -->\n  <path d=\"M 80 60 Q 150 150 280 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <text x=\"290\" y=\"195\" font-size=\"10\" font-family=\"sans-serif\">D (수요곡선)</text>\n</svg>\n```\n",
+      "options": [
+        "WARP에 의해 보상수요(슬루츠키 대체효과)의 부호가 항상 비양수(-)이고, 정상재이므로 소득효과의 부호도 수요를 자극하는 방향이므로 두 효과의 합인 마샬 수요곡선은 우하향한다.",
+        "정상재의 경우 소득효과가 대체효과를 압도하여 항상 기펜재가 되기 때문에 우하향한다.",
+        "WARP는 소득효과를 원천적으로 배제하기 때문에 대체효과의 음의 성질만으로 마샬 수요의 부호가 결정된다.",
+        "수요곡선이 우상향하면 예산집합이 볼록성을 상실하므로 WARP를 만족할 수 없다는 귀류법적 모순에 도달한다.",
+        "정상재이기만 하면 WARP 만족 여부와 관계없이 수요곡선은 항상 우하향하므로 약공리는 불필요한 전제이다."
+      ],
+      "answer": "1",
+      "explanation": "슬루츠키 방정식에 따르면 가격 변동 효과는 대체효과와 소득효과의 합입니다. \\n1) 현시선호 약공리(WARP)는 슬루츠키 대체효과가 항상 비양수(-)임을 완벽히 입증합니다.\\n2) 정상재의 경우 가격 하락 시 실질소득 증가가 수요량을 증가시키는 방향(+)으로 작용합니다.\\n따라서 대체효과와 소득효과가 모두 가격 하락 시 수요량을 늘리는 방향으로 정합적으로 작동하므로, 최종 수요곡선은 반드시 우하향하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-041",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "바리안(Varian, 1982)의 비모수 수요분석에서 Afriat의 복원 알고리즘을 활용할 때, 유한 개의 관찰 데이터 세트가 GARP를 만족하는 경우 개별 선택점에서의 효용값($U^i$)과 한계효용 가중치($\\lambda^i > 0$)가 충족해야 하는 아프리앗 부등식(Afriat's Inequalities)의 수학적 형태는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- Afriat Bounds & Utility Bounding -->\n  <path d=\"M 70 60 Q 150 130 270 160\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <path d=\"M 90 80 Q 170 150 290 180\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n</svg>\n```\n",
+      "options": [
+        "모든 $i, j$에 대해 $U^j \\le U^i + \\lambda^i P^i \\cdot (X^j - X^i)$",
+        "모든 $i, j$에 대해 $U^j \\ge U^i + \\lambda^i P^i \\cdot (X^j - X^i)$",
+        "모든 $i, j$에 대해 $U^j \\le U^i + P^i \\cdot (X^j - X^i)$",
+        "모든 $i, j$에 대해 $U^j = U^i + \\lambda^i (P^i \\cdot X^j - P^j \\cdot X^i)$",
+        "모든 $i, j$에 대해 $\\lambda^j U^j \\ge \\lambda^i U^i + P^i \\cdot X^j$"
+      ],
+      "answer": "1",
+      "explanation": "아프리앗의 정리(Afriat's Theorem)에 따르면, 유한 개 데이터가 GARP를 만족할 때 다음 부등식계를 만족하는 효용값 $U^i$와 한계효용 배수 $\\lambda^i > 0$가 반드시 존재합니다:\\n$$U^j \\le U^i + \\lambda^i P^i \\cdot (X^j - X^i)$$\\n이 식은 볼록(Convex)성 및 효용 극대화의 1차 조건(FOC)을 이산 데이터 형태로 나타낸 부등식계이며, 이를 활용해 상한 효용함수를 사후적으로 직접 재구성해낼 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-042",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "실험경제학 및 행동경제학에서 독재자 게임(Dictator Game)의 이타적 선택 데이터를 수집하여 타인에 대한 후생 가중치가 부여된 사회적 선호(Social Preferences) 체계의 합리성을 규명하려 한다. 피실험자들의 분배 행동 데이터가 일반현시선호공리(GARP)를 만족한다는 실증적 발견이 지니는 미시경제학적 함의로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Dictator game sharing allocation -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <circle cx=\"130\" cy=\"110\" r=\"4.5\" fill=\"#ef4444\" />\n</svg>\n```\n",
+      "options": [
+        "이타적 선택 행동도 단순한 감정적 일탈이 아닌, 자신의 소득과 타인의 소득을 대안재로 갖는 일관되고 정합적인 사후 효용함수의 극대화 결과로 설명될 수 있다.",
+        "이타성은 이기적 예산선을 강제로 왜곡시키므로 GARP 위반이 불가피하게 유발된다.",
+        "이타적 분배 행동이 GARP를 만족하면, 피실험자들의 실제 선호는 위험 중립적인 콥-더글러스 형태로 즉각 환원된다.",
+        "사회적 선호 체계는 오직 Afriat 효율성 지수가 0일 때만 합리적 성격을 갖는다.",
+        "타인의 몫에 대한 현시선호는 독재자 게임에서는 검증이 불가능하며 오직 공공재 게임에서만 유효하다."
+      ],
+      "answer": "1",
+      "explanation": "이타적 행동이나 공정성 선호 같은 비전통적 선택 행동도, 가격 변동(예: 타인에게 1달러를 보내기 위한 자신의 포기 비용 변동)에 따른 선택 데이터가 GARP를 만족한다면, 이타성을 매개변수로 포함한 일관된 사회적 효용함수 $U(X_{self}, X_{other})$를 극대화하는 합리적 행동으로 사후 규명될 수 있습니다. 즉, 비이기적 동기도 합리성 범주 내에서 설명 가능하다는 실증적 입증입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-043",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "현시선호 강공리(SARP)를 만족하는 수요함수 $X(P, I)$가 존재한다. 미분방정식계의 적분가능조건인 프로베니우스 정리(Frobenius Theorem)를 이용하여 이 수요함수로부터 사후적으로 고유한 효용함수 $U(X, Y)$를 수학적으로 복원(Integrate Back)하고자 할 때 요구되는 적분경로 독립성 및 Pfaffian 미분형식에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Frobenius Theorem Integration paths -->\n  <path d=\"M 60 180 Q 120 120 180 150 T 300 120\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <path d=\"M 60 180 L 150 150 L 300 120\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"140\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#10b981\">경로독립적 적분선</text>\n</svg>\n```\n",
+      "options": [
+        "수요 관계식으로부터 도출된 미분형식 $P \\cdot dX = 0$ 이 완전적분가능(Completely Integrable)하기 위해서는 슬루츠키 행렬의 대칭성이 보장되어야 하며, 이는 경로독립적인 선적분을 가능케 한다.",
+        "프로베니우스 정리는 오직 2재화 상황에서만 성립하며, 3재화 이상에서는 적분경로 독립성이 대수적으로 성립하지 않는다.",
+        "Pfaffian 미분형식의 외미분(Exterior Derivative)이 0이 되지 않아도 SARP만 만족하면 항상 단일 경로로 효용함수가 유일 복원된다.",
+        "적분경로에 의존하는 후생지표의 한계를 보완하기 위해 힉스 보상수요의 대칭성을 원천 부정하게 된다.",
+        "프로베니우스 조건은 간접효용함수의 가격 동차성이 1차보다 높은 차수를 가질 때만 유효하다."
+      ],
+      "answer": "1",
+      "explanation": "수요 행동으로부터 사후적 효용함수를 유일하게 복원하기 위해서는 Pfaffian 미분형식이 완전적분가능해야 합니다. 프로베니우스 정리에 따르면 이는 야코비 행렬(슬루츠키 행렬)의 대칭성 $S_{ij} = S_{ji}$ 과 동치이며, 이 조건이 만족될 때만 적분 경로에 독립적으로 간접효용함수 및 효용함수를 선적분을 통해 복원해낼 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-044",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "불확실성 하의 자산선택 이론에서 소비자가 상태별 조건부 재화(Contingent Commodities) $C_1, C_2$를 선택한다. 소비자의 관찰된 포트폴리오 행동 데이터가 기대효용(Expected Utility) 극대화 가설 및 위험회피성(Risk Aversion)과 정합성을 지니는지를 비모수적으로 검증하기 위해 현시선호 약공리(WARP)를 확장한 EWARP(Expected WARP)의 특징적 조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- State preference contingent budget line -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"240\" y2=\"60\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  <circle cx=\"140\" cy=\"120\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"250\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">State 1 (C_1)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">State 2 (C_2)</text>\n</svg>\n```\n",
+      "options": [
+        "조건부 재화의 가격 비율이 상태 확률 비율과 일치하는 공정 가격선 하에서, 소비자가 기대값이 낮은 자산을 선택하는 경로적 일관성을 제한하는 조건이다.",
+        "EWARP는 상태별 무차별곡선이 반드시 원점에 대해 오목(Concave)해야 함을 증명하는 부등식계이다.",
+        "위험회피적 소비자는 조건부 재화 평면에서 예산선이 변할 때 항상 45도선(확실성선) 상의 점만을 선택해야 함을 의미한다.",
+        "불확실성 하의 현시선호 공리는 상태 확률이 내생적으로 변하는 경우에만 유효하게 검증된다.",
+        "EWARP는 기대효용 가설의 독립성 공리(Independence Axiom) 위배를 측정하는 이산 확률 지표이다."
+      ],
+      "answer": "1",
+      "explanation": "EWARP(Expected Revealed Preference Axiom)는 불확실성 하의 선택 데이터를 검증하기 위해 확장된 현시선호 공리입니다. 소비자가 직면한 조건부 재화의 시장 가격과 상태 확률 정보 하에서, 기대효용 극대화 및 위험회피적 선호 체계가 일관되게 작용하는지를 판별하기 위해, 예산선과 확실성 선(45도선) 주변의 선택 경로가 일관성을 유지해야 함을 요구합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-045",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "치아포리(Chiappori, 1988)의 집합적 현시선호(Collective Revealed Preference) 이론에 입각하여, 다인 가구(Multi-person Household) 내에서 각 구성원이 자신의 선호를 지니고 협조적 의사결정을 내릴 때 가구 전체의 소비 데이터가 개별 합리성 공리를 충족하는지 검증하기 위한 비모수적 필요충분조건은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Household sharing rule -->\n  <rect x=\"50\" y=\"50\" width=\"250\" height=\"150\" fill=\"none\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <line x1=\"150\" y1=\"50\" x2=\"150\" y2=\"200\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"80\" y=\"125\" font-size=\"11\" font-family=\"sans-serif\" font-weight=\"bold\">구성원 A 분배</text>\n  <text x=\"180\" y=\"125\" font-size=\"11\" font-family=\"sans-serif\" font-weight=\"bold\">구성원 B 분배</text>\n</svg>\n```\n",
+      "options": [
+        "가구 내부의 소득 분배 규칙(Sharing Rule) 하에 각 구성원이 배분받은 개별 소득으로 구입한 가상의 개인별 묶음들이 각각 개별 GARP를 만족해야 한다.",
+        "가구 전체의 합산 소비 데이터가 단일 합리적 소비자의 소득 효과 0차 동차성 공리를 충족해야 한다.",
+        "가구 내 모든 구성원의 효용함수가 동일한 콥-더글러스 형태여야만 협조적 균형이 GARP를 충족한다.",
+        "가구의 총소득이 변하더라도 구성원 간의 소득 배분 비율은 항상 일정 불변의 상수로 유지되어야 한다.",
+        "가구 소비 데이터의 GARP 충족 여부는 구성원 수에 비례하여 난이도가 다항 수준으로 소멸된다."
+      ],
+      "answer": "1",
+      "explanation": "집합적 소비 모형(Collective Model) 하에서는 가구 전체의 총소득이 가구원 간에 특정한 분배 규칙(Sharing Rule)에 의해 나눠지고, 각 구성원은 자신에게 할당된 자원을 바탕으로 소비를 결정합니다.\\n따라서 가구 전체 소비 데이터가 집합적 합리성을 갖기 위한 비모수적 필요충분조건은, 각 가구원이 배분받은 사적 소득 하에 선택된 소비 묶음들이 개별적인 GARP를 각각 위배하지 않는 소득 배분 규칙(Sharing Rule)이 사후적으로 존재해야 한다는 것입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-046",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 할인율(Discount Factor)이 시점별로 일정하거나 혹은 쌍곡선 할인(Hyperbolic Discounting)을 따를 때, 시점간 소비 선택 데이터가 시간 일관성(Time Consistency)을 충족하는지 판별하기 위한 시점간 현시선호공리(Intertemporal GARP)의 수리적 연관성에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Intertemporal choice Euler equation -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <text x=\"270\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">현재 소비 (C_t)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">미래 소비 (C_t+1)</text>\n</svg>\n```\n",
+      "options": [
+        "소비자의 시점간 소비 궤적이 일정한 할인율 $\\beta \\delta$ 하의 GARP 조건을 위배하지 않는다면, 그의 행동은 시간일관적 기대효용 극대화로 정당화된다.",
+        "쌍곡선 할인을 하는 소비자는 항상 시점간 약공리(WARP)를 자동 충족하여 계획을 유일하게 고수한다.",
+        "시간 일관성이 붕괴하면 소비자는 매기 동일한 예산 집합을 가지므로 현시선호 공리를 통한 비합리성 규출이 불가능해진다.",
+        "시점간 GARP는 이자율이 감가상각율보다 언제나 큰 상태를 유지해야만 수학적으로 정의된다.",
+        "현재 시점의 소비 가치가 미래의 소비보다 항상 기수적으로 작아야만 시간 일관성이 만족된다."
+      ],
+      "answer": "1",
+      "explanation": "시점간 현시선호 이론은 개인의 다기간 소비-저축 궤적을 실증 분석하여 시간 일관성 여부를 평가합니다.\\n소비자의 선택 경로가 일관된 할인인자(Discount Factor)를 매개로 설정된 시점간 일반현시선호공리(Intertemporal GARP)를 만족한다면, 해당 소비자는 쌍곡선 할인 등의 시간 비일관적 편향 없이, 일관된 선호 하에 장기 최적 소비 계획을 실행한 합리적 행위자로 판정됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-047",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "누진세율(Progressive Income Tax)의 적용이나 구간별 급여 체계로 인해 소비자가 직면하는 예산선이 꺾여 예산집합이 비볼록(Non-convex) 영역을 형성할 때, 일반현시선호공리(GARP)를 비볼록 예산집합에 맞추어 수정하는 방법과 국소적 극대점 복원성에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- 비볼록 예산선 (세금 구간 꺾임) -->\n  <line x1=\"40\" y1=\"180\" x2=\"150\" y2=\"130\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <line x1=\"150\" y1=\"130\" x2=\"220\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <line x1=\"220\" y1=\"60\" x2=\"280\" y2=\"40\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <path d=\"M 150 130 Q 180 180 200 210\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n</svg>\n```\n",
+      "options": [
+        "예산선 외부의 비볼록 꺾임 영역을 배제하고, 실제 선택된 점보다 가격 지출액이 작거나 같은 볼록 봉우리(Convex Hull) 영역만을 새로운 예산집합으로 재정의하여 GARP를 적용한다.",
+        "비볼록 예산집합에서는 어떠한 소비 행동도 GARP를 만족할 수 없으므로 Afriat 정리가 무효화된다.",
+        "비볼록 구간에서는 한계 대체율이 예산선 기울기보다 작은 코너 선택만이 유일하게 허용된다.",
+        "예산집합의 비볼록성은 가구의 총소득을 언제나 음수(-)로 환원시키는 대수적 왜곡을 낳는다.",
+        "소비자의 실제 선택점이 항상 비볼록 예산집합의 내부 기하학적 무게중심에 놓여야만 합리성이 인정된다."
+      ],
+      "answer": "1",
+      "explanation": "조세나 보조금 등으로 예산집합이 비볼록할 경우, 표준적인 Afriat 정리 및 GARP를 그대로 적용하면 합리적인 소비자 행동을 비합리적인 것으로 오판할 수 있습니다.\\n이를 교정하기 위해, 예산집합의 볼록 껍질(Convex Hull)을 형성하여 소비자가 구매 가능했던 가상의 볼록화된 예산 영역을 기반으로 현시선호 관계를 재정의하여 GARP의 일관성을 검증합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-048",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "네트워크 외부효과(밴드왜건 효과, 스놉 효과)가 존재하여 타인들의 평균 소비량($\\bar{X}$)이 개인의 고유 선호 및 한계대체율에 영향을 미칠 때, 이러한 환경에서 수집된 소비 데이터로부터 개인의 진정한 선호를 비모수적으로 식별해내는 방법론에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- Network Externality shift -->\n  <path d=\"M 60 70 Q 140 140 260 170\" fill=\"none\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <path d=\"M 80 50 Q 160 120 280 150\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"80\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\">네트워크 편승 효과 반영</text>\n</svg>\n```\n",
+      "options": [
+        "타인의 소비량($\\bar{X}$)이 일정한 데이터 하위 집합(Sub-samples)들을 개별적으로 추출하여, 동일한 외부효과 환경 내에서만 가격-선택 묶음 간의 GARP 일관성을 검증한다.",
+        "네트워크 외부효과가 작동하면 개인의 수요곡선은 언제나 우상향하므로 GARP 검증은 원천적으로 불가능하다.",
+        "타인의 소비량이 늘어날 때 개인의 지출액 합계가 항상 비례하여 증가하도록 데이터를 표준 보상한다.",
+        "밴드왜건 효과 하에서는 항상 Afriat 효율성 지수를 0.5로 고정하여 분석을 단순화한다.",
+        "스놉 효과가 존재하는 재화는 다른 재화들과 현시선호 상 대체 관계가 될 수 없음을 가정한다."
+      ],
+      "answer": "1",
+      "explanation": "외부효과가 선호를 내생적으로 변화시키는 상황에서는, 서로 다른 외부효과 수준($\\bar{X}$)이 섞인 데이터를 한꺼번에 현시선호 공리에 대입하면 선호 변화로 인해 공리 위반이 나타납니다.\\n따라서 타인의 소비량($\\bar{X}$)이 실질적으로 동일하게 유지되는 통제된 부분 집합들(Conditioning subsets)로 데이터를 쪼개어 각각의 하위 집합 내에서 GARP 만족 여부를 검증함으로써, 외부효과 하에서도 개인의 합리적 선택 일관성을 정확히 규명해 낼 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-049",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "정보비대칭 시장에서 상품의 가격 자체로부터 품질 신호(Quality Signal)를 받아 선호가 결정되는 품질 내생화 선호 모델 하에서, 현시선호이론의 기본 가정이 붕괴하는 기하학적 현상과 이를 극복하기 위한 수식적 체계를 바르게 서술한 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- Price signaling quality -->\n  <path d=\"M 80 180 L 220 80\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"150\" y=\"60\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">품질신호 내생화 선호</text>\n</svg>\n```\n",
+      "options": [
+        "가격 상승이 품질 향상 신호로 작용해 선호 체계 자체를 우측으로 이동시키므로, 동일한 선호가 유지된다는 현시선호의 기본 전제가 깨지며, 이를 보완하기 위해 신호 정보를 통제한 조건부 현시선호 관계를 설정해야 한다.",
+        "가격이 오르면 예산선이 원점 방향으로 평행이동하므로 신호 효과와 무관하게 언제나 약공리(WARP)가 자동 만족된다.",
+        "품질 신호는 예산집합의 면적을 무한대로 확장시키므로 Afriat 부등식의 방향이 정반대로 역전된다.",
+        "정보 비대칭 하에서는 마샬 수요와 힉스 보상수요가 완벽하게 일치하여 소득효과가 무조건 소멸된다.",
+        "가격 자체가 선호를 결정하는 경우, 어떠한 실증 데이터 하에서도 소비자의 이타성을 검증해낼 수 없다."
+      ],
+      "answer": "1",
+      "explanation": "현시선호이론은 '가격 변동 시에도 선호체계는 불변한다'는 것을 기본 전제로 합니다. 그러나 가격이 품질 신호로 내생화되면 가격 인상 시 소비자는 제품 품질이 좋아진 것으로 인식하여 선호체계 자체가 변화하게 됩니다. 따라서 선호 불변 전제가 무너져 WARP/GARP를 통한 합리성 검증이 왜곡됩니다.\\n이를 극복하기 위해서는 가격이 제공하는 신호의 정보적 가치를 통제한 후, 동일한 인지 품질 상태 하에서의 조건부 현시선호 관계를 설계하여 합리성을 검증해야 합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec03-item01-050",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "소비자가 주의 제약(Attention Constraint)이나 선택 과부하(Choice Overload)로 인해 예산집합 내의 모든 대안을 인지하지 못하고, 오직 일부 고려 대상군(Consideration Set) 내에서만 최적 선택을 내릴 때, 이러한 제한된 합리성 행동 데이터로부터 소비자의 진정한 선호를 복원하는 Latan & Masatlioglu(2014)의 합리적 주의 선호(Rational Attention Preference) 공리 체계에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- Bounded rationality consideration set -->\n  <rect x=\"50\" y=\"50\" width=\"120\" height=\"120\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"60\" y=\"80\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\">제한된 대안군 (Consideration Set)</text>\n  <circle cx=\"100\" cy=\"110\" r=\"4.5\" fill=\"#2563eb\" />\n</svg>\n```\n",
+      "options": [
+        "예산집합이 커졌음에도 불구하고 이전에 선택 가능했던 대안 $X$ 대신 새로운 대안 $Y$가 선택되었다면, $Y$는 $X$보다 진정으로 선호되는 것이며, $X$는 애초에 고려 대상군에 포함되지 않았던 것으로 선호를 추론한다.",
+        "주의 제약 하의 소비 행동은 어떠한 경우에도 일관된 대수적 순서 관계를 도출할 수 없으므로 무조건 비합리적으로 규정한다.",
+        "예산 집합의 크기와 고려 대상군의 크기는 언제나 정비례하므로 표준적인 GARP를 가감 없이 그대로 적용할 수 있다.",
+        "선택 과부하가 걸리면 소비자는 지출 행렬 상에서 대각선에 위치한 원소들만을 무작위로 선택하는 경향을 보인다.",
+        "고려 대상군은 사전에 고정된 외생 변수이므로 가격 비율의 변동에 따른 주의력 변화를 내생적으로 포착할 수 없다."
+      ],
+      "answer": "1",
+      "explanation": "Latan & Masatlioglu(2014) 등의 합리적 주의(Rational Attention) 및 제한적 주의 선호 이론에 따르면, 소비자의 예산 집합이 확장되어 대안들이 추가될 때 의사결정자는 주의력 한계로 인해 일부만 고려하게 됩니다.\\n만약 더 넓어진 예산선에서 기존 선택 대안 $X$가 살 수 있었음에도 신규 대안 $Y$가 선택되었다면, $Y$가 진정으로 현시 선호되는 것임을 추론하며, 반대로 $X$가 탈락한 것은 비선호의 결과가 아니라 주의를 받지 못해 고려 대상군에서 누락되었기 때문일 수 있음을 공리적으로 체계화하였습니다. 정답은 1번입니다."
     }
   ]
 }

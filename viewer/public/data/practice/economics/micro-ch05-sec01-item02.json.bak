@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제13절 완전경쟁시장",
+    "item": "제2관 단기 이윤극대화",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "기업의 이윤(π) 정의로 옳은 것은?",
+      "options": [
+        "π = TR - TC (총수입 - 총비용)",
+        "π = TR + TC",
+        "π = TR / TC",
+        "π = MC",
+        "π = 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "이윤 = 총수입 - 총비용 = $TR - TC = PQ - TC(Q)$. 경제적 이윤은 명시적·암묵적 비용 모두 차감 후의 이윤."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "이윤극대화의 1계 조건은?",
+      "options": [
+        "MR = MC",
+        "MR = AC",
+        "P = ATC",
+        "MR = 0",
+        "MC = 0"
+      ],
+      "answer": "1",
+      "explanation": "$\\pi = TR(Q) - TC(Q)$. $d\\pi/dQ = MR - MC = 0 \\Rightarrow MR = MC$. 추가 1단위의 수입(MR) = 추가 비용(MC)일 때 이윤 극대."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-003",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "완전경쟁 기업의 MR과 P의 관계는?",
+      "options": [
+        "MR = P (수평 수요곡선)",
+        "MR < P",
+        "MR > P",
+        "MR과 P는 무관",
+        "MR = AC"
+      ],
+      "answer": "1",
+      "explanation": "완전경쟁: 가격수용자 → 추가 단위도 P에 판매 → $MR = dTR/dQ = P$. 따라서 이윤극대 조건은 $P = MC$."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-004",
+      "difficulty": 2,
+      "question_type": "계산형",
+      "question": "$P = 30$, $TC = 50 + 6Q + Q^2$. 이윤극대 산출량과 이윤은?",
+      "options": [
+        "Q = 12, π = 94",
+        "Q = 15, π = 100",
+        "Q = 10, π = 50",
+        "Q = 20, π = 200",
+        "Q = 6, π = 30"
+      ],
+      "answer": "1",
+      "explanation": "$MC = 6 + 2Q = 30 \\Rightarrow Q^* = 12$.\n$TR = 30 \\cdot 12 = 360$.\n$TC = 50 + 72 + 144 = 266$.\n$\\pi = 360 - 266 = 94$."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-005",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "$P = 20$, $TC = 100 + 4Q + 2Q^2$. 이윤극대 산출량과 이윤은?",
+      "options": [
+        "Q = 4, π = -68",
+        "Q = 4, π = 0",
+        "Q = 8, π = 32",
+        "조업 중단",
+        "Q = 2, π = -84"
+      ],
+      "answer": "1",
+      "explanation": "$MC = 4 + 4Q = 20 \\Rightarrow Q^* = 4$.\n$TR = 80$, $TC = 100 + 16 + 32 = 148$, $\\pi = -68$.\nVC = 48 < TR = 80 → 조업 지속(단기). 중단 시 -100 > 지속 -68."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-006",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "비용곡선 그래프에서 P > ATC 극소일 때 단기 결정은?\n\n[IMAGE: data/practice/economics/graphs/cost-curves.svg]",
+      "options": [
+        "P = MC에서 산출, 초과이윤 = (P-ATC)·Q",
+        "P = MC, 이윤 0",
+        "조업 중단",
+        "P = ATC에서 산출",
+        "산출 무관"
+      ],
+      "answer": "1",
+      "explanation": "P > ATC min: 단기 초과이윤. 이윤극대: P = MC에서 산출 Q*. 이윤 = (P - ATC)·Q > 0. 그래프상 직사각형."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-007",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "$P = 16$, $TC = 20 + 4Q + Q^2$. 이윤은?",
+      "options": [
+        "Q = 6, π = 16",
+        "Q = 6, π = -16",
+        "Q = 8, π = 0",
+        "Q = 4, π = -10",
+        "조업 중단"
+      ],
+      "answer": "1",
+      "explanation": "$MC = 4 + 2Q = 16 \\Rightarrow Q = 6$.\n$TR = 96$, $TC = 20 + 24 + 36 = 80$, $\\pi = 16$."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-008",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "$TC = 100 + Q^2$, P = 30. 이윤은?",
+      "options": [
+        "Q = 15, π = 125",
+        "Q = 10, π = 100",
+        "Q = 30, π = 0",
+        "Q = 20, π = 200",
+        "Q = 5, π = -75"
+      ],
+      "answer": "1",
+      "explanation": "$MC = 2Q = 30 \\Rightarrow Q = 15$.\n$TR = 450$, $TC = 100 + 225 = 325$, $\\pi = 125$."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-009",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "기업이 단기에 조업을 중단해야 하는 조건은?",
+      "options": [
+        "P < AVC 극소",
+        "P < ATC 극소",
+        "P < MC",
+        "P = ATC",
+        "이윤 < 0"
+      ],
+      "answer": "1",
+      "explanation": "P × Q < VC ⟺ P < AVC. 가변비용 회수 못함 → 중단이 손실 최소화. P < ATC 만으로는 조업 지속이 유리(FC 일부 회수)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-010",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "$TC = 36 + 2Q^2$. AVC 극소·ATC 극소는?",
+      "options": [
+        "AVC min ≈ 0 (Q→0), ATC min ≈ 16.97 (Q ≈ 4.24)",
+        "AVC min = 4, ATC min = 12",
+        "AVC min = 8",
+        "AVC min = 36",
+        "둘 다 6"
+      ],
+      "answer": "1",
+      "explanation": "$VC = 2Q^2 \\Rightarrow AVC = 2Q$, AVC min ≈ 0 at Q→0.\n$ATC = 36/Q + 2Q$. $dATC/dQ = -36/Q^2 + 2 = 0 \\Rightarrow Q^2 = 18, Q = \\sqrt{18} \\approx 4.24$.\n$ATC = 4\\sqrt{18} \\approx 16.97$."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-011",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "기업 $MC = 2 + Q$, FC = 50. P = 12일 때 이윤은?",
+      "options": [
+        "Q = 10, π = 0 (손익분기)",
+        "Q = 10, π = 50",
+        "Q = 5, π = 10",
+        "Q = 12, π = 22",
+        "Q = 8, π = -10"
+      ],
+      "answer": "1",
+      "explanation": "$2 + Q = 12 \\Rightarrow Q = 10$.\n$VC = 2Q + Q^2/2 = 20 + 50 = 70$.\nTC = 50 + 70 = 120, TR = 120, π = 0."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-012",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "독점기업: 수요 $P = 100 - Q$, $TC = 200 + 20Q$. 이윤극대 Q와 π는?",
+      "options": [
+        "Q = 40, π = 1400",
+        "Q = 80, π = 0",
+        "Q = 50, π = 2300",
+        "Q = 30, π = 700",
+        "Q = 20, π = 200"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 100 - 2Q$, $MC = 20$.\n$100 - 2Q = 20 \\Rightarrow Q = 40$, $P = 60$.\n$TR = 2400$, $TC = 200 + 800 = 1000$, $\\pi = 1400$."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "이윤극대화의 2계 조건은?",
+      "options": [
+        "MC가 MR을 아래에서 가로지름 ($dMC/dQ > dMR/dQ$)",
+        "MC = 0",
+        "MR = 0",
+        "P = ATC",
+        "TC 최소"
+      ],
+      "answer": "1",
+      "explanation": "$d^2\\pi/dQ^2 = dMR/dQ - dMC/dQ < 0$ → MC 기울기 > MR 기울기. MC가 MR을 아래에서 위로 가로지를 때 극대(정확).반대면 극소."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-014",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "기업 $TC = Q^3 - 12Q^2 + 60Q + 100$, P = 60. 이윤극대 Q는?",
+      "options": [
+        "Q = 8",
+        "Q = 4",
+        "Q = 12",
+        "Q = 6",
+        "Q = 10"
+      ],
+      "answer": "1",
+      "explanation": "$MC = 3Q^2 - 24Q + 60 = 60 \\Rightarrow Q(Q-8) = 0 \\Rightarrow Q = 0, 8$.\n2계 조건: $dMC/dQ = 6Q - 24$. Q=8에서 +24 > 0 ✓ (MC 증가, 극대).\nQ=0에서 -24 < 0 → MC 감소, 극소."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-015",
+      "difficulty": 4,
+      "question_type": "그래프형",
+      "question": "AVC 극소 < P < ATC 극소일 때 단기 결정은?\n\n[IMAGE: data/practice/economics/graphs/cost-curves.svg]",
+      "options": [
+        "조업 지속, 단기 손실 (FC 일부 회수)",
+        "조업 중단",
+        "초과 이윤",
+        "정상 이윤",
+        "산출량 0"
+      ],
+      "answer": "1",
+      "explanation": "P > AVC: 가변비용 회수 + FC 일부 회수 가능. 손실이지만 중단보다 작음. P < ATC라서 단기 손실 발생."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-016",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "$P = 12$, $TC = 20 + 2Q + Q^2$. 이윤은?",
+      "options": [
+        "Q = 5, π = 5",
+        "Q = 5, π = 10",
+        "Q = 6, π = 12",
+        "Q = 4, π = 4",
+        "Q = 10, π = 0"
+      ],
+      "answer": "1",
+      "explanation": "$MC = 2 + 2Q = 12 \\Rightarrow Q = 5$.\n$TR = 60$, $TC = 20 + 10 + 25 = 55$, $\\pi = 5$."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-017",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "단기 공급결정의 위계로 옳은 것은?",
+      "options": [
+        "P ≥ ATC: 초과·정상이윤 / AVC ≤ P < ATC: 지속·손실 / P < AVC: 중단",
+        "항상 조업",
+        "항상 중단",
+        "P ≥ MC면 항상 지속",
+        "P와 무관"
+      ],
+      "answer": "1",
+      "explanation": "단기: P ≥ ATC면 초과/정상이윤. AVC ≤ P < ATC면 FC 일부 회수하며 지속. P < AVC면 중단."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-018",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "$P = 25$, $TC = 100 + 5Q + Q^2$. 이윤은?",
+      "options": [
+        "Q = 10, π = 0",
+        "Q = 10, π = 50",
+        "Q = 5, π = 25",
+        "Q = 20, π = 100",
+        "조업 중단"
+      ],
+      "answer": "1",
+      "explanation": "$MC = 5 + 2Q = 25 \\Rightarrow Q = 10$.\n$TR = 250$, $TC = 100 + 50 + 100 = 250$, $\\pi = 0$.\n손익분기점."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-019",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "$P = 8$, $TC = 20 + 2Q + Q^2$. 기업 결정은?",
+      "options": [
+        "Q = 3, 손실 약 -11 (조업 지속)",
+        "Q = 3, π = 0",
+        "조업 중단, 손실 -20",
+        "Q = 4, π = -4",
+        "Q = 0"
+      ],
+      "answer": "1",
+      "explanation": "$MC = 2 + 2Q = 8 \\Rightarrow Q = 3$.\n$TR = 24$, $TC = 20 + 6 + 9 = 35$, $\\pi = -11$.\nVC = 15 < TR = 24 → 지속 유리 (중단 시 -20)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "P = MC인 이유로 옳은 것은?",
+      "options": [
+        "P > MC면 산출↑ 시 이윤 ↑; P < MC면 산출↓ 시 이윤 ↑; 균형 P = MC",
+        "정부 규정",
+        "수요·공급 균형",
+        "비용 최소화",
+        "MC가 항상 P"
+      ],
+      "answer": "1",
+      "explanation": "한계분석: P > MC → 추가 단위가 비용보다 큰 수입 가져옴 → 산출↑. P < MC → 손실 → 산출↓. 균형 P = MC."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-021",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "$TC = 64 + Q^2$. AVC 극소·ATC 극소·각 가격 수준은?",
+      "options": [
+        "AVC min ≈ 0 (Q→0), ATC min = 16 (Q = 8)",
+        "AVC min = 8 at Q = 8",
+        "AVC min = 16",
+        "둘 다 8",
+        "둘 다 16"
+      ],
+      "answer": "1",
+      "explanation": "$VC = Q^2 \\Rightarrow AVC = Q$, AVC min ≈ 0.\n$ATC = 64/Q + Q$. $dATC/dQ = -64/Q^2 + 1 = 0 \\Rightarrow Q = 8$.\n$ATC(8) = 8 + 8 = 16$."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-022",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "비용곡선에서 손익분기점과 조업중단점의 차이는?\n\n[IMAGE: data/practice/economics/graphs/cost-curves.svg]",
+      "options": [
+        "AFC (평균고정비용)",
+        "MC",
+        "AVC",
+        "0",
+        "FC"
+      ],
+      "answer": "1",
+      "explanation": "손익분기점 = ATC min, 조업중단점 = AVC min. 차이 = ATC - AVC = AFC. 고정비용 평균만큼 손익분기가 위."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-023",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "기업 $MC = 10$ (일정), FC = 100. P = 10에서 이윤은?",
+      "options": [
+        "임의 Q, π = -100 (FC만 손실)",
+        "Q = 10, π = 0",
+        "Q = 0, π = 0",
+        "조업 중단",
+        "Q = 5, π = -50"
+      ],
+      "answer": "1",
+      "explanation": "MC = P = 10 → 어떤 Q도 한계 균형. TR - VC = 0 (MC=P일 때 한계 이윤 0).\nTC = 100 + 10Q, TR = 10Q, $\\pi = -100$ (FC만 손실, Q와 무관).\n단기에 Q ≥ 0 모두 동일."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-024",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "단기 vs 장기 이윤극대화의 차이로 옳은 것은?",
+      "options": [
+        "단기: P > AVC면 지속 / 장기: P > LRAC면 지속 (모든 비용 가변)",
+        "둘은 동일",
+        "장기가 더 짧음",
+        "단기·장기 모두 P > MC면 지속",
+        "장기에는 FC 있음"
+      ],
+      "answer": "1",
+      "explanation": "단기: FC 일부 회수만 되어도 지속(P > AVC). 장기: 모든 비용 가변·자유 진퇴출 → P ≥ LRAC만 지속. 정상이윤 미달 시 퇴출."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec01-item02-025",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "$TC = 50 + 10Q + 0.5Q^2$, P = 20. 이윤·소비자잉여(완전경쟁 시장 균형 가정)는?",
+      "options": [
+        "Q = 10, π = 0 (손익분기)",
+        "Q = 10, π = 50",
+        "Q = 5, π = 0",
+        "Q = 20, π = 100",
+        "Q = 15, π = 25"
+      ],
+      "answer": "1",
+      "explanation": "$MC = 10 + Q = 20 \\Rightarrow Q = 10$.\n$TR = 200$, $TC = 50 + 100 + 50 = 200$, $\\pi = 0$.\nATC = 20 = P → 손익분기점. 장기에 정상이윤."
+    }
+  ]
+}

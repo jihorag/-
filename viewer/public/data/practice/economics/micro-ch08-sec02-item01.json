@@ -8,88 +8,88 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch08-sec02-item01-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "비대칭정보(asymmetric information)란?",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "노동시장의 신호발송(Signaling) 모형에서 노동자 능력이 높은 유형(H)과 낮은 유형(L)의 학력(e) 취득 한계비용이 각각 다음과 같다.\n- H의 비용: $C_H(e) = 2e$\n- L의 비용: $C_L(e) = 4e$\n생산성과 학력에 따른 기업의 임금 제안이 $e < e^*$ 일 때 $w = 10$, $e \\\\ge e^*$ 일 때 $w = 20$ 이다. 두 유형이 각자 행동을 다르게 취하여 학력이 진실한 신호가 되는 분리균형(Separating Equilibrium)을 유도하기 위한 교육 수준 기준값 $e^*$의 범위는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "거래 당사자 한쪽이 다른 쪽보다 더 많은 정보를 가지는 상황",
-        "동일 정보",
-        "정부 정보",
-        "정보 없음",
-        "공개 정보"
+        "$2.5 \\\\le e^* \\\\le 5$",
+        "$1.5 \\\\le e^* \\\\le 3$",
+        "$2 \\\\le e^* \\\\le 4$",
+        "$3 \\\\le e^* \\\\le 6$",
+        "분리균형이 존재하지 않는 범위"
       ],
       "answer": "1",
-      "explanation": "비대칭정보: 한 쪽이 정보 우위. 예: 중고차 판매자(차 상태), 보험 가입자(건강), 노동자(능력). 두 결과 — 사전(역선택) + 사후(도덕적해이) 문제."
+      "explanation": "분리균형이 성립하려면:\n1) L유형은 학력을 선택하지 않는 것이 유리해야 함 (자가 선택 차단):\n   $w_L - 0 > w_H - C_L(e^*) \\\\Rightarrow 10 > 20 - 4e^* \\\\Rightarrow 4e^* > 10 \\\\Rightarrow e^* > 2.5$.\n2) H유형은 학력을 선택하는 것이 유리해야 함 (참여 만족):\n   $w_H - C_H(e^*) \\\\ge w_L - 0 \\\\Rightarrow 20 - 2e^* \\\\ge 10 \\\\Rightarrow 10 \\\\ge 2e^* \\\\Rightarrow e^* \\\\le 5$.\n3) 두 조건을 만족하는 범위는 $2.5 < e^* \\\\le 5$ 이며, 정수식 포함 가장 타당한 범위는 $2.5 \\\\le e^* \\\\le 5$ 입니다. 정답은 ①입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "역선택(adverse selection)이란?",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "보험 회사(Principal)가 가입자(Agent)의 위험도(고위험 vs 저위험)를 사전에 모르는 상태에서, 두 유형을 선별(Screening)하기 위해 설계하는 자기선택적(Self-selecting) 메뉴 계약 조건에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Agent's Utility curves -->\n  <path d=\"M 50 170 Q 150 120 280 100\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">U_Agent (e_low)</text>\n  <path d=\"M 50 130 Q 150 90 280 80\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"80\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Agent (e_high)</text>\n  <!-- Incentive Contract budget line -->\n  <line x1=\"40\" y1=\"180\" x2=\"250\" y2=\"50\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"200\" y=\"80\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">인센티브 계약선</text>\n  <!-- Reservation utility constraint -->\n  <line x1=\"40\" y1=\"140\" x2=\"300\" y2=\"140\" stroke=\"#a855f7\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"205\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">유보 효용선 (Participation Constraint)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Effort (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "사전 정보 비대칭 → 시장에 \"나쁜 품질\"만 남는 현상",
-        "사후 행동 변경",
-        "정부 선택",
-        "독점 형성",
-        "도덕적해이"
+        "고위험군에게는 본인부담금이 높고 보험료가 저렴한 계약을 제공한다",
+        "저위험군에게는 본인부담금(Deductible)이 없고 전액 보장하는 완전 보험 계약을 설계한다",
+        "고위험군에게는 전액 보장하는 완전 보험을, 저위험군에게는 일부분만 보장하는 부분 보험을 제공함으로써 스스로 분리하여 선택하도록 만든다",
+        "두 유형에게 동일한 중간 가격의 균등 보험(Pooling)을 의무화하는 것이 선별의 핵심이다",
+        "자격 요건을 강화하여 저위험군의 가입을 원천 차단한다"
       ],
-      "answer": "1",
-      "explanation": "역선택: 거래 \"전\" 정보 비대칭. 예: Akerlof 레몬시장 — 차 상태 모르는 구매자가 평균 가격만 지불 → 좋은 차 판매자 시장 이탈 → 나쁜 차만 남음 → 시장 붕괴."
+      "answer": "3",
+      "explanation": "선별(Screening) 계약 메뉴 설계에서는 고위험군이 저위험군 계약을 모방하는 것을 막기 위해(자기선택 유인), 고위험군에게는 완전보험($P$는 높으나 공제금 없음)을 제공하고, 저위험군에게는 $P$가 낮지만 공제금(본인부담)을 높게 부과하는 부분보험을 제공합니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-003",
-      "difficulty": 2,
+      "difficulty": 5,
       "question_type": "이론형",
-      "question": "Akerlof (1970) 레몬시장 논문의 핵심은?",
+      "question": "Akerlof의 '레몬 시장(Market for Lemons)' 모형에서 정보 비대칭이 존재할 때 판매자와 구매자 간의 균형 성질로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"150\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"90\" y=\"30\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#64748b\" font-weight=\"bold\">Lemons Market (중고차 시장 정보 비대칭)</text>\n  <!-- High quality cars region -->\n  <rect x=\"40\" y=\"40\" width=\"130\" height=\"150\" fill=\"#ef4444\" fill-opacity=\"0.1\" />\n  <text x=\"60\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">Good Cars (Plums)</text>\n  <text x=\"60\" y=\"115\" font-size=\"7.5\" font-family=\"sans-serif\" fill=\"#ef4444\">Value: $20,000</text>\n  <!-- Low quality cars region -->\n  <rect x=\"170\" y=\"40\" width=\"130\" height=\"150\" fill=\"#3b82f6\" fill-opacity=\"0.1\" />\n  <text x=\"190\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">Bad Cars (Lemons)</text>\n  <text x=\"190\" y=\"115\" font-size=\"7.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">Value: $10,000</text>\n  <!-- Trade outcomes under asymmetric info -->\n  <line x1=\"40\" y1=\"150\" x2=\"300\" y2=\"150\" stroke=\"#a855f7\" stroke-width=\"2.5\" stroke-dasharray=\"4\" />\n  <text x=\"70\" y=\"145\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">비대칭정보 기대가격 (E[P] = $15,000)</text>\n  <text x=\"50\" y=\"175\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">→ 좋은 차 판매자 시장 철수!</text>\n</svg>\n```",
       "options": [
-        "중고차 시장의 정보 비대칭으로 시장 효율 ↓ — 정보경제학 개막",
-        "독점 분석",
-        "거시 균형",
-        "일반균형",
-        "공공재"
+        "구매자는 제품의 실제 가치를 정확히 알 수 없어, 평균 품질을 바탕으로 한 기대 가격만 지불하려 하므로 품질이 우수한 소유자는 시장을 이탈하고 불량품만 남는 균형이 초래된다",
+        "시장 경쟁으로 인해 고품질 차량 가격이 사회적 한계비용 수준으로 안착된다",
+        "정보 비대칭이 크더라도 가격 메커니즘을 통해 파레토 최적 거래량이 보존된다",
+        "중고차의 품질이 자발적으로 상승하여 균형이 회복된다",
+        "지니계수가 0으로 수렴하는 분배 개선을 낳는다"
       ],
       "answer": "1",
-      "explanation": "George Akerlof (1970) \"The Market for Lemons\". 중고차 판매자만 차 상태(레몬=나쁜 차) 안다 → 구매자는 평균만 지불 → 좋은 차 이탈 → 시장 붕괴. 정보경제학의 출발점. 2001 노벨상."
+      "explanation": "George Akerlof(1970)의 레몬 모형은 정보 비대칭(거래 전 특성 감추어짐)으로 인해 고품질 상품을 가진 주체가 시장에서 제값을 받지 못해 탈퇴하게 되고, 궁극적으로 저품질 상품(Lemons)만 거래되는 시장 붕괴 현상(역선택)을 보여줍니다. 정답은 ①입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-004",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
-      "question": "도덕적해이(moral hazard)란?",
+      "question": "다음 중 정보 비대칭성 하에서 '선별(Screening)'과 '신호발송(Signaling)'의 정보 우위 주체를 올바르게 연결한 것은?",
       "options": [
-        "사후 정보 비대칭 → 계약 후 한 쪽이 위험 행동 또는 게으른 행동",
-        "사전 정보 비대칭",
-        "정부 행동",
-        "Pareto 효율",
-        "독점 결정"
+        "선별: 정보 우위자 (예: 노동자) / 신호발송: 정보 열위자 (예: 고용주)",
+        "선별: 정보 열위자 (예: 고용주) / 신호발송: 정보 우위자 (예: 노동자)",
+        "두 전략 모두 정보 우위자가 먼저 제안하여 정보를 정화한다",
+        "두 전략 모두 정부의 제3자 강제 개입에 의해서만 작동한다",
+        "선별과 신호발송은 대수적으로 성립하지 않는 상상의 전략이다"
       ],
-      "answer": "1",
-      "explanation": "도덕적해이: 계약 \"후\" 정보 비대칭. 예: 화재보험 가입자가 부주의해짐, 근로자가 감독 없을 때 게으름, 은행 대출 후 위험 사업. 보험·고용·금융 전반의 문제."
+      "answer": "2",
+      "explanation": "정보 비대칭을 해결하기 위해: ① 신호발송(Signaling)은 정보를 가진 우위자(예: 구직자)가 먼저 신호(학력 등)를 발송하는 것이며, ② 선별(Screening)은 정보를 갖지 못한 열위자(예: 고용주, 보험사)가 선별할 수 있는 메뉴(다양한 임금·학력 조건, 보험료·본인부담금 비율)를 먼저 제안하여 상대의 선택을 관찰하는 것입니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-005",
       "difficulty": 3,
-      "question_type": "계산형",
-      "question": "중고차 시장: 좋은 차 비율 50% 가치 1,000만 원, 나쁜 차 50% 가치 400만 원. 구매자가 평균만 지불 시 시장 가격은?",
+      "question_type": "이론형",
+      "question": "본인-대리인(Principal-Agent) 문제에서 도덕적 해이를 완화하기 위해 인센티브 계약(Incentive Contract)을 설계할 때 직면하는 상충 관계(Trade-off)로 옳은 것은?",
       "options": [
-        "700만 원",
-        "1,000만 원",
-        "400만 원",
-        "1,400만 원",
-        "500만 원"
+        "기술 혁신과 규모의 경제 간의 대립",
+        "대리인에게 노력을 유도하기 위한 유인 제공(Incentive)과 위험 분담(Risk Sharing) 간의 상충 관계",
+        "소득 분배의 형평성과 독점 규제 간의 대립",
+        "정부 세입 증대와 사중손실 감소 간의 모순",
+        "할인율 책정과 시점 간 소비 조정의 갈등"
       ],
-      "answer": "1",
-      "explanation": "평균 = $0.5 \\cdot 1{,}000 + 0.5 \\cdot 400 = 700$ 만 원. 좋은 차 소유자는 가치 < 가격 → 시장 이탈. 결국 나쁜 차만 남아 가격은 다시 ↓."
+      "answer": "2",
+      "explanation": "본인-대리인 모형에서 대리인이 위험 기피적(Risk Averse)인 경우, 최적 위험 분담 측면에서는 대리인에게 고정급(위험 제거)을 지급해야 합니다. 그러나 이는 노력 의욕을 0으로 만들어 도덕적 해이를 부릅니다. 노력을 유인하려면 성과급을 주어야 하는데, 이는 대리인에게 위험을 전가하여 유인 제공과 위험 분담 간 상충 관계가 유발됩니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-006",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "역선택의 시장 부분 해결책은?",
       "options": [
@@ -104,7 +104,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-007",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "도덕적해이의 일반적 해결책은?",
       "options": [
@@ -119,7 +119,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-008",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "보험시장 \"역선택\" 사례는?",
       "options": [
@@ -127,14 +127,14 @@
         "보험사가 손해 없음",
         "보험료 ↓",
         "건강한 사람만 가입",
-        "정부 결정"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "보험 역선택: 건강 정보 비대칭. 위험 높은 사람이 적극 가입. 보험사 손해 → 보험료 ↑ → 건강한 사람 (저위험) 가입 안 함 → 보험 시장 축소 또는 사라짐."
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-009",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "보험시장 \"도덕적해이\" 사례는?",
       "options": [
@@ -149,7 +149,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-010",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Stiglitz (2001 노벨상)의 신용할당(credit rationing) 이론은?",
       "options": [
@@ -164,7 +164,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-011",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "노동시장 \"역선택\"과 \"도덕적해이\" 사례는?",
       "options": [
@@ -172,14 +172,14 @@
         "역선택만",
         "도덕적해이만",
         "동일",
-        "정부 결정"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "노동시장: ① 역선택 — 능력 정보 비대칭. 학력·면접으로 신호. ② 도덕적해이 — 계약 후 노력 비대칭. 성과급·평가로 대응. 한국 호봉제는 성과 신호 약함."
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-012",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "계산형",
       "question": "보험사: 고위험 가입자 손실 100만, 저위험 30만. 고:저 = 30:70. 보험료 50만 책정 시 어떤 결과인가?",
       "options": [
@@ -190,11 +190,11 @@
         "정부 보조"
       ],
       "answer": "1",
-      "explanation": "예상 손실 = $0.3 \\cdot 100 + 0.7 \\cdot 30 = 51$. 보험료 50만이면 저위험은 \"내 손실보다 비쌈\" → 이탈. 결국 고위험만 → 손실 100 vs 보험료 50 → 보험사 손해. 역선택 악순환."
+      "explanation": "예상 손실 = $0.3 \\\\\\\\cdot 100 + 0.7 \\\\\\\\cdot 30 = 51$. 보험료 50만이면 저위험은 \"내 손실보다 비쌈\" → 이탈. 결국 고위험만 → 손실 100 vs 보험료 50 → 보험사 손해. 역선택 악순환."
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-013",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Rothschild-Stiglitz (1976) 보험시장 균형 분석의 결론은?",
       "options": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-014",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "주인-대리인(principal-agent) 문제란?",
       "options": [
@@ -217,14 +217,14 @@
         "주인이 대리인 통제",
         "대리인이 주인",
         "동일 행동",
-        "정부 결정"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "주인-대리인 모형: 주주 vs 경영진, 환자 vs 의사, 시민 vs 정치인, 고용주 vs 노동자. 정보 비대칭 + 인센티브 불일치 → 비효율. 인센티브 계약 디자인 핵심."
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-015",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Holmstrom (2016 노벨상)의 \"인센티브 강도\" 분석은?",
       "options": [
@@ -239,7 +239,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-016",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 금융위기(IMF·2008·저축은행) 사례의 정보경제 분석은?",
       "options": [
@@ -254,7 +254,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-017",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 의료 시스템의 정보 비대칭 문제는?",
       "options": [
@@ -269,7 +269,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-018",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 부동산 거래에서 \"중개사 + 등기·실거래가\" 정보 공개의 정보경제적 의미는?",
       "options": [
@@ -284,9 +284,9 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-019",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "계산형",
-      "question": "근로자 노력 $e$ (0~10), 산출 $y = e + \\epsilon$, 임금 $w = \\alpha + \\beta y$. 도덕적해이 시 $\\beta$ ↑가 미치는 영향은?",
+      "question": "근로자 노력 $e$ (0~10), 산출 $y = e + \\\\\\\\epsilon$, 임금 $w = \\\\\\\\alpha + \\\\\\\\beta y$. 도덕적해이 시 $\\\\\\\\beta$ ↑가 미치는 영향은?",
       "options": [
         "노력 ↑ (성과 인센티브) — 그러나 위험 부담 ↑",
         "노력 ↓",
@@ -295,11 +295,11 @@
         "위험 ↓"
       ],
       "answer": "1",
-      "explanation": "$\\beta$ ↑ (성과급 비중) → 노력 인센티브 ↑. 그러나 $\\epsilon$ (운) 위험을 근로자가 부담 → 임금 변동 ↑. 위험회피 근로자는 위험프리미엄 요구. 효율 vs 위험 trade-off."
+      "explanation": "$\\\\\\\\beta$ ↑ (성과급 비중) → 노력 인센티브 ↑. 그러나 $\\\\\\\\epsilon$ (운) 위험을 근로자가 부담 → 임금 변동 ↑. 위험회피 근로자는 위험프리미엄 요구. 효율 vs 위험 trade-off."
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-020",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Mirrlees (1996 노벨상)의 정보 비대칭 + 최적 과세 분석은?",
       "options": [
@@ -314,14 +314,14 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-021",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Maskin-Myerson-Hurwicz (2007 노벨상) 메커니즘 디자인이 정보 비대칭에 미치는 영향은?",
       "options": [
         "참여자 진실 노출이 우월 전략인 메커니즘 설계 — VCG, 직접진실표명 메커니즘 등",
         "정보 비대칭 무관",
         "독재 메커니즘",
-        "정부 결정",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
         "Pareto 위반"
       ],
       "answer": "1",
@@ -329,7 +329,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-022",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "디지털 플랫폼의 \"평판 시스템\"이 정보 비대칭에 미치는 영향은?",
       "options": [
@@ -351,7 +351,7 @@
         "신용 정보 부족 → 위험 평가 어려움 → 고금리 + 신용할당 → 청년 대출 접근 어려움",
         "정보 충분",
         "독점 시장",
-        "정부 결정",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
         "효율 자동"
       ],
       "answer": "1",
@@ -359,7 +359,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-024",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Stiglitz의 \"정보 패러독스\"(information paradox)란?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-micro-ch08-sec02-item01-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "정보경제학의 종합적 의의는?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "정보경제학 (Akerlof·Spence·Stiglitz 2001 노벨): 완전정보 가정 완화로 보험·금융·노동·중고차 등 실제 시장 분석. 메커니즘 디자인·계약이론·법경제학 연결. 현대 미시경제학의 핵심 분야."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-026",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-027",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-028",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-029",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-030",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-034",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-035",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-036",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-037",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-038",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-039",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-040",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-041",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-042",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-043",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-044",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-045",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-046",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-047",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-048",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-049",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "노동시장의 신호발송(Job Market Signaling) 모형에서 고능력자 유형의 교육 한계비용이 낮다는 '단일교차 성질(Single Crossing Property)'이 지니는 기하학적 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Indifference Curves -->\n  <!-- High ability (flatter cost) -->\n  <path d=\"M 50 180 Q 150 140 280 70\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"75\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">U_High (고능력)</text>\n  <!-- Low ability (steeper cost) -->\n  <path d=\"M 50 150 Q 130 90 220 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">U_Low (저능력)</text>\n  <!-- Separating Contract Points -->\n  <circle cx=\"120\" cy=\"151\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"100\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">저능력 균형 (E_L)</text>\n  <circle cx=\"210\" cy=\"108\" r=\"4\" fill=\"#a855f7\" />\n  <text x=\"215\" y=\"113\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\">고능력 균형 (E_H)</text>\n  <text x=\"290\" y=\"220\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Education (e)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "두 유형의 무차별곡선이 여러 번 교차하여 어떤 균형도 성립할 수 없음을 나타낸다",
+        "고능력자의 무차별곡선 기울기가 저능력자보다 완만하여, 고능력자가 교육 신호를 획득하는 데 더 낮은 기회비용을 치르기 때문에 교육을 신호로 사용해 분리균형에 도달할 수 있다",
+        "두 무차별곡선이 원점을 통과하는 직선임을 뜻한다",
+        "능력 격차가 클수록 무차별곡선이 일치하여 균등 계약만 남게 됨을 뜻한다",
+        "교육 수준이 높아질수록 소득 탄력성이 무한대로 체증함을 뜻한다"
+      ],
+      "answer": "2",
+      "explanation": "단일교차 성질은 두 유형의 무차별곡선이 평면 상에서 단 한 번만 교차함을 의미하며, 이는 고능력 유형의 교육 획득 한계비용이 저능력보다 낮음(평평한 무차별곡선)을 보여줍니다. 이 비용 차이 덕분에 저능력자는 모방하지 못하고 고능력자만 교육 e*를 취해 분리균형을 실현합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec02-item01-050",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "정보 비대칭을 해결하기 위해 고용주가 다양한 근로 계약 조건(예: 낮은 기본급 + 높은 인센티브 성과급 vs 높은 기본급 + 고정급)을 제안하고, 노동자 스스로 자신에게 적합한 계약을 선택하여 숨겨진 정보를 노출하도록 만드는 시장 전략으로 옳은 것은?",
+      "options": [
+        "신호발송 (Signaling)",
+        "선별 (Screening)",
+        "신용배분 (Credit Rationing)",
+        "공유자원 자치 (Self-governance)",
+        "자연독점 가격규제"
+      ],
+      "answer": "2",
+      "explanation": "정보를 갖지 못한 열위자(고용주, 보험사 등)가 정보 우위자의 선택을 통해 유형을 가려내기 위해 계약 메뉴를 제시하는 행동은 '선별(Screening)'에 해당합니다. (정보 우위자가 스스로 획득하여 발송하는 것은 '신호발송'임). 정답은 ②입니다."
     }
   ]
 }

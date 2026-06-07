@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제17절 게임이론",
+    "item": "제2관 죄수의 딜레마",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-03",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마 (Prisoner's Dilemma) 의 핵심은?",
+      "options": [
+        "개인 합리·집단 비합리 → Nash 균형 (자백·자백) — 사회 비효율",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "죄수의 딜레마 (Tucker 1950): 개인 합리 (자백) → 집단 비합리 (둘 다 자백·중형). Nash (1994 노벨) 균형 ≠ Pareto 효율. 카르텔·환경·공공재 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-002",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "Nash 균형 (Nash 1994 노벨) 의 정의는?",
+      "options": [
+        "각 선수의 전략이 상대 전략에 대한 최적 반응 — 일탈 동기 X",
+        "관계 없음",
+        "Nash 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "John Nash (1994 노벨, 1950) Nash Equilibrium: 각 선수의 전략이 상대 전략에 최적 반응. 일탈 동기 X. 게임이론 핵심·미시·산업조직·국제경제 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-003",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "죄수의 딜레마 보수: (자백·자백) = (-5·-5), (자백·침묵) = (0·-10), (침묵·침묵) = (-1·-1). Nash 균형은?",
+      "options": [
+        "(자백·자백) = (-5·-5) — Pareto 효율 X",
+        "(침묵·침묵)",
+        "관계 없음",
+        "정부 결정",
+        "0"
+      ],
+      "answer": "1",
+      "explanation": "죄수의 딜레마: 자백이 우월 전략 (다른 사람 어떤 선택이든 자백 ↑). Nash 균형 (자백·자백) -5·-5. Pareto (침묵·침묵) -1·-1 이 더 좋음. 비효율."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-004",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "한국 \"카르텔 + 죄수의 딜레마\" 함의는?",
+      "options": [
+        "기업 협력 (카르텔) vs 일탈 (산출 ↑) → Nash 일탈 균형 → 카르텔 불안정",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 카르텔: 죄수의 딜레마 → 일탈 동기 (산출 ↑·이윤 ↑). Nash 균형 = 일탈 (경쟁). 카르텔 불안정. 자수 면제 (Leniency) 정책 → 죄수의 딜레마 활용 → 카르텔 해체."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-005",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"공정위 + Leniency\" 의 게임이론은?",
+      "options": [
+        "자수 면제 → 죄수의 딜레마 강화 → 카르텔 해체 ↑",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 공정위 Leniency (1997-): 자수 면제 → 죄수의 딜레마 강화 (1차 자수 ↑·일탈 ↑) → 카르텔 해체. Tirole (2014 노벨)·게임이론 적용. EU·미국 동일."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-006",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Axelrod (1984) 반복 죄수의 딜레마는?",
+      "options": [
+        "Tit-for-Tat → 반복 게임에서 협력 균형 가능 — 평판·상호성",
+        "관계 없음",
+        "Axelrod 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Robert Axelrod (1984) Evolution of Cooperation: 반복 죄수의 딜레마 + Tit-for-Tat → 협력 균형. 평판·상호성. 한국 카르텔 안정 (반복 게임) + 정부 견제 (Leniency) 대응."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-007",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"환경 + 죄수의 딜레마\" 함의는?",
+      "options": [
+        "오염 (개인 ↑·집단 ↓) → Nash 균형 = 오염 ↑ → 정부 정책 (Pigou·Coase) 필요",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 환경 죄수의 딜레마: 오염 (개인 합리·집단 비합리). Nash = 오염 ↑·Pareto = 청정. 정부 정책 (Pigou 세·Coase 권리·Ostrom 자치·국제 협약) 필요."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-008",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"기후·국제 협력 + 죄수의 딜레마\" 함의는?",
+      "options": [
+        "국가별 오염 (개인) vs 협력 (집단) → Nash 무임승차 → 국제 협약 필요",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 기후·국제 협력: 국가별 죄수의 딜레마. Nash = 무임승차. 협약 (파리·CBAM·UN). 한국 분담 (선진국 책임). Olson + Nordhaus (2018 노벨)·Axelrod 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-009",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Ostrom (2009 노벨) 공동체 자치 + 죄수의 딜레마 해결은?",
+      "options": [
+        "공동체 규칙·모니터링·제재 → 반복 게임 → 협력 균형 (정부·시장 외)",
+        "관계 없음",
+        "Ostrom 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Ostrom (2009 노벨) Governing the Commons: 공동체 규칙·모니터링·제재 → 반복 게임 → 협력 균형 → 죄수의 딜레마 해결. 한국 어촌계·산림조합 적용. Axelrod 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-010",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"군비 경쟁 + 죄수의 딜레마\" 함의는?",
+      "options": [
+        "남북 군비 경쟁 → Nash 균형 (둘 다 군비 ↑) → 협상·신뢰 정책 필요",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 남북 군비 경쟁: 죄수의 딜레마. Nash = 군비 ↑. Pareto = 협력 (비핵화·평화). 협상·신뢰 정책 (북·미·일·중) 필요. 냉전·국제 정치 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-011",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Schelling (2005 노벨) 게임이론 + 한국 정책은?",
+      "options": [
+        "Schelling Focal Point + 약속 신뢰 (Credible Commitment) → 한국 외교·정책",
+        "관계 없음",
+        "Schelling 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Thomas Schelling (2005 노벨) Strategy of Conflict: Focal Point + 약속 신뢰 (Credible Commitment) + 협상. 한국 외교·정책 (한·미 동맹·북한 협상) 적용. 게임이론 정치 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-012",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"플랫폼 경쟁 + 죄수의 딜레마\" 함의는?",
+      "options": [
+        "네이버·카카오·쿠팡 경쟁 → 가격·서비스 경쟁 → 소비자 후생 ↑",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 플랫폼 경쟁: 죄수의 딜레마. 협력 (카르텔) X·경쟁 (가격·서비스) → 소비자 후생 ↑. 단 새 카르텔 위험 (AI 알고리즘). 공정위 견제."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-013",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"가격 경쟁 + 죄수의 딜레마\" 함의는?",
+      "options": [
+        "Bertrand 경쟁 + 죄수의 딜레마 → 가격 한계비용까지 ↓",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Bertrand 경쟁 + 죄수의 딜레마: 가격 인하 일탈 동기 ↑ → 가격 한계비용까지 ↓ (Bertrand Paradox). 카르텔 불안정. 한국 (가격 경쟁 시장) 적용. Tirole (2014 노벨)·Nash 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-014",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"수출 보조 + 국제 게임\" 함의는?",
+      "options": [
+        "수출 보조 (한·중·일·미·EU) → 죄수의 딜레마 → 국제 협약 (WTO·OECD) 필요",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 수출 보조 + 국제: 죄수의 딜레마 (각국 보조 ↑·집단 보조 ↑↑·낭비). 국제 협약 (WTO 보조금 규제·OECD) 필요. 한국·중국·미국 IRA·EU CBAM 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-015",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Hurwicz-Maskin-Myerson (2007 노벨) 메커니즘 디자인 + 죄수의 딜레마는?",
+      "options": [
+        "유인 양립 메커니즘 → 진실 보고·협력 → 죄수의 딜레마 해결",
+        "관계 없음",
+        "Hurwicz 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Hurwicz-Maskin-Myerson (2007 노벨): 유인 양립 메커니즘 → 진실 보고·협력 → 죄수의 딜레마 해결 (Clarke-Groves·VCG·Leniency). 한국 정책 (공공재·경매·카르텔) 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-016",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"노사 협상 + 죄수의 딜레마\" 함의는?",
+      "options": [
+        "노조·기업 협상 → 죄수의 딜레마 (강경 vs 협력) → 반복·평판 필요",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 노사 협상: 죄수의 딜레마 (강경 (Nash) vs 협력 (Pareto)). 반복·평판·노동위원회 중재 → 협력 균형 가능. Axelrod·Ostrom·Acemoglu (2024 노벨) 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-017",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"R&D 협력 + 죄수의 딜레마\" 함의는?",
+      "options": [
+        "R&D 협력 (공동 개발·spillover) vs 일탈 → Nash 무임승차 → 정책 보조 필요",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 R&D 협력: 죄수의 딜레마 + spillover (Romer 2018 노벨) → 정책 보조 (Pigou) + 컨소시엄 (반도체·AI·바이오). 협력 균형 유도. K-반도체·K-AI·K-바이오."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-018",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"행동 게임이론 + Thaler\" 함의는?",
+      "options": [
+        "Thaler (2017 노벨)·Kahneman 행동 → 협력 ↑ (공정성·신뢰) — 죄수의 딜레마 보완",
+        "관계 없음",
+        "Thaler 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 행동 게임이론: Thaler (2017 노벨)·Kahneman (2002 노벨) 행동·공정성·신뢰 → 협력 ↑ (실험 결과). 죄수의 딜레마 단순 가정 보완. Fehr·Camerer 발전."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-019",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"AI 게임이론 + 미래\" 함의는?",
+      "options": [
+        "AI 학습 → 알고리즘 게임 → 새 균형·새 카르텔 위험 → 정책 정교화",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 AI 게임이론: AI 학습·알고리즘 게임 → 새 균형 (Algorithmic Collusion). 공정위·EU AI Act 정책. Acemoglu (2024 노벨)·Tirole·OECD 결합. 미래 정책."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-020",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"코로나 + 죄수의 딜레마\" 함의는?",
+      "options": [
+        "방역 (개인 비합리·집단 합리) → 정부 강제·정보·넛지 정책",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 코로나 + 죄수의 딜레마: 방역 (마스크·격리·접종) 개인 비용·집단 효익. Nash 무임승차. 정부 강제 + 정보 + 넛지 (Thaler) 정책. 2020-22 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-021",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"세금·납세 + 죄수의 딜레마\" 함의는?",
+      "options": [
+        "탈세 (개인 합리·집단 손실) → 정부 견제·디지털·자수 면제",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 탈세 + 죄수의 딜레마: 탈세 (개인 합리·집단 손실). Nash 탈세 ↑. 정부 견제 (디지털·국세청·OECD BEPS) + 자수 면제. Allingham-Sandmo + Mirrlees (1996 노벨) 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-022",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Sargent (2011 노벨) + 신뢰 게임이론 함의는?",
+      "options": [
+        "신뢰 정책 (반복·평판) → 인플레·정책 안정 → 죄수의 딜레마 해결",
+        "관계 없음",
+        "Sargent 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Sargent (2011 노벨) 신뢰 정책 + 게임이론: 반복·평판 → 인플레·정책 안정 (Kydland-Prescott 시간 불일치 해결). 죄수의 딜레마 (재량 부양 vs 인플레 안정) 해결. 한국 인플레 목표제."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"국제 무역 + 게임이론\" 함의는?",
+      "options": [
+        "보호주의 (Nash·죄수의 딜레마) vs 자유무역 (Pareto) → WTO·FTA 협약",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 국제 무역 + 게임이론: 보호주의 (관세 ↑·Nash) vs 자유무역 (Pareto). WTO·FTA·OECD 협약 (반복·신뢰). Krugman (2008 노벨) + Schelling (2005 노벨) 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-024",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"AI·디지털 + 죄수의 딜레마 미래\" 함의는?",
+      "options": [
+        "AI 알고리즘 + 빅데이터 → 죄수의 딜레마 분석·정책 정교화",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 AI·디지털 + 게임이론 미래: AI·빅데이터·머신러닝 → 죄수의 딜레마 분석·정책 정교화. K-AI 결합. Acemoglu (2024 노벨)·Tirole·OECD 추세."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item02-025",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "죄수의 딜레마·게임이론의 종합 평가는?",
+      "options": [
+        "Nash·Tucker·Axelrod·Schelling·Ostrom·Hurwicz-Maskin-Myerson·Acemoglu·Tirole 통합 → 한국 정책의 토대",
+        "단순",
+        "관계 없음",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "죄수의 딜레마 종합: ① Nash (1994 노벨) 균형 ② Tucker (1950) 형식화 ③ Axelrod (1984) 반복·협력 ④ Schelling (2005 노벨) 신뢰 ⑤ Ostrom (2009 노벨) 공동체 ⑥ Hurwicz-Maskin-Myerson (2007 노벨) 메커니즘 ⑦ Sargent (2011 노벨) 신뢰 ⑧ Acemoglu (2024 노벨)·Tirole (2014 노벨) 산업조직. 한국 정책 (카르텔·환경·국제·노사·세제·코로나·AI) 토대."
+    }
+  ]
+}

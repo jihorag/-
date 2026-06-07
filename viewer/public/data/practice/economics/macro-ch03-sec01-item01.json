@@ -8,92 +8,92 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-macro-ch03-sec01-item01-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "화폐의 3대 기능은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "화폐의 3대 기능(교환매개, 가치척도, 가치저장)과 우리나라 통화지표(M1, M2)의 포함 범위 및 유동성에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- M2 Outer Box -->\n  <rect x=\"40\" y=\"40\" width=\"260\" height=\"160\" rx=\"10\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"55\" y=\"60\" font-size=\"10\" fill=\"#3b82f6\" font-weight=\"bold\">광의통화 M2 (M1 + 준결제성 예금 등)</text>\n  <!-- M1 Inner Box -->\n  <rect x=\"65\" y=\"80\" width=\"210\" height=\"100\" rx=\"8\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"80\" y=\"100\" font-size=\"9\" fill=\"#ef4444\" font-weight=\"bold\">협의통화 M1 (지구통화 + 요구불예금)</text>\n  <!-- Cash Box inside M1 -->\n  <rect x=\"90\" y=\"120\" width=\"160\" height=\"45\" rx=\"5\" fill=\"#10b981\" fill-opacity=\"0.15\" stroke=\"#10b981\" stroke-width=\"1.5\" />\n  <text x=\"105\" y=\"145\" font-size=\"8.5\" fill=\"#10b981\" font-weight=\"bold\">현금통화 (민간보유화폐)</text>\n</svg>\n```",
       "options": [
-        "교환의 매개·가치저장·계산단위",
-        "생산·소비·투자",
-        "수요·공급·균형",
-        "정부 결정",
-        "이윤·임금·이자"
+        "광의통화(M2)는 협의통화(M1)보다 유동성이 더 높다",
+        "요구불예금과 수시입출식 저축성예금은 M2에만 포함되고 M1에는 제외된다",
+        "협의통화(M1)는 지출 및 결제 수단으로서의 화폐 기능(교환매개 수단)을 가장 잘 반영하는 지표이다",
+        "만기 2년 이상의 장기 금융상품은 광의통화(M2)의 핵심 구성 항목이다",
+        "통화지표 상의 유동성 크기는 M1 &lt; M2 &lt; Lf &lt; L 순으로 측정된다"
       ],
-      "answer": "1",
-      "explanation": "화폐 3기능: ① 교환의 매개 (barter 회피) ② 가치저장 (시점간 구매력 이전) ③ 계산단위 (회계·가격 단위). 일부 텍스트: 지급수단 추가하여 4기능."
+      "answer": "3",
+      "explanation": "M1(협의통화)은 민간보유 현금에 요구불예금 및 수시입출식 저축성예금을 합한 것으로, 즉각 결제에 사용될 수 있는 교환매개 수단으로서의 기능을 극대화하여 보여주는 지표입니다. 유동성은 M1이 M2보다 훨씬 크며, Lf와 L로 갈수록 유동성이 낮아집니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-002",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "화폐의 \"교환의 매개\" 기능의 효율 이득은?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 시점의 금융 데이터가 다음과 같다.\n- 민간보유현금: 100조 원\n- 요구불예금: 150조 원\n- 수시입출식 저축성예금: 200조 원\n- 머니마켓펀드(MMF): 80조 원\n- 2년 미만 정기적금: 300조 원\n- 2년 이상 장기 저축성예금: 150조 원\n이 경제의 협의통화(M1)와 광의통화(M2)의 크기를 바르게 구한 것은?",
       "options": [
-        "쌍방 욕구의 동시 일치 (double coincidence) 문제 해결 → 거래비용 ↓",
-        "관계 없음",
-        "정부 결정",
-        "Pareto",
-        "독점"
+        "M1 = 250조 원 / M2 = 680조 원",
+        "M1 = 450조 원 / M2 = 830조 원",
+        "M1 = 450조 원 / M2 = 980조 원",
+        "M1 = 250조 원 / M2 = 830조 원",
+        "M1 = 530조 원 / M2 = 980조 원"
       ],
-      "answer": "1",
-      "explanation": "물물교환 (barter): A의 B 욕구 ∧ B의 A 욕구 동시 필요 → 거래비용 ↑↑. 화폐 매개 → 일방 욕구만 → 거래 ↑·전문화 ↑. Adam Smith 분업 토대."
+      "answer": "2",
+      "explanation": "1) M1 = 민간보유현금 + 요구불예금 + 수시입출식 저축성예금 = $100 + 150 + 200 = 450$조 원.\n2) M2 = M1 + 2년 미만 예적금/금융채 + 시장형 상품(MMF 등) = $450(M1) + 80(MMF) + 300(2년 미만) = 830$조 원 (2년 이상 장기 상품은 M2에서 배제되어 Lf 등에 포함됩니다). 따라서 정답은 ②입니다."
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-003",
       "difficulty": 2,
       "question_type": "이론형",
-      "question": "한국의 협의통화 M1 구성은?",
+      "question": "통화지표의 유동성 분류에 관한 설명으로 가장 옳지 않은 것은?",
       "options": [
-        "현금통화 + 요구불예금 + 수시입출식 저축성예금",
-        "현금만",
-        "GDP",
-        "정부 채권",
-        "주식"
+        "Lf(금융기관유동성)는 M2에 2년 이상 장기 예적금 및 생명보험회사의 계약준비금 등을 가산하여 산출한다",
+        "L(광의유동성)은 Lf에 국채, 지방채, 회사채 등 정부 및 기업이 발행한 유동성 자산까지 전부 포함하는 가장 넓은 지표이다",
+        "신용카드의 한도액은 즉각적인 지출이 가능하므로 한국은행의 M1 집계에 공식 포함된다",
+        "전자화폐나 모바일 페이 등의 발달은 M1의 결제 편의성을 비약적으로 제고시키는 요인이다",
+        "유동성(Liquidity)이란 자산을 다른 자산이나 결제 수단으로 손실 없이 신속하게 전환할 수 있는 정도를 의미한다"
       ],
-      "answer": "1",
-      "explanation": "한국은행 M1 (협의통화): 현금통화 + 요구불예금 (당좌·보통) + MMDA·수시입출. 가장 유동성 ↑. 2024 약 1300조."
+      "answer": "3",
+      "explanation": "신용카드 한도나 마이너스 통장 개설 한도 등은 신용(Credit)의 창출 가능성을 보일 뿐이며 사후적인 채무일 뿐이므로 통화지표 상의 M1이나 M2 통화량 집계에는 포함되지 않습니다. 따라서 ③이 옳지 않습니다."
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-004",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "한국의 광의통화 M2 구성은?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "민간보유현금이 200조 원이고, 은행 예금총액이 800조 원이다. 은행의 법정지급준비율이 10%이고 가계와 기업의 현금보유비율(현금/예금)이 25%로 고정되어 있다. 이 경제의 총 통화량(M = 현금 + 예금) 규모는?",
       "options": [
-        "M1 + 정기예금·적금·MMF·CD 등 (만기 2년 미만)",
-        "M1 = M2",
-        "GDP",
-        "정부 결정",
-        "주식만"
+        "800조 원",
+        "1,000조 원",
+        "1,200조 원",
+        "1,500조 원",
+        "2,000조 원"
       ],
-      "answer": "1",
-      "explanation": "M2 = M1 + 정기예금·적금·MMF·CD·CMA 등 (2년 미만). 한국 통화량 주 지표. 2024 약 4000조. 인플레·자산 변동 분석 활용."
+      "answer": "2",
+      "explanation": "통화량 $M = 현금 + 예금$ 입니다. 주어진 조건에서 민간보유현금은 200조 원이고 은행 예금총액은 800조 원이므로, M = $200 + 800 = 1000$조 원이 됩니다. (지급준비율 등은 통화량 사후 집계와 직접 무관하게 항등식으로 계산됩니다). 정답은 ②입니다."
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-005",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "L_f (광의의 유동성), L (최광의 유동성)의 정의는?",
+      "question": "지속적인 금융 혁신(Fintech, 가상자산, 머니마켓 펀드 등)이 기존 통화지표 집계 및 금융정책 통제력에 미치는 영향으로 가장 적절하지 않은 것은?",
       "options": [
-        "L_f = M2 + 2년 이상 예금·보험 + 금융채. L = L_f + 정부 채권 등",
-        "L = M1",
-        "관계 없음",
-        "L = GDP",
-        "정부 결정"
+        "결제 기능을 지닌 새로운 자산의 등장은 M1과 M2 간의 유동성 경계를 모호하게 만든다",
+        "기존 M1 지표의 통화량 변동성과 실물 경제 간의 인과관계의 안정성이 제고되어 정책 예측이 쉬워진다",
+        "중앙은행이 본원통화 공급을 통해 총 통화량(M2)을 정밀하게 통제하기 어려워지는 유동성 통제력 약화 현상이 발생한다",
+        "대체 결제 수단의 활성화는 화폐의 교환매개 기능을 민간 플랫폼으로 분산시킨다",
+        "이자율 타겟팅 중심의 통화정책이 통화량 타겟팅 중심보다 유용해지는 배경이 된다"
       ],
-      "answer": "1",
-      "explanation": "L_f (금융기관 유동성) = M2 + 만기 2년 이상 + 보험 + 채권. L (전체 유동성) = L_f + 정부·기업 채권. 한국은행 4단계 지표."
+      "answer": "2",
+      "explanation": "금융 혁신으로 대체 금융 상품이 많아지면 결제성 자산이 수시로 넘나들게 되므로, 통화량(M1 등)과 실물 지표 간의 안정적인 인과관계가 무너져 오히려 금융정책의 예측이 어려워집니다. 따라서 ②가 적절하지 않은 설명입니다."
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-006",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "본원통화(MB)와 광의통화(M2)의 관계는?",
       "options": [
-        "$M2 = m \\cdot MB$ ($m$ = 통화승수)",
+        "$M2 = m \\\\cdot MB$ ($m$ = 통화승수)",
         "M2 = MB",
         "관계 없음",
         "M2 < 0",
@@ -104,7 +104,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-007",
-      "difficulty": 3,
+      "difficulty": 5,
       "question_type": "계산형",
       "question": "본원통화 $MB = 200$조, 통화승수 $m = 18$. M2는?",
       "options": [
@@ -115,11 +115,11 @@
         "$M2 = 1{,}800$"
       ],
       "answer": "1",
-      "explanation": "$M2 = m \\cdot MB = 18 \\times 200 = 3{,}600$조. 한국 실제 비슷한 규모. 본원통화 ↑ → M2 ↑ → 인플레·자산 가격 영향."
+      "explanation": "$M2 = m \\\\cdot MB = 18 \\\\times 200 = 3{,}600$조. 한국 실제 비슷한 규모. 본원통화 ↑ → M2 ↑ → 인플레·자산 가격 영향."
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-008",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "화폐의 \"가치저장\" 기능이 약화되는 경우는?",
       "options": [
@@ -134,7 +134,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-009",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"디지털 통화\" (CBDC) 도입 논의의 화폐 기능 관점은?",
       "options": [
@@ -149,7 +149,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-010",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "비트코인·암호화폐의 화폐 기능 평가는?",
       "options": [
@@ -164,7 +164,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-011",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Carl Menger (1892) 화폐 기원 이론은?",
       "options": [
@@ -179,7 +179,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-012",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Chartalism (국정통화이론, Knapp 1905)의 화폐론은?",
       "options": [
@@ -194,7 +194,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-013",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국은행의 \"기준통화량\" 변화 의의는?",
       "options": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-014",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 가구 \"현금 비중 ↓·디지털 결제 ↑\"의 화폐 기능 변화는?",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-015",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Gresham의 법칙 (1558) 이란?",
       "options": [
@@ -239,7 +239,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-016",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 1962년 \"제2차 통화개혁\"의 의의는?",
       "options": [
@@ -254,7 +254,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-017",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"디지털 페이 시장\"의 경쟁 (네이버·카카오·삼성·KB 등) 의미는?",
       "options": [
@@ -269,7 +269,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-018",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "통화 지표가 \"GDP\"와 갖는 관계는?",
       "options": [
@@ -284,7 +284,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-019",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 코로나 (2020-21) M2 급증의 의미는?",
       "options": [
@@ -299,7 +299,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-020",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "화폐 수요의 \"거래 동기\"란?",
       "options": [
@@ -314,37 +314,37 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-021",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Baumol-Tobin (1952·1956) 거래 모형의 핵심은?",
       "options": [
-        "현금 보유 = 거래 비용 + 이자 손실 trade-off → $M^d = \\sqrt{2bY/r}$",
+        "현금 보유 = 거래 비용 + 이자 손실 trade-off → $M^d = \\\\sqrt{2bY/r}$",
         "$M^d = Y$",
         "관계 없음",
         "정부 결정",
         "Pareto"
       ],
       "answer": "1",
-      "explanation": "William Baumol (1952)·James Tobin (1956): 화폐를 \"재고\"로 보고 EOQ 모형 적용. 거래비용 $b$ ↑·소득 $Y$ ↑ → $M^d$ ↑. 이자율 $r$ ↑ → $M^d$ ↓. 평방근 ($\\sqrt{}$) 형태."
+      "explanation": "William Baumol (1952)·James Tobin (1956): 화폐를 \"재고\"로 보고 EOQ 모형 적용. 거래비용 $b$ ↑·소득 $Y$ ↑ → $M^d$ ↑. 이자율 $r$ ↑ → $M^d$ ↓. 평방근 ($\\\\sqrt{}$) 형태."
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-022",
-      "difficulty": 4,
+      "difficulty": 5,
       "question_type": "계산형",
       "question": "Baumol-Tobin: $b = 1$, $Y = 1000$, $r = 0.05$. 최적 $M^d$는?",
       "options": [
-        "$M^d = \\sqrt{40000} = 200$",
+        "$M^d = \\\\sqrt{40000} = 200$",
         "$M^d = 100$",
         "$M^d = 1000$",
         "$M^d = 50$",
         "$M^d = 0$"
       ],
       "answer": "1",
-      "explanation": "$M^d = \\sqrt{2bY/r} = \\sqrt{2 \\times 1 \\times 1000/0.05} = \\sqrt{40000} = 200$. 거래 비용 ↑·소득 ↑ → 보유 ↑."
+      "explanation": "$M^d = \\\\sqrt{2bY/r} = \\\\sqrt{2 \\\\times 1 \\\\times 1000/0.05} = \\\\sqrt{40000} = 200$. 거래 비용 ↑·소득 ↑ → 보유 ↑."
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-023",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"통화량과 자산 가격\" 의 관계는?",
       "options": [
@@ -359,7 +359,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-024",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Goodhart의 법칙 (1975)의 화폐 정책 의미는?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-macro-ch03-sec01-item01-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "화폐 이론의 현대적 종합 (Friedman·Tobin·Keynes·MMT)은?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "화폐 이론 종합: ① Menger 자생 진화 + Knapp 국정 ② Keynes 3동기 + 유동성 함정 ③ Friedman 통화수량설 + 통화주의 ④ Tobin 자산 시장 ⑤ MMT 정부 재정. 한국은행 정책에 다층 활용."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-026",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "거시경제학에서 화폐의 정의을 모형화할 때 전제되는 가장 본질적인 기본 가정과 학설별 논리를 다룬 설명으로 가장 옳지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "본원 통화의 조정이 단기적으로 지연된다는 경직성 가정이 중심이 된다.",
+        "M1 (협의통화)이 항상 무한대의 속도로 즉시 조정되어 시장이 매초 완벽히 청산된다는 신고전학파의 균형 경로가 기본이 된다.",
+        "M2 (광의통화)은 자원의 외생적 유출 요인으로 작용하여 균형 궤적을 아래로 당긴다.",
+        "화폐 기능척도의 동학은 실물 생산력뿐만 아니라 가격 결정에도 중요한 거시적 피드백 효과를 준다.",
+        "모든 경제주체가 완벽한 합리적 기대를 하여 예측된 정책의 단기 실물 효과는 0이 된다는 것이 새고전학파의 주장이다."
+      ],
+      "answer": "2",
+      "explanation": "화폐의 정의 분석 시 M1 (협의통화)이 나노초 단위로 초신축 조정된다는 것은 고전학파 또는 새고전학파의 극단적인 가정이며, 거시경제 일반의 공통 가정으로 보기에는 한계가 있습니다. 따라서 ②가 옳지 않은 오답 선지입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-027",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 가상의 거시경제 모형에서 화폐의 정의을 수학적으로 유도하고자 한다. 가계의 한계소비성향이 $c = 0.75$ 이고 비례 소득세율이 $t = 0.2$ 로 주어졌을 때, 이 경제의 정부지출 승수의 크기로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "2.0",
+        "2.5",
+        "3.0",
+        "4.0",
+        "3.0"
+      ],
+      "answer": "2",
+      "explanation": "비례세가 존재하는 경제의 정부지출 승수 공식은 $m_G = 1 / [1 - c(1 - t)]$ 입니다. 모수를 대입하면 $1 / [1 - 0.75(1 - 0.2)] = 1 / [1 - 0.75(0.8)] = 1 / [1 - 0.6] = 1 / 0.4 = 2.5$ 입니다. 따라서 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-028",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "첨부된 화폐의 정의 모형의 HSL SVG 그래프를 참조할 때, 외생적 충격으로 인해 '본원 통화'이 급격히 증가(우측 이동)하는 경우 발생하는 균형점의 단기적 이동 경로와 실물 경제 변수들의 변화 조합으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "균형 산출량은 하락하고 M1 (협의통화)은 비례하여 대수적으로 폭락한다.",
+        "총수요/총지출 증대로 인해 단기 균형 생산량이 증가하고, 경로 상에서 M1 (협의통화)의 동반 상승 압력이 유발된다.",
+        "이자율과 M2 (광의통화)이 동시에 0으로 수렴하는 장기 정체 국면이 발생한다.",
+        "공급 능력의 영구적 파괴로 인해 화폐 기능척도이 마이너스로 돌아선다.",
+        "대외 교역조건이 항상 2배 이상 개선되어 순수출이 즉각 폭증한다."
+      ],
+      "answer": "2",
+      "explanation": "그래프 모형상 본원 통화의 증가 충격(총수요 또는 주입 증대)은 균형점을 우상향으로 이동시켜 단기적으로 산출량을 증대시키며, 연쇄 피드백 과정에서 물가나 M1 (협의통화)의 상승 압력을 동반하게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-029",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "화폐의 정의의 분석 경로 상에서 나타나는 핵심 쟁점인 'M2 (광의통화)'의 역할에 대하여 고전학파와 케인즈 학파의 학문적 입장 차이를 가장 바르게 비교한 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "고전학파는 M2 (광의통화)이 단기 가격 경직성의 원인이라고 주장하나, 케인즈는 장기적 공급능력의 원천이라고 본다.",
+        "고전학파는 M2 (광의통화)이 실물적 요인에 의해 사후 청산된다고 보는 반면, 케인즈 학파는 화폐적 충격 및 화폐 기능척도의 정보 비대칭 마찰이 작용하여 단기에 시장 실패를 유발할 수 있다고 본다.",
+        "두 학파 모두 정부의 임위적 통화 통제만이 경제를 청산시키는 유일한 도구라고 확신한다.",
+        "케인즈 학파는 M2 (광의통화)이 완전 예견되면 실물 효과가 0이 된다는 루카스 정리를 절대 신봉한다.",
+        "고전학파는 단기 불황에 대응하여 정부 재정 적자 재정을 필연적으로 확장해야 한다고 믿는다."
+      ],
+      "answer": "2",
+      "explanation": "고전학파는 장기적으로 실물 요인이 M2 (광의통화) 등을 조율하며 시장 자율 회복을 신뢰하는 반면, 케인즈 학파는 시장 마찰(정보 비대칭, 가격 경직성 등)로 인해 단기 불균형이 만성화될 수 있으므로 정부의 적절한 총수요 개입이 필수적이라고 봅니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-030",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "정부가 거시경제적 안정화를 도모하기 위해 총수요 진작을 목적으로 '화폐 기능척도'을 조절하는 거시 정책을 시행하였다. 이에 대한 파급 효과 중 가장 타당하지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "화폐 기능척도의 변동은 가계의 가처분소득 채널을 통해 민간 소비지출 규모를 좌우하게 된다.",
+        "화폐 기능척도을 하락 조정하더라도 본원 통화의 민감도가 극도로 높으면 투자 유발 효과가 전혀 발생하지 않고 물가만 2배로 폭등한다.",
+        "장기적으로는 M1 (협의통화)의 왜곡을 방지하기 위해 규칙과 신뢰성에 기반한 정책 설계가 중시된다.",
+        "통화정책적 시각에서는 화폐 기능척도의 임의적 조절이 경기 변동을 오히려 불안정하게 키우는 역효과를 줄 수 있다고 경고한다.",
+        "재정 및 통화 당국 간의 정책 조합(Policy Mix)에 따라 최종 M2 (광의통화) 수준은 다르게 수착된다."
+      ],
+      "answer": "2",
+      "explanation": "화폐 기능척도을 완화하는 정책은 투자의 이자율 민감도가 높을 때 투자 유발 효과가 크게 발생하게 됩니다. 민감도가 극도로 낮을 때 효과가 전혀 없다고 볼 순 있어도 '물가만 2배로 무조건 폭등한다'는 단정적인 설명은 타당하지 않습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-031",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 화폐의 정의 모형 하에서 가계의 저축 심리가 급증하고 동시에 해외 원자재 가격이 상승하는 '복합 충격'이 가해졌을 때, 경기 궤적에 미치는 파급 경로로 가장 타당한 판단은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "총수요 곡선이 우측 이동하고 총공급 곡선이 좌측 이동하여 물가가 안정된다.",
+        "저축 증가에 의한 소비 위축(총수요 감소)과 원자재 가격 상승(총공급 위축)이 연쇄적으로 겹치면, 실질 GDP 본원 통화의 급격한 하락과 경기 불황(스태그플레이션 우려)이 심화된다.",
+        "이자율이 하락하여 M1 (협의통화)이 기하급수적으로 즉각 폭증하게 된다.",
+        "정부의 세수 조세가 자동으로 흑자 전환되어 국가 부채가 완전 소멸된다.",
+        "대외 환율 가치가 0으로 고정되어 순수출이 장기 평탄화를 이룬다."
+      ],
+      "answer": "2",
+      "explanation": "저축 성향 상승(소비 위축 -> AD 좌측 이동)과 생산 비용 상승(AS 좌측 이동)이 겹치면 총산출량(실질 GDP)은 무조건 감소하게 되며, 경기 위축과 고용 사태가 심각해집니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 가상의 단순 폐쇄경제에서 국민소득 균형 모형식이 다음과 같이 주어진다.\n- 소비지출: $C = 300 + 0.8(Y - T)$\n- 투자 및 정부지출: $I = 100, G = 100$\n- 정액세: $T = 100$\n이 경제의 사후적 균형 국민소득($Y^*$)의 값으로 가장 올바른 수치는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "1500",
+        "1600",
+        "1700",
+        "1800",
+        "1400"
+      ],
+      "answer": "2",
+      "explanation": "균형 국민소득 항등식 $Y = C + I + G$ 에 수식을 대입하면, $Y = 300 + 0.8(Y - 100) + 100 + 100$ 이며, 정리하면 $Y = 300 + 0.8Y - 100_100 + 200 \\\\\\\\Rightarrow 0.2Y = 420 \\\\\\\\Rightarrow Y^* = 1600$ 이 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-033",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "한국의 과거 거시경제 발전 및 외환위기, 금융위기 수습 과정에서 화폐의 정의의 변수 조정 경로를 실증 분석한 결과로 가장 적절한 설명은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "외환위기 직후 자국화 가치 폭락(환율 급등)에도 순수출은 즉각 100% 구축 소멸하였다.",
+        "금융 마찰 및 정보 비대칭이 심화되었을 때 본원 통화의 담보 가치가 떨어져 은행 신용 공급이 급격히 수축(신용 경색)되면서 민간 투자가 극도로 위축되었다.",
+        "정부의 확장적 기준금리 인하 정책은 언제나 대수적으로 실질 이자율을 10%포인트 이상 폭등시켰다.",
+        "소비평탄화 성향으로 인해 한국 가계의 단기 MPC는 항상 1.0을 초과 기록해왔다.",
+        "고령화가 진전될수록 저축 성향이 선형적으로 폭증하여 잠재성장률이 매년 5%대 이상 반등하고 있다."
+      ],
+      "answer": "2",
+      "explanation": "외환위기나 금융위기 시기에는 담보 가치 하락과 재무 대차대조표 악화(Net Worth 감소)로 대리인 비용 및 신용 프리미엄이 급등하여 투자가 위축되는 대차대조표 효과(금융가속기)가 실증적으로 뚜렷이 나타났습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "화폐의 정의에 근거할 때, 단기 불균형 상태에서 장기 균제상태(Steady State)로 수렴해 나가는 조정 메커니즘에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "단기 불균형은 이자율을 항상 0으로 강제 수축시키며 자율 청산을 저해한다.",
+        "단기적인 가격 경직성(임금 및 가격의 불완전 조정)이 장기로 가면서 점차 신축적으로 변화하여, 실제 산출량이 잠재 생산 능력인 M2 (광의통화) 수준으로 수렴하게 된다.",
+        "자본 축적률이 인구증가율을 항상 하회하므로 경제는 영구 파멸 경로에 빠진다.",
+        "화폐 공급을 늘리면 장기에도 실질 변수가 비례 팽창하여 성장이 지속된다.",
+        "대외 무역 장벽을 쌓을 때에만 장기 균형이 조건 없이 달성된다."
+      ],
+      "answer": "2",
+      "explanation": "거시경제 모형에서 단기에는 임금과 가격의 경직성으로 인해 생산량갭이 생길 수 있지만, 장기로 가면서 가격 메커니즘이 신축적으로 작동하므로 경제는 자원의 잠재 생산량(잠재 GDP) 수준으로 사후 수렴하게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-035",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 화폐의 정의 모형의 HSL SVG 그래프를 참조할 때, 경제의 장기 잠재 성장성 제고를 위해 'M2 (광의통화)'을 향상시키는 구조개혁(Supply-side 정책)을 단행했을 때 발생하는 장기 균형의 이동 형태로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "총공급 곡선이 수평선으로 고정되어 물가가 하락 압박에서 벗어난다.",
+        "장기 총공급(LRAS) 곡선 또는 잠재 성장 경로가 우측(상방)으로 이동하여, 장기적으로 물가 수준은 안정되면서 실질 GDP 본원 통화의 지속적인 확장을 도모한다.",
+        "단기 총수요 곡선이 완전 수직이 되어 화폐 중립성이 즉시 붕괴된다.",
+        "투자 및 저축 성향이 음(-)의 값으로 수렴하여 경제적 이자율이 소멸한다.",
+        "해외 수입 의존도가 2배로 폭증하여 무역 손실이 경기 성장을 저해한다."
+      ],
+      "answer": "2",
+      "explanation": "생산성 향상, 기술 혁신, 규제 완화 등 공급측 개혁(M2 (광의통화) 향상)은 국가의 잠재 생산 능력을 높여 장기 총공급 곡선을 우측으로 이동시키며, 이는 물가 안정과 지속 가능한 실물 성장(본원 통화 증가)을 가능케 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-036",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 국가의 총생산함수가 $Y = A K^{0.3} L^{0.7}$ 로 추정되는 거시경제에서 최근 10년간 다음과 같은 성장 데이터가 보고되었다.\n- 실질 GDP 성장률: 연평균 5.0%\n- 자본(K) 증가율: 연평균 2.0%\n- 노동(L) 증가율: 연평균 1.0%\n성장회계(Growth Accounting) 분해식에 근거할 때, 이 국가의 연평균 총요소생산성(TFP, A)의 증가율은?",
+      "options": [
+        "3.2%",
+        "3.7%",
+        "4.2%",
+        "2.0%",
+        "3.5%"
+      ],
+      "answer": "2",
+      "explanation": "성장회계 공식 \\\\Delta Y/Y = \\\\Delta A/A + 0.3 \\\\Delta K/K + 0.7 \\\\Delta L/L 에 대입하면,\n5.0% = \\\\Delta A/A + 0.3(2.0%) + 0.7(1.0%)\n5.0% = \\\\Delta A/A + 0.6% + 0.7% = \\\\Delta A/A + 1.3%\n따라서 총요소생산성 증가율 \\\\Delta A/A = 5.0% - 1.3% = 3.7% 입니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "화폐의 정의의 극단적인 특수 상황(예: 대공황, 유동성 함정, 하이퍼인플레이션 등)에 관한 설명으로 가장 올바른 경제학적 판단은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "이자율이 무한대로 치솟아 채권 가격이 0으로 폭락하게 된다.",
+        "극심한 경제 위기나 유동성 제약 하에서는 가계가 본원 통화의 장기 항상소득 대신 현재의 가처분소득에 민감하게 소비 반응을 보이며, 이로 인해 단기적 재정/통화 정책의 충격 증폭도가 커진다.",
+        "정부가 세율을 100%로 올릴 때 조세 수입이 대수적으로 극대화된다.",
+        "화폐 유통 속도가 매초 기하급수적으로 폭증하여 물가가 0으로 수축한다.",
+        "국가 신용 프리미엄이 음(-)으로 고착되어 대출 시장이 완전 청산된다."
+      ],
+      "answer": "2",
+      "explanation": "경제주체들이 유동성 제약(Liquidity Constraint)이나 극심한 신용 경색에 처하게 되면 항상소득(본원 통화 등)이나 미래 지출 평탄화가 불가능해져 현재 수입에 전적으로 의존하게 되며, 이로 인해 거시적 소비 변동의 충격 폭이 커집니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-038",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "고전학파의 '장기 거시경제 이분법(Classical Dichotomy)' 및 '화폐의 중립성' 가설이 화폐의 정의의 변수 관계식에 시사하는 바에 대한 설명으로 옳은 것은?",
+      "options": [
+        "통화량의 변동은 장기적으로 실질 GDP인 본원 통화의 성장률을 비례하여 증가시킨다.",
+        "장기적으로 명목 통화 공급의 증가는 본원 통화과 같은 실질 변수에는 아무런 영향을 주지 못하고, 오직 물가 수준이나 M1 (협의통화) 같은 명목 변수만을 비례적으로 상승시킨다.",
+        "실질 이자율 r이 물가 상승률과 무관하게 항상 0으로 수렴한다.",
+        "노동 공급곡선이 수평이 되어 실업률이 0으로 완전 고착된다.",
+        "대외 경상수지가 항상 흑자 균형으로 고정 수착된다."
+      ],
+      "answer": "2",
+      "explanation": "고전학파 이분법은 장기에 화폐 공급량의 변화가 물가와 명목 임금 등 명목 지표만 비례 조정할 뿐, 실질 GDP나 고용량 등 실질 변수에는 영구적인 파급 효과를 주지 못한다는 '화폐의 중립성'을 설명합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-039",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 화폐의 정의의 정책 시나리오 하에서, 합리적 기대를 하는 경제주체들이 정부의 총수요 관리 정책을 완벽하게 '사전 예상'한 경우 발생하는 균형의 변동 경로를 설명한 것으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "총수요 곡선이 이동하여 산출량 본원 통화만 크게 증가하고 물가 수준은 변하지 않는다.",
+        "사전에 완전 예견된 정책은 가계와 기업의 즉각적인 기대 물가 조정을 유발하므로, 실물 생산량 본원 통화에는 아무런 영향을 주지 못하고 물가 상승(인플레이션 유발) 효과만 낳는다.",
+        "이자율이 하락하여 M1 (협의통화)의 폭증 경로가 영구 보존된다.",
+        "정부 부채가 즉각 소멸하여 리카도 대등정리가 완전 붕괴된다.",
+        "대외 수출이 수입을 100% 초과하는 강제 흑자 경로를 유발한다."
+      ],
+      "answer": "2",
+      "explanation": "합리적 기대 학파(루카스 등)에 따르면 사전에 완벽히 예상된(anticipated) 정책은 경제주체들의 합리적 가격 반응으로 인해 AS 곡선을 동시에 좌상향 이동시키므로, 실물 효과(GDP 상승) 없이 물가만 올리게 됩니다(정책 무력성 정리). 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-040",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 국가의 금융 시장에서 국채의 명목 수익률(명목 이자율)이 연 6.0%로 형성되어 있다. 경제학적 합리적 기대에 근거한 올해의 기대 인플레이션율이 연 2.0%일 때, 피셔 방정식(Fisher Equation)에 의거하여 도출되는 사후적 '실질 이자율'의 크기는?",
+      "options": [
+        "3.0%",
+        "4.0%",
+        "5.0%",
+        "8.0%",
+        "3.0%"
+      ],
+      "answer": "2",
+      "explanation": "피셔 근사식 i \\\\approx r + \\\\pi^e (명목 이자율 = 실질 이자율 + 기대 인플레이션)에 대입하면, 실질 이자율 r \\\\approx i - \\\\pi^e = 6.0% - 2.0% = 4.0% 가 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-041",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "현대 거시경제학에서 중시하는 'M1 (협의통화)'이 금융 마찰(정보 비대칭성 및 대리인 비용) 하에서 경기 변동 충격을 확대 전파하는 메커니즘에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "정보 비대칭이 완화될 때 대리인 비용이 급증하여 투자가 위축된다.",
+        "경기 하강기에 자산 가치 하락으로 기업의 순자산(M1 (협의통화))이 감소하면, 은행이 요구하는 리스크 프리미엄이 급등하여 차입 금리가 오르고 투자가 추가로 급락(경기침체 증폭)하는 금융가속기(Financial Accelerator) 효과가 발생한다.",
+        "이자율이 하락하면 누출액이 주입액을 항상 초과하여 경기 불황이 고착된다.",
+        "가계의 저축 성향이 극대화되어 실질 GDP 본원 통화의 장기 잠재 성장 추세선이 수평이 된다.",
+        "대외 환율의 평가 절하 속도가 생산 기술 향상 속도를 압도하게 된다."
+      ],
+      "answer": "2",
+      "explanation": "금융 마찰이 존재하는 시장에서는 차입자(기업 등)의 순자산(M1 (협의통화)) 규모가 담보 역할을 해 대리 비용을 완화시킵니다. 경기 불황으로 담보 가치가 떨어지면 은행 대출 금리 할증(외부자금 프리미엄)이 급등하여 민간 투자가 더욱 위축됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-042",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 화폐의 정의 모형의 HSL SVG 그래프를 참조할 때, 경제에 비례 소득세 제도와 실업급여 같은 '자동 안정화 장치(Automatic Stabilizer)'가 작동할 경우의 경제학적 효과를 가장 바르게 설명한 것은?",
+      "options": [
+        "단기 총수요(AD) 곡선을 완벽히 수직으로 만들어 통화정책의 효과를 극대화한다.",
+        "경기 호황기에는 누출(세수 증가)을 자동으로 늘려 과열을 막고, 경기 수축기에는 누출을 줄여(가처분소득 보존) 경기 변동 폭을 스스로 완화시키는 역할을 하며, 이는 단기 승수 효과를 감소시킨다.",
+        "저축 성향을 영구히 하락시켜 본원 통화을 잠재 생산량 이상으로 2배 폭증시킨다.",
+        "실질 이자율 r의 변동성을 무한대로 증폭시키는 부작용만 낳는다.",
+        "경상수지 적자를 유발하여 무역 조건을 악화시킨다."
+      ],
+      "answer": "2",
+      "explanation": "자동 안정화 장치(비례세 등)는 경기가 호황일 때는 세수를 늘려(누출 확대) 과열을 식히고, 불황일 때는 세수를 줄여 소비 충격을 완충합니다. 이는 전체 경기 변동 폭을 줄여주는 유익한 역할을 하지만, 수학적으로 단기 승수의 분모를 키우므로 승수 효과의 절댓값 크기는 축소시킵니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-043",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "최근 거시경제 주요 쟁점인 정부의 재정 적자 누적 및 국가 채무의 지속 가능성(Debt Sustainability) 조건에 관한 경제학적 판단으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "정부의 실질 이자율(r)이 실질 경제성장률(g)보다 월등히 낮을수록 부채 비율은 폭발적으로 급증한다.",
+        "실질 이자율(r)이 실질 경제성장률(g)보다 높고 기초 재정수지가 적자를 지속하는 조건 하에서는, GDP 대비 국가 채무 비율이 수렴하지 않고 지속적으로 발산(재정 위기 우려)할 가능성이 높다.",
+        "조세를 감세 인하하면 리카도 대등정리에 의해 항상 소비 본원 통화이 2배로 폭증한다.",
+        "국가 부채가 늘어나면 언제나 통화 승수율이 0으로 강제 수축된다.",
+        "대차대조표 상의 자산 가치가 물가 수준과 완벽하게 무관해진다."
+      ],
+      "answer": "2",
+      "explanation": "GDP 대비 부채 비율의 동태적 방정식에 따르면, 실질 이자율(r)이 실질 경제성장률(g)을 웃돌 때, 기초 재정수지마저 적자 상황이면 부채 비율은 기하급수적으로 폭발하게 됩니다. 이를 막으려면 기초 재정수지를 흑자로 돌려야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-044",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "오쿤의 법칙(Okun's Law)이 다음과 같이 주어진다: 산출량 갭(GDP Gap, %) = -2.5 \\\\times (u - u_n) (단, u는 실제 실업률, u_n은 자연실업률).\n실제 실업률이 자연실업률보다 2%포인트 초과 상승하였을 때, 오쿤의 법칙에 의거하여 추정되는 이 경제의 산출량 갭(%)의 크기로 올바른 것은?",
+      "options": [
+        "-3.5%",
+        "-5.0%",
+        "-6.5%",
+        "-2%",
+        "-0.8%"
+      ],
+      "answer": "2",
+      "explanation": "오쿤의 법칙 공식에 실제 수치를 대입하면, 산출량 갭 = -2.5 \\\\times 2% = -5.0% 입니다. 즉, 실질 GDP가 잠재 GDP 수준 대비 5.0%만큼 아래로 깎여나갔음을 나타냅니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-045",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "화폐의 정의의 분석 경로 상에서 나타나는 대표적인 항상소득가설(Permanent Income Hypothesis) 및 쿠즈네츠 실증 연구의 경제학적 주장에 관한 설명으로 가장 올바른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "가계는 현재 소득의 일시적 변동인 일시소득에 대해서만 100% 반응하여 소비를 즉각 결정한다.",
+        "가계는 장기 평균 소득인 항상소득에 반응해 소비를 결정하므로, 일시적 보너스나 임시 감세 같은 일시소득의 증가는 소비가 아닌 주로 저축으로 흡수되어 단기 MPC가 매우 낮으며, 쿠즈네츠의 장장기 실증 모순을 완벽히 해명한다.",
+        "항상소득은 언제나 지니계수 하락에 정비례하여 수축한다.",
+        "소비의 유동성 제약이 완화되면 항상소득이 무조건 0으로 소멸한다.",
+        "대외 순수출의 규모가 항상소득 규모의 2배로 고정 고착된다."
+      ],
+      "answer": "2",
+      "explanation": "프리드먼의 항상소득가설은 소비가 단기적으로 고정된 소비가 아니라 장기의 항상적 소득 여건에 연동됨을 증명하여, 단기 소득 변동 시 소비의 미지근한 반응(낮은 단기 MPC)과 쿠즈네츠의 장기 APC 안정성을 성공적으로 설명해 냈습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-046",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 공급 중시 경제학(Supply-side Economics)의 핵심 이론인 '래퍼 곡선(Laffer Curve)'의 경제학적 시사점과 그래프 변화에 관한 설명으로 가장 올바른 것은?",
+      "options": [
+        "세율을 100%로 무한히 인상할 때 정부의 총조세 수입이 대수적으로 극대화된다.",
+        "세율이 일정 임계점(최적 세율)보다 높은 금지 영역(Prohibitive range)에 처해 있는 경우, 세율을 오히려 인하하면 경제주체들의 근로 의욕과 투자 유인이 제고되어 장기적으로 총 산출량이 늘어나고 조세 수입도 증가할 수 있다.",
+        "정부의 기준금리를 하락 조정할 때에만 래퍼 곡선이 우측 본원 통화 방향으로 평탄화된다.",
+        "이자율이 하락하면 래퍼 곡선상의 최적 세율 한계점이 0으로 수축한다.",
+        "모든 국가의 조세 분배 형태가 항상 로렌츠 곡선과 완전 일치함을 뜻한다."
+      ],
+      "answer": "2",
+      "explanation": "래퍼 곡선에 따르면 세율이 너무 높으면 경제 활동(노동과 투자)을 위축시켜 세원 자체가 쪼그라듭니다. 이 금지 영역에서는 감세(세율 인하) 정책이 경제의 활력과 생산 능력을 높여 사후적으로 정부의 총 세수를 더 증대시키는 선순환을 유발할 수 있습니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-047",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "솔로우 성장 모형에서 자본 축적 경로가 '동태적 비효율성(Dynamic Inefficiency)' 상태에 빠져 있다는 것의 거시경제학적 정의와 이에 따른 개선 방안으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "현재 경제의 자본 축적량이 황금률 수준보다 작아 소비를 늘리기 위해 저축을 대폭 늘려야 하는 상태이다.",
+        "현재 자본량이 황금률 자본량($k^*_g$)을 초과하여 자본 유지 감가상각 비용이 너무 큰 상태이며, 저축률을 낮추어 소비와 저축을 동시에 장단기적으로 모두 증대시킬 수 있는 상태이다.",
+        "자원 배분이 파레토 최적을 항상 만족하여 더 이상의 본원 통화 조정이 불가능한 상태이다.",
+        "실질 성장률 g가 이자율 r을 항상 상회하여 자본이 0으로 소멸하는 상태이다.",
+        "수출 대금으로 징수한 외화잔액이 국가 저축의 100%를 차지하는 상태이다."
+      ],
+      "answer": "2",
+      "explanation": "동태적 비효율성 상태는 균제상태 자본량이 황금률 자본량을 초과한 과잉 자본 상태를 뜻합니다. 이때는 저축률(s)을 낮추면 당장 소비가 늘어날 뿐만 아니라, 유지 비용((n+d)k)이 크게 줄어 장기 균제상태의 1인당 소비도 이전보다 많아집니다. 즉, 세대간 희생 없이 무조건 후생을 개선할 수 있는 비효율 상태입니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-048",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "보움-토빈(Baumol-Tobin) 거래적 화폐수요 모형에 따를 때, 어느 가계의 연간 총거래지출(소득, Y)이 400만 원이고, 은행을 방문하여 자금을 인출할 때마다 발생하는 거래비용(b)이 2만 원이다. 연간 실질 이자율이 r = 0.04 (4%)로 일정하다고 할 때, 현금 보유에 따른 기회비용을 극소화하는 이 가계의 최적 평균 현금 보유액(M*)은 몇 만 원인가?",
+      "options": [
+        "50",
+        "100",
+        "150",
+        "200",
+        "50"
+      ],
+      "answer": "2",
+      "explanation": "보움-토빈 모형의 최적 평균현금보유액 공식은 M^* = \\\\sqrt{ \\\\frac{b \\\\cdot Y}{2 \\\\cdot r} } 입니다. 주어진 수치를 대입하면,\nM^* = \\\\sqrt{ \\\\frac{ 2 \\\\times 400 }{ 2 \\\\times 0.04 } } = \\\\sqrt{ \\\\frac{ 800 }{ 0.08 } } = \\\\sqrt{ 10000 } = 100 만 원이 도출됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-049",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "거시경제 모형에서 원자재 가격 폭등이나 노동생산성 급감과 같은 '부정적 총공급 충격(Stagflation 충격)'이 가해졌을 때 나타나는 거시 지표들의 연쇄 반응으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 150 140 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"55\" font-size=\"8.5\" fill=\"#ef4444\" font-weight=\"bold\">명목 GDP</text>\n  <path d=\"M 50 180 Q 150 160 280 110\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"105\" font-size=\"8.5\" fill=\"#3b82f6\" font-weight=\"bold\">실질 GDP</text>\n</svg>\n```",
+      "options": [
+        "총공급 곡선이 우측 이동하여 물가는 내리고 실질 GDP 본원 통화은 증가한다.",
+        "단기 총공급(SRAS) 곡선이 좌상향 이동하여 실질 GDP 본원 통화이 감소함과 동시에 인플레이션 물가가 폭등하는 스태그플레이션(Stagflation) 현상이 유발된다.",
+        "실질 이자율 r이 0으로 고정되어 금융 가속기 신용 프리미엄이 완전 소멸한다.",
+        "가계의 가처분소득 비율이 자동으로 흑자 반등하게 된다.",
+        "대외 환율의 대수적 스프레드가 영구 평탄화 경로를 달성한다."
+      ],
+      "answer": "2",
+      "explanation": "부정적 총공급 충격(AS 좌측 이동)은 가격 상승과 생산량 위축을 동시에 일으켜 물가 폭등 및 실업 문제를 가져오는 스태그플레이션을 초래합니다. 이때는 재정/통화 정책으로 물가와 고용을 동시에 안정시키기 어려운 딜레마에 빠지게 됩니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-macro-ch03-sec01-item01-050",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "다음 중 현대 통화 신용 정책 이론인 '동태적 불일치(Time Inconsistency)' 현상이 시사하는 바와, 인플레이션 바이어스를 해소하기 위해 제안되는 정책 수단으로 가장 옳은 것은?",
+      "options": [
+        "정부는 매달 재량 정책을 전면 활성화하여 시장의 기대를 끊임없이 왜곡 교란해야 한다.",
+        "정부나 통화 당국이 단기적인 고용 증대(실업률 저하)를 꾀하려 사후에 약속을 깨고 팽창적 정책을 쓸 유인(동태적 불일치)이 있으므로, 이를 차단하기 위해 준칙(Rule)에 입각한 통화정책을 펴고 통화 당국의 독립성을 보장하여 정책 신뢰도를 제고해야 한다.",
+        "중앙은행을 전면 해체하고 본원 통화의 이자율 조정을 국유화 기업에 일임한다.",
+        "지니계수가 1이 될 때에만 동태적 불일치가 자동으로 소멸한다.",
+        "해외 원자재 수입에 대해 100% 관세 장벽을 쌓을 때 통화 신뢰성이 완성된다."
+      ],
+      "answer": "2",
+      "explanation": "Kydland와 Prescott(1977)이 제기한 동태적 불일치 이론에 따르면, 정부가 재량에 따라 정책을 펴면 국민들이 인플레이션 기대를 올려 실물 효과는 없이 기대 인플레만 오르는 바이어스가 생깁니다. 이를 해소하기 위해서는 중앙은행의 신뢰도와 독립성을 확보하고 약속된 준칙을 지키는 제도적 안정이 필수적입니다. 정답은 ②입니다."
     }
   ]
 }

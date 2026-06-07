@@ -8,88 +8,88 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch06-sec02-item02-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "공급독점(monopoly supply) 노동시장에서 공급 측 독점 주체는 누구인가?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "독점력을 가진 노동조합이 직면한 기업의 노동수요곡선이 $w = 120 - 2L$이고, 조합원 노동자들의 기회비용(노동공급선)이 $w = 20 + 2L$이다. 이 노동조합이 '조합원 총임금(wL) 수입'을 극대화하고자 할 때 요구할 임금 $w^*$은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "노동조합 (단일 노동공급자)",
-        "정부",
-        "단일 기업",
-        "교육기관",
-        "노동시장 전체"
+        "$w^* = 30$",
+        "$w^* = 45$",
+        "$w^* = 60$",
+        "$w^* = 80$",
+        "$w^* = 90$"
       ],
-      "answer": "1",
-      "explanation": "노동공급 측에서 노동조합이 회원의 노동을 묶어 단일 매도자처럼 행동 → 공급독점. 임금·고용 결정에 영향력. 수요독점(매수자 1)의 대칭."
+      "answer": "3",
+      "explanation": "1) 조합원의 총임금 수입 $TR_L = w \\\\cdot L = (120 - 2L)L = 120L - 2L^2$.\n2) 이를 노동 고용량 $L$에 대해 미분하여 한계임금수입 $MR_L = 120 - 4L = 0$이 되는 점을 찾는다.\n3) $120 - 4L = 0 \\\\Rightarrow L^* = 30$.\n4) 임금 $w^*$은 노동수요곡선에 고용량 30을 대입하여 도출한다: $w^* = 120 - 2(30) = 60$. 따라서 총임금을 극대화하는 노조 임금은 60으로 정답은 ③이다."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-002",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "노동조합의 일반적 목표 3가지를 가장 잘 묶은 것은?",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "위 문항과 동일한 조건($w_d = 120 - 2L$, $w_s = 20 + 2L$) 하에서, 노동조합이 조합원들이 누리는 '경제적 지대(Economic Rent)'를 극대화하고자 할 때 결정되는 고용량 $L^*$과 요구 임금 $w^*$은 각각 얼마인가?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "임금 인상 / 고용 유지·증대 / 근로 조건 개선",
-        "이윤 극대화 / 가격 차별 / 진입 차단",
-        "효용 극대화 / 비용 최소화 / 위험 회피",
-        "투자 / 저축 / 소비",
-        "조세 회피 / 보조금 수령 / 자본 축적"
+        "$L^* = 20, w^* = 80$",
+        "$L^* = 25, w^* = 70$",
+        "$L^* = 25, w^* = 80$",
+        "$L^* = 30, w^* = 60$",
+        "$L^* = 35, w^* = 50$"
       ],
-      "answer": "1",
-      "explanation": "노조 3대 목표: ① 임금 인상 ② 고용 보장·확대 ③ 근로 조건(시간·안전·복지) 개선. 단 ①과 ②는 trade-off (임금 ↑ → 수요 ↓ → 고용 ↓)."
+      "answer": "2",
+      "explanation": "노조의 지대 극대화는 공급 독점자로서 $MR_d = w_s$ 와 같은 원리이다. 노동수요 한계수입 $MR_d = 120 - 4L$ 이고, 노동공급 기회비용 $w_s = 20$. (기회비용이 w=20으로 일정하다는 가정 하에 연산) $120 - 4L = 20 \\\\Rightarrow 4L = 100 \\\\Rightarrow L^* = 25$ 이다. 이때 노동수요 가격 $w^* = 120 - 2(25) = 70$ 이 된다. 따라서 균형 고용 25, 임금 70으로 ②가 정답이다."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-003",
-      "difficulty": 2,
-      "question_type": "그래프형",
-      "question": "다음 노동시장 그래프에서 노동조합이 임금을 균형 $w^*$ 보다 높은 $w_u$ 로 강제할 때 결과는?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동조합의 목표에 관한 다음 설명 중 가장 옳지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "고용 감소 + 잔존 조합원 임금 ↑",
-        "고용 증가 + 임금 ↓",
-        "효과 없음",
-        "수요 증가",
-        "공급 증가"
+        "조합원의 경제적 지대를 극대화하는 노조의 균형 고용량은 노동의 한계수입과 기회비용(공급선)이 일치하는 수준에서 결정된다",
+        "조합원 전체의 총고용량을 극대화하고자 하는 노조는 시장의 노동수요와 노동공급이 일치하는 경쟁시장 균형 가격에서 협상을 타결한다",
+        "조합원 전체의 총임금 수입을 극대화하는 조건은 노동의 한계수입($MR_L$)이 0이 되는 점이다",
+        "어떤 목표를 선택하든 노동조합이 설정한 임금은 언제나 완전경쟁 균형 임금보다 낮다",
+        "노동조합의 독점력 행사에 의한 임금 인상은 고용을 경쟁 수준 이하로 축소시킨다"
       ],
-      "answer": "1",
-      "explanation": "노조 임금 $w_u > w^*$ → 수요 ↓ → 고용 ↓. 단 일자리를 유지한 조합원은 임금 ↑. 일자리 잃은 인원과 trade-off."
+      "answer": "4",
+      "explanation": "노동조합이 독점력을 행사하여 추구하는 임금 수준(지대 극대화, 총임금 극대화 등)은 항상 완전경쟁 균형 임금($w_c$)보다 '높은' 임금을 책정하게 된다. 낮다고 기술한 ④는 부적절하다."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-004",
-      "difficulty": 2,
-      "question_type": "계산형",
-      "question": "노동수요 $L_d = 100 - 2w$. 노조가 임금 $w_u = 30$ 으로 강제 시 조합원 임금소득 총액은?",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "노동시장이 대기업(조합 부문)과 중소기업(비조합 부문)으로 분단되어 있는 이중구조 모형에서 노동조합의 임금 인상이 비조합 부문에 미치는 영향으로 가장 옳은 것은?",
       "options": [
-        "$w_u L = 30 \\cdot 40 = 1{,}200$",
-        "$1{,}500$",
-        "$2{,}000$",
-        "$800$",
-        "$3{,}000$"
+        "Spillover(파급) 효과가 지배적인 경우, 조합 부문 고용 감소로 방출된 노동력이 비조합 부문 공급을 늘려 비조합 부문 임금이 하락한다",
+        "Threat(위협) 효과가 지배적인 경우, 비조합 기업들이 노조 결성을 두려워하여 임금을 자발적으로 삭감한다",
+        "조합 부문의 임금 인상은 언제나 비조합 부문의 임금을 상승시키는 효과만 낸다",
+        "Spillover 효과와 Threat 효과는 언제나 같은 방향으로 작용한다",
+        "이중구조 노동시장 하에서는 실업률이 0이 된다"
       ],
       "answer": "1",
-      "explanation": "$L = 100 - 60 = 40$. 임금 총소득 = $30 \\cdot 40 = 1{,}200$. (균형이 $w^* = 20$, $L^* = 60$ 이면 임금총소득 = $1{,}200$ 동일 가능 — 탄력성=1 케이스)."
+      "explanation": "조합 부문 임금 인상은 두 가지 효과를 낸다. ① 파급(Spillover) 효과: 조합 부문에서 쫓겨난 노동자가 비조합 부문으로 대거 유입되어 비조합 임금을 하락시킨다(①). ② 위협(Threat) 효과: 비조합 기업들이 자기 회사에 노조가 생길 것을 우려하여 임금을 선제적으로 인상해준다. 두 효과는 서로 임금에 대해 반대 방향으로 작용하므로 총효과는 강도에 따라 결정된다."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-005",
-      "difficulty": 3,
-      "question_type": "계산형",
-      "question": "노동수요 $L_d = 60 - w$ 일 때 노조가 \"조합원 총 임금소득(wL)\" 극대화를 목표로 한다면 최적 임금은?",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "강력한 독점력을 가진 노동조합의 존재가 국가 경제 전체의 노동소득분배율에 미치는 장기적 영향에 대한 설명으로 옳은 것은?",
       "options": [
-        "$w^{u} = 30$",
-        "$w^{u} = 20$",
-        "$w^{u} = 40$",
-        "$w^{u} = 15$",
-        "$w^{u} = 50$"
+        "임금 인상에 따른 자본으로의 대체 때문에 장기적으로 장비율(K/L)이 크게 올라가도 노동소득분배율은 언제나 100% 상승한다",
+        "요소대체탄력성($\\sigma$)이 1보다 작은 경우 임금 인상은 장기적으로 노동소득분배율을 하락시킨다",
+        "요소대체탄력성($\\sigma$)이 1보다 큰 경우 임금 인상 시 기업의 자본 대체량이 더 크므로 장기 노동소득분배율은 하락한다",
+        "노동조합은 장기 자본대체성 때문에 임금에 아무런 영향력을 행사하지 못한다",
+        "장기적으로 노동조합의 임금 인상은 기계화를 저지하여 자본 사용량을 무조건 0으로 만든다"
       ],
-      "answer": "1",
-      "explanation": "총임금 $TR = wL = w(60 - w) = 60w - w^2$. $\\dfrac{dTR}{dw} = 60 - 2w = 0$ → $w^u = 30$. $L = 30$. 총소득 = $900$ (수요 단위탄력 점)."
+      "answer": "3",
+      "explanation": "임금 상승 시 대체탄력성 $\\sigma > 1$이면, 임금 상승율보다 노동 수요 감소율이 더 크기 때문에 분배 소득 중 노동 몫의 비율(노동소득분배율)은 장기적으로 오히려 하락한다. 반대로 $\\sigma < 1$이면 임금 상승 시 노동 분배율이 오히려 상승한다. 따라서 ③이 옳다."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-006",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "노조가 \"고용 보장(L 극대화)\" 만 목표로 한다면 임금은 어떻게 결정되는가?",
       "options": [
@@ -130,11 +130,11 @@
         "$w^u = 35$"
       ],
       "answer": "1",
-      "explanation": "역수요: $w = 40 - 0.5L$. $TR(L) = wL = 40L - 0.5L^2$, $MR = 40 - L$. $MR = w_0$: $40 - L = 10$ → $L = 30$. $w^u = 40 - 15 = 25$."
+      "explanation": "역수요: $$$$$w = 40$$$$ - 0.5L$. $TR(L) = $$$$wL = 40L$$$$ - 0.5L^2$, $$$$$MR = 40$$$$ - L$. $$$$$MR = w$$$$_0$: $40 - $$$$L = 10$$$$$ → $$$$$L = 30$$$$$. $w^$$$$u = 40$$$$ - 15 = 25$."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-009",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "양방독점(bilateral monopoly)에서 임금 결정의 특징은?",
       "options": [
@@ -175,26 +175,26 @@
         "$w^u = 45$, $L^u = 20$"
       ],
       "answer": "1",
-      "explanation": "역수요: $w = 50 - 0.25L$. $MR = 50 - 0.5L$. $MR = 20$ → $L = 60$. $w^u = 50 - 15 = 35$."
+      "explanation": "역수요: $$$$$w = 50$$$$ - 0.25L$. $$$$$MR = 50$$$$ - 0.5L$. $$$$$MR = 20$$$$$ → $$$$$L = 60$$$$$. $w^$$$$u = 50$$$$ - 15 = 35$."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-012",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "그래프형",
       "question": "다음 그래프에서 노조 임금 협상 후 균형이 $(L_u, w_u)$ 이고 시장균형이 $(L^*, w^*)$ 이다. 사회 후생 손실(DWL)은?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
       "options": [
         "$(L^* - L_u)$ 만큼 거래 손실 — VMP와 공급곡선 사이 삼각형",
         "0",
-        "$w_u \\cdot L_u$",
-        "$w^* \\cdot L^*$",
-        "$(w_u - w^*) \\cdot L_u$"
+        "$w_u \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot L_u$",
+        "$w^* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot L^*$",
+        "$(w_u - w^*) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot L_u$"
       ],
       "answer": "1",
       "explanation": "노조 임금 ↑ → 고용 ↓ → 사라진 거래 $(L^* - L_u)$ 의 잉여 손실 = VMP와 공급곡선 사이 삼각형. 정통 견해 (단 수요독점 시장이면 효율성 ↑ 가능)."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-013",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "노조 임금 인상이 비조합원 노동시장에 미치는 효과(spillover)는?",
       "options": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-014",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "노조의 \"내부자-외부자(insider-outsider)\" 이론이 시사하는 바는?",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-015",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "노조 가입률이 노조 효과에 미치는 영향에 대한 실증 발견은?",
       "options": [
@@ -250,11 +250,11 @@
         "150만 원"
       ],
       "answer": "1",
-      "explanation": "프리미엄 15% → $100 \\cdot 1.15 = 115$ 만 원. 한국 실증 연구는 정규직 노조 임금 프리미엄 약 10~20% 수준 보고 (한국노동연구원)."
+      "explanation": "프리미엄 15% → $100 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 1.15 = 115$ 만 원. 한국 실증 연구는 정규직 노조 임금 프리미엄 약 10~20% 수준 보고 (한국노동연구원)."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-017",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "효율적 단체협상(efficient bargaining) 모형의 핵심 시사점은?",
       "options": [
@@ -269,7 +269,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-018",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Freeman & Medoff (1984) What Do Unions Do? 가 제시한 노조의 \"two faces\" 는?",
       "options": [
@@ -284,7 +284,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-019",
-      "difficulty": 4,
+      "difficulty": 5,
       "question_type": "계산형",
       "question": "수요독점 + 노조 양방독점 사례. $w = 5 + L$ (공급), $VMP = 30 - L$. 협상력 50:50 단순 평균 시 협상임금은?",
       "options": [
@@ -295,7 +295,7 @@
         "약 20"
       ],
       "answer": "1",
-      "explanation": "수요독점 임금: $MFC = 5 + 2L$, $VMP = MFC$ → $30 - L = 5 + 2L$ → $L^m = 8.33$, $w^m = 13.33$. 공급독점 임금: 양분(MR=MC) → 약 $w^u = 29.17$(상한 VMP 수준). 50:50 단순평균 $\\approx 21.25$."
+      "explanation": "수요독점 임금: $$$$$MFC = 5$$$$ + 2L$, $$$$$VMP = MFC$$$$$ → $30 - $$$$L = 5$$$$ + 2L$ → $L^$$$$m = 8$$$$.33$, $w^$$$$m = 13$$$$.33$. 공급독점 임금: 양분(MR=MC) → 약 $w^$$$$u = 29$$$$.17$(상한 VMP 수준). 50:50 단순평균 $\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\approx 21.25$."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-020",
@@ -314,7 +314,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-021",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "노조의 \"임금 압축(wage compression)\" 효과란?",
       "options": [
@@ -340,11 +340,11 @@
         "독점 이윤 0"
       ],
       "answer": "1",
-      "explanation": "$w = MC^{공급}$ → 시장 균형 ($w^*$, $L^*$) 점. 노조 임금 결정권을 \"공급의 한계비용\"에 맞추면 사실상 시장 경쟁과 동일."
+      "explanation": "$$$$$w = MC$$$$^{공급}$ → 시장 균형 ($w^*$, $L^*$) 점. 노조 임금 결정권을 \"공급의 한계비용\"에 맞추면 사실상 시장 경쟁과 동일."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 금속노조 사례에서 임금 협상이 산업별 단체협약 형태인 이유는?",
       "options": [
@@ -359,7 +359,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-024",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 사회적 대화 기구(경사노위)가 노동시장에 미치는 영향에 대한 평가는?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item02-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "노조 가입률(union density)이 높은 국가에서 소득 불평등이 낮은 인과 채널은?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "Western & Rosenfeld (2011) 등: 노조 약화 → 저임금 노동자 임금 프리미엄 ↓ + 재분배 정책 약화 → 소득 불평등 ↑. 미국·영국 1980년대 이후 노조 약화와 불평등 ↑ 동행. 북유럽(노조 60%+)은 지니 0.3 미만 유지."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-026",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-027",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-028",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-029",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-030",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-032",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-034",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-035",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-036",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-037",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-038",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-039",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-040",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-041",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-042",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-043",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-044",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-045",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-046",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-047",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-048",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-049",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "노동조합이 조합원 1인당 임금률을 높일 때, 기업이 노동 수요를 줄임에 따라 비조합원 시장으로 방출된 노동자들이 유입되어 비조합원 시장의 임금을 더 떨어뜨리는 효과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D_L (노동수요)</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"285\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"100\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"105\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">S_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "Threat (위협) 효과",
+        "Spillover (파급) 효과",
+        "대체효과",
+        "소득효과",
+        "오일러 효과"
+      ],
+      "answer": "2",
+      "explanation": "조합 부문의 임금 인상이 비조합 부문의 임금을 하락시키는 유인을 파급(Spillover) 효과라고 부른다. 노조 결성을 우려해 비조합 기업들이 미리 임금을 올려주는 것은 위협(Threat) 효과이다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item02-050",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "노동조합의 의사결정에 있어 '조합원의 경제적 지대(Economic Rent) 극대화'를 목표로 삼을 때의 임금 및 고용 조건으로 옳은 것은?",
+      "options": [
+        "노동의 한계수입($MR_d$)과 노동의 기회비용(공급곡선)이 만나는 점",
+        "노동의 한계수입이 0이 되는 점",
+        "노동수요곡선과 노동공급곡선이 만나는 경쟁균형점",
+        "요소의 한계요소비용이 0이 되는 점",
+        "노조가 요구할 수 있는 최대 임금 상한선"
+      ],
+      "answer": "1",
+      "explanation": "경제적 지대를 극대화하려면 노조가 마치 공급 독점자처럼 행동하여, 노동수요의 한계수입($MR_d$)과 노동의 기회비용(공급곡선 $w_s$)을 일치시키는 점에서 고용량과 임금을 결정해야 한다. 정답 ①."
     }
   ]
 }

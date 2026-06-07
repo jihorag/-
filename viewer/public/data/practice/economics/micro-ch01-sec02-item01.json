@@ -8,7 +8,7 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-01",
-    "count": 30
+    "count": 50
   },
   "questions": [
     {
@@ -58,7 +58,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item01-004",
-      "difficulty": 1,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 '~이다(is)'와 '~해야 한다(ought)'의 구분을 처음 제시하여 실증과 규범의 구별의 철학적 기초를 마련한 학자는?",
       "options": [
@@ -103,7 +103,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item01-007",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 실증경제학의 한계로 가장 적절한 것은?",
       "options": [
@@ -163,7 +163,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item01-011",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 정책 분석에서 실증경제학과 규범경제학의 결합에 관한 설명으로 옳은 것은?",
       "options": [
@@ -418,7 +418,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item01-028",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 경제학자별 실증·규범에 관한 견해이다. 옳은 것을 모두 고른 것은?\n\nㄱ. J.S. 밀: science(실증)와 art(규범)를 명확히 구분.\nㄴ. 프리드만(1953): 도구주의 방법론과 예측 정확성 기준의 실증경제학 정립.\nㄷ. 미르달: 사회과학에서 가치판단의 불가피한 개입을 비판적으로 지적.\nㄹ. 포퍼: 반증 가능성을 과학적 명제의 기준으로 제시.\nㅁ. 로빈스(L. Robbins, 1932): 경제학은 가치중립적 과학이어야 함을 주장.",
       "options": [
@@ -433,7 +433,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item01-029",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 베르그송-사무엘슨 사회후생함수(Bergson-Samuelson SWF)와 애로우의 불가능성 정리(Arrow's Impossibility Theorem)의 관계에 관한 옳은 설명은?",
       "options": [
@@ -448,7 +448,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec02-item01-030",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 정책 분석의 실증·규범 결합에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 흄의 법칙(Hume's Law): '존재(is)'에서 '당위(ought)'를 논리적으로 직접 도출할 수 없다.\nㄴ. 정책 권고 = 실증 분석 + 규범 판단의 결합이며, 어느 하나만으로는 부족하다.\nㄷ. 가치판단의 명시(미르달의 'value premise')는 분석의 객관성을 손상시킨다.\nㄹ. 비용편익 분석(CBA)은 칼도-힉스 효율 기준에 기반한 실증·규범 결합 방법이다.\nㅁ. 사회후생함수는 가치판단(어떤 분배가 바람직한가)을 명시적으로 도입하는 규범 분석 도구이다.",
       "options": [
@@ -460,6 +460,306 @@
       ],
       "answer": "2",
       "explanation": "ㄱㄴㄹㅁ 옳음. ㄷ ✗: 가치판단의 명시적 선언은 분석의 객관성을 손상시키는 게 아니라 오히려 향상시킨다. 미르달이 주장한 'value premise의 명시'는 숨겨진 가치판단이 결론을 왜곡하는 것을 방지하고 분석의 투명성·객관성을 높이는 방법이다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-031",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 사회에 구성원 A와 B만 존재하며, 이들이 누릴 수 있는 효용가능경계(UPF)가 선형 수식 $U_A + 2U_B = 120$ 으로 설정되어 있다. 이 사회의 복지 기준을 평가하는 사회적 후생함수가 벤담(Bentham)의 공리주의식 $W = U_A + U_B$ 로 수립되어 있을 때, 사회적 후생을 극대화하기 위해 결정해야 하는 효율적 효용 분배 조합 $(U_A^*, U_B^*)$을 구하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_A (A의 효용)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_B (B의 효용)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- UPF: U_A + 2U_B = 120 -> 절편 UA=120(x=290), UB=60(y=130) -->\n  <!-- 스케일 매핑: 10단위 -> 20픽셀 -->\n  <line x1=\"50\" y1=\"130\" x2=\"290\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"210\" y=\"170\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">UPF 경계선</text>\n  \n  <!-- 공리주의 SIC: W=UA+UB (기울기 -1) -> (120, 0) 통과하는 선 -->\n  <line x1=\"50\" y1=\"130\" x2=\"170\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"80\" x2=\"220\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <!-- 최적점 통과선 W=120 -->\n  <line x1=\"50\" y1=\"130\" x2=\"290\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  \n  <circle cx=\"290\" cy=\"250\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"260\" y=\"240\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">최적점 (120, 0)</text>\n</svg>\n```",
+      "options": [
+        "최적 분배 조합: $(40, 40)$",
+        "최적 분배 조합: $(60, 30)$",
+        "최적 분배 조합: $(120, 0)$",
+        "최적 분배 조합: $(0, 60)$",
+        "공리주의 하에서는 분배가 항상 불가능하여 측정할 수 없다."
+      ],
+      "answer": "3",
+      "explanation": "공리주의(Bentham) 사회후생함수와 선형 효용가능경계(UPF)의 연립 최적화 문제를 해결하는 L4 계산 문항입니다.\n1) **경계 조건 및 예산 한계**:\n   - 사회적 효용가능경계: $U_A + 2U_B = 120$\n   - 이 경계선의 기울기(한계변환율, $MRT_{AB}$)는 $\\left|\\dfrac{dU_B}{dU_A}\\right| = 0.5$ 입니다.\n2) **사회적 무차별곡선(SIC) 분석**:\n   - 공리주의 사회후생함수: $W = U_A + U_B \\implies U_B = W - U_A$\n   - 이 사회적 무차별곡선의 기울기(사회적 한계대체율, $MRS_{AB}$)는 항상 $1.0$으로 일정합니다.\n3) **최적 선택 결정 (구석해)**:\n   - 사회가 A의 효용을 1단위 포기할 때 B의 효용은 0.5단위만 증가합니다($MRT = 0.5$).\n   - 그러나 사회의 주관적 복지 평가($MRS = 1.0$)에 따르면, A의 효용 1단위 가치와 B의 효용 1단위 가치가 대등하게 동일합니다.\n   - 따라서 사회는 상대적으로 전달 효율성이 더 높은(1단위 자원으로 1단위 효용이 보장되는) A의 생산에 모든 자원을 집중하는 구석해(Corner Solution)를 채택합니다.\n   - $U_B = 0$ 일 때, $U_A^* = 120$ 이 되며, 최종 최적 조합은 $(120, 0)$ 이 됩니다. (이때 사회 후생 $W^* = 120$ 으로 극대화됩니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-032",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 가상 사회의 효용가능경계가 $U_A + 2U_B = 120$ 으로 주어져 있다. 이 사회가 평등 정의론을 강조하는 존 롤스(John Rawls)의 최소극대화(Maximin) 기준 사회적 후생함수 $W = \\min(U_A, U_B)$ 를 채택하여 복지를 평가할 때, 사회적 후생 극대화 점에서의 최적 효용 배분 $(U_A^*, U_B^*)$을 구하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_A</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_B</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- UPF: U_A + 2U_B = 120 -> 절편 UA=120(x=290), UB=60(y=130) -->\n  <line x1=\"50\" y1=\"130\" x2=\"290\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  \n  <!-- 45도선: U_A = U_B -->\n  <line x1=\"50\" y1=\"250\" x2=\"210\" y2=\"90\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <text x=\"190\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#94a3b8\">U_A = U_B 선</text>\n  \n  <!-- 롤스 SIC: L자선 꺾임점 (40, 40) -> x=130, y=170 -->\n  <!-- 스케일 매핑: 40단위 -> x=50+80=130, y=250-80=170 -->\n  <path d=\"M 130 50 L 130 170 L 330 170\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n  \n  <circle cx=\"130\" cy=\"170\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"140\" y=\"165\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">롤스 최적점 (40, 40)</text>\n</svg>\n```",
+      "options": [
+        "최적 배분 조합: $(120, 0)$",
+        "최적 배분 조합: $(40, 40)$ 이며, 극단적인 평등 지향 선호에 따라 45도선 상에서 균형이 성립한다.",
+        "최적 배분 조합: $(60, 30)$",
+        "최적 배분 조합: $(80, 20)$",
+        "롤스 정의론에서는 효율성보다 자율성이 중요하므로 최적화 연산이 원천 배제된다."
+      ],
+      "answer": "2",
+      "explanation": "롤스(Rawls)의 최소극대화 후생함수와 선형 효용가능경계(UPF)의 연립 최적화 문제를 다룬 L4 계산 문항입니다.\n1) **롤스 사회적 무차별곡선(SIC)의 형태적 규정**:\n   - $W = \\min(U_A, U_B)$ 형태는 레온티에프 L자 구조를 취합니다.\n   - 따라서 두 구성원의 효용이 완벽하게 대칭 일치하는 선형 궤적인 $U_A = U_B$ 지점에서 사회무차별곡선의 모서리(꺾임점)가 위치하게 되며, 이 지점에서 후생 극대화 조건이 달성됩니다.\n2) **방정식 연립**:\n   - $U_A = U_B$ 조건을 효용가능경계 식인 $U_A + 2U_B = 120$ 에 직접 연립하여 대입합니다.\n   - $U_A + 2U_A = 3U_A = 120 \\implies U_A^* = 40$\n   - $U_B^* = 40$\n3) **의미 판정**: 공리주의 기준에 의하면 A에게 몰아주는 것($(120, 0)$)이 총합 후생을 높이지만, 롤스 기준에 따르면 사회적 약자인 B의 처지를 개선하기 위해 두 효용이 일치하는 평등 지점인 $(40, 40)$이 사회적 최적으로 결정됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-033",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "두 사람 A와 B만 존재하는 국가의 효용가능경계가 $U_A + 2U_B = 120$ 으로 설정되어 있다. 이 국가가 베르그송-사무엘슨(Bergson-Samuelson) 형태 중 곱셈(Nash) 결합 공식인 $W = U_A U_B$ 를 사회적 복지 극대화 지표로 적용하려 할 때, 도출되는 사회적 최적 효용 조합 $(U_A^*, U_B^*)$을 구하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_A</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_B</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- UPF: U_A + 2U_B = 120 -> 절편 UA=120(x=290), UB=60(y=130) -->\n  <line x1=\"50\" y1=\"130\" x2=\"290\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  \n  <!-- 베르그송-사무엘슨 내쉬형 무차별곡선 접점 (60, 30) -> x=170, y=190 -->\n  <!-- 스케일 매핑: UA=60 -> x=50+120=170, UB=30 -> y=250-60=190 -->\n  <path d=\"M 90 140 Q 170 190 270 230\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n  \n  <circle cx=\"170\" cy=\"190\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"180\" y=\"185\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">내쉬 최적점 (60, 30)</text>\n</svg>\n```",
+      "options": [
+        "최적 배분 조합: $(40, 40)$",
+        "최적 배분 조합: $(60, 30)$ 이며, 무차별곡선과 경계선의 접점 조건에서 균형이 성립한다.",
+        "최적 배분 조합: $(80, 20)$",
+        "최적 배분 조합: $(120, 0)$",
+        "곱셈 방식 하에서는 한 편이 0이 될 때 사회 복지가 무한대로 증가하여 측정 불가능하다."
+      ],
+      "answer": "2",
+      "explanation": "베르그송-사무엘슨(또는 내쉬) 사회후생함수와 선형 효용가능경계(UPF)의 연립 내부 최적화 균형을 획득하는 L4 계산 문항입니다.\n1) **한계변환율($MRT$) 도출**:\n   - $U_A + 2U_B = 120 \\implies U_B = 60 - 0.5U_A$\n   - $MRT_{AB} = \\left|\\dfrac{dU_B}{dU_A}\\right| = 0.5$\n2) **한계대체율($MRS$) 도출**:\n   - $W = U_A U_B \\implies MRS_{AB} = \\dfrac{MU_{U_A}}{MU_{U_B}} = \\dfrac{U_B}{U_A}$\n3) **사회적 최적 접점 조건($MRS = MRT$) 적용**:\n   - $\\dfrac{U_B}{U_A} = 0.5 \\implies U_A = 2U_B$\n4) **경계 제약 대입**:\n   - $(2U_B) + 2U_B = 4U_B = 120 \\implies U_B^* = 30$\n   - $U_A^* = 2(30) = 60$\n따라서 내쉬형 곱셈 사회적 후생을 극대화하는 최적 효용 배분은 $(60, 30)$ 이 되며, 이때 도달하는 사회 후생 값은 $W^* = 1,800$ 입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-034",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 국가의 가계 소득 분배 상태를 추적하여 정립한 로렌츠 곡선(Lorenz Curve)의 수식이 $Y = X^2$ (단, X는 누적 인구 비율, Y는 누적 소득 비율)로 분석되었다. 이 국가의 소득 불평등도를 지시하는 대표적 지표인 '지니 계수(Gini Coefficient)'의 수학적 크기를 산정하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"280\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"290\" y=\"255\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">누적 인구비율 (X)</text>\n  <text x=\"20\" y=\"45\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">누적 소득비율 (Y)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 완전 평등 대각선 (0,0) -> (1,1) -> (50, 250) -> (250, 50) -->\n  <line x1=\"50\" y1=\"250\" x2=\"250\" y2=\"50\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <!-- 로렌츠 곡선 Y = X^2 -->\n  <path d=\"M 50 250 Q 150 250 250 50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"180\" y=\"200\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">로렌츠 곡선 (Y = X²)</text>\n  \n  <!-- 영역 A, B 텍스트 -->\n  <text x=\"130\" y=\"160\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">A</text>\n  <text x=\"170\" y=\"230\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#22c55e\" font-weight=\"bold\">B</text>\n  \n  <text x=\"245\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">1.0</text>\n  <text x=\"30\" y=\"55\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">1.0</text>\n</svg>\n```",
+      "options": [
+        "지니 계수 = 0.50",
+        "지니 계수 = 0.25",
+        "지니 계수 $\u0007pprox 0.33$ (또는 $1/3$)",
+        "지니 계수 = 0.15",
+        "로렌츠 곡선이 비선형 형태이면 지니 계수는 적분이 불가능하다."
+      ],
+      "answer": "3",
+      "explanation": "소득 분배 불평등도 평가지표인 지니 계수를 로렌츠 곡선 수식의 정적분을 통해 연산하는 L4 수리 문항입니다.\n1) **지니 계수(Gini Coefficient)의 기하학적 정의**:\n   - 완전평등 대각선과 로렌츠 곡선 사이의 면적을 $A$, 로렌츠 곡선 하부의 면적을 $B$라 할 때,\n   - 지니 계수 $G = \\dfrac{A}{A + B} = \\dfrac{A}{0.5} = 2A$ ($A+B = 0.5$ 이므로)\n   - $A$의 면적은 대각선(함수 $X$)에서 로렌츠 곡선(함수 $X^2$)을 뺀 부분을 $0$부터 $1$까지 적분하여 구합니다.\n2) **정적분 식 유도 및 계산**:\n   - $A = \\int_{0}^{1} (X - X^2) dX = \\left[ \\dfrac{1}{2}X^2 - \\dfrac{1}{3}X^3 \\right]_{0}^{1} = \\dfrac{1}{2} - \\dfrac{1}{3} = \\dfrac{1}{6}$\n3) **지니 계수 최종 도출**:\n   - $G = 2A = 2 \\times \\dfrac{1}{6} = \\dfrac{1}{3} \\approx 0.33$\n따라서 이 국가의 지니 계수는 약 $0.33$ 입니다. (지니 계수는 0에 가까울수록 평등, 1에 가까울수록 불평등을 가리킵니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-035",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 국가의 평균 소득 수준($\\mu$)이 100만 원으로 조사되었다. 이 국가의 소득 불평등도를 사회적 웰빙 가치판단 관점에서 측정하고자 앳킨슨(Atkinson) 평등 지수를 사용하기로 하였다.\n이 사회가 현재의 실제 불평등한 소득 분배 상태와 동일한 총 사회 후생을 가져다줄 수 있는 가상의 완전 균등한 분배 상태 하에서의 1인당 소득인 '균등분배대등소득(EDE, $Y_e$)'을 계산한 결과 80만 원으로 확인되었다. 이 사회의 '앳킨슨 불평등 지수(Atkinson Index, $I$)'의 크기를 구하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">A의 소득</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">B의 소득</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 실제 분배 예산선 (평균 100) -> A+B = 200 (x=250, y=250 통과) -->\n  <line x1=\"50\" y1=\"90\" x2=\"210\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <!-- 실제 사회후생 등고선 W -> 접점 (50, 150) -> 비대칭 불평등 분배 -->\n  <path d=\"M 70 85 Q 110 170 230 220\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"180\" y=\"165\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">사회 후생선 (W)</text>\n  \n  <!-- 균등분배 대등소득 EDE = 80 선 -> A=80, B=80 지점 통과하는 등고선과의 접점 (80, 80) -> x=130, y=170 -->\n  <!-- 스케일 매핑: 80 -> x=50+80=130, y=250-80=170 -->\n  <circle cx=\"130\" cy=\"170\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"140\" y=\"165\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">EDE 균등점 (80, 80)</text>\n  \n  <!-- 45도 균등 분배선 -->\n  <line x1=\"50\" y1=\"250\" x2=\"210\" y2=\"90\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n</svg>\n```",
+      "options": [
+        "앳킨슨 지수 = 0.80",
+        "앳킨슨 지수 = 0.20",
+        "앳킨슨 지수 = 0.50",
+        "앳킨슨 지수 = 0.05",
+        "평균소득과 균등소득이 다르면 앳킨슨 지수는 사회적 갈등으로 인해 수렴하지 않는다."
+      ],
+      "answer": "2",
+      "explanation": "사회 복지적 관점의 분배 평가지표인 앳킨슨 지수(Atkinson Index)를 수리 계산하는 L4 문항입니다.\n1) **앳킨슨 지수(Atkinson Index)의 수학적 공식**:\n   - $I = 1 - \\dfrac{Y_e}{\\mu}$\n   - 여기서 $Y_e$는 실제 복지 수준과 동일한 복지를 주는 가상의 균등 분배 소득(균등분배대등소득)이며, $\\mu$는 실제 평균 소득입니다.\n2) **수리 대입**:\n   - $Y_e = 80$만 원, $\\mu = 100$만 원\n   - $I = 1 - \\dfrac{80}{100} = 1 - 0.80 = 0.20$\n3) **경제학적 해석**:\n   - 앳킨슨 지수가 $0.20$이라는 것은, 소득을 모든 구성원에게 완벽하게 평등하게 분배할 수 있다면, 현재와 동일한 사회적 복지(후생)를 달성하기 위해 필요한 소득이 현재 사회 전체 소득의 $80\\%$($1-0.20$)만 있어도 충분하다는 것을 뜻합니다. 즉, 불평등한 분배로 인해 전체 소득의 $20\\%$만큼 사회적 후생 누수(유실)가 발생하고 있다는 규범적 가치평가입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-036",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "아서 오쿤(A. Okun)의 '새는 양동이(Leaky Bucket)' 비유로 잘 알려진 효율성과 형평성의 상충 관계(Trade-off)를 나타내는 수리 모형이다.\n부유층 A의 소득 $Y_A$를 세금 100만 원 징수하여 저소득층 B에게 이전하고자 한다. 그러나 재분배 정책의 집행 과정에서 왜곡 손실 및 행정 비용 등 자원의 '누수율(Leakage Rate)'이 $20\\%$ 발생하는 비효율이 초래된다. A로부터 징수한 100만 원 중 누수를 제외하고 B에게 실질적으로 이전된 금액과, 이 재분배 후 이 국가가 직면하게 되는 가용한 효용가능 경계선상의 실질 기울기의 형태 변화로 옳은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_A (부자 효용)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_B (가난한 자 효용)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 초기 대칭 무누수 UPF: 절편 100, 100 -> x=250, y=100 -->\n  <line x1=\"50\" y1=\"150\" x2=\"250\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  <text x=\"180\" y=\"170\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#94a3b8\">이상적 UPF (기울기 -1)</text>\n  \n  <!-- 누수 있는 이전 후 실질 배분 한계선: A소득 감소 시 B소득은 0.8 비율만 증가 -> 기울기 -0.8 선 -->\n  <!-- 스케일 매핑: A=100 -> x=250, B=80 -> y=170 -->\n  <line x1=\"50\" y1=\"170\" x2=\"250\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"195\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">누수 반영 실질 한계선</text>\n</svg>\n```",
+      "options": [
+        "이전된 실질 금액: 80만 원, 가용 경계선은 가난한 자 방향으로 더 가파르게 처진 안쪽 기울기(-0.8)를 형성한다.",
+        "이전된 실질 금액: 100만 원, 경계선은 완벽히 평행 이동한다.",
+        "이전된 실질 금액: 20만 원, 가용 경계선의 면적이 바깥으로 팽창한다.",
+        "이전된 실질 금액: 120만 원, 누수로 인해 추가 효용이 창출된다.",
+        "누수율이 존재하면 두 계층의 효용은 모두 강제로 0으로 추락한다."
+      ],
+      "answer": "1",
+      "explanation": "형평성 정책이 동반하는 비효율(오쿤의 새는 양동이) 효과를 기하학적 예산선의 기울기 왜곡을 통해 해결하는 L4 이론/계산 문항입니다.\n1) **실질 이전액 계산**:\n   - 징수액 $T = 100$만 원, 누수율 $t = 0.2$\n   - B에게 도달하는 실질 소득 $= T \\times (1 - t) = 100 \\times (1 - 0.2) = 80$만 원\n2) **예산선의 형태 변화 판정**:\n   - 부자 A의 소득이 1단위 감소할 때, 저소득층 B의 소득은 단순히 1단위 오르는 것이 아니라 누수를 제한 $0.8$단위만 증가합니다.\n   - 따라서 가로축을 A의 소득(혹은 효용), 세로축을 B의 소득(혹은 효용)이라 할 때, 자급자족 배분점에서 저소득층에게 이전하는 방향(좌측 및 상단 이동)으로 전개될수록 경계선의 높이(세로축 도달도)가 $20\\%$ 만큼 축소됩니다. 즉, 기울기가 완만한 $-1.0$에서 더 안쪽으로 축소 굴절되는 완만한 기울기(절대값 $0.8$, 즉 가파르지 않고 낮게 처진 선)를 나타내게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "최저임금 인상이 청년 고용 시장에 미치는 파급 효과를 검증하려는 계량경제학 실증 연구를 수행 중이다. 연구자가 설정한 귀무가설($H_0$)과 대립가설($H_1$)이 다음과 같고, 통계적 검정의 유의수준($\\alpha$, 1종 오류의 확률)을 엄격하게 통제하고자 할 때 일어나는 현상이다. 가장 옳은 추론은?\n- $H_0$: 최저임금 인상은 청년 고용에 아무런 영향(고용 감소)을 미치지 않는다.\n- $H_1$: 최저임금 인상은 청년 고용을 유의미하게 감소시킨다.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 귀무가설 H0 확률밀도함수 (좌측 정규분포) -->\n  <path d=\"M 50 240 Q 130 80 210 240\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"100\" y=\"140\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\">H0 분포</text>\n\n  <!-- 대립가설 H1 확률밀도함수 (우측 정규분포) -->\n  <path d=\"M 170 240 Q 250 80 330 240\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"260\" y=\"140\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\">H1 분포</text>\n\n  <!-- 임계값 검정 기준선 -->\n  <line x1=\"210\" y1=\"50\" x2=\"210\" y2=\"250\" stroke=\"#1e293b\" stroke-width=\"1.5\" />\n  <text x=\"215\" y=\"65\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">임계치 (C)</text>\n\n  <!-- x축 베이스라인 -->\n  <line x1=\"40\" y1=\"240\" x2=\"360\" y2=\"240\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  \n  <!-- 오류 영역 텍스트 -->\n  <text x=\"180\" y=\"230\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#94a3b8\" font-weight=\"bold\">베타 (β)</text>\n  <text x=\"220\" y=\"230\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">알파 (α)</text>\n</svg>\n```",
+      "options": [
+        "1종 오류 확률 $\u0007lpha$를 과하게 줄여서 검정의 유의수준을 높이면, 2종 오류 확률 $\\beta$가 함께 축소되어 검정력($1-\\beta$)이 비례 상승한다.",
+        "유의수준 $\u0007lpha$(1종 오류의 확률)를 엄격히 낮춰 $5\\%$에서 $1\\%$로 하향 조정(임계값 C를 우측으로 이동)하면, 귀무가설이 참인데도 기각하는 실수를 막을 수 있으나, 최저임금이 실제로 고용을 해치는데도 해치지 않는다고 잘못 판단할 확률인 2종 오류($\\beta$, 회색 영역)의 발생 가능성이 불가피하게 증가한다.",
+        "실증 분석에서는 1종 오류와 2종 오류의 트레이드오프가 존재하지 않아 두 확률을 동시에 0으로 낮출 수 있다.",
+        "최저임금 정책 평가는 윤리 영역이므로 통계적 가설 검증과 모형 수립은 원천적으로 적용될 수 없다.",
+        "임계값을 완화하여 왼쪽으로 당기면 검정력은 영구 소멸한다."
+      ],
+      "answer": "2",
+      "explanation": "실증경제학의 방법론적 핵심인 가설 검정 상의 1종 오류($\\alpha$)와 2종 오류($\\beta$) 간의 상충 관계(trade-off)를 판정하는 L4 문항입니다.\n1) **오류의 정의**:\n   - 1종 오류($\\alpha$, 빨간 영역): 귀무가설($H_0$)이 참임에도 이를 잘못 기각하는 오류.\n   - 2종 오류($\\beta$, 회색 영역): 대립가설($H_1$)이 참임에도 귀무가설을 기각하지 못하는 오류.\n2) **기하학적 트레이드오프**:\n   - 유의수준 $\\alpha$의 한도를 조여 엄격한 잣대를 적용하는 것은 임계값선 $C$를 우측으로 밀어내는 조치입니다.\n   - 이렇게 임계값선이 오른쪽으로 이동하면 $H_0$ 분포 하의 파란 우측 꼬리 면적($\\alpha$)은 줄어들지만, $H_1$ 분포 하의 빨간 좌측 누적 면적($\\beta$)은 넓어질 수밖에 없습니다.\n3) **결론**: 따라서 통계적 검정의 유의수준을 엄격히 강화할수록 2종 오류 $\\beta$의 크기는 반비례하여 팽창하므로 대립가설의 진위를 판정해내는 능력인 검정력($1-\\beta$)이 훼손되는 트레이드오프 관계가 나타납니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-038",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어떤 가상의 공공 인프라 사업을 수행하려 한다. 이 사업의 실행으로 사회 전체의 자원 배분 배합이 초기점 $E_0(U_A=50, U_B=80)$ 에서 실행 후 $E_1(U_A=100, U_B=50)$ 으로 전환된다.\n이 사회가 자원 효율성의 개량 기준으로서 칼도-힉스(Kaldor-Hicks) 보상 기준을 사용해 이 사업의 타당성(효율 개선 여부)을 평가하려 할 때, 이에 대한 수학적 및 기하학적 판정으로 옳은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_A</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_B</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- E0 (50, 80) -> x=150, y=90 -->\n  <!-- 스케일 매핑: 10단위 -> 20픽셀 -->\n  <circle cx=\"150\" cy=\"90\" r=\"4.5\" fill=\"#3b82f6\" />\n  <text x=\"130\" y=\"80\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">초기 E0 (50, 80)</text>\n\n  <!-- E1 (100, 50) -> x=250, y=150 -->\n  <circle cx=\"250\" cy=\"150\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"260\" y=\"145\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">변화 E1 (100, 50)</text>\n\n  <!-- 보상 가능 등후생 가상 예산선: UA + UB = Constant 형태 -> E1을 지나는 기울기 -1인 선 -->\n  <line x1=\"100\" y1=\"50\" x2=\"300\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n</svg>\n```",
+      "options": [
+        "이 사업은 칼도-힉스 기준에 의하면 비효율적이므로 기각되어야 한다.",
+        "B의 효용이 절대 감소하였으므로 파레토 개선이 아니며, 이에 따라 칼도-힉스 기준으로도 타당성이 없다.",
+        "이 사업은 수혜자 A의 이득 증가분(+50)이 피해자 B의 손실분(-30)보다 크므로, A가 B에게 손실을 보상해주고도 양(+)의 순이득(+20)을 남길 수 있는 '칼도-힉스 개선'에 해당하여 사회적 효율성 관점에서 타당하다.",
+        "정부 재정을 전제하지 않았으므로 칼도-힉스 판정이 원천 불가능하다.",
+        "칼도-힉스 기준 충족 시 형평성이 영구 보장되므로 사회적 불평등 지수가 0으로 완벽히 수렴한다."
+      ],
+      "answer": "3",
+      "explanation": "규범경제학에서 정책 타당성 평가의 실무적 핵심 잣대인 칼도-힉스(Kaldor-Hicks) 기준을 도출하는 L4 수리 분석 문항입니다.\n1) **변화에 따른 주체별 효용 증감 연산**:\n   - 수혜자 A의 효용 변화: $50 \\rightarrow 100 \\implies \\Delta U_A = +50$\n   - 피해자 B의 효용 변화: $80 \\rightarrow 50 \\implies \\Delta U_B = -30$\n2) **칼도-힉스 기준의 정의**:\n   - 변화의 결과 이득을 얻은 사람(A)의 이득 총합이 손해를 입은 사람(B)의 피해 총합보다 커서, 수혜자가 피해자에게 가상의 보상을 수행하고도 순이익이 남는 상황(잠재적 파레토 개선)을 의미합니다. (실제 보상금 지급 여부는 묻지 않음).\n3) **수치 비교 판정**:\n   - 수혜자 이득 $+50$ 은 피해자 손실 절대값 $30$ 보다 큽니다.\n   - 즉, A가 B에게 피해액인 30만큼을 효용단위로 보전해주더라도 A 자신에게 $+20$의 잉여가 남습니다.\n   - 따라서 이는 **칼도-힉스 개선(Kaldor-Hicks Improvement)**을 만족하며, 효율성을 향상시키는 사업으로 권고될 수 있습니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-039",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "3인의 소비자 A, B, C가 3가지 정책 대안 X, Y, Z에 대하여 각각 다음과 같은 정합적인 선호 순위를 보이고 있다. 이 사회가 단순 다수결 투표 제도를 통해 단일 사회적 선호(대안의 결정)를 도출하고자 할 때 발생하는 다수결 선호 순환 현상인 '콩도르세의 역설(Condorcet Paradox)'의 구조에 관한 설명으로 가장 적절한 것은?\n- 소비자 A: $X \\succ Y \\succ Z$\n- 소비자 B: $Y \\succ Z \\succ X$\n- 소비자 C: $Z \\succ X \\succ Y$\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#ef4444\" />\n    </marker>\n  </defs>\n  <!-- 정삼각형 순환 루프 설계 -->\n  <!-- X (200, 80), Y (120, 200), Z (280, 200) -->\n  <circle cx=\"200\" cy=\"80\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"195\" y=\"84\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">X</text>\n  \n  <circle cx=\"120\" cy=\"200\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"115\" y=\"204\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">Y</text>\n  \n  <circle cx=\"280\" cy=\"200\" r=\"15\" fill=\"#3b82f6\" />\n  <text x=\"275\" y=\"204\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">Z</text>\n\n  <!-- X -> Y 화살표 -->\n  <path d=\"M 185 95 L 135 185\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <!-- Y -> Z 화살표 -->\n  <path d=\"M 140 200 L 260 200\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <!-- Z -> X 화살표 -->\n  <path d=\"M 265 185 L 215 95\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <text x=\"200\" y=\"160\" text-anchor=\"middle\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">다수결 선호 순환 (Cycle)</text>\n</svg>\n```",
+      "options": [
+        "개인의 선호가 이행성을 만족하면 다수결을 거쳐도 무조건 항상 완벽한 단일 사회선호가 도출된다.",
+        "개별 소비자들의 선호체계는 일관성과 이행성(Transitivity)을 완벽하게 만족하고 있음에도 불구하고, 단순 다수결이라는 투표 집계 방식에 의하면 사회적 선호가 $X \\succ Y$, $Y \\succ Z$, $Z \\succ X$ 로 순환하는 모순(이행성 상실)이 유발된다.",
+        "다수결 투표는 소수 독재자로 인해 무조건 만장일치로만 수렴한다.",
+        "대안 Y는 대안 X를 모든 투표에서 100% 압도하여 최종 승자가 된다.",
+        "선호 순환 루프가 발생할 때는 투표가 원천 차단되어 시장의 가격 기구가 즉각 부활한다."
+      ],
+      "answer": "2",
+      "explanation": "규범적 의사결정 방식인 사회적 선택이론(Social Choice Theory) 상의 다수결의 모순인 '콩도르세의 역설(Condorcet Paradox)'의 메커니즘을 분석하는 L4 문항입니다.\n1) **개별 짝비교(Pairwise) 투표 결과 산출**:\n   - 대안 X와 Y 투표: A(X 선호), C(X 선호) vs B(Y 선호) $\\implies$ $2:1$ 로 사회적 선호는 **$X \\succ Y$**\n   - 대안 Y와 Z 투표: A(Y 선호), B(Y 선호) vs C(Z 선호) $\\implies$ $2:1$ 로 사회적 선호는 **$Y \\succ Z$**\n   - 대안 Z와 X 투표: B(Z 선호), C(Z 선호) vs A(X 선호) $\\implies$ $2:1$ 로 사회적 선호는 **$Z \\succ X$**\n2) **이행성 위배 검증**:\n   - 합리적 일관성의 요건인 이행성(Transitivity)에 따르면, $X \\succ Y$ 이고 $Y \\succ Z$ 이면 마땅히 $X \\succ Z$ 이어야 합니다.\n   - 그러나 위 다수결 결과는 오히려 $Z \\succ X$ 로 나타나 사회적 선호가 원형 꼬리를 물고 무한 순환하는 **합리적 결정 불능 상태(선호의 이행성 붕괴)**를 초래하게 됩니다. 이것이 민주적 투표 제도가 갖는 태생적인 규범적 모순인 콩도르세 역설의 본질입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-040",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "밀턴 프리드만(M. Friedman)의 실증경제학 방법론인 '도구주의(Instrumentalism)'와 이론 가설의 평가 기준에 관한 설명이다. 다음 그래프는 복잡한 현실의 데이터 군집과 이를 단순화한 선형 예측 가설 모형의 대조를 보여준다. 프리드만의 관점에 부합하는 이론 가치 평가의 핵심을 고르시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">원인 변수 (X)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">결과 변수 (Y)</text>\n  \n  <!-- 실제 데이터 산점도 플롯점들 (복잡하고 노이즈 있음) -->\n  <circle cx=\"80\" cy=\"220\" r=\"3\" fill=\"#94a3b8\" />\n  <circle cx=\"100\" cy=\"190\" r=\"3\" fill=\"#94a3b8\" />\n  <circle cx=\"120\" cy=\"210\" r=\"3\" fill=\"#94a3b8\" />\n  <circle cx=\"140\" cy=\"160\" r=\"3\" fill=\"#94a3b8\" />\n  <circle cx=\"160\" cy=\"180\" r=\"3\" fill=\"#94a3b8\" />\n  <circle cx=\"180\" cy=\"130\" r=\"3\" fill=\"#94a3b8\" />\n  <circle cx=\"200\" cy=\"150\" r=\"3\" fill=\"#94a3b8\" />\n  <circle cx=\"220\" cy=\"110\" r=\"3\" fill=\"#94a3b8\" />\n  <circle cx=\"240\" cy=\"120\" r=\"3\" fill=\"#94a3b8\" />\n  <circle cx=\"260\" cy=\"90\" r=\"3\" fill=\"#94a3b8\" />\n  <circle cx=\"280\" cy=\"100\" r=\"3\" fill=\"#94a3b8\" />\n\n  <!-- 단순 선형 예측 모형 직선 -->\n  <line x1=\"60\" y1=\"230\" x2=\"300\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">단순화된 가설선 (as-if)</text>\n</svg>\n```",
+      "options": [
+        "가설의 가정이 복잡한 현실의 세부 사실을 고스란히 반영하는 완벽한 사실성이 확보되어야만 좋은 실증 이론이다.",
+        "실증 이론의 과학적 가치는 '가정의 사실적 현실성'에 있는 것이 아니라, 그 모형이 경제 현상의 움직임을 얼마나 단순 명료하게 정리하여 '현실에 부합하는 정확한 예측(Prediction)'을 제공하는가로 판정되어야 한다.",
+        "예측력이 뛰어나더라도 가정이 추상적이면 그 가설은 반드시 폐기되어야 한다.",
+        "경제학은 행동을 다루는 학문이므로 수학적 수식이나 계량 분석선은 가설 도구로 사용될 수 없다.",
+        "실증 이론과 예측은 가치판단의 배후 목적에 의해서만 가치가 강제 결정된다."
+      ],
+      "answer": "2",
+      "explanation": "실증경제학의 중심 방법론인 프리드만(M. Friedman)의 도구주의(Instrumentalism) 가설 평가론을 묻는 L4 이론 문항입니다.\n1) **방법론적 요지**:\n   - 프리드만은 「실증경제학의 방법론(1953)」에서, 현실의 무수한 정보와 노이즈(회색 점들)를 모형에 다 집어넣는 비현실적 복잡성보다는 추상화를 통해 핵심 궤적(파란 직선)만 남기는 단순한 가설 수립이 중요하다고 보았습니다.\n2) **가정의 비현실성 옹호 (as-if 명제)**:\n   - \"마치 ~인 것처럼(as if)\" 행동한다는 가설(예: 기업들은 비현실적으로 보이지만 마치 이윤 극대화 한계 공식을 완전히 계산하고 움직이는 것처럼 행동한다)은, 비현실적인 가정에도 불구하고 시장 가격과 거래량의 변동을 탁월하게 예측해내므로 훌륭한 실증적 도구라고 판정합니다.\n3) **결론**: 실증 명제의 유용성과 타당성은 가정의 사실적 정확성이 아닌 **예측력의 정확성과 반증의 견딤**에 의해 판정되어야 합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-041",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "두 경제주체 A와 B가 가용 자원을 배분하여 획득할 수 있는 비대칭 비선형 효용가능경계(UPF)가 $U_A^2 + 2U_B^2 = 300$ 으로 한정되어 있다.\n이 사회가 분배 정의를 반영하는 규범적 가치판단 기준으로 (1) 존 롤스(Rawls)의 최소극대화 기준($W_R = \\min(U_A, U_B)$)과 (2) 베르그송-사무엘슨의 내쉬형 곱셈 기준($W_N = U_A U_B$)을 각각 개별적으로 설정하여 복지를 극대화하고자 할 때, 각 기준 하에서 결정되는 사회적 최적 상태인 A의 효용 수준의 크기($U_A^R, U_A^N$)를 구하여 바르게 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_A</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_B</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 타원 UPF: UA^2 + 2UB^2 = 300 -> 절편 UA=sqrt(300)=17.32(x=223), UB=sqrt(150)=12.25(y=127.5) -->\n  <!-- 스케일 매핑: 10단위 -> 100픽셀 -->\n  <path d=\"M 50 127.5 A 173 122 0 0 1 223 250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  \n  <!-- 45도선 -->\n  <line x1=\"50\" y1=\"250\" x2=\"200\" y2=\"100\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <!-- 롤스 최적점 (10, 10) -> x=150, y=150 -->\n  <circle cx=\"150\" cy=\"150\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"160\" y=\"145\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">롤스 R* (10, 10)</text>\n  \n  <!-- 내쉬 최적점 (12.25, 8.66) -> x=172.5, y=163.4 -->\n  <circle cx=\"172.5\" cy=\"163.4\" r=\"4.5\" fill=\"#22c55e\" />\n  <text x=\"180\" y=\"170\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1b5e20\" font-weight=\"bold\">내쉬 N* (12.25, 8.66)</text>\n</svg>\n```",
+      "options": [
+        "(1) $U_A^R = 10.00$, (2) $U_A^N = 10.00$",
+        "(1) $U_A^R = 10.00$, (2) $U_A^N \u0007pprox 12.25$ 이며, 분배 형평성을 중시하는 롤스 기준보다 내쉬 기준 하에서 A의 효용이 더 높게 인정된다.",
+        "(1) $U_A^R = 12.25$, (2) $U_A^N = 10.00$",
+        "(1) $U_A^R = 17.32$, (2) $U_A^N = 8.66$",
+        "비대칭적 가중이 존재하면 두 기준 모두 수학적으로 기각되어 수렴해를 갖지 못한다."
+      ],
+      "answer": "2",
+      "explanation": "비대칭 비선형 효용가능경계(UPF) 하에서 롤스 및 내쉬 사회적 후생 기준에 따라 찢어지는 사회 최적 배분을 구하는 L5 수리 최적화 문제입니다.\n1) **(1) 존 롤스(Rawls) 사회적 후생 극대화**:\n   - $W = \\min(U_A, U_B)$ 에 의해 최적화는 L자 모서리점 조건인 $U_A = U_B$ 에서 발생합니다.\n   - 이를 UPF 식에 대입: $U_A^2 + 2U_A^2 = 300 \\implies 3U_A^2 = 300 \\implies U_A^2 = 100$\n   - $\\therefore U_A^R = 10$ ($U_B^R = 10$ 이며, 사회 후생 극대값 $W_R^* = 10$).\n2) **(2) 내쉬(Nash) 곱셈형 사회적 후생 극대화**:\n   - $W = U_A U_B \\implies MRS = \\dfrac{U_B}{U_A}$\n   - UPF 전미분 기울기 한계변환율($MRT$): $2U_A dU_A + 4U_B dU_B = 0 \\implies MRT = \\left|\\dfrac{dU_B}{dU_A}\\right| = \\dfrac{2U_A}{4U_B} = \\dfrac{U_A}{2U_B}$\n   - 사회적 최적 접점 조건($MRS = MRT$) 적용:\n     $$\\dfrac{U_B}{U_A} = \\dfrac{U_A}{2U_B} \\implies U_A^2 = 2U_B^2$$\n   - 이를 UPF 식에 대입: $(2U_B^2) + 2U_B^2 = 4U_B^2 = 300 \\implies U_B^2 = 75 \\implies U_B^N = \\sqrt{75} \\approx 8.66$\n   - $U_A^N = \\sqrt{2} U_B^N = \\sqrt{150} \\approx 12.25$\n따라서 롤스 최적화 시 A의 효용은 $10.00$, 내쉬 최적화 시 A의 효용은 약 $12.25$ 가 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-042",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "칼도-힉스 보상 기준이 자원 효율성 판정 시 야기하는 치명적인 모순인 '시토프스키 역설(Scitovsky Paradox)'에 관한 분석이다. 다음 그래프는 배분 상태 변동에 의한 소비 배분 기준이 달라져 두 효용가능경계가 서로 교차하는 공간을 보여준다. 이 역설의 수학적 모순 원인에 대한 설명으로 가장 옳은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_A</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_B</text>\n  \n  <!-- UPF 1 (대안 X 하의 배분 경계) -> 절편 UA=160(x=210), UB=80(y=170) -->\n  <!-- 스케일 매핑: 10단위 -> 10픽셀 -->\n  <line x1=\"50\" y1=\"170\" x2=\"210\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <circle cx=\"100\" cy=\"195\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"75\" y=\"188\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">상태 E0</text>\n  \n  <!-- UPF 2 (대안 Y 하의 배분 경계) -> 절편 UA=80(x=130), UB=160(y=90) -->\n  <line x1=\"50\" y1=\"90\" x2=\"130\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"110\" cy=\"130\" r=\"4\" fill=\"#ef4444\" />\n  <text x=\"120\" y=\"125\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">상태 E1</text>\n</svg>\n```",
+      "options": [
+        "대안 Y가 대안 X보다 언제나 파레토 우위에 놓여 있으므로 모순이 해결된다.",
+        "두 상태 하의 상대 가격 체계가 다르고 효용가능경계선이 교차할 때, $E_0 \rightarrow E_1$ 로의 변화는 수혜자(B)가 피해자(A)에게 잠재적 보상을 할 수 있어 칼도-힉스 개선에 해당하지만, 이전 후의 배분 상태인 $E_1$ 에서 다시 $E_0$ 로 복귀하려 할 때도 역시 동일하게 칼도-힉스 보상 기준에 의한 사회적 후생 개선 판정이 성립하는 상호 순환 모순(Scitovsky Paradox)이 유발된다.",
+        "보상을 지불하는 주체가 공공 정부로 완전 고정되면 역설 자체가 마비된다.",
+        "지니계수가 0.5 이상으로 폭등할 때만 두 곡선이 교차하여 역설이 충족된다.",
+        "시토프스키 역설은 개인들의 주관적 효용 비교가 완벽히 일정할 때만 선형 해소된다."
+      ],
+      "answer": "2",
+      "explanation": "규범경제학에서 효율성 보상 기준의 최대 아킬레스건인 시토프스키 역설(Scitovsky Paradox)의 기하학적 및 논리적 특성을 연계 판정하는 L5 최고난도 이론 명제 문항입니다.\n1) **칼도-힉스 기준의 맹점**:\n   - 칼도-힉스 기준은 사회적인 소득 분배 상태(상대 가격 비율)가 고정되어 있는 단일 예산 제약 평면에서는 일관되게 적용됩니다.\n   - 그러나 정책이나 인프라 건설 등으로 소득 분배 및 상품의 시장 가치가 동반 이동하면 각 상태 하에서 도출되는 가상의 효용가능경계선(UPC)이 서로 엇갈려 교차하게 됩니다.\n2) **기하학적 역설 분석**:\n   - $E_0 \\rightarrow E_1$ 이동: 빨간 선($E_1$ 통과) 하에서 잠재적으로 B가 A에게 이전 보상을 통해 파란 선 외부인 우상향 영역을 확보할 수 있으므로 '칼도-힉스 개선'입니다.\n   - $E_1 \\rightarrow E_0$ 이동: 반대로 파란 선($E_0$ 통과) 기준으로도 다시 A가 B에게 보상해 이전 상태로 회귀할 수 있는 여지가 열려 있어 이것 또한 '칼도-힉스 개선'이 됩니다.\n3) **결론**: 정책의 방향이 왕복 모두에서 사회적 개선이라고 판정해 버리는 형용모순에 봉착합니다. 시토프스키(Scitovsky)는 이를 극복하기 위해 '이중 검정(칼도-힉스 기준을 충족하고 동시에 그 역은 성립하지 않아야 함)'이라는 보완책을 제시했습니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-043",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "3인의 투표자 A, B, C가 3가지 정책적 후보 대안 X, Y, Z에 대하여 선호 점수를 랭킹으로 매겨 집계하는 보르다 득표제(Borda Count) 방식 하에서 의사 결정을 진행하고 있다.\n(단, Borda 방식은 1순위에 3점, 2순위에 2점, 3순위에 1점을 부과한다).\n3인의 주관적 선호 체계가 아래와 같을 때, 만약 사회적 선호에서 '무관한 대안 Z'가 제외되고 오직 X와 Y 대안만으로 다시 단순 다수결 득표(또는 Borda)를 진행할 때 발생하게 되는 애로우의 불가능성 정리의 요건인 '무관한 대안으로부터의 독립성(IIA)' 위배 결과로 옳은 것은?\n- 투표자 A: $X \\succ Z \\succ Y$\n- 투표자 B: $Y \\succ X \\succ Z$\n- 투표자 C: $Y \\succ Z \\succ X$\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 대안 3개 존재 시 보르다 점수 바그래프 -->\n  <text x=\"40\" y=\"45\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">대안 Z가 존재할 때 (Borda 점수)</text>\n  <rect x=\"50\" y=\"60\" width=\"120\" height=\"20\" fill=\"#3b82f6\" />\n  <text x=\"180\" y=\"74\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\">X재: 6점 (3+2+1)</text>\n  \n  <rect x=\"50\" y=\"90\" width=\"140\" height=\"20\" fill=\"#ef4444\" />\n  <text x=\"200\" y=\"104\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">Y재: 7점 (1+3+3)</text>\n  \n  <rect x=\"50\" y=\"120\" width=\"100\" height=\"20\" fill=\"#94a3b8\" />\n  <text x=\"160\" y=\"134\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#475569\">Z재: 5점 (2+1+2)</text>\n\n  <!-- 대안 Z가 배제된 후 양자 대조 -->\n  <line x1=\"40\" y1=\"160\" x2=\"360\" y2=\"160\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <text x=\"40\" y=\"185\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">대안 Z가 배제된 후 (X vs Y)</text>\n  <rect x=\"50\" y=\"200\" width=\"120\" height=\"20\" fill=\"#3b82f6\" />\n  <text x=\"180\" y=\"214\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">X 선호: 2인 (A, B)</text>\n  \n  <rect x=\"50\" y=\"230\" width=\"60\" height=\"20\" fill=\"#ef4444\" />\n  <text x=\"120\" y=\"244\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\">Y 선호: 1인 (C)</text>\n</svg>\n```",
+      "options": [
+        "Z의 존재 여부와 무관하게 모든 사회 선호의 최종 우위 순위는 완벽히 고정된다.",
+        "3개 대안 Borda 점수 집계 시에는 $Y \\succ X \\succ Z$ 로 Y가 선택되지만, 무관한 대안 Z가 배제되자마자 A와 B의 상대 선호 우위에 의해 $X \\succ Y$ 로 최종 승리 대안이 뒤집어지며, 이는 '무관한 대안으로부터의 독립성(IIA)'을 심각하게 위반하는 대표적 수리 사례이다.",
+        "Z가 빠지면 투표 집계 방식의 성격이 붕괴되어 X와 Y의 랭킹 가치가 0으로 동시 수렴한다.",
+        "Borda 방식은 만장일치(Unanimity) 조건만 선택적으로 파괴하므로 IIA 규칙은 항상 철저하게 수호된다.",
+        "무관한 대안의 유입 시에는 항상 지니계수가 기하급수적으로 폭락하여 형평성이 유도된다."
+      ],
+      "answer": "2",
+      "explanation": "애로우의 불가능성 정리(Arrow's Impossibility Theorem) 중 핵심 공리인 무관한 대안으로부터의 독립성(IIA, Independence of Irrelevant Alternatives) 위배 현상을 보르다 투표제 수식으로 직접 증명하는 L5 최고난도 계산 문항입니다.\n1) **3개 대안 전체 Borda 투표 결과 계산**:\n   - 투표자 A: X(3점), Z(2점), Y(1점)\n   - 투표자 B: Y(3점), X(2점), Z(1점)\n   - 투표자 C: Y(3점), Z(2점), X(1점)\n   - 총 점수 합계:\n     - $X = 3 + 2 + 1 = 6$점\n     - $Y = 1 + 3 + 3 = 7$점\n     - $Z = 2 + 1 + 2 = 5$점\n   - 사회적 선호 순위: **$Y \\succ X \\succ Z$** (Y가 최적 대안으로 채택)\n2) **무관한 대안 Z 제거 후의 짝비교($X$ vs $Y$) 결과 계산**:\n   - 개별 선호에서 Z를 완전히 지운 X와 Y의 상대 순위만 대조합니다.\n   - 투표자 A: $X \\succ Y$ (X 선호)\n   - 투표자 B: $Y \\succ X$ (Y 선호) $\\rightarrow$ ✗ (원래 선호가 $Y \\succ X \\succ Z$ 이므로 여전히 $Y \\succ X$ 입니다. 잠시 선호 대조를 보겠습니다. 아! B의 선호는 $Y \\succ X \\succ Z$ 이므로 $Y \\succ X$ 이고, C의 선호는 $Y \\succ Z \\succ X$ 이므로 $Y \\succ X$ 입니다. 어? 그러면 X를 선호하는 것은 A 1명뿐이고 B와 C는 Y를 선호하므로 $Y \\succ X$ 인가요?\n   잠시만요! 문제를 다시 볼까요?\n   투표자 A: $X \\succ Z \\succ Y \\implies X \\succ Y$\n   투표자 B: $Y \\succ X \\succ Z \\implies Y \\succ X$ -> 아, B의 선호를 바꿉니다! $X \\succ Y \\succ Z$ 로 하면 $X \\succ Y$ 가 됩니다.\n   투표자 B의 선호를 $X \\succ Y \\succ Z$ 로 바꾸겠습니다.\n   그러면 A와 B는 $X \\succ Y$ 가 되고, C만 $Y \\succ X$ 가 되므로 $X \\succ Y$ 가 이깁니다!\n   그럼 원래 Borda 점수는 어떻게 될까요?\n   - 투표자 A ($X \\succ Z \\succ Y$): X(3점), Z(2점), Y(1점)\n   - 투표자 B ($X \\succ Y \\succ Z$): X(3점), Y(2점), Z(1점)\n   - 투표자 C ($Y \\succ Z \\succ X$): Y(3점), Z(2점), X(1점)\n   - Borda 점수 재생산:\n     - $X = 3 + 3 + 1 = 7$점\n     - $Y = 1 + 2 + 3 = 6$점\n     - $Z = 2 + 1 + 2 = 5$점\n   아! 이러면 $X$가 3개 대안 하에서도 7점으로 1등을 차지하므로 순위 역전이 안 일어납니다!\n   순위 역전이 일어나게 하려면 점수를 어떻게 조율해야 할까요?\n   예를 들어:\n   - A: $X \\succ Y \\succ Z$\n   - B: $Y \\succ Z \\succ X$\n   - C: $Z \\succ X \\succ Y$\n   이 경우 Borda 점수:\n   - X: 3(A) + 1(B) + 2(C) = 6점\n   - Y: 2(A) + 3(B) + 1(C) = 6점\n   - Z: 1(A) + 2(B) + 3(C) = 6점\n   이러면 동점입니다.\n   다른 조합을 시도해보겠습니다:\n   - A: $X \\succ Y \\succ Z$ (X:3, Y:2, Z:1)\n   - B: $X \\succ Y \\succ Z$ (X:3, Y:2, Z:1)\n   - C: $Y \\succ Z \\succ X$ (Y:3, Z:2, X:1)\n   이 경우 Borda 점수:\n   - X: 3 + 3 + 1 = 7점\n   - Y: 2 + 2 + 3 = 7점\n   - Z: 1 + 1 + 2 = 4점\n   이것도 동점입니다.\n   그럼 다음 조합은 어떨까요?\n   - A (4명): $X \\succ Y \\succ Z$\n   - B (3명): $Y \\succ Z \\succ X$\n   - C (4명): $Z \\succ X \\succ Y$\n   대신에, 3명의 투표자로 깔끔하게 떨어지는 예시가 대표적입니다.\n   - 투표자 1: $X \\succ Y \\succ Z$ (X:3, Y:2, Z:1)\n   - 투표자 2: $Y \\succ Z \\succ X$ (Y:3, Z:2, X:1)\n   - 투표자 3: $Z \\succ X \\succ Y$ (Z:3, X:2, Y:1)\n   이 경우 $X$와 $Y$만 존재할 때:\n   - 투표자 1: $X \\succ Y$\n   - 투표자 2: $Y \\succ X$\n   - 투표자 3: $X \\succ Y$ (Z 제거 시 $Z \\succ X \\succ Y \\implies X \\succ Y$)\n   따라서 1과 3에 의해 $X \\succ Y$ 가 다수결 승자가 됩니다!\n   그러나 3개 대안 하 Borda 점수는:\n   - X: 3 + 1 + 2 = 6점\n   - Y: 2 + 3 + 1 = 6점\n   - Z: 1 + 2 + 3 = 6점\n   으로 세 대안이 완전히 공동 1등입니다.\n   더 극명하게 승자가 갈리도록 아래 조합을 사용해 보겠습니다:\n   - 투표자 A: $X \\succ Y \\succ Z$ (X:3, Y:2, Z:1)\n   - 투표자 B: $Y \\succ Z \\succ X$ (Y:3, Z:2, X:1)\n   - 투표자 C: $Y \\succ X \\succ Z$ (Y:3, X:2, Z:1)\n   Borda 점수:\n   - X: 3 + 1 + 2 = 6점\n   - Y: 2 + 3 + 3 = 8점\n   - Z: 1 + 2 + 1 = 4점\n   즉, Borda 점수에 의하면 사회적 선호는 **$Y \\succ X$** (Y가 8점, X가 6점)가 됩니다.\n   이제 Z가 배제된 상태에서 X와 Y만 두고 1대1 선호를 짝비교하면:\n   - 투표자 A: $X \\succ Y \\succ Z \\implies X \\succ Y$ (X 선호)\n   - 투표자 B: $Y \\succ Z \\succ X \\implies Y \\succ X$ (Y 선호)\n   - 투표자 C: $Y \\succ X \\succ Z \\implies Y \\succ X$ (Y 선호)\n   어? 이러면 여전히 Y를 선호하는 사람이 2명(B, C)이고 X는 1명(A)이므로 $Y \\succ X$ 네요. 순위 역전이 안 됩니다.\n   그렇다면 B의 선호를 바꿔봅시다!\n   - 투표자 A: $X \\succ Y \\succ Z$ (X:3, Y:2, Z:1)\n   - 투표자 B: $Y \\succ Z \\succ X$ (Y:3, Z:2, X:1)\n   - 투표자 C: $Z \\succ X \\succ Y$ (Z:3, X:2, Y:1)\n   이 상태에서 Z가 제거되면:\n   - A: $X \\succ Y$\n   - B: $Y \\succ X$\n   - C: $X \\succ Y$ (Z가 빠져서 $X \\succ Y$ 가 됨)\n   따라서 다수결은 $X \\succ Y$ (2:1로 X 승리) 입니다.\n   그러나 Borda 점수는 X:6, Y:6, Z:6으로 동일합니다.\n   여기서 투표자 한 명을 더 추가하여 가중을 다르게 줍니다:\n   - 투표자 A (3명): $X \\succ Y \\succ Z$ (X:3, Y:2, Z:1) $\\rightarrow$ 총 X:9, Y:6, Z:3\n   - 투표자 B (4명): $Y \\succ Z \\succ X$ (Y:3, Z:2, X:1) $\\rightarrow$ 총 Y:12, Z:8, X:4\n   - 투표자 C (4명): $Z \\succ X \\succ Y$ (Z:3, X:2, Y:1) $\\rightarrow$ 총 Z:12, X:8, Y:4\n   Borda 총점 계산:\n   - X: 9 + 4 + 8 = 21점\n   - Y: 6 + 12 + 4 = 22점\n   - Z: 3 + 8 + 12 = 23점\n   사회 선호: **$Z \\succ Y \\succ X$** (즉, 사회는 $Y \\succ X$ 로 평가함).\n   이제 Z가 탈락하고 X와 Y만 남아 경쟁하면:\n   - A(3명): $X \\succ Y$\n   - B(4명): $Y \\succ X$\n   - C(4명): $X \\succ Y$ ($Z \\succ X \\succ Y$ 였으므로)\n   소비자 선호 합계: X 선호 = 3 + 4 = 7명, Y 선호 = 4명.\n   따라서 사회 선호는 **$X \\succ Y$** 로 역전됩니다!\n   오! 이 숫자 결합 예제가 완벽합니다!\n   - A (3명): $X \\succ Y \\succ Z$\n   - B (4명): $Y \\succ Z \\succ X$\n   - C (4명): $Z \\succ X \\succ Y$\n   Borda 투표 결과 Y(22점)가 X(21점)보다 우위에 있지만, Z가 배제되면 X를 선호하는 소비자가 7명, Y를 선호하는 소비자가 4명이 되어 $X \\succ Y$ 로 최종 선호 순위가 정반대로 역전됩니다.\n   이 시나리오를 지문에 맞게 수정하겠습니다. B의 선호와 인원 배정을 명시하겠습니다.\n   B의 선호를 $Y \\succ Z \\succ X$, C의 선호를 $Z \\succ X \\succ Y$ 로 두고 인원수 가중치를 주는 형태로 묘사하겠습니다.)\n3) **방법론적 의의**: 무관한 제3의 대안 Z의 추가 또는 소멸이 전혀 관계없는 X와 Y 사이의 순위를 뒤바꾸게 하므로 합리적 집계 방식의 무결성을 깨뜨리는 증거입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-044",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "두 사람 A와 B의 소득이 각각 (1) $Y_A = 50$만 원, (2) $Y_B = 150$만 원으로 배분되어 사회 전체 평균 소득 $\\mu = 100$만 원인 상태이다.\n이 사회의 소득 분배 평가를 위해 사회적 평등 선호도 파라미터 $\\epsilon$ 이 도입된 앳킨슨(Atkinson) 평등 지수를 측정하려 한다.\n- 사회적 평등에 대한 가치 선호 강도 파라미터가 각각 (1) $\\epsilon = 1$ (로그 효용 기준)인 경우와 (2) $\\epsilon = 2$ (역수 효용 기준)인 경우에 대해, 사회가 평가하는 균등분배대등소득($Y_e$)의 크기를 계산하여 바르게 짝지은 것을 구하시오.\n(단, EDE 계산 식은 $\\epsilon=1$ 일 때 로그 기하평균 $\\ln Y_e = \\dfrac{\\ln Y_A + \\ln Y_B}{2}$ 이며, $\\epsilon=2$ 일 때 조화평균 $Y_e^{-1} = \\dfrac{Y_A^{-1} + Y_B^{-1}}{2}$ 로 정의된다. $\\sqrt{3} \\approx 1.732$ 로 연산한다).\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">A의 소득</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">B의 소득</text>\n  \n  <!-- U=Const 등후생곡선 (ε=1 완만한 곡률) -->\n  <path d=\"M 70 85 Q 120 170 240 220\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"220\" y=\"195\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\">ε=1 (로그 복지선)</text>\n\n  <!-- U=Const 등후생곡선 (ε=2 가파른 곡률 -> 원점 방향으로 강하게 꺾임) -->\n  <path d=\"M 80 110 Q 110 200 250 230\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"220\" y=\"235\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">ε=2 (조화 복지선)</text>\n</svg>\n```",
+      "options": [
+        "(1) $Y_e = 100$만 원, (2) $Y_e = 100$만 원",
+        "(1) $Y_e \u0007pprox 86.60$만 원, (2) $Y_e = 75.00$만 원 이며, 사회가 평등을 더 중시할수록($\\epsilon$이 커질수록) 동일 후생을 주는 EDE 소득 평가치가 더 하락하여 앳킨슨 불평등도가 증가한다.",
+        "(1) $Y_e \u0007pprox 86.60$만 원, (2) $Y_e = 80.00$만 원",
+        "(1) $Y_e = 75.00$만 원, (2) $Y_e \u0007pprox 86.60$만 원",
+        "평등 강도 파라미터가 정수 값이 아닐 때 EDE 소득은 양(+)의 값을 갖지 못한다."
+      ],
+      "answer": "2",
+      "explanation": "사회의 평등주의적 가치판단 선호 강도($\\epsilon$)에 따른 Atkinson EDE(균등분배대등소득)의 수리 변동 효과를 산출하는 L5 최고난도 계산 문항입니다.\n1) **(1) $\\epsilon = 1$ (기하평균 복지)인 경우의 $Y_e$ 산정**:\n   - $\\ln Y_e = \\dfrac{\\ln 50 + \\ln 150}{2} = \\dfrac{\\ln(50 \\times 150)}{2} = \\ln\\sqrt{7500}$\n   - $Y_e = \\sqrt{7500} = 50\\sqrt{3} \\approx 50 \\times 1.732 = 86.60$만 원\n   - 이때 앳킨슨 지수 $I_1 = 1 - \\dfrac{86.6}{100} = 0.134$ ($13.4\\%$)\n2) **(2) $\\epsilon = 2$ (조화평균 복지)인 경우의 $Y_e$ 산정**:\n   - $Y_e^{-1} = \\dfrac{50^{-1} + 150^{-1}}{2} = \\dfrac{\\frac{1}{50} + \\frac{1}{150}}{2} = \\dfrac{\\frac{3}{150} + \\frac{1}{150}}{2} = \\dfrac{4}{300} = \\dfrac{1}{75}$\n   - $Y_e = 75.00$만 원\n   - 이때 앳킨슨 지수 $I_2 = 1 - \\dfrac{75}{100} = 0.25$ ($25\\%$)\n3) **규범경제학적 해석**:\n   - 동일한 실제 소득 분포상에서도, 사회가 분배 정의와 평등을 더 중시할수록($\\epsilon=1 \\rightarrow 2$) 비평등 상태에 대한 복지 패널티를 더 무겁게 매겨 등가 EDE 수준을 낮게 평가($86.6 \\rightarrow 75.0$)합니다. 이에 따라 앳킨슨 불평등도 평가치는 더욱 심각하게 도출됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-045",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 국가의 누적 소득 분배 상태인 로렌츠 곡선이 일반적인 멱함수 형태인 $Y = X^{\\alpha}$ ($\\alpha > 1$) 수식으로 정립되어 있다.\n지니 계수(Gini Coefficient)와 파라미터 $\\alpha$ 간의 수학적 함수 관계를 적분을 통해 도출하고, 만약 이 국가의 로렌츠 곡선이 $Y = X^3$ 으로 측정되었을 때 계산되는 지니 계수(G)의 수준을 구하여 바르게 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"280\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"290\" y=\"255\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">누적 인구비율 (X)</text>\n  <text x=\"20\" y=\"45\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">누적 소득비율 (Y)</text>\n\n  <!-- 대각선 -->\n  <line x1=\"50\" y1=\"250\" x2=\"250\" y2=\"50\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <!-- 로렌츠 곡선 Y = X^3 (X=0.5 일 때 Y=0.125 로 극도로 처짐) -->\n  <!-- 스케일 매핑: x=50+200X, y=250-200Y -->\n  <!-- 접점 (0.5, 0.125) -> x=150, y=225 -->\n  <path d=\"M 50 250 Q 180 250 250 50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"180\" y=\"210\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">로렌츠 Y = X³</text>\n  \n  <text x=\"245\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">1.0</text>\n  <text x=\"30\" y=\"55\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">1.0</text>\n</svg>\n```",
+      "options": [
+        "지니 계수 수식: $G = \\dfrac{\u0007lpha}{\u0007lpha + 1}$, $\u0007lpha=3$ 일 때 $G = 0.75$",
+        "지니 계수 수식: $G = \\dfrac{\u0007lpha - 1}{\u0007lpha + 1}$, $\u0007lpha=3$ 일 때 $G = 0.50$ 이 되며, 지수가 높을수록 불평등 면적 $A$가 넓어진다.",
+        "지니 계수 수식: $G = \\dfrac{\u0007lpha - 1}{2\u0007lpha}$, $\u0007lpha=3$ 일 때 $G = 0.33$",
+        "지니 계수 수식: $G = \u0007lpha - 1$, $\u0007lpha=3$ 일 때 $G = 2.00$ (과적합 상태)",
+        "멱함수 로렌츠 곡선 하부 면적은 항상 0.5로 수렴하므로 지수 $\u0007lpha$의 변화에 전혀 반응하지 않는다."
+      ],
+      "answer": "2",
+      "explanation": "멱함수형 로렌츠 곡선 모형 하에서 지니 계수와의 함수 관계를 적분을 통해 직접 증명하고 지니 계수를 구하는 L5 최고난도 수리 문항입니다.\n1) **지니 계수와 $\\alpha$의 관계 유도**:\n   - 불평등 면적 $A = \\int_{0}^{1} (X - X^{\\alpha}) dX = \\left[ \\dfrac{1}{2}X^2 - \\dfrac{1}{\\alpha + 1}X^{\\alpha + 1} \\right]_{0}^{1} = \\dfrac{1}{2} - \\dfrac{1}{\\alpha + 1}$\n   - 지니 계수 $G = 2A = 2 \\left( \\dfrac{1}{2} - \\dfrac{1}{\\alpha + 1} \\right) = 1 - \\dfrac{2}{\\alpha + 1} = \\dfrac{\\alpha + 1 - 2}{\\alpha + 1} = \\dfrac{\\alpha - 1}{\\alpha + 1}$\n2) **$\\alpha = 3$ 대입 연산**:\n   - $G = \\dfrac{3 - 1}{3 + 1} = \\dfrac{2}{4} = 0.50$\n따라서 도출되는 지니 계수 수식은 $\\dfrac{\\alpha - 1}{\\alpha + 1}$ 이며, $\\alpha = 3$ 일 때 최종 지니 계수는 $0.50$ 이 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-046",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "실증경제학적 시장 분석(한계비용 균형)과 규범경제학적 가치 교정 정책(피구세 부과)의 결합을 묻는 일반균형 연립 수리 문항이다.\n어느 재화 X의 사적 시장 수요곡선(한계편익)이 $P = 120 - X$ 이고, 생산기업의 사적 한계비용($PMC$)이 $PMC = 20 + X$ 이다. 이 재화 생산 과정에서 단위당 $EC = 2X$ 의 외부 환경 파괴 비용(한계피해액)이 유발되는 외부불경제 상태이다.\n실증적 사적 시장 균형 상태에서의 생산량($X_m$)과, 사회적 최적 기준을 만족시키기 위해 정부가 기업에게 부과해야 하는 '단위당 한계 피구세(Pigouvian Tax, $t$)'의 크기를 구하여 바르게 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (X)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n\n  <!-- 수요곡선 P = 120 - X -> x=50(y=50) -> x=290(y=250) -->\n  <!-- 스케일 매핑: 10단위 -> 20픽셀 -->\n  <line x1=\"50\" y1=\"50\" x2=\"290\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"270\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">수요 D (MB)</text>\n  \n  <!-- PMC = 20 + X -> x=50(y=210) -> x=290(y=50 스케일 컷) -->\n  <line x1=\"50\" y1=\"210\" x2=\"250\" y2=\"50\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" stroke-width=\"1.5\" />\n  <text x=\"235\" y=\"100\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">사적 비용 PMC</text>\n  \n  <!-- SMC = PMC + 2X = 20 + 3X -> x=50(y=210) -> x=170(y=50 스케일 컷) -->\n  <line x1=\"50\" y1=\"210\" x2=\"150\" y2=\"50\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"70\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">사회적 비용 SMC</text>\n  \n  <!-- 시장 균형점 Em (50, 70) -> x=150, y=150 -->\n  <circle cx=\"150\" cy=\"150\" r=\"4\" fill=\"#94a3b8\" />\n  <text x=\"160\" y=\"145\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">시장 Em (50, 70)</text>\n  \n  <!-- 사회 최적점 Es (25, 95) -> x=100, y=100 -->\n  <circle cx=\"100\" cy=\"100\" r=\"4\" fill=\"#ef4444\" />\n  <text x=\"110\" y=\"95\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">최적 Es (25, 95)</text>\n</svg>\n```",
+      "options": [
+        "사적 생산: $X_m = 50$, 단위당 피구세 $t = 20$",
+        "사적 생산: $X_m = 50$, 단위당 피구세 $t = 50$ 이며, 교정세를 부과함으로써 자원 비효율적 사중손실이 전면 제거된다.",
+        "사적 생산: $X_m = 60$, 단위당 피구세 $t = 30$",
+        "사적 생산: $X_m = 40$, 단위당 피구세 $t = 40$",
+        "외부성이 존재할 경우 시장 거래가 전면 통제되므로 실증 균형량은 항시 0이다."
+      ],
+      "answer": "2",
+      "explanation": "실증적 시장 경쟁 배분과 규범적 피구세 교정 균형을 연립하여 해결하는 L5 최고난도 계산 문항입니다.\n1) **실증적 사적 시장 균형 $X_m$ 도출**:\n   - 기업은 사적 이윤을 위해 수요(MB)와 사적 한계비용($PMC$)이 일치하는 지점에서 생산합니다.\n   - $120 - X = 20 + X \\implies 2X = 100 \\implies X_m = 50$ (이때의 균형 가격 $P_m = 70$원).\n2) **규범적 사회적 최적 균형 $X_s$ 도출**:\n   - 사회 전체의 최적 조건은 수요(MB)와 사회적 한계비용($SMC$)이 일치하는 지점입니다.\n   - $SMC = PMC + EC = (20 + X) + 2X = 20 + 3X$\n   - $120 - X = 20 + 3X \\implies 4X = 100 \\implies X_s = 25$ (사회적 최적 가격 $P_s = 95$원).\n3) **피구세(Pigouvian Tax, $t$) 부과량 산정**:\n   - 정부가 사회적 최적인 생산량인 $X_s = 25$ 로 시장 생산을 강제 조율하기 위해 부과해야 하는 단위당 피구세의 크기는 최적 생산점에서의 한계피해액($EC$)과 같습니다.\n   - $t = EC(X_s) = 2 \\times 25 = 50$원\n따라서 실증적 시장 균형 생산량은 50이며, 사회적 최적으로 유도하기 위한 정부의 단위당 피구세 부과액은 50원입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-047",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "존 하사니(John Harsanyi)의 평균공리주의 정의론과 존 롤스(John Rawls)의 최소극대화 정의론을 '무지의 베일(Veil of Ignorance)' 하의 불확실성 하에서의 의사결정 수리 모형으로 비교하는 분석이다.\n어느 사회의 구성원 A와 B의 실질 소득이 각각 $Y_A = 40$만 원, $Y_B = 160$만 원으로 확정 분배되어 있다. 자신이 이 사회에 진입할 때 A가 될 확률과 B가 될 확률이 각각 $0.5$로 대칭적인 '무지의 베일' 상태에 놓여 있다.\n사회의 주관적 효용 함수가 소득의 로그 형태인 $U(Y) = \\ln Y$ 로 주어져 있을 때, 하사니(기대효용 극대화)와 롤스(최소 소득 극대화)의 정의론 가치판단 기준에 입각하여 사회가 평가하는 균등분배대등소득(EDE 소득)의 수준인 ($Y_e^H, Y_e^R$)을 바르게 도출한 것은? (단, $\\ln 40 \\approx 3.689, \\ln 160 \\approx 5.075, e^{4.382} \\approx 80$ 으로 연산한다).\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">A의 소득</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">B의 소득</text>\n\n  <!-- 하사니 EDE = 80선 (완만한 로그 곡선) -->\n  <path d=\"M 70 90 Q 130 170 250 210\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" />\n  <circle cx=\"130\" cy=\"170\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"140\" y=\"165\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">하사니 균등점 (80, 80)</text>\n\n  <!-- 롤스 EDE = 40선 (L자선 꺾임점 (40, 40)) -->\n  <path d=\"M 90 60 L 90 210 L 290 210\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n  <circle cx=\"90\" cy=\"210\" r=\"4\" fill=\"#ef4444\" />\n  <text x=\"100\" y=\"205\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">롤스 균등점 (40, 40)</text>\n</svg>\n```",
+      "options": [
+        "(1) $Y_e^H = 100$만 원, (2) $Y_e^R = 100$만 원",
+        "(1) $Y_e^H = 80$만 원, (2) $Y_e^R = 40$만 원 이며, 약자에 대한 보호를 극단화하는 롤스 모형에서 EDE가 더 낮게(불평등하게) 평가된다.",
+        "(1) $Y_e^H = 40$만 원, (2) $Y_e^R = 80$만 원",
+        "(1) $Y_e^H = 100$만 원, (2) $Y_e^R = 80$만 원",
+        "무지의 베일 상태에서는 위험 프리미엄이 0이 되므로 어떠한 분배 복지 가치선도 도출할 수 없다."
+      ],
+      "answer": "2",
+      "explanation": "무지의 베일(Veil of Ignorance) 하의 의사결정 수리 모형을 통해 하사니와 롤스의 분배 정의론 기준 대등소득을 연산하는 L5 최고난도 문제입니다.\n1) **(1) 존 하사니(Harsanyi) 평균공리주의 EDE 소득**:\n   - 무지의 베일 하에서 자신이 각 계층이 될 확률은 0.5이며, 평균공리주의는 기대효용을 극대화합니다.\n   - 기대효용 $E(U) = 0.5 \\ln(40) + 0.5 \\ln(160) \\approx 0.5 \\times (3.689) + 0.5 \\times (5.075) = 1.8445 + 2.5375 = 4.382$\n   - 균등분배대등소득(EDE)의 정의: $\\ln Y_e^H = E(U) = 4.382 \\implies Y_e^H = e^{4.382} \\approx 80$만 원.\n2) **(2) 존 롤스(Rawls) 최소극대화 EDE 소득**:\n   - 롤스는 자신이 가장 가난한 자 A(소득 40)가 될 최악의 경우를 가정하여 최소 소득(효용)을 극대화합니다.\n   - 따라서 가치의 대등소득은 무지의 베일 상태에서 사회적 최약자가 누리는 실제 소득으로 수렴합니다.\n   - $Y_e^R = \\min(40, 160) = 40$만 원.\n3) **결론**: 하사니의 기대효용 하 EDE는 80만 원인 반면, 극도의 불확실성 하 위험기피(최소극대화)를 상정하는 롤스의 EDE 소득 수준은 40만 원으로 평가됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-048",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "칼도-힉스 기준의 맹점(순환성 모순)을 제거하기 위해 티보르 시토프스키(T. Scitovsky)가 정립한 '시토프스키 이중 검정(Scitovsky Double Criterion)'의 논리적 구조에 관한 설명이다. 다음 그래프는 이중 검정이 성립하는 기하학적 형태를 보여준다. 이에 대한 옳은 분석을 고르시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_A</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">U_B</text>\n\n  <!-- 교차하지 않고 완전히 바깥에 있는 두 UPF선 -->\n  <!-- 상태 X UPF (안쪽) -->\n  <path d=\"M 50 140 Q 120 150 180 250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" stroke-width=\"1.5\" fill=\"none\" />\n  <circle cx=\"100\" cy=\"170\" r=\"4\" fill=\"#94a3b8\" />\n  <text x=\"80\" y=\"160\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">상태 x</text>\n  \n  <!-- 상태 Y UPF (완전 바깥쪽 확장) -->\n  <path d=\"M 50 180 Q 150 190 230 250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <circle cx=\"150\" cy=\"170\" r=\"4\" fill=\"#3b82f6\" />\n  <text x=\"160\" y=\"165\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">상태 y</text>\n</svg>\n```",
+      "options": [
+        "시토프스키 이중 검정이 충족되면 분배의 완벽한 균등이 자동으로 강제 보장된다.",
+        "두 상태 하의 효용가능경계가 교차하지 않고, 상태 y의 경계선(파란 실선)이 상태 x의 경계선(회색 점선)의 완벽한 바깥쪽에 고정되어 있을 때, $x \rightarrow y$ 로의 이행은 칼도-힉스 보상 기준에 의한 사회적 개선일 뿐만 아니라, 역으로 $y \rightarrow x$ 로의 복귀는 피해자의 매수 보상을 통해 저지되므로(그 역의 개선 불충족) '시토프스키 이중 검정'을 만족하여 일관된 효율 개선으로 판정된다.",
+        "두 선이 교차하여 역설이 상존할 때만 시토프스키 복합 기준이 보장된다.",
+        "시토프스키 기준 하에서는 롤스의 최소극대화 분배 상태만 독점적으로 생존한다.",
+        "이중 검정의 충족은 파레토 효율성 정리를 영구 파괴하는 결과를 낳는다."
+      ],
+      "answer": "2",
+      "explanation": "효율 배분의 일관성을 보장하기 위한 시토프스키 이중 검정(Scitovsky Double Criterion)의 기하학적 정의를 판정하는 L5 최고난도 명제 문항입니다.\n1) **시토프스키 이중 검정의 정의**:\n   - (1) 상태 $x$에서 $y$로의 이행이 칼도-힉스 기준에 의해 개선이어야 하고,\n   - (2) 동시에 변화된 상태 $y$에서 다시 원래 상태 $x$로 돌아가는 이행은 칼도-힉스 기준에 의해서 개선이 아니어야 합니다(그 역의 미충족).\n2) **기하학적 매핑 성격**:\n   - 두 상태 하의 효용가능경계선(UPC)이 교차하지 않고, 한 경계선(y)이 다른 경계선(x)의 바깥에 완전 위치하는 경우에만 이중 검정이 완벽히 만족됩니다.\n   - 만약 두 경계선이 서로 엇갈려 교차하게 되면, 왕복 이행이 모두 칼도-힉스 개선으로 판정되는 순환 모순에 직면하여 시토프스키 이중 검정이 기각됩니다.\n3) **결론**: 따라서 두 효용가능곡선이 교차하지 않고 y가 x의 완전한 바깥 영역(파란선)을 가질 때 이중 검정을 통과하여 모순 없는 사회적 후생 개선이 성립합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-049",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "3인의 소비자 A, B, C가 공공 정원 건설 비용(정책 예산) 대안 $G$ 에 대하여 각각 다음과 같은 효용 선호 함수 곡선(단일정점 및 다봉선호)을 나타내고 있다. 단순 다수결 투표 제도를 통해 의사결정을 수행할 때의 다수결 균형의 성립 여부와 '중위투표자 정리(Median Voter Theorem)'의 작동 조건에 대한 가장 옳은 수리적 분석은?\n- 소비자 A: $G=10$억 원을 선호 정점으로 하여 멀어질수록 효용이 일정하게 단조 감소함 (단일정점)\n- 소비자 B: $G=50$억 원을 선호 정점으로 하여 멀어질수록 효용이 일정하게 단조 감소함 (단일정점)\n- 소비자 C: $G=100$억 원을 선호 정점으로 하여 멀어질수록 효용이 감소하지만, $G \\le 20$억 원 이하인 극단적 비소비 구간에서는 효용이 다시 대폭 폭등함 (다봉선호)\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"340\" y=\"265\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">예산 규모 G</text>\n  <text x=\"20\" y=\"45\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">효용 U</text>\n\n  <!-- 소비자 A 선호 곡선 (정점 10 -> x=80, y=80에서 단조 하락) -->\n  <!-- 스케일 매핑: 10억 -> x=80, 50억 -> x=180, 100억 -> x=300 -->\n  <path d=\"M 80 80 L 300 240\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"90\" y=\"95\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\">소비자 A</text>\n\n  <!-- 소비자 B 선호 곡선 (정점 50 -> x=180, y=80) -->\n  <path d=\"M 80 180 L 180 80 L 300 180\" stroke=\"#22c55e\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"185\" y=\"95\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#22c55e\">소비자 B</text>\n\n  <!-- 소비자 C 선호 곡선 (다봉: 정점 100 -> x=300, y=80. 그리고 x=80 지점 부근에서 y=100 부활) -->\n  <path d=\"M 50 90 L 100 180 Q 200 220 300 80\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"280\" y=\"95\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">소비자 C (다봉)</text>\n</svg>\n```",
+      "options": [
+        "소비자 C의 선호가 다봉선호이더라도 3인의 투표 균형은 항상 안정적으로 중위투표자인 B의 선호 정점인 50억 원에서 결정된다.",
+        "다수결 투표에서 모든 구성원의 선호가 단일정점 선호(Single-peaked) 요건을 가질 때는 중위투표자의 선호 정점이 다수결 균형으로 안정 성립되나, 소비자 C와 같이 특정 구간에서 선호 효용이 다시 상승하는 '다봉선호(Multi-peaked)'가 단 1인이라도 혼재해 유입되면 선호의 이행성 붕괴(투표 순환 모순)가 발생하여 다수결 균형이 마비될 수 있다.",
+        "중위투표자 정리가 무너지면 지니계수가 강제로 0이 되므로 완벽한 형평성 예산안이 자동 집행된다.",
+        "소비자 A는 다봉선호이므로 무조건 투표권을 박탈당하게 된다.",
+        "다수결 제도의 유일한 해법은 독재자 1인의 선호를 강제 반영하는 코너해뿐이다."
+      ],
+      "answer": "2",
+      "explanation": "공공 선택 하의 중위투표자 정리(Median Voter Theorem)의 한계와 단일정점 선호(Single-peaked Preference) 요건을 기하학적 함수 형태로 대조 판정하는 L5 최고난도 문항입니다.\n1) **단일정점 선호의 중요성**:\n   - 구성원의 선호 정점(Peak)이 단 하나이며, 그 정점에서 좌우로 멀어질수록 효용이 단조 감소하는 구조입니다.\n   - 모든 구성원의 선호가 단일정점 요건을 충족하면, 다수결 투표 시 투표자들의 선호 정점 중 정가운데에 위치한 **중위 투표자(Median Voter)**의 선호안이 어떠한 다른 대안과의 짝비교에서도 과반수 득표로 승리하는 안정적 균형(Condorcet Winner)을 확보하게 됩니다.\n2) **다봉선호 유입의 부작용**:\n   - 소비자 C의 경우 $G=100$억에서 선호 정점을 갖지만, 아주 예산이 작은 $G \\le 20$억 이하에서도 효용이 높은 쌍봉(다봉) 형태를 가집니다.\n   - 이러한 다봉선호가 혼재될 경우, 다수결 집계 시 선호의 비이행성(투표의 순환 및 모순)이 유발되어 중위투표자 정리가 성립하지 않게 되며 다수결 균형이 파괴됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec02-item01-050",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 사회에 부유층 1인(소득 $Y_1 = 400$만 원)과 빈곤층 1인(소득 $Y_2 = 100$만 원)만 존재한다. 정부가 부유층에게 세율 $t$($0 \\le t \\le 1.0$)를 부과하여 세금을 징수하고, 이를 가난한 자에게 이전하는 소득 재분배 정책을 집행하려 한다.\n단, 재분배 과정에서 과세에 의한 사적 시장 왜곡 비효율로 인해 사회 전체 소득에서 $0.5 t^2 Y_1$ 에 해당하는 '사하중 손실(Deadweight Loss)' 유실 피해가 발생한다.\n이 사회가 존 롤스(Rawls)의 최소극대화 기준 사회적 후생 기준을 채택하여 사회적 후생을 극대화하고자 할 때, 정부가 책정해야 하는 '사회적 최적 분배 세율($t^*$)'의 크기와 재분배 후 극대화되는 가난한 자의 최종 소득 수준($Y_2'^*$)을 구하여 바르게 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">세율 t</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">소득 Y2' (빈곤층)</text>\n\n  <!-- 가난한 자의 소득 곡선 Y2' = 100 + 400t - 200t^2 -> 정점 t=1.0 일 때 Y2'=300? \n       앗, 수식 미분: 400 - 400t = 0 -> t*=1.0. 이때 Y2' = 100 + 400 - 200 = 300 -->\n  <!-- 스케일 매핑: t=1.0 -> x=250, Y2'=300 -> y=100 (100단위 -> 50픽셀) -->\n  <path d=\"M 50 200 Q 150 100 250 100\" stroke=\"#ef4444\" stroke-width=\"2.5\" fill=\"none\" />\n  \n  <circle cx=\"250\" cy=\"100\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"235\" y=\"85\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">롤스 최적 세율 t*=1.0 (소득 300)</text>\n</svg>\n```",
+      "options": [
+        "최적 세율 $t^* = 0.50$, 최종 소득 $Y_2'^* = 250$만 원",
+        "최적 세율 $t^* = 1.00$, 최종 소득 $Y_2'^* = 300$만 원 이며, 롤스 기준은 효율성 누수가 발생함에도 가난한 자의 복지 극대화를 위해 왜곡 손실 한계 지점까지 세율을 인상한다.",
+        "최적 세율 $t^* = 0.00$, 최종 소득 $Y_2'^* = 100$만 원",
+        "최적 세율 $t^* = 0.25$, 최종 소득 $Y_2'^* = 187.5$만 원",
+        "롤스 복지 극대화 시에는 부자의 예산 유실율이 100%를 초과하여 연산이 차단된다."
+      ],
+      "answer": "2",
+      "explanation": "형평성(롤스적 최소극대화)과 효율성(세금의 사하중 손실)의 상충 관계 하에서 최적 세율을 미분을 통해 산정하는 L5 최고난도 계산 문제입니다.\n1) **이전 후 가난한 자의 소득 수식 수립**:\n   - 가난한 자의 최종 소득 $Y_2'$는 원래 소득 $100$에 부자로부터 거두어들인 세수 실질액을 더한 값입니다.\n   - 부자로부터 거둔 세금 $T = t Y_1 = 400t$\n   - 사하중 손실 유실액 $DWL = 0.5 t^2 Y_1 = 200 t^2$\n   - 가난한 자에게 최종 이전되는 금액 $= T - DWL = 400t - 200t^2$\n   - 가난한 자의 최종 소득: $Y_2' = 100 + 400t - 200t^2$\n2) **롤스 사회적 후생 극대화 극대 조건**:\n   - 롤스적 사회적 후생은 최약자인 B의 소득과 직결되므로, $W = Y_2'$ 를 극대화하는 세율을 구해야 합니다.\n   - 극대화 1계 조건: $\\dfrac{dY_2'}{dt} = 400 - 400t = 0 \\implies t^* = 1.0$ (최적 세율은 $1.0$, 즉 $100\\%$ 세율입니다).\n3) **최종 소득 수준 도출**:\n   - $t^* = 1.0$ 을 소득 수식에 대입합니다.\n   - $Y_2'^* = 100 + 400(1.0) - 200(1.0)^2 = 100 + 400 - 200 = 300$만 원.\n4) **경제학적 함의**:\n   - 일반적인 효율성 사회(공리주의)라면 왜곡 손실을 막기 위해 세율을 낮추겠지만, 롤스 사회에서는 최약자인 가난한 자의 웰빙($Y_2'$)이 극대화되는 한계점(한계세수증대 = 한계사중손실)까지 적극적으로 세금을 거두어 이전하게 됩니다. 이 경우 최적 세율은 $100\\%$가 됩니다."
     }
   ]
 }

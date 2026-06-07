@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제17절 게임이론",
+    "item": "제3관 순차게임·반복게임",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "순차게임(sequential game)의 표현 형식은?",
+      "options": [
+        "확장형 (extensive form, 게임 트리)",
+        "전략형 (normal form)",
+        "보수행렬",
+        "수식만",
+        "그래프"
+      ],
+      "answer": "1",
+      "explanation": "순차게임: 게임 트리로 표현 (확장형). 노드(결정점)·가지(전략)·잎(보수)으로 구성. 동시게임은 보수행렬(전략형) 사용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "백워드 인덕션(backward induction)의 의미는?",
+      "options": [
+        "게임 트리 끝(잎)부터 거꾸로 최적 결정 → SPE 도출",
+        "처음부터 분석",
+        "임의 분석",
+        "정부 결정",
+        "보수 무관"
+      ],
+      "answer": "1",
+      "explanation": "백워드 인덕션: 트리 마지막 단계부터 거꾸로 최적 결정 분석. 각 단계 최적 → 전체 SPE. 신뢰 가능한 균형 도출."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-003",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "Subgame Perfect Equilibrium(SPE)의 특징은?",
+      "options": [
+        "모든 부분게임에서 내쉬균형 → 비신뢰 협박 배제",
+        "전체 게임만 내쉬균형",
+        "협력 항상",
+        "정부 결정",
+        "임의 균형"
+      ],
+      "answer": "1",
+      "explanation": "SPE (Selten 1965, 1994 노벨상): 모든 부분게임(subgame)에서 내쉬균형. 비신뢰 협박(실제로 안 할 행동) 배제. 순차게임의 표준 균형."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-004",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "슈타켈베르크 모형이 SPE인 이유는?",
+      "options": [
+        "선도자가 추종자 반응함수를 고려한 최적 결정 → SPE",
+        "동시 게임",
+        "협력 게임",
+        "임의 결정",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "슈타켈베르크: 선도자 결정 → 추종자 반응. 백워드 인덕션 - 추종자 반응함수 추정 후 선도자 최적. SPE."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-005",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "진입게임: 잠재 진입자 진입 시 기존 기업이 협조하면 (5,5), 가격전쟁하면 (-5,-3). 진입자 미진입 시 기존 (10, 0). SPE는?",
+      "options": [
+        "진입자 진입, 기존 협조 → (5, 5)",
+        "진입자 미진입",
+        "기존 가격전쟁",
+        "(0, 0)",
+        "균형 없음"
+      ],
+      "answer": "1",
+      "explanation": "백워드 인덕션: 진입자가 진입했다면 기존 협조 시 5 vs 전쟁 시 -3 → 협조 선택 (-3 < 5). 진입자 예상: 진입 → 5, 미진입 → 0 → 진입 선택. SPE: (진입, 협조) = (5, 5)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-006",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "위 진입게임에서 기존 기업의 '가격전쟁 협박'은?",
+      "options": [
+        "비신뢰 협박 - 진입 후엔 실행 비합리적, SPE 아님",
+        "신뢰 가능",
+        "정부 결정",
+        "협력",
+        "균형"
+      ],
+      "answer": "1",
+      "explanation": "비신뢰 협박: 기존이 '진입하면 전쟁'이라 위협. 그러나 진입 후엔 전쟁(-3) < 협조(5). 실행 비합리 → 위협 신뢰 못함. SPE는 이를 배제."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-007",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "반복게임(repeated game)의 핵심 통찰은?",
+      "options": [
+        "무한 반복 시 협력 균형 가능 (할인율 충분히 높을 때)",
+        "협력 불가",
+        "한번만 게임",
+        "정부 결정",
+        "수요 안정"
+      ],
+      "answer": "1",
+      "explanation": "Folk Theorem (1960s~): 무한 반복 + 충분히 큰 할인율 → 협력 가능 (SPE). 일회성 딜레마와 다른 결과. 평판·신뢰가 작동."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-008",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Tit-for-Tat 전략(Axelrod 1984)은?",
+      "options": [
+        "첫 번째 협력 → 이후 상대방 직전 행동 모방",
+        "항상 배반",
+        "항상 협력",
+        "랜덤",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "Tit-for-Tat: 첫 회 협력, 이후 상대 행동 모방 (협력 → 협력, 배반 → 배반). Axelrod (1984) 컴퓨터 토너먼트에서 우승. 단순·관대·즉시 보복·용서."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-009",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "반복 죄수 딜레마: 1회 (-1,-1) 협력 / (-5,-5) 배반. 할인율 δ. 협력 유지 조건은?",
+      "options": [
+        "δ ≥ 1/2 (대략, 매개변수에 의존)",
+        "δ = 1만",
+        "δ = 0",
+        "δ > 1",
+        "협력 불가"
+      ],
+      "answer": "1",
+      "explanation": "tit-for-tat 협력 vs 배반:\n협력 영원: -1/(1-δ)\n배반 후 (-5)→ -5/(1-δ)? 실제는 1회 배반 후 상대 보복.\n협력 유지 조건: 협력 보수 ≥ 배반 일회 후 처벌.\n일반적으로 δ ≥ 일정값 (1/2 정도) 필요."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-010",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Folk Theorem의 의미는?",
+      "options": [
+        "할인율 충분히 크면 무한 반복 게임의 SPE에 거의 모든 보수 가능",
+        "유일 균형",
+        "협력 불가",
+        "정부 결정",
+        "독점 균형만"
+      ],
+      "answer": "1",
+      "explanation": "Folk Theorem: 무한 반복 + 큰 할인율 → 평균 보수가 위협점(minmax) 이상인 거의 모든 보수가 SPE 가능. 균형 다수. 단점: 예측력 약함."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-011",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "유한 반복 게임의 분석은?",
+      "options": [
+        "마지막 회는 일회 게임 → 배반. 백워드 인덕션으로 전 회 배반",
+        "협력",
+        "변화 없음",
+        "정부 결정",
+        "무한 반복과 동일"
+      ],
+      "answer": "1",
+      "explanation": "유한 반복: 마지막 회는 1회 게임 → 지배전략(배반). 백워드 인덕션 → 전 회도 배반. 매 회 배반. 비협력적 결과 (단, 평판·불확실성 모형에서 협력 가능)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-012",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Kreps-Wilson(1982) 평판 모형은?",
+      "options": [
+        "유한 반복에도 협력 가능 - 비합리적 협력자 가능성에 대한 기대",
+        "협력 불가능",
+        "변화 없음",
+        "정부 결정",
+        "확정"
+      ],
+      "answer": "1",
+      "explanation": "Kreps-Wilson(1982): 일부 확률로 비합리적 협력자 가능성 → 평판 형성 → 유한 반복에도 협력 가능. 'reputation effect'. 행동 합리성 가정 완화."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "현실의 과점 협력 사례는?",
+      "options": [
+        "암묵적 가격 협력 (가격 선도), 카르텔, 시장 분할 합의",
+        "완전경쟁만",
+        "정부 결정",
+        "독점화",
+        "협력 없음"
+      ],
+      "answer": "1",
+      "explanation": "현실 협력: ① 암묵적 가격 협력 (가격 선도, 매주 동시 인상) ② 카르텔 (OPEC) ③ 시장 분할 ④ 비공식 합의. 반복 게임·평판이 메커니즘."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-014",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "카르텔 유지의 어려움 원인은?",
+      "options": [
+        "각자 cheating 유인, 신규 진입, 수요 변동, 반독점법",
+        "협력 보장",
+        "정부 지원",
+        "신뢰 강함",
+        "독점이라 쉬움"
+      ],
+      "answer": "1",
+      "explanation": "카르텔 유지 어려움: ① 각자 약속보다 약간 많이 생산하면 이윤↑ (cheating) ② 신규 진입 ③ 수요 변동 ④ 반독점법. 반복 게임·검증 가능성으로 일부 유지."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-015",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "순차 두 단계 가격경쟁: 1단계 기업1 가격, 2단계 기업2 추격. 1단계 균형은?",
+      "options": [
+        "기업1이 추종자 반응 예상하고 SPE 결정 (백워드)",
+        "기업1 임의 가격",
+        "동시 결정",
+        "정부 결정",
+        "분석 불가"
+      ],
+      "answer": "1",
+      "explanation": "백워드 인덕션: 2단계 기업2가 1단계 가격에 최적 반응 분석. 1단계 기업1이 그 반응 예상해 자기 이윤 극대. 슈타켈베르크 가격 경쟁."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-016",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "선점 약속(commitment)의 효과는?",
+      "options": [
+        "비신뢰 협박을 신뢰 가능하게 만들어 자기 우위 확보",
+        "협력 약화",
+        "정부 결정",
+        "변화 없음",
+        "균형 없음"
+      ],
+      "answer": "1",
+      "explanation": "선점 약속: 자기 대안을 차단 (큰 설비 투자·계약·이미지) → 비신뢰 협박이 신뢰 가능해짐 → 후발자 압박. Schelling의 분석."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-017",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "신호 게임(signaling game, Spence 1973)의 의미는?",
+      "options": [
+        "정보 우위자가 신호로 자기 유형 알림 (학위가 능력 신호)",
+        "정보 동일",
+        "신호 무관",
+        "정부 결정",
+        "협력 강제"
+      ],
+      "answer": "1",
+      "explanation": "신호 게임(Spence 1973, 2001 노벨상): 정보 비대칭에서 정보 우위자가 비용 있는 신호(학위·광고)로 자기 유형 알림. 분리균형·통합균형. 노동시장·금융 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-018",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Tit-for-Tat의 성공 요인(Axelrod 1984)은?",
+      "options": [
+        "단순함·관대(첫 협력)·즉시 보복·용서·일관성",
+        "복잡함",
+        "랜덤",
+        "공격적",
+        "협력 거부"
+      ],
+      "answer": "1",
+      "explanation": "Axelrod (1984) 컴퓨터 토너먼트에서 Tit-for-Tat 우승. 성공 요인: ① 단순함 ② 관대(첫 협력) ③ 즉시 보복(deterrence) ④ 용서(상대 협력 시 즉시 협력 복귀) ⑤ 일관성. 진화적 안정."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-019",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "반복 죄수 딜레마, 1회 보수: 협력(3,3), 배반(5,0)/(0,5), 둘 다 배반(1,1). δ가 얼마면 협력 유지?",
+      "options": [
+        "δ ≥ 1/2",
+        "δ ≥ 1",
+        "δ ≥ 0",
+        "δ ≥ 0.9",
+        "협력 불가"
+      ],
+      "answer": "1",
+      "explanation": "tit-for-tat 협력: 3/(1-δ).\n일회 배반 후 보복: 5 + 1·δ/(1-δ).\n협력 ≥ 일회 배반: 3/(1-δ) ≥ 5 + δ/(1-δ)\n3 ≥ 5(1-δ) + δ\n3 ≥ 5 - 5δ + δ\n3 ≥ 5 - 4δ\n4δ ≥ 2 → δ ≥ 1/2."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "혼합 신호의 통합·분리균형은?",
+      "options": [
+        "분리: 유형별 다른 신호 / 통합: 모두 같은 신호 → 정보 못 분리",
+        "신호 없음",
+        "정부 결정",
+        "확정 균형",
+        "동일"
+      ],
+      "answer": "1",
+      "explanation": "신호 게임 균형: ① 분리균형 (separating): 유형별 다른 신호 → 정보 노출 ② 통합균형 (pooling): 모두 같은 신호 → 정보 비공개. 비용·이익 구조에 의존."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-021",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "약속·신뢰의 경제학적 응용 사례는?",
+      "options": [
+        "통화정책 (인플레이션 약속), 환율 페그, 정치적 약속, 기업 평판",
+        "협력 무관",
+        "정부 결정만",
+        "수요만",
+        "분석 불가"
+      ],
+      "answer": "1",
+      "explanation": "약속·신뢰 응용: ① 통화정책 (인플레이션 목표 약속) ② 환율 페그 ③ 정치 약속 (선거 공약) ④ 기업 평판 (브랜드). 신뢰 가능 약속이 결과 좌우."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-022",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Coase 추측(1972)의 의미는?",
+      "options": [
+        "내구재 독점기업: 미래 가격 인하 약속 못해 → 가격 인하 →  PC와 동일",
+        "독점 가격 영원",
+        "협력 보장",
+        "정부 결정",
+        "베르트랑 역설"
+      ],
+      "answer": "1",
+      "explanation": "Coase 추측: 내구재(자동차·집·스마트폰) 독점기업이 미래 가격 인하 약속 못함 (시간 일관성 문제) → 신속히 가격 인하 → 완전경쟁 가격 수렴. 임대·자기 계약·구독 모델로 대응."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-023",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "반복 카르텔 검증·처벌의 어려움은?",
+      "options": [
+        "검증 어려움·정보 비대칭·반독점법 처벌",
+        "쉬움",
+        "정부 결정만",
+        "협력 보장",
+        "검증 무관"
+      ],
+      "answer": "1",
+      "explanation": "카르텔 유지 메커니즘: ① 행동 검증 (가격·수량) ② 일탈 처벌 (가격 전쟁). 어려움: 정보 비대칭·반독점법 (자진 신고제·과징금)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-024",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 공정위의 카르텔 적발 방법은?",
+      "options": [
+        "자진신고제(leniency), 가격 패턴 분석, 내부 고발, 국제 협력",
+        "정부 결정만",
+        "협력 강제",
+        "방치",
+        "공기업화"
+      ],
+      "answer": "1",
+      "explanation": "한국 공정위 카르텔 적발: ① 자진신고제(leniency, 1순위 면제·2순위 감면) ② 가격 패턴 분석 (동시 인상) ③ 내부 고발 ④ 국제 협력. 라면·치킨·식용유·교복 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item03-025",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Mechanism Design의 핵심 정리는?",
+      "options": [
+        "수익 등가 정리(Revenue Equivalence, Myerson 1981): 다양한 경매 방식이 같은 기대 수익",
+        "수익 다름",
+        "정부 결정",
+        "협력 강제",
+        "확정 없음"
+      ],
+      "answer": "1",
+      "explanation": "Myerson(1981, 2007 노벨상) 수익 등가 정리: 표준 가정 하 다양한 경매(영국식·네덜란드식·1순위·Vickrey) 같은 기대 수익. FCC 통신 면허·구글 광고 경매 응용."
+    }
+  ]
+}

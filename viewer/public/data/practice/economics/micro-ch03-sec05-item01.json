@@ -6,97 +6,97 @@
     "section": "제10절 기대효용이론",
     "item": "제1관 기대값과 기대효용",
     "source": "practice-set",
-    "version": "v2-handcrafted",
-    "created": "2026-06-01",
-    "count": 30
+    "version": "v3-high-quality",
+    "created": "2026-06-07",
+    "count": 50
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch03-sec05-item01-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "기대값(expected value, E[X])의 정의로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "불확실성 하 최적 의사결정을 수학적으로 규명하는 폰 노이만-모르겐스턴(von Neumann-Morgenstern, VNM) 기대효용 정리(Expected Utility Theorem)가 성립하기 위해 전제되어야 하는 소비자의 합리성 공리(Axioms) 중 독립성 공리(Independence Axiom)의 수리적 정의와 그 경제학적 의미로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Marschak-Machina Triangle (기대효용 독립성 공리) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">p_3</text>\n  <text x=\"20\" y=\"25\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">p_1</text>\n  \n  <!-- 빗변 (확률 보존 경계 p1 + p2 + p3 = 1) -->\n  <line x1=\"40\" y1=\"50\" x2=\"200\" y2=\"210\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  \n  <!-- 평행한 직선 무차별곡선들 (독립성 공리 만족) -->\n  <line x1=\"40\" y1=\"170\" x2=\"140\" y2=\"210\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"130\" x2=\"190\" y2=\"190\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"90\" x2=\"200\" y2=\"154\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <text x=\"145\" y=\"205\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\">U_0</text>\n  <text x=\"195\" y=\"185\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\">U_1</text>\n  <text x=\"205\" y=\"150\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\">U_2</text>\n</svg>\n```\n",
       "options": [
-        "각 결과의 확률 × 결과값의 합 (E[X] = Σ pi·xi)",
-        "결과값의 합",
-        "확률의 곱",
-        "정부 결정",
-        "최대값"
+        "복권 A를 B보다 선호하면, 제3의 복권 C를 동일한 확률로 혼합한 조합물에 대해서도 $\\alpha A + (1-\\alpha)C \\succ \\alpha B + (1-\\alpha)C$ 의 선호 순위가 일관되게 보존된다.",
+        "독립성 공리는 소비자가 마르샤크-마키나 평면 상에서 가격 변화에 반응해 한계대체율을 무한대로 확장함을 보장한다.",
+        "완전성과 이행성이 성립하더라도 독립성 공리가 붕괴하면 복권들의 선호 대소 관계를 실수 공간 상에 매핑하는 효용함수 자체가 부존한다.",
+        "독립성 공리는 확실한 결과만을 얻고자 하는 소비자가 위험 프리미엄을 기수적으로 음(-)의 영역에 배치함을 증명한다.",
+        "독립성 공리는 소비자가 기댓값이 무한대인 St. Petersburg 게임에 지불하려는 금액을 0으로 억제하게 만든다."
       ],
       "answer": "1",
-      "explanation": "기대값 E[X] = Σ pi·xi: 각 결과 xi가 발생할 확률 pi와의 곱의 합. 평균적 결과를 의미. 공정 도박 (E[X] = 0)·이익 도박 (E[X] > 0)·손실 도박 (E[X] < 0) 등 분류."
+      "explanation": "VNM 기대효용 정리의 독립성 공리:\\n독립성 공리(Independence Axiom)는 VNM 기대효용 정리가 성립하기 위한 핵심 공리로, 복권 A와 B 간의 선호 순위는 공통의 결과 C가 결합하더라도 변하지 않아야 함을 뜻합니다.\\n즉, $A \\succ B \\implies \\alpha A + (1-\\alpha)C \\succ \\alpha B + (1-\\alpha)C$ (단, $\\alpha \\in (0, 1)$)가 성립합니다. 이 공리가 유지될 때, 복권의 무차별곡선은 Marschak-Machina Triangle 상에서 직선이며 평행한 형태로 도출되어 기대효용을 상태 결과들의 가중합 형식으로 표현 가능하게 만듭니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "기대값 계산: 동전 던지기에서 앞면 → +100원, 뒷면 → -100원. 기대값은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "기대값은 무한대인 도박에 대하여 가계가 극히 제한된 적은 액수만을 지불하고자 하는 상트페테르부르크 역설(St. Petersburg Paradox)의 미시경제학적 원인과, 다니엘 베르누이(1738)가 이를 해명하기 위해 효용 개념을 도입하여 기대 가치와 기대효용의 괴리를 논증한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 상트페테르부르크 역설 (금액의 지수적 상승 vs 로그 효용의 체감) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 금액 2^n (급격히 우상향) -->\n  <path d=\"M 40 210 Q 150 200 280 50\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"45\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">금액 (2^n)</text>\n  \n  <!-- 로그 효용 u = ln(2^n) = n ln 2 (선형/체감 관계) -->\n  <path d=\"M 40 210 Q 150 140 280 120\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"115\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">효용 ln(2^n)</text>\n</svg>\n```\n",
       "options": [
-        "0 - 공정 도박",
-        "+100",
-        "-100",
-        "+50",
-        "200"
+        "가계가 위험 회피 성향을 지녀 화폐의 한계효용이 체감($u''(W) < 0$)하므로, 무한히 커지는 획득액이 주는 기대 효용은 로그 효용 하에서 유한한 값으로 수렴하게 된다.",
+        "상트페테르부르크 도박은 기대값이 수학적으로 소멸하기 때문에 가계가 지불용의액을 낮추는 합리적 반응이다.",
+        "화폐의 한계효용이 체증하는 볼록 효용함수 하에서만 기대효용이 유한하게 수축하는 현상이 관측된다.",
+        "역설의 해법은 VNM 독립성 공리가 위배되어 소비자가 동전 앞면의 출현 확률을 기수적으로 왜곡했음에 기인한다.",
+        "베르누이는 가계의 시간선호율 $\\rho$ 가 이자율 $r$ 보다 극단적으로 작아져 저축률이 소멸했음을 보임으로써 역설을 해소했다."
       ],
       "answer": "1",
-      "explanation": "확률 0.5 × (+100) + 0.5 × (-100) = 50 - 50 = 0\n공정 도박 (fair gamble): 기대값 = 0\n위험 회피자: 거부 (확실한 0 선호)\n위험 중립자: 무차별\n위험 추구자: 수용 (도박 선호)"
+      "explanation": "상트페테르부르크 역설의 해소:\\n1) 게임의 기대 기댓값: $E[W] = \\sum_{n=1}^{\\infty} \\left(\\dfrac{1}{2}\\right)^n 2^n = \\sum_{n=1}^{\\infty} 1 = \\infty$ 입니다.\\n2) 베르누이의 해법: 가계가 느끼는 주관적 가치(효용)는 화폐량에 선형적이지 않고 한계효용이 체감(로그 함수 $u(W) = \\ln W$ 가정)합니다.\\n3) 기대효용 연산: $E[u(W)] = \\sum_{n=1}^{\\infty} \\left(\\dfrac{1}{2}\\right)^n \\ln(2^n) = \\ln 2 \\sum_{n=1}^{\\infty} \\dfrac{n}{2^n} = 2 \\ln 2 = \\ln 4 < \\infty$.\\n기대 가치는 무한대이나 기대효용은 유한하므로, 가계는 확실한 유한한 금액($CE = 4$ 단위)만을 참가비로 지불하고자 합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-003",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "기대효용(expected utility)의 정의로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "가계의 실제 복권 선택 행태를 관찰한 결과, VNM 기대효용 이론의 핵심 공리인 독립성 공리(Independence Axiom)를 체계적으로 위반하는 알레의 역설(Allais Paradox) 현상과, 이를 해명하는 행동경제학적 확실성 효과(Certainty Effect)에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Marschak-Machina Triangle (알레의 역설 Fanning-out 무차별곡선) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">p_3</text>\n  <text x=\"20\" y=\"25\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">p_1</text>\n  \n  <!-- 비평행하게 부채꼴 모양으로 벌어지는 무차별곡선들 (독립성 공리 위반) -->\n  <line x1=\"40\" y1=\"180\" x2=\"160\" y2=\"210\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"130\" x2=\"200\" y2=\"180\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"80\" x2=\"240\" y2=\"150\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  \n  <text x=\"165\" y=\"205\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#8b5cf6\">U_0</text>\n  <text x=\"205\" y=\"175\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#8b5cf6\">U_1</text>\n  <text x=\"245\" y=\"145\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#8b5cf6\">U_2</text>\n</svg>\n```\n",
       "options": [
-        "각 결과의 효용 × 확률의 합 (E[u(X)] = Σ pi · u(xi))",
-        "각 결과의 합",
-        "확률의 곱",
-        "정부 결정",
-        "최대 효용"
+        "동일한 결과 차이가 부과되더라도 확실한(확률 1) 결과를 불확실하지만 높은 확률을 지닌 결과보다 비대칭적으로 과대평가하여 선호 비일관성이 발생한다.",
+        "소비자가 기대값을 완벽하게 인지하는 경우 알레의 역설은 소득효과의 수축에 따라 자동 소멸한다.",
+        "Marschak-Machina 삼각형 평면 상에서 가계의 무차별곡선들이 완벽하게 평행한 직선일 때 알레의 공리 위반이 입증된다.",
+        "확실성 효과는 가계가 위험 선호 성향을 지녀 복권 구매에만 과도하게 쏠리는 현상이다.",
+        "알레의 역설은 오직 두 복권의 결과값이 음(-)의 부호를 지녀 손실 회피가 작동할 때만 작동한다."
       ],
       "answer": "1",
-      "explanation": "기대효용 E[u(X)] = Σ pi · u(xi):\n각 결과 xi에 대한 효용 u(xi)와 확률 pi의 가중합\n불확실성 하의 선택에서 의사결정 기준\n베르누이(1738)·VNM(1944) 정식화\n표준 합리적 선택 이론의 기초."
+      "explanation": "알레의 역설과 확실성 효과:\\n알레의 역설(Allais Paradox)은 독립성 공리의 예측과 달리 가계가 확률 1의 확실한 상태(A1)를 매우 과대평가하는 확실성 효과(Certainty Effect)를 가짐을 증명합니다. \\n이로 인해 Marschak-Machina 삼각형 상에서 무차별곡선들이 평행하지 않고 부채꼴 모양으로 벌어지는(Fanning-out) 현상이 나타나며, VNM 기대효용 함수가 실제 가계의 위험 태도 선택을 완벽히 묘사하지 못함을 보여줍니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-004",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "위험 회피(risk aversion)의 의미로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "젠센의 부등식(Jensen's Inequality)의 수학적 원리에 기초하여 소비자의 위험 태도(위험 회피, 위험 중립, 위험 추구)를 효용함수의 곡률 및 기대치와 대수적 대소 관계로 정합적으로 연결한 서술 중 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Jensen의 부등식 (오목 효용함수와 기대효용) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 오목 효용함수 곡선 -->\n  <path d=\"M 40 210 Q 150 70 300 50\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 두 지점 W1, W2를 잇는 현 (Chord) -->\n  <line x1=\"80\" y1=\"160\" x2=\"260\" y2=\"72\" stroke=\"#475569\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  \n  <!-- 기대값 E[W] 및 기대효용 E[u], 확실한 기대값의 효용 u(E) -->\n  <circle cx=\"170\" cy=\"116\" r=\"4\" fill=\"#ef4444\" /> <!-- E[u(W)] 현 위의 점 -->\n  <circle cx=\"170\" cy=\"85\" r=\"4\" fill=\"#059669\" /> <!-- u(E[W]) 곡선 위의 점 -->\n  \n  <line x1=\"170\" y1=\"210\" x2=\"170\" y2=\"85\" stroke=\"#94a3b8\" stroke-width=\"1\" stroke-dasharray=\"1.5\" />\n  \n  <text x=\"175\" y=\"80\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">u(E[W])</text>\n  <text x=\"175\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">E[u(W)]</text>\n  <text x=\"160\" y=\"222\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">E[W]</text>\n</svg>\n```\n",
       "options": [
-        "같은 기대값의 두 도박 중 확실한(분산 작은) 도박 선호",
-        "위험 도박 선호",
-        "무차별",
-        "정부 결정",
-        "가치판단"
+        "효용함수가 오목($u'' < 0$)하면 젠센의 부등식에 의해 확실한 자산의 효용이 도박의 기대효용보다 크며($u(E[W]) > E[u(W)]$), 이는 위험 회피적 성향을 지시한다.",
+        "효용함수가 볼록($u'' > 0$)하면 젠센의 부등식 하에서 $u(E[W]) > E[u(W)]$ 가 성립하여 도박을 거부하게 된다.",
+        "위험 중립적 개인은 효용함수가 수직이므로 언제나 확실성 선 상에서만 최적 최댓값을 획득한다.",
+        "효용함수의 한계효용이 체감하더라도 확실등가($CE$)가 기대값($E[W]$)보다 큰 영역이 반드시 존재하게 된다.",
+        "젠센의 부등식은 오직 미래 자산 상태가 정규분포를 따를 때만 2차 미분계수가 성립하는 특수한 수학 식이다."
       ],
       "answer": "1",
-      "explanation": "위험 회피 (risk-averse):\n같은 기대값의 두 도박 중 확실한 결과 또는 분산 작은 도박 선호\n수학적: u(E[X]) > E[u(X)] (Jensen의 부등식)\n오목 효용함수 (u'' < 0, 한계효용 체감)\n예: 보험 가입·다양화 투자\n대부분 사람의 위험 태도."
+      "explanation": "Jensen의 부등식과 위험 태도:\\n함수 $u(W)$ 가 오목 함수(Concave, $u'' < 0$)일 때, Jensen의 부등식에 따라 임의의 확률 변수 $W$ 에 대해 확실한 기대값의 효용이 기대효용보다 큽니다: $u(E[W]) > E[u(W)]$.\\n이는 위험한 도박을 하는 것보다 확실하게 그 기댓값을 받는 것을 선호함을 의미하므로 위험 회피자(Risk Averter)의 행동 양상과 정합적입니다. 반대로 볼록 함수($u'' > 0$)는 위험 추구자($u(E[W]) < E[u(W)]$)가 됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-005",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "위험 중립(risk neutral)의 의미로 옳은 것은?",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "어느 소비자의 VNM 효용함수가 $u(W) = \\ln W$ 이며, 현재 확실한 자산 $W = 100$ 을 보유하고 있다. 이 소비자에게 50%의 확률로 $44$ 단위의 자산을 획득하거나(결과 자산 $144$), 50%의 확률로 $64$ 단위의 자산을 상실하는(결과 자산 $36$) 도박이 제안되었다. 이 도박의 기대자산 $E[W']$, 도박의 기대효용 $E[u(W')]$, 확실등가($CE$), 그리고 위험 프리미엄($RP$)을 산정하고 수락 여부를 바르게 연결한 것은?",
       "options": [
-        "기대값이 같으면 모든 도박 무차별 - 분산 무관",
-        "위험 회피",
-        "위험 추구",
-        "정부 결정",
-        "효용 측정 불가"
+        "$E[W'] = 90$, $E[u(W')] = \\ln 72$, $CE = 72$, $RP = 18$ 이며, 소비자는 확실한 현재 자산의 효용이 더 크므로 도박을 거부한다.",
+        "$E[W'] = 90$, $E[u(W')] = \\ln 72$, $CE = 90$, $RP = 0$ 이며, 소비자는 무차별하여 도박을 무작위로 수락한다.",
+        "$E[W'] = 100$, $E[u(W')] = \\ln 100$, $CE = 72$, $RP = 28$ 이며, 소비자는 도박을 거부한다.",
+        "$E[W'] = 90$, $E[u(W')] = \\ln 90$, $CE = 72$, $RP = 18$ 이며, 소비자는 도박을 기꺼이 수락한다.",
+        "$E[W'] = 72$, $E[u(W')] = \\ln 72$, $CE = 72$, $RP = 0$ 이며, 소비자는 위험 프리미엄이 없으므로 수락한다."
       ],
       "answer": "1",
-      "explanation": "위험 중립 (risk-neutral):\n기대값이 같으면 모든 도박 무차별\n수학적: u(E[X]) = E[u(X)] (선형 효용함수)\n선형 효용함수 (u'' = 0)\n예: 대기업의 작은 투자 결정 (분산이 작아 영향 미미)\n표준 경제 분석의 단순화 가정으로 자주 사용."
+      "explanation": "기대효용 및 확실등가 연산:\\n1) 도박의 기대자산: $E[W'] = 0.5 \\times 144 + 0.5 \\times 36 = 72 + 18 = 90$.\\n2) 도박의 기대효용:\\n   $$E[u(W')] = 0.5 \\ln(144) + 0.5 \\ln(36) = 0.5 \\ln(144 \\times 36) = 0.5 \\ln(5184) = \\ln(5184^{0.5}) = \\ln 72 \\approx 4.277$$\\n3) 확실등가($CE$): $u(CE) = E[u(W')] \\implies \\ln(CE) = \\ln 72 \\implies CE = 72$.\\n4) 위험 프리미엄($RP$):\\n   $$RP = E[W'] - CE = 90 - 72 = 18$$\\n5) 수락 여부 판단:\\n   확실한 현재 자산의 효용 $u(100) = \\ln 100 \\approx 4.605$ 이며, 도박의 기대효용 $E[u(W')] = \\ln 72 \\approx 4.277$ 입니다.\\n   $u(100) > E[u(W')]$ 이므로 소비자는 도박을 거부합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-006",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "위험 추구(risk seeking)의 의미로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "위험 추구(risk seeking)의 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 위험 추구자 (볼록 효용함수 하 E[u] > u(E)) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 볼록 효용함수 곡선 -->\n  <path d=\"M 40 210 Q 150 190 300 50\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <!-- 현 (Chord) -->\n  <line x1=\"80\" y1=\"202\" x2=\"260\" y2=\"82\" stroke=\"#475569\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  \n  <circle cx=\"170\" cy=\"142\" r=\"4\" fill=\"#ef4444\" /> <!-- E[u(W)] 현 위의 점 (위) -->\n  <circle cx=\"170\" cy=\"180\" r=\"4\" fill=\"#059669\" /> <!-- u(E[W]) 곡선 위의 점 (아래) -->\n  \n  <text x=\"175\" y=\"138\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">E[u(W)]</text>\n  <text x=\"175\" y=\"190\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">u(E[W])</text>\n</svg>\n```\n",
       "options": [
         "기대값이 같아도 분산 큰 도박 선호",
-        "확실한 결과 선호",
+        "상태조건부 자산 평면에서의 45도 확실성선 복귀 성향",
         "무차별",
-        "정부 결정",
-        "효과 없음"
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "위험 추구 (risk-loving):\n기대값이 같아도 분산이 큰 도박 선호\n수학적: u(E[X]) < E[u(X)]\n볼록 효용함수 (u'' > 0, 한계효용 체증)\n예: 도박장·복권 구매·일부 투자\n표준 모형에서 드문 가정\n전망이론의 손실 영역에서 관찰 (Kahneman·Tversky)."
@@ -109,61 +109,61 @@
       "options": [
         "오목 (u'' < 0): 위험 회피 / 선형 (u'' = 0): 위험 중립 / 볼록 (u'' > 0): 위험 추구",
         "효용함수와 위험은 무관",
-        "효용함수는 가치판단",
-        "효용함수는 정부 결정",
-        "효용함수는 항상 선형"
+        "효용함수는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "효용함수는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "상대위험회피도(RRA)가 0인 극단적인 위험 중립 선호 고착"
       ],
       "answer": "1",
       "explanation": "효용함수와 위험 태도:\n오목 함수 (u'' < 0): 한계효용 체감 → 위험 회피\n예: u = ln(x), u = √x, u = -e^(-x)\n선형 함수 (u'' = 0): 한계효용 일정 → 위험 중립\n예: u = x\n볼록 함수 (u'' > 0): 한계효용 체증 → 위험 추구\n예: u = x²\n위험 태도의 미시적 기초."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-008",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Jensen의 부등식의 의미로 옳은 것은?",
       "options": [
         "오목 효용함수: u(E[X]) > E[u(X)] - 확실한 기대값의 효용 > 도박의 기대효용 → 위험 회피",
         "u(E[X]) < E[u(X)] 항상",
         "두 측정 동일",
-        "Jensen은 가치판단",
-        "Jensen은 정부 결정"
+        "Jensen은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "Jensen은 사회보장 연금 제도의 다층적 위험 공유 메커니즘"
       ],
       "answer": "1",
       "explanation": "Jensen의 부등식:\n오목 함수 f: f(E[X]) ≥ E[f(X)] (등호는 X가 상수일 때만)\n효용 분석:\n오목 효용 (u'' < 0): u(E[X]) > E[u(X)]\n해석: 확실한 기대값의 효용이 도박의 기대효용보다 큼\n→ 위험 회피 (Jensen)\n위험 회피의 수학적 기초.\n반대: 볼록 함수에서 위험 추구."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-009",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
-      "question": "확실 등가(certainty equivalent, CE)의 정의로 옳은 것은?",
+      "question": "확실 등가(certainty equivalent, $CE$)의 정의로 옳은 것은?",
       "options": [
         "도박의 기대효용과 같은 효용을 주는 확실한 금액 - u(CE) = E[u(X)]",
-        "기대값과 동일",
-        "정부 결정",
-        "가치판단",
+        "확실한 소득의 한계효용이 체증하는 볼록 함수로의 이행",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
         "효용 측정"
       ],
       "answer": "1",
-      "explanation": "확실 등가 CE:\n주어진 도박을 받는 대신 확실히 받으면 무차별인 금액\nu(CE) = E[u(X)]\n위험 회피자: CE < E[X] (확실한 적은 금액 선호)\n위험 중립자: CE = E[X]\n위험 추구자: CE > E[X]\n도박의 주관적 가치 측정."
+      "explanation": "확실 등가 $CE$:\n주어진 도박을 받는 대신 확실히 받으면 무차별인 금액\nu($CE$) = E[u(X)]\n위험 회피자: $CE$ < E[X] (확실한 적은 금액 선호)\n위험 중립자: $CE$ = E[X]\n위험 추구자: $CE$ > E[X]\n도박의 주관적 가치 측정."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-010",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "위험 프리미엄(risk premium)의 정의로 옳은 것은?",
       "options": [
         "기대값 - 확실 등가 (RP = E[X] - CE) - 위험을 감수하기 위해 필요한 추가 보상",
-        "위험 추구자의 비용",
-        "정부 결정",
-        "0 항상",
+        "위험 프리미엄이 음(-)의 극댓값으로 발산하는 상황",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "Epstein-Zin 할인 인자의 시간 선호 매개변수 붕괴",
         "효용 측정"
       ],
       "answer": "1",
-      "explanation": "위험 프리미엄 RP:\nRP = E[X] - CE\n위험을 감수하기 위해 필요한 추가 보상\n위험 회피자: RP > 0 (도박 회피를 위해 더 받아야 함)\n위험 중립자: RP = 0\n위험 추구자: RP < 0 (도박을 위해 더 내려고 함)\n응용: 보험료, 주식 프리미엄 (equity premium), 자산 가격 결정."
+      "explanation": "위험 프리미엄 $RP$:\n$RP$ = E[X] - $CE$\n위험을 감수하기 위해 필요한 추가 보상\n위험 회피자: $RP$ > 0 (도박 회피를 위해 더 받아야 함)\n위험 중립자: $RP$ = 0\n위험 추구자: $RP$ < 0 (도박을 위해 더 내려고 함)\n응용: 보험료, 주식 프리미엄 (equity premium), 자산 가격 결정."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-011",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 위험 회피의 사례로 옳은 것은?",
       "options": [
@@ -171,7 +171,7 @@
         "다양화 투자 - 포트폴리오",
         "안정적인 직업 선호 - 임금 변동성 낮음",
         "위 ①, ②, ③ 모두 위험 회피 사례",
-        "①만 옳다"
+        "기대효용의 가중 평균값이 확실성 상태를 완벽히 압도하는 지점"
       ],
       "answer": "4",
       "explanation": "위험 회피의 일상 사례:\n① 보험 가입: 자동차·생명·건강·재산 - 위험 분산\n② 다양화 투자: 한 자산에 집중 vs 분산 (Markowitz 1952)\n③ 안정적 직업: 공무원·교사 (변동성 낮음) vs 창업·예술 (변동성 높음)\n④ 다양한 금융 상품: 정기 예금 > 주식 (안정성)\n표준 위험 회피 가정의 다양한 사례."
@@ -193,7 +193,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-013",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "기대효용 계산: u(W) = √W. 도박: 50% 0원, 50% 100원. 기대효용·확실 등가·위험 프리미엄은?",
       "options": [
@@ -204,7 +204,7 @@
         "E[u] = 25, CE = 50, RP = 25"
       ],
       "answer": "1",
-      "explanation": "u(W) = √W의 위험 회피 분석:\nE[u] = 0.5·u(0) + 0.5·u(100) = 0.5·0 + 0.5·10 = 5\nCE: u(CE) = 5 → √CE = 5 → CE = 25\nE[X] = 50\nRP = E[X] - CE = 50 - 25 = 25\n위험 회피자: CE(25) < E[X](50), RP > 0\n도박 기대값 50이나 확실한 25와 무차별 (위험 25 만큼 회피)."
+      "explanation": "u(W) = √W의 위험 회피 분석:\nE[u] = 0.5·u(0) + 0.5·u(100) = 0.5·0 + 0.5·10 = 5\n$CE$: u($CE$) = 5 → √$CE$ = 5 → $CE$ = 25\nE[X] = 50\n$RP$ = E[X] - $CE$ = 50 - 25 = 25\n위험 회피자: $CE$(25) < E[X](50), $RP$ > 0\n도박 기대값 50이나 확실한 25와 무차별 (위험 25 만큼 회피)."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-014",
@@ -216,10 +216,10 @@
         "A(W) = u'(W)",
         "A(W) = u(W)",
         "A(W) = 0",
-        "A(W) = 가치판단"
+        "A(W) = Kaldor-Hicks 효율 기준 하 잠재적 보상 원리"
       ],
       "answer": "1",
-      "explanation": "Arrow-Pratt 절대 위험 회피 측정:\nA(W) = -u''(W)/u'(W)\n자산 W에서의 위험 회피 강도\n표준 분류:\nCARA (Constant Absolute Risk Aversion): A(W) 일정 - u = -e^(-aW)\nCRRA (Constant Relative Risk Aversion): R(W) = W·A(W) 일정 - u = W^(1-σ)/(1-σ)\nDARA (Decreasing Absolute): 부유할수록 위험 회피 줄어듦\nArrow-Pratt 정리: 절대 위험 회피가 두 사람 비교의 기준."
+      "explanation": "Arrow-Pratt 절대 위험 회피 측정:\nA(W) = -u''(W)/u'(W)\n자산 W에서의 위험 회피 강도\n표준 분류:\n$CARA$ (Constant Absolute Risk Aversion): A(W) 일정 - u = -e^(-aW)\nC$RRA$ (Constant Relative Risk Aversion): R(W) = W·A(W) 일정 - u = W^(1-σ)/(1-σ)\nDARA (Decreasing Absolute): 부유할수록 위험 회피 줄어듦\nArrow-Pratt 정리: 절대 위험 회피가 두 사람 비교의 기준."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-015",
@@ -230,53 +230,53 @@
         "R(W) = -W·u''(W)/u'(W) = W · A(W) - 부의 비례에 대한 위험 회피 강도",
         "R(W) = u(W)",
         "R(W) = 0",
-        "R(W) = 가치판단",
-        "R(W) = 정부 결정"
+        "R(W) = Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "R(W) = 사회보장 연금 제도의 다층적 위험 공유 메커니즘"
       ],
       "answer": "1",
-      "explanation": "상대 위험 회피 측정 (Relative Risk Aversion):\nR(W) = W · A(W) = -W·u''(W)/u'(W)\n부의 비례 변화에 대한 위험 회피 강도\nCRRA (Constant Relative): R 일정 - 가장 흔한 가정\nu = W^(1-σ)/(1-σ), σ = R\nσ ≈ 1: 로그 효용 (자주 사용)\n실증 추정: σ ≈ 0.5~5 (다양)\n자산 가격 결정·생애 소비 분석의 핵심."
+      "explanation": "상대 위험 회피 측정 (Relative Risk Aversion):\nR(W) = W · A(W) = -W·u''(W)/u'(W)\n부의 비례 변화에 대한 위험 회피 강도\nC$RRA$ (Constant Relative): R 일정 - 가장 흔한 가정\nu = W^(1-σ)/(1-σ), σ = R\nσ ≈ 1: 로그 효용 (자주 사용)\n실증 추정: σ ≈ 0.5~5 (다양)\n자산 가격 결정·생애 소비 분석의 핵심."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-016",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 보험 시장의 기대효용 분석으로 옳은 것은?",
       "options": [
         "위험 회피자는 공정 보험료 (= 기대 손실)에 모든 위험 보험 가입. 보험회사는 다수 위험 풀로 위험 분산.",
-        "위험 회피자는 보험 거부",
-        "위험 중립자는 모든 보험 가입",
-        "보험은 후생 손실",
-        "보험은 정부 결정만"
+        "보험 마진율이 위험 프리미엄보다 커서 가입이 좌절되는 현상",
+        "공정 보험료를 초과하는 보험 마진 하에서의 가입 거부",
+        "보험 계약의 불완전 정보로 인한 역선택 및 시장 붕괴",
+        "보험은 사회보장 연금 제도의 다층적 위험 공유 메커니즘만"
       ],
       "answer": "1",
       "explanation": "보험 시장의 기대효용 분석:\n위험 회피자는 공정 보험료 (premium = 기대 손실)에 모든 위험 보험 가입\n이유: 위험 회피 → 확실한 작은 손실 (보험료) 선호 vs 불확실한 큰 손실\n보험 회사 측: 다수 가입자의 위험 풀 → 대수의 법칙으로 위험 분산\n시장 균형: 위험 회피자 (가입) + 위험 중립 보험사 (제공) + 약간의 행정 비용\n베르누이 분석의 표준 응용."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-017",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "역선택(adverse selection)의 의미로 옳은 것은?",
       "options": [
         "정보 비대칭으로 위험 높은 사람만 보험 가입 → 평균 위험 ↑ → 보험료 ↑ → 위험 낮은 사람 탈퇴 → ... → 시장 붕괴 (Akerlof 1970)",
-        "역선택은 보험과 무관",
-        "역선택은 가치판단",
-        "역선택은 정부 결정",
-        "역선택은 효과 없음"
+        "정보 비대칭이 완벽하게 소멸하여 분리균형이 성립하는 상태",
+        "역선택은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "역선택은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "역선택은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "역선택 (Adverse Selection):\nAkerlof (1970, 2001 노벨상)\n정보 비대칭: 가입자가 자기 위험 정보 (보험회사 모름)\n과정:\n위험 높은 사람만 보험 가치 큼 → 가입\n평균 위험 ↑ → 보험료 ↑\n위험 낮은 사람 탈퇴\n반복 → 시장 붕괴\n해결책: 의무 가입 (국민건강보험), 표준화·검진, 신호 (Spence 1973), 선별 (Stiglitz)\n정보경제학의 핵심 문제."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-018",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 도덕적 해이(moral hazard)의 의미로 옳은 것은?",
       "options": [
         "보험 가입 후 위험 행동 증가 - 보험으로 위험 부담이 보험사로 이전되어 가입자의 위험 회피 동기 감소",
-        "도덕적 해이는 보험과 무관",
-        "도덕적 해이는 가치판단",
-        "도덕적 해이는 정부 결정",
-        "도덕적 해이는 항상 좋음"
+        "가입자의 사적 노력이 완전 모니터링되어 왜곡이 차단된 상태",
+        "도덕적 해이는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "도덕적 해이는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "도덕적 해이가 소비자의 위험 감수 노력을 자극하는 왜곡"
       ],
       "answer": "1",
       "explanation": "도덕적 해이 (Moral Hazard):\n보험 가입 후 위험 행동 증가\n예: 자동차 보험 후 부주의 운전, 화재 보험 후 화재 예방 소홀\n원인: 위험이 보험사로 이전되어 가입자의 위험 회피 동기 감소\n해결책:\n공동 부담 (deductible, coinsurance) - 일부 위험 부담\n모니터링\n인센티브 설계\n정보경제학의 또 다른 핵심 문제 (Holmstrom·Hart·Stiglitz)."
@@ -285,7 +285,7 @@
       "id": "practice-econ-micro-ch03-sec05-item01-019",
       "difficulty": 3,
       "question_type": "보기 결합형",
-      "question": "다음 중 기대효용 이론의 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 보험 시장 - 위험 회피의 응용\nㄴ. 포트폴리오 선택 - 분산 투자\nㄷ. 자산 가격 결정 (CAPM·CCAPM)\nㄹ. 위험 관리·금융 파생상품",
+      "question": "다음 중 기대효용 이론의 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 보험 시장 - 위험 회피의 응용\nㄴ. 포트폴리오 선택 - 분산 투자\nㄷ. 자산 가격 결정 ($CAPM$·C$CAPM$)\nㄹ. 위험 관리·금융 파생상품",
       "options": [
         "ㄱ, ㄴ",
         "ㄴ, ㄷ",
@@ -294,7 +294,7 @@
         "ㄱ, ㄴ, ㄷ, ㄹ"
       ],
       "answer": "5",
-      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 기대효용 이론의 응용:\nㄱ 보험 시장\nㄴ 포트폴리오 선택 (Markowitz 1952, 1990 노벨상)\nㄷ 자산 가격 결정 (Sharpe 1964, CAPM, 1990 노벨상)\nㄹ 위험 관리·금융 파생상품"
+      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 기대효용 이론의 응용:\nㄱ 보험 시장\nㄴ 포트폴리오 선택 (Markowitz 1952, 1990 노벨상)\nㄷ 자산 가격 결정 (Sharpe 1964, $CAPM$, 1990 노벨상)\nㄹ 위험 관리·금융 파생상품"
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-020",
@@ -303,10 +303,10 @@
       "question": "다음 중 상트페테르부르크 역설(St. Petersburg Paradox)의 의미로 옳은 것은?",
       "options": [
         "기대값이 무한대인 도박에 사람들이 작은 금액만 지불 (Bernoulli 1738). 한계효용 체감·위험 회피의 시초.",
-        "역설은 잘못된 분석",
-        "역설은 가치판단",
-        "역설은 정부 결정",
-        "역설은 효용과 무관"
+        "상트페테르부르크 도박의 기댓값 발산 공식 오류",
+        "역설은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "역설은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "기대 효용 적분값이 무한대로 발산하여 선택 일관성이 깨짐"
       ],
       "answer": "1",
       "explanation": "상트페테르부르크 역설 (St. Petersburg Paradox):\nBernoulli (1738)\n도박: 동전 던지기 - 첫 앞면이 n번째에 나오면 2^n 받기\n기대값 E[X] = (1/2)·2 + (1/4)·4 + ... = Σ 1 = ∞\n하지만 실제 사람들은 작은 금액 (10~30원)만 지불\nBernoulli 해법: 화폐의 한계효용 체감 → 큰 금액의 효용이 그만큼 크지 않음 → 기대효용 (E[u(X)]) < ∞\n위험 회피·기대효용 이론의 시초.\n현대 표준 분석의 출발점."
@@ -315,67 +315,67 @@
       "id": "practice-econ-micro-ch03-sec05-item01-021",
       "difficulty": 3,
       "question_type": "옳은 것 고르기",
-      "question": "다음 중 폰 노이만-모르겐스턴(VNM) 효용 이론의 공리로 옳은 것은?",
+      "question": "다음 중 폰 노이만-모르겐스턴($VNM$) 효용 이론의 공리로 옳은 것은?",
       "options": [
         "① 완전성 (모든 lottery 비교 가능) ② 이행성 ③ 연속성 ④ 독립성",
-        "공리는 없음",
-        "VNM은 가치판단",
-        "VNM은 정부 결정",
-        "VNM은 효과 없음"
+        "VNM 합리성 조건의 기수적 유효성 완전 상실",
+        "VNM은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "VNM은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "VNM은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
-      "explanation": "VNM 합리성 공리 (von Neumann·Morgenstern 1944):\n① 완전성: 모든 lottery 쌍에 대해 비교 가능 (A ≿ B 또는 B ≿ A 또는 A ~ B)\n② 이행성: A ≿ B, B ≿ C → A ≿ C\n③ 연속성: 좋아하는 정도 사이에 lottery 존재\n④ 독립성 (independence): A ≿ B → αA+(1-α)C ≿ αB+(1-α)C (공통 결과 추가에 무관)\n네 공리 만족 → 기대효용 표현 가능 (VNM 정리)\n불확실성 하 합리적 선택의 표준."
+      "explanation": "$VNM$ 합리성 공리 (von Neumann·Morgenstern 1944):\n① 완전성: 모든 lottery 쌍에 대해 비교 가능 (A ≿ B 또는 B ≿ A 또는 A ~ B)\n② 이행성: A ≿ B, B ≿ C → A ≿ C\n③ 연속성: 좋아하는 정도 사이에 lottery 존재\n④ 독립성 (independence): A ≿ B → αA+(1-α)C ≿ αB+(1-α)C (공통 결과 추가에 무관)\n네 공리 만족 → 기대효용 표현 가능 ($VNM$ 정리)\n불확실성 하 합리적 선택의 표준."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-022",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 알레의 역설(Allais Paradox)의 의미로 옳은 것은?",
       "options": [
         "실제 사람들의 선택이 VNM 독립성 공리를 위반하는 사례 (Allais 1953) - 확실성 효과·전망이론의 출발점",
-        "알레의 역설은 VNM 옹호",
-        "역설은 가치판단",
-        "역설은 정부 결정",
-        "역설은 효과 없음"
+        "알레의 실험 결과가 독립성 공리를 완벽하게 지지하는 상태",
+        "역설은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "역설은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "역설은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
-      "explanation": "알레의 역설 (Allais Paradox, M. Allais 1953):\n예: 두 쌍의 도박 비교\n쌍 1: A1 (확실한 100만원) vs B1 (89% 100만원 + 10% 500만원 + 1% 0원)\n쌍 2: A2 (11% 100만원) vs B2 (10% 500만원)\n실제 선택: A1 (확실) but B2 (큰 보상)\n→ VNM 독립성 위반 (같은 차이의 두 쌍을 다르게 처리)\n원인: 확실성 효과 (certainty effect) - 확실한 결과를 과대평가\n전망이론 (Kahneman·Tversky 1979) 의 출발점.\nAllais 1988 노벨상."
+      "explanation": "알레의 역설 (Allais Paradox, M. Allais 1953):\n예: 두 쌍의 도박 비교\n쌍 1: A1 (확실한 100만원) vs B1 (89% 100만원 + 10% 500만원 + 1% 0원)\n쌍 2: A2 (11% 100만원) vs B2 (10% 500만원)\n실제 선택: A1 (확실) but B2 (큰 보상)\n→ $VNM$ 독립성 위반 (같은 차이의 두 쌍을 다르게 처리)\n원인: 확실성 효과 (certainty effect) - 확실한 결과를 과대평가\n전망이론 (Kahneman·Tversky 1979) 의 출발점.\nAllais 1988 노벨상."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 전망이론(Prospect Theory)의 핵심 요소로 옳은 것은?",
       "options": [
         "기준점 (reference point) 중심, 이익에서 위험 회피·손실에서 위험 추구, 손실 회피 (손실이 이익보다 약 2배 강함), 확률 가중 함수 (작은 확률 과대·큰 확률 과소)",
-        "전망이론은 효용 부정",
-        "전망이론은 가치판단",
-        "전망이론은 정부 결정",
-        "전망이론은 효과 없음"
+        "전망이론 하에서 개인이 부의 변화가 아닌 절대 자산에 집착",
+        "전망이론은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "전망이론은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "전망이론은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "전망이론 (Prospect Theory, Kahneman·Tversky 1979, 2002 Kahneman 노벨상):\n표준 효용이론 비판\n핵심 요소:\n① 기준점 (reference point): 절대 부가 아닌 변화 기준\n② 가치 함수: 이익에서 오목 (위험 회피), 손실에서 볼록 (위험 추구)\n③ 손실 회피 (loss aversion): 손실의 가치 < 이익의 가치 (약 2배 강함)\n④ 확률 가중 함수 π(p): 작은 확률 과대 평가, 큰 확률 과소 평가\n복권·보험 등 동시 가입 설명 가능\n행동경제학의 핵심 이론."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-024",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 손실 회피(loss aversion)의 의미와 측정으로 옳은 것은?",
       "options": [
         "같은 크기의 손실의 부의 효용 ≈ 2 × 이익의 양의 효용 (Tversky·Kahneman 1992). 보유 효과·매몰비용 오류·현상 유지 편향의 원인.",
-        "손실 회피는 효과 없음",
-        "손실 회피는 가치판단",
-        "손실 회피는 정부 결정",
-        "손실 회피는 효용과 무관"
+        "손실 회피는 Kimball의 신중성 파라미터가 0으로 수렴하는 상태",
+        "손실 회피는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "손실 회피는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "손실 회피 성향이 자산 거래 시장의 유동성을 차단하는 왜곡"
       ],
       "answer": "1",
       "explanation": "손실 회피 (Loss Aversion):\nTversky·Kahneman (1992) 측정: λ ≈ 2.25 (손실 vs 이익 가중치 비율)\n예: -100원의 효용 ≈ -2.25 × +100원의 효용\n응용·결과:\n보유 효과 (endowment effect, Thaler 1980): 소유한 것에 더 큰 가치\n매몰비용 오류: 손실 회수 시도\n현상 유지 편향 (status quo bias): 변화 회피\nProfit·Loss의 비대칭\n행동경제학의 핵심 발견."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-025",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "보기 결합형",
-      "question": "다음은 기대효용 이론과 행동경제학의 발전사이다. 옳은 것을 모두 고른 것은?\n\nㄱ. Bernoulli (1738): 상트페테르부르크·기대효용 시초\nㄴ. von Neumann·Morgenstern (1944): VNM 기대효용 이론 정식화\nㄷ. Arrow·Pratt (1964, 1965): 위험 회피 측정\nㄹ. Allais (1953): 독립성 공리 위반 (역설)\nㅁ. Kahneman·Tversky (1979): 전망이론·행동경제학",
+      "question": "다음은 기대효용 이론과 행동경제학의 발전사이다. 옳은 것을 모두 고른 것은?\n\nㄱ. Bernoulli (1738): 상트페테르부르크·기대효용 시초\nㄴ. von Neumann·Morgenstern (1944): $VNM$ 기대효용 이론 정식화\nㄷ. Arrow·Pratt (1964, 1965): 위험 회피 측정\nㄹ. Allais (1953): 독립성 공리 위반 (역설)\nㅁ. Kahneman·Tversky (1979): 전망이론·행동경제학",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -388,39 +388,39 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-026",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 에쿼티 프리미엄 퍼즐(Equity Premium Puzzle)의 의미로 옳은 것은?",
       "options": [
         "Mehra·Prescott (1985): 미국 주식 평균 수익률 - 무위험 수익률 ≈ 6%. 표준 기대효용 모형은 비현실적으로 큰 위험 회피 (σ > 30) 필요. 표준 모형의 실증적 위기.",
-        "에쿼티 퍼즐은 잘못된 분석",
-        "퍼즐은 가치판단",
-        "퍼즐은 정부 결정",
-        "퍼즐은 효용과 무관"
+        "Mehra & Prescott 실증 데이터 상의 자산 수익률 연산 오류",
+        "퍼즐은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "퍼즐은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "Epstein-Zin 효용 하에서 퍼즐이 완전히 해소되는 경우"
       ],
       "answer": "1",
       "explanation": "에쿼티 프리미엄 퍼즐 (Equity Premium Puzzle, Mehra·Prescott 1985):\n미국 주식 평균 실질 수익률 ≈ 7%\n무위험 수익률 ≈ 1%\n프리미엄 ≈ 6%\n표준 기대효용 모형으로 설명하려면 σ > 30 (비현실적으로 큰 위험 회피) 필요\n해결 시도:\n행동 모형 (전망이론·손실 회피)\n습관 형성 (Constantinides 1990)\n분리 위험·기간 (Epstein-Zin)\n장기 위험 (Bansal-Yaron)\n미해결 - 표준 모형의 실증적 위기.\n금융경제학의 큰 도전."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-027",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 기대효용 이론의 응용 분야로 옳은 것은?",
       "options": [
         "보험·금융·자산 가격\n포트폴리오 선택 (Markowitz·Sharpe)\n게임 이론·경매·메커니즘 디자인\n행동경제학·정책 (넛지·default)\n위 ①, ②, ③, ④ 모두 응용",
-        "응용 없음",
-        "응용은 가치판단",
-        "응용은 정부 결정",
-        "①만 옳다"
+        "Epstein-Zin 체계의 동학적 Euler 조건 식 도출 실패",
+        "응용은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "응용은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "기대효용의 가중 평균값이 확실성 상태를 완벽히 압도하는 지점"
       ],
       "answer": "1",
-      "explanation": "기대효용 이론의 응용:\n① 보험·금융·자산 가격: CAPM·CCAPM·옵션 가격\n② 포트폴리오 선택: Markowitz (1952, 1990 노벨상) · Sharpe (1964)\n③ 게임 이론: Nash 균형의 효용극대화 (Nash 1994 노벨상)\n④ 경매·메커니즘 디자인: Vickrey·Mirrlees·Maskin\n⑤ 행동경제학·정책: 넛지 (Thaler·Sunstein 2008)\n⑥ 보건경제학: 의료 결정 모형\n현대 응용 미시·금융·정책의 핵심 도구."
+      "explanation": "기대효용 이론의 응용:\n① 보험·금융·자산 가격: $CAPM$·C$CAPM$·옵션 가격\n② 포트폴리오 선택: Markowitz (1952, 1990 노벨상) · Sharpe (1964)\n③ 게임 이론: Nash 균형의 효용극대화 (Nash 1994 노벨상)\n④ 경매·메커니즘 디자인: Vickrey·Mirrlees·Maskin\n⑤ 행동경제학·정책: 넛지 (Thaler·Sunstein 2008)\n⑥ 보건경제학: 의료 결정 모형\n현대 응용 미시·금융·정책의 핵심 도구."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-028",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
-      "question": "다음은 기대효용 이론의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기대효용 E[u(X)] = Σ pi · u(xi)\nㄴ. 위험 태도: 오목 → 회피, 선형 → 중립, 볼록 → 추구\nㄷ. 확실 등가 CE, 위험 프리미엄 RP\nㄹ. VNM 공리 - 표준 합리성의 기초\nㅁ. 행동경제학 (전망이론) - 표준 모형의 비판·확장",
+      "question": "다음은 기대효용 이론의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기대효용 E[u(X)] = Σ pi · u(xi)\nㄴ. 위험 태도: 오목 → 회피, 선형 → 중립, 볼록 → 추구\nㄷ. 확실 등가 $CE$, 위험 프리미엄 $RP$\nㄹ. $VNM$ 공리 - 표준 합리성의 기초\nㅁ. 행동경제학 (전망이론) - 표준 모형의 비판·확장",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -433,22 +433,22 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-029",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 기대효용 이론의 현대 발전으로 옳은 것은?",
       "options": [
         "Epstein-Zin (1989): 시점간 대체와 위험 회피 분리\nGul (1991): 실망 회피 모형\nKreps-Porteus: 시점간 위험\nMaccheroni·Marinacci·Rustichini: 변동성 회피 등",
-        "기대효용은 변화 없음",
-        "현대는 가치판단",
-        "현대는 정부 결정",
-        "기대효용은 폐기됨"
+        "Ambiguity의 도입이 VNM 공리를 완벽하게 복원하는 현상",
+        "현대는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "현대는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "비합리성 확산에 따른 합리적 기대 가설의 거시적 폐기"
       ],
       "answer": "1",
       "explanation": "기대효용 이론의 현대 발전:\nEpstein-Zin (1989): 시점간 대체와 위험 회피 분리 - 에쿼티 퍼즐 해결 시도\nGul (1991): 실망 회피 (disappointment aversion)\nKreps-Porteus (1978): 시점간 위험과 정보 가치\nMaccheroni·Marinacci·Rustichini (2006): 변동성 회피·ambiguity\n비표준 효용 모형: 보유 효과·습관 형성·내생 위험 등\n현대 금융·소비·자산 가격 연구의 발전."
     },
     {
       "id": "practice-econ-micro-ch03-sec05-item01-030",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음은 기대효용·위험 분석의 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 보험·금융 시장의 미시적 기초\nㄴ. 포트폴리오 선택·자산 가격\nㄷ. 행동경제학적 정책 설계\nㄹ. 보건 의료·환경 위험 평가\nㅁ. 정치·법·전쟁의 불확실성 분석",
       "options": [
@@ -460,6 +460,306 @@
       ],
       "answer": "5",
       "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 기대효용·위험 분석의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-031",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "해리 마코위츠(Harry Markowitz, 1952)의 현대 포트폴리오 이론(Modern Portfolio Theory) 하에서, 기대효용 극대화를 추구하는 위험 회피적 투자자가 서로 다른 두 위험 자산에 분산 투자하고자 한다. 두 자산의 수익률 간 상관계수(Correlation Coefficient, $\\rho$)의 변화가 포트폴리오의 위험 분산 효과 및 효율적 투자선(Efficient Frontier)의 기하학적 형태 변화에 미치는 파급 효과로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 포트폴리오 효율적 투자선 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\">표준편차 (σ)</text>\n  <text x=\"20\" y=\"25\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\">기대수익률 (μ)</text>\n  \n  <!-- 효율적 프론티어 곡선 (좌측으로 볼록한 포탄형) -->\n  <path d=\"M 200 180 Q 90 120 280 40\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "상관계수 $\\rho$ 가 $1$보다 작아질수록 포트폴리오의 위험 분산 효과가 발생하며, $\\rho = -1$ 일 때 자산 간의 가중 조절을 통해 포트폴리오의 비체계적 위험(분산)을 정확히 $0$까지 축소시킬 수 있다.",
+        "상관계수가 $1$에 도달할 때 포트폴리오의 포탄형 프론티어가 좌측으로 가장 강하게 튀어나와 위험이 극소화된다.",
+        "상관계수의 대소는 효율적 투자선 상의 기대수익률 최댓값 결정에 유일하게 아무런 기수적 영향을 주지 않는다.",
+        "위험 분산 효과는 오직 가계의 효용함수가 볼록 효용(위험 추구)일 때만 수학적 유효성을 지닌다.",
+        "상관계수가 $0$인 두 자산은 결합하더라도 분산의 기댓값이 개별 자산 분산의 합과 완벽히 일치하여 분산이 줄지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "현대 포트폴리오 이론의 분산 효과:\\n두 자산 A, B로 구성된 포트폴리오의 분산은 다음과 같습니다:\\n$$\\sigma_p^2 = w_A^2\\sigma_A^2 + w_B^2\\sigma_B^2 + 2w_A w_B \\rho \\sigma_A \\sigma_B$$\\n상관계수 $\\rho$ 가 $1$보다 작을 때, 포트폴리오의 표준편차는 자산 표준편차의 가중평균보다 작아지며 위험 분산 효과가 발생합니다. 특히 $\\rho = -1$ (완전 음의 상관관계)인 경우, $w_A\\sigma_A - w_B\\sigma_B = 0$ 이 되도록 가중치 $w_A = \\dfrac{\\sigma_B}{\\sigma_A + \\sigma_B}$ 를 설정하면 포트폴리오 전체 분산($\\sigma_p^2$)을 완벽하게 $0$으로 만들 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-032",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자가 독립적이고 동일한(i.i.d.) 위험 복권 게임을 여러 번 반복 시행할 수 있는 상황에 직면해 있다. 폴 사뮤엘슨(Samuelson, 1963)이 규명한 바에 따르면, 개별 시행의 기대값이 음(-)이어서 1회 실행 제안을 거절한 위험 회피적 가계가, 100회 연속 실행할 수 있는 제안에 대해서는 대수의 법칙에 의한 위험 희석(Time Diversification)을 기대하며 기꺼이 수락하고자 하는 행태의 오류를 미시 기대효용 차원에서 바르게 해명한 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 시간 다양화 분산의 변화 -->\n  <path d=\"M 40 125 Q 150 60 300 125\" fill=\"none\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <path d=\"M 40 125 Q 150 100 300 125\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"125\" x2=\"300\" y2=\"125\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n</svg>\n```\n",
+      "options": [
+        "1회 실행을 거부한 소비자가 다회 반복 실행을 수락하는 것은, 시행 횟수가 늘어나도 손실 가능액의 절대 규모와 분산(위험)이 여전히 증가하여 기대효용을 낮추므로 논리적 비일관성이자 오류이다.",
+        "시행 횟수가 무한히 커지면 표준편차가 $0$으로 수축하므로, 다회 실행 복권은 확실성 상태의 무위험 자산과 수학적으로 완벽히 동일해져 수락하는 것이 당연하다.",
+        "사뮤엘슨에 의하면 반복 복권은 개별 가계의 상대위험회피도(RRA)를 외생적으로 낮추어 위험 선호자로 체질을 변환시킨다.",
+        "대수의 법칙은 도박의 횟수가 늘어날 때 전체 도박 자산 분산의 합을 음(-)의 영역으로 수축시켜 기대효용을 높인다.",
+        "반복 시행 하에서는 가계의 VNM 공리 중 이행성 공리가 자발적으로 붕괴하여 어떠한 순위 평가도 내릴 수 없다."
+      ],
+      "answer": "1",
+      "explanation": "Samuelson의 반복 도박 역설:\\n- 개별 도박의 기대값이 음(-)인 경우, 위험 회피자는 1회 시행 시 $E[u(W_0 + X)] < u(W_0)$ 이므로 거절합니다.\\n- 100회 도박을 하는 경우, 평균 손실의 분산은 줄어들지 몰라도 '총 자산의 분산'은 $100\\sigma^2$ 으로 100배 증가하며, 최악의 상태에서 잃을 수 있는 손실의 절대 액수 또한 훨씬 커집니다.\\n- Samuelson은 수학적 귀납법을 통해, 모든 부의 수준에서 1회 도박을 거절하는 가계는 횟수와 상관없이 임의의 다회 도박도 반드시 거절해야 함을 증명하였습니다. 따라서 다회 도박을 수락하는 것은 시간 다양화(Time Diversification)에 대한 통계적 오류와 기대효용 최적화의 일관성 결여를 뜻합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-033",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "합리적 선택 공리들을 충족하는 폰 노이만-모르겐스턴($VNM$) 기대효용함수 $u(W)$ 의 대수적 성질에 관한 설명이다. VNM 효용함수가 기수적(Cardinal) 성격을 지니지만 고유한 절대 원점과 단위가 부재하여 허용되는 선형 변환의 범위와, 이로 인해 보존되는 위험 태도 지표에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 양의 선형변환 후 효용 형태 보존 -->\n  <path d=\"M 40 210 Q 150 80 300 60\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <path d=\"M 40 160 Q 150 60 300 45\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "VNM 효용함수는 임의의 양의 선형 변환($v(W) = a \\cdot u(W) + b$, 단 $a > 0$)에 대해서만 그 기대효용 극대화의 선호 순위와 Arrow-Pratt 위험 회피도 계수($-u''/u'$)의 값이 보존된다.",
+        "임의의 단조 증가 변환($v(W) = f(u(W)), f' > 0$)을 적용하더라도 2계 도함수의 부호가 항상 일관되게 보존되므로 위험 태도가 변하지 않는다.",
+        "선형 변환 시 상수 $b$ 가 양(+)의 값을 취하게 되면, 확실등가($CE$)가 기대값보다 기수적으로 커져 위험 추구자로 태도가 변한다.",
+        "VNM 기대효용은 오직 원점을 중심으로 하는 회전 변환에 대해서만 위험 프리미엄의 절댓값이 $0$으로 고정된다.",
+        "선형 변환 후에는 시간 할인 인자 $\\delta$ 가 기수적으로 소멸하여 동학적 최적화의 1계 조건이 무력화된다."
+      ],
+      "answer": "1",
+      "explanation": "VNM 효용함수의 선형 변환 유효성:\\n1) VNM 기대효용 이론은 소비자가 복권 간의 선호 순위를 매길 때 기대효용의 대소 관계에 기초합니다.\\n2) 이 선호 순위는 임의의 단조 증가 변환에 의해 보존되지 않고, 오직 '양의 선형 변환(Positive Affine Transformation)' $v(W) = a \\cdot u(W) + b$ (단, $a > 0$)에 의해서만 보존됩니다.\\n3) 1계 및 2계 편미분을 취해 위험 회피 강도를 구하면:\\n   $$-\\dfrac{v''(W)}{v'(W)} = -\\dfrac{a \\cdot u''(W)}{a \\cdot u'(W)} = -\\dfrac{u''(W)}{u'(W)}$$\\n  즉, Arrow-Pratt 절대위험회피도 계수 $A(W)$ 의 고유 수치가 완벽히 유지됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "마틴 위츠먼(Martin Weitzman, 2009)의 재앙 정리(Dread Risk / Dismal Theorem)에 입각하여 기후 변화나 초거대 파국 리스크 하에서의 정책 평가를 실행하고자 한다. 가계가 직면한 미래 재난의 확률 밀도 분포의 꼬리가 정규분포보다 두꺼운 Fat tail(예: 파레토 분포)을 따르고 가계의 위험회피 성향이 존재할 때, 기대효용 극대화 하에서 도출되는 사회적 할인율 및 예방적 정책 투입 가치에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Weitzman Dismal Theorem Fat tail -->\n  <path d=\"M 40 210 Q 150 210 200 160 T 300 120\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "미래 자산 파국 상태의 한계효용이 무한대로 팽창하여 기대효용이 음(-)의 무한대로 발산하므로, 통상적인 비용편익분석이 무력화되고 극단적으로 낮은(또는 $0$에 가까운) 사회적 할인율을 적용해 과감한 예방 투자를 전개해야 한다.",
+        "Fat tail 분포 하에서는 기대값 자체가 항상 존재하므로 기존의 표준 할인율(약 $5\\%$)을 적용하더라도 아무런 후생 손실이 발생하지 않는다.",
+        "위츠먼 정리에 따르면 환경 오염 피해의 기대가치가 언제나 $0$으로 수축하므로 어떠한 탄소세도 부과할 필요가 없다.",
+        "재앙적 꼬리 위험은 소비의 시점간 대체탄력성(IES)을 무한대로 팽창시켜 가계가 미래 소비만을 100% 추구하도록 강제한다.",
+        "기후 위험의 불확실성은 사회적 무차별곡선을 L자형으로 꺾어 리카도 대등정리가 완벽하게 작동하도록 유도한다."
+      ],
+      "answer": "1",
+      "explanation": "Weitzman의 Dismal Theorem(재앙 정리):\\n1) 표준 비용편익분석은 미래 불확실성을 얇은 꼬리(thin tail, 정규분포 등)로 가정하여 기대효용이 수렴하고 사회적 할인율을 양(+)으로 적용합니다.\\n2) 그러나 기후 재앙처럼 Fat tail을 가질 때, 온도 상승 및 자산 소멸 확률이 파레토 분포처럼 느리게 감소하고, 극단적 파국 상태에서의 한계효용 $u'(W)$ 은 무한대로 솟구칩니다.\\n3) 이 경우 기대 한계효용 적분 $E[u'(W)]$ 이 발산하여 기대효용은 음(-)의 무한대로 떨어집니다. 따라서 기후 재앙 방지를 위한 사전적 지불용의(Option Price)가 한계에 달하므로, 미래 세대의 생존을 보호하기 위해 사회적 할인율을 극도로 낮게 적용하여 현재의 탄소 감축 투자를 전폭적으로 실행해야 한다는 정당성을 제공합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-035",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "마이클 스펜스(Michael Spence, 1973)의 구직 노동시장 신호(Signaling) 모형에서, 정보 비대칭을 해결하기 위해 고생산성 가계(생산성 $\\theta_H$)와 저생산성 가계(생산성 $\\theta_L$)가 교육 수준($e$)이라는 신호를 통해 기업에게 정보를 제공하고 있다. 시장에서 두 집단이 서로 다른 교육 수준을 선택하여 정보가 완벽히 공개되는 분리균형(Separating Equilibrium)을 이루기 위해, 각 가계의 기대효용(세후 임금 $W(e)$ 과 교육 비용 $C(e, \\theta)$ 의 차이) 조건식이 충족해야 하는 제약조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 노동신호 분리균형 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- 저생산성, 고생산성 예산선 차이 -->\n  <line x1=\"40\" y1=\"150\" x2=\"160\" y2=\"210\" stroke=\"#94a3b8\" />\n  <line x1=\"40\" y1=\"100\" x2=\"280\" y2=\"210\" stroke=\"#2563eb\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "기업이 제시하는 임금 스케줄 하에서 고생산성 가계는 고교육을 선택하는 효용이 크고, 저생산성 가계는 고교육 신호 발송 비용 부담이 너무 커서 스스로 저교육을 선택해야 한다 (자기선택 제약 만족).",
+        "저생산성 가계가 고생산성 가계의 계약을 모방(Mimic)할 때 누리는 기대효용이 저교육 균형의 효용보다 기수적으로 항상 커야만 한다.",
+        "신호 발송 비용이 두 집단 간에 완벽히 일치할 때만 대칭적 한계대체율이 도출되어 유일한 균형이 보존된다.",
+        "분리균형 하에서는 고생산성 가계의 소비자잉여가 생산자잉여로 100% 이전되어 사중손실이 극대화된다.",
+        "교육 신호의 존재는 노동시장의 유보임금을 $0$으로 억제시켜 Frisch 노동공급 탄력성을 무력화한다."
+      ],
+      "answer": "1",
+      "explanation": "스펜스 신호 모형의 분리균형 조건:\\n두 집단이 서로 다른 교육을 선택해 정보가 투명해지려면, 각 주체가 상대의 계약을 모방하지 않고 자기 계약을 스스로 선택하는 '자기선택 제약(Self-selection Constraint / Incentive Compatibility)'이 만족되어야 합니다.\\n- 저생산성 가계: 고교육을 받고 고임금을 얻는 것보다, 저교육을 받고 저임금을 얻는 기대효용이 더 커야 합니다($\\theta_L - 0 \\ge \\theta_H - C_L(e^*)$).\\n- 고생산성 가계: 고교육을 받아 고임금을 얻는 기대효용이, 저교육을 받아 저임금을 얻는 효용보다 커야 합니다($\\theta_H - C_H(e^*) \\ge \\theta_L - 0$).\\n이 두 부등식을 만족할 때, 시장은 정보 비대칭 하에서도 두 집단을 완벽히 스크리닝해 냅니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-036",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "경매 이론(Auction Theory)의 독립적 사적 가치(Independent Private Values, IPV) 모형 하에서, 단일 물품을 판매하는 1차 가격 밀봉 경매(First-price Sealed-bid Auction)가 시행되고 있다. 입찰에 참여한 대칭적 입찰자들이 모두 동일한 VNM 위험 회피적 성향을 지닌 경우, 입찰자들이 자신의 기대효용을 극대화하기 위해 제시하는 최적 입찰 전략($b(v)$)과 이로 인해 발생하는 위험 중립적 균형 대비 효과로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 1차 가격 밀봉 경매 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"280\" y2=\"50\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <path d=\"M 40 210 Q 150 160 280 90\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "위험 회피적 입찰자는 낙찰 확률(Win Probability)을 끌어올려 불확실성을 줄이고자 하므로, 위험 중립적 입찰자보다 자신의 사적 가치($v$)에 더 가까운 높은 가격을 입찰($b(v) \\uparrow$)한다.",
+        "위험 회피자는 낙찰 시 누리는 소비자잉여 극대화를 위해 위험 중립자보다 훨씬 낮은 가격에 입찰하여 사중손실을 높인다.",
+        "1차 가격 밀봉 경매에서 위험 회피도가 높은 입찰자가 존재하더라도 경매 집행자의 최종 기대 수익은 항상 불변이다.",
+        "입찰 가격의 조정은 오직 낙찰 확률이 $50\\%$ 로 외생 고정되어 변동 분산이 소멸할 때만 발생한다.",
+        "경매의 균형은 입찰자 수가 무한대로 팽창할 때 입찰 가격이 사적 가치를 초과하는 승자의 저주(Winner's Curse)를 초래한다."
+      ],
+      "answer": "1",
+      "explanation": "위험 회피와 1차 가격 경매의 최적 입찰:\\n1) 1차 가격 경매에서 입찰자는 입찰가 $b$ 를 낮추면 낙찰 시 잉여($v - b$)는 커지지만, 낙찰 확률 $P(b)$ 은 떨어지는 상충 관계에 직면합니다.\\n2) 입찰자가 위험 회피적인 경우, 낙찰되지 못해 효용 0을 얻는 불확실한 상태를 꺼리게 됩니다. 따라서 낙찰 확률을 높여 낙찰 상태를 확실하게 확보하려는 성향을 지닙니다.\\n3) 결과적으로 위험 회피적 입찰자는 동일한 가치 $v$ 에 대해 위험 중립자보다 높은 가격 $b_{averse}(v) > b_{neutral}(v)$ 을 써내며, 이로 인해 경매 수입은 위험 중립 시장보다 커집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "비시장 공공재(예: 국립공원 보호 정책)의 사회적 편익 측정을 위해 가상가치평가법(CVM) 설문을 전개하고 있다. 이때 설문 대상자인 가계들이 직면하는 미래의 상태 불확실성과, 가계가 인지하는 주관적 확률의 왜곡 편향이 가계의 기대효용 평가 및 보상변화(지불용의액, WTP) 측정에 미치는 영향에 대한 서술로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 가상 확률 가중 왜곡 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"280\" y2=\"30\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <path d=\"M 40 210 Q 160 100 280 30\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "가계가 인지하는 주관적 상태 확률이 객관적 확률과 괴리되어 심리적 가중 왜곡을 일으키는 경우, 기대효용 하에서 도출되는 가구당 최대 WTP 가 실제 환경 편익가치를 과대 또는 과소평가하게 만든다.",
+        "CVM 하의 WTP 측정치는 소비자가 위험 중립적인 경우에만 항상 환경 보호 비용보다 기수적으로 작아진다.",
+        "가상 설문에서 발생하는 정보 왜곡은 가계의 효용함수가 준선형일 때 소득효과를 기수적으로 극대화시키는 부작용을 지닌다.",
+        "불확실성이 존재하는 환경 정책의 WTP 는 언제나 사후적 기대 소비자잉여의 $2$배 수준으로 고정된다.",
+        "주관적 확률의 왜곡은 VNM 완비성 공리를 강제로 붕괴시켜 가계가 응답을 포기(Rationing)하도록 유도한다."
+      ],
+      "answer": "1",
+      "explanation": "CVM과 불확실성 하 후생 평가:\\n1) 가상가치평가법(CVM)은 가상의 시나리오에 기반하므로, 가계는 미래 정책의 성공 확률이나 이용 확률에 대해 불확실성을 겪습니다.\\n2) 행동경제학적 확률 가중이 개입하면, 낮은 성공 확률을 과대평가하거나 높은 확률을 과소평가하여 사전적 지불용의액($OP$)이 왜곡됩니다.\\n3) 이에 따라 도출된 사회적 $WTP$ 총합은 공공재의 진정한 기대편익 가치와 크게 괴리되어 비용편익 분석의 효율적 의사결정을 방해하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-038",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "다니엘 카네만과 아모스 트버스키(Kahneman & Tversky, 1979)가 제기한 전망이론(Prospect Theory) 하에서, 개별 소비자의 위험 선택 의사결정을 묘사하는 가치 함수(Value Function)의 대수적·기하학적 성질과 이로 인해 설명되는 현실적인 선택 태도로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 전망이론 S자 가치함수 -->\n  <line x1=\"40\" y1=\"125\" x2=\"310\" y2=\"125\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <line x1=\"175\" y1=\"30\" x2=\"175\" y2=\"220\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <!-- 우상향 이익(오목), 좌하향 손실(볼록+가파름) -->\n  <path d=\"M 175 125 Q 230 70 300 60\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.5\" />\n  <path d=\"M 50 210 Q 120 180 175 125\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"305\" y=\"70\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#059669\">이익 (+)</text>\n  <text x=\"20\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">손실 (-)</text>\n</svg>\n```\n",
+      "options": [
+        "기준점(Reference Point)을 중심으로 이익 영역에서는 오목($v'' < 0$)하여 위험 회피적이고, 손실 영역에서는 볼록($v'' > 0$)하여 위험 추구적이며, 손실의 기울기가 이익보다 약 2배 가파르다 (손실 회피).",
+        "자산의 절대 보유량 W에 대해 한계효용이 일정하여 언제나 선형의 형태를 취하며 소득효과를 차단한다.",
+        "이익 영역에서 볼록하고 손실 영역에서 오목하여, 주식 투자를 행할 때 이익 실현은 미루고 손실 실현은 재빨리 단행하게 만든다.",
+        "기준점의 위치와 무관하게 언제나 원점에 대해 오목하여 VNM 기대효용 곡선과 기수적으로 완벽히 일치한다.",
+        "손실의 가치가 이익보다 기수적으로 작아 손실이 발생할수록 가계의 자발적 사적 저축률이 급증하는 궤적을 그린다."
+      ],
+      "answer": "1",
+      "explanation": "전망이론 가치 함수의 성질:\\n1) 기준점 의존성: 절대적 자산 수준 $W$ 가 아니라, 현재 자산 상태인 기준점(Reference Point) 대비 변화량(이익과 손실)을 기준으로 가치를 평가합니다.\\n2) 이중적 곡률: 이익 영역($x > 0$)에서는 $v''(x) < 0$ (오목)하여 위험 회피적 태도를 보이는 반면, 손실 영역($x < 0$)에서는 $v''(x) > 0$ (볼록)하여 위험 추구적 태도(본전 심리, 도박 수용)를 보입니다.\\n3) 손실 회피(Loss Aversion): 동일한 크기의 손실이 주는 고통이 이익의 기쁨보다 대략 2배 이상 큽니다. 즉, 원점에서의 손실 측 기울기가 이익 측 기울기보다 약 2.25배 가파릅니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-039",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "전망이론(Prospect Theory)의 핵심 구성 요소인 확률 가중 함수(Probability Weighting Function, $\\pi(p)$)의 수학적 형태인 역S자형(Inverse S-shape) 성질에 기초할 때, 개인이 객관적 확률이 매우 극소한 상태(예: $0.1\\%$)와 매우 고정적으로 큰 상태(예: $99\\%$)에 대해 보이는 주관적 반응과, 이로 인해 유발되는 복권 구매와 보험 가입의 동시성 현상을 바르게 설명한 서술은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 확률가중함수 역S자 -->\n  <line x1=\"40\" y1=\"210\" x2=\"280\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- 45도선 -->\n  <line x1=\"40\" y1=\"210\" x2=\"260\" y2=\"30\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <!-- 역S자 곡선 -->\n  <path d=\"M 40 210 Q 120 110 160 110 T 260 30\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">p</text>\n  <text x=\"25\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\">w(p)</text>\n</svg>\n```\n",
+      "options": [
+        "낮은 확률의 이익(복권)을 주관적으로 과대평가하여 복권을 사고, 동시에 낮은 확률의 손실(재난 사고)을 과대평가하여 비싼 보험에 가입하는 모순적 태도를 자연스럽게 해명한다.",
+        "확률 w(p)가 언제나 객관적 확률 p의 2배에 비례하도록 선형 가중되어, 모든 위험 도박을 무조건 기피하게 만든다.",
+        "높은 확률인 99% 상태를 과대평가하여 확실한 기대가치가 낮은 투자 대안에 자금을 올인하게 유도한다.",
+        "확률 가중 함수는 VNM 독립성 공리를 완벽하게 옹호하여 알레의 역설을 수학적으로 소멸시키는 효과를 낸다.",
+        "확률 가중치는 오직 개별 소비자의 상대위험회피도(RRA)가 1일 때만 45도선과 완전히 포개어지도록 꺾인다."
+      ],
+      "answer": "1",
+      "explanation": "확률 가중 함수와 위험 행동:\\n전망이론의 확률 가중 함수 $\\pi(p)$ 는 역S자형을 그립니다.\\n- 낮은 확률 구간($p \\to 0$): $\\pi(p) > p$ (과대평가, Overweighting). 극소한 확률로 일어날 대박(복권 낙첨 확률 대비 당첨 확률)과 극소한 확률로 다가올 재앙(지진, 화재 등)의 위험을 모두 실제보다 크게 인지하므로 복권 구매와 보험 가입을 동시에 수행하는 합리성을 설명합니다.\\n- 높은 확률 구간($p \\to 1$): $\\pi(p) < p$ (과소평가, Underweighting). 거의 확실한 사건을 불확실하게 여겨 불안감을 느끼게 만듭니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-040",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "불확실성 하에서 소비자가 최종 선택을 내리기 전에 정보(Information)를 추가로 획득할 수 있는 경로가 존재한다. 이때 의사결정에 직면한 개인이 평가하는 '완전 정보의 기대 가치(Expected Value of Perfect Information, EVPI)'와 '불완전 정보의 기대 가치(Expected Value of Imperfect Information, EVII)'의 기대효용학적 정의와 후생 변화에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 의사결정 정보 가치 -->\n  <circle cx=\"60\" cy=\"125\" r=\"5\" fill=\"#1e293b\" />\n  <line x1=\"60\" y1=\"125\" x2=\"180\" y2=\"65\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <line x1=\"60\" y1=\"125\" x2=\"180\" y2=\"185\" stroke=\"#475569\" stroke-width=\"1.5\" />\n</svg>\n```\n",
+      "options": [
+        "EVPI는 완전한 정보를 얻은 사후적 최적 기대효용과 정보가 없을 때 사전 최적 기대효용의 확실성 가치 격차이며, 정보의 가치는 항상 $0$보다 크거나 같다.",
+        "불완전 정보는 항상 왜곡을 동반하므로 EVII 는 언제나 음(-)의 가치를 취해 가계의 후생을 후퇴시킨다.",
+        "EVPI는 소비자가 위험 추구 성향을 지닐 때만 유일하게 양(+)의 값을 보장하는 수학 척도이다.",
+        "정보의 가치 결정은 시점간 예산선의 기울기를 $-(1+r)$ 로부터 기수적으로 급경사화시키는 부작용을 띤다.",
+        "EVPI와 EVII 의 대수적 차이는 가계가 유동성 제약에 걸려 차입이 불가할 때 즉각 0으로 소멸한다."
+      ],
+      "answer": "1",
+      "explanation": "정보의 기대 가치(EVPI / EVII):\\n1) 정의: 소비자가 정보를 얻은 후에 각 상태에 맞춰 최적 의사결정을 내릴 수 있다면, 사전적으로 고정된 결정을 내릴 때보다 기대효용이 증가합니다.\\n2) 수식적 정의 (완전 정보의 기대 가치): \\n   $$EVPI = E[\\max_a U(a, s)] - \\max_a E[U(a, s)] \\ge 0$$\\n  (상태 s에 맞춘 최적 대안 $a$ 선택의 기대가치 - 정보 없이 기대효용을 극대화하는 단일 대안 $a$ 의 가치)\\n3) 정보는 의사결정의 유연성을 증가시켜 최선의 상태를 찾게 해주므로 정보의 가치는 항상 0 이상입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-041",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "마크 마키나(Mark Machina, 1982, Econometrica)의 일반화된 기대효용 이론(Generalized Expected Utility Theory)에서, VNM 독립성 공리(Independence Axiom)를 폐기하더라도 소비자의 선호 관계가 매끄러움(Differentiability) 조건을 충족할 때, 확률 분포 공간 상에서 정의되는 국소적 VNM 효용함수(Local Utility Function)를 도입하여 표준 경제학적 후생 분석(위험 프리미엄, 아로우-프랫 정리)을 일반화하여 전개하는 원리에 대한 서술로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Machina 일반화 기대효용 국소 선형 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <!-- 약간 휘어진 무차별곡선 배치 -->\n  <path d=\"M 40 180 Q 130 190 200 210\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <path d=\"M 40 130 Q 150 145 250 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "확률 분포의 미세 변동 시 발생하는 기대효용 변화를 국소적 VNM 효용함수의 1차 도함수를 이용한 선형 근사로 정의하여, 독립성 공리 위반(알레의 역설) 하에서도 위험 후생 연산의 일관성을 유지한다.",
+        "마키나 정리에 의하면 국소적 효용함수는 언제나 절대위험회피도(CARA)가 $0$인 극단적 위험 추구 성향으로 수렴해야 한다.",
+        "독립성 공리가 무너지면 확률 분포 평면 상에서 무차별곡선들이 항상 수직 꺾임선의 코너를 형성하게 된다.",
+        "국소적 VNM 효용은 소비의 시점간 대체탄력성을 상대위험회피도와 기수적으로 일치하도록 강제하는 제약을 갖는다.",
+        "이론에 의하면 일반화된 위험 프리미엄은 항상 음(-)의 부호를 보존하므로 보험 시장의 소멸을 예측한다."
+      ],
+      "answer": "1",
+      "explanation": "Machina(1982)의 일반화된 기대효용 이론:\\n1) 핵심 아이디어: 독립성 공리를 만족하지 않는 비기대효용 선호체계라도, 확률분포 $F$ 상의 무차별곡선이 매끄럽게 미분가능하다면, 국소적으로는 VNM 효용함수 $U(W; F)$ 를 이용해 테일러 전개와 유사한 선형 근사가 가능합니다.\\n2) 수리적 정식화:\\n   $$V(F + dF) - V(F) \\approx \\int u(W; F) dF(W)$$\\n  여기서 $u(W; F)$ 는 확률 분포 $F$ 지점에서의 '국소적 VNM 효용함수(Local Utility)'입니다.\\n3) 성과: 독립성 공리 위배(알레의 역설) 등 현실적 현상을 수용하면서도, 기존 VNM 모형에서 유도된 위험 회피, 확실등가, 위험 프리미엄 분석 등의 핵심 성과들을 분포 변동에 연동시켜 수학적 일관성을 유지하며 복원해 냅니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-042",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "표준적인 폰 노이만-모르겐스턴($VNM$) 기대효용 극대화 체계에서는 상대위험회피도(RRA, $\\gamma$)의 역수가 소비의 시점간 대체탄력성(IES, $\\psi$)과 대수적으로 반드시 일치하게 구속되는 치명적인 제약($\\gamma = 1/\\psi$)을 지닌다. 엡스타인과 진(Epstein & Zin, 1989, Econometrica)이 제안한 비기대효용(Non-Expected Utility) 선호체계가 이 대수적 제약을 해소하고 두 파라미터를 독자적으로 분리 설계하여 거시 경제학 및 자산 가격 결정론의 퍼즐을 해명하는 수리적 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "시점간 동학적 효용 재귀식 하에서 시간 할인 집계 함수와 상태별 확실등가 함수를 분리 둥지(Nested)로 결합하여, 위험 태도에 반응하는 $\\gamma$ 와 상대가격 변동에 반응하는 $\\psi$ 를 각각 독립적인 매개변수로 추정한다.",
+        "Epstein-Zin 선호는 시간선호율 $\\rho$ 와 시장 이자율 $r$ 의 비율을 언제나 $1$로 강제하여 동학적 예산선을 소멸시킨다.",
+        "위험회피도 $\\gamma$ 가 $0$에 수렴할 때만 시점간 대체탄력성 $\\psi$ 가 무한대로 팽창하는 폰 노이만 제약으로 자동 복귀한다.",
+        "Epstein-Zin 효용 하에서는 자산 위험에 대한 프리미엄이 시점간 대체탄력성의 $2$차 미분항으로 완전히 귀속된다.",
+        "두 매개변수의 분리는 소비자의 한계소비성향을 상속 동기(Bequest)와 1대1로 연동시켜 리카도 대등정리를 붕괴시킨다."
+      ],
+      "answer": "1",
+      "explanation": "Epstein-Zin 선호체계의 분리 설계:\\n1) 표준 CRRA 기대효용 $U = E \\left[ \\sum \\beta^t \\dfrac{C_t^{1-\\gamma}}{1-\\gamma} \\right]$ 에서는 위험 태도를 결정하는 RRA($\\gamma$)와 시점간 소비 변화를 결정하는 IES($\\psi = 1/\\gamma$)가 역수 관계로 묶여 있습니다. 이는 위험을 아주 싫어하는 사람이 시점간 소비 대체도 극도로 꺼려야 하는 모순을 낳습니다.\\n2) Epstein-Zin-Weil 재귀적 효용함수는 다음과 같이 설계됩니다:\\n   $$V_t = \\left[ (1-\\beta)C_t^{1-1/\\psi} + \\beta (E_t[V_{t+1}^{1-\\gamma}])^{\\dfrac{1-1/\\psi}{1-\\gamma}} \\right]^{\\dfrac{1}{1-1/\\psi}}$$\\n  - 확실등가 연산 부분에 상대위험회피도 $\\gamma$ 가 적용되고,\\n  - 시간적 흐름의 집계 부분에 시점간 대체탄력성 $\\psi$ 가 적용됩니다.\\n3) 효과: 위험 태도와 시점간 소비 대체 성향을 대수적으로 완벽히 분리하여, 위험 프리미엄 퍼즐 및 이자율의 기간 변동 등 거시금융 현상을 정합적으로 규명합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-043",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "마일스 킴볼(Miles Kimball, 1990, Econometrica)의 신중성(Prudence) 이론에 입각하여 미래 소득의 불확실성이 존재할 때 가계가 현재 소비를 줄이고 저축을 늘리는 예방적 저축(Precautionary Saving)의 존재를 수학적으로 입증하고자 한다. 가계가 예방적 저축을 전개하기 위해 VNM 효용함수가 3계 도함수 차원에서 충족해야 하는 대수적 조건과 한계효용 곡선의 기하학적 성질로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Kimball Prudence 볼록 한계효용 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <path d=\"M 50 40 Q 100 150 280 170\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "효용함수의 3계 도함수가 양(+)의 값을 가져 한계효용 곡선이 부에 대해 볼록($u'''(W) > 0$)해야 하며, 젠센의 부등식에 의해 소득 위험 증가 시 기대한계효용이 상승하여 현재 소비를 억제한다.",
+        "3계 도함수가 음(-)의 값을 가짐으로써 한계효용 곡선이 오목($u'''(W) < 0$)해야만 위험 프리미엄이 소멸하여 저축이 증가한다.",
+        "예방적 저축은 오직 상대위험회피도(RRA)가 소득 수준에 상관없이 항상 음(-)의 영역에 머물러 있을 때만 도출된다.",
+        "Kimball 신중성 계수 $-u'''/u''$ 가 $0$에 도달할 때 예방적 저축액이 자본시장 이자율을 초과하여 팽창한다.",
+        "예방적 저축은 가계의 예산집합이 비볼록할 때만 접점 해로서 유효하게 유도되는 특이성을 지닌다."
+      ],
+      "answer": "1",
+      "explanation": "Kimball의 신중성(Prudence)하고 예방적 저축 유도:\\n1) 미래 소득 $W$ 에 기댓값을 보존하는 위험 스프레드(Mean-preserving spread, $\\tilde{\\epsilon}$)가 추가되어 불확실성이 커졌다고 가정합니다.\\n2) 1기 최적화 UMP FOC 조건: $u'(C_0) = \\beta (1+r) E[u'(W_1 + \\tilde{\\epsilon})]$.\\n3) 한계효용함수 $f(W) = u'(W)$ 에 대해 젠센의 부등식을 적용하기 위해 곡률을 확인합니다.\\n  - 만약 $u'''(W) > 0$ 이면, $f''(W) = u'''(W) > 0$ 이므로 한계효용 곡선은 '볼록(Convex)'합니다.\\n  - 따라서 젠센의 부등식에 의해: $E[u'(W_1 + \\tilde{\\epsilon})] > u'(E[W_1])$.\\n4) 미래 소득의 위험 증가가 기대한계효용 $E[u']$ 을 위로 밀어올립니다. FOC 균형을 맞추기 위해 좌변의 $u'(C_0)$ 도 증가해야 하므로, 현재 소비 $C_0$ 은 확실히 감소(즉, 현재 예방적 저축 $S_0$ 증가)하게 됩니다.\\n따라서 예방적 저축을 설명하는 필요충분조건은 신중성 성향인 $u'''(W) > 0$ 입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-044",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "어느 가계의 VNM 효용함수가 $u(W) = -e^{-aW}$ (단, 절대위험회피도 $a = 0.01$ 로 일정한 CARA 효용)로 주어져 있다. 이 가계가 보유한 미래 자산 $W$ 가 평균 $\\mu = 100$, 분산 $\\sigma^2 = 200$ 인 정규분포($W \\sim N(\\mu, \\sigma^2)$)를 따르는 확률 변수일 때, 이 가계의 기대효용 $E[u(W)]$ 을 계산하여 확실등가($CE$)와 위험 프리미엄($RP$)의 정확한 값을 바르게 연결한 것은? (단, 정규분포 적분 공식 $E[e^{-aW}] = e^{-a\\mu + \\dfrac{1}{2}a^2\\sigma^2}$ 을 준용한다.)\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- CARA Utility Normal distribution -->\n  <path d=\"M 60 210 Q 150 90 280 80\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "$CE = 99$, $RP = 1$, 기대효용 $E[u(W)] = -e^{-0.99}$",
+        "$CE = 90$, $RP = 10$, 기대효용 $E[u(W)] = -e^{-0.90}$",
+        "$CE = 100$, $RP = 0$, 기대효용 $E[u(W)] = -e^{-1.00}$",
+        "$CE = 98$, $RP = 2$, 기대효용 $E[u(W)] = -e^{-0.98}$",
+        "$CE = 101$, $RP = -1$, 기대효용 $E[u(W)] = -e^{-1.01}$"
+      ],
+      "answer": "1",
+      "explanation": "CARA 효용과 정규분포 하 확실등가 연산:\\n1) 효용함수: $u(W) = -e^{-aW}$ (여기서 $a = 0.01$).\\n2) 미래 자산 $W \\sim N(100, 200).\\n3) 기대효용 연산:\\n   $$E[u(W)] = E[-e^{-aW}] = -E[e^{-aW}] = -e^{-a\\mu + \\dfrac{1}{2}a^2\\sigma^2}$$\\n  주어진 매개변수 대입:\\n   $$-a\\mu + \\dfrac{1}{2}a^2\\sigma^2 = -0.01 \\times 100 + \\dfrac{1}{2} \\times (0.01)^2 \\times 200 = -1.0 + \\dfrac{1}{2} \\times 0.0001 \\times 200 = -1.0 + 0.01 = -0.99$$\\n  따라서 $E[u(W)] = -e^{-0.99}$.\\n4) 확실등가($CE$) 도출:\\n   $$u(CE) = E[u(W)] \\implies -e^{-a CE} = -e^{-0.99} \\implies a CE = 0.99 \\implies 0.01 CE = 0.99 \\implies CE = 99.$$\\n5) 위험 프리미엄($RP$) 산출:\\n   $$RP = E[W] - CE = \\mu - CE = 100 - 99 = 1.$$\\n따라서 확실등가 99, 위험 프리미엄 1 조합인 1번이 정확합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-045",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "로버트 루카스의 자산가격결정 모형(Lucas Tree Model, 1978, Econometrica)에서, 대표 가계의 기대효용 극대화 UMP FOC 조건으로부터 자본 자산의 가격결정 Euler 방정식 $P_t = E_t \\left[ \\beta \\dfrac{u'(C_{t+1})}{u'(C_t)} (P_{t+1} + D_{t+1}) \\right]$ 을 유도하고 자산의 위험 프리미엄을 해석하고자 한다. 이 수식에서 확률적 할인 인자(Stochastic Discount Factor, SDF)인 $\\beta \\dfrac{u'(C_{t+1})}{u'(C_t)}$ 가 자산의 기대 수익률 및 위험 자산의 가치 평가에 미치는 파급 효과로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "자산의 배당 수익률이 미래 소비 증가율(및 한계효용 하락)과 강한 양(+)의 상관관계를 가져 소비 평탄화에 역행하는 자산일수록 높은 위험 프리미엄(낮은 자산 가격)을 요구한다.",
+        "소비 한계효용이 체증하는 위험 추구 조건 하에서는 무위험 자산의 수익률이 시장 포트폴리오 수익률보다 기수적으로 항상 커진다.",
+        "확률적 할인 인자는 언제나 $1$ 로 고정되므로 주식 프리미엄 퍼즐은 동학 모형에서 자동 소멸한다.",
+        "자산 가격의 결정은 소비 패턴과 독립적으로 오직 기업의 생산 한계기술대체율에 의해서만 선형 지배된다.",
+        "대표 가계의 상대위험회피도 $\\gamma$ 가 $0$으로 수렴하더라도 자산의 위험 프리미엄은 파레토 비효율적으로 팽창한다."
+      ],
+      "answer": "1",
+      "explanation": "Lucas Tree 모형 하의 자산 가격 결정:\\n1) 자산 가격 식: $P_t = E_t [M_{t+1} X_{t+1}]$ (단 $M_{t+1} = \\beta \\dfrac{u'(C_{t+1})}{u'(C_t)}$ 은 SDF, $X_{t+1} = P_{t+1} + D_{t+1}$ 은 Payoff).\\n2) 공분산 성질을 적용해 기대수익률 형식으로 정리하면:\\n   $$E_t[R_{i, t+1}] - R_{f, t+1} = -\\dfrac{cov_t(M_{t+1}, R_{i, t+1})}{E_t[M_{t+1}]}$$\\n3) 위험 프리미엄 해석:\\n  - 만약 자산 $i$ 의 수익률이 경기 불황(소비 $C_{t+1}$ 감소 $\\implies$ SDF $M_{t+1}$ 급등) 때 같이 폭락하는 자산이라면, 공분산 $cov(M, R_i) < 0$ 이므로 우변은 양(+)의 값을 가집니다.\\n  - 즉, 소비 평탄화(소비 위험 분산)에 도움을 주지 못하고 오히려 변동을 키우는 위험한 자산이므로 투자자들은 확실한 균형 복구를 위해 높은 기대 수익률(즉, 낮은 현재 자산 가격 $P_t$)을 요구하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-046",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "불확실성 하 의사결정을 자원 배분적 관점에서 해석하는 상태선호 이론(State-Preference Theory, Arrow-Debreu) 하에서, 소비자가 상태 1(발생 확률 $p$)과 상태 2(발생 확률 $1-p$)에 따라 실현되는 상태조건부 재화(State-contingent Commodities, $C_1, C_2$) 평면을 설정하였다. 확실성 선(Certainty Line, $C_1 = C_2$) 상의 임의의 점에서의 VNM 기대효용 무차별곡선 기울기(한계대체율, $MRS_{C_1, C_2}$)의 수리적 크기와 기하학적 성질로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 상태조건부 재화 확실성선 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"210\" x2=\"220\" y2=\"30\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <text x=\"225\" y=\"35\" font-size=\"8\" font-family=\"sans-serif\">확실성선 (Certainty Line)</text>\n  <path d=\"M 90 80 Q 130 130 180 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "확실성 선 상에서는 $C_1 = C_2$ 이므로 한계효용이 동일하여, 무차별곡선의 기울기가 두 상태의 발생 확률의 비율인 $-\\dfrac{p}{1-p}$ 와 정확히 일치한다.",
+        "확실성 선 상의 무차별곡선 기울기는 발생 확률과 독립적으로 언제나 $-1$ 로 평탄화되어 대체효과를 소멸시킨다.",
+        "소비자가 위험 추구자(볼록 효용)인 경우 확실성 선 상에서의 무차별곡선은 원점에 대해 오목하여 파레토 개선을 차단한다.",
+        "기대효용 극대화 균형점은 예산선의 상대가격 비율이 확률 비율의 역수와 일치하는 코너 지점에서 유일하게 맺어진다.",
+        "상태조건부 재화 평면 하의 무차별곡선은 한계효용이 체감할 때 확실성 선을 중심으로 수평 절단되는 꺾임을 지닌다."
+      ],
+      "answer": "1",
+      "explanation": "상태선호 이론 하의 한계대체율 유도:\\n1) VNM 기대효용함수: $U(C_1, C_2) = p \\cdot u(C_1) + (1-p) \\cdot u(C_2)$.\\n2) 한계대체율(무차별곡선의 기울기 절댓값):\\n   $$MRS_{C_1, C_2} = \\dfrac{\\partial U / \\partial C_1}{\\partial U / \\partial C_2} = \\dfrac{p \\cdot u'(C_1)}{(1-p) \\cdot u'(C_2)}$$\\n3) 확실성 선(Certainty Line) 상에서는 $C_1 = C_2$ 이므로, $u'(C_1) = u'(C_2)$ 가 성립합니다.\\n  확실성 선 상의 임의의 점에서 무차별곡선 기울기는 정확히 확률의 비율인 $MRS = \\dfrac{p}{1-p}$ 가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-047",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "서로 다른 위험 회피 성향을 지닌 복수의 소비자들이 사적 자본시장에서 상태조건부 재화 거래를 통해 위험을 거래하고 분담하고자 한다. 에지워스 상자(Edgeworth Box) 상에서 도출되는 파레토 효율적 위험 분담 조건식인 보르히(Borch, 1962)의 일치 조건과, 이로 인해 유도되는 시장의 자원 배분적 시사점으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 파레토 효율적 위험 분담 에지워스 박스 -->\n  <rect x=\"50\" y=\"40\" width=\"230\" height=\"150\" fill=\"none\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <path d=\"M 50 190 Q 140 120 280 40\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "모든 상태(s)에서 개별 소비자의 화폐 한계효용 비율(상대적 상태 한계효용 비율)이 서로 일치해야 파레토 효율이 만족되며, 상대적으로 위험 회피적인 주체가 확실성에 가까운 안정적인 소비를 보장받는다.",
+        "파레토 효율적 위험 분담은 모든 소비자의 절대위험회피도(CARA)의 합이 정확히 $0$이 될 때만 성립되는 특수 정리이다.",
+        "보르히 조건에 따르면 시장 분담 후에는 위험 추구자가 모든 상태의 소비 변동 위험을 독점적으로 기피하게 된다.",
+        "위험 분담 균형선(계약 곡선)은 소비자의 초기 부존점에서 출발하여 확실성 선과 언제나 수직으로 교차하는 직선이 된다.",
+        "상태별 한계효용 비율이 불일치하는 상태 하에서도 상태조건부 시장 거래는 항상 공동 예산 제약을 초과 달성한다."
+      ],
+      "answer": "1",
+      "explanation": "Borch의 파레토 효율적 위험 분담:\\n1) 상태선호 평면의 Edgeworth Box 계약 곡선 상에서는 소비자의 MRS가 일치해야 합니다: $MRS_A = MRS_B$.\\n  $$\\dfrac{p \\cdot u_A'(C_{1}^A)}{(1-p)u_A'(C_{2}^A)} = \\dfrac{p \\cdot u_B'(C_{1}^B)}{(1-p)u_B'(C_{2}^B)} \\implies \\dfrac{u_A'(C_{1}^A)}{u_A'(C_{2}^A)} = \\dfrac{u_B'(C_{1}^B)}{u_B'(C_{2}^B)} \\implies \\dfrac{u_A'(C_{1}^A)}{u_B'(C_{1}^B)} = \\dfrac{u_A'(C_{2}^A)}{u_B'(C_{2}^B)} = \\lambda$$\\n2) 의미: 모든 발생 가능한 상태 $s$ 에서, 임의의 두 소비자 A, B 간의 화폐 한계효용 비율이 동일해야 함을 뜻합니다. 이를 Borch(1962)의 위험 분담 효율성 조건이라 합니다.\\n3) 위험 회피도가 높은 주체는 소비의 변동을 꺼리므로 계약 곡선 상에서 확실성 선에 가까운 평탄한 소비를 분배받고, 덜 회피적인 주체가 잔여 위험 변동을 부담하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-048",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "메나헴 야리(Menahem Yaari, 1987, Econometrica)가 제안한 '위험의 이중 모형(Dual Theory of Risk)' 하에서, 소비자가 위험 회피 행동을 전개하는 독특한 수학적 메커니즘과, 이를 표준 VNM 기대효용 모형(위험 회피의 원천을 화폐 한계효용 체감으로 설명)과 비교한 차이점으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Yaari Dual Theory -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "화폐 가치에 대해서는 선형 효용(위험 중립)을 지니지만, 복권의 누적 확률 분포 함수(CDF)를 주관적으로 왜곡(비선형 확률 가중)함으로써 위험 회피 및 확실등가 하락을 유도한다.",
+        "위험의 이중 모형은 VNM 독립성 공리를 완전히 준수하면서 소득효과를 인위적으로 무한 팽창시키는 모형이다.",
+        "야리 모형 하에서는 확실등가($CE$)가 언제나 도박의 수학적 기대값보다 큰 양(+)의 영역을 강제 유지한다.",
+        "누적 확률의 가중 함수가 오목할 때 가계는 극단적으로 위험을 선호하는 투기적 태도로 선회하게 된다.",
+        "이중 모형은 자산 가격 결정론의 오일러 조건을 비선형화하여 국채 금리의 음(-) 부호를 설명하는 특징이 있다."
+      ],
+      "answer": "1",
+      "explanation": "Yaari(1987)의 위험의 이중 모형(Dual Theory):\\n1) 표준 VNM 모형: 위험에 대한 태도를 화폐의 '효용 곡선'의 오목성($u''(W) < 0$)으로 결정합니다. 확률은 선형 가중됩니다.\\n2) Yaari 이중 모형: 화폐에 대해서는 선형 효용 $u(W) = W$ (한계효용 일정, 즉 소득 자체에는 위험 중립)을 가정하는 대신, '확률 분포 자체'를 비선형적으로 왜곡하는 가중 함수 $g(p)$ 를 도입합니다.\\n3) 수학적 후생 측정:\\n   $$V(F) = \\int W dg(F(W))$$\\n  누적분포가 가중되어 위험한 상태에 더 큰 가중치가 부여되므로 확실등가가 기대값보다 작아지는 위험 회피 행동을 설명해 냅니다. VNM 모형과 완벽하게 대칭적인(Dual) 형태를 취합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-049",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "결과 발생의 객관적 확률 분포 자체가 알려지지 않은 나이트적 불확실성(Knightian Uncertainty) 또는 모호성(Ambiguity) 하에서 소비자의 최적 선택을 분석하고자 한다. 길보아와 슈마이들러(Gilboa & Schmeidler, 1989)의 maxmin 기대효용 모형(Maxmin Expected Utility, MEU) 하에서 개인이 모호성 회피(Ambiguity Aversion) 성향을 지닐 때 최적 결정을 내리는 수학적 원리와 엘스버그 역설(Ellsberg Paradox)의 해명 논리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Knightian Ambiguity MEU -->\n  <polygon points=\"100,80 200,60 250,140 140,160\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"1.5\" opacity=\"0.6\" />\n</svg>\n```\n",
+      "options": [
+        "개인은 발생 가능한 주관적 확률 분포들의 집합(C)을 상정하고, 각 대안별로 발생할 수 있는 최악의 확률 분포 하에서의 기대효용을 구한 후, 그 최저값들을 극대화(max-min)하는 대안을 선택한다.",
+        "모호성 회피 성향은 확률 분포 집합 내의 분산이 최소화될 때 자동으로 소득효과를 소멸시켜 위험 중립으로 회귀하게 만든다.",
+        "maxmin 기대효용은 엘스버그 역설 하의 항아리 선택 확률을 VNM 독립성 공리로 회귀시켜 50%로 고정시킨다.",
+        "모호성 하의 가계는 언제나 상태조건부 재화 평면의 확실성 선으로부터 극단적으로 멀어지는 코너해를 선택한다.",
+        "MEU 모형은 확률적 할인 인자(SDF)의 한계효용 체감을 3차 항 차원에서 차단하여 신중성 파라미터를 소멸시킨다."
+      ],
+      "answer": "1",
+      "explanation": "Gilboa-Schmeidler(1989)의 maxmin 기대효용(MEU):\\n1) 모호성(Ambiguity) 환경에서는 단일한 객관적 확률 분포 $P$ 가 부재합니다. 소비자는 가능성 있는 여러 확률 분포의 집합 $C$ 를 상정합니다.\\n2) 의사결정의 지표:\\n   $$V(f) = \\min_{P \\in C} E_P[u(f)]$$\\n  소비자는 극도로 신중하고 보수적이므로, 각 대안 $f$ 에 대해 자신에게 가장 불리한 확률 분포 $P$ 가 실현된다고 가정하여 최소 기대효용을 계산합니다.\\n3) 최종 선택: 이 최소 기대효용값을 가장 크게 만드는 대안 $f^*$ 를 선택합니다($\\max_f \\min_{P \\in C} E_P[u(f)]$).\\n이를 통해 정보의 모호성을 기피하여 확실한 단색 항아리를 선호하는 엘스버그 역설(Ellsberg Paradox)의 선택 패턴을 완벽히 수학적으로 정식화합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec05-item01-050",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "현재 편향(Present Bias) 성향을 지닌 가계가 시간 비일관성(Time Inconsistency) 문제에 직면해 있다. 파룩 굴과 볼프강 페센도퍼(Faruk Gul & Wolfgang Pesendorfer, 2001, Econometrica)의 유혹 효용함수(Temptation Utility / Commitment and Temptation) 모형 하에서, 소비자가 미래의 유혹적 상태(예: 충동 구매, 저축 파기)를 인지하며 사전에 자기 통제(Self-control)의 대가를 치르는 수리적 최적화 원리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Gul-Pesendorfer Temptation -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "소비자의 전체 효용이 최적 선택 대안의 효용 $u(x)$ 외에, 선택 가능한 예산집합 내 유혹 가치 $v(x) - \\max_y v(y)$ 의 손실 비용(자기통제 비용)을 차감한 형태로 결정된다.",
+        "유혹 효용 하에서는 가계가 사전에 예산집합을 최대한 팽창시켜 미래 유혹 대안을 100% 선택하도록 유도하는 최적화를 띤다.",
+        "Temptation 모형은 소비자의 주관적 시간 선호율을 자동으로 음(-)의 무한대로 보내어 평탄 소비를 완전 차단한다.",
+        "유혹의 가치는 소비의 시점간 대체탄력성이 0에 수렴하는 레온티에프 선호에서만 유일하게 소멸한다.",
+        "Gul-Pesendorfer 효용 함수는 대표 가계의 상대위험회피도를 CARA 형으로 고정시켜 예방적 저축을 억제한다."
+      ],
+      "answer": "1",
+      "explanation": "Gul-Pesendorfer(2001)의 Temptation & Self-Control 모형:\\n1) 표준 기대효용 모형에서는 선택 가능한 예산집합에 '해로운 유혹 대안'이 추가되더라도 선택하지 않으면 그만(후생 불변)입니다.\\n2) 그러나 GP 모형에서는 유혹 대안이 존재하는 것 자체만으로도 이를 참아내기 위해 주관적 억제 노력(자기통제 비용, Self-control Cost)이 발생하여 후생이 깎인다고 봅니다.\\n3) 수리적 표현: 예산집합 $A$ 하에서의 효용은 다음과 같습니다:\\n   $$U(A) = \\max_{x \\in A} [u(x) + v(x)] - \\max_{y \\in A} v(y)$$\\n  - $u(x)$ 는 진정한 장기적 효용이며, $v(x)$ 는 단기적 유혹 가치입니다.\\n  - 소비자가 최적점 $x^*$ 를 선택했을 때, 실제 누리는 효용은 $u(x^*) - [v(y^*) - v(x^*)]$ 입니다. 여기서 대괄호 안의 항은 가장 매력적인 유혹 $y^*$ 를 억누르고 $x^*$ 를 선택하기 위해 지불한 '자기통제 비용'입니다.\\n이 비용을 줄이기 위해 가계는 사전에 유혹 대안 $y^*$ 가 포함된 예산집합 $A$ 의 크기를 스스로 잘라내어 축소시키는 약정 기기(Commitment Device)를 채택합니다. 정답은 1번입니다."
     }
   ]
 }

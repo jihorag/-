@@ -8,84 +8,84 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch07-sec02-item02-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "사회후생함수(Social Welfare Function, SWF)란?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "공리주의(Benthamite) 사회후생함수와 롤스(Rawlsian) 사회후생함수의 특성에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
       "options": [
-        "개인 효용을 사회 후생으로 집계하는 함수 $W = W(U_1, U_2, \\ldots, U_n)$",
-        "GDP 측정 함수",
-        "수요 함수",
-        "공급 함수",
-        "가격 함수"
+        "공리주의 사회무차별곡선은 L자 모양을 가진다",
+        "롤스의 사회무차별곡선은 우하향하는 직선 형태이다",
+        "공리주의는 사회 구성원의 효용의 합을 극대화하며, 롤스는 사회에서 가장 가난한 사람(최소효용자)의 후생을 극대화한다",
+        "롤스는 효용 분배의 형평성을 완전히 무시하고 총량만 중시한다",
+        "두 후생함수 모두 지니계수를 0으로 강제 수렴시키는 가치를 담는다"
       ],
-      "answer": "1",
-      "explanation": "사회후생함수: 개인들의 효용을 사회 전체 후생으로 변환. 효용주의·Rawls·Nash 등 다양한 형태. 분배 평가의 표준 도구. Bergson-Samuelson (1938) 정립."
+      "answer": "3",
+      "explanation": "공리주의 사회후생함수는 $W = U_A + U_B$ 로 사회 효용 총합을 극대화하며 사회무차별곡선은 직선입니다. 롤스 사회후생함수는 $W = \\min(U_A, U_B)$ 로 최약자의 후생 극대화(최소극대화 원칙)를 추구하며 L자형 곡선을 띱니다."
     },
     {
-      "id": "practice-econ-micro-ch07-sec02-item002-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "공리주의(utilitarian) 사회후생함수의 형태는?",
+      "id": "practice-econ-micro-ch07-sec02-item02-002",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 사회의 효용가능경계(UPF)가 $U_A + 2U_B = 60$ 으로 주어져 있다. 사회후생함수가 다음과 같을 때, 사회적 후생을 극대화하는 균형 효용 조합 $(U_A^*, U_B^*)$ 이 옳게 짝지어진 것은?\n- 롤스 사회후생함수: $W = \\min(U_A, U_B)$\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
       "options": [
-        "$W = U_1 + U_2 + \\ldots + U_n$ — 효용 단순합",
-        "$W = \\max(U_1, U_2, \\ldots)$",
-        "$W = \\min(U_1, U_2, \\ldots)$",
-        "$W = U_1 \\cdot U_2 \\cdot \\ldots$",
-        "$W = U_1 / U_2$"
+        "$(U_A^*, U_B^*) = (20, 20)$",
+        "$(U_A^*, U_B^*) = (30, 15)$",
+        "$(U_A^*, U_B^*) = (40, 10)$",
+        "$(U_A^*, U_B^*) = (10, 25)$",
+        "$(U_A^*, U_B^*) = (15, 22.5)$"
       ],
       "answer": "1",
-      "explanation": "Bentham 공리주의: $W = \\sum U_i$. 평등 가중치. \"최대 다수의 최대 행복\". 한 사람의 큰 후생 증가가 여러 명의 작은 손실보다 우월 가능 → 분배 무관."
+      "explanation": "롤스 사회후생극대화는 항상 무차별곡선 꺾임점인 $U_A = U_B$ 상에서 발생합니다. 효용가능경계식 $U_A + 2U_B = 60$ 에 $U_A = U_B$ 를 대입하면:\n$U_A + 2U_A = 60 \\\\Rightarrow 3U_A = 60 \\\\Rightarrow U_A^* = 20, U_B^* = 20$ 이 도출됩니다. 정답은 ①입니다."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item02-003",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "Rawls 차등의 원칙에 따른 maxmin 사회후생함수는?",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "위 조건(UPF: $U_A + 2U_B = 60$) 하에서, 사회후생함수가 공리주의 사회후생함수($W = U_A + U_B$)일 때 사회적 후생을 극대화하는 균형 효용 조합 $(U_A^*, U_B^*)$ 은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
       "options": [
-        "$W = \\min(U_1, U_2, \\ldots, U_n)$ — 최소수혜자 효용 극대화",
-        "$W = \\sum U_i$",
-        "$W = \\max(U_1, U_2, \\ldots)$",
-        "$W = \\prod U_i$",
-        "$W = U_1 \\cdot U_2$"
+        "$(U_A^*, U_B^*) = (20, 20)$",
+        "$(U_A^*, U_B^*) = (30, 15)$",
+        "$(U_A^*, U_B^*) = (60, 0)$",
+        "$(U_A^*, U_B^*) = (0, 30)$",
+        "$(U_A^*, U_B^*) = (40, 10)$"
       ],
-      "answer": "1",
-      "explanation": "Rawls (1971): \"무지의 베일\" 뒤에서 사람들은 최악의 처지가 가능한 좋게 → maxmin. 가장 가난한 사람의 효용 극대화가 사회 후생. 평등주의적 함의 강함."
+      "answer": "3",
+      "explanation": "공리주의 $W = U_A + U_B$ 의 한계사회대체율 $MSB_{AB} = 1$ 이고, 효용가능경계 UPF의 기울기(한계효용변환율 $MUT$)는 $1/2 = 0.5$ 입니다. 사회무차별곡선의 기울기가 UPF의 기울기보다 가파르므로, 사회 후생을 극대화하기 위해서는 전액 A에게 자원을 몰아주는 구석해(Corner Solution)가 발생합니다. 즉 $U_A^* = 60, U_B^* = 0$ 이 극대화 조합이 됩니다."
     },
     {
-      "id": "practice-econ-micro-ch07-sec02-item002-004",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "Bergson-Samuelson 사회후생함수의 정의는?",
-      "options": [
-        "개인 효용에 사회의 가치판단을 반영한 일반적 형태 — 가중치·연결 자유",
-        "공리주의만",
-        "Rawls만",
-        "Nash 곱",
-        "선형 함수만"
-      ],
-      "answer": "1",
-      "explanation": "Bergson (1938), Samuelson (1947): 사회후생함수는 개인 효용의 함수, 단 구체적 형태는 가치판단. 공리주의·Rawls·Nash 등 모든 함수가 BS 함수의 특수형."
-    },
-    {
-      "id": "practice-econ-micro-ch07-sec02-item002-005",
+      "id": "practice-econ-micro-ch07-sec02-item02-004",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "Atkinson의 불평등회피계수($\\varepsilon$)와 사회후생함수의 관계는?",
+      "question": "평등주의적(또는 베르그송-사무엘슨) 사회후생함수 중 내쉬 사회후생함수($W = U_A \\\\cdot U_B$)에 관한 설명으로 옳은 것은?",
       "options": [
-        "$\\varepsilon$ ↑일수록 저소득층 가중치 ↑ → 평등주의적 SWF에 가까움 (Rawls $\\varepsilon \\to \\infty$)",
-        "$\\varepsilon$ 무관",
-        "$\\varepsilon = 0$ 이 Rawls",
-        "$\\varepsilon$ ↑일수록 공리주의",
-        "$\\varepsilon$ ↑일수록 독재"
+        "사회무차별곡선이 롤스형 L자형 구조와 동일하다",
+        "효용 분배에 완전히 무관심하며 총합만 중시한다",
+        "사회무차별곡선이 원점에 대해 볼록한 우하향 형태를 지녀, 극단적 불평등 상태보다 두 구성원 간 균형 있는 배분(평등)을 더 선호함을 나타낸다",
+        "항상 구석해만을 유도한다",
+        "공리주의 후생 가치와 완벽하게 조화를 이룬다"
       ],
-      "answer": "1",
-      "explanation": "Atkinson (1970): $W = \\dfrac{1}{1-\\varepsilon} \\sum y_i^{1-\\varepsilon}$. $\\varepsilon = 0$ → 공리주의 (선형). $\\varepsilon = 1$ → 로그 형태. $\\varepsilon \\to \\infty$ → maxmin (Rawls). 사회의 분배 선호 명시화."
+      "answer": "3",
+      "explanation": "내쉬 사회후생함수 $W = U_A \\\\cdot U_B$ (Nikaido-Nash 형태)는 곱셈 구조이므로 한 구성원의 효용이 0에 가까워지면 사회 후생도 극도로 수축합니다. 사회무차별곡선이 원점에 볼록하여 분배 불평등에 대해 일종의 페널티를 주는 평등주의적 가치를 구현합니다. 정답 ③."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-005",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "롤스의 '차등의 원칙(Difference Principle)'과 최대최소 원칙(Maximin Criterion)이 성립하는 경제철학적 기초인 '무지의 베일(Veil of Ignorance)'에 대한 설명으로 옳은 것은?",
+      "options": [
+        "자신이 사회의 지배 계층이 될 것임을 100% 확신하고 제도를 설계하는 상태를 뜻한다",
+        "사회의 규칙을 정할 때 자신이 어느 위치(부자 혹은 빈민)로 태어날지 전혀 모르는 초기 가상 상태(Original Position)를 의미하며, 이에 따라 최악의 상황을 방지하기 위해 최소수혜자 후생을 우선시하게 된다",
+        "시장 이윤을 영구 배제하려는 사회주의적 제도 장치이다",
+        "개별 구성원의 위험 기호도를 극단적 위험 추구형으로 강제 변환시키는 상태이다",
+        "모든 정보의 소유권을 정부가 독점하는 가치 왜곡 상태를 의미한다"
+      ],
+      "answer": "2",
+      "explanation": "존 롤스(John Rawls)의 무지의 베일이란, 원초적 처지에서 자신이 사회적 신분이나 능력을 모르는 상태로 사회 계약을 체결한다는 가정입니다. 이 조건 하에서 합리적 개인은 자신이 최악의 계층이 될 경우를 대비하여 최소극대화(maximin) 원리를 선택하게 됩니다. 정답 ②."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item02-006",
@@ -115,7 +115,7 @@
         "$W = 0$"
       ],
       "answer": "1",
-      "explanation": "$W^{Rawls} = \\min(U_1, U_2) = \\min(4, 16) = 4$. 최소수혜자 효용. 공리주의가 20인 반면 Rawls는 4 → 두 함수가 같은 상태를 다르게 평가."
+      "explanation": "$W^{Rawls} = \\\\\\\\min(U_1, U_2) = \\\\\\\\min(4, 16) = 4$. 최소수혜자 효용. 공리주의가 20인 반면 Rawls는 4 → 두 함수가 같은 상태를 다르게 평가."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-008",
@@ -130,7 +130,7 @@
         "결정 불가"
       ],
       "answer": "1",
-      "explanation": "공리주의: $A = 20$, $B = 25$, $C = 22$. $B$ 최대. 단 $B$는 가장 불평등 (5 vs 20). 분배 무관 평가."
+      "explanation": "공리주의: $$$A = 20$$$, $$$B = 25$$$, $$$C = 22$$$. $B$ 최대. 단 $B$는 가장 불평등 (5 vs 20). 분배 무관 평가."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-009",
@@ -145,11 +145,11 @@
         "결정 불가"
       ],
       "answer": "1",
-      "explanation": "Rawls min: $A = 10$, $B = 5$, $C = 8$. $A$가 가장 큼. 평등한 $A$ 선호. 공리주의 ($B$)와 Rawls ($A$)가 다른 결론."
+      "explanation": "Rawls min: $$$A = 10$$$, $$$B = 5$$$, $$$C = 8$$$. $A$가 가장 큼. 평등한 $A$ 선호. 공리주의 ($B$)와 Rawls ($A$)가 다른 결론."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-010",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "사회후생함수의 \"무차별곡선\"이란?",
       "options": [
@@ -160,7 +160,7 @@
         "정의 안 됨"
       ],
       "answer": "1",
-      "explanation": "공리주의 SWF: $U_1 + U_2 = c$ → 직선. Rawls: $\\min$ = c → 직각. Cobb-Douglas (Nash 곱): $U_1^a U_2^b = c$ → 부드러운 곡선. 사회의 분배 선호 형태."
+      "explanation": "공리주의 SWF: $U_1 + U_2 = c$ → 직선. Rawls: $\\\\\\\\min$ = c → 직각. Cobb-Douglas (Nash 곱): $U_1^a U_2^$$b = c$$$ → 부드러운 곡선. 사회의 분배 선호 형태."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item02-011",
@@ -168,18 +168,18 @@
       "question_type": "이론형",
       "question": "Nash 사회후생함수(곱 형태)란?",
       "options": [
-        "$W = U_1 \\cdot U_2 \\cdot \\ldots \\cdot U_n$ — 협상이론에서 비롯, 곱이므로 한 명 효용 0이면 사회후생 0",
+        "$W = U_1 \\\\\\\\cdot U_2 \\\\\\\\cdot \\\\\\\\ldots \\\\\\\\cdot U_n$ — 협상이론에서 비롯, 곱이므로 한 명 효용 0이면 사회후생 0",
         "공리주의",
         "Rawls",
         "선형",
         "독재"
       ],
       "answer": "1",
-      "explanation": "Nash (1950): 협상 게임의 해. 사회 후생은 효용 곱. 의미: 한 명이 매우 낮은 효용이면 사회 후생 크게 ↓ — 평등 선호 ($\\varepsilon = 1$ Atkinson과 동일). 평등도와 효율의 절충."
+      "explanation": "Nash (1950): 협상 게임의 해. 사회 후생은 효용 곱. 의미: 한 명이 매우 낮은 효용이면 사회 후생 크게 ↓ — 평등 선호 ($\\\\\\\\$$varepsilon = 1$$$ Atkinson과 동일). 평등도와 효율의 절충."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-012",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 경제정책 평가에서 흔히 사용되는 사회후생 척도는?",
       "options": [
@@ -194,7 +194,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item02-013",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "사회후생함수가 \"가치판단\"을 포함하는 이유는?",
       "options": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-014",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "사회후생함수의 \"개인간 효용 비교\" 문제는?",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-015",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Harsanyi의 사회후생함수와 베일이론은?",
       "options": [
@@ -239,7 +239,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item02-016",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "사회후생함수에서 \"분배\"의 가중치를 명시한 정책 사례는?",
       "options": [
@@ -250,26 +250,26 @@
         "공리주의만 적용"
       ],
       "answer": "1",
-      "explanation": "현실 정책: 저소득층 효용 한계가치 ↑ 가정 (Atkinson $\\varepsilon > 0$). EITC·기초생활보장·누진세 모두 저소득층 가중치 ↑. 단 효율 손실(노동공급 ↓ 등)과 trade-off."
+      "explanation": "현실 정책: 저소득층 효용 한계가치 ↑ 가정 (Atkinson $\\\\\\\\varepsilon > 0$). EITC·기초생활보장·누진세 모두 저소득층 가중치 ↑. 단 효율 손실(노동공급 ↓ 등)과 trade-off."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item02-017",
       "difficulty": 4,
       "question_type": "계산형",
-      "question": "2인: $(U_1, U_2) = (10, 90)$. $\\varepsilon = 1$ Atkinson SWF (= 로그) 값은?",
+      "question": "2인: $(U_1, U_2) = (10, 90)$. $\\\\\\\\varepsilon = 1$ Atkinson SWF (= 로그) 값은?",
       "options": [
-        "$W = \\ln(10) + \\ln(90) \\approx 6.8$",
+        "$W = \\\\\\\\ln(10) + \\\\\\\\ln(90) \\\\\\\\approx 6.8$",
         "$W = 100$",
         "$W = 10$",
         "$W = 50$",
         "$W = 4.5$"
       ],
       "answer": "1",
-      "explanation": "$W = \\sum \\ln U_i = \\ln 10 + \\ln 90 = 2.303 + 4.500 \\approx 6.80$. Nash 곱 형태와 일치 ($W = \\ln(U_1 \\cdot U_2) = \\ln 900 \\approx 6.80$)."
+      "explanation": "$W = \\\\\\\\sum \\\\\\\\ln U_i = \\\\\\\\ln 10 + \\\\\\\\ln 90 = 2.303 + 4.500 \\\\\\\\approx 6.80$. Nash 곱 형태와 일치 ($W = \\\\\\\\ln(U_1 \\\\\\\\cdot U_2) = \\\\\\\\ln 900 \\\\\\\\approx 6.80$)."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item02-018",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국에서 \"행복지수\" 활용 의미는?",
       "options": [
@@ -284,7 +284,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item02-019",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "사회후생함수의 \"비독재 조건\"(non-dictatorship)이란?",
       "options": [
@@ -299,7 +299,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-020",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "공리주의 SWF의 한계는?",
       "options": [
@@ -310,11 +310,11 @@
         "효율 = 평등"
       ],
       "answer": "1",
-      "explanation": "공리주의 한계: $(50, 50)$과 $(0, 100)$은 동일 $W = 100$ — 분배 완전 무관. \"노예 한 명에 부 모두 집중\"이 \"평등\"보다 좋다는 식의 평가 가능. Sen 등의 비판 핵심."
+      "explanation": "공리주의 한계: $(50, 50)$과 $(0, 100)$은 동일 $$$W = 100$$$ — 분배 완전 무관. \"노예 한 명에 부 모두 집중\"이 \"평등\"보다 좋다는 식의 평가 가능. Sen 등의 비판 핵심."
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-021",
-      "difficulty": 5,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "Rawls의 \"original position\"(원초적 입장)이 maxmin 정당화하는 논리는?",
       "options": [
@@ -329,7 +329,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-022",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Sen의 \"능력 접근\"(Capability Approach)이 SWF 측면에서 제안하는 바는?",
       "options": [
@@ -359,7 +359,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-024",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "정책 분석에서 사회후생함수 사용의 실질적 어려움은?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-micro-ch07-sec02-item002-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Nordhaus·Stern의 기후정책 분석에서 사회후생함수와 시점간 할인율의 관계는?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "Nordhaus DICE 모형 (할인율 3~5%) → 기후 행동 점진. Stern 보고서 (할인율 ~1%) → 즉각 행동 필요. 할인율 차이가 후생 계산에 큰 영향. 세대 간 형평성 논쟁. Nordhaus 2018 노벨상."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-026",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-027",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-028",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-029",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-030",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-034",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-035",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-036",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-037",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-038",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-039",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-040",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-041",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-042",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-043",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-044",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-045",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-046",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-047",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-048",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-049",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "사회의 후생을 극대화하기 위해, 구성원들의 유틸리티 곱을 극대화하는 내쉬(Nash) 사회후생함수 $W = U_A \\cdot U_B$ 하에서 사회무차별곡선의 기하학적 형태와 그것이 갖는 평등주의적 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 250 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"30\" y1=\"210\" x2=\"220\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- 공리주의 (우하향 직선) -->\n  <line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"120\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">W_Bentham</text>\n  <!-- 롤스 (L자형) -->\n  <path d=\"M 90 20 L 90 150 L 220 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"100\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">W_Rawls</text>\n  <!-- 평등주의 (볼록) -->\n  <path d=\"M 50 50 Q 120 120 200 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\">W_Nash/Nikaido</text>\n  <text x=\"190\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_A</text>\n  <text x=\"12\" y=\"30\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">U_B</text>\n</svg>\n```",
+      "options": [
+        "사회무차별곡선이 우하향 직선이 되어 완벽한 대체성을 가진다",
+        "사회무차별곡선이 원점에 대해 볼록하여, 두 사람의 효용 격차가 클수록 더 낮은 사회후생으로 평가하는 평등주의 성격을 띤다",
+        "사회무차별곡선이 L자 모양이 되어 가치판단을 원천 배제한다",
+        "불평등도가 높을수록 사회 후생을 극대화하는 성질을 지닌다",
+        "원점에 대해 오목한 형태로 나타난다"
+      ],
+      "answer": "2",
+      "explanation": "내쉬(Nash) 사회후생함수는 기하학적으로 원점에 볼록한 우하향 무차별곡선을 유도합니다. 두 사람의 효용 곱이 극대화되어야 하므로 한쪽이 0에 가까워지면 후생이 급감하여, 공리주의보다 훨씬 평등한 효용 분배를 선호하게 됩니다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch07-sec02-item02-050",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "사회의 효용가능경계가 $U_A^2 + U_B^2 = 200$ 이다. 롤스(Rawls)의 사회적 관점에서 사회적 후생을 극대화하는 구성원들의 균형 효용 크기 $U_A^*$는?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "대수적 유도 불가"
+      ],
+      "answer": "2",
+      "explanation": "롤스 사회후생함수 $W = \\min(U_A, U_B)$ 에 의한 극대화는 무차별곡선의 꺾임점인 $U_A = U_B$ 선 상에서 발생합니다. 효용가능경계 $U_A^2 + U_B^2 = 200$ 에 $U_A = U_B$ 를 대입하면, $2 U_A^2 = 200 \\\\Rightarrow U_A^2 = 100 \\\\Rightarrow U_A^* = 10$ 이 도출됩니다. 정답 ②."
     }
   ]
 }

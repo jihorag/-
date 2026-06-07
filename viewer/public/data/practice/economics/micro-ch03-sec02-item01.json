@@ -8,98 +8,98 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-01",
-    "count": 30
+    "count": 50
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch03-sec02-item01-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "무차별곡선(indifference curve)의 정의로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "무차별곡선이 원점을 향해 볼록(Convex to the origin)하기 위해 수학적으로 만족해야 하는 2차 미분 조건과 소비자의 다양성 선호(Convexity Preference)의 정성적 의미로 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y</text>\n  \n  <!-- 볼록 무차별곡선과 접선 기울기 -->\n  <path d=\"M 80 70 Q 150 150 320 170\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <line x1=\"90\" y1=\"110\" x2=\"230\" y2=\"180\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  <circle cx=\"160\" cy=\"145\" r=\"4\" fill=\"#b91c1c\" />\n  \n  <text x=\"170\" y=\"140\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">접선 기울기 = MRSxy</text>\n</svg>\n```\n",
       "options": [
-        "같은 가격의 재화 조합 곡선",
-        "동일한 효용 수준을 가져다주는 두 재화의 모든 조합을 연결한 곡선",
-        "같은 수량의 재화 조합 곡선",
-        "같은 비용의 재화 조합 곡선",
-        "수요와 공급의 균형 곡선"
+        "무차별곡선의 접선 기울기 절댓값인 한계대체율 $MRS_{xy} = -dY/dX$ 가 $X$ 소비가 늘어남에 따라 점차 감소하여야 하므로, 2차 미분치 $d^2 Y / dX^2 > 0$ 이어야 하고 이는 소비자가 극단보다는 균형 잡힌 소비 조합을 선호함을 대변한다.",
+        "무차별곡선의 2차 미분치 $d^2 Y / dX^2 < 0$ 이며, 소비자가 한 재화만 집중적으로 소비하는 코너 조합을 선호함을 의미한다.",
+        "한계대체율이 가격비율과 항상 일치하기 위해 무차별곡선이 수평선의 형태를 취해야 함을 의미한다.",
+        "두 재화의 한계효용 비율이 음수(-)에서 양수(+)로 급격히 반전되어 꺾임점이 형성되는 상태이다.",
+        "기수적 효용 이론에 따라 두 재화의 절대적인 한계효용의 합이 $0$이 되도록 기하적으로 고정시키는 조건이다."
       ],
-      "answer": "2",
-      "explanation": "무차별곡선은 두 재화의 다른 조합 중 같은 효용 수준(소비자가 무차별로 느끼는)을 가져다주는 모든 조합을 연결한 곡선이다. 파레토(1906)·힉스·앨런(1934)이 서수적 효용 이론의 핵심 도구로 정립하였다."
+      "answer": "1",
+      "explanation": "무차별곡선이 원점에 대해 볼록하다는 것은 수학적으로 함수 $Y = f(X)$ 가 아래로 볼록한 형태(Convex)임을 뜻합니다. 따라서 2차 도함수 $\\dfrac{d^2 Y}{dX^2} > 0$ 이 성립해야 합니다. 이는 $X$재 소비 증가 시 $MRS_{xy}$(기울기 절댓값)가 점차 낮아짐(한계대체율 체감)을 의미합니다. 정성적으로는 두 극단적인 조합 $A$, $B$ 보다 이들의 평균적인(가중평균) 조합 $C = tA + (1-t)B$ ($0 < t < 1$)를 소비자가 더 선호함(다양성 선호)을 나타냅니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "무차별곡선의 일반적 특성 4가지 중 하나가 아닌 것은?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "소비자 선호체계의 기본 공리 중 이행성(Transitivity)과 강단조성(Strong Monotonicity)이 무차별곡선 지도의 기하학적 형태적 특성에 미치는 인과 관계로 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 교차하는 무차별곡선 (이행성 위배 모순) -->\n  <path d=\"M 80 60 Q 150 150 320 160\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <path d=\"M 80 140 Q 180 110 320 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <circle cx=\"165\" cy=\"120\" r=\"4.5\" fill=\"#b91c1c\" />\n  <text x=\"175\" y=\"115\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">교차점 P (모순)</text>\n</svg>\n```\n",
       "options": [
-        "우하향 (단조 선호: 더 많은 재화 = 더 큰 효용)",
-        "원점에 볼록 (한계대체율 체감)",
-        "서로 교차하지 않음 (이행성)",
-        "원점에서 멀수록 효용 큼 (선호 단조성)",
-        "수평선"
+        "이행성 공리는 서로 다른 두 무차별곡선이 교차하지 않음을 보장하며, 강단조성 공리는 무차별곡선이 우하향하고 원점에서 멀수록 더 높은 효용을 준다는 성질을 도출한다.",
+        "이행성 공리는 무차별곡선이 원점을 향해 볼록하게 만들며, 강단조성은 무차별곡선을 L자 형태로 고정시킨다.",
+        "이행성 공리는 소비자가 모든 조합의 선호 순위를 매길 수 있게 만들며, 강단조성은 무차별곡선이 원점에 대해 오목하도록 변형한다.",
+        "강단조성 공리는 무차별곡선이 원점 방향으로 수평 이동하게 만들고, 이행성 공리는 대체효과를 소멸시킨다.",
+        "두 공리가 만족되더라도 무차별곡선이 상호 교차하거나 우상향하는 모순적 지도가 얼마든지 형성될 수 있다."
       ],
-      "answer": "5",
-      "explanation": "무차별곡선의 4가지 일반 특성:\n① 우하향 (단조 선호)\n② 원점에 볼록 (한계대체율 체감, 다양화 선호)\n③ 서로 교차하지 않음 (이행성)\n④ 원점에서 멀수록 효용 큼 (단조 선호)\n수평선은 일반적 무차별곡선이 아니다. 특수 사례 (한 재화 무차별)에서만 가능."
+      "answer": "1",
+      "explanation": "1) 이행성 공리(A > B 이고 B > C 이면 A > C): 무차별곡선 지도의 비교차성(No crossing)을 입증합니다. 만약 두 무차별곡선이 교차하면 교차점 $P$ 와 개별 곡선 위 점 $A, B$ 에 대해 선호의 모순이 발생하여 이행성이 깨지게 됩니다.\\n2) 강단조성 공리(더 많을수록 더 선호): 무차별곡선이 우하향하도록 만듭니다. X재를 더 늘렸을 때 효용이 증가하므로, 동일한 효용 수준을 유지하려면 Y재의 수량을 반드시 줄여야 하기 때문입니다. 또한 원점에서 멀어질수록 두 재화 소비량이 늘어나므로 더 높은 효용을 대변합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-003",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "한계대체율(MRS, Marginal Rate of Substitution)의 정의로 옳은 것은?",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 효용함수가 콥-더글러스 형태인 $U(X, Y) = X^2 Y$ 이다. 소비조합 $(X, Y) = (4, 8)$ 에서 도출되는 한계대체율 $MRS_{xy}$ 의 값과, 동일한 무차별곡선 상에서 $X$재의 소비량을 $8$로 늘렸을 때 결정되는 새로운 소비점에서의 $MRS'_{xy}$ 값의 조합으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 80 60 Q 140 140 320 170\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <!-- 두 점에서의 MRS 대비 -->\n  <circle cx=\"110\" cy=\"100\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"118\" y=\"96\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">A (기울기 급함)</text>\n  \n  <circle cx=\"200\" cy=\"148\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"208\" y=\"144\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">B (기울기 완만)</text>\n</svg>\n```\n",
       "options": [
-        "한 재화 1단위를 얻기 위해 포기할 의사가 있는 다른 재화의 양",
-        "두 재화의 한계비용 비율",
-        "수요·공급의 비율",
-        "두 재화의 가격 비율",
-        "정부가 결정한 교환 비율"
+        "$MRS_{xy} = 4$, $MRS'_{xy} = 0.5$",
+        "$MRS_{xy} = 2$, $MRS'_{xy} = 0.5$",
+        "$MRS_{xy} = 4$, $MRS'_{xy} = 1$",
+        "$MRS_{xy} = 2$, $MRS'_{xy} = 0.25$",
+        "$MRS_{xy} = 8$, $MRS'_{xy} = 2$"
       ],
       "answer": "1",
-      "explanation": "한계대체율 MRSxy = -dY/dX (무차별곡선의 기울기 절댓값) = X재 1단위 추가를 얻기 위해 포기할 의사가 있는 Y재의 양. 또한 MRS = MUx/MUy (한계효용 비율). 효용극대화 조건: MRS = Px/Py."
+      "explanation": "1) 한계효용 도출:\\n   $MU_x = \\dfrac{\\partial U}{\\partial X} = 2XY$, $MU_y = \\dfrac{\\partial U}{\\partial Y} = X^2$\\n2) 한계대체율 수식:\\n   $$MRS_{xy} = \\dfrac{MU_x}{MU_y} = \\dfrac{2XY}{X^2} = \\dfrac{2Y}{X}$$\\n3) $(4, 8)$ 점에서의 MRS:\\n   $$MRS_{xy} = \\dfrac{2(8)}{4} = 4$$\\n4) 동일 효용 수준($U_0 = 4^2 \\times 8 = 128$) 하에서 $X'=8$ 일 때의 $Y'$:\\n   $$X'^2 \\cdot Y' = 128 \\implies 8^2 \\cdot Y' = 128 \\implies 64 Y' = 128 \\implies Y' = 2$$\\n5) 새로운 점 $(8, 2)$ 에서의 MRS':\\n   $$MRS'_{xy} = \\dfrac{2(2)}{8} = 0.5$$\\n$X$재 소비량이 늘어남에 따라 MRS가 $4$에서 $0.5$로 감소하므로 한계대체율 체감의 법칙이 충족됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-004",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "한계대체율 체감의 법칙의 내용으로 옳은 것은?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 효용함수가 준선형 형태인 $U(X, Y) = 4\\ln X + Y$ 이다. 임의의 소비조합에서의 한계대체율 $MRS_{xy}$ 의 대수적 수식과, 소득 증가 시 예산선과의 접점 변화를 통해 유도되는 무차별곡선 지도의 기하학적 형태의 특징으로 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 준선형: 수직으로 평행이동하는 무차별곡선 지도 -->\n  <path d=\"M 80 90 Q 160 160 320 170\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.2\" />\n  <path d=\"M 80 50 Q 160 120 320 130\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.2\" />\n  \n  <line x1=\"160\" y1=\"120\" x2=\"160\" y2=\"160\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" />\n</svg>\n```\n",
       "options": [
-        "X 소비를 늘릴수록 MRS가 증가",
-        "X 소비를 늘릴수록 X 1단위를 위해 포기할 수 있는 Y의 양(MRS)이 감소 (다양화 선호)",
-        "MRS는 일정",
-        "MRS는 가격 비율",
-        "MRS는 무관"
+        "$MRS_{xy} = \\dfrac{4}{X}$ 이며, 한계대체율이 오직 X재 소비량에 의해서만 결정되므로 무차별곡선들이 Y축 방향으로 수직 평행이동한 형태를 나타낸다.",
+        "$MRS_{xy} = 4Y$ 이며, 한계대체율이 X재와 독립적이라서 무차별곡선들이 X축 방향으로 수평 평행이동한다.",
+        "$MRS_{xy} = \\dfrac{4Y}{X}$ 이며, 동차 선호를 만족하여 ICC가 원점을 통과하는 직선이 된다.",
+        "$MRS_{xy} = 4X$ 이며, 한계대체율이 체증하므로 무차별곡선이 원점에 대해 오목한 형태가 된다.",
+        "무차별곡선의 접선 기울기가 항상 일정하므로 예산선과 무관하게 언제나 코너해만 발생한다."
       ],
-      "answer": "2",
-      "explanation": "한계대체율 체감의 법칙: X 소비를 늘릴수록 MRSxy(X 1단위 추가를 위해 포기할 수 있는 Y의 양)이 점차 감소. 직관: X가 풍부할수록 Y가 상대적으로 희소해져 Y의 한계효용이 커지므로 Y를 덜 포기. 결과: 무차별곡선이 원점에 볼록."
+      "answer": "1",
+      "explanation": "준선형 효용함수 $U = V(X) + Y$ 에서 $MU_x = \\dfrac{4}{X}$, $MU_y = 1$ 입니다.\\n따라서 한계대체율은 $MRS_{xy} = \\dfrac{MU_x}{MU_y} = \\dfrac{4}{X}$ 가 도출됩니다.\\n이 식에는 $Y$재 소비량이 포함되어 있지 않으므로, 동일한 $X$ 값 상에서는 $Y$가 변해도 무차별곡선의 기울기가 항상 동일합니다. 즉, 원래 무차별곡선을 Y축(수직) 방향으로 평행하게 들어 올리면 새로운 무차별곡선과 완전히 포개어지는 수직 평행이동 형태를 띠게 됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-005",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "무차별곡선이 서로 교차하지 않는 이유로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자가 두 대상 $X$와 $Y$를 소비하는데, $X$재는 정상적인 재화(Goods)인 반면, $Y$재는 쓰레기나 공해와 같은 비재화(Bad)이다. 이 소비자의 동일한 효용 수준을 대변하는 무차별곡선의 기하학적 형태와 효용 증가 방향으로 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 비재화 포함: 우상향 볼록 무차별곡선 -->\n  <path d=\"M 70 180 Q 200 170 320 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">정상재 (X)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">비재화 (Y)</text>\n</svg>\n```\n",
       "options": [
-        "이행성(transitivity)의 위반이 발생하기 때문",
-        "선호의 비합리성",
-        "정부 규제 때문",
-        "무차별곡선은 항상 교차",
-        "수학적 한계"
+        "무차별곡선이 우상향하고 원점을 기준으로 아래쪽으로 볼록한 형태를 띠며, 효용 증가 방향은 우하향 방향(X재 증가, Y재 감소)이다.",
+        "무차별곡선이 우하향하며, 원점에서 멀어질수록 효용이 감소한다.",
+        "무차별곡선은 L자 형태가 되며 모서리점의 방향이 왼쪽 위를 향하게 된다.",
+        "무차별곡선이 수평선 형태가 되어 Y재 소비량 증감은 효용에 아무런 영향을 주지 않는다.",
+        "효용 극대점(포만점)을 중심으로 동심원 형태로 닫히는 원의 형상을 띤다."
       ],
       "answer": "1",
-      "explanation": "무차별곡선이 교차하면 선호의 이행성(transitivity) 위반:\n교차점 P, IC1 위의 점 A, IC2 위의 점 B (P, A 같은 IC1, P, B 같은 IC2)\nA ~ P (IC1), B ~ P (IC2) → A ~ B\nBut A는 IC1 위, B는 IC2 위 → A와 B의 효용 수준 다름\n→ 모순 발생\n따라서 합리적 선호 하에서는 무차별곡선이 교차하지 않음."
+      "explanation": "1) 우상향성: $X$재는 한계효용이 양수($MU_x > 0$), $Y$재는 한계효용이 음수($MU_y < 0$)입니다. 동일한 효용을 유지하기 위해 비재화인 $Y$가 증가하여 고통이 늘면, 정상재인 $X$도 늘려주어야 만족도가 상쇄되므로 무차별곡선은 우상향합니다.\\n2) 오목/볼록성: 한계대체율 체감의 법칙이 만족되면, X 소비가 커질수록 추가 X재 1단위가 지불할 용의가 있는 비재화 Y의 증가 한계폭이 감소해야 하므로 아래쪽으로 볼록(X축 방향 오목)한 형태가 됩니다.\\n3) 효용 방향: 더 좋은 정상재는 많고 싫어하는 비재화는 적을수록 좋으므로 효용은 동남(우하향) 방향으로 갈수록 커집니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-006",
-      "difficulty": 2,
+      "difficulty": 4,
       "question_type": "이론형",
-      "question": "MRSxy = MUx/MUy 관계의 도출로 옳은 것은?",
+      "question": "$MRS$xy = $MU_x$/$MU_y$ 관계의 도출로 옳은 것은?",
       "options": [
-        "무차별곡선 위에서 효용 일정 (dU = 0): MUx·dX + MUy·dY = 0 → -dY/dX = MUx/MUy = MRSxy",
-        "MRS와 MU는 무관",
-        "MRS = MUx·MUy",
-        "MRS = MUx + MUy",
-        "MRS = MUx - MUy"
+        "무차별곡선 위에서 효용 일정 (dU = 0): $MU_x$·dX + $MU_y$·dY = 0 → -dY/dX = $MU_x$/$MU_y$ = $MRS$xy",
+        "$MRS$와 MU는 무관",
+        "$MRS$ = $MU_x$·$MU_y$",
+        "$MRS$ = $MU_x$ + $MU_y$",
+        "$MRS$ = $MU_x$ - $MU_y$"
       ],
       "answer": "1",
-      "explanation": "MRS와 MU의 관계 도출:\n무차별곡선 위에서 효용 일정: dU = 0\n효용의 전미분: dU = (∂U/∂X)·dX + (∂U/∂Y)·dY = MUx·dX + MUy·dY = 0\n정리: -dY/dX = MUx/MUy\n즉 MRSxy (무차별곡선 기울기 절댓값) = MUx/MUy (한계효용 비율)\n무차별곡선 분석과 한계효용 분석의 연결고리."
+      "explanation": "$MRS$와 MU의 관계 도출:\n무차별곡선 위에서 효용 일정: dU = 0\n효용의 전미분: dU = (∂U/∂X)·dX + (∂U/∂Y)·dY = $MU_x$·dX + $MU_y$·dY = 0\n정리: -dY/dX = $MU_x$/$MU_y$\n즉 $MRS$xy (무차별곡선 기울기 절댓값) = $MU_x$/$MU_y$ (한계효용 비율)\n무차별곡선 분석과 한계효용 분석의 연결고리."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-007",
@@ -107,18 +107,18 @@
       "question_type": "이론형",
       "question": "완전 대체재(perfect substitutes)의 무차별곡선 형태로 옳은 것은?",
       "options": [
-        "직선 (일정 기울기, MRS 일정)",
+        "직선 (일정 기울기, $MRS$ 일정)",
         "원점에 오목",
         "원점에 볼록",
         "L자형",
         "수직"
       ],
       "answer": "1",
-      "explanation": "완전 대체재 U = aX + bY (선형):\n무차별곡선 = 직선, 기울기 일정 (-a/b)\nMRS = a/b 일정 (모든 점에서)\n예: 1달러 지폐와 1달러 동전, 같은 품질의 두 브랜드 콜라\nMRS 체감의 법칙은 적용되지 않음 (다양화 선호 없음)\n효용극대화 시 코너 해 가능 (한 재화만 소비)."
+      "explanation": "완전 대체재 $U = aX + bY$ (선형):\n무차별곡선 = 직선, 기울기 일정 (-a/b)\n$MRS$ = a/b 일정 (모든 점에서)\n예: 1달러 지폐와 1달러 동전, 같은 품질의 두 브랜드 콜라\n$MRS$ 체감의 법칙은 적용되지 않음 (다양화 선호 없음)\n효용극대화 시 코너 해 가능 (한 재화만 소비)."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-008",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "완전 보완재(perfect complements)의 무차별곡선 형태로 옳은 것은?",
       "options": [
@@ -129,13 +129,13 @@
         "수평"
       ],
       "answer": "3",
-      "explanation": "완전 보완재 U = min(aX, bY) (레온티에프):\n무차별곡선 = L자형 (모서리)\n모서리 위치: aX = bY (일정 비율)\n예: 신발 좌우 한 쌍, 자동차와 휘발유 (특정 비율)\nMRS: 모서리에서 무한대 또는 0 (정의 안 됨)\n결합 소비의 특수 사례. 가격 변화 시 대체효과 없음 (소득효과만)."
+      "explanation": "완전 보완재 $U = \\min(aX, bY)$ (레온티에프):\n무차별곡선 = L자형 (모서리)\n모서리 위치: aX = bY (일정 비율)\n예: 신발 좌우 한 쌍, 자동차와 휘발유 (특정 비율)\n$MRS$: 모서리에서 무한대 또는 0 (정의 안 됨)\n결합 소비의 특수 사례. 가격 변화 시 대체효과 없음 (소득효과만)."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-009",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "비재화(bad)의 무차별곡선 특성으로 옳은 것은?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "비재화(bad)의 무차별곡선 특성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 비재화 포함: 우상향 볼록 무차별곡선 -->\n  <path d=\"M 70 180 Q 200 170 320 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">정상재 (X)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">비재화 (Y)</text>\n</svg>\n```\n",
       "options": [
         "우하향",
         "우상향 (재화·비재화 관계: 비재화가 늘면 효용 감소, 같은 효용 유지를 위해 재화도 증가)",
@@ -149,8 +149,8 @@
     {
       "id": "practice-econ-micro-ch03-sec02-item01-010",
       "difficulty": 2,
-      "question_type": "이론형",
-      "question": "포만점(bliss point)의 의미로 옳은 것은?",
+      "question_type": "이론/그래프형",
+      "question": "포만점(bliss point)의 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 포만점 동심원 무차별곡선 -->\n  <circle cx=\"200\" cy=\"120\" r=\"60\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <circle cx=\"200\" cy=\"120\" r=\"30\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  <circle cx=\"200\" cy=\"120\" r=\"4.5\" fill=\"#b91c1c\" />\n  \n  <text x=\"208\" y=\"115\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">포만점 (Bliss Point)</text>\n</svg>\n```\n",
       "options": [
         "두 재화의 동시 효용 극대점 - 그 이상 소비 시 효용 감소 (예: 과식 사례)",
         "수요와 공급의 균형점",
@@ -163,7 +163,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-011",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 무차별곡선의 의미에 관한 옳은 설명은?",
       "options": [
@@ -178,7 +178,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-012",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "보기 결합형",
       "question": "다음 중 무차별곡선의 특성에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 무차별곡선은 동일 효용 수준의 두 재화 조합을 연결\nㄴ. 표준 무차별곡선은 우하향, 원점에 볼록\nㄷ. 무차별곡선은 서로 교차하지 않음 (이행성)\nㄹ. 원점에서 멀수록 효용 큼",
       "options": [
@@ -193,9 +193,9 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-013",
-      "difficulty": 3,
-      "question_type": "이론형",
-      "question": "MRS 계산: U = X·Y (콥-더글러스). X = 4, Y = 8에서 MRSxy는?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "$MRS$ 계산: $U = X \\cdot Y$ (콥-더글러스). X = 4, Y = 8에서 $MRS$xy는?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 80 60 Q 140 140 320 170\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <!-- 두 점에서의 MRS 대비 -->\n  <circle cx=\"110\" cy=\"100\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"118\" y=\"96\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">A (기울기 급함)</text>\n  \n  <circle cx=\"200\" cy=\"148\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"208\" y=\"144\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">B (기울기 완만)</text>\n</svg>\n```\n",
       "options": [
         "0.5",
         "1",
@@ -204,26 +204,26 @@
         "32"
       ],
       "answer": "3",
-      "explanation": "U = X·Y → MUx = ∂U/∂X = Y, MUy = ∂U/∂Y = X.\nMRSxy = MUx/MUy = Y/X.\nX = 4, Y = 8 대입: MRSxy = 8/4 = 2.\n해석: X 1단위를 더 얻기 위해 Y 2단위를 포기할 의사가 있음 (이 점에서)."
+      "explanation": "$U = X \\cdot Y$ → $MU_x$ = ∂U/∂X = Y, $MU_y$ = ∂U/∂Y = X.\n$MRS$xy = $MU_x$/$MU_y$ = Y/X.\nX = 4, Y = 8 대입: $MRS$xy = 8/4 = 2.\n해석: X 1단위를 더 얻기 위해 Y 2단위를 포기할 의사가 있음 (이 점에서)."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-014",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "MRS 체감 확인: U = X·Y에서 X 증가에 따른 MRS 변화로 옳은 것은?",
+      "question": "$MRS$ 체감 확인: $U = X \\cdot Y$에서 X 증가에 따른 $MRS$ 변화로 옳은 것은?",
       "options": [
-        "MRS = Y/X. X 증가 시 (Y 감소도 동반, 무차별곡선 위 이동) MRS 감소 - MRS 체감 확인",
-        "MRS는 일정",
-        "MRS는 X와 무관",
-        "MRS = X·Y",
-        "MRS는 가격에 의존"
+        "$MRS$ = Y/X. X 증가 시 (Y 감소도 동반, 무차별곡선 위 이동) $MRS$ 감소 - $MRS$ 체감 확인",
+        "$MRS$는 일정",
+        "$MRS$는 X와 무관",
+        "$MRS$ = X·Y",
+        "$MRS$는 가격에 의존"
       ],
       "answer": "1",
-      "explanation": "U = X·Y의 IC 위에서 X 증가:\nX·Y = U (일정) → Y = U/X. X ↑ → Y ↓ (무차별곡선 우하향)\nMRS = Y/X = (U/X)/X = U/X² → X ↑ → MRS ↓ (체감)\n예: U = 32. X=4, Y=8 → MRS=2. X=8, Y=4 → MRS=0.5. X=16, Y=2 → MRS=0.125\nMRS 체감의 법칙 확인 → 원점에 볼록한 무차별곡선."
+      "explanation": "$U = X \\cdot Y$의 IC 위에서 X 증가:\nX·Y = U (일정) → Y = U/X. X ↑ → Y ↓ (무차별곡선 우하향)\n$MRS$ = Y/X = (U/X)/X = U/X² → X ↑ → $MRS$ ↓ (체감)\n예: U = 32. X=4, Y=8 → $MRS$=2. X=8, Y=4 → $MRS$=0.5. X=16, Y=2 → $MRS$=0.125\n$MRS$ 체감의 법칙 확인 → 원점에 볼록한 무차별곡선."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-015",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 무차별곡선과 효용함수의 관계로 옳은 것은?",
       "options": [
@@ -239,51 +239,51 @@
     {
       "id": "practice-econ-micro-ch03-sec02-item01-016",
       "difficulty": 3,
-      "question_type": "이론형",
-      "question": "다음 중 단조 변환(monotonic transformation)의 예로 옳은 것은?",
+      "question_type": "이론/그래프형",
+      "question": "다음 중 단조 변환(monotonic transformation)의 예로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 단조증가변환 시 형상 보존 다이어그램 -->\n  <path d=\"M 80 60 Q 170 150 310 160\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"140\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#8b5cf6\" font-weight=\"bold\">U_0 vs f(U_0) 형상 일치</text>\n</svg>\n```\n",
       "options": [
-        "U = X·Y → V = ln(U) = ln(X·Y) = ln(X) + ln(Y) (로그 변환)",
-        "U = X·Y → V = 2·U = 2X·Y (선형 변환)",
-        "U = X·Y → V = U² = (X·Y)² (제곱)",
+        "$U = X \\cdot Y$ → V = ln(U) = ln(X·Y) = ln(X) + ln(Y) (로그 변환)",
+        "$U = X \\cdot Y$ → V = 2·U = 2X·Y (선형 변환)",
+        "$U = X \\cdot Y$ → V = U² = (X·Y)² (제곱)",
         "위 ①, ②, ③ 모두 단조 변환의 예",
         "①만 옳다"
       ],
       "answer": "4",
-      "explanation": "단조 변환: V = f(U)에서 f가 단조 증가 함수\n①②③ 모두 단조 변환의 예. 변환 후 효용 함수는 다르지만 같은 무차별곡선 지도와 같은 선호 순서를 유지.\n예: U = X·Y와 V = ln(X) + ln(Y)는 같은 무차별곡선과 같은 효용극대화 결과.\n서수적 효용의 핵심 성질 - 효용 수치는 의미 없고 순서만 의미."
+      "explanation": "단조 변환: V = f(U)에서 f가 단조 증가 함수\n①②③ 모두 단조 변환의 예. 변환 후 효용 함수는 다르지만 같은 무차별곡선 지도와 같은 선호 순서를 유지.\n예: $U = X \\cdot Y$와 V = ln(X) + ln(Y)는 같은 무차별곡선과 같은 효용극대화 결과.\n서수적 효용의 핵심 성질 - 효용 수치는 의미 없고 순서만 의미."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-017",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
-      "question": "다음 중 한계대체율(MRS)의 의미와 가격 비율(Px/Py)의 관계로 옳은 것은?",
+      "question": "다음 중 한계대체율($MRS$)의 의미와 가격 비율($P_x$/$P_y$)의 관계로 옳은 것은?",
       "options": [
-        "MRSxy = 소비자의 주관적 교환 비율 / Px/Py = 시장의 객관적 교환 비율. 효용극대화 시 두 비율이 일치 (MRS = Px/Py)",
+        "$MRS$xy = 소비자의 주관적 교환 비율 / $P_x$/$P_y$ = 시장의 객관적 교환 비율. 효용극대화 시 두 비율이 일치 ($MRS$ = $P_x$/$P_y$)",
         "두 비율은 동일",
-        "MRS는 가격 비율과 무관",
-        "MRS = 1/Px·Py",
+        "$MRS$는 가격 비율과 무관",
+        "$MRS$ = 1/$P_x$·$P_y$",
         "두 비율은 가치판단"
       ],
       "answer": "1",
-      "explanation": "MRS와 가격 비율의 비교:\nMRSxy: 소비자의 주관적 교환 비율 - 한 단위 X를 얻기 위해 포기할 의사 Y의 양\nPx/Py: 시장의 객관적 교환 비율 - 시장에서 1 X = (Px/Py) Y로 교환\n효용극대화: MRS = Px/Py (주관적 = 객관적 교환 비율)\nMRS > Px/Py: X 소비 늘림 (X가 상대적으로 가치 큼)\nMRS < Px/Py: Y 소비 늘림\n→ 균형: MRS = Px/Py."
+      "explanation": "$MRS$와 가격 비율의 비교:\n$MRS$xy: 소비자의 주관적 교환 비율 - 한 단위 X를 얻기 위해 포기할 의사 Y의 양\n$P_x$/$P_y$: 시장의 객관적 교환 비율 - 시장에서 1 X = ($P_x$/$P_y$) Y로 교환\n효용극대화: $MRS$ = $P_x$/$P_y$ (주관적 = 객관적 교환 비율)\n$MRS$ > $P_x$/$P_y$: X 소비 늘림 (X가 상대적으로 가치 큼)\n$MRS$ < $P_x$/$P_y$: Y 소비 늘림\n→ 균형: $MRS$ = $P_x$/$P_y$."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-018",
       "difficulty": 3,
       "question_type": "옳은 것 고르기",
-      "question": "다음 중 콥-더글러스 효용 U = X^a · Y^b의 MRS로 옳은 것은?",
+      "question": "다음 중 콥-더글러스 효용 U = X^a · Y^b의 $MRS$로 옳은 것은?",
       "options": [
-        "MRSxy = (a·Y)/(b·X)",
-        "MRSxy = X^a · Y^b",
-        "MRSxy = a·b",
-        "MRSxy = (a/b)·(X/Y)",
-        "MRSxy는 일정"
+        "$MRS$xy = (a·Y)/(b·X)",
+        "$MRS$xy = X^a · Y^b",
+        "$MRS$xy = a·b",
+        "$MRS$xy = (a/b)·(X/Y)",
+        "$MRS$xy는 일정"
       ],
       "answer": "1",
-      "explanation": "콥-더글러스 효용 U = X^a · Y^b:\nMUx = a·X^(a-1)·Y^b\nMUy = b·X^a·Y^(b-1)\nMRSxy = MUx/MUy = (a·Y)/(b·X)\n예: a = 1/2, b = 1/2 → MRS = Y/X.\n특징: MRS = (지수 비율)·(소비량 비율의 역수). MRS 체감 (X 증가 시 MRS 감소)."
+      "explanation": "콥-더글러스 효용 U = X^a · Y^b:\n$MU_x$ = a·X^(a-1)·Y^b\n$MU_y$ = b·X^a·Y^(b-1)\n$MRS$xy = $MU_x$/$MU_y$ = (a·Y)/(b·X)\n예: a = 1/2, b = 1/2 → $MRS$ = Y/X.\n특징: $MRS$ = (지수 비율)·(소비량 비율의 역수). $MRS$ 체감 (X 증가 시 $MRS$ 감소)."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-019",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "다음 중 무차별곡선 이론의 의의로 옳은 것은?",
       "options": [
@@ -298,9 +298,9 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-020",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "보기 결합형",
-      "question": "다음 중 특수한 무차별곡선과 그 효용함수의 관계로 옳은 것을 모두 고른 것은?\n\nㄱ. 직선 무차별곡선 - 완전 대체재 (U = aX + bY)\nㄴ. L자형 무차별곡선 - 완전 보완재 (U = min(aX, bY))\nㄷ. 원점에 볼록 - 표준 무차별곡선 (U = X^a · Y^b 등)\nㄹ. 우상향 무차별곡선 - 비재화 포함",
+      "question": "다음 중 특수한 무차별곡선과 그 효용함수의 관계로 옳은 것을 모두 고른 것은?\n\nㄱ. 직선 무차별곡선 - 완전 대체재 ($U = aX + bY$)\nㄴ. L자형 무차별곡선 - 완전 보완재 ($U = \\min(aX, bY)$)\nㄷ. 원점에 볼록 - 표준 무차별곡선 (U = X^a · Y^b 등)\nㄹ. 우상향 무차별곡선 - 비재화 포함",
       "options": [
         "ㄱ, ㄴ",
         "ㄴ, ㄷ",
@@ -313,18 +313,18 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-021",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 무차별곡선의 동질성(homotheticity)에 관한 옳은 설명은?",
       "options": [
-        "원점에서 그은 직선 위의 모든 점에서 MRS가 같은 경우 - 동질적(homothetic) 선호. 콥-더글러스가 대표적 예.",
+        "원점에서 그은 직선 위의 모든 점에서 $MRS$가 같은 경우 - 동질적(homothetic) 선호. 콥-더글러스가 대표적 예.",
         "동질성은 가치판단",
         "모든 무차별곡선이 동질적",
         "동질성은 측정 불가",
         "동질성은 가격과 동일"
       ],
       "answer": "1",
-      "explanation": "동질적 선호(homothetic preference):\n원점에서 그은 직선 위의 모든 점에서 MRS가 동일\n특성: 소득이 증가해도 두 재화 소비 비율이 일정 (ICC가 원점을 지나는 직선)\n대표 예: 콥-더글러스 U = X^a · Y^b. 동질적이므로 소비 비율은 가격 비율에만 의존.\n레온티에프, 일정대체탄력성(CES) 효용도 동질적.\n수요 분석을 단순화하는 유용한 가정."
+      "explanation": "동질적 선호(homothetic preference):\n원점에서 그은 직선 위의 모든 점에서 $MRS$가 동일\n특성: 소득이 증가해도 두 재화 소비 비율이 일정 (ICC가 원점을 지나는 직선)\n대표 예: 콥-더글러스 U = X^a · Y^b. 동질적이므로 소비 비율은 가격 비율에만 의존.\n레온티에프, 일정대체탄력성(CES) 효용도 동질적.\n수요 분석을 단순화하는 유용한 가정."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-022",
@@ -343,9 +343,9 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-023",
-      "difficulty": 4,
-      "question_type": "이론형",
-      "question": "다음 중 위험·불확실성 하의 무차별곡선(Indifference Curve over Lotteries)의 의미로 옳은 것은?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 위험·불확실성 하의 무차별곡선(Indifference Curve over Lotteries)의 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 위험자산 무차별곡선 (위험회피자) -->\n  <path d=\"M 50 180 Q 200 170 320 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">위험 (σ)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">기대수익 E(R)</text>\n</svg>\n```\n",
       "options": [
         "VNM 기대효용 이론에 따른 lottery의 무차별곡선. 확률·평균 보상의 trade-off 분석. 위험 회피적 선호는 원점에 볼록 (안전한 결과 선호).",
         "위험 하의 무차별곡선은 없음",
@@ -362,18 +362,18 @@
       "question_type": "옳은 것 고르기",
       "question": "다음 중 무차별곡선과 시점간 선택에 관한 옳은 설명은?",
       "options": [
-        "두 시점의 소비를 두 재화로 보는 무차별곡선 분석. MRS = 시간 선호율 (1+r과 비교). 효용극대화 조건: MRS = (1+r) (Fisher의 시점간 선택, 1930).",
+        "두 시점의 소비를 두 재화로 보는 무차별곡선 분석. $MRS$ = 시간 선호율 (1+r과 비교). 효용극대화 조건: $MRS$ = (1+r) (Fisher의 시점간 선택, 1930).",
         "시점간 선택은 무차별곡선과 무관",
         "시점은 가치판단",
         "시점은 정부 결정",
         "시점간 효용극대화는 불가"
       ],
       "answer": "1",
-      "explanation": "시점간 선택(intertemporal choice):\nX축: 현재 소비 (C0), Y축: 미래 소비 (C1)\n무차별곡선: 시간 선호의 표현 (현재 소비를 미래 소비보다 선호하면 가파른 IC)\n예산선: C0 + C1/(1+r) = I0 + I1/(1+r) (현재 가치)\n효용극대화 조건: MRS = (1+r) → 시간 선호율 = 시장 이자율\n어빙 피셔(I. Fisher, 1930 「The Theory of Interest」)의 표준 분석.\n저축·소비·이자율의 미시적 기초."
+      "explanation": "시점간 선택(intertemporal choice):\nX축: 현재 소비 (C0), Y축: 미래 소비 (C1)\n무차별곡선: 시간 선호의 표현 (현재 소비를 미래 소비보다 선호하면 가파른 IC)\n예산선: C0 + C1/(1+r) = I0 + I1/(1+r) (현재 가치)\n효용극대화 조건: $MRS$ = (1+r) → 시간 선호율 = 시장 이자율\n어빙 피셔(I. Fisher, 1930 「The Theory of Interest」)의 표준 분석.\n저축·소비·이자율의 미시적 기초."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-025",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "보기 결합형",
       "question": "다음은 무차별곡선의 다양한 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 소비자 균형 분석 (X-Y 평면)\nㄴ. 시점간 선택 (현재-미래 소비)\nㄷ. 노동-여가 선택 (임금-여가)\nㄹ. 위험 하의 선택 (확률 평면)\nㅁ. 두 사람 간 자원 배분 (에지워스 박스)",
       "options": [
@@ -392,18 +392,18 @@
       "question_type": "이론형",
       "question": "다음 중 노동-여가 선택의 무차별곡선 분석으로 옳은 것은?",
       "options": [
-        "X축: 여가 (24시간 중 일 안 하는 시간), Y축: 소득 (=노동시간 × 임금). 임금이 두 재화의 상대가격. 효용극대화: MRS(여가, 소득) = 임금 W.",
+        "X축: 여가 (24시간 중 일 안 하는 시간), Y축: 소득 (=노동시간 × 임금). 임금이 두 재화의 상대가격. 효용극대화: $MRS$(여가, 소득) = 임금 W.",
         "노동-여가 분석은 불가",
         "노동-여가는 가치판단",
         "노동은 양의 재화",
         "여가는 비재화"
       ],
       "answer": "1",
-      "explanation": "노동-여가 선택의 무차별곡선 분석:\nX축: 여가 (0~24시간), Y축: 소득 (= W·노동시간)\n예산선: 소득 = W·(24 - 여가)\n효용극대화: MRS = 임금 W (여가 1시간을 위해 포기할 수 있는 소득 = 시장 가격)\nW ↑ → 두 효과: ① 여가가 비싸져 일 늘림(대체효과) ② 부유해져 여가 늘림(소득효과)\n→ 후방 굴절 노동공급곡선 가능."
+      "explanation": "노동-여가 선택의 무차별곡선 분석:\nX축: 여가 (0~24시간), Y축: 소득 (= W·노동시간)\n예산선: 소득 = W·(24 - 여가)\n효용극대화: $MRS$ = 임금 W (여가 1시간을 위해 포기할 수 있는 소득 = 시장 가격)\nW ↑ → 두 효과: ① 여가가 비싸져 일 늘림(대체효과) ② 부유해져 여가 늘림(소득효과)\n→ 후방 굴절 노동공급곡선 가능."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-027",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 에지워스 박스(Edgeworth Box)의 의미로 옳은 것은?",
       "options": [
@@ -418,7 +418,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-028",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음은 무차별곡선 이론의 발전사이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 에지워스(1881): 무차별곡선과 에지워스 박스 시초\nㄴ. 파레토(1906): 서수적 효용·무차별곡선 정립\nㄷ. 힉스·앨런(1934): 「Value and Capital」 - 무차별곡선 분석 종합\nㄹ. 사무엘슨(1938): 현시선호이론 - 효용 없이 무차별곡선 도출\nㅁ. 어빙 피셔(1930): 시점간 선택에 무차별곡선 적용",
       "options": [
@@ -433,7 +433,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-029",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 무차별곡선 이론의 현대적 발전에 관한 옳은 설명은?",
       "options": [
@@ -448,9 +448,9 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item01-030",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
-      "question": "다음은 무차별곡선과 한계대체율의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 무차별곡선: 동일 효용 수준의 두 재화 조합 곡선\nㄴ. 표준 특성: 우하향·원점에 볼록·교차 없음·원점에서 멀수록 효용 큼\nㄷ. MRSxy = MUx/MUy (한계효용 비율)\nㄹ. 효용극대화: MRS = Px/Py\nㅁ. 모든 재화의 무차별곡선은 원점에 볼록한 표준 형태",
+      "question": "다음은 무차별곡선과 한계대체율의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 무차별곡선: 동일 효용 수준의 두 재화 조합 곡선\nㄴ. 표준 특성: 우하향·원점에 볼록·교차 없음·원점에서 멀수록 효용 큼\nㄷ. $MRS$xy = $MU_x$/$MU_y$ (한계효용 비율)\nㄹ. 효용극대화: $MRS$ = $P_x$/$P_y$\nㅁ. 모든 재화의 무차별곡선은 원점에 볼록한 표준 형태",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -460,6 +460,306 @@
       ],
       "answer": "2",
       "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 완전 대체재(직선), 완전 보완재(L자형), 비재화 포함(우상향), 한 재화 무차별(수평) 등 다양한 형태가 가능하다. 모든 재화의 무차별곡선이 표준 형태(원점에 볼록)라는 명제는 잘못이다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-031",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "소비자의 선호가 CES 효용함수 $U(X, Y) = (aX^\\rho + bY^\\rho)^{1/\\rho}$ ($a > 0, b > 0, \\rho \\le 1, \\rho \\ne 0$) 로 대변될 때, 이 소비자의 한계대체율 $MRS_{xy}$ 의 대수적 수식으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- CES 대체탄력성 무차별곡선군 대비 -->\n  <path d=\"M 80 60 Q 180 150 310 160\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  <path d=\"M 80 50 L 150 130 L 310 130\" fill=\"none\" stroke=\"#2563eb\" stroke-dasharray=\"2\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"160\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n</svg>\n```\n",
+      "options": [
+        "$MRS_{xy} = \\dfrac{a}{b} \\left(\\dfrac{Y}{X}\\right)^{1-\rho}$",
+        "$MRS_{xy} = \\dfrac{b}{a} \\left(\\dfrac{X}{Y}\\right)^{1-\rho}$",
+        "$MRS_{xy} = \\dfrac{a}{b} \\left(\\dfrac{X}{Y}\\right)^\rho$",
+        "$MRS_{xy} = \\left(\\dfrac{aY}{bX}\\right)^\rho$",
+        "$MRS_{xy} = \\dfrac{a}{b} \\ln\\left(\\dfrac{Y}{X}\\right)$"
+      ],
+      "answer": "1",
+      "explanation": "1) 한계효용 도출:\\n   - $MU_x = \\dfrac{\\partial U}{\\partial X} = \\dfrac{1}{\\rho}(aX^\\rho + bY^\\rho)^{(1/\\rho)-1} \\cdot a\\rho X^{\\rho-1} = a X^{\\rho-1} (aX^\\rho + bY^\\rho)^{(1/\\rho)-1}$\\n   - $MU_y = \\dfrac{\\partial U}{\\partial Y} = b Y^{\\rho-1} (aX^\\rho + bY^\\rho)^{(1/\\rho)-1}$\\n2) 한계대체율 연산:\\n   $$MRS_{xy} = \\dfrac{MU_x}{MU_y} = \\dfrac{a X^{\\rho-1}}{b Y^{\\rho-1}} = \\dfrac{a}{b} \\left(\\dfrac{X}{Y}\\right)^{\\rho-1} = \\dfrac{a}{b} \\left(\\dfrac{Y}{X}\\right)^{1-\\rho}$$\\n따라서 1번이 정확합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-032",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "어빙 피셔(Irving Fisher)의 2기간 시점간 소비 선택 모형에서, 1기 소비 $C_1$ 과 2기 소비 $C_2$ 에 대한 효용함수가 $U(C_1, C_2) = u(C_1) + \\dfrac{1}{1+\\rho} u(C_2)$ 이다. 소비자의 주관적 시간선호율(Rate of Time Preference)을 $\\rho$ 라 할 때, $C_1 = C_2$ 인 동일 소비점 상에서 성립하는 한계대체율 $MRS_{12}$ 의 값과 주관적 시간선호율의 경제학적 정의로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 시점간 무차별곡선 (현재-미래 소비) -->\n  <path d=\"M 80 60 Q 150 120 280 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">현재 소비 (C1)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">미래 소비 (C2)</text>\n</svg>\n```\n",
+      "options": [
+        "$MRS_{12} = 1+\rho$ 이며, 소비자가 현재 소비를 미래 소비보다 주관적으로 선호하는 가치 비율이 $\rho$ 임을 의미한다.",
+        "$MRS_{12} = \\dfrac{1}{1+\rho}$ 이며, 미래 소비의 한계효용이 현재 소비의 한계효용보다 항상 더 크게 평가됨을 뜻한다.",
+        "$MRS_{12} = 1$ 이며, 소비자가 현재 소비와 미래 소비의 한계 가치를 완벽하게 동일하게 취급함을 대변한다.",
+        "$MRS_{12} = 1+r$ 이며, 시장의 자산 이자율과 시간선호율이 등식으로 항상 묶여 있음을 뜻한다.",
+        "시간선호율 $\rho$는 소득이 증가함에 따라 음수(-)의 값으로 급변하여 저축을 유발하는 지표이다."
+      ],
+      "answer": "1",
+      "explanation": "시간선호율 $\\rho$는 소비자가 동일한 소비 수량 하에서 현재 소비를 미래 소비보다 얼마나 더 가치 있게 느끼는지를 보여주는 주관적 할인율입니다. $C_1 = C_2$ 이면 개별 한계효용 $u'(C_1) = u'(C_2)$ 이 성립합니다. 이때의 시간선호 무차별곡선 기울기($MRS_{12}$)는:\\n$$MRS_{12} = \\dfrac{\\partial U/\\partial C_1}{\\partial U/\\partial C_2} = \\dfrac{u'(C_1)}{\\dfrac{1}{1+\\rho} u'(C_2)} = 1+\\rho$$\\n즉, 동일 소비 수준에서 소비자가 현재 소비 $1$단위를 더 누리기 위해 기꺼이 포기할 용의가 있는 미래 소비의 양이 $1+\\rho$ 가 됨을 정합적으로 보여줍니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-033",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자가 자신의 가용 시간(24시간)을 여가($L$)와 노동에 배분하며, 소득 $I$(여가 제외 노동 소득)와 여가 $L$을 두 소비 대상으로 삼아 $U(L, I)$ 의 효용극대화를 추구하고 있다. 임금률($w$)이 인상될 때, 여가($L$)가 정상재일 경우 대체효과와 소득효과의 상호 작용 및 노동공급곡선 후방굴절 구간의 무차별곡선 기하적 성격으로 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 여가-소득 선택 평면과 무차별곡선 -->\n  <path d=\"M 80 60 Q 150 130 290 170\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <line x1=\"50\" y1=\"70\" x2=\"310\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">여가 (L)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">소득 (I)</text>\n</svg>\n```\n",
+      "options": [
+        "임금 상승 시 여가의 기회비용 상승으로 여가를 줄이려는 대체효과와, 실질 소득 증가로 여가를 늘리려는 소득효과가 반대로 작동하며, 소득효과가 대체효과를 압도하면 노동공급곡선이 후방굴절한다.",
+        "임금 상승 시 대체효과와 소득효과가 항상 같은 방향으로 작동하여 노동공급곡선은 영구히 우상향한다.",
+        "여가가 열등재인 경우에도 소득효과가 대체효과보다 항상 커서 노동공급이 임금 상승 시 무조건 감소한다.",
+        "여가-소득 평면에서 무차별곡선이 원점에 대해 오목해지기 때문에 노동공급의 내부해가 차단된다.",
+        "임금률의 인상은 예산선의 기울기를 완만하게 눕혀 여가의 상대적 가치를 하락시킨다."
+      ],
+      "answer": "1",
+      "explanation": "임금률 $w$ 는 여가의 상대적 가격(기회비용)입니다. 임금 상승 시:\\n1) 대체효과: 여가의 기회비용이 비싸졌으므로 여가 소비를 줄이고 노동을 늘립니다 (공급 증가 요인).\\n2) 소득효과: 동일 노동 시간에 대해 실질 소득이 상승합니다. 여가가 정상재이므로 소득 증가에 따라 여가 소비를 늘리고 노동을 줄이려 합니다 (공급 감소 요인).\\n소득이 일정 수준 이상으로 높아져 소득효과가 대체효과를 압도하게 되면 임금 상승 시 여가가 오히려 늘어나 노동 공급량은 감소하게 됩니다. 이로 인해 노동공급곡선이 후방굴절하는 구간이 나타납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "에지워스 박스(Edgeworth Box) 내에서 두 소비자 A, B가 두 재화 $X$, $Y$를 자발적 교환을 통해 분배하고자 한다. 두 사람의 무차별곡선이 상호 접하는 최적 배분 상태인 파레토 효율적(Pareto efficient) 배분의 특징과 계약곡선(Contract Curve)에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 에지워스 박스 계약곡선 -->\n  <rect x=\"50\" y=\"50\" width=\"260\" height=\"130\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 계약곡선 (원점A와 원점B를 잇는 궤적) -->\n  <path d=\"M 50 180 Q 150 120 310 50\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"3\" />\n  \n  <!-- 교차 접하는 무차별곡선들 -->\n  <path d=\"M 50 130 Q 120 100 200 50\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  <path d=\"M 120 180 Q 200 130 310 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  \n  <text x=\"250\" y=\"45\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">계약곡선 (Contract Curve)</text>\n</svg>\n```\n",
+      "options": [
+        "A와 B의 무차별곡선의 접선 기울기인 한계대체율이 서로 일치하여야 하며 ($MRS_A = MRS_B$), 이 효율적 분배점들의 자취를 계약곡선이라고 부른다.",
+        "파레토 효율적인 배분점에서는 A의 효용을 낮추지 않고도 B의 효용을 반드시 추가로 증가시킬 수 있다.",
+        "계약곡선 상의 모든 분배 상태는 두 소비자의 소득 수준이 완전하게 50:50으로 균등해지는 지점이다.",
+        "두 소비자의 무차별곡선이 서로 직각으로 교차하는 모퉁이점에서 언제나 계약곡선이 시작된다.",
+        "파레토 효율성 조건이 만족되면 두 재화의 절대적인 한계효용 비율이 사회적 한계변환율($MRT$)과 멀어진다."
+      ],
+      "answer": "1",
+      "explanation": "에지워스 박스 내에서 분배가 파레토 효율적(더 이상 타인의 효용을 저해하지 않고는 특정인의 효용을 증가시킬 수 없는 상태)이 되려면 두 사람의 무차별곡선이 서로 접해야 합니다. 즉, 두 사람의 한계대체율이 동일해야 합니다: $MRS_A = MRS_B$. 이 효율적 배분점들을 모두 연결한 궤적을 계약곡선(Contract curve)이라고 부르며, 시장의 일반경쟁균형(Walrasian Equilibrium)은 반드시 이 계약곡선 상에 존재하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-035",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자가 두 재화 $X$, $Y$ 중 $X$재의 수량이 조금이라도 많으면 무조건 그 조합을 선호하고, $X$재의 수량이 완전히 같은 경우에만 $Y$재의 수량이 더 많은 조합을 선호하는 사전편찬식 선호(Lexicographic Preference)의 수학적 성질에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 사전편찬식 선호 기하 집합 -->\n  <line x1=\"50\" y1=\"125\" x2=\"350\" y2=\"125\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <line x1=\"200\" y1=\"40\" x2=\"200\" y2=\"210\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  \n  <!-- Better Set 영역 (오른쪽 절반 면적 + 윗쪽 세로선 일부) -->\n  <rect x=\"200\" y=\"40\" width=\"150\" height=\"170\" fill=\"#dbeafe\" opacity=\"0.5\" />\n  <line x1=\"200\" y1=\"40\" x2=\"200\" y2=\"125\" stroke=\"#2563eb\" stroke-width=\"3.5\" />\n  \n  <circle cx=\"200\" cy=\"125\" r=\"4.5\" fill=\"#b91c1c\" />\n  <text x=\"180\" y=\"120\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">A</text>\n  <text x=\"240\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e3a8a\" font-weight=\"bold\">Better Set</text>\n</svg>\n```\n",
+      "options": [
+        "선호체계의 연속성(Continuity) 공리가 위배되어 무차별곡선 지도를 그릴 수 없으며, 연속적인 효용함수도 수학적으로 존재하지 않는다.",
+        "한계대체율 MRS가 항상 일정한 수치로 고정되므로 무차별곡선이 원점을 통과하는 직선이 된다.",
+        "이 선호체계 하에서는 선호의 완전성과 이행성 공리가 무너져 비합리적인 소비를 초래한다.",
+        "소비자는 X재와 Y재를 항상 $1:1$ 비율로만 결합하여 소비하므로 L자형 무차별곡선을 갖는다.",
+        "소득이 무한히 증가함에 따라 X재를 기펜재로 취급하는 독특한 마샬 수요가 유도된다."
+      ],
+      "answer": "1",
+      "explanation": "사전편찬식 선호는 사전에서 단어를 찾는 방식과 같습니다. X재 수량이 우선이고, X가 같을 때만 Y를 비교합니다. 이 경우 임의의 소비점 $A$ 에 대해 무차별한(동일 만족을 주는) 다른 조합은 자기 자신($A$) 외에는 존재하지 않습니다. 따라서 무차별'곡선'이 아닌 하나의 '점'들로만 찍히게 됩니다. 이는 선호 체계가 연속적으로 변하지 않는 선호의 연속성(Continuity) 공리를 심각하게 위배하기 때문이며, 연속성 공리가 만족되지 않으면 연속인 효용함수 $U(X, Y)$ 를 수학적으로 표현하는 것이 불가능합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-036",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 효용함수가 $U(X, Y) = X^2 + Y^2$ 이다. 이 소비자의 예산선이 $P_x X + P_y Y = I$ 로 주어지고, 가격 비율이 $P_x/P_y = 2$ 일 때, 이 소비자의 최적 소비 조합의 특징에 대한 설명으로 옳은 것은? (단, 무차별곡선은 원점에 대해 오목하다.)\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 원점에 오목 무차별곡선과 코너해 발생 -->\n  <line x1=\"50\" y1=\"70\" x2=\"310\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <path d=\"M 50 100 Q 180 80 320 200\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <circle cx=\"50\" cy=\"70\" r=\"4.5\" fill=\"#b91c1c\" />\n  <text x=\"58\" y=\"66\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">코너해 E (Y재만 소비)</text>\n</svg>\n```\n",
+      "options": [
+        "무차별곡선이 원점에 오목(한계대체율 체증)하므로, 1계 조건인 $MRS = P_x/P_y$ 접점은 효용극소화점이며 최적 소비는 $Y$재만 전량 소비하는 코너해(구석해)에서 결정된다.",
+        "예산선과 무차별곡선이 접하는 지점에서 효용이 극대화되는 내부해를 안정적으로 갖는다.",
+        "소비자는 소득의 정확히 50%씩을 두 재화에 분배하여 최적 소비를 행한다.",
+        "두 재화가 완전보완재이므로 $X = 2Y$ 비율로 고정 결합 소비를 행한다.",
+        "효용함수의 대체탄력성이 무한대가 되어 무수히 많은 해를 갖는 무차별 상태에 놓인다."
+      ],
+      "answer": "1",
+      "explanation": "효용함수가 $U = X^2 + Y^2$ 이면 무차별곡선은 $X^2 + Y^2 = U_0$ 로 원점이 중심인 원의 일부 형태를 띠며, 이는 원점에 대해 오목(Concave)한 형태입니다. 즉 $X$ 소비 증가 시 $MRS$ 가 체증합니다.\\n이 경우 예산선과 접하는 점($MRS = P_x/P_y$)은 효용의 극대점이 아니라 극소점(2계 조건 불충족)입니다. 따라서 소비자는 한 재화에만 소득을 올인하는 코너해를 선택해야 효용이 극대화됩니다.\\n- 상대가격비율 $P_x/P_y = 2$ 이므로, $X$재가 상대적으로 비싸고 $Y$재가 쌉니다. 따라서 모든 소득을 $Y$재 소비에 지출하여 $Y^* = I/P_y, X^* = 0$ 을 선택하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자 A의 효용함수가 다른 소비자 B의 소비 수준 $X_B$ 에 영향을 받는 소비 외부성(Consumption Externality)을 반영하여 $U_A(X_A, Y_A; X_B) = X_A Y_A - \\theta X_B$ (단, $\\theta > 0$) 로 정의되어 있다. B의 소비량이 독립적으로 증가할 때, A의 무차별곡선 지도의 이동 상태와 한계대체율 $MRS^A_{xy}$ 의 보존 여부에 대한 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 외부성에 의한 무차별곡선 이동 -->\n  <path d=\"M 80 90 Q 160 160 320 170\" fill=\"none\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" stroke-width=\"2\" />\n  <path d=\"M 80 50 Q 160 120 320 130\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <path d=\"M 160 130 L 160 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\" />\n  <text x=\"165\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">타인소비 증가 시 (효용감소 이동)</text>\n</svg>\n```\n",
+      "options": [
+        "A의 무차별곡선 지도는 더 높은 소득(우상향 방향) 쪽으로 이동(동일 효용을 위해 더 많은 소비 필요)하지만, 한계대체율 $MRS^A_{xy} = Y_A/X_A$ 의 수식 자체는 $X_B$ 와 무관하여 보존된다.",
+        "외부성으로 인해 A의 무차별곡선이 L자 형태로 왜곡되며 한계대체율은 완전히 소멸한다.",
+        "A의 한계대체율 수식에 $X_B$ 가 직접 편입되므로 동일 소비점에서 무차별곡선의 기울기가 가팔라진다.",
+        "B의 소비가 증가하면 A의 무차별곡선은 원점 방향으로 수축 이동하여 동일 효용 하에서 지출액이 준다.",
+        "외부성은 오직 B의 예산선만을 이동시킬 뿐, A의 무차별곡선 위치와 무관하다."
+      ],
+      "answer": "1",
+      "explanation": "B의 소비량 $X_B$ 가 증가하면, A의 효용함수에서 분리된 항목인 $-\\theta X_B$ 에 의해 A의 효용 수준 자체가 하락(외부 비경제)합니다. 따라서 동일한 효용을 유지하기 위해 A는 더 많은 $X_A, Y_A$ 를 소비해야 하므로 무차별곡선 지도 자체가 우상향 방향으로 평행 이동하게 됩니다. 그러나 한계대체율 $MRS^A_{xy} = \\dfrac{MU_{x,A}}{MU_{y,A}} = \\dfrac{Y_A}{X_A}$ 에는 외부성 요인 $X_B$ 가 미분 과정에서 소멸하여 포함되지 않으므로, 동일한 소비조합에서의 무차별곡선의 기울기(주관적 대체율) 자체는 변함없이 보존됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-038",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "어느 소비자의 선호체계가 완전대체재와 완전보완재의 특성을 모두 내포하고 있는 특이 효용함수 $U(X, Y) = \\min(2X+Y, X+2Y)$ 로 주어졌다. 이 소비자의 동일 효용 수준을 대변하는 무차별곡선의 기하학적 형태에 대한 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 특수 굴절 무차별곡선 -->\n  <path d=\"M 70 50 L 150 130 L 320 180\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "꺾임점이 존재하며 두 개의 직선 구간(기울기 $-2$ 와 기울기 $-0.5$)이 연결되는 굴절된 우하향 꺾임선 형태를 나타낸다.",
+        "모서리가 원점을 향해 뾰족하게 꺾이는 L자 형태를 띠며 접선 기울기가 정의되지 않는다.",
+        "원점에 대해 매끄러운 곡선 형태를 만족하여 모든 점에서 한계대체율이 일정하게 나타난다.",
+        "X재 소비가 늘어남에 따라 무차별곡선이 수직선에서 수평선으로 즉각 변동하는 모서리 형태를 띤다.",
+        "예산선의 변동과 무관하게 항상 원점을 통과하는 우상향 직선의 형태를 만족한다."
+      ],
+      "answer": "1",
+      "explanation": "효용함수가 $U = \\min(2X+Y, X+2Y)$ 인 경우, 무차별곡선은 $2X+Y = X+2Y \\implies X=Y$ 인 직선을 경계로 형태가 갈라집니다.\\n1) $X < Y$ 인 영역: $2X+Y < X+2Y$ 이므로 $U = 2X+Y$ 가 선택됩니다. 무차별곡선은 기울기가 $-2$ 인 직선입니다.\\n2) $X > Y$ 인 영역: $U = X+2Y$ 가 선택됩니다. 무차별곡선은 기울기가 $-0.5$ 인 직선입니다.\\n따라서 $X=Y$ 인 지점에서 꺾이며, 기울기가 $-2$ 인 가파른 직선과 기울기가 $-0.5$ 인 완만한 직선이 결합된 형태를 띠게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-039",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "사무엘슨의 현시선호 약공리(WARP)에 입증할 때, 소비자가 가격 벡터 $P^0 = (2, 2)$ 일 때 소비 묶음 $X^0 = (4, 4)$ 를 선택하였고, 가격 벡터 $P^1 = (1, 3)$ 으로 바뀌었을 때 소비 묶음 $X^1 = (6, 2)$ 를 선택하였다. 이 소비자의 선택 행태와 현시선호 약공리 위배 여부에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- WARP 위반 예산선 교차 모식도 -->\n  <line x1=\"50\" y1=\"70\" x2=\"290\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"140\" x2=\"230\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  \n  <circle cx=\"120\" cy=\"115\" r=\"4\" fill=\"#b91c1c\" />\n  <circle cx=\"160\" cy=\"130\" r=\"4\" fill=\"#1e3a8a\" />\n</svg>\n```\n",
+      "options": [
+        "가격 $P^1$ 하에서 원래 묶음 $X^0$를 살 수 없음($P^1 X^0 = 16 > 12$ 이므로 $X^0$는 예산 초과)에 따라 $X^1$을 선택하였으므로 약공리를 위배하지 않으며 정합적이다.",
+        "소비자는 $P^0$와 $P^1$ 상황에서 동일한 구매력을 유지하였으므로 약공리를 위배하였다.",
+        "소비자는 명백하게 현시선호 약공리를 위배하였으며 무차별곡선을 복원하는 것이 불가하다.",
+        "두 소비 묶음의 한계대체율이 모두 가격 비율과 완벽하게 일치하여 내부해를 나타낸다.",
+        "소득 효과가 비재화의 한계효용보다 크게 나타나는 기펜재 성향을 보여 모순적이다."
+      ],
+      "answer": "1",
+      "explanation": "약공리(WARP)의 검정:\\n소비자가 조합 $A$ 를 $B$ 보다 현시선호했다면($A$를 살 때 $B$도 예산 내에 있었음), $B$를 선택하는 새로운 예산 하에서는 $A$를 구매하는 것이 불가능해야 합니다(즉 $A$가 예산 밖에 있어야 함).\\n1) $P^0 = (2, 2)$, $X^0 = (4, 4)$ 일 때 지출액은 $2(4) + 2(4) = 16$ 입니다.\\n   - 이때 $X^1 = (6, 2)$ 의 비용은 $2(6) + 2(2) = 16$ 이므로, $X^0$ 선택 시 $X^1$ 도 예산 상 구매 가능했습니다 ($X^0$ 가 $X^1$ 보다 현시선호됨).\\n2) $P^1 = (1, 3)$, $X^1 = (6, 2)$ 일 때 지출액은 $1(6) + 3(2) = 12$ 입니다.\\n   - 이때 원래 $X^0$ 의 비용은 $1(4) + 3(4) = 16$ 입니다. 이는 예산 $12$ 를 초과하므로 $X^0$ 를 구매하는 것이 불가능했습니다.\\n따라서 약공리를 위배하지 않고 일관된 선택을 수행한 것입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-040",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소득 증가 시 예산선과 무차별곡선의 접선 균형점들의 자취인 소득소비곡선(ICC)이 좌상향(X축 방향으로 수축)하는 구간이 존재할 때, 무차별곡선 분석에 입각할 때 유도되는 $X$재의 성격과 소득탄력성 수준으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 열등재 ICC 좌상향 궤적 -->\n  <path d=\"M 70 170 Q 150 110 110 50\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"120\" y=\"60\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">ICC (열등재)</text>\n</svg>\n```\n",
+      "options": [
+        "X재는 소득 증가 시 소비량이 오히려 줄어드는 열등재(Inferior Good)이며, X재의 소득탄력성은 음수($\u000barepsilon_{xI} < 0$)의 값을 갖는다.",
+        "X재는 사치재이며, 소득이 늘어남에 따라 소비 지출 비중이 비례하여 폭증한다.",
+        "X재는 한계대체율 체증의 법칙이 예외적으로 만족되는 포화점 재화이다.",
+        "X재의 소득 효과가 항상 대체 효과와 일치하여 마샬 수요곡선이 완전 수직선이 된다.",
+        "두 재화 모두 정상재이며 두 재화의 소득탄력성의 가중합이 항상 $0$으로 고정된다."
+      ],
+      "answer": "1",
+      "explanation": "소득소비곡선(ICC)이 좌상향한다는 것은 소득 $I$ 가 증가함에 따라 최적 소비점의 $X^*$ 수량이 오히려 감소하고 $Y^*$ 수량은 증가함을 뜻합니다. 소득 증가 시 소비량이 감소하는 재화를 열등재(Inferior good)라고 부르며, 이 경우 소득 변화율 대비 수요량 변화율인 소득탄력성 $\\varepsilon_{xI} = \\dfrac{\\partial X^*}{\\partial I} \\cdot \\dfrac{I}{X^*}$ 의 부호는 음수($< 0$)가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-041",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "CES 효용함수 $U(X, Y) = (aX^\\rho + bY^\\rho)^{1/\\rho}$ ($a+b=1$) 에 대해, 파라미터 $\\rho$ 가 $0$으로 수렴할 때 ($\\rho \\to 0$) 무차별곡선 지도가 콥-더글러스 효용함수 $U = X^a Y^b$ 와 완전 일치하게 됨을 수학적으로 입증하고자 한다. 이때 적용하는 수학적 정리와 극한의 수리적 연산 경로로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- CES 대체탄력성 무차별곡선군 대비 -->\n  <path d=\"M 80 60 Q 180 150 310 160\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  <path d=\"M 80 50 L 150 130 L 310 130\" fill=\"none\" stroke=\"#2563eb\" stroke-dasharray=\"2\" stroke-width=\"2\" />\n  <line x1=\"60\" y1=\"160\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n</svg>\n```\n",
+      "options": [
+        "양변에 자연로그를 취해 $\\ln U = \\dfrac{\\ln(aX^\rho + bY^\rho)}{\rho}$ 로 변형한 후, $\rho \\to 0$ 극한에서 $\\dfrac{0}{0}$ 꼴이 되므로 로피탈 정리(L'Hopital's Rule)를 적용해 분모·분자를 각각 $\rho$ 에 대해 미분하여 $\\ln U = a\\ln X + b\\ln Y$ 를 도출한다.",
+        "오일러의 정리에 근거하여 지차 수 $\rho$ 를 직접 $0$으로 대입하여 무차별곡선의 곡률을 선형으로 복원한다.",
+        "테일러 2차 근사식을 통해 $\rho \\to 0$ 의 고차 잔차항을 전량 삭감하여 완전대체재 직선을 도출한다.",
+        "지출함수의 오목성 정리에 근거하여 간접효용함수의 도함수 극한이 항상 일치함을 대수적으로 유도한다.",
+        "체인 룰을 적용하여 한계대체율이 가격비율과 무관하게 항상 $1$로 고정되는 한계 상태를 증명한다."
+      ],
+      "answer": "1",
+      "explanation": "CES 효용함수 $U = (aX^\\rho + bY^\\rho)^{1/\\rho}$ 에서 $\\rho \\to 0$ 일 때의 극한을 구하기 위해 자연로그를 취하면:\\n$\\ln U = \\dfrac{\\ln(aX^\\rho + bY^\\rho)}{\\rho}$\\n$\\rho \\to 0$ 일 때 분모 $\\rho \\to 0$, 분자 $\\ln(aX^0 + bY^0) = \\ln(a+b) = \\ln 1 = 0$ 이 되므로 $\\dfrac{0}{0}$ 꼴이 성립합니다.\\n로피탈 정리에 의해 분모, 분자를 각각 $\\rho$ 에 대해 미분하면:\\n$$\\lim_{\\rho \\to 0} \\ln U = \\lim_{\\rho \\to 0} \\dfrac{\\dfrac{a X^\\rho \\ln X + b Y^\\rho \\ln Y}{aX^\\rho + bY^\\rho}}{1} = \\dfrac{a \\ln X + b \\ln Y}{a+b} = a\\ln X + b\\ln Y$$\\n양변에 지수를 취하면 $U = X^a Y^b$ 가 완벽히 도출되어 콥-더글러스 효용함수가 됨이 증명됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-042",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "자산선택 이론에서 투자자가 평균-분산(Mean-Variance) 평면 상에서 직면하는 무차별곡선이 기대수익률 분포의 정규성 가정과 2차 VNM 효용함수 $U(W) = W - a W^2$ ($a > 0$) 로부터 유도된다. 부의 수준 $W$가 증가함에 따라 절대위험회피계수가 체증(IARA)하여 무차별곡선의 곡률이 점점 더 가팔라지는 한계 상태 분석으로 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 위험자산 무차별곡선 (위험회피자) -->\n  <path d=\"M 50 180 Q 200 170 320 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">위험 (σ)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">기대수익 E(R)</text>\n</svg>\n```\n",
+      "options": [
+        "2차 효용함수의 절대위험회피계수 $ARA(W) = \\dfrac{2a}{1-2aW}$ 이며, 부 $W$가 증가함에 따라 ARA가 상승하므로 더 많은 위험 보상을 요구하여 평균-분산 무차별곡선의 기울기가 가팔라진다.",
+        "2차 효용함수는 부가 증가함에 따라 위험 회피 성향이 지속적으로 감소하는 DARA 성향을 보여 무차별곡선이 완만해진다.",
+        "기대수익률이 정규분포를 따르면 2차 효용함수 하에서도 위험에 따르는 한계 고통이 소멸하여 무차별곡선이 직선이 된다.",
+        "위험자산의 기대수익률이 증가함에 따라 무차별곡선은 원점에 대해 오목하게 휘어 코너해만 갖게 된다.",
+        "평균-분산 평면에서 무차별곡선의 기울기는 오직 시장 포트폴리오의 샤프 지수에 의해서만 결정되며 위험 회피성과 무관하다."
+      ],
+      "answer": "1",
+      "explanation": "2차 VNM 효용함수 $U(W) = W - a W^2$ 의 도함수는 $U'(W) = 1 - 2aW$, $U''(W) = -2a$ 입니다.\\n1) 절대위험회피계수: $ARA(W) = -\\dfrac{U''}{U'} = \\dfrac{2a}{1-2aW}$ 입니다.\\n2) ARA의 변동: 분모인 $(1-2aW)$ 가 부 $W$의 증가에 따라 감소하므로, 절대위험회피 강도 $ARA$ 는 부의 증가에 따라 상승합니다 (IARA 성향).\\n따라서 투자자가 더 부유해질수록 위험을 더 강력하게 기피하게 되므로, 동일 위험 증가에 대해 더 큰 기대수익률 보상을 요구하여 평균-분산 평면 상 무차별곡선의 기울기($MRS_{\\sigma, E(R)}$)는 점차 가팔라집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-043",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "2기간 시점간 선택 모형에서 소비자의 원래 소득 부존량이 $(Y_1, Y_2)$ 이며 시장 이자율은 $r$ 이다. 소비자가 미래 소득을 담보로 금융시장에서 차입을 할 수 없는 차입 제약(Borrowing Constraint, $C_1 \\le Y_1$)이 존재할 때, 소비자의 현재 소비 $C_1$ 과 미래 소비 $C_2$ 에 대한 무차별곡선이 예산선 꺾임점인 부존량 지점에서 접하지 않고 결정되는 꼬인 균형(Corner solution)의 성립 조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 차입제약 꺾인 예산선과 접점 -->\n  <line x1=\"50\" y1=\"120\" x2=\"200\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <line x1=\"200\" y1=\"120\" x2=\"200\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <path d=\"M 100 60 Q 175 110 300 135\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <circle cx=\"200\" cy=\"120\" r=\"4.5\" fill=\"#b91c1c\" />\n  <text x=\"210\" y=\"115\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">차입제약 구석해 (부존점)</text>\n</svg>\n```\n",
+      "options": [
+        "현재 소비에 대한 한계대체율이 시장의 가격 비율보다 커서 차입이 차단된 모퉁이에서 균형이 형성된다 ($MRS_{12} > 1+r$ 이고 $C_1^* = Y_1$).",
+        "현재 소비에 대한 한계대체율이 시장 가격비율보다 작아서 차입 제약이 작동하지 않고 저축을 행한다 ($MRS_{12} < 1+r$ 이고 $C_1^* < Y_1$).",
+        "차입 제약이 발생하면 1기의 소비가 완전히 강제적으로 $0$이 되어 2기 소비만 극대화한다.",
+        "예산선이 모퉁이점에서 부드럽게 미분 가능해지므로 한계대체율 일치 조건이 항상 성립한다.",
+        "차입 제약 하에서는 이자율 $r$ 의 상승이 현재 소비 $C_1$ 을 무조건 증가시키는 역설을 유도한다."
+      ],
+      "answer": "1",
+      "explanation": "차입 제약 $C_1 \\le Y_1$ 하에서 예산선은 $C_1 > Y_1$ 영역이 차단되어 부존점 $(Y_1, Y_2)$ 에서 수직선 형태로 아래로 꺾입니다.\\n소비자가 현재 소비를 매우 선호하여 제약이 없을 때 차입을 하려 했던 상황($C_1^* > Y_1$)이라면, 차입이 불가능하므로 예산선의 모퉁이점인 $C_1 = Y_1$ 에서 차입 제약이 바인딩된 최적 선택을 행합니다.\\n이 모퉁이점에서는 소비자의 주관적 현재 소비 만족 비율인 한계대체율 $MRS_{12}$ 가 시장 이자율 상대가격인 $1+r$ 보다 크게 교차하는 2차 조건 마찰이 발생하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-044",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "소비자의 VNM 기대효용함수 $U(W)$ 의 3계 도함수 $U'''(W) > 0$ 이 성립할 때, 소비자의 위험 회피 행동인 예방적 저축(Prudent Saving) 유인과, 부의 증가에 따른 절대위험회피계수의 변화(DARA) 및 무차별곡선 곡률의 관계에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- ARA 변동으로 인한 곡률 변화 -->\n  <path d=\"M 60 70 Q 150 150 310 160\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <path d=\"M 60 90 Q 160 160 330 165\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "부가 증가함에 따라 절대위험회피도가 하락(DARA)하므로 위험 조정 무차별곡선의 곡률이 완만해지며, 미래 리스크가 증가하면 현재 소비를 줄이고 예방적 저축을 증가시킨다.",
+        "부가 증가함에 따라 절대위험회피도가 기하급수적으로 폭증하여 위험 자산 비중을 전량 회수한다.",
+        "$U''' > 0$ 이면 한계효용이 체증하므로 무차별곡선이 우상향하는 기펜재 곡선으로 변모한다.",
+        "예방적 저축은 시간선호율 $\rho$ 의 값을 언제나 $0$으로 고정시켜 시점간 한계대체율을 불변으로 유지시킨다.",
+        "DARA 성향을 보이는 소비자는 미래 불확실성이 증가하더라도 포트폴리오의 한계 위험 프리미엄을 변동시키지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "1) DARA 성립 조건: 절대위험회피계수 $ARA(W) = -U''/U'$ 를 $W$ 에 대해 미분하면, $\\dfrac{dARA}{dW} = -\\dfrac{U''' U' - (U'')^2}{(U')^2}$ 입니다. 따라서 $U''' > 0$ 이고 그 크기가 충분히 크면 $dARA/dW < 0$ 이 되어 DARA(감소 절대위험회피) 성향이 성립합니다. 이 경우 부가 늘수록 위험 회피도가 떨어져 무차별곡선이 완만해집니다.\\n2) 예방적 저축: $U''' > 0$ 은 한계효용함수 $U'$ 가 볼록(Convex)함을 의미합니다. 젠센의 부등식에 의해 미래 리스크(분산)가 존재할 때 기대 한계효용 $E[U'(C_2)]$ 가 상승하게 되므로, 소비자는 2기 소비의 한계가치를 높게 평가하여 현재 소비 $C_1$ 을 줄이고 저축(예방적 저축)을 늘리게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-045",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "사전편찬식 선호(Lexicographic Preference) 하에서 소비 선호체계의 기본 공리 중 연속성(Continuity) 공리가 성립하지 않음을 증명하고 이를 통해 무차별곡선을 작도하거나 연속인 효용함수를 구성할 수 없는 이유에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 사전편찬식 선호 기하 집합 -->\n  <line x1=\"50\" y1=\"125\" x2=\"350\" y2=\"125\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <line x1=\"200\" y1=\"40\" x2=\"200\" y2=\"210\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  \n  <!-- Better Set 영역 (오른쪽 절반 면적 + 윗쪽 세로선 일부) -->\n  <rect x=\"200\" y=\"40\" width=\"150\" height=\"170\" fill=\"#dbeafe\" opacity=\"0.5\" />\n  <line x1=\"200\" y1=\"40\" x2=\"200\" y2=\"125\" stroke=\"#2563eb\" stroke-width=\"3.5\" />\n  \n  <circle cx=\"200\" cy=\"125\" r=\"4.5\" fill=\"#b91c1c\" />\n  <text x=\"180\" y=\"120\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">A</text>\n  <text x=\"240\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e3a8a\" font-weight=\"bold\">Better Set</text>\n</svg>\n```\n",
+      "options": [
+        "임의의 소비점 A보다 선호되는 집합인 Better set의 기하학적 형태가 열린 면(Open half-plane)과 경계선 상의 반직선의 합으로 구성되어 닫힌 집합(Closed set)도 열린 집합(Open set)도 되지 않아 연속성이 위배된다.",
+        "선호의 완전성이 차단되므로 소비자가 두 재화 조합의 우열을 가릴 수 없는 상태에 처하기 때문이다.",
+        "사전편찬식 선호에서는 한계대체율이 가격비율과 항상 다른 수치로 발산하여 2계 조건이 무너지기 때문이다.",
+        "소비자는 소득의 한계가치인 라그랑지 승수 λ의 크기를 항상 무한대로 왜곡 인지하기 때문이다.",
+        "무차별곡선이 사선으로 꺾여 여러 무차별곡선들이 상호 교차하는 기하학적 모순이 발생하기 때문이다."
+      ],
+      "answer": "1",
+      "explanation": "연속성(Continuity) 공리는 선호 관계가 급격한 비연속적 변화를 보이지 않음을 요구하며, 수학적으로는 선호집합(Better set)과 비선호집합(Worse set)이 모두 닫힌집합(Closed set)이어야 함을 뜻합니다.\\n사전편찬식 선호에서 소비점 $A(X_0, Y_0)$ 보다 최소한 같거나 선호되는 집합인 Weakly Better Set $B(A) = \\{(X, Y) | (X, Y) \\succeq (X_0, Y_0)\\}$ 은:\\n- $X > X_0$ 인 모든 평면 영역 (열린 집합)\\n- $X = X_0$ 이고 $Y \\ge Y_0$ 인 수직 반직선 영역 (경계 포함)\\n이 두 영역의 합집합은 위상수학적으로 닫힌집합도 아니고 열린집합도 아닙니다. 따라서 연속성 공리가 위배되며, 연속성 공리가 위배되면 무차별'곡선'이 성립하지 않고, 연속인 효용함수 $U(X, Y)$ 도 유도할 수 없습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-046",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "효용함수 $U(X, Y)$ 에 임의의 단조증가변환 $V(X, Y) = f(U(X, Y))$ (단, $f' > 0$)을 가하였다. 미분 합성함수 미분법(Chain Rule)을 적용할 때 변환된 효용함수 $V$ 로부터 도출한 한계대체율 $MRS^V_{xy}$ 가 원래의 한계대체율 $MRS^U_{xy}$ 와 대수적으로 완전 일치함을 보이는 증명으로 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 단조증가변환 시 형상 보존 다이어그램 -->\n  <path d=\"M 80 60 Q 170 150 310 160\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"3\" />\n  <text x=\"160\" y=\"140\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#8b5cf6\" font-weight=\"bold\">U_0 vs f(U_0) 형상 일치</text>\n</svg>\n```\n",
+      "options": [
+        "$\\dfrac{\\partial V}{\\partial X} = f'(U)\\dfrac{\\partial U}{\\partial X}$ 이고 $\\dfrac{\\partial V}{\\partial Y} = f'(U)\\dfrac{\\partial U}{\\partial Y}$ 이므로, 두 편미분의 비율을 취하면 공통인자 $f'(U)$ 가 완전 소거되어 $MRS^V_{xy} = MRS^U_{xy} = \\dfrac{MU_x}{MU_y}$ 가 보존된다.",
+        "단조변환을 가하면 2차 미분 조건이 양(+)의 상수 배가 되므로 대체탄력성 지수가 항상 $1$로 고정된다.",
+        "V 함수 하의 무차별곡선은 소득 제약 조건 하에서 가격선과 접하는 유일한 수평선이 되기 때문이다.",
+        "f 함수를 $\rho$ 에 대해 미분하면 로피탈 정리에 의해 지수 항이 완전 소멸하는 흐름으로 유도된다.",
+        "체인 룰을 취하면 $f'(U) = 0$ 이 되므로 한계대체율이 가격 비율과 상관없이 항상 불변 보존된다."
+      ],
+      "answer": "1",
+      "explanation": "단조증가변환 $V = f(U)$ ($f' > 0$)에 대해 체인 룰을 사용하여 편미분을 구합니다:\\n1) X에 대한 편미분: $MU_{x,V} = \\dfrac{\\partial V}{\\partial X} = f'(U) \\cdot \\dfrac{\\partial U}{\\partial X} = f'(U) \\cdot MU_{x,U}$\\n2) Y에 대한 편미분: $MU_{y,V} = \\dfrac{\\partial V}{\\partial Y} = f'(U) \\cdot \\dfrac{\\partial U}{\\partial Y} = f'(U) \\cdot MU_{y,U}$\\n3) V 하의 한계대체율 연산:\\n   $$MRS^V_{xy} = \\dfrac{MU_{x,V}}{MU_{y,V}} = \\dfrac{f'(U) \\cdot MU_{x,U}}{f'(U) \\cdot MU_{y,U}} = \\dfrac{MU_{x,U}}{MU_{y,U}} = MRS^U_{xy}$$\\n이처럼 분모와 분자에 곱해진 양(+)의 조절 계수 $f'(U)$ 가 완벽하게 소거되므로 한계대체율 수식은 변함없이 보존됩니다. 따라서 서수적 선호 및 최적 소비점도 보존됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-047",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "에지워스 박스(Edgeworth Box) 내의 초기 부존점(Endowment Point)에서 출발하여 두 사람이 자발적 교환을 행할 때 도출되는 코어(Core) 영역의 정의 및 무차별곡선의 한계 경계선 조건으로 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Edgeworth Box 내 Core 영역 시각화 -->\n  <rect x=\"50\" y=\"50\" width=\"260\" height=\"130\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 50 180 Q 150 120 310 50\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"1.5\" />\n  \n  <!-- 교차 접하며 만드는 렌즈 모양의 코어 영역 -->\n  <path d=\"M 90 150 Q 170 120 250 80\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <path d=\"M 90 150 Q 160 135 250 80\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <path d=\"M 90 150 Q 170 120 250 80 Q 160 135 90 150 Z\" fill=\"#fef08a\" opacity=\"0.4\" />\n  <text x=\"140\" y=\"140\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#a16207\" font-weight=\"bold\">Core (핵)</text>\n</svg>\n```\n",
+      "options": [
+        "초기 부존점을 지나는 두 소비자의 무차별곡선으로 둘러싸인 렌즈 모양의 영역(파레토 개선 영역) 중 계약곡선 상에 존재하는 파레토 효율적인 배분점들의 집합이다.",
+        "초기 부존점과 관계없이 두 소비자의 소득 수준이 완전 대칭을 이루는 계약곡선 전체 영역을 의미한다.",
+        "A와 B 중 한 사람의 무차별곡선 기울기가 강제로 $0$이 되도록 고정시키는 강제 재배분 영역이다.",
+        "두 소비자의 무차별곡선이 서로 직교하여 대체효과가 완전히 소멸한 에지워스 박스의 모퉁이 영역이다.",
+        " Walrasian 경쟁 균형이 성립하지 않는 비합리적 거래의 궤적들의 자취이다."
+      ],
+      "answer": "1",
+      "explanation": "에지워스 박스 상의 코어(Core)는 초기 부존점(Endowment point)에서의 자발적 교환을 통해 도달할 수 있는 파레토 효율적인 배분점들의 집합입니다.\\n1) 개인 합리성 만족: 거래 후 도달한 점은 초기 부존점보다 두 사람 모두에게 효용이 낮지 않아야 합니다. 따라서 최적점은 두 소비자의 초기 부존점을 통과하는 무차별곡선들의 내부(렌즈 모양의 파레토 개선 영역)에 위치해야 합니다.\\n2) 파레토 효율성 만족: 계약곡선 상에 위치해야 합니다.\\n따라서 이 두 조건을 동시에 만족하는 '계약곡선 중 초기 부존점 무차별곡선 렌즈 내부의 구간'이 바로 코어가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-048",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자 A의 효용이 다른 소비자 B의 소비량 $X_B$ 에 반비례하여 하락하는 질투 외부성(Jealousy Externality)을 반영하여 A의 효용함수가 $U_A(X_A, Y_A; X_B) = X_A Y_A - \\theta X_B$ (단, $\\theta > 0$) 이다. A의 무차별곡선 지도 변동성과, 개별 최적 선택과 사회적 파레토 최적(Pareto Optimum) 간의 마찰 원인에 대한 서술로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 외부성에 의한 무차별곡선 이동 -->\n  <path d=\"M 80 90 Q 160 160 320 170\" fill=\"none\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" stroke-width=\"2\" />\n  <path d=\"M 80 50 Q 160 120 320 130\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <path d=\"M 160 130 L 160 150\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\" />\n  <text x=\"165\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">타인소비 증가 시 (효용감소 이동)</text>\n</svg>\n```\n",
+      "options": [
+        "A의 주관적 한계대체율 $MRS^A_{xy} = Y_A/X_A$ 는 외부성 $X_B$ 의 크기와 무관하여 개별 최적 수량 선택 조건은 보존되나, 사회 전체적으로는 $X_B$ 소비의 음(-)의 외부성이 반영되지 않아 과다 소비 비효율이 발생한다.",
+        "외부성으로 인해 A의 무차별곡선 기울기가 가팔라져 사적으로도 X재 소비량을 강제로 늘린다.",
+        "B의 소비가 증가하면 A의 한계대체율이 항상 $0$으로 수축하여 무차별곡선이 직선이 된다.",
+        "질투 효과는 사적 한계효용과 사회적 한계효용을 완전 일치시켜 시장 실패를 예방한다.",
+        "소비의 부정적 외부성은 개별 소비자의 무차별곡선을 항상 원점 내부로 수축 이동시켜 후생을 높인다."
+      ],
+      "answer": "1",
+      "explanation": "소비자 A의 개별 한계대체율 $MRS^A_{xy} = \\dfrac{Y_A}{X_A}$ 는 $X_B$ 와 무관하므로 A는 사적으로 가격선에 맞춰 $Y_A/X_A = P_x/P_y$ 의 균형을 잘 선택합니다. 즉 개별 소비자의 최적 선택 자체는 사적 한계 수준에서 결정됩니다.\\n하지만 B의 소비 $X_B$ 가 한 단위 늘어날 때 A에게 주는 부정적 한계 외부 효과(고통) $-\\theta$ 를 B는 전혀 고려하지 않으므로, 시장 경쟁 하에서는 X재가 사회적 최적 수준보다 과다 소비되는 배분적 비효율(시장 실패)이 유도됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-049",
+      "difficulty": 4,
+      "question_type": "계산/이론형",
+      "question": "소비자의 소득이 증가함에 따라 식료품과 같은 필수재의 지출 비중이 감소한다는 엥겔의 법칙(Engel's Law)이 만족될 때, 무차별곡선 평면 상에서 소득소비곡선(ICC)의 곡률이 휘어지는 방향과 X재(필수재)의 소득탄력성 $\\varepsilon_{xI}$ 의 수준에 대한 바른 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 필수재 ICC가 휘어지는 형태 -->\n  <path d=\"M 50 180 Q 100 130 300 120\" fill=\"none\" stroke=\"#059669\" stroke-width=\"3\" />\n  <text x=\"250\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">ICC (필수재 성격 휘어짐)</text>\n</svg>\n```\n",
+      "options": [
+        "ICC가 소득 증가에 따라 Y재(사치재) 축 방향으로 가파르게 휘어지며, X재의 소득탄력성은 $0 < \u000barepsilon_{xI} < 1$ 의 필수재 조건을 만족한다.",
+        "ICC가 X재 축 방향으로 평평하게 누우며, X재의 소득탄력성이 $\u000barepsilon_{xI} > 1$ 이 된다.",
+        "엥겔의 법칙 하에서는 필수재의 소비가 소득 증가 시 감소하므로 소득탄력성이 음수($\u000barepsilon_{xI} < 0$)가 된다.",
+        "무차별곡선 지도가 완벽한 동차(Homothetic) 선호를 만족하여 ICC가 꺾임이 없는 원점 직선이 된다.",
+        "소득 증가에 따른 예산선 변동 시 두 재화의 한계대체율 비율이 항상 $0$으로 묶여 엥겔곡선이 수직선이 된다."
+      ],
+      "answer": "1",
+      "explanation": "X재가 필수재(소득탄력성이 $0 < \\varepsilon_{xI} < 1$)이고 Y재가 사치재(소득탄력성 $\\varepsilon_{yI} > 1$)인 경우, 소득이 늘어남에 따라 필수재인 X재보다 사치재인 Y재의 소비량이 훨씬 더 빠른 속도로 증가합니다. 따라서 소득 증가에 따른 최적 소비점들의 궤적인 소득소비곡선(ICC)은 위쪽(Y재 축 방향)으로 가파르게 휘어지게 되며, 이는 식료품 등 필수재의 예산 지출 비중이 감소한다는 엥겔의 법칙과 기하학적으로 완벽히 정합합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item01-050",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "사회의 소득 분배 상태(예: 지니계수)가 변동하더라도, 개별 소비자들의 무차별곡선 지도 합산이 안정적인 사회적 무차별곡선(Community Indifference Curve)으로 고유하게 도출되기 위해 요구되는 개별 효용함수의 수학적 제한 조건인 '고먼 극대화 조건(Gorman Polar Form)'에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <line x1=\"50\" y1=\"160\" x2=\"220\" y2=\"50\" stroke=\"#059669\" stroke-width=\"2.5\" />\n  <line x1=\"100\" y1=\"200\" x2=\"270\" y2=\"90\" stroke=\"#059669\" stroke-width=\"2.5\" stroke-dasharray=\"3\" />\n  \n  <text x=\"220\" y=\"75\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">평행한 ICC들</text>\n</svg>\n```\n",
+      "options": [
+        "모든 개별 소비자의 소득소비곡선(ICC)이 가격이 주어졌을 때 동일한 기울기를 가지는 평행한 직선이어야 하며, 이는 간접효용함수가 $V_i = a(P) I_i + b_i(P)$ 의 선형 형태를 가질 때 만족된다.",
+        "소비자들의 선호체계가 완전 무작위적이며 무차별곡선이 서로 교차하는 모순적 지도가 형성되어야 한다.",
+        "모든 소비자의 필수재 소득탄력성이 $1$을 초과하고 여가의 한계 가치가 시장 임금보다 항상 작아야 한다.",
+        "사회적 무차별곡선은 개별 수요곡선들을 수평이 아닌 수직으로 합산하여 도출하는 조건이다.",
+        "소득의 사회적 한계 가치가 소득 수준에 반비례하여 음수(-)로 수렴하는 CARA 효용함수 하에서만 유도된다."
+      ],
+      "answer": "1",
+      "explanation": "사회적 무차별곡선(Community Indifference Curve)이 소득 분배에 영향을 받지 않고 고유하게 존재하려면, 임의의 소득 재분배 시 가격이 일정하다면 모든 소비자의 한계소비성향이 동일해야 합니다 (즉 소득 1원 추가 시 각 재화의 수요량 증가폭이 모든 구성원에서 동일). 이를 기하학적으로 표현하면 모든 소비자의 ICC가 동일한 기울기를 지니며 평행한 직선이어야 함을 뜻하고, 대수적으로는 간접효용함수가 소득 $I_i$ 에 대해 선형인 고먼 극대화 조건 $V_i(P, I_i) = a(P) I_i + b_i(P)$ 를 만족해야 합니다. 정답은 1번입니다."
     }
   ]
 }

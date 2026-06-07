@@ -8,12 +8,12 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-01",
-    "count": 30
+    "count": 40
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch01-sec01-item02-001",
-      "difficulty": 1,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "모든 경제체제가 직면하는 기본 경제문제 3가지에 해당하지 않는 것은?",
       "options": [
@@ -28,7 +28,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-002",
-      "difficulty": 1,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "희소성(scarcity)이 경제문제를 일으키는 근본 원인이라고 보는 이유는?",
       "options": [
@@ -73,7 +73,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-005",
-      "difficulty": 1,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "생산가능곡선(PPC, Production Possibility Curve)이 의미하는 바로 옳은 것은?",
       "options": [
@@ -88,7 +88,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-006",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "생산가능곡선이 일반적으로 원점에 대해 오목(concave)한 형태를 띠는 이유는?",
       "options": [
@@ -103,7 +103,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-007",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 경제체제의 분류에서 잘못된 것은?",
       "options": [
@@ -118,7 +118,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-008",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "시장경제체제에서 3대 경제문제가 해결되는 방식으로 옳은 것은?",
       "options": [
@@ -133,7 +133,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-009",
-      "difficulty": 2,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "기회비용 계산: 김씨가 직장(연봉 5,000만 원)을 그만두고 자영업을 시작하였다. 자영업 운영 비용은 연 3,000만 원이며, 매출은 9,000만 원이다. 이때 경제적 이윤은?",
       "options": [
@@ -148,7 +148,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-010",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "생산가능곡선 내부의 점이 의미하는 바로 가장 적절한 것은?",
       "options": [
@@ -208,7 +208,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-014",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "기회비용 계산: A국은 1시간에 옷 2벌 또는 빵 4개를 생산할 수 있다. B국은 1시간에 옷 1벌 또는 빵 3개를 생산할 수 있다. 옷 1벌 생산의 기회비용은 두 국가에서 각각 얼마인가?",
       "options": [
@@ -238,7 +238,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-016",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "기회비용과 매몰비용에 관한 설명으로 옳지 않은 것은?",
       "options": [
@@ -253,7 +253,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-017",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "다음 중 시장경제의 장점으로 가장 적절하지 않은 것은?",
       "options": [
@@ -283,7 +283,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-019",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "사회주의 계획경제의 한계로 미제스(L. Mises)와 하이에크(F. Hayek)가 주장한 '경제계산 논쟁(economic calculation debate)'의 핵심 주장은?",
       "options": [
@@ -313,7 +313,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-021",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "기회비용 적용: 학생이 한 학기 등록금 500만 원, 책값 50만 원의 대학을 다닌다. 만약 대학에 다니지 않았다면 연봉 3,000만 원의 직장에 다닐 수 있었다. 한 학기(6개월) 대학 교육의 기회비용은?",
       "options": [
@@ -418,7 +418,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-028",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 경제체제의 비교이다. 옳은 설명을 모두 고른 것은?\n\nㄱ. 자본주의 시장경제는 자원의 효율적 배분에서 우월하나 분배의 형평성·시장 실패 등에서 한계가 있다.\nㄴ. 사회주의 계획경제는 분배의 형평성을 추구하나 가격 메커니즘 부재로 자원배분 비효율·동기 부족이 발생한다.\nㄷ. 사회적 시장경제(독일 모델)는 시장경제를 기반으로 사회적 안전망과 노동자 참여를 결합한다.\nㄹ. 발전국가 모델(한국·일본·대만 등)은 정부의 산업정책·전략적 시장 개입을 통해 경제성장을 추구하였다.",
       "options": [
@@ -433,7 +433,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-029",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "옳은 것 고르기",
       "question": "다음은 경제체제 변천의 역사적 흐름이다. 옳은 설명은?",
       "options": [
@@ -448,7 +448,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item02-030",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음은 기회비용·매몰비용·잠재가격 등 경제비용 개념에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기회비용은 명시적 비용과 암묵적 비용의 합으로 정의된다.\nㄴ. 매몰비용(sunk cost)은 회수 불가능한 과거 비용이므로 합리적 의사결정에서 무시되어야 한다.\nㄷ. 경제적 이윤 = 회계적 이윤 - 암묵적 비용이며, 영(0)일 때 자원이 그 용도에 머무를 정상이윤 상태이다.\nㄹ. 잠재가격(shadow price)은 한 자원의 진정한 기회비용으로, 시장가격이 왜곡된 상황에서 사회적 비용·편익 분석에 사용된다.",
       "options": [
@@ -460,6 +460,156 @@
       ],
       "answer": "5",
       "explanation": "ㄱㄴㄷㄹ 모두 옳다.\nㄱ ✓: 기회비용 = 명시적 비용 + 암묵적 비용 (경제학적 비용)\nㄴ ✓: 매몰비용은 미래 의사결정과 무관 → 합리적 선택에서 무시\nㄷ ✓: 경제적 이윤 = 매출 - 모든 기회비용. 0이면 정상이윤(=암묵적 비용만큼 보상받는 상태), 양수면 초과이윤\nㄹ ✓: 잠재가격(그림자가격)은 시장이 왜곡되었을 때 자원의 진정한 사회적 가치, 비용편익분석(cost-benefit analysis)에서 활용"
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item02-031",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어떤 청정 공기 자원 X가 환경 오염과 인구 밀집으로 인해 더 이상 대가 없이 쓸 수 있는 자유재(존재재)가 아니라 경제재로 전환되는 상황이다. 이 자원의 수요함수가 $Q^d = 120 - P$로 변화하였고, 유료 가격($P > 0$) 하에서 관리 및 정화를 거쳐 공급할 수 있는 사회적 한계 공급량은 $Q^s = 100$으로 제한되어 수직선 형태를 띤다. 단, 가격이 0원일 때는 자원의 자연적 부존 한계량이 150까지 제공될 수 있는 특이적 공급 구조를 가진다. 이 자원의 자유재 상태(초기 수요: $Q^d_0 = 80 - P$) 하에서의 균형 거래량($Q_0$)과, 경제재로 전환된 후의 시장 균형 가격($P^*$) 및 균형 거래량($Q^*$)을 바르게 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Q (수량)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">P (가격)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n  \n  <!-- 공급곡선 S: P=0에서 Q=150까지 가다가 Q=100에서 수직으로 꺾임 -->\n  <!-- 스케일: Q=100 -> x=150, Q=150 -> x=225, P=20 -> y=150, P=0 -> y=250 -->\n  <line x1=\"50\" y1=\"250\" x2=\"225\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <line x1=\"150\" y1=\"70\" x2=\"150\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"135\" y=\"65\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">S</text>\n  <text x=\"220\" y=\"240\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\">150 (부존량)</text>\n  <text x=\"145\" y=\"262\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\">100</text>\n\n  <!-- 초기 수요 D0: Q = 80 - P -> P=0일때 Q=80 -> x=120 -->\n  <line x1=\"50\" y1=\"130\" x2=\"120\" y2=\"250\" stroke=\"#94a3b8\" stroke-width=\"2\" stroke-dasharray=\"3\" />\n  <text x=\"125\" y=\"235\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#94a3b8\" font-weight=\"bold\">D₀ (자유재)</text>\n  <circle cx=\"120\" cy=\"250\" r=\"4\" fill=\"#94a3b8\" />\n  <text x=\"115\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#94a3b8\">80</text>\n\n  <!-- 신규 수요 D1: Q = 120 - P -> P=20일때 Q=100 -> x=150, y=150 -->\n  <!-- Y절편 P=120 -> y=70 (스케일 조정) -->\n  <line x1=\"50\" y1=\"100\" x2=\"200\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"205\" y=\"245\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">D₁ (경제재)</text>\n  <circle cx=\"150\" cy=\"150\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"160\" y=\"145\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">E* (100, 20)</text>\n  \n  <line x1=\"50\" y1=\"150\" x2=\"150\" y2=\"150\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <text x=\"30\" y=\"154\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#475569\">20</text>\n</svg>\n```",
+      "options": [
+        "자유재 거래량 $Q_0 = 150$, 경제재 균형 $P^* = 0$, $Q^* = 100$",
+        "자유재 거래량 $Q_0 = 80$, 경제재 균형 $P^* = 20$, $Q^* = 100$",
+        "자유재 거래량 $Q_0 = 120$, 경제재 균형 $P^* = 120$, $Q^* = 100$",
+        "자유재 거래량 $Q_0 = 80$, 경제재 균형 $P^* = 100$, $Q^* = 20$",
+        "자유재 거래량 $Q_0 = 100$, 경제재 균형 $P^* = 20$, $Q^* = 80$"
+      ],
+      "answer": "2",
+      "explanation": "존재재(자유재)에서 경제재로 자원이 전환되는 조건과 그에 따른 희소성 발생 메커니즘을 묻는 L4 문제입니다.\n1) **자유재 상태 (초기)**: 가격이 0원일 때 수요량 $Q^d_0 = 80 - 0 = 80$은 무상으로 획득 가능한 자연적 부존량 150보다 작습니다. 따라서 시장 가격은 $P=0$이 되고, 균형 거래량은 $Q_0 = 80$입니다. 이 시점에서는 소비의 기회비용이 0이므로 자유재에 해당합니다.\n2) **경제재 상태 (수요 증가)**: 수요가 $Q^d = 120 - P$로 급증하면, 가격이 0원일 때 수요량은 120이 되어 한계공급량 100(유료 가격 하에서만 유지 가능한 한계 수량)을 초과합니다. 따라서 초과수요가 발생하여 가격이 상승합니다.\n3) **새로운 시장 균형**: 가격이 양(+)인 구간에서 $Q^d = Q^s$ 조건을 연립하면,\n   $$120 - P = 100 \\implies P^* = 20, Q^* = 100$$\n   이때 균형가격 $P^* = 20 > 0$이 형성되므로 자원 X는 희소성을 지닌 경제재로 전환되었으며, 소비에 따른 기회비용이 발생하게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item02-032",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "모든 경제체제가 직면하는 Samuelson의 3대 기본 경제문제 중 '어떻게 생산할 것인가(How)'에 관한 미시적 자원배분 분석이다. 한 가상의 사회가 공공재 $Q=10$을 생산하려고 하며, 생산기술은 등량곡선 $Q = K^{0.5} L^{0.5}$ 로 주어진다. 노동의 가격은 $w=1$이고 자본의 가격은 $r=4$이다.\n- 중앙 정부의 지시를 따르는 공기업 A는 의사결정의 경직성으로 인해 생산요소를 $L=5, K=20$ 조합으로 비효율적으로 투입하여 목표량 $Q=10$을 달성하고 있다.\n- 가격기구에 반응하는 민간기업 E는 주어진 요소가격 하에서 비용이 최소화되도록 배분 효율적인 요소 조합을 선택하여 목표량 $Q=10$을 생산한다.\n기업 A와 기업 E의 총생산비용 차이와, 이로 인해 유발되는 비효율성의 수리적 원인을 바르게 분석한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">L (노동)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">K (자본)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n  \n  <!-- 등량곡선 Q = 10 -> K = 100/L -->\n  <!-- 스케일: L=5 -> x=50+15=65, K=20 -> y=250-60=190 (스케일 조정) -->\n  <!-- 수치 매핑: L=10 -> x=100, K=10 -> y=150 / L=20 -> x=200, K=5 -> y=200 / L=5 -> x=50, K=20 -> y=100 -->\n  <path d=\"M 60 80 Q 110 180 300 230\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"260\" y=\"210\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">등량곡선 Q=10</text>\n  \n  <!-- 기업 A의 등비용선: TC = 85 -> K = 21.25 - 0.25L -> y절편 85 -> L=85, K=21.25 -->\n  <!-- 기업 E의 등비용선: TC = 40 -> K = 10 - 0.25L -> y절편 40 -> L=40, K=10 -->\n  <line x1=\"50\" y1=\"150\" x2=\"210\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"80\" x2=\"350\" y2=\"242.5\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  \n  <!-- 기업 A의 생산점 (5, 20) -> x=75, y=130 -->\n  <circle cx=\"75\" cy=\"130\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"80\" y=\"125\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">A (5, 20)</text>\n  <text x=\"80\" y=\"140\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">TC_A = 85</text>\n  \n  <!-- 기업 E의 생산점 (20, 5) -> x=150, y=200 -->\n  <circle cx=\"150\" cy=\"200\" r=\"4.5\" fill=\"#52c41a\" />\n  <text x=\"155\" y=\"195\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#237804\" font-weight=\"bold\">E (20, 5)</text>\n  <text x=\"155\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#237804\">TC_E = 40</text>\n</svg>\n```",
+      "options": [
+        "비용 차이는 45원이며, 기업 A의 기술적 비효율성(Technical Inefficiency)으로 인해 한계기술대체율이 상대요소가격비율보다 낮다.",
+        "비용 차이는 25원이며, 기업 E의 생산량이 기업 A보다 항상 10단위 이상 크다.",
+        "비용 차이는 45원이며, 시장경제 E사는 한계기술대체율($MRTS_{LK}$)과 상대요소가격비율($w/r$)을 일치시키는 비용 최소화를 달성하였으나, A사는 두 비율의 불일치($MRTS_{LK}=4 > 1/4$)로 인해 배분 비효율이 발생하고 있다.",
+        "비용 차이는 85원이며, 계획경제는 자본을 과소 투입하는 속성이 지배적이다.",
+        "비용 차이는 0원이며, 기술 효율성과 비용 배분 효율성은 언제나 동일한 개념이다."
+      ],
+      "answer": "3",
+      "explanation": "Samuelson의 경제문제 중 '어떻게 생산할 것인가(생산요소의 효율적 결합)'에 대한 한계 분석 문제입니다.\n1) **기업 A의 비용**: $TC_A = 1(5) + 4(20) = 85$\n   - 이때 한계기술대체율 $MRTS_{LK} = \\dfrac{K}{L} = \\dfrac{20}{5} = 4$ 입니다.\n   - 상대가격비율 $\\dfrac{w}{r} = \\dfrac{1}{4} = 0.25$ 입니다.\n   - $MRTS_{LK} \\neq \\dfrac{w}{r}$ 이므로 노동 1단위를 추가할 때 포기할 수 있는 자본의 가치(4)가 실제 시장의 자본 가격 대비 가치(0.25)보다 훨씬 높아 배분이 비효율적입니다.\n2) **기업 E의 비용 최소화**:\n   $$MRTS_{LK} = \\dfrac{K}{L} = \\dfrac{w}{r} = \\dfrac{1}{4} \\implies L = 4K$$\n   생산량 조건 대입: $Q = \\sqrt{L K} = \\sqrt{4K^2} = 2K = 10 \\implies K^* = 5, L^* = 20$\n   - $TC_E = 1(20) + 4(5) = 40$\n3) **결론**: 두 기업의 총비용 차이는 $85 - 40 = 45$원이며, 이는 계획 하에 가격 정보를 왜곡하거나 무시하여 $MRTS$와 요소의 상대비용 비율을 일치시키지 못한 배분 비효율성(Allocative Inefficiency)에서 비롯됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item02-033",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "1930년대 사회주의 경제계산 논쟁에서 미제스(L. Mises)와 하이에크(F. Hayek)의 '가격 신호 부재에 따른 계산 불가능성' 비판에 맞서, 오스카 랑게(O. Lange)가 제안한 '시장사회주의 가격 시행착오 모형(Lange-Taylor Trial and Error Model)'의 수리 분석 모형이다. 어떤 소비재 시장의 수요 및 공급함수가 다음과 같고, 가상의 계획당국이 고시하는 가격($P$)의 변동 속도가 초과수요($Q^d - Q^s$)의 크기에 비례하는 동태 시스템을 운영한다.\n- 수요함수: $Q^d = 200 - 2P$, 공급함수: $Q^s = -40 + 4P$\n- 가격조정 미분방정식: $\\frac{dP}{dt} = 0.4(Q^d - Q^s)$\n- 초기 고시가격: $P(0) = 50$\n이 시장의 장기 모사 균형가격 $P^*$과, 시간 $t$에 따른 계획당국의 고시가격 경로 $P(t)$ 및 동태적 안정성에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">t (시간)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">P(t) (고시가격)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n  \n  <!-- 초기 고시가격선 P(0)=50 -->\n  <line x1=\"50\" y1=\"100\" x2=\"330\" y2=\"100\" stroke=\"#ef4444\" stroke-dasharray=\"2\" />\n  <text x=\"20\" y=\"104\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\">P(0)=50</text>\n  \n  <!-- 균형가격선 P*=40 -->\n  <line x1=\"50\" y1=\"160\" x2=\"330\" y2=\"160\" stroke=\"#06b6d4\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"20\" y=\"164\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#06b6d4\">P*=40</text>\n  \n  <!-- 지수 수렴 곡선 -->\n  <path d=\"M 50 100 Q 120 155 330 160\" stroke=\"#f59e0b\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"170\" y=\"135\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#f59e0b\" font-weight=\"bold\">P(t) 수렴 경로</text>\n</svg>\n```",
+      "options": [
+        "균형가격 $P^* = 50$, 가격 경로 $P(t) = 50 - 10e^{2.4t}$ 이며, 균형은 동태적으로 불안정하게 발산한다.",
+        "균형가격 $P^* = 40$, 가격 경로 $P(t) = 40 + 10e^{-2.4t}$ 이며, 시간이 지남에 따라 가격이 균형가격인 40에 수렴하는 동태적 안정성을 가진다.",
+        "균형가격 $P^* = 40$, 가격 경로 $P(t) = 40 - 10e^{2.4t}$ 이며, 계획당국의 오차 증가로 인해 발산한다.",
+        "균형가격 $P^* = 30$, 가격 경로 $P(t) = 30 + 20e^{-t}$ 이며, 진동하며 수렴한다.",
+        "시장사회주의체제 하의 가격조정 속도는 시간의 흐름과 무관하게 언제나 상수로만 유지된다."
+      ],
+      "answer": "2",
+      "explanation": "사회주의 계획경제체제의 한계(경제계산의 불가성)를 극복하기 위해 제시된 랑게 모형의 수리적 작동 구조입니다.\n1) **장기 균형가격 $P^*$**: 초과수요가 0이 되는 상태를 구합니다.\n   $$Q^d = Q^s \\implies 200 - 2P = -40 + 4P \\implies 6P = 240 \\implies P^* = 40$$\n2) **가격 조정 방정식 전개**:\n   $$\\dfrac{dP}{dt} = 0.4( (200 - 2P) - (-40 + 4P) ) = 0.4(240 - 6P) = 96 - 2.4P$$\n   $$\\dfrac{dP}{dt} + 2.4P = 96$$\n3) **미분방정식의 해**:\n   - 일반해: $P(t) = 40 + C e^{-2.4t}$\n   - 초기값 $P(0) = 50$ 대입: $40 + C = 50 \\implies C = 10$\n   - 최종 가격 경로: $P(t) = 40 + 10e^{-2.4t}$\n4) **동태적 안정성**: 지수항의 계수가 $-2.4 < 0$ 이므로, 시간 $t \\rightarrow \\infty$ 일 때 가격은 균형가격인 40으로 수렴합니다. 즉, 이 가격 조정 시스템은 동태적으로 안정적입니다. 랑게는 계획당국이 이와 같이 초과수요의 기호를 보고 가격을 조정하면 시장과 동일한 효율성에 도달할 수 있다고 주장하였습니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item02-034",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어떤 가상의 비시장 계획경제 사회에서 희소한 재화(공급량 $Q=10$개로 고정)를 가격 경쟁이 아닌, 먼저 줄을 서서 기다리는 선착순 줄서기(Queueing) 방식으로 분배한다. 이 사회에는 동일한 크기의 두 주체 그룹 A(5명, 시간당 기회비용 $w_A=10$)와 B(5명, 시간당 기회비용 $w_B=20$)가 존재한다. 재화가 개별 주체에게 주는 주관적 만족의 가치는 100원으로 동일하다.\n선착순 배분 시 기회비용이 낮은 주체들부터 줄을 서서 10개의 수량이 소진되는 조건 하에서 형성되는 균형 대기 시간 $T^*$와 이때 발생하는 총 사회적 시간비용(순수 사하중 손실)의 크기를 시장경제체제 하의 가격 기구($P=100$원에 판매)에 의한 자원배분 결과와 비교하여 가장 옳게 설명한 것은? (단, 줄서기 시간 수입은 증발하고, 시장가격 배분 시의 수입 1,000원은 사회로 귀속된다고 가정한다).\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">T (대기시간)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">비용 (원)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n  \n  <!-- 주관적 가치 한계선 100원 -->\n  <line x1=\"50\" y1=\"130\" x2=\"330\" y2=\"130\" stroke=\"#1e293b\" stroke-dasharray=\"3\" />\n  <text x=\"335\" y=\"134\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\">가치 = 100원</text>\n  \n  <!-- A그룹 비용선: 10T -> T=5일때 50원 -> x=170, y=190 -->\n  <line x1=\"50\" y1=\"250\" x2=\"290\" y2=\"130\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"295\" y=\"125\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">A 비용 (10T)</text>\n  \n  <!-- B그룹 비용선: 20T -> T=5일때 100원 -> x=170, y=130 -->\n  <line x1=\"50\" y1=\"250\" x2=\"170\" y2=\"130\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"175\" y=\"125\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">B 비용 (20T)</text>\n  \n  <!-- 균형 대기시간 T*=5 -->\n  <line x1=\"170\" y1=\"130\" x2=\"170\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <text x=\"165\" y=\"265\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#475569\">T*=5</text>\n  <circle cx=\"170\" cy=\"130\" r=\"4\" fill=\"#ef4444\" />\n  <circle cx=\"170\" cy=\"190\" r=\"4\" fill=\"#3b82f6\" />\n</svg>\n```",
+      "options": [
+        "균형 대기시간 $T^* = 5$시간이며, 줄서기 배분은 시장 가격 배분에 비해 750원의 사회적 자원 낭비(순손실)를 초래한다.",
+        "균형 대기시간 $T^* = 10$시간이며, 사회적 기회비용의 낭비 총액은 1,000원이다.",
+        "A그룹의 대기시간 비용이 더 낮기 때문에 이들은 대기시간 상승과 관계없이 항상 순소득이 B그룹보다 낮아진다.",
+        "시장가격으로 배분하는 것이 줄서기 방식보다 비시장적 약자들에게 언제나 더 높은 물질적 효용을 안겨준다.",
+        "대기시간 배분의 총비용은 1,000원이며 이는 전액 정부 예산 수입으로 귀산된다."
+      ],
+      "answer": "1",
+      "explanation": "자원 배분 메커니즘(시장 가격 vs 비시장 대기 시간)에 따른 기회비용 발생과 그 비효율성의 크기를 수리적으로 증명하는 문제입니다.\n1) **줄서기 균형의 작동**:\n   - 총 공급량은 10개이며 잠재 수요자는 10명입니다. 따라서 줄을 선 10명이 모두 받아가게 되는데, 마지막 경계에 선 참가자(여기서는 B그룹)의 순편익이 0이 되는 지점에서 대기시간 $T$가 결정됩니다.\n   - 만약 대기시간 $T < 5$ 이면, 기회비용이 20원인 B그룹 주체들도 대기비용 $20T < 100$ 이므로 모두 참여하려 하여 대기 시간이 길어집니다.\n   - 만약 대기시간 $T^* = 5$ 에 도달하면,\n     * B그룹(5명)의 대기비용은 $20 \\times 5 = 100$원이 되어 순가치가 0이 됩니다.\n     * A그룹(5명)의 대기비용은 $10 \\times 5 = 50$원이 되어 순가치가 $100 - 50 = 50$원이 됩니다.\n     * 참여 수요는 A 5명 + B 5명 = 10명으로 공급 10개와 정확히 일치하여 줄서기 균형이 달성됩니다.\n2) **사회적 자원 낭비(시간의 기회비용) 계산**:\n   - A그룹 5명의 대기 비용 총합: $5 \\times (10 \\times 5) = 250$원\n   - B그룹 5명의 대기 비용 총합: $5 \\times (20 \\times 5) = 500$원\n   - 총 사회적 대기 비용 = $250 + 500 = 750$원\n3) **시장가격 배분과의 비교**:\n   - 시장에서 가격 $P=100$원에 10개를 판매하면 소비자들의 순이익은 0원이 되지만, 판매로 걷어들인 1,000원의 수입은 사회적 자본으로 남게 됩니다.\n   - 반면 줄을 서며 날려 보낸 750원의 대기비용(시간)은 사회의 그 어떤 생산활동에도 기여하지 못한 채 영구 소멸되는 순수 **사하중 손실(DWL)**로 작용합니다. 따라서 대기 시간 배분은 가격 기구 배분 대비 750원만큼 사회를 가난하게 만듭니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item02-035",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "계획경제체제나 비시장적 배분 기구 하에서는 공공재의 생산 규모를 결정하는 중앙 관료가 자신의 권한과 예산 극대화를 추구할 때 정부 실패(Government Failure)가 발생하기 쉽다(Niskanen 예산극대화 관료모형). 어떤 공공재 생산 부서의 총편익($B$)과 총비용($C$) 함수가 다음과 같다.\n- 총편익: $B(Q) = 200Q - Q^2$\n- 총비용: $C(Q) = 80Q + 2Q^2$\n사회의 순편익을 극대화하는 사회적 최적 생산량($Q^*$)과, 총편익과 총비용이 한계 수준에서 일치할 때까지 예산을 극대화하여 과다 생산을 벌이는 관료들의 생산량($Q_b$) 및 이로 인해 발생하는 사회적 후생 손실(Deadweight Loss)의 크기를 바르게 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Q (수량)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">P, C (가격/비용)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n  \n  <!-- 한계편익 MB = 200 - 2Q -> Q=20일때 160, Q=40일때 120 -->\n  <line x1=\"50\" y1=\"50\" x2=\"250\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"255\" y=\"250\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">MB = 200-2Q</text>\n  \n  <!-- 한계비용 MC = 80 + 4Q -> Q=20일때 160, Q=40일때 240 -->\n  <line x1=\"50\" y1=\"170\" x2=\"250\" y2=\"90\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"255\" y=\"85\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">MC = 80+4Q</text>\n  \n  <!-- 최적점 E (20, 160) -->\n  <circle cx=\"116.7\" cy=\"116.7\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"105\" y=\"105\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">E* (Q*=20)</text>\n  \n  <!-- 관료생산점 Qb = 40 -> 한계비용 240, 한계편익 120 -->\n  <circle cx=\"183.3\" cy=\"143.3\" r=\"4\" fill=\"#ef4444\" />\n  <text x=\"180\" y=\"160\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">Q_b = 40</text>\n  \n  <!-- 후생손실 삼각형 (밑변: 20->40, 높이: MB-MC 격차) -->\n  <polygon points=\"116.7,116.7 183.3,143.3 183.3,116.7\" fill=\"#fca5a5\" opacity=\"0.6\" />\n  <text x=\"150\" y=\"125\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">DWL</text>\n</svg>\n```",
+      "options": [
+        "최적 생산량 $Q^* = 20$, 관료 생산량 $Q_b = 30$, 후생 손실 = 300",
+        "최적 생산량 $Q^* = 30$, 관료 생산량 $Q_b = 40$, 후생 손실 = 450",
+        "최적 생산량 $Q^* = 20$, 관료 생산량 $Q_b = 40$, 후생 손실 = 1,200",
+        "최적 생산량 $Q^* = 20$, 관료 생산량 $Q_b = 50$, 후생 손실 = 1,500",
+        "최적 생산량 $Q^* = 40$, 관료 생산량 $Q_b = 40$, 후생 손실 = 0"
+      ],
+      "answer": "3",
+      "explanation": "Niskanen의 관료 예산극대화 모형을 통해 계획주의 혹은 독점화된 의사결정 체제가 야기하는 배분 왜곡의 크기를 연산하는 고난도 문제입니다.\n1) **사회의 최적 생산량 $Q^*$**:\n   - $MB = \\dfrac{dB}{dQ} = 200 - 2Q$\n   - $MC = \\dfrac{dC}{dQ} = 80 + 4Q$\n   - $200 - 2Q = 80 + 4Q \\implies 6Q = 120 \\implies Q^* = 20$\n2) **관료의 예산극대화 생산량 $Q_b$**:\n   - 관료들은 예산 극대화를 위해 한계조건($MB=MC$)이 아니라 총편익과 총비용이 대등해지는 $B(Q) = C(Q)$ 수준까지 생산을 늘려 예산의 외연적 크기를 부풀립니다.\n   - $200Q - Q^2 = 80Q + 2Q^2 \\implies 120Q = 3Q^2 \\implies Q_b = 40$\n3) **사회적 후생 손실(DWL)**:\n   - 과다 생산된 $20 \\sim 40$ 구간에 대한 사하중 손실(비용이 편익을 초과하는 영역)은 삼각형 면적으로 산출됩니다.\n   - $Q_b = 40$ 일 때 한계비용 $MC = 80 + 4(40) = 240$ 이고, 한계편익 $MB = 200 - 2(40) = 120$ 입니다.\n   - $DWL = \\dfrac{1}{2} \\times \\text{밑변(수량 차이)} \\times \\text{높이(MC-MB 격차)}$\n     $$DWL = \\dfrac{1}{2} \\times (40 - 20) \\times (240 - 120) = \\dfrac{1}{2} \\times 20 \\times 120 = 1,200$$\n   따라서 정답은 최적 20, 관료 40, 후생 손실 1,200입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item02-036",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "계획경제체제 하에서 중앙계획당국(위임인)이 개별 국영 공장의 관리자(대리인)가 지닌 한계비용 기술에 관한 정보적 격차(비대칭성)를 겪을 때 나타나는 인센티브 설계의 이론적 한계이다. 이 경제에는 두 공장이 존재하며 사회적 편익 가치는 $V(Q) = 120Q$ 이다.\n- 고효율 공장(H): 비용함수 $C_H(Q) = Q^2$ (확률 0.5)\n- 저효율 공장(L): 비용함수 $C_L(Q) = 2Q^2$ (확률 0.5)\n계획당국이 공장 유형을 완전 관측하고 내리는 '정보 대칭 하의 최적 생산량($Q_H^*, Q_L^*$)'과, 공장이 관리자가 이익(정보 렌트)을 위해 유형을 속일 수 있어 인센티브 유인합치 조건(Screening 계약)을 가미하여 결정하는 '정보 비대칭 하의 왜곡된 생산량($Q_H', Q_L'$)'을 바르게 연립한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Q (수량)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">T (이전지출)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n  \n  <!-- 등효용 곡선 등 스크리닝 계약 시각화 -->\n  <path d=\"M 60 70 Q 150 180 320 220\" stroke=\"#a855f7\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"270\" y=\"200\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">U_H (고효율)</text>\n  \n  <path d=\"M 100 120 Q 200 200 320 230\" stroke=\"#94a3b8\" stroke-width=\"1.5\" fill=\"none\" stroke-dasharray=\"3\" />\n  <text x=\"280\" y=\"240\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#94a3b8\" font-weight=\"bold\">U_L (저효율)</text>\n\n  <!-- 왜곡된 계약점들 -->\n  <circle cx=\"150\" cy=\"150\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"135\" y=\"140\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">L계약 (Q_L'=20)</text>\n  \n  <circle cx=\"250\" cy=\"190\" r=\"4.5\" fill=\"#52c41a\" />\n  <text x=\"255\" y=\"185\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#237804\" font-weight=\"bold\">H계약 (Q_H*=60)</text>\n</svg>\n```",
+      "options": [
+        "정보 대칭: $(60, 30)$, 정보 비대칭: $(50, 20)$",
+        "정보 대칭: $(60, 30)$, 정보 비대칭: $(60, 20)$이며, 정보 비대칭으로 인해 저효율 유형의 생산 활동이 과소하게 왜곡된다.",
+        "정보 대칭: $(50, 40)$, 정보 비대칭: $(60, 30)$",
+        "정보 대칭: $(60, 30)$, 정보 비대칭: $(60, 30)$이며, 유인 조건 설계 후에는 아무런 비효율도 남지 않는다.",
+        "계획경제의 정보 격차는 생산 기술이 고도화될수록 자발적으로 완전 소멸한다."
+      ],
+      "answer": "2",
+      "explanation": "계획경제 하에서 정보 비대칭성이 유발하는 유인 체계의 붕괴(대리인 문제)를 분석하는 최고난도 수리 문항입니다.\n1) **정보 대칭 (완전 정보) 하의 생산성**:\n   - 고효율 공장: $V'(Q_H) = C_H'(Q_H) \\implies 120 = 2Q_H \\implies Q_H^* = 60$\n   - 저효율 공장: $V'(Q_L) = C_L'(Q_L) \\implies 120 = 4Q_L \\implies Q_L^* = 30$\n2) **정보 비대칭 (계약 스크리닝) 하의 왜곡**:\n   - 관리자가 고효율 임에도 저효율인 척 행동하는 유인을 막기 위해서는 고효율 공장에게 **정보 렌트(Information Rent)**를 부여해야 합니다.\n   - 정보 렌트를 절약하기 위해 당국은 저효율 공장(L)의 목표 생산량을 최적치보다 축소시키는 비효율적인 생산량 제약을 가합니다.\n   - 이 2유형 스크리닝의 한계 최적 조건은 다음과 같습니다.\n     $$V'(Q_L') = C_L'(Q_L') + \\dfrac{P_H}{P_L}(C_L'(Q_L') - C_H'(Q_L'))$$\n     여기서 두 공장의 확률이 $P_H = P_L = 0.5$ 이므로 상대비율은 1이 됩니다. 식에 한계비용을 대입하면,\n     $$120 = 4Q_L' + 1 \\cdot (4Q_L' - 2Q_L') = 6Q_L' \\implies Q_L' = 20$$\n   - '최고층에서의 무왜곡(No Distortion at the Top)' 원리에 의해 고효율 공장은 왜곡 없이 $Q_H' = Q_H^* = 60$ 으로 유지됩니다.\n   - 따라서 최종 조합은 대칭 시 $(60, 30)$, 비대칭 하에서는 $(60, 20)$으로 저효율 공장의 생산 과소 왜곡이 초래됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item02-037",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "혼합경제체제 하에서 정부의 인허가 등 규제로 인해 독점 지대(Monopoly Rent)가 발생할 때, 민간 기업들이 이를 취하기 위해 자원을 낭비하는 비생산적 지대추구(Rent-seeking)에 관한 Tullock 게임이론 모형이다. 정부가 발급하는 독점 인허가권의 가치가 $R = 100$이다. 두 대칭적 기업 A, B가 로비 및 투쟁에 쏟아붓는 자금을 각각 $x_A, x_B$라 하고, 획득 확률은 Tullock 확률 함수인 $P_i = \\dfrac{x_i}{x_A + x_B}$ 를 따른다.\n내쉬균형에서 각 기업의 최적 지출 비용($x^*$)과 두 기업의 지대추구 행위로 인해 사회에서 허공으로 날아가는 '순수 사회적 자원 낭비의 합'을 구하고, 독점 인허가 형성 자체의 사하중 손실이 $DWL_{monopoly} = 30$일 때, 규제와 로비가 결합되어 발생하는 이 혼합경제의 '총 사회적 후생 손실'을 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">x_A (A의 로비비용)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">x_B (B의 로비비용)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n  \n  <!-- 반응곡선 A: x_A = sqrt(x_B*R) - x_B 등 곡선 묘사 -->\n  <path d=\"M 50 150 Q 150 150 150 250\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"60\" y=\"140\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">A의 반응곡선</text>\n  \n  <path d=\"M 150 50 Q 150 150 250 150\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"220\" y=\"140\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">B의 반응곡선</text>\n  \n  <!-- 내쉬균형 (25, 25) -> 스케일 조정 (150, 150) -->\n  <circle cx=\"150\" cy=\"150\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"160\" y=\"145\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">NE (25, 25)</text>\n  <line x1=\"150\" y1=\"150\" x2=\"150\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <line x1=\"50\" y1=\"150\" x2=\"150\" y2=\"150\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <text x=\"145\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">25</text>\n  <text x=\"30\" y=\"154\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">25</text>\n</svg>\n```",
+      "options": [
+        "개별비용 $x^* = 20$, 로비 낭비 = 40, 총 후생 손실 = 70",
+        "개별비용 $x^* = 25$, 로비 낭비 = 50, 총 후생 손실 = 50",
+        "개별비용 $x^* = 25$, 로비 낭비 = 50, 총 후생 손실 = 80",
+        "개별비용 $x^* = 50$, 로비 낭비 = 100, 총 후생 손실 = 130",
+        "지대추구 행위는 시장 가격 메커니즘을 복원시키므로 사회적 손실을 최종적으로 소멸시킨다."
+      ],
+      "answer": "3",
+      "explanation": "혼합경제체제에서 발생하는 규제의 포획 및 지대추구 자원 비효율의 수리 모델링 문제입니다.\n1) **A사의 이윤식**: $\\pi_A = P_A \\cdot R - x_A = \\dfrac{x_A}{x_A + x_B} \\cdot R - x_A$\n2) **내쉬균형 도출**: 이윤을 극대화하기 위해 $x_A$에 대해 미분하여 0이 되는 반응 조건을 구합니다.\n   $$\\dfrac{\\partial \\pi_A}{\\partial x_A} = \\dfrac{(x_A + x_B) - x_A}{(x_A + x_B)^2} \\cdot R - 1 = 0 \\implies \\dfrac{x_B}{(x_A + x_B)^2} \\cdot R = 1$$\n   대칭적 내쉬균형 $x_A = x_B = x^*$ 을 대입하면,\n   $$\\dfrac{x^*}{(2x^*)^2} \\cdot R = 1 \\implies \\dfrac{x^*}{4(x^*)^2} \\cdot R = 1 \\implies 4x^* = R \\implies x^* = \\dfrac{R}{4}$$\n   지대 가치 $R = 100$을 대입하면 개별 비용 $x^* = 25$가 됩니다.\n3) **지대추구 낭비액**: 두 기업이 공중분해시킨 로비 비용의 총 사회적 손실은 $x_A + x_B = 25 + 25 = 50$입니다.\n4) **총 사회적 후생 손실**: 독점으로 발생하는 정태적 사하중 손실 30에, 그 독점권을 쥐기 위해 벌인 비생산적 자원 낭비 50이 추가 합산되어 총 사회적 후생 손실은 $50 + 30 = 80$원이 됩니다. (이를 지대추구의 털록 역설이라 합니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item02-038",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "계획경제체제에서 시장경제체제로 급격한 전환(충격요법, Shock Therapy)을 단행할 때 발생할 수 있는 물가불안과 단기 생산 감소의 거시적 충격 분석이다. 화폐수량설 $MV = PY$ 가 성립하는 어떤 전환국가가 있다. 전환 직후 통화공급은 $M=100$으로 엄격히 동결되어 있다.\n- 가격 자유화 조치가 내려지자 가격 불안에 따른 화폐 불신으로 화폐유통속도($V$)가 단기적으로 $1.0$에서 $3.0$으로 $200\\%$ 폭등하였다.\n- 국영기업의 구조조정 마비와 시장체제 미성숙으로 단기 실질 생산량($Y$)은 $100$에서 $80$으로 $20\\%$ 감소하였다.\n전환 이전의 가격 수준 $P_0$와 비교한 전환 직후 단기 오버슈팅 가격 $P_1$의 물가상승률(%) 및 장기적으로 생산이 $Y^*=100$으로 회복되고 유통속도가 $V^*=1.6$으로 진정될 때의 장기 수렴 가격 $P^*$를 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">t (시간)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">P(t) (물가)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n  \n  <!-- 초기물가 1.0 -> y=220 -->\n  <line x1=\"50\" y1=\"220\" x2=\"100\" y2=\"220\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"30\" y=\"224\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#475569\">P_0=1.0</text>\n  \n  <!-- 단기오버슈팅 3.75 -> y=80 -->\n  <circle cx=\"100\" cy=\"80\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"95\" y=\"65\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">P_1 = 3.75 (오버슈팅)</text>\n  \n  <!-- 장기수렴 1.6 -> y=180 -->\n  <line x1=\"100\" y1=\"180\" x2=\"330\" y2=\"180\" stroke=\"#06b6d4\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"20\" y=\"184\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#06b6d4\">P*=1.6</text>\n  \n  <!-- 경로선 -->\n  <path d=\"M 100 80 Q 150 180 330 180\" stroke=\"#f59e0b\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"190\" y=\"145\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#f59e0b\" font-weight=\"bold\">물가 이행 궤적</text>\n</svg>\n```",
+      "options": [
+        "단기 물가상승률: $275\\%$, 장기 균형 물가 $P^* = 1.6$",
+        "단기 물가상승률: $200\\%$, 장기 균형 물가 $P^* = 3.0$",
+        "단기 물가상승률: $150\\%$, 장기 균형 물가 $P^* = 1.6$",
+        "단기 물가상승률: $275\\%$, 장기 균형 물가 $P^* = 1.0$",
+        "가격 자유화 이후에는 어떠한 물가 불안정도 없이 정태적 균형에 도달한다."
+      ],
+      "answer": "1",
+      "explanation": "체제 전환 과정에서 동태적 가격 불안이 나타나는 오버슈팅 메커니즘을 수리 연산하는 고난도 문제입니다.\n1) **전환 이전 가격 $P_0$**:\n   $$P_0 = \\dfrac{M V_0}{Y_0} = \\dfrac{100 \\times 1.0}{100} = 1.0$$\n2) **단기 오버슈팅 가격 $P_1$**: 가격이 자유화되었으나 생산구조는 붕괴($Y=80$)하고 유통속도는 급증($V=3$)한 단기 불균형 상태에서의 가격입니다.\n   $$P_1 = \\dfrac{M V_1}{Y_1} = \\dfrac{100 \\times 3.0}{80} = 3.75$$\n   - 단기 상승률: $\\dfrac{3.75 - 1.0}{1.0} \\times 100 = 275\\%$ 폭등\n3) **장기 가격 $P^*$**: 심리 안정으로 속도가 정상화($V^*=1.6$)되고 생산능력도 회복($Y^*=100$)된 상태입니다.\n   $$P^* = \\dfrac{M V^*}{Y^*} = \\dfrac{100 \\times 1.6}{100} = 1.6$$\n4) **결론**: 전환기의 급격한 충격요법은 화폐 신뢰 붕괴(유동성 불안)와 생산 충격을 결합하여 물가를 장기 균형 수준인 1.6보다 훨씬 높은 3.75까지 급폭등시키는 단기 오버슈팅 부작용을 동반합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item02-039",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "혼합경제체제 하에서 일부 시장 실패를 시정하기 위한 부분적 정부 규제가 다른 왜곡 요인의 존재로 인해 사회적 후생을 오히려 더 떨어뜨릴 수 있음을 증명한 립시와 랜카스터(Lipsey & Lancaster)의 **'차선의 정리(Theorem of the Second Best)'**에 관한 문항이다. 경제 전체에 3가지 재화가 존재하며 파레토 최적 효율을 달성하기 위한 기본 한계 조건이 다음과 같다.\n- 파레토 최적 조건: 모든 $i, j$ 재화 조합에 대해 $MRS_{ij} = MRT_{ij}$\n만약 정부가 개입할 수 없는 불가피한 어떤 제약(독점 등)에 의해 $MRS_{12} \\neq MRT_{12}$ 로 왜곡이 고정되었다. 이때 차선의 사회적 배분 효율성을 달성하기 위한 타 재화간 최적 균형 조건은 무엇인가?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X_2 (2재화)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X_3 (3재화)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n  \n  <!-- 차선의 경계 (왜곡 제약곡선) -->\n  <path d=\"M 60 100 Q 180 140 280 240\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"180\" y=\"115\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">제약 경계면 (1-2재화 왜곡 고정)</text>\n  \n  <!-- 차선 균형점 SB (2-3재화도 인위적 왜곡 상태에서 무차별곡선 접함) -->\n  <path d=\"M 100 160 Q 200 180 270 230\" stroke=\"#52c41a\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"225\" y=\"215\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#237804\" font-weight=\"bold\">사회 무차별곡선 (SB)</text>\n  \n  <circle cx=\"200\" cy=\"180\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"195\" y=\"170\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">SB (Second Best)</text>\n</svg>\n```",
+      "options": [
+        "1재화와 2재화가 왜곡되어 있어도 나머지 재화들 사이에서는 무조건 파레토 최적 효율 조건($MRS_{23} = MRT_{23}$)을 유지하도록 규제해야 사회적 최적에 도달한다.",
+        "일부 시장의 왜곡이 해결 불가능하다면, 다른 정상적인 시장들에서도 파레토 효율의 한계 조건들을 인위적으로 깨뜨려 왜곡 상태($MRS_{23} \neq MRT_{23}$)를 일부 유발하는 것이 오히려 전체 후생 측면에서 우월한 차선(Second Best)의 결과를 보장한다.",
+        "한 시장만 왜곡되더라도 사회 전체의 파레토 최적 조건은 완벽하게 유지되므로 가격 규제는 필요 없다.",
+        "정부는 왜곡의 존재 유무와 관계없이 항상 한계비용 가격설정만을 강제하면 차선이 아닌 최선의 결과를 얻는다.",
+        "차선의 정리는 시장 실패 교정을 위한 정부 개입이 언제나 모든 자원배분을 100% 최선화시킴을 의미한다."
+      ],
+      "answer": "2",
+      "explanation": "정부의 시장 개입이 갖는 구조적 한계를 규명하는 Lipsey-Lancaster의 차선의 정리(Theorem of the Second Best) 문항입니다.\n1) **정리의 핵심 내용**: 파레토 효율성을 달성하기 위한 많은 필요조건들 중 한 개 이상의 조건이 깨지는 불완전성(제약)이 고정되어 있다면, 나머지 조건들을 억지로 파레토 균등 조건에 짜 맞추는 것이 사회적 최선(First Best)에 가까운 결과를 주지 못합니다.\n2) **수리적 시사점**: $MRS_{12} \\neq MRT_{12}$ 라는 구조적 실패 요인이 존재한다면, 다른 영역인 2재화와 3재화 시장에서는 파레토 효율 식인 $MRS_{23} = MRT_{23}$ 을 충족시키는 것보다, 인위적으로 왜곡된 다른 경로를 유도하는 것이 전체 사회 후생을 더 높여 줍니다.\n3) **시사점**: 정부가 환경오염, 독점, 정보 비대칭 등 복수의 왜곡이 산재한 혼합경제에서 한 가지만 완전히 교정하는 정화 정책이 오히려 다른 왜곡과 상충하여 총 사회적 후생을 저해할 수 있음을 알려주는 중요한 이론입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item02-040",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "시장경제체제 하에서 배타적 소유권(재산권)의 획득 유무가 공유자원(공유지)의 이용 효율성 및 자원 황폐화에 미치는 영향을 판정하는 수리 모형(공유지의 비극)이다. 한 마을 주민들이 공유지 목초지에 양을 방목하려 하며, 방목 사육 양의 총 마릿수를 $N$이라 할 때 목초지에서 얻는 총수익($TR$)과 양 한 마리 양육의 기회비용($c$)이 다음과 같다.\n- 총수익: $TR(N) = 120N - 2N^2$\n- 마리당 기회비용: $c = 40$\n사유재산제도가 확립되어 목초지 소유자가 자신의 총이윤을 극대화할 때의 최적 방목 마릿수($N^*$)와, 재산권이 없어 주민들이 각자의 평균수익과 비용을 견주어 무단 사육하는 공유지 자유방임 상태 하의 균형 방목 마릿수($N_c$) 및 공유 방치로 인해 발생하는 사회적 후생 손실(Deadweight Loss)의 크기를 바르게 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">N (사육량)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수익, 비용</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n  \n  <!-- 비용선 c = 40 -> y=170 -->\n  <line x1=\"50\" y1=\"170\" x2=\"330\" y2=\"170\" stroke=\"#1e293b\" stroke-width=\"2\" />\n  <text x=\"335\" y=\"174\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\">c=40</text>\n  \n  <!-- 평균수익 AR = 120 - 2N -> N=40일때 AR=40 -> x=250, y=170 -->\n  <!-- N=0 -> AR=120 -> y=50 (스케일 조정) -->\n  <line x1=\"50\" y1=\"90\" x2=\"290\" y2=\"210\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"295\" y=\"215\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">AR = 120-2N</text>\n  \n  <!-- 한계수익 MR = 120 - 4N -> N=20일때 MR=40 -> x=150, y=170 -->\n  <line x1=\"50\" y1=\"90\" x2=\"170\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"175\" y=\"220\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">MR = 120-4N</text>\n  \n  <!-- 사유재산 균형 N*=20 -> x=150 -->\n  <circle cx=\"150\" cy=\"170\" r=\"4.5\" fill=\"#52c41a\" />\n  <text x=\"140\" y=\"160\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#237804\" font-weight=\"bold\">N*=20</text>\n  \n  <!-- 공유지 균형 Nc=40 -> x=250 -->\n  <circle cx=\"250\" cy=\"170\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"245\" y=\"160\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">N_c=40</text>\n  \n  <!-- 사회적 후생 손실 영역 (밑변: 20->40, 높이: c-MR 격차) -->\n  <polygon points=\"150,170 250,170 250,210\" fill=\"#fca5a5\" opacity=\"0.6\" />\n  <text x=\"210\" y=\"185\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">DWL</text>\n</svg>\n```",
+      "options": [
+        "최적 방목량 $N^* = 20$, 공유지 방목량 $N_c = 40$, 후생 손실 = 800",
+        "최적 방목량 $N^* = 30$, 공유지 방목량 $N_c = 50$, 후생 손실 = 400",
+        "최적 방목량 $N^* = 20$, 공유지 방목량 $N_c = 30$, 후생 손실 = 200",
+        "최적 방목량 $N^* = 40$, 공유지 방목량 $N_c = 40$, 후생 손실 = 0",
+        "사유재산제는 공유지보다 언제나 과다한 자원 고갈을 유발하므로 비효율적이다."
+      ],
+      "answer": "1",
+      "explanation": "공유지의 비극이 유발하는 자원 과다 투입의 사회적 손실을 재산권 획득 유무에 따라 수리 비교하는 L5 문제입니다.\n1) **사유재산권 체제 (목초지 소유자 이윤극대화)**:\n   - 소유자는 양의 한계수익($MR$)과 기회비용($c$)을 일치시켜 한계 잉여를 극대화합니다.\n   - $MR = \\dfrac{dTR}{dN} = 120 - 4N = 40 \\implies 4N = 80 \\implies N^* = 20$\n2) **공유지 상태 (자유 방임)**:\n   - 개별 사육자들은 공유지 진입에 장벽이 없으므로, 평균적으로 챙겨갈 수 있는 양의 평균수익($AR$)이 기회비용인 40원 이상이기만 하면 사육량을 자발적으로 늘립니다.\n   - $AR = \\dfrac{TR}{N} = 120 - 2N = 40 \\implies 2N = 80 \\implies N_c = 40$\n3) **사회적 후생 손실(DWL)**:\n   - 최적 수준(20마리)을 초과하여 40마리까지 과다 방목함으로써 사회 전체적으로는 기회비용($c$)이 한계수익($MR$)을 상회하여 가치가 파괴됩니다.\n   - $N_c = 40$ 일 때 한계수익 $MR = 120 - 4(40) = -40$ 입니다.\n   - 후생손실(삼각형):\n     $$DWL = \\dfrac{1}{2} \\times \\text{밑변(수량 초과분)} \\times \\text{높이(c-MR 격차)}$$\n     $$DWL = \\dfrac{1}{2} \\times (40 - 20) \\times (40 - (-40)) = \\dfrac{1}{2} \\times 20 \\times 80 = 800$$\n   따라서 정답은 최적 20, 공유지 40, 사회적 후생 손실 800입니다."
     }
   ]
 }

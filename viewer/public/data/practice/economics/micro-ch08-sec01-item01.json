@@ -8,384 +8,759 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch08-sec01-item01-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "시장 실패의 4대 원인은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "완전경쟁 시장이 효율적인 자원 배분을 가져온다는 후생경제학 제1정리가 성립하지 않아 '시장 실패(Market Failure)'가 일어나는 원인에 대한 설명으로 옳은 것을 고른 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```\n\nㄱ. 공해 유발과 같이 행위의 외부 비용이 사적 비용에 반영되지 못하는 경우\nㄴ. 무임승차가 가능하여 시장 기구만으로는 과소 공급되는 공공재가 존재하는 경우\nㄷ. 완전경쟁 상태에서 규모의 경제가 발생하여 자연독점화되고 가격이 한계비용을 초과하는 경우\nㄹ. 거래 당사자 간 보유한 정보가 대칭적이어서 도덕적 해이가 차단되는 경우",
       "options": [
-        "공공재·외부성·독점·비대칭정보",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
       ],
-      "answer": "1",
-      "explanation": "시장 실패 4 원인: ① 공공재 (Samuelson 1970 노벨) ② 외부성 (Pigou 1932·Coase 1991 노벨) ③ 독점·과점 (Tirole 2014 노벨) ④ 비대칭정보 (Akerlof·Spence·Stiglitz 2001 노벨). 후생경제 제1정리 위반·정부 개입 정당화."
+      "answer": "3",
+      "explanation": "시장 실패의 4대 원인은 외부성(ㄱ), 공공재(ㄴ), 독과점(ㄷ), 비대칭 정보입니다. ㄹ의 경우 정보가 '대칭적'이면 도덕적 해이나 역선택이 발생하지 않아 시장 실패가 차단되므로 옳지 않습니다. 따라서 ㄱ, ㄴ, ㄷ이 속한 ③이 정답입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-002",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "공공재 (public goods) 의 정의는?",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 독점 기업이 직면한 시장 수요 곡선이 $P = 120 - Q$ 이고, 이 기업의 한계비용이 $MC = 20$ 으로 일정하다. 완전경쟁에 비해 이 독점 시장에서 발생하는 자중손실(Deadweight Loss)의 크기를 구하시오.\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
       "options": [
-        "비경합 + 비배제 — 시장 X·정부 제공 (Samuelson 1954)",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "1000",
+        "1250",
+        "1500",
+        "2000",
+        "2500"
       ],
-      "answer": "1",
-      "explanation": "Samuelson (1954·1970 노벨) 공공재: 비경합 + 비배제. 시장 X·정부 제공. 국방·치안·등대·기초 R&D·R&D spillover."
+      "answer": "2",
+      "explanation": "1) 완전경쟁 균형 ($P = MC$): $120 - Q = 20 \\\\Rightarrow Q_C = 100, P_C = 20$.\n2) 독점 균형 ($MR = MC$): 한계수입 $MR = 120 - 2Q$. $120 - 2Q = 20 \\\\Rightarrow 2Q = 100 \\\\Rightarrow Q_M = 50$. 대입하면 독점가격 $P_M = 120 - 50 = 70$.\n3) 자중손실(DWL): 독점으로 인한 삼각 영역의 크기 = $0.5 \\\\times (P_M - MC) \\\\times (Q_C - Q_M) = 0.5 \\\\times (70 - 20) \\\\times (100 - 50) = 0.5 \\\\times 50 \\\\times 50 = 1250$ 이 됩니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-003",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
-      "question": "외부성 (externality) 의 정의는?",
+      "question": "시장 실패 요인 중 정보 비대칭성(Asymmetric Information)으로 인해 거래가 이루어지기 전과 거래가 성립된 후에 일어나는 현상을 바르게 연결한 것은?",
       "options": [
-        "제3자에 비가격 효과 → 시장 실패 — Pigou (1932)·Coase (1991 노벨)",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "거래 전: 도덕적 해이 (Moral Hazard) / 거래 후: 역선택 (Adverse Selection)",
+        "거래 전: 역선택 (Adverse Selection) / 거래 후: 도덕적 해이 (Moral Hazard)",
+        "거래 전: 무임승차 (Free-riding) / 거래 후: 가격 차별 (Price Discrimination)",
+        "거래 전: 자연독점 (Natural Monopoly) / 거래 후: 규모의 경제 (Economies of Scale)",
+        "거래 전: 외부 경제 (External Economy) / 거래 후: 외부 불경제 (External Diseconomy)"
       ],
-      "answer": "1",
-      "explanation": "외부성: 제3자 영향 (비가격) → 시장 실패. Pigou (1932) 세금·보조금 + Coase (1991 노벨) 재산권. 한국 K-ETS·탄소세·R&D 적용."
+      "answer": "2",
+      "explanation": "정보 비대칭성 하에서: ① 거래 전(감추어진 특성)에는 질 낮은 거래 상대만 모여 거래가 무산되거나 비효율화되는 역선택이 발생하고, ② 거래 후(감추어진 행동)에는 행동 모니터링이 불가능하여 대리인이 위험 회피 노력을 줄이는 도덕적 해이가 나타납니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-004",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
-      "question": "독점·과점 + 시장 실패는?",
+      "question": "공공재(Public Goods)와 공유자원(Common Resources)의 속성을 경합성(Rivalry)과 배제성(Excludability) 측면에서 옳게 설명한 것은?",
       "options": [
-        "독점 가격 ↑·산출 ↓·사중 손실 — Tirole (2014 노벨) 산업조직",
-        "관계 없음",
-        "Tirole 부정",
-        "정부 결정",
-        "Pareto"
+        "공공재는 비배제성과 경합성을 가지며, 공유자원은 배제성과 비경합성을 가진다",
+        "공공재는 배제성과 비경합성을 가지며, 공유자원은 비배제성과 경합성을 가진다",
+        "공공재는 비배제성과 비경합성을 가지며, 공유자원은 비배제성과 경합성을 가진다",
+        "공공재는 배제성과 경합성을 가지며, 공유자원은 비배제성과 비경합성을 가진다",
+        "두 자원 모두 배제성과 경합성을 모두 가진다"
       ],
-      "answer": "1",
-      "explanation": "독점·과점 + 시장 실패: 독점 가격 ↑·산출 ↓·사중 손실 (Harberger 1964). Tirole (2014 노벨)·Stigler (1982 노벨)·Schumpeter 분석. 한국 공정위 (KFTC) 견제."
+      "answer": "3",
+      "explanation": "공공재는 대가를 지불하지 않은 사람의 소비를 막을 수 없고(비배제성), 한 사람의 소비가 다른 사람의 소비를 감소시키지 않습니다(비경합성). 반면 공유자원은 비배제성을 띠지만 한 사람의 소비(예: 어획)가 다른 사람의 소비량을 줄이므로 경합성을 가집니다. 정답은 ③입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-005",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "비대칭정보 + 시장 실패는?",
+      "question": "Greenwald-Stiglitz 정리(1986)가 경제학 정책 기조에 시사하는 바가 가장 큰 내용은?",
       "options": [
-        "역선택·도덕적 해이 → 시장 실패 — Akerlof·Spence·Stiglitz (2001 노벨)",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "정부는 시장 실패에 절대 개입해서는 안 되며 자유 방임이 항상 파레토 효율을 낳는다",
+        "시장에 정보가 불완전하거나 시장 체계가 불완전한 현실 경제에서는 경쟁 시장 균형이 거의 항상 파레토 비효율적이며, 정부가 적절한 규제로 후생을 증진할 수 있다",
+        "코즈 정리에 의해 소유권만 설정되면 시장 실패는 100% 자동 치유된다",
+        "모든 경제주체가 완전 정보에 도달하므로 비대칭 정보 이론은 무용하다",
+        "정부 실패 비용이 시장 실패 비용보다 항상 크므로 개입은 차선이다"
       ],
-      "answer": "1",
-      "explanation": "비대칭정보 + 시장 실패: ① Akerlof (2001 노벨) Lemons·역선택 ② Spence (2001 노벨) Signaling ③ Stiglitz (2001 노벨)·Rothschild 정부 개입. 한국 건강보험·국민연금·금융 규제."
+      "answer": "2",
+      "explanation": "조셉 스티글리츠 등이 정리한 Greenwald-Stiglitz 정리에 따르면, 정보가 불완전하고 시장이 완전히 구비되지 않은 현실 경제에서 시장 기구의 균형은 예외 없이 파레토 비효율(constrained Pareto inefficient)을 초래합니다. 이는 정교한 정부 개입과 규제의 당위성을 뒷받침하는 강력한 이론적 배경이 됩니다. 정답은 ②입니다."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-006",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Akerlof (1970) Lemons 모형의 함의는?",
       "options": [
         "중고차 시장 → 비대칭정보 → 역선택 → 시장 붕괴 — 보험·금융 일반화",
-        "관계 없음",
-        "Akerlof 부정",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "George Akerlof (1970·2001 노벨) The Market for Lemons: 중고차 (비대칭정보) → 역선택 (저품질만 시장) → 시장 붕괴. 보험·금융·노동 일반화. 정부 (의무 보험·규제·보증) 정당화."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-007",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Spence (1973) Signaling 모형은?",
       "options": [
         "교육 = 능력 신호 → 비대칭정보 해소 — 노동 시장 적용",
-        "관계 없음",
-        "Spence 부정",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "Michael Spence (1973·2001 노벨) Job Market Signaling: 교육 = 능력 신호 (cost differ). 비대칭정보 해소·균형. 한국 학력 사회·과잉 교육 우려. 정책 (대학 입시·역량 평가)."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-008",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "Stiglitz (2001 노벨) 비대칭정보 + 정부 개입은?",
       "options": [
         "비대칭정보 → 시장 실패 → 정부 (보험·복지·규제·정보 공개) 개입",
-        "관계 없음",
-        "Stiglitz 부정",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "Joseph Stiglitz (2001 노벨) Economics of the Public Sector: 비대칭정보 → 시장 실패 → 정부 개입. 한국 정책 (건강보험·국민연금·예금보험·금융 규제·표준)."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-009",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"건강보험\" 의 비대칭정보 분석은?",
       "options": [
         "의무 가입 → 역선택·도덕적 해이 ↓ → Pareto 향상 — Akerlof·Stiglitz 적용",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 건강보험 (1989 전국민): 의무 가입 → 역선택 (Akerlof lemons)·도덕적 해이 ↓ → Pareto 향상. Stiglitz 정부 개입 정당화. 미국 (사보험) 대비 효율."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-010",
-      "difficulty": 4,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한국 \"국민연금\" 의 비대칭정보·세대간 분석은?",
       "options": [
         "의무 가입 + 세대간 이전 → Diamond (2010 노벨) OLG·재분배",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 국민연금 (1988-): 의무 가입 (역선택 ↓) + 세대간 이전 (현 노년 ← 청년) + 재분배. Diamond (2010 노벨) OLG·Akerlof·Stiglitz 결합. 인구·고령화 부담 ↑·개혁 시급."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-011",
-      "difficulty": 5,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"금융 위기 + 시스템 위험\" 시장 실패는?",
       "options": [
         "Diamond-Dybvig (2022 노벨) 은행런 + 시스템 위험 → 정부 (예금보험·LLR) 개입",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 금융 시장 실패: Diamond-Dybvig (2022 노벨) 은행런 + 시스템 위험. 정부 (예금보험공사·한국은행 LLR·금감원 규제·Basel III) 개입. 1997·2008·2011·2020 적용."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-012",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"독점 + 공정위 견제\" 함의는?",
       "options": [
         "통신·전력·플랫폼 → 자연·관행 독점 → 공정위 (KFTC) 견제",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 독점 규제: 자연독점 (통신·전력·철도) + 플랫폼 (네이버·카카오·구글·페이스북·쿠팡). 공정위·KCC 견제. Tirole (2014 노벨) 산업조직 적용. EU·미국 추세."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-013",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"외부성 + 정책 도구\" 함의는?",
       "options": [
         "Pigou 세 + Coase 권리 + 직접 규제 + 정부 R&D → 외부성 보전",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 외부성 정책 도구: ① Pigou 세 (탄소세·담배세·주세) ② Coase 권리 (K-ETS) ③ 직접 규제 (배출·환경) ④ 정부 R&D·보조. 외부성 보전. 한국·OECD 정책 정교화."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-014",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"공공재 + 정부 직접 제공\" 함의는?",
       "options": [
         "국방·치안·R&D·교육·인프라 → 정부 직접 제공 (세금 재원)",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 공공재 정부 제공: ① 국방 (GDP 2.5%) ② 치안·소방 ③ R&D (1.5% GDP) ④ 교육 (의무 무료) ⑤ 인프라 (KTX·도로·공항). 세금 재원. Samuelson + Musgrave 결합."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-015",
-      "difficulty": 5,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한국 \"기후·녹색 시장 실패\" 종합은?",
       "options": [
         "외부성 + 공공재 (지구) + 미래 세대 + 정보 → 종합 정책 (탄소세·K-ETS·녹색뉴딜)",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 기후·녹색 시장 실패: ① 외부성 (Pigou) ② 공공재 (지구·Samuelson) ③ 미래 세대 (Rawls·OLG) ④ 정보 (불확실). 정책 (탄소세·K-ETS·녹색뉴딜·R&D). Nordhaus (2018 노벨)·Coase·Sen 결합."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-016",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"AI·디지털 새 시장 실패\" 분석은?",
       "options": [
         "데이터·플랫폼·노동 양극화 → 새 시장 실패 → 정부 새 정책 필요",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 AI·디지털 새 시장 실패: ① 데이터 (공공재·외부성·프라이버시) ② 플랫폼 독점 (Tirole 2014 노벨) ③ 노동 양극화 (Acemoglu 2024 노벨). 정부 (데이터법·AI법·반독점·재교육) 필요."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-017",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Ostrom (2009 노벨) 공유자원 + 시장 실패는?",
       "options": [
         "공유자원 = 외부성 + 공유지 비극 → 공동체 자치·정부·시장 셋 가능",
-        "관계 없음",
-        "Ostrom 부정",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "Ostrom (2009 노벨) Governing the Commons: 공유자원 (경합·비배제) → 공유지 비극 (Hardin). 공동체 자치 (규칙·모니터링·제재)·정부·시장 셋 다 가능. 한국 어촌계·산림조합 적용."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-018",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"행동 + 시장 실패\" 함의는?",
       "options": [
         "Thaler 현재편향·심리 → 노년 저축·금융 사기 → 정부 넛지·강제 정책",
-        "관계 없음",
-        "Thaler 부정",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 행동 시장 실패: Thaler (2017 노벨)·Kahneman (2002 노벨) 현재편향·심리 → 노년 저축 부족·금융 사기·과잉 부채. 정부 넛지 (자동가입·기본설정)·강제 정책. 행동 재정학."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-019",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"정부 실패 + 시장 실패 균형\" 함의는?",
       "options": [
         "시장 실패 → 정부 개입 + 정부 실패 (Buchanan) → 시민 견제·룰",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 시장 + 정부 실패 균형: ① 시장 실패 (Samuelson·Pigou·Stiglitz·Tirole) → 정부 개입 ② 정부 실패 (Buchanan 1986 노벨·Tullock·Hayek 1974 노벨) → 시민·룰·헌법 견제. 학파 균형."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-020",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"공정위·금감원·환경부\" 분담 함의는?",
       "options": [
         "공정위 (독점) + 금감원 (금융·정보) + 환경부 (외부성) → 시장 실패 분담",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 정부 분담: ① 공정위 (KFTC 독점·담합) ② 금감원 (금융·정보) ③ 환경부 (외부성·기후) ④ KCC (디지털·플랫폼). 시장 실패 분담. Buchanan·Tirole·Stiglitz·Pigou 결합."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-021",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Greenwald-Stiglitz (1986) 정리 함의는?",
       "options": [
         "비대칭정보 + 불완전 시장 → 일반적 Pareto 비효율 → 정부 개입 정당화",
-        "관계 없음",
-        "Stiglitz 부정",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "Greenwald-Stiglitz (1986) QJE Externalities in Economies with Imperfect Information: 비대칭정보 + 불완전 시장 → 일반적 Pareto 비효율 → 정부 개입 정당화. 후생경제 제1정리 위반 광범위. 한국 정책 적용."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-022",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"코로나 시장 실패\" 분석은?",
       "options": [
         "외부성 (감염) + 공공재 (집단 면역) + 정보 (불확실) → 정부 종합 정책",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 코로나 2020-22 시장 실패: 외부성 (전염) + 공공재 (백신·집단 면역) + 정보 (불확실·역선택) → 정부 종합 정책 (방역·재난지원금·백신·격리). Pigou + Samuelson + Akerlof 결합."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한국 \"가계부채 + 정보 시장 실패\" 함의는?",
       "options": [
         "비대칭정보 + 거시건전성 → 정부 (DSR·LTV) 견제",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 가계부채 + 정보 시장 실패: 비대칭정보 (대출자·은행) + 행동 (Thaler 현재편향) + 시스템 위험 (Diamond-Dybvig). 정부 정책 (DSR 40%·LTV·Basel III). 거시건전성. KFTC·금감원."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-024",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "한국 \"국제 + 시장 실패\" 함의는?",
       "options": [
         "기후·금융·전염병 = 국제 시장 실패 → 국제 협력 (UN·WHO·G20)",
-        "관계 없음",
-        "단순",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "한국 국제 시장 실패: ① 기후 (Pigou·Nordhaus) ② 금융 (Diamond-Dybvig)·전염병 (WHO) ③ 사이버. 국제 협력 (UN·WHO·G20·OECD·BIS). 한국 분담·정책. 글로벌 공공재."
     },
     {
       "id": "practice-econ-micro-ch08-sec01-item01-025",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "시장 실패 원인·정부 개입의 종합 평가는?",
       "options": [
         "Samuelson·Pigou·Coase·Akerlof·Spence·Stiglitz·Tirole·Ostrom·Diamond-Dybvig·Nordhaus·Acemoglu 통합 → 한국 정책의 토대",
-        "단순",
-        "관계 없음",
-        "정부 결정",
-        "Pareto"
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 1)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 2)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 3)",
+        "해당 이론에 부합하지 않는 잘못된 전제 조건 또는 비관계적 설명 (오답 방지 선지 4)"
       ],
       "answer": "1",
       "explanation": "시장 실패 종합: ① Samuelson (1970 노벨) 공공재 ② Pigou·Coase (1991 노벨) 외부성 ③ Akerlof·Spence·Stiglitz (2001 노벨) 정보 ④ Tirole (2014 노벨) 독점 ⑤ Ostrom (2009 노벨) 공유자원 ⑥ Diamond-Dybvig (2022 노벨) 시스템 ⑦ Nordhaus (2018 노벨) 기후 ⑧ Acemoglu (2024 노벨) AI. 한국 정책 (정부 개입·공공재·환경·금융·복지·디지털) 토대. 정교화."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-026",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-027",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-028",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-029",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-030",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-034",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-035",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-036",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-037",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-038",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-039",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-040",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-041",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-042",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-043",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-044",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-045",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-046",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-047",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-048",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-049",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "완전경쟁 조건 하에서 파레토 효율을 실현하는 후생경제학 제1정리를 붕괴시키며 '정부 개입의 필요조건'을 제공하는 시장 실패의 기하학적 자원 왜곡 속성으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <!-- Demand & Supply with Deadweight Loss -->\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">S = MC</text>\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"285\" y=\"60\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">D = MB</text>\n  <!-- DWL area for monopoly/non-optimum -->\n  <polygon points=\"165,123 210,95 210,147\" fill=\"#a855f7\" fill-opacity=\"0.35\" />\n  <text x=\"220\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\">자중손실 (DWL)</text>\n  <!-- Price and Q lines -->\n  <line x1=\"165\" y1=\"210\" x2=\"165\" y2=\"123\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"135\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q_monopoly</text>\n  <line x1=\"210\" y1=\"210\" x2=\"210\" y2=\"95\" stroke=\"#64748b\" stroke-width=\"1.2\" stroke-dasharray=\"3\" />\n  <text x=\"208\" y=\"222\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Q*</text>\n  <text x=\"290\" y=\"218\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Quantity</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Price</text>\n</svg>\n```",
+      "options": [
+        "시장 상대가격이 소비자와 생산자의 한계 조건을 일치시켜 자중손실이 0이 된다",
+        "독점 가격이 한계비용보다 높은 수준에서 설정되어 소비자 잉여와 생산자 잉여의 합인 사회적 총잉여의 낭비(자중손실)를 유발한다",
+        "공유지의 비극이 발생하더라도 총 잉여는 변화하지 않는다",
+        "공공재가 언제나 최적 수준만큼 초과 과다 생산된다",
+        "정보 비대칭이 모든 시장 참여자의 한계 편익을 0으로 만든다"
+      ],
+      "answer": "2",
+      "explanation": "독점이나 불완전 경쟁에서는 가격이 한계비용보다 높게 책정되어 사회적으로 가치가 큰 재화가 충분히 공급되지 않고 시장 산출량이 차단되므로 보라색으로 표현된 자중손실(DWL)이 발생하여 시장 실패가 생깁니다. 정답은 ②입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch08-sec01-item01-050",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "어느 산업의 기하학적 형태가 규모의 경제로 인해 평균비용이 계속 하락하는 자연독점(Natural Monopoly)의 상태이다. 정부가 효율적인 자원 배분을 위해 한계비용 가격설정($P = MC$)을 가격 규제로 도입할 때 발생하는 대수적 문제점과 해법으로 가장 옳은 것은?",
+      "options": [
+        "기업이 과잉 이윤을 누리므로 추가 세금을 징수해야 한다",
+        "평균비용(AC)이 한계비용(MC)보다 높은 영역이어서 기업의 경제적 손실이 생기므로 정부의 재정 지원(보조금)이나 이부요금제(Two-part Tariff) 등의 보안책이 필요하다",
+        "소비자의 한계 만족 비율이 0에 접근하므로 가격을 올려야 한다",
+        "자연독점의 비용 왜곡을 완전 경쟁의 분할 생산으로 100% 해소할 수 있다",
+        "경쟁이 증대되어 지니계수가 하락한다"
+      ],
+      "answer": "2",
+      "explanation": "자연독점은 지속적인 규모의 경제로 인해 평균비용(AC)이 한계비용(MC)보다 높으므로, $P = MC$ 규제를 적용하면 항상 단위당 손실($AC - P > 0$)이 발생합니다. 따라서 정부의 보조금이나 이부요금제(기본료 + 사용료)로 기업 손실을 보전해야 합니다. 정답은 ②입니다."
     }
   ]
 }

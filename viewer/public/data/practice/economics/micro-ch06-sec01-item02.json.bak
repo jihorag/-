@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제6장 생산요소시장과 소득분배",
+    "section": "제18절 완전경쟁 요소시장",
+    "item": "제2관 요소공급",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-03",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "개별 노동자의 노동공급은 무엇의 선택 결과로 설명되는가?",
+      "options": [
+        "여가와 소득의 효용극대화 선택",
+        "고용주와의 단체교섭",
+        "정부의 최저임금 결정",
+        "한계생산물가치",
+        "총수입 극대화"
+      ],
+      "answer": "1",
+      "explanation": "개별 노동공급 = 여가(L)와 소득(Y)에 대한 효용극대화 문제. 시간 제약 24시간 = 여가 + 노동, 임금 w 가 여가의 기회비용."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "여가가 정상재일 때 임금 상승이 노동공급에 미치는 효과는?",
+      "options": [
+        "대체효과는 노동 증가, 소득효과는 노동 감소",
+        "대체효과·소득효과 모두 노동 증가",
+        "대체효과·소득효과 모두 노동 감소",
+        "대체효과는 노동 감소, 소득효과는 노동 증가",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "임금 ↑ → 여가의 기회비용 ↑ → 여가 ↓ 노동 ↑ (대체효과). 임금 ↑ → 실질소득 ↑ → 정상재 여가 ↑ 노동 ↓ (소득효과). 두 효과 반대 방향."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-003",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 그래프는 후방굴절 노동공급곡선이다. 이 형태가 나타나는 조건은?\n\n[IMAGE: data/practice/economics/graphs/labor-backward-bending.svg]",
+      "options": [
+        "고임금 구간에서 소득효과 > 대체효과",
+        "저임금 구간에서 소득효과 > 대체효과",
+        "전 구간에서 대체효과만 작용",
+        "여가가 열등재일 때",
+        "기펜재일 때"
+      ],
+      "answer": "1",
+      "explanation": "후방굴절: 일정 임금까지는 대체효과 우세 → 노동 ↑. 충분히 높은 임금에서는 소득효과 우세 → 노동 ↓. 곡선이 우상향했다가 좌측으로 굴절."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-004",
+      "difficulty": 2,
+      "question_type": "계산형",
+      "question": "효용함수 $U(L, Y) = L \\cdot Y$, 가용시간 24시간, 임금률 $w = 10$, 비근로소득 0. 효용극대화 노동공급 시간은?",
+      "options": [
+        "12시간",
+        "8시간",
+        "16시간",
+        "10시간",
+        "14시간"
+      ],
+      "answer": "1",
+      "explanation": "예산 $Y = w(24-L)$. $U = L \\cdot w(24-L) = 10L(24-L)$. $dU/dL = 10(24-2L) = 0$ → $L^* = 12$. 노동 = $24 - 12 = 12$시간."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-005",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "비근로소득 $M = 40$, 임금률 $w = 5$, 효용 $U = L \\cdot Y$, 가용시간 24시간일 때 최적 여가시간은?",
+      "options": [
+        "16시간",
+        "12시간",
+        "20시간",
+        "8시간",
+        "10시간"
+      ],
+      "answer": "1",
+      "explanation": "예산: $Y = 40 + 5(24-L) = 160 - 5L$. $U = L(160-5L)$, $dU/dL = 160 - 10L = 0$ → $L^* = 16$. 노동 = 8시간."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-006",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "최저임금 인상이 시장 노동공급량을 단기적으로 증가시키는 조건은?",
+      "options": [
+        "대체효과가 소득효과보다 우세하며 비근로 인구의 신규 진입",
+        "수요독점 시장이며 가격이 임금 상한선",
+        "소득효과가 대체효과보다 항상 우세",
+        "여가가 열등재일 때만",
+        "노동수요 완전탄력적일 때"
+      ],
+      "answer": "1",
+      "explanation": "최저임금 ↑ → 시간당 임금 매력도 ↑ → 비근로 인구가 노동참여 시작 + 기존 노동자 시간 ↑ (대체효과 우세). 단 수요량은 감소 가능 (실업 위험)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-007",
+      "difficulty": 2,
+      "question_type": "계산형",
+      "question": "노동공급함수 $L_s = 100 + 20w$ ($w$ 시급, 만 원/시간). 임금 $w = 1$ 에서 $w = 1.5$ 로 인상 시 공급량 변화는?",
+      "options": [
+        "10명 증가",
+        "20명 증가",
+        "5명 증가",
+        "15명 증가",
+        "변화 없음"
+      ],
+      "answer": "1",
+      "explanation": "$L_s(1) = 120$, $L_s(1.5) = 130$. 증가 = 10명."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-008",
+      "difficulty": 2,
+      "question_type": "계산형",
+      "question": "노동공급의 임금탄력성을 계산하라. $L_s = 100 + 20w$, $w = 1$ 시점에서.",
+      "options": [
+        "$\\varepsilon_s = \\dfrac{1}{6}$",
+        "$\\varepsilon_s = 1$",
+        "$\\varepsilon_s = 2$",
+        "$\\varepsilon_s = \\dfrac{1}{2}$",
+        "$\\varepsilon_s = 6$"
+      ],
+      "answer": "1",
+      "explanation": "$\\varepsilon_s = \\dfrac{dL}{dw} \\cdot \\dfrac{w}{L} = 20 \\cdot \\dfrac{1}{120} \\approx 0.167$. 비탄력적."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-009",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "여가가 열등재일 때 임금 상승의 노동공급 효과는?",
+      "options": [
+        "대체·소득효과 모두 노동 증가 → 항상 증가",
+        "대체효과는 증가, 소득효과는 감소",
+        "효과 상쇄",
+        "노동 감소",
+        "정해지지 않음"
+      ],
+      "answer": "1",
+      "explanation": "여가 열등재 + 실질소득 ↑ → 여가 ↓ (소득효과도 노동 증가 방향). 대체효과도 노동 증가. 노동공급 항상 증가, 후방굴절 X."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-010",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "효용 $U = Y^{0.5} \\cdot L^{0.5}$, 가용시간 16시간, 임금률 $w = 8$, 비근로소득 0. 최적 노동시간은?",
+      "options": [
+        "8시간",
+        "12시간",
+        "4시간",
+        "10시간",
+        "6시간"
+      ],
+      "answer": "1",
+      "explanation": "콥-더글러스 동일 지수 → 예산을 절반씩 배분. 최대 소득 $= 8 \\cdot 16 = 128$. 여가 가치 $wL = 64$ → $L = 8$. 노동 = 8시간."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-011",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "이중노동시장(dual labor market) 가설에 따르면 1차 시장과 2차 시장의 노동공급 차이는?",
+      "options": [
+        "1차 시장은 안정·고임금이라 진입제한이 공급을 제약",
+        "2차 시장 임금이 더 높음",
+        "양 시장 공급은 동일",
+        "1차 시장이 자유경쟁이라 공급탄력적",
+        "2차 시장 진입에 자격 요구"
+      ],
+      "answer": "1",
+      "explanation": "Doeringer-Piore 이중노동시장: 1차 시장(대기업·정규직·승진사다리)은 진입장벽으로 공급 제약·고임금. 2차 시장(영세·임시직)은 자유 진입·저임금. 두 시장 간 이동 어려움."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-012",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "효용 $U = L + Y$ (완전대체, 여가 한계효용 = 1), 가용시간 24시간, 임금 $w = 1.5$, 비근로소득 0. 최적 노동시간은?",
+      "options": [
+        "24시간 (모서리해)",
+        "12시간",
+        "0시간",
+        "8시간",
+        "16시간"
+      ],
+      "answer": "1",
+      "explanation": "완전대체 효용 + $w = 1.5 > 1$ (여가 한계효용) → 노동에 전부 배분. $L = 0$, 노동 = 24시간 (코너해)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-013",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 노동시장 그래프에서 노동공급곡선이 우상향하는 이유로 가장 적절한 것은?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
+      "options": [
+        "임금 상승의 대체효과가 소득효과보다 우세",
+        "한계생산물가치가 일정하기 때문",
+        "여가가 열등재이기 때문",
+        "노동수요 우하향이라 균형이 형성되어서",
+        "고용주의 수요탄력성이 크기 때문"
+      ],
+      "answer": "1",
+      "explanation": "노동공급 우상향: 임금 ↑ → 여가 기회비용 ↑ → 노동 ↑ (대체효과 우세). 시장 전체로는 신규 진입자 효과 합쳐져 거의 우상향. 후방굴절은 개별·고임금 구간에서만."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-014",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "비근로소득(예: 자산소득) 증가가 여가-노동 선택에 미치는 영향은? (여가 정상재 가정)",
+      "options": [
+        "소득효과만 발생 → 여가 증가, 노동 감소",
+        "대체효과 + 소득효과 → 노동 증가",
+        "노동 증가",
+        "변화 없음",
+        "임금에 따라 다름"
+      ],
+      "answer": "1",
+      "explanation": "비근로소득 ↑ → 임금률(여가 기회비용) 불변 → 대체효과 없음. 실질소득 ↑ → 정상재 여가 ↑, 노동 ↓ (순수 소득효과)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-015",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "기본소득(UBI) 도입이 노동공급에 미치는 효과의 이론적 예측은?",
+      "options": [
+        "여가가 정상재면 노동공급 감소 (순수 소득효과)",
+        "노동공급 항상 증가",
+        "고소득층만 줄어듦",
+        "효과 없음",
+        "임금이 함께 오르면 증가"
+      ],
+      "answer": "1",
+      "explanation": "UBI = 비근로소득 ↑. 임금률 불변, 순수 소득효과만 작용 → 정상재 여가 ↑ → 노동 ↓. 실증에선 효과 크기 작거나 분배·인구별 차이 큼."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-016",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "효용 $U = \\ln L + 2 \\ln Y$, 가용시간 12시간, 임금 $w = 10$, 비근로소득 0. 최적 노동시간은?",
+      "options": [
+        "8시간",
+        "4시간",
+        "6시간",
+        "9시간",
+        "10시간"
+      ],
+      "answer": "1",
+      "explanation": "콥-더글러스 비중 1:2 → 여가 비중 $\\dfrac{1}{3}$. 최대 소득 $= 120$. 여가 화폐 가치 $= \\dfrac{1}{3} \\cdot 120 = 40 = wL$ → $L = 4$. 노동 = $12 - 4 = 8$시간."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-017",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "여성의 경제활동참가율이 임금 상승에 양(+)으로 반응하는 주된 이유는?",
+      "options": [
+        "임금 ↑ → 노동시장 진입 매력도 ↑ → 신규 참가 증가 (외연 마진)",
+        "여가가 열등재이기 때문",
+        "정부 정책",
+        "출산 회피",
+        "단체교섭 결과"
+      ],
+      "answer": "1",
+      "explanation": "참가율은 외연(extensive) 마진 — 0시간 vs 양의 노동. 임금 ↑ → 진입 수익률 ↑ → 비근로 인구가 노동시장 진입. 시간 절약(가사 외주) 채널도 부수적."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-018",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "효용 $U = L^{0.4} Y^{0.6}$, 가용시간 24시간, 임금 $w = 5$, 비근로소득 $M = 20$. 최적 노동시간은?",
+      "options": [
+        "12.8시간",
+        "7.2시간",
+        "16시간",
+        "10시간",
+        "20시간"
+      ],
+      "answer": "1",
+      "explanation": "최대 소득 $= 20 + 24 \\cdot 5 = 140$. 콥-더글러스 비중 0.4:0.6 → 여가 화폐 $= 0.4 \\cdot 140 = 56 = wL = 5L$ → $L = 11.2$. 노동 = $24 - 11.2 = 12.8$시간."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-019",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "노동공급의 임금탄력성이 0이면 공급곡선은?",
+      "options": [
+        "수직선 (완전비탄력)",
+        "수평선",
+        "우상향 직선",
+        "후방굴절",
+        "원점통과 직선"
+      ],
+      "answer": "1",
+      "explanation": "$\\varepsilon_s = 0$ → 임금 변화에 양 변화 없음 → 수직 공급곡선. 단기 의사·전문직 등 극단 비탄력 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "노동공급의 가족 결정 모형(unitary family model)에서 가구 효용 극대화 결과로 옳은 것은?",
+      "options": [
+        "부부 각자의 비교우위에 따라 시장노동·가사노동 분담",
+        "양쪽 모두 동일 시간 시장노동",
+        "임금이 높은 사람만 시장노동",
+        "정부가 결정",
+        "공급탄력성이 0"
+      ],
+      "answer": "1",
+      "explanation": "Becker 가족경제학: 가구 단일 효용함수 극대화 → 비교우위(시장임금/가사생산성) 우세인 사람이 시장노동 더 담당. 임금 차이·가사생산성 차이가 시간 배분 결정."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-021",
+      "difficulty": 2,
+      "question_type": "계산형",
+      "question": "현재 노동공급 1,000명. 임금 25% 인상, 노동공급 임금탄력성 0.2. 새 공급량은?",
+      "options": [
+        "1,050명",
+        "1,200명",
+        "1,250명",
+        "1,025명",
+        "1,500명"
+      ],
+      "answer": "1",
+      "explanation": "$\\dfrac{\\Delta L}{L} = \\varepsilon_s \\cdot \\dfrac{\\Delta w}{w} = 0.2 \\cdot 0.25 = 0.05$. $1{,}000 \\times 1.05 = 1{,}050$명."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-022",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 통계청에 따르면 한국 경제활동참가율이 OECD 평균보다 낮은 주요 원인은?",
+      "options": [
+        "여성·고령층 비경제활동 인구 비중이 큼",
+        "임금이 너무 높음",
+        "기본소득 도입",
+        "출산율 회복",
+        "이민자 유입"
+      ],
+      "answer": "1",
+      "explanation": "한국 참가율 약 63~64% (OECD 평균 약 70%). 핵심: 여성 출산·육아 단절 + 고령층 조기퇴직. 유연근무·돌봄지원·노인 일자리로 정책 대응."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-023",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "다음 그래프에서 A 구간(저임금)과 B 구간(고임금)의 노동공급 변화 방향이 다른 이유는?\n\n[IMAGE: data/practice/economics/graphs/labor-backward-bending.svg]",
+      "options": [
+        "A: 대체효과 > 소득효과 / B: 소득효과 > 대체효과",
+        "A: 소득효과 > 대체효과 / B: 대체효과 > 소득효과",
+        "A: 양 효과 동일 / B: 대체효과만",
+        "A·B 동일",
+        "정부 정책 차이"
+      ],
+      "answer": "1",
+      "explanation": "저임금(A) → 대체효과 우세 → 임금 ↑ 노동 ↑. 고임금(B) → 소득효과 우세 → 임금 ↑ 노동 ↓. 임계점에서 후방굴절. 개별 노동공급에서 관찰."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-024",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "효용 $U(L, Y) = L^{1/3} Y^{2/3}$, 가용시간 30시간, 임금 $w = 2$, 비근로소득 $M = 30$. 최적 노동시간은?",
+      "options": [
+        "15시간",
+        "10시간",
+        "20시간",
+        "25시간",
+        "5시간"
+      ],
+      "answer": "1",
+      "explanation": "최대 소득 $= 30 + 2 \\cdot 30 = 90$. 콥-더글러스 비중 1:2 → 여가 화폐 가치 $= \\dfrac{1}{3} \\cdot 90 = 30 = wL = 2L$ → $L = 15$. 노동 = $30 - 15 = 15$시간."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item02-025",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "비근로소득(자산·연금) 증가가 노동공급에 미치는 영향에 대한 실증 연구 결과는?",
+      "options": [
+        "감소 효과 존재하나 크기는 작고 인구·소득 분위에 따라 다름",
+        "모든 인구에서 큰 감소",
+        "감소 효과 없음",
+        "오히려 증가",
+        "결과 일치하지 않아 해석 불가"
+      ],
+      "answer": "1",
+      "explanation": "음의 소득세(Mincome) 실험·UBI 파일럿 등: 비근로소득 ↑ → 노동공급 소폭 ↓ (작은 음의 효과). 직종·연령·성별·자녀 유무 차이 큼. Hum & Simpson, Hoynes & Rothstein 리뷰 참조."
+    }
+  ]
+}

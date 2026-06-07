@@ -8,102 +8,102 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-01",
-    "count": 30
+    "count": 50
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch03-sec01-item02-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "한계효용 균등의 법칙(law of equimarginal utility)의 내용으로 옳은 것은?",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 효용극대화 라그랑지안 문제에서 1계 조건을 통해 도출되는 한계효용 균등의 법칙 $\\dfrac{MU_x}{P_x} = \\dfrac{MU_y}{P_y} = \\lambda$ 에 대한 수학적 및 경제학적 해석으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y</text>\n  \n  <!-- 우하향 예산선 -->\n  <line x1=\"50\" y1=\"70\" x2=\"310\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"280\" y=\"190\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">예산선 (I)</text>\n  \n  <!-- 볼록 무차별곡선 접점 -->\n  <path d=\"M 90 90 Q 180 135 280 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  <circle cx=\"180\" cy=\"135\" r=\"4\" fill=\"#b91c1c\" />\n  <text x=\"190\" y=\"130\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">E (MRS = Px/Py)</text>\n</svg>\n```\n",
       "options": [
-        "각 재화의 가격이 같아야 한다.",
-        "각 재화의 한계효용이 같아야 한다.",
-        "예산 제약 하에서 각 재화의 1원당 한계효용이 모두 같아져야 효용 극대화 (MUx/Px = MUy/Py = ... = λ)",
-        "한계효용이 모두 0이어야 한다.",
-        "각 재화의 가격이 다르면 효용 극대화 불가"
+        "라그랑지안 극대화 조건은 화폐 $1$원당 한계효용이 모든 소비 재화에 걸쳐 서로 동일해야만 총만족이 극대화됨을 뜻한다.",
+        "라그랑지 승수 $\\lambda$는 무차별곡선과 예산선 접점의 기울기인 한계대체율($MRS$)과 완전히 독립적이며 아무런 대수적 관련이 없다.",
+        "두 재화의 절대적인 한계효용($MU_x = MU_y$)이 가격과 상관없이 항상 일치해야 한계효용이 극대화된다는 조건이다.",
+        "소비자의 명목 소득 $I$가 증가하면 소득의 한계가치를 뜻하는 라그랑지 승수 $\\lambda$도 무조건 비례하여 함께 증가하여야 한다.",
+        "완전대체재 관계와 같이 최적 소비가 축(corner)에서 발생하는 모퉁이해 상황에서도 이 등식 조건은 반드시 만족되어야 한다."
       ],
-      "answer": "3",
-      "explanation": "한계효용 균등의 법칙(고센의 제2법칙): 효용극대화 조건으로 각 재화의 1원당 한계효용이 모두 같아져야 한다. MUx/Px = MUy/Py = ... = λ. λ는 라그랑지 승수, 즉 예산 1원 추가의 한계효용을 의미한다."
+      "answer": "1",
+      "explanation": "라그랑지 승수법을 활용한 효용극대화 1계 조건:\\n라그랑지 함수 $L = U(X, Y) - \\lambda(P_x X + P_y Y - I)$ 에서 각 소비재에 대해 편미분하여 $0$으로 두면,\\n$\\dfrac{\\partial L}{\\partial X} = MU_x - \\lambda P_x = 0 \\implies \\dfrac{MU_x}{P_x} = \\lambda$\\n$\\dfrac{\\partial L}{\\partial Y} = MU_y - \\lambda P_y = 0 \\implies \\dfrac{MU_y}{P_y} = \\lambda$\\n결합하면 $\\dfrac{MU_x}{P_x} = \\dfrac{MU_y}{P_y} = \\lambda$ 가 유도됩니다. 이는 소비자가 마지막 $1$원을 어떤 재화에 지출하든 그에 따르는 한계만족도 상승분(1원당 한계효용)이 $\\lambda$(소득의 한계효용)로 모두 같아야 효용이 극대화됨을 정합적으로 증명합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "효용극대화의 1계 조건의 직관적 의미로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자가 주어진 예산 제약 하에서 두 재화 $X$, $Y$를 소비할 때 가격 대비 한계효용 관계가 $\\dfrac{MU_x}{P_x} < \\dfrac{MU_y}{P_y}$ 의 불균형 상황에 처해 있다. 이 소비자가 총효용을 증가시키기 위해 조정해야 하는 합리적 소비 행동과 그에 따른 한계효용의 동태적 조절 경로로 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <line x1=\"50\" y1=\"60\" x2=\"330\" y2=\"200\" stroke=\"#475569\" stroke-dasharray=\"2\" />\n  <path d=\"M 80 80 Q 140 140 300 170\" fill=\"none\" stroke=\"#94a3b8\" stroke-width=\"2.5\" />\n  <path d=\"M 120 70 Q 190 125 310 150\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <!-- 현재 비최적점 및 이동 화살표 -->\n  <circle cx=\"120\" cy=\"95\" r=\"3.5\" fill=\"#ef4444\" />\n  <text x=\"125\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">A (MUx/Px &lt; MUy/Py)</text>\n  <circle cx=\"190\" cy=\"125\" r=\"3.5\" fill=\"#10b981\" />\n  <text x=\"195\" y=\"120\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">E* (최적)</text>\n  \n  <!-- 조정 경로 화살표 -->\n  <path d=\"M 130 100 Q 155 115 178 122\" fill=\"none\" stroke=\"#b91c1c\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n</svg>\n```\n",
       "options": [
-        "모든 재화를 같은 양으로 소비",
-        "한 재화의 1원당 한계효용이 다른 재화보다 높으면 그 재화로 지출을 이전 → 한계효용 균등 시 더 이상 효용 증가 불가능 → 최적",
-        "모든 재화를 가격대로 소비",
-        "예산을 절반씩 분배",
-        "정부 결정에 따라 소비"
+        "$X$재의 소비를 감소시키고 $Y$재의 소비를 증가시킴에 따라, $MU_x$는 한계효용 체감 법칙의 역방향으로 상승하고 $MU_y$는 하락하여 다시 균등 상태로 수렴한다.",
+        "$X$재의 소비를 증가시키고 $Y$재의 소비를 감소시킴에 따라, $MU_x$는 하락하고 $MU_y$는 상승하여 두 1원당 한계효용이 같아지게 된다.",
+        "두 재화의 상대가격을 강제로 연동시켜 예산선의 기울기를 완만하게 조정함으로써 대수적 균형을 찾는다.",
+        "소득 $I$를 인상시켜 예산선을 평행이동시킬 때까지 소비의 수량을 조정하지 않고 현상유지하는 것이 합리적이다.",
+        "두 재화 소비량을 모두 줄임으로써 화폐의 한계효용인 라그랑지 승수 $\\lambda$의 수치를 음수(-)로 떨어뜨린다."
       ],
-      "answer": "2",
-      "explanation": "직관적 설명: MUx/Px > MUy/Py이면 X에 지출을 더 늘리고 Y를 줄여 효용 증가 가능 → 한계효용 체감으로 점차 MUx/Px↓, MUy/Py↑ → 결국 두 비율이 같아짐. 이때 어떤 변화도 효용을 증가시키지 못함 → 최적 균형."
+      "answer": "1",
+      "explanation": "현재 $\\dfrac{MU_x}{P_x} < \\dfrac{MU_y}{P_y}$ 이므로 $Y$재에 1원을 더 지출할 때 얻는 한계효용이 $X$재보다 큽니다. 따라서 합리적 소비자는 $X$재의 소비를 줄이고 $Y$재의 소비를 늘려야 합니다. 한계효용 체감의 법칙에 의해, 소비량이 감소한 $X$재의 한계효용 $MU_x$는 상승하게 되고 소비량이 증가한 $Y$재의 한계효용 $MU_y$는 하락하게 되므로, 결국 이 비율은 다시 균등 상태인 $\\dfrac{MU_x}{P_x} = \\dfrac{MU_y}{P_y}$ 로 수렴하게 됩니다. 따라서 1번이 정확합니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-003",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "한계효용 균등의 법칙 응용: MUx/Px = 5, MUy/Py = 8이면 합리적 소비자는?",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 한계효용함수가 $MU_x = 50 - X$, $MU_y = 80 - 2Y$ 이다. 두 재화의 시장 가격이 각각 $P_x = 2$, $P_y = 4$ 이며, 소비자의 가용 소득이 $I = 80$ 일 때, 예산 제약 하에서 한계효용 균등 법칙을 충족하여 효용을 극대화하는 소비량 조합 $(X^*, Y^*)$ 은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <line x1=\"50\" y1=\"80\" x2=\"290\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <path d=\"M 90 95 Q 170 140 270 160\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <circle cx=\"170\" cy=\"140\" r=\"4\" fill=\"#b91c1c\" />\n  \n  <!-- 최적점 좌표선 -->\n  <line x1=\"170\" y1=\"140\" x2=\"170\" y2=\"200\" stroke=\"#475569\" stroke-dasharray=\"3\" />\n  <line x1=\"50\" y1=\"140\" x2=\"170\" y2=\"140\" stroke=\"#475569\" stroke-dasharray=\"3\" />\n  \n  <text x=\"165\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X* = 20</text>\n  <text x=\"15\" y=\"145\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y* = 10</text>\n</svg>\n```\n",
       "options": [
-        "X 소비를 늘리고 Y를 줄임",
-        "Y 소비를 늘리고 X를 줄임 (Y의 1원당 한계효용이 더 큼)",
-        "X와 Y를 같은 양 소비",
-        "X와 Y 모두 늘림",
-        "둘 다 줄임"
+        "$(X^*, Y^*) = (20, 10)$",
+        "$(X^*, Y^*) = (15, 10)$",
+        "$(X^*, Y^*) = (25, 7.5)$",
+        "$(X^*, Y^*) = (10, 15)$",
+        "$(X^*, Y^*) = (30, 5)$"
       ],
-      "answer": "2",
-      "explanation": "MUy/Py(=8) > MUx/Px(=5) → Y에 1원을 더 쓰면 8의 효용 증가 vs X에 1원 쓰면 5의 효용 증가 → Y를 늘리고 X를 줄여야 효용 증가\n계속하면 MUy 체감(Y↑로), MUx 체증(X↓로) → 결국 두 비율이 같아짐(균형)\n이는 한계효용 균등의 법칙의 직관적 응용."
+      "answer": "1",
+      "explanation": "1) 한계효용 균등의 법칙 적용:\\n   $$\\dfrac{MU_x}{P_x} = \\dfrac{MU_y}{P_y} \\implies \\dfrac{50 - X}{2} = \\dfrac{80 - 2Y}{4}$$\\n   양변에 $4$를 곱하여 정리합니다:\\n   $$2(50 - X) = 80 - 2Y \\implies 100 - 2X = 80 - 2Y \\implies 2X - 2Y = 20 \\implies X - Y = 10 \\implies X = Y + 10$$\\n2) 예산 제약식에 대입:\\n   $$P_x X + P_y Y = I \\implies 2X + 4Y = 80 \\implies X + 2Y = 40$$\\n3) $X = Y + 10$ 을 예산 제약식에 대입:\\n   $$(Y + 10) + 2Y = 40 \\implies 3Y = 30 \\implies Y^* = 10$$\\n   $$X^* = Y^* + 10 = 20$$\\n따라서 최적 소비 수량 조합은 $(20, 10)$이 도출됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-004",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "고센(H. Gossen)의 두 법칙으로 옳은 것은?",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 효용함수가 완전대체재 형태인 $U(X, Y) = 3X + 2Y$ 이다. $X$재의 가격이 $P_x = 4$, $Y$재의 가격이 $P_y = 2$ 이고 소비자의 예산 소득이 $I = 40$ 일 때, 이 소비자의 효용을 극대화하는 최적 소비량 조합 $(X^*, Y^*)$ 과 한계효용 균등 법칙의 성립 여부에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 예산선: Y절편 20, X절편 10 (기울기 -2) -->\n  <line x1=\"50\" y1=\"80\" x2=\"210\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <!-- 무차별곡선: 완전대체재 (기울기 -1.5) -->\n  <line x1=\"50\" y1=\"110\" x2=\"250\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <circle cx=\"50\" cy=\"80\" r=\"4\" fill=\"#b91c1c\" />\n  \n  <text x=\"58\" y=\"76\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">코너해 (Y* = 20, X* = 0)</text>\n  <text x=\"215\" y=\"205\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">10</text>\n  <text x=\"35\" y=\"85\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">20</text>\n</svg>\n```\n",
       "options": [
-        "제1법칙: 한계효용 체감 / 제2법칙: 한계효용 균등",
-        "제1법칙: 가격 결정 / 제2법칙: 공급 결정",
-        "제1법칙: 수요 결정 / 제2법칙: 가격 결정",
-        "제1법칙: 효용 측정 / 제2법칙: 가격 측정",
-        "고센은 한 법칙만 제시"
+        "$(X^*, Y^*) = (0, 20)$ 이며, 선형 효용함수의 특성상 두 재화의 1원당 한계효용 비율이 일치하지 않아 한계효용 균등의 법칙이 만족되지 않고 코너해(구석해)가 발생한다.",
+        "$(X^*, Y^*) = (10, 0)$ 이며, 한계효용 균등의 법칙이 만족되는 내부해를 갖는다.",
+        "$(X^*, Y^*) = (5, 10)$ 이며, 예산선과 무차별곡선이 접하는 지점에서 효용이 극대화된다.",
+        "$(X^*, Y^*) = (0, 0)$ 이며, 두 재화의 지출 기회비용이 한계 가치보다 크므로 아예 소비하지 않는다.",
+        "이 소비자는 예산 제약선 상의 어떤 소비 조합을 선택하든 동일한 총효용을 얻으므로 모든 점이 최적 선택이다."
       ],
       "answer": "1",
-      "explanation": "헤르만 고센(H.H. Gossen, 1854 「Entwickelung der Gesetze des menschlichen Verkehrs」):\n고센의 제1법칙: 한계효용 체감의 법칙\n고센의 제2법칙: 한계효용 균등의 법칙 (효용극대화 조건)\n한계혁명(1870년대) 이전에 한계효용 이론의 핵심을 제시하였으나 당시 무시되었고, 제본스·왈라스에 의해 재발견되었다."
+      "explanation": "1) 한계효용 도출:\\n   $MU_x = \\dfrac{\\partial U}{\\partial X} = 3$, $MU_y = \\dfrac{\\partial U}{\\partial Y} = 2$\\n2) 1원당 한계효용 비교:\\n   - $X$재: $\\dfrac{MU_x}{P_x} = \\dfrac{3}{4} = 0.75$\\n   - $Y$재: $\\dfrac{MU_y}{P_y} = \\dfrac{2}{2} = 1.0$\\n   - 따라서 $\\dfrac{MU_y}{P_y} > \\dfrac{MU_x}{P_x}$ 가 항상 만족되므로, 소비자는 예산 전액을 $Y$재 소비에 투입하여 $Y^* = \\dfrac{I}{P_y} = \\dfrac{40}{2} = 20$, $X^* = 0$ 의 선택을 합니다.\\n선형 효용함수처럼 한계대체율이 일정한 완전대체재의 경우, 상대가격비율이 한계대체율과 일치하지 않는 한 1원당 한계효용 균등 조건이 만족되지 않고 한 재화만 소비하는 코너해(구석해)가 발생합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-005",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "효용극대화 라그랑지 승수 λ의 의미로 옳은 것은?",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "효용극대화 라그랑지안 극대화 연산 문제에서 도출되는 승수 $\\lambda$가 지니는 경제학적 정의에 관한 설명으로 가장 적절한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 예산선 평행 이동과 ICC -->\n  <line x1=\"50\" y1=\"120\" x2=\"210\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"80\" x2=\"290\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <path d=\"M 50 170 Q 150 120 280 60\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"65\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">소득소비곡선 (ICC)</text>\n  <text x=\"20\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">U (효용) / λ</text>\n</svg>\n```\n",
       "options": [
-        "재화의 가격",
-        "예산 1원의 한계효용 = 추가 소득 1원이 가져오는 효용 증가",
-        "효용함수의 계수",
-        "정부의 보조금",
-        "공급의 한계비용"
+        "소비자의 소득 $I$가 한 단위(1원) 추가될 때 얻을 수 있는 최대 효용의 증가량($\\dfrac{\\partial U^*}{\\partial I}$)을 뜻하는 소득의 그림자 가격(Shadow Price)이다.",
+        "두 재화의 소비 비율을 나타내는 비율 변수로, 소득 수준에 비례하여 항상 증가해야 한다.",
+        "정부가 가구에 부과하는 조세의 한계 세율을 뜻하며, 균형점에서 항상 $0$의 값을 가져야 한다.",
+        "두 재화의 한계대체율($MRS$)의 절댓값으로, 무차별곡선의 원점 볼록성 정도를 정량 평가한다.",
+        "기수적 효용 이론에서 각 재화의 가격 탄력성을 곱하여 사회 후생을 산정하는 가중 계수이다."
       ],
-      "answer": "2",
-      "explanation": "라그랑지 승수 λ = 예산 1원의 한계효용. 직관: 예산 제약을 1원 완화하면(추가 소득 1원) 효용이 얼마나 증가하는가. 이는 그림자 가격(shadow price) 또는 잠재 가격의 개념과 동일. 효용극대화 조건: MUx/Px = MUy/Py = λ → 모든 재화의 1원당 한계효용이 λ로 같음."
+      "answer": "1",
+      "explanation": "라그랑지 승수 $\\lambda$는 제약 조건이 1 단위 완화될 때 극대화하고자 하는 목적함수(여기서는 효용함수)의 최적치 변동량을 대변합니다.\\n즉, $\\lambda = \\dfrac{\\partial U^*}{\\partial I}$ 가 성립하여 추가적인 소득 1원이 제공하는 극대 효용의 한계 가치, 즉 소득의 한계효용을 대변합니다. 이를 경제학에서는 소득의 그림자 가격(Shadow price)이라고 부릅니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-006",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
-      "question": "효용극대화 계산: 소비자가 X재(가격 10원), Y재(가격 20원)를 소비. 효용함수 U = 2X + 4Y. 합리적 선택은?",
+      "question": "효용극대화 계산: 소비자가 X재(가격 10원), Y재(가격 20원)를 소비. 효용함수 $U = 2X + 4Y$. 합리적 선택은?",
       "options": [
         "X와 Y를 같은 양 소비",
-        "Y만 소비 (1원당 한계효용 Y가 더 큼: MUx/Px = 2/10 = 0.2 < MUy/Py = 4/20 = 0.2 동일... 이 경우 무차별)",
+        "Y만 소비 (1원당 한계효용 Y가 더 큼: $MU_x$/$P_x$ = 2/10 = 0.2 < $MU_y$/$P_y$ = 4/20 = 0.2 동일... 이 경우 무차별)",
         "X와 Y의 1원당 한계효용이 같으므로(0.2 = 0.2) 어떤 조합도 무차별",
         "X만 소비",
         "둘 다 소비하지 않음"
       ],
       "answer": "3",
-      "explanation": "U = 2X + 4Y (선형, 완전대체재).\nMUx = 2, MUy = 4. 1원당 한계효용: MUx/Px = 2/10 = 0.2 = MUy/Py = 4/20 = 0.2 → 같음 → 두 재화 무차별 → 예산 내 어떤 조합도 동일 효용. 만약 가격이 변해 비율이 깨지면 한 재화만 소비하는 코너 해."
+      "explanation": "$U = 2X + 4Y$ (선형, 완전대체재).\n$MU_x$ = 2, $MU_y$ = 4. 1원당 한계효용: $MU_x$/$P_x$ = 2/10 = 0.2 = $MU_y$/$P_y$ = 4/20 = 0.2 → 같음 → 두 재화 무차별 → 예산 내 어떤 조합도 동일 효용. 만약 가격이 변해 비율이 깨지면 한 재화만 소비하는 코너 해."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-007",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "코너 해(corner solution)의 의미로 옳은 것은?",
       "options": [
@@ -118,24 +118,24 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-008",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "예산 제약식의 일반적 형태로 옳은 것은?",
       "options": [
-        "Px·X + Py·Y = I (예산 = 가격 × 소비량의 합)",
-        "Px + Py = I",
+        "$P_x$·X + $P_y$·Y = I (예산 = 가격 × 소비량의 합)",
+        "$P_x$ + $P_y$ = I",
         "X + Y = I",
-        "I = Px·Py",
+        "I = $P_x$·$P_y$",
         "X·Y = I"
       ],
       "answer": "1",
-      "explanation": "예산 제약식: Px·X + Py·Y = I (또는 ≤ I)\n예산 I를 두 재화 X(가격 Px)와 Y(가격 Py)에 분배\n변형: Y = I/Py - (Px/Py)·X (Y에 대해 정리, 절편·기울기 형태)\n예산선의 기울기 = -Px/Py (두 재화의 가격 비율)\n무차별곡선과 예산선이 접하는 점이 최적 소비점."
+      "explanation": "예산 제약식: $P_x$·X + $P_y$·Y = I (또는 ≤ I)\n예산 I를 두 재화 X(가격 $P_x$)와 Y(가격 $P_y$)에 분배\n변형: Y = I/$P_y$ - ($P_x$/$P_y$)·X (Y에 대해 정리, 절편·기울기 형태)\n예산선의 기울기 = -$P_x$/$P_y$ (두 재화의 가격 비율)\n무차별곡선과 예산선이 접하는 점이 최적 소비점."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-009",
-      "difficulty": 2,
-      "question_type": "옳은 것 고르기",
-      "question": "한계효용 균등의 법칙의 응용 사례로 옳은 것은?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "한계효용 균등의 법칙의 응용 사례로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 1원당 한계효용 교차형 그래프 -->\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- MUx/Px (우하향) 및 MUy/Py (좌상향 - Y재 지출 기준) -->\n  <line x1=\"70\" y1=\"60\" x2=\"310\" y2=\"180\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <line x1=\"70\" y1=\"180\" x2=\"310\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <circle cx=\"190\" cy=\"120\" r=\"4.5\" fill=\"#b91c1c\" />\n  <text x=\"195\" y=\"112\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">MUx/Px = MUy/Py</text>\n  <text x=\"340\" y=\"205\" font-size=\"9\" font-family=\"sans-serif\">지출분배 (e_x)</text>\n  <text x=\"20\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">MU/P</text>\n</svg>\n```\n",
       "options": [
         "여러 식사 메뉴의 만족 균등 분배",
         "한정된 예산을 다양한 재화·서비스에 분배 (식료품·주거·교통·여가 등)",
@@ -148,37 +148,37 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-010",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "한계효용 균등의 법칙과 가격 변화의 관계로 옳은 것은?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "한계효용 균등의 법칙과 가격 변화의 관계로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- Px 상승에 따른 1원당 한계효용 하락 시각화 -->\n  <path d=\"M 70 80 Q 180 150 310 170\" fill=\"none\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" stroke-width=\"2\" />\n  <path d=\"M 70 110 Q 180 165 310 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <!-- 가격 하락 화살표 -->\n  <path d=\"M 150 115 L 150 135\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"155\" y=\"130\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">Px 상승 (MUx/Px 하락)</text>\n</svg>\n```\n",
       "options": [
-        "Px가 상승하면 MUx/Px가 감소 → 다른 재화 선호 증가 → 새 균형에서 MU 비율 재조정",
+        "$P_x$가 상승하면 $MU_x$/$P_x$가 감소 → 다른 재화 선호 증가 → 새 균형에서 MU 비율 재조정",
         "가격 변화는 효용에 무관",
         "가격 상승 시 그 재화 소비 증가",
         "가격은 균형과 무관",
         "가격은 정부 결정"
       ],
       "answer": "1",
-      "explanation": "가격 변화의 효과 (Px ↑):\nMUx/Px ↓ → Y로 지출 이전(대체효과) → X 소비 감소, Y 소비 증가\n새 균형: MUx'/Px' = MUy'/Py = λ' (새 라그랑지 승수, 일반적으로 감소)\n이는 수요곡선이 우하향하는 미시적 기초이다 (가격 ↑ → 수요량 ↓)."
+      "explanation": "가격 변화의 효과 ($P_x$ ↑):\n$MU_x$/$P_x$ ↓ → Y로 지출 이전(대체효과) → X 소비 감소, Y 소비 증가\n새 균형: $MU_x$'/$P_x$' = $MU_y$'/$P_y$ = λ' (새 라그랑지 승수, 일반적으로 감소)\n이는 수요곡선이 우하향하는 미시적 기초이다 (가격 ↑ → 수요량 ↓)."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-011",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "한계효용 균등의 법칙과 소득 변화의 관계로 옳은 것은?",
       "options": [
-        "소득 증가 → 예산 확대 → 모든 재화 소비 증가 가능 → 한계효용 체감으로 MUx, MUy 모두 감소 → 새 λ는 일반적으로 감소",
+        "소득 증가 → 예산 확대 → 모든 재화 소비 증가 가능 → 한계효용 체감으로 $MU_x$, $MU_y$ 모두 감소 → 새 λ는 일반적으로 감소",
         "소득 변화는 효용에 무관",
         "소득 증가 시 한 재화만 소비 증가",
         "소득은 균형과 무관",
         "소득은 정부 결정"
       ],
       "answer": "1",
-      "explanation": "소득 변화의 효과 (I ↑):\n예산 제약 확대 → 모든 재화의 가능한 소비 영역 확장\n정상재의 경우 두 재화 모두 소비 증가 → 한계효용 체감으로 MUx, MUy 감소\n새 균형: MUx'/Px = MUy'/Py = λ' (λ < λ - 추가 소득의 한계효용 감소)\n열등재의 경우 그 재화 소비 감소도 가능."
+      "explanation": "소득 변화의 효과 (I ↑):\n예산 제약 확대 → 모든 재화의 가능한 소비 영역 확장\n정상재의 경우 두 재화 모두 소비 증가 → 한계효용 체감으로 $MU_x$, $MU_y$ 감소\n새 균형: $MU_x$'/$P_x$ = $MU_y$'/$P_y$ = λ' (λ < λ - 추가 소득의 한계효용 감소)\n열등재의 경우 그 재화 소비 감소도 가능."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-012",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음 중 한계효용 균등의 법칙에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 1원당 한계효용 균등 = 효용극대화 조건\nㄴ. λ = 예산 1원의 한계효용\nㄷ. 가격 변화 시 재조정\nㄹ. 소득 변화 시 재조정",
       "options": [
@@ -193,24 +193,24 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-013",
-      "difficulty": 3,
-      "question_type": "이론형",
-      "question": "효용극대화 라그랑지 방정식: Max U(X, Y) s.t. Px·X + Py·Y = I. 1계 조건의 도출:",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "효용극대화 라그랑지 방정식: Max U(X, Y) s.t. $P_x$·X + $P_y$·Y = I. 1계 조건의 도출:\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <line x1=\"50\" y1=\"60\" x2=\"320\" y2=\"195\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <path d=\"M 90 90 Q 170 130 270 170\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <circle cx=\"170\" cy=\"120\" r=\"4\" fill=\"#b91c1c\" />\n  <text x=\"180\" y=\"115\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">접점 (MRS = Px/Py)</text>\n</svg>\n```\n",
       "options": [
-        "∂L/∂X = 0: MUx - λPx = 0 → MUx = λPx\n∂L/∂Y = 0: MUy - λPy = 0 → MUy = λPy\n∂L/∂λ = 0: 예산 제약 성립\n결합: MUx/Px = MUy/Py = λ",
+        "∂L/∂X = 0: $MU_x$ - λ$P_x$ = 0 → $MU_x$ = λ$P_x$\n∂L/∂Y = 0: $MU_y$ - λ$P_y$ = 0 → $MU_y$ = λ$P_y$\n∂L/∂λ = 0: 예산 제약 성립\n결합: $MU_x$/$P_x$ = $MU_y$/$P_y$ = λ",
         "1계 조건은 존재하지 않음",
-        "MUx = MUy 항상",
-        "Px = Py 항상",
+        "$MU_x$ = $MU_y$ 항상",
+        "$P_x$ = $P_y$ 항상",
         "λ = 0 항상"
       ],
       "answer": "1",
-      "explanation": "라그랑지 함수 L = U(X, Y) - λ(Px·X + Py·Y - I)\n1계 조건:\n∂L/∂X = MUx - λPx = 0 → MUx = λPx\n∂L/∂Y = MUy - λPy = 0 → MUy = λPy\n∂L/∂λ = -(Px·X + Py·Y - I) = 0 → 예산 제약\n결합: MUx/Px = MUy/Py = λ (한계효용 균등의 법칙)\n수학적 도출 방법."
+      "explanation": "라그랑지 함수 L = U(X, Y) - λ($P_x$·X + $P_y$·Y - I)\n1계 조건:\n∂L/∂X = $MU_x$ - λ$P_x$ = 0 → $MU_x$ = λ$P_x$\n∂L/∂Y = $MU_y$ - λ$P_y$ = 0 → $MU_y$ = λ$P_y$\n∂L/∂λ = -($P_x$·X + $P_y$·Y - I) = 0 → 예산 제약\n결합: $MU_x$/$P_x$ = $MU_y$/$P_y$ = λ (한계효용 균등의 법칙)\n수학적 도출 방법."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-014",
       "difficulty": 3,
       "question_type": "이론형",
-      "question": "효용극대화 계산: U = X^(1/2) · Y^(1/2) (콥-더글러스 효용), Px = 2, Py = 4, I = 100. 최적 X*, Y*는?",
+      "question": "효용극대화 계산: U = X^(1/2) · Y^(1/2) (콥-더글러스 효용), $P_x$ = 2, $P_y$ = 4, I = 100. 최적 X*, Y*는?",
       "options": [
         "X* = 25, Y* = 12.5",
         "X* = 50, Y* = 25",
@@ -219,11 +219,11 @@
         "X* = 40, Y* = 5"
       ],
       "answer": "1",
-      "explanation": "콥-더글러스 효용 U = X^a · Y^(1-a)에서 a = 1/2:\nMUx = (1/2)·X^(-1/2)·Y^(1/2), MUy = (1/2)·X^(1/2)·Y^(-1/2)\nMUx/MUy = Y/X.\n균형 조건: MUx/MUy = Px/Py → Y/X = 2/4 = 1/2 → Y = X/2.\n예산: 2X + 4Y = 100 → 2X + 4(X/2) = 100 → 2X + 2X = 100 → X = 25, Y = 12.5.\n콥-더글러스: 일정 비율 분배 (X에 50%·Y에 50%)."
+      "explanation": "콥-더글러스 효용 U = X^a · Y^(1-a)에서 a = 1/2:\n$MU_x$ = (1/2)·X^(-1/2)·Y^(1/2), $MU_y$ = (1/2)·X^(1/2)·Y^(-1/2)\n$MU_x$/$MU_y$ = Y/X.\n균형 조건: $MU_x$/$MU_y$ = $P_x$/$P_y$ → Y/X = 2/4 = 1/2 → Y = X/2.\n예산: 2X + 4Y = 100 → 2X + 4(X/2) = 100 → 2X + 2X = 100 → X = 25, Y = 12.5.\n콥-더글러스: 일정 비율 분배 (X에 50%·Y에 50%)."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-015",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 콥-더글러스 효용함수의 특성으로 옳은 것은?",
       "options": [
@@ -239,21 +239,21 @@
     {
       "id": "practice-econ-micro-ch03-sec01-item02-016",
       "difficulty": 3,
-      "question_type": "이론형",
-      "question": "다음 중 완전 대체재(perfect substitutes)의 효용함수와 한계효용 균등의 적용으로 옳은 것은?",
+      "question_type": "이론/그래프형",
+      "question": "다음 중 완전 대체재(perfect substitutes)의 효용함수와 한계효용 균등의 적용으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 예산선 기울기 < 무차별곡선 기울기 -->\n  <line x1=\"50\" y1=\"120\" x2=\"290\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"80\" x2=\"230\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <circle cx=\"290\" cy=\"200\" r=\"4.5\" fill=\"#b91c1c\" />\n  <text x=\"210\" y=\"185\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">코너해 (X재만 소비)</text>\n</svg>\n```\n",
       "options": [
-        "U = aX + bY (선형). MUx/MUy = a/b 일정. Px/Py와 비교 - 같으면 무차별, 작으면 X만, 크면 Y만 소비 (코너 해)",
+        "U = aX + bY (선형). $MU_x$/$MU_y$ = a/b 일정. $P_x$/$P_y$와 비교 - 같으면 무차별, 작으면 X만, 크면 Y만 소비 (코너 해)",
         "완전 대체재는 효용극대화 불가",
         "완전 대체재는 한계효용 균등의 법칙과 무관",
         "완전 대체재는 항상 50:50 분배",
         "완전 대체재는 가치판단의 영역"
       ],
       "answer": "1",
-      "explanation": "완전 대체재 U = aX + bY:\nMUx = a, MUy = b → MUx/MUy = a/b 일정\n비교: Px/Py와 a/b\n- Px/Py < a/b: X가 상대적으로 싸고 효용에 더 기여 → X만 소비 (코너)\n- Px/Py > a/b: Y만 소비\n- Px/Py = a/b: 모든 조합 무차별 (예산선과 무차별곡선 일치)\n내부 해가 없으므로 한계효용 균등의 법칙이 적용되지 않는 특수 사례."
+      "explanation": "완전 대체재 U = aX + bY:\n$MU_x$ = a, $MU_y$ = b → $MU_x$/$MU_y$ = a/b 일정\n비교: $P_x$/$P_y$와 a/b\n- $P_x$/$P_y$ < a/b: X가 상대적으로 싸고 효용에 더 기여 → X만 소비 (코너)\n- $P_x$/$P_y$ > a/b: Y만 소비\n- $P_x$/$P_y$ = a/b: 모든 조합 무차별 (예산선과 무차별곡선 일치)\n내부 해가 없으므로 한계효용 균등의 법칙이 적용되지 않는 특수 사례."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-017",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "다음 중 완전 보완재(perfect complements)의 효용함수와 한계효용 균등의 적용으로 옳은 것은?",
       "options": [
@@ -272,7 +272,7 @@
       "question_type": "옳은 것 고르기",
       "question": "다음 중 한계효용 균등의 법칙의 동학적 적용으로 옳은 것은?",
       "options": [
-        "다재화로 확장: MUx/Px = MUy/Py = MUz/Pz = ... = λ. 모든 재화의 1원당 한계효용이 같아져야 함.",
+        "다재화로 확장: $MU_x$/$P_x$ = $MU_y$/$P_y$ = MUz/Pz = ... = λ. 모든 재화의 1원당 한계효용이 같아져야 함.",
         "다재화에서는 한계효용 균등 불가",
         "다재화는 가치판단의 영역",
         "다재화는 정부 결정",
@@ -283,7 +283,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-019",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 한계효용 균등의 법칙과 수요곡선 도출의 관계로 옳은 것은?",
       "options": [
@@ -294,11 +294,11 @@
         "한계효용 균등은 거시 분석에만 사용"
       ],
       "answer": "1",
-      "explanation": "수요곡선의 미시적 기초 (한계효용 이론 경로):\n① 한계효용 체감의 법칙\n② 한계효용 균등의 법칙 (효용극대화)\n③ 가격 변화 시 균형 재조정\n→ 가격 ↑ → MUx/Px ↓ → 그 재화 소비 ↓ → 수요곡선 우하향\n한계혁명(1870년대)이 수요곡선의 미시적 기초를 제공한 핵심 기여."
+      "explanation": "수요곡선의 미시적 기초 (한계효용 이론 경로):\n① 한계효용 체감의 법칙\n② 한계효용 균등의 법칙 (효용극대화)\n③ 가격 변화 시 균형 재조정\n→ 가격 ↑ → $MU_x$/$P_x$ ↓ → 그 재화 소비 ↓ → 수요곡선 우하향\n한계혁명(1870년대)이 수요곡선의 미시적 기초를 제공한 핵심 기여."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-020",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "보기 결합형",
       "question": "다음 중 한계효용 균등의 법칙의 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 가계 예산 분배 - 각 분야의 1원당 한계효용 균등화\nㄴ. 투자 포트폴리오 - 위험 조정 수익률 균등화\nㄷ. 시간 분배 - 활동의 1시간당 만족도 균등화\nㄹ. 정부 예산 분배 - 분야별 한계 사회후생 균등화\nㅁ. 한계효용 균등의 법칙은 자원 분배의 보편 원리",
       "options": [
@@ -313,7 +313,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-021",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "다음 중 한계효용 균등의 법칙과 사람 간 효용 비교의 관계로 옳은 것은?",
       "options": [
@@ -344,17 +344,17 @@
     {
       "id": "practice-econ-micro-ch03-sec01-item02-023",
       "difficulty": 4,
-      "question_type": "이론형",
-      "question": "다음 중 한계효용 균등의 법칙과 한계대체율(MRS)의 관계로 옳은 것은?",
+      "question_type": "이론/그래프형",
+      "question": "다음 중 한계효용 균등의 법칙과 한계대체율($MRS$)의 관계로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <line x1=\"50\" y1=\"60\" x2=\"330\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <path d=\"M 80 80 Q 160 120 280 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <circle cx=\"190\" cy=\"130\" r=\"4\" fill=\"#b91c1c\" />\n  <text x=\"200\" y=\"125\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">MRSxy = Px/Py</text>\n</svg>\n```\n",
       "options": [
-        "MRS = MUx/MUy (한계효용 비율). 효용극대화 조건: MRS = Px/Py → 무차별곡선과 예산선의 접점",
-        "MRS는 한계효용과 무관",
-        "MRS = MUx·MUy",
-        "MRS = MUx + MUy",
-        "MRS는 정부가 결정"
+        "$MRS$ = $MU_x$/$MU_y$ (한계효용 비율). 효용극대화 조건: $MRS$ = $P_x$/$P_y$ → 무차별곡선과 예산선의 접점",
+        "$MRS$는 한계효용과 무관",
+        "$MRS$ = $MU_x$·$MU_y$",
+        "$MRS$ = $MU_x$ + $MU_y$",
+        "$MRS$는 정부가 결정"
       ],
       "answer": "1",
-      "explanation": "한계대체율(MRS, Marginal Rate of Substitution):\nMRSxy = -dY/dX (무차별곡선의 기울기 절댓값) = MUx/MUy\n경제적 의미: X 1단위를 더 얻기 위해 포기할 수 있는 Y의 양\n효용극대화 조건: MRS = Px/Py (한계효용 비율 = 가격 비율)\n즉, 무차별곡선이 예산선과 접하는 점에서 효용극대.\n한계효용 균등의 법칙의 다른 표현이며, 무차별곡선 분석과 한계효용 분석의 연결고리이다."
+      "explanation": "한계대체율($MRS$, Marginal Rate of Substitution):\n$MRS$xy = -dY/dX (무차별곡선의 기울기 절댓값) = $MU_x$/$MU_y$\n경제적 의미: X 1단위를 더 얻기 위해 포기할 수 있는 Y의 양\n효용극대화 조건: $MRS$ = $P_x$/$P_y$ (한계효용 비율 = 가격 비율)\n즉, 무차별곡선이 예산선과 접하는 점에서 효용극대.\n한계효용 균등의 법칙의 다른 표현이며, 무차별곡선 분석과 한계효용 분석의 연결고리이다."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-024",
@@ -362,20 +362,20 @@
       "question_type": "옳은 것 고르기",
       "question": "다음 중 효용극대화 결과인 수요함수의 도출 방법으로 옳은 것은?",
       "options": [
-        "효용극대화 조건 + 예산 제약 → 마샬 수요함수 X*(Px, Py, I), Y*(Px, Py, I) 도출. 가격·소득의 함수.",
+        "효용극대화 조건 + 예산 제약 → 마샬 수요함수 X*($P_x$, $P_y$, I), Y*($P_x$, $P_y$, I) 도출. 가격·소득의 함수.",
         "수요함수는 정부가 결정",
         "수요함수는 가치판단",
         "수요함수는 효용과 무관",
         "수요함수는 임의로 결정"
       ],
       "answer": "1",
-      "explanation": "마샬 수요함수(Marshallian demand)의 도출:\nMax U(X, Y) s.t. Px·X + Py·Y = I → 효용극대화\n결과: X*(Px, Py, I), Y*(Px, Py, I)\n가격·소득의 함수로 표현\n예: 콥-더글러스 U = X^a · Y^(1-a) → X* = a·I/Px, Y* = (1-a)·I/Py\n시장 수요함수의 미시적 기초이다."
+      "explanation": "마샬 수요함수(Marshallian demand)의 도출:\nMax U(X, Y) s.t. $P_x$·X + $P_y$·Y = I → 효용극대화\n결과: X*($P_x$, $P_y$, I), Y*($P_x$, $P_y$, I)\n가격·소득의 함수로 표현\n예: 콥-더글러스 U = X^a · Y^(1-a) → X* = a·I/$P_x$, Y* = (1-a)·I/$P_y$\n시장 수요함수의 미시적 기초이다."
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-025",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "보기 결합형",
-      "question": "다음은 한계효용 균등의 법칙의 수학적·기하학적 해석에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 수학적: MUx/Px = MUy/Py = λ\nㄴ. 기하학적: 무차별곡선과 예산선의 접점 (MRS = Px/Py)\nㄷ. λ = 예산 1원의 한계효용 (라그랑지 승수)\nㄹ. 마샬 수요함수 X*(Px, Py, I) 도출\nㅁ. 콥-더글러스 효용함수의 경우 일정 비율 분배",
+      "question": "다음은 한계효용 균등의 법칙의 수학적·기하학적 해석에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 수학적: $MU_x$/$P_x$ = $MU_y$/$P_y$ = λ\nㄴ. 기하학적: 무차별곡선과 예산선의 접점 ($MRS$ = $P_x$/$P_y$)\nㄷ. λ = 예산 1원의 한계효용 (라그랑지 승수)\nㄹ. 마샬 수요함수 X*($P_x$, $P_y$, I) 도출\nㅁ. 콥-더글러스 효용함수의 경우 일정 비율 분배",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -388,7 +388,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-026",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 한계효용 균등의 법칙과 위험 회피 행동에 관한 옳은 설명은?",
       "options": [
@@ -403,7 +403,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-027",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 한계효용 균등의 법칙의 비판으로 옳은 것은?",
       "options": [
@@ -418,7 +418,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-028",
-      "difficulty": 5,
+      "difficulty": 2,
       "question_type": "보기 결합형",
       "question": "다음은 효용극대화 이론의 발전사에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 고센(1854): 한계효용 체감·한계효용 균등의 법칙 시초\nㄴ. 제본스·왈라스·멩거(1870년대): 한계혁명 - 기수적 효용 + 한계효용 균등\nㄷ. 파레토(1906): 서수적 효용으로 전환, 무차별곡선 분석\nㄹ. 힉스·앨런(1934): 무차별곡선·예산선 분석 정립\nㅁ. 사무엘슨(1938~): 현시선호이론, 효용 측정 가정에서 자유로움",
       "options": [
@@ -433,7 +433,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-029",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 효용극대화 이론의 현대적 응용에 관한 옳은 설명은?",
       "options": [
@@ -448,9 +448,9 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec01-item02-030",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "보기 결합형",
-      "question": "다음은 한계효용 균등의 법칙의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. MUx/Px = MUy/Py = λ - 효용극대화 1계 조건\nㄴ. λ = 예산 1원의 한계효용 (라그랑지 승수)\nㄷ. 가격·소득 변화 시 균형 재조정 → 마샬 수요함수\nㄹ. 무차별곡선과 예산선의 접점 (MRS = Px/Py)\nㅁ. 모든 효용극대화 문제는 한계효용 균등의 법칙으로 풀 수 있다.",
+      "question": "다음은 한계효용 균등의 법칙의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. $MU_x$/$P_x$ = $MU_y$/$P_y$ = λ - 효용극대화 1계 조건\nㄴ. λ = 예산 1원의 한계효용 (라그랑지 승수)\nㄷ. 가격·소득 변화 시 균형 재조정 → 마샬 수요함수\nㄹ. 무차별곡선과 예산선의 접점 ($MRS$ = $P_x$/$P_y$)\nㅁ. 모든 효용극대화 문제는 한계효용 균등의 법칙으로 풀 수 있다.",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -460,6 +460,306 @@
       ],
       "answer": "2",
       "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 코너 해(완전 대체재)나 결합 소비(완전 보완재)의 경우 한계효용 균등의 법칙이 적용되지 않는다. 또한 한계효용 함수가 정의되지 않는 경우(레온티에프 효용)도 별도 분석이 필요. 일반적인 내부 해(interior solution)에서만 한계효용 균등의 법칙이 직접 적용된다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-031",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 효용함수가 콥-더글러스 형태인 $U(X, Y) = X^{1/3} Y^{2/3}$ 이다. 이 소비자의 소득이 $I = 300$ 이고, $X$재의 가격 $P_x = 5$, $Y$재의 가격 $P_y = 10$ 일 때, 1원당 한계효용 균등 법칙을 적용하여 도출한 효용극대화 소비량 조합 $(X^*, Y^*)$ 으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 콥-더글러스 지수 비율에 따른 최적 소비배분 -->\n  <line x1=\"50\" y1=\"70\" x2=\"310\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <path d=\"M 90 90 Q 150 120 270 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <circle cx=\"136\" cy=\"113\" r=\"4\" fill=\"#b91c1c\" />\n  \n  <line x1=\"136\" y1=\"113\" x2=\"136\" y2=\"200\" stroke=\"#475569\" stroke-dasharray=\"3\" />\n  <text x=\"130\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">X* = 20</text>\n</svg>\n```\n",
+      "options": [
+        "$(X^*, Y^*) = (20, 20)$",
+        "$(X^*, Y^*) = (30, 15)$",
+        "$(X^*, Y^*) = (15, 22.5)$",
+        "$(X^*, Y^*) = (40, 10)$",
+        "$(X^*, Y^*) = (10, 25)$"
+      ],
+      "answer": "1",
+      "explanation": "1) 콥-더글러스 효용함수 $U = X^a Y^b$의 최적 예산 배분 공식:\\n   소비자는 소득 $I$를 두 재화의 효용 지수 비율인 $a : b$ 비율로 배분하여 지출합니다.\\n   - $X$재 지출액: $P_x X^* = \\dfrac{a}{a+b} I = \\dfrac{1/3}{1} \\times 300 = 100 \\implies 5X^* = 100 \\implies X^* = 20$\\n   - $Y$재 지출액: $P_y Y^* = \\dfrac{b}{a+b} I = \\dfrac{2/3}{1} \\times 300 = 200 \\implies 10Y^* = 200 \\implies Y^* = 20$\\n따라서 최적 소비 조합은 $(20, 20)$입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-032",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 효용함수가 준선형 형태인 $U(X, Y) = 2\\sqrt{X} + Y$ 이다. $X$재의 가격 $P_x = 1$, $Y$재의 가격 $P_y = 2$ 이다. 소비자의 예산 소득이 $I = 10$ 일 때의 $X$재 최적 소비량 $X_1^*$ 과 소득이 $I = 20$ 으로 증가했을 때의 $X$재 최적 소비량 $X_2^*$ 로 옳은 조합은? (단, 내부해 조건을 만족한다.)\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 준선형 효용함수: 수직 소득소비곡선 (ICC) -->\n  <line x1=\"50\" y1=\"160\" x2=\"170\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"110\" x2=\"250\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"60\" x2=\"330\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <path d=\"M 130 50 L 130 200\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"3\" />\n  <text x=\"135\" y=\"70\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">ICC (수직선)</text>\n</svg>\n```\n",
+      "options": [
+        "$X_1^* = 4$, $X_2^* = 4$",
+        "$X_1^* = 2$, $X_2^* = 4$",
+        "$X_1^* = 4$, $X_2^* = 8$",
+        "$X_1^* = 1$, $X_2^* = 1$",
+        "$X_1^* = 2$, $X_2^* = 2$"
+      ],
+      "answer": "1",
+      "explanation": "1) 한계효용 편미분:\\n   $MU_x = \\dfrac{\\partial U}{\\partial X} = \\dfrac{1}{\\sqrt{X}}$, $MU_y = \\dfrac{\\partial U}{\\partial Y} = 1$\\n2) 한계효용 균등 1계 조건:\\n   $$\\dfrac{MU_x}{P_x} = \\dfrac{MU_y}{P_y} \\implies \\dfrac{1/\\sqrt{X}}{1} = \\dfrac{1}{2} \\implies \\sqrt{X} = 2 \\implies X^* = 4$$\\n3) 준선형 효용함수의 성질:\\n   내부해를 갖는 한, $X$재의 최적 소비량은 오직 상대가격비율에 의해서만 결정되며 소득 $I$와 완전히 무관합니다. 따라서 소득이 $10$이든 $20$이든 관계없이 $X^*$는 $4$로 동일하며 소득 증가분은 모두 $Y$재 소비에 사용됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-033",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "소비자 효용극대화 모형을 $N$개의 다재화 환경으로 확장하였을 때 성립하는 한계효용 균등 법칙의 이론적 서술로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 다재화 한계대체율 일치 대수적 모식도 -->\n  <rect x=\"50\" y=\"60\" width=\"80\" height=\"80\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <rect x=\"160\" y=\"60\" width=\"80\" height=\"80\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <rect x=\"270\" y=\"60\" width=\"80\" height=\"80\" fill=\"#d1fae5\" stroke=\"#10b981\" stroke-width=\"2\" />\n  \n  <text x=\"65\" y=\"105\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e3a8a\" font-weight=\"bold\">MU1/P1</text>\n  <text x=\"175\" y=\"105\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#991b1b\" font-weight=\"bold\">MU2/P2</text>\n  <text x=\"285\" y=\"105\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#065f46\" font-weight=\"bold\">MU3/P3</text>\n  \n  <path d=\"M 130 100 L 160 100\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  <path d=\"M 240 100 L 270 100\" stroke=\"#475569\" stroke-width=\"1.5\" />\n  \n  <text x=\"142\" y=\"96\" font-size=\"12\" font-weight=\"bold\">=</text>\n  <text x=\"252\" y=\"96\" font-size=\"12\" font-weight=\"bold\">=</text>\n</svg>\n```\n",
+      "options": [
+        "임의의 두 재화 $i$, $j$에 대하여 한계대체율 $MRS_{ij} = \\dfrac{MU_i}{MU_j} = \\dfrac{P_i}{P_j}$ 가 모든 재화 쌍에서 동시에 성립하여야 한다.",
+        "소비자의 예산이 증가하면 모든 재화의 한계대체율이 소득 수준과 완전 대칭으로 증가하여야 한다.",
+        "1원당 한계효용이 균등해지면 재화 간 한계대체율과 가격 비율의 대수적 격차가 극대화된다.",
+        "특정 재화의 가격 하락은 오직 해당 재화의 한계효용만을 고정시킬 뿐, 타 재화로의 만족 전이와 무관하다.",
+        "다재화 모형에서는 라그랑지안 극대 조건이 무효화되어 서수적 판단만 가능해진다."
+      ],
+      "answer": "1",
+      "explanation": "다재화 환경($X_1, X_2, \\dots, X_N$)에서 효용극대화 조건은 모든 재화의 1원당 한계효용이 동일해지는 것입니다:\\n$\\dfrac{MU_1}{P_1} = \\dfrac{MU_2}{P_2} = \\dots = \\dfrac{MU_N}{P_N} = \\lambda$\\n임의의 두 재화 $i$, $j$에 대하여 이 식을 정리하면 $\\dfrac{MU_i}{MU_j} = \\dfrac{P_i}{P_j}$ 가 성립합니다. $\\dfrac{MU_i}{MU_j}$ 가 두 재화 간의 한계대체율 $MRS_{ij}$ 이므로, 최적 소비 상태에서는 모든 재화 쌍 간의 한계대체율이 가격비율과 같아야 합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "게리 벡커(Gary Becker)의 가계생산 모형(Household Production Model)에서 소비자가 직면하는 화폐 예산 제약과 시간 제약이 함께 통합되었을 때 도출되는 한계 균형 조건에 대한 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 시간 제약선과 소득 제약선이 결합된 총 기회비용선 -->\n  <line x1=\"50\" y1=\"60\" x2=\"290\" y2=\"200\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <path d=\"M 80 80 Q 150 120 270 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <circle cx=\"160\" cy=\"123\" r=\"4.5\" fill=\"#b91c1c\" />\n  <text x=\"170\" y=\"118\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">벡커 균형 (총기회비용 대비 한계효용 균등)</text>\n</svg>\n```\n",
+      "options": [
+        "재화 소비에 소요되는 시간의 기회비용(임금률)을 반영한 총기회비용 대비 한계효용의 비율이 모든 활동 및 재화에서 서로 균등해야 한다.",
+        "시간의 기회비용은 배제되고 오직 시장의 화폐 가격 대비 한계효용의 비율만 일치시키는 것이 유일하게 합리적이다.",
+        "시간의 한계 가치가 상승할 때 시간 소요 강도가 높은 지위재의 소비량을 동태적으로 늘린다.",
+        "소비자는 시간 제약만을 고려하고 화폐의 한계효용을 항상 $0$으로 묶어 소비를 억제한다.",
+        "임금률의 변동은 시간의 기회비용과 무관하므로 한계효용의 대체 조정에 영향을 주지 못한다."
+      ],
+      "answer": "1",
+      "explanation": "벡커의 가계생산 모형에서는 소비자가 소비 활동에 투입하는 시간비용도 제약으로 고려합니다. 즉 재화 $i$의 총기회비용은 시장가격 $P_i$ 에 소비 소요 시간의 기회비용(소요 시간 $\\times$ 시간당 임금 $w$)을 더한 것입니다. 따라서 최적 배분은 이 총기회비용 대비 한계효용의 비율이 모든 재화와 활동에서 일치할 때 달성됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-035",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "폴 사무엘슨(Paul Samuelson)이 규명한 공공재의 최적 공급 조건(사무엘슨 조건)과 일반적인 사적재의 한계대체율 균등화 조건을 가장 바르게 비교 분석한 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 공공재의 한계편익 수직합산 (MB = MRSa + MRSb) -->\n  <path d=\"M 50 160 Q 150 180 300 190\" fill=\"none\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <path d=\"M 50 120 Q 150 150 300 170\" fill=\"none\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <path d=\"M 50 80 Q 150 120 300 150\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <line x1=\"50\" y1=\"130\" x2=\"300\" y2=\"130\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <text x=\"270\" y=\"120\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">MC (한계생산비용)</text>\n  <text x=\"240\" y=\"165\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">사회적 MB (합산)</text>\n</svg>\n```\n",
+      "options": [
+        "사적재는 모든 소비자의 한계대체율이 시장가격비율로 일치해야 하나, 공공재는 비경합성으로 인해 소비자의 한계대체율의 수직 합이 한계변환율($MRT$)과 일치해야 한다.",
+        "공공재와 사적재는 모두 개별 한계대체율을 수평으로 합산하여 한계비용과 일치시켜야 최적 공급이 달성된다.",
+        "공공재는 한계효용이 소비량 증가에 따라 체증하는 특성을 보여 한계 조건식 자체가 성립 불가능하다.",
+        "사적재는 소비의 비배제성으로 인해 모든 개별 소비자의 1원당 한계효용을 수직으로 누적 합산한다.",
+        "공공재 최적 공급 하에서는 개별 소비자의 무차별곡선이 언제나 직선 형태를 유지하여 MRT가 0이 된다."
+      ],
+      "answer": "1",
+      "explanation": "사적재는 경합적 소비물이므로 최적 배분 조건이 개별 소비자의 한계대체율이 모두 시장가격비율로 일치하는 지점입니다 ($MRS^A = MRS^B = P_x/P_y$). 반면 공공재는 비경합적으로 소비되므로 사회적 한계편익은 개별 소비자들이 공공재 1단위 추가에 대해 느끼는 한계편익(MRS)을 모두 합한 것입니다. 따라서 사회적 최적은 $\\sum MRS = MRT$(한계변환율, 사회적 한계비용)가 성립할 때 달성됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-036",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "평균-분산(Mean-Variance) 포트폴리오 자산선택 모형에서 위험 회피적인 투자자가 포트폴리오를 재배치할 때 적용되는 한계효용 균등 원리에 대한 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 자본시장선 CML -->\n  <line x1=\"50\" y1=\"160\" x2=\"310\" y2=\"50\" stroke=\"#059669\" stroke-width=\"2.5\" />\n  \n  <!-- 우상향 볼록 무차별곡선 -->\n  <path d=\"M 120 180 Q 180 140 260 50\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <circle cx=\"190\" cy=\"100\" r=\"4\" fill=\"#b91c1c\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">위험 (σ)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">기대수익 E(R)</text>\n  <text x=\"175\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">접점 (최적 포트폴리오)</text>\n</svg>\n```\n",
+      "options": [
+        "포트폴리오의 분산(위험) 증가에 따른 한계 만족 감소분과 기대수익률 증가에 따른 한계 만족 상승분의 한계대체율이 자본시장선(CML)의 기울기(위험의 단위당 시장 보상)와 일치해야 한다.",
+        "투자자는 소득이 증가함에 따라 위험자산의 배분 비율을 항상 안전자산의 2배 수준으로 증대하여야 한다.",
+        "위험 자산의 변동성이 확대되면 한계대체율을 높이기 위해 자본시장선의 절편을 상향 이동시킨다.",
+        "안전자산만을 전량 보유하는 구석해 상황에서 항상 1원당 한계효용 균등 조건이 무조건 등식으로 달성된다.",
+        "기대수익률에 대한 한계효용이 항상 음수(-)가 되므로 위험자산의 투자 총액을 전면 중단해야 한다."
+      ],
+      "answer": "1",
+      "explanation": "평균-분산 평면(가로축 위험 $\\sigma$, 세로축 기대수익률 $E(R)$)에서 투자자의 무차별곡선 기울기는 위험 한계대체율($MRS_{\\sigma, E(R)} = -MU_\\sigma / MU_{E(R)}$)을 대변합니다. 투자자가 위험 대비 기대만족을 극대화하려면 이 주관적인 위험 한계대체율이 시장에서 제공하는 위험의 가격인 자본시장선(CML)의 기울기(샤프 지수)와 일치하여 접선을 형성해야 합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-037",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "2기간 소비 선택 모형에서 소비자의 효용함수가 $U(C_1, C_2) = \\ln C_1 + \\dfrac{1}{1+\\rho} \\ln C_2$ 이고 시장 실질 이자율이 $r$, 소비자의 주관적 시간선호율이 $\\rho$ 이다. 예산 제약 하에서 효용이 극대화될 때 성립하는 소비 오일러 방정식(Euler Equation)으로 옳은 수식은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 시점간 예산선 (기울기 -(1+r)) -->\n  <line x1=\"50\" y1=\"60\" x2=\"290\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <path d=\"M 80 80 Q 150 120 270 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <circle cx=\"160\" cy=\"123\" r=\"4.5\" fill=\"#b91c1c\" />\n  \n  <text x=\"330\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">C1 (1기 소비)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">C2 (2기 소비)</text>\n  <text x=\"170\" y=\"115\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">오일러 접점 (MRS = 1+r)</text>\n</svg>\n```\n",
+      "options": [
+        "$\\dfrac{C_2}{C_1} = \\dfrac{1+r}{1+\rho}$",
+        "$\\dfrac{C_2}{C_1} = \\dfrac{1+\rho}{1+r}$",
+        "$C_1 \\cdot C_2 = \\dfrac{1+r}{1+\rho}$",
+        "$\\dfrac{C_1}{C_2} = (1+r)(1+\rho)$",
+        "$C_1 + C_2 = 1 + r + \rho$"
+      ],
+      "answer": "1",
+      "explanation": "1) 한계효용 계산:\\n   $MU_1 = \\dfrac{\\partial U}{\\partial C_1} = \\dfrac{1}{C_1}$, $MU_2 = \\dfrac{\\partial U}{\\partial C_2} = \\dfrac{1}{1+\\rho}\\dfrac{1}{C_2}$\\n2) 시점간 한계대체율($MRS$):\\n   $MRS_{12} = \\dfrac{MU_1}{MU_2} = (1+\\rho)\\dfrac{C_2}{C_1}$\\n3) 극대화 조건: 주관적 한계대체율이 시점간 시장 가격비율(대체율)인 $(1+r)$ 과 같아야 합니다.\\n   $(1+\\rho)\\dfrac{C_2}{C_1} = 1+r \\implies \\dfrac{C_2}{C_1} = \\dfrac{1+r}{1+\\rho}$\\n이는 기간 간 한계효용 균등을 만족하는 오일러 방정식입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-038",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "준선형 효용함수 $U(X, Y) = 10\\ln X + Y$ 를 가지고 있는 소비자의 현재 소득이 $I = 100$ 이고, 두 재화의 가격이 $P_x = 2$, $P_y = 1$ 이다. 이때 $X$재의 가격이 $P_x' = 1$ 로 하락할 때 발생하는 소비자잉여(Consumer Surplus)의 변화량 $\\Delta CS$ 로 옳은 것은? (단, 내부해 조건을 만족한다.)\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 우하향 수요곡선과 소비자잉여 면적 -->\n  <path d=\"M 70 60 Q 150 160 300 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  <line x1=\"50\" y1=\"130\" x2=\"220\" y2=\"130\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  \n  <!-- 소비자잉여 면적 채우기 -->\n  <path d=\"M 50 60 Q 115 110 163 130 L 50 130 Z\" fill=\"#dbeafe\" opacity=\"0.6\" />\n  \n  <text x=\"65\" y=\"100\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e3a8a\" font-weight=\"bold\">소비자잉여 (CS)</text>\n  <text x=\"230\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">가격선 (P)</text>\n</svg>\n```\n",
+      "options": [
+        "$10\\ln 2 \u0007pprox 6.93$",
+        "$10\\ln 5 \u0007pprox 16.09$",
+        "$20\\ln 2 \u0007pprox 13.86$",
+        "$5\\ln 2 \u0007pprox 3.47$",
+        "$15\\ln 2 \u0007pprox 10.40$"
+      ],
+      "answer": "1",
+      "explanation": "준선형 효용함수 하에서는 $X$재의 소득효과가 $0$이므로 마샬 수요곡선과 힉스 수요곡선이 완벽히 일치하여 소비자잉여 변동량이 정확한 후생 변동량을 나타냅니다.\\n1) X재 수요함수 도출:\\n   $MU_x = \\dfrac{10}{X}$, $MU_y = 1$ 이므로,\\n   $\\dfrac{MU_x}{P_x} = \\dfrac{MU_y}{P_y} \\implies \\dfrac{10/X}{P_x} = 1 \\implies X^* = \\dfrac{10}{P_x}$\\n2) 소비자잉여 변화량 적분 연산:\\n   $$\\Delta CS = \\int_{P_x'}^{P_x} X^*(P) dP = \\int_{1}^{2} \\dfrac{10}{P} dP = \\left[ 10\\ln P \\right]_{1}^{2} = 10\\ln 2 \\approx 6.93$$\\n정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-039",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "한계효용 균등의 법칙에 따를 때, $X$재의 가격 $P_x$가 변함에 따라 도출되는 가격소비곡선(PCC)이 수평선인 경우, $X$재의 가격탄력성 $\\varepsilon_x$와 두 재화 간의 교차 탄력성의 성격으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 다양한 예산선들과 접점을 잇는 PCC 수평선 -->\n  <line x1=\"50\" y1=\"120\" x2=\"320\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n  <line x1=\"50\" y1=\"120\" x2=\"230\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n  <line x1=\"50\" y1=\"120\" x2=\"160\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n  \n  <line x1=\"50\" y1=\"165\" x2=\"320\" y2=\"165\" stroke=\"#059669\" stroke-width=\"3\" />\n  <text x=\"280\" y=\"155\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">PCC (수평선)</text>\n</svg>\n```\n",
+      "options": [
+        "$X$재의 가격탄력성 $\u000barepsilon_x = 1$ 이며, $X$재 가격 변화가 $Y$재 소비량에 영향을 주지 않아 두 재화의 교차탄력성은 $0$이다.",
+        "$X$재의 가격탄력성 $\u000barepsilon_x = 0$ 이며, 두 재화의 교차탄력성은 무한대로 발산한다.",
+        "$X$재의 가격탄력성 $\u000barepsilon_x > 1$ 이며, 두 재화는 완전보완재 관계에 놓여 있다.",
+        "가격소비곡선이 수평선이면 $X$재는 열등재가 되고 $Y$재는 기펜재가 된다.",
+        "$X$재 가격 하락 시 $Y$재의 한계효용 비율이 무한대로 변동함을 뜻한다."
+      ],
+      "answer": "1",
+      "explanation": "가격소비곡선(PCC)이 수평선이라는 것은 $P_x$가 변할 때 $Y^*$ 소비량이 불변함을 뜻합니다. 이는 $Y$재 지출액 $P_y Y^*$가 일정함을 의미하므로, 남은 소득으로 구매하는 $X$재 지출액 $P_x X^*$도 일정해야 합니다. 따라서 $X$재의 가격탄력성은 $1$이 되며, $P_x$가 $Y^*$에 아무런 영향도 주지 않으므로 교차탄력성은 $0$이 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-040",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "준선형 효용함수 $U(X, Y) = V(X) + Y$ 에서 $X$재 가격 변동 시 한계효용 균등 법칙의 작용으로 도출되는 개별수요곡선과 소득 효과 배제 조건에 관한 서술로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 준선형 효용함수 대체효과 (소득효과 0) -->\n  <line x1=\"50\" y1=\"80\" x2=\"310\" y2=\"200\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"110\" x2=\"310\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <circle cx=\"160\" cy=\"130\" r=\"4.5\" fill=\"#2563eb\" />\n  <text x=\"170\" y=\"125\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">소득효과가 없어 힉스=마샬 수요 동일</text>\n</svg>\n```\n",
+      "options": [
+        "$X$재의 한계효용이 오직 $X$재 소비량에만 의존하고 $Y$재의 한계효용이 $1$로 고정되어 있어, 가격 변동에 따른 실질 소득의 증감이 $X$재 최적 소비량에 영향을 미치지 못한다.",
+        "$X$재의 가격이 하락하면 소득 효과가 대체 효과를 압도하여 $X$재 소비량이 감소하게 된다.",
+        "소득이 변하면 한계대체율이 가격 비율보다 커지므로 예산 제약 조건이 붕괴된다.",
+        "$X$재의 한계효용은 언제나 일정하게 유지되므로 수요곡선이 수직선 형태를 나타낸다.",
+        "준선형 효용함수에서는 가격 상승 시 대체 효과가 발생하지 않고 소득 효과만 작용한다."
+      ],
+      "answer": "1",
+      "explanation": "준선형 효용함수 $U = V(X) + Y$ 의 한계효용은 $MU_x = V'(X)$, $MU_y = 1$ 입니다. 최적 균형 조건 $\\dfrac{MU_x}{P_x} = \\dfrac{MU_y}{P_y} \\implies \\dfrac{V'(X)}{P_x} = \\dfrac{1}{P_y} \\implies V'(X) = \\dfrac{P_x}{P_y}$ 에는 소비자의 소득 $I$가 포함되지 않습니다. 따라서 가격 변동으로 인해 실질 소득이 변하는 소득 효과가 $X$재의 소비량 조정에는 전혀 영향을 주지 않고, 오직 상대가격 변화에 따른 대체 효과만 작용하여 수요곡선이 우하향하게 유도됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-041",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "두 투자자 A와 B의 위험자산 부($W$)에 대한 VNM 기대효용함수가 각각 $U_A(W) = -e^{-a W}$ ($a > 0$)와 $U_B(W) = \\ln W$ 이다. 애로우-프랫 절대위험회피계수($ARA$)를 적용하여 평가할 때, 부의 증가에 따른 위험자산 분배 선택의 한계 조정 행태에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 위험회피자 A와 B의 무차별곡선 곡률 비교 -->\n  <path d=\"M 50 170 Q 180 150 320 60\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <path d=\"M 50 170 Q 240 160 320 80\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <text x=\"240\" y=\"100\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\" font-weight=\"bold\">B (덜 위험회피적)</text>\n  <text x=\"240\" y=\"145\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">A (더 위험회피적)</text>\n</svg>\n```\n",
+      "options": [
+        "A는 부가 증가해도 절대위험회피도가 일정한 CARA 성향을 보이고, B는 부가 증가할수록 절대위험회피도가 감소하는 DARA 성향을 보여 부의 증가 시 위험자산 절대 투자액을 증가시킨다.",
+        "A와 B 모두 부의 증가 시 절대위험회피도가 증가하는 성향을 보여 위험자산 비중을 전량 회수한다.",
+        "B는 절대위험회피계수가 항상 일정한 CARA 성향을 만족시키는 특이 모형이다.",
+        "A의 절대위험회피계수는 $ARA_A = a W$ 이며, 부가 증가할수록 위험에 더욱 민감하게 반응한다.",
+        "DARA 성향을 보이는 B는 부가 증가하더라도 포트폴리오의 한계 위험 프리미엄을 기하급수적으로 축소시킨다."
+      ],
+      "answer": "1",
+      "explanation": "절대위험회피계수는 $ARA(W) = -\\dfrac{U''(W)}{U'(W)}$ 로 도출됩니다.\\n1) A의 경우: $U_A' = a e^{-a W}, U_A'' = -a^2 e^{-a W} \\implies ARA_A = a$ (상수).\\n- 즉 부의 증감과 무관하게 절대위험회피 강도가 일정한 CARA(Constant Absolute Risk Aversion) 성향을 보입니다.\\n2) B의 경우: $U_B' = \\dfrac{1}{W}, U_B'' = -\\dfrac{1}{W^2} \\implies ARA_B = \\dfrac{1}{W}$ 입니다.\\n- 즉 부가 증가할수록 절대위험회피 강도가 낮아지는 DARA(Decreasing Absolute Risk Aversion) 성향을 보여, 위험자산에 배분하는 절대 액수를 늘리게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-042",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 효용함수가 완전보완재 형태인 $U(X, Y) = \\min(2X, 3Y)$ 이다. 두 재화의 가격이 각각 $P_x = 3$, $P_y = 2$ 이고 가용 소득이 $I = 130$ 일 때, 이 소비자의 효용극대화 소비량 조합 $(X^*, Y^*)$ 과 한계효용 균등의 법칙의 적용성에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 레온티에프 결합선 2X = 3Y (즉 Y = 2/3 X) -->\n  <line x1=\"50\" y1=\"200\" x2=\"290\" y2=\"80\" stroke=\"#10b981\" stroke-width=\"2\" stroke-dasharray=\"3\" />\n  \n  <path d=\"M 110 50 L 110 160 L 250 160\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  <circle cx=\"170\" cy=\"120\" r=\"4.5\" fill=\"#b91c1c\" />\n  \n  <text x=\"180\" y=\"115\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">E* (2X = 3Y 만남)</text>\n</svg>\n```\n",
+      "options": [
+        "$(X^*, Y^*) = (30, 20)$ 이며, 레온티에프 효용함수는 모서리점에서 미분이 불가능하므로 한계효용 균등의 법칙이 직접 적용되지 않고 결합 소비 조건 $2X = 3Y$ 에 의해 최적이 결정된다.",
+        "$(X^*, Y^*) = (20, 30)$ 이며, 한계효용 균등의 법칙에 의해 $MU_x/P_x = MU_y/P_y$가 성립한다.",
+        "$(X^*, Y^*) = (26, 26)$ 이며, 예산선과 무차별곡선이 일치하여 무수히 많은 해를 갖는다.",
+        "$(X^*, Y^*) = (43.3, 0)$ 이며, Y재의 가격이 상대적으로 비싸므로 X재만 소비한다.",
+        "$(X^*, Y^*) = (0, 65)$ 이며, X재의 가격이 비싸므로 Y재만 소비한다."
+      ],
+      "answer": "1",
+      "explanation": "완전보완재 효용함수는 L자 형태로 꺾인 궤적인 $2X = 3Y \\implies Y = \\dfrac{2}{3}X$ 에서 소비 낭비 없이 만족이 극대화됩니다. 이 모서리점에서는 미분이 불가능하여 $MU$가 정의되지 않으므로 한계효용 균등의 법칙이 직접 적용되지 않습니다.\\n최적 소비점 계산:\\n예산제약식 $P_x X + P_y Y = I \\implies 3X + 2Y = 130$ 에 결합조건 $Y = \\dfrac{2}{3}X$ 를 대입하면,\\n$$3X + 2\\left(\\dfrac{2}{3}X\\right) = 130 \\implies \\dfrac{13}{3}X = 130 \\implies X^* = 30$$\\n$$Y^* = \\dfrac{2}{3}(30) = 20$$\\n따라서 최적 소비 수량 조합은 $(30, 20)$이 성립합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-043",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "사회전체에 공리주의적(Benthamite) 사회후생함수 $SW = U_A + U_B$ 가 적용된다. A와 B의 소득에 따른 한계효용이 각각 $MU_A = 100 - I_A$, $MU_B = 120 - 2I_B$ 이다. 사회의 총 소득이 $I = I_A + I_B = 100$ 으로 고정되어 있을 때, 사회 전체의 후생을 극대화하기 위해 요구되는 소득 분배 조합 $(I_A^*, I_B^*)$ 과 사회적 한계효용의 균등 조건에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 공리주의 사회무차별곡선 (우하향 직선)과 UPF 접점 -->\n  <path d=\"M 60 70 Q 200 90 310 190\" fill=\"none\" stroke=\"#059669\" stroke-width=\"3\" />\n  <line x1=\"60\" y1=\"130\" x2=\"220\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <text x=\"130\" y=\"45\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\">공리주의 SW선 (직선)</text>\n</svg>\n```\n",
+      "options": [
+        "$(I_A^*, I_B^*) = (60, 40)$ 이며, 두 구성원의 소득의 한계효용이 균등해지는 지점($MU_A = MU_B = 40$)에서 사회후생이 극대화된다.",
+        "$(I_A^*, I_B^*) = (50, 50)$ 이며, 사회후생의 극대화는 기계적인 소득의 균등 분배 지점에서만 달성된다.",
+        "$(I_A^*, I_B^*) = (70, 30)$ 이며, A의 소득에 따르는 만족 가치가 절대적으로 우월하게 결정된다.",
+        "$(I_A^*, I_B^*) = (100, 0)$ 이며, 공리주의 한계 가치 분석상 한 명에게 소득을 전량 배분하는 코너해가 성립한다.",
+        "$(I_A^*, I_B^*) = (40, 60)$ 이며, B의 한계효용이 A보다 높게 유지되는 비대칭적 균형이다."
+      ],
+      "answer": "1",
+      "explanation": "공리주의 사회후생함수 $SW = U_A(I_A) + U_B(I_B)$ 를 제약식 $I_A + I_B = 100$ 하에서 극대화하는 1계 조건은 두 사람의 소득에 따른 한계효용이 일치하는 것입니다:\\n$MU_A = MU_B \\implies 100 - I_A = 120 - 2I_B \\implies I_A - 2I_B = -20$\\n소득 합 제약식 $I_A = 100 - I_B$ 를 대입하면:\\n$$(100 - I_B) - 2I_B = -20 \\implies 3I_B = 120 \\implies I_B^* = 40$$\\n$$I_A^* = 100 - 40 = 60$$\\n이때의 개별 한계효용은 $MU_A = 100 - 60 = 40$, $MU_B = 120 - 2(40) = 40$ 으로 균등화됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-044",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "사회 후생 극대화 원리로 롤스적(Rawlsian) 사회후생함수 $SW = \\min(U_A, U_B)$ 가 채택되었을 때, 공리주의적 배분 조건과의 본질적인 차이와 한계효용 관점에서의 주요 비판으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 롤즈적 사회무차별곡선 (L자형)과 UPF 접점 -->\n  <path d=\"M 60 70 Q 200 90 310 190\" fill=\"none\" stroke=\"#059669\" stroke-width=\"3\" />\n  <path d=\"M 120 60 L 120 130 L 260 130\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  \n  <text x=\"135\" y=\"70\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#8b5cf6\" font-weight=\"bold\">롤즈적 SW선 (L자)</text>\n</svg>\n```\n",
+      "options": [
+        "롤스적 사회는 한계 만족 증가량($MU_A, MU_B$)의 일치보다 개별 효용 수준의 기하학적 균등화($U_A = U_B$)를 선행하므로, 한계효용 불균등에 따른 사회적 배분 비효율성이 존재할 수 있다.",
+        "롤스적 함수 하에서는 형평성을 철저히 거세하고 오직 사회적 총 한계효용의 합산만을 극대화하려 든다.",
+        "롤스적 최적 상태에서는 사회의 최부유층의 한계효용이 $0$에 수렴할 때까지 자원을 무차별로 징발한다.",
+        "L자 사회무차별곡선의 모서리점에서는 한계대체율이 언제나 사회적 한계변환율($MRT$)보다 커지게 묶인다.",
+        "롤스적 배분은 두 사람의 소득을 항상 가격의 역수 비율로 균등화하는 수리적 균형을 가져온다."
+      ],
+      "answer": "1",
+      "explanation": "롤스(Rawls)의 후생이론은 사회의 최소 수혜자 만족도를 극대화하므로, 최적 배분은 $U_A = U_B$ 가 성립하는 지점에서 결정됩니다. 이 지점에서는 두 사람의 소득 추가 1원당 한계효용 $MU_A$ 와 $MU_B$ 가 서로 다르게 형성될 수 있어, 소득을 한계효용이 더 높은 사람에게 배분하여 사회 전체 만족의 총합을 더 늘릴 수 있음에도 이를 포기하게 되는 비효율(배분적 비효율)이 발생합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-045",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "어느 재화 소비에 있어 소비 외부성(Consumption Externality)이 존재할 때, 개별 소비자가 사적으로 도달하는 1원당 한계효용 균등 조건($MU_i/P_i = \\lambda$)과 사회적 파레토 최적을 달성하기 위한 한계 조건식 간의 대수적 불일치에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 사적 최적점과 사회적 최적점의 괴리 -->\n  <path d=\"M 70 80 Q 150 160 300 180\" fill=\"none\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <path d=\"M 70 50 Q 150 130 300 150\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <circle cx=\"160\" cy=\"133\" r=\"4\" fill=\"#ef4444\" />\n  <circle cx=\"210\" cy=\"144\" r=\"4\" fill=\"#10b981\" />\n  \n  <text x=\"110\" y=\"120\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">사적 균형 (과소소비)</text>\n  <text x=\"220\" y=\"140\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#10b981\" font-weight=\"bold\">사회적 최적</text>\n</svg>\n```\n",
+      "options": [
+        "개별 소비자는 타인에게 유발하는 외부 한계효용($EMU$)을 고려하지 않으므로, 양(+)의 외부성이 존재할 때 사적 균등 소비량은 사회적 최적보다 과소해져 시장 실패가 발생한다.",
+        "소비 외부성이 개입될 때 사적 균등화 조건을 따르면 언제나 파레토 효율적인 최적 배분이 보장된다.",
+        "음(-)의 외부성이 존재하면 사적 균등화 조건식 하에서 소비 수량이 사회적 최적보다 대폭 축소되는 현상이 일어난다.",
+        "피구세(Pigouvian Tax)의 부과가 개별 소비자의 사적 한계효용 비율을 완전히 왜곡시켜 사회적 후생을 저해한다.",
+        "소비 외부성은 오직 공급 측면의 생산 함수에만 왜곡을 유발하므로 소비자 한계효용 균등과는 무관하다."
+      ],
+      "answer": "1",
+      "explanation": "소비 외부성이 개입되면 사회적 한계효용($SMU$)은 사적 한계효용($PMU$)과 외부 한계효용($EMU$)의 합으로 산정되어야 합니다 ($SMU = PMU + EMU$). 하지만 개별 소비자는 오직 사적 한계효용과 가격만을 고려한 $\\dfrac{PMU_i}{P_i} = \\lambda$ 조건에 따라 행동합니다. 따라서 타인에게 이득을 주는 양(+)의 외부성이 존재하는 경우($EMU > 0$), 사회적 한계효용이 더 큼에도 소비자는 이를 무시하므로 사회적으로 필요한 수준보다 과소 소비하여 시장실패가 일어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-046",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "다기간 확률적 최적 성장 모형(Stochastic Optimal Growth Model)에서 미래 자산 소득의 불확실성이 존재할 때, 합리적 소비자의 시점간 위험 조정 한계효용 균등을 나타내는 확률적 오일러 방정식(Stochastic Euler Equation)의 수식 형태로 옳은 것은? (단, $u'(C_t)$는 $t$기의 한계효용, $\\beta$는 시간할인인자, $R_{t+1}$은 $t+1$기의 실질 수익률이며, $E_t$는 기댓값 작용소이다.)\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 소비 오일러 확률 결정 궤적 -->\n  <path d=\"M 60 70 C 150 150, 200 150, 310 120\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  <text x=\"20\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">u'(C_t)</text>\n</svg>\n```\n",
+      "options": [
+        "$u'(C_t) = \\beta E_t [ R_{t+1} u'(C_{t+1}) ]$",
+        "$u'(C_t) = \\beta R_{t+1} E_t [ u'(C_{t+1}) ]$",
+        "$E_t [ u'(C_t) ] = \\beta R_{t+1} u'(C_{t+1})$",
+        "$u'(C_t) + u'(C_{t+1}) = \\beta E_t [ R_{t+1} ]$",
+        "$u'(C_t) = E_t \\left[ \\dfrac{\\beta}{R_{t+1}} u'(C_{t+1}) \\right]$"
+      ],
+      "answer": "1",
+      "explanation": "미래가 불확실한 동학적 환경에서 소비자의 최적 소비 경로는 $t$기 소비 1단위 감소에 따른 한계 고통 $u'(C_t)$ 가, $t$기에 저축한 금액이 $t+1$기에 거두는 실질수익 $R_{t+1}$에 의해 늘어날 $t+1$기 한계 만족의 현재가치의 기대값인 $\\beta E_t [ R_{t+1} u'(C_{t+1}) ]$ 과 정확히 같아질 때 만족됩니다. 따라서 확률적 오일러 방정식은 $u'(C_t) = \\beta E_t [ R_{t+1} u'(C_{t+1}) ]$ 로 도출되며 이는 미래의 위험을 조정한 시점간 한계효용 균등화 조건입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-047",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "폴 사무엘슨(Paul Samuelson)의 현시선호이론(Revealed Preference Theory)의 약공리(WARP)와 강공리(SARP)가 지니는 경제학적 기여 및 한계대체율 복원에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- WARP 위반 모식도 (두 예산선 교차 및 선택점 교차) -->\n  <line x1=\"50\" y1=\"70\" x2=\"290\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"140\" x2=\"230\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  \n  <circle cx=\"120\" cy=\"115\" r=\"4\" fill=\"#b91c1c\" />\n  <text x=\"125\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">A</text>\n  <circle cx=\"160\" cy=\"130\" r=\"4\" fill=\"#1e3a8a\" />\n  <text x=\"165\" y=\"125\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e3a8a\" font-weight=\"bold\">B</text>\n</svg>\n```\n",
+      "options": [
+        "주관적인 효용함수나 한계효용의 기수적 측정 없이도, 시장에서 관찰 가능한 소비자의 구매 행태만을 통해 일관성 있는 서수적 무차별곡선과 한계대체율 균등 조건을 도출할 수 있음을 증명하였다.",
+        "약공리는 소득 효과가 배제된 준선형 효용함수 하에서만 성립하는 특수 공리이다.",
+        "강공리가 만족되면 무차별곡선이 항상 우상향하고 한계효용이 체증함을 수학적으로 입증할 수 있다.",
+        "현시선호이론은 한계효용 균등의 법칙이 완전대체재 코너해 상황에서도 만족됨을 보이는 이론이다.",
+        "소비자가 A 조합을 B 조합보다 현시선호했다면, 가격과 소득이 변하더라도 B 조합을 A보다 선호하는 선택을 할 수 있음을 뜻한다."
+      ],
+      "answer": "1",
+      "explanation": "현시선호이론은 관찰 불가능한 주관적 만족 개념인 효용이나 한계효용 대신, 시장에서 관찰 가능한 가격과 소비량 정보만을 기초로 소비 행태의 일관성을 검증합니다. 선택의 일관성 공리(약공리 및 강공리)를 통과하면 서수적 무차별곡선 지도가 복원될 수 있음을 증명하여, 소비자들이 실제로 예산선 접점에서 한계대체율을 가격 비율과 일치시키는 최적화 행동을 수행하고 있음을 정합적으로 규명하였습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-048",
+      "difficulty": 4,
+      "question_type": "계산/이론형",
+      "question": "원래의 기수적 효용함수가 $U(X, Y) = X Y$ 이다. 여기에 단조증가변환(Monotonic Transformation)을 가하여 새로운 효용함수 $V(X, Y) = \\ln U = \\ln X + \\ln Y$ 를 정의하였다. 두 효용함수 하에서 최적 소비량 결정을 위한 한계대체율($MRS_{xy}$)과 절대적인 개별 한계효용($MU$) 수치들의 보존성에 관한 서술로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 단조증가변환 시 형상 보존 그래프 -->\n  <path d=\"M 80 60 Q 170 150 310 160\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"3\" />\n  <text x=\"200\" y=\"145\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#8b5cf6\" font-weight=\"bold\">U_0 vs f(U_0) 형상 일치</text>\n</svg>\n```\n",
+      "options": [
+        "두 효용함수의 한계대체율은 $MRS_{xy} = Y/X$ 로 동일하게 보존되므로 동일한 최적 균형 소비점을 도출하나, 절대적인 개별 한계효용($MU_x, MU_y$)의 수치 자체는 변환에 의해 보존되지 않고 변경된다.",
+        "단조증가변환을 적용하면 예산선의 기울기와 무차별곡선의 접선 기울기가 일치하지 않게 왜곡된다.",
+        "V 함수 하에서의 한계대체율은 오직 가용 소득 $I$의 절대 수치에 의해서만 결정되도록 수정된다.",
+        "단조증가변환을 가하면 서수적 선호 체계 자체가 훼손되어 1원당 한계효용 균등의 법칙이 성립 불가능해진다.",
+        "V 함수 하에서의 개별 재화의 한계효용은 원래 U 함수 하에서의 한계효용 값보다 대수적으로 항상 크게 설정된다."
+      ],
+      "answer": "1",
+      "explanation": "서수적 효용이론에 따르면 효용함수의 단조증가변환 $V = f(U)$ ($f' > 0$)는 소비자의 선호 순위를 그대로 유지시킵니다.\\n1) U의 한계대체율: $MRS_{xy} = \\dfrac{MU_{x,U}}{MU_{y,U}} = \\dfrac{Y}{X}$\\n2) V의 한계대체율: $MRS_{xy} = \\dfrac{MU_{x,V}}{MU_{y,V}} = \\dfrac{1/X}{1/Y} = \\dfrac{Y}{X}$\\n이처럼 한계대체율은 동일하게 유지되므로 최적 소비 선택은 변하지 않습니다. 그러나 개별 한계효용 자체는 원래의 $Y, X$ 에서 $1/X, 1/Y$ 로 변화하므로 절대적인 수치 자체는 보존되지 않습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-049",
+      "difficulty": 4,
+      "question_type": "계산/이론형",
+      "question": "폰 노이만-모르겐슈테른(VNM) 기대효용을 테일러 2차 근사(Taylor Expansion)하여 포트폴리오 선택 등에 널리 쓰이는 기대값-분산 효용함수 $U = E(R) - \\dfrac{A}{2} \\sigma^2$ 를 도출하기 위해 만족되어야 하는 핵심 수학적 가정 및 한계 조건식으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 평균-분산 평면 무차별곡선 (위험회피형) -->\n  <path d=\"M 50 180 Q 200 170 320 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">분산 (σ^2)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">기대수익 E(R)</text>\n</svg>\n```\n",
+      "options": [
+        "소비자의 VNM 기대효용함수가 2차 함수 형태(Quadratic Utility)이거나 자산 기대수익률 분포가 정규분포를 따름으로써 3차 이상의 고차 적률의 영향이 배제되어야 한다.",
+        "소비자의 부에 대한 한계효용이 체증하는 특성을 만족시켜 절대위험회피계수가 음수(-)가 되어야 한다.",
+        "테일러 전개 시 위험 회피 계수 $A$의 크기가 소득 수준의 증가율과 비례하여 항상 0으로 수렴해야 한다.",
+        "평균-분산 포트폴리오를 구성할 때 소비자가 항상 위험 선호적(Risk-seeking) 성향을 가지고 있어야만 한다.",
+        "테일러 2차 근사는 불확실성이 극도로 큰 거시적 시스템 리스크 하에서만 무오류로 성립하는 가정을 깔고 있다."
+      ],
+      "answer": "1",
+      "explanation": "기대효용 $E[U(W)]$ 를 평균($E(R)$)과 분산($\\sigma^2$)만으로 구성된 포트폴리오 효용식으로 근사하기 위해 테일러 2차 전개를 취합니다. 이 근사식이 오차 없이 작동하기 위해서는 3차 이상의 미분 계수가 소멸하는 2차 효용함수($U(W) = W - a W^2$)이거나, 자산 수익률의 분포가 완벽히 대칭적이고 정규분포를 따라 평균과 분산(1차 및 2차 적률)만으로 전체의 확률 특성이 규정되어야 합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec01-item02-050",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "리처드 이스터린(Richard Easterlin)이 실증 규명했던 '이스터린 역설(Easterlin Paradox)'의 미시 경제학적 원인을 상대적 지위 추구를 고려한 효용함수 $U_i = f\\left( X_i, \\dfrac{X_i}{\\bar{X}} \\right)$ (단, $X_i$는 개인 $i$의 소비, $\\bar{X}$는 사회의 평균 소비)로 분석할 때, 부정적 소비 외부성 교정을 위해 도입하는 피구세(Pigouvian Tax)에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 상대적 소비 지위 외부성과 피구세 교정 -->\n  <path d=\"M 70 80 Q 160 150 310 160\" fill=\"none\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <path d=\"M 70 50 Q 160 120 310 130\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <!-- 교정세 부과 화살표 -->\n  <path d=\"M 120 90 L 120 65\" fill=\"none\" stroke=\"#059669\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\" />\n  <text x=\"125\" y=\"80\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#059669\">피구세 부과 (소비 억제)</text>\n</svg>\n```\n",
+      "options": [
+        "개인이 소비를 1단위 증가시킬 때 유발하는 사회적 박탈감(부정적 외부성)을 사적으로 직면하는 비용(가격)에 강제로 가산(피구세)하여, 과다 소비를 억제하고 사회적 한계효용 균등을 복원한다.",
+        "피구세를 부과하면 가계의 예산선 기울기가 비선형 곡선 형태로 꼬여 한계대체율 산출이 불가능해진다.",
+        "역설적 상황에서는 경제 성장이 효용을 낮추므로, 지위재 소비에 대한 세금 감면 혜택을 제공하여 소비를 장려해야 한다.",
+        "피구 교정 보조금을 수여하여 타인의 상대적 박탈감을 완화시키는 소비 평탄화를 강제로 달성한다.",
+        "이스터린 역설 하의 상대 효용 구조에서는 피구세를 적용하더라도 사회 구성원 전체의 총만족이 언제나 $0$으로 고정된다."
+      ],
+      "answer": "1",
+      "explanation": "개인이 소비량 $X_i$ 를 증가시키면 전체 평균 소비 $\\bar{X}$ 가 상승하게 되므로, 타인들의 지위적 상대 만족도인 $X_j / \\bar{X}$ 를 하락시키는 부정적 외부성(상대적 박탈감)을 초래합니다. 개별 소비자는 사적으로 직면하는 만족 균등 조건 $\\dfrac{PMU_i}{P_i} = \\lambda$ 에만 맞추어 소비하므로 사회적 관점에서는 지위재(status goods) 소비 낭비가 발생합니다. 정부가 피구세(Pigouvian tax)를 부과하여 사적 한계비용을 높이면 소비 과다 현상이 억제되고 사회적 한계효용 균등화 조건이 회복됩니다. 정답은 1번입니다."
     }
   ]
 }

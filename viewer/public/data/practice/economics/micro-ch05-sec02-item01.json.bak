@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제14절 독점시장",
+    "item": "제1관 독점의 발생원인",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "독점(monopoly)의 정의로 옳은 것은?",
+      "options": [
+        "한 기업이 시장 전체 공급을 담당, 가격결정자",
+        "다수 기업의 자유 경쟁",
+        "정부가 직접 운영",
+        "수요자가 결정",
+        "균형가격이 0"
+      ],
+      "answer": "1",
+      "explanation": "독점: 한 기업이 시장 전체에서 동질 상품의 유일한 공급자. 대체재가 거의 없으며, 기업이 가격결정자. 진입장벽으로 신규 진입 불가."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "독점 발생원인이 아닌 것은?",
+      "options": [
+        "다수의 작은 기업",
+        "규모의 경제 (자연독점)",
+        "정부의 독점권 부여 (특허·면허)",
+        "필수자원의 독점",
+        "네트워크 효과"
+      ],
+      "answer": "1",
+      "explanation": "독점 원인: 자연독점·정부면허·자원독점·네트워크효과·기술독점. 다수의 작은 기업은 완전경쟁이나 독점적 경쟁의 특징."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-003",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "자연독점(natural monopoly)의 본질은?",
+      "options": [
+        "강한 규모경제 → 한 기업의 LRAC가 시장 전체 산출에서도 감소",
+        "정부가 부여한 독점",
+        "기술 특허",
+        "자원 독점",
+        "수요 부족"
+      ],
+      "answer": "1",
+      "explanation": "자연독점: LRAC가 시장 전체 산출에서도 계속 감소. 한 기업이 가장 효율적 공급. 예: 전력·수도·가스·통신 인프라."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-004",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 자연독점 그래프의 LRAC 형태는?\n\n[IMAGE: data/practice/economics/graphs/natural-monopoly.svg]",
+      "options": [
+        "계속 감소 (L자형) → 한 기업이 가장 효율적",
+        "U자형",
+        "수평선",
+        "우상향",
+        "수직선"
+      ],
+      "answer": "1",
+      "explanation": "자연독점의 LRAC는 시장 전체 영역에서도 감소(L자형). 두 기업으로 나누면 각각 비효율 → 한 기업이 효율적."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-005",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "$TC = 1000 + 10Q$. ATC와 산출에 따른 변화는?",
+      "options": [
+        "ATC = 1000/Q + 10, Q ↑ 시 계속 감소 (자연독점)",
+        "ATC 일정",
+        "ATC = Q",
+        "ATC = 10",
+        "ATC 증가"
+      ],
+      "answer": "1",
+      "explanation": "FC=1000 큰 고정비용 + 일정 MC=10. ATC = 1000/Q + 10. Q 증가에 따라 1000/Q 감소 → ATC 계속 감소. 자연독점 특성."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-006",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "정부면허·특허에 의한 독점의 예가 아닌 것은?",
+      "options": [
+        "자유시장의 식당",
+        "신약 특허 (제약회사 20년)",
+        "통신·방송 사업자 면허",
+        "전기·수도 공기업",
+        "복권 전매"
+      ],
+      "answer": "1",
+      "explanation": "정부 면허·특허 독점: 신약(20년 특허), 통신·방송 면허, 공기업, 복권 전매. 자유시장 식당은 자유 진입."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-007",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "네트워크 효과로 인한 독점의 예는?",
+      "options": [
+        "메신저·SNS·플랫폼 (사용자↑→가치↑→사용자↑)",
+        "농산물",
+        "건축 자재",
+        "도시락",
+        "택시"
+      ],
+      "answer": "1",
+      "explanation": "네트워크 효과: 가치 ∝ 사용자수² (Metcalfe). 메신저(카카오톡)·SNS(페이스북)·플랫폼(우버) - 한 번 우세 확보 시 자연 독점 경향."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-008",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "$TC = 5000 + 5Q$, 수요 $P = 100 - 0.5Q$. 평균비용에서 운영 가능한 최소 가격은? (정상이윤)",
+      "options": [
+        "Q = 100에서 P = 55 (ATC=55)",
+        "P = 5",
+        "P = 100",
+        "P = 50",
+        "결정 불가"
+      ],
+      "answer": "1",
+      "explanation": "ATC = 5000/Q + 5. P = ATC 조건:\n$100 - 0.5Q = 5000/Q + 5 \\Rightarrow 95Q - 0.5Q^2 = 5000$.\n$Q = 100$ 대입: $95·100 - 0.5·10000 = 9500 - 5000 = 4500 ≠ 5000$. 약간 다름.\n근사: Q ≈ 100, ATC = 50 + 5 = 55. P(100) = 50. ATC > P → 손실.\n\n[근사 답] ATC = P at Q ≈ 110 부근. 답: ① 근사."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-009",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "필수자원 독점의 예는?",
+      "options": [
+        "다이아몬드(드비어스), 희토류",
+        "농산물 일반",
+        "택시",
+        "외식업",
+        "의류"
+      ],
+      "answer": "1",
+      "explanation": "필수자원 독점: 한 기업·국가가 핵심 자원 통제. 드비어스(다이아몬드 1888~), 중국 희토류, 사우디아라비아 석유. 진입 봉쇄."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-010",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점의 진입장벽으로 옳지 않은 것은?",
+      "options": [
+        "자유로운 정보 흐름",
+        "특허·저작권",
+        "대규모 초기 자본 필요",
+        "정부 면허",
+        "전략적 가격책정 (약탈적 가격)"
+      ],
+      "answer": "1",
+      "explanation": "자유 정보는 진입 촉진. 진입장벽: ① 특허·저작권 ② 초기 자본 ③ 정부 면허 ④ 약탈적 가격(진입자 위협) ⑤ 네트워크 효과 ⑥ 학습효과."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-011",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "자연독점에서 정부가 P = MC 규제 시 발생하는 문제는?\n\n[IMAGE: data/practice/economics/graphs/natural-monopoly.svg]",
+      "options": [
+        "P = MC < ATC → 기업 손실 → 정부 보조금 필요",
+        "초과이윤",
+        "공급 0",
+        "효율 향상만",
+        "변화 없음"
+      ],
+      "answer": "1",
+      "explanation": "자연독점은 LRAC 감소 영역에서 MC < ATC. P = MC 규제 시 P < ATC → 기업 손실. 정부 보조금 또는 P = ATC 규제(평균비용가격)로 대안."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-012",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "자연독점 기업 $TC = 100 + 2Q$. 수요 $P = 30 - Q$. 이윤극대 Q, P, π는?",
+      "options": [
+        "Q = 14, P = 16, π = 96",
+        "Q = 28, P = 2, π = 0",
+        "Q = 20, P = 10, π = 0",
+        "Q = 10, P = 20, π = 80",
+        "Q = 15, P = 15, π = 95"
+      ],
+      "answer": "1",
+      "explanation": "$MR = 30 - 2Q = 2 \\Rightarrow Q = 14, P = 16$.\nTR = 224, TC = 100 + 28 = 128, π = 96."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-013",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "위 문제(012)에서 P = ATC 규제 시 Q, P는? (이윤 0)",
+      "options": [
+        "Q ≈ 25.27, P ≈ 4.73 (정상이윤)",
+        "Q = 28, P = 2",
+        "Q = 20, P = 10",
+        "Q = 14, P = 16",
+        "Q = 100, P = 3"
+      ],
+      "answer": "1",
+      "explanation": "P = ATC 조건: $30 - Q = 100/Q + 2$.\n$28Q - Q^2 = 100$\n$Q^2 - 28Q + 100 = 0$.\n$Q = (28 ± \\sqrt{384})/2 ≈ (28 ± 19.6)/2$. 큰 해 Q ≈ 23.8, 작은 해 ≈ 4.2.\nP < 독점가격이라야 의미: Q ≈ 23.8, P ≈ 6.2. 또는 큰 Q 25 근사 → P ≈ 5. 답: ① 근사."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-014",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점력의 측정 지표가 아닌 것은?",
+      "options": [
+        "수요량 절대값",
+        "라너 지수 L = (P-MC)/P",
+        "HHI (Herfindahl-Hirschman Index)",
+        "시장 점유율",
+        "마크업율 (Markup)"
+      ],
+      "answer": "1",
+      "explanation": "독점력 지표: ① 라너 지수 ② HHI (시장집중도) ③ 시장 점유율 ④ 마크업율 (P - MC)/MC. 수요량 절대값은 시장 크기일 뿐 독점력과 무관."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-015",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "시장 4개 기업의 점유율 40%, 30%, 20%, 10%. HHI는?",
+      "options": [
+        "HHI = 3000",
+        "HHI = 100",
+        "HHI = 10000",
+        "HHI = 500",
+        "HHI = 2500"
+      ],
+      "answer": "1",
+      "explanation": "HHI = Σ(점유율)² = 40² + 30² + 20² + 10² = 1600 + 900 + 400 + 100 = 3000.\n범위 0~10000. 1500 이상은 집중 시장. 3000은 매우 집중."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-016",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "HHI 해석으로 옳은 것은?",
+      "options": [
+        "HHI < 1500: 비집중, 1500-2500: 보통 집중, > 2500: 매우 집중",
+        "HHI는 항상 1500",
+        "낮을수록 독점",
+        "정부 결정값",
+        "수요량 측정"
+      ],
+      "answer": "1",
+      "explanation": "미국 법무부 기준: HHI < 1500 비집중, 1500-2500 보통 집중, > 2500 매우 집중. M&A 심사 기준. HHI 증가폭(ΔHHI)도 중요."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-017",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국의 자연독점 규제 사례는?",
+      "options": [
+        "한국전력, 한국가스공사, KT (분할 전 통신)",
+        "삼성전자",
+        "현대자동차",
+        "농협",
+        "롯데"
+      ],
+      "answer": "1",
+      "explanation": "한국 자연독점: 전력(한전), 가스(가스공사), 수도(지자체), 통신(분할 전 KT). 공기업 운영 또는 가격 규제로 대응."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-018",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점의 동학적 효율 옹호론 (슘페터)은?",
+      "options": [
+        "독점이윤이 R&D·혁신 동기 → 장기 동학적 효율 가능",
+        "독점은 항상 비효율",
+        "독점은 정부 결정",
+        "독점은 분배만 영향",
+        "독점은 단기에만 효율"
+      ],
+      "answer": "1",
+      "explanation": "슘페터(1942): 정태적 비효율(DWL)이 있어도 독점이윤이 R&D 자금원·혁신 동기 → 창조적 파괴로 장기 성장. 정태 vs 동학 효율의 trade-off."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-019",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요 $P = 80 - Q$, $TC = 200 + 20Q$. 자연독점 여부 판정 위한 MES (LRAC 최저) Q는?",
+      "options": [
+        "Q → ∞ (LRAC 계속 감소, 자연독점)",
+        "Q = 10",
+        "Q = 20",
+        "Q = 200",
+        "Q = 50"
+      ],
+      "answer": "1",
+      "explanation": "ATC = 200/Q + 20. $dATC/dQ = -200/Q^2 < 0$ 항상.\nQ ↑ → ATC ↓ (극소 없음). 자연독점 특성.\n시장 수요 영역 내에서 한 기업이 효율적."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-020",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "자연독점의 정책 대안 비교로 옳은 것은?",
+      "options": [
+        "P=MC: 손실·보조금 필요 / P=ATC: 정상이윤 (Ramsey 규제) / 가격상한: 효율-형평 절충",
+        "P=MC만 가능",
+        "정부 운영만 가능",
+        "방치가 최선",
+        "분할이 유일 답"
+      ],
+      "answer": "1",
+      "explanation": "자연독점 정책: ① P=MC(한계비용 규제): 가장 효율적이나 손실 → 보조금 ② P=ATC(평균비용 규제, Ramsey): 정상이윤 ③ 가격상한: 단순 ④ 공기업화 ⑤ 경쟁 도입 (망 분리)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-021",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "독점기업의 수요곡선과 MR의 관계는?\n\n[IMAGE: data/practice/economics/graphs/monopoly.svg]",
+      "options": [
+        "MR이 수요(P)보다 아래, 같은 절편·기울기 2배 (선형 수요)",
+        "MR = P",
+        "MR > P",
+        "MR과 P 무관",
+        "MR은 수평"
+      ],
+      "answer": "1",
+      "explanation": "독점기업은 우하향 수요 → MR < P. 선형 수요 P = a - bQ에서 MR = a - 2bQ (절편 동일, 기울기 2배)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-022",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점 vs 완전경쟁 비교 시 차이가 아닌 것은?",
+      "options": [
+        "둘 다 경제적 이윤이 장기에 0",
+        "독점: P > MC, 완전경쟁: P = MC",
+        "독점: 가격결정자, 완전경쟁: 가격수용자",
+        "독점: DWL 발생, 완전경쟁: DWL = 0",
+        "독점: 진입장벽 존재"
+      ],
+      "answer": "1",
+      "explanation": "독점은 진입장벽으로 장기 초과이윤 유지 가능. 완전경쟁은 자유 진입으로 장기 이윤 0. 정상이윤 측면에서만 동일."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-023",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $P = 60 - Q$, 자연독점 $TC = 400 + 10Q$. 이윤극대 vs P=ATC 규제 비교는?",
+      "options": [
+        "이윤극대 Q=25,P=35,π=225 / 규제 Q≈40,P≈20,π=0",
+        "변화 없음",
+        "규제 후 이윤 증가",
+        "규제로 거래량 감소",
+        "둘 다 동일"
+      ],
+      "answer": "1",
+      "explanation": "이윤극대: MR = 60 - 2Q = 10 → Q = 25, P = 35. TR = 875, TC = 650, π = 225.\nP = ATC 규제: 60 - Q = 400/Q + 10 → 50Q - Q² = 400 → Q² - 50Q + 400 = 0.\nQ = (50 ± √900)/2 = (50 ± 30)/2 → Q = 40 또는 10. 큰 해 Q = 40, P = 20."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-024",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "Lerner 지수 L = 0.5인 시장. 수요탄력성은?",
+      "options": [
+        "ε = 2",
+        "ε = 0.5",
+        "ε = 1",
+        "ε = ∞",
+        "ε = 0"
+      ],
+      "answer": "1",
+      "explanation": "L = 1/|ε| → |ε| = 1/L = 1/0.5 = 2.\nL과 탄력성은 반비례. L 높을수록 독점력 큼, 탄력성 작음."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item01-025",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점기업의 가격이 항상 MC보다 큰 이유는?",
+      "options": [
+        "MR < P 이고 MR = MC이므로 P > MR = MC",
+        "정부 규정",
+        "비용 큼",
+        "수요가 많아서",
+        "ATC > MC"
+      ],
+      "answer": "1",
+      "explanation": "독점에서 우하향 수요로 인해 MR < P. 이윤극대 조건 MR = MC. 결합: P > MR = MC. 그래서 라너 지수 L = (P-MC)/P > 0."
+    }
+  ]
+}

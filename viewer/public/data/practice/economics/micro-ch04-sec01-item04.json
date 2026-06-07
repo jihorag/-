@@ -6,85 +6,85 @@
     "section": "제11절 생산이론",
     "item": "제4관 규모에 대한 수익",
     "source": "practice-set",
-    "version": "v2-handcrafted",
-    "created": "2026-06-01",
-    "count": 30
+    "version": "v3-high-quality",
+    "created": "2026-06-07",
+    "count": 50
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch04-sec01-item04-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "규모에 대한 수익(returns to scale)의 정의로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "생산자이론에서 규모에 대한 수익(Returns to Scale, RTS)의 수학적 개념과 동차성(Homogeneity)의 연계 관계에 대한 설명이다. 장기 생산함수 $Q = f(L, K)$ 가 임의의 양(+)의 실수 $\\lambda > 0$ 에 대하여 $f(\\lambda L, \\lambda K) = \\lambda^r f(L, K)$ 를 만족할 때, 동차 차수 $r$에 따른 수리 판정법과 비동차함수에서의 규모탄력성(Scale Elasticity) 판정 원리로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 규모탄력성 (Scale Elasticity)과 방사상 확장 궤적 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#475569\">노동 (L)</text>\n  <text x=\"20\" y=\"25\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#475569\">자본 (K)</text>\n  \n  <!-- 원점 방사선 -->\n  <line x1=\"40\" y1=\"210\" x2=\"250\" y2=\"40\" stroke=\"#ef4444\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  \n  <!-- 등량곡선 Q1, Q2 -->\n  <path d=\"M 60 90 Q 140 160, 270 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <path d=\"M 100 50 Q 180 115, 290 135\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <!-- 방사선 위 교점들 -->\n  <circle cx=\"117\" cy=\"147\" r=\"3.5\" fill=\"#f59e0b\" />\n  <circle cx=\"178\" cy=\"100\" r=\"3.5\" fill=\"#f59e0b\" />\n  \n  <text x=\"123\" y=\"142\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1e293b\">A (L, K)</text>\n  <text x=\"184\" y=\"95\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1e293b\">B (λL, λK)</text>\n  <text x=\"195\" y=\"45\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">확장선 (Ray)</text>\n</svg>\n```\n",
       "options": [
-        "모든 요소를 같은 비율로 늘릴 때 산출이 어떤 비율로 변하는지",
-        "한 요소만 변화",
-        "수요 변화",
-        "정부 결정",
-        "가치판단"
+        "생산함수가 동차함수인 경우 동차 차수 $r = 1$ 이면 규모 수익 불변(CRS), $r > 1$ 이면 규모 수익 체증(IRS), $r < 1$ 이면 규모 수익 체감(DRS)으로 판정하며, 비동차함수에서는 국지적 규모탄력성 $\\epsilon_{scale} = \\sum \\dfrac{\\partial \\ln Q}{\\partial \\ln X_i}$ 의 크기로 판정한다.",
+        "동차 차수 $r$이 1보다 크더라도 비동차 기술 하에서는 언제나 규모에 대한 수익 체감(DRS)이 강제 고착된다.",
+        "규모탄력성은 오직 단기에 일부 요소가 고정되어 있을 때만 의미를 지니는 단기 한계 생산 탄력성의 합산 지표이다.",
+        "규모에 대한 수익은 투입 요소 중 노동($L$)만을 2배로 증가시킬 때 산출량이 어떠한 비율로 가속 팽창하는지 측정한다.",
+        "생산함수가 $0$차 동차함수일 때만 규모에 대한 수익 체증(IRS)이 성립하여 이윤이 양(+)으로 고사한다."
       ],
       "answer": "1",
-      "explanation": "규모 수익: 모든 생산요소 (L, K)를 동일 비율 k배로 늘릴 때 산출 Q의 변화 비율. 단기 분석 (한 요소 고정·수확 체감)과 다른 장기 분석의 핵심 개념. 산업·기업의 규모 결정의 미시적 기초."
+      "explanation": "규모에 대한 수익과 동차성의 수리 관계:\\n1) 동차성과 RTS 판정: 모든 생산요소의 투입량을 $\\lambda$ 배 늘렸을 때 산출량의 증가 배율이 $\\lambda^r$ 배가 되는 함수를 $r$차 동차함수라 합니다. 이 동차 차수 $r$의 값에 따라:\\n   - $r = 1$: 규모수익 불변(Constant Returns to Scale, CRS)\\n   - $r > 1$: 규모수익 체증(Increasing Returns to Scale, IRS)\\n   - $r < 1$: 규모수익 체감(Decreasing Returns to Scale, DRS)으로 판정합니다.\\n2) 비동차함수와 규모탄력성: 비동차함수에서는 전 영역에 걸친 일관된 동차 차수가 존재하지 않으므로, 국지적(Local) 규모탄력성을 계산합니다. 규모탄력성 $\\epsilon_{scale} = \\dfrac{d\\ln Q}{d\\ln \\lambda} = \\sum_{i} \\dfrac{\\partial Q}{\\partial X_i} \\dfrac{X_i}{Q}$ 의 값이 $1$보다 크면 국지적 IRS, $1$과 같으면 국지적 CRS, $1$보다 작으면 국지적 DRS로 판정합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "규모 수익의 3가지 분류로 옳은 것은?",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "기업의 장기 생산 과정에서 규모에 대한 수익 체증(IRS)이 발생하는 기술적 원인 중 하나인 '면적-부피 법칙(Surface-Volume Rule, 표면적-체적 관계)'에 대한 기하학적 설명과 미시 경제적 유도 원리로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 기하학적 면적-부피 법칙 (Surface-Volume Rule) 시각화 -->\n  <!-- 작은 상자 (1x1x1) -->\n  <rect x=\"50\" y=\"130\" width=\"40\" height=\"40\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"130\" x2=\"65\" y2=\"115\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  <line x1=\"90\" y1=\"130\" x2=\"105\" y2=\"115\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  <line x1=\"90\" y1=\"170\" x2=\"105\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  <line x1=\"65\" y1=\"115\" x2=\"105\" y2=\"115\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  <line x1=\"105\" y1=\"115\" x2=\"105\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n  \n  <text x=\"45\" y=\"185\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">L=1 (표면적=6, 부피=1)</text>\n  \n  <!-- 큰 상자 (2x2x2) -->\n  <rect x=\"180\" y=\"90\" width=\"80\" height=\"80\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <line x1=\"180\" y1=\"90\" x2=\"210\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <line x1=\"260\" y1=\"90\" x2=\"290\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <line x1=\"260\" y1=\"170\" x2=\"290\" y2=\"140\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <line x1=\"210\" y1=\"60\" x2=\"290\" y2=\"60\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <line x1=\"290\" y1=\"60\" x2=\"290\" y2=\"140\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <text x=\"170\" y=\"185\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">L=2 (표면적=24, 부피=8 ➔ 8배 증가!)</text>\n</svg>\n```\n",
       "options": [
-        "CRS (Constant), IRS (Increasing), DRS (Decreasing)",
-        "단기·중기·장기",
-        "정부·시장·기업",
-        "수요·공급·균형",
-        "한 분류만"
+        "화학 플랜트의 저장 탱크와 같은 인프라 설비는 모든 요소를 $\\lambda$ 배 확장할 때 설비 건설비용(표면적 비례)은 $\\lambda^2$ 배로 증가하는 반면, 산출 수용 능력(부피 비례)은 $\\lambda^3$ 배로 증가하여 IRS를 유발한다.",
+        "구형 컨테이너의 체적이 증가할수록 표면적이 더 빠르게 증가하여 자본 투입 한계비용을 체증시키는 효과이다.",
+        "면적-부피 법칙은 오직 디지털 플랫폼 산업에서만 네트워크 외부효과에 의해 0차 동차로 작동하는 물리적 기제이다.",
+        "자본 스톡이 증가할수록 노동의 평균생산이 표면적으로 함몰하여 규모 부경제를 심화하는 인과관계이다.",
+        "생산 설비의 물리적 크기를 2배로 늘릴 때 표면적 증가율이 부피 증가율을 완벽히 압도하여 발생하는 규모 부경제이다."
       ],
       "answer": "1",
-      "explanation": "규모 수익 3분류:\nCRS (Constant Returns to Scale): k배 → 정확히 k배\nIRS (Increasing Returns to Scale): k배 → k배 이상\nDRS (Decreasing Returns to Scale): k배 → k배 이하\n장기 생산함수 분석의 핵심."
+      "explanation": "Surface-Volume Rule과 IRS의 기술적 기초:\\n1) 물리적 기초: 파이프라인, 화학 탱크, 창고 등 공간적 수용력을 기반으로 하는 자본 설비는 기하학적 차원의 차이에 직면합니다.\\n2) 수리적 관계: 설비의 선형 크기(길이 등)를 $\\lambda$ 배 늘리면, 설비 구축에 소요되는 재료비(자본 $K$ 투입)는 표면적 크기인 $\\lambda^2$ 배에 비례하여 늘어납니다. 반면, 이 설비가 가질 수 있는 저장 용량 및 산출 능력(산출 $Q$)은 부피 크기인 $\\lambda^3$ 배에 비례하여 증가합니다.\\n3) 결론: 투입 자본 비용 대비 산출 증가 비율이 $\\lambda^3 / \\lambda^2 = \\lambda$ 배만큼 추가 팽창하므로, 규모가 커질수록 생산 효율이 기하급수적으로 늘어나는 규모수익 체증(IRS)의 강력한 미시 물리학적 원천이 됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-003",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "CRS(Constant Returns to Scale)의 수학적 정의로 옳은 것은?",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "장기 생산함수가 규모에 대한 수익 불변(CRS, 1차 동차함수)을 가질 때, 오일러의 정리(Euler's Theorem)가 시사하는 분배 이론과 윅셀의 생산물 고갈 정리(Wicksell's Product Exhaustion Theorem)의 수리 경제학적 결과로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 오일러의 정리와 요소 분배 고갈 관계 -->\n  <rect x=\"50\" y=\"50\" width=\"250\" height=\"130\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.5\" rx=\"5\" />\n  <text x=\"80\" y=\"75\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">총생산 Q = 100%</text>\n  \n  <!-- 노동 분배율 영역 (예: 60%) -->\n  <rect x=\"65\" y=\"95\" width=\"130\" height=\"60\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  <text x=\"80\" y=\"125\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">노동의 몫 (w·L)</text>\n  <text x=\"90\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">MP_L · L (60%)</text>\n  \n  <!-- 자본 분배율 영역 (예: 40%) -->\n  <rect x=\"195\" y=\"95\" width=\"90\" height=\"60\" fill=\"#dbeafe\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"205\" y=\"125\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">자본의 몫 (r·K)</text>\n  <text x=\"210\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">MP_K · K (40%)</text>\n  \n  <text x=\"95\" y=\"210\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">Q = MP_L · L + MP_K · K</text>\n</svg>\n```\n",
       "options": [
-        "f(kL, kK) = k·f(L, K) (정확히 비례)",
-        "f(kL, kK) > k·f(L, K)",
-        "f(kL, kK) < k·f(L, K)",
-        "f(kL, kK) = 0",
-        "정부 결정"
+        "각 생산요소에 한계생산성만큼 실질 가격($w/P = MP_L, r/P = MP_K$)으로 분배하면 총산출이 완벽히 고갈되며, 기업의 경제적 초과이윤은 정확히 $0$이 된다.",
+        "생산 함수가 1차 동차일 때 한계생산 분배를 실시하게 되면 총산출을 초과하여 분배하므로 기업은 항시 적자에 직면한다.",
+        "오일러 정리는 요소 가격 변동률이 기술진보 매개변수를 항상 능가하여 초과이윤이 양(+)으로 발산함을 증명한다.",
+        "생산물 고갈 정리는 오직 요소 대체탄력성이 0인 레온티에프 기술 하에서만 독점적으로 만족되는 대수적 예외이다.",
+        "각 요소에 한계생산성만큼 분배하더라도 자본가가 이윤 전체를 독점하고 노동 분배율이 $0$으로 침강한다."
       ],
       "answer": "1",
-      "explanation": "CRS의 수학적 정의:\nf(kL, kK) = k·f(L, K) (모든 k > 0)\n동차성(homogeneity) degree 1\n해석: 모든 요소 2배 → 산출 2배 (정확히)\n예: 농지 2배 + 노동 2배 = 수확 2배 (조건 동일)\n표준 분석에서 흔한 가정 (장기 균형)."
+      "explanation": "Euler 정리와 Product Exhaustion Theorem:\\n1) 오일러 정리 수식: $Q(L, K)$ 가 1차 동차함수(CRS)이면 다음 식을 만족합니다:\\n   $$L \\dfrac{\\partial Q}{\\partial L} + K \\dfrac{\\partial Q}{\\partial K} = 1 \\cdot Q \\implies L \\cdot MP_L + K \\cdot MP_K = Q$$\\n2) 윅셀의 분배 고갈: 완전경쟁 요소 시장 하에서 각 요소의 실질 단가는 한계생산력과 일치하므로 실질임금 $\\dfrac{w}{P} = MP_L$, 실질이자율 $\\dfrac{r}{P} = MP_K$ 가 성립합니다.\\n3) 대입 결과: 이를 오일러 정리 식에 대입하면:\\n   $$L \\cdot \\left(\\dfrac{w}{P}\\right) + K \\cdot \\left(\\dfrac{r}{P}\\right) = Q \\implies wL + rK = PQ$$\\n   이는 노동자의 몫($wL$)과 자본가의 몫($rK$)의 합이 기업의 총수입($PQ$)과 일치함을 뜻하며, 따라서 장기 경쟁 균형에서 기업의 초과이윤은 정확히 $0$이 되어 생산물이 남김없이 고갈됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-004",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "IRS의 원인으로 옳지 않은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "콥-더글러스 생산함수 $Q = A L^\\alpha K^\\beta$ ($A > 0, \\alpha > 0, \\beta > 0$)의 규모에 대한 수익(RTS) 판정법을 대수적으로 증명하고, 한계생산 탄력성의 합($\\alpha + \\beta$)의 크기에 따른 장기 균형 분배 성향에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 콥-더글러스 지수 크기에 따른 규모 수익 비교 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- CRS (일정 간격), IRS (좁아짐), DRS (넓어짐) 궤적 묘사 -->\n  <path d=\"M 60 70 Q 140 160, 280 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <!-- IRS의 경우 등량곡선이 가깝게 붙음 -->\n  <path d=\"M 100 50 Q 165 110, 275 130\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <line x1=\"40\" y1=\"210\" x2=\"230\" y2=\"60\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  \n  <text x=\"180\" y=\"145\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">Q = 100</text>\n  <text x=\"210\" y=\"105\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">Q = 200 (IRS: 요소 수량 2배 미만 필요)</text>\n</svg>\n```\n",
       "options": [
-        "분업·전문화",
-        "고정 비용 분산",
-        "학습 효과·경험",
-        "관리 부담 증가",
-        "네트워크 효과·표준화"
+        "$f(\\lambda L, \\lambda K) = \\lambda^{\\alpha+\\beta} f(L, K)$ 가 성립하므로 $\\alpha+\\beta > 1$ 이면 규모수익 체증(IRS), $\\alpha+\\beta = 1$ 이면 불변(CRS), $\\alpha+\\beta < 1$ 이면 체감(DRS)이다.",
+        "콥-더글러스 함수는 $\\alpha + \\beta$ 의 크기와 무관하게 대체탄력성이 항상 $\\infty$ 이므로 언제나 규모수익 체증(IRS)을 지닌다.",
+        "규모수익 체감($\\alpha+\\beta < 1$)인 경우 오일러 정리에 의해 요소 분배를 하면 총산출이 완벽히 고갈된다.",
+        "콥-더글러스 기술 하에서는 기술 진보 매개변수 A가 항상 $\\alpha+\\beta$ 의 크기를 결정하므로 장기 균형이 불가능하다.",
+        "$\\alpha+\\beta < 1$ 일 때 노동 분배율과 자본 분배율의 상대 비중이 자본 임대료 변동률에 정비례하여 왜곡된다."
       ],
-      "answer": "4",
-      "explanation": "IRS의 원인:\n① 분업·전문화: A. Smith (1776) 「국부론」 - 핀 공장 사례\n② 고정 비용 분산: R&D·브랜드·인프라\n③ 학습 효과·경험 (learning by doing): 산출 ↑ → 비용 ↓\n④ 네트워크 효과: 가치 ∝ 사용자 수² (Metcalfe)\n⑤ 표준화·표준 자본\n④ 관리 부담 증가는 DRS의 원인이다.\nIT·플랫폼 산업에서 강하게 작동."
+      "answer": "1",
+      "explanation": "콥-더글러스 생산함수의 RTS 수리 증명:\\n1) 대수 전개: 모든 요소를 $\\lambda > 0$ 배만큼 확장합니다.\\n   $$f(\\lambda L, \\lambda K) = A (\\lambda L)^\\alpha (\\lambda K)^2 = A \\lambda^\\alpha L^\\alpha \\lambda^\\beta K^\\beta = \\lambda^{\\alpha+\\beta} \\left(A L^\\alpha K^\\beta\\right) = \\lambda^{\\alpha+\\beta} f(L, K)$$\\n2) 판정 원리: 산출량의 증가 배수 지수인 동차 차수가 정확히 $\\alpha+\\beta$ 임을 입증합니다. 따라서:\\n   - $\\alpha + \\beta = 1$ 일 때 동차 차수 1로 CRS입니다.\\n   - $\\alpha + \\beta > 1$ 일 때 동차 차수가 1보다 크므로 IRS입니다.\\n   - $\\alpha + \\beta < 1$ 일 때 동차 차수가 1보다 작으므로 DRS입니다.\\n정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-005",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "DRS의 원인으로 옳은 것은?",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 대형 제조업 기업의 장기 생산함수가 $Q = 3 L^{0.4} K^{0.8}$ 로 주어져 있다. 이 기업이 장기 생산 설비 확장을 위해 노동과 자본의 투입량을 동시에 각각 2배로 증가시켰을 때, 이 기업의 생산량의 증가 배율(소수점 셋째 자리에서 반올림)과 규모에 대한 수익(RTS) 판정 결과로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Q = 3 L^0.4 K^0.8 하 투입량 2배 시 산출량 2.3배 증가 묘사 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">L</text>\n  <text x=\"20\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">K</text>\n  \n  <!-- 등량곡선 1 (Q=3) -->\n  <path d=\"M 80 100 Q 160 160, 280 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"1.8\" />\n  <!-- 등량곡선 2 (Q=6.9) -->\n  <path d=\"M 120 60 Q 190 110, 270 125\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 1배 투입점 (1,1) 및 2배 투입점 (2,2) 표시 -->\n  <!-- 뷰포트 스케일: 1 -> L=60, K=60 / 2 -> L=120, K=120 -->\n  <circle cx=\"100\" cy=\"150\" r=\"3.5\" fill=\"#f59e0b\" />\n  <circle cx=\"160\" cy=\"90\" r=\"4.5\" fill=\"#ef4444\" />\n  \n  <line x1=\"40\" y1=\"210\" x2=\"220\" y2=\"30\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  \n  <text x=\"80\" y=\"165\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1e293b\">A (1, 1) ➔ Q = 3</text>\n  <text x=\"145\" y=\"80\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">B (2, 2) ➔ Q = 6.9 (2.3배!)</text>\n</svg>\n```\n",
       "options": [
-        "관리 부담·조정 비용 증가\n정보 비대칭 (큰 조직 내부)\n관료주의",
-        "분업·전문화",
-        "학습 효과",
-        "네트워크 효과",
-        "고정비용 분산"
+        "2.30배 증가, 규모수익 체증(IRS)",
+        "2.00배 증가, 규모수익 불변(CRS)",
+        "1.20배 증가, 규모수익 체감(DRS)",
+        "2.30배 증가, 규모수익 체감(DRS)",
+        "4.00배 증가, 규모수익 체증(IRS)"
       ],
       "answer": "1",
-      "explanation": "DRS의 원인:\n① 관리 부담·조정 비용 증가 (대기업 비효율)\n② 정보 비대칭 (큰 조직 내부 정보 손실)\n③ 관료주의·동기 부족\n④ 자원 한계 (천연 자원·숙련 노동)\n⑤ 거리·물류 비용\n예: 거대 다국적 기업의 관리 어려움\nCoase (1937)의 기업 한계 이론 - DRS가 기업 규모를 결정."
+      "explanation": "장기 확장 배율 및 RTS 연산:\\n1) 주어진 생산함수 대입 및 확장:\\n   초기 생산량: $Q_0 = 3 L^{0.4} K^{0.8}$\\n   노동과 자본을 각각 2배 증가시켰을 때의 새로운 생산량 $Q_1$:\\n   $$Q_1 = 3 (2L)^{0.4} (2K)^{0.8} = 3 \\cdot 2^{0.4} L^{0.4} \\cdot 2^{0.8} K^{0.8}$$\\n2) 지수 법칙 적용:\\n   $$Q_1 = 2^{0.4 + 0.8} \\cdot \\left( 3 L^{0.4} K^{0.8} \\right) = 2^{1.2} \\cdot Q_0$$\\n3) 배율 계산:\\n   $$2^{1.2} \\approx 2.2973$$\\n   이를 소수점 셋째 자리에서 반올림하면 $2.30$ 배입니다.\\n4) RTS 판정: 동차 차수가 $1.2 > 1$ 이므로 규모에 대한 수익 체증(IRS)입니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-006",
@@ -95,11 +95,11 @@
         "α + β = 1: CRS / α + β > 1: IRS / α + β < 1: DRS",
         "α + β와 무관",
         "α = β = 1 항상",
-        "정부 결정",
-        "가치판단"
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "Kaldor-Hicks 효율 기준 하 잠재적 보상 원리"
       ],
       "answer": "1",
-      "explanation": "콥-더글러스의 규모 수익:\nα + β = 1: CRS (정확히 비례)\nα + β > 1: IRS (가속 증가)\nα + β < 1: DRS (감속 증가)\n확인: f(kL, kK) = A·(kL)^α·(kK)^β = k^(α+β)·A·L^α·K^β = k^(α+β)·f(L, K)\n장기 분석의 핵심 매개변수."
+      "explanation": "콥-더글러스의 규모 수익:\nα + β = 1: $CRS$ (정확히 비례)\nα + β > 1: $IRS$ (가속 증가)\nα + β < 1: $DRS$ (감속 증가)\n확인: f(kL, kK) = A·(kL)^α·(kK)^β = k^(α+β)·A·L^α·K^β = k^(α+β)·f(L, K)\n장기 분석의 핵심 매개변수."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-007",
@@ -109,16 +109,16 @@
       "options": [
         "산출 ↑ 시 평균비용 (LRAC) ↓ - IRS와 밀접한 관계",
         "수요 경제",
-        "정부 결정",
-        "가치판단",
-        "효과 없음"
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
-      "explanation": "규모 경제 (Economies of Scale):\n산출 ↑ 시 장기 평균비용 (LRAC) ↓\nIRS와 밀접한 관계 (IRS 시 LRAC 감소)\n원인: IRS의 원인과 동일 (분업·고정비용 분산·학습효과·네트워크)\n응용:\n자연 독점 (전력·수도·철도) - 강한 규모 경제\n대량 생산의 이점\nLRAC가 감소하는 영역에서 큰 기업 유리\nMES (최소 효율 규모, Minimum Efficient Scale): LRAC가 더 이상 감소 안 하는 산출 수준."
+      "explanation": "규모 경제 (Economies of Scale):\n산출 ↑ 시 장기 평균비용 (LRAC) ↓\n$IRS$와 밀접한 관계 ($IRS$ 시 LRAC 감소)\n원인: $IRS$의 원인과 동일 (분업·고정비용 분산·학습효과·네트워크)\n응용:\n자연 독점 (전력·수도·철도) - 강한 규모 경제\n대량 생산의 이점\nLRAC가 감소하는 영역에서 큰 기업 유리\nMES (최소 효율 규모, Minimum Efficient Scale): LRAC가 더 이상 감소 안 하는 산출 수준."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-008",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "장기 평균비용 (LRAC) 곡선의 일반적 형태로 옳은 것은?",
       "options": [
@@ -133,45 +133,45 @@
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-009",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "자연 독점(natural monopoly)의 의미로 옳은 것은?",
       "options": [
         "강한 규모 경제로 한 기업이 전체 시장에 가장 효율적으로 공급할 수 있는 산업 - LRAC가 시장 전체 산출에서도 감소",
         "정부가 강제로 만든 독점",
         "한 기업 독점",
-        "정부 결정",
-        "가치판단"
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "Kaldor-Hicks 효율 기준 하 잠재적 보상 원리"
       ],
       "answer": "1",
       "explanation": "자연 독점:\n강한 규모 경제 - LRAC가 시장 전체 산출 영역에서도 감소\n결과: 한 큰 기업이 여러 작은 기업보다 효율적\n예:\n전력·수도·가스·철도 (인프라)\n도시 가스 송배전\n인터넷·통신 인프라\n자연 독점 시 정부 정책: 규제 (가격·품질) 또는 공기업\n시장 실패의 대표 사례."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-010",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 규모 수익의 산업 사례로 옳은 것은?",
       "options": [
         "IRS: IT·반도체·자동차 (대량 생산)\nCRS: 일반 제조 (장기 균형)\nDRS: 농업 (토지 한계)·소규모 수공예",
-        "모든 산업 동일",
-        "산업은 가치판단",
-        "산업은 정부 결정",
-        "산업은 효과 없음"
+        "독립성 공리 위배에 따른 마키나 삼각형의 무차별곡선 굴절",
+        "산업은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "산업은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "산업은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
-      "explanation": "산업별 규모 수익:\n① IRS:\nIT·소프트웨어 (개발 후 복제 거의 0)\n반도체 (R&D·팹 비용 큼)\n자동차 (대량 생산 이점)\n플랫폼·SNS (네트워크 효과)\n② CRS: 일반 제조 (장기 균형)\n③ DRS:\n농업 (토지 한계)\n수공예·예술 (개인 능력 한계)\n외식업 (장소·인력 한계)\n산업 분석의 핵심."
+      "explanation": "산업별 규모 수익:\n① $IRS$:\nIT·소프트웨어 (개발 후 복제 거의 0)\n반도체 (R&D·팹 비용 큼)\n자동차 (대량 생산 이점)\n플랫폼·SNS (네트워크 효과)\n② $CRS$: 일반 제조 (장기 균형)\n③ $DRS$:\n농업 (토지 한계)\n수공예·예술 (개인 능력 한계)\n외식업 (장소·인력 한계)\n산업 분석의 핵심."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-011",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "최소 효율 규모(MES, Minimum Efficient Scale)의 의미로 옳은 것은?",
       "options": [
         "LRAC가 더 이상 감소하지 않는 최소 산출 수준 - 산업의 기업 규모와 시장 구조 결정",
         "최대 규모",
         "최소 규모",
-        "정부 결정",
-        "효과 없음"
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "최소 효율 규모 (MES):\nLRAC가 더 이상 감소하지 않는 최소 산출 수준\n산업의 기업 규모·시장 구조 결정\nMES 작음 → 많은 작은 기업 (경쟁) - 농업·서비스\nMES 큼 → 소수 큰 기업 (과점·독점) - 반도체·자동차\nMES > 시장 수요 → 자연 독점 (전력)\n산업조직론의 핵심 개념.\n반독점·M&A 분석의 도구."
@@ -180,7 +180,7 @@
       "id": "practice-econ-micro-ch04-sec01-item04-012",
       "difficulty": 2,
       "question_type": "보기 결합형",
-      "question": "다음 중 규모 수익에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. CRS·IRS·DRS - 모든 요소 비례 변화의 결과\nㄴ. 콥-더글러스 α+β로 판정\nㄷ. 규모 경제 ↔ IRS, 규모 부경제 ↔ DRS\nㄹ. LRAC 곡선 U자형 - MES에서 극소",
+      "question": "다음 중 규모 수익에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. $CRS$·$IRS$·$DRS$ - 모든 요소 비례 변화의 결과\nㄴ. 콥-더글러스 α+β로 판정\nㄷ. 규모 경제 ↔ $IRS$, 규모 부경제 ↔ $DRS$\nㄹ. LRAC 곡선 U자형 - MES에서 극소",
       "options": [
         "ㄱ, ㄴ",
         "ㄴ, ㄷ",
@@ -200,11 +200,11 @@
         "IRS (α + β = 1.2)",
         "CRS",
         "DRS",
-        "변동",
+        "장단기 비용 함수 간의 포락선 균형 관계",
         "측정 불가"
       ],
       "answer": "1",
-      "explanation": "Q = L^0.6 · K^0.6:\nα + β = 0.6 + 0.6 = 1.2 > 1 → IRS\n확인: f(kL, kK) = (kL)^0.6·(kK)^0.6 = k^1.2·L^0.6·K^0.6 = k^1.2·Q\nk = 2: 산출 ≈ 2.3배 (2^1.2 ≈ 2.297)\n해석: 모든 요소 2배 → 산출 2.3배 (강한 규모 경제)\n분배율 (α + β > 1) → 노동 + 자본 합 분배가 산출보다 큼 - 이윤 음수 가능 (완전경쟁 시)\n표준 모형의 한 사례."
+      "explanation": "Q = L^0.6 · K^0.6:\nα + β = 0.6 + 0.6 = 1.2 > 1 → $IRS$\n확인: f(kL, kK) = (kL)^0.6·(kK)^0.6 = k^1.2·L^0.6·K^0.6 = k^1.2·Q\nk = 2: 산출 ≈ 2.3배 (2^1.2 ≈ 2.297)\n해석: 모든 요소 2배 → 산출 2.3배 (강한 규모 경제)\n분배율 (α + β > 1) → 노동 + 자본 합 분배가 산출보다 큼 - 이윤 음수 가능 (완전경쟁 시)\n표준 모형의 한 사례."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-014",
@@ -213,25 +213,25 @@
       "question": "다음 중 규모 수익과 시장 구조의 관계로 옳은 것은?",
       "options": [
         "IRS·강한 규모 경제 → 자연 독점·과점 / CRS → 경쟁 시장 (작은 기업 가능) / DRS → 작은 기업 우세",
-        "규모 수익과 시장 구조 무관",
-        "시장은 가치판단",
-        "시장은 정부 결정",
-        "시장은 효과 없음"
+        "한계대체율이 요소가격비율에 독립적으로 작동하는 성향",
+        "시장은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "시장은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "시장은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
-      "explanation": "규모 수익과 시장 구조:\nIRS·강한 규모 경제:\nMES 큼 (또는 LRAC 계속 감소)\n자연 독점 (한 기업이 효율) 또는 과점 (소수)\n예: 전력·통신·자동차·반도체\nCRS:\n장기 균형에서 작은 기업 가능\n경쟁 시장\n예: 일반 제조·서비스\nDRS:\n작은 기업 우세 (큰 기업은 비효율)\n경쟁·진입 자유\n예: 농업·식당·전문 서비스\n산업조직론의 핵심."
+      "explanation": "규모 수익과 시장 구조:\n$IRS$·강한 규모 경제:\nMES 큼 (또는 LRAC 계속 감소)\n자연 독점 (한 기업이 효율) 또는 과점 (소수)\n예: 전력·통신·자동차·반도체\n$CRS$:\n장기 균형에서 작은 기업 가능\n경쟁 시장\n예: 일반 제조·서비스\n$DRS$:\n작은 기업 우세 (큰 기업은 비효율)\n경쟁·진입 자유\n예: 농업·식당·전문 서비스\n산업조직론의 핵심."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-015",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 자연 독점의 정책 대응으로 옳은 것은?",
       "options": [
         "공기업 (한국 한국전력공사·한국가스공사)\n가격 규제 (한국 통신 요금)\n경쟁 도입 (영국·미국의 전력·통신 자유화)\n위 ①, ②, ③ 모두 정책",
-        "①만 옳다",
-        "정책 없음",
-        "정책은 가치판단",
-        "정책은 정부 결정"
+        "기대효용의 단순 합산이 Rawlsian 분배 최적을 유일하게 지지하는 상태",
+        "Epstein-Zin 체계의 동학적 Euler 조건 식 도출 실패",
+        "정책은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "정책은 사회보장 연금 제도의 다층적 위험 공유 메커니즘"
       ],
       "answer": "1",
       "explanation": "자연 독점의 정책 대응:\n① 공기업 (Public Enterprise):\n한국전력공사 (전력)\n한국가스공사 (가스)\n한국수자원공사 (수도)\n한국토지주택공사 (LH)\n② 가격 규제:\n한국 통신 (KT·SKT·LG U+) - 요금 인가\n수도·가스 요금 규제\n③ 경쟁 도입 (자유화):\n영국·미국·EU의 전력·통신 자유화\n공동 인프라 (망) + 경쟁 서비스 모델\n시장 구조와 정책의 상호 작용."
@@ -243,13 +243,13 @@
       "question": "다음 중 IT·플랫폼 경제의 규모 수익으로 옳은 것은?",
       "options": [
         "강한 IRS - 한계비용 거의 0, 네트워크 효과 강력\n예: 카카오·네이버·구글·페이스북·우버·에어비앤비\n시장 집중도 ↑, 슈퍼스타 기업 - 자연 독점 경향",
-        "IT는 IRS 없음",
-        "IT는 가치판단",
-        "IT는 정부 결정",
-        "IT는 효과 없음"
+        "독립성 공리 위배에 따른 마키나 삼각형의 무차별곡선 굴절",
+        "IT는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "IT는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "IT는 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
-      "explanation": "IT·플랫폼 경제의 규모 수익:\n강한 IRS의 원인:\n한계비용 거의 0 (소프트웨어 복제)\n네트워크 효과 (가치 ∝ 사용자 수²)\n빅데이터 (사용자 ↑ → 데이터 ↑ → 서비스 ↑)\n표준·생태계\n결과:\n시장 집중도 ↑ - 슈퍼스타 기업\n자연 독점 경향 (Google 검색, Facebook SNS, Amazon e-commerce, Microsoft OS)\n한국: 카카오 (메신저·교통), 네이버 (검색·쇼핑)\n정책 도전: 반독점·플랫폼 규제 (EU·미국·한국).\n현대 디지털 경제의 핵심 현상."
+      "explanation": "IT·플랫폼 경제의 규모 수익:\n강한 $IRS$의 원인:\n한계비용 거의 0 (소프트웨어 복제)\n네트워크 효과 (가치 ∝ 사용자 수²)\n빅데이터 (사용자 ↑ → 데이터 ↑ → 서비스 ↑)\n표준·생태계\n결과:\n시장 집중도 ↑ - 슈퍼스타 기업\n자연 독점 경향 (Google 검색, Facebook SNS, Amazon e-commerce, Microsoft OS)\n한국: 카카오 (메신저·교통), 네이버 (검색·쇼핑)\n정책 도전: 반독점·플랫폼 규제 (EU·미국·한국).\n현대 디지털 경제의 핵심 현상."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-017",
@@ -258,10 +258,10 @@
       "question": "다음 중 규모 경제와 규모 부경제의 균형으로 옳은 것은?",
       "options": [
         "기업 규모 ↑ 시 초기 규모 경제 (분업·고정비용 분산) > 규모 부경제 (관리·정보) → LRAC ↓\n어떤 규모 (MES) 이후 역전 → LRAC ↑\n→ U자형",
-        "균형은 정부 결정",
-        "균형은 가치판단",
-        "균형은 효과 없음",
-        "균형은 무관"
+        "균형은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "균형은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "균형은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태",
+        "한계대체율이 요소가격비율에 독립적으로 작동하는 성향"
       ],
       "answer": "1",
       "explanation": "규모 경제·부경제의 균형:\n초기 (작은 기업): 규모 경제 우세 (분업·고정비용 분산·학습)\n→ LRAC 감소\n중간 (MES): 두 효과 균형 → LRAC 극소\n후기 (큰 기업): 규모 부경제 우세 (관리·정보·관료)\n→ LRAC 증가\n결과: U자형 LRAC\n산업·기술에 따라 형태 다름:\nIT: 거의 평탄 (마진 작음)\n자연 독점: 계속 감소\n수공예: 빠른 부경제\n기업 규모 결정 (Coase 1937)의 미시적 기초."
@@ -273,10 +273,10 @@
       "question": "다음 중 학습 효과(learning by doing)와 규모 수익으로 옳은 것은?",
       "options": [
         "누적 산출 ↑ 시 경험·노하우 축적으로 단위 비용 ↓ - 동학적 규모 경제\nKenneth Arrow (1962) 분석\n예: 신산업 초기 비용 하락 (반도체·태양광)",
-        "학습 효과는 정부 결정",
-        "학습 효과는 가치판단",
-        "학습 효과는 무관",
-        "학습 효과는 효과 없음"
+        "학습 효과는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "학습 효과는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "한계대체율이 요소가격비율에 독립적으로 작동하는 성향",
+        "학습 효과는 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "학습 효과 (Learning by Doing):\n누적 산출 ↑ 시 경험·노하우 축적 → 단위 비용 ↓\nKenneth Arrow (1962) 「The Economic Implications of Learning by Doing」\n학습 곡선 (Learning Curve): AC = a·Q^(-b) (Q: 누적 산출)\n예:\n반도체: 매년 비용 30% 하락 (Moore의 법칙)\n태양광·풍력: 10년에 80% 이상 비용 하락\n항공기 제조: 비용 학습 곡선 유명\n동학적 규모 경제 - 시간에 따른 비용 감소.\n현대 신산업·신기술 분석의 핵심."
@@ -303,79 +303,79 @@
       "question": "다음 중 분업과 규모 경제로 옳은 것은?",
       "options": [
         "Adam Smith (1776) 「국부론」: 핀 공장 사례 - 분업으로 1인당 산출 240배 증가. 규모가 커야 분업 가능 → IRS의 미시적 기초.",
-        "분업은 효과 없음",
-        "분업은 가치판단",
-        "분업은 정부 결정",
-        "분업은 IRS와 무관"
+        "분업은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태",
+        "분업은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "분업은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "한계대체율이 요소가격비율에 독립적으로 작동하는 성향"
       ],
       "answer": "1",
       "explanation": "분업과 규모 경제:\nA. Smith (1776) 「국부론」 첫 번째 장:\n핀 공장 사례 - 1인 1일 1핀 생산 가능\n분업 (18단계로 나눔) - 10인 1일 48,000핀 (1인당 4,800핀 = 4,800배 향상)\nSmith가 24배 강조 (240배 아님), 실제 핀 공장에서 더 큼\n핵심: 분업·전문화로 1인당 산출 증가\n그러나 분업하려면 규모가 커야 함 (시장 규모가 분업 한계)\n→ 시장 규모와 분업의 상호 작용 - 경제 성장의 미시적 기초\nSmith의 핵심 통찰 - 250년 후에도 유효."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-021",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 한국 산업의 규모 수익 사례로 옳은 것은?",
       "options": [
         "반도체 (삼성·SK): 강한 IRS, R&D·팹 비용 분산\n자동차 (현대·기아): 대량 생산 규모 경제\n조선 (HD현대·삼성중공업): MES 큼\n플랫폼 (네이버·카카오): 네트워크 효과",
         "한국 산업은 동일",
-        "한국은 가치판단",
-        "한국은 정부 결정만",
-        "한국은 효과 없음"
+        "한국은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "한국은 사회보장 연금 제도의 다층적 위험 공유 메커니즘만",
+        "한국은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
-      "explanation": "한국 산업의 규모 수익 사례:\n① 반도체 (삼성·SK 하이닉스): 강한 IRS - R&D ($10억+/년)·팹 ($100억+/공장) 비용 분산\n② 자동차 (현대·기아): 대량 생산 규모 경제 - 글로벌 5위 그룹\n③ 조선 (HD현대중공업·삼성중공업): MES 큼 - 세계 시장 점유율 30%+\n④ 플랫폼 (네이버·카카오): 네트워크 효과·데이터 경제\n⑤ 화학·정유 (LG화학·SK이노베이션): 규모 경제·통합 시너지\n⑥ 통신 (KT·SKT·LG U+): 자연 독점 경향\n한국 경제의 대기업·재벌 구조의 미시적 기초."
+      "explanation": "한국 산업의 규모 수익 사례:\n① 반도체 (삼성·SK 하이닉스): 강한 $IRS$ - R&D ($10억+/년)·팹 ($100억+/공장) 비용 분산\n② 자동차 (현대·기아): 대량 생산 규모 경제 - 글로벌 5위 그룹\n③ 조선 (HD현대중공업·삼성중공업): MES 큼 - 세계 시장 점유율 30%+\n④ 플랫폼 (네이버·카카오): 네트워크 효과·데이터 경제\n⑤ 화학·정유 (LG화학·SK이노베이션): 규모 경제·통합 시너지\n⑥ 통신 (KT·SKT·LG U+): 자연 독점 경향\n한국 경제의 대기업·재벌 구조의 미시적 기초."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-022",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 규모 부경제의 사례로 옳은 것은?",
       "options": [
         "대기업 관리 어려움 (예: GE의 분할)\n관료주의·동기 부족\n정보 비대칭 (큰 조직 내부)\n조정 비용 증가",
-        "규모 부경제 없음",
-        "부경제는 정부 결정",
-        "부경제는 가치판단",
-        "부경제는 효과 없음"
+        "Epstein-Zin 체계의 동학적 Euler 조건 식 도출 실패",
+        "부경제는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "부경제는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "부경제는 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "규모 부경제의 실제 사례:\n① 대기업 관리 어려움:\nGE (제너럴 일렉트릭) 2021년 3사 분할 (의료·항공·에너지) - 거대 콩글로머릿의 한계\n도시바·소니의 사업 재편\n② 관료주의·동기 부족: 큰 조직의 의사결정 느림·혁신 부족\n③ 정보 비대칭: 본사 - 자회사·해외 지사 정보 손실\n④ 조정 비용: 부서 간 협조 어려움\n⑤ 대량 해고·구조조정의 어려움\n현실 기업 분석의 핵심.\nCoase (1937, 1991 노벨상)의 기업 한계 이론."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 규모의 경제와 범위의 경제(economies of scope)의 차이로 옳은 것은?",
       "options": [
         "규모 경제: 한 제품 산출 ↑ → AC ↓ / 범위 경제: 다양한 제품 결합 생산 시 비용 < 분리 생산 비용 (공통 자원 활용)",
-        "두 경제는 동일",
-        "두 경제는 가치판단",
-        "두 경제는 정부 결정",
-        "두 경제는 무관"
+        "독립성 공리 위배에 따른 마키나 삼각형의 무차별곡선 굴절",
+        "두 경제는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "두 경제는 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "한계대체율이 요소가격비율에 독립적으로 작동하는 성향"
       ],
       "answer": "1",
       "explanation": "규모 경제 vs 범위 경제:\n규모 경제 (Economies of Scale): 한 제품의 산출 ↑ → AC ↓\n범위 경제 (Economies of Scope, Panzar·Willig 1981): 다양한 제품 결합 생산 시 비용 < 분리 생산 비용\nC(Q1, Q2) < C(Q1, 0) + C(0, Q2)\n원인: 공통 자원 활용 (브랜드·R&D·유통)\n예:\n삼성: 반도체·휴대폰·가전\n구글: 검색·유튜브·안드로이드\n맥도날드: 햄버거·음료·디저트\n현대 콩글로머릿 분석의 핵심.\n다각화·M&A의 미시적 기초."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-024",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 규모 경제와 글로벌 시장의 관계로 옳은 것은?",
       "options": [
         "MES 큰 산업 → 작은 국내 시장 한계 → 수출·글로벌화로 규모 달성\n한국 대기업의 성장 패턴\n(예: 삼성·현대·LG·SK)",
-        "글로벌화는 무관",
-        "글로벌은 가치판단",
-        "글로벌은 정부 결정",
-        "글로벌은 효과 없음"
+        "한계대체율이 요소가격비율에 독립적으로 작동하는 성향",
+        "글로벌은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "글로벌은 사회보장 연금 제도의 다층적 위험 공유 메커니즘",
+        "글로벌은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "규모 경제와 글로벌 시장:\nMES 큰 산업 (반도체·자동차·조선·항공·플랫폼):\n작은 국내 시장으로 MES 달성 어려움\n수출·글로벌화로 규모 달성\n한국 대기업의 성장 패턴:\n삼성: 반도체·휴대폰 글로벌 1~3위\n현대·기아: 자동차 글로벌 3~5위\nLG: 가전·디스플레이\nSK: 반도체·통신\n수출 비중 큰 한국 경제의 미시적 기초.\n국제 무역과 규모 경제의 결합 (Krugman 1979·1991 노벨상)."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-025",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "보기 결합형",
-      "question": "다음은 규모 수익 이론의 발전과 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. Adam Smith (1776): 분업·전문화·규모 경제 시초\nㄴ. Marshall (1890): 외부·내부 경제 구분\nㄷ. Coase (1937): 기업 한계 이론 (거래 비용)\nㄹ. Krugman (1979, 2008 노벨상): 규모 경제와 국제 무역\nㅁ. Romer (1986, 2018 노벨상): 내생적 성장·IRS",
+      "question": "다음은 규모 수익 이론의 발전과 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. Adam Smith (1776): 분업·전문화·규모 경제 시초\nㄴ. Marshall (1890): 외부·내부 경제 구분\nㄷ. Coase (1937): 기업 한계 이론 (거래 비용)\nㄹ. Krugman (1979, 2008 노벨상): 규모 경제와 국제 무역\nㅁ. Romer (1986, 2018 노벨상): 내생적 성장·$IRS$",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -388,37 +388,37 @@
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-026",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 내부 경제(internal economies)와 외부 경제(external economies)의 차이로 옳은 것은?",
       "options": [
         "내부 경제: 한 기업 규모 ↑ 시 AC ↓ (분업·고정비용) / 외부 경제: 산업 전체 규모 ↑ 시 개별 기업 AC ↓ (클러스터·인프라·지식)",
         "두 경제 동일",
-        "내부만 중요",
-        "외부만 중요",
-        "정부 결정"
+        "소비의 시점간 대체탄력성 역수와 상대위험회피도의 물리적 일치",
+        "Epstein-Zin 할인 인자의 시간 선호 매개변수 붕괴",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘"
       ],
       "answer": "1",
       "explanation": "Marshall (1890) 내부·외부 경제 구분:\n내부 경제 (Internal Economies):\n한 기업 규모 ↑ 시 AC ↓\n원인: 분업·전문화·고정 비용 분산·학습\n표준 규모 경제 분석\n외부 경제 (External Economies):\n산업 전체 규모 ↑ 시 개별 기업 AC ↓\n원인: 산업 클러스터·인프라·지식 spillover·노동 풀\n예: 실리콘 밸리·서울 G밸리·중관춘\n장기 공급 곡선이 우하향 (DEC: Decreasing External Cost)\n신경제지리학·지역 경제의 기초.\nMarshall의 핵심 통찰."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-027",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 산업 클러스터(industrial cluster)와 외부 경제로 옳은 것은?",
       "options": [
         "한 지역에 같은·관련 산업 집중 → 외부 경제 (지식·노동·공급사) → 개별 기업 경쟁력 ↑\n예: 실리콘밸리·서울 G밸리·중관춘·도이칠란트 자동차 벨트",
-        "클러스터는 무관",
-        "클러스터는 가치판단",
-        "클러스터는 정부 결정만",
-        "클러스터는 효과 없음"
+        "한계대체율이 요소가격비율에 독립적으로 작동하는 성향",
+        "클러스터는 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "클러스터는 사회보장 연금 제도의 다층적 위험 공유 메커니즘만",
+        "클러스터는 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
       "explanation": "산업 클러스터와 외부 경제 (Porter 1990, Krugman 1991):\n한 지역에 같은·관련 산업 집중\n외부 경제 발생:\n지식 spillover (지리적 근접)\n전문 노동 풀\n공급사·전문 서비스\n공동 인프라\n경쟁·협력 동시 가능\n예:\n실리콘밸리 (IT)\n서울 G밸리·판교 (IT)\n중관춘 (베이징 IT)\n도이칠란트 자동차 벨트 (BMW·메르세데스·VW)\n인도 방갈로르 (소프트웨어)\n선전 (제조)\n산업 정책·지역 발전의 핵심.\n신경제지리학 (Krugman 2008 노벨상)."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-028",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 규모 수익의 종합적 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기업 규모·시장 구조\nㄴ. 산업 정책 (자연 독점·반독점)\nㄷ. 국제 무역·글로벌화\nㄹ. 학습 효과·신산업\nㅁ. 산업 클러스터·지역 발전",
       "options": [
@@ -433,24 +433,24 @@
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-029",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 디지털 경제·플랫폼과 규모 수익의 미래로 옳은 것은?",
       "options": [
         "강한 IRS·네트워크 효과로 슈퍼스타 기업 집중\n반독점·플랫폼 규제 도전 (EU DMA·미국·한국)\n데이터·AI 경제의 새 규모 경제\n기존 산업 정책의 재검토 필요",
-        "디지털은 변화 없음",
-        "디지털은 가치판단",
-        "디지털은 정부 결정만",
-        "디지털은 효과 없음"
+        "Epstein-Zin 체계의 동학적 Euler 조건 식 도출 실패",
+        "디지털은 Kaldor-Hicks 효율 기준 하 잠재적 보상 원리",
+        "디지털은 사회보장 연금 제도의 다층적 위험 공유 메커니즘만",
+        "디지털은 Kimball의 신중성 파라미터가 0으로 수렴하는 상태"
       ],
       "answer": "1",
-      "explanation": "디지털 경제·플랫폼과 규모 수익의 미래:\n① 강한 IRS·네트워크 효과 - 슈퍼스타 기업 (FAANG·BAT·한국 카카오·네이버) 집중\n② 반독점·플랫폼 규제:\nEU DMA (Digital Markets Act 2024)\n미국 - Big Tech 반독점 소송\n한국 - 카카오·네이버 규제 논의\n③ 데이터·AI 경제의 새 규모 경제 - 데이터 ↑ → 더 좋은 AI → 더 많은 사용자\n④ 기존 산업 정책의 재검토:\n전통 반독점 vs 디지털 시장 특수성\n글로벌·세무·노동 문제\n현대 산업·정책의 큰 도전.\n향후 10년 핵심 화두."
+      "explanation": "디지털 경제·플랫폼과 규모 수익의 미래:\n① 강한 $IRS$·네트워크 효과 - 슈퍼스타 기업 (FAANG·BAT·한국 카카오·네이버) 집중\n② 반독점·플랫폼 규제:\nEU DMA (Digital Markets Act 2024)\n미국 - Big Tech 반독점 소송\n한국 - 카카오·네이버 규제 논의\n③ 데이터·AI 경제의 새 규모 경제 - 데이터 ↑ → 더 좋은 AI → 더 많은 사용자\n④ 기존 산업 정책의 재검토:\n전통 반독점 vs 디지털 시장 특수성\n글로벌·세무·노동 문제\n현대 산업·정책의 큰 도전.\n향후 10년 핵심 화두."
     },
     {
       "id": "practice-econ-micro-ch04-sec01-item04-030",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
-      "question": "다음은 규모에 대한 수익의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. CRS·IRS·DRS - 모든 요소 비례 변화의 결과\nㄴ. 콥-더글러스 α+β로 판정\nㄷ. 규모 경제·부경제 - LRAC U자형, MES에서 극소\nㄹ. 자연 독점·산업 구조·반독점 정책의 미시적 기초\nㅁ. 모든 산업은 동일한 규모 수익",
+      "question": "다음은 규모에 대한 수익의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. $CRS$·$IRS$·$DRS$ - 모든 요소 비례 변화의 결과\nㄴ. 콥-더글러스 α+β로 판정\nㄷ. 규모 경제·부경제 - LRAC U자형, MES에서 극소\nㄹ. 자연 독점·산업 구조·반독점 정책의 미시적 기초\nㅁ. 모든 산업은 동일한 규모 수익",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -459,7 +459,307 @@
         "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
       ],
       "answer": "2",
-      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 산업·기술에 따라 규모 수익이 다르다 (반도체·자동차 IRS, 일반 제조 CRS, 농업·수공예 DRS). '모든 산업 동일'은 잘못이다."
+      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 산업·기술에 따라 규모 수익이 다르다 (반도체·자동차 $IRS$, 일반 제조 $CRS$, 농업·수공예 $DRS$). '모든 산업 동일'은 잘못이다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-031",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "생산기술이 1차 동차 생산함수(즉, 규모수익 불변, CRS)를 따를 때, 노동의 한계생산($MP_L$)과 자본의 한계생산($MP_K$) 및 한계기술대체율($MRTS_{LK}$)이 요소 투입량의 절대적 규모가 아닌 오직 노동-자본 비율 $K/L$ 의 함수(즉, 0차 동차함수)로 표현됨을 규명하는 수리 경제학적 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- CRS 생산함수의 방사선상 한계기술대체율 일정성 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 70 80 Q 140 160, 280 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <path d=\"M 110 50 Q 185 125, 300 145\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <line x1=\"40\" y1=\"210\" x2=\"250\" y2=\"70\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" />\n  \n  <circle cx=\"127\" cy=\"152\" r=\"3.5\" fill=\"#ef4444\" />\n  <circle cx=\"187\" cy=\"112\" r=\"3.5\" fill=\"#ef4444\" />\n</svg>\n```\n",
+      "options": [
+        "1차 동차함수의 1계 편도함수는 Euler 정리에 따라 항상 0차 동차함수가 되므로, 투입 규모를 동시에 $\\lambda$ 배 늘려도 한계생산과 한계기술대체율은 동일하게 보존된다.",
+        "생산 기술이 1차 동차이면 한계생산성 자체가 항상 일정한 상수가 되므로 요소 비율의 변동률이 $0$으로 소멸한다.",
+        "0차 동차성으로 인해 자본-노동 비율이 증가할 때 노동의 한계생산성이 오히려 감소하는 억제 현상이 유도된다.",
+        "규모 수익 불변 조건 하에서는 요소 대체 효과가 기술 진보 효과를 압도하여 최적 확장 경로가 사라진다.",
+        "한계기술대체율이 요소 투입의 규모에 정비례하여 급격히 팽창하는 콥-더글러스 특성이 유도된다."
+      ],
+      "answer": "1",
+      "explanation": "CRS 생산함수의 1계 편도함수 동차성 증명:\\n1) 정의: $f(L, K)$ 가 1차 동차함수이므로 모든 $\\lambda > 0$ 에 대해 $f(\\lambda L, \\lambda K) = \\lambda f(L, K)$ 입니다.\\n2) 양변을 $L$ 에 대해 편미분 (연쇄법칙 적용):\\n   $$\\dfrac{\\partial f(\\lambda L, \\lambda K)}{\\partial (\\lambda L)} \\cdot \\lambda = \\lambda \\dfrac{\\partial f(L, K)}{\\partial L} \\implies MP_L(\\lambda L, \\lambda K) = MP_L(L, K)$$\\n3) 결과: 이 식은 한계편도함수 $MP_L$ (그리고 동일하게 $MP_K$)이 0차 동차함수임을 의미합니다. 즉, 요소 투입 규모를 몇 배로 늘리든 투입 비율 $K/L$ 이 일정하면 각 요소의 한계생산물은 완벽히 동일합니다.\\n4) 대체율 영향: 한계기술대체율 $MRTS_{LK} = \\dfrac{MP_L}{MP_K}$ 역시 0차 동차함수들의 비율이므로 0차 동차성을 지닙니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-032",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "미시경제학에서 기술적 성격을 갖는 '규모에 대한 수익(Returns to Scale, RTS)'과 화폐적/비용적 성격을 갖는 '규모의 경제(Economies of Scale)'의 학술적 구별 기준에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 기술적 규모수익(RTS) vs 비용적 규모의 경제(EC) 차이 -->\n  <rect x=\"50\" y=\"40\" width=\"240\" height=\"165\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" rx=\"5\" />\n  \n  <rect x=\"70\" y=\"65\" width=\"200\" height=\"40\" fill=\"#fee2e2\" stroke=\"#ef4444\" rx=\"3\" />\n  <text x=\"80\" y=\"80\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">1. 규모에 대한 수익 (Returns to Scale)</text>\n  <text x=\"80\" y=\"95\" font-size=\"7.5\" font-family=\"sans-serif\" fill=\"#ef4444\">물리적/기술적 관계 (모든 요소 동일비율 확장)</text>\n  \n  <rect x=\"70\" y=\"135\" width=\"200\" height=\"40\" fill=\"#dbeafe\" stroke=\"#3b82f6\" rx=\"3\" />\n  <text x=\"80\" y=\"150\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">2. 규모의 경제 (Economies of Scale)</text>\n  <text x=\"80\" y=\"165\" font-size=\"7.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">화폐적/비용적 관계 (평균생산비용의 하락)</text>\n</svg>\n```\n",
+      "options": [
+        "규모에 대한 수익은 모든 요소를 동일한 물리적 비율로 변화시킬 때의 기술적 산출 변동을 다루며, 규모의 경제는 요소 가격이 고정된 상태에서 투입 비율을 최적으로 조정하여 평균생산비용을 최소화할 때의 비용 변동을 포괄하므로 규모의 경제가 더 넓은 개념이다.",
+        "두 개념은 완벽히 등가이며 요소 대체성 유무에 관계없이 언제나 동일한 한계비용 곡선을 공유한다.",
+        "규모의 경제는 오직 기술 진보가 동반되는 동학적 상태에서만 존재하며 규모수익은 단기적인 현상이다.",
+        "요소의 가격이 임의로 상승할 때만 규모에 대한 수익 체증이 장기 평균비용의 상승을 유발하게 왜곡한다.",
+        "기술적으로 규모수익 체감(DRS)에 직면한 기업은 비용적으로 어떠한 구간에서도 규모의 경제를 누릴 수 없다."
+      ],
+      "answer": "1",
+      "explanation": "Returns to Scale과 Economies of Scale의 경제학적 구별:\\n1) 규모에 대한 수익(RTS): 생산함수라는 기술적 장벽 내에서 작동합니다. 모든 요소의 투입 비율을 고정(동일 비율 확장)한 채 투입 규모를 늘릴 때 산출량이 어떻게 변하는지를 봅니다.\\n2) 규모의 경제(Economies of Scale): 가격 및 비용 체계 하에서 작동합니다. 산출량을 증가시킬 때 장기 평균비용($LRAC$)이 하락하는지를 측정합니다. 이때 요소 투입 비율은 고정될 필요가 없으며, 가격선에 맞춰 최적의 비용극소화 비율(확장 경로를 따라)로 조정될 수 있습니다.\\n3) 포함 관계: 요소 가격이 불변이고 기술이 동차함수라면, 규모수익 체증(IRS)은 규모의 경제를 완벽히 유발합니다. 그러나 요소 가격이 변화하거나 비동차 생산기술 하에서는 기술적으로 DRS인 구간에서도 요소 대체나 가격 할인 등에 의해 화폐적 규모의 경제가 발생할 수 있습니다. 따라서 규모의 경제가 비용적 측면에서 더 포괄적인 개념입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-033",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "어느 특정 산업의 기술적 특성이 시장 수요를 압도하는 강한 규모의 경제(또는 규모수익 체증)를 장기적으로 유발하고 있다. 이 산업에서 발생하는 '자연 독점(Natural Monopoly)'의 성립 조건인 비용 함수의 준가법성(Subadditivity)에 대한 수학적 정의와 미시 규제 정책의 연계로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 자연 독점 (시장 수요를 넘어서도 우하향하는 LRAC) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">Q</text>\n  <text x=\"20\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\">비용</text>\n  \n  <!-- 계속 우하향하는 LRAC (녹색) -->\n  <path d=\"M 50 60 Q 150 170, 290 185\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.5\" />\n  <text x=\"240\" y=\"165\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">장기 평균비용 LRAC</text>\n  \n  <!-- 시장 수요 곡선 D (적색, 좌상향 -> 우하향) -->\n  <line x1=\"50\" y1=\"80\" x2=\"240\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <text x=\"220\" y=\"195\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">시장수요 D</text>\n</svg>\n```\n",
+      "options": [
+        "시장 전체 산출량 $Q$ 에 대하여 $C(Q) < \\sum_{i=1}^n C(q_i)$ (단, $\\sum q_i = Q$)가 만족되며, 이는 단일 기업이 공급할 때의 장기 비용이 복수 기업의 분할 생산비용보다 항상 저렴하여 한 기업 독점이 효율적임을 뜻한다.",
+        "자연 독점 하에서는 한계비용 가격 설정($P = MC$)을 강제 적용할 때 기업에 항상 엄청난 규모의 초과 이윤이 유입된다.",
+        "준가법성 조건은 생산함수가 규모에 대한 수익 체감(DRS)을 지닐 때만 유일하게 충족되어 시장 균형을 회복한다.",
+        "자연 독점 산업에서는 여러 기업이 분할하여 진입할수록 규모의 경제가 극대화되어 사회적 후생이 증가한다.",
+        "장기 평균비용 곡선이 우상향 발산하는 구간에서만 준가법성이 충족되어 자연 독점이 성립한다."
+      ],
+      "answer": "1",
+      "explanation": "자연 독점과 비용함수의 준가법성:\\n1) 준가법성(Subadditivity) 정의: 단일 기업이 전체 수요량 $Q$를 생산하는 비용 $C(Q)$ 가 시장 수요를 나누어 갖는 복수의 소규모 기업들의 생산비용 합계보다 작음을 의미합니다. 즉, $C(Q) < C(q_1) + C(q_2) + \\dots + C(q_n)$ (단, $\\sum q_i = Q$)가 충족되어야 자연 독점이 성립합니다.\\n2) 발생 요인: 장기 평균비용 곡선 $LRAC$ 가 시장 수요 한계를 초과하는 조업도 영역까지 지속적으로 하향(규모의 경제 지배)할 때 준가법성이 만족됩니다.\\n3) 정책적 딜레마: 자연 독점은 기술적으로 단일 기업 공급이 효율적이지만, 독점 기업의 가격 남용을 막기 위해 정부는 평균비용 가격 설정($P = AC$) 또는 공기업 지정을 통한 규제를 실시하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "장기 평균비용 곡선($LRAC$)의 저점을 나타내는 최소 효율 규모(MES, Minimum Efficient Scale)와 해당 산업 내 기업의 수 및 시장 구조의 결정 방식에 관한 미시 조직론적 분석으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 최소효율규모(MES)와 시장 수요 크기에 따른 기업 수 성향 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- U자형 AC -->\n  <path d=\"M 50 80 Q 120 180, 200 130 T 290 80\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <!-- MES (평균비용 최소화 점) -->\n  <circle cx=\"155\" cy=\"155\" r=\"3.5\" fill=\"#ef4444\" />\n  <line x1=\"155\" y1=\"210\" x2=\"155\" y2=\"155\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <text x=\"140\" y=\"222\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">MES 조업도</text>\n  \n  <!-- 시장 수요 폭 D -->\n  <line x1=\"280\" y1=\"30\" x2=\"280\" y2=\"210\" stroke=\"#475569\" stroke-dasharray=\"3\" />\n  <text x=\"245\" y=\"25\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">시장 전체 수요</text>\n</svg>\n```\n",
+      "options": [
+        "최소 효율 규모가 시장의 전체 수요에서 차지하는 비중($MES / Q_{market}$)이 매우 작으면 산업 내에 많은 수의 작은 기업들이 진입하는 완전경쟁적 구조가 형성되고, 이 비중이 크면 소수의 대기업만 잔존하는 과점이나 독점이 성립한다.",
+        "MES 수준이 시장 전체 수요보다 클 경우에는 정부가 강제로 수많은 중소기업을 보호 육성하여 독점의 형성을 차단해야만 파레토 효율성이 유지된다.",
+        "최소 효율 규모의 증가는 산업 내 진입 장벽을 완전히 소멸시켜 신규 기업의 자유로운 진입을 무제한 허용한다.",
+        "평균비용이 최소화되는 조업도 수준이 작을수록 대량 생산의 이점이 커져 글로벌 초국적 기업의 지배력이 강화된다.",
+        "MES 임계점 이하에서는 한계비용이 평균비용보다 항상 위에 위치하여 규모 부경제가 조기에 도달하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "MES와 시장 구조의 미시적 연계:\\n1) MES의 정의: 장기 평균비용 곡선 $LRAC$ 가 최소화되는 가장 낮은 수준의 산출량 $Q^*$ 입니다. 대량 생산에 따른 규모 경제 혜택을 온전히 누리기 위해 달성해야 하는 최소한의 규모입니다.\\n2) 시장 구조 판정 원리:\\n   - $MES / Q_{market}$ 이 매우 작음 (예: 식당, 이용업): 소규모 조업만으로도 효율적이므로 시장 내에 다수의 중소기업이 공존하는 경쟁적 시장 구조가 나타납니다.\\n   - $MES / Q_{market}$ 이 큼 (예: 반도체, 자동차): 대규모 설비를 갖춘 소수의 대기업만 비용 효율성을 가질 수 있으므로 자연스럽게 과점이나 독점 시장으로 수렴합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item03-035",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "다각화 기업의 경제적 합리성을 설명하는 범위의 경제(Economies of Scope)의 수리적 정의에 근거하고자 한다. 두 제품 $Q_1, Q_2$ 에 대한 결합비용함수가 다음과 같이 주어졌다.\\n$$C(Q_1, Q_2) = 100 + 10 Q_1 + 15 Q_2 - 2 Q_1 Q_2$$\\n두 제품의 생산 목표량이 각각 $Q_1 = 10$, $Q_2 = 20$ 일 때, 이 기업이 범위의 경제를 누리고 있는지의 판정 여부와 그 대수적 근거로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 범위의 경제 (결합 생산의 비용 절감) -->\n  <rect x=\"50\" y=\"45\" width=\"240\" height=\"160\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" rx=\"5\" />\n  \n  <!-- 개별 생산 공장 A + B -->\n  <rect x=\"70\" y=\"65\" width=\"90\" height=\"40\" fill=\"#fee2e2\" stroke=\"#ef4444\" rx=\"3\" />\n  <text x=\"75\" y=\"80\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">공장 1 (Q1 단독)</text>\n  <text x=\"75\" y=\"95\" font-size=\"7.5\" font-family=\"sans-serif\" fill=\"#ef4444\">비용 C(Q1, 0) = 200</text>\n  \n  <rect x=\"180\" y=\"65\" width=\"90\" height=\"40\" fill=\"#fee2e2\" stroke=\"#ef4444\" rx=\"3\" />\n  <text x=\"185\" y=\"80\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">공장 2 (Q2 단독)</text>\n  <text x=\"185\" y=\"95\" font-size=\"7.5\" font-family=\"sans-serif\" fill=\"#ef4444\">비용 C(0, Q2) = 400</text>\n  \n  <!-- 결합 생산 통합 공장 -->\n  <rect x=\"70\" y=\"140\" width=\"200\" height=\"45\" fill=\"#d1fae5\" stroke=\"#10b981\" rx=\"3\" />\n  <text x=\"80\" y=\"155\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#166534\" font-weight=\"bold\">통합 결합 공장 (Q1, Q2 동시 생산)</text>\n  <text x=\"80\" y=\"172\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#166534\">결합 생산 비용 C(10, 20) = 100 ➔ 500 절감!</text>\n</svg>\n```\n",
+      "options": [
+        "범위의 경제가 존재한다. 결합 생산 비용 $C(10, 20) = 100$ 은 두 제품을 분리하여 생산할 때의 비용 합계인 $600$보다 작기 때문이다.",
+        "범위의 경제가 존재하지 않는다. 분리 생산 비용의 합계인 $600$이 결합 비용인 $100$보다 커서 효율성이 상실되기 때문이다.",
+        "범위의 경제가 존재하지 않는다. 두 제품을 동시에 생산하면 한계기술대체율이 체증하여 비용이 대폭 늘어나기 때문이다.",
+        "범위의 경제 수준은 $0$이 되며, 이 상태는 기술진보 매개변수가 전 요소에 균등 배분되는 상태를 보증한다.",
+        "결합 생산 시 $2 Q_1 Q_2$ 만큼의 비효율 마찰 비용이 추가되어 분리 생산이 유일한 대안으로 유도된다."
+      ],
+      "answer": "1",
+      "explanation": "범위의 경제 수치 연산:\\n1) 범위의 경제 정의: 결합 생산 비용이 분리 생산 비용의 합보다 작을 때 범위의 경제가 존재합니다 ($C(Q_1, Q_2) < C(Q_1, 0) + C(0, Q_2)$).\\n2) 각 분리 생산 비용 계산:\\n   - $Q_1$ 만 생산하는 비용: $C(10, 0) = 100 + 10(10) + 0 - 0 = 200$\\n   - $Q_2$ 만 생산하는 비용: $C(0, 20) = 100 + 0 + 15(20) - 0 = 400$\\n   - 분리 생산의 비용 합계: $C(10, 0) + C(0, 20) = 200 + 400 = 600$\\n3) 결합 생산 비용 계산:\\n   $$C(10, 20) = 100 + 10(10) + 15(20) - 2(10)(20) = 100 + 100 + 300 - 400 = 100$$\\n4) 판정: $C(10, 20) = 100 < 600 = C(10, 0) + C(0, 20)$ 이므로 결합 생산 시 $500$ 만큼의 비용이 대폭 절감되는 강력한 범위의 경제가 관찰됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-036",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "알프레드 마샬(Marshall, 1890)이 제시한 개별 기업 내부의 규모 팽창에 따른 '내부 경제(Internal Economies)'와 산업 전체의 발달에 기인한 '외부 경제(External Economies)'의 핵심적 차이와, 판교 IT 밸리나 실리콘밸리와 같은 산업 클러스터(Industrial Cluster)에 작용하는 기제에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 마샬 외부경제에 의한 비용 곡선 하방 이동 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">Q</text>\n  <text x=\"20\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\">AC</text>\n  \n  <!-- 기존 AC 곡선 -->\n  <path d=\"M 60 70 Q 150 190, 260 120\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  <!-- 산업 팽창 후 하방 이동된 AC' 곡선 (진한 청색) -->\n  <path d=\"M 60 110 Q 150 230, 260 160\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 하방 이동 화살표 -->\n  <path d=\"M 150 130 L 150 170\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  <text x=\"160\" y=\"155\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">외부 경제 효과 (하방 이동)</text>\n</svg>\n```\n",
+      "options": [
+        "외부 경제는 개별 기업의 투입 증가가 아닌 산업 전체의 성장에 따라 숙련 노동 풀 확보, 인프라 공유 및 지식 스필오버(Knowledge Spillover)가 일어나 개별 기업의 평균비용($AC$) 곡선 자체를 하방으로 수직 이동(Downward Shift)시킨다.",
+        "내부 경제가 일어나면 개별 기업의 평균비용 곡선이 원점 반대 방향으로 이동하여 기업 규모 축소를 강제한다.",
+        "외부 경제가 지배하는 클러스터 내에서는 정보 비대칭이 극대화되어 개별 기업의 장기 한계비용이 폭증하게 왜곡된다.",
+        "마샬의 외부 경제는 오직 생산함수가 규모에 대한 수익 체감(DRS)을 지닐 때만 대수적으로 정합성을 지닌다.",
+        "클러스터 집중은 내부 거래 비용을 한계비용 가격선 위로 끌어올려 시장 붕괴의 원인이 된다."
+      ],
+      "answer": "1",
+      "explanation": "Marshallian 외부 경제와 클러스터 동학:\\n1) 내부 경제(Internal Economies): 개별 기업 자신의 생산 규모 팽창에 따라 평균생산비용이 감소하는 전통적인 규모의 경제입니다.\\n2) 외부 경제(External Economies): 개별 기업의 크기와 상관없이, 해당 기업이 속한 산업 전체의 생산 규모가 커짐에 따라 혜택을 받는 구조입니다. 이는 기하학적으로 개별 기업의 장기평균비용($LRAC$) 곡선 자체를 아래로 끌어내리는 효과를 줍니다.\\n3) 클러스터 기제: 지리적으로 유사한 업종이 뭉침으로써 발생하는 전문화된 노동 시장(Labor Pooling), 특화된 부품 공급업체 근접성, 기술적 지식 전파(Knowledge Spillover) 등이 외부 경제의 구체적 사례입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-037",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "일반화된 상수대체탄력성(CES) 생산함수가 규모 매개변수 $r$ 을 포함하여 다음과 같이 주어졌다.\\n$$Q = A [a L^\\rho + (1-a) K^\\rho]^{r/\\rho}$$\\n이 생산함수의 규모에 대한 수익(RTS) 판정 조건과 오일러의 정리(Euler's Theorem)를 적용한 대수적 유도 결과로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- CES 규모 매개변수 r에 따른 확장 궤적 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 70 80 Q 140 160, 280 180\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "임의의 $\\lambda > 0$ 에 대해 $f(\\lambda L, \\lambda K) = \\lambda^r f(L, K)$ 가 만족되므로 규모 매개변수 $r$ 의 크기($r \\gtreqless 1$)에 따라 RTS가 전 영역에서 고유하게 판정되며, $L \\cdot MP_L + K \\cdot MP_K = r \\cdot Q$ 가 성립한다.",
+        "CES 생산함수의 규모 수익은 대체 매개변수 $\\rho$ 에 의해서만 판정되며 규모 매개변수 $r$ 은 배제된다.",
+        "규모 매개변수 $r$이 1보다 크더라도 요소의 한계생산성이 체감하는 속도는 가변적으로 고정되어 항상 DRS가 도출된다.",
+        "동차 차수 $r$의 크기와 무관하게 대체탄력성 $\\sigma$ 가 항상 $0$이 되므로 레온티에프 기하만이 성립한다.",
+        "오일러 정리의 대수식 우변 항에 가격 대비 요소 단가 지수가 곱해져 이윤이 무한대로 수축한다."
+      ],
+      "answer": "1",
+      "explanation": "r차 동차 CES 생산함수의 RTS 수리 분석:\\n1) 동차성 증명: 모든 요소 투입량을 $\\lambda$ 배 늘립니다.\\n   $$f(\\lambda L, \\lambda K) = A [a (\\lambda L)^\\rho + (1-a) (\\lambda K)^\\rho]^{r/\\rho} = A [\\lambda^\\rho (a L^\\rho + (1-a) K^\\rho)]^{r/\\rho}$$\\n   $$f(\\lambda L, \\lambda K) = (\\lambda^\\rho)^{r/\\rho} \\cdot A [a L^\\rho + (1-a) K^\\rho]^{r/\\rho} = \\lambda^r \\cdot f(L, K)$$\\n2) 결과 판정: $r$차 동차함수이므로 규모 매개변수 $r$ 의 값에 따라 $r > 1$ 이면 IRS, $r = 1$ 이면 CRS, $r < 1$ 이면 DRS가 전 영역에 걸쳐 성립합니다.\\n3) Euler의 정리 적용: 동차 함수의 성질에 의해 다음 대수적 항등식이 유도됩니다:\\n   $$L \\dfrac{\\partial Q}{\\partial L} + K \\dfrac{\\partial Q}{\\partial K} = r \\cdot Q \\implies L \\cdot MP_L + K \\cdot MP_K = r \\cdot Q$$\\n따라서 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-038",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "로널드 코즈(Coase, 1937)의 명제인 '기업의 한계 결정 이론'에 관한 설명이다. 규모의 경제(또는 규모수익 체증)의 혜택에도 불구하고 대기업 내부의 조직 관리 부경제가 발생할 때, 코즈의 거래비용(Transaction Cost) 접근법에 기초한 최적 기업 조직 규모의 결정 원리로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Coase의 거래비용 vs 관리비용 교차점 (최적 기업 한계) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">기업의 규모</text>\n  <text x=\"20\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\">한계 비용</text>\n  \n  <!-- 내부 관리의 한계비용 (우상향, 청색) -->\n  <line x1=\"50\" y1=\"180\" x2=\"280\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <text x=\"210\" y=\"70\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">내부 관리 비용 (Organizational Cost)</text>\n  \n  <!-- 시장 거래의 한계비용 (우하향/수평, 적색) -->\n  <line x1=\"50\" y1=\"100\" x2=\"280\" y2=\"100\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"210\" y=\"90\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">시장 거래 비용 (Transaction Cost)</text>\n  \n  <!-- 최적 규모 교점 -->\n  <circle cx=\"180\" cy=\"100\" r=\"3.5\" fill=\"#f59e0b\" />\n  <line x1=\"180\" y1=\"210\" x2=\"180\" y2=\"100\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <text x=\"160\" y=\"222\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#f59e0b\" font-weight=\"bold\">최적 기업 규모</text>\n</svg>\n```\n",
+      "options": [
+        "기업이 생산 요소를 직접 고용하여 내부에서 조직화하는 데 따르는 한계 관리비용(Organizational Cost)과 시장을 통해 거래하는 데 따르는 한계 거래비용(Transaction Cost)이 일치하는 지점에서 최적 기업 규모가 결정된다.",
+        "기업의 규모는 시장 수요가 한계비용 가격선 위로 수렴할 때까지 무제한적으로 계속 팽창한다.",
+        "내부 거래 비용이 언제나 $0$이 되기 때문에 모든 산업은 궁극적으로 거대한 하나의 독점 기업으로 통일된다.",
+        "정부가 가격 통제 정책을 실시할 때만 기업의 관리 비용이 최소화되어 시장 구조가 완전경쟁화된다.",
+        "대체 탄력성이 무한대인 선형 기술의 경우에도 코즈의 기업 이론상에서는 이윤이 $0$으로 소멸하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "Coase의 기업 한계 결정 이론:\\n1) 기업의 존재 이유: 시장을 이용하는 데는 거래 비용(정보 탐색, 계약 작성, 감시 비용 등)이 수반됩니다. 기업은 가격 기구 대신 내부 지시적 조직망을 사용함으로써 이러한 거래 비용을 회피합니다.\\n2) 한계적 결정: 그러나 기업 규모가 커지면 내부 관리 비용(관료화, 정보 왜곡, 조정 실패 등)이 상승하게 됩니다.\\n3) 균형점: 최적 기업 규모는 추가적 1단위 거래를 내부화하는 한계 관리 비용과 시장을 통해 해결하는 한계 거래 비용이 완벽히 일치하는 임계선에서 제약됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-039",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "솔로우(Solow) 경제성장 모형의 핵심 기반인 총생산함수 $Y = A K^\\alpha L^{1-\\alpha}$ ($0 < \\alpha < 1$)에 대하여, 이 기술이 지니는 규모에 대한 수익(RTS)의 성격과, 성장 회계(Growth Accounting)에서 총요소생산성(TFP) 잔차를 유도할 때 CRS 조건이 미치는 수리적 영향으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Solow 성장회계 기하 분배도 -->\n  <rect x=\"50\" y=\"40\" width=\"220\" height=\"150\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <rect x=\"50\" y=\"140\" width=\"220\" height=\"50\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  <text x=\"100\" y=\"170\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">노동의 몫 ((1-α)·ΔL/L)</text>\n  \n  <rect x=\"50\" y=\"80\" width=\"220\" height=\"60\" fill=\"#dbeafe\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <text x=\"100\" y=\"115\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\">자본의 몫 (α·ΔK/K)</text>\n  \n  <rect x=\"50\" y=\"40\" width=\"220\" height=\"40\" fill=\"#d1fae5\" stroke=\"#10b981\" stroke-width=\"1.5\" />\n  <text x=\"100\" y=\"65\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#10b981\">총요소생산성 TFP (ΔA/A)</text>\n</svg>\n```\n",
+      "options": [
+        "생산함수는 1차 동차(CRS)를 만족하며, 성장 기여율 분해 시 노동과 자본 분배율의 합이 정확히 $1$이 되므로 총요소생산성 증가율 $\\dfrac{\\Delta A}{A} = \\dfrac{\\Delta Y}{Y} - \\alpha \\dfrac{\\Delta K}{K} - (1-\\alpha) \\dfrac{\\Delta L}{L}$ 로 잔차가 명확히 분해된다.",
+        "생산함수는 항상 규모수익 체증(IRS)을 지니므로 기술 발전이 일어나도 자본 기여율을 적분할 수 없다.",
+        "1인당 자본 축적에 따른 한계생산력 체증으로 인해 성장 회계 잔차가 분자 조건에서 항상 상쇄되어 소멸한다.",
+        "성장 기여율의 합산 비율이 언제나 $\\alpha(1-\\alpha)$ 로 고착되어 동학적인 안정 성장 균형이 불가능해진다.",
+        "노동의 분배율이 자본 분배율보다 항상 우위에 위치하므로 TFP 잔차는 외생적인 이자율 변동에만 영향을 받는다."
+      ],
+      "answer": "1",
+      "explanation": "Solow 성장회계와 CRS 조건의 수리적 결합:\\n1) 동차성 확인: 콥-더글러스 지수가 $\\alpha$ 와 $1-\\alpha$ 이므로 합이 정확히 $1$인 1차 동차함수(CRS)입니다.\\n2) 전미분 및 성장 분해: $Y = A K^\\alpha L^{1-\\alpha}$ 에 자연로그를 취한 뒤 전미분(또는 시간에 대해 미분 후 $Y$로 나눔)하면 다음과 같습니다:\\n   $$\\ln Y = \\ln A + \\alpha \\ln K + (1-\\alpha) \\ln L$$\\n   $$\\dfrac{dY}{Y} = \\dfrac{dA}{A} + \\alpha \\dfrac{dK}{K} + (1-\\alpha) \\dfrac{dL}{L}$$\\n3) TFP 잔차 도출: 솔로우 잔차(Solow Residual)로 불리는 총요소생산성($TFP$) 증가율은 실제 산출 증가율에서 노동 및 자본 투입의 기여분을 차감하여 얻어집니다:\\n   $$\\dfrac{\\Delta A}{A} = \\dfrac{\\Delta Y}{Y} - \\alpha \\dfrac{\\Delta K}{K} - (1-\\alpha) \\dfrac{\\Delta L}{L}$$\\n   이 분해식은 생산함수가 1차 동차(CRS)여서 요소 분배율의 합이 $1$이 됨에 전적으로 의존합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-040",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "생산자이론에서 규모에 대한 수익(RTS) 상태가 고정되어 있지 않고 가변적인 초월대수(Translog) 생산함수가 다음과 같이 주어져 있다.\\n$$\\ln Q = \\beta_0 + \\beta_L \\ln L + \\beta_K \\ln K + \\beta_{LL} (\\ln L)^2 + \\beta_{KK} (\\ln K)^2 + \\beta_{LK} \\ln L \\ln K$$\\n이 생산자 기술 체제 하에서 기업의 국지적 규모탄력성(Scale Elasticity, $\\epsilon_{scale}$)을 나타내는 대수식으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Translog 생산함수 하 가변 규모탄력성 지도 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 60 40 Q 150 160, 290 180\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "$\\epsilon_{scale} = \\beta_L + \\beta_K + 2 \\beta_{LL} \\ln L + 2 \\beta_{KK} \\ln K + \\beta_{LK} \\ln(LK)$",
+        "$\\epsilon_{scale} = \\beta_L + \\beta_K + \\beta_{LL} + \\beta_{KK} + \\beta_{LK}$",
+        "$\\epsilon_{scale} = \\beta_0 + \\beta_L \\ln L + \\beta_K \\ln K$",
+        "$\\epsilon_{scale} = \\beta_L \\cdot \\beta_K + \\beta_{LK} \\ln\\left(\\dfrac{K}{L}\\right)$",
+        "$\\epsilon_{scale} = 1$ (모든 투입 구간에서 항상 고정 상수를 유지함)"
+      ],
+      "answer": "1",
+      "explanation": "Translog 생산함수의 가변규모탄력성 도출:\\n1) 정의: 국지적 규모탄력성 $\\epsilon_{scale}$ 은 각 요소에 대한 생산 탄력성의 합으로 정의됩니다.\\n   $$\\epsilon_{scale} = \\epsilon_L + \\epsilon_K = \\dfrac{\\partial \\ln Q}{\\partial \\ln L} + \\dfrac{\\partial \\ln Q}{\\partial \\ln K}$$\\n2) 노동 편미분 연산:\\n   $$\\epsilon_L = \\dfrac{\\partial \\ln Q}{\\partial \\ln L} = \\beta_L + 2 \\beta_{LL} \\ln L + \\beta_{LK} \\ln K$$\\n3) 자본 편미분 연산:\\n   $$\\epsilon_K = \\dfrac{\\partial \\ln Q}{\\partial \\ln K} = \\beta_K + 2 \\beta_{KK} \\ln K + \\beta_{LK} \\ln L$$\\n4) 합산 및 정리:\\n   $$\\epsilon_{scale} = \\beta_L + \\beta_K + 2 \\beta_{LL} \\ln L + 2 \\beta_{KK} \\ln K + \\beta_{LK} (\\ln L + \\ln K)$$\\n   $$\\epsilon_{scale} = \\beta_L + \\beta_K + 2 \\beta_{LL} \\ln L + 2 \\beta_{KK} \\ln K + \\beta_{LK} \\ln(LK)$$\\n이 식은 기업의 최적 규모 탄력성이 고정되지 않고, 노동과 자본의 투입 조합(L, K)에 따라 위치마다 역동적으로 변화함을 보입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-041",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "기업의 생산함수가 레온티에프 절곡선 구조를 부분 차용한 다음과 같은 복합 형태를 지닌다.\\n$$Q = \\min(L, K)^{1.5}$$\\n이 기업이 장기에 모든 생산요소의 투입량을 동시에 각각 3배로 증가시켰을 때, 산출량의 증가 배율(소수점 셋째 자리에서 반올림)과 규모에 대한 수익(RTS) 판정 결과로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Q = min(L, K)^1.5 규모 수익체증 형상 (꺾임점 배수 증가) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">L</text>\n  <text x=\"20\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\">K</text>\n  \n  <!-- 등량곡선 Q1=1 (꺾임점 L=1, K=1) -->\n  <path d=\"M 60 40 L 60 190 L 300 190\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"1.8\" />\n  <!-- 등량곡선 Q2=5.2 (꺾임점 L=3, K=3) -->\n  <path d=\"M 140 40 L 140 110 L 300 110\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <circle cx=\"60\" cy=\"190\" r=\"3\" fill=\"#f59e0b\" />\n  <circle cx=\"140\" cy=\"110\" r=\"4.5\" fill=\"#ef4444\" />\n  \n  <line x1=\"40\" y1=\"210\" x2=\"200\" y2=\"50\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <text x=\"145\" y=\"100\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">3배 확장 ➔ Q = 5.2배 (IRS)</text>\n</svg>\n```\n",
+      "options": [
+        "5.20배 증가, 규모수익 체증(IRS)",
+        "3.00배 증가, 규모수익 불변(CRS)",
+        "1.73배 증가, 규모수익 체감(DRS)",
+        "5.20배 증가, 규모수익 체감(DRS)",
+        "9.00배 증가, 규모수익 체증(IRS)"
+      ],
+      "answer": "1",
+      "explanation": "복합 레온티에프 생산함수의 RTS 연산:\\n1) 요소 확장 대입:\\n   $$Q_0 = \\min(L, K)^{1.5}$$\\n   모든 요소를 3배 늘렸을 때의 산출량 $Q_1$:\\n   $$Q_1 = \\min(3L, 3K)^{1.5}$$\\n2) 최소값 함수 성질 적용 ($\\min(ax, ay) = a\\min(x, y)$ for $a > 0$):\\n   $$Q_1 = [3 \\min(L, K)]^{1.5} = 3^{1.5} \\cdot \\min(L, K)^{1.5} = 3^{1.5} \\cdot Q_0$$\\n3) 지수 계산:\\n   $$3^{1.5} = 3\\sqrt{3} \\approx 3 \\cdot 1.73205 = 5.19615$$\\n   소수점 셋째 자리에서 반올림하면 $5.20$ 배입니다.\\n4) RTS 판정: 동차 차수가 $1.5 > 1$ 이므로 규모에 대한 수익 체증(IRS)입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-042",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "장기 평균비용 곡선($LRAC$)이 최소 효율 규모(MES) 부근에서 U자형의 최저점을 그릴 때, 생산 기술의 중립적 변화(Hicks-neutral vs Harrod-neutral)가 일어날 시 개별 기업의 MES 수준에 해당하는 최적 조업도 수준의 기하학적 이동 양상에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 기술진보에 따른 LRAC 저점 이동 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 60 80 Q 150 180, 260 100\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  <path d=\"M 60 120 Q 130 190, 240 140\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.2\" />\n</svg>\n```\n",
+      "options": [
+        "힉스 중립적 기술진보는 동일 자본-노동 비율 하에서 요소를 균등 절약하므로 $LRAC$ 곡선을 고르게 하방 이동시킬 뿐 MES의 조업도 수준 자체는 이론적으로 변화시키지 않는 반면, 해로드 중립적 기술진보는 노동 효율을 선택적으로 향상시켜 MES 조업도를 우측으로 이동시킨다.",
+        "힉스 중립적 기술진보는 MES 수준을 항상 음(-)의 무한대 방향으로 왜곡 수축시킨다.",
+        "기술진보가 발생하면 어떤 유형이든 관계없이 규모 부경제가 즉각적으로 발생해 MES 조업도 수준이 $0$으로 소멸한다.",
+        "해로드 중립적 기술진보는 자본의 한계생산성만을 증가시켜 장기 평균비용 곡선의 저점을 항상 좌상향으로 굴절시킨다.",
+        "기술적 진보는 장기 비용 곡선을 상방 수직 이동시켜 자연 독점 기업들의 조업도 수준을 일관되게 차단한다."
+      ],
+      "answer": "1",
+      "explanation": "기술진보와 LRAC 최소점(MES) 동학:\\n1) Hicks 중립적 기술진보: 생산함수가 $Q = A(t)f(L, K)$ 로 정의됩니다. 모든 노동과 자본 투입 수준에서 한계기술대체율이 불변이므로 비용함수는 $C(Q) = \\dfrac{C_0(Q)}{A(t)}$ 의 형태로 단순 축소됩니다. 즉, 장기 평균비용 곡선 $LRAC(Q) = \\dfrac{LRAC_0(Q)}{A(t)}$ 은 모양이 변하지 않고 일정한 배율로 하방 이동하므로, $LRAC$ 가 최소가 되는 산출량인 MES 조업도 수준 $Q^*$ 자체는 고정 불변입니다.\\n2) Harrod 중립적 기술진보: 생산함수가 $Q = f(A(t)L, K)$ 로 노동 효율 증대형으로 작동합니다. 이는 자본 투입 대비 노동의 실질 투입 효율을 바꾸어 요소 대체 비율을 왜곡하므로 비용 곡선의 비대칭 굴절을 가져와 장기 평균비용 곡선의 최저점 위치(MES 조업도)를 우측(더 큰 산출량 수준)으로 이동시키는 경향이 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-043",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "서로 다른 생산 시설과 장기 비용 곡선을 가진 두 개의 공장(공장 1, 공장 2)을 장기적으로 운영하고 있는 다공장 기업이 있다. 각 공장의 장기 비용함수는 각각 $C_1 = 2 Q_1^2$, $C_2 = Q_2^2$ 이다. 이 기업이 장기적으로 총 120단위의 제품($Q = Q_1 + Q_2 = 120$)을 생산하고자 할 때, 결합 생산 비용을 최소화하기 위해 각 공장에 배분해야 하는 최적 생산량($Q_1^*, Q_2^*$)의 조합으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 다공장 기업의 한계비용 일치 조건 (MC1 = MC2) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">Q</text>\n  <text x=\"20\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\">MC</text>\n  \n  <!-- MC1 = 4Q_1 (가파른 우상향, 청색) -->\n  <line x1=\"40\" y1=\"210\" x2=\"160\" y2=\"30\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"50\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">MC1 = 4Q1</text>\n  \n  <!-- MC2 = 2Q_2 (완만한 우상향, 적색) -->\n  <line x1=\"40\" y1=\"210\" x2=\"280\" y2=\"30\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"220\" y=\"60\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">MC2 = 2Q2</text>\n</svg>\n```\n",
+      "options": [
+        "$Q_1^* = 40$, $Q_2^* = 80$",
+        "$Q_1^* = 60$, $Q_2^* = 60$",
+        "$Q_1^* = 80$, $Q_2^* = 40$",
+        "$Q_1^* = 30$, $Q_2^* = 90$",
+        "$Q_1^* = 50$, $Q_2^* = 70$"
+      ],
+      "answer": "1",
+      "explanation": "다공장 기업의 최적 생산 배분 연산:\\n1) 최소비용 배분 조건: 두 공장의 장기 한계비용이 일치해야 합니다.\\n   $$MC_1 = MC_2$$\\n2) 각 공장의 한계비용 도출:\\n   $$MC_1 = \\dfrac{\\partial C_1}{\\partial Q_1} = 4 Q_1$$\\n   $$MC_2 = \\dfrac{\\partial C_2}{\\partial Q_2} = 2 Q_2$$\\n3) 균형 조건식 설정:\\n   $$4 Q_1 = 2 Q_2 \\implies Q_2^* = 2 Q_1^*$$\\n4) 총생산 제약식에 대입:\\n   $$Q_1^* + Q_2^* = 120 \\implies Q_1^* + 2 Q_1^* = 120 \\implies 3 Q_1^* = 120 \\implies Q_1^* = 40$$\\n   $$Q_2^* = 2(40) = 80$$\\n따라서 최적 생산 배분은 $Q_1^* = 40, Q_2^* = 80$ 입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-044",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "자연 독점 산업의 장기 총비용함수가 준선형 구조인 $C(Q) = F + cQ$ ($F$: 거대 고정비용, $c$: 일정한 한계비용)를 취하여 강력한 규모의 경제가 발생한다. 정부가 사회적 후생을 극대화하기 위해 한계비용 가격설정($P = MC = c$) 규제를 시행할 때 발생하는 재무적 문제와 이를 해결하기 위한 이부가격제(Two-part Tariff) 정책의 대수적 결합 원리로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 자연 독점 P=MC 설정 시 발생하는 손실 영역 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"8\" font-family=\"sans-serif\">Q</text>\n  <text x=\"15\" y=\"25\" font-size=\"8\" font-family=\"sans-serif\">P</text>\n  \n  <!-- LRAC 곡선 (하강, 청색) -->\n  <path d=\"M 50 60 Q 150 140, 290 150\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <text x=\"240\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">LRAC</text>\n  \n  <!-- LRMC 곡선 (AC보다 아래에 위치, 녹색) -->\n  <path d=\"M 50 110 Q 150 170, 290 175\" fill=\"none\" stroke=\"#059669\" stroke-width=\"1.8\" />\n  <text x=\"240\" y=\"190\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#059669\">LRMC</text>\n  \n  <!-- 수요 곡선 D -->\n  <line x1=\"50\" y1=\"80\" x2=\"240\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"1.5\" />\n  \n  <!-- P = MC 균형 접점 -->\n  <circle cx=\"177\" cy=\"166\" r=\"3\" fill=\"#8b5cf6\" />\n  \n  <!-- 손실 사각형 면적 칠하기 -->\n  <rect x=\"40\" y=\"146\" width=\"137\" height=\"20\" fill=\"#fee2e2\" opacity=\"0.6\" stroke=\"#ef4444\" stroke-width=\"0.8\" />\n  <text x=\"80\" y=\"159\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">자연 손실 Area</text>\n</svg>\n```\n",
+      "options": [
+        "한계비용 가격 설정 시 기업은 항상 거대 고정비용 $F$ 만큼의 자연 손실을 입게 되므로, 가입자당 고정 요금(진입 장벽 요금)으로 $\\dfrac{F}{N}$ ($N$: 가입자 수)을 징수하여 손실을 메우고, 사용량 요금으로 $P = c$ 를 부과하여 효율성을 달성한다.",
+        "이부가격제는 사용량 요금을 평균비용보다 훨씬 비싸게 책정하여 기업의 초과 이윤을 극대화하는 민간 착취 제도이다.",
+        "한계비용 가격 설정을 적용하게 되면 고정비용의 존재에도 불구하고 경제적 이윤이 무한대로 누적되는 왜곡이 일어난다.",
+        "가입자 수가 증가할수록 고정 가입비가 지수적으로 상승하여 시장 공급이 장기적으로 붕괴하게 되는 원리를 나타낸다.",
+        "자연 독점 기업은 한계비용 가격 설정 시 항상 자발적으로 보조금을 형성하므로 규제가 불필요하다."
+      ],
+      "answer": "1",
+      "explanation": "자연독점 가격규제와 Two-part Tariff의 수리 원리:\\n1) 한계비용 가격설정의 문제점: 한계비용 $MC = c$ 입니다. 규제 가격 $P = c$ 로 설정하면, 평균비용 $AC = \\dfrac{C(Q)}{Q} = \\dfrac{F}{Q} + c > c$ 이므로 가격이 평균비용보다 낮아집니다 ($P < AC$). 따라서 기업은 판매할 때마다 적자를 입으며, 총손실액은 정확히 고정비용 $F$ 입니다. 이 상태로는 장기적으로 기업이 생존할 수 없습니다.\\n2) 이부가격제(Two-part Tariff) 해결책:\\n   - 진입 요금(가입비 $T$): 고정비용 $F$ 를 소비자 수 $N$ 으로 분할하여 $T = \\dfrac{F}{N}$ 만큼 징수합니다.\\n   - 사용 요금(한계 요금 $P$): $P = MC = c$ 로 부과합니다.\\n3) 경제학적 평가: 사용 요금을 한계비용에 맞추어 소비자의 한계 의사결정 왜곡을 없앰으로써 사적 후생 극대화(파레토 효율성)를 유지하는 동시에, 기업에게는 적자 분인 고정비용을 보전해주어 시장 생존을 가능케 하는 최적 정책 조합입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-045",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 독점 기업의 장기 총비용함수가 다음과 같이 3차 함수 형태로 주어져 있다.\\n$$C(Q) = 0.1 Q^3 - 6 Q^2 + 100 Q$$\\n이 기업의 장기 평균비용($LRAC$)을 최소화하는 최소 효율 규모(MES)의 구체적인 산출량 $Q^*$ 과 그 시점의 최소 평균비용 $LRAC_{min}$ 의 값을 구하여 옳게 짝지은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- C(Q) = 0.1Q^3 - 6Q^2 + 100Q 로부터 도출되는 AC 극소(Q*=30, AC=10) -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">Q</text>\n  <text x=\"15\" y=\"25\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">AC / MC</text>\n  \n  <!-- AC 곡선 (Q*=30일 때 극소 10) -->\n  <path d=\"M 60 70 Q 150 180, 280 90\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <text x=\"245\" y=\"75\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">AC = 0.1Q² - 6Q + 100</text>\n  \n  <!-- MC 곡선 (AC 최저점 교차) -->\n  <path d=\"M 60 140 Q 120 200, 150 143 T 260 30\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" />\n  <text x=\"240\" y=\"20\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">MC = 0.3Q² - 12Q + 100</text>\n  \n  <!-- 최저점 표시 -->\n  <circle cx=\"150\" cy=\"143\" r=\"4\" fill=\"#f59e0b\" />\n  <line x1=\"150\" y1=\"210\" x2=\"150\" y2=\"143\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"40\" y1=\"143\" x2=\"150\" y2=\"143\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <text x=\"140\" y=\"222\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Q*=30 (MES)</text>\n  <text x=\"15\" y=\"146\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">10</text>\n</svg>\n```\n",
+      "options": [
+        "$Q^* = 30$, $LRAC_{min} = 10$",
+        "$Q^* = 20$, $LRAC_{min} = 20$",
+        "$Q^* = 30$, $LRAC_{min} = 20$",
+        "$Q^* = 40$, $LRAC_{min} = 10$",
+        "$Q^* = 15$, $LRAC_{min} = 32.5$"
+      ],
+      "answer": "1",
+      "explanation": "최소 효율 규모(MES) 및 평균비용 연산:\\n1) 장기 평균비용($LRAC$) 함수 도출:\\n   $$LRAC = \\dfrac{C(Q)}{Q} = 0.1 Q^2 - 6 Q + 100$$\\n2) $LRAC$ 최소화를 위한 1계 조건(FOC) 적용:\\n   $$\\dfrac{dLRAC}{dQ} = 0.2 Q - 6 = 0 \\implies 0.2 Q = 6 \\implies Q^* = 30$$\\n3) 최적 조업도 $Q^* = 30$ 에서의 최소 평균비용 $LRAC_{min}$ 계산:\\n   $$LRAC_{min}(30) = 0.1 (30)^2 - 6(30) + 100 = 0.1(900) - 180 + 100 = 90 - 180 + 100 = 10$$\\n4) 교산 확인 (LRMC와 대칭):\\n   $$LRMC = \\dfrac{dC}{dQ} = 0.3 Q^2 - 12 Q + 100$$\\n   $$LRMC(30) = 0.3 (900) - 12(30) + 100 = 270 - 360 + 100 = 10$$\\n   평균비용의 최저점에서는 한계비용과 평균비용이 언제나 일치하므로 대수 정합성이 완벽히 입증됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-046",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "기업 규모가 최소 효율 규모(MES) 수준을 대폭 초과하여 과도하게 팽창할 때 발생하는 '규모 부경제(Diseconomies of Scale)'의 미시적 원천에 관한 설명으로 가장 옳지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 규모 부경제 발생 시 우상향하는 LRAC -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 우상향 AC -->\n  <path d=\"M 60 160 Q 150 140, 280 50\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "규모 부경제는 주로 요소 간 한계기술대체율이 체증하여 등량곡선이 원점에 대해 오목해짐에 따라 발생한다.",
+        "거대 조직 내부의 관료화 및 의사결정 지연으로 인한 관리 조정 비용(Control and Coordination Cost)의 급격한 상승이 주된 요인이다.",
+        "부서 간 또는 직급 간 정보 전달 경로가 길어짐에 따라 발생하는 대리인 비용과 정보 비대칭 왜곡이 원인이다.",
+        "글로벌 생산 기지의 지리적 분산에 따른 물류 비용 증가와 본사 통제 범위 한계가 결합되어 평균비용을 체증시킨다.",
+        "대규모 공장에서 발생하는 노동자 간의 동기 부여 상실 및 혼잡 비효율이 한계 가치를 저하시킨다."
+      ],
+      "answer": "1",
+      "explanation": "규모 부경제의 미시적 원천 분석:\\n1) 물리적/조직적 실재: 규모 부경제는 장기 평균비용 곡선 $LRAC$ 가 우상향하는 현상입니다. 이는 주로 기술적인 형태의 왜곡이라기보다는 대규모 조직 관리상의 비효율에서 기인합니다.\\n2) 오답 분석: 등량곡선의 원점에 대한 볼록성(MRTS 체감)은 요소 결합 상의 한계 생산성 체감 성질이며, 규모 부경제는 모든 요소를 비례적으로 늘렸을 때 관리 비효율 등으로 인해 산출 증가율보다 비용 증가율이 더 커지는 현상입니다. 따라서 등량곡선이 원점에 대해 오목해진다는 설명은 규모 부경제의 직접적 미시 기초가 아니며 수학적으로 틀린 설명입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-047",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "디지털 경제 하에서 정보 무형 자본의 특징인 강력한 규모수익 체증(한계비용에 수렴하는 극소 MC)과 플랫폼 경제의 강력한 네트워크 외부효과(Network Externality)가 결합될 때 발생하는 '승자 독식(Winner-take-all)' 시장 집중화 현상에 관한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 플랫폼 경제: 슈퍼스타 기업 집중 ➔ Winner-take-all -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"8\" font-family=\"sans-serif\">시장 규모</text>\n  <text x=\"15\" y=\"25\" font-size=\"8\" font-family=\"sans-serif\">시장 점유율</text>\n  \n  <!-- 지수적 점유율 곡선 (선두기업 독식) -->\n  <path d=\"M 50 190 Q 150 170, 280 50\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"170\" y=\"80\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">승자 독식 곡선</text>\n</svg>\n```\n",
+      "options": [
+        "초기 선두 기업이 확보한 대규모 가입자 풀이 네트워크 가치를 증폭시키고 데이터 축적을 가속하여 추격 기업과의 한계 생산 비용 격차를 무한대로 벌림으로써 자연 독점적 시장구조를 공고히 한다.",
+        "네트워크 효과는 시장 내 진입 장벽을 완전히 붕괴시켜 누구나 동일한 점유율을 나누어 갖는 완전경쟁 상태로 회복시킨다.",
+        "플랫폼 IRS는 오직 요소 대체 탄력성이 0인 레온티에프 기술 하에서만 독점적으로 가치가 발산하는 특수 구조이다.",
+        "가입자 수가 늘어날수록 선두 기업의 한계 관리비용이 기하급수적으로 폭증하여 조기에 시장이 자동 분할된다.",
+        "디지털 경제에서는 대량 생산에 따른 이점이 존재하지 않으므로 다수의 작은 소호 기업들이 상시 균등하게 우세하다."
+      ],
+      "answer": "1",
+      "explanation": "디지털 플랫폼 경제의 규모의 경제와 승자독식:\\n1) 생산의 특성: 소프트웨어, 콘텐츠, 알고리즘 등 정보 무형자본은 초기 개발 비용(고정 비용)은 거대하지만 복제 및 배포에 소요되는 한계비용은 거의 $0$에 가깝습니다. 이는 극단적이고 지속적인 $LRAC$ 의 우하향(규모의 경제)을 낳습니다.\\n2) 수요의 특성: 네트워크 효과(사용자가 많을수록 서비스 가치가 상승)와 빅데이터 축적이 선순환 피드백 루프를 유발합니다.\\n3) 시장 구조 귀결: 이 두 결합은 선두 기업으로의 시장 쏠림(Tipping Effect)을 유발하여 독과점 체제(Winner-take-all)를 형성합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-048",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "폴 크루그먼(Krugman, 1979)의 '규모의 경제와 불완전경쟁 국제 무역 모형'에 관한 설명이다. 개별 국가의 시장 규모가 협소할 때, 규모수익 체증(IRS)을 가진 산업이 무역 개방을 통해 글로벌 통합 시장에 직면하게 됨으로써 유발되는 경제학적 후생 증가 경로로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 크루그먼 무역 모형 하 규모 경제와 다양성 확보 -->\n  <circle cx=\"175\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <circle cx=\"175\" cy=\"120\" r=\"45\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  \n  <text x=\"140\" y=\"125\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#64748b\">국내 시장</text>\n  <text x=\"120\" y=\"35\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#2563eb\" font-weight=\"bold\">글로벌 통합 시장 (규모경제 달성)</text>\n</svg>\n```\n",
+      "options": [
+        "무역 개방으로 시장 규모가 확대되면 기업들은 더 큰 생산 규모를 달성하여 규모의 경제(단가 하락)를 극대화할 수 있고, 동시에 소비자는 전보다 더 다양한 차별화된 제품(Variety)을 저렴하게 소비할 수 있어 양방향으로 후생이 증가한다.",
+        "통합 시장이 성립되면 개별 기업의 MES가 국내 시장 한계 이하로 수축하므로 무역 수지가 무조건 적자 화 된다.",
+        "무역 개방은 요소 부존 비율에 의해서만 비교우위를 결정하므로 규모수익 체증 기술은 국제 분업에 아무런 기여를 하지 못한다.",
+        "글로벌 경쟁이 심화되면 한계요소비용이 임금률을 압도하여 모든 가계의 소비 가치가 상실된다.",
+        "규모의 경제 하에서의 개방은 항상 독점 대기업의 착취만을 고착시켜 전체 사회적 후생을 최악으로 손상시킨다."
+      ],
+      "answer": "1",
+      "explanation": "Krugman 무역 모형 하 규모경제와 다양성 후생:\\n1) 기존 무역 이론의 한계: 리카도나 헥셔-오린 모형은 국가 간 '차이(비교우위)'에 의한 무역만 설명하며 산업내 무역(Intra-industry Trade)을 설명하지 못했습니다.\\n2) 크루그먼 통찰: 동일한 기술과 부존자원을 가진 국가끼리도 규모에 대한 수익 체증(IRS)과 제품 차별화(Monopolistic Competition)가 존재하면 무역이 발생합니다.\\n3) 후생 증가 인과관계: 개방을 통해 국내외 시장이 하나로 통합되면 시장 규모가 대폭 확장됩니다. 기업들은 생산량을 늘려 규모의 경제를 확보해 단위당 가격을 인하할 수 있습니다. 한편, 국가 간 교역을 통해 소비자들은 전보다 훨씬 다양한 버전의 제품(예: 국산 차와 수입 차를 모두 선택 가능)을 접할 수 있게 되어 소비자 다양성 후생이 동시에 증가합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-049",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "다란 아제모글루(Acemoglu, 2002) 등의 숙련 편향적 기술진보(Skill-biased Technical Change, SBCT) 모형에 관한 설명이다. 숙련 노동($H$)과 자본($K$)의 결합이 지니는 규모수익 체증(IRS) 경향이 고숙련 임금 프리미엄 격차 확대에 미치는 매개변수 탄력성 파급 효과로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 아제모글루 편향적 기술진보의 숙련 불평등 폭화 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 60 180 Q 160 130, 280 60\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "숙련 노동과 첨단 정보 자본 간의 강한 보완성($\\sigma < 1$) 및 지식 자본 축적의 규모수익 체증 성향은 자본 축적 시 숙련 노동의 한계생산성과 상대임금을 비대칭적으로 폭증시켜 분배 불평등을 심화한다.",
+        "기술 진보가 편향적으로 일어날 때만 숙련 노동의 대체탄력성이 무한대로 수축하여 임금 격차가 완벽히 소멸한다.",
+        "첨단 자본의 도입은 숙련 노동의 수요만을 감소시켜 고숙련 임금 프리미엄을 $0$으로 침강하게 강제한다.",
+        "숙련 편향적 모형 하에서는 규모에 대한 수익 불변(CRS)이 상시 파괴되므로 장기 균형 분석이 이론적으로 불가능하다.",
+        "비숙련 노동의 한계생산성이 자본 축적 방향으로 우상향 팽창하여 임금 격차가 역전되는 현상을 설명한다."
+      ],
+      "answer": "1",
+      "explanation": "숙련편향적 기술진보와 규모의 경제 분배 영향:\\n1) SBTC 명제: 현대 기술진보(컴퓨터, AI, 자동화 등)는 비숙련 노동에 비해 숙련 노동과 자본 설비의 보완적 결합을 자극합니다.\\n2) 수리적 인과관계: 자본 축적이 빠르게 진행될 때, 자본-숙련보완성($\\sigma_{KH} < \\sigma_{KL}$)에 의해 숙련 노동에 대한 한계 생산성 및 수요 곡선이 가파르게 상방 이동합니다. 여기에 지식 기반 무형 자산의 규모수익 체증(IRS) 효과가 더해지면 숙련 노동자의 기여도가 극대화됩니다.\\n3) 분배 귀결: 이에 따라 비숙련 대비 숙련 노동의 임금 격차(Skill Premium, $w_H/w_L$)가 확대되어 노동시장 내 소득 불평등이 고착화되는 구조적 요인이 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item04-050",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 완전경쟁 기업이 장기 생산함수 $Q = L^{0.5} K^{0.5}$ 를 지니고 있다. 요소 시장에서 노동 임금 $w = 4$, 자본 임대료 $r = 1$ 이며, 생산물 시장에서 재화의 시장 가격 $P = 10$ 으로 고정되어 있다. 이 기업의 장기 이윤을 극대화하고자 할 때 발생하는 CRS 생산함수 상의 수리적 현상과 균형 산출량에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- CRS 하 장기 공급과 이윤 곡선 형상 -->\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 수평의 장기 공급 곡선 LRAS (P = AC) -->\n  <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#059669\" stroke-width=\"2.5\" />\n  <text x=\"210\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">장기 공급선 P = AC</text>\n</svg>\n```\n",
+      "options": [
+        "장기 비용함수가 $C(Q) = 4Q$ 인 선형 구조(CRS)가 되어 한계비용과 평균비용이 $4$ 로 일정한 상수가 되며, $P = 10 > MC = 4$ 이므로 이윤 극대화 산출량 $Q^*$ 는 무한대로 발산하여 단일 기업 수준에서 이윤 극대화 균형이 성립하지 않는다.",
+        "이윤극대화 조건 하에서 최적 생산량 $Q^* = 100$ 단위로 수렴하며, 이때 기업의 장기 초과 이윤은 정확히 $500$ 이 된다.",
+        "장기 비용 극소화 FOC에 의거하여 최적 요소 투입량은 $L^* = 10, K^* = 40$ 으로 고유하게 결정된다.",
+        "재화 가격이 한계비용보다 항상 작기 때문에 이 기업은 장기 조업을 완전히 포기하고 고용량을 $0$으로 제한한다.",
+        "생산 기술의 동차성 파괴로 인해 이윤극대화 2차 조건이 음의 방향으로 수축하는 현상을 나타낸다."
+      ],
+      "answer": "1",
+      "explanation": "CRS 하 장기 이윤극대 균형 불성립 증명:\\n1) 1단계: 비용 최소화 유도\\n   $MRTS_{LK} = \\dfrac{K}{L} = \\dfrac{w}{r} = \\dfrac{4}{1} \\implies K = 4L$\\n   생산 제약식 대입: $Q = L^{0.5} (4L)^{0.5} = 2L \\implies L^* = 0.5Q, K^* = 2Q$\\n   장기 총비용함수: $C(Q) = w L^* + r K^* = 4(0.5Q) + 1(2Q) = 4Q$\\n2) 비용 성질 분석:\\n   $C(Q) = 4Q$ 로, 장기 평균비용 $LRAC = 4$, 장기 한계비용 $LRMC = 4$ 로 고정되어 있습니다.\\n3) 2단계: 이윤 극대화 시도\\n   $$\\max_Q \\pi = PQ - C(Q) = 10Q - 4Q = 6Q$$\\n   이윤함수 $\\pi = 6Q$ 는 생산량 $Q$ 에 대해 선형 증가 함수입니다. 따라서 $Q \\to \\infty$ 일 때 이윤이 무한대로 발산합니다. 즉, 2계 조건 FOC가 만족되지 않고 조업도를 무한대로 늘릴수록 이윤이 늘어나므로 단일 경쟁 기업 수준에서 고유한 이윤극대 생산량을 결정할 수 없습니다 (완전경쟁 CRS의 고유한 수리적 특징). 정답은 1번입니다."
     }
   ]
 }

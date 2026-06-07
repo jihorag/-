@@ -8,7 +8,7 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-01",
-    "count": 30
+    "count": 50
   },
   "questions": [
     {
@@ -73,7 +73,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item04-005",
-      "difficulty": 1,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "PPC 외부의 점이 의미하는 바로 옳은 것은?",
       "options": [
@@ -148,7 +148,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item04-010",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 생산효율(productive efficiency)과 배분효율(allocative efficiency)의 차이로 옳은 것은?",
       "options": [
@@ -163,7 +163,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item04-011",
-      "difficulty": 2,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "PPC와 무차별곡선의 접점에서 도달하는 최적 생산점의 조건은?",
       "options": [
@@ -403,7 +403,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item04-027",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 PPC의 응용 사례에 해당하지 않는 것은?",
       "options": [
@@ -418,7 +418,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item04-028",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 PPC의 학설사·응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. PPC 개념은 사무엘슨의 「경제학원론(1948)」에서 표준 분석 도구로 자리 잡았다.\nㄴ. PPC는 리카도의 비교우위 모형의 시각적 표현 도구로 활용된다.\nㄷ. PPC는 솔로우 성장모형의 자본 축적과 기술 진보 분석에 응용된다.\nㄹ. PPC는 후생경제학의 효율성·배분효율 분석의 시각적 기초이다.\nㅁ. PPC는 미시경제학에만 사용되고 거시경제학과 무관하다.",
       "options": [
@@ -433,7 +433,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item04-029",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 PPC와 경제발전의 관계에 관한 옳은 설명은?",
       "options": [
@@ -448,7 +448,7 @@
     },
     {
       "id": "practice-econ-micro-ch01-sec01-item04-030",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 PPC 분석의 한계에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. PPC는 두 재화만을 다루므로 다재화 경제에 직접 적용 어려움\nㄴ. PPC는 정태적 분석이라 시간 경로와 동학을 직접 다루지 못함\nㄹ. PPC는 분배의 형평성을 측정하지 못함\nㄹ. PPC는 비시장 가치(환경·여가·삶의 질)를 직접 반영하지 못함\nㅁ. PPC는 자원·기술·선호의 변화에 따른 동학적 변화를 완벽히 설명한다.",
       "options": [
@@ -460,6 +460,306 @@
       ],
       "answer": "2",
       "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: PPC는 단순화된 도구로 동학적 변화를 정확히 분석하지 못한다. 솔로우 모형, 동학적 일반균형(DGE), DSGE 등이 더 진전된 분석 도구이다. PPC의 한계는 ① 2재화 단순화 ② 정태성 ③ 분배 무시 ④ 비시장 가치 무시 등이며, 이러한 한계가 다양한 응용 모형의 발전 배경이 되었다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-031",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 국가의 생산가능곡선(PPF)이 비선형 수식 $Y = 100 - 0.2X^2$ 로 묘사되어 있다. 이 경제가 현재 효율적인 조합인 $E^*(X=10, Y=80)$ 점을 선택하여 생산하고 있을 때, 이 지점에서 X재 1단위를 추가적으로 더 생산하기 위해 포기해야 하는 Y재의 단위인 '한계변환율($MRT_{XY}$)'의 크기를 구하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재 생산량</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재 생산량</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- PPF 곡선 Y = 100 - 0.2X^2 -> X절편 22.36(x=217), Y절편 100(y=90) -->\n  <!-- 스케일 매핑: X=10 -> x=125, Y=80 -> y=122 -->\n  <path d=\"M 50 90 Q 120 100 217 250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"175\" y=\"145\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF 곡선</text>\n  \n  <!-- 접점 E* (10, 80) -->\n  <circle cx=\"125\" cy=\"122\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"135\" y=\"118\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">E* (10, 80)</text>\n  \n  <!-- 접선 기울기 -4 -> x=125, y=122 지나는 기울기 4의 직선 -->\n  <line x1=\"75\" y1=\"22\" x2=\"175\" y2=\"222\" stroke=\"#94a3b8\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  \n  <line x1=\"125\" y1=\"122\" x2=\"125\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <line x1=\"50\" y1=\"122\" x2=\"125\" y2=\"122\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  \n  <text x=\"120\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">10</text>\n  <text x=\"30\" y=\"126\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">80</text>\n</svg>\n```",
+      "options": [
+        "한계변환율($MRT_{XY}$) = 2.0",
+        "한계변환율($MRT_{XY}$) = 4.0",
+        "한계변환율($MRT_{XY}$) = 0.4",
+        "한계변환율($MRT_{XY}$) = 10.0",
+        "한계변환율($MRT_{XY}$) = 0.2"
+      ],
+      "answer": "2",
+      "explanation": "비선형 생산가능곡선의 한계변환율(MRT)을 수학적 미분을 통해 계산하는 기초 L4 연산 문항입니다.\n1) **한계변환율(MRT)의 수학적 정의**:\n   - $MRT_{XY}$는 X재 생산을 미세하게 늘릴 때 포기해야 하는 Y재의 기술적 대체 비율로서, 생산가능곡선 접선의 기울기의 절대값입니다.\n   - $MRT_{XY} = \\left|\\dfrac{dY}{dX}\\right|$\n2) **수식 대입 미분**:\n   - $Y = 100 - 0.2X^2 \\implies \\dfrac{dY}{dX} = -0.4X$\n   - 따라서 $MRT_{XY} = 0.4X$ 입니다.\n3) **생산점 $E^*(10, 80)$ 에서의 값**:\n   - $MRT_{XY} = 0.4 \\times 10 = 4.0$\n즉, 이 생산점에서는 X재 1단위를 추가 생산하기 위해 Y재 4단위를 희생시켜야 합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-032",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "A국과 B국의 두 재화 X와 Y에 대한 생산 기술 조건 및 부존량이 다음과 같다.\n- A국: 최대 가용 노동 10시간. 1시간 노동 투입 시 X재 2개 또는 Y재 4개 생산 가능\n- B국: 최대 가용 노동 10시간. 1시간 노동 투입 시 X재 1개 또는 Y재 3개 생산 가능\n두 국가의 자원을 결합하여 공동으로 하나의 경제체제 하에서 재화를 생산한다고 가정할 때 도출되는 결합 생산가능곡선의 '꺾임점(Kink Point)의 좌표'와, X재 생산량이 15개인 결합 구간에서 한계기회비용(기울기 절대값)을 바르게 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">결합 X재 생산</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">결합 Y재 생산</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 결합 PPF: Y절편 70(y=90) -> 꺾임점 (20, 30)(x=170, y=170) -> X절편 30(x=230, y=250) -->\n  <!-- 스케일 매핑: X=30 -> x=230, Y=70 -> y=90 -->\n  <line x1=\"50\" y1=\"90\" x2=\"170\" y2=\"170\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <line x1=\"170\" y1=\"170\" x2=\"230\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <circle cx=\"170\" cy=\"170\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"180\" y=\"165\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">꺾임점 (20, 30)</text>\n  \n  <line x1=\"170\" y1=\"170\" x2=\"170\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <line x1=\"50\" y1=\"170\" x2=\"170\" y2=\"170\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <text x=\"165\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">20</text>\n  <text x=\"30\" y=\"174\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">30</text>\n  <text x=\"30\" y=\"94\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">70</text>\n  <text x=\"225\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">30</text>\n</svg>\n```",
+      "options": [
+        "꺾임점: $(15, 40)$, 기회비용: 3",
+        "꺾임점: $(20, 30)$, 기회비용: 2",
+        "꺾임점: $(20, 30)$, 기회비용: 3",
+        "꺾임점: $(10, 40)$, 기회비용: 2",
+        "결합 생산 시에는 꺾임이 소멸하여 완전히 평행한 선형 PPF가 형성된다."
+      ],
+      "answer": "2",
+      "explanation": "두 경제주체(또는 국가)의 자원을 합쳐 생산할 때 비교우위 특화 순서에 따른 결합 PPF의 꺾임점 좌표 및 한계 비용을 연산하는 문제입니다.\n1) **개별 주체의 최대 생산량 및 X재 기회비용**:\n   - A국: 최대 X재 20개, Y재 40개. X재 기회비용 $= 40/20 = 2Y$\n   - B국: 최대 X재 10개, Y재 30개. X재 기회비용 $= 30/10 = 3Y$\n2) **결합 PPF의 정립**:\n   - X재를 전혀 생산하지 않을 때 최대 결합 Y재 $= 40 + 30 = 70$개\n   - X재 기회비용이 낮은 주체(비교우위 주체)인 **A국**부터 X재 생산에 특화 투입됩니다.\n   - A국이 X재 생산에 완전히 집중하여 X재 20개를 생산하고, B국은 Y재만 생산(30개)할 때 곡선의 결합 **꺾임점 $(20, 30)$**이 도출됩니다.\n   - 이후 추가적인 X재 생산은 기회비용이 더 높은 B국이 담당하므로 마지막 X절편은 $(20+10, 0) = (30, 0)$이 됩니다.\n3) **Q = 15개 구간 기회비용**:\n   - $X = 15$ 인 구간은 꺾임점 이전인 $X \\le 20$ 구간에 속하므로, A국이 X재를 생산하는 구간입니다. 따라서 이 구간에서의 기회비용(기울기의 절대값)은 A국의 X재 기회비용인 **2**가 됩니다. (꺾임점 이후인 $20 < X \\le 30$ 구간에서는 기회비용이 3으로 상승합니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-033",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어떤 가상의 국가가 두 재화 X, Y를 효율적으로 생산하고 있으며 초기 생산가능곡선이 원형 수식 $X^2 + Y^2 = 100$ 으로 주어져 있다. 생산 과정에서 X재 부문에만 극적인 기술 혁신이 발생하여 X재 생산성(노동생산성)이 정확히 2배로 수축 향상되었고, Y재 부문의 기술은 고정되어 유지되었다.\n기술 진보 이후의 수정된 신규 생산가능곡선(PPF)의 수식과 X재 최대 생산성의 변화 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 원래 PPF: 절편 10, 10 -> x=150, y=150 -->\n  <!-- 스케일 매핑: 10단위 -> 100픽셀 -->\n  <path d=\"M 50 150 Q 120 160 150 250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"120\" y=\"140\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#94a3b8\">초기 PPF (X_max = 10)</text>\n  \n  <!-- 신규 PPF: Y절편 10(y=150), X절편 20(x=250) -->\n  <path d=\"M 50 150 Q 150 160 250 250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"200\" y=\"180\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">신규 PPF (X_max = 20)</text>\n</svg>\n```",
+      "options": [
+        "신규 PPF: $2X^2 + Y^2 = 100$, X재 최대 생산 20개로 증가",
+        "신규 PPF: $\\dfrac{X^2}{4} + Y^2 = 100$, X재 최대 생산 20개로 증가",
+        "신규 PPF: $X^2 + \\dfrac{Y^2}{4} = 100$, Y재 최대 생산 20개로 증가",
+        "신규 PPF: $X^2 + Y^2 = 200$, 두 재화 최대 생산 14.14개로 증가",
+        "편향적 기술 진보 하에서는 생산가능곡선이 원점을 향해 축소 수축된다."
+      ],
+      "answer": "2",
+      "explanation": "특정 부문의 편향적 기술 진보가 생산가능곡선(PPF)의 형태 및 절편에 미치는 효과를 분석하는 미시 수리 문항입니다.\n1) **초기 PPF 분석**:\n   - $X^2 + Y^2 = 100 \\implies$ 초기 최대 X재 생산량 $X_{max} = 10$개 (Y=0 일 때), 최대 Y재 생산량 $Y_{max} = 10$개 (X=0 일 때).\n2) **기술 진보에 따른 변형**:\n   - X재 부문 생산성(효율)이 2배 향상되면, 동일한 자원을 투입할 때 X재 생산량이 2배 증가합니다.\n   - 즉, 기존 생산량을 $X_0$라 하면 기술진보 후 생산량 $X = 2 X_0 \\implies X_0 = \\dfrac{X}{2}$ 입니다.\n   - Y재는 기술 진보가 없으므로 $Y_0 = Y$ 입니다.\n3) **새로운 PPF 수식 유도**:\n   - 원래 수식인 $X_0^2 + Y_0^2 = 100$ 에 대입합니다.\n   - $\\left(\\dfrac{X}{2}\\right)^2 + Y^2 = 100 \\implies \\dfrac{X^2}{4} + Y^2 = 100$\n   - 이때 Y=0 대입 시 신규 최대 X재 생산량은 $X = 20$개로 2배 증가하며, X=0 대입 시 Y재 최대 생산량은 10개로 고정됩니다. 따라서 곡선은 X축 방향으로 비대칭적으로 신축 확장됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "생산가능곡선이 지니는 한계변환율($MRT$, 기울기 절대값)이 재화 생산 경로에 따라 변화하는 양상과 기회비용 법칙의 기하학적 매핑 관계에 대한 분석이다. 다음 그래프는 세 가지 형태의 생산가능곡선 A, B, C를 나타낸다. 이에 대한 옳은 분석을 고르시오.\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 직선 A (기회비용 일정): y = 200 - X -> y절편 100(y=90) -> x절편 100(x=210) -->\n  <line x1=\"50\" y1=\"90\" x2=\"210\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"180\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">A (직선)</text>\n  \n  <!-- 오목곡선 B (기회비용 체증) -->\n  <path d=\"M 50 90 Q 150 100 210 250\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"150\" y=\"130\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">B (오목)</text>\n  \n  <!-- 볼록곡선 C (기회비용 체감) -->\n  <path d=\"M 50 90 Q 70 200 210 250\" stroke=\"#52c41a\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"85\" y=\"200\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#237804\" font-weight=\"bold\">C (볼록)</text>\n</svg>\n```",
+      "options": [
+        "직선 A는 기회비용 체증, 오목곡선 B는 기회비용 일정을 의미한다.",
+        "오목한 형태의 곡선 B는 자원 공급이 특화될 때 한 재화 생산을 늘릴수록 그에 따른 한계기회비용이 추가적으로 더 불어나는 '기회비용 체증 법칙'을 뜻하고, 직선 A는 '기회비용 일정', 볼록한 곡선 C는 '기회비용 체감'을 가리킨다.",
+        "볼록한 곡선 C는 규모의 경제가 발생하지 않는 표준 완전경쟁 시장의 균형을 나타낸다.",
+        "직선 A는 생산요소간 대체가 전혀 불가능할 때 형성되는 레온티에프형 PPF이다.",
+        "기회비용 체증이 성립하면 생산가능곡선은 원점에 대해 언제나 볼록한 형태를 취한다."
+      ],
+      "answer": "2",
+      "explanation": "생산가능곡선의 형태적 성격(오목, 직선, 볼록)과 기회비용 법칙 간의 이론적 기하학적 매핑 문제입니다.\n1) **직선 A**: $MRT_{XY}$(기울기의 절대값)가 항상 일정하므로, X재를 1단위 늘리기 위해 포기해야 하는 Y재의 양이 변하지 않는 **기회비용 일정 법칙**을 의미합니다. (요소의 완전대체성 전제).\n2) **오목곡선 B**: X재 생산을 늘려 우측으로 갈수록 접선 기울기의 경사가 급해집니다. 즉, $MRT_{XY}$가 증가하는 **기회비용 체증 법칙**을 나타냅니다. (자원의 용도 비균등성 전제).\n3) **볼록곡선 C**: X재 생산을 늘려갈수록 접선 기울기가 완만해집니다. 즉, $MRT_{XY}$가 하락하는 **기회비용 체감 법칙**을 나타냅니다. (생산량 증가에 따라 효율이 오르는 규모의 경제 혹은 특화 효율화 전제)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-035",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "어떤 가상 사회의 잠재적 최대 생산 한계를 지시하는 생산가능경계가 $X^2 + Y^2 = 100$ 으로 설정되어 있다. 현재 이 경제는 대규모 노사 분규 및 실업 상태에 처해 있어 효율적인 경계면에 도달하지 못하고, 생산량 조합이 내부의 한 비효율적인 점인 $A(X=5, Y=5)$ 에 멈추어 서 있다.\n이 비효율적인 내부점 A 상태 하에서 단기적으로 X재 생산량을 1단위 추가 갱신하여 6으로 늘릴 때 발생하는 '실질 기회비용(포기해야 하는 Y재의 양)'과, 만약 효율적인 경계면으로 회귀하여 생산량이 $E^*(X=6)$가 될 때의 한계변환율($MRT_{XY}$) 수준을 가장 옳게 추론하여 비교한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- PPF: 절편 10, 10 -->\n  <path d=\"M 50 150 Q 120 160 150 250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  \n  <!-- 내부 비효율 점 A(5, 5) -> x=100, y=200 -->\n  <circle cx=\"100\" cy=\"200\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"105\" y=\"195\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">A (5, 5)</text>\n  \n  <!-- 확장 가능 영역 화살표 -->\n  <path d=\"M 100 200 L 125 180\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"2\" marker-end=\"url(#arrow)\" />\n  <path d=\"M 100 200 L 100 170\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"2\" marker-end=\"url(#arrow)\" />\n</svg>\n```",
+      "options": [
+        "내부점 A에서는 기술적 한계가 이미 고정되어 있어 X재 추가 생산의 기회비용은 $\\sqrt{75}$로 항상 일정하다.",
+        "비효율 점 A에서는 유휴 자원(실업 등)이 유휴 상태에 머물러 있으므로 다른 재화 Y의 생산 감축 없이도 X재 생산의 단기적 추가 생산이 가능하여 기회비용이 0이 될 수 있으나, 완전 고용 효율면으로 복귀하게 되면 $E^*(X=6)$ 일 때 한계변환율($MRT_{XY}$)은 0.75원으로 기회비용이 양(+)의 실질 가치로 되살아나 체증한다.",
+        "내부점 A의 기회비용이 효율적인 경계면 E*의 기회비용보다 항상 높게 형성된다.",
+        "비효율 점 내부에서의 자원 배분은 사회적 한계대체율이 언제나 양수임을 전제한다.",
+        "유휴 상태에서의 추가 생산 시 Y재도 동반 감소하여 총사회적 비용이 2배로 폭등한다."
+      ],
+      "answer": "2",
+      "explanation": "실업 및 비효율이 존재하는 PPC 내부점과 효율적인 경계면 위에서의 기회비용 개념을 비교 판정하는 L4 문제입니다.\n1) **내부점 A(5, 5) 하에서의 기회비용**:\n   - 내부점은 유휴 노동 및 실업, 유휴 장비가 존재하는 비효율 생산 상태입니다.\n   - 따라서 이 상태에서는 유휴 자원을 가동하면 Y재 생산을 전혀 희생시키지 않고도 X재 생산량만을 5에서 6으로 확대(우측 이동)할 수 있습니다. 즉, 이 비효율 상태 하에서의 X재 추가 생산에 따른 실질적인 기회비용은 **0**입니다.\n2) **효율적 경계면 $E^*$ 하에서의 기회비용**:\n   - 그러나 모든 자원이 완전 고용되어 최대로 가동 중인 효율적 생산가능곡선 위에서는 X재를 추가 생산하려면 반드시 Y재 생산을 줄여 자원을 뽑아내야 합니다.\n   - 효율면 $E^*(X=6)$ 에서의 Y재 생산량: $Y = \\sqrt{100 - 36} = 8$\n   - 이 효율점에서의 한계변환율: $MRT_{XY} = \\left|\\dfrac{dY}{dX}\\right| = \\dfrac{X}{Y} = \\dfrac{6}{8} = 0.75$\n   즉, 효율적인 완전고용 평면에서는 X재 1단위를 추가 생산하기 위한 Y재의 기회비용이 $0.75$로 양(+)의 가격을 가집니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-036",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 경제의 생산가능곡선(PPF)이 선형 수식 $X + 2Y = 100$ 으로 주어져 있다. 이 사회의 총량적 주관적 선호를 묘사하는 사회적 무차별곡선(SIC)이 $U(X, Y) = X Y$ 이다.\n이 사회가 생산효율성(PPF 도달)과 소비배분 효율성을 동시에 충족시켜 전체 후생 극대화에 도달하고자 할 때 결정되는 최적 생산 조합 $(X^*, Y^*)$을 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 직선 PPF: X + 2Y = 100 -> X절편 100(x=250), Y절편 50(y=150) -->\n  <line x1=\"50\" y1=\"150\" x2=\"250\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"220\" y=\"235\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">직선 PPF</text>\n  \n  <!-- 무차별곡선 U=1250 -> 접점 E*(50, 25) -> x=150, y=200 -->\n  <path d=\"M 90 140 Q 150 200 270 230\" stroke=\"#52c41a\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"230\" y=\"210\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#237804\" font-weight=\"bold\">사회선호 (SIC)</text>\n  \n  <circle cx=\"150\" cy=\"200\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"160\" y=\"195\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">E* (50, 25)</text>\n  <line x1=\"150\" y1=\"200\" x2=\"150\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <line x1=\"50\" y1=\"200\" x2=\"150\" y2=\"200\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <text x=\"145\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">50</text>\n  <text x=\"30\" y=\"204\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">25</text>\n</svg>\n```",
+      "options": [
+        "최적 생산 조합: $(25, 37.5)$",
+        "최적 생산 조합: $(60, 20)$",
+        "최적 생산 조합: $(50, 25)$",
+        "최적 생산 조합: $(80, 10)$",
+        "소비 잉여 불일치로 인해 균형은 수입 장벽이 없는 모퉁이(Corner)에서만 형성된다."
+      ],
+      "answer": "3",
+      "explanation": "생산 효율면(PPF)과 소비 효율면(SIC)을 동시에 연립하여 사회적 후생 극대화 배분효율(MRS=MRT)을 구하는 수리 문항입니다.\n1) **생산측면 한계변환율($MRT$)**:\n   - $X + 2Y = 100 \\implies Y = 50 - 0.5X$\n   - $MRT_{XY} = \\left|\\dfrac{dY}{dX}\\right| = 0.5$ (상대 한계비용 비율)\n2) **소비측면 한계대체율($MRS$)**:\n   - $MRS_{XY} = \\dfrac{MU_X}{MU_Y} = \\dfrac{Y}{X}$\n3) **배분적 효율성 조건($MRS = MRT$) 적용**:\n   - $\\dfrac{Y}{X} = 0.5 \\implies X = 2Y$\n4) **생산가능곡선 대입**:\n   - $(2Y) + 2Y = 4Y = 100 \\implies Y^* = 25$\n   - $X^* = 2(25) = 50$\n따라서 최적 생산 및 소비 조합은 $(50, 25)$ 입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-037",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 자급자족형 가상 국가가 자체 자원과 기술로 도달할 수 있는 생산가능영역이 선형 수식 $X + 2Y = 120$ 으로 한정되어 있다. 이 국가가 무역을 개방하여 국제 시장의 고정 교역조건(TOT, 두 재화의 국제 가격비율)이 $P_X / P_Y = 1$로 가격 메커니즘이 수립되었다.\nA국이 비교우위 재화에 완전히 특화 생산을 단행하고 국제 시장을 통해 자율적으로 거래를 성립할 때, 개방 이후 이 사회가 소비 영역으로 도달할 수 있는 '최대 소비가능영역(CPF, Consumption Possibility Frontier)'의 수식을 바르게 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 원래 PPF: X절편 120(x=230), Y절편 60(y=130) -->\n  <line x1=\"50\" y1=\"130\" x2=\"230\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  <text x=\"180\" y=\"235\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#94a3b8\" font-weight=\"bold\">자체 PPF</text>\n  \n  <!-- 무역개방 후 CPF: 특화점 (120, 0)을 지나며 기울기가 -1 인 선 -> X절편 120(x=230), Y절편 120(y=70) -->\n  <line x1=\"50\" y1=\"70\" x2=\"230\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"210\" y=\"110\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">소비가능영역 (CPF)</text>\n  \n  <circle cx=\"230\" cy=\"250\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"235\" y=\"240\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">특화점 (120, 0)</text>\n</svg>\n```",
+      "options": [
+        "최대 소비가능영역(CPF): $X + 2Y = 120$",
+        "최대 소비가능영역(CPF): $X + Y = 120$ 이며, 무역을 개방함으로써 자급자족 PPF 영역의 외부를 소비하는 후생 이득을 본다.",
+        "최대 소비가능영역(CPF): $X + Y = 60$",
+        "최대 소비가능영역(CPF): $2X + Y = 240$",
+        "무역이 개방되면 교역 조건의 마비로 인해 소비가능영역이 원점으로 완전히 수축한다."
+      ],
+      "answer": "2",
+      "explanation": "비교우위 특화 및 가격 교역 조건에 의한 소비가능영역(CPF)의 확장을 도출하는 수리 문항입니다.\n1) **비교우위 특화 생산**:\n   - 자국의 X재 기회비용 $= 0.5Y$ 이며, 국제 가격 기구에 의한 X재 가격 가치(교역조건 $= 1.0Y$)가 자국의 기회비용보다 큽니다.\n   - 따라서 자국은 X재 생산에 완전히 특화하는 것이 유리합니다.\n   - 특화 생산량: $X_p = 120, Y_p = 0$\n2) **소비가능선(CPF) 도출**:\n   - 무역을 개방하면 이 특화점 $(120, 0)$을 원천으로 하고 국제 가격비율(기울기 1.0)에 따라 교환할 수 있습니다.\n   - $P_X X_c + P_Y Y_c = P_X X_p + P_Y Y_p$\n   - $1 \\cdot X_c + 1 \\cdot Y_c = 1(120) + 1(0) \\implies X_c + Y_c = 120$\n3) **경제학적 의미**: 자급자족 시에는 옷과 빵의 생산 경계가 파란 점선($X+2Y=120$)이었으나, 개방 후에는 $X+Y=120$ 이라는 더 확장된 소비가능영역(파란 실선)을 가지게 됩니다. 즉, 자체적으로 도달 불가능했던 영역을 무역을 통해 획득하게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-038",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "두 재화 생산부문만 존재하는 에지워스 상자(Edgeworth Box)의 일반균형 요소 배분 선형 조건과 생산가능곡선(PPF)이 오목(concave)한 곡률을 띠게 되는 요소집약도 격차에 대한 설명이다. 이에 대한 옳은 분석은?\n\n```svg\n<svg viewBox=\"0 0 600 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <!-- 에지워스 상자 (좌측) -->\n  <g transform=\"translate(0, 0)\">\n    <rect x=\"50\" y=\"50\" width=\"200\" height=\"200\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" />\n    <text x=\"40\" y=\"260\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_X</text>\n    <text x=\"255\" y=\"45\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_Y</text>\n    <text x=\"150\" y=\"265\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">L (노동)</text>\n    <text x=\"20\" y=\"150\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\">K (자본)</text>\n    \n    <!-- 굴절된 계약곡선 -->\n    <path d=\"M 50 250 Q 180 180 250 50\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n    <text x=\"170\" y=\"160\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">계약곡선 (굴절)</text>\n    \n    <text x=\"150\" y=\"30\" text-anchor=\"middle\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">요소 에지워스 상자</text>\n  </g>\n  \n  <!-- PPF (우측) -->\n  <g transform=\"translate(300, 0)\">\n    <line x1=\"50\" y1=\"250\" x2=\"270\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n    <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n    <text x=\"240\" y=\"265\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재 생산</text>\n    <text x=\"20\" y=\"45\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재 생산</text>\n    \n    <!-- 오목한 PPF -->\n    <path d=\"M 50 90 Q 150 100 210 250\" stroke=\"#ef4444\" stroke-width=\"2.5\" fill=\"none\" />\n    <text x=\"160\" y=\"120\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">PPF (원점 오목)</text>\n    \n    <text x=\"160\" y=\"30\" text-anchor=\"middle\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">유도된 생산가능곡선</text>\n  </g>\n</svg>\n```",
+      "options": [
+        "두 재화의 생산에 투입되는 노동과 자본의 요소비율(요소집약도)이 완전히 동일하면 계약곡선은 상자 대각선이 되고 PPF는 원점에 대해 심하게 오목해진다.",
+        "두 재화의 생산기술상 요소집약도 격차가 존재할 때, 효율적 계약곡선은 에지워스 상자의 대각선 경로에서 이탈하여 한쪽으로 굴절된 형태를 띠며, 이 배분 왜곡이 자원을 한 부문에 더 특화시킬수록 생산 단가가 가파르게 체증하여 PPF를 원점에 오목(concave)한 곡선으로 유도하는 핵심 미시적 원인이 된다.",
+        "계약곡선이 직선이면 생산가능곡선은 반드시 무부존의 사하중 손실 평면에만 묶인다.",
+        "자본과 노동이 두 재화 생산에 완전 보완적일 때만 PPF의 비대칭적 외향 성장이 영구 보장된다.",
+        "에지워스 상자의 크기는 재화의 가격이 변동할 때마다 수축 회전한다."
+      ],
+      "answer": "2",
+      "explanation": "생산 효율성을 담는 에지워스 상자의 계약곡선과 생산가능곡선(PPF)의 오목성 간의 미시적 수학적 인과관계를 묻는 문항입니다.\n1) **요소집약도 동일 시**: 두 재화의 생산에서 노동/자본 최적비율이 같다면 계약곡선은 상자 대각선(직선)이 되며, 이 경우 자원 재배치 시 생산의 추가 기회비용 변동이 없어 PPF 역시 완전한 직선이 됩니다.\n2) **요소집약도 격차 시**: X재가 노동집약재이고 Y재가 자본집약재인 표준 모델의 경우, 두 재화의 등량곡선의 공통접선 경로(계약곡선)는 상자 대각선 궤적에서 벗어나 굴절된 곡선 형태(노동집약 부문이나 자본집약 부문 쪽으로 쏠림)를 취하게 됩니다.\n3) **결론**: 자원을 Y재에서 X재 생산으로 이전함에 따라 요소의 배분 비율을 가변적으로 비대칭 조정해야 하므로 수확체감 효과가 배가되어 X재 추가 한 단위당 포기해야 하는 Y재의 양($MRT$)이 지속 증가하게 됩니다. 즉, 이 요소집약도 격차가 PPF가 원점에 대해 오목(기회비용 체증)하게 꺾이는 근본 원인입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-039",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "미래의 성장을 도모하기 위해 현재 소비를 희생하는 소비재($C$)와 자본재($I$) 간의 시점간 기회비용(Intertemporal trade-off) 분석이다.\n- 1기 생산가능곡선: $C_1 + 2I_1 = 100$\n- 2기 생산가능곡선은 1기의 자본재 투자량($I_1$)에 비례하여 다음과 같이 확장된다: $C_2 + 2I_2 = 100 + 4I_1$\n이 경제가 1기에 선택한 투자량이 각각 (1) $I_1 = 20$인 경우와 (2) $I_1 = 10$인 경우에 대해, 2기에 최대로 확보할 수 있는 소비재 생산량($C_2^{max}$)의 크기를 바르게 짝지은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">I (자본재)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">C (소비재)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 1기 PPF: C1 + 2I1 = 100 -> I절편 50, C절편 100 -->\n  <line x1=\"50\" y1=\"150\" x2=\"150\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" stroke-width=\"1.5\" />\n  <text x=\"130\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#94a3b8\" font-weight=\"bold\">1기 PPF</text>\n  \n  <!-- 2기 PPF (I1=10): C2 + 2I2 = 140 -> C절편 140 -->\n  <line x1=\"50\" y1=\"110\" x2=\"190\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <!-- 2기 PPF (I1=20): C2 + 2I2 = 180 -> C절편 180 -->\n  <line x1=\"50\" y1=\"70\" x2=\"230\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"200\" y=\"160\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">2기 PPF (I_1=20)</text>\n</svg>\n```",
+      "options": [
+        "(1) $C_2^{max} = 100$, (2) $C_2^{max} = 100$",
+        "(1) $C_2^{max} = 180$, (2) $C_2^{max} = 140$ 이며, 1기 자본재 생산을 늘릴수록 미래 소비 한계가 대폭 바깥으로 팽창한다.",
+        "(1) $C_2^{max} = 140$, (2) $C_2^{max} = 180$",
+        "(1) $C_2^{max} = 200$, (2) $C_2^{max} = 150$",
+        "(1) $C_2^{max} = 180$, (2) $C_2^{max} = 100$"
+      ],
+      "answer": "2",
+      "explanation": "자본 축적(투자)을 매개로 한 동태적 소비-자본 생산선 변동과 시점간 기회비용 효과를 묻는 문항입니다.\n1) **1기 시점의 자본 축적 결정**:\n   - 1기에 자본재 $I_1$을 생산하는 것은 당기 소비재 $C_1$을 포기하는 기회비용을 수반하지만, 이는 2기의 생산능력 확장을 약속합니다.\n2) **2기 생산 한계 산출**:\n   - 2기 최대 소비재 생산량 $C_2^{max}$는 2기 자본재 생산량 $I_2 = 0$ 일 때 확보됩니다.\n   - $C_2^{max} = 100 + 4I_1$\n3) **시나리오 계산**:\n   - (1) $I_1 = 20$ 일 때: $C_2^{max} = 100 + 4(20) = 180$\n   - (2) $I_1 = 10$ 일 때: $C_2^{max} = 100 + 4(10) = 140$\n즉, 1기 자본재 투자가 클수록 2기 생산가능경계선이 원점에서 더 먼 바깥쪽(파란선)으로 대폭 확장되어 미래 세대의 소비 한계 가치가 크게 증가합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-040",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "에지워스 상자(Edgeworth Box) 하에서 두 소비자 A, B의 주관적 효용함수가 다음과 같다.\n- $U_A(X_A, Y_A) = X_A Y_A$\n- $U_B(X_B, Y_B) = X_B Y_B$\n이 사회에 부존된 두 재화의 총량 제약이 $X_A + X_B = 100, Y_A + Y_B = 100$ 일 때, 소비 효율성(파레토 최적)을 만족시키는 모든 조합을 연결한 '계약곡선(Contract Curve)'의 수식으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <rect x=\"50\" y=\"50\" width=\"200\" height=\"200\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" />\n  <text x=\"40\" y=\"260\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_A</text>\n  <text x=\"255\" y=\"45\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">O_B</text>\n  \n  <!-- 계약곡선: 대각선 y = x -->\n  <line x1=\"50\" y1=\"250\" x2=\"250\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"130\" y=\"160\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">계약곡선 (Y_A = X_A)</text>\n</svg>\n```",
+      "options": [
+        "계약곡선: $Y_A = 2X_A$",
+        "계약곡선: $Y_A = X_A$ 이며, 소비 효율성을 지닌 접점들은 상자의 양 원점을 잇는 대각선으로 형성된다.",
+        "계약곡선: $Y_A = 100 - X_A$",
+        "계약곡선: $Y_A = X_A^2$",
+        "선호가 대칭적일 때 계약곡선은 상자 경계면 외부로 발산한다."
+      ],
+      "answer": "2",
+      "explanation": "소비 에지워스 상자에서 파레토 최적 계약곡선을 수리 도출하는 L4 문항입니다.\n1) **A의 한계대체율($MRS_A$)**:\n   - $MRS_A = \\dfrac{Y_A}{X_A}$\n2) **B의 한계대체율($MRS_B$)**:\n   - $MRS_B = \\dfrac{Y_B}{X_B} = \\dfrac{100 - Y_A}{100 - X_A}$\n3) **파레토 최적 조건($MRS_A = MRS_B$) 연립**:\n   - $\\dfrac{Y_A}{X_A} = \\dfrac{100 - Y_A}{100 - X_A} \\implies Y_A(100 - X_A) = X_A(100 - Y_A)$\n   - $100 Y_A - X_A Y_A = 100 X_A - X_A Y_A \\implies 100 Y_A = 100 X_A \\implies Y_A = X_A$\n따라서 계약곡선은 A의 원점에서 B의 원점을 향해 뻗어 나가는 대각선 수식 $Y_A = X_A$ 가 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-041",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 경제의 생산가능곡선(PPF)이 비선형 수식 $X^2 + Y^2 = 200$ 으로 명시되어 있다. 이 사회 전체의 만족도를 규명하는 사회 무차별곡선(SIC)이 $U(X, Y) = X Y$ 일 때, 이 사회의 배분적 효율성과 생산 효율성을 동시 충족시키는 사회적 최적 생산량 조합 $(X^*, Y^*)$과 이때 도달하는 최대 사회적 후생 수준 $U^*$를 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 원형 PPF: 절편 sqrt(200)=14.14 -> x=191, y=109 -->\n  <!-- 스케일 매핑: 10단위 -> 100픽셀 -->\n  <path d=\"M 50 109 A 141 141 0 0 1 191 250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"160\" y=\"130\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF</text>\n  \n  <!-- 무차별곡선 접점 U=100 -> Y=100/X -> 접점 (10, 10) -> x=150, y=150 -->\n  <path d=\"M 90 120 Q 150 150 220 220\" stroke=\"#52c41a\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"200\" y=\"195\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#237804\" font-weight=\"bold\">무차별곡선 (U=100)</text>\n  \n  <!-- 접점 E* (10, 10) -->\n  <circle cx=\"150\" cy=\"150\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"160\" y=\"145\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">E* (10, 10)</text>\n  <line x1=\"150\" y1=\"150\" x2=\"150\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <line x1=\"50\" y1=\"150\" x2=\"150\" y2=\"150\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <text x=\"145\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">10</text>\n  <text x=\"30\" y=\"154\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">10</text>\n</svg>\n```",
+      "options": [
+        "최적 생산: $X^* = 10, Y^* = 10$, 사회적 후생 $U^* = 100$",
+        "최적 생산: $X^* = 8, Y^* = 12$, 사회적 후생 $U^* = 96$",
+        "최적 생산: $X^* = 12, Y^* = 8$, 사회적 후생 $U^* = 96$",
+        "최적 생산: $X^* = 14.14, Y^* = 0$, 사회적 후생 $U^* = 0$",
+        "최적 생산: $X^* = 5, Y^* = 5$, 사회적 후생 $U^* = 25$"
+      ],
+      "answer": "1",
+      "explanation": "원점 오목 비선형 PPF 하에서 사회 후생 함수를 반영한 배분 효율성(MRS=MRT)을 도출하는 L5 최적화 문제입니다.\n1) **한계변환율($MRT$) 도출**:\n   - $X^2 + Y^2 = 200 \\implies Y = \\sqrt{200 - X^2}$\n   - $MRT_{XY} = \\left|\\dfrac{dY}{dX}\\right| = \\dfrac{2X}{2\\sqrt{200-X^2}} = \\dfrac{X}{Y}$\n2) **한계대체율($MRS$) 도출**:\n   - $MRS_{XY} = \\dfrac{MU_X}{MU_Y} = \\dfrac{Y}{X}$\n3) **효율성 접점 조건($MRS = MRT$) 적용**:\n   - $\\dfrac{Y}{X} = \\dfrac{X}{Y} \\implies X^2 = Y^2 \\implies X = Y \\quad (\\because X, Y > 0)$\n4) **생산가능곡선 대입**:\n   - $X^2 + X^2 = 2X^2 = 200 \\implies X^2 = 100 \\implies X^* = 10$\n   - $Y^* = 10$\n5) **극대 후생 수준**:\n   - $U^* = 10 \\times 10 = 100$\n따라서 최적 생산량은 각각 10단위이며 이때 극대 후생은 100입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-042",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "대칭적 자원을 배분하는 두 경제주체 A와 B의 재화별 한계 생산성 기술 조건이 다음과 같다.\n- 주체 A: 최대 노동 시간 100시간. X재 생산에 2시간, Y재 생산에 1시간 소요\n- 주체 B: 최대 노동 시간 100시간. X재 생산에 1시간, Y재 생산에 2시간 소요\n두 주체의 자원을 완전하게 연립하여 결합 생산가능곡선을 구축하려 한다. 두 주체의 최적 특화 생산을 나타내는 '결합 꺾임점(Kink Point)의 좌표'와 이 결합 경계선상에서 나타나는 두 구간의 가격 비율(한계변환율, $MRT_{XY}$)을 구하여 바르게 짝지은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">결합 X재 생산</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">결합 Y재 생산</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- Y절편 150(y=80), 꺾임점 (100, 100)(x=170, y=140), X절편 150(x=235, y=250) -->\n  <!-- 스케일 매핑: 10단위 -> 12픽셀 -->\n  <line x1=\"50\" y1=\"80\" x2=\"170\" y2=\"140\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <line x1=\"170\" y1=\"140\" x2=\"230\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <circle cx=\"170\" cy=\"140\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"180\" y=\"135\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">꺾임점 (100, 100)</text>\n  \n  <line x1=\"170\" y1=\"140\" x2=\"170\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <line x1=\"50\" y1=\"140\" x2=\"170\" y2=\"140\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" />\n  <text x=\"165\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">100</text>\n  <text x=\"30\" y=\"144\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">100</text>\n  <text x=\"30\" y=\"84\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">150</text>\n  <text x=\"225\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">150</text>\n</svg>\n```",
+      "options": [
+        "꺾임점: $(50, 100)$, 1구간 $MRT_{XY} = 2$, 2구간 $MRT_{XY} = 0.5$",
+        "꺾임점: $(100, 100)$, 1구간 $MRT_{XY} = 0.5$, 2구간 $MRT_{XY} = 2$ 이며, 비교우위 특화 순서에 따라 구간 한계비용이 체증한다.",
+        "꺾임점: $(100, 100)$, 1구간 $MRT_{XY} = 2$, 2구간 $MRT_{XY} = 0.5$",
+        "꺾임점: $(50, 50)$, 1구간 $MRT_{XY} = 1$, 2구간 $MRT_{XY} = 1$",
+        "두 주체가 공동 생산 시 꺾임 현상은 소멸하고 하나의 완만하게 오목한 단일 원형 PPF를 형성한다."
+      ],
+      "answer": "2",
+      "explanation": "2인 공동 생산에 관한 결합 PPF 수리 도출 및 구간별 기울기(한계변환율)를 획득하는 L5 계산 문제입니다.\n1) **개별 한계 생산 특화율**:\n   - 주체 A: 최대 X재 50개, Y재 100개. X재 1단위 생산 기회비용 $= 2Y$\n   - 주체 B: 최대 X재 100개, Y재 50개. X재 1단위 생산 기회비용 $= 0.5Y$\n2) **결합 PPF의 꺾임점 산정**:\n   - 자원을 모두 Y재에 투입 시 최대 Y재 생산량 $= 100_A + 50_B = 150$\n   - X재 생산을 개시할 때 기회비용이 낮은 주체 B부터 X재 생산에 특화 투입됩니다. B가 생산하는 동안의 한계변환율은 B의 X재 기회비용인 $0.5$입니다.\n   - B가 X재 생산을 완료하여 $X_B = 100$ 이 되고 A는 Y재에 고정되어 $Y_A = 100$ 생산할 때 결합 **꺾임점 $(100, 100)$**에 도달합니다.\n   - 꺾임점 이후($100 < X \\le 150$)의 X재 생산은 기회비용이 더 가파른 A국이 담당하므로 이 구간의 한계변환율($MRT$)은 A국의 X재 기회비용인 **2**가 됩니다. (X절편은 $(150, 0)$).\n따라서 꺾임점은 $(100, 100)$ 이며 1구간의 MRT는 0.5, 2구간은 2입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-043",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어떤 가상 사회의 일반균형 요소 배분 모형에서 X재는 노동집약적인 기술을 사용하고, Y재는 자본집약적인 기술을 사용한다.\n다른 조건이 고정된 정태적 상태에서, 전체 경제의 노동 공급량(노동력 부존량, $L$)이 외생적으로 대폭 증가하였다. 이 충격이 두 재화의 최적 생산량에 미치는 장기 변동(Rybczynski 정리의 미시적 배분 효과)을 생산가능곡선의 비대칭 이동 측면에서 바르게 판정한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재 (노동집약재)</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재 (자본집약재)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 초기 PPF -> X절편 100(x=150), Y절편 100(y=150) -->\n  <path d=\"M 50 150 Q 110 160 150 250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"2\" fill=\"none\" />\n  \n  <!-- 신규 PPF: 노동 증가로 X축 극대 확장(절편 200(x=250)), Y축 소폭 감소(절편 80(y=170)) -->\n  <path d=\"M 50 170 Q 160 175 250 250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"190\" y=\"190\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">신규 PPF (L 증가 후)</text>\n</svg>\n```",
+      "options": [
+        "노동이 증가하면 두 재화의 생산 능력이 비례적으로 동시 증가하여 PPF가 평행 확장된다.",
+        "노동력 증가는 자본집약재인 Y재 생산을 확대하고, X재 생산을 절대적으로 수축시킨다.",
+        "노동집약재인 X재의 생산 한계는 노동력 증가율보다 훨씬 더 크게 바깥쪽으로 대폭 확장되지만, 자본집약재인 Y재 생산은 상대 가격이 일정하게 고정되어 있을 때 오히려 절대적으로 감소(수축)한다.",
+        "자원이 증가하면 한계변환율이 언제나 0으로 수렴하므로 PPF가 완만하게 꺾인다.",
+        "노동 증가는 기회비용 체증 법칙을 소멸시켜 모든 생산가능곡선을 직선화시킨다."
+      ],
+      "answer": "3",
+      "explanation": "요소 부존량 변동이 일반균형 하의 재화 생산에 미치는 영향(립진스키 정리)을 생산가능곡선의 기하학적 매핑을 통해 출제한 고난도 문제입니다.\n1) **립진스키 정리(Rybczynski Theorem)**:\n   - 두 생산요소(L, K)와 두 재화(X, Y)가 있고 요소 상대가격이 일정할 때, 특정 요소(노동 L)의 부존량이 증가하면 그 요소를 더 집약적으로 사용하는 재화(노동집약재인 X재)의 생산은 요소 증가율 이상으로 절대적으로 증가합니다.\n   - 그러나 다른 요소를 더 집약적으로 사용하는 재화(자본집약재인 Y재)의 생산은 오히려 **절대적으로 감소**하게 됩니다.\n2) **생산가능곡선의 변동**:\n   - 이에 따라 PPF는 단순 비례적 평행 팽창을 하는 것이 아니라, 노동력 증가로 인해 X축 방향으로는 대폭 길어지고(절편 100 $\\rightarrow$ 200), 자본집약 부문에서 노동집약 부문으로 자본을 뽑아다 옮겨와야 하므로 Y축 절편은 소폭 아래로 처지게 되는(절편 100 $\\rightarrow$ 80) **비대칭적 왜곡 확장**이 발생합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-044",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 소규모 개방국가의 자체 생산가능곡선(PPF)이 비선형 수식 $X^2 + Y^2 = 200$ 으로 명시되어 있다. 이 국가에 무역이 허용되어 국제 시장의 교역조건(TOT)이 상대가격 $P_X / P_Y = 1.0$ 으로 결정되었다.\n이 국가의 사회 전체 무차별곡선이 $U = X_c Y_c$ 일 때, 개방화에 따른 이윤 극대화 생산 조합 $(X_p, Y_p)$와 무역을 거쳐 소비자들이 소비하게 되는 최종 최적 소비 묶음 $(X_c, Y_c)$을 바르게 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 원형 PPF: 절편 14.14 -->\n  <path d=\"M 50 109 A 141 141 0 0 1 191 250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" fill=\"none\" />\n  \n  <!-- 소비가능선 CPF: Xp=10, Yp=10 지나는 기울기 -1인 선 -> y절편 120(y=130), x절편 120(x=170) -> Xc+Yc=20 -->\n  <!-- 스케일 매핑: x=50+100=150, y=250-100=150 -->\n  <line x1=\"50\" y1=\"50\" x2=\"250\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"210\" y=\"220\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">CPF (상대가격=1)</text>\n\n  <!-- 생산점 및 소비점 E* (10, 10) -> x=150, y=150 -->\n  <circle cx=\"150\" cy=\"150\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"160\" y=\"145\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">E_p = E_c (10, 10)</text>\n</svg>\n```",
+      "options": [
+        "생산 조합: $(10, 10)$, 소비 묶음: $(10, 10)$",
+        "생산 조합: $(14.14, 0)$, 소비 묶음: $(10, 10)$",
+        "생산 조합: $(10, 10)$, 소비 묶음: $(15, 5)$",
+        "생산 조합: $(8, 12)$, 소비 묶음: $(12, 8)$",
+        "자급자족 상태와 개방 상태의 생산과 소비 조합은 완전히 단절되어 연산이 불가하다."
+      ],
+      "answer": "1",
+      "explanation": "소규모 개방경제 하에서 국제 가격 교역조건에 기초해 생산(MRT=상대가격) 및 소비(MRS=상대가격)의 연립 최적화를 획득하는 L5 문제입니다.\n1) **생산 결정**:\n   - 개방국가는 자신의 이윤을 극대화하기 위해 한계변환율($MRT_{XY}$)을 국제 가격비율과 일치시킵니다.\n   - $MRT_{XY} = \\dfrac{X_p}{Y_p} = \\dfrac{P_X}{P_Y} = 1.0 \\implies X_p = Y_p$\n   - PPF 대입: $X_p^2 + X_p^2 = 200 \\implies X_p^* = 10, Y_p^* = 10$\n2) **소비가능선(CPF) 제약**:\n   - 국가가 획득한 총 무역 소득 가치에 근거해 소비 예산선이 설정됩니다.\n   - $P_X X_c + P_Y Y_c = P_X X_p^* + P_Y Y_p^* \\implies 1 \\cdot X_c + 1 \\cdot Y_c = 1(10) + 1(10) = 20$\n   - 소비가능선: $X_c + Y_c = 20$\n3) **소비 결정**:\n   - 소비자의 한계대체율($MRS_{XY}$)을 국제 가격비율과 일치시킵니다.\n   - $MRS_{XY} = \\dfrac{Y_c}{X_c} = \\dfrac{P_X}{P_Y} = 1.0 \\implies X_c = Y_c$\n   - CPF 대입: $X_c + X_c = 20 \\implies X_c^* = 10, Y_c^* = 10$\n따라서 최적 생산 묶음과 소비 묶음은 우연히 $(10, 10)$으로 대칭적 일치합니다. (만약 교역조건이 변하여 $P_X/P_Y = 2$ 가 되면 생산점과 소비점이 비대칭으로 찢어지게 됩니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-045",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "가상 사회에 단일 생산요소인 노동($L$)만이 존재하며 두 재화 X와 Y의 다부문 생산함수가 다음과 같다.\n- X재 생산함수: $X = L_X$\n- Y재 생산함수: $Y = L_Y^{0.5}$\n- 노동력 총부존 제약: $L_X + L_Y = 100$\n이 경제체제의 생산가능곡선(PPF) 수식을 유도하고, X재 생산량이 점차 증가할 때 한계변환율($MRT_{XY}$)의 동태적 변화 방향 및 기회비용 법칙을 바르게 분석한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 포물선 PPF: X + Y^2 = 100 -> X절편 100(x=250), Y절편 10(y=150) -->\n  <path d=\"M 50 150 Q 150 160 250 250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"200\" y=\"180\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF: X + Y² = 100</text>\n</svg>\n```",
+      "options": [
+        "PPF 수식: $X + Y = 100$, 기회비용은 항상 일정하다.",
+        "PPF 수식: $X + Y^2 = 100$ 이며, X재 생산량 증가에 따라 한계변환율($MRT_{XY} = \\dfrac{1}{2Y}$)이 점차 상승하므로 기회비용 체증 법칙이 충족된다.",
+        "PPF 수식: $X^2 + Y = 100$, 기회비용 체감 법칙이 작동한다.",
+        "PPF 수식: $X + Y^2 = 100$, 한계변환율이 점차 하락하여 기회비용 체감 법칙이 작동한다.",
+        "생산함수의 지수가 상이하면 어떠한 생산가능곡선 수식도 산출할 수 없다."
+      ],
+      "answer": "2",
+      "explanation": "다부문 생산함수와 노동 제약을 연립하여 비선형 생산가능곡선을 직접 유도하고 한계 기회비용의 동향을 분석하는 L5 문항입니다.\n1) **PPF 수식 유도**:\n   - $L_X = X$\n   - $Y = L_Y^{0.5} \\implies L_Y = Y^2$\n   - 노동 예산 제약식에 요소 투입량을 대입합니다:\n     $$L_X + L_Y = 100 \\implies X + Y^2 = 100$$\n2) **한계변환율($MRT$) 도출**:\n   - $Y = \\sqrt{100 - X}$\n   - $MRT_{XY} = \\left|\\dfrac{dY}{dX}\\right| = \\dfrac{1}{2\\sqrt{100-X}} = \\dfrac{1}{2Y}$\n3) **동태적 변동 판정**:\n   - X재 생산량 $X$가 증가하면, 노동 제약으로 인해 Y재 생산량 $Y$는 점차 감소합니다.\n   - $MRT_{XY} = \\dfrac{1}{2Y}$ 에서 분모인 $Y$가 감소하므로, 최종 한계변환율($MRT_{XY}$)의 값은 점차 **상승(증가)**하게 됩니다.\n   - 즉, X재를 한 단위 늘릴 때 포기해야 하는 Y재의 단위수가 커지므로 **기회비용 체증 법칙**이 성립하며, 생산가능곡선은 원점에 대해 오목한 형태를 취하게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-046",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "특정요소 모형(Specific Factor Model) 하에서 일부 생산요소(자본 등)가 단기적으로 산업 부문 간에 자유롭게 이동하지 못하는 장벽이 존재할 때와 장기적으로 자원의 완전 이동이 보장될 때의 생산가능곡선(PPF)의 형태 및 곡률 비교이다. 이에 대한 옳은 분석은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 장기 PPF (완만한 오목): x절편 200(x=250), y절편 100(y=150) -->\n  <path d=\"M 50 150 Q 180 160 250 250\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"220\" y=\"195\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">장기 PPF</text>\n  \n  <!-- 단기 PPF (가파른 오목) -->\n  <path d=\"M 50 150 Q 100 170 250 250\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" stroke-dasharray=\"3\" />\n  <text x=\"95\" y=\"135\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">단기 PPF (특정요소 고정)</text>\n</svg>\n```",
+      "options": [
+        "단기에는 자원이동 장벽이 제거되므로 단기 PPF가 장기보다 훨씬 완만한 형태의 직선이 된다.",
+        "장기 PPF는 단기 PPF보다 언제나 원점에 대해 더 오목한 형태의 심한 굴절률을 가진다.",
+        "일부 생산요소가 특정 부문에 고정되어 단기적으로 이동하지 못하면 한계생산성 체감이 더 빠르고 강하게 작동하므로, 특정 요소를 고려한 단기 PPF(빨간 점선)는 모든 요소가 자유 이동하여 기술 대체가 원활한 장기 PPF(파란 실선)에 비해 원점에 대해 더 가파르게 오목한 형태(곡률 증가)를 나타낸다.",
+        "단기와 장기의 생산가능곡선은 예산 규모와 무관하게 완전히 일치한다.",
+        "특정요소의 존재는 한계변환율을 모든 구간에서 1.0으로 고정시킨다."
+      ],
+      "answer": "3",
+      "explanation": "거래 요소 장벽 및 특정요소 고정이 단기 기회비용 체증과 PPF의 곡률(오목한 정도)에 미치는 효과를 비교하는 L5 이론 문항입니다.\n1) **장기 자원 배분**: 장기에는 노동과 자본이 X재와 Y재 산업으로 자유롭게 이동하므로, 자원의 최적 요소 결합 비율을 조율할 수 있습니다. 따라서 한계변환율의 증가 속도가 완만하여 완만한 오목 형태의 PPF를 형성합니다.\n2) **단기 자원 제약 (특정요소 모형)**: 단기에는 노동은 이동 가능하지만 자본(기계 설비)은 각 산업에 고정되어 이동할 수 없습니다. 이 경우 가변요소인 노동을 한 부문에 추가 투입할수록 노동의 한계생산성이 매우 가파르게 하락(수확체감의 급격한 작동)합니다.\n3) **결론**: 자원 재배치의 경직성으로 인해 단기적으로 X재를 1단위 더 생산하기 위한 Y재의 희생 비율($MRT$)이 장기보다 급속도로 커집니다. 따라서 단기 생산가능경계는 장기 경계선에 비해 원점에 대해 **훨씬 더 가파르게 꺾인 오목한 모양(곡률과 굴절률의 증가)**을 보이게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-047",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 국가의 초기 생산가능곡선이 비선형 수식 $X + 2Y = 100$ 의 선형 구조로 주어져 있다. 이 경제체제에 다음과 같은 비대칭적 충격이 동시에 유발되었다.\n- X재 생산부문의 기술 혁신으로 노동생산성이 기존 대비 정확히 2배 향상됨.\n- Y재 생산부문의 일부 핵심 설비 파괴로 인해 생산 한계 효율성이 기존 대비 $25\\%$ 감퇴함.\n이러한 복합 기술 충격이 반영된 새로운 생산가능곡선(PPF)의 수식과 X재의 최종 최대 생산량 수준을 바르게 짝지은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 초기 PPF: X절편 100(x=200), Y절편 50(y=150) -->\n  <line x1=\"50\" y1=\"150\" x2=\"200\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  <text x=\"160\" y=\"210\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#94a3b8\">초기 PPF</text>\n  \n  <!-- 신규 PPF: X절편 200(x=300), Y절편 37.5(y=175) -> 3X + 16Y = 600 -->\n  <line x1=\"50\" y1=\"175\" x2=\"300\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"220\" y=\"160\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">신규 PPF</text>\n</svg>\n```",
+      "options": [
+        "신규 PPF: $2X + 3Y = 100$, X재 최대 생산 = 50",
+        "신규 PPF: $X + 4Y = 200$, X재 최대 생산 = 200",
+        "신규 PPF: $3X + 8Y = 600$, X재 최대 생산 = 200",
+        "신규 PPF: $3X + 16Y = 600$, X재 최대 생산 = 200",
+        "비대칭적 기술 변화 하에서는 생산이 항상 음(-)의 값으로만 수렴하여 PPF가 소멸한다."
+      ],
+      "answer": "4",
+      "explanation": "복합 비대칭 기술 충격(한 부문 진보, 한 부문 감퇴)이 생산가능곡선 수식에 미치는 연동 효과를 구하는 고난도 연산 문제입니다.\n1) **초기 변수 및 대입 조건 설정**:\n   - 기존의 생산을 $X_0, Y_0$라 하면, 초기 PPF 식은 $X_0 + 2Y_0 = 100$ 입니다.\n2) **각 부문 변화 적용**:\n   - X재 노동생산성 2배 증가: 동일 자원 대비 2배 생산되므로, 신규 생산량 $X = 2 X_0 \\implies X_0 = 0.5 X$ 입니다.\n   - Y재 한계 생산량 25% 감소: 동일 자원 대비 75%만 생산되므로, 신규 생산량 $Y = 0.75 Y_0 \\implies Y_0 = \\dfrac{Y}{0.75} = \\dfrac{4}{3} Y$ 입니다.\n3) **새로운 PPF 수식 유도**:\n   - 구한 $X_0$와 $Y_0$ 조건을 원래 PPF 식에 대입합니다.\n     $$0.5 X + 2\\left(\\dfrac{4}{3} Y\\right) = 100 \\implies \\dfrac{1}{2} X + \\dfrac{8}{3} Y = 100$$\n   - 양변에 6을 곱하여 표준 정수형태로 변환합니다.\n     $$3X + 16Y = 600$$\n4) **최대 생산 수준**:\n   - Y=0 대입 시, 신규 최대 X재 생산량은 $X = 200$단위가 됩니다. (Y재의 최대 생산은 $37.5$단위로 축소됩니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-048",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "두 재화 X와 Y의 콥-더글라스(Cobb-Douglas) 생산함수가 다음과 같다.\n- X재 생산함수: $X = L_X^{0.5} K_X^{0.5}$\n- Y재 생산함수: $Y = L_Y^{0.5} K_Y^{0.5}$\n- 전체 노동 및 자본 공급 제약: $L_X + L_Y = 100, K_X + K_Y = 100$\n이 경제의 생산 효율적 요소 재배치 궤적인 '에지워스 상자 계약곡선의 수식'과 이 계약곡선을 토대로 유도되는 사회 전체의 '생산가능곡선(PPF)'의 최종 수식을 바르게 짝지은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 직선 PPF: X + Y = 100 -> x절편 100(x=250), y절편 100(y=150) -->\n  <line x1=\"50\" y1=\"150\" x2=\"250\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"180\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PPF: X + Y = 100</text>\n</svg>\n```",
+      "options": [
+        "계약곡선: $K_X = L_X$, PPF 수식: $X + Y = 100$",
+        "계약곡선: $K_X = 2L_X$, PPF 수식: $X^2 + Y^2 = 100$",
+        "계약곡선: $K_X = L_X$, PPF 수식: $X^2 + Y^2 = 10,000$",
+        "계약곡선: $K_X = 0.5L_X$, PPF 수식: $X + 2Y = 100$",
+        "생산함수가 콥-더글라스 형이면 계약곡선과 PPF는 항상 원점을 이탈하여 측정 불능 상태가 된다."
+      ],
+      "answer": "1",
+      "explanation": "생산 요소 에지워스 상자의 효율적 궤적을 규명하고, 이로부터 생산가능곡선 수식을 직접 도출하는 최고난도 미시 수리 문항입니다.\n1) **계약곡선(Contract Curve) 도출**:\n   - 생산 효율적 요소 배분은 두 재화 등량곡선의 한계기술대체율이 같아야 합니다: $MRTS^X_{LK} = MRTS^Y_{LK}$\n   - $MRTS^X_{LK} = \\dfrac{K_X}{L_X}$\n   - $MRTS^Y_{LK} = \\dfrac{K_Y}{L_Y} = \\dfrac{100 - K_X}{100 - L_X}$\n   - $\\dfrac{K_X}{L_X} = \\dfrac{100 - K_X}{100 - L_X} \\implies K_X = L_X$ (노동/자본의 부존량 비율이 100:100 이므로 계약곡선은 상자의 대각선인 $K_X = L_X$가 됩니다).\n2) **생산가능곡선(PPF) 유도**:\n   - 계약곡선 조건을 생산함수에 대입합니다.\n   - $X = \\sqrt{L_X K_X} = \\sqrt{L_X^2} = L_X$\n   - $Y = \\sqrt{L_Y K_Y} = \\sqrt{L_Y^2} = L_Y$\n   - 노동 부존량 제약식인 $L_X + L_Y = 100$ 에 대입합니다.\n   - $X + Y = 100$\n3) **결론**: 두 재화의 요소집약도가 완전히 대칭적이므로 자원 이전 시 기회비용의 왜곡이 발생하지 않습니다. 따라서 기회비용이 1.0으로 일정한 선형 생산가능곡선 $X + Y = 100$ 이 유도됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-049",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 경제체제의 생산가능곡선(PPF)이 비선형 수식 $X^2 + Y^2 = 200$ 으로 주어져 있다. 이 사회의 총량적 주관적 무차별곡선이 $U(X, Y) = X Y$ 이다.\n그런데 이 경제체제 하에서 X재 시장이 독점화되어 생산기업이 가격을 한계비용의 2배 수준으로 책정하는 왜곡이 발생하였다. (단, Y재 시장은 완전경쟁체제를 유지하여 가격과 한계비용이 일치하며, 각 한계비용은 생산가능곡선의 한계기술변환율과 연동된다).\n이 독점 왜곡 하에서 결정되는 소비자의 최적 생산 조합 $(X_m, Y_m)$과 이로 인해 유발되는 사회적 후생 수준 $U_m$의 크기를 바르게 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- PPF: 절편 14.14 -->\n  <path d=\"M 50 109 A 141 141 0 0 1 191 250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  \n  <!-- 완전경쟁 최적 E* (10, 10) -> x=150, y=150 -->\n  <circle cx=\"150\" cy=\"150\" r=\"4.5\" fill=\"#52c41a\" />\n  <text x=\"160\" y=\"145\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#237804\" font-weight=\"bold\">E* (10, 10)</text>\n  \n  <!-- 독점 왜곡점 M (8.16, 11.55) -> x=131.6, y=134.5 -->\n  <circle cx=\"131.6\" cy=\"134.5\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"110\" y=\"125\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">M (8.16, 11.55)</text>\n</svg>\n```",
+      "options": [
+        "독점 조합: $(10, 10)$, 후생 수준 $U_m = 100$",
+        "독점 조합: $(7.07, 12.25)$, 후생 수준 $U_m = 86.6$",
+        "독점 조합: $(8.16, 11.55)$, 후생 수준 $U_m \u0007pprox 94.25$ 이며, 완전경쟁 최적 대비 X재의 과소 생산으로 인해 후생 손실이 발생한다.",
+        "독점 조합: $(5.00, 13.22)$, 후생 수준 $U_m = 66.1$",
+        "독점 가격 왜곡이 존재할 때가 완전경쟁 상태보다 사회적 후생이 항상 2배 이상 증가한다."
+      ],
+      "answer": "3",
+      "explanation": "생산 효율면(PPF) 하에서 가격 조정의 왜곡(독점의 가산)이 유발하는 일반균형 자원배분 비효율과 후생의 크기를 산정하는 최고난도 문제입니다.\n1) **생산 한계 조건 및 가격 비율**:\n   - $MRT_{XY} = \\dfrac{MC_X}{MC_Y} = \\dfrac{X}{Y}$ (생산 기술적 한계비용 비율)\n   - X재의 독점 가격 책정: $P_X = 2 MC_X$\n   - Y재의 경쟁 가격 책정: $P_Y = MC_Y$\n   - 시장 가격의 상대 비율: $\\dfrac{P_X}{P_Y} = \\dfrac{2 MC_X}{MC_Y} = \\dfrac{2X}{Y}$\n2) **소비자 최적 조건 적용**:\n   - 가계는 시장 가격에 반응하므로, $MRS_{XY} = \\dfrac{P_X}{P_Y}$ 에서 결정합니다.\n   - $MRS_{XY} = \\dfrac{Y}{X} = \\dfrac{2X}{Y} \\implies Y^2 = 2X^2$\n3) **생산가능곡선 대입**:\n   - $X^2 + Y^2 = 200 \\implies X^2 + 2X^2 = 3X^2 = 200$\n   - $X_m^2 = 66.67 \\implies X_m \\approx 8.16$\n   - $Y_m = \\sqrt{2} X_m \\approx 1.414 \\times 8.16 \\approx 11.55$\n4) **후생 수준 산정**:\n   - $U_m = X_m Y_m = 8.16 \\times 11.55 \\approx 94.25$\n   - 완전경쟁 하의 사회적 최적 후생인 $100$($X=10, Y=10$)에 비해, X재의 비합리적 가격 왜곡(독점)으로 인해 X재 생산이 8.16으로 과소하게 억제되어 총 사회적 후생이 약 $94.25$로 감소(자원배분 실패)하게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch01-sec01-item04-050",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 소규모 개방국가의 생산가능곡선이 $X^2 + Y^2 = 200$ 이며, 사회 만족도는 $U = X_c Y_c$ 이다. 초기 국제 시장 교역조건이 $TOT_0 = 1.0$ ($P_X / P_Y = 1$)로 자국 수출재(X재)와 수입재(Y재)의 교환 비율이 형성되어 있었으나, 국제 시장의 변동으로 교역조건이 자국 수출재에 극도로 유리한 $TOT_1 = 2.0$ 으로 개선되었다.\n교역조건 개선에 따른 이 국가의 최적 생산량의 변동 양상과, 무역 교환을 거쳐 도달하게 되는 최종 극대 사회 후생 수준 $U_1$의 크기를 바르게 구한 것은?\n\n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"55\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 원형 PPF -->\n  <path d=\"M 50 109 A 141 141 0 0 1 191 250\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" fill=\"none\" />\n\n  <!-- 구 교역선 TOT=1 -> x=150, y=150 통과 기울기 -1 -->\n  <line x1=\"50\" y1=\"50\" x2=\"250\" y2=\"250\" stroke=\"#94a3b8\" stroke-width=\"1.2\" />\n  \n  <!-- 신 교역선 TOT=2 -> 생산점 (12.65, 6.32)(x=176.5, y=186.8) 통과 기울기 -2 -->\n  <!-- CPF 수식: 2X + Y = 31.62 -> X절편 15.8(x=208), Y절편 31.62(y=50 스케일 컷) -->\n  <line x1=\"50\" y1=\"62\" x2=\"208\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  \n  <!-- 신 생산점 Ep1 (12.65, 6.32) -> x=176.5, y=186.8 -->\n  <circle cx=\"176.5\" cy=\"186.8\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"185\" y=\"180\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">생산 Ep1 (12.65, 6.32)</text>\n\n  <!-- 신 소비점 Ec1 (7.9, 15.8) -> x=129, y=92 -->\n  <circle cx=\"129\" cy=\"92\" r=\"4.5\" fill=\"#52c41a\" />\n  <text x=\"135\" y=\"87\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#237804\" font-weight=\"bold\">소비 Ec1 (7.9, 15.8)</text>\n</svg>\n```",
+      "options": [
+        "생산은 X재 수출 확대를 위해 X재 생산을 12.65로 확대하고, 신규 사회 후생 수준은 $U_1 \u0007pprox 124.8$ 로 대폭 증가한다.",
+        "생산은 Y재 생산을 15로 확대하고, 사회 후생은 $U_1 = 80$으로 위축된다.",
+        "교역조건 개선에도 불구하고 소규모 개방국가의 생산점과 후생은 절대 변하지 않는다.",
+        "생산은 X재만 14.14개 생산하는 코너해로 이전하고, 사회 후생 $U_1 = 100$ 이 유지된다.",
+        "교역조건이 상승하면 무역 가능 영역이 차단되어 자율 교환이 완전히 중단된다."
+      ],
+      "answer": "1",
+      "explanation": "수출재 교역조건(TOT) 개선에 따른 소규모 국가의 최적 생산 반응 및 소비가 가져다주는 후생 이득의 연동 변동을 유도하는 L5 수리 계산 문제입니다.\n1) **신규 생산 최적화**:\n   - 교역조건 $TOT_1 = \\dfrac{P_X}{P_Y} = 2.0$ 으로 상승.\n   - $MRT_{XY} = \\dfrac{X_p}{Y_p} = 2 \\implies X_p = 2Y_p$\n   - PPF 대입: $(2Y_p)^2 + Y_p^2 = 5Y_p^2 = 200 \\implies Y_p^* = \\sqrt{40} \\approx 6.32, X_p^* = 2\\sqrt{40} \\approx 12.65$\n   - 자국 수출재인 X재 가격이 오르자 생산을 $10 \\rightarrow 12.65$로 늘리는 생산 조정이 발생합니다.\n2) **신규 소비가능선(CPF)**:\n   - $2X_c + Y_c = 2(12.65) + 6.32 = 31.62 \\implies 2X_c + Y_c = 31.62$\n3) **신규 소비 최적화**:\n   - $MRS_{XY} = \\dfrac{Y_c}{X_c} = \\dfrac{P_X}{P_Y} = 2 \\implies Y_c = 2X_c$\n   - CPF 대입: $2X_c + 2X_c = 4X_c = 31.62 \\implies X_c^* \\approx 7.9, Y_c^* \\approx 15.8$\n4) **신규 후생 수준**:\n   - $U_1 = X_c^* \\cdot Y_c^* = 7.9 \\times 15.8 \\approx 124.8$\n따라서 교역조건 개선의 효과로 생산은 X재 특화 방향인 $(12.65, 6.32)$로 이전하고, 소비영역 CPF의 팽창을 통해 극대화되는 사회적 후생 수준은 기존 100에서 $124.8$로 크게 상승합니다."
     }
   ]
 }

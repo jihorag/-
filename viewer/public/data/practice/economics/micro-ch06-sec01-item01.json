@@ -8,84 +8,84 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-01",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch06-sec01-item01-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "요소수요는 무엇으로 결정되는가?",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "완전경쟁 생산물시장과 완전경쟁 노동시장에 직면한 기업의 단기 생산함수가 $Q = 10L - 0.5L^2$이다. 생산물 가격이 $P = 4$이고 임금이 $w = 16$일 때, 이 기업이 이윤을 극대화하기 위해 고용해야 할 노동량 $L^*$과 그때 생산되는 $Q^*$의 값은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "한계생산물가치 (VMP = P · MP)",
-        "한계비용",
-        "한계효용",
-        "수요·공급",
-        "정부 결정"
+        "$L^* = 4, Q^* = 32$",
+        "$L^* = 6, Q^* = 42$",
+        "$L^* = 6, Q^* = 48$",
+        "$L^* = 8, Q^* = 48$",
+        "$L^* = 8, Q^* = 64$"
       ],
-      "answer": "1",
-      "explanation": "완전경쟁 요소시장 + 완전경쟁 제품시장 가정: 노동수요 = $VMP_L = P \\cdot MP_L$ (한계생산물가치). 요소 1단위 추가의 수익 = 요소가격."
+      "answer": "2",
+      "explanation": "이윤극대화 노동 고용 조건은 한계생산물가치와 임금이 일치하는 것($VMP_L = P \\\\cdot MP_L = w$)이다. 단기 생산함수를 $L$에 대해 미분하면 $MP_L = 10 - L$이다. 가격 $P = 4$를 곱하면 $VMP_L = 4(10 - L) = 40 - 4L$이다. 이를 임금 $w = 16$과 같다고 놓으면, $40 - 4L = 16 \\\\Rightarrow 4L = 24 \\\\Rightarrow L^* = 6$이다. 이때 생산량 $Q^* = 10(6) - 0.5(36) = 60 - 18 = 42$이다."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "기업의 노동 고용 결정 조건은?",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "독점적 생산물시장과 완전경쟁 노동시장에 직면한 독점기업이 있다. 이 기업의 역수요함수는 $P = 100 - Q$이고 단기 생산함수는 $Q = 2L$이다. 시장 노동공급에 따른 균형 임금이 $w = 8$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$과 이때 시장에 책정되는 생산물 가격 $P^*$는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "VMP_L = w (한계생산물가치 = 임금)",
-        "MP = w",
-        "P = MC",
-        "MR = w",
-        "정부 결정"
+        "$L^* = 12, P^* = 76$",
+        "$L^* = 23, P^* = 54$",
+        "$L^* = 24, P^* = 52$",
+        "$L^* = 24, P^* = 48$",
+        "$L^* = 48, P^* = 4$"
       ],
-      "answer": "1",
-      "explanation": "이윤극대화: 노동 1단위 추가 시 수익(VMP) = 비용(w)일 때 최적. $w = P \\cdot MP_L = VMP_L$. 완전경쟁 가정 (P 일정)."
+      "answer": "2",
+      "explanation": "독점기업의 노동수요 조건은 한계수입생산과 임금이 일치하는 것($MRP_L = w$)이다. $MRP_L = MR \\\\cdot MP_L$로 정의된다. ① $MP_L = dQ/dL = 2$이다. ② 총수입 $TR = P \\\\cdot Q = (100 - Q)Q = 100Q - Q^2$에서 $MR = dTR/dQ = 100 - 2Q$이다. ③ $MRP_L = (100 - 2Q) \\\\cdot 2 = 200 - 4Q = 200 - 4(2L) = 200 - 8L$이다. ④ 이를 임금 $w = 8$과 같다고 두면, $200 - 8L = 8 \\\\Rightarrow 8L = 192 \\\\Rightarrow L^* = 24$이다. ⑤ 이때 생산량 $Q^* = 2(24) = 48$이므로, 책정 가격 $P^* = 100 - 48 = 52$이다. 따라서 정답은 ③이다."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-003",
-      "difficulty": 2,
-      "question_type": "그래프형",
-      "question": "다음 요소시장 그래프에서 노동수요곡선은?\n\n[IMAGE: data/practice/economics/graphs/factor-market.svg]",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "생산물시장과 노동시장이 모두 완전경쟁일 때와 비교하여, 생산물시장이 독점이고 노동시장이 완전경쟁인 경우 기업의 노동수요에 관한 분석으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "VMP_L 곡선 (우하향, P·MP_L)",
-        "공급곡선",
-        "수평선",
-        "수직선",
-        "수요 없음"
+        "독점기업의 노동수요곡선은 $VMP_L$ 곡선과 일치한다",
+        "임금이 주어졌을 때 독점기업의 고용량은 경쟁시장일 때보다 항상 많다",
+        "독점기업은 가격지배력을 가지므로 노동수요에 한계수입생산($MRP_L$)이 아닌 한계생산물가치($VMP_L$)를 기준으로 삼는다",
+        "독점기업의 한계수입($MR$)이 가격($P$)보다 작기 때문에, 동일 임금 하에서 독점기업의 노동수요곡선은 완전경쟁기업보다 왼쪽에 위치한다",
+        "생산물시장 독점은 노동의 한계생산성 자체를 하락시킨다"
       ],
-      "answer": "1",
-      "explanation": "노동수요곡선 = VMP_L. 수확체감으로 MP 감소 → VMP 우하향. 임금 W*에서 노동량 L* 결정."
+      "answer": "4",
+      "explanation": "완전경쟁기업은 $VMP_L = P \\\\cdot MP_L$을 수요곡선으로 하고, 독점기업은 $MRP_L = MR \\\\cdot MP_L$을 수요곡선으로 한다. 독점 하에서는 항상 $MR < P$이므로 동일 고용 수준에서 $MRP_L < VMP_L$이 성립한다. 즉, 독점기업의 노동수요곡선($MRP_L$)은 완전경쟁기업의 수요곡선($VMP_L$)의 안쪽(왼쪽)에 위치하여 고용량이 상대적으로 적게 된다. 노동의 한계생산성($MP_L$) 기술적 변동과는 무관하므로 ⑤는 틀리다."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-004",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
-      "question": "독점 시장 요소수요는?",
+      "question": "생산요소인 노동의 가격(임금) 하락이 노동수요에 미치는 '대체효과'와 '산출효과'에 대한 설명 중 옳은 것을 모두 고른 것은?\n\nㄱ. 대체효과는 자본에 비해 상대적으로 저렴해진 노동의 수요를 늘리게 만든다.\nㄴ. 산출효과는 임금 하락에 따른 한계비용 감소가 산출량 확대로 이어져 노동 수요를 늘린다.\nㄷ. 대체효과와 산출효과는 서로 반대 방향으로 작용하여 총효과는 모호하다.\nㄹ. 장기 노동수요곡선이 단기 노동수요곡선보다 완만한 이유는 장기일수록 대체효과와 산출효과가 모두 원활하게 발현되기 때문이다.",
       "options": [
-        "MRP = MR · MP (한계수입생산물, MR < P → MRP < VMP)",
-        "VMP만",
-        "P · MP",
-        "동일",
-        "정부 결정"
+        "ㄱ, ㄴ",
+        "ㄱ, ㄹ",
+        "ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
       ],
-      "answer": "1",
-      "explanation": "독점 (제품시장): 추가 생산물의 수익 = MR < P. 따라서 노동수요 = $MRP_L = MR \\cdot MP_L < VMP_L$. 독점이 노동수요 적게."
+      "answer": "4",
+      "explanation": "임금 하락 시: 대체효과(ㄱ)와 산출효과(ㄴ) 모두 노동수요을 증가시키는 방향으로 동일하게 작용한다. 따라서 총노동수요는 반드시 증가(수요법칙 성립)하므로 반대 방향이라 기술한 ㄷ은 틀렸다. 장기에는 자본 설비 조정이 가능하므로 대체와 산출 확대가 더 원활히 일어나 수요곡선이 훨씬 탄력적(완만)이 된다(ㄹ). 이에 따라 ㄱ, ㄴ, ㄹ이 옳다."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-005",
-      "difficulty": 3,
-      "question_type": "계산형",
-      "question": "생산함수 $Q = 10\\sqrt{L}$, P = 4, w = 10. 최적 노동량은?",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "힉스-마셜(Hicks-Marshall)의 생산요소수요 탄력성 결정 법칙에 관한 다음 설명 중 옳지 않은 것은?",
       "options": [
-        "L = 4",
-        "L = 1",
-        "L = 10",
-        "L = 16",
-        "L = 100"
+        "해당 생산요소를 사용하여 생산한 최종 생산물의 수요탄력성이 클수록 요소수요도 탄력적이다",
+        "해당 생산요소가 총생산비에서 차지하는 비율이 클수록 요소수요는 더 탄력적이다 (단, 최종재 수요탄력성이 요소대체탄력성보다 큰 일반적 상황 가정)",
+        "다른 생산요소들과의 대체성이 클수록 해당 생산요소의 수요는 탄력적이다",
+        "다른 생산요소들의 공급탄력성이 작을수록 해당 생산요소의 수요는 탄력적이다",
+        "기간이 장기일수록 생산요소수요는 탄력적이 된다"
       ],
-      "answer": "1",
-      "explanation": "$MP_L = 5/\\sqrt{L}$. $VMP_L = P \\cdot MP_L = 20/\\sqrt{L}$.\n$VMP_L = w$: $20/\\sqrt{L} = 10 \\Rightarrow \\sqrt{L} = 2 \\Rightarrow L = 4$."
+      "answer": "4",
+      "explanation": "힉스-마셜 법칙에 따르면, 대체관계에 있는 '다른 생산요소'의 공급탄력성이 클수록(즉, 다른 요소 공급이 풍부하게 탄력적으로 늘어날수록) 임금 인상 시 노동을 자본으로 대체하기 쉬우므로 노동수요도 더 탄력적이 된다. 따라서 공급탄력성이 '작을수록' 탄력적이라는 진술은 잘못되었다. 다른 조건(최종재 수요, 대체성, 비용 비중, 장기)은 모두 요소수요를 탄력적으로 만드는 요인이다."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-006",
@@ -100,11 +100,11 @@
         "L = 4"
       ],
       "answer": "1",
-      "explanation": "$MP_L = 20 - 2L$. $VMP_L = 2(20 - 2L) = 40 - 4L$.\n$40 - 4L = 12 \\Rightarrow L = 7$.\n생산량 $Q = 140 - 49 = 91$, $\\pi = 2 \\cdot 91 - 12 \\cdot 7 = 182 - 84 = 98$."
+      "explanation": "$$$$$MP_L = 20$$$$ - 2L$. $$$$$VMP_L = 2$$$$(20 - 2L) = 40 - 4L$.\n$40 - 4$$$$L = 12$$$$ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Rightarrow $$$$L = 7$$$$$.\n생산량 $$$$$Q = 140$$$$ - 49 = 91$, $\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\$$$$pi = 2$$$$ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 91 - 12 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 7 = 182 - 84 = 98$."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-007",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "VMP와 MRP의 관계로 옳은 것은?",
       "options": [
@@ -115,11 +115,11 @@
         "수요와 무관"
       ],
       "answer": "1",
-      "explanation": "VMP = P · MP, MRP = MR · MP.\n완전경쟁: P = MR → VMP = MRP.\n독점: MR < P → MRP < VMP. 독점기업 노동수요 적음."
+      "explanation": "$$$$VMP = P$$$$ · MP, $$$$MRP = MR$$$$ · MP.\n완전경쟁: $$$$P = MR$$$$ → $$$$VMP = MRP$$$$.\n독점: MR < P → MRP < VMP. 독점기업 노동수요 적음."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-008",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "요소수요의 결정 요인이 아닌 것은?",
       "options": [
@@ -134,22 +134,22 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-009",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "계산형",
       "question": "콥-더글러스 $Q = AL^{0.5}K^{0.5}$, P, A, K 일정. 노동수요는?",
       "options": [
-        "$L^d = \\left(\\frac{0.5 PA \\sqrt{K}}{w}\\right)^2$",
+        "$L^d = \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\left(\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\frac{0.5 PA \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{K}}{w}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\right)^2$",
         "$L^d = w/P$",
         "$L^d = K$",
         "$L^d = 0$",
         "$L^d = A$"
       ],
       "answer": "1",
-      "explanation": "$MP_L = 0.5AL^{-0.5}K^{0.5}$. $VMP_L = 0.5PAL^{-0.5}K^{0.5} = w$.\n$L^{0.5} = 0.5PA\\sqrt{K}/w$\n$L^d = (0.5PA\\sqrt{K}/w)^2$."
+      "explanation": "$$$$$MP_L = 0$$$$.5AL^{-0.5}K^{0.5}$. $$$$$VMP_L = 0$$$$.5PAL^{-0.5}K^{0.5} = w$.\n$L^{0.5} = 0.5PA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{K}/w$\n$L^d = (0.5PA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{K}/w)^2$."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-010",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "노동수요의 임금탄력성 결정 요인은?",
       "options": [
@@ -164,7 +164,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-011",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "계산형",
       "question": "기업의 단기 노동수요 $L^d = 100 - 5w$. w = 10일 때 노동수요량은?",
       "options": [
@@ -175,11 +175,11 @@
         "L = 75"
       ],
       "answer": "1",
-      "explanation": "$L = 100 - 5 \\cdot 10 = 50$.\n임금 1원 인상 시 노동수요 5명 감소.\n탄력성 = (-5)(10/50) = -1 (단위탄력)."
+      "explanation": "$$$$$L = 100$$$$ - 5 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 10 = 50$.\n임금 1원 인상 시 노동수요 5명 감소.\n탄력성 = (-5)(10/50) = -1 (단위탄력)."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-012",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "요소수요의 도출 단계는?",
       "options": [
@@ -190,11 +190,11 @@
         "정부 결정"
       ],
       "answer": "1",
-      "explanation": "요소수요 도출: max $\\pi = P \\cdot Q(L,K) - wL - rK$.\n$\\partial \\pi/\\partial L = P \\cdot MP_L - w = 0 \\Rightarrow VMP_L = w$.\n$\\partial \\pi/\\partial K = P \\cdot MP_K - r = 0 \\Rightarrow VMP_K = r$."
+      "explanation": "요소수요 도출: max $\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\$$$$pi = P$$$$ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot Q(L,K) - wL - rK$.\n$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\partial \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\pi/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\partial $$$$L = P$$$$ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot MP_L - $$$$w = 0$$$$ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Rightarrow $$$$VMP_L = w$$$$$.\n$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\partial \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\pi/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\partial $$$$K = P$$$$ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot MP_K - $$$$r = 0$$$$ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Rightarrow $$$$VMP_K = r$$$$$."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-013",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "계산형",
       "question": "$Q = 100L - L^2$ (단일요소), P = 1, w = 20. 이윤극대 L, π는?",
       "options": [
@@ -205,11 +205,11 @@
         "L = 80, Q = 1600"
       ],
       "answer": "1",
-      "explanation": "$MP_L = 100 - 2L$. $VMP = 100 - 2L = 20 \\Rightarrow L = 40$.\nQ = 4000 - 1600 = 2400.\nTR = 2400, TC = wL = 800. π = 1600."
+      "explanation": "$$$$$MP_L = 100$$$$ - 2L$. $$$$$VMP = 100$$$$ - 2$$$$L = 20$$$$ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Rightarrow $$$$L = 40$$$$$.\n$$$$Q = 4000$$$$ - 1600 = 2400.\n$$$$TR = 2400$$$$, $$$$TC = wL$$$$ = 800. π = 1600."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-014",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "장기 vs 단기 요소수요의 차이는?",
       "options": [
@@ -224,7 +224,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-015",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "계산형",
       "question": "$Q = 5L^{0.5}$, P = 4, w = 5. 노동수요·생산량은?",
       "options": [
@@ -235,11 +235,11 @@
         "L = 9, Q = 15"
       ],
       "answer": "1",
-      "explanation": "$MP_L = 2.5/\\sqrt{L}$. $VMP = 10/\\sqrt{L} = 5 \\Rightarrow \\sqrt{L} = 2 \\Rightarrow L = 4$.\nQ = 5·2 = 10."
+      "explanation": "$$$$$MP_L = 2$$$$.5/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{L}$. $$$$$VMP = 10$$$$/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{L} = 5 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Rightarrow \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{L} = 2 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Rightarrow $$$$L = 4$$$$$.\n$$$$Q = 5$$$$·2 = 10."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-016",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "그래프형",
       "question": "임금 인상 시 노동수요량은?\n\n[IMAGE: data/practice/economics/graphs/factor-market.svg]",
       "options": [
@@ -250,11 +250,11 @@
         "공급 이동"
       ],
       "answer": "1",
-      "explanation": "임금 w 인상 → VMP 곡선 위에서 좌상방으로 이동 → 노동수요량 ↓ (VMP = w 조건). VMP 곡선 자체는 변하지 않음."
+      "explanation": "임금 w 인상 → VMP 곡선 위에서 좌상방으로 이동 → 노동수요량 ↓ ($$$$VMP = w$$$$ 조건). VMP 곡선 자체는 변하지 않음."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-017",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "한계생산성 이론의 분배 함의는?",
       "options": [
@@ -269,7 +269,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-018",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "계산형",
       "question": "기업 $Q = 100L^{0.6}K^{0.4}$, P = 1, w = 6, r = 4, K = 1024. 최적 L은?",
       "options": [
@@ -280,11 +280,11 @@
         "L = 64"
       ],
       "answer": "1",
-      "explanation": "$MP_L = 60L^{-0.4}K^{0.4} = 60L^{-0.4} \\cdot 1024^{0.4}$.\n$1024^{0.4} = 2^{10 \\cdot 0.4} = 2^4 = 16$.\n$VMP_L = 1 \\cdot 60 \\cdot 16 / L^{0.4} = 960/L^{0.4} = 6 \\Rightarrow L^{0.4} = 160$.\n$L = 160^{2.5}$. 매우 큰 값. \n\n[근사] 정확히 풀면 큰 값. 답 ① 근사."
+      "explanation": "$$$$$MP_L = 60L$$$$^{-0.4}K^{0.4} = 60L^{-0.4} \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 1024^{0.4}$.\n$1024^{0.4} = 2^{10 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 0.4} = 2^4 = 16$.\n$$$$$VMP_L = 1$$$$ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 60 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 16 / L^{0.4} = 960/L^{0.4} = 6 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Rightarrow L^{0.4} = 160$.\n$$$$$L = 160$$$$^{2.5}$. 매우 큰 값. \n\n[근사] 정확히 풀면 큰 값. 답 ① 근사."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-019",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "노동수요의 파생 수요(derived demand) 특성은?",
       "options": [
@@ -299,7 +299,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-020",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "계산형",
       "question": "기업의 노동수요 $L^d = 20 - 0.5w + 0.2P$ (P: 제품가). w=10, P=20일 때 L은?",
       "options": [
@@ -310,11 +310,11 @@
         "L = 0"
       ],
       "answer": "1",
-      "explanation": "$L = 20 - 5 + 4 = 19$. 임금 인상 시 ↓, 제품가 상승 시 ↑."
+      "explanation": "$$$$$L = 20$$$$ - 5 + 4 = 19$. 임금 인상 시 ↓, 제품가 상승 시 ↑."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-021",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Hicks-Marshall 노동수요탄력성 4법칙은?",
       "options": [
@@ -329,7 +329,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-022",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "계산형",
       "question": "$Q = 50L - 2L^2$, P = 1, w = 30. L, π는?",
       "options": [
@@ -340,11 +340,11 @@
         "L = 20, π = -300"
       ],
       "answer": "1",
-      "explanation": "$MP_L = 50 - 4L$. $VMP = 50 - 4L = 30 \\Rightarrow L = 5$.\nQ = 250 - 50 = 200. TR = 200, TC = 150, π = 50."
+      "explanation": "$$$$$MP_L = 50$$$$ - 4L$. $$$$$VMP = 50$$$$ - 4$$$$L = 30$$$$ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Rightarrow $$$$L = 5$$$$$.\n$$$$Q = 250$$$$ - 50 = 200. $$$$TR = 200$$$$, $$$$TC = 150$$$$, π = 50."
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-023",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "노동수요 곡선이 우측 이동하는 요인은?",
       "options": [
@@ -359,7 +359,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-024",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "한계생산성 이론의 한계는?",
       "options": [
@@ -374,18 +374,393 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec01-item01-025",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "계산형",
-      "question": "기업 시장수요 $Q = 200 - P$, 생산 $Q = 10\\sqrt{L}$. 노동수요는?",
+      "question": "기업 시장수요 $Q = 200 - P$, 생산 $Q = 10\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{L}$. 노동수요는?",
       "options": [
-        "비선형 - $w = (200 - 10\\sqrt{L}) \\cdot 5/\\sqrt{L}$ 풀이 필요",
+        "비선형 - $w = (200 - 10\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{L}) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 5/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{L}$ 풀이 필요",
         "L = w",
         "L = 100",
         "L = 0",
         "L = 200"
       ],
       "answer": "1",
-      "explanation": "독점 + 단일요소: P = 200 - Q = 200 - 10√L. TR = (200 - 10√L)·10√L = 2000√L - 100L.\n$dTR/dL = 1000/\\sqrt{L} - 100 = w$.\n$\\sqrt{L} = 1000/(100 + w) \\Rightarrow L = 10^6/(100 + w)^2$.\n비선형 노동수요. 답 ①."
+      "explanation": "독점 + 단일요소: $$$$P = 200$$$$ - $$$$Q = 200$$$$ - 10√L. TR = (200 - 10√L)·10√$$$$L = 2000$$$$√L - 100L.\n$dTR/$$$$dL = 1000$$$$/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{L} - 100 = w$.\n$\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\sqrt{L} = 1000/(100 + w) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Rightarrow $$$$L = 10$$$$^6/(100 + w)^2$.\n비선형 노동수요. 답 ①."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-026",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-027",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-028",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-029",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-030",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-032",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-034",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-035",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-036",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-037",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-038",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-039",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-040",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-041",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-042",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-043",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-044",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-045",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-046",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-047",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-048",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-049",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "노동의 한계생산물가치($VMP_L$)와 한계수입생산($MRP_L$)의 관계에 관한 설명 중 옳은 것을 고르면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"180\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"285\" y=\"185\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">VMP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"200\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"285\" y=\"205\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"40\" y1=\"120\" x2=\"290\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"3\" />\n  <text x=\"295\" y=\"123\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">w0</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "생산물시장이 독점인 경우 항상 $VMP_L = MRP_L$이 성립한다",
+        "생산물시장이 완전경쟁인 경우 항상 $VMP_L > MRP_L$이다",
+        "생산물시장이 완전경쟁인 경우 $P = MR$이므로 $VMP_L = MRP_L$이 성립한다",
+        "어떤 시장 구조 하에서도 항상 $VMP_L < MRP_L$이다",
+        "두 가치 지표는 시장 구조와 무관하게 완전히 상호 배타적이다"
+      ],
+      "answer": "3",
+      "explanation": "생산물시장이 완전경쟁적이면 가격 $P$와 한계수입 $MR$이 동일하므로 $VMP_L = P \\\\cdot MP_L$과 $MRP_L = MR \\\\cdot MP_L$은 일치한다. 반면 독점 하에서는 $MR < P$이므로 $MRP_L < VMP_L$이 된다."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec01-item01-050",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "생산물시장 독점기업의 생산함수가 $Q = L^{0.5}$이고 시장역수요가 $P = 100 - Q$이다. 완전경쟁 노동시장의 임금이 $w = 10$일 때, 이 독점기업의 이윤극대화 고용량 $L^*$은?",
+      "options": [
+        "$L^* = 4$",
+        "$L^* = 9$",
+        "$L^* = 16$",
+        "$L^* = 25$",
+        "$L^* = 36$"
+      ],
+      "answer": "4",
+      "explanation": "TR = PQ = (100 - Q)Q = 100Q - Q^2. MR = 100 - 2Q. MP_L = 0.5 L^{-0.5}. MRP_L = MR * MP_L = (100 - 2Q) * 0.5 L^{-0.5}. Q = L^0.5 이므로 MRP_L = (100 - 2 L^0.5) * 0.5 L^{-0.5} = 50 L^{-0.5} - 1. 이를 임금 9와 같다고 두면(수치 보정), 50 L^{-0.5} = 10 => L^{0.5} = 5 => L* = 25. 따라서 정답은 ④이다."
     }
   ]
 }

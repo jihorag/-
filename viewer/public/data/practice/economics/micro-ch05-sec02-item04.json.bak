@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제14절 독점시장",
+    "item": "제4관 독점의 폐해와 규제",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "독점의 사회적 비용으로 옳지 않은 것은?",
+      "options": [
+        "독점이윤 자체 (분배 변화일 뿐)",
+        "사중손실 (DWL)",
+        "X-비효율 (방만 경영)",
+        "지대추구 비용",
+        "혁신 동기 저하 가능성"
+      ],
+      "answer": "1",
+      "explanation": "독점이윤은 소비자→기업 이전(분배). 사회적 비용은 ① DWL ② X-비효율 ③ 지대추구 ④ 혁신 저해. 잉여 이전과 사회 손실 구분."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-002",
+      "difficulty": 1,
+      "question_type": "그래프형",
+      "question": "독점의 사중손실 영역은?\n\n[IMAGE: data/practice/economics/graphs/monopoly.svg]",
+      "options": [
+        "Qm과 Qc 사이의 수요-MC 삼각형",
+        "독점이윤",
+        "MR 아래",
+        "ATC 위",
+        "0"
+      ],
+      "answer": "1",
+      "explanation": "DWL: 거래량 감소(Qm < Qc)로 인한 사회후생 손실. 사회적 한계가치(수요) - 한계비용 > 0인데 거래 안 됨 → 삼각형 영역."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-003",
+      "difficulty": 2,
+      "question_type": "계산형",
+      "question": "수요 $P = 100 - Q$, MC = 20. 독점 vs 완전경쟁 DWL는?",
+      "options": [
+        "DWL = 800",
+        "DWL = 400",
+        "DWL = 1600",
+        "DWL = 0",
+        "DWL = 200"
+      ],
+      "answer": "1",
+      "explanation": "독점 Q = 40, 완경 Q = 80.\nDWL = (1/2)·(60-20)·(80-40) = (1/2)·40·40 = 800."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-004",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Harberger 추정 (1954)에 따른 미국 독점의 사회비용은?",
+      "options": [
+        "GNP의 약 0.1%로 비교적 작음",
+        "GNP의 50%",
+        "GNP의 30%",
+        "0",
+        "측정 불가"
+      ],
+      "answer": "1",
+      "explanation": "Harberger(1954) 추정: 미국 독점의 DWL ≈ GNP의 0.1% (매우 작음). 후속 연구에서 X-비효율·지대추구 포함 시 더 큰 추정 (수%)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-005",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "X-비효율(X-inefficiency, Leibenstein 1966)이란?",
+      "options": [
+        "독점기업이 경쟁 압력 없어 비용 절감 동기 부족 → 실제 비용 > 최소비용",
+        "정부 결정",
+        "한계비용 감소",
+        "수요 비효율",
+        "사회후생 증가"
+      ],
+      "answer": "1",
+      "explanation": "X-비효율: 경쟁 부재로 독점기업의 비용 절감 노력 약함. 실제 비용 > 최소 비용. 추가 사회비용. 산업조직론 연구의 핵심 발견."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-006",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "지대추구(rent-seeking, Tullock 1967)의 의미는?",
+      "options": [
+        "독점이윤 확보를 위해 로비·정치 비용 지출 → 추가 사회비용",
+        "정상이윤만 추구",
+        "비용 절감",
+        "정부 지원",
+        "효율 증가"
+      ],
+      "answer": "1",
+      "explanation": "지대추구: 독점 면허·보호를 위한 로비·정치자금·소송 비용. 사회적으로 비생산적 지출 → DWL에 추가되는 사회비용 (Tullock 사각형)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-007",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점에 대한 정부 규제 방식이 아닌 것은?",
+      "options": [
+        "자유방임",
+        "가격 규제 (P = MC 또는 P = ATC)",
+        "공기업화",
+        "분할 (AT&T 1984·Standard Oil 1911)",
+        "반독점법 적용"
+      ],
+      "answer": "1",
+      "explanation": "독점 규제 방식: ① 가격 규제 ② 공기업화 ③ 분할(분할명령) ④ 반독점법 ⑤ 진입 촉진. 자유방임은 규제 아닌 무개입."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-008",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "자연독점: 수요 $P = 50 - Q$, $TC = 200 + 5Q$. 이윤극대 vs P = MC 규제 비교는?",
+      "options": [
+        "독점: Q = 22.5, P = 27.5, π = 306.25 / 규제 Q = 45, P = 5, π = -200 (보조금 필요)",
+        "둘 다 이윤 0",
+        "규제 후 이윤 ↑",
+        "변화 없음",
+        "독점이 효율적"
+      ],
+      "answer": "1",
+      "explanation": "독점: MR = 50 - 2Q = 5 → Q = 22.5, P = 27.5. π = 27.5·22.5 - (200 + 112.5) = 618.75 - 312.5 = 306.25.\nP = MC 규제: P = 5, Q = 45. TR = 225, TC = 200 + 225 = 425, π = -200 (FC 손실).\n정부 보조금 또는 P = ATC 규제 필요."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-009",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Ramsey 가격(평균비용가격)의 의미는?",
+      "options": [
+        "자연독점에서 P = ATC 규제 → 정상이윤·보조금 불필요·약간의 비효율",
+        "P = MC만",
+        "정부가 가격 결정",
+        "이윤 극대",
+        "P = 0"
+      ],
+      "answer": "1",
+      "explanation": "Ramsey(1927) 가격(자연독점 응용): P = ATC. 정상이윤만, 보조금 불필요. 약간의 DWL이지만 P=MC 규제의 손실보다 실용적. 한국 전력 요금 유사."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-010",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "한국 공정거래위원회의 주된 역할은?",
+      "options": [
+        "M&A 심사, 시장지배력 남용 규제, 카르텔·담합 적발, 불공정거래 규제",
+        "세금 부과",
+        "통화 관리",
+        "외환 관리",
+        "수출 진흥"
+      ],
+      "answer": "1",
+      "explanation": "공정위(1981 출범): ① M&A 심사(HHI 등) ② 시장지배 남용 ③ 카르텔·담합 ④ 불공정거래 ⑤ 소비자 보호. 미국 FTC·법무부, EU 경쟁법과 유사."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-011",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "미국 반독점법(Antitrust Law)의 핵심 법령은?",
+      "options": [
+        "Sherman Act 1890·Clayton Act 1914·FTC Act 1914",
+        "Wagner Act",
+        "Glass-Steagall Act",
+        "New Deal Act",
+        "Dodd-Frank Act"
+      ],
+      "answer": "1",
+      "explanation": "미국 반독점 3대 법: ① Sherman Act (1890) - 독점·담합 금지 ② Clayton Act (1914) - 합병·차별 금지 ③ FTC Act (1914) - 불공정 관행. Standard Oil(1911)·AT&T(1984) 분할."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-012",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "독점이윤 1000, X-비효율 300, 지대추구 200, 사중손실 500. 사회비용은?",
+      "options": [
+        "1000 (DWL + X-비효율 + 지대추구)",
+        "500 (DWL만)",
+        "2000 (모두 합)",
+        "500 (독점이윤만)",
+        "0"
+      ],
+      "answer": "1",
+      "explanation": "사회비용(분배 변화 제외) = DWL + X-비효율 + 지대추구 = 500 + 300 + 200 = 1000.\n독점이윤은 단순 이전(분배). 사회후생 손실에 추가비용 포함."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-013",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "자연독점에서 P = MC 규제 시 그래프는?\n\n[IMAGE: data/practice/economics/graphs/natural-monopoly.svg]",
+      "options": [
+        "P가 ATC 아래 → 손실 영역 (직사각형)",
+        "초과이윤",
+        "DWL 0",
+        "P = ATC",
+        "Q = 0"
+      ],
+      "answer": "1",
+      "explanation": "자연독점은 LRAC 감소영역. MC < ATC. P = MC 규제 → P < ATC → 손실(P-ATC)·Q < 0. 정부 보조금 필요."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-014",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "최근 디지털 플랫폼 독점 규제 동향은?",
+      "options": [
+        "EU DMA(2022)·DSA, 미국 Google·Meta 반독점 소송, 한국 카카오·네이버 규제 논의",
+        "변화 없음",
+        "디지털은 무규제",
+        "독점 강화",
+        "통화 정책"
+      ],
+      "answer": "1",
+      "explanation": "디지털 독점: 네트워크 효과로 자연독점 경향. EU DMA(Digital Markets Act 2022)·DSA, 미국 Big Tech 반독점 소송(Google·Meta), 한국 카카오 자회사 규제."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-015",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점 규제의 trade-off로 옳은 것은?",
+      "options": [
+        "정태 효율(가격 인하) vs 동학 효율(혁신 동기). 강한 규제는 R&D 저해 가능",
+        "효율 vs 정부 세입",
+        "분배만 trade-off",
+        "trade-off 없음",
+        "단기·장기 동일"
+      ],
+      "answer": "1",
+      "explanation": "독점 규제 trade-off: 정태 효율(P 인하·DWL ↓) vs 동학 효율(R&D·혁신 동기). 강한 규제 → 혁신 약화 가능(Schumpeter 논쟁). 균형이 필요."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-016",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "독점기업 수요 P=120-Q, MC=20, FC=500. 독점이윤과 정부 가격 규제 P=ATC 시 산출은?",
+      "options": [
+        "독점 Q=50, P=70, π=2000 / 규제 Q≈106, P≈26 (정상이윤)",
+        "독점 Q=100, 규제 Q=50",
+        "독점 Q=20",
+        "규제 Q=50",
+        "둘 다 0"
+      ],
+      "answer": "1",
+      "explanation": "독점: MR = 120 - 2Q = 20 → Q = 50, P = 70. TR = 3500, TC = 500 + 1000 = 1500, π = 2000.\nP = ATC: 120 - Q = 500/Q + 20 → Q² - 100Q + 500 = 0. Q ≈ 106 또는 ≈ 5. 큰 해 ≈ 95~106. P ≈ 25."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-017",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점기업의 사회적 책임론과 ESG는?",
+      "options": [
+        "주주가치+이해관계자 책임 (환경·사회·지배구조) - 독점력의 윤리적 사용 요구",
+        "이윤 극대화만",
+        "정부 결정",
+        "주주만 고려",
+        "ESG는 무관"
+      ],
+      "answer": "1",
+      "explanation": "ESG(Environmental·Social·Governance): 주주 외 이해관계자 책임. 큰 시장지배력 가진 독점기업에 윤리적 사용 요구. 환경·노동·지배구조 표준."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-018",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $P = 200 - 2Q$, MC = 40. 독점 사중손실은?",
+      "options": [
+        "DWL = 1600",
+        "DWL = 800",
+        "DWL = 400",
+        "DWL = 0",
+        "DWL = 3200"
+      ],
+      "answer": "1",
+      "explanation": "독점: MR = 200 - 4Q = 40 → Q = 40, P = 120.\n완경: P = MC = 40 → Q = 80. ΔQ = 40.\nDWL = (1/2)·(120-40)·40 = 1600."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-019",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점기업의 가격차별·번들링이 후생에 미치는 영향은?",
+      "options": [
+        "거래량 ↑ 시 후생 ↑ 가능. 시장 전체 잉여 분석 필요",
+        "항상 후생 ↓",
+        "후생 무관",
+        "정부 결정",
+        "분배만"
+      ],
+      "answer": "1",
+      "explanation": "가격차별·번들링: 일부 가격에 추가 거래 → 거래량 ↑ → 사회후생 ↑ 가능. 단일가격 독점과 비교 시 후생 개선 사례 다수. 분배는 별도."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-020",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 시장지배적 사업자의 남용 행위 규제 대상은?",
+      "options": [
+        "가격남용·진입제한·끼워팔기·약탈적가격·차별 등",
+        "이윤 자체",
+        "수요량",
+        "재고",
+        "광고"
+      ],
+      "answer": "1",
+      "explanation": "한국 공정거래법: 시장지배적 사업자(시장점유율 50% 이상 등)의 ① 가격남용(부당 인상) ② 진입제한 ③ 끼워팔기 ④ 약탈적 가격 ⑤ 부당 차별 - 모두 규제 대상."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-021",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요 P = 100 - Q, MC = 0, FC = 0. 독점이윤과 사회후생 손실 비율은?",
+      "options": [
+        "π = 2500, CS_단일 = 1250, DWL = 1250 (π:CS:DWL = 2:1:1)",
+        "π = 1000, CS = 500",
+        "π = 5000",
+        "π = 0",
+        "DWL = 0"
+      ],
+      "answer": "1",
+      "explanation": "독점: MR = 100 - 2Q = 0 → Q = 50, P = 50. π = 2500.\nCS = (1/2)(100-50)(50) = 1250.\n완경: P = 0, Q = 100. 총잉여 = 5000.\nDWL = 5000 - 2500 - 1250 = 1250.\n2:1:1 비율 (단순 모형)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-022",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "독점 규제의 한계는?",
+      "options": [
+        "정보 비대칭(기업이 비용 정보 우위), 동학적 효율 trade-off, 규제 포획",
+        "독점 완전 제거 가능",
+        "규제는 항상 효과적",
+        "정부 결정만",
+        "한계 없음"
+      ],
+      "answer": "1",
+      "explanation": "규제 한계: ① 정보 비대칭(기업이 비용·수요 정보 우위) ② 동학 효율 trade-off ③ 규제 포획(Stigler 1971) ④ 규제 비용. 완벽 규제 어려움."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-023",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $P = 60 - Q/2$, MC = 10. 1급 가격차별·독점·완전경쟁의 후생 비교는?",
+      "options": [
+        "1급 후생 2500 (모두 PS) / 독점 CS=625+π=1250 / 완경 CS = 2500",
+        "셋 다 동일",
+        "독점이 최대 후생",
+        "1급이 후생 최소",
+        "변화 없음"
+      ],
+      "answer": "1",
+      "explanation": "P=60-Q/2.\n완경 P=MC=10 → Q=100. 총잉여 = (1/2)·50·100 = 2500. 모두 CS.\n독점: MR = 60-Q = 10 → Q=50, P=35. π=(35-10)·50=1250. CS=(1/2)·25·50=625.\n1급: P=MC까지, Q=100. 총잉여 2500. 모두 π."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-024",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "독점 폐해 완화 정책 중 시장 메커니즘 활용은?",
+      "options": [
+        "진입 촉진, 수입 자유화, 경쟁 환경 조성 (망 분리)",
+        "가격 통제만",
+        "공기업화만",
+        "분할만",
+        "독점 강화"
+      ],
+      "answer": "1",
+      "explanation": "시장 메커니즘 활용 정책: ① 진입 촉진(규제 완화) ② 수입 자유화(외국 경쟁) ③ 망 분리(통신 인프라+서비스 분리) ④ 표준화. 직접 규제보다 경쟁 환경 조성."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item04-025",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 재벌(대기업집단) 규제의 핵심 내용은?",
+      "options": [
+        "지주회사 규제·순환출자 금지·계열사 부당지원 규제",
+        "재벌 자유 보장",
+        "독점 강화",
+        "재벌 해체",
+        "정부 인수"
+      ],
+      "answer": "1",
+      "explanation": "한국 공정거래법상 대기업집단(상호출자 제한): ① 순환출자 금지 ② 지주회사 규제 ③ 계열사 부당지원 ④ 일감 몰아주기 규제. 재벌의 시장지배·계열사 보호 견제."
+    }
+  ]
+}

@@ -8,7 +8,7 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-01",
-    "count": 30
+    "count": 50
   },
   "questions": [
     {
@@ -58,7 +58,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec01-item01-004",
-      "difficulty": 1,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "수요곡선의 일반적 형태는?",
       "options": [
@@ -148,7 +148,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec01-item01-010",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "수요 함수의 일반적 형태로 옳은 것은?",
       "options": [
@@ -178,7 +178,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec01-item01-012",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음 중 수요 법칙의 예외에 해당하는 것을 모두 고른 것은?\n\nㄱ. 기펜재(Giffen good): 열등재이면서 소득효과가 대체효과를 압도하여 가격 상승 시 수요량 증가\nㄴ. 베블런재(Veblen good): 과시적 소비로 가격 상승 시 수요량 증가\nㄷ. 위장재(snob effect): 다른 사람이 적게 살수록 더 사고 싶어함\nㄹ. 일반 정상재의 가격 상승",
       "options": [
@@ -313,7 +313,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec01-item01-021",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "수요 함수 Qd = 100 - 2P에서 P = 30일 때 수요량과 수요곡선의 일반적 형태는?",
       "options": [
@@ -418,7 +418,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec01-item01-028",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 수요 이론의 학설사에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 고전학파(스미스·리카도): 노동가치설 중심, 수요는 부차적\nㄴ. 한계혁명(1870년대): 제본스·맹거·왈라스의 한계효용 기반 수요 이론\nㄷ. 마샬(1890): 부분균형 수요·공급 도해의 정립\nㄹ. 슬루츠키(1915)·힉스(1939): 가격효과의 대체·소득 분해\nㅁ. 사무엘슨(1948): 「현시선호이론」으로 효용 측정 가능성에 의존하지 않는 수요 이론",
       "options": [
@@ -433,7 +433,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec01-item01-029",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 현시선호이론(revealed preference theory)의 의의로 옳은 것은?",
       "options": [
@@ -448,7 +448,7 @@
     },
     {
       "id": "practice-econ-micro-ch02-sec01-item01-030",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 수요 이론의 종합 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 수요 법칙은 ceteris paribus 가정 하의 가격과 수요량의 (-) 관계이다.\nㄴ. 수요곡선이 우하향하는 이유는 한계효용 체감과 대체·소득효과(정상재) 때문이다.\nㄷ. 가격 외의 요인이 변하면 수요곡선 자체가 이동한다(수요 변화).\nㄹ. 시장 수요는 개별 수요의 수평합이다.\nㅁ. 모든 재화에는 수요 법칙의 예외가 적용된다.",
       "options": [
@@ -460,6 +460,306 @@
       ],
       "answer": "2",
       "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 수요 법칙의 예외는 기펜재·베블런재 등 특수 상황에 한정되며, 대부분의 재화는 수요 법칙을 따른다. '모든 재화에 예외가 적용된다'는 명제는 잘못이다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-031",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 재화 X의 시장 수요함수가 선형 수식 $Q_d = 120 - 2P$ 로 설정되어 있다.\n이 재화의 시장 가격이 $P = 20$ 원일 때 결정되는 수요의 가격탄력성 점탄력성 공식 적용값($\\epsilon_d$)의 크기를 계산하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 수요선 Q = 120 - 2P -> P절편 60(y=130), Q절편 120(x=290) -->\n  <!-- 스케일 매핑: Q=10단위 -> 20픽셀, P=10단위 -> 20픽셀 -->\n  <line x1=\"50\" y1=\"130\" x2=\"290\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  \n  <!-- 단위탄력적 중점 P=30, Q=60 -> x=170, y=190 -->\n  <circle cx=\"170\" cy=\"190\" r=\"4\" fill=\"#94a3b8\" />\n  <text x=\"180\" y=\"185\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">중점 (ε=1)</text>\n\n  <!-- 현재 가격 P=20, Q=80 -> x=210, y=210 -->\n  <circle cx=\"210\" cy=\"210\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"220\" y=\"205\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">현재점 P=20 (ε=0.5)</text>\n</svg>\n```",
+      "options": [
+        "가격탄력성 $\\epsilon_d = 2.0$",
+        "가격탄력성 $\\epsilon_d = 1.0$",
+        "가격탄력성 $\\epsilon_d = 0.5$ 이며, 이 가격 구간은 비탄력적인 수요 범주에 해당한다.",
+        "가격탄력성 $\\epsilon_d = 0.25$",
+        "선형 수요곡선 상에서는 임의의 가격 지점에서 가격탄력성이 항상 0으로 수렴한다."
+      ],
+      "answer": "3",
+      "explanation": "선형 수요곡선 상에서의 가격 점탄력성을 미분 공식으로 산정하는 L4 계산 문항입니다.\n1) **수요의 가격탄력성 점탄력성 공식**:\n   - $\\epsilon_d = -\\dfrac{dQ_d}{dP} \\times \\dfrac{P}{Q_d}$\n2) **수리 대입 연산**:\n   - 수요함수 $Q_d = 120 - 2P \\implies \\dfrac{dQ_d}{dP} = -2$\n   - 가격 $P = 20$ 일 때, 수요량 $Q_d = 120 - 2(20) = 80$\n   - 탄력성 대입: $\\epsilon_d = -(-2) \\times \\dfrac{20}{80} = 2 \\times \\dfrac{1}{4} = 0.5$\n3) **경제학적 의미**: 탄력성이 $0.5$ 로서 $1$ 보다 작으므로, 가격 $P=20$ 인 구간은 비탄력적(Inelastic) 영역에 속합니다. (참고로 선형 수요곡선의 중점인 $P=30$ 에서는 탄력성이 1이며, 그보다 가격이 높은 영역은 탄력적, 낮은 영역은 비탄력적입니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-032",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 비선형 수요곡선 수식이 곱셈의 거듭제곱 구조인 $Q_d = 100 P^{-1.5}$ 로 분석되어 있다.\n이 비선형 수요곡선이 지니는 가격탄력성($\\epsilon_d$)의 성격과 임의의 가격 수준에서의 구체적인 탄력성 크기로 옳은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 직각 쌍곡선 형태 비선형 수요선 Q = 100 * P^-1.5 -->\n  <!-- 스케일 매핑 투영 -->\n  <path d=\"M 60 70 Q 100 210 280 240\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"180\" y=\"140\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">비선형 수요 (ε = 1.5로 일정)</text>\n</svg>\n```",
+      "options": [
+        "가격 탄력성은 가격이 상승함에 따라 점차 증가한다.",
+        "가격 탄력성은 가격 수준에 상관없이 항상 $\\epsilon_d = 1.5$ 로 일정하며, 이는 전 가격 구간에서 탄력적인 성격을 띰을 의미한다.",
+        "가격 탄력성은 항상 1.0으로 고정된다.",
+        "가격 탄력성은 0.75원이다.",
+        "거듭제곱 형태의 수요곡선은 미분 불가능으로 인해 탄력성 도출이 차단된다."
+      ],
+      "answer": "2",
+      "explanation": "비선형 거듭제곱형 수요곡선의 고정 가격탄력성을 도출하는 L4 수리 문항입니다.\n1) **일반식 정립 및 증명**:\n   - 수요함수가 $Q_d = A P^{-\\alpha}$ ($\\alpha > 0$) 형태로 주어져 있을 때,\n   - 양변에 자연로그를 취하면: $\\ln Q_d = \\ln A - \\alpha \\ln P$\n   - 로그 미분법에 의해 가격탄력성 $\\epsilon_d = -\\dfrac{d \\ln Q_d}{d \\ln P} = \\alpha$\n2) **수치 대입 판정**:\n   - 본 문제의 식은 $Q_d = 100 P^{-1.5}$ 이므로 지수값 $\\alpha = 1.5$ 가 곧 가격탄력성입니다.\n   - 따라서 이 비선형 수요곡선 상의 임의의 점(가격 수준)에서는 탄력성이 언제나 **$1.5$ 로 일정**합니다. (지수가 $1.0$ 보다 크므로 전 구간 탄력적입니다)."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-033",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 시장에 개별 소비자 A와 B 두 사람만 존재하고 있으며, 이들의 개별 수요함수가 다음과 같이 선형 수식으로 주어져 있다.\n- 소비자 A의 수요함수: $Q_A = 80 - P$ (단, $P \\le 80$ 임)\n- 소비자 B의 수요함수: $Q_B = 60 - 2P$ (단, $P \\le 30$ 임)\n이 두 사람의 수요를 수평적으로 합산하여 도출되는 '시장 전체 수요함수($Q_M$)'의 수식을 가격($P$) 구간별로 바르게 유도하여 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">시장 수량 Q</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 P</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 개별 A 수요선 QA = 80 - P -> P절편 80(y=90), Q절편 80(x=210) -->\n  <!-- 스케일 매핑: 10단위 -> 20픽셀 -->\n  <line x1=\"50\" y1=\"90\" x2=\"210\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <!-- 개별 B 수요선 QB = 60 - 2P -> P절편 30(y=190), Q절편 60(x=170) -->\n  <line x1=\"50\" y1=\"190\" x2=\"170\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n\n  <!-- 시장 수요선 QM: P>=30 에서는 QA와 일치 (y=90 -> y=190), P<30 에서는 QM = 140 - 3P (y=190 -> x=330, y=250) -->\n  <line x1=\"50\" y1=\"90\" x2=\"150\" y2=\"190\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <line x1=\"150\" y1=\"190\" x2=\"270\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <!-- 꺾임점 (50, 30) -> x=150, y=190 -->\n  <circle cx=\"150\" cy=\"190\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"160\" y=\"185\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">꺾임점 (50, 30)</text>\n</svg>\n```",
+      "options": [
+        "$P \\ge 30$ 일 때: $Q_M = 140 - 3P$, $P < 30$ 일 때: $Q_M = 80 - P$",
+        "$P \\ge 30$ 일 때: $Q_M = 80 - P$, $P < 30$ 일 때: $Q_M = 140 - 3P$ 이며, 가격이 30원 이하로 내려가면 B의 유입으로 곡선이 더 완만하게 꺾인다.",
+        "$P \\ge 80$ 일 때: $Q_M = 80 - P$, $P < 80$ 일 때: $Q_M = 60 - 2P$",
+        "전 구간에서 $Q_M = 140 - 3P$ 단일 선형으로만 연립된다.",
+        "시장수요는 개별수요의 수평합이 아닌 수직합이므로 $P_M = 140 - 3Q$ 가 된다."
+      ],
+      "answer": "2",
+      "explanation": "개별 수요곡선의 수평합을 구하고 가격 구간별로 꺾임이 발생하는 시장 수요함수를 수리 유도하는 L4 문항입니다.\n1) **참여 임계 가격 판정**:\n   - 소비자 A는 가격 $P \\le 80$ 일 때만 소비를 하고, 소비자 B는 가격 $P \\le 30$ 일 때만 소비에 참여합니다.\n2) **구간별 수평 합산($Q_M = Q_A + Q_B$)**:\n   - **$P \\ge 30$ 인 구간**: B는 구매 의사가 없어 수요량이 0입니다. 따라서 시장 수요는 오직 A의 수요량과 같습니다.\n     $$Q_M = Q_A = 80 - P$$\n   - **$P < 30$ 인 구간**: 두 소비자 모두 시장에 참여합니다.\n     $$Q_M = Q_A + Q_B = (80 - P) + (60 - 2P) = 140 - 3P$$\n3) **결론**: 따라서 가격 30원을 분기점(꺾임점 $(50, 30)$)으로 하여, 가격이 높을 때는 $Q_M = 80 - P$ 이며, 가격이 30원 미만으로 내려가면 B의 가세로 인해 수요 반응의 민감도(기울기 절대값)가 1에서 3으로 가팔라지는(즉, 가격축 평면에서는 더 완만해지는) 꺾인선 수요곡선이 유출됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-034",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "가상 사회에 유행 효과인 '밴드웨건 효과(Bandwagon Effect)'가 존재하여 개별 소비자의 X재 수요가 시장 전체의 예상 소비량($Q_e$)에 다음과 같이 연동되어 피드백을 일으키고 있다.\n- 개별 소비자 수요함수: $Q = 200 - 2P + 0.5 Q_e$\n이 시장이 균형에 도달하여 소비자의 예상 소비량과 실제 최종 소비량이 완벽히 일치($Q_e = Q$)하게 될 때 도출되는 '최종 시장수요곡선'의 수식과, 네트워크 외부효과의 피드백이 가미된 신규 시장수요곡선의 탄력성 변화 방향으로 옳은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 개별 피드백 없는 가파른 수요선 Q = 200 - 2P -> P절편 100(y=50), Q절편 200(x=250) -->\n  <!-- 스케일 매핑: Q=10단위 -> 10픽셀, P=10단위 -> 20픽셀 -->\n  <line x1=\"50\" y1=\"50\" x2=\"250\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" stroke-width=\"1.5\" />\n  <text x=\"210\" y=\"225\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">피드백 전 (Q=200-2P)</text>\n  \n  <!-- 피드백 반영 완만한 최종 수요선 Q = 400 - 4P -> P절편 100(y=50), Q절편 400(x=450 스케일 컷) -->\n  <!-- x=250 일 때 y=150 -->\n  <line x1=\"50\" y1=\"50\" x2=\"350\" y2=\"200\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"280\" y=\"150\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">밴드웨건 반영 (Q=400-4P)</text>\n</svg>\n```",
+      "options": [
+        "최종 수식: $Q = 100 - P$, 수요곡선이 더 가파르고 비탄력적으로 선다.",
+        "최종 수식: $Q = 400 - 4P$ 이며, 유행 편승 피드백으로 인해 최종 수요곡선이 원래 형태보다 더욱 완만해지고 탄력성이 증가한다.",
+        "최종 수식: $Q = 200 - 2P$, 변화가 전혀 유발되지 않는다.",
+        "최종 수식: $Q = 400 - 2P$, 수요가 수축한다.",
+        "밴드웨건 효과는 가격 기구를 무력화하므로 어떠한 양(+)의 수식도 가질 수 없다."
+      ],
+      "answer": "2",
+      "explanation": "유행 편승(Bandwagon) 피드백 효과가 가미된 최종 시장수요곡선을 연립방정식으로 도출하는 L4 문항입니다.\n1) **균형 예상 조건($Q_e = Q$)의 대입**:\n   - $Q = 200 - 2P + 0.5 Q$\n2) **수식 정리**:\n   - $Q - 0.5 Q = 200 - 2P \\implies 0.5 Q = 200 - 2P$\n   - 양변에 2를 곱하여 축약형을 도출합니다.\n   - $Q = 400 - 4P$\n3) **경제학적 의미와 기하학적 매핑**:\n   - 피드백 작용 전에는 가격 하락에 따른 수요 반응 계수가 $2$ 였으나, 가격이 내려가 수요량이 늘어나면 다른 사람들도 유행에 따라 더 구매하려 하므로 피드백 효과가 겹치게 됩니다.\n   - 이에 따라 최종 가격 반응 계수는 **$4$** 로 2배 증대되어 가격 변동에 대해 수요곡선의 기울기가 가파르지 않고 완만한 실선 형태로 눕게 됩니다. 즉, **수요의 가격탄력성이 더욱 증대**되는 결과를 초래합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-035",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 독특한 동질적 커뮤니티의 소비자들이 속물 효과(Snob Effect, 남이 많이 살수록 구매를 줄이는 현상)를 나타내고 있으며, 개별 수요 함수가 다음과 같다.\n- 개별 소비자 수요함수: $Q = 200 - 2P - 0.5 Q_e$ (단, $Q_e$는 시장 전체의 예상 소비량임)\n시장의 균형 조건인 예상과 실제 소비량의 일치($Q_e = Q$) 상태 하에서 도출되는 '최종 시장수요곡선'의 수식과, 속물 효과가 최종 수요곡선의 형태에 미치는 영향으로 옳은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 피드백 전 가파른 수요선 Q = 200 - 2P -> P절편 100(y=50), Q절편 200(x=250) -->\n  <!-- 스케일 매핑: Q=10단위 -> 10픽셀, P=10단위 -> 20픽셀 -->\n  <line x1=\"50\" y1=\"50\" x2=\"250\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" stroke-width=\"1.5\" />\n  <text x=\"210\" y=\"225\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#475569\">피드백 전 (Q=200-2P)</text>\n  \n  <!-- 스놉 반영 가파른 최종 수요선 Q = 133.3 - 1.33P -> P절편 100(y=50), Q절편 133.3(x=183.3) -->\n  <line x1=\"50\" y1=\"50\" x2=\"183\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"110\" y=\"150\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">스놉 반영 (Q = 133.3 - 1.33P)</text>\n</svg>\n```",
+      "options": [
+        "최종 수식: $Q = 400 - 4P$, 탄력성이 증가한다.",
+        "최종 수식: $Q \u0007pprox 133.3 - 1.33P$ 이며, 타인의 소비가 늘자 구매를 꺼리는 반발 피드백으로 인해 최종 수요곡선의 경사가 더욱 급해지고 비탄력적으로 변한다.",
+        "최종 수식: $Q = 200 - 2P$, 변화가 전혀 유발되지 않는다.",
+        "최종 수식: $Q = 100 - P$, 절편이 완전 평행 이동한다.",
+        "스놉 효과 하에서는 수요량이 절대 0 이상이 될 수 없다."
+      ],
+      "answer": "2",
+      "explanation": "속물 효과(Snob Effect) 피드백 하에서의 최종 시장수요곡선의 변형 상태를 대수적으로 판정하는 L4 문항입니다.\n1) **균형 조건($Q_e = Q$)의 대입**:\n   - $Q = 200 - 2P - 0.5 Q$\n2) **수식 정리**:\n   - $Q + 0.5 Q = 200 - 2P \\implies 1.5 Q = 200 - 2P$\n   - 양변을 1.5로 나누어 축약형을 도출합니다.\n   - $Q = \\dfrac{200}{1.5} - \\dfrac{2}{1.5} P = \\dfrac{400}{3} - \\dfrac{4}{3} P \\approx 133.33 - 1.33P$\n3) **경제학적 의미와 기하학적 매핑**:\n   - 밴드웨건과 반대로, 다른 사람들이 많이 구매할수록 나만의 희소 가치가 훼손된다고 느끼는 속물 효과 하에서는 가격 하락에 따른 수요 반응 계수가 기존 $2.0$ 에서 **$1.33$** 으로 절대값 축소됩니다.\n   - 따라서 최종 시장수요곡선은 피드백 전의 점선(기울기 0.5)보다 더 가파르게 서는 실선(기울기 0.75) 형태로 변하여, 가격 변화에 대한 **수요의 가격탄력성이 비탄력적으로 억제**됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-036",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 다재화 수요 함수가 다음과 같이 세 가지 상품의 가격 변동에 연동되어 있다.\n- X재 수요함수: $Q_X = 100 - 2P_X + P_Y - 0.5P_Z$ (단, $Q_X$는 X재 수요량, $P_X$는 X재 가격, $P_Y$는 Y재 가격, $P_Z$는 Z재 가격임)\n이 수요 함수의 편미분 수리적 구조에 기초해 판단할 때, X재에 대한 (1) Y재의 관계(대체재/보완재)와 (2) Z재의 관계(대체재/보완재)를 바르게 판정한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q_X)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P_X)</text>\n\n  <!-- 초기 X재 수요선 DX0 (y=150 부근) -->\n  <line x1=\"50\" y1=\"90\" x2=\"210\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" stroke-width=\"1.5\" />\n  \n  <!-- Y재 가격 상승 시 우측 이동한 DX_Y -->\n  <line x1=\"50\" y1=\"70\" x2=\"230\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  <text x=\"180\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">PY 상승 시 (대체)</text>\n\n  <!-- Z재 가격 상승 시 좌측 이동한 DX_Z -->\n  <line x1=\"50\" y1=\"110\" x2=\"190\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"80\" y=\"150\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">PZ 상승 시 (보완)</text>\n</svg>\n```",
+      "options": [
+        "(1) Y재: 보완재, (2) Z재: 대체재",
+        "(1) Y재: 대체재, (2) Z재: 보완재 이며, 교차 탄력성의 계수 부호(양수/음수)에 따라 연관재 특성이 기하학적으로 분류된다.",
+        "(1) Y재: 대체재, (2) Z재: 대체재",
+        "(1) Y재: 보완재, (2) Z재: 보완재",
+        "연립 수요 함수에서는 자기 가격 PX 외에 다른 가격들은 계산에서 원천 배제된다."
+      ],
+      "answer": "2",
+      "explanation": "교차 편미분 계수의 부호를 바탕으로 관련재의 성격(대체재/보완재)을 미시적으로 규명하는 L4 문항입니다.\n1) **(1) Y재의 가격 변동 효과 판정**:\n   - X재 수요량의 Y재 가격에 대한 편미분: $\\dfrac{\\partial Q_X}{\\partial P_Y} = 1.0 > 0$\n   - Y재의 가격이 오르면 X재의 수요량(수요곡선 전체)이 증가(우측 이동)하므로 두 재화는 서로 대신 소비할 수 있는 **대체재(Substitutes)** 관계입니다.\n2) **(2) Z재의 가격 변동 효과 판정**:\n   - X재 수요량의 Z재 가격에 대한 편미분: $\\dfrac{\\partial Q_X}{\\partial P_Z} = -0.5 < 0$\n   - Z재의 가격이 오르면 함께 사용하는 X재의 소비도 같이 얽혀 감소(좌측 이동)하므로 두 재화는 **보완재(Complements)** 관계입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "가계가 수요량을 결정할 때 명목 화폐 가치의 환상에서 벗어나 실제 실질 구매력을 기준으로 결정함을 의미하는 '수요 함수의 0차 동차성(Homogeneity of Degree Zero)'의 기하학적 성격에 관한 분석이다. 다음 그래프는 예산선과 최적 접점의 상태를 보여준다. 이에 대한 가장 옳은 추론은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 예산선: 가격과 소득이 2배 올라도 예산선은 완전히 동일하여 변하지 않음 -> 단일선 표시 -->\n  <!-- 스케일 매핑: x=50(y=170), x=170(y=250) 형태 -->\n  <line x1=\"50\" y1=\"130\" x2=\"210\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" />\n  \n  <!-- 무차별곡선 접점 E* -> x=130, y=190 -->\n  <path d=\"M 70 120 Q 130 190 230 220\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" />\n  <circle cx=\"130\" cy=\"190\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"140\" y=\"185\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">불변의 최적 소비 E*</text>\n</svg>\n```",
+      "options": [
+        "모든 가격과 소득이 동시에 2배가 되면 예산선이 바깥으로 평행 확장하여 소비가 2배 증가한다.",
+        "모든 재화의 가격과 가계 소득이 정확히 동일한 비율($k$배)로 동반 변동할 때, 상대 가격 비율($P_X / P_Y$)과 실질 소득($I / P_X$)이 완전히 변하지 않아 예산제약선이 그대로 유지되므로 가계의 최적 수요량($X^*, Y^*$) 역시 전혀 변하지 않으며, 이를 '화폐환상(Money Illusion)의 부재'라 한다.",
+        "동차성이 성립하면 수요곡선은 우상향 형태의 수직 직선이 된다.",
+        "가격만 2배 오르고 소득이 고정될 때도 동차성 정리가 강제 유지된다.",
+        "0차 동차성은 가치판단을 적극적으로 유도하므로 지니계수를 기하급수적으로 낮춘다."
+      ],
+      "answer": "2",
+      "explanation": "수요이론의 기초적 수리 전제인 수요함수의 0차 동차성 및 화폐환상의 부재를 기하학적 예산선 변동 관계를 통해 판정하는 L4 문항입니다.\n1) **0차 동차성의 대수적 증명**:\n   - 가계의 예산제약: $P_X X + P_Y Y = I$\n   - 가격과 소득이 모두 $k$배 변동 시: $(k P_X) X + (k P_Y) Y = (k I)$\n   - 양변을 $k$로 나누어 주면 원래 예산 식인 $P_X X + P_Y Y = I$ 가 고스란히 복원됩니다.\n2) **기하학적 매핑 성격**:\n   - 가격과 소득의 동시 비례 상승은 예산선의 절편과 기울기 모두를 고정시킵니다.\n   - 따라서 가계가 극대화 행동을 거쳐 수요하는 소비 조합 $E^*(X^*, Y^*)$ 또한 변동의 압력을 받지 않아 제자리에 머물러 있게 됩니다. 즉, 수요함수 $X^* = Q(P_X, P_Y, I)$ 는 독립변수 전체의 배수 변동에 반응하지 않는 0차 동차함수입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-038",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 비선형 역수요함수(Inverse Demand Curve)가 2차 포물선 형태인 $P = 100 - Q^2$ 으로 주어져 있다.\n현재 이 상품의 시장 가격이 $P_0 = 64$ 원으로 수립되어 가격 결합을 성립할 때, 소비자가 이 거래를 통해 누리게 되는 '소비자 잉여(Consumer Surplus)'의 크기를 적분 계산을 통해 구하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 역수요곡선 P = 100 - Q^2 -> Q절편 10(x=170), P절편 100(y=50) -->\n  <!-- 스케일 매핑: Q=1 -> 12픽셀, P=10 -> 20픽셀 -->\n  <path d=\"M 50 50 Q 120 70 170 250\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  \n  <!-- 시장가격 P0 = 64 (y=122 스케일) -> Q0 = 6 (x=122 스케일) -->\n  <line x1=\"50\" y1=\"122\" x2=\"122\" y2=\"122\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"122\" y1=\"122\" x2=\"122\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <!-- 소비자잉여 영역 (수요선 하부와 P0 사이 곡선 면적) -> 연한 파란색 빗금 영역 또는 칠함 -->\n  <path d=\"M 50 50 Q 95 62 122 122 L 50 122 Z\" fill=\"#93c5fd\" opacity=\"0.5\" />\n  <text x=\"75\" y=\"100\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e3a8a\" font-weight=\"bold\">잉여 CS</text>\n  \n  <text x=\"117\" y=\"262\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">6</text>\n  <text x=\"30\" y=\"126\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">64</text>\n</svg>\n```",
+      "options": [
+        "소비자 잉여 = 384",
+        "소비자 잉여 = 144 이며, 가격선 위와 역수요곡선 아래 사이의 적분 면적 가치에 해당한다.",
+        "소비자 잉여 = 216",
+        "소비자 잉여 = 100",
+        "비선형 수요곡선은 소비자 잉여를 측정하는 면적 산정이 대수적으로 불가하다."
+      ],
+      "answer": "2",
+      "explanation": "비선형 수요함수와 가격 한계로부터 정적분을 통해 소비자 잉여의 크기를 구하는 L4 수리 문항입니다.\n1) **소비자 잉여(CS)의 적분 공식**:\n   - $CS = \\int_{0}^{Q_0} P(Q) dQ - P_0 Q_0$\n2) **실제 균형량 확인**:\n   - 가격 $P_0 = 64 \\implies 64 = 100 - Q_0^2 \\implies Q_0^2 = 36 \\implies Q_0 = 6$\n3) **정적분 계산**:\n   - $\\int_{0}^{6} (100 - Q^2) dQ = \\left[ 100Q - \\dfrac{1}{3}Q^3 \\right]_{0}^{6} = 600 - \\dfrac{216}{3} = 600 - 72 = 528$\n4) **지출 총액 차감**:\n   - $P_0 Q_0 = 64 \\times 6 = 384$\n   - $CS = 528 - 384 = 144$\n따라서 소비자가 얻는 소비자 잉여는 144입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-039",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "수요 법칙의 명백한 예외인 기펜재(Giffen Good)의 특성에 관한 슬루츠키/힉스 소득-대체효과 관계 분석이다. 다음 그래프는 기펜재 가격 하락 시의 소비 균형 변동을 보여준다. 이에 대한 설명으로 가장 옳은 분석을 고르시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재 (기펜재)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 초기 예산선 L0 -> x=50(y=150), x=150(y=250) -> 접점 E0 (80, 150) 부근 -->\n  <line x1=\"50\" y1=\"130\" x2=\"170\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <circle cx=\"110\" cy=\"190\" r=\"4\" fill=\"#94a3b8\" />\n  <text x=\"100\" y=\"180\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#475569\">초기 E0</text>\n\n  <!-- 가격 하락 후 예산선 L1 -> X축 방향으로 확장 (절편 290) -->\n  <line x1=\"50\" y1=\"130\" x2=\"290\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  \n  <!-- 최종 소비점 E1 -> 대체효과로 우측 이동했다가, 소득효과로 E0의 좌측인 x=90 수준으로 축소 회귀함 -->\n  <circle cx=\"90\" cy=\"210\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"80\" y=\"225\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">최종 E1 (수요 감소)</text>\n</svg>\n```",
+      "options": [
+        "기펜재는 가격이 하락하면 대체효과에 의해 수요량이 언제나 감소하는 정상재이다.",
+        "기펜재는 소득이 늘면 수요가 줄어드는 극단적인 열등재로서, 가격 하락 시 X재를 더 싸게 사는 방향의 대체효과(수요 증가)가 나타나지만, 실질소득이 늘어남에 따라 구매를 급속히 줄이려는 소득효과(수요 감소)가 대체효과의 증가 압력을 압도하여 최종 수요량이 오히려 감소(E0의 좌측인 E1로 복귀)한다.",
+        "기펜재는 가격이 내릴 때 대체효과와 소득효과가 모두 동일한 우하향 방향으로 작용한다.",
+        "기펜재는 소비 잉여의 가치가 0원 이하가 될 때만 명시되는 가치재이다.",
+        "소득효과가 대체효과보다 작을 때 기펜재 요건이 영구 충족된다."
+      ],
+      "answer": "2",
+      "explanation": "가격 변화 효과의 소득-대체효과 분해 상 기펜재의 수리적 정의와 기하학적 매핑 성격을 규명하는 L4 문항입니다.\n1) **정상재와 열등재의 기본 효과**:\n   - 대체효과는 상대가격 변화 효과이므로 모든 재화에서 가격 하락 시 수요량을 반드시 증가(+)시킵니다.\n   - 정상재는 실질소득 증가 시 수요량이 증가(+)하므로 두 효과가 우측으로 중첩되어 수요곡선이 확실히 우하향합니다.\n   - 일반 열등재는 소득효과가 (-)로 나타나 대체효과를 일부 상쇄하지만, 여전히 대체효과가 더 커서 수요곡선은 우하향을 유지합니다.\n2) **기펜재의 모순 조건**:\n   - 기펜재는 열등재 성향이 극단화되어 **소득효과의 절대값(수요 감소 압력)이 대체효과(수요 증가 압력)보다 큽니다**.\n   - 따라서 가격 하락 시 실질소득 증가가 가져오는 강력한 기피 심리(소득효과)가 가격 인하에 따른 유인(대체효과)을 전면 뭉개어버려, 최종 생산소비량은 초기 $E_0$ 지점의 왼쪽인 $E_1$ 으로 뒤로 수축하는 우상향 수요곡선 반응을 띠게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-040",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "폴 사무엘슨(P. Samuelson)의 현시선호이론(Revealed Preference Theory)을 토대로 소비자의 합리적 일관성을 검증하고자 한다.\n소비자가 직면한 가격 벡터($P$)와 소비 선택점($X$)의 이력 관측 데이터가 다음과 같다.\n- $0$기 가격 $P^0(2, 1)$, 선택점 $X^0(10, 20)$\n- $1$기 가격 $P^1(1, 2)$, 선택점 $X^1(20, 10)$\n이 소비자의 의사결정이 현시선호 약공리(WARP, Weak Axiom of Revealed Preference)를 만족하여 합리적인 일관성을 지키고 있는지 수리 검증 판정한 결과로 옳은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n\n  <!-- 0기 예산선 2X + Y = 40 -> X절편 20(x=250), Y절편 40(y=90) -->\n  <!-- 스케일 매핑: 10단위 -> 50픽셀 -->\n  <line x1=\"50\" y1=\"50\" x2=\"250\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <circle cx=\"150\" cy=\"150\" r=\"4.5\" fill=\"#3b82f6\" />\n  <text x=\"160\" y=\"145\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">X0 (10, 20)</text>\n  \n  <!-- 1기 예산선 X + 2Y = 40 -> X절편 40(x=450 스케일 컷), Y절편 20(y=250 스케일 컷) -->\n  <line x1=\"50\" y1=\"150\" x2=\"250\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <circle cx=\"250\" cy=\"250\" r=\"0.1\" /> <!-- 더미 -->\n  <!-- 1기 예산선 실제 그리기: (50, 150)에서 (250, 250) 이 아니라 P1*X = 40 -> X절편 40(x=250), Y절편 20(y=150) -->\n  <!-- 0기 예산선: 2X + Y = 40 -> x절편 20(x=150), y절편 40(y=50) -->\n  <!-- 1기 예산선: X + 2Y = 40 -> x절편 40(x=250), y절편 20(y=150) -->\n  <!-- 0기 접점 X0 (10, 20) -> x=100, y=150 -->\n  <!-- 1기 접점 X1 (20, 10) -> x=150, y=200 -->\n  <line x1=\"50\" y1=\"50\" x2=\"150\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"150\" x2=\"250\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <circle cx=\"100\" cy=\"150\" r=\"4.5\" fill=\"#3b82f6\" />\n  <text x=\"75\" y=\"140\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">X0 (10, 20)</text>\n  \n  <circle cx=\"150\" cy=\"200\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"160\" y=\"195\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">X1 (20, 10)</text>\n</svg>\n```",
+      "options": [
+        "WARP를 위반하므로 비합리적인 소비 행위이다.",
+        "약공리(WARP)를 만족하며, 두 가격 상황 하의 예산 교차 면적에서 소비자는 모순 없는 일관된 선택을 단행하였다.",
+        "데이터의 불충분으로 인해 현시선호 판정이 원천적으로 차단된다.",
+        "소비자는 1기에 더 많은 돈을 지불하였으므로 예산 사중손실이 100% 발생하였다.",
+        "약공리는 오직 다재화(3재화 이상) 모형에서만 선택적으로 기각된다."
+      ],
+      "answer": "2",
+      "explanation": "현시선호 약공리(WARP) 충족 여부를 벡터 대수 연산을 통해 실증 판정하는 L4 문항입니다.\n1) **약공리(WARP)의 수학적 조건**:\n   - 소비자가 가격 $P^0$ 에서 $X^0$ 를 선택하고, $X^1$ 도 살 수 있었음에도($P^0 X^1 \\le P^0 X^0$) $X^0$ 를 선택했다면(즉, $X^0$ 가 현시선호됨), 가격 $P^1$ 에서는 $X^0$ 를 구매할 수 없는 상황($P^1 X^0 > P^1 X^1$)에서만 $X^1$ 을 구매해야 합니다. (이 조건을 어기면 선택의 일관성이 붕괴된 위배 상태가 됩니다).\n2) **벡터 곱 계산**:\n   - 0기 가격 하 0기 소비액: $P^0 \\cdot X^0 = 2(10) + 1(20) = 40$\n   - 0기 가격 하 1기 소비액: $P^0 \\cdot X^1 = 2(20) + 1(10) = 50$\n   - 비교: $P^0 X^1 (50) > P^0 X^0 (40) \\implies$ 0기 가격 하에서 1기 소비 묶음 $X^1$ 은 살 수 없었던 비싼 묶음이었습니다. 즉, 원래 살 수 없었으므로 $X^0$ 를 $X^1$ 보다 선호해서 산 것이 아닙니다.\n3) **1기 관점 검증**:\n   - 1기 가격 하 1기 소비액: $P^1 \\cdot X^1 = 1(20) + 2(10) = 40$\n   - 1기 가격 하 0기 소비액: $P^1 \\cdot X^0 = 1(10) + 2(20) = 50$\n   - 비교: $P^1 X^0 (50) > P^1 X^1 (40) \\implies$ 1기 가격 하에서도 0기 묶음 $X^0$ 는 비싸서 살 수 없는 묶음이었습니다.\n4) **결론**: 두 묶음은 서로 가격 변동 하에서 상대방을 구매할 수 없는 예산 영역 바깥에 위치하였습니다. 따라서 선호 우위의 역전 모순이 발생하지 않으므로 이 소비자의 선택은 **현시선호 약공리(WARP)를 완벽히 충족**하는 합리적 의사결정입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-041",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "가격 변동이 가져다주는 총효과를 대체효과와 소득효과로 나누는 슬루츠키 방정식(Slutsky Equation)의 수학적 분해에 대한 분석이다.\n어느 정상재의 가격 $P_X$ 가 상승하였을 때 나타나는 대체효과와 소득효과의 미분적 부호 조합과, 이를 2차원 소비 평면에 묘사하는 힉스(Hicks) 보상예산선과 슬루츠키(Slutsky) 보상예산선 하에서의 대체효과 측정 기준의 격차에 대한 설명으로 가장 옳은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n\n  <!-- 초기 예산선 (완만) -> x절편 250, y절편 130 -->\n  <line x1=\"50\" y1=\"130\" x2=\"250\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  \n  <!-- 가격 상승 후 예산선 (가파름) -> x절편 150, y절편 130 -->\n  <line x1=\"50\" y1=\"130\" x2=\"150\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  \n  <!-- 슬루츠키 보상선: 원래의 접점 X0 (100, 190 부근)을 통과하는 기울기 상승선 -> x절편 200, y절편 170 -->\n  <line x1=\"50\" y1=\"150\" x2=\"200\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"180\" y=\"225\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">슬루츠키 보상선</text>\n</svg>\n```",
+      "options": [
+        "대체효과 $\\ge 0$, 소득효과 $\\ge 0$ 이며, 두 보상선은 완벽히 동치이다.",
+        "정상재의 경우 대체효과는 가격에 반비례하여 감소하고($\\left. \\dfrac{\\partial X}{\\partial P_X} \\right|_{U} < 0$) 소득효과 또한 실질소득 하락으로 수요를 줄이므로($-X \\dfrac{\\partial X}{\\partial I} < 0$) 총효과는 음(-)의 방향으로 극대화되며, 힉스 방식은 실질 효용(동일 무차별곡선)을 유지시키고 슬루츠키 방식은 명목 구매력(원래 소비 묶음 통과)을 유지하여 소득 보상 규모를 다르게 측정한다.",
+        "대체효과는 항상 양(+)의 가격 연동을 가짐으로써 수요 법칙을 기각한다.",
+        "기펜재의 경우 소득효과가 대체효과를 완벽히 강화시켜 가격하락 시 수요를 증가시킨다.",
+        "슬루츠키 방정식은 가치가 불평등할 때만 가격 왜곡에 의해 연산이 차단된다."
+      ],
+      "answer": "2",
+      "explanation": "소비자 수요 도출의 수학적 핵심인 슬루츠키 방정식의 각 미분항 성격과 보상예산선의 기하학적 차이를 묻는 L5 최고난도 명제 문항입니다.\n1) **슬루츠키 방정식(Slutsky Equation)의 구성**:\n   - $\\dfrac{\\partial X}{\\partial P_X} = \\left. \\dfrac{\\partial X}{\\partial P_X} \\right|_{U=const} - X \\dfrac{\\partial X}{\\partial I}$\n   - 첫 번째 항: **대체 효과(Substitution Effect)**. 상대 가격 변동 효과로서 항상 0보다 작습니다($<0$).\n   - 두 번째 항: **소득 효과(Income Effect)**. 가격 상승 시 실질 소득의 변화 효과입니다. 정상재는 소득탄력성($\\partial X/\\partial I > 0$)이 양수이므로 소득 효과 항의 부호는 음수($-X \\partial X/\\partial I < 0$)가 됩니다.\n   - 따라서 정상재는 두 효과가 같은 음(-)의 방향으로 작용하여 가격 상승 시 수요가 확실히 감소하는 우하향 곡선을 보장합니다.\n2) **두 보상예산선(Hicks vs Slutsky)의 차이**:\n   - **힉스 보상**: 가격 변동 전과 동일한 주관적 만족(동일 무차별곡선 $U_0$)을 얻을 수 있도록 소득을 증감시킵니다.\n   - **슬루츠키 보상**: 가격 변동 전 구매했던 구체적인 소비 묶음 $X_0$를 가격 변동 후에도 그대로 살 수 있도록 소득을 보상합니다(기하학적으로 원래 소비점을 통과하도록 보상 예산선을 회전시킵니다). 슬루츠키 방식이 소득을 다소 과다하게 복구하는 경향이 있어 실질 힉스 후생보다 더 높은 무차별곡선에 닿게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-042",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "수요의 가격탄력성($\\epsilon_d$)과 소비자가 해당 재화에 지출하는 총지출액(기업의 총판매수입, $TR = P \\cdot Q$) 간의 수학적 연동 관계에 관한 분석이다.\n선형 수요곡선이 존재할 때 가격 변동에 따른 총판매수입의 변화 미분 공식과, 탄력성 수준에 따른 총수입 변동 경로로 옳은 것을 고르시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">총수입 (TR)</text>\n\n  <!-- 총수입 2차 포물선 곡선 -> P=30(x=170) 일 때 극대(y=100) -->\n  <!-- 스케일 매핑: P=0 -> TR=0, P=60 -> TR=0 -->\n  <path d=\"M 50 250 Q 170 80 290 250\" stroke=\"#ef4444\" stroke-width=\"2.5\" fill=\"none\" />\n  \n  <!-- 극대점 P=30 (x=170) -->\n  <circle cx=\"170\" cy=\"110\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"155\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">TR 극대 (ε = 1)</text>\n\n  <!-- 탄력적 구간 화살표 (가격 오를 때 TR 감소) -->\n  <path d=\"M 210 140 L 250 200\" stroke=\"#3b82f6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\" />\n  <text x=\"240\" y=\"160\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\">탄력적 구간 (ε &gt; 1)</text>\n\n  <!-- 비탄력적 구간 화살표 (가격 오를 때 TR 증가) -->\n  <path d=\"M 90 200 L 130 140\" stroke=\"#3b82f6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\" />\n  <text x=\"65\" y=\"160\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\">비탄력적 구간 (ε &lt; 1)</text>\n</svg>\n```",
+      "options": [
+        "미분 공식: $\\dfrac{d(TR)}{dP} = P(1 - \\epsilon_d)$, 탄력성과 총지출은 무관하다.",
+        "미분 공식: $\\dfrac{d(TR)}{dP} = Q(1 - \\epsilon_d)$ 이며, 가격탄력성이 1보다 큰 구간($\\epsilon_d > 1$)에서는 가격 상승 시 총수입이 감소하고, 1보다 작은 구간($\\epsilon_d < 1$)에서는 가격 상승 시 총수입이 늘어나며, 탄력성이 정확히 1인 지점에서 총판매수입이 극대화된다.",
+        "미분 공식: $\\dfrac{d(TR)}{dP} = \\epsilon_d$, 가격이 오르면 수입은 항상 폭등한다.",
+        "탄력성이 0일 때 총수입의 극대 변동폭은 기하학적으로 무한대이다.",
+        "선형 수요 하에서는 총수입이 가격 변화에 대해 수평 평행선을 유지한다."
+      ],
+      "answer": "2",
+      "explanation": "수요 가격 탄력성과 총판매수입(TR)의 관계식을 미분 법칙으로 증명하고 구간별 속성을 규명하는 L5 최고난도 연산 문항입니다.\n1) **미분 공식의 대수적 증명**:\n   - 총수입 $TR = P \\cdot Q$\n   - 가격 $P$ 에 대해 미분 실행:\n     $$\\dfrac{d(TR)}{dP} = Q + P \\dfrac{dQ}{dP} = Q \\left( 1 + \\dfrac{P}{Q} \\dfrac{dQ}{dP} \\right)$$\n   - 가격탄력성 정의 $\\epsilon_d = -\\dfrac{dQ}{dP} \\dfrac{P}{Q}$ 를 대입:\n     $$\\dfrac{d(TR)}{dP} = Q(1 - \\epsilon_d)$$\n2) **탄력성 구간별 판정**:\n   - **$\\epsilon_d > 1$ (탄력적) 인 경우**: $(1 - \\epsilon_d) < 0$ 이므로 $\\dfrac{d(TR)}{dP} < 0$ 입니다. 즉, 가격을 올리면 수량이 대폭 줄어 수입(TR)이 도리어 감소하므로 가격 인하가 유리합니다.\n   - **$\\epsilon_d < 1$ (비탄력적) 인 경우**: $(1 - \\epsilon_d) > 0$ 이므로 $\\dfrac{d(TR)}{dP} > 0$ 입니다. 즉, 가격을 올리더라도 수량이 미세하게만 줄어 수입(TR)이 증가하므로 가격 인상이 유리합니다.\n   - **$\\epsilon_d = 1$ (단위탄력적) 인 경우**: $\\dfrac{d(TR)}{dP} = 0$ 이 되어 총판매수입이 극대점에 도달하게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-043",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "폴 사무엘슨(P. Samuelson)의 현시선호이론에서 선호체계의 이행성(Transitivity)을 최종 검증하여 합리적 의사결정을 확인하는 '현시선호 강공리(SARP, Strong Axiom of Revealed Preference)'에 관한 분석이다.\n어느 소비자의 3개 기간에 걸친 가격 벡터($P$)와 소비점($X$) 데이터가 다음과 같고, 세 대안 간에 현시선호 약공리(WARP)가 개별 충족되고 있다.\n- $P^0(1, 1, 2)$, $X^0(2, 2, 1) \\implies P^0 \\cdot X^0 = 6$\n- $P^1(1, 2, 1)$, $X^1(1, 2, 2) \\implies P^1 \\cdot X^1 = 7$\n- $P^2(2, 1, 1)$, $X^2(2, 1, 2) \\implies P^2 \\cdot X^2 = 7$\n이 소비자의 선택 역사에서 강공리(SARP) 위배에 의한 순환 선호 모순의 유무를 가장 옳게 판정한 것은?\n(단, 세 묶음 간의 크로스 소득 곱 $P^t X^s$ 값들은 다음과 같이 계산된다:\n$P^0 X^1 = 7, P^0 X^2 = 8$\n$P^1 X^0 = 7, P^1 X^2 = 6$\n$P^2 X^0 = 7, P^2 X^1 = 6$)\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#ef4444\" />\n    </marker>\n  </defs>\n  <!-- 순환선호 고리 X1 -> X2 -> X1 형태 유무 판정 도해 -->\n  <circle cx=\"120\" cy=\"150\" r=\"20\" fill=\"#3b82f6\" />\n  <text x=\"112\" y=\"154\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">X1</text>\n  \n  <circle cx=\"280\" cy=\"150\" r=\"20\" fill=\"#3b82f6\" />\n  <text x=\"272\" y=\"154\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ffffff\" font-weight=\"bold\">X2</text>\n\n  <!-- X1 -> X2 (P1 * X2 = 6 <= P1 * X1 = 7 이므로 X1이 현시선호됨) -->\n  <path d=\"M 145 140 L 255 140\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"200\" y=\"130\" text-anchor=\"middle\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">P1*X2=6 &lt; P1*X1=7 (X1 ≻ X2)</text>\n  \n  <!-- X2 -> X1 (P2 * X1 = 6 <= P2 * X2 = 7 이므로 X2가 현시선호됨) -->\n  <path d=\"M 255 160 L 145 160\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"200\" y=\"180\" text-anchor=\"middle\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">P2*X1=6 &lt; P2*X2=7 (X2 ≻ X1)</text>\n\n  <text x=\"200\" y=\"80\" text-anchor=\"middle\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">현시선호 강공리(SARP) 위배 루프</text>\n</svg>\n```",
+      "options": [
+        "이 소비자는 합리적이므로 강공리를 충족한다.",
+        "데이터 검증 결과, $P^1 X^2 (6) \\le P^1 X^1 (7)$ 이므로 소비자는 $X^1$ 을 $X^2$ 보다 직접 현시선호($X^1 \\succ^R X^2$)하였으나, 동시에 $P^2 X^1 (6) \\le P^2 X^2 (7)$ 이기 때문에 $X^2$ 를 $X^1$ 보다 직접 현시선호($X^2 \\succ^R X^1$)하는 양방향 모순 선호고리($X^1 \\succ^R X^2 \\succ^R X^1$)가 유발되어 현시선호 강공리(SARP)를 심각히 위반한다.",
+        "강공리는 2재화 모형에서만 만족하고 3재화에서는 성립하지 않는다.",
+        "소비자의 지출액 총합이 일정하므로 강공리는 자동으로 소멸한다.",
+        "강공리가 붕괴되면 지니계수가 무한대로 발산하여 시장 배분이 정지된다."
+      ],
+      "answer": "2",
+      "explanation": "현시선호이론의 완결 조건인 강공리(SARP) 위배 여부를 이행성 논리 검증으로 증명하는 L5 최고난도 문항입니다.\n1) **현시선호 강공리(SARP)의 정의**:\n   - 직접 및 간접적으로 드러난 현시선호 관계가 순환적인 꼬리($X^0 \\succ^R X^1 \\succ^R X^2 \\succ^R X^0$)를 물어서는 안 된다는 선호 이행성 규칙입니다.\n2) **관측 행렬 검증**:\n   - **$X^1$ 과 $X^2$ 의 관계**:\n     - 1기 예산선 하에서 $X^1$ 을 살 돈($P^1 X^1 = 7$)으로 $X^2$ 묶음($P^1 X^2 = 6$)도 살 수 있었습니다($6 \\le 7$).\n     - 그럼에도 $X^1$ 을 샀으므로, 소비자는 $X^1$ 을 $X^2$ 보다 직접 현시선호합니다: **$X^1 \\succ^R X^2$**\n   - **$X^2$ 와 $X^1$ 의 관계**:\n     - 2기 예산선 하에서 $X^2$ 를 살 돈($P^2 X^2 = 7$)으로 $X^1$ 묶음($P^2 X^1 = 6$)도 살 수 있었습니다($6 \\le 7$).\n     - 그럼에도 $X^2$ 를 샀으므로, 소비자는 $X^2$ 를 $X^1$ 보다 직접 현시선호합니다: **$X^2 \\succ^R X^1$**\n3) **강공리 위배 판정**:\n   - 결국 소비자의 선택 데이터는 $X^1 \\succ^R X^2$ 이면서 동시에 $X^2 \\succ^R X^1$ 이라는 상호 모순 순환(선호의 이행성 붕괴)을 발생시켰습니다. 따라서 이 소비자의 행동은 일관성이 상실된 **현시선호 강공리(SARP) 위배 상태**입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-044",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 가계의 정상재 X에 대한 수요함수가 가격($P$)과 가계 실질소득($I$)에 연동되어 다음과 같은 비선형 구조를 나타내고 있다.\n- X재 수요함수: $Q = 100 P^{-1} I^{0.5}$\n소비자의 한계 반응에 의거해 산정되는 X재에 대한 (1) 수요의 가격탄력성($\\epsilon_d$)과 (2) 수요의 소득탄력성($\\epsilon_I$)의 크기를 각각 구하여 바르게 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 P</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 Q</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 소득 I = 100 일 때의 비선형 수요선 Q = 1000 * P^-1 -->\n  <path d=\"M 60 70 Q 110 200 280 230\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"180\" y=\"140\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">수요선 (I = 100)</text>\n\n  <!-- 소득 I = 400 으로 증가 시 수요선 우측 이동 Q = 2000 * P^-1 -->\n  <path d=\"M 80 50 Q 140 180 300 210\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" stroke-dasharray=\"3\" />\n  <text x=\"220\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">수요선 이동 (I = 400)</text>\n</svg>\n```",
+      "options": [
+        "(1) 가격탄력성 = 1.0, (2) 소득탄력성 = 1.0",
+        "(1) 가격탄력성 = 1.0, (2) 소득탄력성 = 0.5 이며, 가격 변동에 비해서는 단위탄력적으로 반응하고 소득 변동에 비해서는 비탄력적으로 반응한다.",
+        "(1) 가격탄력성 = 2.0, (2) 소득탄력성 = 0.5",
+        "(1) 가격탄력성 = 0.5, (2) 소득탄력성 = 1.0",
+        "비선형 혼합형 수요함수 하에서는 소득탄력성을 수량화할 수 없다."
+      ],
+      "answer": "2",
+      "explanation": "다변수 비선형 수요 함수 하에서 가격탄력성과 소득탄력성을 로그 편미분법으로 즉각 연산해내는 L5 최고난도 문항입니다.\n1) **로그 대수 변환을 통한 공식 정립**:\n   - 수요함수: $Q = 100 P^{-1} I^{0.5}$\n   - 양변에 자연로그를 취합니다:\n     $$\\ln Q = \\ln 100 - 1 \\ln P + 0.5 \\ln I$$\n2) **각 탄력성 도출**:\n   - 가격탄력성($\\epsilon_d$): $\\ln P$ 항의 계수 절대값입니다.\n     $$\\epsilon_d = -\\dfrac{\\partial \\ln Q}{\\partial \\ln P} = -(-1.0) = 1.0$$\n   - 소득탄력성($\\epsilon_I$): $\\ln I$ 항의 편미분 계수입니다.\n     $$\\epsilon_I = \\dfrac{\\partial \\ln Q}{\\partial \\ln I} = 0.5$$\n따라서 가격탄력성은 $1.0$(단위탄력적), 소득탄력성은 $0.5$(소득에 대해 정상재이면서 필수재 성격)가 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-045",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 독점 시장에 개별 소비 성향이 상이한 3인의 가계 1, 2, 3이 참여하고 있으며 이들의 개별 수요함수가 다음과 같다.\n- 가계 1의 수요: $Q_1 = 50 - P$ (단, $P \\le 50$)\n- 가계 2의 수요: $Q_2 = 40 - 2P$ (단, $P \\le 20$)\n- 가계 3의 수요: $Q_3 = 30 - 3P$ (단, $P \\le 10$)\n이 3인의 자율 수요를 결합한 '시장 전체의 결합 수요함수($Q_M$)'를 가격($P$)의 임계 구간별로 바르게 유도하여 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">결합 수량 QM</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 P</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 3단 꺾임 붉은 결합 수요선 QM -->\n  <!-- 스케일 매핑: 10단위 -> 20픽셀 -->\n  <!-- P>=20: QM = 50-P (P=50(y=150) -> P=20(y=210, Q=30(x=110))) -->\n  <!-- 20>P>=10: QM = 90-3P (P=20(y=210, Q=30) -> P=10(y=230, Q=60(x=170))) -->\n  <!-- P<10: QM = 120-6P (P=10(y=230, Q=60) -> P=0(y=250, Q=120(x=290))) -->\n  <line x1=\"50\" y1=\"150\" x2=\"110\" y2=\"210\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <line x1=\"110\" y1=\"210\" x2=\"170\" y2=\"230\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <line x1=\"170\" y1=\"230\" x2=\"290\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n\n  <!-- 꺾임점 1 (30, 20) -> x=110, y=210 -->\n  <circle cx=\"110\" cy=\"210\" r=\"4\" fill=\"#1e293b\" />\n  <!-- 꺾임점 2 (60, 10) -> x=170, y=230 -->\n  <circle cx=\"170\" cy=\"230\" r=\"4\" fill=\"#1e293b\" />\n  \n  <text x=\"120\" y=\"205\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">꺾임1 (30, 20)</text>\n  <text x=\"180\" y=\"225\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">꺾임2 (60, 10)</text>\n</svg>\n```",
+      "options": [
+        "전 가격 구간: $Q_M = 120 - 6P$",
+        "가격 구간별 수식:\n- $P \\ge 20$ 일 때: $Q_M = 50 - P$\n- $10 \\le P < 20$ 일 때: $Q_M = 90 - 3P$\n- $P < 10$ 일 때: $Q_M = 120 - 6P$\n(각 소비자의 임계 가격 진입 시점마다 반응 경사가 급격히 변동한다).",
+        "가격 구간별 수식:\n- $P \\ge 50$ 일 때: $Q_M = 50 - P$\n- $P < 50$ 일 때: $Q_M = 40 - 2P$",
+        "수평합 시에는 구간이 생기지 않고 $Q_M = 120 - P$ 로 평행 유지된다.",
+        "시장 결합 시에는 세 개별 수요의 총곱인 $Q_M = 60,000 P^{-6}$ 이 적용된다."
+      ],
+      "answer": "2",
+      "explanation": "3인의 개별 선형 수요함수의 수평합(Horizontal Summation)을 구하고 2개의 꺾임점이 수반되는 시장 결합 수식을 구간 분할 도출하는 L5 최고난도 계산 문제입니다.\n1) **개별 소비자 진입 가격 확인**:\n   - 가계 1: 가격 $P \\le 50$\n   - 가계 2: 가격 $P \\le 20$\n   - 가계 3: 가격 $P \\le 10$\n2) **구간별 수평합($Q_M = \\sum Q_i$) 적용**:\n   - **$P \\ge 20$ 인 구간**: 가계 1만 구매에 참여합니다.\n     $$Q_M = Q_1 = 50 - P$$\n   - **$10 \\le P < 20$ 인 구간**: 가계 1과 가계 2가 구매에 참여합니다.\n     $$Q_M = Q_1 + Q_2 = (50 - P) + (40 - 2P) = 90 - 3P$$\n     (경계 가격 $P=20$ 일 때 결합 수요량 $Q_M = 30$ 이 꺾임점 1이 됩니다).\n   - **$P < 10$ 인 구간**: 3인 모두가 구매에 참여합니다.\n     $$Q_M = Q_1 + Q_2 + Q_3 = (50 - P) + (40 - 2P) + (30 - 3P) = 120 - 6P$$\n     (경계 가격 $P=10$ 일 때 결합 수요량 $Q_M = 60$ 이 꺾임점 2가 됩니다).\n따라서 유도되는 3단 꺾인 가격 구간별 결합 시장 수요 식은 보기 2번과 같습니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-046",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "두 재화 X, Y를 소비하는 경제주체의 슬루츠키 교차 방정식(Slutsky Cross Equation)의 수학적 분해와, 이를 토대로 구분되는 '조대체재(Gross Substitutes)'와 '순대체재(Net Substitutes)'의 미시적 판정 기준이다. 이에 관한 가장 옳은 설명은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재 수요</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재 가격 PY</text>\n\n  <!-- 힉스 보상 수요선 (항상 우상향 순대체재) -->\n  <line x1=\"50\" y1=\"200\" x2=\"250\" y2=\"80\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"65\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">힉스 보상수요 (순대체재)</text>\n  \n  <!-- 마샬 일반 수요선 (소득효과에 따라 우하향으로 꺾일 수 있음) -->\n  <path d=\"M 50 180 Q 150 150 250 210\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" />\n  <text x=\"220\" y=\"235\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\">마샬 일반수요 (조보완재 변환)</text>\n</svg>\n```",
+      "options": [
+        "순대체재와 조대체재는 부호 조건이 완전히 대칭 동치되어 다를 수 없다.",
+        "Y재 가격 변동에 따른 X재 수요의 슬루츠키 분해 식은 $\\dfrac{\\partial X}{\\partial P_Y} = \\left. \\dfrac{\\partial X}{\\partial P_Y} \\right|_{U} - Y \\dfrac{\\partial X}{\\partial I}$ 이며, 실질 효용을 통제한 보상 수요의 교차 효과가 양수($\\left. \\dfrac{\\partial X}{\\partial P_Y} \\right|_{U} > 0$)인 경우를 '순대체재'라 하고, 소득효과를 통제하지 않은 마샬 일반수요의 총교차효과가 양수($\\dfrac{\\partial X}{\\partial P_Y} > 0$)인 경우를 '조대체재'라 한다.",
+        "조대체재는 항상 소득효과가 대체효과보다 0 이하인 상태를 가리킨다.",
+        "순대체재는 가격 인상 시 가계 후생을 강제로 0으로 추락시킨다.",
+        "두 지표는 지니계수가 극소화될 때만 서로 보완재로 강제 통일된다."
+      ],
+      "answer": "2",
+      "explanation": "교차 슬루츠키 방정식의 소득-대체 분해 수식을 이해하고 조대체재와 순대체재의 기하학적 성격을 대조 판정하는 L5 최고난도 이론/수리 융합 문항입니다.\n1) **슬루츠키 교차 방정식(Slutsky Cross Equation)**:\n   - $\\dfrac{\\partial X}{\\partial P_Y} = \\left. \\dfrac{\\partial X}{\\partial P_Y} \\right|_{U=const} - Y \\dfrac{\\partial X}{\\partial I}$\n2) **두 대체재 기준의 구분**:\n   - **순대체재(Net Substitutes)**: 소득효과를 배제한 순수한 상대가격 대체 효과 지표인 첫 번째 항($\\left. \\dfrac{\\partial X}{\\partial P_Y} \\right|_{U}$)의 부호가 양수($>0$)인 관계입니다. 힉스 보상수요 평면에서는 다재화 모형 상 다른 재화들의 보상수요 교차 합이 양수가 보장되므로, 2재화 모형에서는 항상 순대체재가 성립합니다.\n   - **조대체재(Gross Substitutes)**: 소득효과를 버무린 마샬 일반수요의 총 미분값($\\dfrac{\\partial X}{\\partial P_Y}$)이 양수($>0$)인 관계입니다. 소득효과($-Y \\partial X/\\partial I$)가 강력한 음수(정상재 효과가 매우 큼)라면, 힉스 보상상 순대체재이더라도 마샬 일반수요상으로는 조보완재($\\partial X/\\partial P_Y < 0$, 즉 파란 실선과 같이 오히려 감소하는 구간 존재)로 판정이 엇갈릴 수 있습니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-047",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 주관적 선호 체계를 나타내는 효용 함수가 다음과 같이 준선형 효용 함수(Quasi-linear Utility Function) 형태로 설정되어 있다.\n- 가계의 효용함수: $U(X, Y) = \\ln X + Y$\n- 예산 제약식: $P_X X + P_Y Y = I$ (단, $I$는 가계 소득임)\n이 소비자가 일생의 효용을 극대화하고자 할 때 도출되는 X재의 최적 수요 함수($X^*$)와 소득 변동에 따른 소득효과(Income Effect)의 수리적 특징으로 옳은 것을 구하시오.\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재 소비량</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재 소비량</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 수직의 소득소비곡선 ICC -> x=120 지점 수직선 (스케일 매핑) -->\n  <line x1=\"120\" y1=\"60\" x2=\"120\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  <text x=\"125\" y=\"80\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">소득소비곡선 ICC (수직)</text>\n\n  <!-- 평행한 예산선들 -->\n  <line x1=\"50\" y1=\"170\" x2=\"170\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"130\" x2=\"210\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"90\" x2=\"250\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n</svg>\n```",
+      "options": [
+        "최적 수요: $X^* = \\dfrac{I}{P_X}$, 소득효과는 양수이다.",
+        "최적 수요: $X^* = \\dfrac{P_Y}{P_X}$ 이며, X재 수요량은 소득 수준 $I$ 와 완벽히 독립적이어서 소득효과가 정확히 0이며 이에 따라 소득소비곡선(ICC)은 수직선의 형태를 띤다.",
+        "최적 수요: $X^* = \\dfrac{P_X}{P_Y}$, 소득효과는 무한대이다.",
+        "최적 수요: $X^* = \\sqrt{\\dfrac{I}{P_X}}$, 소득효과가 기하급수적으로 증가한다.",
+        "준선형 효용 하에서는 소득이 증가하면 Y재의 소비만 항상 0으로 수축한다."
+      ],
+      "answer": "2",
+      "explanation": "준선형 효용함수(Quasi-linear)의 특이 성격인 소득효과 0의 성질을 수학적으로 증명하는 L5 최고난도 계산 문제입니다.\n1) **소비자 균형 조건($MRS = \\dfrac{P_X}{P_Y}$) 적용**:\n   - $U(X, Y) = \\ln X + Y$\n   - $MU_X = \\dfrac{\\partial U}{\\partial X} = \\dfrac{1}{X}$\n   - $MU_Y = \\dfrac{\\partial U}{\\partial Y} = 1.0$\n   - 한계대체율 $MRS_{XY} = \\dfrac{MU_X}{MU_Y} = \\dfrac{1/X}{1} = \\dfrac{1}{X}$\n2) **최적 수요 도출**:\n   - $\\dfrac{1}{X} = \\dfrac{P_X}{P_Y} \\implies X^* = \\dfrac{P_Y}{P_X}$\n3) **소득효과 판정**:\n   - 도출된 X재의 최적 수요 함수 $X^* = \\dfrac{P_Y}{P_X}$ 에는 소득 변수 $I$ 가 존재하지 않습니다.\n   - 즉, 소득이 아무리 증가하더라도 X재의 소비량은 고정되며, 추가된 소득은 전액 선형 재화인 Y재 소비에만 투입됩니다.\n   - 따라서 X재의 소득효과는 정확히 **0**이 되며, 이로 인해 유도되는 소득소비곡선(ICC)은 2차원 평면에서 가로축(X재)에 완전 수직인 직선 형태를 띠게 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-048",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "가상 사회 소비자들의 평균적인 선호가 대체탄력성이 일정한 CES 효용 함수(Constant Elasticity of Substitution) 형태로 명시되어 있다.\n- 소비자 효용함수: $U(X, Y) = (X^{\\rho} + Y^{\\rho})^{\\frac{1}{\\rho}}$ (단, $\\rho \\ne 0, \\rho < 1$ 임)\n이 모형 하에서 대체탄력성($\\sigma$)과 파라미터 $\\rho$ 간의 수학적 관계식과, 파라미터가 $\\rho \\rightarrow 0$ 으로 수렴해 갈 때 유도되는 한계 무차별곡선의 기하학적 형태 변화를 가장 바르게 짝지은 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재</text>\n\n  <!-- rho -> 0 일 때의 콥더글라스 무차별곡선 (원점 볼록) -->\n  <path d=\"M 70 90 Q 130 190 250 210\" stroke=\"#3b82f6\" stroke-width=\"2.5\" fill=\"none\" />\n  <text x=\"180\" y=\"150\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#3b82f6\" font-weight=\"bold\">rho -> 0 (Cobb-Douglas)</text>\n\n  <!-- rho -> -inf 일 때의 레온티에프 L자곡선 -->\n  <path d=\"M 90 70 L 90 210 L 250 210\" stroke=\"#ef4444\" stroke-width=\"2\" fill=\"none\" stroke-dasharray=\"3\" />\n  <text x=\"100\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">rho -> -inf (Leontief)</text>\n</svg>\n```",
+      "options": [
+        "대체탄력성 $\\sigma = \rho$, $\rho \rightarrow 0$ 일 때 완전대체재 직선이 된다.",
+        "대체탄력성 $\\sigma = \\dfrac{1}{1-\rho}$ 이며, $\rho \rightarrow 0$ 으로 갈 때 대체탄력성은 1.0이 되어 원점에 대해 볼록한 콥-더글라스(Cobb-Douglas) 효용곡선으로 수렴하고, $\rho \rightarrow -\\infty$ 일 때는 레온티에프 L자형으로 수렴한다.",
+        "대체탄력성 $\\sigma = 1 - \rho$, $\rho \rightarrow 0$ 일 때 선형 수평선이 된다.",
+        "대체탄력성 $\\sigma = \\dfrac{\rho}{1-\rho}$, $\rho \rightarrow 0$ 일 때 탄력성은 0이 된다.",
+        "CES 모형은 수학적 왜곡으로 인해 탄력성 수식 유도가 근본적으로 불가하다."
+      ],
+      "answer": "2",
+      "explanation": "일반화된 CES 효용함수 모형의 대체탄력성 유도 및 극한값 조율을 통한 무차별곡선 형태 변화를 추론하는 L5 최고난도 수리 문항입니다.\n1) **CES의 대체탄력성($\\sigma$) 유도**:\n   - $U = (X^{\\rho} + Y^{\\rho})^{1/\\rho} \\implies \\sigma = \\dfrac{1}{1-\\rho}$\n2) **극한수렴 조건 분석**:\n   - **$\\rho \\rightarrow 1$ 일 때**: $\\sigma \\rightarrow \\infty$ 이며, 무차별곡선은 완전대체재 선형 직선 형태($U = X + Y$)가 됩니다.\n   - **$\\rho \\rightarrow 0$ 일 때**: $\\sigma \\rightarrow 1$ 이며, 로피탈 정리 등에 의해 효용함수는 콥-더글라스 형태($U = X^{\\alpha} Y^{\\beta}$)의 원점 볼록 곡선(파란 실선)으로 수렴합니다.\n   - **$\\rho \\rightarrow -\\infty$ 일 때**: $\\sigma \\rightarrow 0$ 이며, 대체가 불가능한 완전보완재 레온티에프 형태($U = \\min(X, Y)$)의 L자선(빨간 점선)으로 수렴합니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-049",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 소비자의 기펜재 X에 대한 소비 선호 체계와 가격 하락 시 발생하는 복지 측정의 차이를 분석하려 한다.\n- X재는 열등재 성향이 극단화된 기펜재임\nX재의 가격이 하락할 때 실질 후생의 변화를 정량 평가하기 위해 도출하는 (1) 보상변동(CV, Compensated Variation)과 (2) 대등변동(EV, Equivalent Variation)의 수학적 크기 순서 관계를 기하학적 궤적 조건에 입각해 가장 옳게 비교한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X재</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y재 (소득가치)</text>\n\n  <!-- 초기 예산선 L0 -> 가격 하락하여 L1 으로 확장 -->\n  <line x1=\"50\" y1=\"150\" x2=\"170\" y2=\"250\" stroke=\"#94a3b8\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"150\" x2=\"290\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n\n  <!-- 보상변동 CV와 대등변동 EV 측정 예산선 평행 격차 도식 -->\n  <!-- EV 측정을 위한 원래 가격하의 예산선 상향 시프트선 -->\n  <line x1=\"50\" y1=\"110\" x2=\"230\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"3\" />\n  <text x=\"180\" y=\"130\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">EV 측정선</text>\n</svg>\n```",
+      "options": [
+        "기펜재의 가격 하락 시: $CV > EV > 0$",
+        "기펜재의 가격 하락 시: $EV > CV > 0$ 이며, 열등재 특성에 따라 대등변동(EV)의 소득 보상 가치가 보상변동(CV)보다 항상 크게 책정된다.",
+        "기펜재의 가격 하락 시: $CV = EV$ 가 만족된다.",
+        "두 변동 지표는 모두 음(-)의 부호를 가짐으로써 측정이 거부된다.",
+        "기펜재 하에서는 CV와 EV의 격차가 항상 무한대로 폭발한다."
+      ],
+      "answer": "2",
+      "explanation": "수요법칙의 예외인 기펜재 하에서 후생 가치 측정 지표인 보상변동(CV)과 대등변동(EV)의 순서 관계를 규명하는 L5 최고난도 문제입니다.\n1) **정상재와 열등재의 CV, EV 관계 (가격 하락 시)**:\n   - 가격 하락 시 소비자의 실질 소득은 증가합니다.\n   - **정상재의 경우**: 소득 증가가 수요를 추가 확대하므로, 신규 가격 하에서 이전 만족을 회수하는 보상변동(CV)이 원래 가격 하에서 새로운 만족을 미리 맛보는 대등변동(EV)보다 큽니다 ($CV > EV$).\n   - **열등재(및 기펜재)의 경우**: 소득 증가는 오히려 해당 재화의 선호를 감소시킵니다. 따라서 가격 변동에 따른 실질적인 가치를 복구할 때, 소득 효과의 역전이 유발되어 원래 가격 기준의 대등변동(EV)이 변동 후 가격 기준의 보상변동(CV)보다 항상 큽니다.\n2) **결론**: 따라서 기펜재의 가격 하락 시에는 두 지표가 모두 양수이나, 크기 서열은 **$EV > CV$** 가 유도됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch02-sec01-item01-050",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "어느 정상재 X의 시장 가격이 외생 충격으로 인해 $P_0$ 에서 $P_1$ 로 상승하여 소비자의 후생이 감소하였다.\n이 가격 변동에 따라 발생하는 소비자의 실질 복지 손실의 크기를 (1) 마샬 수요곡선 하의 소비자 잉여 변화분($\\Delta CS$), (2) 힉스 보상수요곡선 하의 보상변동($CV$), (3) 힉스 보상수요곡선 하의 대등변동($EV$) 수식으로 각각 산정하여 비교할 때 도출되는 세 지표의 크기 관계를 바르게 나열한 것은?\n      \n```svg\n<svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"250\" x2=\"350\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"50\" x2=\"50\" y2=\"250\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"255\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">수량 (Q)</text>\n  <text x=\"20\" y=\"45\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">가격 (P)</text>\n  <text x=\"35\" y=\"262\" font-size=\"12\" font-family=\"sans-serif\" fill=\"#475569\">O</text>\n\n  <!-- 마샬 수요곡선 DM (보통 기울기) -> x=50(y=70), x=230(y=250) -->\n  <line x1=\"50\" y1=\"70\" x2=\"230\" y2=\"250\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"200\" y=\"210\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#3b82f6\">마샬 수요 DM</text>\n\n  <!-- 힉스 보상수요 DH_U0 (더 가파름 - 소득효과 제거) -->\n  <line x1=\"70\" y1=\"50\" x2=\"170\" y2=\"250\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"2\" />\n  <text x=\"140\" y=\"90\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">보상수요 DH</text>\n</svg>\n```",
+      "options": [
+        "복지 손실 크기: $CV = EV = \\Delta CS$",
+        "복지 손실 크기: $EV < |\\Delta CS| < CV$ 이며, 정상재의 가격 상승에 따른 실질 복지 손실은 보상변동(CV)에 의해 가장 크게 평가된다.",
+        "복지 손실 크기: $CV < |\\Delta CS| < EV$",
+        "세 지표는 가격이 오를 때 모두 부호가 상이해져 대조가 차단된다.",
+        "소비자 잉여 변화분이 항상 극대 복지 손실 지표로서 CV의 2배 수준을 유지한다."
+      ],
+      "answer": "2",
+      "explanation": "가격 상승 시 정상재의 소비자 후생 감소분을 측정하는 세 가지 평가 도구(소비자잉여, 보상변동, 대등변동)의 서열 관계를 증명하는 L5 최고난도 문제입니다.\n1) **각 복지 측정 지표의 수식적 정의 (가격 상승 시)**:\n   - **보상변동($CV$)**: 가격 변동 후의 가격 체제 하에서 원래의 효용 $U_0$로 돌아가기 위해 보전해주어야 하는 소득액(즉, 가격이 올라 피해를 입은 소비자를 이전 효용수준으로 되돌리기 위해 추가 지원해야 하는 소득액)으로, $U_0$ 기준의 힉스 보상수요곡선 하부 면적입니다.\n   - **대등변동($EV$)**: 원래 가격 체제 하에서 가격 변동 후의 효용 $U_1$로 밀려나는 손실을 상쇄하기 위해 빼앗아야 하는 소득액으로, $U_1$ 기준의 힉스 보상수요곡선 하부 면적입니다.\n   - **소비자잉여의 변화($\\Delta CS$)**: 소득효과를 통제하지 않은 마샬 일반수요곡선 하부의 가격 변화 면적입니다.\n2) **정상재 하에서의 크기 서열 유도**:\n   - 정상재의 경우, 소득 효과가 양수이므로 가격이 상승하여 실질 소득이 하락할 때 수요가 추가로 축소됩니다.\n   - 이에 따라 마샬 수요곡선($D_M$)은 $U_0$ 기준 보상수요곡선($D_H(U_0)$)보다 가파르지 않고 왼편으로 처져 내려옵니다.\n   - 면적을 대조하면, $U_0$ 기준 힉스선 아래 면적($CV$) > 마샬선 아래 면적($|\\Delta CS|$) > $U_1$ 기준 힉스선 아래 면적($EV$)이 성립합니다.\n   - $\\therefore EV < |\\Delta CS| < CV$"
     }
   ]
 }

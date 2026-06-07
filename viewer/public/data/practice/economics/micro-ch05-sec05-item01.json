@@ -6,97 +6,97 @@
     "section": "제17절 게임이론",
     "item": "제1관 전략형 게임과 내쉬균형",
     "source": "practice-set",
-    "version": "v2-handcrafted",
-    "created": "2026-06-01",
-    "count": 25,
+    "version": "v3-high-quality",
+    "created": "2026-06-07",
+    "count": 50,
     "mix_profile": "calc12-graph5-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch05-sec05-item01-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "게임이론의 4가지 요소가 아닌 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "미시경제학 및 게임이론에서 정의하는 전략형 게임(Normal Form Game, 또는 동시적 게임)의 3대 핵심 구성 요소가 아닌 것으로만 올바르게 묶인 상태로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
-        "정부 결정",
-        "참여자 (Players)",
-        "전략 (Strategies)",
-        "보수 (Payoffs)",
-        "정보 (Information)"
+        "정부의 규제 및 보조금 책정 기준, 개별 소비자의 전환 비용 지수, 사회적 후생의 공정한 파레토 분배 상태",
+        "의사결정을 내리는 의사결정 주체인 플레이어(Players)들의 명단",
+        "각 플레이어가 선택할 수 있는 가용 가능한 모든 행동의 집합인 전략(Strategies)",
+        "모든 플레이어들의 전략 조합 하에서 개별 플레이어가 얻게 되는 결과적 가치인 보수(Payoffs)",
+        "구성 요소의 Duality 조건 하에서만 3대 조건이 장단기 비용 포락선과 교차 수렴한다."
       ],
       "answer": "1",
-      "explanation": "게임의 4요소: ① 참여자 ② 전략 ③ 보수 ④ 정보. 정부 결정은 게임이론과 별개."
+      "explanation": "전략형 게임의 3요소:\\n1) Players(행위자): 게임에 참여하여 의사결정을 내리는 주체들.\\n2) Strategies(전략): 각 행위자가 취할 수 있는 선택지들의 목록.\\n3) Payoffs(보수): 각자 선택한 전략들의 결합 조합에 따라 얻게 되는 보수(이윤 또는 효용) 행렬.\\n정부 규제나 소비자의 전환비용 등은 게임이론의 내적인 3대 표준 구성요소(Players, Strategies, Payoffs)에 속하지 않습니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-002",
       "difficulty": 1,
       "question_type": "이론형",
-      "question": "내쉬균형(Nash 1950)의 정의는?",
+      "question": "John Nash(1950)가 정립한 '내쉬 균형(Nash Equilibrium)'의 엄밀한 수학적 정의와, 이 균형 상태에 도출되었을 때 개별 플레이어들이 가지는 일방적 이탈 인센티브의 특징에 대한 설명으로 가장 옳은 것은?",
       "options": [
-        "각 참여자가 다른 참여자 전략 주어진 상태에서 자기 최적 전략 선택 → 변경 인센티브 없음",
-        "협력 전략",
-        "정부 강제 균형",
-        "MC = MR",
-        "독점 균형"
+        "상대방의 전략이 현재 상태로 주어진 것으로 고정되어 있을 때, 어느 누구도 자신의 전략을 '나홀로 일방적으로 변경하여' 자신의 보수를 더 높일 수 없는 최적 반응(Best Response)의 상호적 상태를 의미한다.",
+        "모든 플레이어가 서로의 전략을 완전 수용하여 사회적 자중손실을 100% 영(0)으로 만드는 상태이다.",
+        "내쉬 균형은 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 거쳐야만 안정성이 확보된다.",
+        "균형 하에서 개별 플레이어는 이탈 시 언제나 무한대의 추가 마크업 지대를 획득하는 인센티브 왜곡에 처한다.",
+        "소비자가 대기 행동을 강행하여 가맹점의 전략 선택권을 원천 박탈하는 균형 상태이다."
       ],
       "answer": "1",
-      "explanation": "내쉬균형: 모든 참여자가 다른 사람 전략 고정 시 자기 전략 변경의 인센티브 없음. Nash(1950, 1994 노벨상). 게임이론의 기본 균형 개념."
+      "explanation": "내쉬 균형의 본질:\\n내쉬 균형은 '상대의 선택이 현재 전략으로 유지된다고 볼 때, 나 혼자 행동을 바꾸어 봤자 지금보다 더 나은 보수를 얻을 수 없는' 상태입니다. 즉, 모든 플레이어가 상대의 전략에 대해 동시에 최적 반응을 선택하고 있으므로, 어느 한 사람도 독단적으로 전략을 이탈할 인센티브가 부재합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-003",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
-      "question": "지배전략(dominant strategy)이란?",
+      "question": "게임이론에서 정의하는 지배 전략(Dominant Strategy)과 이 지배 전략이 존재할 때 형성되는 지배 전략 균형(Dominant Strategy Equilibrium)의 특징 및 내쉬 균형과의 수학적 상관관계로 가장 옳은 것은?",
       "options": [
-        "상대방 전략에 관계없이 항상 우월한 전략",
-        "약한 전략",
-        "협력 전략",
-        "정부 결정",
-        "혼합 전략"
+        "상대방이 어떠한 전략을 선택하는지와 전혀 무관하게 나에게 언제나 가장 높은 보수를 제공하는 단일 전략을 의미하며, 모든 플레이어가 지배 전략을 가질 때의 균형은 항상 내쉬 균형이 된다.",
+        "지배 전략은 상대방의 전략에 따라 나의 최적 선택이 실시간으로 요동치는 유압적 상태를 뜻한다.",
+        "지배 전략 균형이 도출되면 자중손실이 완전히 사라지므로 독점 가격 마크업이 0이 된다.",
+        "상관관계는 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 전면 단절된다.",
+        "소비자의 전환 비용이 0이 될 때만 개별 지배 전략이 상호 보완되어 균형으로 작동한다."
       ],
       "answer": "1",
-      "explanation": "지배전략: 상대가 어떻게 하든 자기에게 유리한 전략. 두 참여자 모두 지배전략 보유 시 그 조합이 내쉬균형 (지배전략 균형)."
+      "explanation": "지배 전략과 내쉬 균형:\\n1) 지배 전략: 상대방이 A를 하든 B를 하든 나에게는 항상 C 전략이 우월한 경우, C를 지배 전략이라고 부릅니다.\\n2) 관계: 모든 참여자가 지배 전략을 지니고 이를 선택하면 지배전략 균형이 됩니다. 이는 상대방의 전략에 대한 최적 반응의 결합이므로 언제나 내쉬 균형에 포함됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-004",
-      "difficulty": 2,
-      "question_type": "그래프형",
-      "question": "다음 죄수의 딜레마에서 내쉬균형은?\n\n[IMAGE: data/practice/economics/graphs/game-payoff-prisoner.svg]",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "유한한 수의 플레이어와 유한한 수의 순수 전략을 갖는 모든 비협력 게임에서, 순수 전략(Pure Strategy) 상의 내쉬 균형이 존재하지 않더라도 확률적인 가중치를 부여하는 혼합 전략(Mixed Strategy)을 도입할 경우 적어도 하나의 내쉬 균형이 반드시 실재한다는 내쉬 정리(Nash Theorem)의 경제학적 의의로 가장 옳은 것은?",
       "options": [
-        "(A 자백, B 자백) = (-5, -5)",
-        "(A 침묵, B 침묵) = (-1, -1)",
-        "(A 자백, B 침묵)",
-        "(A 침묵, B 자백)",
-        "균형 없음"
+        "모든 플레이어가 자신의 순수 전략들을 적절한 확률적 결합(혼합)으로 선택할 때 상대 전략에 대한 최적 반응 쌍이 항상 존재함을 증명하여, 가위바위보나 동전 맞추기 같은 게임도 균형의 예측 가능성을 부여했다.",
+        "혼합 전략은 개별 기업의 이윤을 완전경쟁 수준인 0으로 귀착시키므로 카르텔 담합을 100% 붕괴시키는 장치이다.",
+        "내쉬 정리는 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 동반할 때만 수학적 타당성이 보장된다.",
+        "의의는 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 전면 부정된다.",
+        "소비자가 대기 행동의 확률을 직접 조율하여 모든 가맹점원들의 보수를 강제로 영(0)으로 수축시키는 원인이다."
       ],
       "answer": "1",
-      "explanation": "양쪽이 '자백'이 지배전략 (상대가 무엇하든 자백이 유리). 내쉬균형 = (자백, 자백) = (-5, -5). 협력(-1, -1)이 더 좋지만 도달 못함 = 딜레마."
+      "explanation": "Nash 정리와 혼합전략:\\n1) 순수전략 균형의 한계: 가위바위보나 Matching Pennies 같은 영합게임(Zero-sum Game)은 한쪽이 이기면 다른 쪽이 지기 때문에 순수전략 상으로는 서로 물고 물려 균형이 존재하지 않습니다.\\n2) 혼합전략의 도입: 하지만 각 전략을 $p, 1-p$의 확률로 섞는 혼합전략 영역까지 확장하면, 상대방을 무차별(Indifferent)하게 만드는 확률적 내쉬 균형이 무조건 하나 이상 존재함을 수학적으로 증명하였습니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-005",
-      "difficulty": 3,
-      "question_type": "이론형",
-      "question": "죄수의 딜레마의 핵심 시사점은?",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "두 가맹점 1, 2가 광고 캠페인 결정 게임을 수행 중이다. 보수행렬은 다음과 같다. 양사 모두 광고를 집행하면 $(40, 40)$, 양사 모두 비집행하면 $(60, 60)$, 나만 광고하고 상대는 안 하면 배반자가 $80$, 협력자는 $10$ 의 이윤을 얻는다. 이 게임에서 도출되는 내쉬 균형 요금 보수 결과와 이 균형이 지니는 파레토 비효율성에 대한 평가로 가장 옳은 것은?",
       "options": [
-        "개인 합리성이 집단 최적과 충돌 → 협력 어려움 (자유시장 한계)",
-        "협력 보장",
-        "독점 우월",
-        "정부 무용",
-        "내쉬균형 = 파레토 최적"
+        "내쉬 균형은 양사 모두 광고를 집행하는 $(40, 40)$ 이며, 이는 둘 다 광고를 안 할 때의 파레토 개선 결과인 $(60, 60)$ 보다 낮으므로 파레토 비효율적이다.",
+        "내쉬 균형은 양사 모두 비집행하는 $(60, 60)$ 이며, 이는 파레토 최적 상태이다.",
+        "내쉬 균형은 존재하지 않으며 혼합 전략 균형 요금만 존재하여 기대 이윤이 25가 된다.",
+        "균형은 $(80, 10)$ 및 $(10, 80)$ 의 복수 순수 내쉬 균형으로 분할된다.",
+        "이 광고 게임은 자중손실이 전면 소멸하므로 언제나 완전경쟁 생산량 수준에 일치하게 된다."
       ],
       "answer": "1",
-      "explanation": "딜레마: 각자 합리적(지배전략 = 자백) → 집단 비최적 결과. 협력(침묵)이 모두에게 좋지만 도달 못함. 카르텔·환경·공유자원 등 광범위 적용."
+      "explanation": "광고 죄수딜레마 수리 분석:\\n1) 지배전략 탐색:\\n   - 상대가 광고할 때: 내가 광고하면 40, 안 하면 10 $\\implies$ 광고가 유리.\\n   - 상대가 광고 안 할 때: 내가 광고하면 80, 안 하면 60 $\\implies$ 광고가 유리.\\n   - 따라서 두 기업 모두 '광고'가 우월한 지배전략입니다.\\n2) 균형과 후생:\\n   - 지배전략균형이자 유일한 내쉬균형은 (광고, 광고) $\\implies (40, 40)$ 입니다.\\n   - 그러나 둘 다 광고를 안 하면 $(60, 60)$의 더 큰 이윤을 얻을 수 있으므로, 내쉬균형은 파레토 비효율적인 자원 배분입니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-006",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
-      "question": "Nash(1950) 정리의 핵심 결과는?",
+      "question": "Nash(1950) 정리의 핵심 결과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
         "유한 참여자·유한 전략 게임은 (혼합전략 포함) 적어도 하나의 내쉬균형 존재",
         "균형 항상 유일",
         "협력 보장",
-        "정부 결정",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "균형 없음"
       ],
       "answer": "1",
@@ -104,12 +104,12 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-007",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "혼합전략(mixed strategy)이란?",
       "options": [
         "여러 순수전략 중 확률적 선택. 순수전략 균형 없을 때도 균형 존재",
-        "정부 결정",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "고정 전략",
         "무전략",
         "협력 전략"
@@ -119,7 +119,7 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-008",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "계산형",
       "question": "두 기업 가격 경쟁: (높음, 낮음) 보수행렬. 한 행위자가 '높음 100·낮음 80', 다른 '낮음 90·높음 60'. 두 사람 모두 ('낮음') 지배전략. 균형 보수는?",
       "options": [
@@ -134,7 +134,7 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-009",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "내쉬균형이 파레토 최적과 다른 사례는?",
       "options": [
@@ -149,9 +149,9 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-010",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
-      "question": "내쉬균형이 다수일 수 있는 게임 예는?",
+      "question": "내쉬균형이 다수일 수 있는 게임 예는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"175\" cy=\"50\" r=\"12\" fill=\"#3b82f6\" />\n  <text x=\"175\" y=\"54\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">진입자</text>\n  <line x1=\"165\" y1=\"60\" x2=\"90\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"185\" y1=\"60\" x2=\"260\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">진입</text>\n  <text x=\"240\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">미진입</text>\n  <circle cx=\"90\" cy=\"130\" r=\"12\" fill=\"#10b981\" />\n  <text x=\"90\" y=\"134\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">기존</text>\n  <line x1=\"80\" y1=\"140\" x2=\"40\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <line x1=\"100\" y1=\"140\" x2=\"140\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <text x=\"50\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">전쟁</text>\n  <text x=\"130\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">협조</text>\n  <text x=\"40\" y=\"215\" font-size=\"8.5\" fill=\"#ef4444\" text-anchor=\"middle\">(-3, -5)</text>\n  <text x=\"140\" y=\"215\" font-size=\"8.5\" fill=\"#10b981\" text-anchor=\"middle\">(5, 5)</text>\n  <text x=\"260\" y=\"135\" font-size=\"8.5\" fill=\"#eab308\" text-anchor=\"middle\">(0, 10)</text>\n</svg>\n```\n",
       "options": [
         "Battle of Sexes, Coordination Game, Hawk-Dove",
         "죄수의 딜레마",
@@ -164,7 +164,7 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-011",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "계산형",
       "question": "동전 맞추기 (Matching Pennies): 같으면 A 1·B -1, 다르면 A -1·B 1. 내쉬균형은?",
       "options": [
@@ -181,12 +181,12 @@
       "id": "practice-econ-micro-ch05-sec05-item01-012",
       "difficulty": 4,
       "question_type": "이론형",
-      "question": "공공재 게임의 무임승차 결과는?",
+      "question": "공공재 게임의 무임승차 결과는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
         "모두 무임승차 → 공공재 공급 부족 (DWL)",
         "협력 보장",
         "공급 과잉",
-        "정부 결정",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "독점"
       ],
       "answer": "1",
@@ -194,14 +194,14 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-013",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "협력 게임의 핵심 특징은?",
       "options": [
         "구속력 있는 합의 가능 → 협력 균형 (Shapley value 등)",
         "구속 없음",
         "협력 불가",
-        "정부 결정",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "내쉬균형만"
       ],
       "answer": "1",
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-014",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "전략형 게임(normal form)의 표현은?",
       "options": [
@@ -226,7 +226,7 @@
       "id": "practice-econ-micro-ch05-sec05-item01-015",
       "difficulty": 5,
       "question_type": "계산형",
-      "question": "쿠르노 2기업: 수요 P = 30 - Q, MC = 0. 내쉬균형은?",
+      "question": "쿠르노 2기업: 수요 $P = 30 - Q$, $$MC = 0$$. 내쉬균형은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"175\" cy=\"50\" r=\"12\" fill=\"#3b82f6\" />\n  <text x=\"175\" y=\"54\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">진입자</text>\n  <line x1=\"165\" y1=\"60\" x2=\"90\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"185\" y1=\"60\" x2=\"260\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">진입</text>\n  <text x=\"240\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">미진입</text>\n  <circle cx=\"90\" cy=\"130\" r=\"12\" fill=\"#10b981\" />\n  <text x=\"90\" y=\"134\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">기존</text>\n  <line x1=\"80\" y1=\"140\" x2=\"40\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <line x1=\"100\" y1=\"140\" x2=\"140\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <text x=\"50\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">전쟁</text>\n  <text x=\"130\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">협조</text>\n  <text x=\"40\" y=\"215\" font-size=\"8.5\" fill=\"#ef4444\" text-anchor=\"middle\">(-3, -5)</text>\n  <text x=\"140\" y=\"215\" font-size=\"8.5\" fill=\"#10b981\" text-anchor=\"middle\">(5, 5)</text>\n  <text x=\"260\" y=\"135\" font-size=\"8.5\" fill=\"#eab308\" text-anchor=\"middle\">(0, 10)</text>\n</svg>\n```\n",
       "options": [
         "q_i = 10, P = 10, π_i = 100",
         "q_i = 15, P = 0",
@@ -239,7 +239,7 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-016",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "내쉬균형의 한계로 옳지 않은 것은?",
       "options": [
@@ -254,7 +254,7 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-017",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "계산형",
       "question": "치킨 게임 (Chicken Game): 둘 다 직진 → -10/-10, 한쪽 회전 → -1/1, 둘 다 회전 → 0/0. 내쉬균형은?",
       "options": [
@@ -271,10 +271,10 @@
       "id": "practice-econ-micro-ch05-sec05-item01-018",
       "difficulty": 4,
       "question_type": "이론형",
-      "question": "신뢰 가능 약속(credible commitment)의 사례는?",
+      "question": "신뢰 가능 약속(credible commitment)의 사례는?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
         "선점 투자로 대안 차단 → 후발자에게 신호",
-        "단순 협박",
+        "장기 비용 함수의 최저 조업 중단 가격 기준 협박",
         "정부 약속만",
         "구두 약속",
         "변경 가능"
@@ -284,7 +284,7 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-019",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "게임이론의 경제학·사회과학 응용 분야는?",
       "options": [
@@ -301,7 +301,7 @@
       "id": "practice-econ-micro-ch05-sec05-item01-020",
       "difficulty": 5,
       "question_type": "계산형",
-      "question": "두 기업 광고 결정: 둘 다 광고 (10, 10), 한쪽만 광고 (20, 5), 둘 다 안함 (15, 15). 내쉬균형은?",
+      "question": "두 기업 광고 결정: 둘 다 광고 (10, 10), 한쪽만 광고 (20, 5), 둘 다 안함 (15, 15). 내쉬균형은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"175\" cy=\"50\" r=\"12\" fill=\"#3b82f6\" />\n  <text x=\"175\" y=\"54\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">진입자</text>\n  <line x1=\"165\" y1=\"60\" x2=\"90\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"185\" y1=\"60\" x2=\"260\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <text x=\"110\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">진입</text>\n  <text x=\"240\" y=\"85\" font-size=\"8.5\" fill=\"#cbd5e1\">미진입</text>\n  <circle cx=\"90\" cy=\"130\" r=\"12\" fill=\"#10b981\" />\n  <text x=\"90\" y=\"134\" font-size=\"9\" fill=\"#ffffff\" text-anchor=\"middle\">기존</text>\n  <line x1=\"80\" y1=\"140\" x2=\"40\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <line x1=\"100\" y1=\"140\" x2=\"140\" y2=\"200\" stroke=\"#64748b\" stroke-width=\"1.8\" />\n  <text x=\"50\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">전쟁</text>\n  <text x=\"130\" y=\"175\" font-size=\"8\" fill=\"#cbd5e1\">협조</text>\n  <text x=\"40\" y=\"215\" font-size=\"8.5\" fill=\"#ef4444\" text-anchor=\"middle\">(-3, -5)</text>\n  <text x=\"140\" y=\"215\" font-size=\"8.5\" fill=\"#10b981\" text-anchor=\"middle\">(5, 5)</text>\n  <text x=\"260\" y=\"135\" font-size=\"8.5\" fill=\"#eab308\" text-anchor=\"middle\">(0, 10)</text>\n</svg>\n```\n",
       "options": [
         "(광고, 광고) = (10, 10) (지배전략 균형)",
         "(안함, 안함) = (15, 15)",
@@ -314,13 +314,13 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-021",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "메커니즘 디자인(Mechanism Design)의 의미는?",
       "options": [
         "원하는 결과 달성하도록 게임 규칙 설계 (역방향)",
         "기존 게임 분석만",
-        "정부 결정",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "수요만",
         "공급만"
       ],
@@ -331,7 +331,7 @@
       "id": "practice-econ-micro-ch05-sec05-item01-022",
       "difficulty": 3,
       "question_type": "그래프형",
-      "question": "다음 보수행렬에서 죄수의 딜레마 구조를 갖는 사례는?\n\n[IMAGE: data/practice/economics/graphs/game-payoff-prisoner.svg]",
+      "question": "다음 보수행렬에서 죄수의 딜레마 구조를 갖는 사례는?\n\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
       "options": [
         "카르텔(가격 담합), 공공재 기부, 환경 보호, 군비 경쟁",
         "독점",
@@ -344,14 +344,14 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-023",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "내쉬균형의 행동경제학적 비판은?",
       "options": [
         "공정성·이타심·신뢰가 실제 행동에 영향 → 표준 모형과 다른 결과",
         "완벽한 모형",
         "비판 무용",
-        "정부 결정",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "표준 옹호"
       ],
       "answer": "1",
@@ -359,14 +359,14 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-024",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Subgame Perfect Equilibrium(SPE)의 의미는?",
       "options": [
         "확장형 게임의 모든 부분게임에서 내쉬균형. 비신뢰 협박 배제",
         "정태 게임만",
-        "단순 내쉬균형",
-        "정부 결정",
+        "장기 비용 함수의 최저 조업 중단 가격 기준 내쉬균형",
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘",
         "협력만"
       ],
       "answer": "1",
@@ -374,18 +374,393 @@
     },
     {
       "id": "practice-econ-micro-ch05-sec05-item01-025",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "현대 게임이론의 발전 방향은?",
       "options": [
         "진화 게임 + 행동 게임 + 메커니즘 디자인 + 신호 게임",
         "표준 분석만",
         "협력 게임만",
-        "정부 결정만",
-        "단순화"
+        "사회보장 연금 제도의 다층적 위험 공유 메커니즘만",
+        "장기 비용 함수의 최저 조업 중단 가격 기준화"
       ],
       "answer": "1",
       "explanation": "현대 게임이론: ① 진화 게임(생물·사회) ② 행동 게임(공정성) ③ 메커니즘 디자인(경매) ④ 신호·선별 게임(정보 비대칭). 노벨상 다수 (Nash 1994, Harsanyi·Selten 1994, Aumann·Schelling 2005, Hurwicz 2007 등)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-026",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "동전 맞추기(Matching Pennies) 게임을 벌이는 두 플레이어 A, B가 있다. 두 사람이 동시에 동전의 앞면(H) 또는 뒷면(T)을 제시하여, 두 면이 일치하면 A가 $1$ 을 얻고 B는 $1$ 을 잃는다. 면이 서로 다르면 A가 $1$ 을 잃고 B는 $1$ 을 얻는다. 이 게임의 혼합 전략 내쉬 균형(Mixed Strategy Nash Equilibrium)에서 플레이어 A가 앞면(H)을 제시할 최적 확률 $p^*$ 와 플레이어 B가 앞면(H)을 제시할 최적 확률 $q^*$ 의 계산 결과로 가장 옳은 것은?",
+      "options": [
+        "최적 확률 $p^* = 0.5$ / $q^* = 0.5$",
+        "최적 확률 $p^* = 0.6$ / $q^* = 0.4$",
+        "최적 확률 $p^* = 0.7$ / $q^* = 0.3$",
+        "최적 확률 $p^* = 0.5$ / $q^* = 0.3$",
+        "이 게임은 완벽한 제로섬 게임이므로 균형 확률 자체가 수학적으로 유도될 수 없다."
+      ],
+      "answer": "1",
+      "explanation": "Matching Pennies 혼합전략 균형 연산:\\n1) 플레이어 B를 무차별하게 만드는 A의 확률 $p$ 구하기:\\n   - B가 H 선택 시 기대보수: $E_B(H) = (-1) \\cdot p + 1 \\cdot (1-p) = 1 - 2p$.\\n   - B가 T 선택 시 기대보수: $E_B(T) = 1 \\cdot p + (-1) \\cdot (1-p) = 2p - 1$.\\n   - B가 혼합전략을 쓰려면 두 기대보수가 같아야 함: $1 - 2p = 2p - 1 \\implies 4p = 2 \\implies p^* = 0.5$.\\n2) 플레이어 A를 무차별하게 만드는 B의 확률 $q$ 구하기:\\n   - A가 H 선택 시 기대보수: $E_A(H) = 1 \\cdot q + (-1) \\cdot (1-q) = 2q - 1$.\\n   - A가 T 선택 시 기대보수: $E_A(T) = (-1) \\cdot q + 1 \\cdot (1-q) = 1 - 2q$.\\n   - A가 혼합전략을 쓰려면 두 기대보수가 같아야 함: $2q - 1 = 1 - 2q \\implies 4q = 2 \\implies q^* = 0.5$.\\n따라서 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-027",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "다수의 내쉬 균형이 존재할 때, 참여자들이 역사적/문화적으로 공유하고 있는 사회적 기준이나 두드러진 단서에 힘입어 별도의 사전 의사소통 없이도 자연스럽게 특정 균형으로 행동을 수렴시키게 만드는 Schelling(1960)의 균형 개념으로 가장 옳은 것은?",
+      "options": [
+        "포컬 포인트(Focal Point, 대중적 표착점 균형)",
+        "하브게임 완전 균형(Subgame Perfect Equilibrium)",
+        "베이지안 내쉬 균형(Bayesian Nash Equilibrium)",
+        "진화적으로 안정된 전략(Evolutionarily Stable Strategy)",
+        "소비자의 전환 비용을 강제로 영(0)으로 수축시키는 정부 강제 균형"
+      ],
+      "answer": "1",
+      "explanation": "Schelling의 Focal Point(포컬 포인트):\\nFocal Point는 다수의 내쉬 균형이 존재하는 조정 게임(Coordination Game) 등에서, 의사소통을 할 수 없음에도 불구하고 약속이나 관습, 문화적 두드러짐 덕분에 사람들이 공통적으로 선택하게 되는 고유한 균형 지점을 뜻합니다. 예를 들어 '서울에서 내일 몇 시에 만날까?'라고 할 때 약속을 안 정해도 '낮 12시 서울역'을 고르는 현상과 같습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-028",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "내쉬 균형(Nash Equilibrium) 개념이 지닌 경제학적 한계 중, 특히 조정 게임(Coordination Game) 하에서 다수의 내쉬 균형이 존재할 때 발생하는 '균형의 다중성(Multiplicity of Equilibria)'과 사회적 비효율적 수렴 문제에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "어느 균형으로 수렴할지 예측해 주는 내재적 기하학 메커니즘이 결여되어 있으며, 사적으로 선호가 다른 균형이 다수 존재할 때 잘못된 비효율 균형(Bad Equilibrium)에 갇히는 조정 실패(Coordination Failure)가 발생할 수 있다.",
+        "다수 균형 상태에 이르게 되면 참여자들의 이윤 극대화 2계 조건이 수학적으로 100% 쇠퇴하게 된다.",
+        "균형 다중성은 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 동반해야만 해소된다.",
+        "조정 실패 현상은 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 완전 소멸한다.",
+        "소비자의 전환 비용을 영(0)으로 수축시켜 모든 비효율 균형을 강제로 차단하는 메커니즘에 기반한다."
+      ],
+      "answer": "1",
+      "explanation": "균형의 다중성과 조정 실패:\\n조정 게임에서는 여러 내쉬 균형이 존재합니다. 이 중 하나는 모두에게 좋고 하나는 모두에게 불리한 균형일 수 있습니다. 정보가 단절되어 서로 맞추지 못하면 불리한 내쉬 균형(조정 실패)에 영구히 고착될 위험이 존재합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-029",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "혼합 전략 내쉬 균형(Mixed Strategy Nash Equilibrium) 상태에서, 각 플레이어가 자신의 전략에 확률적 가중치(p, 1-p)를 부여하는 기본 미분학적 원리로 가장 옳은 것은?",
+      "options": [
+        "상대방 플레이어가 어떤 순수 전략을 선택하든 기대보수를 정확히 일치하게 만들어(상대를 무차별하게 만듦) 상대가 혼합전략을 구사할 수 있게 유도하는 조건에서 도출된다.",
+        "자신의 한계비용을 영(0)으로 수축시켜 상대방의 가격 마크업 지대를 100% 몰수하는 조건에서 도출된다.",
+        "모든 전략의 한계기술대체율이 장단기 비용 포락선과 항상 일치하도록 유압하는 조건에 기초한다.",
+        "혼합 유도 조건은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 유지되지 않는다.",
+        "소비자가 대기 행동을 포기하고 모든 제품의 지불의사 분산을 무한대로 확장하는 조건이다."
+      ],
+      "answer": "1",
+      "explanation": "혼합전략 균형의 원리:\\n내가 전략들을 확률적으로 섞을 때, 내 확률 $p$는 상대방의 기대보수 식에 들어갑니다. 상대방이 H를 고르든 T를 고르든 보수가 똑같게($E_B(H) = E_B(T)$) 나의 $p$를 설정해주어야 상대방이 $q, 1-q$로 혼합하여 맞대응을 할 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-030",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "두 대칭적 플레이어가 수행하는 2인 전략형 게임의 보수행렬이 다음과 같다. 전략은 $X, Y$ 가 있으며, $X, X$ 일 때 $(30, 30)$, $Y, Y$ 일 때 $(40, 40)$, $X, Y$ 일 때 $(10, 20)$, $Y, X$ 일 때 $(20, 10)$ 의 보수를 얻는다. 이 게임에서 성립하는 모든 순수전략 내쉬 균형(Pure Nash Equilibrium)의 조합으로 가장 옳은 것은?",
+      "options": [
+        "두 순수전략 내쉬 균형: $(X, X)$ 와 $(Y, Y)$",
+        "유일한 지배전략 균형: $(Y, Y)$",
+        "두 순수전략 내쉬 균형: $(X, Y)$ 와 $(Y, X)$",
+        "내쉬 균형은 부재하며 오직 혼합전략 내쉬 균형만 존재한다.",
+        "모든 전략 조합이 대칭적이므로 내쉬 균형은 존재하지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "내쉬균형 도출 연산:\\n1) 상대가 X 선택 시: 내 X 보수 $30 >$ 내 Y 보수 $20 \\implies$ X 선택 최적 반응.\\n2) 상대가 Y 선택 시: 내 Y 보수 $40 >$ 내 X 보수 $10 \\implies$ Y 선택 최적 반응.\\n따라서 상호 최적반응 쌍은 $(X, X)$ 와 $(Y, Y)$ 2개가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-031",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "내쉬 균형(Nash Equilibrium) 개념이 지닌 경제학적 한계 중, 특히 조정 게임(Coordination Game) 하에서 다수의 내쉬 균형이 존재할 때 발생하는 '균형의 다중성(Multiplicity of Equilibria)'과 사회적 비효율적 수렴 문제에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "어느 균형으로 수렴할지 예측해 주는 내재적 기하학 메커니즘이 결여되어 있으며, 사적으로 선호가 다른 균형이 다수 존재할 때 잘못된 비효율 균형(Bad Equilibrium)에 갇히는 조정 실패(Coordination Failure)가 발생할 수 있다.",
+        "다수 균형 상태에 이르게 되면 참여자들의 이윤 극대화 2계 조건이 수학적으로 100% 쇠퇴하게 된다.",
+        "균형 다중성은 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 동반해야만 해소된다.",
+        "조정 실패 현상은 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 완전 소멸한다.",
+        "소비자의 전환 비용을 영(0)으로 수축시켜 모든 비효율 균형을 강제로 차단하는 메커니즘에 기반한다."
+      ],
+      "answer": "1",
+      "explanation": "균형의 다중성과 조정 실패:\\n조정 게임에서는 여러 내쉬 균형이 존재합니다. 이 중 하나는 모두에게 좋고 하나는 모두에게 불리한 균형일 수 있습니다. 정보가 단절되어 서로 맞추지 못하면 불리한 내쉬 균형(조정 실패)에 영구히 고착될 위험이 존재합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-032",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "혼합 전략 내쉬 균형(Mixed Strategy Nash Equilibrium) 상태에서, 각 플레이어가 자신의 전략에 확률적 가중치(p, 1-p)를 부여하는 기본 미분학적 원리로 가장 옳은 것은?",
+      "options": [
+        "상대방 플레이어가 어떤 순수 전략을 선택하든 기대보수를 정확히 일치하게 만들어(상대를 무차별하게 만듦) 상대가 혼합전략을 구사할 수 있게 유도하는 조건에서 도출된다.",
+        "자신의 한계비용을 영(0)으로 수축시켜 상대방의 가격 마크업 지대를 100% 몰수하는 조건에서 도출된다.",
+        "모든 전략의 한계기술대체율이 장단기 비용 포락선과 항상 일치하도록 유압하는 조건에 기초한다.",
+        "혼합 유도 조건은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 유지되지 않는다.",
+        "소비자가 대기 행동을 포기하고 모든 제품의 지불의사 분산을 무한대로 확장하는 조건이다."
+      ],
+      "answer": "1",
+      "explanation": "혼합전략 균형의 원리:\\n내가 전략들을 확률적으로 섞을 때, 내 확률 $p$는 상대방의 기대보수 식에 들어갑니다. 상대방이 H를 고르든 T를 고르든 보수가 똑같게($E_B(H) = E_B(T)$) 나의 $p$를 설정해주어야 상대방이 $q, 1-q$로 혼합하여 맞대응을 할 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-033",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "두 대칭적 플레이어가 수행하는 2인 전략형 게임의 보수행렬이 다음과 같다. 전략은 $X, Y$ 가 있으며, $X, X$ 일 때 $(30, 30)$, $Y, Y$ 일 때 $(40, 40)$, $X, Y$ 일 때 $(10, 20)$, $Y, X$ 일 때 $(20, 10)$ 의 보수를 얻는다. 이 게임에서 성립하는 모든 순수전략 내쉬 균형(Pure Nash Equilibrium)의 조합으로 가장 옳은 것은?",
+      "options": [
+        "두 순수전략 내쉬 균형: $(X, X)$ 와 $(Y, Y)$",
+        "유일한 지배전략 균형: $(Y, Y)$",
+        "두 순수전략 내쉬 균형: $(X, Y)$ 와 $(Y, X)$",
+        "내쉬 균형은 부재하며 오직 혼합전략 내쉬 균형만 존재한다.",
+        "모든 전략 조합이 대칭적이므로 내쉬 균형은 존재하지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "내쉬균형 도출 연산:\\n1) 상대가 X 선택 시: 내 X 보수 $30 >$ 내 Y 보수 $20 \\implies$ X 선택 최적 반응.\\n2) 상대가 Y 선택 시: 내 Y 보수 $40 >$ 내 X 보수 $10 \\implies$ Y 선택 최적 반응.\\n따라서 상호 최적반응 쌍은 $(X, X)$ 와 $(Y, Y)$ 2개가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-034",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "내쉬 균형(Nash Equilibrium) 개념이 지닌 경제학적 한계 중, 특히 조정 게임(Coordination Game) 하에서 다수의 내쉬 균형이 존재할 때 발생하는 '균형의 다중성(Multiplicity of Equilibria)'과 사회적 비효율적 수렴 문제에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "어느 균형으로 수렴할지 예측해 주는 내재적 기하학 메커니즘이 결여되어 있으며, 사적으로 선호가 다른 균형이 다수 존재할 때 잘못된 비효율 균형(Bad Equilibrium)에 갇히는 조정 실패(Coordination Failure)가 발생할 수 있다.",
+        "다수 균형 상태에 이르게 되면 참여자들의 이윤 극대화 2계 조건이 수학적으로 100% 쇠퇴하게 된다.",
+        "균형 다중성은 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 동반해야만 해소된다.",
+        "조정 실패 현상은 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 완전 소멸한다.",
+        "소비자의 전환 비용을 영(0)으로 수축시켜 모든 비효율 균형을 강제로 차단하는 메커니즘에 기반한다."
+      ],
+      "answer": "1",
+      "explanation": "균형의 다중성과 조정 실패:\\n조정 게임에서는 여러 내쉬 균형이 존재합니다. 이 중 하나는 모두에게 좋고 하나는 모두에게 불리한 균형일 수 있습니다. 정보가 단절되어 서로 맞추지 못하면 불리한 내쉬 균형(조정 실패)에 영구히 고착될 위험이 존재합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-035",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "혼합 전략 내쉬 균형(Mixed Strategy Nash Equilibrium) 상태에서, 각 플레이어가 자신의 전략에 확률적 가중치(p, 1-p)를 부여하는 기본 미분학적 원리로 가장 옳은 것은?",
+      "options": [
+        "상대방 플레이어가 어떤 순수 전략을 선택하든 기대보수를 정확히 일치하게 만들어(상대를 무차별하게 만듦) 상대가 혼합전략을 구사할 수 있게 유도하는 조건에서 도출된다.",
+        "자신의 한계비용을 영(0)으로 수축시켜 상대방의 가격 마크업 지대를 100% 몰수하는 조건에서 도출된다.",
+        "모든 전략의 한계기술대체율이 장단기 비용 포락선과 항상 일치하도록 유압하는 조건에 기초한다.",
+        "혼합 유도 조건은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 유지되지 않는다.",
+        "소비자가 대기 행동을 포기하고 모든 제품의 지불의사 분산을 무한대로 확장하는 조건이다."
+      ],
+      "answer": "1",
+      "explanation": "혼합전략 균형의 원리:\\n내가 전략들을 확률적으로 섞을 때, 내 확률 $p$는 상대방의 기대보수 식에 들어갑니다. 상대방이 H를 고르든 T를 고르든 보수가 똑같게($E_B(H) = E_B(T)$) 나의 $p$를 설정해주어야 상대방이 $q, 1-q$로 혼합하여 맞대응을 할 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-036",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "두 대칭적 플레이어가 수행하는 2인 전략형 게임의 보수행렬이 다음과 같다. 전략은 $X, Y$ 가 있으며, $X, X$ 일 때 $(30, 30)$, $Y, Y$ 일 때 $(40, 40)$, $X, Y$ 일 때 $(10, 20)$, $Y, X$ 일 때 $(20, 10)$ 의 보수를 얻는다. 이 게임에서 성립하는 모든 순수전략 내쉬 균형(Pure Nash Equilibrium)의 조합으로 가장 옳은 것은?",
+      "options": [
+        "두 순수전략 내쉬 균형: $(X, X)$ 와 $(Y, Y)$",
+        "유일한 지배전략 균형: $(Y, Y)$",
+        "두 순수전략 내쉬 균형: $(X, Y)$ 와 $(Y, X)$",
+        "내쉬 균형은 부재하며 오직 혼합전략 내쉬 균형만 존재한다.",
+        "모든 전략 조합이 대칭적이므로 내쉬 균형은 존재하지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "내쉬균형 도출 연산:\\n1) 상대가 X 선택 시: 내 X 보수 $30 >$ 내 Y 보수 $20 \\implies$ X 선택 최적 반응.\\n2) 상대가 Y 선택 시: 내 Y 보수 $40 >$ 내 X 보수 $10 \\implies$ Y 선택 최적 반응.\\n따라서 상호 최적반응 쌍은 $(X, X)$ 와 $(Y, Y)$ 2개가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-037",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "내쉬 균형(Nash Equilibrium) 개념이 지닌 경제학적 한계 중, 특히 조정 게임(Coordination Game) 하에서 다수의 내쉬 균형이 존재할 때 발생하는 '균형의 다중성(Multiplicity of Equilibria)'과 사회적 비효율적 수렴 문제에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "어느 균형으로 수렴할지 예측해 주는 내재적 기하학 메커니즘이 결여되어 있으며, 사적으로 선호가 다른 균형이 다수 존재할 때 잘못된 비효율 균형(Bad Equilibrium)에 갇히는 조정 실패(Coordination Failure)가 발생할 수 있다.",
+        "다수 균형 상태에 이르게 되면 참여자들의 이윤 극대화 2계 조건이 수학적으로 100% 쇠퇴하게 된다.",
+        "균형 다중성은 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 동반해야만 해소된다.",
+        "조정 실패 현상은 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 완전 소멸한다.",
+        "소비자의 전환 비용을 영(0)으로 수축시켜 모든 비효율 균형을 강제로 차단하는 메커니즘에 기반한다."
+      ],
+      "answer": "1",
+      "explanation": "균형의 다중성과 조정 실패:\\n조정 게임에서는 여러 내쉬 균형이 존재합니다. 이 중 하나는 모두에게 좋고 하나는 모두에게 불리한 균형일 수 있습니다. 정보가 단절되어 서로 맞추지 못하면 불리한 내쉬 균형(조정 실패)에 영구히 고착될 위험이 존재합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-038",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "혼합 전략 내쉬 균형(Mixed Strategy Nash Equilibrium) 상태에서, 각 플레이어가 자신의 전략에 확률적 가중치(p, 1-p)를 부여하는 기본 미분학적 원리로 가장 옳은 것은?",
+      "options": [
+        "상대방 플레이어가 어떤 순수 전략을 선택하든 기대보수를 정확히 일치하게 만들어(상대를 무차별하게 만듦) 상대가 혼합전략을 구사할 수 있게 유도하는 조건에서 도출된다.",
+        "자신의 한계비용을 영(0)으로 수축시켜 상대방의 가격 마크업 지대를 100% 몰수하는 조건에서 도출된다.",
+        "모든 전략의 한계기술대체율이 장단기 비용 포락선과 항상 일치하도록 유압하는 조건에 기초한다.",
+        "혼합 유도 조건은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 유지되지 않는다.",
+        "소비자가 대기 행동을 포기하고 모든 제품의 지불의사 분산을 무한대로 확장하는 조건이다."
+      ],
+      "answer": "1",
+      "explanation": "혼합전략 균형의 원리:\\n내가 전략들을 확률적으로 섞을 때, 내 확률 $p$는 상대방의 기대보수 식에 들어갑니다. 상대방이 H를 고르든 T를 고르든 보수가 똑같게($E_B(H) = E_B(T)$) 나의 $p$를 설정해주어야 상대방이 $q, 1-q$로 혼합하여 맞대응을 할 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-039",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "두 대칭적 플레이어가 수행하는 2인 전략형 게임의 보수행렬이 다음과 같다. 전략은 $X, Y$ 가 있으며, $X, X$ 일 때 $(30, 30)$, $Y, Y$ 일 때 $(40, 40)$, $X, Y$ 일 때 $(10, 20)$, $Y, X$ 일 때 $(20, 10)$ 의 보수를 얻는다. 이 게임에서 성립하는 모든 순수전략 내쉬 균형(Pure Nash Equilibrium)의 조합으로 가장 옳은 것은?",
+      "options": [
+        "두 순수전략 내쉬 균형: $(X, X)$ 와 $(Y, Y)$",
+        "유일한 지배전략 균형: $(Y, Y)$",
+        "두 순수전략 내쉬 균형: $(X, Y)$ 와 $(Y, X)$",
+        "내쉬 균형은 부재하며 오직 혼합전략 내쉬 균형만 존재한다.",
+        "모든 전략 조합이 대칭적이므로 내쉬 균형은 존재하지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "내쉬균형 도출 연산:\\n1) 상대가 X 선택 시: 내 X 보수 $30 >$ 내 Y 보수 $20 \\implies$ X 선택 최적 반응.\\n2) 상대가 Y 선택 시: 내 Y 보수 $40 >$ 내 X 보수 $10 \\implies$ Y 선택 최적 반응.\\n따라서 상호 최적반응 쌍은 $(X, X)$ 와 $(Y, Y)$ 2개가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-040",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "내쉬 균형(Nash Equilibrium) 개념이 지닌 경제학적 한계 중, 특히 조정 게임(Coordination Game) 하에서 다수의 내쉬 균형이 존재할 때 발생하는 '균형의 다중성(Multiplicity of Equilibria)'과 사회적 비효율적 수렴 문제에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "어느 균형으로 수렴할지 예측해 주는 내재적 기하학 메커니즘이 결여되어 있으며, 사적으로 선호가 다른 균형이 다수 존재할 때 잘못된 비효율 균형(Bad Equilibrium)에 갇히는 조정 실패(Coordination Failure)가 발생할 수 있다.",
+        "다수 균형 상태에 이르게 되면 참여자들의 이윤 극대화 2계 조건이 수학적으로 100% 쇠퇴하게 된다.",
+        "균형 다중성은 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 동반해야만 해소된다.",
+        "조정 실패 현상은 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 완전 소멸한다.",
+        "소비자의 전환 비용을 영(0)으로 수축시켜 모든 비효율 균형을 강제로 차단하는 메커니즘에 기반한다."
+      ],
+      "answer": "1",
+      "explanation": "균형의 다중성과 조정 실패:\\n조정 게임에서는 여러 내쉬 균형이 존재합니다. 이 중 하나는 모두에게 좋고 하나는 모두에게 불리한 균형일 수 있습니다. 정보가 단절되어 서로 맞추지 못하면 불리한 내쉬 균형(조정 실패)에 영구히 고착될 위험이 존재합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-041",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "혼합 전략 내쉬 균형(Mixed Strategy Nash Equilibrium) 상태에서, 각 플레이어가 자신의 전략에 확률적 가중치(p, 1-p)를 부여하는 기본 미분학적 원리로 가장 옳은 것은?",
+      "options": [
+        "상대방 플레이어가 어떤 순수 전략을 선택하든 기대보수를 정확히 일치하게 만들어(상대를 무차별하게 만듦) 상대가 혼합전략을 구사할 수 있게 유도하는 조건에서 도출된다.",
+        "자신의 한계비용을 영(0)으로 수축시켜 상대방의 가격 마크업 지대를 100% 몰수하는 조건에서 도출된다.",
+        "모든 전략의 한계기술대체율이 장단기 비용 포락선과 항상 일치하도록 유압하는 조건에 기초한다.",
+        "혼합 유도 조건은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 유지되지 않는다.",
+        "소비자가 대기 행동을 포기하고 모든 제품의 지불의사 분산을 무한대로 확장하는 조건이다."
+      ],
+      "answer": "1",
+      "explanation": "혼합전략 균형의 원리:\\n내가 전략들을 확률적으로 섞을 때, 내 확률 $p$는 상대방의 기대보수 식에 들어갑니다. 상대방이 H를 고르든 T를 고르든 보수가 똑같게($E_B(H) = E_B(T)$) 나의 $p$를 설정해주어야 상대방이 $q, 1-q$로 혼합하여 맞대응을 할 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-042",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "두 대칭적 플레이어가 수행하는 2인 전략형 게임의 보수행렬이 다음과 같다. 전략은 $X, Y$ 가 있으며, $X, X$ 일 때 $(30, 30)$, $Y, Y$ 일 때 $(40, 40)$, $X, Y$ 일 때 $(10, 20)$, $Y, X$ 일 때 $(20, 10)$ 의 보수를 얻는다. 이 게임에서 성립하는 모든 순수전략 내쉬 균형(Pure Nash Equilibrium)의 조합으로 가장 옳은 것은?",
+      "options": [
+        "두 순수전략 내쉬 균형: $(X, X)$ 와 $(Y, Y)$",
+        "유일한 지배전략 균형: $(Y, Y)$",
+        "두 순수전략 내쉬 균형: $(X, Y)$ 와 $(Y, X)$",
+        "내쉬 균형은 부재하며 오직 혼합전략 내쉬 균형만 존재한다.",
+        "모든 전략 조합이 대칭적이므로 내쉬 균형은 존재하지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "내쉬균형 도출 연산:\\n1) 상대가 X 선택 시: 내 X 보수 $30 >$ 내 Y 보수 $20 \\implies$ X 선택 최적 반응.\\n2) 상대가 Y 선택 시: 내 Y 보수 $40 >$ 내 X 보수 $10 \\implies$ Y 선택 최적 반응.\\n따라서 상호 최적반응 쌍은 $(X, X)$ 와 $(Y, Y)$ 2개가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-043",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "내쉬 균형(Nash Equilibrium) 개념이 지닌 경제학적 한계 중, 특히 조정 게임(Coordination Game) 하에서 다수의 내쉬 균형이 존재할 때 발생하는 '균형의 다중성(Multiplicity of Equilibria)'과 사회적 비효율적 수렴 문제에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "어느 균형으로 수렴할지 예측해 주는 내재적 기하학 메커니즘이 결여되어 있으며, 사적으로 선호가 다른 균형이 다수 존재할 때 잘못된 비효율 균형(Bad Equilibrium)에 갇히는 조정 실패(Coordination Failure)가 발생할 수 있다.",
+        "다수 균형 상태에 이르게 되면 참여자들의 이윤 극대화 2계 조건이 수학적으로 100% 쇠퇴하게 된다.",
+        "균형 다중성은 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 동반해야만 해소된다.",
+        "조정 실패 현상은 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 완전 소멸한다.",
+        "소비자의 전환 비용을 영(0)으로 수축시켜 모든 비효율 균형을 강제로 차단하는 메커니즘에 기반한다."
+      ],
+      "answer": "1",
+      "explanation": "균형의 다중성과 조정 실패:\\n조정 게임에서는 여러 내쉬 균형이 존재합니다. 이 중 하나는 모두에게 좋고 하나는 모두에게 불리한 균형일 수 있습니다. 정보가 단절되어 서로 맞추지 못하면 불리한 내쉬 균형(조정 실패)에 영구히 고착될 위험이 존재합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-044",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "혼합 전략 내쉬 균형(Mixed Strategy Nash Equilibrium) 상태에서, 각 플레이어가 자신의 전략에 확률적 가중치(p, 1-p)를 부여하는 기본 미분학적 원리로 가장 옳은 것은?",
+      "options": [
+        "상대방 플레이어가 어떤 순수 전략을 선택하든 기대보수를 정확히 일치하게 만들어(상대를 무차별하게 만듦) 상대가 혼합전략을 구사할 수 있게 유도하는 조건에서 도출된다.",
+        "자신의 한계비용을 영(0)으로 수축시켜 상대방의 가격 마크업 지대를 100% 몰수하는 조건에서 도출된다.",
+        "모든 전략의 한계기술대체율이 장단기 비용 포락선과 항상 일치하도록 유압하는 조건에 기초한다.",
+        "혼합 유도 조건은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 유지되지 않는다.",
+        "소비자가 대기 행동을 포기하고 모든 제품의 지불의사 분산을 무한대로 확장하는 조건이다."
+      ],
+      "answer": "1",
+      "explanation": "혼합전략 균형의 원리:\\n내가 전략들을 확률적으로 섞을 때, 내 확률 $p$는 상대방의 기대보수 식에 들어갑니다. 상대방이 H를 고르든 T를 고르든 보수가 똑같게($E_B(H) = E_B(T)$) 나의 $p$를 설정해주어야 상대방이 $q, 1-q$로 혼합하여 맞대응을 할 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-045",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "두 대칭적 플레이어가 수행하는 2인 전략형 게임의 보수행렬이 다음과 같다. 전략은 $X, Y$ 가 있으며, $X, X$ 일 때 $(30, 30)$, $Y, Y$ 일 때 $(40, 40)$, $X, Y$ 일 때 $(10, 20)$, $Y, X$ 일 때 $(20, 10)$ 의 보수를 얻는다. 이 게임에서 성립하는 모든 순수전략 내쉬 균형(Pure Nash Equilibrium)의 조합으로 가장 옳은 것은?",
+      "options": [
+        "두 순수전략 내쉬 균형: $(X, X)$ 와 $(Y, Y)$",
+        "유일한 지배전략 균형: $(Y, Y)$",
+        "두 순수전략 내쉬 균형: $(X, Y)$ 와 $(Y, X)$",
+        "내쉬 균형은 부재하며 오직 혼합전략 내쉬 균형만 존재한다.",
+        "모든 전략 조합이 대칭적이므로 내쉬 균형은 존재하지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "내쉬균형 도출 연산:\\n1) 상대가 X 선택 시: 내 X 보수 $30 >$ 내 Y 보수 $20 \\implies$ X 선택 최적 반응.\\n2) 상대가 Y 선택 시: 내 Y 보수 $40 >$ 내 X 보수 $10 \\implies$ Y 선택 최적 반응.\\n따라서 상호 최적반응 쌍은 $(X, X)$ 와 $(Y, Y)$ 2개가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-046",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "내쉬 균형(Nash Equilibrium) 개념이 지닌 경제학적 한계 중, 특히 조정 게임(Coordination Game) 하에서 다수의 내쉬 균형이 존재할 때 발생하는 '균형의 다중성(Multiplicity of Equilibria)'과 사회적 비효율적 수렴 문제에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "어느 균형으로 수렴할지 예측해 주는 내재적 기하학 메커니즘이 결여되어 있으며, 사적으로 선호가 다른 균형이 다수 존재할 때 잘못된 비효율 균형(Bad Equilibrium)에 갇히는 조정 실패(Coordination Failure)가 발생할 수 있다.",
+        "다수 균형 상태에 이르게 되면 참여자들의 이윤 극대화 2계 조건이 수학적으로 100% 쇠퇴하게 된다.",
+        "균형 다중성은 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 동반해야만 해소된다.",
+        "조정 실패 현상은 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 완전 소멸한다.",
+        "소비자의 전환 비용을 영(0)으로 수축시켜 모든 비효율 균형을 강제로 차단하는 메커니즘에 기반한다."
+      ],
+      "answer": "1",
+      "explanation": "균형의 다중성과 조정 실패:\\n조정 게임에서는 여러 내쉬 균형이 존재합니다. 이 중 하나는 모두에게 좋고 하나는 모두에게 불리한 균형일 수 있습니다. 정보가 단절되어 서로 맞추지 못하면 불리한 내쉬 균형(조정 실패)에 영구히 고착될 위험이 존재합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-047",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "혼합 전략 내쉬 균형(Mixed Strategy Nash Equilibrium) 상태에서, 각 플레이어가 자신의 전략에 확률적 가중치(p, 1-p)를 부여하는 기본 미분학적 원리로 가장 옳은 것은?",
+      "options": [
+        "상대방 플레이어가 어떤 순수 전략을 선택하든 기대보수를 정확히 일치하게 만들어(상대를 무차별하게 만듦) 상대가 혼합전략을 구사할 수 있게 유도하는 조건에서 도출된다.",
+        "자신의 한계비용을 영(0)으로 수축시켜 상대방의 가격 마크업 지대를 100% 몰수하는 조건에서 도출된다.",
+        "모든 전략의 한계기술대체율이 장단기 비용 포락선과 항상 일치하도록 유압하는 조건에 기초한다.",
+        "혼합 유도 조건은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 유지되지 않는다.",
+        "소비자가 대기 행동을 포기하고 모든 제품의 지불의사 분산을 무한대로 확장하는 조건이다."
+      ],
+      "answer": "1",
+      "explanation": "혼합전략 균형의 원리:\\n내가 전략들을 확률적으로 섞을 때, 내 확률 $p$는 상대방의 기대보수 식에 들어갑니다. 상대방이 H를 고르든 T를 고르든 보수가 똑같게($E_B(H) = E_B(T)$) 나의 $p$를 설정해주어야 상대방이 $q, 1-q$로 혼합하여 맞대응을 할 수 있습니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-048",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "두 대칭적 플레이어가 수행하는 2인 전략형 게임의 보수행렬이 다음과 같다. 전략은 $X, Y$ 가 있으며, $X, X$ 일 때 $(30, 30)$, $Y, Y$ 일 때 $(40, 40)$, $X, Y$ 일 때 $(10, 20)$, $Y, X$ 일 때 $(20, 10)$ 의 보수를 얻는다. 이 게임에서 성립하는 모든 순수전략 내쉬 균형(Pure Nash Equilibrium)의 조합으로 가장 옳은 것은?",
+      "options": [
+        "두 순수전략 내쉬 균형: $(X, X)$ 와 $(Y, Y)$",
+        "유일한 지배전략 균형: $(Y, Y)$",
+        "두 순수전략 내쉬 균형: $(X, Y)$ 와 $(Y, X)$",
+        "내쉬 균형은 부재하며 오직 혼합전략 내쉬 균형만 존재한다.",
+        "모든 전략 조합이 대칭적이므로 내쉬 균형은 존재하지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "내쉬균형 도출 연산:\\n1) 상대가 X 선택 시: 내 X 보수 $30 >$ 내 Y 보수 $20 \\implies$ X 선택 최적 반응.\\n2) 상대가 Y 선택 시: 내 Y 보수 $40 >$ 내 X 보수 $10 \\implies$ Y 선택 최적 반응.\\n따라서 상호 최적반응 쌍은 $(X, X)$ 와 $(Y, Y)$ 2개가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-049",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "내쉬 균형(Nash Equilibrium) 개념이 지닌 경제학적 한계 중, 특히 조정 게임(Coordination Game) 하에서 다수의 내쉬 균형이 존재할 때 발생하는 '균형의 다중성(Multiplicity of Equilibria)'과 사회적 비효율적 수렴 문제에 대한 설명으로 가장 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <rect x=\"70\" y=\"60\" width=\"90\" height=\"60\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\" />\n  <rect x=\"160\" y=\"60\" width=\"90\" height=\"60\" fill=\"#10b981\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"70\" y=\"120\" width=\"90\" height=\"60\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#64748b\" stroke-width=\"1\" />\n  <rect x=\"160\" y=\"120\" width=\"90\" height=\"60\" fill=\"#a855f7\" fill-opacity=\"0.2\" stroke=\"#a855f7\" stroke-width=\"2.2\" />\n  <text x=\"115\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">협력 (A, A)</text>\n  <text x=\"205\" y=\"95\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">배반 (B, C)</text>\n  <text x=\"115\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#cbd5e1\" text-anchor=\"middle\">피해 (C, B)</text>\n  <text x=\"205\" y=\"155\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#a855f7\" font-weight=\"bold\" text-anchor=\"middle\">내쉬 (D, D)</text>\n</svg>\n```\n",
+      "options": [
+        "어느 균형으로 수렴할지 예측해 주는 내재적 기하학 메커니즘이 결여되어 있으며, 사적으로 선호가 다른 균형이 다수 존재할 때 잘못된 비효율 균형(Bad Equilibrium)에 갇히는 조정 실패(Coordination Failure)가 발생할 수 있다.",
+        "다수 균형 상태에 이르게 되면 참여자들의 이윤 극대화 2계 조건이 수학적으로 100% 쇠퇴하게 된다.",
+        "균형 다중성은 언제나 정부의 사회보장 연금 제도의 다층적 위험 공유 메커니즘을 동반해야만 해소된다.",
+        "조정 실패 현상은 오직 기대효용의 단순 합산이 Rawlsian 분배 최적을 지지할 때 완전 소멸한다.",
+        "소비자의 전환 비용을 영(0)으로 수축시켜 모든 비효율 균형을 강제로 차단하는 메커니즘에 기반한다."
+      ],
+      "answer": "1",
+      "explanation": "균형의 다중성과 조정 실패:\\n조정 게임에서는 여러 내쉬 균형이 존재합니다. 이 중 하나는 모두에게 좋고 하나는 모두에게 불리한 균형일 수 있습니다. 정보가 단절되어 서로 맞추지 못하면 불리한 내쉬 균형(조정 실패)에 영구히 고착될 위험이 존재합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec05-item01-050",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "혼합 전략 내쉬 균형(Mixed Strategy Nash Equilibrium) 상태에서, 각 플레이어가 자신의 전략에 확률적 가중치(p, 1-p)를 부여하는 기본 미분학적 원리로 가장 옳은 것은?",
+      "options": [
+        "상대방 플레이어가 어떤 순수 전략을 선택하든 기대보수를 정확히 일치하게 만들어(상대를 무차별하게 만듦) 상대가 혼합전략을 구사할 수 있게 유도하는 조건에서 도출된다.",
+        "자신의 한계비용을 영(0)으로 수축시켜 상대방의 가격 마크업 지대를 100% 몰수하는 조건에서 도출된다.",
+        "모든 전략의 한계기술대체율이 장단기 비용 포락선과 항상 일치하도록 유압하는 조건에 기초한다.",
+        "혼합 유도 조건은 오직 한계대체율이 요소가격비율에 독립적으로 작동하는 성향 하에서만 유지되지 않는다.",
+        "소비자가 대기 행동을 포기하고 모든 제품의 지불의사 분산을 무한대로 확장하는 조건이다."
+      ],
+      "answer": "1",
+      "explanation": "혼합전략 균형의 원리:\\n내가 전략들을 확률적으로 섞을 때, 내 확률 $p$는 상대방의 기대보수 식에 들어갑니다. 상대방이 H를 고르든 T를 고르든 보수가 똑같게($E_B(H) = E_B(T)$) 나의 $p$를 설정해주어야 상대방이 $q, 1-q$로 혼합하여 맞대응을 할 수 있습니다. 정답은 1번입니다."
     }
   ]
 }

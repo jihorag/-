@@ -8,89 +8,89 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-01",
-    "count": 30
+    "count": 50
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch03-sec02-item02-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "예산선(budget line)의 정의로 옳은 것은?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 예산제약선 $P_x X + P_y Y = I$ 가 대변하는 기하학적 성질과, 예산선 기울기의 절댓값인 가격비율 $P_x/P_y$ 의 경제학적 기회비용적 의미에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <!-- 축 -->\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y</text>\n  \n  <!-- 예산선 -->\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <!-- 절편 및 텍스트 -->\n  <circle cx=\"50\" cy=\"60\" r=\"4.5\" fill=\"#1d4ed8\" />\n  <text x=\"10\" y=\"65\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1d4ed8\" font-weight=\"bold\">I/Py</text>\n  \n  <circle cx=\"280\" cy=\"200\" r=\"4.5\" fill=\"#1d4ed8\" />\n  <text x=\"275\" y=\"218\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1d4ed8\" font-weight=\"bold\">I/Px</text>\n  \n  <text x=\"180\" y=\"110\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 = -Px/Py</text>\n</svg>\n```\n",
       "options": [
-        "소비자가 가장 선호하는 재화 조합",
-        "주어진 소득과 가격 하에서 소비자가 모두 소비할 수 있는 두 재화의 최대 조합",
-        "기업의 비용 곡선",
-        "수요와 공급의 균형",
-        "정부가 정한 가격"
+        "예산선은 소비자가 소득 $I$ 를 전부 지출할 때 구매 가능한 두 재화의 최대 조합선이며, $P_x/P_y$ 는 시장에서 X재 1단위를 추가로 얻기 위해 소비자가 객관적으로 포기해야 하는 Y재의 수량(X재의 기회비용)을 나타낸다.",
+        "예산선은 소비자가 얻을 수 있는 최대 효용의 궤적이며, $P_x/P_y$ 는 X재와 Y재의 주관적인 한계효용 비율이다.",
+        "예산선은 항상 우상향하며, 기울기 $P_x/P_y$ 는 소득이 증가함에 따라 비례하여 가팔라진다.",
+        "예산선 내부의 면적은 소비 불가능한 영역을 나타내며, 기울기는 두 재화의 생산기술적 대체율을 뜻한다.",
+        "예산선의 기울기는 명목소득의 변화율과 한계소비성향의 합산으로 결정된다."
       ],
-      "answer": "2",
-      "explanation": "예산선은 주어진 소득 I와 가격 Px, Py 하에서 소비자가 소득을 모두 지출하여 구매할 수 있는 두 재화의 최대 조합을 나타내는 직선이다. 식: Px·X + Py·Y = I. 예산 제약의 시각적 표현."
+      "answer": "1",
+      "explanation": "예산제약식 $P_x X + P_y Y = I$ 를 Y에 대해 정리하면 $Y = \\dfrac{I}{P_y} - \\left(\\dfrac{P_x}{P_y}\\right)X$ 가 됩니다. 따라서 Y절편은 소득을 전부 Y재 구매에 썼을 때의 최대 수량인 $I/P_y$, X절편은 소득을 전부 X재 구매에 썼을 때의 최대 수량인 $I/P_x$ 입니다. 예산선 기울기의 절댓값인 $P_x/P_y$ 는 시장에서 결정된 두 재화의 상대가격(Relative Price)이며, 소비자가 X재 1단위를 추가 소비하기 위해 시장 법칙 하에서 객관적으로 포기해야만 하는 Y재의 수량(즉, X재의 시장기회비용)을 대변합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "예산선의 기울기는?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 명목소득 $I$ 가 $2$배로 늘어나고, 동시에 X재 가격 $P_x$ 는 $1.5$배, Y재 가격 $P_y$ 는 $3$배로 변동하였다. 이 새로운 균형 상태 하에서 예산선의 X절편, Y절편 및 예산선 기울기 절댓값의 변화 상태로 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 원래 예산선 (기울기 -1) -->\n  <line x1=\"50\" y1=\"150\" x2=\"200\" y2=\"200\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  \n  <!-- 이동 후 예산선 (소득 2배, X가격 1.5배, Y가격 3배) -->\n  <!-- 원래 절편 I/Px=150, I/Py=150 에서 새로운 절편은 X가 150*2/1.5 = 200, Y는 150*2/3 = 100 -->\n  <line x1=\"50\" y1=\"100\" x2=\"250\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"3\" />\n  \n  <text x=\"15\" y=\"105\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\">새 Y절편</text>\n  <text x=\"245\" y=\"218\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#b91c1c\">새 X절편</text>\n  <text x=\"160\" y=\"130\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 완만해짐</text>\n</svg>\n```\n",
       "options": [
-        "Px/Py (가격 비율)",
-        "-Px/Py (가격 비율의 음수)",
-        "I/Px",
-        "I/Py",
-        "Px·Py"
+        "X절편은 원래의 $4/3$ 배로 증가, Y절편은 원래의 $2/3$ 배로 감소, 예산선 기울기 절댓값은 원래의 $1/2$ 배로 완만해진다.",
+        "X절편은 원래의 $3/4$ 배로 감소, Y절편은 원래의 $3/2$ 배로 증가, 예산선 기울기 절댓값은 원래의 $2$ 배로 가팔라진다.",
+        "소득과 가격이 동시에 변동했으므로 예산선은 형태의 변동 없이 원래 위치 그대로 보존된다.",
+        "X절편과 Y절편 모두 원래의 $2$ 배로 증가하며, 예산선 기울기 절댓값은 원래의 $2$ 배로 가팔라진다.",
+        "X절편은 원래의 $2/3$ 배로 감소, Y절편은 원래의 $4/3$ 배로 증가, 예산선 기울기 절댓값은 원래의 $1/2$ 배로 완만해진다."
       ],
-      "answer": "2",
-      "explanation": "예산선 Px·X + Py·Y = I를 Y에 대해 정리: Y = I/Py - (Px/Py)·X.\n기울기 = -Px/Py (가격 비율의 음수).\n경제적 의미: X 1단위를 추가 구매하기 위해 포기해야 하는 Y의 양 = X의 시장 교환 가치.\n절댓값 |Px/Py|는 두 재화의 상대 가격을 나타냄."
+      "answer": "1",
+      "explanation": "1) 원래의 예산선 절편과 기울기:\\n   - X절편 = $I/P_x$, Y절편 = $I/P_y$, 기울기 = $P_x/P_y$\\n2) 변화 후 새로운 예산선 요소 ($I' = 2I$, $P'_x = 1.5P_x$, $P'_y = 3P_y$):\\n   - 새로운 X절편: $I'/P'_x = \\dfrac{2I}{1.5P_x} = \\dfrac{4}{3} \\cdot \\dfrac{I}{P_x}$ (원래의 $4/3$ 배)\\n   - 새로운 Y절편: $I'/P'_y = \\dfrac{2I}{3P_y} = \\dfrac{2}{3} \\cdot \\dfrac{I}{P_y}$ (원래의 $2/3$ 배)\\n   - 새로운 기울기 절댓값: $P'_x/P'_y = \\dfrac{1.5P_x}{3P_y} = \\dfrac{1}{2} \\cdot \\dfrac{P_x}{P_y}$ (원래의 $1/2$ 배)\\n따라서 예산선은 X축 절편 쪽은 확장되고 Y축 절편 쪽은 수축하면서 기울기가 보다 완만하게 회전 이동합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-003",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "예산선의 X절편과 Y절편은?",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "소비자의 명목소득 $I = 120$ 이고, Y재 가격 $P_y = 4$ 이다. X재의 가격 체계는 다음과 같이 수량 구간별로 다량 할인이 적용된다: 소비 수량 $X \\le 20$ 인 구간에서는 가격 $P_x = 2$ 이지만, $X > 20$ 인 초과 수량 구간에 대해서는 가격 $P'_x = 1$ 로 할인된다. 이 소비자가 직면하는 예산선의 구간별 방정식과 꺾임점(Kink point)의 조합으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 굴절 예산선: X=20까지는 가격이 2, 그 이상은 1 -->\n  <!-- 소득 I=120, Py=4 이므로 Y절편은 30 (y=120) -->\n  <!-- X=20일 때 지출=40, Y=20 (y=120) -->\n  <!-- X=20 이후로는 가격이 1이므로 추가 X 1개당 Y는 0.25개 포기 (원래는 0.5개 포기) -->\n  <path d=\"M 50 80 L 170 140 L 310 200\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  <circle cx=\"170\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n  \n  <text x=\"175\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">굴절점 (X=20, Y=20)</text>\n  <text x=\"90\" y=\"100\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 -0.5</text>\n  <text x=\"230\" y=\"160\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 -0.25</text>\n</svg>\n```\n",
       "options": [
-        "X절편 = I/Px (Y=0일 때 X 최대 구매량) / Y절편 = I/Py (X=0일 때 Y 최대 구매량)",
-        "X절편 = Px, Y절편 = Py",
-        "X절편 = I, Y절편 = I",
-        "X절편 = 0, Y절편 = 0",
-        "절편은 존재하지 않음"
+        "구간 1 ($X \\le 20$): $2X + 4Y = 120$\n구간 2 ($X > 20$): $X + 4Y = 100$\n꺾임점: $(20, 20)$",
+        "구간 1 ($X \\le 20$): $2X + 4Y = 120$\n구간 2 ($X > 20$): $X + 4Y = 120$\n꺾임점: $(20, 15)$",
+        "구간 1 ($X \\le 20$): $X + 4Y = 120$\n구간 2 ($X > 20$): $2X + 4Y = 100$\n꺾임점: $(20, 25)$",
+        "구간 1 ($X \\le 20$): $2X + 4Y = 120$\n구간 2 ($X > 20$): $X + 4Y = 80$\n꺾임점: $(20, 10)$",
+        "구간 1 ($X \\le 20$): $2X + 2Y = 120$\n구간 2 ($X > 20$): $X + 2Y = 100$\n꺾임점: $(20, 40)$"
       ],
       "answer": "1",
-      "explanation": "예산선의 절편:\nX절편 (Y=0): X = I/Px - 소득을 모두 X에 쓰면 살 수 있는 X의 양\nY절편 (X=0): Y = I/Py - 소득을 모두 Y에 쓰면 살 수 있는 Y의 양\n예산선이 두 절편을 잇는 직선. 절편 = 소득의 실질 구매력."
+      "explanation": "1) $X \\le 20$ 인 구간:\\n   X재 가격이 $2$이므로 예산선 식은 $2X + 4Y = 120$ 입니다.\\n2) 꺾임점(Kink point) 계산:\\n   가격 체계가 변하는 경계점은 $X = 20$ 일 때입니다. 이 점을 구간 1 식에 대입하면:\\n   $2(20) + 4Y = 120 \\implies 40 + 4Y = 120 \\implies Y = 20$\\n   따라서 꺾임점은 $(20, 20)$ 입니다.\\n3) $X > 20$ 인 구간:\\n   X재 가격이 $1$로 할인됩니다. 이 조건하의 예산 제약은 새로운 가격 $P'_x = 1$ 과 함께 꺾임점 $(20, 20)$ 을 반드시 지나야 합니다.\\n   $$1 \\cdot (X - 20) + 4 \\cdot (Y - 20) = 0 \\implies X - 20 + 4Y - 80 = 0 \\implies X + 4Y = 100$$\\n따라서 구간별 예산식과 꺾임점의 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-004",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "예산선 내부의 점이 의미하는 바로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 소득 $I = 90$ 이고, $P_x = 3, P_y = 3$ 이다. 정부가 이 소비자에게 (1) 현금 $30$을 무상 지원하는 정책과 (2) X재 구매에만 사용할 수 있는 현물 쿠폰(바우처) $30$을 지원하는 정책을 수행할 때, 각각의 예산선 기하학적 형상 차이에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 현물 쿠폰 보조 예산선: Y절편 근처에서 수평 구간 발생 -->\n  <!-- 원래 예산선 -->\n  <line x1=\"50\" y1=\"140\" x2=\"190\" y2=\"200\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  \n  <!-- 현물 보조 예산선 -->\n  <path d=\"M 50 140 L 110 140 L 250 200\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 현금 보조 예산선 -->\n  <line x1=\"50\" y1=\"114.3\" x2=\"250\" y2=\"200\" stroke=\"#ef4444\" stroke-dasharray=\"2\" stroke-width=\"1.5\" />\n  \n  <text x=\"60\" y=\"130\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">현물보조 수평구간</text>\n  <text x=\"115\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">현금보조 확장구간</text>\n</svg>\n```\n",
       "options": [
-        "현재 불가능한 소비",
-        "예산을 모두 쓰지 않은 소비 (저축 또는 미사용 소득)",
-        "최적 소비",
-        "정부 결정 소비",
-        "수요 균형"
+        "현금 지원 예산선은 원래 예산선을 바깥쪽으로 완벽하게 평행 이동시키며, 현물 지원 예산선은 X재 소비량이 10단위 미만인 구간에서는 Y재 소비량을 소득 전부로도 30단위만 소비할 수 있도록 수평 구간이 형성되어 꺾인 형태를 취한다.",
+        "현물 지원 예산선은 기울기가 회전 이동하여 더 완만해지는 반면, 현금 지원 예산선은 더 가팔라진다.",
+        "현물 지원 예산선과 현금 지원 예산선은 모든 소비 영역에서 완벽하게 동일한 직선으로 포개어진다.",
+        "현물 지원 시에는 Y절편이 원래보다 더 커지는 반면, X절편은 변함없이 원래 위치로 고정된다.",
+        "두 보조금 정책 모두 예산선에는 전혀 영향을 미치지 않고 소비자의 무차별곡선 지도만 상향 평행이동시킨다."
       ],
-      "answer": "2",
-      "explanation": "예산선 내부 (Px·X + Py·Y < I): 소득을 모두 지출하지 않은 소비 상태. 합리적 소비자(단조 선호)는 예산선 위에서 소비 (예산을 모두 활용). 단, 저축·미래 소비가 있는 경우 또는 시점간 모형에서는 의미 있음. 예산선 외부는 도달 불가능."
+      "answer": "1",
+      "explanation": "1) 원래 예산선: $3X + 3Y = 90$ (절편 $X=30, Y=30$)\\n2) 현금 $30$ 지원: 소득이 실질적으로 $I' = 120$ 이 되므로 새로운 예산선은 $3X + 3Y = 120$ 입니다. 이는 우상방 평행이동한 완전한 직선입니다 (절편 $X=40, Y=40$).\\n3) X재 전용 현물 쿠폰 $30$ 지원: 소비자는 소득을 전부 Y재에 쓰더라도 X재는 무조건 쿠폰액수만큼($30$원어치 = $10$단위) 소비할 수 있습니다. 즉, X재 소비량이 $0$에서 $10$ 사이인 구간에서는 Y재 최대 소비량이 항상 $30$으로 묶여 수평인 형태($0 \\le X \\le 10, Y = 30$)를 취하며, $X > 10$ 인 구간부터 $3(X-10) + 3Y = 90 \\implies 3X + 3Y = 120$ 의 예산선을 따르게 됩니다. 따라서 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-005",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "소득 변화 시 예산선의 변화로 옳은 것은?",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "소비자의 효용함수가 $U(X, Y) = X Y$ 이고, $P_x = 2, P_y = 1$ 이며 소득 $I = 80$ 이다. 라그랑지안 극대화 조건 또는 한계대체율 일치 조건을 사용하여 도출되는 최적 소비자 균형점 $(X^*, Y^*)$ 의 수치로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 예산선: 2X + Y = 80 -->\n  <line x1=\"50\" y1=\"80\" x2=\"210\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 무차별곡선: U = XY = 800 -->\n  <path d=\"M 80 105 Q 130 140 230 180\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  \n  <circle cx=\"130\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"140\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">접점 E(20, 40)</text>\n</svg>\n```\n",
       "options": [
-        "예산선이 회전",
-        "예산선이 평행 이동 (소득 ↑ 시 우상방, 소득 ↓ 시 좌하방)",
-        "예산선이 사라짐",
-        "예산선의 기울기가 변함",
-        "예산선이 회오리침"
+        "$(X^*, Y^*) = (20, 40)$",
+        "$(X^*, Y^*) = (40, 20)$",
+        "$(X^*, Y^*) = (10, 60)$",
+        "$(X^*, Y^*) = (30, 20)$",
+        "$(X^*, Y^*) = (15, 50)$"
       ],
-      "answer": "2",
-      "explanation": "소득 변화 (Px, Py 일정):\n소득 ↑ → 두 재화 모두 더 살 수 있음 → 예산선이 평행하게 우상방 이동 (절편 모두 증가, 기울기 -Px/Py 일정)\n소득 ↓ → 좌하방 평행 이동\n예산선의 기울기는 가격 비율에만 의존하므로 변화 없음."
+      "answer": "1",
+      "explanation": "1) 한계효용 도출:\\n   $MU_x = \\dfrac{\\partial U}{\\partial X} = Y$, $MU_y = \\dfrac{\\partial U}{\\partial Y} = X$\\n2) 한계대체율 $MRS_{xy}$:\\n   $$MRS_{xy} = \\dfrac{MU_x}{MU_y} = \\dfrac{Y}{X}$$\\n3) 소비자 균형 조건 ($MRS_{xy} = P_x/P_y$):\\n   $$\\dfrac{Y}{X} = \\dfrac{2}{1} \\implies Y = 2X$$\\n4) 예산 제약식에 대입:\\n   $2X + Y = 80 \\implies 2X + 2X = 80 \\implies 4X = 80 \\implies X^* = 20$\\n   $Y^* = 2(20) = 40$\\n따라서 최적 소비자 균형점은 $(20, 40)$ 이 됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-006",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
-      "question": "X재 가격(Px) 상승 시 예산선의 변화로 옳은 것은?",
+      "question": "X재 가격($P_x$) 상승 시 예산선의 변화로 옳은 것은?",
       "options": [
         "예산선이 평행 이동",
         "Y절편 고정, X절편 감소 → 예산선이 X절편 기준으로 안쪽으로 회전 (더 가파르게)",
@@ -99,22 +99,22 @@
         "기울기 변화 없음"
       ],
       "answer": "2",
-      "explanation": "Px ↑ (Py, I 일정):\nY절편 = I/Py 불변 (가격 변화 없음)\nX절편 = I/Px ↓ (Px 증가로 살 수 있는 X 양 감소)\n결과: 예산선이 Y절편을 기준으로 안쪽으로 회전 (기울기 |Px/Py| 더 커짐, 가파름)\n실질 구매력 감소. Y만 사면 똑같이 살 수 있음."
+      "explanation": "$P_x$ ↑ ($P_y$, I 일정):\nY절편 = I/$P_y$ 불변 (가격 변화 없음)\nX절편 = I/$P_x$ ↓ ($P_x$ 증가로 살 수 있는 X 양 감소)\n결과: 예산선이 Y절편을 기준으로 안쪽으로 회전 (기울기 |$P_x$/$P_y$| 더 커짐, 가파름)\n실질 구매력 감소. Y만 사면 똑같이 살 수 있음."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-007",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "두 재화 가격이 같은 비율 (예: 둘 다 2배)로 변하면 예산선은?",
       "options": [
         "변화 없음",
-        "기울기 -Px/Py 불변 (분자·분모 모두 2배 → 비율 동일), 절편 모두 1/2배 → 예산선이 평행하게 안쪽으로 이동",
+        "기울기 -$P_x$/$P_y$ 불변 (분자·분모 모두 2배 → 비율 동일), 절편 모두 1/2배 → 예산선이 평행하게 안쪽으로 이동",
         "기울기 변화",
         "절편 변화 없음",
         "예산선 사라짐"
       ],
       "answer": "2",
-      "explanation": "두 가격 모두 같은 비율(예: 2배) 상승, 소득 일정:\nPx ↑, Py ↑ → 두 절편 모두 1/2배 (I/Px, I/Py 모두 감소)\n기울기 -Px/Py 불변 (분자·분모 모두 2배)\n예산선 평행하게 안쪽 이동 - 일반 인플레이션 시뮬레이션\n명목 가격 변화 시 실질 효과는 동일 (제로 동조성 zero homogeneity)."
+      "explanation": "두 가격 모두 같은 비율(예: 2배) 상승, 소득 일정:\n$P_x$ ↑, $P_y$ ↑ → 두 절편 모두 1/2배 (I/$P_x$, I/$P_y$ 모두 감소)\n기울기 -$P_x$/$P_y$ 불변 (분자·분모 모두 2배)\n예산선 평행하게 안쪽 이동 - 일반 인플레이션 시뮬레이션\n명목 가격 변화 시 실질 효과는 동일 (제로 동조성 zero homogeneity)."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-008",
@@ -129,28 +129,28 @@
         "예산선 사라짐"
       ],
       "answer": "1",
-      "explanation": "Px, Py, I 모두 k배로 변화:\n예산식: kPx·X + kPy·Y = kI → Px·X + Py·Y = I (k 약분)\n예산선 변화 없음. 두 절편(I/Px, I/Py)도 동일.\n경제학 원리: 명목 변수의 동시 비례 변화는 실질에 영향 없음 (homogeneity of degree zero, 화폐 환상의 부재)\n수요는 명목이 아닌 실질 변수의 함수."
+      "explanation": "$P_x$, $P_y$, I 모두 k배로 변화:\n예산식: k$P_x$·X + k$P_y$·Y = kI → $P_x$·X + $P_y$·Y = I (k 약분)\n예산선 변화 없음. 두 절편(I/$P_x$, I/$P_y$)도 동일.\n경제학 원리: 명목 변수의 동시 비례 변화는 실질에 영향 없음 (homogeneity of degree zero, 화폐 환상의 부재)\n수요는 명목이 아닌 실질 변수의 함수."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-009",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "소비자 균형(consumer equilibrium)의 조건으로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자 균형(consumer equilibrium)의 조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 예산선: 2X + Y = 80 -->\n  <line x1=\"50\" y1=\"80\" x2=\"210\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 무차별곡선: U = XY = 800 -->\n  <path d=\"M 80 105 Q 130 140 230 180\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  \n  <circle cx=\"130\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"140\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">접점 E(20, 40)</text>\n</svg>\n```\n",
       "options": [
-        "MUx = MUy",
-        "Px = Py",
-        "MRSxy = Px/Py (무차별곡선과 예산선의 접점)",
-        "MUx + MUy = 0",
+        "$MU_x$ = $MU_y$",
+        "$P_x$ = $P_y$",
+        "$MRS$xy = $P_x$/$P_y$ (무차별곡선과 예산선의 접점)",
+        "$MU_x$ + $MU_y$ = 0",
         "예산선의 절편 = 수요량"
       ],
       "answer": "3",
-      "explanation": "소비자 균형의 조건:\n그래프적: 무차별곡선과 예산선이 접하는 점\n수학적: MRSxy = Px/Py (무차별곡선 기울기 = 예산선 기울기 절댓값)\nMRS = MUx/MUy = Px/Py → MUx/Px = MUy/Py (한계효용 균등)\n무차별곡선 분석과 한계효용 분석이 동일한 결론을 도출."
+      "explanation": "소비자 균형의 조건:\n그래프적: 무차별곡선과 예산선이 접하는 점\n수학적: $MRS$xy = $P_x$/$P_y$ (무차별곡선 기울기 = 예산선 기울기 절댓값)\n$MRS$ = $MU_x$/$MU_y$ = $P_x$/$P_y$ → $MU_x$/$P_x$ = $MU_y$/$P_y$ (한계효용 균등)\n무차별곡선 분석과 한계효용 분석이 동일한 결론을 도출."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-010",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "MRS > Px/Py인 경우 합리적 소비자는?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "$MRS$ > $P_x$/$P_y$인 경우 합리적 소비자는?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <line x1=\"50\" y1=\"80\" x2=\"210\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 접선이 가파른 점 A에서의 무차별곡선 -->\n  <path d=\"M 70 95 Q 90 150 170 180\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  <circle cx=\"90\" cy=\"150\" r=\"4\" fill=\"#ef4444\" />\n  \n  <!-- 조정 방향 화살표 -->\n  <path d=\"M 95 155 L 125 170\" fill=\"none\" stroke=\"#b91c1c\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\" />\n  \n  <text x=\"95\" y=\"140\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">점 A (MRS &gt; Px/Py)</text>\n  <text x=\"135\" y=\"165\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#b91c1c\">X재 소비 증가 유도</text>\n</svg>\n```\n",
       "options": [
         "X 소비를 줄임",
         "X 소비를 늘림 (X의 주관적 가치 > 시장 가격 → X 더 구매)",
@@ -159,11 +159,11 @@
         "예산을 줄임"
       ],
       "answer": "2",
-      "explanation": "MRS > Px/Py:\n소비자의 X에 대한 주관적 교환 비율 > 시장의 객관적 교환 비율\n→ X가 상대적으로 가치 있음 → X 소비 늘리고 Y 소비 줄임\n결과: X 증가로 MUx 감소(MRS 감소), Y 감소로 MUy 증가\n결국 MRS = Px/Py 균형 도달.\n반대(MRS < Px/Py)는 Y 늘리고 X 줄임."
+      "explanation": "$MRS$ > $P_x$/$P_y$:\n소비자의 X에 대한 주관적 교환 비율 > 시장의 객관적 교환 비율\n→ X가 상대적으로 가치 있음 → X 소비 늘리고 Y 소비 줄임\n결과: X 증가로 $MU_x$ 감소($MRS$ 감소), Y 감소로 $MU_y$ 증가\n결국 $MRS$ = $P_x$/$P_y$ 균형 도달.\n반대($MRS$ < $P_x$/$P_y$)는 Y 늘리고 X 줄임."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-011",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 예산선의 응용 사례로 옳은 것은?",
       "options": [
@@ -178,9 +178,9 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-012",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "보기 결합형",
-      "question": "다음 중 예산선과 소비자 균형에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 예산선: Px·X + Py·Y = I, 기울기 -Px/Py\nㄴ. 소득 변화 → 예산선 평행 이동\nㄷ. 한 재화 가격 변화 → 예산선 회전\nㄹ. 소비자 균형: MRSxy = Px/Py (무차별곡선·예산선 접점)",
+      "question": "다음 중 예산선과 소비자 균형에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 예산선: $P_x$·X + $P_y$·Y = I, 기울기 -$P_x$/$P_y$\nㄴ. 소득 변화 → 예산선 평행 이동\nㄷ. 한 재화 가격 변화 → 예산선 회전\nㄹ. 소비자 균형: $MRS$xy = $P_x$/$P_y$ (무차별곡선·예산선 접점)",
       "options": [
         "ㄱ, ㄴ",
         "ㄱ, ㄴ, ㄷ",
@@ -193,9 +193,9 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-013",
-      "difficulty": 3,
-      "question_type": "이론형",
-      "question": "예산선 계산: Px = 10, Py = 20, I = 100. X와 Y의 최대 구매량과 예산선의 기울기는?",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "예산선 계산: $P_x$ = 10, $P_y$ = 20, I = 100. X와 Y의 최대 구매량과 예산선의 기울기는?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <!-- 축 -->\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y</text>\n  \n  <!-- 예산선 -->\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  \n  <!-- 절편 및 텍스트 -->\n  <circle cx=\"50\" cy=\"60\" r=\"4.5\" fill=\"#1d4ed8\" />\n  <text x=\"10\" y=\"65\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1d4ed8\" font-weight=\"bold\">I/Py</text>\n  \n  <circle cx=\"280\" cy=\"200\" r=\"4.5\" fill=\"#1d4ed8\" />\n  <text x=\"275\" y=\"218\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1d4ed8\" font-weight=\"bold\">I/Px</text>\n  \n  <text x=\"180\" y=\"110\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 = -Px/Py</text>\n</svg>\n```\n",
       "options": [
         "X 최대 = 10, Y 최대 = 5, 기울기 = -0.5",
         "X 최대 = 5, Y 최대 = 10, 기울기 = -2",
@@ -204,11 +204,11 @@
         "X 최대 = 50, Y 최대 = 100, 기울기 = -2"
       ],
       "answer": "1",
-      "explanation": "예산선 10X + 20Y = 100:\nX 최대 = I/Px = 100/10 = 10 (Y=0일 때)\nY 최대 = I/Py = 100/20 = 5 (X=0일 때)\n기울기 = -Px/Py = -10/20 = -0.5\n예산선: (10, 0)에서 (0, 5)를 잇는 직선."
+      "explanation": "예산선 10X + 20Y = 100:\nX 최대 = I/$P_x$ = 100/10 = 10 (Y=0일 때)\nY 최대 = I/$P_y$ = 100/20 = 5 (X=0일 때)\n기울기 = -$P_x$/$P_y$ = -10/20 = -0.5\n예산선: (10, 0)에서 (0, 5)를 잇는 직선."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-014",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "위 예산선에서 X = 4, Y = 3 소비점은?",
       "options": [
@@ -223,7 +223,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-015",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 예산선의 특수한 경우로 옳은 것은?",
       "options": [
@@ -239,8 +239,8 @@
     {
       "id": "practice-econ-micro-ch03-sec02-item02-016",
       "difficulty": 3,
-      "question_type": "이론형",
-      "question": "다음 중 예산선의 굴절(kink) 사례로 옳은 것은?",
+      "question_type": "이론/그래프형",
+      "question": "다음 중 예산선의 굴절(kink) 사례로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 굴절 예산선: X=20까지는 가격이 2, 그 이상은 1 -->\n  <!-- 소득 I=120, Py=4 이므로 Y절편은 30 (y=120) -->\n  <!-- X=20일 때 지출=40, Y=20 (y=120) -->\n  <!-- X=20 이후로는 가격이 1이므로 추가 X 1개당 Y는 0.25개 포기 (원래는 0.5개 포기) -->\n  <path d=\"M 50 80 L 170 140 L 310 200\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  <circle cx=\"170\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n  \n  <text x=\"175\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">굴절점 (X=20, Y=20)</text>\n  <text x=\"90\" y=\"100\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 -0.5</text>\n  <text x=\"230\" y=\"160\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 -0.25</text>\n</svg>\n```\n",
       "options": [
         "두 가격이 단위에 따라 다름 (대량 할인) - 일정 수량 이상에서 가격 하락 → 예산선이 그 점에서 꺾임 (덜 가파름)",
         "예산선은 항상 직선",
@@ -253,33 +253,33 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-017",
-      "difficulty": 3,
-      "question_type": "이론형",
-      "question": "다음 중 코너 해(corner solution)의 사례로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 코너 해(corner solution)의 사례로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 예산선: 기울기 -1.5 -->\n  <line x1=\"50\" y1=\"80\" x2=\"170\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <!-- 무차별곡선: 기울기 -1 (대체재) -->\n  <line x1=\"50\" y1=\"120\" x2=\"170\" y2=\"200\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"100\" x2=\"150\" y2=\"200\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  \n  <circle cx=\"170\" cy=\"200\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"175\" y=\"195\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">코너해 (X재만 전량소비)</text>\n</svg>\n```\n",
       "options": [
-        "완전 대체재 + 가격 비율 ≠ MRS - 한 재화만 소비 (X절편 또는 Y절편에서 최적)",
+        "완전 대체재 + 가격 비율 ≠ $MRS$ - 한 재화만 소비 (X절편 또는 Y절편에서 최적)",
         "표준 무차별곡선 - 내부 해",
         "완전 보완재 - 결합 소비",
         "코너 해는 항상 존재",
         "코너 해는 가치판단"
       ],
       "answer": "1",
-      "explanation": "코너 해 발생 조건:\n① 완전 대체재 (선형 효용) + Px/Py ≠ MRS: 한 재화만 소비 (X 또는 Y 축에서 최적)\n② 한 재화의 한계효용이 항상 다른 재화보다 1원당 큰 경우\n③ 예산이 매우 적어 한 재화의 최소 단위도 못 사는 경우\n표준 분석은 내부 해를 가정 (MRS = Px/Py 충족). 코너 해는 별도 검토 필요."
+      "explanation": "코너 해 발생 조건:\n① 완전 대체재 (선형 효용) + $P_x$/$P_y$ ≠ $MRS$: 한 재화만 소비 (X 또는 Y 축에서 최적)\n② 한 재화의 한계효용이 항상 다른 재화보다 1원당 큰 경우\n③ 예산이 매우 적어 한 재화의 최소 단위도 못 사는 경우\n표준 분석은 내부 해를 가정 ($MRS$ = $P_x$/$P_y$ 충족). 코너 해는 별도 검토 필요."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-018",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 세금·보조금이 예산선에 미치는 영향으로 옳은 것은?",
       "options": [
-        "X재 종량세 → X의 실효 가격 Px+t → X절편 감소 (안쪽 회전) / X재 보조금 → X 실효 가격 Px-s → X절편 증가 (바깥쪽 회전) / 인두세 → 소득 감소 → 평행 안쪽 이동",
+        "X재 종량세 → X의 실효 가격 $P_x$+t → X절편 감소 (안쪽 회전) / X재 보조금 → X 실효 가격 $P_x$-s → X절편 증가 (바깥쪽 회전) / 인두세 → 소득 감소 → 평행 안쪽 이동",
         "세금은 예산선과 무관",
         "보조금은 예산선과 무관",
         "세금은 평행 이동만",
         "보조금은 회전 없음"
       ],
       "answer": "1",
-      "explanation": "세금·보조금의 예산선 영향:\n특정 재화 종량세 (X재에 t): Px' = Px + t → X절편 감소 → 예산선 안쪽 회전\n특정 재화 보조금 (X재에 s): Px' = Px - s → X절편 증가 → 예산선 바깥쪽 회전\n인두세 (lump-sum tax): 소득 I 직접 감소 → 평행 안쪽 이동, 기울기 불변\n동일 세입의 인두세 vs 종량세: 인두세가 사중손실 작음 (예산선 분석으로 시각화)."
+      "explanation": "세금·보조금의 예산선 영향:\n특정 재화 종량세 (X재에 t): $P_x$' = $P_x$ + t → X절편 감소 → 예산선 안쪽 회전\n특정 재화 보조금 (X재에 s): $P_x$' = $P_x$ - s → X절편 증가 → 예산선 바깥쪽 회전\n인두세 (lump-sum tax): 소득 I 직접 감소 → 평행 안쪽 이동, 기울기 불변\n동일 세입의 인두세 vs 종량세: 인두세가 사중손실 작음 (예산선 분석으로 시각화)."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-019",
@@ -294,11 +294,11 @@
         "다재화는 가치판단"
       ],
       "answer": "1",
-      "explanation": "다재화 예산선:\n2재화: Px·X + Py·Y = I (2차원 직선)\nN재화: Σ(Pi·Xi) = I (N차원 초평면, hyperplane)\n수학적 분석: 라그랑지 방법으로 N-1개 1계 조건 + 예산 제약\n결과: MUi/Pi = λ (모든 i) - 한계효용 균등의 법칙\n그래프 분석은 2재화에 제한되나 수학적 일반화 가능."
+      "explanation": "다재화 예산선:\n2재화: $P_x$·X + $P_y$·Y = I (2차원 직선)\nN재화: Σ(Pi·Xi) = I (N차원 초평면, hyperplane)\n수학적 분석: 라그랑지 방법으로 N-1개 1계 조건 + 예산 제약\n결과: MUi/Pi = λ (모든 i) - 한계효용 균등의 법칙\n그래프 분석은 2재화에 제한되나 수학적 일반화 가능."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-020",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "보기 결합형",
       "question": "다음 중 예산선 분석의 다양한 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 표준 소비자 균형 (X-Y 평면)\nㄴ. 시점간 선택 (현재-미래, 이자율이 가격 비율)\nㄷ. 노동-여가 선택 (임금이 여가의 가격)\nㄹ. 위험-수익 선택 (위험 프리미엄이 가격)\nㅁ. 두 사람 간 분배 (에지워스 박스)",
       "options": [
@@ -324,11 +324,11 @@
         "C0 = C1"
       ],
       "answer": "1",
-      "explanation": "시점간 예산 제약 (피셔 1930):\nC0 + C1/(1+r) = I0 + I1/(1+r) (현재 가치)\n또는 C0·(1+r) + C1 = I0·(1+r) + I1 (미래 가치)\nr: 이자율 = 시점간 가격 비율 (현재 1원 = 미래 1+r원)\n기울기 = -(1+r) (예산선)\n효용극대화 조건: MRS(C0, C1) = (1+r) → 시간 선호율 = 시장 이자율\n저축·소비·이자율 분석의 기초."
+      "explanation": "시점간 예산 제약 (피셔 1930):\nC0 + C1/(1+r) = I0 + I1/(1+r) (현재 가치)\n또는 C0·(1+r) + C1 = I0·(1+r) + I1 (미래 가치)\nr: 이자율 = 시점간 가격 비율 (현재 1원 = 미래 1+r원)\n기울기 = -(1+r) (예산선)\n효용극대화 조건: $MRS$(C0, C1) = (1+r) → 시간 선호율 = 시장 이자율\n저축·소비·이자율 분석의 기초."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-022",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 예산선과 신용 제약(credit constraint)의 관계로 옳은 것은?",
       "options": [
@@ -347,14 +347,14 @@
       "question_type": "이론형",
       "question": "다음 중 콥-더글러스 효용에서 예산선과 균형 분석으로 옳은 것은?",
       "options": [
-        "U = X^a · Y^(1-a), 예산 Px·X + Py·Y = I → X* = a·I/Px, Y* = (1-a)·I/Py. 각 재화에 지출 비율 = 지수 비율 a, 1-a. 가격 변화 무관.",
+        "U = X^a · Y^(1-a), 예산 $P_x$·X + $P_y$·Y = I → X* = a·I/$P_x$, Y* = (1-a)·I/$P_y$. 각 재화에 지출 비율 = 지수 비율 a, 1-a. 가격 변화 무관.",
         "콥-더글러스에서 예산선 분석 불가",
         "콥-더글러스는 항상 코너 해",
         "콥-더글러스는 균형 없음",
         "콥-더글러스는 가치판단"
       ],
       "answer": "1",
-      "explanation": "콥-더글러스 균형 분석:\nU = X^a · Y^(1-a)\nMRS = MUx/MUy = (a·Y)/((1-a)·X)\n균형 조건: MRS = Px/Py → (a·Y)/((1-a)·X) = Px/Py → Py·Y/(Px·X) = (1-a)/a → Py·Y = ((1-a)/a)·Px·X\n예산식 결합: Px·X + ((1-a)/a)·Px·X = I → Px·X = a·I → X* = a·I/Px.\n결론: X에 a·I, Y에 (1-a)·I 지출 (지출 비중 = 지수 비율)."
+      "explanation": "콥-더글러스 균형 분석:\nU = X^a · Y^(1-a)\n$MRS$ = $MU_x$/$MU_y$ = (a·Y)/((1-a)·X)\n균형 조건: $MRS$ = $P_x$/$P_y$ → (a·Y)/((1-a)·X) = $P_x$/$P_y$ → $P_y$·Y/($P_x$·X) = (1-a)/a → $P_y$·Y = ((1-a)/a)·$P_x$·X\n예산식 결합: $P_x$·X + ((1-a)/a)·$P_x$·X = I → $P_x$·X = a·I → X* = a·I/$P_x$.\n결론: X에 a·I, Y에 (1-a)·I 지출 (지출 비중 = 지수 비율)."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-024",
@@ -362,20 +362,20 @@
       "question_type": "옳은 것 고르기",
       "question": "다음 중 라그랑지 방법을 이용한 효용극대화로 옳은 것은?",
       "options": [
-        "Max U(X, Y) s.t. Px·X + Py·Y = I → L = U(X, Y) - λ(Px·X + Py·Y - I) → 1계 조건: MUx = λPx, MUy = λPy, 예산 제약 → MUx/Px = MUy/Py = λ",
+        "Max U(X, Y) s.t. $P_x$·X + $P_y$·Y = I → L = U(X, Y) - λ($P_x$·X + $P_y$·Y - I) → 1계 조건: $MU_x$ = λ$P_x$, $MU_y$ = λ$P_y$, 예산 제약 → $MU_x$/$P_x$ = $MU_y$/$P_y$ = λ",
         "라그랑지 방법은 불가",
         "라그랑지 방법은 가치판단",
         "라그랑지 방법은 정부 결정",
         "라그랑지 방법은 측정 불가"
       ],
       "answer": "1",
-      "explanation": "라그랑지 방법:\n제약 최적화: Max U(X, Y) s.t. Px·X + Py·Y = I\n라그랑지 함수: L = U(X, Y) - λ(Px·X + Py·Y - I)\n1계 조건:\n∂L/∂X = MUx - λPx = 0 → MUx = λPx\n∂L/∂Y = MUy - λPy = 0 → MUy = λPy\n∂L/∂λ = -(Px·X + Py·Y - I) = 0 → 예산 제약\n결합: MUx/Px = MUy/Py = λ (한계효용 균등)\nλ: 라그랑지 승수 = 예산 1원의 한계효용."
+      "explanation": "라그랑지 방법:\n제약 최적화: Max U(X, Y) s.t. $P_x$·X + $P_y$·Y = I\n라그랑지 함수: L = U(X, Y) - λ($P_x$·X + $P_y$·Y - I)\n1계 조건:\n∂L/∂X = $MU_x$ - λ$P_x$ = 0 → $MU_x$ = λ$P_x$\n∂L/∂Y = $MU_y$ - λ$P_y$ = 0 → $MU_y$ = λ$P_y$\n∂L/∂λ = -($P_x$·X + $P_y$·Y - I) = 0 → 예산 제약\n결합: $MU_x$/$P_x$ = $MU_y$/$P_y$ = λ (한계효용 균등)\nλ: 라그랑지 승수 = 예산 1원의 한계효용."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-025",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "보기 결합형",
-      "question": "다음은 예산선의 변화 사례와 그 효과에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 소득 ↑ → 예산선 평행 우상방 이동\nㄴ. X재 가격 ↑ → 예산선 Y절편 기준 안쪽 회전\nㄷ. X재 보조금 → 예산선 Y절편 기준 바깥쪽 회전\nㄹ. 인플레이션 (두 가격 같은 비율 ↑) → 예산선 평행 안쪽 이동\nㅁ. 명목 변수 (Px, Py, I) 모두 같은 비율 변화 → 예산선 불변",
+      "question": "다음은 예산선의 변화 사례와 그 효과에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 소득 ↑ → 예산선 평행 우상방 이동\nㄴ. X재 가격 ↑ → 예산선 Y절편 기준 안쪽 회전\nㄷ. X재 보조금 → 예산선 Y절편 기준 바깥쪽 회전\nㄹ. 인플레이션 (두 가격 같은 비율 ↑) → 예산선 평행 안쪽 이동\nㅁ. 명목 변수 ($P_x$, $P_y$, I) 모두 같은 비율 변화 → 예산선 불변",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -388,7 +388,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-026",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 예산선·무차별곡선 분석의 한계로 옳은 것은?",
       "options": [
@@ -403,7 +403,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-027",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 예산선의 정부 정책 분석 응용으로 옳은 것은?",
       "options": [
@@ -418,7 +418,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-028",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음은 예산선 분석의 응용 사례에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 피셔(1930): 시점간 선택과 이자율\nㄴ. 모디글리아니(1954): 생애주기가설\nㄷ. 프리드만(1957): 항상소득가설\nㄹ. 베커(1965): 시간 분배 이론\nㅁ. 행동경제학: 시간 비일관성, 정신 회계(mental accounting)",
       "options": [
@@ -433,7 +433,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-029",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 정신 회계(mental accounting)의 개념과 예산선 분석의 한계로 옳은 것은?",
       "options": [
@@ -448,9 +448,9 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item02-030",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "보기 결합형",
-      "question": "다음은 예산선과 소비자균형의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 예산선: Px·X + Py·Y = I, 기울기 -Px/Py\nㄴ. 소득 변화 → 평행 이동, 가격 변화 → 회전\nㄷ. 소비자 균형: MRS = Px/Py (무차별곡선·예산선 접점)\nㄹ. 라그랑지 방법: MUx/Px = MUy/Py = λ\nㅁ. 모든 소비자는 항상 예산선 위 내부 해에서 균형",
+      "question": "다음은 예산선과 소비자균형의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 예산선: $P_x$·X + $P_y$·Y = I, 기울기 -$P_x$/$P_y$\nㄴ. 소득 변화 → 평행 이동, 가격 변화 → 회전\nㄷ. 소비자 균형: $MRS$ = $P_x$/$P_y$ (무차별곡선·예산선 접점)\nㄹ. 라그랑지 방법: $MU_x$/$P_x$ = $MU_y$/$P_y$ = λ\nㅁ. 모든 소비자는 항상 예산선 위 내부 해에서 균형",
       "options": [
         "ㄱ, ㄴ, ㄷ",
         "ㄱ, ㄴ, ㄷ, ㄹ",
@@ -459,7 +459,307 @@
         "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
       ],
       "answer": "2",
-      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 코너 해(완전 대체재 + 가격 비율 ≠ MRS), 결합 소비(완전 보완재), 신용 제약 굴절 등 특수 사례에서는 내부 해가 아닐 수 있다. 모든 소비자가 항상 내부 해에서 균형한다는 명제는 잘못이다."
+      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 코너 해(완전 대체재 + 가격 비율 ≠ $MRS$), 결합 소비(완전 보완재), 신용 제약 굴절 등 특수 사례에서는 내부 해가 아닐 수 있다. 모든 소비자가 항상 내부 해에서 균형한다는 명제는 잘못이다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-031",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "정부가 저소득층을 보조할 때 현금 보조, 현물 보조(예: 식품 전용 쿠폰), 가격 보조(예: 가격 50% 할인 쿠폰) 정책을 시행한다. 세 보조금에 동일한 재정이 투입된다고 가정할 때, 예산선의 팽창 형상과 소비자 후생(효용) 극대화 성과에 대한 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 현물 쿠폰 보조 예산선: Y절편 근처에서 수평 구간 발생 -->\n  <!-- 원래 예산선 -->\n  <line x1=\"50\" y1=\"140\" x2=\"190\" y2=\"200\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  \n  <!-- 현물 보조 예산선 -->\n  <path d=\"M 50 140 L 110 140 L 250 200\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 현금 보조 예산선 -->\n  <line x1=\"50\" y1=\"114.3\" x2=\"250\" y2=\"200\" stroke=\"#ef4444\" stroke-dasharray=\"2\" stroke-width=\"1.5\" />\n  \n  <text x=\"60\" y=\"130\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">현물보조 수평구간</text>\n  <text x=\"115\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">현금보조 확장구간</text>\n</svg>\n```\n",
+      "options": [
+        "현물 보조는 예산선에 꺾임부를 형성하며 소비자의 주관적 선호에 따라 현금 보조와 동일하거나 더 낮은 효용을 유도하고, 가격 보조는 예산선을 회전시켜 대체효과로 인한 왜곡을 발생시키므로 가장 후생 성과가 낮다.",
+        "가격 보조가 두 재화의 가격 비율 왜곡을 없애기 때문에 현금 보조보다 언제나 높은 효용을 보장한다.",
+        "현물 보조는 예산선 평행 이동만을 유도하므로 가격 비율 왜곡이 현금 보조보다 적어 사회적으로 항상 선호된다.",
+        "세 보조 정책 모두 예산 제약선을 완벽하게 대칭적으로 평행 이동시키므로 소비자의 균형 효용 수준은 동일하다.",
+        "현물 보조는 예산선을 원점 쪽으로 회전 수축시켜 항상 대체효과를 무력화한다."
+      ],
+      "answer": "1",
+      "explanation": "1) 현금 보조 vs 현물 보조:\\n   현금 보조는 예산선 전체를 평행이동시킵니다. 현물 보조는 특정 재화(X)를 현물 쿠폰으로 주어 Y재만 단독 소비할 수 없도록 X축 방향의 꺾임부를 만듭니다. 만약 소비자가 원래 X재를 적게 사고 Y재를 많이 선호하는 취향이었다면, 현물 보조 하의 최적점은 꺾임점인 구석해에서 발생하여 현금 보조를 받았을 때보다 낮은 효용을 얻습니다. (만약 X재를 많이 쓰던 소비자라면 두 보조의 효용은 같습니다.)\\n2) 가격 보조:\\n   X재 가격 할인으로 예산선이 회전하여 기울기가 완만해집니다. 이 경우 가격 왜곡이 발생하여 소비 효율성을 떨어뜨리는 대체효과가 추가로 유발되므로, 동일 재정 투입 대비 소비자 효용은 현금 보조에 비해 항상 낮게 결정됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-032",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "노동-여가 선택 모형에서 소비자의 총 시간 $24$시간 중 여가 시간을 $L$, 노동 시간을 $H = 24 - L$, 임금률을 $w$ 라 하자. 정부가 비근로 소득 $V$ 에 대해 무세로 하고, 근로 소득에 대해서는 소득 $I_0$ 까지 세율 $0$%, $I_0$ 초과 소득에 대해 $t$%의 세율을 누진 적용할 때, 소비자의 예산선 굴절 형상으로 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 노동-여가 누진세 예산선 (기울기 변동) -->\n  <path d=\"M 50 180 L 180 130 L 280 60\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <circle cx=\"180\" cy=\"130\" r=\"4\" fill=\"#ef4444\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">여가 (L)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">소득 (I)</text>\n  <text x=\"185\" y=\"140\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">누진세 굴절점</text>\n</svg>\n```\n",
+      "options": [
+        "여가 $L$ 이 감소(노동 $H$ 가 증가)하여 소득이 $I_0$ 를 돌파하는 경계점(Kink)을 기준으로, 예산선의 기울기 절댓값이 $w$ 에서 $w(1-t)$ 로 감소하여 예산선이 꺾여 완만해진다.",
+        "소득 $I_0$ 를 돌파하는 점에서 예산선 기울기 절댓값이 $w$ 에서 $w(1+t)$ 로 증가하여 예산선이 꺾여 가팔라진다.",
+        "누진세 적용 시 예산선은 꺾이지 않고 소득 축 방향으로 일정한 폭만큼 평행 축소 이동한다.",
+        "누진세가 부과되더라도 세금의 사중손실이 없으므로 예산선 기울기는 임금 w로 항상 고정된다.",
+        "노동시간이 늘어남에 따라 예산선이 수직선 형태가 되어 여가의 상대적 가치가 무한대로 발산한다."
+      ],
+      "answer": "1",
+      "explanation": "노동-여가 예산 제약은 소득 $I = w(24 - L) + V$ 입니다.\\n1) 소득이 $I_0$ 이하인 구간 ($L$이 커서 노동 시간이 적은 경우):\\n   세금이 부과되지 않으므로 예산선 기울기는 실질임금 $-w$ 입니다.\\n2) 소득이 $I_0$ 를 초과하는 구간 ($L$이 작아서 노동 시간이 많은 경우):\\n   초과 소득분에 대해 $t$ 의 누진 세율이 적용되므로 실질임금은 $w(1-t)$ 로 낮아집니다. 따라서 예산선 기울기는 $-w(1-t)$ 가 됩니다.\\n3) 굴절 형태:\\n   여가 $L$ 을 가로축, 소득 $I$ 를 세로축으로 놓았을 때, 여가가 줄어들며 소득이 증가하다가 경계점을 넘어가면 기울기 절댓값(실질 임금)이 $w$ 에서 $w(1-t)$ 로 꺾여 예산선이 더 완만하게 누워버립니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-033",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 2기간 시점간 선택 모형에서, 1기 소득 $I_0$ 와 2기 소득 $I_1$ 의 초기 부존점이 주어져 있다. 금융시장에서 저축할 때 적용되는 이자율은 $r$ 이고, 돈을 빌릴(차입) 때 적용되는 이자율은 $r_b$ 이며, $r_b > r$ 의 관계가 성립한다. 이 소비자가 당면한 시점간 예산선의 기하학적 형태 변화에 대한 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 비대칭 이자율 시점간 예산선 (저축 r, 차입 rb > r) -->\n  <path d=\"M 50 100 L 180 140 L 300 200\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <circle cx=\"180\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">현재 소비 (C0)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">미래 소비 (C1)</text>\n  <text x=\"185\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">초기 부존점 (I0, I1)</text>\n  <text x=\"90\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 -(1+r)</text>\n  <text x=\"240\" y=\"180\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 -(1+rb)</text>\n</svg>\n```\n",
+      "options": [
+        "초기 부존점 $(I_0, I_1)$ 을 기준으로, 현재 소비가 소득보다 큰 차입 영역($C_0 > I_0$)에서는 예산선의 기울기 절댓값이 $1+r_b$ 로 가팔라지고, 현재 소비가 소득보다 적은 저축 영역($C_0 < I_0$)에서는 기울기 절댓값이 $1+r$ 로 완만하게 꺾인다.",
+        "초기 부존점을 기준으로 차입 영역($C_0 > I_0$)의 예산선 기울기 절댓값이 $1+r$ 로 완만해지고, 저축 영역($C_0 < I_0$)에서는 $1+r_b$ 로 가팔라진다.",
+        "차입 이자율이 더 높으면 시점간 예산선은 부존점을 지나지 못하고 끊어지는 불연속 구간을 형성한다.",
+        "금융 시장의 차입 제약으로 인해 예산선이 1기 소비 축에 완전히 평행한 수평선으로 굳어진다.",
+        "두 이자율이 다르면 예산선 기울기는 $1+(r_b - r)$ 로 단일화되어 일직선 형태를 취한다."
+      ],
+      "answer": "1",
+      "explanation": "1) 저축 영역 ($C_0 < I_0$):\\n   1기에 소득의 일부를 저축하면 2기에 원금과 이자 $1+r$ 배를 돌려받습니다. 예산선 식은 $C_1 = I_1 + (1+r)(I_0 - C_0)$ 이며 기울기는 $-(1+r)$ 입니다.\\n2) 차입 영역 ($C_0 > I_0$):\\n   1기에 미래 소득을 당겨 쓰기 위해 차입하면 2기에 원금과 더 비싼 이자 $1+r_b$ 배를 상환해야 합니다. 예산선 식은 $C_1 = I_1 - (1+r_b)(C_0 - I_0)$ 이며 기울기는 $-(1+r_b)$ 입니다.\\n3) 기하적 성격:\\n   가로축이 $C_0$, 세로축이 $C_1$ 일 때, 예산선은 초기 부존점 $(I_0, I_1)$ 을 중심으로 현재 소비를 더 늘리는 우측(차입 영역)으로 갈 때 기울기 절댓값이 $1+r_b$ 로 더 급격하게 꺾여 내려갑니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-034",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "정부가 동일한 액수의 조세 수입 $T$ 를 징수하고자 한다. 소비자의 두 재화 소비에 대해 소득세(Lump-sum tax)를 부과하는 방식과 특정 X재에만 물품세(종량세)를 부과하는 방식이 있다. 이 두 조세 정책 하의 예산선 이동 상태와 소비자의 경제적 순손실(사중손실, 초과부담) 크기 관계에 대한 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 원래 예산선 -->\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"200\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  \n  <!-- 소득세 부과 (평행 이동) -->\n  <line x1=\"50\" y1=\"90\" x2=\"230\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <!-- 물품세 부과 (회전 이동 - 동일 세수 대비 더 낮은 후생) -->\n  <line x1=\"50\" y1=\"60\" x2=\"190\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "소득세 부과 시 예산선은 평행 안쪽 이동하므로 가격 왜곡이 없어 사중손실이 발생하지 않으며, 물품세 부과 시에는 가격 비율이 변해 예산선이 안쪽 회전하므로 사중손실이 발생하여 소득세의 효용이 더 높다.",
+        "물품세 부과 시 예산선이 평행 이동하고 소득세 부과 시 예산선이 회전하여, 물품세의 소비자 효용이 항상 소득세보다 우월하다.",
+        "두 조세 정책 모두 동일한 세수를 거둔다면 가격 왜곡 수준이 같아 예산선과 최적 소비 후생이 완전히 일치한다.",
+        "물품세는 대체효과를 완전히 소멸시키므로 소득세보다 효율적인 조세이다.",
+        "소득세를 부과하면 예산선의 기울기 $P_x/P_y$ 가 원래 가격비의 2배로 증가하여 사중손실이 극대화된다."
+      ],
+      "answer": "1",
+      "explanation": "1) 소득세 부과: 소득 $I$ 만 감소하므로 예산 제약식이 $P_x X + P_y Y = I - T$ 로 평행 안쪽 이동합니다. 가격비율 $P_x/P_y$ 에 왜곡이 없어 소득효과만 유발되며 초과부담(사중손실)이 없습니다.\\n2) 물품세 부과: X재에 가격 단위당 세금 $t$ 가 붙어 실효 가격이 $P_x + t$ 로 인상되어 예산선은 $Y$절편을 기준으로 안쪽으로 회전하여 가팔라집니다. 이는 가격 비율을 왜곡시켜 소득효과뿐 아니라 효율성을 떨어뜨리는 대체효과(초과부담)를 추가로 발생시킵니다.\\n3) 힉스 보상 기하학적 대비 시 동일 세수 기준 하에서 소득세 하의 예산선과 만나는 소비자 무차별곡선(효용)이 물품세 하에서보다 언제나 위쪽에 위치하므로 소득세가 더 효율적입니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-035",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "소비자의 효용함수가 콥-더글러스 형태인 $U(X, Y) = X^a Y^b$ ($a>0, b>0$) 이다. 예산 제약 $P_x X + P_y Y = I$ 하에서 효용극대화 균형에 도달할 때, 소비자의 X재에 대한 지출 금액 $P_x X$ 가 전체 소득 $I$ 에서 차지하는 예산 점유율(Budget Share)의 성격으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 예산선: 2X + Y = 80 -->\n  <line x1=\"50\" y1=\"80\" x2=\"210\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 무차별곡선: U = XY = 800 -->\n  <path d=\"M 80 105 Q 130 140 230 180\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  \n  <circle cx=\"130\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"140\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">접점 E(20, 40)</text>\n</svg>\n```\n",
+      "options": [
+        "예산 점유율은 $\\dfrac{a}{a+b}$ 로 고정되며, 이는 X재와 Y재의 가격 및 소득 수준 변동과 관계없이 항상 일정한 상수를 유지한다.",
+        "예산 점유율은 소득 $I$ 가 증가함에 따라 $\\dfrac{a}{b}$ 비율로 선형적으로 비례하여 증가한다.",
+        "예산 점유율은 X재 가격 $P_x$ 에 반비례하며 Y재 가격 $P_y$ 에 비례하여 요동친다.",
+        "소비자 균형 조건이 성립하면 예산 점유율은 언제나 정확히 $50\\%$ 로 강제 수렴한다.",
+        "예산 점유율은 대체탄력성 매개변수 값인 $a+b$ 의 크기에 따라 기하급수적으로 발산한다."
+      ],
+      "answer": "1",
+      "explanation": "콥-더글러스 효용함수 $U = X^a Y^b$ 에서:\\n1) 한계대체율: $MRS_{xy} = \\dfrac{aY}{bX}$\\n2) 소비자 균형 조건: $MRS_{xy} = \\dfrac{P_x}{P_y} \\implies \\dfrac{aY}{bX} = \\dfrac{P_x}{P_y} \\implies P_y Y = \\dfrac{b}{a} P_x X$\\n3) 예산 제약선에 대입:\\n   $$P_x X + P_y Y = I \\implies P_x X + \\dfrac{b}{a} P_x X = I \\implies \\left(1 + \\dfrac{b}{a}\\right) P_x X = I \\implies \\dfrac{a+b}{a} P_x X = I$$\\n   $$\\implies P_x X = \\dfrac{a}{a+b} I \\implies \\dfrac{P_x X}{I} = \\dfrac{a}{a+b}$$\\n따라서 X재에 대한 지출 비중은 가격이나 소득에 무관하게 지수의 상대적 크기비인 $\\dfrac{a}{a+b}$ 로 항상 고정됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-036",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "소비자의 효용함수가 완전보완재 관계인 레온티에프 형태 $U(X, Y) = \\min(aX, bY)$ ($a>0, b>0$) 로 주어져 있다. 이 소비자의 예산선이 $P_x X + P_y Y = I$ 일 때, 효용을 극대화하는 X재와 Y재의 최적 수요함수 조합($X^*, Y^*$)으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 예산선과 완전보완재 L자형 무차별곡선 -->\n  <line x1=\"50\" y1=\"70\" x2=\"250\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <path d=\"M 110 50 L 110 110 L 250 110\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <circle cx=\"110\" cy=\"110\" r=\"4\" fill=\"#ef4444\" />\n  <line x1=\"50\" y1=\"200\" x2=\"170\" y2=\"50\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" />\n  \n  <text x=\"120\" y=\"105\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">균형점 (aX = bY)</text>\n</svg>\n```\n",
+      "options": [
+        "$X^* = \\dfrac{b I}{b P_x + a P_y}$, $Y^* = \\dfrac{a I}{b P_x + a P_y}$",
+        "$X^* = \\dfrac{a I}{a P_x + b P_y}$, $Y^* = \\dfrac{b I}{a P_x + b P_y}$",
+        "$X^* = \\dfrac{I}{P_x + P_y}$, $Y^* = \\dfrac{I}{P_x + P_y}$",
+        "$X^* = \\dfrac{b I}{P_x}$, $Y^* = \\dfrac{a I}{P_y}$",
+        "$X^* = \\dfrac{I}{a P_x}$, $Y^* = \\dfrac{I}{b P_y}$"
+      ],
+      "answer": "1",
+      "explanation": "레온티에프 효용함수 $U = \\min(aX, bY)$ 의 무차별곡선은 L자 형태를 띠며, 최적 소비는 예산선과 무차별곡선의 모서리점인 꺾임선 상에서 결정됩니다.\\n1) 꺾임점 조건: $aX = bY \\implies Y = \\dfrac{a}{b} X$\\n2) 예산 제약식에 대입:\\n   $$P_x X + P_y \\left(\\dfrac{a}{b} X\\right) = I \\implies \\left(P_x + \\dfrac{a}{b} P_y\\right) X = I \\implies \\left(\\dfrac{b P_x + a P_y}{b}\\right) X = I$$\\n   $$\\implies X^* = \\dfrac{b I}{b P_x + a P_y}$$\\n3) Y* 도출:\\n   $$Y^* = \\dfrac{a}{b} X^* = \\dfrac{a}{b} \\left(\\dfrac{b I}{b P_x + a P_y}\\right) = \\dfrac{a I}{b P_x + a P_y}$$\\n따라서 최적 수요함수 조합은 1번이 됩니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-037",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 효용함수가 완전대체재 형태인 $U(X, Y) = aX + bY$ ($a>0, b>0$) 로 주어져 있다. 이 소비자의 예산선이 $P_x X + P_y Y = I$ 일 때, 가격비율 $P_x/P_y$ 와 한계대체율 $MRS_{xy}$ 의 상대적 대소 관계에 따른 최적 소비자 균형의 판별 성격으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 예산선: 기울기 -1.5 -->\n  <line x1=\"50\" y1=\"80\" x2=\"170\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <!-- 무차별곡선: 기울기 -1 (대체재) -->\n  <line x1=\"50\" y1=\"120\" x2=\"170\" y2=\"200\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"100\" x2=\"150\" y2=\"200\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  \n  <circle cx=\"170\" cy=\"200\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"175\" y=\"195\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">코너해 (X재만 전량소비)</text>\n</svg>\n```\n",
+      "options": [
+        "$\\dfrac{P_x}{P_y} > \\dfrac{a}{b}$ 이면 X재 소비량이 $0$ 인 Y재 축 코너해를 선택하며, $\\dfrac{P_x}{P_y} < \\dfrac{a}{b}$ 이면 Y재 소비량이 $0$ 인 X재 축 코너해를 선택하고, 두 비율이 같으면 예산선 위의 모든 점이 해가 된다.",
+        "$\\dfrac{P_x}{P_y} > \\dfrac{a}{b}$ 이면 X재만 전량 소비하는 코너해를 갖고, $\\dfrac{P_x}{P_y} < \\dfrac{a}{b}$ 이면 Y재만 전량 소비한다.",
+        "대체재 관계에서는 항상 내부해 $X^* = Y^* = I/(P_x + P_y)$ 에서 유일한 소비자 균형이 유지된다.",
+        "가격비율과 한계대체율이 일치하면 소비가 불가능해지는 상태에 빠져 균형이 소멸한다.",
+        "소득이 증가함에 따라 무차별곡선이 L자 형태로 휘어져 가격비와 상관없이 두 재화를 항상 동일한 수량만큼 소비한다."
+      ],
+      "answer": "1",
+      "explanation": "1) 한계대체율 $MRS_{xy} = \\dfrac{MU_x}{MU_y} = \\dfrac{a}{b}$ 로서 임의의 점 상에서 항상 일정한 상수입니다.\\n2) 가격 비율 $P_x/P_y$ 와의 비교:\\n   - 가격비가 더 클 때 ($\\dfrac{P_x}{P_y} > \\dfrac{a}{b}$): 시장에서 X재가 상대적으로 비싸므로 가성비가 높은 Y재만 구매하는 코너해 ($X^* = 0, Y^* = I/P_y$)가 최적입니다.\\n   - 가격비가 더 작을 때 ($\\dfrac{P_x}{P_y} < \\dfrac{a}{b}$): 시장에서 X재가 상대적으로 싸므로 X재만 구매하는 코너해 ($X^* = I/P_x, Y^* = 0$)가 최적입니다.\\n   - 일치할 때 ($\\dfrac{P_x}{P_y} = \\dfrac{a}{b}$): 무차별곡선과 예산선의 기울기가 완전히 일치하여 겹치므로, 예산선 위의 모든 소비 조합이 동일한 극대 효용을 주는 해가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-038",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "소비자의 효용함수가 준선형 형태인 $U(X, Y) = \\ln X + Y$ 이고, 예산선은 $P_x X + P_y Y = I$ 이다. 소득 $I$ 가 충분히 커서 두 재화 모두 $0$보다 많이 소비하는 내부해(Interior solution)를 갖는다고 가정할 때, 소득소비곡선(ICC)의 기하학적 형태적 특성과 X재의 소득탄력성 $\\varepsilon_{xI}$ 의 값으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 준선형: 평행이동 예산선군과 수직 ICC -->\n  <line x1=\"50\" y1=\"120\" x2=\"210\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1.2\" />\n  <line x1=\"50\" y1=\"80\" x2=\"290\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1.2\" />\n  \n  <!-- 수직 ICC -->\n  <line x1=\"150\" y1=\"50\" x2=\"150\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <text x=\"160\" y=\"60\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">ICC (수직선)</text>\n</svg>\n```\n",
+      "options": [
+        "소득소비곡선(ICC)은 X재 축 상의 임의의 점 $X = P_y/P_x$ 에서 출발하여 수직인 직선 형태를 띠며, X재의 소득탄력성 $\\varepsilon_{xI} = 0$ 이다.",
+        "소득소비곡선(ICC)은 원점을 지나는 우상향 직선이 되며, X재의 소득탄력성은 1이다.",
+        "소득소비곡선(ICC)은 Y재 축 상에서 출발하여 수평인 직선 형태를 띠며, X재의 소득탄력성은 1을 초과한다.",
+        "소득 증가 시 X재 소비만 폭발적으로 늘어나 ICC가 X축과 평행하며 X재 소득탄력성이 무한대로 발산한다.",
+        "준선형 효용 하에서는 소득 증가 시 예산선이 회전하여 ICC가 포만점을 중심으로 닫히는 원형 궤적을 그린다."
+      ],
+      "answer": "1",
+      "explanation": "준선형 효용함수 $U = \\ln X + Y$ 에서:\\n1) 한계대체율: $MRS_{xy} = \\dfrac{MU_x}{MU_y} = \\dfrac{1/X}{1} = \\dfrac{1}{X}$\\n2) 소비자 균형 조건: $MRS_{xy} = \\dfrac{P_x}{P_y} \\implies \\dfrac{1}{X} = \\dfrac{P_x}{P_y} \\implies X^* = \\dfrac{P_y}{P_x}$\\n3) 성격:\\n   X재의 최적 소비량 $X^*$ 는 소득 $I$ 와 완전히 독립적입니다. 즉 소득이 늘어나면 추가 소득은 전부 Y재 소비에만 쓰이고, X재 소비량은 $P_y/P_x$ 로 완전히 고정되어 변하지 않습니다.\\n   따라서 소득소비곡선(ICC)은 가로축의 $X = P_y/P_x$ 점을 기준으로 수직으로 뻗은 수직선의 형태를 가지게 되며, 소득 변화율에 대한 X재 수요 변화율의 비인 소득탄력성은 정확히 $0$이 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-039",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "정부가 특정 수입재화 X에 관세(Tariff)를 부과하여 가격이 상승하였다. 이로 인해 소비자가 당면한 예산선이 회전 이동하였고 효용 수준은 $U_0$ 에서 $U_1$ 으로 감소하였다. 이 가격 변동에 따른 소비자 후생 변화를 나타내는 지표인 보상변화(Compensating Variation, CV)와 대등변화(Equivalent Variation, EV)의 기하학적 정의와 정상재 하의 크기 관계로 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 원래 예산선 & 관세 부과 예산선 -->\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"200\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"60\" x2=\"180\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <!-- 보상수요 힉스 후생변화 쐐기 시각화 -->\n  <path d=\"M 90 90 Q 130 110 200 130\" fill=\"none\" stroke=\"#2563eb\" stroke-dasharray=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "보상변화(CV)는 가격 상승 후 원래 효용 $U_0$ 를 유지시켜 주기 위해 예산선에 추가해야 하는 소득액이고, 대등변화(EV)는 원래 가격 하에서 가격 상승 후의 효용 $U_1$ 로 떨어뜨리는 데 필요한 소득 차감액이며, 정상재일 경우 $CV > EV$ 의 관계를 보인다.",
+        "보상변화는 항상 대등변화보다 작으며 ($CV < EV$), 소득 변화의 방향에 상관없이 무조건 음수(-) 값을 나타낸다.",
+        "보상변화와 대등변화는 예산선의 평행이동 폭만을 합산하므로 항상 $CV = EV = \\Delta CS$ 의 등식이 상시 성립한다.",
+        "대등변화는 가격 상승 후 소비자에게 지불해야 하는 벌금의 액수이며 정상재일 때 소득 효과로 인해 0이 된다.",
+        "관세 부과 시에는 예산선이 불변하여 두 지표 모두 $0$으로 고정된다."
+      ],
+      "answer": "1",
+      "explanation": "1) 보상변화(CV): 가격 변동 '후'의 가격 체계 하에서 원래 효용 $U_0$ 를 달성하기 위해 보상해 주어야 하는 소득의 변화량입니다. (가격 상승 시 양의 소득 보상액 필요)\\n2) 대등변화(EV): 가격 변동 '전'의 가격 체계 하에서 변동 후의 효용 $U_1$ 만큼으로 만족도를 떨어뜨리는(대등하게 만드는) 소득 차감액입니다.\\n3) 크기 관계 (정상재 가격 상승 시): 가격 상승 시 실질 소득이 하락하므로 정상재인 X재의 소득 효과가 작용합니다. 변동 후의 가쁜 예산선 하에서 보상액을 주는 것이 변동 전의 유리한 가격선 하에서 소득을 뺏는 것보다 소득 보정 효율이 낮아 더 큰 명목 보상액이 요구됩니다. 즉 $CV > \\Delta CS(소비자잉여변화량) > EV$ 가 성립합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-040",
+      "difficulty": 4,
+      "question_type": "계산/이론형",
+      "question": "소비자가 $N$ 개의 재화들을 소비하며, 예산 초평면(Budget Hyperplane) 제약식 $\\sum_{i=1}^N P_i X_i = I$ 하에서 효용함수 $U(X_1, X_2, \\dots, X_N)$ 의 극대화를 추구하고 있다. 라그랑지 승수법을 적용하여 도출되는 소비자 최적화 조건인 '한계효용 균등의 법칙(Law of Equal Marginal Utility per Dollar)'에 대한 수학적 해석으로 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 3차원 초평면을 2차원으로 모식화 -->\n  <polygon points=\"50,150 180,50 300,180\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"2\" opacity=\"0.6\" />\n  <text x=\"160\" y=\"110\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e3a8a\" font-weight=\"bold\">예산 초평면 P·X = I</text>\n</svg>\n```\n",
+      "options": [
+        "임의의 두 재화 $i$ 와 $j$ 에 대하여 $\\dfrac{MU_i}{P_i} = \\dfrac{MU_j}{P_j} = \\lambda$ 가 성립해야 하며, $\\lambda$ 는 소득 1원이 추가로 주어질 때 얻을 수 있는 추가적인 효용(소득의 한계효용)을 의미한다.",
+        "모든 재화의 한계효용의 합이 가격의 합과 완벽히 일치하여야 함($\\sum MU_i = \\sum P_i$)을 의미한다.",
+        "가장 가격이 비싼 재화의 한계효용이 소득의 크기인 $\\lambda$ 와 동일해질 때까지 소비를 제한하는 법칙이다.",
+        "소비자 균형 조건 하에서 모든 재화의 최적 수요량이 가격 비율과 관계없이 동일해야 함($X_i = X_j$)을 보장한다.",
+        "라그랑지 승수 $\\lambda$ 는 항상 음수(-)의 값을 취하며 시장 가격 변동 시 예산선의 곡률을 평평하게 유도하는 지표이다."
+      ],
+      "answer": "1",
+      "explanation": "1) 제약 최적화 식:\\n   $L = U(X_1, \\dots, X_N) - \\lambda \\left(\\sum_{i=1}^N P_i X_i - I\\right)$\\n2) 1계 조건 (FOC):\\n   $$\\dfrac{\\partial L}{\\partial X_i} = \\dfrac{\\partial U}{\\partial X_i} - \\lambda P_i = 0 \\implies MU_i = \\lambda P_i \\implies \\dfrac{MU_i}{P_i} = \\lambda \\quad (\\text{모든 } i=1,\\dots,N)$$\\n3) 경제학적 해석:\\n   각 재화에 1원짜리 마지막 동전을 썼을 때 얻는 추가 효용인 $MU_i/P_i$ 가 모든 재화에서 동일한 수준인 $\\lambda$ 로 유지되어야 한정된 예산으로 전체 효용이 극대화됩니다. 이때 라그랑지 승수 $\\lambda = \\dfrac{\\partial U^*}{\\partial I}$ 는 소득 한 단위 증가에 따른 효용 증가폭(소득의 한계효용)을 뜻합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-041",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "소비자의 효용극대화 문제(UMP)에서 도출된 간접효용함수(Indirect Utility Function)를 $V(P_x, P_y, I)$ 라 하자. 소비자의 명목소득이 $I$ 이고 재화 가격이 $P_x, P_y$ 일 때, 예산선 제약 조건 하에서 유도되는 최적 마샬 수요함수(Marshallian Demand Function) $X^*(P_x, P_y, I)$ 를 간접효용함수의 편미분비로 즉각 도출할 수 있는 로이의 항등식(Roy's Identity) 수식으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 예산선: 2X + Y = 80 -->\n  <line x1=\"50\" y1=\"80\" x2=\"210\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 무차별곡선: U = XY = 800 -->\n  <path d=\"M 80 105 Q 130 140 230 180\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  \n  <circle cx=\"130\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"140\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">접점 E(20, 40)</text>\n</svg>\n```\n",
+      "options": [
+        "$X^* = -\\dfrac{\\partial V / \\partial P_x}{\\partial V / \\partial I}$",
+        "$X^* = \\dfrac{\\partial V / \\partial I}{\\partial V / \\partial P_x}$",
+        "$X^* = -\\dfrac{\\partial V / \\partial I}{\\partial V / \\partial P_y}$",
+        "$X^* = \\dfrac{\\partial V / \\partial P_x}{\\partial V / \\partial P_y}$",
+        "$X^* = \\dfrac{\\partial^2 V}{\\partial P_x \\partial I}$"
+      ],
+      "answer": "1",
+      "explanation": "간접효용함수는 효용극대화의 결과물인 $V(P_x, P_y, I) = U(X^*(P_x, P_y, I), Y^*(P_x, P_y, I))$ 입니다.\\n1) UMP의 라그랑지 함수 $L = U(X, Y) - \\lambda(P_x X + P_y Y - I)$ 에서 봉투 정리(Envelope Theorem)를 적용하면:\\n   - $\\dfrac{\\partial V}{\\partial P_x} = \\dfrac{\\partial L}{\\partial P_x} = -\\lambda X^*$\\n   - $\\dfrac{\\partial V}{\\partial I} = \\dfrac{\\partial L}{\\partial I} = \\lambda$\\n2) 두 미분식의 비율 결합:\\n   $$\\dfrac{\\partial V / \\partial P_x}{\\partial V / \\partial I} = \\dfrac{-\\lambda X^*}{\\lambda} = -X^* \\implies X^* = -\\dfrac{\\partial V / \\partial P_x}{\\partial V / \\partial I}$$\\n이 관계식을 '로이의 항등식'이라 합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-042",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "소비자의 지출극소화 문제(EMP)로부터 유도된 지출함수(Expenditure Function)를 $E(P_x, P_y, U)$ 라 하자. 소비자가 목표 효용 $U$ 를 달성하기 위해 직면하는 예산 제약비용을 최소화할 때 도출되는 힉스 보상수요함수(Hicksian Compensated Demand) $X^h(P_x, P_y, U)$ 를 지출함수로부터 직접 도출하는 셰퍼드의 정리(Shephard's Lemma) 관계식으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 예산선: 2X + Y = 80 -->\n  <line x1=\"50\" y1=\"80\" x2=\"210\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  \n  <!-- 무차별곡선: U = XY = 800 -->\n  <path d=\"M 80 105 Q 130 140 230 180\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  \n  <circle cx=\"130\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n  <text x=\"140\" y=\"135\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">접점 E(20, 40)</text>\n</svg>\n```\n",
+      "options": [
+        "$X^h = \\dfrac{\\partial E(P_x, P_y, U)}{\\partial P_x}$",
+        "$X^h = -\\dfrac{\\partial E(P_x, P_y, U)}{\\partial P_x}$",
+        "$X^h = \\dfrac{\\partial E(P_x, P_y, U)}{\\partial U}$",
+        "$X^h = -\\dfrac{\\partial E(P_x, P_y, U)}{\\partial U}$",
+        "$X^h = \\dfrac{\\partial^2 E}{\\partial P_x \\partial U}$"
+      ],
+      "answer": "1",
+      "explanation": "지출함수 $E(P_x, P_y, U)$ 는 지출 극소화 문제의 가치함수(Value Function)로서 최적화된 결과물인 $P_x X^h + P_y Y^h$ 입니다.\\n1) 지출극소화 라그랑지 함수 $L = P_x X + P_y Y - \\mu(U(X, Y) - U)$ 에 봉투 정리(Envelope Theorem)를 적용하면:\\n   대수 편미분 시 목적함수인 지출의 상대가격 가중치가 그대로 도출됩니다.\\n   $$\\dfrac{\\partial E(P_x, P_y, U)}{\\partial P_x} = \\dfrac{\\partial L}{\\partial P_x} = X^h(P_x, P_y, U)$$\\n이 식을 '셰퍼드의 정리'라고 합니다. 동일한 방식으로 $Y^h = \\dfrac{\\partial E}{\\partial P_y}$ 가 도출됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-043",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "소비자의 예산제약 하의 마샬 수요곡선과 힉스 보상수요곡선 간의 미분 관계를 분해하는 슬루츠키 방정식(Slutsky Equation)은 다음과 같이 정의된다: $\\dfrac{\\partial X}{\\partial P_x} = \\dfrac{\\partial X^h}{\\partial P_x} - X \\dfrac{\\partial X}{\\partial I}$. 이 수식의 개별 항들의 기하적 의미와 가격 상승 시의 소득/대체효과 분해에 관한 설명 중 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 슬루츠키 vs 힉스 분해 보상선들 -->\n  <line x1=\"50\" y1=\"60\" x2=\"280\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n  <line x1=\"50\" y1=\"60\" x2=\"180\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <!-- 힉스 보상 예산선 (평행선) -->\n  <line x1=\"50\" y1=\"90\" x2=\"173\" y2=\"185\" stroke=\"#2563eb\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n</svg>\n```\n",
+      "options": [
+        "좌변은 총효과(마샬수요 기울기), 우변 첫 번째 항 $\\dfrac{\\partial X^h}{\\partial P_x}$ 는 실질효용 고정 시의 대체효과(항상 음수), 두 번째 항 $-X \\dfrac{\\partial X}{\\partial I}$ 는 실질소득 감소에 따른 소득효과를 나타내며, 정상재일 경우 소득효과가 총효과의 음(-)의 방향을 강화한다.",
+        "우변의 대체효과는 부호가 항상 양수(+)가 되어 가격이 상승할 때 수요량이 증가하는 모순을 발생시킨다.",
+        "소득효과 항의 $X$ 는 현재 소득 수준을 의미하며 가격 상승 시 대체효과와 언제나 완전 대칭 상쇄된다.",
+        "열등재의 경우 대체효과의 절댓값이 소득효과보다 항상 작아 가격 상승 시 총수요가 증가하며, 이를 항상 기펜재라 칭한다.",
+        "슬루츠키 방정식은 오직 Y재가 비재화이고 동차 선호가 붕괴될 때만 수학적 유효성이 인정된다."
+      ],
+      "answer": "1",
+      "explanation": "슬루츠키 방정식:\\n$$\\dfrac{\\partial X}{\\partial P_x} = \\dfrac{\\partial X^h}{\\partial P_x} - X \\dfrac{\\partial X}{\\partial I}$$\\n1) 대체효과 항 ($\\dfrac{\\partial X^h}{\\partial P_x}$): 준오목 선호 하에서 지출함수의 오목성으로 인해 자기대체효과는 항상 $0$ 이하(음수) 값을 갖습니다. 즉 가격 상승 시 보상수요량은 무조건 줄어듭니다.\\n2) 소득효과 항 ($-X \\dfrac{\\partial X}{\\partial I}$): 가격 상승 시 실질 구매력(소득)이 기존 소비량 $X$ 에 비례하여 감소함을 반영합니다.\\n   - 정상재의 경우: $\\dfrac{\\partial X}{\\partial I} > 0$ 이므로 소득효과 항은 음(-)의 값이 되어 대체효과의 수요 감소 방향을 부채질하여 마샬수요가 더 탄력적이 됩니다.\\n   - 열등재의 경우: $\\dfrac{\\partial X}{\\partial I} < 0$ 이므로 소득효과 항이 양(+)의 값을 띠어 대체효과를 상쇄하려 듭니다.\\n정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-044",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "위험회피성향을 가진 금융 소비자가 포트폴리오를 구성하려 한다. 무위험자산(채권)의 수익률이 $R_f$ 이고, 위험자산(주식 포트폴리오)의 기대수익률과 표준편차가 각각 $E(R_m)$, $\\sigma_m$ 이다. 소비자가 직면하는 평균-분산 평면(가로축 표준편차 $\\sigma$, 세로축 기대수익 $E(R)$) 상의 예산제약선인 자본시장선(CML)의 기울기가 갖는 재무경제학적 의미와 소비자 최적화 접점에서의 균형 조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 자본시장선 (CML) 예산선 -->\n  <line x1=\"50\" y1=\"150\" x2=\"290\" y2=\"50\" stroke=\"#059669\" stroke-width=\"2.5\" />\n  \n  <!-- 포트폴리오 무차별곡선과 접점 -->\n  <path d=\"M 120 160 Q 180 115 300 90\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  <circle cx=\"180\" cy=\"115\" r=\"4.5\" fill=\"#ef4444\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">위험 (σ)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">기대수익 E(R)</text>\n  <text x=\"190\" y=\"110\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">최적 포트폴리오</text>\n</svg>\n```\n",
+      "options": [
+        "CML의 기울기는 $\\dfrac{E(R_m) - R_f}{\\sigma_m}$ 로서 '위험의 시장 가격(Market Price of Risk)'을 의미하며, 최적 포트폴리오 접점에서는 소비자의 평균-분산 주관적 한계대체율 $MRS_{\\sigma, R}$ 이 위험의 시장 가격과 일치하여야 한다.",
+        "CML의 기울기는 무위험 이자율 $R_f$ 에만 비례하며 위험회피도가 증가함에 따라 기울기 절댓값이 $0$으로 수렴한다.",
+        "자본시장선은 위험자산 비율이 100%를 초과하는 지점부터 예산선이 붕괴되어 수평선 형태로 전환된다.",
+        "소비자의 위험회피계수가 양(+)의 무한대로 가면 최적 포트폴리오는 시장 포트폴리오 $M$ 에 완전히 올인하는 코너해로 수렴한다.",
+        "CML은 항상 원점을 통과하며 위험 프리미엄이 음(-)의 값을 가질 때만 볼록한 형상을 만족한다."
+      ],
+      "answer": "1",
+      "explanation": "1) 예산선 도출 (자본시장선, CML):\\n   소비자가 위험자산에 비중 $a$, 무위험자산에 비중 $1-a$ 를 투자할 때:\\n   - 포트폴리오 기대수익: $E(R) = a E(R_m) + (1-a) R_f = R_f + a(E(R_m) - R_f)$\\n   - 포트폴리오 위험(표준편차): $\\sigma = a \\sigma_m \\implies a = \\dfrac{\\sigma}{\\sigma_m}$\\n   - 결합 예산선: $E(R) = R_f + \\left[\\dfrac{E(R_m) - R_f}{\\sigma_m}\\right] \\sigma$\\n2) 기울기 의미: 위험 한 단위($\\sigma$) 증가를 수락할 때 시장이 보상해 주는 기대수익 상승폭인 위험의 시장 가격(Sharpe Ratio)을 대변합니다.\\n3) 최적화 조건: 평균-분산 평면에서 소비자의 주관적 무차별곡선 접선 기울기($MRS_{\\sigma, R}$)가 위험의 시장 가격(CML 기울기)과 접하는 내부해에서 최적 포트폴리오가 결정됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-045",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "소비자의 2기간 시점간 선택 모형에서, 1기 소득 $I_0$ 와 2기 소득 $I_1$, 시장 이자율 $r$ 이 주어져 있다. 이 소비자가 금융 시장의 불완전성으로 인해 현재 소득을 초과하여 돈을 빌릴 수 없는 차입 제약(Borrowing Constraint) $C_0 \\le I_0$ 에 직면하고 있다. 쿠엔-타커(Kuhn-Tucker) 최적화 조건을 적용할 때, 이 제약이 소비자의 균형 소비 및 효용에 미치는 한계 영향과 조건식으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 비대칭 이자율 시점간 예산선 (저축 r, 차입 rb > r) -->\n  <path d=\"M 50 100 L 180 140 L 300 200\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <circle cx=\"180\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">현재 소비 (C0)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">미래 소비 (C1)</text>\n  <text x=\"185\" y=\"135\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">초기 부존점 (I0, I1)</text>\n  <text x=\"90\" y=\"110\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 -(1+r)</text>\n  <text x=\"240\" y=\"180\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#1e293b\">기울기 -(1+rb)</text>\n</svg>\n```\n",
+      "options": [
+        "차입 제약의 라그랑지 승수를 $\\mu \\ge 0$ 라 할 때, 제약이 타이트하게 결합하면 $\\mu > 0$ 이고 $MRS_{01} = (1+r) + \\mu > 1+r$ 이 성립하여 현재 소비 $C_0^* = I_0$ 인 구석해(부존점 균형)가 발생하며 효용 손실이 유도된다.",
+        "차입 제약이 작동하더라도 $\\mu = 0$ 이므로 소비자는 언제나 내부해 $C_0^* = I_0 + I_1/(1+r)$ 에서 최적 소비를 지속한다.",
+        "차입 제약 하에서는 1기 소비의 기회비용이 감소하여 $MRS_{01}$ 의 균형 수치가 가격 비율인 $1+r$ 보다 무조건 작아진다.",
+        "차입 제약이 발생하면 2기 소비 $C_1$ 은 항상 $0$ 이 되며 소비자는 모든 소득을 미래 가치로 강제 이월한다.",
+        "Kuhn-Tucker 조건에 따라 차입 제약 승수는 항상 소득의 3계 도함수 비율에 수렴해 $0$이 된다."
+      ],
+      "answer": "1",
+      "explanation": "1) 제약 최적화 라그랑지안:\\n   $L = U(C_0, C_1) - \\lambda \\left[ C_0 + \\dfrac{C_1}{1+r} - I_0 - \\dfrac{I_1}{1+r} \\right] - \\mu(C_0 - I_0)$\\n2) 1계 조건 (FOC):\\n   - $\\dfrac{\\partial L}{\\partial C_0} = MU_0 - \\lambda - \\mu = 0 \\implies MU_0 = \\lambda + \\mu$\\n   - $\\dfrac{\\partial L}{\\partial C_1} = MU_1 - \\dfrac{\\lambda}{1+r} = 0 \\implies MU_1(1+r) = \\lambda$\\n3) 한계대체율 관계:\\n   $$MRS_{01} = \\dfrac{MU_0}{MU_1} = \\dfrac{\\lambda + \\mu}{\\dfrac{\\lambda}{1+r}} = (1+r) + \\dfrac{\\mu(1+r)}{\\lambda}$$\\n   - 제약이 비활성($C_0^* < I_0$): $\\mu = 0$ 이며 일반 균형 $MRS_{01} = 1+r$ 달성.\\n   - 제약이 활성(현재 소비를 더 하고 싶으나 대출 불가하여 $C_0^* = I_0$ 에 강제 고정): $\\mu > 0$ 이므로 $MRS_{01} > 1+r$ 이 성립합니다. 즉 현재 소비의 주관적 한계가치($MRS$)가 시장 이자비용($1+r$)보다 높지만 제약 때문에 소비를 못 늘리는 효용 비효율이 발생합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-046",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "소비자의 선호체계가 동차 선호(Homothetic Preference)를 나타낸다고 하자. 즉, 소비조합에 상관없이 임의의 $t > 0$ 에 대해 $U(tX, tY) = f(U(X, Y))$ 가 성립한다. 이 소비자의 소득 $I$ 가 증가함에 따라 예산선이 바깥쪽으로 평행 이동할 때, 소득소비곡선(ICC)이 원점을 통과하는 직선(Straight line from the origin)이 됨을 입증하기 위해 만족해야 하는 한계대체율 $MRS_{xy}$ 의 수학적 성질로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 동차 선호의 직선 ICC -->\n  <line x1=\"50\" y1=\"120\" x2=\"210\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1.2\" />\n  <line x1=\"50\" y1=\"80\" x2=\"290\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1.2\" />\n  \n  <!-- 원점 지나는 직선 ICC -->\n  <line x1=\"50\" y1=\"200\" x2=\"250\" y2=\"80\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <text x=\"220\" y=\"75\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">ICC (원점 지나는 직선)</text>\n</svg>\n```\n",
+      "options": [
+        "한계대체율 $MRS_{xy}(X, Y)$ 가 두 재화 소비량의 비율 $Y/X$ 의 함수여야 한다. 즉, $MRS_{xy}(tX, tY) = MRS_{xy}(X, Y)$ 의 $0$차 동차성을 지녀야 한다.",
+        "한계대체율이 소득 $I$ 와 완벽히 결합된 1차 동차함수여야 하므로, $MRS(tX, tY) = t \\cdot MRS(X, Y)$ 가 만족되어야 한다.",
+        "한계대체율이 각 재화의 절대 소비량의 합 $X+Y$ 에 선형적으로 비례하여 가격 변동을 영구 무력화해야 한다.",
+        "동차 선호 하에서는 무차별곡선이 직선이 되므로 접선 기울기가 정의되지 않는 연속성 붕괴 상태를 유지해야 한다.",
+        "예산선과 무차별곡선이 항상 한 축 상에서만 만나도록 하는 준선형 구조 조건이어야 한다."
+      ],
+      "answer": "1",
+      "explanation": "동차 선호(Homothetic preference)의 수학적 정의는 두 소비조합의 선호 순위가 두 조합에 양수 $t$ 배를 취하더라도 보존된다는 성질입니다. 즉 $U(X, Y) \\ge U(X', Y') \\iff U(tX, tY) \\ge U(tX', tY')$ 입니다.\\n1) 이 조건은 무차별곡선의 접선 기울기인 $MRS_{xy}$ 가 원점으로부터 뻗어 나가는 방사선 상(즉, $Y/X = k$ 가 일정한 선)에서는 모든 무차별곡선에서 접선 기울기($MRS$)가 동일함을 유도합니다.\\n   $$MRS_{xy}(tX, tY) = MRS_{xy}(X, Y)$$\\n2) 결과:\\n   소득 $I$ 가 변하더라도 가격 비율 $P_x/P_y$ 가 일정하면, 최적 균형점 조건 $MRS_{xy}(X, Y) = P_x/P_y$ 에 의해 최적 소비 비율 $Y^*/X^*$ 역시 상수로 일정하게 고정됩니다. 따라서 소득 소비 궤적인 ICC는 원점을 시점으로 하는 직선 $Y = kX$ 가 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-047",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "비선형 예산제약(Non-linear Budget Constraint)의 일종인 정부의 근로소득 누진 세율 체계 하에서 노동-여가 선택을 행하는 소비자 균형을 분석하려 한다. 여가 구간별로 상이한 세율(예: 특정 소득 경계점 초과 시 높은 세율 적용)이 부과될 때, 무차별곡선과의 접점에서 발생할 수 있는 특이 현상인 '다중 국소 최적(Multiple Local Optima)'과 이에 따른 행동 변화에 대한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 노동-여가 누진세 예산선 (기울기 변동) -->\n  <path d=\"M 50 180 L 180 130 L 280 60\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <circle cx=\"180\" cy=\"130\" r=\"4\" fill=\"#ef4444\" />\n  \n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">여가 (L)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">소득 (I)</text>\n  <text x=\"185\" y=\"140\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">누진세 굴절점</text>\n</svg>\n```\n",
+      "options": [
+        "누진세로 인해 예산선이 바깥쪽으로 오목(볼록 집합의 위배)하게 꺾이며, 이로 인해 서로 다른 두 여가 수준에서 접하는 다중 최적점이 생겨나 미세한 임금 인상에도 최적 노동 공급이 불연속적으로 점프하는 점진적 단절이 발생할 수 있다.",
+        "누진 세율 하에서는 예산선이 볼록 집합을 만족하므로 언제나 유일한 글로벌 내부해만 보장되어 불연속적 점프가 차단된다.",
+        "세율이 가팔라지면 예산선이 원점 직선 형태가 되어 소비자는 노동 공급을 항상 24시간 풀 가동한다.",
+        "다중 국소 최적이 존재하면 소비자는 한계대체율이 가격비보다 항상 작은 원점 상태로 강제 귀착된다.",
+        "누진세 적용 시 대체효과가 소멸하고 오직 소득효과만 남아 노동공급이 일정하게 고정된다."
+      ],
+      "answer": "1",
+      "explanation": "1) 예산선 형상:\\n   근로소득세가 누진 구조(소득이 많아질수록 높은 세율 부과)인 경우, 노동을 늘려 소득이 늘어남에 따라 예산선의 기울기(실질임금)가 점차 완만해집니다. 즉, 가로축 여가 $L$, 세로축 소득 $I$ 평면에서 볼 때 예산 제약 영역은 원점을 향해 '오목(Concave)'한 예산 집합을 형성합니다. (예산 집합이 비볼록(Non-convex) 집합이 됨)\\n2) 다중 균형과 불연속성:\\n   예산 집합이 비볼록해지면, 소비자의 둥근 무차별곡선이 예산선의 여러 군데에서 접하는 다중 국소 최적(Local Optima)이 발생할 수 있습니다. 이때 임금률 $w$ 나 세율이 미세하게 변화하면, 원래 한쪽 접점에서 극대화를 누리던 소비자가 전혀 다른 노동 수준의 다른 접점으로 최적 소비 조합을 순식간에 불연속적으로 전환(점프)하게 됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-048",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "소비자의 효용극대화 문제(UMP)에서 1계 조건 $MRS = P_x/P_y$ 가 국소 극대치(Local Maximum)를 보장하기 위해 요구되는 2계 조건(Second-Order Condition)인 경계 헤시안(Bordered Hessian) 행렬식 $H$ 의 부호 조건과, 이것이 무차별곡선의 기하학적 곡률에 미치는 수학적 제약으로 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 볼록/준오목성 확인용 무차별곡선 지도 -->\n  <path d=\"M 80 70 Q 150 150 320 170\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <path d=\"M 100 50 Q 180 120 340 140\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"1.5\" />\n</svg>\n```\n",
+      "options": [
+        "경계 헤시안 행렬식 $|H| > 0$ 이어야 극대화가 충족되며, 이는 무차별곡선이 원점을 향해 엄밀하게 볼록(Strictly Convex to the origin)하여 상부선호집합이 준오목성(Strict Quasi-concavity)을 만족함을 보증한다.",
+        "경계 헤시안 행렬식 $|H| < 0$ 이어야 극대화가 보장되며, 이는 무차별곡선이 원점에 대해 오목하여 한계대체율이 체증함을 의미한다.",
+        "경계 헤시안 행렬식의 값이 정확히 0이어야만 예산선과 무차별곡선이 만나지 않고 평행해지는 균형이 유지된다.",
+        "2계 조건은 오직 레온티에프 보완재 효용함수에서만 양수(+)의 부호를 지녀 균형을 성립시킨다.",
+        "경계 헤시안 부호는 소득 $I$ 의 크기에만 의존하며 가격 비율과는 무관하게 항상 음수가 된다."
+      ],
+      "answer": "1",
+      "explanation": "제약 최적화 문제 Max $U(X, Y)$ s.t. $P_x X + P_y Y = I$ 에서:\\n1) 라그랑지안 극대 2계 조건을 판별하기 위해 경계 헤시안 행렬(Bordered Hessian Matrix)을 구축합니다.\\n   $$\\bar{H} = \\begin{pmatrix} 0 & -P_x & -P_y \\\\ -P_x & U_{xx} & U_{xy} \\\\ -P_y & U_{yx} & U_{yy} \\end{pmatrix}$$\\n2) 극대화 조건:\\n   변수가 2개인 제약 최적화에서 국소 극대점이 만족되려면 이 행렬의 행렬식 값인 디터미넌트 $|\\bar{H}|$ 가 양수이어야 합니다 ($|\\bar{H}| > 0$).\\n   $$|\\bar{H}| = 2 P_x P_y U_{xy} - P_y^2 U_{xx} - P_x^2 U_{yy} > 0$$\\n3) 기하적 성격:\\n   이 수학적 조건은 무차별곡선의 2계 도함수 $d^2 Y / dX^2 > 0$ 임을 완벽하게 증명하며, 이는 무차별곡선이 아래로 볼록(Convex to the origin)하여 소비자가 한쪽 재화 극단 선택보다 분산된 균형 소비를 선호하는 준오목성(Quasi-concavity)을 지녀야만 내부극대해가 유일하게 안정적으로 존재함을 입증합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-049",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "행동경제학자 리처드 탈러(Richard Thaler)가 제시한 정신 회계(Mental Accounting) 이론에 기초할 때, 소비자들이 자산을 여러 용도별 계정으로 나누어 관리함으로써 발생하는 예산선 분석의 전통적 가정인 '화폐의 대체가능성(Fungibility of Money)' 위배 현상을 예산선 기하 구조로 설명한 것으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 정신 회계: 각 영역 분할 장벽 시각화 -->\n  <rect x=\"50\" y=\"50\" width=\"130\" height=\"130\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <rect x=\"180\" y=\"50\" width=\"130\" height=\"130\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <text x=\"80\" y=\"120\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">식료품 계정</text>\n  <text x=\"210\" y=\"120\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e3a8a\" font-weight=\"bold\">의료비 계정</text>\n</svg>\n```\n",
+      "options": [
+        "소비자는 전체 통합 소득 예산 제약선을 하나의 자원으로 합산 사용하지 않고, 식료품·의료비 등 가상 계정별로 독립된 분할 예산선을 설정하므로 특정 보조금이 특정 계정 지출을 유난히 강하게 자극하는 비합리적 효과가 도출된다.",
+        "정신 회계 하에서는 소비자의 실제 소득이 비약적으로 증가하여 전체 예산선이 완벽하게 우상방 무한 팽창한다.",
+        "돈의 대체 가능성이 완벽히 작동하므로 현금 보조와 귀속 보조(바우처)의 소비 불일치가 완전히 소멸한다.",
+        "정신 회계 제약선은 항상 원점에 오목하여 두 재화 중 비재화 소비 비율을 50%로 강제 통일한다.",
+        "소비자의 심리적 장벽에 의해 예산선의 X절편이 소득의 제곱에 비례하여 회전 수축한다."
+      ],
+      "answer": "1",
+      "explanation": "전통 경제학의 예산선 분석은 소득 $I$ 를 단일 자원으로 취급하여 돈의 출처와 형태에 상관없이 동일한 예산 제약선 $P_x X + P_y Y = I$ 상에서 대체 가능(Fungible)하게 소비된다고 가정합니다.\\n하지만 Thaler의 정신 회계(Mental Accounting)에 따르면 사람들은 머릿속에 '식비', '교육비', '오락비' 등 독립된 방(정신적 계정)들을 파놓고 소득을 분할 배치합니다. 이로 인해 동일한 $10$만원 보조금이라도 '현금 보조'로 줄 때와 '교육 전용 상품권'으로 줄 때, 서로 다른 심리적 분할 예산선이 작동하여 상품권 보조 시의 교육비 지출 증가폭이 현금 대비 이례적으로 솟구치는 대체성 가정 위배 현상(시장 실패 및 행동 편향)이 발생합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item02-050",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "사회 전체의 개별 소비자들의 예산 제약 하의 개별 마샬 수요함수들을 수평으로 합산하여 고유하고 안정적인 시장 전체의 사회적 수요곡선을 도출하고자 한다. 사회의 총소득 배분 상태(소득 분배 상태)가 변하더라도 오직 사회 총소득의 크기만으로 사회적 균형 수요가 일관되게 규정되기 위해 요구되는 개별 간접효용함수의 수학적 제한 조건인 '고먼 극대화 조건(Gorman Polar Form)'에 관한 설명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 동차 선호의 직선 ICC -->\n  <line x1=\"50\" y1=\"120\" x2=\"210\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1.2\" />\n  <line x1=\"50\" y1=\"80\" x2=\"290\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1.2\" />\n  \n  <!-- 원점 지나는 직선 ICC -->\n  <line x1=\"50\" y1=\"200\" x2=\"250\" y2=\"80\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <text x=\"220\" y=\"75\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">ICC (원점 지나는 직선)</text>\n</svg>\n```\n",
+      "options": [
+        "모든 소비자의 간접효용함수가 $V_i(P, I_i) = a(P) I_i + b_i(P)$ 의 소득에 대한 선형 식 형태를 만족하여야 하며, 이는 기하학적으로 모든 소비자의 소득소비곡선(ICC)이 동일한 가격 하에서 동일한 기울기를 가지는 평행한 직선이어야 함을 의미한다.",
+        "모든 소비자의 효용함수가 상호 교차하여 대체효과가 $0$ 이 되는 레온티에프 보완 형태여야 한다.",
+        "소비자들의 소득탄력성이 각각 완전 무작위로 분산되어 합산 수요곡선이 수직선이 되는 조건이다.",
+        "사회적 균형 수요가 성립하려면 개별 예산선의 기울기 절댓값이 $P_x/P_y = I$ 로 항상 고정되어야 한다.",
+        "소득 분배가 극단적으로 왜곡되어 지니계수가 $1$ 에 수렴할 때만 성립하는 특수 이론 구조이다."
+      ],
+      "answer": "1",
+      "explanation": "사회전체의 수요 합산이 소득 분배 상태에 영향받지 않으려면, 임의의 소득 $1$원이 A에게서 B에게로 이전되더라도 두 사람의 각 재화에 대한 추가 수요 변동의 합이 $0$이어야 합니다. 즉, 모든 소비자의 한계소비성향($\\partial X_i / \\partial I_i$)이 동일해야 합니다.\\n1) 이 조건이 만족되려면 각 소비자의 간접효용함수가 소득 $I_i$ 에 대해 다음과 같이 선형 구조를 만족해야 합니다.\\n   $$V_i(P, I_i) = a(P) I_i + b_i(P)$$\\n   이를 '고먼 극대화 조건(Gorman Polar Form)'이라 합니다.\\n2) 기하학적 특성:\\n   동일한 가격 체계 하에서 모든 소비자들의 소득소비곡선(ICC)들이 완전히 평행한 직선 형태를 취해야 함을 보장합니다. 정답은 1번입니다."
     }
   ]
 }

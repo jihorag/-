@@ -8,84 +8,84 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-03",
-    "count": 25,
-    "mix_profile": "calc12-graph5-theory8"
+    "count": 50,
+    "mix_profile": "calc12-graph15-theory8"
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch06-sec02-item03-001",
-      "difficulty": 1,
+      "difficulty": 5,
       "question_type": "이론형",
-      "question": "쌍방독점(bilateral monopoly)이란?",
+      "question": "수요독점적 기업과 공급독점적 노동조합이 하나의 시장에서 대치하는 '쌍방독점(Bilateral Monopoly)' 노동시장에 대한 설명으로 옳지 않은 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "수요독점 + 공급독점 — 단일 매수자 + 단일 매도자",
-        "단일 매수자, 다수 매도자",
-        "다수 매수자, 단일 매도자",
-        "양측 모두 다수",
-        "정부 양 측 결정"
+        "균형 고용량과 임금 수준이 이론적으로 단일 균형점으로 고정되어 정해지지 않는다",
+        "수요독점자가 원하는 임금 수준은 한계요소비용($MFC_L$)과 한계수입생산($MRP_L$)이 만나는 최적 고용량에서의 공급 가격이다",
+        "공급독점자(노동조합)가 원하는 임금 수준은 노동 수요의 한계수입($MR_d$)과 자신의 기회비용(노동공급선)이 만나는 점에서의 수요 가격이다",
+        "결과적인 임금 수준은 두 주체의 상대적 협상력(Bargaining Power)에 의존한다",
+        "쌍방독점 시장에서는 완전경쟁시장보다 고용량이 언제나 높게 확정된다"
       ],
-      "answer": "1",
-      "explanation": "쌍방독점 = 노동시장에서 단일 수요자(독점기업) + 단일 공급자(노조). 한국 대기업과 산업별 노조 협상이 사실상 쌍방독점."
+      "answer": "5",
+      "explanation": "쌍방독점 시장은 단일 수학적 해가 존재하지 않으며 임금은 양자 협상 영역 내에서 타협된다. 이때 고용량 역시 경쟁적 수준보다 낮게 형성될 우려가 크며 '언제나 높게 확정된다'는 ⑤는 명백히 그릇된 서술이다. ①②③④는 모두 쌍방독점의 기본 모델 요약으로 적절하다."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-002",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "쌍방독점에서 임금은 어떻게 결정되는가?",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "쌍방독점 노동시장. 기업의 노동수요 $w = 120 - L$이고 노동조합의 기회비용(공급곡선) $w = 20 + L$이다. 수요독점 기업이 독점력을 발휘하여 설정하고자 하는 임금 하한 $w_m$과 공급독점 노동조합이 독점력을 발휘하여 설정하고자 하는 임금 상한 $w_u$의 값을 구하면?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "수요독점 임금(하한)과 공급독점 임금(상한) 사이에서 협상력에 의해 결정",
-        "VMP 수준",
-        "공급의 한계비용",
-        "정부 명령",
-        "균형임금"
+        "$w_m = 53.3, w_u = 86.7$",
+        "$w_m = 53.3, w_u = 70.0$",
+        "$w_m = 40.0, w_u = 80.0$",
+        "$w_m = 40.0, w_u = 60.0$",
+        "$w_m = 60.0, w_u = 80.0$"
       ],
       "answer": "1",
-      "explanation": "임금 범위: $w^{수요독점} \\leq w \\leq w^{공급독점}$. 단 한 점으로 결정되지 않음 — 비결정성(indeterminacy). 협상력·외부 옵션·정보가 실제 임금 결정."
+      "explanation": "1) 기업(수요독점): $TFC = (20+L)L = 20L + L^2 \\\\Rightarrow MFC = 20 + 2L$. $20+2L = 120-L \\\\Rightarrow 3L=100 \\\\Rightarrow L_m = 33.3$. 이때 임금 $w_m = 20 + 33.3 = 53.3$.\n2) 노조(공급독점): 수요 $w=120-L \\\\Rightarrow MR = 120-2L$. $120-2L = 20+L \\\\Rightarrow 3L=100 \\\\Rightarrow L_u = 33.3$. 이때 요구 임금 $w_u = 120 - L_u = 120 - 33.3 = 86.7$. 따라서 임금 하한은 53.3, 상한은 86.7이다. 정답 ①."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-003",
-      "difficulty": 3,
-      "question_type": "계산형",
-      "question": "노동공급 $w = 5 + L$, 노동수요 $VMP = 25 - L$. 수요독점 임금($w^M$)과 공급독점 임금($w^U$)은 각각?",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "쌍방독점의 협상 임금을 결정하기 위해 널리 활용되는 존 내쉬(John Nash)의 협상 솔루션(Bargaining Solution)의 4대 공리가 아닌 것은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
       "options": [
-        "$w^M \\approx 11.67$, $w^U \\approx 17.5$",
-        "$w^M = 10$, $w^U = 20$",
-        "$w^M = 15$, $w^U = 25$",
-        "$w^M = 5$, $w^U = 15$",
-        "$w^M = 12$, $w^U = 18$"
+        "파레토 효율성 (Pareto Efficiency)",
+        "대칭성 (Symmetry)",
+        "무관한 대안으로부터의 독립성 (Independence of Irrelevant Alternatives)",
+        "선형 변환에 대한 불변성 (Scale Invariance)",
+        "중위 투표자 선호 반영 (Median Voter Preference)"
       ],
-      "answer": "1",
-      "explanation": "수요독점: $MFC = 5 + 2L$, $VMP = MFC$ → $L = 6.67$, $w^M = 5 + 6.67 = 11.67$. 공급독점(노조): 역수요 $w = 25 - L$, $TR = wL$, $MR = 25 - 2L$, $MR = MC^공급 = 5 + L$ → ... 단순화 → $w^U \\approx 17.5$ 범위."
+      "answer": "5",
+      "explanation": "내쉬 협상 공리는 ① 파레토 효율성, ② 대칭성, ③ 선형 변환 불변성(공동 척도 독립), ④ 무관대안 독립성(IIA)이다. ⑤의 중위투표자 정리는 공공선택이론의 다수결 투표 규칙 분석 도구이므로 내쉬 협상 공리와 무관하다."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-004",
       "difficulty": 2,
       "question_type": "이론형",
-      "question": "쌍방독점에서 \"비결정성\"(indeterminacy)의 의미는?",
+      "question": "쌍방독점 시장에서 파업이나 생산 중단 등 협상이 완전히 파열되었을 때 양측이 직면하게 되는 이른바 '파열점(Breakdown point) 보수'에 대한 분석으로 옳은 것은?",
       "options": [
-        "이론만으로는 단일 임금이 결정되지 않고 협상력에 의해 다양한 결과 가능",
-        "임금이 0",
-        "임금이 무한대",
-        "공급 0",
-        "수요 0"
+        "파열점 보수가 높을수록 협상 과정에서 불리하게 작용한다",
+        "정부나 외부 노사정위원회의 중재는 파열점 보수 자체를 무조건 무한대로 끌어올린다",
+        "양측의 파열점 보수가 비대칭적일 때, 파열 손실이 상대적으로 적은(즉, 견디기 쉬운) 쪽이 협상력 우위를 차지한다",
+        "파열 보수와 결과 임금은 이론적으로 아무런 관련성이 없다",
+        "파열점이 성립하면 협상은 반드시 매년 파열된다"
       ],
-      "answer": "1",
-      "explanation": "Edgeworth 비결정성: 쌍방독점에서 임금 협상 범위는 명확하지만 단일 균형점은 협상력·정보·외부 옵션 없이 결정 안 됨. Nash 협상해 등 추가 가정 필요."
+      "answer": "3",
+      "explanation": "협상이 결렬되었을 때 입는 타격(파열 손실)이 적은 경제 주체(대기업의 경우 자금 여유가 있거나 노동자의 경우 대체 소득이 있는 경우)가 더 유리한 협상 위치를 선점하게 된다. 이것이 비대칭적 Nash 협상 보수의 기본 정리이다. 따라서 ③이 옳다."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-005",
-      "difficulty": 4,
-      "question_type": "계산형",
-      "question": "쌍방독점에서 Nash 균형협상해(50:50 협상력)로 임금 결정 시 임금은 보통 어디에서 결정되는가?",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "쌍방독점 노동시장에 정부가 강제로 개입하여 '최저임금제'를 설정하고자 한다. 이에 대한 후생학적 평가로 옳은 것을 고른 것은?\n\nㄱ. 최저임금을 두 독점자의 타협 가능 범위 내에 적절히 설정하면 고용량이 오히려 완전경쟁 수준 수준으로 증대된다.\nㄴ. 최저임금 수준을 노동조합이 선호하는 상한선($w_u$)보다 훨씬 높여 놓으면 심각한 대규모 추가 고용 감소와 자중손실이 유발된다.\nㄷ. 최저임금제를 시행해도 두 독점자의 정보 비대칭이 심각하다면 오히려 고용은 늘어나지 않고 타협 경로만 차단된다.\nㄹ. 쌍방독점 하 최저임금은 언제나 비효율성만 고착화하므로 즉각 폐지해야 한다.",
       "options": [
-        "수요독점 임금과 공급독점 임금의 평균(중간)",
-        "수요독점 임금에 근접",
-        "공급독점 임금에 근접",
-        "VMP 위",
-        "0"
+        "ㄱ, ㄴ",
+        "ㄱ, ㄷ",
+        "ㄴ, ㄹ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
       ],
-      "answer": "1",
-      "explanation": "Nash 협상해(대칭 협상력): 두 측의 외부옵션과 협상력이 동일 → 임금이 중간값. 비대칭 협상력일 때는 우세 측 임금에 가까움."
+      "answer": "4",
+      "explanation": "쌍방독점 하의 최저임금은 독점적 왜곡(기업의 수요독점력)을 무력화시켜 고용을 증대할 수 있는 순기능(ㄱ)이 있으나, 임금을 지나치게 고율로 올리면 급격한 고용 감소(ㄴ)가 수반되며 정보 왜곡 시에는 경로 차단(ㄷ)을 낳는다. 따라서 과도한 임금이 아닌 적정 개입이 중요하며 ㄹ은 성급한 극단화이므로 오답이다. ㄱ, ㄴ, ㄷ이 옳다."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-006",
@@ -104,7 +104,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-007",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "쌍방독점에서 노동조합 측 협상력을 강화하는 요인은?",
       "options": [
@@ -149,7 +149,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-010",
-      "difficulty": 4,
+      "difficulty": 5,
       "question_type": "계산형",
       "question": "쌍방독점, 공급 $w = 4 + 2L$, 수요 $VMP = 40 - 2L$. 수요독점 임금($w^M$)은?",
       "options": [
@@ -160,7 +160,7 @@
         "$w^M = 8$"
       ],
       "answer": "1",
-      "explanation": "$MFC = 4 + 4L$, $VMP = MFC$: $40 - 2L = 4 + 4L$ → $6L = 36$ → $L = 6$. $w^M = 4 + 2 \\cdot 6 = 16$."
+      "explanation": "$$$$$MFC = 4$$$$ + 4L$, $$$$$VMP = MFC$$$$$: $40 - 2$$$$L = 4$$$$ + 4L$ → $6$$$$L = 36$$$$$ → $$$$$L = 6$$$$$. $w^$$$$M = 4$$$$ + 2 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 6 = 16$."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-011",
@@ -175,11 +175,11 @@
         "$w^U = 36$"
       ],
       "answer": "1",
-      "explanation": "역수요 $w = 40 - 2L$. $TR = wL$, $MR = 40 - 4L$. $MR = w_0 = 4$ → $L = 9$. $w^U = 40 - 18 = 22$. 가장 근사값 ① (반올림)."
+      "explanation": "역수요 $$$$$w = 40$$$$ - 2L$. $$$$$TR = wL$$$$$, $$$$$MR = 40$$$$ - 4L$. $$$$$MR = w$$$$_0 = 4$ → $$$$$L = 9$$$$$. $w^$$$$U = 40$$$$ - 18 = 22$. 가장 근사값 ① (반올림)."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-012",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "쌍방독점에서 임금 협상이 결렬되어 파업이 발생할 때 단기 영향은?",
       "options": [
@@ -194,7 +194,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-013",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "쌍방독점이 완전경쟁보다 사회적으로 더 좋을 수 있는 경우는?",
       "options": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-014",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Hicks (1932) 협상 모형의 핵심은?",
       "options": [
@@ -284,22 +284,22 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-019",
-      "difficulty": 4,
+      "difficulty": 5,
       "question_type": "계산형",
       "question": "쌍방독점 협상에서 노조 협상력 60%, 기업 협상력 40%, 수요독점 임금 12, 공급독점 임금 24일 때 협상 임금은? (단순 가중평균)",
       "options": [
-        "$w = 0.6 \\cdot 24 + 0.4 \\cdot 12 = 19.2$",
-        "$w = 0.5 \\cdot 24 + 0.5 \\cdot 12 = 18$",
-        "$w = 0.4 \\cdot 24 + 0.6 \\cdot 12 = 16.8$",
-        "$w = 0.6 \\cdot 12 + 0.4 \\cdot 24 = 16.8$",
-        "$w = 0.6 \\cdot 24 - 0.4 \\cdot 12 = 9.6$"
+        "$w = 0.6 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 24 + 0.4 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 12 = 19.2$",
+        "$w = 0.5 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 24 + 0.5 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 12 = 18$",
+        "$w = 0.4 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 24 + 0.6 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 12 = 16.8$",
+        "$w = 0.6 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 12 + 0.4 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 24 = 16.8$",
+        "$w = 0.6 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 24 - 0.4 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 12 = 9.6$"
       ],
       "answer": "1",
-      "explanation": "Nash 협상해 변형: 노조 협상력 ↑일수록 임금이 공급독점 임금에 가까움. $w = \\alpha \\cdot w^U + (1 - \\alpha) \\cdot w^M$ ($\\alpha$ = 노조 협상력) → $0.6 \\cdot 24 + 0.4 \\cdot 12 = 19.2$."
+      "explanation": "Nash 협상해 변형: 노조 협상력 ↑일수록 임금이 공급독점 임금에 가까움. $w = \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\alpha \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot w^U + (1 - \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\alpha) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot w^M$ ($\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\alpha$ = 노조 협상력) → $0.6 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 24 + 0.4 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\cdot 12 = 19.2$."
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-020",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "쌍방독점에서 정부의 조정 역할은?",
       "options": [
@@ -329,7 +329,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-022",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "Rubinstein 협상 모형이 Edgeworth 비결정성을 해결하는 방식은?",
       "options": [
@@ -344,7 +344,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-023",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "쌍방독점에서 \"외부 옵션\"(outside option)이 임금에 미치는 영향은?",
       "options": [
@@ -374,7 +374,7 @@
     },
     {
       "id": "practice-econ-micro-ch06-sec02-item03-025",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "쌍방독점이 한국 노동시장에서 점차 약화되는 이유는?",
       "options": [
@@ -386,6 +386,381 @@
       ],
       "answer": "1",
       "explanation": "쌍방독점 약화 요인: ① 외주·하청으로 단일 기업 책임 분산 ② 자동화로 노동 의존도 ↓ ③ 플랫폼 노동(개인사업자) 확대 ④ 산업 분업 ↑. 한국 노조 협상력 약화 배경."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-026",
+      "difficulty": 3,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-027",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-028",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-029",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-030",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-031",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-032",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-033",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-034",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-035",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-036",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-037",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-038",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-039",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-040",
+      "difficulty": 4,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-041",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-042",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-043",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-044",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-045",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-046",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-047",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-048",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-049",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점 시장에서 두 주체(독점기업과 독점노조)가 직면하는 타협 가능한 임금의 이론적 하한과 상한을 각각 정하는 기준은?\n\n```svg\n<svg viewBox=\"0 0 350 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"40\" y1=\"210\" x2=\"310\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#64748b\" stroke-width=\"2\" />\n  <line x1=\"40\" y1=\"180\" x2=\"220\" y2=\"40\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"225\" y=\"45\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#ef4444\">MFC_L</text>\n  <line x1=\"40\" y1=\"180\" x2=\"260\" y2=\"80\" stroke=\"#3b82f6\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"85\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#3b82f6\">S_L</text>\n  <line x1=\"60\" y1=\"50\" x2=\"260\" y2=\"190\" stroke=\"#10b981\" stroke-width=\"2.2\" />\n  <text x=\"265\" y=\"195\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#10b981\">MRP_L</text>\n  <line x1=\"50\" y1=\"90\" x2=\"260\" y2=\"220\" stroke=\"#a855f7\" stroke-width=\"2\" stroke-dasharray=\"2\" />\n  <text x=\"265\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#a855f7\">MR_L</text>\n  <text x=\"290\" y=\"225\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Labor (L)</text>\n  <text x=\"20\" y=\"35\" font-size=\"8.5\" font-family=\"sans-serif\" fill=\"#64748b\">Wage (w)</text>\n</svg>\n```",
+      "options": [
+        "하한: 완전경쟁 임금, 상한: 독점 임금",
+        "하한: 수요독점자 제시 임금, 상한: 공급독점자(노조) 요구 임금",
+        "하한: 0원, 상한: 무한대",
+        "하한: 정부 최저임금, 상한: 기업의 한계비용",
+        "하한: 전이소득, 상한: 준지대"
+      ],
+      "answer": "2",
+      "explanation": "쌍방독점의 협상 영역은 수요독점 기업이 일방적으로 책정하고자 하는 임금(하한 $w_m$)과 독점 노조가 일방적으로 요구하고자 하는 임금(상한 $w_u$) 사이의 구간으로 정의된다. 정답 ②."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-050",
+      "difficulty": 5,
+      "question_type": "계산문제",
+      "question": "쌍방독점 상황에 대해 존 내쉬(John Nash)가 제안한 협상 균형을 결정하는 목적함수로 옳은 것은?",
+      "options": [
+        "두 주체 이윤의 합 극대화",
+        "두 주체 협상 보수에서 파열점 보수를 차감한 값의 곱 극대화 (Nash Product)",
+        "사회의 자원 배분 효율성 극대화",
+        "정부의 세수입 극대화",
+        "소비자잉여의 극대화"
+      ],
+      "answer": "2",
+      "explanation": "내쉬 협상 솔루션은 각 경제 주체의 협상 이윤에서 결렬 시 보수(파열점 보수)를 뺀 순협상 이득의 곱($(U_1 - d_1)(U_2 - d_2)$)을 극대화하는 해(Nash Product)로 임금을 타결한다. 정답 ②."
     }
   ]
 }

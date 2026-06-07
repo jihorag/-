@@ -8,87 +8,87 @@
     "source": "practice-set",
     "version": "v2-handcrafted",
     "created": "2026-06-01",
-    "count": 30
+    "count": 50
   },
   "questions": [
     {
       "id": "practice-econ-micro-ch03-sec02-item04-001",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "슬루츠키 방정식(Slutsky equation)의 정확한 형태로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "슬루츠키 방정식 $\\dfrac{\\partial X}{\\partial P_x} = \\dfrac{\\partial X^h}{\\partial P_x} - X \\dfrac{\\partial X}{\\partial I}$ 의 대수적 유도 과정에서 셰퍼드의 정리(Shephard's Lemma)의 결정적 기여와, 소득효과 가중치로 기능하는 $X$ 의 기하학적 의미로 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <text x=\"360\" y=\"205\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">X</text>\n  <text x=\"20\" y=\"35\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Y</text>\n  \n  <!-- 원래 예산선 & 회전 예산선 -->\n  <line x1=\"50\" y1=\"70\" x2=\"180\" y2=\"200\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"70\" x2=\"310\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  \n  <text x=\"180\" y=\"90\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\">슬루츠키 방정식 분해선</text>\n</svg>\n```\n",
       "options": [
-        "∂X/∂Px = (∂Xh/∂Px) - X·(∂X/∂I)",
-        "∂X/∂Px = (∂Xh/∂Px) × (∂X/∂I)",
-        "∂X/∂Px = (∂Xh/∂Px) + X·(∂X/∂I)",
-        "∂X/∂Px = ∂X/∂I",
-        "∂X/∂Px = 0"
+        "지출함수의 상대가격 미분이 힉스 보상수요가 됨을 보이는 셰퍼드의 정리($\\partial E/\\partial P_x = X^h$)를 통해 가상 예산선의 평행 이동 폭을 결정하며, 가중치 $X$ 는 실질소득 하락 시 영향을 받는 현재의 소비량(소득 쐐기 폭)을 뜻한다.",
+        "셰퍼드의 정리는 가격 변동 시 예산선의 회전 기울기를 가격 비율의 제곱으로 고정시키는 정리이다.",
+        "가중치 $X$ 는 마샬 수요와 보상수요의 곱으로 표현되는 가상의 매개변수로 소득 분배 상태를 완전히 은폐한다.",
+        "슬루츠키 방정식 도출은 오직 간접효용함수의 소득 효과가 음수(-)에서 양수(+)로 급변할 때만 부분적으로 인정된다.",
+        "셰퍼드의 정리를 적용하면 대체효과가 무조건 $0$ 이 되므로 가격 효과는 소득효과 단독으로만 구성된다."
       ],
       "answer": "1",
-      "explanation": "슬루츠키 방정식: ∂X/∂Px (총효과 - 마샬) = (∂Xh/∂Px) (대체효과 - 힉스) - X·(∂X/∂I) (소득효과). X는 그 재화의 소비량 (가중치). 가격 변화 시 총수요량 변화를 대체효과와 소득효과로 분해."
+      "explanation": "슬루츠키 방정식 도출의 핵심 논리:\\n1) 관계식 설정: $X(P, E(P, U)) = X^h(P, U)$\\n2) 가격 $P_x$ 에 대해 편미분 (체인 룰 적용):\\n   $$\\dfrac{\\partial X}{\\partial P_x} + \\dfrac{\\partial X}{\\partial I} \\dfrac{\\partial E}{\\partial P_x} = \\dfrac{\\partial X^h}{\\partial P_x}$$\\n3) 셰퍼드의 정리 대입: $\\dfrac{\\partial E}{\\partial P_x} = X^h$ 이고, 최적 균형점에서 보상수요는 통상수요와 일치하므로 ($X^h = X$):\\n   $$\\dfrac{\\partial X}{\\partial P_x} + X \\dfrac{\\partial X}{\\partial I} = \\dfrac{\\partial X^h}{\\partial P_x} \\implies \\dfrac{\\partial X}{\\partial P_x} = \\dfrac{\\partial X^h}{\\partial P_x} - X \\dfrac{\\partial X}{\\partial I}$$\\n여기서 가중치 $X$ 는 가격 상승에 따라 소비자가 지불해야 하는 실질소득 손실의 크기(기하적 쐐기)를 결정하는 요소입니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-002",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "슬루츠키 분해를 발견한 학자는?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "특정 X재의 가격이 상승할 때, 원래의 소비 묶음을 재구매할 수 있게 소득을 보정하는 슬루츠키(Slutsky) 보상소득액 $\\Delta I_S$ 와, 원래 효용 수준을 유지할 수 있게 소득을 보정하는 힉스(Hicks) 보상소득액 $\\Delta I_H$ 의 크기 관계 및 기하학적 비교로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <line x1=\"50\" y1=\"120\" x2=\"200\" y2=\"200\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <circle cx=\"110\" cy=\"152\" r=\"4\" fill=\"#1e293b\" />\n  \n  <!-- 힉스 보상선 vs 슬루츠키 보상선 (슬루츠키가 더 바깥쪽) -->\n  <line x1=\"50\" y1=\"150\" x2=\"250\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"135\" x2=\"280\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <text x=\"210\" y=\"170\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#2563eb\">힉스 보상선</text>\n  <text x=\"250\" y=\"150\" font-size=\"8\" font-family=\"sans-serif\" fill=\"#ef4444\">슬루츠키 보상선</text>\n</svg>\n```\n",
       "options": [
-        "에브게니 슬루츠키(E. Slutsky) - 1915년 러시아어 논문 (이후 재발견)",
-        "마샬",
-        "케인즈",
-        "프리드만",
-        "스미스"
+        "소비자의 다양성 선호(무차별곡선 볼록성)에 의해 슬루츠키 보상액이 힉스 보상액보다 언제나 크게 나타나며 ($\\Delta I_S > \\Delta I_H$), 슬루츠키 보상 예산선은 힉스 예산선보다 바깥쪽에 위치한다.",
+        "힉스 보상액이 원래 효용을 완벽하게 재구성하므로 슬루츠키 보상액보다 언제나 크다 ($\\Delta I_H > \\Delta I_S$).",
+        "두 보상액은 모두 초기 소비점을 통과하므로 예산제약선 하에서 $\\Delta I_S = \\Delta I_H$ 로 항상 완벽하게 일치한다.",
+        "슬루츠키 보상액은 대체탄력성 부호가 변함에 따라 음수(-)의 값으로 즉각 반전된다.",
+        "소득이 충분히 큰 정상재 환경에서는 힉스 보상이 예산선을 우측 평행이동시켜 슬루츠키 보상액을 소멸시킨다."
       ],
       "answer": "1",
-      "explanation": "에브게니 슬루츠키(E. Slutsky, 1880~1948) - 러시아·우크라이나 경제학자. 1915년 이탈리아어 논문 \"Sulla teoria del bilancio del consumatore\"에서 가격 효과 분해 제시. 당시 무시되다가 1934년 힉스와 앨런이 재발견하여 정식화. 슬루츠키 방정식·슬루츠키 행렬·슬루츠키 보상 모두 그의 이름."
+      "explanation": "1) 가격 상승 시 보상 소득액 비교:\\n   - 슬루츠키 보상: 원래 묶음 $(X_0, Y_0)$ 을 새 가격으로 그대로 사게 해주므로 $\\Delta I_S = \\Delta P_x \\cdot X_0$ 입니다.\\n   - 힉스 보상: 원래 효용 $U_0$ 를 달성하게 해주는 최소 지출 보상액입니다.\\n2) 기하학적 해석:\\n   원래 소비점 $(X_0, Y_0)$ 은 새 가격 하에서 최적 접점이 아닙니다. 소비자는 슬루츠키 가상 소득선 위에서 다른 소비 조합을 선택하여 원래보다 더 큰 효용을 얻을 수 있습니다. 따라서 원래 효용 수준 $U_0$ 만 딱 맞게 채워주는 힉스 보상은 슬루츠키 보상선보다 예산선이 안쪽(원점 방향)에 들어와도 충분합니다.\\n   즉, $\\Delta I_S > \\Delta I_H$ 가 성립합니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-003",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "슬루츠키 보상의 특징으로 옳은 것은?",
+      "difficulty": 5,
+      "question_type": "계산/그래프형",
+      "question": "소비자의 효용함수가 콥-더글러스 형태 $U(X, Y) = X^{1/3} Y^{2/3}$ 이고 소득 $I = 90$, 가격 $P_x = 3, P_y = 3$ 이다. X재 가격이 $P'_x = 1$ 로 하락할 때, 힉스(Hicks) 보상법에 따른 대체효과 수량 변화량 $\\Delta X_{sub}^H$ 와 소득효과 수량 변화량 $\\Delta X_{inc}^H$ 의 근사치 조합으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 콥-더글러스 힉스 보상 분해 기하 -->\n  <!-- E0 (10, 20), Ec (20.8, 13.9), E1 (30, 20) -->\n  <line x1=\"50\" y1=\"80\" x2=\"150\" y2=\"200\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" />\n  <line x1=\"50\" y1=\"120\" x2=\"230\" y2=\"200\" stroke=\"#2563eb\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"80\" x2=\"230\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <circle cx=\"83\" cy=\"120\" r=\"4\" fill=\"#1e293b\" />\n  <circle cx=\"120\" cy=\"115\" r=\"4\" fill=\"#2563eb\" />\n  <circle cx=\"170\" cy=\"110\" r=\"4\" fill=\"#ef4444\" />\n</svg>\n```\n",
       "options": [
-        "원래 효용 수준 유지",
-        "원래의 소비 묶음을 구매할 수 있는 명목 소득 보상 (실질 구매력 유지)",
-        "보상 없음",
-        "정부가 결정",
-        "가치판단"
+        "$\\Delta X_{sub}^H = 10(3^{2/3} - 1) \\approx 10.8$, $\\Delta X_{inc}^H = 10(3 - 3^{2/3}) \\approx 9.2$",
+        "$\\Delta X_{sub}^H = 15$, $\\Delta X_{inc}^H = 5$",
+        "$\\Delta X_{sub}^H = 10$, $\\Delta X_{inc}^H = 10$",
+        "$\\Delta X_{sub}^H = 13.3$, $\\Delta X_{inc}^H = 6.7$",
+        "$\\Delta X_{sub}^H = 8.5$, $\\Delta X_{inc}^H = 11.5$"
       ],
-      "answer": "2",
-      "explanation": "슬루츠키 보상: 가격 변화 후 원래의 소비 묶음 (X0, Y0)을 다시 구매할 수 있도록 명목 소득 보상. 실질 구매력 유지 (원래 묶음 구매 가능). 관찰 가능한 양 - 실증 분석에 사용. 힉스 보상(효용 유지)과 구분."
+      "answer": "1",
+      "explanation": "1) 초기 소비점 ($P_x = 3, P_y = 3, I = 90$):\\n   지출 비중이 X재 $1/3$, Y재 $2/3$ 이므로:\\n   - $P_x X = 30 \\implies X_0 = 10$, $P_y Y = 60 \\implies Y_0 = 20$\\n   초기 효용 수준: $U_0 = 10^{1/3} \\cdot 20^{2/3} = 10 \\cdot 2^{2/3}$\\n2) 최종 소비점 ($P'_x = 1, P_y = 3, I = 90$):\\n   - $P'_x X = 30 \\implies X_1 = 30$, $P_y Y = 60 \\implies Y_1 = 20$ (총효과 = 20)\\n3) 힉스 보상점 ($U_0$ 유지, 새로운 가격 비율 $P'_x/P_y = 1/3$):\\n   $MRS = Y_c / 2X_c = 1/3 \\implies Y_c = \\dfrac{2}{3} X_c$\\n   $$X_c^{1/3} Y_c^{2/3} = U_0 \\implies X_c^{1/3} \\left(\\dfrac{2}{3} X_c\\right)^{2/3} = 10 \\cdot 2^{2/3} \\implies X_c \\left(\\dfrac{2}{3}\\right)^{2/3} = 10 \\cdot 2^{2/3} \\implies X_c = 10 \\cdot 3^{2/3} \\approx 20.8$$\\n4) 효과 분해:\\n   - 대체효과: $X_c - X_0 = 10 \\cdot 3^{2/3} - 10 \\approx 10.8$\\n   - 소득효과: $X_1 - X_c = 30 - 10 \\cdot 3^{2/3} \\approx 9.2$\\n정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-004",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "슬루츠키 분해의 그래프적 표현으로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "소비자의 효용함수가 콥-더글러스 형태 $U(X, Y) = X^{1/3} Y^{2/3}$ 이고 소득 $I = 90$, 가격 $P_x = 3, P_y = 3$ 이다. X재 가격이 $P'_x = 1$ 로 하락할 때, 슬루츠키(Slutsky) 보상법에 따른 대체효과 수량 변화량 $\\Delta X_{sub}^S$ 와 소득효과 수량 변화량 $\\Delta X_{inc}^S$ 의 조합으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 콥-더글러스 슬루츠키 분해 기하 -->\n  <!-- Esc (23.33, 15.56) -->\n  <line x1=\"50\" y1=\"80\" x2=\"150\" y2=\"200\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" />\n  <line x1=\"50\" y1=\"110\" x2=\"245\" y2=\"200\" stroke=\"#ef4444\" stroke-dasharray=\"2\" />\n  <line x1=\"50\" y1=\"80\" x2=\"230\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <circle cx=\"83\" cy=\"120\" r=\"4\" fill=\"#1e293b\" />\n  <circle cx=\"130\" cy=\"120\" r=\"4\" fill=\"#ef4444\" />\n  <circle cx=\"170\" cy=\"110\" r=\"4\" fill=\"#2563eb\" />\n</svg>\n```\n",
       "options": [
-        "가격 변화 후 새 가격 비율의 가상 예산선이 원래 점 (X0, Y0)을 지나도록 보상 → 가상 새 최적점 = 슬루츠키 대체효과 후 점",
-        "그래프로 표현 불가",
-        "보상선이 원래 무차별곡선에 접함",
-        "보상선은 무관",
-        "가치판단의 영역"
+        "$\\Delta X_{sub}^S = 13.33$, $\\Delta X_{inc}^S = 6.67$",
+        "$\\Delta X_{sub}^S = 10.8$, $\\Delta X_{inc}^S = 9.2$",
+        "$\\Delta X_{sub}^S = 15$, $\\Delta X_{inc}^S = 5$",
+        "$\\Delta X_{sub}^S = 12.5$, $\\Delta X_{inc}^S = 7.5$",
+        "$\\Delta X_{sub}^S = 17.5$, $\\Delta X_{inc}^S = 2.5$"
       ],
       "answer": "1",
-      "explanation": "슬루츠키 분해 그래프:\n원래 균형 E0 (예산선 1 + IC0)\n가격 변화 후 새 균형 E1 (예산선 2 + IC1)\n슬루츠키 가상 보상선: 새 가격 비율 (예산선 2의 기울기), (X0, Y0)을 지남\n가상 점 E0_slutsky: 가상 보상선의 새 최적점\n대체효과 = E0 → E0_slutsky\n소득효과 = E0_slutsky → E1"
+      "explanation": "1) 초기 소비점: $X_0 = 10, Y_0 = 20$\\n2) 최종 소비점: $X_1 = 30, Y_1 = 20$ (총효과 = 20)\\n3) 슬루츠키 가상 소득 $I'$ 계산:\\n   새로운 가격으로 원래 조합 $(10, 20)$ 을 살 수 있는 소득:\\n   $I' = P'_x X_0 + P_y Y_0 = 1(10) + 3(20) = 70$\\n4) 슬루츠키 보상점 ($I' = 70$, 새로운 가격 비율 $P'_x/P_y = 1/3$):\\n   지출비율에 따라 X재 지출 = $70/3$:\\n   $1 \\cdot X_{sc} = 70/3 \\implies X_{sc} = 70/3 \\approx 23.33$\\n5) 효과 분해:\\n   - 대체효과: $X_{sc} - X_0 = 23.33 - 10 = 13.33$\\n   - 소득효과: $X_1 - X_{sc} = 30 - 23.33 = 6.67$\\n슬루츠키 대체효과가 힉스 대체효과($10.8$)보다 다소 크게 산출됩니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-005",
-      "difficulty": 1,
-      "question_type": "이론형",
-      "question": "힉스 분해의 그래프적 표현으로 옳은 것은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "드러난 선호의 약공리(Weak Axiom of Revealed Preference, WARP)를 출발점으로 삼아, 가격 변동에 따른 슬루츠키 자기대체효과가 결코 양수(+) 값을 지닐 수 없음을 증명하는 수리/기하학적 조건식으로 옳은 것은? (단, $\\Delta P_x$ 와 $\\Delta X_{sub}$ 는 가격 및 수요 보상변량임)\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 드러난 선호의 약공리(WARP) 시각화 -->\n  <line x1=\"50\" y1=\"80\" x2=\"250\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"130\" x2=\"190\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <circle cx=\"150\" cy=\"125\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"155\" y=\"120\" font-size=\"9\" font-family=\"sans-serif\">소비점 A</text>\n</svg>\n```\n",
       "options": [
-        "보상선이 원래 무차별곡선 IC0에 접함",
-        "보상선이 원래 점을 지남",
-        "그래프로 표현 불가",
-        "보상선은 무관",
-        "가치판단"
+        "$\\Delta P_x \\cdot \\Delta X_{sub} \\le 0$",
+        "$\\Delta P_x \\cdot \\Delta X_{sub} \\ge 0$",
+        "$\\Delta P_x + \\Delta X_{sub} = 0$",
+        "$\\Delta P_x \\cdot \\Delta X_{sub} = I$",
+        "$\\Delta X_{sub} / \\Delta P_x &gt; 0$"
       ],
       "answer": "1",
-      "explanation": "힉스 분해 그래프:\n원래 균형 E0 (예산선 1 + IC0)\n새 균형 E1 (예산선 2 + IC1)\n힉스 가상 보상선: 새 가격 비율, IC0에 접함 (효용 U0 유지)\n가상 점 E0_hicks: IC0 위 가상 보상선과의 접점\n대체효과 = E0 → E0_hicks (IC0 위 이동)\n소득효과 = E0_hicks → E1 (IC0 → IC1)"
+      "explanation": "드러난 선호 약공리를 활용한 슬루츠키 대체효과 음의 부호 증명:\\n1) 슬루츠키 보상 소득 $\\Delta I = \\Delta P_x \\cdot X_0$ 가 주어지면, 새로운 보상 예산선 하에서 원래 조합 $(X_0, Y_0)$ 을 여전히 구매할 수 있습니다.\\n2) 이때 소비자가 새로운 조합 $(X_1, Y_1)$ 을 최종적으로 선택했다고 합시다.\\n3) WARP에 따르면, 원래 가격선 하에서 $(X_0, Y_0)$ 을 샀을 때 $(X_1, Y_1)$ 도 구입 가능 영역에 있었는데 그것을 안 샀으므로, $(X_1, Y_1)$ 은 원래 예산선보다 비싸거나 같았어야 합니다.\\n   $$P_{x0} X_1 + P_{y0} Y_1 \\ge P_{x0} X_0 + P_{y0} Y_0 \\implies P_{x0} \\Delta X + P_{y0} \\Delta Y \\ge 0 \\quad \\text{--- (1)}$$\\n4) 새로운 보상 예산선 하에서는:\\n   $$P_{x1} X_1 + P_{y1} Y_1 \\le P_{x1} X_0 + P_{y1} Y_0 \\implies P_{x1} \\Delta X + P_{y1} \\Delta Y \\le 0 \\quad \\text{--- (2)}$$\\n5) 식 (2)에서 식 (1)을 빼면:\\n   $$(P_{x1} - P_{x0}) \\Delta X \\le 0 \\implies \\Delta P_x \\cdot \\Delta X_{sub} \\le 0$$\\n따라서 슬루츠키 자기대체효과 부호는 결코 양수가 될 수 없습니다. 정답은 1번입니다."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-006",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "슬루츠키 보상과 힉스 보상의 비교로 옳은 것은?",
       "options": [
@@ -99,26 +99,26 @@
         "정부 결정"
       ],
       "answer": "1",
-      "explanation": "슬루츠키 vs 힉스 보상 비교:\n불리한 가격 변화 (예: Px ↑):\n슬루츠키: 원래 묶음 구매 가능 (실질 구매력 유지)\n힉스: 원래 효용 회복 (효용 유지)\n원래 묶음은 새 가격 비율에서 효용 최대화 점이 아님 → 다른 묶음으로 더 큰 효용 가능 → 슬루츠키 보상이 힉스보다 후함\n즉 슬루츠키 보상 ≥ 힉스 보상\n작은 변화에서는 거의 같음."
+      "explanation": "슬루츠키 vs 힉스 보상 비교:\n불리한 가격 변화 (예: $P_x$ ↑):\n슬루츠키: 원래 묶음 구매 가능 (실질 구매력 유지)\n힉스: 원래 효용 회복 (효용 유지)\n원래 묶음은 새 가격 비율에서 효용 최대화 점이 아님 → 다른 묶음으로 더 큰 효용 가능 → 슬루츠키 보상이 힉스보다 후함\n즉 슬루츠키 보상 ≥ 힉스 보상\n작은 변화에서는 거의 같음."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-007",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "슬루츠키 부등식(Slutsky inequality)의 내용으로 옳은 것은?",
       "options": [
-        "Px ↑ → 슬루츠키 대체효과는 항상 X 수요량 감소 (∂Xh^slutsky/∂Px ≤ 0)",
-        "Px ↑ → 대체효과는 항상 (+)",
+        "$P_x$ ↑ → 슬루츠키 대체효과는 항상 X 수요량 감소 (∂Xh^slutsky/∂$P_x$ ≤ 0)",
+        "$P_x$ ↑ → 대체효과는 항상 (+)",
         "대체효과는 0",
-        "Px ↑ → 슬루츠키 대체효과는 (+)",
-        "Px ↑ → 무관"
+        "$P_x$ ↑ → 슬루츠키 대체효과는 (+)",
+        "$P_x$ ↑ → 무관"
       ],
       "answer": "1",
-      "explanation": "슬루츠키 부등식 (Slutsky's inequality):\n자기 가격이 상승할 때 슬루츠키 대체효과는 항상 그 재화의 수요량을 감소시킴\n∂Xh^slutsky/∂Px ≤ 0\n드러난 선호 공리(WARP, Weak Axiom of Revealed Preference)에서 직접 도출\n관찰 가능한 가격·소비 데이터만으로 검증 가능\n수요 법칙의 가장 약한 형태."
+      "explanation": "슬루츠키 부등식 (Slutsky's inequality):\n자기 가격이 상승할 때 슬루츠키 대체효과는 항상 그 재화의 수요량을 감소시킴\n∂Xh^slutsky/∂$P_x$ ≤ 0\n드러난 선호 공리(WARP, Weak Axiom of Revealed Preference)에서 직접 도출\n관찰 가능한 가격·소비 데이터만으로 검증 가능\n수요 법칙의 가장 약한 형태."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-008",
-      "difficulty": 2,
+      "difficulty": 1,
       "question_type": "이론형",
       "question": "슬루츠키 행렬(Slutsky matrix)의 정의로 옳은 것은?",
       "options": [
@@ -133,9 +133,9 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-009",
-      "difficulty": 2,
-      "question_type": "이론형",
-      "question": "슬루츠키 행렬의 대칭성(symmetry)에 관한 옳은 설명은?",
+      "difficulty": 3,
+      "question_type": "이론/그래프형",
+      "question": "슬루츠키 행렬의 대칭성(symmetry)에 관한 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"50\" y=\"50\" width=\"120\" height=\"120\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"170\" y2=\"170\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"75\" y=\"130\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">Sij = Sji</text>\n</svg>\n```\n",
       "options": [
         "Sij = Sji - 보상수요의 대칭성. 합리적 선호 (효용 극대화)의 함의. 영-실증 분석으로 검증 가능 (의식 가설 테스트)",
         "대칭성은 없음",
@@ -149,8 +149,8 @@
     {
       "id": "practice-econ-micro-ch03-sec02-item04-010",
       "difficulty": 2,
-      "question_type": "이론형",
-      "question": "슬루츠키 행렬의 음반정정성(negative semi-definiteness)에 관한 옳은 설명은?",
+      "question_type": "이론/그래프형",
+      "question": "슬루츠키 행렬의 음반정정성(negative semi-definiteness)에 관한 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"M 50 180 Q 200 90 350 70\" fill=\"none\" stroke=\"#059669\" stroke-width=\"3\" />\n  <line x1=\"100\" y1=\"120\" x2=\"300\" y2=\"60\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" />\n  <text x=\"150\" y=\"145\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">지출함수 E(P, U) (위로 오목)</text>\n</svg>\n```\n",
       "options": [
         "임의의 벡터 v에 대해 v^T·S·v ≤ 0. 대각 원소(자기 가격 효과)가 음수 또는 0임을 함의. 합리적 소비자의 함의.",
         "음반정정성 없음",
@@ -163,18 +163,18 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-011",
-      "difficulty": 2,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "보상수요와 통상수요의 관계로 옳은 것은?",
       "options": [
-        "통상수요 X(Px, Py, I) = 보상수요 Xh(Px, Py, U)에 효용 U를 간접효용함수 V(Px, Py, I)로 대입한 것",
+        "통상수요 X($P_x$, $P_y$, I) = 보상수요 Xh($P_x$, $P_y$, U)에 효용 U를 간접효용함수 V($P_x$, $P_y$, I)로 대입한 것",
         "두 수요는 무관",
         "보상수요는 가치판단",
         "통상수요는 정부 결정",
         "두 수요는 항상 일치"
       ],
       "answer": "1",
-      "explanation": "통상수요와 보상수요의 관계:\n통상수요 (마샬): X(Px, Py, I) - 명목 소득 일정\n보상수요 (힉스): Xh(Px, Py, U) - 효용 일정\n관계: Xh(Px, Py, U) = X(Px, Py, e(Px, Py, U))\ne: 지출 함수 (effective expenditure)\n또는: X(Px, Py, I) = Xh(Px, Py, V(Px, Py, I))\nV: 간접효용함수\n수요 이중성(duality) 결과."
+      "explanation": "통상수요와 보상수요의 관계:\n통상수요 (마샬): X($P_x$, $P_y$, I) - 명목 소득 일정\n보상수요 (힉스): Xh($P_x$, $P_y$, U) - 효용 일정\n관계: Xh($P_x$, $P_y$, U) = X($P_x$, $P_y$, e($P_x$, $P_y$, U))\ne: 지출 함수 (effective expenditure)\n또는: X($P_x$, $P_y$, I) = Xh($P_x$, $P_y$, V($P_x$, $P_y$, I))\nV: 간접효용함수\n수요 이중성(duality) 결과."
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-012",
@@ -194,8 +194,8 @@
     {
       "id": "practice-econ-micro-ch03-sec02-item04-013",
       "difficulty": 3,
-      "question_type": "이론형",
-      "question": "슬루츠키 방정식의 도출 (간단 형태):",
+      "question_type": "이론/그래프형",
+      "question": "슬루츠키 방정식의 도출 (간단 형태):\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"70\" x2=\"280\" y2=\"200\" stroke=\"#94a3b8\" stroke-dasharray=\"3\" stroke-width=\"1.5\" />\n  <line x1=\"50\" y1=\"70\" x2=\"310\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n</svg>\n```\n",
       "options": [
         "통상수요 X(P, I)에 대해, I = e(P, U)로 보상 → X(P, e(P, U)) = Xh(P, U) → 양변을 P로 미분 → ∂X/∂P + (∂X/∂I)·(∂e/∂P) = ∂Xh/∂P. 셰퍼드 보조정리 ∂e/∂P = X → ∂X/∂P + X·(∂X/∂I) = ∂Xh/∂P. 정리: ∂X/∂P = ∂Xh/∂P - X·(∂X/∂I).",
         "슬루츠키 방정식은 도출 불가",
@@ -208,7 +208,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-014",
-      "difficulty": 3,
+      "difficulty": 4,
       "question_type": "이론형",
       "question": "셰퍼드 보조정리(Shephard's lemma)의 내용으로 옳은 것은?",
       "options": [
@@ -223,9 +223,9 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-015",
-      "difficulty": 3,
-      "question_type": "옳은 것 고르기",
-      "question": "다음 중 록스의 보조정리(Roy's identity)에 관한 옳은 설명은?",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "다음 중 록스의 보조정리(Roy's identity)에 관한 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <path d=\"M 80 105 Q 130 140 230 180\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  <circle cx=\"130\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n</svg>\n```\n",
       "options": [
         "간접효용함수의 가격·소득에 대한 편미분 비율 = 통상수요 (Xi = -(∂V/∂Pi)/(∂V/∂I))",
         "록스의 보조정리는 잘못",
@@ -239,8 +239,8 @@
     {
       "id": "practice-econ-micro-ch03-sec02-item04-016",
       "difficulty": 3,
-      "question_type": "이론형",
-      "question": "수요 이중성(duality)의 의미로 옳은 것은?",
+      "question_type": "이론/그래프형",
+      "question": "수요 이중성(duality)의 의미로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- UMP vs EMP 이중성 모식도 -->\n  <rect x=\"50\" y=\"60\" width=\"110\" height=\"90\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <rect x=\"230\" y=\"60\" width=\"110\" height=\"90\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <text x=\"80\" y=\"110\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">UMP</text>\n  <text x=\"260\" y=\"110\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e3a8a\" font-weight=\"bold\">EMP</text>\n</svg>\n```\n",
       "options": [
         "효용극대화 (마샬 수요·간접효용) ↔ 지출최소화 (보상수요·지출함수)의 등가성. 같은 선호를 두 다른 관점에서 표현.",
         "두 문제는 무관",
@@ -268,7 +268,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-018",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 현시선호이론(Revealed Preference Theory)과 슬루츠키 분해의 관계로 옳은 것은?",
       "options": [
@@ -283,7 +283,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-019",
-      "difficulty": 3,
+      "difficulty": 1,
       "question_type": "보기 결합형",
       "question": "다음 중 슬루츠키 분해 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 정확한 후생 효과 측정 (CV, EV)\nㄴ. 시장 정의·반독점 (교차 가격탄력성)\nㄷ. 가격 차별·수요 추정\nㄹ. 정책 평가 (세금·보조금·가격 통제)\nㅁ. 비합리성 검출 (대칭성·음반정정성 위반)",
       "options": [
@@ -298,7 +298,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-020",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "이론형",
       "question": "다음 중 슬루츠키 분해와 가격 효과의 수치 비교로 옳은 것은?",
       "options": [
@@ -313,7 +313,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-021",
-      "difficulty": 3,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 디톤(Deaton)·뮬바우어(Muellbauer)의 AIDS(Almost Ideal Demand System) 모형에 관한 옳은 설명은?",
       "options": [
@@ -343,7 +343,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-023",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 슬루츠키 분해의 한계로 옳은 것은?",
       "options": [
@@ -358,7 +358,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-024",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 슬루츠키 분해의 행동경제학적 비판으로 옳은 것은?",
       "options": [
@@ -373,7 +373,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-025",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음은 슬루츠키 분해의 발전과 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 슬루츠키(1915): 분해의 시초\nㄴ. 힉스·앨런(1934): 무차별곡선 분석으로 정식화\nㄷ. 사무엘슨(1938~): 현시선호이론으로 효용 가정 회피\nㄹ. 셰퍼드(1953)·록(1947): 보조정리로 도구 정립\nㅁ. 디톤·뮬바우어(1980): AIDS 수요 시스템",
       "options": [
@@ -388,7 +388,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-026",
-      "difficulty": 4,
+      "difficulty": 3,
       "question_type": "이론형",
       "question": "다음 중 통상 수요와 보상 수요의 시각적 관계로 옳은 것은?",
       "options": [
@@ -403,7 +403,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-027",
-      "difficulty": 4,
+      "difficulty": 2,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 후생 측정의 정확성 비교로 옳은 것은?",
       "options": [
@@ -418,7 +418,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-028",
-      "difficulty": 5,
+      "difficulty": 4,
       "question_type": "보기 결합형",
       "question": "다음은 슬루츠키 분해의 종합적 함의에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 합리적 효용극대화 → 슬루츠키 행렬의 대칭·음반정정\nㄴ. 슬루츠키 행렬 대칭·음반정정 → 효용함수 복원 가능 (적분 가능성)\nㄷ. 현시선호 공리(WARP·SARP) = 슬루츠키 부등식과 등동\nㄹ. 행동경제학적 비합리성 → 슬루츠키 조건 위반 가능\nㅁ. 슬루츠키 조건은 합리성 가설의 검증 도구",
       "options": [
@@ -433,7 +433,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-029",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "옳은 것 고르기",
       "question": "다음 중 슬루츠키 분해와 현대 후생경제학의 관계로 옳은 것은?",
       "options": [
@@ -448,7 +448,7 @@
     },
     {
       "id": "practice-econ-micro-ch03-sec02-item04-030",
-      "difficulty": 5,
+      "difficulty": 3,
       "question_type": "보기 결합형",
       "question": "다음은 슬루츠키 분해의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 슬루츠키 방정식: 통상 가격 효과 = 대체효과 - 가중 소득효과\nㄴ. 슬루츠키 분해 (실질 구매력 유지) vs 힉스 분해 (효용 유지)\nㄷ. 슬루츠키 행렬: 대칭·음반정정 (합리성의 함의)\nㄹ. 보상수요 - 정확한 후생 측정 (CV, EV)\nㅁ. 모든 행동경제학적 발견은 슬루츠키 분해를 무효화",
       "options": [
@@ -460,6 +460,306 @@
       ],
       "answer": "2",
       "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 행동경제학은 슬루츠키 분해의 정량 정확성을 일부 의문시하나 정성적 결론은 일반적으로 유효하다. 정상재의 수요 법칙·대체효과의 (-) 등은 행동경제학에서도 일반적으로 성립한다. '슬루츠키 분해의 무효화'는 과장이다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-031",
+      "difficulty": 4,
+      "question_type": "계산/그래프형",
+      "question": "소비자의 효용함수가 완전보완재인 레온티에프 형태 $U(X, Y) = \\min(aX, bY)$ 이다. X재 가격 변동 시 유도되는 힉스 대체효과와 슬루츠키 대체효과의 성격으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 완전보완재 L자 접점 고정으로 슬루츠키=힉스 일치 -->\n  <path d=\"M 80 50 L 150 120 L 300 120\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <circle cx=\"150\" cy=\"120\" r=\"4.5\" fill=\"#b91c1c\" />\n</svg>\n```\n",
+      "options": [
+        "두 대체효과 모두 정확히 0이며, 명목소득의 보상 여부와 상관없이 가격 변동으로 인한 수요량 변화는 100% 소득효과로만 구성된다.",
+        "힉스 대체효과는 0이지만 슬루츠키 대체효과는 양수(+)의 수치를 가진다.",
+        "슬루츠키 대체효과는 음수(-)의 값을 갖지만 힉스 대체효과는 0이다.",
+        "두 보상법에 따른 대체효과의 합이 예산선 절편 변화율과 동일해진다.",
+        "완전보완재 하에서는 대체효과가 소득효과를 압도해 기펜재가 무조건 유도된다."
+      ],
+      "answer": "1",
+      "explanation": "레온티에프 선호체계 하에서는 두 재화가 언제나 고정 비율 $aX = bY$ 로만 소비되므로 가격 비율이 어떻게 지저분하게 흔들리더라도 상대 소비 비율 조정(대체)이 일어나지 않습니다. 따라서 동일 효용을 힉스로 묶어두든, 원래 묶음을 슬루츠키로 묶어두든 가상 보상선 하의 최적 소비 수량은 초기 수준과 정확히 일치하여 두 대체효과 모두 $0$ 이 도출됩니다. 결국 가격 변동에 따른 모든 수량의 증감은 실질소득 변동에 의한 소득효과에 의해서만 결정됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-032",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "소비자의 효용함수가 완전대체재인 $U(X, Y) = aX + bY$ 이다. 가격 비율 $P_x/P_y$ 의 꺾임 변동으로 인해 최적 소비가 한 코너해에서 다른 코너해로 점프할 때, 슬루츠키 보상 예산선과 힉스 보상 예산선 상의 최적 상태 차이에 대한 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 완전대체재 코너해 간 변동 쐐기 -->\n  <line x1=\"50\" y1=\"80\" x2=\"290\" y2=\"200\" stroke=\"#cbd5e1\" stroke-dasharray=\"2\" />\n  <circle cx=\"50\" cy=\"80\" r=\"5\" fill=\"#ef4444\" />\n  <circle cx=\"290\" cy=\"200\" r=\"5\" fill=\"#2563eb\" />\n</svg>\n```\n",
+      "options": [
+        "슬루츠키 보상 예산선은 원래 소비점(코너)을 통과하므로 대체 반응의 꺾임 각도가 힉스보다 작지만, 힉스 보상선은 효용수준에 맞게 안쪽 평행이동하므로 최적 선택점이 불연속적으로 단절된다.",
+        "힉스 보상 하에서는 대체효과가 언제나 0으로 굳어져 점프 현상이 차단된다.",
+        "두 보상 예산선 모두 코너해 영역 하에서 항상 내부 접점을 가져 두 대체효과의 크기가 정확히 동일해진다.",
+        "완전대체재의 경우 힉스 보상 예산선의 소득 차감 효과가 슬루츠키의 2배에 수렴해 시장 실패를 부른다.",
+        "가격 변화 폭에 무관하게 두 보상 예산선은 언제나 완벽하게 겹쳐진다."
+      ],
+      "answer": "1",
+      "explanation": "완전대체재 $U = aX + bY$ 에서 가격비율 변동 시:\\n1) 슬루츠키 보상 예산선은 원래 소비점(예: Y축 위 코너점)을 그대로 지나며 회전합니다. 따라서 소비자는 새 가격비가 가파르면 Y재에 그대로 남거나, 완만하면 X재 코너로 즉각 튀어갑니다.\\n2) 힉스 보상 예산선은 원래의 직선 무차별곡선과 완벽하게 겹쳐지는 순간부터 수수께끼처럼 무수히 많은 해를 경유하여 새로운 가격비 하의 코너점으로 미끄러지듯 이동합니다.\\n3) 2차 미분 불연속점 영역 하에서 슬루츠키 보상선은 원래 점을 통과하는 기하적 성질 때문에 힉스 보상선보다 더 바깥쪽에서 꺾여 대체 반응의 불연속적 단절을 만듭니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-033",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "소비자의 효용함수가 준선형 형태인 $U(X, Y) = V(X) + Y$ 이다. 소득효과가 $0$ 인 내부해 영역에서, 가격의 미세 변동 시 슬루츠키 보상소득액 $\\Delta I_S$ 와 힉스 보상소득액 $\\Delta I_H$ 의 수학적 오차 크기(Taylor 2차 항 근사식)로 옳은 수식은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 준선형 수직 ICC (소득효과 = 0) -->\n  <line x1=\"150\" y1=\"50\" x2=\"150\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"160\" y=\"60\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">수직 ICC (소득효과 = 0)</text>\n</svg>\n```\n",
+      "options": [
+        "$\\Delta I_S - \\Delta I_H \\approx -\\dfrac{1}{2} \\dfrac{\\partial X^h}{\\partial P_x} (\\Delta P_x)^2$",
+        "$\\Delta I_S - \\Delta I_H \\approx \\dfrac{\\partial X^h}{\\partial P_x} \\Delta P_x$",
+        "$\\Delta I_S - \\Delta I_H \\approx \\dfrac{1}{2} \\left(\\dfrac{\\partial X^h}{\\partial P_x}\\right)^2 (\\Delta P_x)^2$",
+        "$\\Delta I_S - \\Delta I_H \\approx 0$ (소득효과가 0이므로 오차가 정확히 0이다)",
+        "$\\Delta I_S - \\Delta I_H \\approx -\\dfrac{\\partial^2 X^h}{\\partial P_x^2} \\Delta P_x$"
+      ],
+      "answer": "1",
+      "explanation": "1) 힉스 보상 지출함수의 Taylor 2차 근사:\\n   $$E(P_x + \\Delta P_x, P_y, U_0) \\approx E(P_x, P_y, U_0) + \\dfrac{\\partial E}{\\partial P_x} \\Delta P_x + \\dfrac{1}{2} \\dfrac{\\partial^2 E}{\\partial P_x^2} (\\Delta P_x)^2$$\\n   $$\\implies \\Delta I_H \\approx X_0 \\Delta P_x + \\dfrac{1}{2} \\dfrac{\\partial X^h}{\\partial P_x} (\\Delta P_x)^2$$\\n2) 슬루츠키 보상소득액:\\n   $$\\Delta I_S = X_0 \\Delta P_x$$\\n3) 두 보상액의 오차 비교:\\n   $$\\Delta I_S - \\Delta I_H \\approx -\\dfrac{1}{2} \\dfrac{\\partial X^h}{\\partial P_x} (\\Delta P_x)^2$$\\n자기대체효과 $\\dfrac{\\partial X^h}{\\partial P_x}$ 가 음수(-)이므로, 가격 변동량의 제곱에 비례하여 슬루츠키 보상이 항상 힉스 보상액보다 더 큽니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-040.replace('Q40', 'Q34')",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "정부가 근로자의 소득세 인상(또는 임금 삭감) 정책을 단행하였다. 노동-여가 선택 모형에서 슬루츠키 방정식을 활용하여 가격 효과를 분해할 때, 비근로 소득이 $0$ 인 근로자가 임금 하락에 직면하여 여가 소비를 오히려 줄이고 노동을 늘리는 후방 굴절 하방 행동의 경제학적 조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <path d=\"M 50 180 Q 200 170 320 100\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">여가 (L)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">소득 (I)</text>\n</svg>\n```\n",
+      "options": [
+        "여가가 정상재이며, 실질소득 하락에 따른 여가 소비 감소 소득효과가 상대 임금 하락에 따른 여가 증가 대체효과를 압도하는 상태이다.",
+        "여가가 열등재이며, 대체효과의 절댓값이 소득효과보다 압도적으로 큰 상태이다.",
+        "소득세 부과로 인해 소득효과가 완전히 0이 되어 대체효과 단독으로만 작용하는 구간이다.",
+        "여가-소득 무차별곡선이 원점에 오목하여 대체탄력성이 무한대로 수렴할 때 발생한다.",
+        "임금 하락 시 명목소득 보상액이 양수(+)의 값으로 급증해 여가의 기회비용을 낮추기 때문이다."
+      ],
+      "answer": "1",
+      "explanation": "임금 하락 시 ($w \\downarrow$, 여가의 기회비용 감소):\\n1) 대체효과: 여가의 가격이 싸졌으므로 여가 소비를 늘리려 합니다 ($L \\uparrow \\implies H \\downarrow$).\\n2) 소득효과: 근로 소득의 실질 구매력이 감소합니다. 여가가 정상재이므로 소득 감소에 따라 여가의 수요를 대폭 줄이려 합니다 ($L \\downarrow \\implies H \\uparrow$).\\n3) 결합: 임금 하락에 대응하여 여가가 정상재일 때, 실질소득 하락으로 여가를 악착같이 줄이려는 소득효과가 대체효과를 압도하게 되면, 최종적으로 여가가 감소하여 노동 공급량은 늘어납니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-035",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "시점간 소비 선택 모형에서 소비자의 간접효용극대화 조건 하에 이자율 $r$ 이 대폭 인상되었다. 이 소비자가 현재 돈을 빌려 쓰고 있는 차입자(Borrower) 상태일 때, 1기 소비 $C_0$ 에 작용하는 대체효과와 소득효과의 방향과 최종 소비량 증감으로 옳은 설명은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <path d=\"M 80 60 Q 150 120 280 180\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <text x=\"320\" y=\"215\" font-size=\"9\" font-family=\"sans-serif\">현재 소비 (C0)</text>\n  <text x=\"15\" y=\"35\" font-size=\"9\" font-family=\"sans-serif\">미래 소비 (C1)</text>\n</svg>\n```\n",
+      "options": [
+        "대체효과(현재 소비 비싸짐)는 $C_0$ 를 감소시키고, 차입자 소득효과(부채 상환 부담 상승으로 실질 부 감소)도 $C_0$ 를 감소시키므로, 두 효과가 같은 방향으로 작용하여 현재 소비 $C_0$ 는 무조건 확실하게 감소한다.",
+        "대체효과와 소득효과가 완벽히 서로를 상쇄하여 차입자의 현재 소비는 항상 일정하게 보존된다.",
+        "소득효과로 인해 채무자의 실질 부가 증가하므로 현재 소비는 무조건 폭발적으로 늘어난다.",
+        "이자율 인상 시에는 대체효과가 양수(+)가 되어 미래 소비만 일방적으로 감소시킨다.",
+        "차입자의 보상수요는 2기 소비의 한계효용 비율에만 요동치며 소득효과가 완전히 0이 된다."
+      ],
+      "answer": "1",
+      "explanation": "차입자(Borrower)의 이자율 $r$ 상승 시:\\n1) 대체효과: 현재 소비 $C_0$ 의 미래 가치 가격인 $1+r$ 이 상승하여 현재 소비의 기회비용이 비싸집니다. 현재 소비를 줄입니다 ($C_0 \\downarrow$).\\n2) 소득효과: 돈을 빌려 쓴 사람 입장에서는 갚아야 할 이자 비용이 커져 실질적인 평생 부(소득)가 감소합니다. 따라서 정상재인 현재 소비 $C_0$ 를 줄입니다 ($C_0 \\downarrow$).\\n3) 결합: 채권자(Lender)와 달리, 차입자는 대체효과와 소득효과가 모두 현재 소비를 감소시키는 동일한 방향($\\downarrow$)으로 작동하므로, 이자율 상승 시 1기 소비는 모호함 없이 무조건 확실하게 감소하며 저축 성향(또는 부채 감축)이 유도됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-036",
+      "difficulty": 4,
+      "question_type": "계산/이론형",
+      "question": "힉스 보상수요함수 $X_i^h(P_1, P_2, \\dots, P_N, U)$ 가 가격에 대해 $0$차 동차성(Homotopy of degree 0)을 만족함을 이용하여, 슬루츠키 Matrix $\\mathbf{S}$ 의 원소 $S_{ij} = \\dfrac{\\partial X_i^h}{\\partial P_j}$ 들의 가격 가중합이 $0$ 이 됨을 입증하는 오이러 정리(Euler's Theorem) 수식으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 힉스 수요 야코비 열합 0 -->\n  <rect x=\"50\" y=\"50\" width=\"120\" height=\"120\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"170\" y2=\"170\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" />\n  <text x=\"70\" y=\"110\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#1e293b\" font-weight=\"bold\">Sij 열합 = 0</text>\n</svg>\n```\n",
+      "options": [
+        "$\\sum_{j=1}^N P_j S_{ij} = 0 \\quad (\\text{모든 } i=1,\\dots,N)$",
+        "$\\sum_{j=1}^N P_j S_{ij} = 1$",
+        "$\\sum_{i=1}^N S_{ii} = 0$",
+        "$\\sum_{j=1}^N S_{ij} / P_j = 0$",
+        "$\\sum_{j=1}^N P_j^2 S_{ij} = I$"
+      ],
+      "answer": "1",
+      "explanation": "1) 0차 동차성 만족: 임의의 $t > 0$ 에 대해 $X_i^h(tP, U) = X_i^h(P, U)$ 이 성립합니다.\\n2) 오이러 동차함수 정리 적용:\\n   $r$차 동차함수 $f(X_1, \\dots, X_N)$ 에 대해 $\\sum X_j \\dfrac{\\partial f}{\\partial X_j} = r \\cdot f$ 가 성립합니다.\\n   보상수요 $X_i^h$ 가 가격 $P$ 에 대해 $0$차 동차함수이므로:\\n   $$\\sum_{j=1}^N P_j \\dfrac{\\partial X_i^h}{\\partial P_j} = 0 \\cdot X_i^h = 0 \\implies \\sum_{j=1}^N P_j S_{ij} = 0$$\\n이 성질은 상대가격비가 보존되면 가격 수준의 등비적 인상이 보상수요량에 아무런 왜곡도 주지 못함을 수리적으로 입증합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-037",
+      "difficulty": 4,
+      "question_type": "계산/이론형",
+      "question": "소비자의 마샬 통상수요함수 $X^*(P_x, P_y, I)$ 가 가격과 소득에 대해 $0$차 동차성($X^*(tP_x, tP_y, tI) = X^*(P_x, P_y, I)$)을 지닌다는 성질에 오이러 정리를 적용하여, X재의 자기가격탄력성 $\\varepsilon_{xx}$, Y재에 대한 교차가격탄력성 $\\varepsilon_{xy}$, 소득탄력성 $\\eta_x$ 간의 제약 관계식으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 가격 0차 동차성 탄력성 합산 0 -->\n  <rect x=\"50\" y=\"70\" width=\"260\" height=\"100\" fill=\"#fee2e2\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"80\" y=\"125\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">εxx + εxy + ηx = 0</text>\n</svg>\n```\n",
+      "options": [
+        "\\varepsilon_{xx} + \\varepsilon_{xy} + \\eta_x = 0",
+        "\\varepsilon_{xx} + \\varepsilon_{xy} + \\eta_x = 1",
+        "\\varepsilon_{xx} \\cdot \\varepsilon_{xy} \\cdot \\eta_x = 0",
+        "\\varepsilon_{xx} + \\varepsilon_{xy} - \\eta_x = 0",
+        "s_x \\varepsilon_{xx} + s_y \\varepsilon_{xy} + \\eta_x = 0"
+      ],
+      "answer": "1",
+      "explanation": "1) 마샬 수요의 0차 동차성: 가격과 소득이 동시에 $t$ 배가 되면 수요량은 불변입니다.\\n2) 오이러 정리 적용:\\n   $$P_x \\dfrac{\\partial X^*}{\\partial P_x} + P_y \\dfrac{\\partial X^*}{\\partial P_y} + I \\dfrac{\\partial X^*}{\\partial I} = 0 \\cdot X^* = 0$$\\n3) 양변을 $X^*$ 로 나누어 탄력성으로 환원:\\n   $$\\left( \\dfrac{\\partial X^*}{\\partial P_x} \\dfrac{P_x}{X^*} \\right) + \\left( \\dfrac{\\partial X^*}{\\partial P_y} \\dfrac{P_y}{X^*} \\right) + \\left( \\dfrac{\\partial X^*}{\\partial I} \\dfrac{I}{X^*} \\right) = 0 \\implies \\varepsilon_{xx} + \\varepsilon_{xy} + \\eta_x = 0$$\\n따라서 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-038",
+      "difficulty": 4,
+      "question_type": "계산/이론형",
+      "question": "소비자의 효용함수가 준선형 형태인 $U(X, Y) = \\ln X + Y$ 이다. 소득효과 0인 내부해 영역에서 X재 가격 변동 시 발생하는 소비자 잉여 변화량($\\Delta CS$), 보상변화(CV), 대등변화(EV)의 크기 관계의 수학적 성질로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"80\" y1=\"60\" x2=\"310\" y2=\"200\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" />\n  <line x1=\"120\" y1=\"60\" x2=\"260\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <text x=\"180\" y=\"90\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#2563eb\" font-weight=\"bold\">CV = EV = ΔCS</text>\n</svg>\n```\n",
+      "options": [
+        "CV = EV = \\Delta CS 이며, 소득효과가 0이므로 마샬 수요곡선과 두 힉스 보상수요곡선이 하나로 일치하여 세 후생 측정치의 오차가 완전히 소멸한다.",
+        "|EV| &gt; |\\Delta CS| &gt; |CV| 의 쐐기 관계가 상시 만족되어 측정치의 괴리가 최대가 된다.",
+        "|CV| &gt; |\\Delta CS| &gt; |EV| 의 쐐기 관계가 만족되며 소득이 증가할수록 격차가 팽창한다.",
+        "세 지표 모두 가격 탄력성의 제곱에 비례하여 항상 0으로 강제 수축한다.",
+        "보상변화만 정의 가능할 뿐 대등변화와 소비자 잉여는 수학적으로 부존한다."
+      ],
+      "answer": "1",
+      "explanation": "준선형 효용함수 $U = \\ln X + Y$ 에서 $MRS = 1/X$ 입니다. 최적 수요 $X^* = P_y/P_x$ 에 소득 $I$ 가 포함되지 않으므로 소득 효과가 $0$ 입니다.\\n따라서 힉스 보상수요와 마샬 통상수요의 대수식 및 기하학적 형태가 완전히 하나로 묶여 겹칩니다.\\n$$X^*(P_x, P_y, I) = X^h(P_x, P_y, U_0) = X^h(P_x, P_y, U_1)$$\\n이를 가격 축으로 적분한 결과물인 $CV, EV, \\Delta CS$ 도 소득 효과 소멸에 근거하여 완벽하게 일치합니다 ($CV = EV = \\Delta CS$). 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-039",
+      "difficulty": 4,
+      "question_type": "계산/이론형",
+      "question": "소비자의 X재 예산 점유율을 $s_x$, 소득탄력성을 $\\eta_x$, 힉스 자기대체탄력성을 $\\varepsilon^h_{xx}$ 라 하자. 슬루츠키 방정식의 탄력성 버전 수식 $\\varepsilon_{xx} = \\varepsilon^h_{xx} - s_x \\eta_x$ 에 기초할 때, X재가 기펜재(Giffen Good)가 되기 위한 두 매개변수 $s_x$ 와 $\\eta_x$ 의 한계 경계 조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 기펜재의 소득-대체효과 대비 기하 -->\n  <circle cx=\"120\" cy=\"140\" r=\"4.5\" fill=\"#ef4444\" />\n  <circle cx=\"180\" cy=\"160\" r=\"4\" fill=\"#8b5cf6\" />\n  <circle cx=\"90\" cy=\"120\" r=\"4.5\" fill=\"#2563eb\" />\n  <path d=\"M 125 140 L 170 155\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"1.2\" />\n  <path d=\"M 175 160 L 95 125\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"1.5\" />\n</svg>\n```\n",
+      "options": [
+        "X재가 열등재($\\eta_x &lt; 0$)이면서, 소득효과 가중 결합 크기인 $|s_x \\eta_x|$ 가 음의 대체탄력성 절댓값 $|\\varepsilon^h_{xx}|$ 보다 커야 한다.",
+        "X재가 사치재($\\eta_x &gt; 1$)이면서, 예산 점유율 $s_x$ 가 0에 한없이 근접하여 소득효과를 제거하여야 한다.",
+        "소득탄력성이 정확히 1이고 예산 점유율이 0이 되어 대체탄력성을 소멸시켜야 한다.",
+        "두 매개변수가 모두 양수(+)여야 하며 가격 변동 비율에 정비례하여 대체효과가 팽창하여야 한다.",
+        "소득 효과의 가중치가 대체탄력성 부호와 일치해 수요량이 항상 가격에 양(+)의 무한대로 반응해야 한다."
+      ],
+      "answer": "1",
+      "explanation": "기펜재(Giffen Good)는 가격 상승 시 수요량이 오히려 늘어나는 재화이므로 자기 가격탄력성이 양수여야 합니다 ($\\varepsilon_{xx} > 0$).\\n슬루츠키 탄력성 방정식:\\n$$\\varepsilon_{xx} = \\varepsilon^h_{xx} - s_x \\eta_x$$\\n1) 지출함수 오목성에 의해 자기대체탄력성 $\\varepsilon^h_{xx}$ 는 항상 음수(-)입니다.\\n2) 따라서 $\\varepsilon_{xx} > 0$ 이 충족되려면 소득효과 항인 $-s_x \\eta_x$ 가 충분히 큰 양수(+)여야 합니다.\\n   - $\\eta_x < 0$ (열등재 관계 충족)\\n   - 소득 효과의 절댓값인 $|s_x \\eta_x| > |\\varepsilon^h_{xx}|$ (소득효과가 대체효과를 압도)\\n정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-040",
+      "difficulty": 4,
+      "question_type": "계산/이론형",
+      "question": "드러난 선호의 약공리(WARP)를 적용하여 가격이 하락하는 변동 시 슬루츠키 보상수요량의 증감 궤적이 항상 가격과 역방향(비양수, $\\Delta X_{sub} \\ge 0$)으로만 움직임을 입증하는 수학적 관계로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#475569\" />\n    </marker>\n  </defs>\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n  \n  <!-- 드러난 선호의 약공리(WARP) 시각화 -->\n  <line x1=\"50\" y1=\"80\" x2=\"250\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"130\" x2=\"190\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  \n  <circle cx=\"150\" cy=\"125\" r=\"4.5\" fill=\"#1e293b\" />\n  <text x=\"155\" y=\"120\" font-size=\"9\" font-family=\"sans-serif\">소비점 A</text>\n</svg>\n```\n",
+      "options": [
+        "가격 변동 $\\Delta P_x &lt; 0$ 일 때, 약공리 부등식 $\\Delta P_x \\cdot \\Delta X_{sub} \\le 0$ 에 의해 $\\Delta X_{sub} \\ge 0$ 이 강제된다.",
+        "약공리 부등식에 의해 $\\Delta P_x + \\Delta X_{sub} \\ge I$ 가 유도되어 수요가 언제나 제곱으로 증가한다.",
+        "가격이 하락하면 소비자는 항상 대체 탄력성이 0이 되는 L자 접점으로 회귀하기 때문이다.",
+        "소득의 한계효용이 가격 하락률에 비례하여 음수(-)로 수축함을 증명한다.",
+        "약공리 하에서는 가격 변동 시 보상수요량이 항상 원래 점에 머물러 수요 변화량이 0으로 고정된다."
+      ],
+      "answer": "1",
+      "explanation": "1) WARP에서 유도된 슬루츠키 부등식:\\n   $$\\Delta P_x \\cdot \\Delta X_{sub} \\le 0$$\\n2) 조건 대입:\\n   X재 가격이 하락하는 변동이므로 $\\Delta P_x < 0$ 입니다.\\n3) 부호 검정:\\n   음수($\\Delta P_x$)와 $\\Delta X_{sub}$ 의 곱이 $0$ 이하가 되려면, 반드시 $\\Delta X_{sub} \\ge 0$ (보상수요량은 증가하거나 유지)이어야 합니다.\\n이 수학적 관계는 가격 하락 시 대체 반응으로 인한 보상수요량 증가는 무조건 양의 방향이 됨을 약공리만으로 깔끔하게 증명합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-041",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "소비자의 개별 간접효용함수들이 고먼 극대화 조건(Gorman Polar Form)인 $V_i(P, I_i) = a(P) I_i + b_i(P)$ 를 충족할 때, 개별 슬루츠키 Matrix $\\mathbf{S}_i$ 의 한계소비성향 항들이 사회 전체의 소득 분배 상태 변화와 무관하게 고유한 시장 총수요곡선을 도출할 수 있도록 유도되는 수학적 조건으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 동차 선호 직선 ICC -->\n  <line x1=\"50\" y1=\"200\" x2=\"250\" y2=\"80\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n  <text x=\"210\" y=\"75\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#ef4444\" font-weight=\"bold\">Gorman ICC 평행 직선군</text>\n</svg>\n```\n",
+      "options": [
+        "모든 소비자의 소득에 대한 마샬 수요 편미분치 $\\dfrac{\\partial X_{i,k}}{\\partial I_i}$ 가 동일한 가격하에서 모든 구성원에 대해 동일하여야 하며, 이로 인해 소득 재분배 시 소득효과가 상쇄 보존된다.",
+        "모든 소비자의 대체효과 편미분치 $S_{ij}$ 가 항상 $0$ 으로 고정되어 소득 효과 단독으로만 시장수요를 규정해야 한다.",
+        "개별 소비자의 지출함수의 2계 편도함수가 항상 소득의 제곱에 비례하여 0이 되어야 한다.",
+        "모든 구성원의 소득탄력성 $\\eta_i$ 가 가격비율 $P_x/P_y$ 와 완전 일치하는 동차성이어야 한다.",
+        "소득 재분배 시 가격 비율이 강제로 평행 이동하여 예산선 기울기가 0이 될 때만 성립한다."
+      ],
+      "answer": "1",
+      "explanation": "시장 총수요가 소득 분배 상태에 영향받지 않으려면 임의의 구성원 간 소득 이전 시 추가 수요량 변동이 상쇄되어야 합니다.\\n1) 간접효용이 Gorman Polar Form $V_i = a(P)I_i + b_i(P)$ 이면 로이의 항등식에 의해 마샬수요가 소득 $I_i$ 에 대해 선형입니다.\\n   $$X^*_{i,k}(P, I_i) = -\\dfrac{a'(P) I_i + b'_i(P)}{a(P)} \\implies \\dfrac{\\partial X^*_{i,k}}{\\partial I_i} = -\\dfrac{a'(P)}{a(P)}$$\\n2) 결과:\\n   소득에 대한 수요 미분치(한계소비성향)가 소득 수준이나 개인 $i$ 의 취향과 무관하게 모든 소비자에서 동일합니다. 따라서 소득 분배 상태가 변해도 시장 전체의 총 소득효과는 일정하게 묶여 시장 총수요가 안정적으로 성립합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-042",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "힉스 보상수요 야코비 행렬 $\\mathbf{J}_p \\mathbf{x}^h$ 와 지출함수 Hessian 행렬 $\\nabla^2_p E$ 의 수학적 완전 등가성 및 이로부터 자기대체효과 원소 $S_{ii}$ 의 부호가 음(-)이 됨을 지출함수의 오목성으로 증명하는 논리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"M 50 180 Q 200 90 350 70\" fill=\"none\" stroke=\"#059669\" stroke-width=\"3\" />\n  <line x1=\"100\" y1=\"120\" x2=\"300\" y2=\"60\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" />\n  <text x=\"150\" y=\"145\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#059669\" font-weight=\"bold\">지출함수 E(P, U) (위로 오목)</text>\n</svg>\n```\n",
+      "options": [
+        "셰퍼드의 정리에 의해 $X_i^h = \\dfrac{\\partial E}{\\partial P_i}$ 이므로 야코비의 원소 $S_{ii} = \\dfrac{\\partial X_i^h}{\\partial P_i} = \\dfrac{\\partial^2 E}{\\partial P_i^2}$ 이며, 지출함수가 가격에 대해 오목(Concave)하므로 헤시안의 대각원소는 항상 비양수($\\le 0$)이다.",
+        "지출함수의 오목성은 대각원소 $S_{ii}$ 가 항상 양수(+)가 되도록 강제하여 대체효과를 양수로 수렴시킨다.",
+        "야코비 행렬이 비대칭 행렬이 되므로 혼합 편도함수의 순서가 미분 불가능 경계로 퇴화한다.",
+        "지출함수가 가격에 대해 1차 동차이므로 2계 편도함수 $S_{ii}$ 는 항상 소득의 크기 $I$ 와 일치한다.",
+        "오목성은 자기대체효과가 가격 탄력성 비례에 따라 기하급수적으로 폭발하게 만듬을 뜻한다."
+      ],
+      "answer": "1",
+      "explanation": "1) 셰퍼드의 정리: $X_i^h(P, U) = \\dfrac{\\partial E(P, U)}{\\partial P_i}$\\n2) 야코비 행렬의 대각 원소:\\n   $$S_{ii} = \\dfrac{\\partial X_i^h}{\\partial P_i} = \\dfrac{\\partial^2 E(P, U)}{\\partial P_i^2}$$\\n3) 오목성(Concavity)의 성질:\\n   지출함수 $E(P, U)$ 는 가격 $P$ 에 대해 오목한 함수이므로, 그 Hessian 행렬인 Slutsky Matrix $\\mathbf{S}$ 는 음의 준한정(Negative Semi-definite) 행렬입니다.\\n4) 결론:\\n   음의 준한정 행렬의 대각 원소는 항상 $0$ 이하의 값을 취해야 합니다.\\n   $$S_{ii} = \\dfrac{\\partial^2 E}{\\partial P_i^2} \\le 0$$ (자기대체효과는 항상 비양수). 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-043",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "X재 가격이 $P_x$ 에서 $P'_x$ 로 인하될 때, 보상변화(CV)와 대등변화(EV)의 절댓값을 힉스 보상수요의 정적분 형태인 $|CV| = \\int_{P'_x}^{P_x} X^h(p, P_y, U_0) dp$, $|EV| = \\int_{P'_x}^{P_x} X^h(p, P_y, U_1) dp$ 로 유도하고, 정상재 하에서 가격 하락 시 두 힉스수요의 위치에 따른 크기 관계($|CV| < |EV|$)의 기하적 증명으로 옳은 서술은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 적분 영역 쐐기 면적 -->\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <path d=\"M 80 60 Q 150 140 300 170\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "정상재의 가격 하락 시 효용이 상승하므로 $U_1 &gt; U_0$ 이고, 힉스수요의 효용에 대한 소득 효과로 인해 동일 가격 상에서 $X^h(P, U_1) &gt; X^h(P, U_0)$ 이 되어 보상수요곡선이 우측에 위치하므로 적분 면적인 $|EV|$ 가 더 크다.",
+        "가격 하락 시 실질 효용이 감소하므로 보상수요곡선이 좌측으로 평행 수축하여 $|CV| &gt; |EV|$ 가 성립한다.",
+        "동일한 가격 하락 폭에서 두 힉스 수요의 면적은 항상 동일하여 $|CV| = |EV| = \\Delta CS$ 의 등식이 기하학적으로 상시 고정된다.",
+        "힉스 수요는 가격 변동 비율에 정비례하여 대체효과를 소멸시키므로 적분 면적이 항상 음수(-)가 된다.",
+        "정상재의 소득 효과가 음수(-)이므로 적분 경로가 회전 붕괴하여 두 면적 값 모두 정의되지 않는다."
+      ],
+      "answer": "1",
+      "explanation": "1) 정상재 가격 하락 시 효용 관계: 가격 하락으로 실질 구매력이 커져 소비자의 효용은 상승합니다 ($U_1 > U_0$).\\n2) 힉스수요의 소득 성격:\\n   X재가 정상재이므로, 소득(효용)이 증가하면 동일한 가격 하에서도 보상수요량이 증가합니다.\\n   $$\\dfrac{\\partial X^h}{\\partial U} > 0 \\implies X^h(p, U_1) > X^h(p, U_0) \\quad (\\text{모든 가격 } p \\text{ 상에서})$$\\n3) 면적 적분 비교:\\n   $U_1$ 에 근거한 보상수요곡선이 $U_0$ 에 근거한 곡선보다 항상 오른쪽에 놓이게 됩니다. 따라서 동일한 가격 구간 $[P'_x, P_x]$ 에 대해 하부 면적을 적분하면:\\n   $$\\int_{P'_x}^{P_x} X^h(p, P_y, U_1) dp > \\int_{P'_x}^{P_x} X^h(p, P_y, U_0) dp \\implies |EV| > |CV|$$\\n정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-044",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "후생경제학 실증 분석에서 Willig(1976)의 소비자 잉여 근사 공식인 $\\dfrac{|CV - \\Delta CS|}{|\\Delta CS|} \\le \\dfrac{s \\eta}{2}$ 에 기초할 때, 대상 재화의 소득탄력성 $\\eta$ 와 예산 비중 $s$ 가 매우 작을 때 마샬 소비자잉여 변화량 $\\Delta CS$ 가 힉스 후생 지표의 우수한 대용치가 되는 대수적 인과관계 증명으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Willig 소비자잉여 오차 범위 -->\n  <path d=\"M 80 60 Q 150 140 300 170\" fill=\"none\" stroke=\"#2563eb\" stroke-dasharray=\"2\" stroke-width=\"1.5\" />\n  <path d=\"M 78 58 Q 148 138 298 168\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" />\n</svg>\n```\n",
+      "options": [
+        "두 매개변수가 작을수록 슬루츠키 소득효과 항인 $-X \\dfrac{\\partial X}{\\partial I}$ 가 0에 수렴하여 마샬 수요와 힉스 수요의 괴리 면적이 극도로 최소화되기 때문이다.",
+        "소득탄력성이 작으면 가격 상승 시의 대체효과가 무한대로 발산하여 오차율이 0%가 되기 때문이다.",
+        "예산 비중 $s$ 가 작으면 대체탄력성이 0이 되어 보상수요곡선이 수평선 형태로 전환되기 때문이다.",
+        "윌리그 공식은 오직 소득 효과가 양수(+)인 열등재 관계에서만 오차 한계를 보장하기 때문이다.",
+        "프래이밍 효과에 의해 가상 예산선이 소득의 제곱 비례로 회전 축소하기 때문이다."
+      ],
+      "answer": "1",
+      "explanation": "슬루츠키 방정식에 따르면 통상수요와 보상수요의 괴리는 오직 소득효과 항 $-X \\dfrac{\\partial X}{\\partial I}$ 에 의해 발생합니다.\\n1) 이 소득효과 항을 탄력성 및 비중 변수로 치환하면 $s \\cdot \\eta$ 에 해당합니다. (여기서 $s$ 는 예산 비중, $\\eta$ 는 소득탄력성입니다.)\\n2) 따라서 $s$ 와 $\\eta$ 가 매우 작다면(예: 소득 지출 비중이 적고 소득 변화에 둔감한 일상 소비재), 미분방정식의 격차 면적인 $|CV - \\Delta CS|$ 의 상대 오차 상한선인 $s\\eta/2$ 가 $0$ 에 근접합니다. 이는 마샬 잉여 변화량이 힉스 후생 지표들의 매우 우수한 대수적 근사치(대용치)가 됨을 철저하게 정당화해 줍니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-045",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "지출함수 $E(P_x, P_y, U)$ 가 가격 벡터에 대해 1차 동차함수($E(tP, U) = tE(P, U)$)임을 미분 체인 룰을 사용하여 증명하고, 이를 통해 힉스 보상수요 $X^h(P_x, P_y, U)$ 가 가격에 대해 $0$차 동차함수($X^h(tP, U) = X^h(P, U)$)를 만족함을 대수적으로 유도하는 과정으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- 가격 0차 동차성 -->\n  <path d=\"M 80 60 Q 150 140 300 170\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n  <text x=\"260\" y=\"150\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#2563eb\" font-weight=\"bold\">X^h(tP, U) = X^h(P, U)</text>\n</svg>\n```\n",
+      "options": [
+        "$E(tP, U) = tE(P, U)$ 의 양변을 $P_x$ 에 대해 미분하면, 좌변은 $t \\dfrac{\\partial E(tP, U)}{\\partial (tP_x)} = t X^h(tP, U)$, 우변은 $t \\dfrac{\\partial E(P, U)}{\\partial P_x} = t X^h(P, U)$ 이 되어 양변의 $t$ 를 약분하면 $X^h(tP, U) = X^h(P, U)$ 가 도출된다.",
+        "지출함수를 2회 미분하면 동차 차수가 1차 증가하므로 보상수요는 가격에 대해 2차 동차함수가 된다.",
+        "지출함수의 편미분비인 로이의 항등식을 적용하여 마샬수요가 소득에 대해 1차 동차성을 가짐을 보인다.",
+        "가격 비율 왜곡 효과가 동차 차수를 역방향으로 팽창시켜 보상수요량이 가격 제곱 비례로 증가하게 만든다.",
+        "완전대체재 효용 함수 하에서만 적분 기하가 만족되어 0차 동차성이 성립된다."
+      ],
+      "answer": "1",
+      "explanation": "1) 1차 동차성 정의: $E(tP_x, tP_y, U) = tE(P_x, P_y, U)$\\n2) 양변을 $P_x$ 에 대해 편미분 (체인 룰 적용):\\n   - 좌변 편미분: $\\dfrac{\\partial}{\\partial P_x} [E(tP_x, tP_y, U)] = \\dfrac{\\partial E(tP_x, tP_y, U)}{\\partial (tP_x)} \\dfrac{\\partial (tP_x)}{\\partial P_x} = X^h(tP, U) \\cdot t$\\n   - 우변 편미분: $\\dfrac{\\partial}{\\partial P_x} [t E(P_x, P_y, U)] = t \\dfrac{\\partial E(P, U)}{\\partial P_x} = t X^h(P, U)$\\n3) 등식 결합:\\n   $$t X^h(tP, U) = t X^h(P, U) \\implies X^h(tP, U) = X^h(P, U) \\quad (\\text{양변의 } t \\text{ 약분})$$\\n따라서 힉스 보상수요는 가격 변수들에 대해 $0$차 동차성을 지닙니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-046",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "효용함수가 준선형인 $U(X, Y) = 2\\sqrt{X} + Y$ 이고 예산선은 $P_x X + P_y Y = I$ 이다. 내부해가 존재할 때, X재 가격이 $P_x$ 에서 $P'_x$ 로 변화할 때 발생하는 지출함수 $E(P_x, P_y, U)$ 의 차이인 보상변화(CV)와 대등변화(EV)의 대수식을 직접 적분을 통해 도출하여 두 값이 소비자잉여 변화량 $\\Delta CS$ 와 완전히 일치($CV = EV = \\Delta CS$)함을 증명하는 논리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"80\" y1=\"60\" x2=\"310\" y2=\"200\" stroke=\"#cbd5e1\" stroke-dasharray=\"3\" />\n  <line x1=\"120\" y1=\"60\" x2=\"260\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2\" />\n  \n  <text x=\"180\" y=\"90\" font-size=\"10\" font-family=\"sans-serif\" fill=\"#2563eb\" font-weight=\"bold\">CV = EV = ΔCS</text>\n</svg>\n```\n",
+      "options": [
+        "최적 X재 수요가 $X^* = (P_y/P_x)^2$ 으로 소득 $I$ 와 무관하므로, 지출함수 $E = P_x X^h + P_y(U - 2\\sqrt{X^h}) = P_y U - P_y^2/P_x$ 로부터 $E(P_x) - E(P'_x) = \\int_{P'_x}^{P_x} (P_y/p)^2 dp = \\Delta CS = CV = EV$ 가 성립한다.",
+        "준선형 효용 하에서는 대체효과가 0이 되므로 정적분 값이 항상 명목소득의 변화율인 $0$ 이 되어 일치한다.",
+        "지출함수의 오목성으로 인해 1계 편도함수가 상수 1로 고정되므로 적분 면적이 무조건 0이 된다.",
+        "세 후생 지표는 오직 위험 프리미엄이 0이 되는 완전보완재 관계에서만 대수적으로 일치한다.",
+        "소득세 부과 시 예산선이 회전함에 따라 지출함수의 적분 경로가 회전 붕괴하여 식 성립이 차단된다."
+      ],
+      "answer": "1",
+      "explanation": "1) 준선형 최적화 도출:\\n   $MRS = 1/\\sqrt{X} = P_x/P_y \\implies X^* = (P_y/P_x)^2$ (소득 효과 0)\\n2) 지출함수 유도:\\n   $E(P, U) = P_x X + P_y Y = P_x X + P_y(U - 2\\sqrt{X})$\\n   최적 $X$ 대입:\\n   $$E(P, U) = P_x \\left(\\dfrac{P_y}{P_x}\\right)^2 + P_y U - 2P_y \\left(\\dfrac{P_y}{P_x}\\right) = P_y U - \\dfrac{P_y^2}{P_x}$$\\n3) 가격 변동에 따른 지출 차이 (CV 및 EV):\\n   $$E(P_x, P_y, U) - E(P'_x, P_y, U) = \\left( P_y U - \\dfrac{P_y^2}{P_x} \\right) - \\left( P_y U - \\dfrac{P_y^2}{P'_x} \\right) = \\dfrac{P_y^2}{P'_x} - \\dfrac{P_y^2}{P_x}$$\\n4) 마샬수요의 정적분 (소비자잉여 변화):\\n   $$\\int_{P'_x}^{P_x} X^*(p, P_y, I) dp = \\int_{P'_x}^{P_x} \\dfrac{P_y^2}{p^2} dp = \\left[ -\\dfrac{P_y^2}{p} \\right]_{P'_x}^{P_x} = \\dfrac{P_y^2}{P'_x} - \\dfrac{P_y^2}{P_x}$$\\n따라서 지출함수 차이인 $CV$, $EV$ 와 마샬수요 적분인 $\\Delta CS$ 가 완벽하게 수치적/대수적으로 일치합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-047",
+      "difficulty": 5,
+      "question_type": "이론/그래프형",
+      "question": "소비자 선택 데이터가 현시선호 강공리(SARP)를 완벽하게 충족할 때, 이로부터 슬루츠키 Matrix $\\mathbf{S}$ 가 대칭성과 음의 준한정성을 가짐이 보장되며, 수학적으로 편미분방정식의 적분가능조건인 프로베니우스 정리(Frobenius Theorem)를 만족하여 소비자 선호 체계(무차별곡선 지도)가 유일하게 복원될 수 있음을 증명하는 논리로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"50\" y=\"50\" width=\"120\" height=\"120\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"50\" x2=\"170\" y2=\"170\" stroke=\"#ef4444\" stroke-width=\"2\" />\n  <text x=\"75\" y=\"130\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#b91c1c\" font-weight=\"bold\">Sij = Sji</text>\n</svg>\n```\n",
+      "options": [
+        "SARP의 만족은 마샬 수요가 소득선형성을 띠게 만들어 혼합 편도함수의 대칭성($S_{ij}=S_{ji}$)을 유도하며, 프로베니우스 적분 정리 조건을 만족시켜 유일한 효용함수 $U(X)$ 와 상부선호 무차별곡선 지도를 역추적해 복원할 수 있다.",
+        "강공리는 대체효과를 무제한 양수(+)로 유도하여 무차별곡선이 원점을 향해 오목하게 역복원되도록 만든다.",
+        "프로베니우스 정리는 오직 완전보완재 L자형 무차별곡선 지도 하에서만 예외적으로 붕괴되어 복원이 차단된다.",
+        "적분가능조건이 만족되면 마샬수요의 가격 탄력성이 항상 0이 되어 소득소비곡선이 수평선으로만 고정 복원된다.",
+        "현시선호 공리 하에서는 지출함수가 가격 제곱에 비례하므로 무차별곡선이 동심원 형태로 강제 복원된다."
+      ],
+      "answer": "1",
+      "explanation": "1) 데이터 일관성과 SARP: 관찰된 소비 선택이 일관성(SARP)을 만족하면 소비자가 선호 순위를 모순 없이 설정하고 있음이 입증됩니다.\\n2) Slutsky 행렬과 Integrability: SARP가 만족되면 슬루츠키 Matrix $\\mathbf{S}$ 의 대칭성($S_{ij} = S_{ji}$)과 음의 준한정성이 대수적으로 성립합니다.\\n3) Frobenius Theorem: 편미분방정식계 $dX_i = \\sum S_{ij} dP_j + \\dots$ 가 적분되어 고유한 스칼라 함수 $U(X)$ 를 복원해 낼 수 있는 수학적 필요충분 조건이 바로 편미분 계수 행렬(Slutsky Matrix)의 대칭성입니다. 따라서 적분가능성에 의해 데이터만 가지고도 소비자의 숨겨진 무차별곡선 지도를 완벽하게 역복원하는 것이 정합적으로 가능해집니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-048",
+      "difficulty": 4,
+      "question_type": "계산/이론형",
+      "question": "기대효용이론 하에서 금융 소비자의 VNM 효용함수가 감소 절대위험회피(DARA, $r'_A(W) < 0$) 성향을 보인다. 이 소비자의 소득(현재의 부) $W$ 가 증가함에 따라, 위험자산(복권)에 대한 기하학적 예산제약 하에서 요구하는 위험 프리미엄(Risk Premium, RP) 프랫 근사치 수식의 변동 상태와 확실성 대등액(Certainty Equivalent, CE)의 변화 방향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 50 180 Q 200 80 320 60\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2.5\" />\n  <line x1=\"80\" y1=\"150\" x2=\"280\" y2=\"80\" stroke=\"#cbd5e1\" stroke-width=\"1.5\" />\n  <circle cx=\"180\" cy=\"115\" r=\"4.5\" fill=\"#ef4444\" />\n</svg>\n```\n",
+      "options": [
+        "부 $W$ 가 증가함에 따라 절대위험회피계수 $r_A(W)$ 가 감소하므로 요구하는 위험 프리미엄 $RP \\approx \\dfrac{1}{2} r_A(W) \\sigma^2$ 은 감소하고, 확실성 대등액 $CE = E(W) - RP$ 은 기대치 방향으로 증가한다.",
+        "부의 증가에 따라 위험 프리미엄이 기하급수적으로 증가하며 확실성 대등액은 0으로 수축한다.",
+        "DARA 성향 하에서는 위험 프리미엄이 소득 변동과 무관하게 항상 일정한 상수를 유지한다.",
+        "소비자가 위험자산을 기펜재로 취급하게 되어 기대수익이 증가하면 위험 프리미엄이 음수(-)가 된다.",
+        "위험 프리미엄은 항상 기대치의 제곱에 비례하여 확실성 대등액의 크기를 강제로 초과한다."
+      ],
+      "answer": "1",
+      "explanation": "1) DARA(Decreasing Absolute Risk Aversion)의 정의:\\n   부 $W$ 가 증가함에 따라 절대위험회피도 $r_A(W) = -\\dfrac{U''(W)}{U'(W)}$ 가 감소합니다 ($r'_A(W) < 0$).\\n2) 위험 프리미엄 변동:\\n   프랫의 근사 수식 $RP \\approx \\dfrac{1}{2} r_A(W) \\sigma^2$ 에 의해, 위험의 크기 $\\sigma^2$ 이 일정할 때 $r_A(W)$ 가 감소하므로 소비자가 요구하는 위험 프리미엄 $RP$ 은 점차 감소합니다. (즉, 부유해질수록 위험 감수 성향이 커져 포기하는 가산 비용이 줄어듭니다.)\\n3) 확실성 대등액 변동:\\n   $CE = E(W) - RP$ 이며 $RP$ 가 줄어드므로 확실성 대등액 $CE$ 은 기대치 $E(W)$ 에 점차 가까워지며 상승합니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-049",
+      "difficulty": 4,
+      "question_type": "이론/그래프형",
+      "question": "카네만과 트버스키(Kahneman & Tversky)의 전망 이론(Prospect Theory)에 기반한 손실 회피(Loss Aversion) 편향이 존재하는 소비자 균형을 분석하려 한다. 준거 기준 가격 하에서 가격 상승(손실)에 따른 수요량 감축 대체반응과 가격 하락(이득)에 따른 수요량 증가 대체반응의 비대칭성으로 인해 보상수요곡선에 꺾임부(Kink)가 유도될 때, 이에 따른 슬루츠키 Matrix 대칭성 및 음의 준한정성 조건의 수학적 변형 상태로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <path d=\"M 80 60 L 180 120 L 320 200\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"3.5\" />\n  <circle cx=\"180\" cy=\"120\" r=\"5\" fill=\"#1e293b\" />\n</svg>\n```\n",
+      "options": [
+        "가격 변동 방향에 따라 대체효과 편미분치 $S_{ii}$ 가 가격 상승 시에는 매우 크고 하락 시에는 작아지는 비대칭성이 발생하여 슬루츠키 행렬의 대칭성 조건($S_{ij}=S_{ji}$)이 국소 준거 기준점에서 붕괴될 수 있으나, 음의 준한정성은 유지된다.",
+        "손실 회피 하에서도 대칭성과 음의 준한정성은 모든 방향에서 완벽하게 균등 보존된다.",
+        "대칭성 조건은 보존되지만 자기대체효과 $S_{ii}$ 가 항상 양수(+)로 반전되어 수요 법칙이 붕괴된다.",
+        "손실 회피가 개별 예산선을 항상 수평선으로 평행 이동시켜 가격 효과의 분해를 원천 차단한다.",
+        "전망 이론에 근거하면 대체효과가 0이 되어 보상수요량이 소득세 평행 이동 폭과 완전 일치하게 된다."
+      ],
+      "answer": "1",
+      "explanation": "행동경제학적 손실 회피(Loss Aversion) 하의 소비자 행동:\\n1) 비대칭 대체효과: 준거 가격을 기준으로 가격 상승 시(손실) 느끼는 주관적 고통이 하락 시(이득) 기쁨보다 약 $2 \\sim 2.5$ 배 큽니다. 따라서 가격 상승에 대응하는 수요 감축량(대체효과)이 가격 하락에 대응하는 수요 증가량보다 훨씬 크게 나타납니다.\\n2) 슬루츠키 Matrix 영향:\\n   가격 변동의 방향(상승/하락)에 따라 편미분 계수 수치 자체가 단절적으로 갈리므로, 준거 가격 경계점에서는 슬루츠키 행렬의 대칭성($S_{ij} = S_{ji}$) 가정이 성립하지 않고 비대칭적 반응을 보입니다. 그러나 자기대체효과가 항상 음수(-)가 된다는 음의 준한정성(우하향 법칙) 자체는 깨지지 않고 보존됩니다. 정답은 1번입니다."
+    },
+    {
+      "id": "practice-econ-micro-ch03-sec02-item04-050",
+      "difficulty": 5,
+      "question_type": "계산/이론형",
+      "question": "소비자들의 선호체계가 고먼 극대화 조건(Gorman Polar Form)을 충족하지 못하여, 평행하지 않고 서로 다른 기울기를 갖는 소득소비곡선(ICC)군을 지니고 있다. 이 사회 전체적으로 소득 분배 상태가 변동할 때(예: 부유층의 소득이 빈곤층으로 이전), 시장 전체의 슬루츠키 방정식의 총소득효과와 총수요량의 안정성에 미치는 악영향으로 옳은 것은?\n\n```svg\n<svg viewBox=\"0 0 400 250\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n  <line x1=\"50\" y1=\"200\" x2=\"350\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"200\" stroke=\"#475569\" stroke-width=\"2\" />\n  \n  <!-- 요동치며 붕괴하는 시장 수요 -->\n  <path d=\"M 80 70 Q 120 150 100 180\" fill=\"none\" stroke=\"#b91c1c\" stroke-width=\"2\" />\n</svg>\n```\n",
+      "options": [
+        "개별 소비자들의 한계소비성향 차이로 인해 소득 재분배 시 시장 전체의 총소득효과 가중치 분배가 요동치며, 사회 총소득의 크기가 일정하더라도 시장 총수요곡선의 위치가 불규칙하게 요동치고 사회적 보상수요곡선이 붕괴한다.",
+        "소득 분배가 변하더라도 시장 전체의 총가격효과는 항상 개별 효과의 가중합으로 고정 보존되어 안정성이 높다.",
+        "고먼 조건을 만족하지 않으면 소득 효과가 0이 되어 시장수요곡선이 마샬 수요곡선과 항상 수직선으로 일치한다.",
+        "사회전체의 가격 탄력성이 양수(+)로 반전되어 모든 정상재가 기펜재 성격으로 강제 전환된다.",
+        "소득 이전 시 가격 비율이 강제로 평행 이동하므로 예산제약선이 항상 원점으로 수축 붕괴한다."
+      ],
+      "answer": "1",
+      "explanation": "시장 총수요 $X_{total} = \\sum X_i^*(P, I_i)$ 가 개별 소득 분배 상태에 영향받지 않으려면 모든 구성원의 한계소비성향 $\\partial X_i / \\partial I_i$ 가 동일해야 합니다 (고먼 Polar 조건).\\n만약 이 조건이 만족되지 않으면, 가격과 사회 총소득의 합산 크기가 일정하더라도 소득이 한계소비성향이 다른 소비자들 간에 이전될 때 총 수요량이 변동합니다.\\n결과적으로, 소득 분배 상태의 미세 변동이 시장의 총소득효과 가중치를 완전히 흔들어놓기 때문에 시장수요곡선의 안정적인 유도가 불가능해지고, 일관된 사회적 보상수요나 CIC를 구축하여 정책 후생 평가를 수행하는 것이 수학적으로 불가능해집니다. 정답은 1번입니다."
     }
   ]
 }

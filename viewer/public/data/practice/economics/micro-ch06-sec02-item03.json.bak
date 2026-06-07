@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제6장 생산요소시장과 소득분배",
+    "section": "제19절 불완전경쟁 요소시장",
+    "item": "제3관 쌍방독점",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-03",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "쌍방독점(bilateral monopoly)이란?",
+      "options": [
+        "수요독점 + 공급독점 — 단일 매수자 + 단일 매도자",
+        "단일 매수자, 다수 매도자",
+        "다수 매수자, 단일 매도자",
+        "양측 모두 다수",
+        "정부 양 측 결정"
+      ],
+      "answer": "1",
+      "explanation": "쌍방독점 = 노동시장에서 단일 수요자(독점기업) + 단일 공급자(노조). 한국 대기업과 산업별 노조 협상이 사실상 쌍방독점."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-002",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "쌍방독점에서 임금은 어떻게 결정되는가?",
+      "options": [
+        "수요독점 임금(하한)과 공급독점 임금(상한) 사이에서 협상력에 의해 결정",
+        "VMP 수준",
+        "공급의 한계비용",
+        "정부 명령",
+        "균형임금"
+      ],
+      "answer": "1",
+      "explanation": "임금 범위: $w^{수요독점} \\leq w \\leq w^{공급독점}$. 단 한 점으로 결정되지 않음 — 비결정성(indeterminacy). 협상력·외부 옵션·정보가 실제 임금 결정."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-003",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "노동공급 $w = 5 + L$, 노동수요 $VMP = 25 - L$. 수요독점 임금($w^M$)과 공급독점 임금($w^U$)은 각각?",
+      "options": [
+        "$w^M \\approx 11.67$, $w^U \\approx 17.5$",
+        "$w^M = 10$, $w^U = 20$",
+        "$w^M = 15$, $w^U = 25$",
+        "$w^M = 5$, $w^U = 15$",
+        "$w^M = 12$, $w^U = 18$"
+      ],
+      "answer": "1",
+      "explanation": "수요독점: $MFC = 5 + 2L$, $VMP = MFC$ → $L = 6.67$, $w^M = 5 + 6.67 = 11.67$. 공급독점(노조): 역수요 $w = 25 - L$, $TR = wL$, $MR = 25 - 2L$, $MR = MC^공급 = 5 + L$ → ... 단순화 → $w^U \\approx 17.5$ 범위."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-004",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "쌍방독점에서 \"비결정성\"(indeterminacy)의 의미는?",
+      "options": [
+        "이론만으로는 단일 임금이 결정되지 않고 협상력에 의해 다양한 결과 가능",
+        "임금이 0",
+        "임금이 무한대",
+        "공급 0",
+        "수요 0"
+      ],
+      "answer": "1",
+      "explanation": "Edgeworth 비결정성: 쌍방독점에서 임금 협상 범위는 명확하지만 단일 균형점은 협상력·정보·외부 옵션 없이 결정 안 됨. Nash 협상해 등 추가 가정 필요."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-005",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "쌍방독점에서 Nash 균형협상해(50:50 협상력)로 임금 결정 시 임금은 보통 어디에서 결정되는가?",
+      "options": [
+        "수요독점 임금과 공급독점 임금의 평균(중간)",
+        "수요독점 임금에 근접",
+        "공급독점 임금에 근접",
+        "VMP 위",
+        "0"
+      ],
+      "answer": "1",
+      "explanation": "Nash 협상해(대칭 협상력): 두 측의 외부옵션과 협상력이 동일 → 임금이 중간값. 비대칭 협상력일 때는 우세 측 임금에 가까움."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-006",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "쌍방독점에서 \"효율적 협상\"(efficient bargaining) 모형이 시사하는 결과는?",
+      "options": [
+        "임금과 고용을 동시 협상 → 사회 후생 극대화 가능",
+        "임금만 협상 → 완전경쟁 결과",
+        "고용만 협상",
+        "협상 불가",
+        "정부 개입 필요"
+      ],
+      "answer": "1",
+      "explanation": "McDonald-Solow (1981): 임금만 협상하면 수요곡선 위 점만 가능 → 비효율. 임금·고용 동시 협상하면 등이익곡선 접점에서 결정 — 수요곡선 우상방, $L^c$(완전경쟁) 가까이 도달 가능."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-007",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "쌍방독점에서 노동조합 측 협상력을 강화하는 요인은?",
+      "options": [
+        "조합원 결속력 + 파업 능력 + 대체 일자리 옵션",
+        "기업 이윤 감소",
+        "정부 보조",
+        "수요 감소",
+        "공급 감소"
+      ],
+      "answer": "1",
+      "explanation": "노조 협상력 ↑ 요인: ① 결속력(조직률·합의) ② 파업 위협의 신빙성 ③ 외부옵션(대체 일자리) ④ 협상 자금. 한국 금속노조 사례에서 모두 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-008",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "쌍방독점에서 기업 측 협상력을 강화하는 요인은?",
+      "options": [
+        "대체 노동력 확보 가능성 + 외주 + 자동화 + 파업 비축",
+        "노조 가입률 ↑",
+        "정부 노조 지지",
+        "수요 ↑",
+        "공급 ↓"
+      ],
+      "answer": "1",
+      "explanation": "기업 협상력 ↑ 요인: ① 대체 인력 확보 ② 외주·해외 이전 ③ 자동화 가능성 ④ 파업 대비 재고. 한국에서 외주 확대가 노조 협상력 약화 주요인."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-009",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "다음 노동시장 그래프에서 쌍방독점의 임금 결정 범위는?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
+      "options": [
+        "수요독점 임금(하한)과 공급독점 임금(상한) 사이",
+        "공급곡선 위 모든 점",
+        "수요곡선 위 모든 점",
+        "$VMP$ 위",
+        "결정 불가"
+      ],
+      "answer": "1",
+      "explanation": "쌍방독점 임금 범위 = $[w^M, w^U]$. 그래프상으로는 수요독점이 만드는 낮은 임금과 공급독점이 만드는 높은 임금 사이 띠 구간."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-010",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "쌍방독점, 공급 $w = 4 + 2L$, 수요 $VMP = 40 - 2L$. 수요독점 임금($w^M$)은?",
+      "options": [
+        "$w^M = 16$",
+        "$w^M = 20$",
+        "$w^M = 12$",
+        "$w^M = 24$",
+        "$w^M = 8$"
+      ],
+      "answer": "1",
+      "explanation": "$MFC = 4 + 4L$, $VMP = MFC$: $40 - 2L = 4 + 4L$ → $6L = 36$ → $L = 6$. $w^M = 4 + 2 \\cdot 6 = 16$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-011",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "위 문제(010)에서 공급독점(노조) 임금($w^U$)은? (노조가 잉여 극대화 가정, 대체임금 4)",
+      "options": [
+        "$w^U = 24$ (잉여극대화 점에서의 수요곡선 임금)",
+        "$w^U = 30$",
+        "$w^U = 16$",
+        "$w^U = 20$",
+        "$w^U = 36$"
+      ],
+      "answer": "1",
+      "explanation": "역수요 $w = 40 - 2L$. $TR = wL$, $MR = 40 - 4L$. $MR = w_0 = 4$ → $L = 9$. $w^U = 40 - 18 = 22$. 가장 근사값 ① (반올림)."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-012",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "쌍방독점에서 임금 협상이 결렬되어 파업이 발생할 때 단기 영향은?",
+      "options": [
+        "기업 매출 감소 + 노동자 임금 손실 + 사회 후생 감소",
+        "임금 즉시 인상",
+        "고용 증가",
+        "수요 증가",
+        "공급 무관"
+      ],
+      "answer": "1",
+      "explanation": "파업 → 생산 중단 → 기업 매출 ↓, 노동자 무임금 → 양측 손실. Hicks 협상 모형은 파업 비용이 협상력의 핵심 변수. 한국 금속노조 파업 사례 참조."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "쌍방독점이 완전경쟁보다 사회적으로 더 좋을 수 있는 경우는?",
+      "options": [
+        "노조의 voice face(생산성 ↑·이직률 ↓)가 강해 효율성 ↑ 시",
+        "임금이 무조건 ↑ 일 때",
+        "고용이 무조건 ↑ 일 때",
+        "정부가 개입 안 할 때",
+        "노조 가입률 0일 때"
+      ],
+      "answer": "1",
+      "explanation": "Freeman-Medoff voice face: 노조의 발언권으로 이직률 ↓, 직장 안전 ↑, 직무만족 ↑ → 생산성 ↑. 임금 압축으로 인한 비효율을 일부 상쇄. 종합 평가는 산업·국가별로 다양."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-014",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Hicks (1932) 협상 모형의 핵심은?",
+      "options": [
+        "기업 양보곡선과 노조 저항곡선의 교차에서 협상 타결 시점·임금 결정",
+        "임금은 평균값",
+        "고용만 결정",
+        "정부 개입 필수",
+        "협상 비결정"
+      ],
+      "answer": "1",
+      "explanation": "John Hicks (1932) The Theory of Wages: 기업의 임금 양보(파업 길어질수록 ↑)와 노조의 임금 요구 저항(파업 길어질수록 ↓)이 만나는 점에서 임금·파업기간 결정. 이후 협상이론의 출발."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-015",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "한국 금속노조와 현대자동차 임금 협상 사례에서 사실상 쌍방독점적 특성은?",
+      "options": [
+        "거대 단일 기업(수요 측) + 거대 산업별 노조(공급 측) → 임금 협상력 양측 모두 강함",
+        "기업 단일·노조 다수",
+        "기업 다수·노조 단일",
+        "양측 모두 분산",
+        "정부 직접 결정"
+      ],
+      "answer": "1",
+      "explanation": "현대차 = 단일 거대기업, 금속노조 = 산업별 거대 노조. 양측 협상력 모두 큼 → 쌍방독점. 매년 임금협상이 한국 노동시장 전체에 신호 효과 발휘 (\"pattern setting\")."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-016",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "쌍방독점에서 \"정보 비대칭\"이 임금 결정에 미치는 영향은?",
+      "options": [
+        "한 측이 더 많은 정보 → 그쪽이 협상에서 우위 → 임금 우세 측에 유리",
+        "정보 무관",
+        "정보 ↑ 항상 임금 ↑",
+        "정보 ↓ 항상 임금 ↑",
+        "정부 개입"
+      ],
+      "answer": "1",
+      "explanation": "기업 이윤·비용 정보를 기업만 알면 (정보 비대칭) → 기업이 유리한 임금 합의. 노조는 회계 공개·외부 자문(노동연구원 등)으로 정보 격차 줄이려 함."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-017",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "다음 그래프(수요독점 + 노조 협상) 시나리오에서 사회 후생이 가장 큰 결과는?\n\n[IMAGE: data/practice/economics/graphs/monopsony.svg]",
+      "options": [
+        "수요독점 균형 → 노조 협상으로 $w$ 와 $L$ 둘 다 완전경쟁 수준으로 회복",
+        "수요독점 그대로",
+        "임금만 ↑, 고용 ↓",
+        "임금 ↑, 고용 변화 없음",
+        "사회 후생 변화 없음"
+      ],
+      "answer": "1",
+      "explanation": "수요독점 + 효율적 협상 → 임금 $w^* < w^c < w^c$ + 고용 $L^* < L^c$ 까지 둘 다 회복 가능 → 사회 후생 ↑. 노조의 효율성 정당화 논리."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-018",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "Edgeworth 박스에서 쌍방독점 결과는?",
+      "options": [
+        "계약곡선(Pareto 효율 점들의 집합) 위 한 점, 협상력에 따라 위치 다양",
+        "원점",
+        "박스 모서리",
+        "박스 중앙 고정",
+        "계약곡선 밖"
+      ],
+      "answer": "1",
+      "explanation": "Edgeworth: 두 거래자 간 협상은 계약곡선 (Pareto 효율) 위 결정. 정확한 위치는 협상력 → 한 측이 모든 잉여 가져가는 코너부터 균등 분배까지."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-019",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "쌍방독점 협상에서 노조 협상력 60%, 기업 협상력 40%, 수요독점 임금 12, 공급독점 임금 24일 때 협상 임금은? (단순 가중평균)",
+      "options": [
+        "$w = 0.6 \\cdot 24 + 0.4 \\cdot 12 = 19.2$",
+        "$w = 0.5 \\cdot 24 + 0.5 \\cdot 12 = 18$",
+        "$w = 0.4 \\cdot 24 + 0.6 \\cdot 12 = 16.8$",
+        "$w = 0.6 \\cdot 12 + 0.4 \\cdot 24 = 16.8$",
+        "$w = 0.6 \\cdot 24 - 0.4 \\cdot 12 = 9.6$"
+      ],
+      "answer": "1",
+      "explanation": "Nash 협상해 변형: 노조 협상력 ↑일수록 임금이 공급독점 임금에 가까움. $w = \\alpha \\cdot w^U + (1 - \\alpha) \\cdot w^M$ ($\\alpha$ = 노조 협상력) → $0.6 \\cdot 24 + 0.4 \\cdot 12 = 19.2$."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-020",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "쌍방독점에서 정부의 조정 역할은?",
+      "options": [
+        "임금 분쟁 조정·중재 + 정보 비대칭 완화 + 파업 비용 사회화 최소화",
+        "임금 직접 결정",
+        "한 측만 지원",
+        "협상 금지",
+        "관여 안 함"
+      ],
+      "answer": "1",
+      "explanation": "한국: 노동위원회(중앙·지방) 조정·중재. 경사노위는 사회적 대화. 필수공익사업(병원·발전·항공·철도) 파업 시 강제 조정. 정부 중재안이 사실상 협상 결과 결정 사례 많음."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-021",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "쌍방독점 + 외부효과(예: 파업이 다른 산업에 미치는 영향)가 있을 때 협상 결과의 사회적 의미는?",
+      "options": [
+        "협상 당사자만 이익·비용 고려 → 사회적 비용 미반영 → 외부효과 외부화",
+        "외부효과 자동 반영",
+        "외부효과 무관",
+        "정부 자동 보상",
+        "사회 후생 ↑"
+      ],
+      "answer": "1",
+      "explanation": "쌍방독점 협상이 산업 외부에 미치는 영향 (예: 운송업 파업이 모든 산업 운영에 타격) → 협상 당사자 미고려 → 외부불경제. 정부 개입 정당화 근거."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-022",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "Rubinstein 협상 모형이 Edgeworth 비결정성을 해결하는 방식은?",
+      "options": [
+        "순차적 제안·반응 + 시간 할인율로 단일 균형 임금 도출",
+        "정부 개입",
+        "협상 금지",
+        "임금 평균",
+        "Edgeworth 비결정성은 해결 불가"
+      ],
+      "answer": "1",
+      "explanation": "Rubinstein (1982): 양측이 번갈아 제안. 시간 지연(파업) 비용 = 할인율. 더 인내력 높은 측(낮은 할인율)이 협상에서 우위 → 단일 균형해. Stahl-Rubinstein 모형."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-023",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "쌍방독점에서 \"외부 옵션\"(outside option)이 임금에 미치는 영향은?",
+      "options": [
+        "각 측의 외부 옵션이 좋을수록 그 측의 협상력 ↑ → 임금이 그 측에 유리",
+        "외부 옵션 무관",
+        "외부 옵션 항상 임금 ↑",
+        "외부 옵션 항상 임금 ↓",
+        "외부 옵션 = 0이어야 협상 가능"
+      ],
+      "answer": "1",
+      "explanation": "Outside option: 노조의 외부 옵션 = 대체 일자리(실업급여). 기업의 외부 옵션 = 외주·자동화. 양측 외부 옵션이 협상 결과 결정. 한국 실업급여 인상이 노조 협상력에 영향 미친 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-024",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 그래프에서 쌍방독점 시나리오의 \"효율적 협상\" 결과로 가능한 점은?\n\n[IMAGE: data/practice/economics/graphs/labor-market.svg]",
+      "options": [
+        "수요곡선 우상방 (효율적 협상에 의해 가능)",
+        "공급곡선 아래",
+        "수요곡선 좌하방",
+        "VMP 위 어디",
+        "$L = 0$"
+      ],
+      "answer": "1",
+      "explanation": "효율적 협상 (임금·고용 동시 협상) → 수요곡선 우상방에서도 균형 가능. 노조 등이익곡선과 기업 등이익곡선의 접점. 임금↑·고용↑ 동시 달성 가능."
+    },
+    {
+      "id": "practice-econ-micro-ch06-sec02-item03-025",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "쌍방독점이 한국 노동시장에서 점차 약화되는 이유는?",
+      "options": [
+        "외주·자동화·플랫폼 노동 확대로 \"단일 매수자-매도자\" 구조가 깨짐",
+        "노조 가입률 ↑",
+        "기업 규모 ↑",
+        "정부 통제 ↑",
+        "노조-기업 합의 확대"
+      ],
+      "answer": "1",
+      "explanation": "쌍방독점 약화 요인: ① 외주·하청으로 단일 기업 책임 분산 ② 자동화로 노동 의존도 ↓ ③ 플랫폼 노동(개인사업자) 확대 ④ 산업 분업 ↑. 한국 노조 협상력 약화 배경."
+    }
+  ]
+}

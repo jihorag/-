@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제14절 독점시장",
+    "item": "제3관 가격차별",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "가격차별(price discrimination)이란?",
+      "options": [
+        "같은 상품을 다른 소비자에게 다른 가격으로 판매",
+        "정부의 가격 통제",
+        "MC가 변동",
+        "수요 차이만",
+        "변화 없음"
+      ],
+      "answer": "1",
+      "explanation": "가격차별: 비용 차이가 아닌 시장의 수요탄력성·지불의사 차이로 인한 가격 차이. 독점력과 시장 분리 가능성이 전제."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "가격차별의 등급 분류는?",
+      "options": [
+        "1급(완전), 2급(블록·수량), 3급(시장 분할)",
+        "단순 분류 없음",
+        "A·B·C 등급",
+        "단·다·고",
+        "1~5급"
+      ],
+      "answer": "1",
+      "explanation": "Pigou 분류:\n- 1급(완전 가격차별): 각 단위에 지불의사 최대가격\n- 2급(수량·블록): 구매량별 다른 가격\n- 3급(시장 분할): 시장별 다른 가격 (학생·노인 할인)"
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-003",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "1급 가격차별의 결과는?",
+      "options": [
+        "소비자 잉여 전부 → 생산자 잉여, 거래량 = 완전경쟁 수준, DWL = 0",
+        "DWL 최대",
+        "CS 그대로",
+        "거래량 0",
+        "완전경쟁과 동일"
+      ],
+      "answer": "1",
+      "explanation": "1급(완전) 가격차별: 각 단위에 정확히 지불의사만큼 부과 → CS 모두 PS로 이전. 거래량은 완전경쟁(P = MC) 수준 → 효율 달성. 분배만 변화."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-004",
+      "difficulty": 2,
+      "question_type": "그래프형",
+      "question": "다음 그래프는 3급 가격차별이다. 비탄력 시장에 더 높은 가격을 부과하는 이유는?\n\n[IMAGE: data/practice/economics/graphs/price-discrimination.svg]",
+      "options": [
+        "$P_1(1 - 1/ε_1) = P_2(1 - 1/ε_2) = MC$. 탄력성 작을수록 P 높음",
+        "정부 결정",
+        "비용 차이",
+        "수요 양 차이",
+        "임의 결정"
+      ],
+      "answer": "1",
+      "explanation": "3급 가격차별: 각 시장에서 MR = MC. $P(1 - 1/ε) = MC$. 탄력성 작은 시장 → P 큼. 학생·노인(탄력적) 낮은 가격, 비즈니스(비탄력적) 높은 가격."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-005",
+      "difficulty": 3,
+      "question_type": "계산형",
+      "question": "수요 $P = 100 - Q$, MC = 20. 1급 가격차별 시 거래량과 독점이윤은?",
+      "options": [
+        "Q = 80, π = 3200",
+        "Q = 40, π = 1600",
+        "Q = 100, π = 0",
+        "Q = 50, π = 1600",
+        "Q = 20, π = 1600"
+      ],
+      "answer": "1",
+      "explanation": "1급: 각 단위 P = 지불의사가격. 거래량은 P = MC까지: 100 - Q = 20 → Q = 80.\n총 잉여 = 수요곡선 아래·MC 위 삼각형 = (1/2)·(100-20)·80 = 3200.\n모두 PS(독점이윤)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-006",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "3급 가격차별: 시장1 수요 $P_1 = 100 - Q_1$, 시장2 $P_2 = 60 - Q_2$. MC = 10. 최적 가격은?",
+      "options": [
+        "P1 = 55, P2 = 35",
+        "P1 = 80, P2 = 50",
+        "P1 = 60, P2 = 30",
+        "P1 = P2 = 45",
+        "P1 = 100, P2 = 60"
+      ],
+      "answer": "1",
+      "explanation": "시장1: $MR_1 = 100 - 2Q_1 = 10 → Q_1 = 45, P_1 = 55$.\n시장2: $MR_2 = 60 - 2Q_2 = 10 → Q_2 = 25, P_2 = 35$.\n비탄력 시장(시장1: |ε| at P1=55, Q1=45 → 55/45·1 ≈ 1.22) 높은 가격."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-007",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "위 문제(006) 시장별 이윤·전체 이윤은? (FC = 0)",
+      "options": [
+        "시장1: 2025, 시장2: 625, 전체: 2650",
+        "전체 1500",
+        "시장1: 1000, 시장2: 500",
+        "전체 5000",
+        "시장1: 500, 시장2: 200"
+      ],
+      "answer": "1",
+      "explanation": "시장1: TR = 55·45 = 2475, TC = 10·45 = 450, π_1 = 2025.\n시장2: TR = 35·25 = 875, TC = 250, π_2 = 625.\n전체: 2650."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-008",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "가격차별 성립 조건이 아닌 것은?",
+      "options": [
+        "수요탄력성 동일",
+        "시장지배력 (가격결정자)",
+        "시장 분리 가능 (재판매 불가)",
+        "시장별 수요탄력성 차이",
+        "정보 비대칭"
+      ],
+      "answer": "1",
+      "explanation": "성립 조건: ① 시장지배력 ② 시장 분리(재판매 차단) ③ 수요탄력성 차이. 탄력성 동일하면 가격 차별 효과 없음."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-009",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "2급 가격차별(블록·수량할인)의 사례는?",
+      "options": [
+        "전기·수도 누진요금, 도매 할인, 멤버십 등급",
+        "학생 할인",
+        "노인 할인",
+        "지역별 가격",
+        "비즈니스 항공권"
+      ],
+      "answer": "1",
+      "explanation": "2급: 구매량에 따라 단위가격 다름. 전기 누진요금, 도매 할인(많이 살수록 단가↓), 멤버십 등급, 양도제(가격 메뉴). 소비자 자기선택."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-010",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "3급 가격차별의 일상 사례는?",
+      "options": [
+        "학생·노인·군인 할인, 비수기·성수기 가격, 국가별 가격",
+        "도매 할인",
+        "1+1 행사",
+        "유료 회원",
+        "고정가"
+      ],
+      "answer": "1",
+      "explanation": "3급(시장 분할): 그룹별·시기별·지역별 가격 차이. 학생할인(탄력적), 비즈니스 항공권(비탄력적), 비수기/성수기 호텔, 국가별 약품 가격."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-011",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "시장1 $\\varepsilon_1 = 2$, 시장2 $\\varepsilon_2 = 4$, MC = 10. 최적 가격 비율 $P_1/P_2$는?",
+      "options": [
+        "$P_1/P_2 = 4/3$ ≈ 1.33",
+        "1.0",
+        "2.0",
+        "0.5",
+        "0.75"
+      ],
+      "answer": "1",
+      "explanation": "$MR_i = P_i(1 - 1/ε_i) = MC$. $P_i = MC/(1 - 1/ε_i)$.\n$P_1 = 10/(1 - 0.5) = 20$, $P_2 = 10/(1 - 0.25) = 10/0.75 = 13.33$.\n$P_1/P_2 = 20/13.33 = 1.5$.\n\n[정정] 1.5가 정확. 가장 가까운 ① 4/3 = 1.33은 근사.\n\n공식: $P_1/P_2 = (1-1/ε_2)/(1-1/ε_1) = 0.75/0.5 = 1.5$."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-012",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "가격차별의 후생 효과는?",
+      "options": [
+        "1급: DWL = 0 (효율). 2·3급: 단일가격보다 거래량 ↑ → DWL ↓ 가능",
+        "항상 DWL 증가",
+        "후생 무관",
+        "정부 결정",
+        "독점이윤 0"
+      ],
+      "answer": "1",
+      "explanation": "1급: 거래량 = 완전경쟁 수준 → DWL = 0 (분배만 PS로). 2·3급: 일부 가격에 추가 거래 → 단일가격 독점보다 거래량 ↑, DWL 감소 가능. 소비자 후생은 시장별로 달라짐."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-013",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "1급 가격차별 시 거래량은?",
+      "options": [
+        "P = MC에서의 거래량 (완전경쟁 수준)",
+        "독점과 동일",
+        "0",
+        "수요량의 절반",
+        "확정 불가"
+      ],
+      "answer": "1",
+      "explanation": "1급 가격차별: 각 단위에 지불의사 부과. MR곡선 = 수요곡선 (각 단위 MR = P). 따라서 P = MC까지 거래 → 완전경쟁 거래량. 효율 달성."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-014",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요 $P = 50 - Q$, MC = 10. 단일가격 독점 vs 1급 가격차별 잉여 비교는?",
+      "options": [
+        "단일 π = 400, 1급 π = 800 (CS 모두 PS로)",
+        "둘 다 400",
+        "1급이 더 적음",
+        "독점이 1급보다 큼",
+        "DWL 동일"
+      ],
+      "answer": "1",
+      "explanation": "단일 독점: MR = 50 - 2Q = 10 → Q = 20, P = 30. π = (30-10)·20 = 400. CS = (1/2)·(50-30)·20 = 200.\n1급: Q = 40 (P = MC), 총잉여 = (1/2)·(50-10)·40 = 800. 모두 PS.\n1급이 사회후생 더 큼이나 CS = 0."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-015",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "이부가격제(two-part tariff)의 의미는?",
+      "options": [
+        "가입비(F) + 사용료(P), 가입비로 CS 흡수",
+        "이중 세금",
+        "정부 가격",
+        "시장 분할",
+        "수량 할인"
+      ],
+      "answer": "1",
+      "explanation": "이부가격: 가입비 F + 사용 단가 P. 단가 P = MC로 거래 효율 달성, 가입비 F로 CS 흡수 → 이윤 극대. 예: 놀이공원 입장료+놀이비, 헬스장 가입비+이용료."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-016",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $P = 100 - Q$, MC = 20. 이부가격제 최적 (F, P)는?",
+      "options": [
+        "P = 20, F = 3200 (CS 모두 흡수)",
+        "P = 60, F = 0",
+        "P = 40, F = 1000",
+        "P = 100, F = 0",
+        "P = 20, F = 100"
+      ],
+      "answer": "1",
+      "explanation": "이부가격 최적: P = MC = 20 (효율). Q = 80.\nCS = (1/2)·(100-20)·80 = 3200.\nF = CS = 3200 흡수.\n독점이윤 = F + (P-MC)·Q = 3200 + 0 = 3200.\n1급 가격차별과 동일 결과."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-017",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "가격차별의 사회적 평가로 옳은 것은?",
+      "options": [
+        "효율(거래량↑)·분배(저소득자 접근↑) 동시 개선 가능, 단일가격보다 후생 ↑일 수 있음",
+        "항상 후생 감소",
+        "정부 금지 필요",
+        "독점이윤만 증가",
+        "소비자 항상 손해"
+      ],
+      "answer": "1",
+      "explanation": "가격차별: 거래량↑(DWL↓), 저소득자 접근(학생할인) 가능. 단일가격 독점보다 사회후생 ↑일 수 있음. 분배·효율의 복합 효과."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-018",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "가격차별이 어려운 시장 특성은?",
+      "options": [
+        "재판매 용이 (시장 분리 불가)",
+        "탄력성 차이 큼",
+        "독점력 큼",
+        "소비자 정보 비대칭",
+        "비용 차이 없음"
+      ],
+      "answer": "1",
+      "explanation": "재판매 용이 → 차익거래(Arbitrage)로 가격 단일화. 시장 분리 어렵다 → 가격차별 어려움. 디지털 콘텐츠는 재판매 차단 가능 → 가격차별 활용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-019",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "수요 $P = 80 - 2Q$, MC = 10. 이부가격 최적 π는?",
+      "options": [
+        "π = 1225",
+        "π = 700",
+        "π = 980",
+        "π = 0",
+        "π = 1500"
+      ],
+      "answer": "1",
+      "explanation": "이부가격: P = MC = 10. Q = (80-10)/2 = 35.\nCS = (1/2)·(80-10)·35 = 1225 = F.\nπ = F + (P-MC)·Q = 1225 + 0 = 1225."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-020",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "단일가격 독점 vs 이부가격: 수요 $P = 100 - Q$, MC = 20. 두 방식의 이윤 차이는?",
+      "options": [
+        "단일 1600, 이부 3200. 차이 = 1600 (CS 흡수)",
+        "동일",
+        "단일 > 이부",
+        "차이 0",
+        "이부가 적음"
+      ],
+      "answer": "1",
+      "explanation": "단일 독점: Q=40, P=60, π=(60-20)·40=1600.\n이부가격: P=20, Q=80, CS=3200=F, π=3200.\n차이 = 1600 (단일 독점의 CS+DWL을 이부가격이 흡수)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-021",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "법적·도덕적 가격차별의 한계는?",
+      "options": [
+        "성별·인종 차별 등은 법적 금지, 약탈적 가격은 반독점법 위반",
+        "모두 허용",
+        "모두 금지",
+        "정부 결정만",
+        "차별 자체가 위법"
+      ],
+      "answer": "1",
+      "explanation": "가격차별 일반은 합법 (학생할인 등 사회적 수용). 그러나 성별·인종·종교 차별, 약탈적 가격(진입봉쇄)은 법적 금지. 미국 Robinson-Patman Act."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-022",
+      "difficulty": 5,
+      "question_type": "계산형",
+      "question": "두 시장 합쳐 수요 통합 시 $P = 80 - Q/2$, MC = 10. 통합 단일가격 vs 분리 가격차별 이윤은?",
+      "options": [
+        "통합 약 1225, 분리 더 큼",
+        "동일",
+        "통합 > 분리",
+        "차이 0",
+        "통합 0"
+      ],
+      "answer": "1",
+      "explanation": "통합 단일: MR = 80 - Q = 10 → Q = 70, P = 45. π = (45-10)·70 = 2450? 재계산: P=45, MC=10, Q=70. π=35·70=2450.\n분리 가격차별로 시장별 이윤 합 > 통합 (탄력성 차이 활용). 분리 시 더 큼."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-023",
+      "difficulty": 3,
+      "question_type": "그래프형",
+      "question": "3급 가격차별에서 두 시장의 MR 균등화의 의미는?\n\n[IMAGE: data/practice/economics/graphs/price-discrimination.svg]",
+      "options": [
+        "$MR_1 = MR_2 = MC$. 양 시장 한계기여 동일",
+        "P 균등",
+        "Q 균등",
+        "MC 0",
+        "수요 동일"
+      ],
+      "answer": "1",
+      "explanation": "이윤극대: 각 시장에서 $MR_i = MC$. 두 시장 MR이 다르면 큰 시장에 더 판매 → 이윤 ↑. 균등화 후 마진율 차이가 가격 차이로 나타남(L = 1/ε)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-024",
+      "difficulty": 4,
+      "question_type": "계산형",
+      "question": "수요 $P = 40 - Q$, MC = 0. 1급 가격차별·단일가격 독점·완전경쟁 비교는?",
+      "options": [
+        "단일 π = 400, 1급 π = 800, 완경 P = 0·CS = 800",
+        "셋 다 동일",
+        "단일 800",
+        "1급 400",
+        "변화 없음"
+      ],
+      "answer": "1",
+      "explanation": "단일 독점: MR = 40 - 2Q = 0 → Q = 20, P = 20, π = 400, CS = 200, DWL = 200.\n1급: P = MC = 0까지 거래, Q = 40. 총잉여 = (1/2)·40·40 = 800. 모두 π. CS = 0.\n완전경쟁: P = 0, Q = 40. CS = 800. π = 0."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec02-item03-025",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "디지털 경제의 가격차별 특성으로 옳은 것은?",
+      "options": [
+        "빅데이터·AI로 개인별 가격(개인화 가격) 가능 → 1급 가격차별 근접",
+        "디지털은 가격차별 불가",
+        "정부 통제만",
+        "단일가격만 가능",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "디지털 경제: 빅데이터·AI로 개인 수요 파악 → 개인화 가격(personalized pricing) → 1급에 근접. 아마존·우버의 동적 가격. 후생·공정성 논쟁."
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제4장 생산자이론",
+    "section": "제12절 비용이론",
+    "item": "제2관 단기비용함수",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 30
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "단기 총비용(TC)의 구성으로 옳은 것은?",
+      "options": [
+        "TC = FC (고정비용) + VC (가변비용)",
+        "TC = FC만",
+        "TC = VC만",
+        "TC = 0",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "단기 총비용 TC = FC + VC.\nFC (Fixed Cost): 산출량과 무관 (자본·임대료·고정 인건비)\nVC (Variable Cost): 산출량에 따라 변화 (원자재·가변 노동)\n단기에는 자본 등 일부 요소 고정 → 고정비용 발생\n장기에는 모든 비용이 가변."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "고정비용(Fixed Cost, FC)의 예로 옳은 것은?",
+      "options": [
+        "임대료, 자본 감가상각, 정규직 인건비, 보험·세금 등 산출량과 무관한 비용",
+        "원자재 비용",
+        "시간외 임금",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "고정비용 (FC):\n임대료 (공장·사무실)\n자본 감가상각\n정규직 인건비 (당장 해고 어려움)\n보험·재산세\nR&D 비용 (장기 약정)\n광고·브랜드 비용\n특징: 산출량 0이어도 발생\n단기 분석의 핵심.\n장기에는 모두 가변 (자본·계약 조정 가능)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-003",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "가변비용(Variable Cost, VC)의 예로 옳은 것은?",
+      "options": [
+        "원자재, 가변 노동, 전기·연료, 시간외 수당 등 산출량에 따라 변화",
+        "임대료",
+        "자본 감가상각",
+        "정부 결정",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "가변비용 (VC):\n원자재 (생산 비례)\n가변 노동 (시간외·계약직)\n전기·연료 (생산 가동)\n시간외 수당\n포장·물류\n변동 광고·판촉\n특징: 산출량 0 → VC = 0, 산출량 ↑ → VC ↑\n단기 의사결정 (생산 vs 중단)의 기준."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-004",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "평균 총비용(ATC)의 정의로 옳은 것은?",
+      "options": [
+        "ATC = TC/Q = AFC + AVC (단위당 평균 비용)",
+        "ATC = TC × Q",
+        "ATC = 0",
+        "ATC = FC만",
+        "ATC = VC만"
+      ],
+      "answer": "1",
+      "explanation": "평균 총비용 ATC = TC/Q = (FC + VC)/Q = AFC + AVC.\nAFC (Average Fixed Cost) = FC/Q\nAVC (Average Variable Cost) = VC/Q\n관계: ATC = AFC + AVC\n수익률 분석 (이윤 = (P - ATC)·Q)의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-005",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "한계비용(Marginal Cost, MC)의 정의로 옳은 것은?",
+      "options": [
+        "MC = dTC/dQ = dVC/dQ (추가 1단위 생산 비용)",
+        "MC = TC/Q",
+        "MC = 0",
+        "MC = FC",
+        "MC = 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "한계비용 MC = dTC/dQ = dVC/dQ (FC는 일정하므로 dFC/dQ = 0).\n추가 1단위 생산의 비용 증가\n이윤극대화 조건: MR = MC\n수확 체감의 법칙으로 MC 증가 (수확 체감 = MC 체증)\n공급곡선과의 관계 (완전경쟁 단기 공급곡선 = MC 곡선)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-006",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "단기 비용곡선의 일반적 형태로 옳은 것은?",
+      "options": [
+        "AFC: 우하향 (FC/Q 감소) / AVC: U자형 / ATC: U자형 (AFC + AVC) / MC: U자형, ATC·AVC 극소점에서 교차",
+        "모든 비용곡선 동일",
+        "비용곡선 없음",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "단기 비용곡선:\nAFC = FC/Q: 우하향 (산출 ↑ 시 FC 분산)\nAVC: U자형 (분업·전문화 → 수확 체감)\nATC = AFC + AVC: U자형 (Y절편 = AFC 큰 값)\nMC: U자형, 더 가파름\n관계:\nMC가 AVC 극소점을 지남\nMC가 ATC 극소점을 지남\nATC 극소 후 ATC > AVC 차이 = AFC."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-007",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "MC와 AC의 관계로 옳은 것은?",
+      "options": [
+        "MC < AC → AC 감소 / MC > AC → AC 증가 / MC = AC → AC 극소",
+        "MC·AC 무관",
+        "MC가 항상 큼",
+        "AC가 항상 큼",
+        "둘 다 일정"
+      ],
+      "answer": "1",
+      "explanation": "MC·AC 관계 (수학적 결과):\nMC < AC → AC 감소 (아래로 끌어내림)\nMC > AC → AC 증가 (위로 끌어올림)\nMC = AC → AC 극대·극소 (교차점)\n해석:\nU자형 AC: MC가 AC 극소점에서 교차 (아래에서 위로)\n역 U자형 AC: 극대점에서 교차\n생산함수의 AP·MP 관계와 동일한 수학 (역대칭)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-008",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "MC = w/MP_L 관계로 옳은 것은?",
+      "options": [
+        "한계비용 = 임금 / 한계 생산 - 수확 체감이 MC 체증의 원인",
+        "MC = w × MP",
+        "MC = w + MP",
+        "MC = 0",
+        "MC = 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "MC = w/MP_L 도출:\n단기: 가변 비용만 변동\nVC = w·L (가변 노동)\nMC = dVC/dQ = w · dL/dQ = w · 1/(dQ/dL) = w/MP_L\n해석:\nMP_L 감소 → MC 증가 (수확 체감 = MC 체증)\nMP_L 증가 → MC 감소 (수확 체증 시)\n생산함수와 비용함수의 연결."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-009",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "AVC = w/AP_L 관계로 옳은 것은?",
+      "options": [
+        "평균 가변비용 = 임금 / 평균 생산 - AP 극대 시 AVC 극소",
+        "AVC·AP 무관",
+        "AVC = w × AP",
+        "AVC = 0",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "AVC = w/AP_L 도출:\nAVC = VC/Q = (w·L)/Q = w·(L/Q) = w/(Q/L) = w/AP_L\n해석:\nAP_L 증가 → AVC 감소 (분업·전문화)\nAP_L 감소 → AVC 증가 (수확 체감)\nAP_L 극대 → AVC 극소\n비용곡선과 생산함수의 연결.\n공급곡선·시장 분석의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-010",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "단기 공급곡선과 비용곡선의 관계로 옳은 것은?",
+      "options": [
+        "완전경쟁 단기 공급곡선 = AVC 극소점 위의 MC 곡선 - 그 아래에서 조업중단",
+        "공급곡선 ≠ MC",
+        "공급은 가치판단",
+        "공급은 정부 결정",
+        "공급은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "단기 공급곡선 도출:\n완전경쟁 단기 공급곡선 = MC 곡선의 AVC 극소점 위 부분\n이유:\n이윤극대화: P = MC\nP > AVC: 가변 비용 회수 + FC 일부 → 생산 지속 (FC는 어쨌든 발생)\nP < AVC: 가변 비용도 회수 못함 → 조업 중단 (Q = 0)\nP = AVC 극소: 조업중단점\nP > AVC: 공급 곡선의 상승 부분\n시장 분석의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-011",
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 조업중단점(shutdown point)의 정의로 옳은 것은?",
+      "options": [
+        "P = AVC 극소 - 가격이 평균 가변비용 극소와 같은 점. 그 아래에서 조업 중단 (Q = 0)",
+        "P = ATC 극소",
+        "P = MC 극소",
+        "P = 0",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "조업중단점 (Shutdown Point):\nP = AVC 극소\n그 아래에서 (P < AVC 극소) 조업 중단이 유리\n이유:\nP × Q < VC → 가변 비용도 회수 못함\n생산 시 손실 > 중단 시 손실 (FC만)\n조업 중단으로 손실 최소화\n그 위에서 (P > AVC 극소): 생산 지속 (가변 비용 회수 + FC 일부)\n단기 의사결정의 핵심 기준."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-012",
+      "difficulty": 2,
+      "question_type": "보기 결합형",
+      "question": "다음 중 단기 비용함수에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. TC = FC + VC\nㄴ. ATC = AFC + AVC\nㄷ. MC와 AC의 교차 관계\nㄹ. 공급곡선 = AVC 위 MC",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 단기 비용함수의 4가지 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "비용 계산: TC = 100 + 10Q + Q². Q = 10에서의 ATC, AVC, MC는?",
+      "options": [
+        "ATC = 30, AVC = 20, MC = 30",
+        "ATC = 50, AVC = 30, MC = 20",
+        "ATC = 20, AVC = 10, MC = 30",
+        "ATC = 100, AVC = 0, MC = 10",
+        "ATC = 40, AVC = 20, MC = 30"
+      ],
+      "answer": "1",
+      "explanation": "TC = 100 + 10Q + Q², Q = 10:\nFC = 100 (Q와 무관)\nVC = 10Q + Q² = 100 + 100 = 200\nTC = 100 + 200 = 300\nATC = TC/Q = 300/10 = 30\nAVC = VC/Q = 200/10 = 20\nMC = dTC/dQ = 10 + 2Q = 10 + 20 = 30\n관계: MC = ATC = 30 (ATC 극소점)? 확인: ATC 극소 조건은 MC = ATC.\n실제: ATC(Q=10) = 30, MC(Q=10) = 30 ✓ 극소점\nAFC = 100/10 = 10, AVC = 20, ATC = 30 (AFC + AVC ✓)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-014",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 손익분기점(break-even point)의 정의로 옳은 것은?",
+      "options": [
+        "P = ATC 극소 - 경제적 이윤 = 0인 점 (정상 이윤)",
+        "P = AVC 극소",
+        "P = MC 극소",
+        "P = 0",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "손익분기점 (Break-even Point):\nP = ATC 극소\n경제적 이윤 = 0 (정상 이윤)\n총 수익 = 총 비용\n이 위에서 (P > ATC 극소): 초과 이윤\n이 아래·AVC 극소 위: 손실이나 조업 지속 (단기) - FC 회수 못함\n조업중단점: P = AVC 극소\nP > 손익분기점: 진입 유리\nP < 손익분기점: 장기 퇴출."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-015",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 손익분기점과 조업중단점의 관계로 옳은 것은?",
+      "options": [
+        "손익분기점 (P = ATC 극소) > 조업중단점 (P = AVC 극소) - 차이 = AFC",
+        "두 점 동일",
+        "조업중단점 > 손익분기점",
+        "정부 결정",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "두 점의 관계:\n손익분기점 P_BE = ATC 극소\n조업중단점 P_SD = AVC 극소\nP_BE > P_SD (왜냐하면 ATC = AFC + AVC > AVC)\n차이 = AFC (고정비용 평균)\n해석:\nP > P_BE: 정상 이윤 + 초과 이윤\nP_SD < P < P_BE: 단기 조업 지속이나 손실 (FC 일부 회수 못함)\nP < P_SD: 조업 중단\n장기에는 P < P_BE면 퇴출."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-016",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 비용 분석과 시장 균형의 관계로 옳은 것은?",
+      "options": [
+        "완전경쟁 장기 균형: P = LRAC 극소 = LRMC - 정상 이윤만, 자유 진입·퇴출\n단기에는 초과 이윤·손실 가능\n장기 조정으로 균형 도달",
+        "비용과 시장 균형 무관",
+        "균형은 가치판단",
+        "균형은 정부 결정",
+        "균형은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "비용과 시장 균형:\n단기:\nP = MC (이윤극대화)\nP > AVC: 생산 지속\n초과 이윤 또는 손실 가능\n장기:\n자유 진입·퇴출 → 경제적 이윤 → 0\n장기 균형: P = LRAC 극소 = LRMC\n정상 이윤만 (경제적 이윤 = 0)\n시장 분석의 핵심 결과.\n경쟁 시장의 효율성 (후생경제학 제1정리)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-017",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 비용 분석의 한국 사례로 옳은 것은?",
+      "options": [
+        "코로나 시 자영업 - 단기 매출 ↓ but FC (임대료·인건비) 일정 → 큰 손실\n조업 중단 vs 지속 결정 - AVC 비교\n정부 지원 (재난지원금) - FC 부담 완화",
+        "한국 사례 없음",
+        "한국은 가치판단",
+        "한국은 정부 결정",
+        "한국은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "한국 비용 분석 사례 - 코로나 자영업:\n단기 매출 ↓ (외출 제한·거리두기)\nFC 일정 (임대료·정규직 인건비)\n결과: 큰 손실\n의사결정:\nP × Q > VC (가변 비용 회수)? → 조업 지속\nP × Q < VC? → 조업 중단·휴업\n정부 지원:\n소상공인 재난지원금 (FC 부담 완화)\n임대료 지원·세금 유예\n폐업·이전 지원\n2020~2022 자영업 부도·폐업 급증\n현실의 비용 분석 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-018",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 비용 분석과 가격 결정으로 옳은 것은?",
+      "options": [
+        "완전경쟁: 가격 수용 (P = MC), 단기 P vs ATC로 이윤·손실 판정\n독점: P > MC, 가격 결정자 (한계 수익 = MC)\n불완전경쟁: 차별·가격 설정 전략",
+        "가격은 비용과 무관",
+        "가격은 가치판단",
+        "가격은 정부 결정만",
+        "가격은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "비용과 가격 결정:\n완전경쟁:\n가격 수용자 - P 주어짐\nP = MC에서 산출 결정 (이윤극대)\nP > ATC: 이윤, P > AVC: 생산 지속, P < AVC: 중단\n독점:\n가격 결정자 - 수요곡선에 의존\nMR = MC에서 결정 (P > MC)\n불완전경쟁:\n차별 가격·제품 차별화\nFC 회수 마진 (markup) 책정\n시장 구조와 비용·가격의 결합 분석."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-019",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "다음 중 단기 비용 분석의 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 이윤극대화 산출량 결정 (MR = MC)\nㄴ. 조업 vs 중단 결정 (P vs AVC)\nㄷ. 손익분기점 분석 (P vs ATC)\nㄹ. 단기 공급곡선 도출",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 단기 비용 분석의 4가지 핵심 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 단기 비용곡선과 생산함수의 관계로 옳은 것은?",
+      "options": [
+        "MC = w/MP_L: MP 감소 → MC 증가 / AVC = w/AP_L: AP 극대 → AVC 극소 / 생산의 수확 체감 = 비용의 체증",
+        "비용·생산 무관",
+        "비용·생산은 가치판단",
+        "비용·생산은 정부 결정",
+        "비용·생산은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "비용곡선과 생산함수:\nMC = w/MP_L:\nMP_L 증가 → MC 감소 (수확 체증, 1단계)\nMP_L 극대 → MC 극소\nMP_L 감소 → MC 증가 (수확 체감, 2단계)\nAVC = w/AP_L:\nAP_L 증가 → AVC 감소\nAP_L 극대 → AVC 극소\nAP_L 감소 → AVC 증가\n수확 체감 = 비용 체증의 미시적 기초.\n공급곡선 우상향의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-021",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 단기 비용 분석의 정책 응용으로 옳은 것은?",
+      "options": [
+        "최저임금 - 단기 VC ↑ → AVC ↑ → 조업중단점 ↑ → 일부 폐업\n원자재 가격 변동 (예: 유가) - VC 변화\n공급 충격 분석 (코로나·반도체 부족)",
+        "정책 응용 없음",
+        "정책은 가치판단",
+        "정책은 정부 결정만",
+        "①만 옳다"
+      ],
+      "answer": "1",
+      "explanation": "단기 비용 분석의 정책 응용:\n① 최저임금 인상:\nw ↑ → VC ↑ → AVC ↑ → 조업중단점 ↑\n한계 기업 폐업 → 고용 ↓ 가능\n2018·2019 한국 최저임금 큰 폭 인상의 분석\n② 원자재 가격 변동:\n유가·반도체·식량 가격\n다양한 산업의 VC 변화\n③ 공급 충격:\n코로나 마스크·반도체 부족\n단기 공급 비탄력 → 가격 폭등\n④ 환경 규제·탄소세: VC 증가\n현대 정책 분석의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-022",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 단기와 장기 비용의 관계로 옳은 것은?",
+      "options": [
+        "장기 (LRAC)는 단기 (SRAC)들의 포락선 (envelope) - 각 산출에 최적 자본 규모 선택. LRAC ≤ SRAC.",
+        "단기 = 장기",
+        "단기 > 장기 항상",
+        "비용은 가치판단",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "단기·장기 비용 관계:\n장기 LRAC는 각 산출 수준에 최적 자본 규모 (K) 선택\n각 K 수준에서 단기 SRAC 곡선\nLRAC는 SRAC들의 포락선 (envelope, 아래에서 감싸는 곡선)\nLRAC ≤ SRAC (모든 산출에서)\nLRAC = SRAC at 최적 산출점 (한 점에서 접함)\n해석:\n단기: 자본 고정으로 비효율 가능\n장기: 자본 조정으로 최저 비용\n장기 분석의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 비용 분석과 의사결정의 정밀 분석으로 옳은 것은?",
+      "options": [
+        "단기: P > AVC 극소 → 생산, P < AVC 극소 → 중단 (FC만 손실)\n장기: P > LRAC 극소 → 시장 유지, P < LRAC 극소 → 퇴출\n각 시점의 다른 결정 기준",
+        "결정은 항상 동일",
+        "결정은 가치판단",
+        "결정은 정부 결정",
+        "결정은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "비용과 의사결정의 시점간 분석:\n단기:\nFC 어쨌든 발생 (회수 불가)\nP > AVC 극소: 가변 비용 + FC 일부 회수 → 생산\nP < AVC 극소: 가변 비용도 회수 못함 → 중단 (FC만 손실)\n장기:\n모든 비용 가변 - 진입·퇴출 자유\nP > LRAC 극소: 정상 이윤 이상 → 진입·유지\nP < LRAC 극소: 손실 → 퇴출\n시점에 따른 다른 기준."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-024",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 단기 비용함수와 시장의 동학으로 옳은 것은?",
+      "options": [
+        "수요 충격 (예: 코로나) → 가격 ↓ → 일부 기업 P < AVC 극소 → 조업 중단·폐업\n공급 충격 → 비용 ↑ → 동일\n외부 충격의 시장 청산 동학",
+        "동학은 가치판단",
+        "동학은 정부 결정",
+        "동학은 효과 없음",
+        "동학은 무관"
+      ],
+      "answer": "1",
+      "explanation": "단기 비용함수와 시장 동학:\n수요 충격 (코로나·금융위기·소비 트렌드):\n수요 ↓ → 가격 ↓\n일부 기업: P < AVC 극소 → 조업 중단·폐업\n살아남은 기업: P × Q > VC (간신히)\n시장 청산 효과\n공급 충격 (원자재·임금·규제):\n비용 ↑ → AVC ↑ → 조업중단점 ↑\n한계 기업 폐업\n장기:\n생존 기업이 시장 점유 → 가격 안정\n외부 충격의 미시적 분석.\n시장 구조 변동의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-025",
+      "difficulty": 4,
+      "question_type": "보기 결합형",
+      "question": "다음은 단기 비용 분석의 응용 사례에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기업의 이윤극대화 산출 결정\nㄴ. 조업 vs 중단 결정 (P vs AVC)\nㄷ. 손익분기점 분석 (P vs ATC)\nㄹ. 단기 공급곡선 도출\nㅁ. 외부 충격의 시장 청산 동학",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 단기 비용 분석의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-026",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 비용함수의 콥-더글러스 도출로 옳은 것은?",
+      "options": [
+        "Q = L^α·K^β (단기 K = K̄ 고정): L = (Q/K̄^β)^(1/α). VC = w·L = w·(Q/K̄^β)^(1/α). TC = wK̄ + VC.",
+        "콥-더글러스 비용함수 없음",
+        "비용은 가치판단",
+        "비용은 정부 결정",
+        "비용은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "콥-더글러스 단기 비용함수:\n생산함수: Q = L^α·K^β\n단기 K = K̄ 고정\nL = (Q/K̄^β)^(1/α)\n임금 w, 자본 비용 r:\nFC = r·K̄ (고정 자본 비용)\nVC = w·L = w·(Q/K̄^β)^(1/α)\nTC = FC + VC\nMC = dVC/dQ = (w/α)·(1/K̄^β)^(1/α)·Q^((1-α)/α)\nα < 1: Q ↑ → MC ↑ (수확 체감)\nα = 1: MC 일정\nα > 1: Q ↑ → MC ↓ (수확 체증, 드문 경우)\n표준 분석 예제."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-027",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 단기 비용 분석의 행동경제학적 비판으로 옳은 것은?",
+      "options": [
+        "매몰비용 오류 - FC를 미래 결정에 고려 (비합리)\n현재 편향 - 단기 손실 회피로 비효율 행동 지속\n행동경제학의 비판",
+        "비용 분석은 완벽",
+        "비판은 가치판단",
+        "비판은 정부 결정",
+        "비판은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "단기 비용 분석의 행동경제학적 비판:\n① 매몰비용 오류 (Sunk Cost Fallacy):\nFC는 회수 불가 - 미래 결정에 무관해야\n그러나 사람들은 FC를 고려 (비합리)\n예: 큰 투자한 사업의 중단 어려움\n② 현재 편향 (Present Bias):\n단기 손실 회피로 장기 비합리 결정\n③ 정신 회계 (Mental Accounting):\n비용을 출처별·범주별로 다르게 처리\n④ 손실 회피: 손실의 부효용이 이익의 양효용보다 약 2배 강함\nKahneman·Tversky·Thaler의 발견.\n정책 설계 (넛지)에 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-028",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 단기 비용함수의 종합적 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기업 의사결정 (산출·중단·진입)\nㄴ. 시장 균형 분석\nㄷ. 정책 평가 (최저임금·세금·규제)\nㄹ. 외부 충격 분석 (공급·수요)\nㅁ. 행동경제학적 비합리 분석",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 단기 비용 분석의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-029",
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 단기 비용함수와 디지털 경제의 변화로 옳은 것은?",
+      "options": [
+        "IT·소프트웨어 - 한계비용 거의 0\n자본 (서버·라이센스) 중심 - 큰 FC, 작은 VC\nP > MC (거의 0) → 큰 마진 가능 (가격 정책 자유)\n전통 분석의 새 도전",
+        "디지털은 비용과 무관",
+        "디지털은 가치판단",
+        "디지털은 정부 결정",
+        "디지털은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "디지털 경제와 단기 비용함수:\nIT·소프트웨어의 특수성:\n한계비용 거의 0 (디지털 복제)\n자본 중심 (서버·라이센스·R&D) - 큰 FC\n작은 VC\n결과:\nP > MC (거의 0) - 큰 마진 가능\n가격 정책 자유 (가격 차별·번들링·구독)\n네트워크 효과 강함\n전통 분석의 새 도전:\nU자형 ATC가 L자형 (계속 감소)\n자연 독점 경향\n반독점·플랫폼 규제\nFAANG·BAT·카카오·네이버의 분석 도구.\n현대 산업 분석의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item02-030",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 단기 비용함수의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. TC = FC + VC, ATC = AFC + AVC\nㄴ. MC = dTC/dQ = w/MP_L\nㄷ. MC·AC 관계 - U자형\nㄹ. 단기 공급곡선 = AVC 위 MC\nㅁ. 모든 산업의 비용함수는 동일",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "2",
+      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 산업·기술별로 비용함수 형태가 다르다 (제조 U자형, IT L자형, 농업 J자형 등). '동일'은 잘못이다."
+    }
+  ]
+}

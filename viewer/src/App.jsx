@@ -1201,6 +1201,18 @@ const App = () => {
     const parsed = parseNav(typeof window !== 'undefined' ? window.location.hash : '');
     // 'settings' 라우트는 폐기 — 플로팅 드로어로 통합. 홈으로 리디렉트.
     if (parsed && parsed.currentView === 'settings') parsed.currentView = 'home';
+    if (parsed) {
+      if (parsed.currentView === 'tax_chapters' && !parsed.taxSubSubject) {
+        parsed.currentView = 'tax_sub_subjects';
+        parsed.taxChapter = null;
+        parsed.taxSection = null;
+      } else if (parsed.currentView === 'tax_sections' && !parsed.taxChapter) {
+        parsed.currentView = parsed.taxSubSubject ? 'tax_chapters' : 'tax_sub_subjects';
+        parsed.taxSection = null;
+      } else if (parsed.currentView === 'tax_items' && !parsed.taxSection) {
+        parsed.currentView = parsed.taxChapter ? 'tax_sections' : (parsed.taxSubSubject ? 'tax_chapters' : 'tax_sub_subjects');
+      }
+    }
     return parsed;
   });
   const bootView = (() => {
@@ -1458,6 +1470,16 @@ const App = () => {
       else if (n.taxScope) cv = 'tax_subjects';
       else cv = 'dashboard';
     }
+    if (cv === 'tax_chapters' && !n.taxSubSubject) {
+      cv = 'tax_sub_subjects';
+      setTaxChapter(null);
+      setTaxSection(null);
+    } else if (cv === 'tax_sections' && !n.taxChapter) {
+      cv = n.taxSubSubject ? 'tax_chapters' : 'tax_sub_subjects';
+      setTaxSection(null);
+    } else if (cv === 'tax_items' && !n.taxSection) {
+      cv = n.taxChapter ? 'tax_sections' : (n.taxSubSubject ? 'tax_chapters' : 'tax_sub_subjects');
+    }
     setCurrentView(cv);
   }, []);
 
@@ -1587,7 +1609,7 @@ const App = () => {
   // browseExam: 둘러보기 상단 모드 픽커 — taxScope 없을 때만 작동(taxScope가 더 구체적)
   const baseFilter = useCallback((item) => {
     if (!item.isClassified) return false;
-    const isPractice = item.source === 'practice';
+    const isPractice = item.period === 'practice' || item.exam === '[연습문제]' || (item.id && item.id.startsWith('practice-'));
     // 기출/연습 소스 토글
     if (sourceFilter === 'official' && isPractice) return false;
     if (sourceFilter === 'practice' && !isPractice) return false;
@@ -1811,7 +1833,7 @@ const App = () => {
         total: secQs.length,
         weak: secQs.some(q => q.isWeak),
         tag: '절',
-        filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxSectionName === sec.name
+        filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxChapterName === taxChapter && item.taxSectionName === sec.name
       });
     });
     return groups;
@@ -1832,7 +1854,7 @@ const App = () => {
     if (!sectionData) return [];
 
     const filtered = scopedClassified.filter(q =>
-      q.taxSubjectName === taxSubject && q.taxSectionName === taxSection);
+      q.taxSubjectName === taxSubject && q.taxChapterName === taxChapter && q.taxSectionName === taxSection);
 
     const groups = [];
     groups.push({
@@ -1842,7 +1864,7 @@ const App = () => {
       total: filtered.length,
       weak: filtered.some(q => q.isWeak),
       tag: '전체',
-      filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxSectionName === taxSection
+      filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxChapterName === taxChapter && item.taxSectionName === taxSection
     });
 
     (sectionData.items || []).forEach(it => {
@@ -1855,7 +1877,7 @@ const App = () => {
         total: itQs.length,
         weak: itQs.some(q => q.isWeak),
         tag: '관',
-        filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxSectionName === taxSection && item.taxItemName === it.name
+        filterFn: (item) => baseFilter(item) && item.taxSubjectName === taxSubject && item.taxChapterName === taxChapter && item.taxSectionName === taxSection && item.taxItemName === it.name
       });
     });
     return groups;
@@ -1903,6 +1925,50 @@ const App = () => {
     () => classifiedList.filter(q => { const p = progress[qid(q)]; return p && p.correct === false; }),
     [classifiedList, progress]
   );
+
+  // 가이드 학습용 정렬된 문제 캐싱 (App 컴포넌트 리렌더링 시 2만개 필터/정렬 부하 제거)
+  const orderedQuestions = useMemo(() => {
+    if (!selectedGroup || currentView !== 'study') return [];
+    const shuffleMode = !selectedGroup.review && studyOrder === 'random';
+    const seededRank = (q) => {
+      let h = studyNonce * 2654435761 >>> 0;
+      const id = qid(q);
+      for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+      return h;
+    };
+    return processedData
+      .filter(selectedGroup.filterFn)
+      .sort((a, b) => {
+        if (shuffleMode) return seededRank(a) - seededRank(b);
+        if (selectedGroup.review) {
+          const ra = (progress[qid(a)] && progress[qid(a)].reviewed) || 0;
+          const rb = (progress[qid(b)] && progress[qid(b)].reviewed) || 0;
+          if (ra !== rb) return rb - ra;
+          const dda = a.difficulty ?? 0, ddb = b.difficulty ?? 0;
+          if (dda !== ddb) return ddb - dda;
+        } else {
+          const da = a.difficulty ?? 99, db = b.difficulty ?? 99;
+          if (da !== db) return da - db;
+        }
+        const ya = parseInt(a.year, 10), yb = parseInt(b.year, 10);
+        if (ya !== yb) return yb - ya;
+        return parseInt(a.number, 10) - parseInt(b.number, 10);
+      });
+  }, [processedData, selectedGroup, currentView, studyOrder, studyNonce, progress]);
+
+  // 문제 목록용 필터링 및 정렬된 문제 캐싱
+  const filteredQuestionsMemo = useMemo(() => {
+    if (!selectedGroup || currentView !== 'question_list') return [];
+    return processedData
+      .filter(selectedGroup.filterFn)
+      .sort((a, b) => {
+        const yearA = parseInt(a.year, 10);
+        const yearB = parseInt(b.year, 10);
+        if (yearA !== yearB) return yearB - yearA;
+        return parseInt(a.number, 10) - parseInt(b.number, 10);
+      });
+  }, [processedData, selectedGroup, currentView]);
+
   const reviewGroups = useMemo(() => {
     const by = {};
     for (const q of wrongList) {
@@ -2308,7 +2374,8 @@ const App = () => {
       setCurrentView('tax_sections');
       setTaxSection(null);
     } else if (currentView === 'tax_sections') {
-      setCurrentView('tax_chapters');
+      const hasSubs = !!(taxonomyData && taxSubject && taxonomyData[taxSubject]?.has_subjects);
+      setCurrentView(hasSubs ? 'tax_chapters' : 'tax_sub_subjects');
       setTaxChapter(null);
     } else if (currentView === 'tax_chapters') {
       setCurrentView('tax_sub_subjects');
@@ -2553,6 +2620,7 @@ const App = () => {
                             ['gpt-5.4-mini', '🔵 GPT-5.4 mini (-80%)'],
                           ]},
                           { group: 'Google — 일부 환경 직호출 가능', items: [
+                            ['gemini-3.5-flash', '🟢 Gemini 3.5 Flash (기본)'],
                             ['gemini-3.1-pro-preview', '🟢 Gemini 3.1 Pro (-43%)'],
                             ['gemini-3.1-flash-lite', '🟢 Gemini 3.1 Flash Lite (-85%)'],
                           ]},
@@ -2937,7 +3005,7 @@ const App = () => {
           const chapterVal = hasSubs ? p[1] : p[0];
           if (sectionVal) setCurrentView('tax_items');
           else if (chapterVal) setCurrentView('tax_sections');
-          else setCurrentView('tax_chapters');
+          else setCurrentView(hasSubs ? 'tax_chapters' : 'tax_sub_subjects');
           window.scrollTo(0, 0);
         }}
         getQuizCountForLeaf={(leaf) => {
@@ -3037,33 +3105,7 @@ const App = () => {
 
   // 가이드 학습 모드: 한 개념의 문제를 난이도↑ 순으로 한 문제씩, 해설로 누적 학습
   if (currentView === 'study' && selectedGroup) {
-    const shuffleMode = !selectedGroup.review && studyOrder === 'random';
-    // 세션 내 안정 셔플: qid+studyNonce 해시 → 같은 세션에선 순서 고정
-    const seededRank = (q) => {
-      let h = studyNonce * 2654435761 >>> 0;
-      const id = qid(q);
-      for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
-      return h;
-    };
-    const ordered = processedData
-      .filter(selectedGroup.filterFn)
-      .sort((a, b) => {
-        if (shuffleMode) return seededRank(a) - seededRank(b);
-        if (selectedGroup.review) {
-          // 복습: 여러 번 틀린 것 먼저, 그다음 어려운 것 먼저
-          const ra = (progress[qid(a)] && progress[qid(a)].reviewed) || 0;
-          const rb = (progress[qid(b)] && progress[qid(b)].reviewed) || 0;
-          if (ra !== rb) return rb - ra;
-          const dda = a.difficulty ?? 0, ddb = b.difficulty ?? 0;
-          if (dda !== ddb) return ddb - dda;
-        } else {
-          const da = a.difficulty ?? 99, db = b.difficulty ?? 99;
-          if (da !== db) return da - db;               // 학습: 쉬운 문제부터
-        }
-        const ya = parseInt(a.year, 10), yb = parseInt(b.year, 10);
-        if (ya !== yb) return yb - ya;                  // 최신 연도
-        return parseInt(a.number, 10) - parseInt(b.number, 10);
-      });
+    const ordered = orderedQuestions;
     const total = ordered.length;
     const idx = Math.min(studyIdx, Math.max(0, total - 1));
     const q = ordered[idx];
@@ -3266,15 +3308,7 @@ const App = () => {
   }
 
   if (currentView === 'question_list' && selectedGroup) {
-    // 필터링된 문제를 연도 내림차순, 문제 번호 오름차순으로 정렬
-    const filteredQuestions = processedData
-      .filter(selectedGroup.filterFn)
-      .sort((a, b) => {
-        const yearA = parseInt(a.year, 10);
-        const yearB = parseInt(b.year, 10);
-        if (yearA !== yearB) return yearB - yearA; // 연도 내림차순
-        return parseInt(a.number, 10) - parseInt(b.number, 10); // 번호 오름차순
-      });
+    const filteredQuestions = filteredQuestionsMemo;
     
     return (
       <div className="app-container">
@@ -5304,9 +5338,7 @@ const App = () => {
                   setTaxSubSubject(null);
                   setTaxChapter(null);
                   setTaxSection(null);
-                  const tax = taxonomyData?.[s.title];
-                  if (tax?.has_subjects) setCurrentView('tax_sub_subjects');
-                  else setCurrentView('tax_chapters');
+                  setCurrentView('tax_sub_subjects');
                   window.scrollTo(0, 0);
                 };
                 // AI 학습 홈처럼 — 세부과목(민법총칙/물권법 등)이 2~4개면 카드 하단에 바로가기 칩 노출.

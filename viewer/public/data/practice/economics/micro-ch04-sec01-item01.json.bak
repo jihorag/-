@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제4장 생산자이론",
+    "section": "제11절 생산이론",
+    "item": "제1관 생산함수와 생산요소",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 30
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "생산함수(production function)의 정의로 옳은 것은?",
+      "options": [
+        "투입 요소와 산출량의 기술적 관계 Q = f(L, K, ...)",
+        "비용 함수",
+        "수요 함수",
+        "정부 결정",
+        "가격 함수"
+      ],
+      "answer": "1",
+      "explanation": "생산함수: 투입 요소 (노동 L, 자본 K, 토지·원자재 등)와 산출량 Q의 기술적 관계를 나타내는 함수.\nQ = f(L, K, ...)\n주어진 기술 수준에서의 최대 산출량.\n기업 생산 활동의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "주요 생산요소(factors of production) 4가지로 옳은 것은?",
+      "options": [
+        "노동(L), 자본(K), 토지(N), 기업가 정신",
+        "수요, 공급, 가격, 수량",
+        "정부, 기업, 가계, 외국",
+        "현재, 미래, 과거, 영원",
+        "동남서북"
+      ],
+      "answer": "1",
+      "explanation": "전통적 생산요소 4가지:\n노동(Labor, L): 인적 자원\n자본(Capital, K): 기계·설비·건물\n토지(Land, N): 자연 자원\n기업가 정신(Entrepreneurship): 결합·혁신 능력\n현대: 추가 요소로 인적자본·기술·정보·아이디어 등 인정."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-003",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "단기(short run)와 장기(long run)의 구분으로 옳은 것은?",
+      "options": [
+        "단기: 적어도 1개 요소 고정 (보통 자본) / 장기: 모든 요소 가변",
+        "단기 1개월, 장기 1년",
+        "단기 1년, 장기 10년",
+        "단기·장기는 동일",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "마샬의 시간 구분 (1890):\n단기: 적어도 한 요소 (보통 자본·설비)가 고정\n→ 가변 요소 (보통 노동)만 조정 가능\n장기: 모든 요소가 가변적\n→ 자본 규모·생산 설비 조정 가능\n매우 장기: 기술 변화도 가능\n절대적 시간이 아닌 요소 가변성 기준."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-004",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "기술적 효율(technical efficiency)의 의미로 옳은 것은?",
+      "options": [
+        "주어진 투입으로 최대 산출 또는 주어진 산출에 최소 투입",
+        "최저 비용",
+        "최고 가격",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "기술적 효율 (Technical Efficiency):\n주어진 투입으로 최대 산출 (Output-oriented)\n또는 주어진 산출에 최소 투입 (Input-oriented)\n생산함수는 기술적 효율의 경계 (frontier)\n실제 생산은 경계 위 또는 아래 (비효율)\n비용 효율과 구분 - 비용은 추가로 요소 가격 고려."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-005",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "한계생산(marginal product, MP)의 정의로 옳은 것은?",
+      "options": [
+        "한 요소 1단위 추가 시 산출 증가분 (MP_L = ∂Q/∂L)",
+        "평균 생산",
+        "총 생산",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "한계생산 MP:\nMP_L = ∂Q/∂L: 노동 1단위 추가 시 산출 증가\nMP_K = ∂Q/∂K: 자본 1단위 추가 시 산출 증가\n다른 요소 일정 (ceteris paribus)\n수확 체감의 법칙: MP가 일정 시점 후 감소\n생산함수 분석의 기본 개념."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-006",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "다음 중 콥-더글러스 생산함수의 일반 형태로 옳은 것은?",
+      "options": [
+        "Q = A · L^α · K^β (A: 기술, α+β: 규모 수익)",
+        "Q = L + K",
+        "Q = L × K",
+        "Q = L^L · K^K",
+        "Q = 정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "콥-더글러스 생산함수:\nQ = A · L^α · K^β\nA: 기술 수준 (technological progress)\nα, β: 요소 탄력성 (지수)\nα + β = 1: 규모 수익 일정 (CRS - Constant Returns to Scale)\nα + β > 1: 규모 수익 체증 (IRS)\nα + β < 1: 규모 수익 체감 (DRS)\n1928년 Cobb-Douglas 도입. 가장 흔한 분석 도구."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-007",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "규모에 대한 수익(returns to scale)의 정의로 옳은 것은?",
+      "options": [
+        "모든 요소를 동일 비율 k배로 늘릴 때 산출 변화. k배 → 정확히 k배 (CRS) / k배 이상 (IRS) / k배 이하 (DRS)",
+        "한 요소만 변경",
+        "정부 결정",
+        "수익은 무관",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "규모 수익:\n모든 요소 동시 k배 증가 시 산출 변화\nCRS (Constant): f(kL, kK) = kf(L, K) - 정확히 k배\nIRS (Increasing): f(kL, kK) > kf(L, K) - k배 이상\nDRS (Decreasing): f(kL, kK) < kf(L, K) - k배 이하\n원인:\nIRS: 분업·전문화·고정 비용 분산\nDRS: 관리 부담·정보 비대칭\n장기 분석의 핵심 개념."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-008",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "수확 체감의 법칙(law of diminishing returns)의 내용으로 옳은 것은?",
+      "options": [
+        "다른 요소 일정한 채 한 요소만 늘리면 일정 시점 후 한계생산이 감소",
+        "수확 체증",
+        "수확 일정",
+        "정부 결정",
+        "수확과 무관"
+      ],
+      "answer": "1",
+      "explanation": "수확 체감의 법칙 (단기 분석):\n다른 요소 (예: 자본 K) 일정 + 가변 요소 (예: 노동 L)만 증가\n일정 시점 후 MP_L 감소\n이유: 고정 요소에 가변 요소가 압박 - 자원 부족\n예: 작은 농지에 노동자만 늘리기 - 결국 효율 감소\n단기 분석의 기본.\n장기에는 모든 요소 가변 - 규모 수익 분석."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-009",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "다음 중 생산함수의 응용 영역으로 옳은 것은?",
+      "options": [
+        "기업의 생산·비용 결정\n노동·자본 시장 (요소 수요)\n경제 성장 (Solow 모형)\n위 ①, ②, ③ 모두",
+        "①만 옳다",
+        "응용 없음",
+        "정부 결정만",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "생산함수의 응용:\n① 기업 생산·비용 결정\n② 노동·자본 시장 - 요소 수요 도출 (MP × 가격 = 요소 가격)\n③ 경제 성장 - Solow 모형, 내생적 성장 모형\n④ 거시 총생산함수 - GDP\n⑤ 국제 무역 - 비교우위·HOS 모형\n⑥ 산업 분석 - 효율성 측정\n응용 미시·거시·국제경제학의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-010",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "기술 진보(technological progress)의 의미로 옳은 것은?",
+      "options": [
+        "동일 투입으로 더 큰 산출 가능 - 생산함수 자체의 상방 이동 (A 증가)",
+        "투입 증가",
+        "정부 결정",
+        "효과 없음",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "기술 진보:\n동일 투입 (L, K)으로 더 큰 산출 가능\n생산함수의 상방 이동 (A ↑)\n예: 콥-더글러스 Q = A·L^α·K^β에서 A 증가\n원인: R&D·교육·혁신·외국 기술 도입\n경제 성장의 주요 원천 (Solow 1956: 미국 성장의 80%+ 기술 진보)\n현대 내생적 성장 모형 (Romer 1986, 1990, 2018 노벨상)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-011",
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 생산함수의 유형 분류로 옳은 것은?",
+      "options": [
+        "콥-더글러스 (Q = A·L^α·K^β)\n레온티에프 (Q = min(aL, bK))\nCES (Constant Elasticity of Substitution)\n선형 (Q = aL + bK)\n위 ①, ②, ③, ④ 모두 주요 유형",
+        "콥-더글러스만",
+        "한 유형만",
+        "정부 결정만",
+        "가치판단만"
+      ],
+      "answer": "1",
+      "explanation": "주요 생산함수 유형:\n① 콥-더글러스 (Cobb-Douglas 1928): Q = A·L^α·K^β - 가장 흔함\n② 레온티에프 (Leontief): Q = min(aL, bK) - 완전 보완 (요소 결합 비율 고정)\n③ CES (Constant Elasticity of Substitution, Arrow-Chenery-Minhas-Solow 1961): 일반화\n④ 선형: Q = aL + bK - 완전 대체\n다양한 산업·기술 모형의 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-012",
+      "difficulty": 2,
+      "question_type": "보기 결합형",
+      "question": "다음 중 생산함수에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. Q = f(L, K, ...) - 투입과 산출의 기술적 관계\nㄴ. 단기: 일부 요소 고정, 장기: 모두 가변\nㄷ. 수확 체감의 법칙 - 단기 분석\nㄹ. 규모 수익 - 장기 분석",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 생산함수의 4가지 핵심 요소."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "콥-더글러스 Q = L^0.5 · K^0.5의 규모 수익으로 옳은 것은?",
+      "options": [
+        "CRS (α + β = 1)",
+        "IRS (α + β > 1)",
+        "DRS (α + β < 1)",
+        "변동",
+        "측정 불가"
+      ],
+      "answer": "1",
+      "explanation": "Q = L^0.5 · K^0.5:\nα = 0.5, β = 0.5, α + β = 1 → CRS (Constant Returns to Scale)\n확인: f(kL, kK) = (kL)^0.5 · (kK)^0.5 = k · L^0.5 · K^0.5 = k·Q\n모든 요소 k배 → 산출 k배 (정확히 비례)\n표준 분석에서 흔한 가정 (장기 균형 분석)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-014",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "콥-더글러스 Q = L^0.7 · K^0.5의 규모 수익은?",
+      "options": [
+        "IRS (α + β = 1.2 > 1)",
+        "CRS",
+        "DRS",
+        "변동",
+        "측정 불가"
+      ],
+      "answer": "1",
+      "explanation": "Q = L^0.7 · K^0.5:\nα + β = 0.7 + 0.5 = 1.2 > 1 → IRS (Increasing Returns to Scale)\n확인: f(kL, kK) = k^0.7·L^0.7 · k^0.5·K^0.5 = k^1.2 · Q\nk배 투입 → k^1.2배 산출 (더 큰 비율)\n원인: 분업·전문화·고정 비용 분산.\n네트워크 산업 (소프트웨어·플랫폼)에서 흔함."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-015",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 한국 농업 생산함수의 사례에 관한 옳은 설명은?",
+      "options": [
+        "농업: 토지·노동·자본 결합. 한국 농업의 특수성: 토지 부족, 기계화·시설 농업 발전, 농업 인구 고령화",
+        "농업 생산함수 없음",
+        "농업은 가치판단",
+        "농업은 정부 결정만",
+        "농업은 무관"
+      ],
+      "answer": "1",
+      "explanation": "한국 농업 생산함수:\n주요 요소: 토지·노동·자본 (시설·기계)\n특수성:\n토지 부족 (산악 국토)\n기계화·시설 농업 발전 (스마트팜)\n농업 인구 고령화 (65세 이상 50%+)\n생산성 향상으로 농업 비중 ↓ (페티-클락 법칙)\n농업 정책의 미시적 기초.\n농촌경제·경제발전이론 분석."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-016",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 인적자본(human capital)의 생산요소화로 옳은 것은?",
+      "options": [
+        "Becker (1964), Schultz (1961): 교육·훈련·경험을 인적자본으로 분석. 노동의 질적 차이가 생산함수에 반영.",
+        "인적자본은 비요소",
+        "인적자본은 가치판단",
+        "인적자본은 정부 결정",
+        "인적자본은 무관"
+      ],
+      "answer": "1",
+      "explanation": "인적자본 (Human Capital):\nSchultz (1961, 1979 노벨상): 「Investment in Human Capital」\nBecker (1964, 1992 노벨상): 「Human Capital」\n핵심: 교육·훈련·경험을 자본 투자로 분석\n생산함수: Q = f(L·h, K, ...) (h: 인적자본)\n실증: 민서 방정식 ln(W) = α + β·E + γ·X + δ·X² (E: 교육 연수, X: 경험)\n응용:\n경제 성장 (R&D·교육의 중요성)\n임금 차이·노동 시장\n교육 정책\n현대 노동·성장 이론의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-017",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 솔로우(Solow) 성장 모형의 생산함수로 옳은 것은?",
+      "options": [
+        "Y = F(K, AL) (A: 노동 증대 기술 진보) - 콥-더글러스 형태 자주 사용",
+        "Solow 모형은 생산함수 없음",
+        "Solow는 가치판단",
+        "Solow는 정부 결정",
+        "Solow는 무관"
+      ],
+      "answer": "1",
+      "explanation": "Solow 성장 모형 (R. Solow 1956, 1987 노벨상):\n생산함수: Y = F(K, AL)\nA: 노동 증대 기술 진보 (labor-augmenting)\nL: 노동, K: 자본\n자주 콥-더글러스 형태: Y = K^α · (AL)^(1-α)\n특징:\nCRS 가정\n수확 체감 (자본의 한계 생산 감소)\n장기 균형: 1인당 변수 안정\n결과: 자본 축적만으로 성장 한계 (정상 상태) - 기술 진보 (A 증가)가 지속 성장의 원천\nRomer (2018 노벨상)의 내생적 성장 이론으로 확장."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-018",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 생산성(productivity) 측정으로 옳은 것은?",
+      "options": [
+        "노동 생산성: Q/L (1인당 산출)\n자본 생산성: Q/K (자본 1단위당 산출)\n총요소생산성 (TFP): Solow residual - 요소로 설명되지 않는 잔차",
+        "생산성은 측정 불가",
+        "생산성은 가치판단",
+        "생산성은 정부 결정",
+        "생산성은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "생산성 측정:\n① 노동 생산성: Q/L - 1인당 산출 (가장 흔함)\n② 자본 생산성: Q/K - 자본 1단위 산출\n③ 다요소 생산성 (MFP)·총요소생산성 (TFP):\nSolow residual: Q/(L^α·K^β)\n요소 투입으로 설명되지 않는 부분 - 기술·효율의 영향\n경제 성장 회계 (growth accounting):\nΔY/Y = α·ΔK/K + β·ΔL/L + ΔA/A\nA: TFP 변화 = 잔차\n경제 성장 분석의 핵심.\n한국 성장의 큰 부분이 TFP."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-019",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "다음 중 생산함수와 경제 성장에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. Solow (1956) 외생 기술 모형\nㄴ. Romer (1986, 1990) 내생적 성장 모형\nㄷ. Becker·Schultz 인적자본 이론\nㄹ. Lucas (1988) 인적자본과 성장\nㅁ. Aghion·Howitt (1992) 슘페터 성장 모형",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 생산함수와 성장 이론의 발전사."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 노동의 평균 생산(AP_L)과 한계 생산(MP_L)의 관계로 옳은 것은?",
+      "options": [
+        "MP > AP일 때 AP 증가, MP < AP일 때 AP 감소, MP = AP일 때 AP 극대",
+        "MP와 AP는 무관",
+        "AP가 항상 큼",
+        "MP가 항상 큼",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "AP와 MP의 관계:\nAP_L = Q/L (평균 생산)\nMP_L = ∂Q/∂L (한계 생산)\n관계:\nMP > AP → AP 증가 (위로 끌어올림)\nMP < AP → AP 감소 (아래로 끌어내림)\nMP = AP → AP 극대점 (교차점)\n예: 추가 신입사원의 생산이 평균보다 크면 평균 ↑\n표준 단기 생산 분석의 결과."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-021",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 콥-더글러스의 요소 분배 함의로 옳은 것은?",
+      "options": [
+        "Q = A·L^α·K^β에서 α: 노동 분배율, β: 자본 분배율. 한계생산성 가격결정 가정 시 노동 임금 = α·Q/L·P, 자본 이자율 = β·Q/K·P",
+        "분배는 무관",
+        "분배는 가치판단",
+        "분배는 정부 결정",
+        "분배는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "콥-더글러스의 요소 분배 함의:\nQ = A·L^α·K^β\n한계 생산성 가격 결정 (신고전학파):\n노동 한계 가치 = w (임금) → α·A·L^(α-1)·K^β · P = w\nα = (w·L)/(P·Q) = 노동 분배율\n자본 분배율 β\n실증: 미국 노동 분배율 약 0.7, 자본 0.3\n최근 감소 추세 (자동화·AI)\n분배 이론의 미시적 기초.\n분배 격차·자본 vs 노동 논쟁의 분석 도구."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-022",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 자본 (capital)의 의미와 분류로 옳은 것은?",
+      "options": [
+        "물적 자본 (machinery·building·infrastructure)\n금융 자본 (현금·증권·신용)\n인적 자본 (교육·기술)\n사회적 자본 (제도·신뢰)\n위 ①, ②, ③, ④ 모두 자본 분류",
+        "자본은 한 종류만",
+        "자본은 정부 결정",
+        "자본은 가치판단",
+        "자본은 무관"
+      ],
+      "answer": "1",
+      "explanation": "자본의 분류:\n① 물적 자본: 기계·설비·건물·인프라\n② 금융 자본: 현금·증권·신용 (실물 자본의 대표·거래)\n③ 인적 자본: 교육·기술 (Becker·Schultz)\n④ 사회적 자본 (Putnam 1995): 제도·신뢰·네트워크\n⑤ 자연 자본: 환경·자원 (현대)\n⑥ 지식 자본: R&D·특허\n현대 경제는 다양한 자본의 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 CES 생산함수의 일반 형태와 특수 사례로 옳은 것은?",
+      "options": [
+        "Q = A·(α·L^ρ + (1-α)·K^ρ)^(1/ρ). ρ → 1: 선형 (대체) / ρ → 0: 콥-더글러스 / ρ → -∞: 레온티에프 (보완)",
+        "CES는 한 형태만",
+        "CES는 가치판단",
+        "CES는 정부 결정",
+        "CES는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "CES 생산함수 (Arrow·Chenery·Minhas·Solow 1961):\nQ = A·(α·L^ρ + (1-α)·K^ρ)^(1/ρ)\nA: 효율 파라미터\nα: 요소 비중\nρ: 대체 파라미터 → 대체탄력성 σ = 1/(1-ρ)\n특수 사례:\nρ → 1 (σ → ∞): 선형 (완전 대체)\nρ → 0 (σ = 1): 콥-더글러스\nρ → -∞ (σ → 0): 레온티에프 (완전 보완)\n다양한 산업·기술 모형의 일반화.\n거시·국제경제·성장이론에 광범위하게 사용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-024",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 한국 경제 성장의 요소 분석으로 옳은 것은?",
+      "options": [
+        "한국 성장의 큰 부분: 자본 축적 + 노동 (1960~80년대), TFP (1990년대~), 인적자본 (지속). 최근 TFP·기술 진보의 중요성 증가.",
+        "한국 성장은 효과 없음",
+        "한국 성장은 가치판단",
+        "한국 성장은 정부 결정만",
+        "한국 성장은 무관"
+      ],
+      "answer": "1",
+      "explanation": "한국 경제 성장 회계 분석:\n1960~80년대: 자본 축적 (외자 도입·저축)·노동 (저임금·풍부)\n1990년대~: 인적자본·기술 진보의 중요성 증가\n2000년대~: TFP가 성장의 주요 원천\n현재:\nTFP 성장 둔화 → 잠재 성장률 ↓\n자본·노동 한계 (저출산·고령화)\n새 도전: AI·R&D·구조 개혁\n한국 경제 성장의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-025",
+      "difficulty": 4,
+      "question_type": "보기 결합형",
+      "question": "다음은 생산함수 이론의 발전사이다. 옳은 것을 모두 고른 것은?\n\nㄱ. Cobb-Douglas (1928): 콥-더글러스 함수\nㄴ. Leontief (1953): 입출 분석·고정 비율\nㄷ. Solow (1956, 1987 노벨상): 외생 성장 모형\nㄹ. Arrow-Chenery-Minhas-Solow (1961): CES 함수\nㅁ. Romer (1986, 2018 노벨상): 내생적 성장",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "5단계 모두 옳다. 생산함수 이론의 발전사."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-026",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 디지털 경제와 생산함수의 변화로 옳은 것은?",
+      "options": [
+        "IT·AI·플랫폼 - 한계 비용 거의 0, IRS, 네트워크 효과. 전통 생산함수의 새 도전.",
+        "디지털은 무관",
+        "디지털은 가치판단",
+        "디지털은 정부 결정",
+        "디지털은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "디지털 경제와 생산함수:\n특성:\n한계 비용 거의 0 (소프트웨어·디지털 콘텐츠)\nIRS (강한 규모 수익)\n네트워크 효과 (가치 ∝ 사용자 수²)\n원격·재택 가능 - 노동의 지리 자유\n전통 생산함수의 새 도전:\n자본 축적 vs 데이터·아이디어\n자본 분배율 vs 슈퍼스타 기업\n새 산업 분석 - 플랫폼 경제·AI\n현대 산업조직론·성장이론의 발전 방향."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-027",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 생산함수와 환경 자본에 관한 옳은 설명은?",
+      "options": [
+        "환경 자본 (자연 자원·생태계)을 생산요소로 포함 → 환경경제학·지속가능 성장 분석. 환경 파괴는 자본 감소로 분석.",
+        "환경은 생산함수와 무관",
+        "환경은 가치판단",
+        "환경은 정부 결정만",
+        "환경은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "환경 자본과 생산함수:\n전통 생산함수: L, K, N (토지)\n현대 확장: 환경 자본 (자연 자원·생태계·기후)을 자본의 한 형태\n환경 파괴 = 자본 감소\n지속가능 성장 (sustainable growth):\n환경 자본을 유지하는 성장\n약한 지속성 (자본 간 대체) vs 강한 지속성 (환경 자본 보호)\n응용:\n자원 경제학 (Hotelling 1931)\n탄소세·신재생\n그린 뉴딜 정책\n현대 환경·성장 이론의 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-028",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 생산함수의 응용 사례에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기업·산업 분석 - 효율성 측정 (DEA, SFA)\nㄴ. 거시 경제 - 성장 회계·정책 분석\nㄷ. 국제 무역 - 비교우위·HOS 모형\nㄹ. 노동 시장 - 임금·요소 수요\nㅁ. 환경 정책 - 자원·기후",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 생산함수의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-029",
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 현대 생산함수 분석의 동향으로 옳은 것은?",
+      "options": [
+        "디지털 경제·AI 영향\n인적자본·R&D·지식의 중심성\n환경·지속가능성 통합\n비대칭 산업 (슈퍼스타 기업) 분석\n빅데이터·머신러닝의 생산성 영향",
+        "생산함수는 변화 없음",
+        "현대는 가치판단",
+        "현대는 정부 결정만",
+        "현대는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "현대 생산함수 분석 동향:\n① 디지털·AI 영향: 새 산업·자동화\n② 인적자본·R&D·지식: Romer (2018 노벨상)\n③ 환경·지속가능성: Nordhaus (2018 노벨상)\n④ 비대칭 산업 - 슈퍼스타 기업·시장 집중\n⑤ 빅데이터·머신러닝 활용\n⑥ 글로벌 가치사슬·국제 분업\n⑦ 무형 자본 (브랜드·데이터·소프트웨어) 중요\n전통 모형의 확장과 새 도구의 발전."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec01-item01-030",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 생산함수와 생산요소의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 생산함수 Q = f(L, K, ...) - 투입과 산출의 기술적 관계\nㄴ. 단기 (요소 일부 고정) vs 장기 (모두 가변)\nㄷ. 수확 체감 (단기) vs 규모 수익 (장기)\nㄹ. 콥-더글러스·CES·레온티에프 등 유형\nㅁ. 모든 산업이 동일한 생산함수",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "2",
+      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 산업별로 생산함수가 다르다 (농업 - 토지 중심, 제조 - 자본·노동, 서비스 - 인적자본 중심, IT - 지식·네트워크). '모든 산업 동일'은 잘못이다."
+    }
+  ]
+}

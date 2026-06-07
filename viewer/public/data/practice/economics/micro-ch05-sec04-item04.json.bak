@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제5장 시장이론",
+    "section": "제16절 과점시장",
+    "item": "제4관 카르텔과 담합",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-03",
+    "count": 25,
+    "mix_profile": "calc12-graph5-theory8"
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "카르텔 (Cartel) 의 정의는?",
+      "options": [
+        "기업 간 명시적 협의 (가격·생산·시장 분할) → 독점 이윤 — 한국 공정거래법 금지",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "카르텔: 기업 간 명시 협의 (가격·생산·시장 분할). 독점 이윤 추구. 한국 공정거래법 (1980-) 금지·과징금. EU·미국·OECD 동일 금지."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-002",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "카르텔의 \"불안정\" 원인은?",
+      "options": [
+        "Nash 균형 일탈 동기 (산출 ↑·이윤 ↑) → 협의 깨질 위험",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "카르텔 불안정: Nash (1994 노벨) 균형 일탈 동기 (산출 ↑·이윤 ↑). 죄수의 딜레마. 협의 깨질 위험. 정부 견제 + 처벌·자수 면제 (Leniency)·반복 게임으로 견제."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-003",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "Stigler (1964) 카르텔 안정 조건은?",
+      "options": [
+        "정보 ↑·진입 ↓·반복 ↑·기업 수 ↓ → 카르텔 안정 ↑",
+        "관계 없음",
+        "Stigler 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "George Stigler (1982 노벨) A Theory of Oligopoly (1964): 카르텔 안정 조건 — 정보 ↑·진입 ↓·반복 ↑·기업 수 ↓·동질 제품. 위반 시 견제 ↓. 한국 (정유·시멘트·통신) 사례 분석."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-004",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"공정위 + 카르텔 적발\" 함의는?",
+      "options": [
+        "공정위 (KFTC 1981-) 담합 적발·과징금 + 자수 면제 (Leniency) 정책",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 공정위 (1981-) 담합 적발: 과징금 (수십억-수천억원) + 자수 면제 (Leniency·1997-) → 1차 자수 면제·2차 50%. 카르텔 견제·해체. EU·미국 유사 (Leniency 정책)."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-005",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Leniency Program (자수 면제) 의 의의는?",
+      "options": [
+        "1차 자수 → 과징금 면제 → 죄수의 딜레마 → 카르텔 해체 ↑",
+        "관계 없음",
+        "Leniency 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Leniency (자수 면제·1990s 미국 1차·EU·한국 1997-): 1차 자수 → 과징금 면제·자백 → 죄수의 딜레마 (Nash) → 카르텔 해체 ↑. 한국 적발 ↑·효과 ↑. Tirole (2014 노벨) 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-006",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"역대 카르텔 사례\" 는?",
+      "options": [
+        "정유 (휘발유)·통신 (요금)·시멘트·라면·제약·건설 → 공정위 과징금",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 카르텔 사례: ① 정유 (휘발유 가격) ② 통신 (요금) ③ 시멘트 (가격) ④ 라면 ⑤ 제약 ⑥ 건설 (입찰). 공정위 과징금 누적 수조원. 정책 강화 추세."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-007",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"국제 카르텔 (OPEC)\" 의 함의는?",
+      "options": [
+        "OPEC (1960-) 원유 카르텔 → 한국 (수입 의존) 외부 충격 ↑·정책 대응",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "OPEC (1960-) 원유 카르텔: 한국 (수입 의존 95%+) 외부 충격 ↑ (1973·1979·2022 오일쇼크). 정책 (전략 비축·에너지 다변화·녹색 전환). Sweezy·Stigler·Tirole 적용."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-008",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "Tirole (2014 노벨) 플랫폼 + 담합 함의는?",
+      "options": [
+        "양면 시장 + 알고리즘 → 새 담합 형태 (Algorithmic Collusion)",
+        "관계 없음",
+        "Tirole 부정",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "Jean Tirole (2014 노벨)·Rochet-Tirole (2003) 양면 시장 + 알고리즘 → Algorithmic Collusion (Mehra 2016) 새 담합 형태. EU·미국·한국 (공정위) 견제. Acemoglu (2024 노벨) 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-009",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"건설·입찰 담합\" 의 함의는?",
+      "options": [
+        "공공 입찰 담합 (건설·SOC) → 가격 ↑·예산 손실 → 공정위·감사원 견제",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 입찰 담합 사례: 건설·SOC (도로·KTX·항만) 공공 입찰. 가격 ↑·예산 손실 (수조원). 공정위 + 감사원 견제·과징금. Tirole + Tullock + Buchanan 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-010",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"제약 카르텔\" 함의는?",
+      "options": [
+        "제네릭·신약 가격·시장 분할 → 의료비 ↑ → 공정위 견제",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 제약 카르텔: 제네릭·신약 가격·시장 분할 담합 → 의료비 ↑. 공정위 견제·과징금. 일본·미국·EU 유사 사례. 보건복지부·식약처 결합 규제."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-011",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"AI 알고리즘 담합\" 의 함의는?",
+      "options": [
+        "AI 가격 알고리즘 → 인간 협의 없이 담합 (암묵·자동) → 규제 정책 정교화",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "AI 알고리즘 담합 (Algorithmic Collusion): AI 가격 학습 → 인간 협의 없이 담합 (암묵·자동). EU·미국 (DOJ·FTC)·한국 (공정위) 규제 정책 정교화. Acemoglu (2024 노벨)·Tirole·EU AI Act."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-012",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"공정위 + 갑을 관계\" 함의는?",
+      "options": [
+        "대기업 갑 vs 중소·자영 을 → 불공정 거래·갑질 → 공정위 견제",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 갑을 관계: 대기업 (갑) vs 중소·자영업 (을) → 불공정 거래·갑질 (납품 단가·강제 계약). 공정위 견제·갑질 방지법·플랫폼법. Tirole (2014 노벨) 산업조직 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-013",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"플랫폼 갑질 (네이버·카카오·쿠팡)\" 함의는?",
+      "options": [
+        "플랫폼 수수료 인상·검색 노출 → 입점업체 압박 → 공정위·플랫폼법 견제",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 플랫폼 갑질: 네이버·카카오·쿠팡 수수료 인상·검색 노출·자사 우대 → 입점업체 압박. 공정위·플랫폼법 (검토) 견제. EU DMA·미국 DOJ 추세 동조."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-014",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"카르텔 적발 + 처벌\" 의 진화는?",
+      "options": [
+        "과징금 ↑ + 자수 면제 + 형사 처벌 + 손해배상 → 견제 ↑·억지 효과",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 카르텔 처벌 진화: ① 과징금 ↑ (매출의 10%까지) ② 자수 면제 (1997-) ③ 형사 처벌 (3년 이하 징역) ④ 손해배상 (집단 소송·2018-). 견제 ↑·억지 효과. EU·미국 추세."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-015",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"국제 카르텔 + OECD\" 함의는?",
+      "options": [
+        "OECD International Competition Network → 국제 카르텔 공조·정보 교환",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 국제 카르텔 정책: OECD·ICN (International Competition Network)·EU·미국·일본·중국 공조·정보 교환·공동 조사. 글로벌 카르텔 견제 ↑. 한국 공정위 동조."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-016",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"M&A 심사\" 의 함의는?",
+      "options": [
+        "공정위 M&A 심사 → 시장 집중 ↑ 시 조건부 승인·금지 → 경쟁 보호",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 M&A 심사 (공정위·기업결합): 시장 집중 ↑ 시 조건부 승인 (자산 매각·가격 통제)·금지. 경쟁 보호·소비자 후생. EU·미국 추세. 대한항공-아시아나·SK텔레콤-CJ헬로 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-017",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"디지털 시장 + 카르텔\" 의 함의는?",
+      "options": [
+        "디지털 (플랫폼·AI·데이터) → 새 카르텔 형태 → 공정위 정책 확장",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 디지털 + 카르텔: 플랫폼·AI·데이터 → 새 카르텔 (알고리즘 담합·데이터 공유). 공정위·KCC 정책 확장. EU DMA·DSA·미국 (DOJ) 동조. Tirole + Acemoglu 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-018",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"중소·스타트업 보호\" 의 함의는?",
+      "options": [
+        "중소·스타트업 보호 + 대기업 갑질 견제 → 경쟁·혁신 ↑",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 중소·스타트업 정책: 보호 (적합 업종·기술 보호·정책 자금) + 대기업 갑질 견제 (공정위). 경쟁·혁신 ↑. Romer (2018 노벨)·Aghion-Howitt (1992)·Acemoglu 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-019",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"국제 무역 + 반독점\" 함의는?",
+      "options": [
+        "FTA + 국제 반독점 협력 → 글로벌 경쟁 ↑·국내 카르텔 견제",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 FTA + 반독점: 한·미·EU·중·아세안 FTA + 국제 반독점 협력 (ICN·OECD). 글로벌 경쟁 ↑·국내 카르텔 견제 ↑. Krugman (2008 노벨) + Tirole + Stigler 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-020",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"공정위 vs 산업부 trade-off\" 함의는?",
+      "options": [
+        "공정위 (경쟁·소비자 보호) vs 산업부 (산업 정책·대기업 지원) → 정책 균형",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 공정위 (경쟁·소비자) vs 산업부 (산업·대기업 지원·K-칩스·K-AI) trade-off. 정책 균형. Romer + Tirole 결합. 기재부·청와대 조율."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-021",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"카르텔 + 소비자 후생\" 함의는?",
+      "options": [
+        "카르텔 → 가격 ↑·소비자 후생 ↓ → 공정위 견제 → 소비자 후생 ↑",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 카르텔 + 소비자: 카르텔 → 가격 ↑·후생 ↓ (사중 손실·Harberger). 공정위 견제 → 후생 ↑. 집단소송·손해배상 (2018-) 보완. 한국·EU·미국 정책 발전."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-022",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "한국 \"녹색 카르텔\" 위험 함의는?",
+      "options": [
+        "녹색 산업 (EV·재생·수소) → 새 형태 카르텔 위험 → 공정위 견제 정책",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 녹색 산업 (EV·재생·수소·이차전지): 큰 산업 정책 + 보조 → 새 형태 카르텔 위험 (대기업 결탁). 공정위 견제 정책. K-그린 + Tirole + Stigler 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"공정위 진화\" 함의는?",
+      "options": [
+        "1981 출범 → 1997 Leniency → 2010s 디지털 → 2020s+ AI·플랫폼",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 공정위 진화: ① 1981 출범 ② 1997 Leniency ③ 2010s 디지털·플랫폼 ④ 2020s+ AI·플랫폼법·EU DMA·DSA 동조. 정책 정교화. Tirole·Acemoglu·OECD 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-024",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "한국 \"카르텔 + 디지털 미래\" 의 함의는?",
+      "options": [
+        "AI 알고리즘 + 빅데이터 → 카르텔 탐지·예방 정밀화",
+        "관계 없음",
+        "단순",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "한국 카르텔 + 디지털 미래: AI 알고리즘 + 빅데이터 → 카르텔 탐지·예방 정밀화. 공정위·OECD·EU 추세. K-AI 정책 결합. Acemoglu (2024 노벨)·Tirole (2014 노벨) 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch05-sec04-item04-025",
+      "difficulty": 5,
+      "question_type": "이론형",
+      "question": "카르텔·담합 이론·정책 종합 평가는?",
+      "options": [
+        "Stigler·Tirole·Nash·Axelrod·Tullock·Buchanan·Acemoglu·OECD 통합 → 한국 정책의 토대",
+        "단순",
+        "관계 없음",
+        "정부 결정",
+        "Pareto"
+      ],
+      "answer": "1",
+      "explanation": "카르텔 종합: ① Stigler (1964·1982 노벨) 과점 안정 ② Tirole (2014 노벨) 산업조직·플랫폼 ③ Nash (1994 노벨)·Axelrod (1984) 게임이론 ④ Tullock (1967)·Buchanan (1986 노벨) rent-seeking ⑤ Acemoglu (2024 노벨) 제도·AI ⑥ OECD·ICN·EU·미국 국제. 한국 정책 (공정위·Leniency·과징금·플랫폼법·디지털·AI) 토대."
+    }
+  ]
+}

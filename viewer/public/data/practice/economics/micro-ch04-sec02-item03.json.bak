@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "subject": "경제학원론",
+    "sub_subject": "미시경제학",
+    "chapter": "제4장 생산자이론",
+    "section": "제12절 비용이론",
+    "item": "제3관 장기비용함수와 규모의 경제",
+    "source": "practice-set",
+    "version": "v2-handcrafted",
+    "created": "2026-06-01",
+    "count": 30
+  },
+  "questions": [
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-001",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "장기 총비용(LRTC)의 의미로 옳은 것은?",
+      "options": [
+        "모든 요소가 가변인 상태에서 각 산출에 비용 최소화 - 단기 비용보다 낮거나 같음",
+        "단기와 동일",
+        "고정비용만",
+        "가변비용만",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "장기 총비용 LRTC:\n모든 요소 가변 - 자본 규모 조정 가능\n각 산출 수준에 최적 (L, K) 조합 → 비용 최소화\nLRTC ≤ SRTC (단기는 자본 고정으로 비효율 가능, 장기는 최적화)\n장기 분석의 기본."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-002",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "장기 평균비용(LRAC)의 정의로 옳은 것은?",
+      "options": [
+        "LRAC = LRTC/Q - 장기 단위당 평균 비용",
+        "LRAC = SRAC",
+        "LRAC = 0",
+        "LRAC = 정부 결정",
+        "LRAC = 가치판단"
+      ],
+      "answer": "1",
+      "explanation": "장기 평균비용 LRAC = LRTC/Q:\n장기 단위당 평균 비용\nLRAC ≤ SRAC (장기 더 효율적)\nLRAC의 형태로 산업 분석:\nU자형 (전통): 규모 경제 → MES → 규모 부경제\nL자형 (현대 IT): 계속 감소\n계속 감소: 자연 독점\n시장 구조 결정의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-003",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "장기 한계비용(LRMC)의 정의로 옳은 것은?",
+      "options": [
+        "LRMC = dLRTC/dQ - 장기에서 추가 1단위 생산 비용",
+        "LRMC = SRMC",
+        "LRMC = 0",
+        "LRMC = LRAC",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "장기 한계비용 LRMC = dLRTC/dQ:\n장기에서 추가 1단위 생산 비용\nLRAC와의 관계: LRMC < LRAC → LRAC 감소, LRMC > LRAC → LRAC 증가, LRMC = LRAC → LRAC 극소 (MES)\n장기 균형: P = LRAC 극소 = LRMC (완전경쟁)\n시장 분석의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-004",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "LRAC와 SRAC의 관계로 옳은 것은?",
+      "options": [
+        "LRAC는 SRAC들의 포락선 (envelope) - 각 산출에 최적 자본 규모 선택",
+        "LRAC = SRAC 항상",
+        "LRAC > SRAC 항상",
+        "LRAC는 SRAC와 무관",
+        "정부 결정"
+      ],
+      "answer": "1",
+      "explanation": "LRAC와 SRAC 관계:\n각 자본 규모 K에 SRAC 곡선\nLRAC는 모든 SRAC의 포락선 (envelope - 아래에서 감싸는 곡선)\n각 산출에 최적 K 선택 → 최저 SRAC\nLRAC ≤ SRAC (모든 산출)\nLRAC = SRAC at 최적 산출 (한 점에서 접함)\n장기 분석의 기하학적 이해."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-005",
+      "difficulty": 1,
+      "question_type": "이론형",
+      "question": "규모 경제(economies of scale)의 정의로 옳은 것은?",
+      "options": [
+        "산출 ↑ 시 LRAC ↓ - IRS와 밀접",
+        "산출 ↑ 시 LRAC ↑",
+        "규모와 무관",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "규모 경제 (Economies of Scale):\n산출 ↑ 시 LRAC ↓\nIRS (Increasing Returns to Scale)와 밀접한 관계\n원인:\n분업·전문화 (Smith 1776)\n고정 비용 분산 (R&D·브랜드·인프라)\n학습 효과 (learning by doing)\n네트워크 효과\n표준화·표준 자본\n예: 반도체·자동차·플랫폼."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-006",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "규모 부경제(diseconomies of scale)의 정의로 옳은 것은?",
+      "options": [
+        "산출 ↑ 시 LRAC ↑ - DRS와 밀접",
+        "산출 ↑ 시 LRAC ↓",
+        "규모와 무관",
+        "정부 결정",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "규모 부경제 (Diseconomies of Scale):\n산출 ↑ 시 LRAC ↑\nDRS (Decreasing Returns to Scale)와 밀접\n원인:\n관리 부담·조정 비용 증가 (대기업)\n정보 비대칭·관료주의\n동기 부족\n자원 한계 (전문 인력·천연 자원)\n물류·거리 비용\n예: 거대 기업의 비효율·분할 (GE·Toshiba)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-007",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "LRAC 곡선의 U자형 의미로 옳은 것은?",
+      "options": [
+        "초기 규모 경제 (LRAC ↓) → MES (극소) → 규모 부경제 (LRAC ↑)",
+        "L자형",
+        "수평",
+        "수직",
+        "역 U자형"
+      ],
+      "answer": "1",
+      "explanation": "LRAC 곡선 U자형:\n초기 (작은 Q): 규모 경제 → LRAC ↓\n중간 (MES): LRAC 극소 - 최소 효율 규모\n후기 (큰 Q): 규모 부경제 → LRAC ↑\nMES (Minimum Efficient Scale): LRAC 극소의 산출\n장기 균형: 완전경쟁 시 모든 기업이 MES에서 생산.\n전통 산업 (제조)의 일반적 형태."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-008",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "LRAC의 L자형 (계속 감소)의 사례로 옳은 것은?",
+      "options": [
+        "IT·플랫폼·소프트웨어 - 한계비용 거의 0, 강한 규모 경제 - 자연 독점 경향",
+        "농업",
+        "수공예",
+        "외식업",
+        "전통 제조"
+      ],
+      "answer": "1",
+      "explanation": "L자형 LRAC (계속 감소):\nIT·소프트웨어: 한계비용 거의 0, 한 번 개발하면 무한 복제 가능\n플랫폼·SNS: 네트워크 효과 강력\n예: 구글·페이스북·아마존·카카오·네이버\n자연 독점·과점 경향\n반독점·플랫폼 규제 정책 도전\n현대 디지털 경제의 주요 특징."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-009",
+      "difficulty": 2,
+      "question_type": "이론형",
+      "question": "최소 효율 규모(MES, Minimum Efficient Scale)의 의미로 옳은 것은?",
+      "options": [
+        "LRAC가 더 이상 감소하지 않는 최소 산출 수준 - 산업의 기업 규모·시장 구조 결정",
+        "최대 규모",
+        "정부 결정",
+        "가치판단",
+        "효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "MES (Minimum Efficient Scale):\nLRAC가 더 이상 감소하지 않는 최소 산출 수준\n산업의 기업 규모·시장 구조 결정\nMES 작음 → 많은 작은 기업 (경쟁) - 농업·서비스·전문직\nMES 큼 → 소수 큰 기업 (과점·독점) - 반도체·자동차·항공\nMES > 시장 수요 → 자연 독점 (전력·수도·통신)\n산업조직론·반독점 분석의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-010",
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 LRAC와 LRMC의 관계로 옳은 것은?",
+      "options": [
+        "LRMC < LRAC → LRAC ↓ / LRMC > LRAC → LRAC ↑ / LRMC = LRAC → LRAC 극소 (MES에서 교차)",
+        "LRAC·LRMC 무관",
+        "LRAC가 항상 큼",
+        "LRMC가 항상 큼",
+        "둘 다 일정"
+      ],
+      "answer": "1",
+      "explanation": "LRAC·LRMC 관계 (수학적):\nLRMC < LRAC → LRAC 감소 (아래로 끌어내림)\nLRMC > LRAC → LRAC 증가 (위로 끌어올림)\nLRMC = LRAC → LRAC 극대·극소\nU자형 LRAC: MES에서 LRMC가 LRAC를 아래에서 위로 가로지름\n장기 균형:\n완전경쟁: P = LRAC 극소 = LRMC\n정상 이윤만 (경제적 이윤 = 0)."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-011",
+      "difficulty": 2,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 장기 균형과 시장 구조의 관계로 옳은 것은?",
+      "options": [
+        "MES 작음 + 시장 큼 → 많은 기업 (경쟁)\nMES 큼 → 소수 기업 (과점)\nMES > 시장 수요 → 한 기업 (자연 독점)",
+        "MES와 시장 구조 무관",
+        "시장은 가치판단",
+        "시장은 정부 결정만",
+        "시장은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "MES와 시장 구조:\nMES 작음 + 시장 큼 → 시장에 많은 기업 (각 작은 비율) → 완전경쟁·독점적 경쟁\n예: 농업·식당·서비스\nMES 중간 → 소수 기업 → 과점\n예: 자동차·반도체·항공\nMES 큼 (MES > 시장 전체 수요) → 한 기업이 효율 → 자연 독점\n예: 전력·수도·가스·철도\n산업조직론의 핵심 결과.\n반독점·M&A 분석의 도구."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-012",
+      "difficulty": 2,
+      "question_type": "보기 결합형",
+      "question": "다음 중 장기 비용함수에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 모든 요소 가변 - 비용 최소화\nㄴ. LRAC = SRAC의 포락선\nㄷ. 규모 경제·부경제·정수익\nㄹ. MES와 시장 구조",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹ 모두 옳다. 장기 비용 분석의 4가지 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-013",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "콥-더글러스 장기 비용함수 도출 (CRS 가정): Q = L^0.5·K^0.5. LRAC는?",
+      "options": [
+        "LRAC = 2·(w·r)^0.5 (일정 - CRS 시 LRAC 일정)",
+        "LRAC = w + r",
+        "LRAC = w·r",
+        "LRAC = 0",
+        "LRAC = Q^2"
+      ],
+      "answer": "1",
+      "explanation": "콥-더글러스 CRS 장기 비용:\nQ = L^0.5·K^0.5, 비용 최소화 조건 MRTS = w/r\nK/L = w/r → K = (w/r)·L\nQ = L^0.5·(wL/r)^0.5 = L·(w/r)^0.5 → L = Q·(r/w)^0.5\nK = Q·(w/r)^0.5\nLRTC = wL + rK = Q·(w·r)^0.5 + Q·(w·r)^0.5 = 2·Q·(w·r)^0.5\nLRAC = LRTC/Q = 2·(w·r)^0.5 (일정 - Q와 무관)\nCRS 시 LRAC 일정 (수평 직선).\nLRMC = dLRTC/dQ = 2·(w·r)^0.5 = LRAC."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-014",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 LRAC의 형태와 규모 수익의 관계로 옳은 것은?",
+      "options": [
+        "IRS: LRAC ↓ (규모 경제) / CRS: LRAC 일정 (수평) / DRS: LRAC ↑ (규모 부경제)",
+        "모두 동일",
+        "규모와 무관",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "LRAC 형태와 규모 수익:\nIRS (Increasing Returns to Scale):\n동일 비율 요소 ↑ → 산출 더 큰 비율 ↑\n→ 단위당 비용 ↓\n→ LRAC ↓ (규모 경제)\nCRS (Constant Returns to Scale):\n동일 비율\n→ LRAC 일정 (수평)\nDRS (Decreasing Returns to Scale):\n낮은 비율\n→ LRAC ↑ (규모 부경제)\n장기 분석의 핵심 결과.\n콥-더글러스: α+β > 1 IRS, = 1 CRS, < 1 DRS."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-015",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 자연 독점(natural monopoly)의 비용 분석으로 옳은 것은?",
+      "options": [
+        "LRAC가 시장 전체 산출에서도 감소 (강한 규모 경제) → 한 큰 기업이 두 작은 기업보다 효율적 → 자연 독점",
+        "자연 독점은 비용과 무관",
+        "자연 독점은 가치판단",
+        "자연 독점은 정부 결정",
+        "자연 독점은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "자연 독점의 비용 분석:\nLRAC가 시장 전체 산출 영역에서도 감소\n→ 한 큰 기업의 평균 비용 < 여러 작은 기업의 평균 비용\n→ 한 기업이 가장 효율적 (자연 독점)\n예: 전력·수도·가스·철도·통신 인프라\n정책 대응:\n공기업 (한국 한전·가스공사)\n가격 규제\n경쟁 도입 (망 분리)\n시장 실패의 대표 사례."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-016",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 범위의 경제(economies of scope)의 정의로 옳은 것은?",
+      "options": [
+        "C(Q1, Q2) < C(Q1, 0) + C(0, Q2) - 다양한 제품 결합 생산 시 분리 생산보다 비용 낮음",
+        "동일 제품 규모 경제",
+        "범위 무관",
+        "정부 결정",
+        "가치판단"
+      ],
+      "answer": "1",
+      "explanation": "범위 경제 (Economies of Scope, Panzar·Willig 1981):\nC(Q1, Q2) < C(Q1, 0) + C(0, Q2)\n다양한 제품 결합 생산 시 분리 생산보다 비용 낮음\n원인: 공통 자원 활용\n공통 R&D·브랜드·유통\n공통 인적자본·정보\n공통 인프라\n예:\n삼성: 반도체·휴대폰·가전 (공통 R&D·브랜드)\n구글: 검색·유튜브·안드로이드 (공통 데이터·인프라)\n맥도날드: 햄버거·음료·디저트 (공통 주방·유통)\n다각화·M&A의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-017",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 학습 효과(learning by doing)와 동학적 규모 경제로 옳은 것은?",
+      "options": [
+        "누적 산출 ↑ 시 경험 축적·노하우 → 단위 비용 ↓ (Arrow 1962, 학습 곡선)\n예: 반도체 (Moore의 법칙), 태양광·풍력, 항공기 제조",
+        "학습 효과는 무관",
+        "학습 효과는 가치판단",
+        "학습 효과는 정부 결정",
+        "학습 효과는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "학습 효과 (Learning by Doing, Arrow 1962):\n누적 산출 Q_total 증가 → 경험·노하우 축적 → AC ↓\n학습 곡선: AC = a·Q_total^(-b)\n예:\n반도체: Moore의 법칙 (매년 30% 비용 하락)\n태양광·풍력: 10년에 80%+ 비용 하락\n항공기: 학습 곡선 강력\nLED·배터리\n동학적 규모 경제 - 시간에 따른 비용 감소\n신산업·신기술 분석의 핵심.\n선점 효과·산업 정책의 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-018",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 LRAC와 시장 진입의 관계로 옳은 것은?",
+      "options": [
+        "P > LRAC 극소: 초과 이윤 → 신규 진입\n진입으로 시장 가격 ↓\n장기: P = LRAC 극소 → 정상 이윤 → 진입 중단\n자유 진입·퇴출의 동학",
+        "진입은 비용과 무관",
+        "진입은 가치판단",
+        "진입은 정부 결정",
+        "진입은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "LRAC와 시장 진입 동학:\n초기: P > LRAC 극소 → 초과 이윤 → 신규 진입\n진입으로 공급 ↑ → 시장 가격 ↓\n장기 균형: P = LRAC 극소 → 정상 이윤 → 진입 중단\n자유 진입·퇴출이 핵심:\n완전경쟁 - 자유 진입·퇴출 가정\n진입 장벽 (특허·규제·필요 자본) → 불완전경쟁\n시장 구조 분석의 동학적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-019",
+      "difficulty": 3,
+      "question_type": "보기 결합형",
+      "question": "다음 중 장기 비용 분석의 응용에 관한 옳은 설명을 모두 고른 것은?\n\nㄱ. 시장 구조 (경쟁·과점·독점)\nㄴ. 자연 독점·반독점 정책\nㄷ. 범위 경제·다각화·M&A\nㄹ. 학습 효과·신산업\nㅁ. 글로벌화·국제 무역",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 장기 비용 분석의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-020",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 한국 산업의 LRAC 사례로 옳은 것은?",
+      "options": [
+        "반도체 (삼성·SK): L자형 (강한 규모 경제) → 자연 과점\n자동차 (현대·기아): U자형, 큰 MES\n농업: J자형 (작은 MES, DRS)\nIT·플랫폼: L자형 → 자연 독점 경향",
+        "한국 산업 동일",
+        "한국은 가치판단",
+        "한국은 정부 결정",
+        "한국은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "한국 산업의 LRAC:\n① 반도체 (삼성·SK 하이닉스): L자형 - 강한 규모 경제 (R&D·팹 비용 분산)\n→ 자연 과점 (세계 3개 기업)\n② 자동차 (현대·기아·GM·BMW·도요타): U자형, 큰 MES (대량 생산 필요)\n→ 글로벌 5~10개 기업\n③ 농업: J자형 - 작은 MES, DRS (토지 한계)\n→ 많은 작은 기업\n④ IT·플랫폼 (네이버·카카오): L자형 - 자연 독점 경향\n→ 시장 집중 + 반독점 규제\n산업별 비용 구조의 차이."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-021",
+      "difficulty": 3,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 글로벌화와 LRAC의 관계로 옳은 것은?",
+      "options": [
+        "큰 MES 산업 (반도체·자동차·항공) - 국내 시장 한계 → 수출·글로벌화로 규모 달성\n한국 대기업의 성장 패턴\n글로벌 가치사슬·국제 무역",
+        "글로벌화는 비용과 무관",
+        "글로벌화는 가치판단",
+        "글로벌화는 정부 결정",
+        "글로벌화는 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "글로벌화와 LRAC:\nMES 큰 산업 (반도체·자동차·항공·조선·플랫폼):\n작은 국내 시장으로 MES 달성 어려움\n수출·글로벌화 → 큰 시장 → MES 달성 → LRAC 극소\n한국 대기업의 성장:\n삼성·LG·현대·기아·SK - 글로벌화로 규모 달성\n글로벌 가치사슬:\n한 나라에서 모든 단계 어려움\n비용 우위 지역에 분산 생산\nKrugman (1979, 1991, 2008 노벨상): 규모 경제와 국제 무역\n현대 글로벌 경제의 미시적 기초."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-022",
+      "difficulty": 3,
+      "question_type": "이론형",
+      "question": "다음 중 장기 비용과 진입 장벽으로 옳은 것은?",
+      "options": [
+        "큰 MES·FC - 진입에 큰 투자 필요 (진입 장벽)\n학습 효과·네트워크 효과 - 후발 주자 비용 우위 어려움\n시장 집중·과점 형성",
+        "진입 장벽 없음",
+        "진입은 가치판단",
+        "진입은 정부 결정",
+        "진입은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "장기 비용과 진입 장벽 (Bain 1956):\n구조적 진입 장벽:\n큰 MES·FC: 진입에 거대 투자 필요\n학습 효과: 후발 주자 비용 우위 어려움 (선점 효과)\n네트워크 효과: 사용자 풀 작아 가치 낮음\n전략적 진입 장벽:\n광고·브랜드\n특허·기술 보호\n수직 통합·전속 유통\n결과: 시장 집중·과점·독점 형성\n산업조직론·반독점 분석의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-023",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 LRAC와 동학적 효율 (dynamic efficiency)로 옳은 것은?",
+      "options": [
+        "정적 효율 (LRAC 극소 - 비용 최소화)\n동학적 효율 (R&D·혁신을 통한 LRAC 자체 이동·기술 진보)\n슘페터: 동학적 효율이 정적 효율보다 중요",
+        "효율은 한 종류만",
+        "효율은 가치판단",
+        "효율은 정부 결정",
+        "효율은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "정적·동학적 효율:\n정적 효율 (Static Efficiency):\nLRAC 극소 - 비용 최소화\n주어진 기술에서의 효율\n표준 분석\n동학적 효율 (Dynamic Efficiency):\nR&D·혁신을 통한 LRAC 자체 이동\n기술 진보\n슘페터 (1942) 「자본주의·사회주의·민주주의」:\n동학적 효율이 정적 효율보다 중요\n독점·과점의 R&D 능력 (정적 비효율 vs 동학적 효율)\n혁신 vs 가격 경쟁의 trade-off\n현대 산업 정책의 핵심 논쟁."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-024",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 LRAC와 반독점·M&A 정책으로 옳은 것은?",
+      "options": [
+        "큰 MES → 자연 과점·독점 가능 → 반독점법으로 시장 지배력 평가\nM&A 심사: 비용 시너지 vs 시장 지배 강화 trade-off\n한국 공정거래위·미국 FTC·EU 경쟁법",
+        "반독점은 비용과 무관",
+        "반독점은 가치판단",
+        "반독점은 정부 결정만",
+        "반독점은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "LRAC와 반독점·M&A 정책:\n큰 MES → 자연 과점·독점 가능\n반독점법: 시장 지배력 평가\n시장 점유율, HHI (Herfindahl-Hirschman Index)\nM&A 심사:\n허용 사유: 비용 시너지·범위 경제\n금지 사유: 시장 지배 강화·소비자 후생 손실\n수평·수직·콩글로머릿 M&A 다른 분석\n주요 규제 기관:\n한국 공정거래위원회\n미국 FTC·법무부\nEU 경쟁법\n현대 산업·경쟁 정책의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-025",
+      "difficulty": 4,
+      "question_type": "보기 결합형",
+      "question": "다음은 장기 비용 분석의 응용 사례에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 시장 구조와 기업 규모\nㄴ. 자연 독점·반독점 정책\nㄷ. 범위 경제·다각화·M&A\nㄹ. 학습 효과·신산업·동학적 효율\nㅁ. 글로벌화·국제 무역",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 장기 비용 분석의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-026",
+      "difficulty": 4,
+      "question_type": "이론형",
+      "question": "다음 중 디지털 경제와 LRAC의 변화로 옳은 것은?",
+      "options": [
+        "IT·플랫폼 - 한계비용 거의 0 → LRAC 계속 감소 (L자형)\n네트워크 효과 - 가치 ∝ 사용자²\n슈퍼스타 기업 집중 - 자연 독점 경향\n반독점·플랫폼 규제 도전",
+        "디지털은 무관",
+        "디지털은 가치판단",
+        "디지털은 정부 결정",
+        "디지털은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "디지털 경제와 LRAC:\nIT·플랫폼 특성:\n한계비용 거의 0 (디지털 복제)\nLRAC 계속 감소 (L자형)\n네트워크 효과: 가치 ∝ 사용자² (Metcalfe)\n빅데이터·AI: 사용자 ↑ → 데이터 ↑ → 서비스 ↑ → 사용자 ↑ (선순환)\n결과:\n슈퍼스타 기업 집중 (Google·Facebook·Amazon·Apple)\n자연 독점·과점 경향\n글로벌 시장 지배\n반독점·플랫폼 규제 도전 (EU DMA·미국·한국)\n현대 디지털 경제의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-027",
+      "difficulty": 4,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 LRAC의 정책 응용으로 옳은 것은?",
+      "options": [
+        "자연 독점 규제 (전력·통신·수도)\nM&A 심사 (시너지 vs 시장 지배)\n산업 정책 (유아산업 보호·신산업 육성)\n무역 정책 (규모 경제와 비교우위)\nESG·환경 비용 통합",
+        "정책 응용 없음",
+        "정책은 가치판단",
+        "정책은 정부 결정만",
+        "①만 옳다"
+      ],
+      "answer": "1",
+      "explanation": "LRAC의 정책 응용:\n① 자연 독점 규제: 전력·통신·수도 - 가격·품질 규제 또는 공기업\n② M&A 심사: 비용 시너지 vs 시장 지배 강화\n③ 산업 정책:\n유아산업 보호 (List 1841) - 학습 효과 통한 비용 하락\n신산업 육성 - 한국 1960~90년대 (반도체·자동차·조선)\n④ 무역 정책: 규모 경제와 비교우위 결합\n⑤ ESG·환경: 사회적 비용 통합\n현대 정책 분석의 핵심.\n경제 성장·복지·환경의 결합."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-028",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 장기 비용함수와 규모 경제의 종합적 응용에 관한 설명이다. 옳은 것을 모두 고른 것은?\n\nㄱ. 기업 규모·시장 구조 결정\nㄴ. 산업 정책·반독점\nㄷ. M&A·다각화·범위 경제\nㄹ. 글로벌화·국제 무역\nㅁ. 디지털 경제·플랫폼",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "5",
+      "explanation": "ㄱㄴㄷㄹㅁ 모두 옳다. 장기 비용 분석의 광범위한 응용."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-029",
+      "difficulty": 5,
+      "question_type": "옳은 것 고르기",
+      "question": "다음 중 한국 경제와 장기 비용·규모 경제로 옳은 것은?",
+      "options": [
+        "한국 대기업·재벌 구조 - 큰 MES 산업의 규모 경제 활용\n글로벌화·수출 중심으로 규모 달성\n중소기업과의 격차·양극화 도전\nIT·플랫폼 - 자연 독점·반독점 규제 논쟁",
+        "한국은 비용과 무관",
+        "한국은 가치판단",
+        "한국은 정부 결정만",
+        "한국은 효과 없음"
+      ],
+      "answer": "1",
+      "explanation": "한국 경제와 장기 비용:\n대기업·재벌 구조:\n큰 MES 산업 (반도체·자동차·조선·화학) 의 규모 경제 활용\n수직·수평 통합으로 범위 경제\n글로벌화·수출 중심:\n작은 국내 시장 한계 극복\n수출 비중 50%+\n중소기업 격차:\n대기업 vs 중소기업 임금·생산성 격차\n양극화·청년 일자리 도전\nIT·플랫폼:\n카카오·네이버 - 자연 독점 경향\n반독점 규제·플랫폼 법 논쟁\n현대 한국 경제·산업 정책의 핵심."
+    },
+    {
+      "id": "practice-econ-micro-ch04-sec02-item03-030",
+      "difficulty": 5,
+      "question_type": "보기 결합형",
+      "question": "다음은 장기 비용함수와 규모의 경제의 종합 정리이다. 옳은 것을 모두 고른 것은?\n\nㄱ. LRAC = LRTC/Q, SRAC의 포락선\nㄴ. 규모 경제 (LRAC ↓)·CRS·부경제 - IRS·CRS·DRS와 대응\nㄷ. MES - 시장 구조 결정\nㄹ. 자연 독점·범위 경제·학습 효과·동학 효율\nㅁ. 모든 산업이 동일한 LRAC 형태",
+      "options": [
+        "ㄱ, ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄷ, ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+      ],
+      "answer": "2",
+      "explanation": "ㄱㄴㄷㄹ 옳음. ㅁ ✗: 산업별 LRAC 형태가 다르다 (U자형 전통 제조, L자형 IT·플랫폼, 계속 감소 자연 독점, J자형 농업). '동일'은 잘못이다."
+    }
+  ]
+}

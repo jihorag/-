@@ -9,6 +9,7 @@ const MODEL_RATE = {
   // USD per 1M tokens (입력/출력)
   'claude-sonnet-4-6': { input: 3, output: 15 },
   'gpt-5.4':           { input: 2.5, output: 15 },
+  'gemini-3.5-flash':  { input: 1.5, output: 9 },
   'gemini-3.1-pro-preview': { input: 2, output: 12 },
 };
 const FX_KRW = 1340;
