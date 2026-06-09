@@ -12,7 +12,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable react-refresh/only-export-components */
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Send, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play, BarChart3, ArrowRight, Download, Upload } from 'lucide-react';
+import { Send, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play, BarChart3, ArrowRight, Download, Upload, Settings } from 'lucide-react';
 import ParsedText from './ParsedText';
 import {
   getByok, setByok, getPrefs, setPrefs,
@@ -413,6 +413,110 @@ function ApiKeyForm({ initial, onSave }) {
   );
 }
 
+
+// 설정 패널 — API 키(Anthropic·OpenAI·Google) + 프록시 URL + 기본 prefs
+function SettingsPanel({ byok, prefs, onClose, onSave }) {
+  const [antKey, setAntKey] = useState(byok || '');
+  const [oaiKey, setOaiKey] = useState(() => getApiKey('openai'));
+  const [gKey, setGKey] = useState(() => getApiKey('google'));
+  const [baseUrls, setBaseUrlsState] = useState(() => getBaseUrls());
+  const [dailyCap, setDailyCap] = useState(prefs.daily_cap || 500);
+  const [streaming, setStreaming] = useState(!!prefs.streaming);
+  const [showAnt, setShowAnt] = useState(false);
+  const [showOai, setShowOai] = useState(false);
+  const [showG, setShowG] = useState(false);
+  const [saved, setSaved] = useState(false);
+
+  const save = () => {
+    setByok(antKey.trim() || null);
+    setApiKey('openai', oaiKey.trim() || null);
+    setApiKey('google', gKey.trim() || null);
+    setBaseUrl('openai', baseUrls.openai || null);
+    setBaseUrl('google', baseUrls.google || null);
+    setPrefs({ daily_cap: Number(dailyCap) || 500, streaming });
+    setSaved(true);
+    setTimeout(() => { setSaved(false); onSave && onSave(antKey.trim()); }, 900);
+  };
+
+  const row = (label, val, setVal, show, setShow, placeholder) => (
+    <div style={{ marginBottom: 12 }}>
+      <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#374151', marginBottom: 4 }}>{label}</div>
+      <div style={{ display: 'flex', gap: 6 }}>
+        <input
+          type={show ? 'text' : 'password'}
+          value={val}
+          onChange={(e) => setVal(e.target.value)}
+          placeholder={placeholder}
+          style={{ flex: 1, padding: '8px 10px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.88rem', fontFamily: 'monospace' }}
+        />
+        <button onClick={() => setShow((v) => !v)} style={{ padding: '6px 10px', background: '#f3f4f6', border: '1px solid #d1d5db', borderRadius: 8, cursor: 'pointer', fontSize: '0.78rem' }}>
+          {show ? '숨김' : '표시'}
+        </button>
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={{ padding: 16, background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14, maxWidth: 520, margin: '0 auto' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+        <h3 style={{ margin: 0, fontSize: '1rem', display: 'flex', alignItems: 'center', gap: 6 }}>
+          <Settings size={17} /> 설정
+        </h3>
+        <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '1.1rem' }}>✕</button>
+      </div>
+
+      <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#4338ca', marginBottom: 8 }}>🔑 API 키</div>
+      {row('Anthropic (Claude)', antKey, setAntKey, showAnt, setShowAnt, 'sk-ant-...')}
+      {row('OpenAI (GPT)', oaiKey, setOaiKey, showOai, setShowOai, 'sk-...')}
+      {row('Google (Gemini)', gKey, setGKey, showG, setShowG, 'AIza...')}
+
+      <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#4338ca', marginBottom: 8, marginTop: 4 }}>🌐 프록시 Base URL (CORS 우회용, 선택)</div>
+      <div style={{ marginBottom: 10 }}>
+        <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: 4 }}>OpenAI 프록시</div>
+        <input value={baseUrls.openai || ''} onChange={(e) => setBaseUrlsState((p) => ({ ...p, openai: e.target.value }))}
+          placeholder="https://my-proxy.workers.dev"
+          style={{ width: '100%', padding: '7px 10px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.85rem', boxSizing: 'border-box' }} />
+      </div>
+      <div style={{ marginBottom: 12 }}>
+        <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: 4 }}>Google 프록시</div>
+        <input value={baseUrls.google || ''} onChange={(e) => setBaseUrlsState((p) => ({ ...p, google: e.target.value }))}
+          placeholder="https://my-google-proxy.workers.dev"
+          style={{ width: '100%', padding: '7px 10px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.85rem', boxSizing: 'border-box' }} />
+      </div>
+
+      <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#4338ca', marginBottom: 8 }}>⚙️ 기타 설정</div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+        <label style={{ fontSize: '0.82rem', color: '#374151', flex: 1 }}>일일 메시지 cap</label>
+        <input type="number" value={dailyCap} onChange={(e) => setDailyCap(e.target.value)} min={1} max={9999}
+          style={{ width: 70, padding: '5px 8px', border: '1px solid #d1d5db', borderRadius: 8, fontSize: '0.88rem', textAlign: 'right' }} />
+        <span style={{ fontSize: '0.78rem', color: '#9ca3af' }}>건</span>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+        <label style={{ fontSize: '0.82rem', color: '#374151', flex: 1 }}>스트리밍 응답</label>
+        <button
+          onClick={() => setStreaming((v) => !v)}
+          style={{
+            padding: '4px 12px', borderRadius: 14, fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer',
+            background: streaming ? '#eef2ff' : '#f3f4f6',
+            color: streaming ? '#4338ca' : '#6b7280',
+            border: `1px solid ${streaming ? '#c7d2fe' : '#d1d5db'}`,
+          }}
+        >{streaming ? 'ON' : 'OFF'}</button>
+      </div>
+
+      <button
+        onClick={save}
+        style={{
+          width: '100%', padding: '11px', background: saved ? '#16a34a' : '#4f46e5',
+          color: '#fff', border: 'none', borderRadius: 10, fontWeight: 800, fontSize: '0.95rem', cursor: 'pointer',
+          transition: 'background .2s',
+        }}
+      >
+        {saved ? '✓ 저장됨' : '저장'}
+      </button>
+    </div>
+  );
+}
 
 // 응답 텍스트에서 ①~⑤ 또는 1)~5) 옵션 줄을 추출.
 // 응답이 정답·해설을 이미 포함하면(예: "정답: ②") null 반환.
@@ -1199,6 +1303,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [thinkSec, setThinkSec] = useState(0); // 비스트리밍 대기 경과초
   const [showHistory, setShowHistory] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
   // 5과목 leaves 캐시 — App.jsx에서 미리 받아둔 props 사용. fallback으로 자체 fetch.
   const [leavesBySubject, setLeavesBySubject] = useState(leavesBySubjectProp || {});
   useEffect(() => {
@@ -1894,8 +1999,21 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           <button className="icon-btn" onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: showHistory ? TOSS.blueWeak : 'none', border: 'none', cursor: 'pointer', padding: 8, borderRadius: 10 }}>
             <Calendar size={20} color={showHistory ? TOSS.blue : TOSS.sub} />
           </button>
+          <button className="icon-btn" onClick={() => setShowSettings((v) => !v)} title="설정 (API 키·프록시·cap)" style={{ background: showSettings ? TOSS.blueWeak : 'none', border: 'none', cursor: 'pointer', padding: 8, borderRadius: 10 }}>
+            <Settings size={20} color={showSettings ? TOSS.blue : TOSS.sub} />
+          </button>
         </div>
       </header>
+      {showSettings && (
+        <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
+          <SettingsPanel
+            byok={byok}
+            prefs={prefs}
+            onClose={() => setShowSettings(false)}
+            onSave={(k) => { setByokState(k); setPrefsState(getPrefs()); setShowSettings(false); }}
+          />
+        </div>
+      )}
       {showHistory && (
         <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
           <HistoryPanel
@@ -1980,117 +2098,115 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           );
         })()}
 
-        {/* 1차 / 2차 섹션 분리 그리드 */}
-        {[
-          { stage: 1, label: '1차 객관식', subjects: SUBJECTS_BY_STAGE[1] },
-          { stage: 2, label: '2차 서술형', subjects: SUBJECTS_BY_STAGE[2] },
-        ].map(({ stage, label, subjects }) => (
-          <div key={stage} style={{ marginBottom: 24 }}>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 12, paddingLeft: 2 }}>
-              <div style={{ fontSize: '1.05rem', color: TOSS.ink, fontWeight: 800, letterSpacing: '-0.01em' }}>
-                {label}
+        {/* 1차 / 2차 — 2단 사이드바이사이드 패널 */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 14, alignItems: 'start' }}>
+          {[
+            {
+              stage: 1, label: '1차 시험 — 객관식', sub: '5지선다',
+              subjects: SUBJECTS_BY_STAGE[1],
+              panelBg: '#EFF6FF', panelBorder: '#BFDBFE',
+              chipBg: TOSS.blueWeak, chipFg: TOSS.blue,
+              barColor: TOSS.blue, headerBg: TOSS.blue,
+            },
+            {
+              stage: 2, label: '2차 시험 — 서술형', sub: '논술',
+              subjects: SUBJECTS_BY_STAGE[2],
+              panelBg: '#F5F3FF', panelBorder: '#DDD6FE',
+              chipBg: '#F0EBFF', chipFg: '#7C3AED',
+              barColor: '#7C3AED', headerBg: '#7C3AED',
+            },
+          ].map(({ stage, label, sub, subjects, panelBg, panelBorder, chipBg, chipFg, barColor, headerBg }) => (
+            <div key={stage} style={{ background: panelBg, borderRadius: 20, border: `1.5px solid ${panelBorder}`, overflow: 'hidden' }}>
+              {/* 패널 헤더 */}
+              <div style={{ background: headerBg, padding: '12px 16px' }}>
+                <div style={{ fontSize: '1rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.01em' }}>
+                  {stage === 1 ? '📖' : '✍️'} {label}
+                </div>
+                <div style={{ fontSize: '0.76rem', color: 'rgba(255,255,255,0.8)', fontWeight: 600, marginTop: 3 }}>
+                  {sub} · {subjects.length}과목
+                </div>
               </div>
-              <span style={{ fontSize: '0.82rem', color: TOSS.sub, fontWeight: 600 }}>{subjects.length}과목</span>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', rowGap: 14, columnGap: 12, alignItems: 'stretch', gridAutoRows: '1fr' }}>
-              {subjects.map((s) => {
-                // stage1: ailearn-mastery 키가 'civil__...' prefix
-                // stage2: 단원 id가 'appraisal_practice_1' 형태
-                const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__') || k.startsWith(s.id + '_'));
-                const covAvg = ks.length ? ks.reduce((a, k) => a + (mastery[k]?.coverage || 0), 0) / ks.length : 0;
-                const masterN = ks.filter((k) => mastery[k]?.status === 'mastered').length;
-                const dueN = (due || []).filter((d) => (d.code || '').startsWith(s.id + '__') || (d.code || '').startsWith(s.id + '_')).length;
-                const weakN = ((weakPathsBySubject || {})[s.id] || []).length;
-                const pct = Math.round(covAvg * 100);
-                const isStage2 = s.stage === 2;
-                const divisions = isStage2 ? [] : divisionsFor(s.id);
-                // 대분류 2~4개(민법·경제·회계) → 분류 버튼들 / 5개↑(부동산·법규)·2차 → 과목 버튼 1개
-                const showDivs = !isStage2 && divisions.length >= 2 && divisions.length <= 4;
-                const showSingle = isStage2 || (!isStage2 && divisions.length >= 5);
-                const chipStyle = {
-                  padding: '11px 6px', fontSize: '0.84rem', fontWeight: 700,
-                  background: TOSS.blue, color: '#fff', border: 'none',
-                  borderRadius: 10, cursor: 'pointer', whiteSpace: 'nowrap',
-                  overflow: 'hidden', textOverflow: 'ellipsis', textAlign: 'center',
-                };
-                // 1차/2차 태그 — 연한 배경 + 진한 글자(토스풍). 카드 윗줄에 배치
-                const stageTag = isStage2
-                  ? { label: '2차', bg: '#F0EBFF', fg: '#7C3AED' }
-                  : { label: '1차', bg: TOSS.blueWeak, fg: TOSS.blue };
-                return (
-                  <div
-                    key={s.id}
-                    style={{
-                      background: TOSS.card,
-                      border: 'none', borderRadius: TOSS.radius, position: 'relative',
-                      display: 'flex', flexDirection: 'column', height: '100%',
-                      boxShadow: TOSS.shadow,
-                    }}
-                  >
-                    {/* 과목 헤더 — 클릭 시 과목 전체로 진입. 텍스트 좌측 / 이모지 우측 */}
-                    <button
-                      onClick={() => enterSubjectWhole(s.id)}
+              {/* 과목 카드 그리드 */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(155px, 1fr))', gap: 10, padding: 10, alignItems: 'start' }}>
+                {subjects.map((s) => {
+                  const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__') || k.startsWith(s.id + '_'));
+                  const covAvg = ks.length ? ks.reduce((a, k) => a + (mastery[k]?.coverage || 0), 0) / ks.length : 0;
+                  const masterN = ks.filter((k) => mastery[k]?.status === 'mastered').length;
+                  const dueN = (due || []).filter((d) => (d.code || '').startsWith(s.id + '__') || (d.code || '').startsWith(s.id + '_')).length;
+                  const weakN = ((weakPathsBySubject || {})[s.id] || []).length;
+                  const pct = Math.round(covAvg * 100);
+                  const isStage2 = s.stage === 2;
+                  const divisions = isStage2 ? [] : divisionsFor(s.id);
+                  const showDivs = !isStage2 && divisions.length >= 2 && divisions.length <= 4;
+                  const showSingle = isStage2 || (!isStage2 && divisions.length >= 5);
+                  const chipStyle = {
+                    padding: '9px 6px', fontSize: '0.82rem', fontWeight: 700,
+                    background: chipBg, color: chipFg, border: 'none',
+                    borderRadius: 10, cursor: 'pointer', whiteSpace: 'nowrap',
+                    overflow: 'hidden', textOverflow: 'ellipsis', textAlign: 'center',
+                  };
+                  return (
+                    <div
+                      key={s.id}
                       style={{
-                        padding: '20px 18px 16px', textAlign: 'left', background: 'none', border: 'none',
-                        cursor: 'pointer', width: '100%',
-                        display: 'flex', flexDirection: 'column', gap: 12,
+                        background: TOSS.card, border: 'none', borderRadius: 14,
+                        display: 'flex', flexDirection: 'column',
+                        boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
                       }}
                     >
-                      {/* 윗줄: 1차/2차 태그 */}
-                      <div style={{ display: 'flex' }}>
-                        <span style={{ fontSize: '0.7rem', fontWeight: 800, background: stageTag.bg, color: stageTag.fg, padding: '3px 9px', borderRadius: 999 }}>
-                          {stageTag.label}
-                        </span>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
-                        <div style={{ minWidth: 0, flex: 1 }}>
-                          <div style={{ fontWeight: 800, color: TOSS.ink, fontSize: '1.2rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
-                          <div style={{ fontSize: '0.82rem', color: TOSS.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 4 }}>{s.title}</div>
+                      <button
+                        onClick={() => enterSubjectWhole(s.id)}
+                        style={{
+                          padding: '14px 13px 11px', textAlign: 'left', background: 'none', border: 'none',
+                          cursor: 'pointer', width: '100%', display: 'flex', flexDirection: 'column', gap: 9,
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
+                          <div style={{ minWidth: 0, flex: 1 }}>
+                            <div style={{ fontWeight: 800, color: TOSS.ink, fontSize: '1.1rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
+                            <div style={{ fontSize: '0.76rem', color: TOSS.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 3 }}>{s.title}</div>
+                          </div>
+                          <div style={{ fontSize: '1.6rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
                         </div>
-                        <div style={{ fontSize: '2rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
-                      </div>
-                      <div>
-                        <div style={{ height: 6, background: TOSS.track, borderRadius: 999, overflow: 'hidden' }}>
-                          <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: TOSS.blue, borderRadius: 999 }} />
+                        <div>
+                          <div style={{ height: 5, background: TOSS.track, borderRadius: 999, overflow: 'hidden' }}>
+                            <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: barColor, borderRadius: 999 }} />
+                          </div>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginTop: 5 }}>
+                            <span style={{ fontWeight: 800, color: TOSS.ink }}>{pct}%</span>
+                            <span style={{ color: TOSS.sub, fontWeight: 600 }}>{isStage2 ? `답안 ${masterN}` : `마스터 ${masterN}`}</span>
+                          </div>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', marginTop: 8 }}>
-                          <span style={{ fontWeight: 800, color: TOSS.ink }}>{pct}%</span>
-                          <span style={{ color: TOSS.sub, fontWeight: 600 }}>{isStage2 ? `답안 ${masterN}` : `마스터 ${masterN}`}</span>
-                        </div>
-                      </div>
-                      {(dueN > 0 || weakN > 0) && (
-                        <div style={{ fontSize: '0.78rem', color: '#FF8A00', display: 'flex', gap: 8, fontWeight: 700 }}>
-                          {dueN > 0 && <span>🔁 복습 {dueN}</span>}
-                          {weakN > 0 && <span>⚠️ 약점 {weakN}</span>}
+                        {(dueN > 0 || weakN > 0) && (
+                          <div style={{ fontSize: '0.74rem', color: '#FF8A00', display: 'flex', gap: 6, fontWeight: 700 }}>
+                            {dueN > 0 && <span>🔁 복습 {dueN}</span>}
+                            {weakN > 0 && <span>⚠️ 약점 {weakN}</span>}
+                          </div>
+                        )}
+                      </button>
+                      {showDivs && (
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 5, padding: '0 13px 11px', marginTop: 'auto' }}>
+                          {divisions.map((d) => (
+                            <button key={d.label} onClick={() => jumpToLeaf(s.id, d.leaf, { label: d.label, tops: d.tops })} title={d.label} style={chipStyle}>
+                              {cleanDivLabel(d.label)}
+                            </button>
+                          ))}
                         </div>
                       )}
-                    </button>
-                    {/* 카드 안 하단: 대분류 바로가기. 민법총칙/물권법 누르면 해당 분류 학습 */}
-                    {showDivs && (
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 6, padding: '0 18px 16px', marginTop: 'auto' }}>
-                        {divisions.map((d) => (
-                          <button key={d.label} onClick={() => jumpToLeaf(s.id, d.leaf, { label: d.label, tops: d.tops })} title={d.label} style={chipStyle}>
-                            {cleanDivLabel(d.label)}
+                      {showSingle && (
+                        <div style={{ padding: '0 13px 11px', marginTop: 'auto' }}>
+                          <button onClick={() => enterSubjectWhole(s.id)} style={{ ...chipStyle, width: '100%' }}>
+                            {s.title}
                           </button>
-                        ))}
-                      </div>
-                    )}
-                    {showSingle && (
-                      <div style={{ padding: '0 18px 16px', marginTop: 'auto', marginBottom: 'auto' }}>
-                        <button
-                          onClick={() => enterSubjectWhole(s.id)}
-                          style={{ ...chipStyle, width: '100%' }}
-                        >
-                          {s.title}
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* 비어있는 첫 사용자 가이드 */}
         {!curLeaf && Object.keys(mastery).length === 0 && (
@@ -2301,7 +2417,20 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         <button className="icon-btn" onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
           <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
         </button>
+        <button className="icon-btn" onClick={() => setShowSettings((v) => !v)} title="설정 (API 키·프록시·cap)" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+          <Settings size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
+        </button>
       </header>
+      {showSettings && (
+        <div style={{ padding: 10, borderBottom: '1px solid #e5e7eb' }}>
+          <SettingsPanel
+            byok={byok}
+            prefs={prefs}
+            onClose={() => setShowSettings(false)}
+            onSave={(k) => { setByokState(k); setPrefsState(getPrefs()); setShowSettings(false); }}
+          />
+        </div>
+      )}
       {due.length > 0 && (
         <div style={{
           padding: '6px 12px', background: '#fef3c7', borderBottom: '1px solid #fcd34d',

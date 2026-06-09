@@ -14,7 +14,8 @@ PRACTICE_DIRS = [
     ROOT / 'viewer/public/data/practice/economics',
     ROOT / 'viewer/public/data/practice/civil-law',
     ROOT / 'viewer/public/data/practice/realestate',
-    ROOT / 'viewer/public/data/practice/law'
+    ROOT / 'viewer/public/data/practice/law',
+    ROOT / 'viewer/public/data/practice/accounting'
 ]
 QDB = ROOT / 'questions_db.json'
 EXAM_NAME = '[연습문제]'
@@ -26,7 +27,7 @@ def map_civil_taxonomy(sub_subject, chapter, section, item):
     orig_sec = section
     orig_item = item
     
-    if sub_subject == '총칙':
+    if sub_subject == '총칙' or sub_subject == '민법총칙':
         sub_subject = '민법총칙'
         if chapter == '제1장 통칙':
             if section == '제1절 민법의 법원':
@@ -70,17 +71,16 @@ def map_civil_taxonomy(sub_subject, chapter, section, item):
                 item = '제4관 법인의 기관'
             else:
                 item = '제8관 권리능력 없는 사단·재단'
-        elif chapter == '제4장 물건':
+        elif chapter == '제4장 물건' or chapter == '제4장 권리의 객체':
             chapter = '제4장 권리의 객체'
-            if '1절' in orig_sec or '총설' in orig_sec:
+            if '1절' in orig_sec or '의의' in orig_sec or '분류' in orig_sec:
                 section = '제1절 물건의 의의와 분류'
-            elif '2절' in orig_sec or '부동산' in orig_sec:
+            elif '2절' in orig_sec or '동산' in orig_sec or '부동산' in orig_sec:
                 section = '제2절 부동산과 동산'
+            elif '3절' in orig_sec or '주물' in orig_sec or '종물' in orig_sec:
+                section = '제3절 주물과 종물'
             else:
-                if '주물' in orig_item:
-                    section = '제3절 주물과 종물'
-                else:
-                    section = '제4절 원물과 과실'
+                section = '제4절 원물과 과실'
             item = ''
         elif chapter == '제5장 법률행위':
             chapter = '제5장 권리의 변동'
@@ -141,9 +141,12 @@ def map_civil_taxonomy(sub_subject, chapter, section, item):
                 item = '제2관 조건'
             else:
                 item = '제3관 기한'
-        elif chapter == '제9장 기간':
+        elif chapter == '제9장 기간' or chapter == '제6장 기간':
             chapter = '제6장 기간'
-            section = '제2절 기간의 계산방법'
+            if '1절' in orig_sec or '의의' in orig_sec:
+                section = '제1절 기간의 의의'
+            else:
+                section = '제2절 기간의 계산방법'
             item = ''
         elif chapter == '제10장 소멸시효':
             chapter = '제7장 소멸시효'
@@ -163,154 +166,267 @@ def map_civil_taxonomy(sub_subject, chapter, section, item):
                     section = '제3절 시효의 장애'
                     item = '제1관 소멸시효의 중단'
     
-    elif sub_subject == '물권':
+    elif sub_subject == '물권' or sub_subject == '물권법':
         sub_subject = '물권법'
-        if chapter in ('제1장 물권 총설', '제2장 물권의 변동', '제3장 물권의 소멸', '제1장 물권 총칙'):
+        if chapter in ('제1장 물권 총설', '제2장 물권의 변동', '제3장 물권의 소멸', '제1장 물권 총칙', '제1장 물권법 총설'):
             chapter = '제1장 물권법 총설'
             if '1절' in orig_sec or '일반' in orig_sec or '본질' in orig_sec:
                 section = '제1절 물권법 일반 · 제2절 물권변동'
-                item = '제1관 물권의 의의와 종류'
+                if '객체' in orig_item or '제2관' in orig_item:
+                    item = '제2관 물권의 객체'
+                elif '일반적 효력' in orig_item or '효력' in orig_item or '제3관' in orig_item:
+                    item = '제3관 물권의 일반적 효력'
+                elif '청구권' in orig_item or '제4관' in orig_item:
+                    item = '제4관 물권적 청구권'
+                elif '공시' in orig_item or '공신' in orig_item or '제5관' in orig_item:
+                    item = '제5관 물권변동과 공시·공신의 원칙'
+                else:
+                    item = '제1관 물권의 의의와 종류'
             elif '3절' in orig_sec or '부동산물권' in orig_sec or '등기' in orig_sec or '186' in orig_item:
                 section = '제3절 부동산 물권변동'
-                if '중간생략' in orig_item:
+                if '물권행위' in orig_item or '제1관' in orig_item:
+                    item = '제1관 물권행위'
+                elif '중간생략' in orig_item or '제4관' in orig_item:
                     item = '제4관 중간생략등기'
-                elif '가등기' in orig_item:
+                elif '가등기' in orig_item or '제5관' in orig_item:
                     item = '제5관 가등기'
-                elif '추정력' in orig_item:
+                elif '추정력' in orig_item or '제3관' in orig_item:
                     item = '제3관 등기의 유효요건과 추정력'
-                elif '등기청구권' in orig_item:
+                elif '등기청구권' in orig_item or '제2관' in orig_item:
                     item = '제2관 등기절차와 등기청구권'
-                elif '187' in orig_item or '법률규정' in orig_item:
+                elif '187' in orig_item or '법률규정' in orig_item or '제6관' in orig_item:
                     item = '제6관 법률규정에 의한 물권변동'
+                elif '입목' in orig_item or '명인방법' in orig_item or '제7관' in orig_item:
+                    item = '제7관 입목등기·명인방법'
                 else:
                     item = '제2관 등기절차와 등기청구권'
             elif '4절' in orig_sec or '공시' in orig_sec or '공신' in orig_sec or '원칙' in orig_sec or '인도' in orig_item or '동산' in orig_item:
                 section = '제4절 동산 물권 변동'
-                if '선의취득' in orig_item or '249' in orig_item:
+                if '선의취득' in orig_item or '249' in orig_item or '제2관' in orig_item:
                     item = '제2관 선의취득'
                 else:
                     item = '제1관 동산물권변동과 인도'
             elif '5절' in orig_sec or '소멸' in orig_sec:
                 section = '제5절 물권의 소멸'
-                if '혼동' in orig_item:
+                if '혼동' in orig_item or '제2관' in orig_item:
                     item = '제2관 혼동'
                 else:
                     item = '제1관 물권의 소멸원인'
         elif chapter == '제2장 점유권':
             chapter = '제2장 점유권'
-            if '1절' in orig_sec or '의의' in orig_sec or '점유' in orig_sec or '성립' in orig_sec or orig_sec == '제1절 점유':
-                if '취득' in orig_item or '소멸' in orig_item:
-                    section = '제2절 점유권의 취득과 소멸'
-                    item = ''
+            if '1절' in orig_sec or '의의' in orig_sec or '보조자' in orig_sec or '종류' in orig_item:
+                section = '제1절 서론'
+                if '보조자' in orig_item or '간접' in orig_item or '제2관' in orig_item:
+                    item = '제2관 점유보조자와 간접점유'
+                elif '자주' in orig_item or '타주' in orig_item or '종류' in orig_item or '제3관' in orig_item:
+                    item = '제3관 점유의 종류'
                 else:
-                    section = '제1절 서론'
-                    if '보조자' in orig_item or '간접' in orig_item:
-                        item = '제2관 점유보조자와 간접점유'
-                    elif '자주' in orig_item or '타주' in orig_item or '종류' in orig_item:
-                        item = '제3관 점유의 종류'
-                    else:
-                        item = '제1관 점유의 의의와 관념화'
-            elif '2절' in orig_sec or '3절' in orig_sec or '효력' in orig_sec:
+                    item = '제1관 점유의 의의와 관념화'
+            elif '2절' in orig_sec or '취득' in orig_item or '승계' in orig_item or '소멸' in orig_item or '취득' in orig_sec or '소멸' in orig_sec:
+                section = '제2절 점유권의 취득과 소멸'
+                if '승계' in orig_item or '제2관' in orig_item:
+                    item = '제2관 점유의 승계'
+                elif '소멸' in orig_item or '제3관' in orig_item:
+                    item = '제3관 점유권의 소멸'
+                else:
+                    item = '제1관 점유권의 취득'
+            else:
                 section = '제3절 점유권의 효력 · 제4절 준점유'
-                if '회복자' in orig_item:
+                if '회복자' in orig_item or '회복' in orig_item or '제2관' in orig_item:
                     item = '제2관 점유자와 회복자의 관계'
-                elif '청구권' in orig_item:
+                elif '청구권' in orig_item or '보호' in orig_item or '제3관' in orig_item:
                     item = '제3관 점유보호청구권'
+                elif '자력구제' in orig_item or '제4관' in orig_item:
+                    item = '제4관 자력구제'
+                elif '준점유' in orig_item or '제5관' in orig_item:
+                    item = '제5관 준점유'
                 else:
                     item = '제1관 점유의 추정적 효력'
         elif chapter == '제3장 소유권':
             chapter = '제3장 소유권'
             if '1절' in orig_sec or '일반' in orig_sec:
                 section = '제1절 총설'
-                item = '제1관 소유권의 의의와 내용'
+                if '토지소유권' in orig_item or '범위' in orig_item or '제2관' in orig_item:
+                    item = '제2관 토지소유권의 범위'
+                else:
+                    item = '제1관 소유권의 의의와 내용'
             elif '2절' in orig_sec or '상린관계' in orig_sec:
                 section = '제2절 상린관계'
-                if '주위토지' in orig_item:
+                if '주위토지' in orig_item or '제5관' in orig_item:
                     item = '제5관 주위토지통행권'
+                elif '인지사용' in orig_item or '생활방해' in orig_item or '제2관' in orig_item:
+                    item = '제2관 인지사용과 생활방해'
+                elif '물에 관한' in orig_item or '제3관' in orig_item:
+                    item = '제3관 물에 관한 상린관계'
+                elif '경계' in orig_item or '제4관' in orig_item:
+                    item = '제4관 경계에 관한 상린관계'
                 else:
                     item = '제1관 상린관계 총설'
-            elif '3절' in orig_sec or '4절' in orig_sec or '취득' in orig_sec:
-                if '첨부' in orig_item or '부합' in orig_item:
-                    section = '제4절 기타 소유권의 취득'
-                    item = '제2관 첨부'
-                else:
-                    section = '제3절 소유권의 취득'
+            elif '3절' in orig_sec or ('취득' in orig_sec and '기타' not in orig_sec and '4절' not in orig_sec):
+                section = '제3절 소유권의 취득'
+                if '총설' in orig_item or '제1관' in orig_item:
+                    item = '제1관 취득시효 총설'
+                elif '점유취득시효' in orig_item or '제2관' in orig_item:
                     item = '제2관 부동산 점유취득시효'
-            elif '4절' in orig_sec or '공동소유' in orig_sec or '공동' in orig_sec:
-                section = '제6절 공동소유'
-                if '공유' in orig_item:
-                    item = '제2관 공유'
+                elif '등기부취득시효' in orig_item or '제3관' in orig_item:
+                    item = '제3관 부동산 등기부취득시효'
+                elif '동산' in orig_item or '제4관' in orig_item:
+                    item = '제4관 동산 취득시효'
+                elif '중단' in orig_item or '정지' in orig_item or '효과' in orig_item or '제5관' in orig_item:
+                    item = '제5관 취득시효의 중단·정지와 효과'
                 else:
+                    item = '제2관 부동산 점유취득시효'
+            elif '4절' in orig_sec or '기타' in orig_sec or '선점' in orig_item or '첨부' in orig_item or '부합' in orig_item:
+                section = '제4절 기타 소유권의 취득'
+                if '선점' in orig_item or '습득' in orig_item or '발견' in orig_item or '제1관' in orig_item:
+                    item = '제1관 선점·습득·발견'
+                else:
+                    item = '제2관 첨부'
+            elif '5절' in orig_sec or '물권적 청구권' in orig_sec or '소유물' in orig_item:
+                section = '제5절 소유권에 기한 물권적 청구권'
+                if '반환' in orig_item or '제1관' in orig_item:
+                    item = '제1관 소유물반환청구권'
+                elif '방해제거' in orig_item or '제2관' in orig_item:
+                    item = '제2관 소유물방해제거청구권'
+                elif '방해예방' in orig_item or '제3관' in orig_item:
+                    item = '제3관 소유물방해예방청구권'
+                else:
+                    item = '제1관 소유물반환청구권'
+            elif '6절' in orig_sec or '공동소유' in orig_sec or '공동' in orig_sec:
+                section = '제6절 공동소유'
+                if '총설' in orig_item or '제1관' in orig_item:
+                    item = '제1관 공동소유 총설'
+                elif '공유' in orig_item or '제2관' in orig_item:
+                    item = '제2관 공유'
+                elif '합유' in orig_item or '제3관' in orig_item:
                     item = '제3관 합유'
-            elif '5절' in orig_sec or '명의신탁' in orig_sec:
+                elif '총유' in orig_item or '제4관' in orig_item:
+                    item = '제4관 총유'
+                elif '준공동소유' in orig_item or '준' in orig_item or '제5관' in orig_item:
+                    item = '제5관 준공동소유'
+                else:
+                    item = '제2관 공유'
+            elif '7절' in orig_sec or '명의신탁' in orig_sec:
                 section = '제7절 명의신탁'
-                item = '제2관 명의신탁의 유형과 효력'
-        elif chapter == '제4장 지상권':
+                if '총설' in orig_item or '실명법' in orig_item or '제1관' in orig_item:
+                    item = '제1관 명의신탁 총설과 부동산실명법'
+                elif '유형' in orig_item or '효력' in orig_item or '제2관' in orig_item:
+                    item = '제2관 명의신탁의 유형과 효력'
+                elif '유효' in orig_item or '법률관계' in orig_item or '제3관' in orig_item:
+                    item = '제3관 유효한 명의신탁의 법률관계'
+                else:
+                    item = '제2관 명의신탁의 유형과 효력'
+        elif chapter == '제4장 지상권' or chapter == '제4장 용익물권' and ('지상권' in orig_sec or '지상권' in orig_item):
             chapter = '제4장 용익물권'
             section = '제1절 지상권'
-            if '구분지상권' in orig_item or '분묘기지권' in orig_item:
-                if '분묘' in orig_item:
-                    item = '제6관 분묘기지권'
-                else:
-                    item = '제5관 구분지상권'
-            elif '법정지상권' in orig_item:
-                if '관습' in orig_item:
-                    item = '제8관 관습법상 법정지상권'
-                else:
-                    item = '제7관 법정지상권'
-            elif '존속기간' in orig_item or '취득' in orig_item:
+            if '의의' in orig_item or '성립' in orig_item or '제1관' in orig_item:
+                item = '제1관 지상권의 의의와 성립'
+            elif '존속기간' in orig_item or '취득' in orig_item or '제2관' in orig_item:
                 item = '제2관 지상권의 존속기간'
+            elif '효력' in orig_item or '제3관' in orig_item:
+                item = '제3관 지상권의 효력'
+            elif '소멸' in orig_item or '제4관' in orig_item:
+                item = '제4관 지상권의 소멸'
+            elif '구분지상권' in orig_item or '제5관' in orig_item:
+                item = '제5관 구분지상권'
+            elif '분묘기지권' in orig_item or '분묘' in orig_item or '제6관' in orig_item:
+                item = '제6관 분묘기지권'
+            elif '관습' in orig_item or '제8관' in orig_item:
+                item = '제8관 관습법상 법정지상권'
+            elif '법정지상권' in orig_item or '제7관' in orig_item:
+                item = '제7관 법정지상권'
             else:
                 item = '제3관 지상권의 효력'
-        elif chapter == '제5장 지역권':
+        elif chapter == '제5장 지역권' or chapter == '제4장 용익물권' and ('지역권' in orig_sec or '지역권' in orig_item):
             chapter = '제4장 용익물권'
             section = '제2절 지역권'
-            if '취득' in orig_item or '불가분성' in orig_item:
+            if '의의' in orig_item or '성질' in orig_item or '제1관' in orig_item:
+                item = '제1관 지역권의 의의와 성질'
+            elif '취득' in orig_item or '불가분성' in orig_item or '제2관' in orig_item:
                 item = '제2관 지역권의 취득'
-            elif '소멸' in orig_item:
+            elif '효력' in orig_item or '제3관' in orig_item:
+                item = '제3관 지역권의 효력'
+            elif '소멸' in orig_item or '제4관' in orig_item:
                 item = '제4관 지역권의 소멸'
-            elif '특수지역권' in orig_item:
+            elif '특수' in orig_item or '제5관' in orig_item:
                 item = '제5관 특수지역권'
             else:
                 item = '제3관 지역권의 효력'
-        elif chapter == '제6장 전세권':
+        elif chapter == '제6장 전세권' or chapter == '제4장 용익물권' and ('전세권' in orig_sec or '전세권' in orig_item):
             chapter = '제4장 용익물권'
             section = '제3절 전세권'
-            if '성립' in orig_item or '존속기간' in orig_item:
+            if '의의' in orig_item or '성립' in orig_item or '제1관' in orig_item:
+                item = '제1관 전세권의 의의와 성립'
+            elif '존속기간' in orig_item or '기간' in orig_item or '제2관' in orig_item:
                 item = '제2관 전세권의 존속기간'
-            elif '소멸' in orig_item:
+            elif '효력' in orig_item or '제3관' in orig_item:
+                item = '제3관 전세권의 효력'
+            elif '처분' in orig_item or '제4관' in orig_item:
+                item = '제4관 전세권의 처분'
+            elif '소멸' in orig_item or '제5관' in orig_item:
                 item = '제5관 전세권의 소멸'
             else:
-                item = '제3관 전세권의 효력'
-        elif chapter == '제7장 유치권':
+                item = '제5관 전세권의 소멸'
+        elif chapter == '제5장 담보물권' or chapter in ('제7장 유치권', '제8장 질권', '제9장 저당권'):
             chapter = '제5장 담보물권'
-            section = '제2절 유치권'
-            if '성립' in orig_item or '제한' in orig_item:
-                item = '제1관 유치권의 의의와 성립'
-            elif '소멸' in orig_item:
-                item = '제3관 유치권의 소멸'
+            if '유치권' in orig_sec or '유치권' in orig_item or chapter == '제7장 유치권':
+                section = '제2절 유치권'
+                if '의의' in orig_item or '성립' in orig_item or '제1관' in orig_item:
+                    item = '제1관 유치권의 의의와 성립'
+                elif '소멸' in orig_item or '제3관' in orig_item:
+                    item = '제3관 유치권의 소멸'
+                elif '효력' in orig_item or '제2관' in orig_item:
+                    item = '제2관 유치권의 효력'
+                else:
+                    item = '제2관 유치권의 효력'
+            elif '질권' in orig_sec or '질권' in orig_item or chapter == '제8장 질권':
+                section = '제3절 질권'
+                if '성립' in orig_item or '제1관' in orig_item:
+                    item = '제1관 동산질권의 성립'
+                elif '권리질권' in orig_item or '제3관' in orig_item:
+                    item = '제3관 권리질권'
+                elif '효력' in orig_item or '제2관' in orig_item:
+                    item = '제2관 동산질권의 효력'
+                else:
+                    item = '제2관 동산질권의 효력'
+            elif '저당권' in orig_sec or '저당권' in orig_item or chapter == '제9장 저당권':
+                section = '제4절 저당권'
+                if '공동저당' in orig_item or '제6관' in orig_item:
+                    item = '제6관 공동저당'
+                elif '근저당' in orig_item or '제7관' in orig_item:
+                    item = '제7관 근저당'
+                elif '의의' in orig_item or '성립' in orig_item or '제1관' in orig_item:
+                    item = '제1관 저당권의 의의와 성립'
+                elif '범위' in orig_item or '제2관' in orig_item:
+                    item = '제2관 효력이 미치는 범위'
+                elif '물상대위' in orig_item or '우선변제' in orig_item or '제3관' in orig_item:
+                    item = '제3관 우선변제적 효력과 물상대위'
+                elif '침해' in orig_item or '구제' in orig_item or '제4관' in orig_item:
+                    item = '제4관 저당권의 침해와 구제'
+                elif '소멸' in orig_item or '처분' in orig_item or '제5관' in orig_item:
+                    item = '제5관 저당권의 처분과 소멸'
+                else:
+                    item = '제5관 저당권의 처분과 소멸'
+            elif '비전형' in orig_sec or '비전형' in orig_item or '가등기' in orig_item or '양도' in orig_item or '유보부' in orig_item or '매매' in orig_item:
+                section = '제5절 비전형담보'
+                if '가등기' in orig_item or '제2관' in orig_item:
+                    item = '제2관 가등기담보'
+                elif '양도' in orig_item or '제3관' in orig_item:
+                    item = '제3관 양도담보'
+                elif '유보부' in orig_item or '매매' in orig_item or '제4관' in orig_item:
+                    item = '제4관 소유권유보부 매매'
+                elif '총설' in orig_item or '제1관' in orig_item:
+                    item = '제1관 비전형담보 총설'
+                else:
+                    item = '제1관 비전형담보 총설'
             else:
-                item = '제2관 유치권의 효력'
-        elif chapter == '제8장 질권':
-            chapter = '제5장 담보물권'
-            section = '제3절 질권'
-            if '동산질권' in orig_item:
-                item = '제1관 동산질권의 성립'
-            else:
-                item = '제3관 권리질권'
-        elif chapter == '제9장 저당권':
-            chapter = '제5장 담보물권'
-            section = '제4절 저당권'
-            if '공동저당' in orig_item:
-                item = '제6관 공동저당'
-            elif '근저당' in orig_item:
-                item = '제7관 근저당'
-            elif '효력 범위' in orig_item:
-                item = '제2관 효력이 미치는 범위'
-            elif '물상대위' in orig_item or '우선변제' in orig_item:
-                item = '제3관 우선변제적 효력과 물상대위'
-            else:
-                item = '제1관 저당권의 의의와 성립'
+                section = '제1절 총설'
+                if '의의' in orig_item or '종류' in orig_item or '제1관' in orig_item:
+                    item = '제1관 담보물권의 의의와 종류'
+                elif '통유성' in orig_item or '제2관' in orig_item:
+                    item = '제2관 담보물권의 통유성'
+                else:
+                    item = '제1관 담보물권의 의의와 종류'
 
     return sub_subject, chapter, section, item
 
@@ -378,27 +494,54 @@ def load_practice():
     return qs
 
 
-def merge_to_qdb(new_qs):
-    """questions_db.json에서 기존 연습문제 제거 후 새 연습문제 추가."""
-    with open(QDB, encoding='utf-8') as f:
-        db = json.load(f)
+def merge_to_subject_dbs(new_qs):
+    # Group new questions by subject
+    by_subject = {}
+    for q in new_qs:
+        subj = q['subject']
+        by_subject.setdefault(subj, []).append(q)
+        
+    db_mapping = {
+        '민법': ROOT / 'questions_db_civil.json',
+        '부동산학원론': ROOT / 'questions_db_re.json',
+        '경제학원론': ROOT / 'questions_db_econ.json',
+        '감정평가관계법규': ROOT / 'questions_db_law.json',
+        '회계학': ROOT / 'questions_db_accounting.json'
+    }
+    
+    for subj, qs in by_subject.items():
+        db_path = db_mapping.get(subj)
+        if not db_path:
+            print(f"  Warning: No database mapping for subject '{subj}'. Skipping.")
+            continue
+            
+        # Load or create DB
+        if db_path.exists():
+            with open(db_path, encoding='utf-8') as f:
+                db = json.load(f)
+        else:
+            db = []
+            
+        # 신형 practice-re-* 항목이 이미 있으면 이 DB는 건드리지 않음 (새 생성 파이프라인과 충돌 방지)
+        if any(q.get('id', '').startswith('practice-re-') for q in db):
+            print(f"  [{subj}] SKIP: 신형 practice-re-* 항목 존재 — 덮어쓰기 중단")
+            continue
 
-    # 기존 연습문제 제거 (id가 'practice-' 시작하거나 exam이 [연습문제])
-    before = len(db)
-    db = [q for q in db if not (
-        q.get('id', '').startswith('practice-') or q.get('exam') == EXAM_NAME
-    )]
-    removed = before - len(db)
-    print(f'  removed {removed} prior practice questions from db')
-
-    # 새 연습문제 추가
-    db.extend(new_qs)
-    print(f'  added {len(new_qs)} new practice questions')
-
-    with open(QDB, 'w', encoding='utf-8') as f:
-        json.dump(db, f, ensure_ascii=False)
-    print(f'  questions_db.json: {len(db)} questions total')
-    return db
+        # Remove old practice questions
+        before = len(db)
+        db = [q for q in db if not (
+            q.get('id', '').startswith('practice-') or q.get('exam') == EXAM_NAME
+        )]
+        removed = before - len(db)
+        print(f"  [{subj}] removed {removed} prior practice questions from {db_path.name}")
+        
+        # Append new ones
+        db.extend(qs)
+        print(f"  [{subj}] added {len(qs)} new practice questions")
+        
+        with open(db_path, 'w', encoding='utf-8') as f:
+            json.dump(db, f, ensure_ascii=False)
+        print(f"  [{subj}] {db_path.name}: {len(db)} questions total")
 
 
 def run_sync():
@@ -430,14 +573,14 @@ def run_sync():
 
 
 def main():
-    print('=== 연습문제 → questions_db → app sync ===\n')
+    print('=== 연습문제 → questions_db_{과목} → app sync ===\n')
     print('[1/3] 연습문제 로드')
     practice_qs = load_practice()
     if not practice_qs:
         print('No practice questions found.')
         return
-    print(f'\n[2/3] questions_db.json 통합')
-    merge_to_qdb(practice_qs)
+    print(f'\n[2/3] 과목별 questions_db_*.json 통합')
+    merge_to_subject_dbs(practice_qs)
     print(f'\n[3/3] sync-data 실행 (chunk 자동 생성)')
     if run_sync():
         print('\n✅ 앱 반영 완료')

@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import { ArrowLeft, House, Compass, RotateCcw, BookOpen, Sparkles, Calendar } from 'lucide-react';
+import { ArrowLeft, House, Compass, RotateCcw, BookOpen, Sparkles, Calendar, Zap } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
 import VizGallery from './viz/VizGallery';
@@ -856,11 +856,21 @@ function BrowseCard({ icon, badge, badgeStyle, badge2, badge2Style, subtitle, ti
 }
 
 // ── 문제풀이 드릴 — 토스 스타일 리스트 행 (1차 과목 장/절/관 단계용) ──
+function splitRowPrefix(title) {
+  const m = title.match(/^(PART\s*\d+|Chapter\s*\d+|제\d+(?:장|절|관)|\d+절)\s+(.+)$/);
+  if (m) return { prefix: m[1], rest: m[2] };
+  return { prefix: null, rest: title };
+}
+
 function BrowseRow({ title, total, pct, answered, isAll, onClick }) {
+  const { prefix, rest } = splitRowPrefix(title);
   return (
     <button className={`browse-row${isAll ? ' browse-row--all' : ''}`} onClick={onClick}>
       <div className="browse-row__main">
-        <div className="browse-row__title">{title}</div>
+        <div className="browse-row__title">
+          {prefix && <span className="browse-row__prefix">{prefix}</span>}
+          {rest}
+        </div>
         {answered > 0 && <div className="browse-row__bar"><div style={{ width: `${Math.max(2, pct)}%` }} /></div>}
       </div>
       <div className="browse-row__meta">
@@ -1079,7 +1089,7 @@ const App = () => {
   const openContextSettings = () => {
     let ctx = 'home';
     if (currentView === 'civil') ctx = 'ai';
-    else if (currentView === 'reviewHome' || currentView === 'today' || currentView === 'review') ctx = 'review';
+    else if (currentView === 'reviewHome' || currentView === 'today' || currentView === 'review') ctx = 'practice';
     else if (currentView === 'planner') ctx = 'home';
     else if (currentView === 'home') ctx = 'home';
     else ctx = 'practice';
@@ -1398,6 +1408,8 @@ const App = () => {
   const [taxSubSubject, setTaxSubSubject] = useState(bootNav?.taxSubSubject || null);
   const [taxChapter, setTaxChapter] = useState(bootNav?.taxChapter || null);
   const [taxSection, setTaxSection] = useState(bootNav?.taxSection || null);
+  // 홈 카드 칩에서 직접 tax_chapters로 진입했는지 여부 — true면 뒤로가기가 tax_sub_subjects를 건너뛰고 dashboard로
+  const [taxChapterFromHome, setTaxChapterFromHome] = useState(false);
   // 시험별/연도별 진입 시 적용되는 분류 스코프: null | {kind:'exam'|'year', value, label}
   const [taxScope, setTaxScope] = useState(bootNav?.taxScope || null);
   // 문제 소스 필터 (단원 드릴): all(기출+연습) | official(기출만) | practice(연습만)
@@ -1500,7 +1512,7 @@ const App = () => {
       if (inField) return;
       if (mod && e.key >= '1' && e.key <= '5') {
         e.preventDefault();
-        const map = { '1': 'home', '2': 'civil', '3': 'dashboard', '4': 'reviewHome', '5': 'planner' };
+        const map = { '1': 'home', '2': 'civil', '3': 'quizHome', '4': 'dashboard', '5': 'planner' };
         const v = map[e.key];
         if (v) { setCurrentView(v); window.scrollTo(0, 0); }
         return;
@@ -2328,6 +2340,7 @@ const App = () => {
       window.scrollTo(0, 0);
     } else if (group.type === 'tax_sub_subject') {
       setTaxSubSubject(group.title);
+      setTaxChapterFromHome(false);
       setCurrentView('tax_chapters');
       window.scrollTo(0, 0);
     } else if (group.type === 'tax_chapter') {
@@ -2378,8 +2391,17 @@ const App = () => {
       setCurrentView(hasSubs ? 'tax_chapters' : 'tax_sub_subjects');
       setTaxChapter(null);
     } else if (currentView === 'tax_chapters') {
-      setCurrentView('tax_sub_subjects');
-      setTaxSubSubject(null);
+      if (taxChapterFromHome) {
+        // 홈 카드 칩에서 직접 진입한 경우 — tax_sub_subjects를 건너뛰고 바로 홈으로
+        setCurrentView('dashboard');
+        setTaxSubject(null);
+        setTaxSubSubject(null);
+        setTaxScope(null);
+        setTaxChapterFromHome(false);
+      } else {
+        setCurrentView('tax_sub_subjects');
+        setTaxSubSubject(null);
+      }
     } else if (currentView === 'tax_sub_subjects') {
       setCurrentView(isRealScope(taxScope) ? 'tax_subjects' : 'dashboard');
       setTaxSubject(null);
@@ -2402,6 +2424,7 @@ const App = () => {
     setTaxChapter(null);
     setTaxSection(null);
     setSelectedGroup(null);
+    setTaxChapterFromHome(false);
     // 모드 set 시 시험별은 의미 없음(1개 시험뿐) → 과목별로 자연 전환
     if (next && viewMode === 'exam') setViewMode('subject');
     window.scrollTo(0, 0);
@@ -2417,6 +2440,7 @@ const App = () => {
     setTaxChapter(null);
     setTaxSection(null);
     setSelectedGroup(null);
+    setTaxChapterFromHome(false);
     window.scrollTo(0, 0);
   };
 
@@ -2426,7 +2450,8 @@ const App = () => {
       || currentView === 'mock' || currentView === 'mockResult'
       || currentView === 'essay_subjects' || currentView === 'essay_chapters'
       || currentView === 'essay_questions' || currentView === 'essay_result') ? 'home'
-    : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'review'
+    : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'browse'
+    : currentView === 'quizHome' ? 'quiz'
     : currentView === 'planner' ? 'planner'
     : currentView === 'civil' ? 'ai'
     : 'browse'; // dashboard + tax_* + search(둘러보기 흡수)
@@ -2434,7 +2459,7 @@ const App = () => {
     clearAutoTimer();
     if (t === 'home') setCurrentView('home');
     else if (t === 'browse') setCurrentView('dashboard');
-    else if (t === 'review') { setReviewSubject(null); setCurrentView('reviewHome'); }
+    else if (t === 'quiz') setCurrentView('quizHome');
     else if (t === 'ai') setCurrentView('civil');
     else if (t === 'planner') setCurrentView('planner');
     window.scrollTo(0, 0);
@@ -2489,8 +2514,8 @@ const App = () => {
   const NAV_ITEMS = [
     ['home', House, '홈'],
     ['ai', Sparkles, 'AI 학습'],
+    ['quiz', Zap, '퀴즈'],
     ['browse', Compass, '문제풀이'],
-    ['review', RotateCcw, '복습'],
     ['planner', Calendar, '플래너'],
   ];
   const bottomNav = (
@@ -2501,7 +2526,7 @@ const App = () => {
           <button key={t} className={active ? 'active' : ''} onClick={() => goTab(t)}>
             <span className="nav-ico" style={{ position: 'relative' }}>
               <Ico size={22} strokeWidth={active ? 2.4 : 1.9} />
-              {t === 'review' && srs.due.length > 0 && (
+              {t === 'browse' && srs.due.length > 0 && (
                 <span className="nav-badge">{srs.due.length > 99 ? '99+' : srs.due.length}</span>
               )}
             </span>
@@ -3429,8 +3454,13 @@ const App = () => {
       });
     };
     // 1차 과목은 장·절·관(드릴 하위 단계)을 토스 스타일 리스트로. 과목·세부과목(첫 진입)은 블럭 유지.
+    // has_subjects=false(부동산·관계법규)는 tax_sub_subjects에서 바로 장 목록이 나오므로 거기서도 리스트.
+    const subjectHasSubSubjects = !!(taxonomyData && taxSubject && taxonomyData[taxSubject]?.has_subjects);
     const listMode = APPRAISER_1ST_SUBJECTS.includes(taxSubject)
-      && ['tax_chapters', 'tax_sections', 'tax_items'].includes(currentView);
+      && (
+        ['tax_chapters', 'tax_sections', 'tax_items'].includes(currentView)
+        || (currentView === 'tax_sub_subjects' && !subjectHasSubSubjects)
+      );
     return (
     <div className="app-container">
       {drillHeader()}
@@ -4459,9 +4489,9 @@ const App = () => {
     return shell(
       <div className="app-container">
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
-          <button className="back-btn" onClick={() => setCurrentView('reviewHome')}>
+          <button className="back-btn" onClick={() => setCurrentView('dashboard')}>
             <ArrowLeft size={24} style={{ marginRight: '8px' }} />
-            <span style={{ fontSize: '1rem', fontWeight: '600' }}>복습 홈</span>
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>문제풀이</span>
           </button>
         </header>
         <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
@@ -4547,9 +4577,9 @@ const App = () => {
     return shell(
       <div className="app-container">
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
-          <button className="back-btn" onClick={() => reviewSubject ? setReviewSubject(null) : setCurrentView('reviewHome')}>
+          <button className="back-btn" onClick={() => reviewSubject ? setReviewSubject(null) : setCurrentView('dashboard')}>
             <ArrowLeft size={24} style={{ marginRight: '8px' }} />
-            <span style={{ fontSize: '1rem', fontWeight: '600' }}>{reviewSubject ? '뒤로가기' : '복습 홈'}</span>
+            <span style={{ fontSize: '1rem', fontWeight: '600' }}>{reviewSubject ? '뒤로가기' : '문제풀이'}</span>
           </button>
         </header>
         <div style={{ padding: '24px 20px', background: '#fff', borderBottom: '1px solid #e5e7eb' }}>
@@ -4761,7 +4791,7 @@ const App = () => {
                 </button>
                 {/* 🔁 복습 */}
                 <button
-                  onClick={() => { setReviewSubject(null); setCurrentView('reviewHome'); }}
+                  onClick={() => { setReviewSubject(null); setCurrentView('dashboard'); }}
                   style={{
                     padding: 14, textAlign: 'left', cursor: 'pointer',
                     background: srs.due.length > 0 || aiDueArr.length > 0
@@ -5096,6 +5126,73 @@ const App = () => {
   }
 
   // ===== 복습 탭: 오늘 복습 / 오답 복습 진입 =====
+  // ===== 퀴즈 탭 =====
+  if (currentView === 'quizHome') {
+    const QUIZ_MODES = [
+      { id: 'random', icon: '🎲', label: '랜덤 퀴즈', desc: '과목 구분 없이 섞어서', color: '#3182F6', bg: '#EFF6FF', border: '#BFDBFE' },
+      { id: 'time',   icon: '⏱', label: '타임어택', desc: '제한 시간 안에 최대한', color: '#7C3AED', bg: '#F5F3FF', border: '#DDD6FE' },
+      { id: 'unit',   icon: '🎯', label: '단원 집중', desc: '약한 단원만 골라서',   color: '#059669', bg: '#ECFDF5', border: '#A7F3D0' },
+      { id: 'battle', icon: '🏆', label: '도전 모드', desc: '오답률 TOP 문제에 도전', color: '#D97706', bg: '#FFFBEB', border: '#FDE68A' },
+    ];
+    return shell(
+      <div className="app-container">
+        {/* 헤더 배너 */}
+        <div style={{
+          background: 'linear-gradient(135deg, #3182F6 0%, #7C3AED 100%)',
+          padding: '28px 20px 24px',
+        }}>
+          <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.8)', fontWeight: 700, letterSpacing: '0.05em', marginBottom: 6 }}>
+            QUIZ MODE
+          </div>
+          <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+            ⚡ 퀴즈
+          </div>
+          <div style={{ fontSize: '0.86rem', color: 'rgba(255,255,255,0.8)', marginTop: 6, fontWeight: 500 }}>
+            다양한 방식으로 실력을 검증해요
+          </div>
+        </div>
+
+        <main className="main-content" style={{ marginTop: 24 }}>
+          {/* 준비 중 안내 */}
+          <div style={{
+            padding: '14px 16px', marginBottom: 24, borderRadius: 14,
+            background: '#F8FAFC', border: '1px dashed #CBD5E1',
+            display: 'flex', alignItems: 'center', gap: 10,
+          }}>
+            <span style={{ fontSize: '1.4rem' }}>🚧</span>
+            <div>
+              <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#475569' }}>퀴즈 모드 개발 중</div>
+              <div style={{ fontSize: '0.78rem', color: '#94A3B8', marginTop: 2 }}>아래 모드들이 순차적으로 오픈돼요</div>
+            </div>
+          </div>
+
+          {/* 모드 카드 2×2 그리드 */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            {QUIZ_MODES.map((m) => (
+              <div key={m.id} style={{
+                background: m.bg, border: `1.5px solid ${m.border}`,
+                borderRadius: 18, padding: '20px 16px',
+                display: 'flex', flexDirection: 'column', gap: 8,
+                opacity: 0.85,
+              }}>
+                <div style={{ fontSize: '2rem', lineHeight: 1 }}>{m.icon}</div>
+                <div>
+                  <div style={{ fontSize: '1rem', fontWeight: 800, color: m.color, letterSpacing: '-0.01em' }}>{m.label}</div>
+                  <div style={{ fontSize: '0.76rem', color: '#6B7280', marginTop: 3 }}>{m.desc}</div>
+                </div>
+                <div style={{ marginTop: 4 }}>
+                  <span style={{ fontSize: '0.68rem', fontWeight: 700, background: '#fff', color: m.color, border: `1px solid ${m.border}`, padding: '3px 9px', borderRadius: 999 }}>
+                    준비 중
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   if (currentView === 'reviewHome') {
     return shell(
     <div className="app-container">
@@ -5352,6 +5449,7 @@ const App = () => {
                   setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
                   setTaxSubject(s.title); setTaxSubSubject(dv);
                   setTaxChapter(null); setTaxSection(null);
+                  setTaxChapterFromHome(true); // 홈 카드 칩 직접 진입 — 뒤로가기 시 dashboard로
                   setCurrentView('tax_chapters');
                   window.scrollTo(0, 0);
                 };
@@ -5402,82 +5500,180 @@ const App = () => {
                     </div>
                   );
                 }
+                // 2차 카드 — AI 학습 홈과 동일한 TOSS 카드 디자인
+                const T2 = { card: '#FFFFFF', blue: '#3182F6', blueWeak: '#E8F1FE', ink: '#191F28', sub: '#8B95A1', track: '#E5E8EB', shadow: '0 2px 8px rgba(0, 23, 51, 0.06)', radius: 20 };
+                const chipStyle2 = {
+                  padding: '11px 6px', fontSize: '0.84rem', fontWeight: 700,
+                  background: T2.blueWeak, color: T2.blue, border: 'none',
+                  borderRadius: 10, cursor: 'pointer', whiteSpace: 'nowrap',
+                  overflow: 'hidden', textOverflow: 'ellipsis', textAlign: 'center',
+                };
                 return (
-                  <BrowseCard
-                    key={s.id}
-                    icon={s.icon}
-                    badge={isStage2 ? '2차' : null}
-                    subtitle={s.title}
-                    title={s.short}
-                    pct={isStage2 ? null : pct}
-                    footerLeft={isStage2 ? null : `${pct}%`}
-                    footerRight={isStage2 ? null : `${answeredN}/${totalN}${acc > 0 ? ` · 정답률 ${acc}%` : ''}`}
-                    cta={isStage2 ? '논술 풀이' : '풀이'}
-                    disabled={!active}
-                    onClick={onClick}
-                  />
+                  <div key={s.id} style={{ background: T2.card, border: 'none', borderRadius: T2.radius, position: 'relative', display: 'flex', flexDirection: 'column', boxShadow: T2.shadow }}>
+                    <button onClick={onClick} style={{ padding: '20px 18px 16px', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', width: '100%', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                      <div style={{ display: 'flex' }}>
+                        <span style={{ fontSize: '0.7rem', fontWeight: 800, background: '#F0EBFF', color: '#7C3AED', padding: '3px 9px', borderRadius: 999 }}>2차</span>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                        <div style={{ minWidth: 0, flex: 1 }}>
+                          <div style={{ fontWeight: 800, color: T2.ink, fontSize: '1.2rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
+                          <div style={{ fontSize: '0.82rem', color: T2.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 4 }}>{s.title}</div>
+                        </div>
+                        <div style={{ fontSize: '2rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
+                      </div>
+                      <div>
+                        <div style={{ height: 6, background: T2.track, borderRadius: 999, overflow: 'hidden' }}>
+                          <div style={{ width: '2%', height: '100%', background: '#7C3AED', borderRadius: 999 }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', marginTop: 8 }}>
+                          <span style={{ fontWeight: 800, color: T2.ink }}>논술 기출</span>
+                          <span style={{ color: T2.sub, fontWeight: 600 }}>답안 작성</span>
+                        </div>
+                      </div>
+                    </button>
+                    <div style={{ padding: '0 18px 16px', marginTop: 'auto' }}>
+                      <button onClick={onClick} style={{ ...chipStyle2, width: '100%', background: '#F0EBFF', color: '#7C3AED' }}>{s.title}</button>
+                    </div>
+                  </div>
                 );
               })}
             </div>
           </div>
         ))}
 
-        {/* 🗂️ 다른 방식으로 둘러보기 — 본 UI 통합 */}
-        <div style={{ marginTop: 4 }}>
-          <div style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            marginBottom: 10, gap: 8, flexWrap: 'wrap',
-          }}>
-            <div style={{ fontSize: '1rem', color: 'var(--text-main)', fontWeight: 800, display: 'flex', alignItems: 'center', gap: 6 }}>
-              🗂️ 다른 방식으로 둘러보기
-            </div>
-            <div style={{ display: 'flex', gap: 4, background: 'var(--primary-light)', padding: 3, borderRadius: 10, border: '1px solid var(--border-color)' }}>
-              {viewModeTabs.map(([mode, label]) => (
-                <button
-                  key={mode}
-                  onClick={() => switchTab(mode)}
-                  style={{
-                    padding: '6px 12px', borderRadius: 7, border: 'none',
-                    background: viewMode === mode ? 'var(--primary)' : 'transparent',
-                    color: viewMode === mode ? '#fff' : 'var(--primary-dark)',
-                    fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer',
-                    transition: 'all 0.15s',
-                  }}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
+        {/* ─── 복습 섹션 ─── */}
+        <div style={{ marginTop: 28 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+            <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-main)' }}>🔁 복습</div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10 }}>
-            {activeGroups.map((group, idx) => {
-              const s = progressStats(cardQuestions(group), progress);
-              const pct = s.total ? Math.round((s.answered / s.total) * 100) : 0;
-              const dm = s.level ? (DIFFICULTY_META[s.level] || null) : null;
-              const modeIcon = viewMode === 'exam' ? '🎓'
-                : viewMode === 'subject' ? '📚'
-                : viewMode === 'chapter' ? '📖'
-                : viewMode === 'year' ? '📅' : '📂';
-              const hasQuiz = group.total > 0;
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {/* 오늘 복습 */}
+            <div
+              onClick={() => srs.due.length && setCurrentView('today')}
+              style={{ padding: '16px 18px', borderRadius: 14,
+                border: `1px solid ${srs.due.length ? '#bfdbfe' : '#e5e7eb'}`,
+                background: srs.due.length ? '#eff6ff' : 'var(--card-bg)',
+                cursor: srs.due.length ? 'pointer' : 'default' }}
+            >
+              <div style={{ fontWeight: 700, fontSize: '1rem', color: srs.due.length ? '#1d4ed8' : '#9ca3af' }}>
+                📅 오늘 복습 {srs.due.length > 0 ? `${srs.due.length}문제` : '없음'}
+              </div>
+              <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 4 }}>
+                {srs.due.length > 0 ? '기억 곡선에 따라 오늘 풀 차례예요 →' : (srs.nextDue != null ? `다음 복습 예정: ${new Date(srs.nextDue).getMonth() + 1}/${new Date(srs.nextDue).getDate()}` : '틀린 문제가 쌓이면 복습 일정이 생겨요')}
+              </div>
+            </div>
+            {/* 오답 복습 */}
+            <div
+              onClick={() => wrongList.length && (setReviewSubject(null), setCurrentView('review'))}
+              style={{ padding: '16px 18px', borderRadius: 14,
+                border: `1px solid ${wrongList.length ? '#fecaca' : '#e5e7eb'}`,
+                background: wrongList.length ? '#fef2f2' : 'var(--card-bg)',
+                cursor: wrongList.length ? 'pointer' : 'default' }}
+            >
+              <div style={{ fontWeight: 700, fontSize: '1rem', color: wrongList.length ? '#b91c1c' : '#9ca3af' }}>
+                🔁 오답 복습 {wrongList.length > 0 ? `${wrongList.length}문제` : '없음'}
+              </div>
+              <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 4 }}>
+                {wrongList.length > 0 ? '틀린 문제를 과목·절별로 다시 풀기 →' : '아직 틀린 문제가 없어요'}
+              </div>
+            </div>
+            {/* 오답 회독 */}
+            {(() => {
+              const wr = getWrongRounds();
+              const rounds = wr.rounds || 0;
+              const graduated = (wr.lastStartCount != null && wrongList.length < wr.lastStartCount) ? wr.lastStartCount - wrongList.length : 0;
+              const has = wrongList.length > 0;
+              if (!has && rounds === 0) return null;
               return (
-                <BrowseCard
-                  key={idx}
-                  icon={modeIcon}
-                  badge={dm ? `난이도 ${s.avgDiff.toFixed(1)}` : null}
-                  badgeStyle={dm ? { background: dm.bg, color: dm.fg } : undefined}
-                  subtitle={group.subtitle || null}
-                  title={group.title}
-                  pct={hasQuiz ? pct : null}
-                  footerLeft={hasQuiz ? `${pct}%` : null}
-                  footerRight={hasQuiz ? `${s.answered}/${group.total}` : '기출 없음'}
-                  cta="풀이"
-                  disabled={!hasQuiz}
-                  onClick={() => handleGroupClick(group)}
-                />
+                <div style={{ padding: '16px 18px', borderRadius: 14,
+                  border: `1px solid ${has ? '#fdba74' : '#e5e7eb'}`,
+                  background: has ? '#fff7ed' : 'var(--card-bg)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                    <div style={{ fontWeight: 700, fontSize: '1rem', color: has ? '#c2410c' : '#9ca3af' }}>🔂 오답 회독</div>
+                    {rounds > 0 && <span style={{ fontSize: '0.76rem', fontWeight: 800, color: '#c2410c', background: '#ffedd5', padding: '2px 9px', borderRadius: 999 }}>누적 {rounds}회독</span>}
+                  </div>
+                  <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 4 }}>
+                    {has ? `남은 오답 ${wrongList.length}문 — 0이 될 때까지 반복!` : '틀린 문제가 모이면 회독을 시작할 수 있어요'}
+                  </div>
+                  {graduated > 0 && <div style={{ fontSize: '0.76rem', color: '#047857', fontWeight: 700, marginTop: 4 }}>✅ 지난 회독 이후 {graduated}문 졸업!</div>}
+                  {has && (
+                    <button
+                      onClick={() => { bumpWrongRound(wrongList.length); startReview(wrongList.map(qid), `${rounds + 1}회독 · 오답 전체`, 'dashboard'); }}
+                      style={{ marginTop: 10, width: '100%', padding: '10px', borderRadius: 8, border: 'none',
+                        background: '#ea580c', color: '#fff', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer', minHeight: 44 }}>
+                      ▶ {rounds + 1}번째 회독 시작 ({wrongList.length}문)
+                    </button>
+                  )}
+                </div>
               );
-            })}
+            })()}
+            {/* 셀프진단 보충 */}
+            {(() => {
+              const cmap = getConfidenceMap();
+              const ids = classifiedList.filter((q) => { const c = cmap[qid(q)]; return c === 'fuzzy' || c === 'unknown'; });
+              if (ids.length === 0) return null;
+              return (
+                <div style={{ padding: '16px 18px', borderRadius: 14, border: '1px solid #fde68a', background: '#fffbeb' }}>
+                  <div style={{ fontWeight: 700, fontSize: '1rem', color: '#b45309' }}>🤔 셀프진단 보충 {ids.length}문제</div>
+                  <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 4 }}>스스로 '애매·모른다'로 표시한 문항 약점 집중</div>
+                  <button onClick={() => startReview(ids.map(qid), '셀프진단 보충 (애매·모른다)', 'dashboard')}
+                    style={{ marginTop: 10, width: '100%', padding: '10px', borderRadius: 8, border: 'none', background: '#d97706', color: '#fff', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer', minHeight: 44 }}>
+                    ▶ 보충 학습 시작 ({ids.length}문)
+                  </button>
+                </div>
+              );
+            })()}
+            {/* 북마크 */}
+            {bookmarkedList.length > 0 && (
+              <div style={{ padding: '16px 18px', borderRadius: 14, border: '1px solid #fde68a', background: '#fffbeb' }}>
+                <div onClick={() => startReview(bookmarkedList.map(qid), '북마크 전체', 'dashboard')}
+                  style={{ cursor: 'pointer' }}>
+                  <div style={{ fontWeight: 700, fontSize: '1rem', color: '#b45309' }}>★ 북마크 {bookmarkedList.length}문제</div>
+                  <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 4 }}>전체 모아 학습 →</div>
+                </div>
+                <div style={{ display: 'flex', gap: 8, marginTop: 10, flexWrap: 'wrap' }}>
+                  {BM_REASONS.map(r => {
+                    const ids = bookmarkedList.filter(q => bmReasonOf(bm[qid(q)]) === r).map(qid);
+                    if (ids.length === 0) return null;
+                    const m = BM_META[r];
+                    return (
+                      <button key={r} onClick={() => startReview(ids, `북마크 · ${m.label}`, 'dashboard')}
+                        style={{ border: `1px solid ${m.color}`, background: '#fff', color: m.color, borderRadius: 999, padding: '6px 12px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer' }}>
+                        {m.icon} {m.label} {ids.length}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+            {/* AI 학습 SRS 만기 */}
+            {(() => {
+              const aiDueArr = getAiDue();
+              if (aiDueArr.length === 0) return null;
+              const flat = Object.values(leavesBySubject).flat();
+              const dueLeaves = aiDueArr.map((d) => ({ leaf: flat.find((l) => l.id === d.code), days_overdue: d.days_overdue })).filter((x) => x.leaf);
+              if (dueLeaves.length === 0) return null;
+              return (
+                <div style={{ padding: '16px 18px', borderRadius: 14, border: '1px solid #c7d2fe', background: '#eef2ff' }}>
+                  <div style={{ fontWeight: 700, fontSize: '1rem', color: '#4338ca', marginBottom: 8 }}>🎓 AI 학습 복습 만기 {dueLeaves.length}단원</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    {dueLeaves.slice(0, 4).map((x) => (
+                      <button key={x.leaf.id} onClick={() => jumpToAILearn(x.leaf)}
+                        style={{ textAlign: 'left', padding: '7px 10px', background: '#fff', border: '1px solid #ddd6fe', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem' }}>
+                        <div style={{ fontWeight: 700, color: '#1e1b4b' }}>{x.leaf.path.slice(-1)[0]}</div>
+                        <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>
+                          {x.leaf.path.slice(0, -1).join(' › ')}
+                          {x.days_overdue > 0 && <span style={{ color: '#9a3412', marginLeft: 6 }}>· {x.days_overdue}일 경과</span>}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         </div>
+
       </main>
     </div>
   );

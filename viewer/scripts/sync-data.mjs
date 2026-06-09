@@ -37,12 +37,20 @@ if (existsSync(taxSrc)) {
 }
 
 // ─── questions: 시험별 chunk ──────────────────────────────
+// questions_db*.json 파일을 모두 읽어 합친다 (과목별 병렬 작업 충돌 방지)
 const qSrc = join(repoRoot, 'questions_db.json');
 if (!existsSync(qSrc)) {
   console.warn(`[sync-data] source missing, keeping existing: questions_db.json (chunks unchanged)`);
 } else {
-  const raw = readFileSync(qSrc, 'utf8');
-  const arr = JSON.parse(raw);
+  const dbFiles = readdirSync(repoRoot)
+    .filter(f => /^questions_db.*\.json$/.test(f))
+    .sort();
+  const arr = [];
+  for (const f of dbFiles) {
+    const parsed = JSON.parse(readFileSync(join(repoRoot, f), 'utf8'));
+    arr.push(...parsed);
+    console.log(`[sync-data] loaded ${f} (${parsed.length}문)`);
+  }
   const groups = new Map();
   for (const q of arr) {
     const ex = q.exam || '기타';
