@@ -601,6 +601,111 @@ const parseNav = (hash) => {
 
 // SafeImage / ParsedText — './ParsedText' 모듈에서 import (모의고사도 동일 렌더 공유)
 
+// 🤖 오답 직후 "변형문제로 한 번 더" — BYOK Claude로 같은 논점·다른 숫자/지문의 변형을
+// 즉석 생성해 맞을 때까지 반복하는 재도전 루프. 기록은 남기지 않는 연습용(ephemeral).
+function VariantChallenge({ q, wasWrong }) {
+  const [status, setStatus] = useState('idle'); // idle | loading | ready | error | nokey
+  const [variant, setVariant] = useState(null);
+  const [sel, setSel] = useState(null);
+  const [errMsg, setErrMsg] = useState('');
+
+  const generate = async () => {
+    const key = localStorage.getItem('ailearn-byok') || '';  // raw string 저장 (aiLearningStore.lsGet)
+    if (!key.startsWith('sk-')) { setStatus('nokey'); return; }
+    setStatus('loading'); setSel(null);
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json', 'x-api-key': String(key),
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true',
+        },
+        body: JSON.stringify({
+          model: 'claude-haiku-4-5-20251001', max_tokens: 1500,
+          system: '당신은 한국 감정평가사 1차 시험 출제위원입니다. 주어진 문제와 같은 논점·같은 난이도로, 숫자·사례·지문 표현만 바꾼 변형문제를 만듭니다. 반드시 JSON만 출력: {"question":"...","options":["①...","②...","③...","④...","⑤..."],"answer":"3","explanation":"..."} (answer는 1~5 문자열, options는 번호기호 없이 내용만)',
+          messages: [{ role: 'user', content: `원본 문제: ${q.question}\n\n선지:\n${(q.options || []).map((o, i) => `${i + 1}. ${o}`).join('\n')}\n\n정답: ${q.answerNorm}번\n해설: ${(q.explanation || '').slice(0, 600)}\n\n이 문제의 변형을 JSON으로만 출력하세요.` }],
+        }),
+      });
+      if (!res.ok) throw new Error(`API ${res.status}`);
+      const data = await res.json();
+      const text = (data.content || []).map(b => b.text || '').join('');
+      const m = text.match(/\{[\s\S]*\}/);
+      const v = JSON.parse(m ? m[0] : text);
+      if (!v.question || !Array.isArray(v.options) || !v.answer) throw new Error('형식 오류');
+      setVariant(v); setStatus('ready');
+    } catch (e) {
+      setErrMsg(e.message || '생성 실패'); setStatus('error');
+    }
+  };
+
+  if (status === 'idle' || status === 'loading' || status === 'nokey' || status === 'error') {
+    return (
+      <div style={{ marginTop: 10 }}>
+        <button onClick={generate} disabled={status === 'loading'}
+          style={{ width: '100%', padding: '9px 12px', borderRadius: 8, cursor: 'pointer',
+            border: `1px solid ${wasWrong ? '#fdba74' : '#e5e7eb'}`,
+            background: wasWrong ? '#fff7ed' : '#fff',
+            color: wasWrong ? '#c2410c' : '#6b7280', fontWeight: 700, fontSize: '0.8rem' }}>
+          {status === 'loading' ? '🤖 변형 문제 만드는 중…' : '🤖 변형 문제로 한 번 더 (숫자·지문 바꿔 재도전)'}
+        </button>
+        {status === 'nokey' && (
+          <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#9a3412' }}>
+            AI 학습 탭에서 Claude API 키를 등록하면 사용할 수 있어요.
+          </div>
+        )}
+        {status === 'error' && (
+          <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#dc2626' }}>생성 실패({errMsg}) — 다시 시도해보세요.</div>
+        )}
+      </div>
+    );
+  }
+
+  const revealed = sel != null;
+  const vCorrect = revealed && String(sel) === String(variant.answer);
+  return (
+    <div style={{ marginTop: 12, border: '1.5px solid #c4b5fd', borderRadius: 10, overflow: 'hidden' }}>
+      <div style={{ background: '#f5f3ff', padding: '7px 12px', fontSize: '0.78rem', fontWeight: 800, color: '#5b21b6' }}>
+        🤖 변형 문제 — AI 생성이므로 비판적으로 검토하세요
+      </div>
+      <div style={{ padding: 12, background: '#fff' }}>
+        <div style={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#111827', marginBottom: 10 }}>
+          <ParsedText text={variant.question} />
+        </div>
+        {variant.options.map((opt, i) => {
+          const n = i + 1;
+          const isAns = String(n) === String(variant.answer);
+          const isSel = sel === n;
+          return (
+            <button key={i} onClick={() => !revealed && setSel(n)}
+              style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 10px',
+                marginBottom: 6, borderRadius: 8, cursor: revealed ? 'default' : 'pointer',
+                fontSize: '0.85rem', lineHeight: 1.5,
+                border: `1.5px solid ${revealed ? (isAns ? '#16a34a' : isSel ? '#ef4444' : '#e5e7eb') : '#e5e7eb'}`,
+                background: revealed ? (isAns ? '#f0fdf4' : isSel ? '#fef2f2' : '#fff') : '#fff',
+                color: '#1f2937' }}>
+              {n}. {opt}
+            </button>
+          );
+        })}
+        {revealed && (
+          <div style={{ marginTop: 8, padding: 10, background: '#f9fafb', borderRadius: 8, fontSize: '0.82rem' }}>
+            <div style={{ fontWeight: 800, color: vCorrect ? '#16a34a' : '#ef4444', marginBottom: 4 }}>
+              {vCorrect ? '✓ 정답! 논점을 잡았어요.' : `✕ 오답 — 정답 ${variant.answer}번`}
+            </div>
+            <div style={{ color: '#4b5563', lineHeight: 1.6 }}><ParsedText text={variant.explanation || ''} /></div>
+            <button onClick={() => { setVariant(null); setSel(null); generate(); }}
+              style={{ marginTop: 8, width: '100%', padding: '8px', borderRadius: 8, border: 'none',
+                background: '#7c3aed', color: '#fff', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer' }}>
+              🔁 또 다른 변형으로 한 번 더
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // Interactive Question Component
 // 연습문제 선지별 메타(왜 옳은지/틀렸는지 · 조문 · 법리 · 판례 요지) — 채점 후 표시.
 function OptionMeta({ om, selected }) {
@@ -804,6 +909,8 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
               })}
               {conf && <span style={{ fontSize: '0.68rem', color: '#9ca3af' }}>· '애매/모른다'만 모아 다시 볼 수 있어요</span>}
             </div>
+            {/* 🤖 변형문제 재도전 — 같은 논점·다른 숫자로 즉석 반복 (BYOK) */}
+            {hasAnswer && <VariantChallenge q={q} wasWrong={hasAnswer && !correct} />}
             {/* ★2 검산: 계산 과목은 다른 방식으로 검산했는지 자기보고 */}
             {isCalc && (
               gyeomLogged ? (
@@ -2449,7 +2556,8 @@ const App = () => {
     (currentView === 'home' || currentView === 'profile'
       || currentView === 'mock' || currentView === 'mockResult'
       || currentView === 'essay_subjects' || currentView === 'essay_chapters'
-      || currentView === 'essay_questions' || currentView === 'essay_result') ? 'home'
+      || currentView === 'essay_questions' || currentView === 'essay_result'
+      || currentView === 'essay_cards') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'browse'
     : currentView === 'quizHome' ? 'quiz'
     : currentView === 'planner' ? 'planner'
@@ -3090,7 +3198,8 @@ const App = () => {
   // 2차 essay 모드 — 5 sub-view (subjects/chapters/questions/write/result)
   // write는 집중 모드(no shell), 나머지는 하단 nav 유지
   if (currentView === 'essay_subjects' || currentView === 'essay_chapters'
-      || currentView === 'essay_questions' || currentView === 'essay_result') {
+      || currentView === 'essay_questions' || currentView === 'essay_result'
+      || currentView === 'essay_cards') {
     return shell(
       <EssayMode
         mode={currentView}

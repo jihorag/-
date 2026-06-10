@@ -1113,6 +1113,10 @@ function MessageBubble({ msg, fadeIn, leafId, leafTitle }) {
           whiteSpace: 'pre-wrap',
           wordBreak: 'break-word',
         }}>
+          {msg.imageUrl && (
+            <img src={msg.imageUrl} alt="첨부한 문제 사진"
+              style={{ maxWidth: '100%', borderRadius: 10, marginBottom: 8, display: 'block' }} />
+          )}
           {isUser ? msg.content : <ParsedText text={msg.content} />}
         </div>
         {!isUser && (
@@ -1296,6 +1300,28 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [due, setDue] = useState(() => getDueChapters());
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  // 📷 문제 사진 첨부 — 이번 전송 1회용 {dataUrl, media_type, data}
+  const [pendingImage, setPendingImage] = useState(null);
+  const attachImage = useCallback((file) => {
+    if (!file || !file.type.startsWith('image/')) return;
+    const fr = new FileReader();
+    fr.onload = () => {
+      const imgEl = new Image();
+      imgEl.onload = () => {
+        // Claude vision 권장 한도(1568px)로 축소 + JPEG 재인코딩 (용량·토큰 절약)
+        const MAX = 1568;
+        const scale = Math.min(1, MAX / Math.max(imgEl.width, imgEl.height));
+        const cv = document.createElement('canvas');
+        cv.width = Math.round(imgEl.width * scale);
+        cv.height = Math.round(imgEl.height * scale);
+        cv.getContext('2d').drawImage(imgEl, 0, 0, cv.width, cv.height);
+        const dataUrl = cv.toDataURL('image/jpeg', 0.85);
+        setPendingImage({ dataUrl, media_type: 'image/jpeg', data: dataUrl.split(',')[1] });
+      };
+      imgEl.src = fr.result;
+    };
+    fr.readAsDataURL(file);
+  }, []);
   const [streaming, setStreaming] = useState(false);
   const [draft, setDraft] = useState('');
   const [error, setError] = useState('');
@@ -1584,7 +1610,9 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
   const send = useCallback(async (overrideText) => {
     setError('');
-    const text = (typeof overrideText === 'string' ? overrideText : input).trim();
+    const img = pendingImage; // 📷 첨부 사진 (이번 전송에만 사용)
+    let text = (typeof overrideText === 'string' ? overrideText : input).trim();
+    if (img && !text) text = '이 문제(사진)를 단계별로 풀이해주고, 어떤 단원·논점인지 알려줘.';
     if (!text || streaming) return;
     const cap = canSendMessage();
     if (!cap.ok) {
@@ -1600,9 +1628,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     clearIdleTimer();
     if (!current?.leaf_id) { setError('단원을 먼저 선택하세요.'); setStreaming(false); return; }
     const sendLeafId = current.leaf_id; // 응답 저장 대상 고정 (전송 중 단원 전환 레이스 방지)
-    const userMsg = { role: 'user', content: text };
+    // 사진은 localStorage 용량 문제로 저장본에는 텍스트 표식만 남기고,
+    // 화면(imageUrl)·이번 API 호출에만 실데이터를 사용한다.
+    const userMsg = { role: 'user', content: (img ? '[📷 문제 사진 첨부]\n' : '') + text };
     appendRoomMessage(sendLeafId, userMsg);
-    setMessages((arr) => [...arr, { ...userMsg, ts: new Date().toISOString() }]);
+    setMessages((arr) => [...arr, { ...userMsg, ts: new Date().toISOString(), imageUrl: img?.dataUrl }]);
+    setPendingImage(null);
     if (typeof overrideText !== 'string') setInput('');
     stickBottomRef.current = true; // 내가 보냈으면 바닥으로
     setLastFailedText('');
@@ -1657,6 +1688,19 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       }
       return { role: m.role, content: m.content };
     });
+    // 📷 이번 전송에 사진이 있으면 마지막 user 메시지를 vision 블록으로 교체 (Claude 형식)
+    if (img && apiMessages.length) {
+      const lastIdx = apiMessages.length - 1;
+      const lastText = typeof apiMessages[lastIdx].content === 'string'
+        ? apiMessages[lastIdx].content : text;
+      apiMessages[lastIdx] = {
+        role: 'user',
+        content: [
+          { type: 'image', source: { type: 'base64', media_type: img.media_type, data: img.data } },
+          { type: 'text', text: lastText },
+        ],
+      };
+    }
 
     const ac = new AbortController();
     abortRef.current = ac;
@@ -1818,7 +1862,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         requestAnimationFrame(() => { try { inputRef.current?.focus(); } catch { /* noop */ } });
       }
     }
-  }, [input, streaming, byok, prefs.model, prefs.daily_cap, prefs.max_tokens, current, leaves, handoverMd, unitMd, sectionMd, problemsMd, mode, sessionId, clearIdleTimer, armIdleTimer]);
+  }, [input, pendingImage, streaming, byok, prefs.model, prefs.daily_cap, prefs.max_tokens, current, leaves, handoverMd, unitMd, sectionMd, problemsMd, mode, sessionId, clearIdleTimer, armIdleTimer]);
 
   const stop = () => { if (abortRef.current) abortRef.current.abort(); };
 
@@ -3174,7 +3218,33 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             />
           </>
         )}
+        {/* 📷 첨부 사진 미리보기 */}
+        {pendingImage && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6,
+            padding: '6px 8px', background: '#f5f3ff', border: '1px solid #ddd6fe', borderRadius: 10 }}>
+            <img src={pendingImage.dataUrl} alt="첨부한 문제 사진"
+              style={{ height: 52, borderRadius: 6, border: '1px solid #c4b5fd' }} />
+            <span style={{ flex: 1, fontSize: '0.74rem', color: '#5b21b6', fontWeight: 600 }}>
+              📷 문제 사진 첨부됨 — 전송하면 AI가 풀이하고 관련 단원을 알려줘요
+            </span>
+            <button onClick={() => setPendingImage(null)} aria-label="사진 제거"
+              style={{ border: 'none', background: 'none', color: '#7c3aed', fontWeight: 800,
+                cursor: 'pointer', fontSize: '1rem', padding: 4 }}>✕</button>
+          </div>
+        )}
         <div style={{ display: 'flex', gap: 6, alignItems: 'flex-end', marginTop: mode === 'answer_write' ? 8 : 0 }}>
+          {getProviderForModel(prefs.model) === 'anthropic' && (
+            <label aria-label="문제 사진 첨부" title="막힌 문제를 찍어서 질문"
+              style={{ padding: '10px 11px', borderRadius: 10, cursor: (cap.ok && !streaming) ? 'pointer' : 'not-allowed',
+                border: `1px solid ${pendingImage ? '#a78bfa' : '#d1d5db'}`,
+                background: pendingImage ? '#f5f3ff' : '#fff', fontSize: '1.05rem', lineHeight: 1,
+                opacity: (cap.ok && !streaming) ? 1 : 0.5 }}>
+              📷
+              <input type="file" accept="image/*" style={{ display: 'none' }}
+                disabled={!cap.ok || streaming}
+                onChange={(e) => { attachImage(e.target.files?.[0]); e.target.value = ''; }} />
+            </label>
+          )}
           <textarea
             ref={inputRef}
             value={input}
@@ -3203,12 +3273,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           ) : (
             <button
               onClick={send}
-              disabled={!input.trim() || !cap.ok}
+              disabled={!(input.trim() || pendingImage) || !cap.ok}
               style={{
                 padding: '10px 14px',
-                background: input.trim() && cap.ok ? '#4f46e5' : '#e5e7eb',
-                color: input.trim() && cap.ok ? '#fff' : '#9ca3af',
-                border: 'none', borderRadius: 10, cursor: input.trim() && cap.ok ? 'pointer' : 'not-allowed',
+                background: (input.trim() || pendingImage) && cap.ok ? '#4f46e5' : '#e5e7eb',
+                color: (input.trim() || pendingImage) && cap.ok ? '#fff' : '#9ca3af',
+                border: 'none', borderRadius: 10, cursor: (input.trim() || pendingImage) && cap.ok ? 'pointer' : 'not-allowed',
                 display: 'flex', alignItems: 'center', gap: 4, fontWeight: 700,
               }}
             >
