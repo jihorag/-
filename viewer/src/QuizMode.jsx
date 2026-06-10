@@ -1,361 +1,572 @@
-// ⚡ 퀴즈 탭 — 문제풀이(학습)와 독립된 검증·게임화 엔진.
-// 세션 단위(짧은 판) · 해설 없이 빠른 템포 · 종료 후 일괄 리뷰 · 점수/콤보/최고기록.
-// 데이터는 전부 기존 자산 재사용: classifiedList, progress, confidence, coach 약점.
-import { useState, useEffect, useRef, useMemo } from 'react';
+// ⚡ 퀴즈 탭 — 교재 암기 브리지.
+// AI 학습(이해) → 퀴즈(암기) → 문제풀이(적용)의 교두보.
+// AI 학습과 완전히 같은 목차(leaves)·같은 교재(units/*.md)를 쓰되,
+// 문제풀이와는 별개로 "교재 내용 자체를 암기"하는 훈련만 제공한다.
+//   ① 🃏 용어 카드 — 교재에서 추출한 용어·정의 (SRS)
+//   ② ⬜ 빈칸 인출 — 정의문의 핵심어를 가리고 떠올리기 (콤보)
+//   ③ 🗺 목차 인출 — 단원 소제목을 순서대로 떠올리기
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { ArrowLeft } from 'lucide-react';
-import { ParsedText } from './ParsedText';
+import { SUBJECTS, getMastery as getAiMastery } from './aiLearningStore';
+import { sliceSection } from './aiClaudeClient';
+import { leafQuizStats } from './leafStats';
 
-const SESSIONS_KEY = 'quiz-sessions-v1';
-const CALC_SUBJECTS = ['경제학원론', '회계학'];
+const MEM_KEY = 'quiz-mem-v1';
+const SRS_DAYS = [1, 3, 7, 14, 30];
 
-// ───────────────────────── 모드 정의 ─────────────────────────
-export const QUIZ_MODES = [
-  { id: 'daily',      icon: '📅', label: '일일 퀴즈',   desc: '매일 같은 10문 · 모두가 같은 문제',
-    color: '#0891b2', bg: '#ecfeff', border: '#a5f3fc', count: 10 },
-  { id: 'random',     icon: '🎲', label: '랜덤 퀴즈',   desc: '전 과목 무작위 10문',
-    color: '#3182F6', bg: '#EFF6FF', border: '#BFDBFE', count: 10 },
-  { id: 'timeattack', icon: '⏱', label: '타임어택',    desc: '5분 안에 최대한 많이',
-    color: '#7C3AED', bg: '#F5F3FF', border: '#DDD6FE', count: 80, timeLimitMs: 5 * 60000 },
-  { id: 'sudden',     icon: '🔥', label: '서든데스',    desc: '틀리는 순간 끝 — 몇 문제까지?',
-    color: '#dc2626', bg: '#fef2f2', border: '#fecaca', count: 200, suddenDeath: true },
-  { id: 'weak',       icon: '🎯', label: '약점 집중',   desc: '정답률 낮은 단원만 골라서',
-    color: '#059669', bg: '#ECFDF5', border: '#A7F3D0', count: 10 },
-  { id: 'wrong',      icon: '🏆', label: '오답 정복',   desc: '틀렸거나 애매했던 문제 재도전',
-    color: '#D97706', bg: '#FFFBEB', border: '#FDE68A', count: 10 },
-  { id: 'calc',       icon: '🧮', label: '계산 스프린트', desc: '경제·회계 계산 감각 단련',
-    color: '#be123c', bg: '#fff1f2', border: '#fecdd3', count: 10 },
-  { id: 'subject',    icon: '📚', label: '과목 뽑기',   desc: '한 과목만 집중 10문',
-    color: '#4f46e5', bg: '#eef2ff', border: '#c7d2fe', count: 10, needsSubject: true },
-];
+const indexUrl = (subjectId) => {
+  const s = SUBJECTS.find((x) => x.id === subjectId);
+  if (s?.stage === 2) return `/data/study/${subjectId}/ai_index.json`;
+  return `/data/study/${subjectId}/ai_taxonomy_index.json`;
+};
+const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
-// ───────────────────────── 문제 선정 ─────────────────────────
-// 날짜 시드 PRNG (일일 퀴즈 — 같은 날 = 같은 문제)
-function mulberry32(seed) {
-  let a = seed >>> 0;
-  return () => {
-    a |= 0; a = (a + 0x6D2B79F5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+// ───────────────────────── 진행 저장 ─────────────────────────
+function loadMem() {
+  try { return JSON.parse(localStorage.getItem(MEM_KEY) || '{}') || {}; } catch { return {}; }
+}
+function saveMem(m) {
+  try { localStorage.setItem(MEM_KEY, JSON.stringify(m)); } catch { /* full */ }
+}
+
+// ───────────────────────── 교재 → 암기 자산 추출 ─────────────────────────
+// md 구조가 단원마다 다르므로 휴리스틱 3종을 합치고 dedupe:
+//  1) 정의문: "X란/이란 … 말한다·한다·의미한다" → {term, def}
+//  2) 볼드 용어: **용어** → 포함 단락을 def로
+//  3) 헤딩(###/####): 목차 인출용
+export function extractKnowledge(md) {
+  if (!md) return { cards: [], outline: [] };
+  const rawLines = md.split('\n');
+
+  // 목차: 네비게이션 블록·앵커 링크 제외한 실제 소제목
+  const outline = [];
+  for (const l of rawLines) {
+    const m = l.match(/^(#{3,5})\s*(?:<a[^>]*><\/a>)?\s*(.+)/);
+    if (!m) continue;
+    let t = m[2].replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[📘📖📚🗺️#*`]/g, '').trim();
+    if (!t || /본문 목차|핵심요약서|기본서|위패스|단권화/.test(t)) continue;
+    if (t.length < 2 || t.length > 60) continue;
+    outline.push({ level: m[1].length, text: t });
+  }
+
+  // 단락 결합 (PDF 줄바꿈으로 끊긴 문장 복원) — 직전 헤딩도 함께 추적
+  const paras = []; // {text, head}
+  let buf = [];
+  let curHead = '';
+  for (const l of rawLines) {
+    const s = l.trim();
+    const hm = s.match(/^#{3,5}\s*(?:<a[^>]*><\/a>)?\s*(.+)/);
+    if (hm) {
+      curHead = hm[1].replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[📘📖📚🗺️#*`]/g, '')
+        .replace(/^[IVXⅠ-Ⅹ\d]+[.)]?\s*/, '').trim();
+    }
+    if (!s || s.startsWith('#') || s.startsWith('>') || s.startsWith('---') || s.startsWith('|')) {
+      if (buf.length) { paras.push({ text: buf.join(' '), head: curHead }); buf = []; }
+    } else buf.push(s);
+  }
+  if (buf.length) paras.push({ text: buf.join(' '), head: curHead });
+
+  // 용어 정제: 선행 부사·접속어 제거, 마지막 의미 단위만
+  const STOP_LEAD = /^(여기서|이때|즉|또한|그리고|그러나|한편|다만|보통|일반적으로|우리(?:가)?|이는|특히|따라서|원칙적으로|민법상|법률상)\s*/;
+  const cleanTerm = (raw) => {
+    let t = raw.replace(/^[^가-힣A-Za-z0-9]+/, '').trim();
+    for (let i = 0; i < 3; i++) {
+      const n = t.replace(STOP_LEAD, '');
+      if (n === t) break; t = n;
+    }
+    // 너무 길면 마지막 3어절만 (정의문 핵심어는 대개 말미)
+    const words = t.split(/\s+/);
+    if (words.length > 3) t = words.slice(-3).join(' ');
+    return t.trim();
   };
-}
-const shuffleWith = (arr, rnd) => {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(rnd() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-};
 
-// ctx: { classifiedList, progress, qid, confMap, weakIds(Set), subject }
-export function selectQuizQuestions(modeId, ctx) {
-  const mode = QUIZ_MODES.find(m => m.id === modeId);
-  const pool = ctx.classifiedList.filter(q => q.answerNorm && Array.isArray(q.options) && q.options.length >= 4);
-  const rnd = modeId === 'daily'
-    ? mulberry32(parseInt(new Date().toISOString().slice(0, 10).replace(/-/g, ''), 10))
-    : mulberry32((Date.now() % 2 ** 31) ^ (Math.random() * 2 ** 31));
-  const shuffled = shuffleWith(pool, rnd);
+  const cards = [];
+  const seen = new Set();
+  const push = (term, def, kind) => {
+    const key = term.replace(/\s+/g, '');
+    if (!key || key.length < 2 || key.length > 25 || seen.has(key)) return;
+    if (def.length < 12 || def.length > 320) return;
+    if (/^[\d.,)(]+$/.test(key)) return;
+    seen.add(key);
+    cards.push({ key, term: term.trim(), def: def.trim(), kind });
+  };
 
-  let picked;
-  switch (modeId) {
-    case 'daily':
-      picked = shuffled; break;
-    case 'random': {
-      const unseen = shuffled.filter(q => !ctx.progress[ctx.qid(q)]);
-      picked = [...unseen, ...shuffled.filter(q => ctx.progress[ctx.qid(q)])];
-      break;
+  for (const { text: p, head } of paras) {
+    const clean = p.replace(/\*\*/g, '');
+    // 1) 정의문 패턴
+    const defRe = /([가-힣A-Za-z0-9·()\s]{2,30}?)(?:이란|란)\s+(.{10,250}?(?:말한다|한다|의미한다|가리킨다|뜻한다))/g;
+    let m;
+    while ((m = defRe.exec(clean)) !== null) {
+      const term = cleanTerm(m[1]);
+      if (term.length >= 2) push(term, `${term}(이)란 ${m[2]}`, 'def');
     }
-    case 'timeattack':
-    case 'sudden':
-      picked = shuffled; break;
-    case 'weak':
-      picked = shuffled.filter(q => ctx.weakIds?.has(ctx.qid(q)));
-      if (picked.length < mode.count) {
-        // 약점 절 데이터가 부족하면 오답 과목으로 보충
-        picked = [...picked, ...shuffled.filter(q => !ctx.weakIds?.has(ctx.qid(q)))];
-      }
-      break;
-    case 'wrong': {
-      const bad = shuffled.filter(q => {
-        const p = ctx.progress[ctx.qid(q)];
-        const conf = ctx.confMap?.[ctx.qid(q)];
-        return (p && p.correct === false) || conf === 'fuzzy' || conf === 'unknown';
-      });
-      picked = bad; break;
+    // 2) 볼드 용어 — 단락을 정의로
+    const boldRe = /\*\*([^*\n]{2,28})\*\*/g;
+    while ((m = boldRe.exec(p)) !== null) {
+      const term = m[1].trim();
+      if (/^\d+[.)]?$/.test(term)) continue;        // 번호만인 볼드 제외
+      if (clean.length >= 20) push(term, clean.slice(0, 300), 'bold');
     }
-    case 'calc':
-      picked = shuffled.filter(q => CALC_SUBJECTS.includes(q.taxSubjectName)); break;
-    case 'subject':
-      picked = shuffled.filter(q => q.taxSubjectName === ctx.subject); break;
-    default:
-      picked = shuffled;
+    // 3) 헤딩 + 본문 단락 (정의문·볼드가 빈약한 단원 보강)
+    if (head && head.length >= 2 && head.length <= 25 && clean.length >= 40
+        && !/^(의의|서설|개요|기타|결론)$/.test(head)) {
+      push(head, clean.slice(0, 300), 'head');
+    }
   }
-  return picked.slice(0, mode.count);
+  // 정의문 카드 우선, 그다음 볼드, 헤딩 순으로 정렬해 상위 40장
+  const rank = { def: 0, bold: 1, head: 2 };
+  cards.sort((a, b) => rank[a.kind] - rank[b.kind]);
+  return { cards: cards.slice(0, 40), outline: outline.slice(0, 30) };
 }
 
-// ───────────────────────── 기록 저장 ─────────────────────────
-export function loadQuizHistory() {
-  try { return JSON.parse(localStorage.getItem(SESSIONS_KEY) || '[]') || []; } catch { return []; }
-}
-export function saveQuizSession(s) {
-  const all = [...loadQuizHistory(), s].slice(-100);
-  try { localStorage.setItem(SESSIONS_KEY, JSON.stringify(all)); } catch { /* full */ }
-  return all;
-}
-export function bestFor(modeId, history) {
-  const hs = history.filter(h => h.mode === modeId);
-  if (!hs.length) return null;
-  if (modeId === 'timeattack' || modeId === 'sudden') return Math.max(...hs.map(h => h.correct));
-  return Math.max(...hs.map(h => h.total ? Math.round((h.correct / h.total) * 100) : 0));
-}
-export function dailyDoneToday(history) {
-  const today = new Date().toISOString().slice(0, 10);
-  return history.some(h => h.mode === 'daily' && h.date === today);
+// 빈칸 문장: def에서 term 등장부를 ⬜로
+function clozeText(card) {
+  const esc = card.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(esc.replace(/\s+/g, '\\s*'), 'g');
+  const blanked = card.def.replace(re, '⬜'.repeat(Math.min(6, Math.max(2, Math.round(card.term.length / 2)))));
+  return blanked === card.def ? null : blanked;
 }
 
-// ───────────────────────── 러너 ─────────────────────────
-const fmtMs = (ms) => {
-  const s = Math.max(0, Math.ceil(ms / 1000));
-  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
-};
+// leaf의 암기 진행률 (아는 카드 비율)
+export function memProgressOf(mem, leafId) {
+  const m = mem[leafId];
+  if (!m || !m.total) return { pct: 0, known: 0, total: m?.total || 0, outlineDone: !!m?.outlineDone };
+  const known = Object.values(m.srs || {}).filter(s => s.box >= 2).length;
+  return { pct: Math.round((known / m.total) * 100), known, total: m.total, outlineDone: !!m.outlineDone };
+}
 
-export function QuizRunner({ questions, mode, onFinish, onQuit }) {
-  const [idx, setIdx] = useState(0);
-  const [answers, setAnswers] = useState([]);   // [{q, sel, correct}]
-  const [flash, setFlash] = useState(null);     // {sel, correct} — 0.8초 정오 플래시
-  const [combo, setCombo] = useState(0);
-  const [maxCombo, setMaxCombo] = useState(0);
-  const [now, setNow] = useState(Date.now());
-  const startRef = useRef(Date.now());
-  const finishedRef = useRef(false);
-  const timerRef = useRef(null);
+// ───────────────────────── 메인 컴포넌트 ─────────────────────────
+// 자체 내비: subjects → leaves → train(허브+훈련). App은 quizHome 뷰에서 이 컴포넌트만 렌더.
+export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolve, onGoAI }) {
+  const [screen, setScreen] = useState('subjects'); // subjects | leaves | train
+  const [subjectId, setSubjectId] = useState(null);
+  const [leaves, setLeaves] = useState([]);
+  const [rootFilter, setRootFilter] = useState(null);
+  const [leaf, setLeaf] = useState(null);
+  const [mem, setMem] = useState(loadMem);
 
-  const q = questions[idx];
-  const remainMs = mode.timeLimitMs ? mode.timeLimitMs - (now - startRef.current) : null;
+  const subj = SUBJECTS.find(s => s.id === subjectId);
+  const aiMastery = useMemo(() => getAiMastery(), [screen]);
 
-  const finish = (finalAnswers) => {
-    if (finishedRef.current) return;
-    finishedRef.current = true;
-    const corr = finalAnswers.filter(a => a.correct).length;
-    onFinish({
-      mode: mode.id, date: new Date().toISOString().slice(0, 10), ts: Date.now(),
-      total: finalAnswers.length, correct: corr,
-      durationMs: Date.now() - startRef.current,
-      maxCombo: Math.max(maxCombo, combo),
-      answers: finalAnswers,
+  // 과목 목차 로드 (AI 학습과 동일 index)
+  useEffect(() => {
+    if (!subjectId) return;
+    let dead = false;
+    fetch(indexUrl(subjectId)).then(r => r.json()).then(raw => {
+      if (dead) return;
+      const ls = raw?.leaves || raw || [];
+      setLeaves(Array.isArray(ls) ? ls : []);
+    }).catch(() => setLeaves([]));
+    return () => { dead = true; };
+  }, [subjectId]);
+
+  const updateMem = (leafId, patch) => {
+    setMem(prev => {
+      const next = { ...prev, [leafId]: { ...(prev[leafId] || {}), ...patch, ts: Date.now() } };
+      saveMem(next);
+      return next;
     });
   };
 
-  // 제한시간 카운트다운 (타임어택)
-  useEffect(() => {
-    if (!mode.timeLimitMs) return undefined;
-    const iv = setInterval(() => setNow(Date.now()), 250);
-    return () => clearInterval(iv);
-  }, [mode.timeLimitMs]);
-  useEffect(() => {
-    if (remainMs != null && remainMs <= 0) finish(answers);
-  }, [remainMs]); // eslint-disable-line react-hooks/exhaustive-deps
+  // ── 화면 1: 과목 (AI 학습과 동일 과목 구성) ──
+  if (screen === 'subjects') {
+    const stages = [[1, '1차 — 객관식 5과목'], [2, '2차 — 논술 3과목']];
+    return (
+      <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
+        <div style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #0891b2 100%)', padding: '28px 20px 22px' }}>
+          <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.85)', fontWeight: 700, letterSpacing: '0.05em' }}>MEMORIZE</div>
+          <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', lineHeight: 1.2, marginTop: 4 }}>⚡ 퀴즈 — 교재 암기</div>
+          <div style={{ fontSize: '0.84rem', color: 'rgba(255,255,255,0.9)', marginTop: 6, fontWeight: 500 }}>
+            🤖 AI 학습으로 이해 → ⚡ 퀴즈로 암기 → ✍️ 문제풀이로 적용
+          </div>
+        </div>
+        <main className="main-content" style={{ marginTop: 18 }}>
+          {stages.map(([stage, label]) => (
+            <section key={stage} style={{ marginBottom: 18 }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#6b7280', marginBottom: 8 }}>{label}</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+                {SUBJECTS.filter(s => s.stage === stage).map(s => (
+                  <button key={s.id}
+                    onClick={() => { setSubjectId(s.id); setRootFilter(null); setScreen('leaves'); }}
+                    style={{ padding: '16px 14px', textAlign: 'left', cursor: 'pointer',
+                      background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14,
+                      boxShadow: '0 2px 8px rgba(15,23,42,0.05)' }}>
+                    <div style={{ fontSize: '1.5rem' }}>{s.icon}</div>
+                    <div style={{ fontWeight: 800, fontSize: '0.92rem', color: '#111827', marginTop: 6 }}>{s.short}</div>
+                    <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: 2 }}>{s.title}</div>
+                  </button>
+                ))}
+              </div>
+            </section>
+          ))}
+        </main>
+      </div>
+    );
+  }
 
-  useEffect(() => () => clearTimeout(timerRef.current), []);
+  // ── 화면 2: 단원 목차 (AI 학습과 동일 leaves) + 브리지 상태 ──
+  if (screen === 'leaves') {
+    const roots = [...new Set(leaves.map(l => l.path?.[0]).filter(Boolean))];
+    const visible = leaves.filter(l => !rootFilter || l.path?.[0] === rootFilter);
+    return (
+      <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
+        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
+          <button className="back-btn" onClick={() => setScreen('subjects')}>
+            <ArrowLeft size={24} style={{ marginRight: 8 }} />
+            <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>과목</span>
+          </button>
+        </header>
+        <div className="screen-head">
+          <h1 className="screen-title">{subj?.icon} {subj?.title} 암기</h1>
+          <p style={{ fontSize: '0.78rem', color: '#6b7280', marginTop: 4 }}>
+            🤖 이해 → ⚡ 암기 → ✍️ 적용 — 단원별 3단계 진행을 한눈에
+          </p>
+        </div>
+        <main className="main-content" style={{ marginTop: 10 }}>
+          {roots.length > 1 && (
+            <div style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 8, marginBottom: 8 }}>
+              <button onClick={() => setRootFilter(null)}
+                style={{ flexShrink: 0, padding: '6px 12px', borderRadius: 999, fontSize: '0.76rem', fontWeight: 700,
+                  border: `1.5px solid ${!rootFilter ? '#7c3aed' : '#d1d5db'}`,
+                  background: !rootFilter ? '#f5f3ff' : '#fff',
+                  color: !rootFilter ? '#5b21b6' : '#6b7280', cursor: 'pointer' }}>
+                전체
+              </button>
+              {roots.map(r => (
+                <button key={r} onClick={() => setRootFilter(r)}
+                  style={{ flexShrink: 0, padding: '6px 12px', borderRadius: 999, fontSize: '0.76rem', fontWeight: 700,
+                    border: `1.5px solid ${rootFilter === r ? '#7c3aed' : '#d1d5db'}`,
+                    background: rootFilter === r ? '#f5f3ff' : '#fff',
+                    color: rootFilter === r ? '#5b21b6' : '#6b7280', cursor: 'pointer', whiteSpace: 'nowrap' }}>
+                  {r}
+                </button>
+              ))}
+            </div>
+          )}
+          {visible.length === 0 && (
+            <div style={{ padding: 30, textAlign: 'center', color: '#9ca3af', fontSize: '0.85rem' }}>목차 불러오는 중…</div>
+          )}
+          {visible.map(l => {
+            const ai = aiMastery[l.id]?.status; // 'mastered' | 'in_progress' | undefined
+            const mp = memProgressOf(mem, l.id);
+            const qs = leafQuizStats(l, classifiedList, progress, qid);
+            const dot = (on, color, half) => (
+              <span style={{ width: 9, height: 9, borderRadius: '50%', display: 'inline-block',
+                background: on ? color : half ? `${color}55` : '#e5e7eb' }} />
+            );
+            return (
+              <button key={l.id} onClick={() => { setLeaf(l); setScreen('train'); }}
+                style={{ width: '100%', textAlign: 'left', background: '#fff', borderRadius: 12,
+                  border: '1px solid #e5e7eb', padding: '12px 14px', marginBottom: 8, cursor: 'pointer' }}>
+                <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginBottom: 3 }}>
+                  {(l.path || []).slice(0, -1).join(' › ')}
+                </div>
+                <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#111827', lineHeight: 1.4 }}>
+                  {l.title || l.path?.slice(-1)[0]}
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 7, fontSize: '0.7rem', color: '#6b7280' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                    {dot(ai === 'mastered', '#4f46e5', ai === 'in_progress')} 🤖 이해
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                    {dot(mp.pct >= 80, '#7c3aed', mp.pct > 0)} ⚡ 암기 {mp.total > 0 ? `${mp.pct}%` : ''}
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                    {dot(qs.total > 0 && qs.accuracy >= 0.8 && qs.coverage >= 0.5, '#059669', qs.answered > 0)}
+                    ✍️ 적용 {qs.answered > 0 ? `${Math.round(qs.accuracy * 100)}%` : qs.total > 0 ? `${qs.total}문` : ''}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
+        </main>
+      </div>
+    );
+  }
 
-  const pick = (n) => {
-    if (flash || !q) return;
-    const correct = String(n) === String(q.answerNorm);
-    const entry = { q, sel: String(n), correct };
-    const nextAnswers = [...answers, entry];
-    setAnswers(nextAnswers);
-    setFlash({ sel: n, correct });
-    const nextCombo = correct ? combo + 1 : 0;
-    setCombo(nextCombo);
-    if (correct) setMaxCombo(m => Math.max(m, nextCombo));
-    timerRef.current = setTimeout(() => {
-      setFlash(null);
-      if (mode.suddenDeath && !correct) { finish(nextAnswers); return; }
-      if (idx + 1 >= questions.length) { finish(nextAnswers); return; }
-      setIdx(i => i + 1);
-    }, correct ? 550 : 950);
+  // ── 화면 3: 단원 훈련 (허브 + 카드/빈칸/목차) ──
+  if (screen === 'train' && leaf) {
+    return <LeafTrainer key={leaf.id} subjectId={subjectId} leaf={leaf} mem={mem} updateMem={updateMem}
+      onBack={() => setScreen('leaves')}
+      onGoSolve={onGoSolve} onGoAI={onGoAI}
+      solveStats={leafQuizStats(leaf, classifiedList, progress, qid)} />;
+  }
+  return null;
+}
+
+// ───────────────────────── 단원 훈련 화면 ─────────────────────────
+function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoAI, solveStats }) {
+  const [knowledge, setKnowledge] = useState(null); // {cards, outline}
+  const [mode, setMode] = useState('hub');          // hub | cards | cloze | outline
+  const [idx, setIdx] = useState(0);
+  const [flipped, setFlipped] = useState(false);
+  const [combo, setCombo] = useState(0);
+  const [revealCnt, setRevealCnt] = useState(0);
+  const [sessionDone, setSessionDone] = useState(0);
+  const timerRef = useRef(null);
+
+  // 교재 로드 → 지식 추출 (AI 학습과 동일 unit_file + section_lines 슬라이스)
+  useEffect(() => {
+    let dead = false;
+    if (!leaf.unit_file) { setKnowledge({ cards: [], outline: [] }); return undefined; }
+    fetch(studyBase(subjectId) + leaf.unit_file).then(r => r.text()).then(md => {
+      if (dead) return;
+      const sliced = (leaf.section_key && leaf.section_key !== 'full' && leaf.section_lines)
+        ? sliceSection(md, { lines: leaf.section_lines }) : md;
+      const k = extractKnowledge(sliced);
+      setKnowledge(k);
+      // 총 카드 수 기록 (진행률 분모)
+      if (k.cards.length) updateMem(leaf.id, { total: k.cards.length });
+    }).catch(() => setKnowledge({ cards: [], outline: [] }));
+    return () => { dead = true; clearTimeout(timerRef.current); };
+  }, [subjectId, leaf.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const srs = mem[leaf.id]?.srs || {};
+  const grade = (card, ok) => {
+    const prev = srs[card.key] || { box: 0 };
+    const now = Date.now();
+    const entry = ok
+      ? { box: Math.min(prev.box + 1, SRS_DAYS.length), due: now + SRS_DAYS[Math.min(prev.box, SRS_DAYS.length - 1)] * 86400000 }
+      : { box: 0, due: now + 10 * 60000 };
+    updateMem(leaf.id, { srs: { ...srs, [card.key]: entry } });
+    setCombo(ok ? combo + 1 : 0);
+    setSessionDone(n => n + 1);
+    setFlipped(false);
+    setIdx(i => i + 1);
   };
 
-  if (!q) return null;
-  const progPct = mode.timeLimitMs
-    ? Math.min(100, ((now - startRef.current) / mode.timeLimitMs) * 100)
-    : (idx / questions.length) * 100;
+  // 훈련 큐: due 우선 + 미학습 (훅은 조기 return보다 항상 먼저)
+  const queue = useMemo(() => {
+    if (!knowledge) return [];
+    const now = Date.now();
+    const cs = knowledge.cards;
+    const due = cs.filter(c => srs[c.key] && srs[c.key].due <= now);
+    const fresh = cs.filter(c => !srs[c.key]);
+    const rest = cs.filter(c => srs[c.key] && srs[c.key].due > now);
+    return [...due, ...fresh, ...rest];
+  }, [knowledge, mode]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return (
-    <div className="app-container" style={{ display: 'flex', flexDirection: 'column',
-      minHeight: '100dvh', background: '#f8fafc' }}>
-      <header style={{ flexShrink: 0, padding: '12px 14px', display: 'flex',
-        alignItems: 'center', justifyContent: 'space-between', gap: 10,
-        paddingTop: 'calc(12px + env(safe-area-inset-top, 0px))' }}>
-        <button onClick={() => (answers.length ? finish(answers) : onQuit())} aria-label="퀴즈 종료"
-          style={{ border: '1px solid #e5e7eb', background: '#fff', borderRadius: 10,
-            padding: '7px 12px', fontWeight: 700, fontSize: '0.8rem', color: '#6b7280', cursor: 'pointer' }}>
-          ✕ 종료
-        </button>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          {combo >= 2 && (
-            <span style={{ fontWeight: 800, fontSize: '0.85rem', color: '#ea580c' }}>🔥 {combo}연속</span>
-          )}
-          <span style={{ fontWeight: 800, fontSize: '0.9rem',
-            color: remainMs != null && remainMs < 30000 ? '#dc2626' : '#111827' }}>
-            {mode.timeLimitMs ? `⏱ ${fmtMs(remainMs)}` : `${idx + 1} / ${questions.length}`}
-          </span>
-        </div>
-      </header>
-      <div style={{ height: 4, background: '#e5e7eb', flexShrink: 0 }}>
-        <div style={{ width: `${progPct}%`, height: '100%', transition: 'width 0.25s',
-          background: mode.color || '#3182F6' }} />
-      </div>
+  const clozeQueue = useMemo(() => queue.map(c => ({ ...c, blanked: clozeText(c) })).filter(c => c.blanked), [queue]);
 
-      <main style={{ flex: 1, overflowY: 'auto', padding: '16px 16px 28px' }}>
-        <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#9ca3af', marginBottom: 8 }}>
-          {mode.icon} {mode.label} · {q.taxSubjectName || q.subject || ''}
-        </div>
-        <div style={{ background: '#fff', borderRadius: 14, padding: 16,
-          boxShadow: '0 2px 8px rgba(0,0,0,0.05)', marginBottom: 12,
-          fontSize: '0.98rem', lineHeight: 1.6, fontWeight: 600, color: '#111827' }}>
-          <ParsedText text={q.question} />
-        </div>
-        {q.options.map((opt, i) => {
-          const n = i + 1;
-          const isAns = String(n) === String(q.answerNorm);
-          const isSel = flash && flash.sel === n;
-          let border = '#e5e7eb'; let bg = '#fff';
-          if (flash) {
-            if (isAns) { border = '#16a34a'; bg = '#f0fdf4'; }
-            else if (isSel) { border = '#ef4444'; bg = '#fef2f2'; }
-          }
-          return (
-            <button key={i} onClick={() => pick(n)} disabled={!!flash}
-              style={{ display: 'flex', gap: 10, width: '100%', textAlign: 'left',
-                padding: '12px 14px', marginBottom: 8, borderRadius: 12, cursor: flash ? 'default' : 'pointer',
-                border: `1.5px solid ${border}`, background: bg, fontSize: '0.92rem', lineHeight: 1.55,
-                color: '#1f2937', alignItems: 'flex-start' }}>
-              <span style={{ flexShrink: 0, width: 24, height: 24, borderRadius: '50%',
-                border: '1.5px solid #d1d5db', display: 'flex', alignItems: 'center',
-                justifyContent: 'center', fontSize: '0.78rem', fontWeight: 700,
-                background: flash && isAns ? '#16a34a' : flash && isSel ? '#ef4444' : '#fff',
-                color: flash && (isAns || isSel) ? '#fff' : '#6b7280',
-                borderColor: flash && isAns ? '#16a34a' : flash && isSel ? '#ef4444' : '#d1d5db' }}>
-                {flash && isAns ? '✓' : flash && isSel && !isAns ? '✕' : n}
-              </span>
-              <span style={{ flex: 1 }}>{opt ? <ParsedText text={opt} /> : `${n}번`}</span>
-            </button>
-          );
-        })}
-      </main>
-    </div>
+  if (!knowledge) {
+    return <div className="app-container" style={{ padding: 40, textAlign: 'center', color: '#9ca3af' }}>교재 불러오는 중…</div>;
+  }
+  const mp = memProgressOf(mem, leaf.id);
+
+  const header = (
+    <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb',
+      display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <button className="back-btn" onClick={() => (mode === 'hub' ? onBack() : (setMode('hub'), setIdx(0), setFlipped(false), setCombo(0)))}>
+        <ArrowLeft size={24} style={{ marginRight: 8 }} />
+        <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>{mode === 'hub' ? '단원 목록' : '훈련 선택'}</span>
+      </button>
+      {mode !== 'hub' && combo >= 2 && (
+        <span style={{ paddingRight: 10, fontWeight: 800, fontSize: '0.85rem', color: '#ea580c' }}>🔥 {combo}연속</span>
+      )}
+    </header>
   );
-}
 
-// ───────────────────────── 결과 ─────────────────────────
-export function QuizResult({ result, history, onRetry, onReviewWrong, onHome }) {
-  const [openIdx, setOpenIdx] = useState(null);
-  const mode = QUIZ_MODES.find(m => m.id === result.mode) || QUIZ_MODES[1];
-  const pct = result.total ? Math.round((result.correct / result.total) * 100) : 0;
-  const prevBest = useMemo(() => {
-    const prior = history.slice(0, -1); // 방금 판 제외
-    return bestFor(result.mode, prior);
-  }, [history, result.mode]);
-  const score = (result.mode === 'timeattack' || result.mode === 'sudden') ? result.correct : pct;
-  const isNewBest = score > 0 && (prevBest == null || score > prevBest);
-  const wrong = result.answers.filter(a => !a.correct);
-  const recent = history.filter(h => h.mode === result.mode).slice(-10);
+  // ── 허브 ──
+  if (mode === 'hub') {
+    return (
+      <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
+        {header}
+        <main className="main-content" style={{ marginTop: 14 }}>
+          <div style={{ fontSize: '0.72rem', color: '#9ca3af' }}>{(leaf.path || []).slice(0, -1).join(' › ')}</div>
+          <h2 style={{ fontSize: '1.15rem', fontWeight: 900, color: '#111827', margin: '4px 0 6px' }}>
+            {leaf.title || leaf.path?.slice(-1)[0]}
+          </h2>
+          <div style={{ fontSize: '0.78rem', color: '#6b7280', marginBottom: 14 }}>
+            ⚡ 암기 {mp.pct}% ({mp.known}/{mp.total}) {mp.outlineDone && ' · 🗺 목차 완료'}
+          </div>
 
-  return (
-    <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
-      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
-        <button className="back-btn" onClick={onHome}>
-          <ArrowLeft size={24} style={{ marginRight: 8 }} />
-          <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>퀴즈 홈</span>
-        </button>
-      </header>
-      <main className="main-content" style={{ marginTop: 16 }}>
-        {/* 점수 헤드라인 */}
-        <section style={{ background: '#fff', borderRadius: 16, padding: 22, textAlign: 'center',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.06)', marginBottom: 12 }}>
-          <div style={{ fontSize: '0.8rem', fontWeight: 700, color: mode.color }}>
-            {mode.icon} {mode.label}
-          </div>
-          <div style={{ fontSize: '2.6rem', fontWeight: 900, color: '#111827', marginTop: 6 }}>
-            {result.mode === 'timeattack' || result.mode === 'sudden'
-              ? <>{result.correct}<span style={{ fontSize: '1rem', color: '#9ca3af' }}> 문제</span></>
-              : <>{pct}<span style={{ fontSize: '1rem', color: '#9ca3af' }}>점</span></>}
-          </div>
-          <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
-            {result.correct}/{result.total} 정답 · {fmtMs(result.durationMs)} 소요
-            {result.maxCombo >= 2 && <> · 🔥 최대 {result.maxCombo}연속</>}
-          </div>
-          {isNewBest && result.total > 0 && (
-            <div style={{ marginTop: 8, display: 'inline-block', padding: '4px 14px', borderRadius: 999,
-              background: '#fffbeb', border: '1px solid #fde68a', color: '#b45309',
-              fontWeight: 800, fontSize: '0.8rem' }}>
-              🏅 신기록!{prevBest != null ? ` (이전 ${prevBest}${result.mode === 'timeattack' || result.mode === 'sudden' ? '문제' : '점'})` : ''}
+          {knowledge.cards.length === 0 ? (
+            <div style={{ padding: 24, background: '#fff', borderRadius: 12, border: '1px solid #e5e7eb',
+              fontSize: '0.85rem', color: '#6b7280', lineHeight: 1.7 }}>
+              이 단원 교재에서 자동 추출할 암기 항목을 찾지 못했어요.<br />
+              🤖 AI 학습에서 이 단원을 먼저 학습해보세요.
             </div>
-          )}
-          {/* 최근 10판 미니 그래프 */}
-          {recent.length >= 2 && (
-            <div style={{ display: 'flex', gap: 3, justifyContent: 'center', alignItems: 'flex-end',
-              height: 36, marginTop: 14 }}>
-              {recent.map((h, i) => {
-                const v = (h.mode === 'timeattack' || h.mode === 'sudden')
-                  ? h.correct : (h.total ? (h.correct / h.total) * 100 : 0);
-                const max = Math.max(...recent.map(x => (x.mode === 'timeattack' || x.mode === 'sudden')
-                  ? x.correct : (x.total ? (x.correct / x.total) * 100 : 0))) || 1;
-                return <div key={i} style={{ width: 14, borderRadius: 3,
-                  height: `${Math.max(10, (v / max) * 100)}%`,
-                  background: i === recent.length - 1 ? mode.color : '#e5e7eb' }} />;
-              })}
-            </div>
-          )}
-        </section>
-
-        {/* 오답 리뷰 — 여기서만 해설 노출 */}
-        {wrong.length > 0 && (
-          <section style={{ marginBottom: 12 }}>
-            <div style={{ fontWeight: 800, fontSize: '0.9rem', color: '#111827', marginBottom: 8 }}>
-              ✕ 틀린 문제 {wrong.length}개 — 해설 확인
-            </div>
-            {wrong.map((a, i) => (
-              <div key={i} style={{ background: '#fff', borderRadius: 12, marginBottom: 8,
-                border: '1px solid #fecaca', overflow: 'hidden' }}>
-                <button onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                  style={{ width: '100%', textAlign: 'left', padding: '11px 14px', border: 'none',
-                    background: 'none', cursor: 'pointer', fontSize: '0.85rem', lineHeight: 1.5, color: '#374151' }}>
-                  <span style={{ color: '#dc2626', fontWeight: 800, marginRight: 6 }}>
-                    내 답 {a.sel} → 정답 {a.q.answerNorm}
+          ) : (
+            <>
+              <button onClick={() => { setMode('cards'); setIdx(0); setFlipped(false); setCombo(0); setSessionDone(0); }}
+                style={trainBtn('#7c3aed', '#f5f3ff', '#ddd6fe')}>
+                <span style={{ fontSize: '1.5rem' }}>🃏</span>
+                <span style={{ flex: 1 }}>
+                  <b style={{ display: 'block', color: '#5b21b6' }}>용어 카드 {knowledge.cards.length}장</b>
+                  <span style={smallDesc}>교재 용어·정의 — 앞면 보고 떠올리기 (SRS 복습)</span>
+                </span>
+              </button>
+              {clozeQueue.length > 0 && (
+                <button onClick={() => { setMode('cloze'); setIdx(0); setFlipped(false); setCombo(0); setSessionDone(0); }}
+                  style={trainBtn('#0891b2', '#ecfeff', '#a5f3fc')}>
+                  <span style={{ fontSize: '1.5rem' }}>⬜</span>
+                  <span style={{ flex: 1 }}>
+                    <b style={{ display: 'block', color: '#155e75' }}>빈칸 인출 {clozeQueue.length}문</b>
+                    <span style={smallDesc}>정의문의 핵심어를 가리고 떠올리기</span>
                   </span>
-                  {(a.q.question || '').replace(/\n/g, ' ').slice(0, 60)}…
-                  <span style={{ float: 'right', color: '#9ca3af' }}>{openIdx === i ? '▲' : '▼'}</span>
                 </button>
-                {openIdx === i && (
-                  <div style={{ padding: '0 14px 12px', fontSize: '0.85rem', lineHeight: 1.65, color: '#4b5563' }}>
-                    <div style={{ padding: 10, background: '#f9fafb', borderRadius: 8 }}>
-                      <ParsedText text={a.q.explanation || '해설 없음 — 정답: ' + a.q.answerNorm + '번'} />
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </section>
-        )}
+              )}
+              {knowledge.outline.length >= 3 && (
+                <button onClick={() => { setMode('outline'); setRevealCnt(0); }}
+                  style={trainBtn('#059669', '#ecfdf5', '#a7f3d0')}>
+                  <span style={{ fontSize: '1.5rem' }}>🗺</span>
+                  <span style={{ flex: 1 }}>
+                    <b style={{ display: 'block', color: '#065f46' }}>목차 인출 {knowledge.outline.length}항목</b>
+                    <span style={smallDesc}>이 단원의 뼈대를 순서대로 떠올리기 {mp.outlineDone && '✓'}</span>
+                  </span>
+                </button>
+              )}
+            </>
+          )}
 
-        <div style={{ display: 'flex', gap: 8 }}>
-          {wrong.length > 0 && (
-            <button onClick={() => onReviewWrong(wrong.map(a => a.q))}
-              style={{ flex: 1, padding: '13px', borderRadius: 12, border: '1px solid #fdba74',
-                background: '#fff7ed', color: '#c2410c', fontWeight: 800, cursor: 'pointer', fontSize: '0.85rem' }}>
-              오답 학습모드로
+          {/* 교두보 — 전후 단계로 이동 */}
+          <div style={{ display: 'flex', gap: 8, marginTop: 18 }}>
+            <button onClick={() => onGoAI?.(subjectId, leaf)} style={bridgeBtn('#4f46e5')}>
+              🤖 AI 학습으로<br /><span style={{ fontSize: '0.66rem', fontWeight: 600 }}>이해가 먼저라면</span>
+            </button>
+            <button onClick={() => onGoSolve?.(leaf)} disabled={!solveStats.total} style={bridgeBtn('#059669', !solveStats.total)}>
+              ✍️ 문제풀이로<br /><span style={{ fontSize: '0.66rem', fontWeight: 600 }}>
+                {solveStats.total ? `이 단원 ${solveStats.total}문 적용` : '연결된 문제 없음'}
+              </span>
+            </button>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  // ── 카드/빈칸 러너 ──
+  if (mode === 'cards' || mode === 'cloze') {
+    const list = mode === 'cards' ? queue : clozeQueue;
+    const card = list[idx];
+    if (!card) {
+      return (
+        <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh' }}>
+          {header}
+          <main className="main-content" style={{ marginTop: 40, textAlign: 'center' }}>
+            <div style={{ fontSize: '2.2rem' }}>🎉</div>
+            <div style={{ fontWeight: 800, marginTop: 8 }}>한 바퀴 완료! ({sessionDone}장)</div>
+            <div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: 6 }}>
+              ⚡ 암기 {memProgressOf(mem, leaf.id).pct}% — '모름' 카드는 10분 뒤 다시 나와요
+            </div>
+            <button onClick={() => { setMode('hub'); setIdx(0); }}
+              style={{ marginTop: 18, padding: '11px 22px', borderRadius: 10, border: 'none',
+                background: '#7c3aed', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+              훈련 선택으로
+            </button>
+          </main>
+        </div>
+      );
+    }
+    return (
+      <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh' }}>
+        {header}
+        <main className="main-content" style={{ marginTop: 14 }}>
+          <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#9ca3af', marginBottom: 8 }}>
+            {mode === 'cards' ? '🃏 용어 카드' : '⬜ 빈칸 인출'} · {idx + 1}/{list.length}
+          </div>
+          <div onClick={() => setFlipped(f => !f)}
+            style={{ background: '#fff', borderRadius: 16, padding: 22, minHeight: 240, cursor: 'pointer',
+              border: `1.5px solid ${flipped ? '#a78bfa' : '#e5e7eb'}`, boxShadow: '0 4px 14px rgba(0,0,0,0.06)',
+              display: 'flex', flexDirection: 'column' }}>
+            {mode === 'cards' ? (
+              <>
+                <div style={{ fontWeight: 900, fontSize: '1.25rem', color: '#111827' }}>{card.term}</div>
+                {flipped
+                  ? <div style={{ marginTop: 14, fontSize: '0.92rem', lineHeight: 1.7, color: '#374151' }}>{card.def}</div>
+                  : <div style={{ marginTop: 'auto', paddingTop: 30, textAlign: 'center', color: '#7c3aed',
+                      fontSize: '0.85rem', fontWeight: 700 }}>정의를 떠올려보세요<br />
+                      <span style={{ color: '#9ca3af', fontWeight: 500, fontSize: '0.72rem' }}>(탭하면 공개)</span></div>}
+              </>
+            ) : (
+              <>
+                <div style={{ fontSize: '0.95rem', lineHeight: 1.75, color: '#374151' }}>
+                  {flipped ? card.def : card.blanked}
+                </div>
+                {!flipped && <div style={{ marginTop: 'auto', paddingTop: 22, textAlign: 'center', color: '#0891b2',
+                  fontSize: '0.85rem', fontWeight: 700 }}>⬜에 들어갈 말을 떠올려보세요<br />
+                  <span style={{ color: '#9ca3af', fontWeight: 500, fontSize: '0.72rem' }}>(탭하면 공개)</span></div>}
+                {flipped && <div style={{ marginTop: 12, fontWeight: 800, color: '#0891b2' }}>정답: {card.term}</div>}
+              </>
+            )}
+          </div>
+          {flipped ? (
+            <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>
+              <button onClick={() => grade(card, false)} style={gradeBtn('#dc2626', '#fef2f2', '#fecaca')}>
+                ✕ 모름<br /><span style={{ fontSize: '0.65rem' }}>10분 후</span>
+              </button>
+              <button onClick={() => grade(card, true)} style={gradeBtn('#059669', '#ecfdf5', '#a7f3d0')}>
+                ✓ 알았다<br /><span style={{ fontSize: '0.65rem' }}>
+                  {SRS_DAYS[Math.min(srs[card.key]?.box || 0, SRS_DAYS.length - 1)]}일 후</span>
+              </button>
+            </div>
+          ) : (
+            <button onClick={() => setFlipped(true)}
+              style={{ width: '100%', marginTop: 14, padding: '13px', borderRadius: 12, border: 'none',
+                background: mode === 'cards' ? '#7c3aed' : '#0891b2', color: '#fff', fontWeight: 800,
+                fontSize: '0.95rem', cursor: 'pointer' }}>
+              정답 보기
             </button>
           )}
-          <button onClick={onRetry}
-            style={{ flex: 1.4, padding: '13px', borderRadius: 12, border: 'none',
-              background: mode.color, color: '#fff', fontWeight: 800, cursor: 'pointer', fontSize: '0.9rem' }}>
-            {mode.icon} 한 판 더
-          </button>
-        </div>
-      </main>
-    </div>
-  );
+        </main>
+      </div>
+    );
+  }
+
+  // ── 목차 인출 ──
+  if (mode === 'outline') {
+    const items = knowledge.outline;
+    const allOpen = revealCnt >= items.length;
+    return (
+      <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
+        {header}
+        <main className="main-content" style={{ marginTop: 14 }}>
+          <div style={{ fontSize: '0.85rem', color: '#065f46', background: '#ecfdf5',
+            border: '1px solid #a7f3d0', borderRadius: 10, padding: '9px 13px', marginBottom: 12, lineHeight: 1.6 }}>
+            🗺 이 단원의 뼈대 {items.length}개 — <b>먼저 머릿속으로 순서를 떠올린 뒤</b> 하나씩 확인하세요.
+          </div>
+          {items.map((o, i) => (
+            <div key={i} style={{ padding: '9px 13px', marginBottom: 6, borderRadius: 10,
+              paddingLeft: 13 + (o.level - 3) * 14,
+              background: i < revealCnt ? '#fff' : '#e5e7eb',
+              border: '1px solid #e5e7eb', fontSize: '0.86rem', fontWeight: o.level <= 3 ? 800 : 500,
+              color: i < revealCnt ? '#111827' : 'transparent', userSelect: 'none',
+              textShadow: i < revealCnt ? 'none' : '0 0 10px rgba(100,100,100,0.6)' }}>
+              {i < revealCnt ? o.text : '●'.repeat(Math.min(14, o.text.length))}
+            </div>
+          ))}
+          {!allOpen ? (
+            <button onClick={() => setRevealCnt(n => n + 1)}
+              style={{ width: '100%', marginTop: 10, padding: '13px', borderRadius: 12, border: 'none',
+                background: '#059669', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+              다음 항목 공개 ({revealCnt}/{items.length})
+            </button>
+          ) : (
+            <button onClick={() => { updateMem(leaf.id, { outlineDone: true }); setMode('hub'); }}
+              style={{ width: '100%', marginTop: 10, padding: '13px', borderRadius: 12, border: 'none',
+                background: '#065f46', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+              ✓ 목차 인출 완료
+            </button>
+          )}
+        </main>
+      </div>
+    );
+  }
+  return null;
 }
+
+const trainBtn = (color, bg, border) => ({
+  width: '100%', display: 'flex', alignItems: 'center', gap: 12, textAlign: 'left',
+  padding: '14px 16px', marginBottom: 10, borderRadius: 14, cursor: 'pointer',
+  border: `1.5px solid ${border}`, background: bg, fontSize: '0.92rem',
+});
+const smallDesc = { display: 'block', fontSize: '0.72rem', color: '#6b7280', marginTop: 2, fontWeight: 500 };
+const gradeBtn = (color, bg, border) => ({
+  flex: 1, padding: '13px', borderRadius: 12, border: `1px solid ${border}`,
+  background: bg, color, fontWeight: 800, cursor: 'pointer',
+});
+const bridgeBtn = (color, disabled) => ({
+  flex: 1, padding: '11px', borderRadius: 12, border: `1.5px solid ${color}44`,
+  background: '#fff', color: disabled ? '#9ca3af' : color, fontWeight: 800, fontSize: '0.8rem',
+  cursor: disabled ? 'default' : 'pointer', lineHeight: 1.5, opacity: disabled ? 0.6 : 1,
+});

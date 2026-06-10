@@ -19,7 +19,7 @@ import { MODELS as AI_MODELS } from './aiClaudeClient';
 import { getProviderForModel, ALL_MODELS, sendMessagesUnified, modelRequiresProxy } from './aiProviders';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
-import { QUIZ_MODES, selectQuizQuestions, QuizRunner, QuizResult, loadQuizHistory, saveQuizSession, bestFor, dailyDoneToday } from './QuizMode';
+import MemorizeBridge from './QuizMode';
 import { ParsedText } from './ParsedText';
 import { SpeakButton } from './Speech';
 import { useScrollLock } from './uiHooks';
@@ -1610,12 +1610,6 @@ const App = () => {
   const [essayQuestionId, setEssayQuestionId] = useState(null);
   // 문제풀이 탭에서 특정 2차 과목으로 바로 진입할 때 EssayMode에 과목을 강제 지정 (nonce로 매 진입 동기화)
   const [essayEntry, setEssayEntry] = useState({ key: null, nonce: 0, chapter: null, subchapter: null });
-  // ⚡ 퀴즈 탭 세션 상태 — {modeId, questions} / 결과 / 기록
-  const [quizSession, setQuizSession] = useState(null);
-  const [quizResultData, setQuizResultData] = useState(null);
-  const [quizHistory, setQuizHistory] = useState(loadQuizHistory);
-  const [quizSubjectPick, setQuizSubjectPick] = useState(false); // 과목 뽑기 시트
-  const startQuizRef = useRef(null); // 결과 화면 '한 판 더' → quizHome의 startQuiz 재사용
 
   // 시험 일정 — 3시험 동시 준비 시 D-DAY 표시·일일 권장량 계산용
   const [examDates, setExamDatesState] = useState(loadExamDates);
@@ -2772,7 +2766,7 @@ const App = () => {
       || currentView === 'essay_questions' || currentView === 'essay_result'
       || currentView === 'essay_cards' || currentView === 'askAI') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'browse'
-    : (currentView === 'quizHome' || currentView === 'quizRun' || currentView === 'quizResult') ? 'quiz'
+    : currentView === 'quizHome' ? 'quiz'
     : currentView === 'planner' ? 'planner'
     : currentView === 'civil' ? 'ai'
     : 'browse'; // dashboard + tax_* + search(둘러보기 흡수)
@@ -5472,163 +5466,24 @@ const App = () => {
   }
 
   // ===== 복습 탭: 오늘 복습 / 오답 복습 진입 =====
-  // ===== 퀴즈 탭 — 독립 검증·게임화 허브 (QuizMode.jsx 엔진) =====
-  if (currentView === 'quizRun' && quizSession) {
-    const modeCfg = QUIZ_MODES.find(m => m.id === quizSession.modeId);
-    return (
-      <div className="app-shell">
-        <QuizRunner
-          questions={quizSession.questions}
-          mode={modeCfg}
-          onQuit={() => { setQuizSession(null); setCurrentView('quizHome'); }}
-          onFinish={(res) => {
-            // 풀이 결과를 학습 진행에도 반영 (복습 시스템 연동)
-            for (const a of res.answers) {
-              if (progress[qid(a.q)]) updateAnswer(a.q, a.sel, a.correct);
-              else recordAnswer(a.q, a.sel, a.correct);
-            }
-            const { answers: _omit, ...summary } = res;
-            setQuizHistory(saveQuizSession(summary));
-            setQuizResultData(res);
-            setCurrentView('quizResult');
-            window.scrollTo(0, 0);
-          }}
-        />
-        {overlays}
-      </div>
-    );
-  }
-
-  if (currentView === 'quizResult' && quizResultData) {
-    return shell(
-      <QuizResult
-        result={quizResultData}
-        history={quizHistory}
-        onHome={() => setCurrentView('quizHome')}
-        onRetry={() => { setCurrentView('quizHome'); setTimeout(() => startQuizRef.current?.(quizResultData.mode, quizSession?.subject), 0); }}
-        onReviewWrong={(qs) => startReview(qs.map(qid), '퀴즈 오답 복습', 'quizHome')}
-      />
-    );
-  }
-
+  // ===== ⚡ 퀴즈 탭 — 교재 암기 브리지 (AI 학습 ↔ 문제풀이 교두보) =====
   if (currentView === 'quizHome') {
-    const startQuiz = (modeId, subject = null) => {
-      const weakIds = new Set();
-      for (const r of coach.rows) {
-        if ((r.tier === 'risk' || r.tier === 'warn') && r.weakSection) {
-          for (const id of r.weakSection.ids) weakIds.add(id);
-        }
-      }
-      const qs = selectQuizQuestions(modeId, {
-        classifiedList, progress, qid, confMap: getConfidenceMap(), weakIds, subject,
-      });
-      if (qs.length < 3) {
-        toast.warn(modeId === 'wrong'
-          ? '오답·애매 기록이 아직 부족해요 — 먼저 문제풀이로 기록을 쌓아보세요'
-          : '이 모드에 맞는 문제가 아직 부족해요');
-        return;
-      }
-      setQuizSession({ modeId, questions: qs, subject });
-      setCurrentView('quizRun');
-      window.scrollTo(0, 0);
-    };
-    startQuizRef.current = startQuiz;
-    const quizSubjects = [...new Set(classifiedList.map(q => q.taxSubjectName).filter(Boolean))];
-    const dailyDone = dailyDoneToday(quizHistory);
-    const todayCnt = quizHistory.filter(h => h.date === new Date().toISOString().slice(0, 10)).length;
     return shell(
-      <div className="app-container">
-        {/* 헤더 배너 */}
-        <div style={{
-          background: 'linear-gradient(135deg, #3182F6 0%, #7C3AED 100%)',
-          padding: '28px 20px 24px',
-        }}>
-          <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.8)', fontWeight: 700, letterSpacing: '0.05em', marginBottom: 6 }}>
-            QUIZ MODE
-          </div>
-          <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-            ⚡ 퀴즈
-          </div>
-          <div style={{ fontSize: '0.86rem', color: 'rgba(255,255,255,0.85)', marginTop: 6, fontWeight: 500 }}>
-            짧은 판으로 실력 검증 — 학습은 문제풀이에서, 승부는 여기서
-            {quizHistory.length > 0 && <> · 총 {quizHistory.length}판{todayCnt > 0 ? ` · 오늘 ${todayCnt}판` : ''}</>}
-          </div>
-        </div>
-
-        <main className="main-content" style={{ marginTop: 20 }}>
-          {/* 📅 일일 퀴즈 — 상단 히어로 */}
-          <button onClick={() => startQuiz('daily')}
-            style={{ width: '100%', marginBottom: 14, padding: '16px 18px', borderRadius: 16,
-              border: '1.5px solid #a5f3fc', cursor: 'pointer', textAlign: 'left',
-              background: 'linear-gradient(135deg, #ecfeff 0%, #f0f9ff 100%)',
-              display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ fontSize: '1.8rem' }}>📅</span>
-            <span style={{ flex: 1 }}>
-              <span style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#155e75' }}>
-                오늘의 일일 퀴즈 {dailyDone && <span style={{ color: '#059669' }}>✓ 완료</span>}
-              </span>
-              <span style={{ display: 'block', fontSize: '0.76rem', color: '#0e7490', marginTop: 2 }}>
-                매일 같은 10문제 — 하루 한 판으로 감 유지
-              </span>
-            </span>
-            <span style={{ fontWeight: 800, color: '#0891b2' }}>{dailyDone ? '다시 →' : '시작 →'}</span>
-          </button>
-
-          {/* 모드 카드 그리드 */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-            {QUIZ_MODES.filter(m => m.id !== 'daily').map((m) => {
-              const best = bestFor(m.id, quizHistory);
-              return (
-                <button key={m.id}
-                  onClick={() => (m.needsSubject ? setQuizSubjectPick(true) : startQuiz(m.id))}
-                  style={{
-                    background: m.bg, border: `1.5px solid ${m.border}`,
-                    borderRadius: 18, padding: '18px 16px', textAlign: 'left',
-                    display: 'flex', flexDirection: 'column', gap: 7, cursor: 'pointer',
-                    boxShadow: '0 2px 8px rgba(15,23,42,0.06)',
-                  }}>
-                  <div style={{ fontSize: '1.9rem', lineHeight: 1 }}>{m.icon}</div>
-                  <div>
-                    <div style={{ fontSize: '0.98rem', fontWeight: 800, color: m.color, letterSpacing: '-0.01em' }}>{m.label}</div>
-                    <div style={{ fontSize: '0.74rem', color: '#6B7280', marginTop: 3, lineHeight: 1.4 }}>{m.desc}</div>
-                  </div>
-                  <div style={{ marginTop: 2, fontSize: '0.68rem', fontWeight: 700, color: best != null ? m.color : '#9ca3af' }}>
-                    {best != null
-                      ? `🏅 최고 ${best}${m.id === 'timeattack' || m.id === 'sudden' ? '문제' : '점'}`
-                      : '첫 도전 →'}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </main>
-
-        {/* 📚 과목 뽑기 — 과목 선택 시트 */}
-        {quizSubjectPick && (
-          <div onClick={() => setQuizSubjectPick(false)}
-            style={{ position: 'fixed', inset: 0, background: 'rgba(15,23,42,0.45)', zIndex: 80,
-              display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-            <div onClick={(e) => e.stopPropagation()}
-              style={{ width: '100%', maxWidth: 600, background: '#fff',
-                borderRadius: '20px 20px 0 0', padding: '18px 18px 28px' }}>
-              <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827', marginBottom: 12 }}>
-                📚 어떤 과목으로 10문제 풀까요?
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-                {quizSubjects.map(s => (
-                  <button key={s}
-                    onClick={() => { setQuizSubjectPick(false); startQuiz('subject', s); }}
-                    style={{ padding: '12px', borderRadius: 12, border: '1px solid #c7d2fe',
-                      background: '#eef2ff', color: '#3730a3', fontWeight: 700,
-                      fontSize: '0.85rem', cursor: 'pointer' }}>
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+      <MemorizeBridge
+        classifiedList={classifiedList}
+        progress={progress}
+        qid={qid}
+        onGoAI={(sid, leaf) => {
+          try { setAiCurrent({ subject: sid, leaf_id: leaf.id }); } catch { /* noop */ }
+          setCurrentView('civil');
+          window.scrollTo(0, 0);
+        }}
+        onGoSolve={(leaf) => {
+          const qs = questionsInLeaf(classifiedList, leaf);
+          if (!qs.length) return;
+          startReview(qs.map(qid), `✍️ ${leaf.title || '단원'} 적용 풀이`, 'quizHome');
+        }}
+      />
     );
   }
 
