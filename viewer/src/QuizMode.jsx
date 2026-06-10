@@ -348,19 +348,37 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
   const [sessionDone, setSessionDone] = useState(0);
   const timerRef = useRef(null);
 
-  // 교재 로드 → 지식 추출 (AI 학습과 동일 unit_file + section_lines 슬라이스)
+  // 교재 로드 → 지식 추출.
+  // 1순위: 큐레이션 덱 /data/memorize/{sid}/{unit_code}.json (AI가 교재에서 정제한 카드)
+  // 2순위: 교재 md 휴리스틱 자동 추출 (폴백)
   useEffect(() => {
     let dead = false;
     if (!leaf.unit_file) { setKnowledge({ cards: [], outline: [] }); return undefined; }
-    fetch(studyBase(subjectId) + leaf.unit_file).then(r => r.text()).then(md => {
+    const unitCode = leaf.unit_code || (leaf.unit_file.match(/([^/]+)\.md$/) || [])[1];
+    (async () => {
+      let curated = null;
+      if (unitCode) {
+        try {
+          const r = await fetch(`/data/memorize/${subjectId}/${unitCode}.json`);
+          if (r.ok && (r.headers.get('content-type') || '').includes('json')) {
+            const deck = await r.json();
+            curated = deck?.[leaf.id] || null;
+          }
+        } catch { /* no curated deck */ }
+      }
+      let md = '';
+      try { md = await fetch(studyBase(subjectId) + leaf.unit_file).then(r => r.text()); } catch { /* offline */ }
       if (dead) return;
       const sliced = (leaf.section_key && leaf.section_key !== 'full' && leaf.section_lines)
         ? sliceSection(md, { lines: leaf.section_lines }) : md;
-      const k = extractKnowledge(sliced);
+      const auto = extractKnowledge(sliced);
+      const k = curated?.cards?.length
+        ? { cards: curated.cards.map(c => ({ key: c.term.replace(/\s+/g, ''), ...c })),
+            outline: curated.outline?.length ? curated.outline : auto.outline, curated: true }
+        : auto;
       setKnowledge(k);
-      // 총 카드 수 기록 (진행률 분모)
       if (k.cards.length) updateMem(leaf.id, { total: k.cards.length });
-    }).catch(() => setKnowledge({ cards: [], outline: [] }));
+    })();
     return () => { dead = true; clearTimeout(timerRef.current); };
   }, [subjectId, leaf.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -389,7 +407,7 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
     return [...due, ...fresh, ...rest];
   }, [knowledge, mode]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const clozeQueue = useMemo(() => queue.map(c => ({ ...c, blanked: clozeText(c) })).filter(c => c.blanked), [queue]);
+  const clozeQueue = useMemo(() => queue.map(c => ({ ...c, blanked: c.cloze || clozeText(c) })).filter(c => c.blanked), [queue]);
 
   if (!knowledge) {
     return <div className="app-container" style={{ padding: 40, textAlign: 'center', color: '#9ca3af' }}>교재 불러오는 중…</div>;
