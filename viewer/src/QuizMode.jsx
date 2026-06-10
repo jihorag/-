@@ -10,7 +10,7 @@ import { ArrowLeft } from 'lucide-react';
 import { SUBJECTS, getMastery as getAiMastery } from './aiLearningStore';
 import { sliceSection } from './aiClaudeClient';
 import { leafQuizStats } from './leafStats';
-import { loadChatCards } from './AILearning';
+import { loadChatCards, removeChatCard } from './AILearning';
 
 const MEM_KEY = 'quiz-mem-v1';
 const SRS_DAYS = [1, 3, 7, 14, 30];
@@ -176,6 +176,10 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
   const [pathStack, setPathStack] = useState([]);   // 계층 드릴다운 경로 (문제풀이와 동일 탐색)
   const [leaf, setLeaf] = useState(null);
   const [mem, setMem] = useState(loadMem);
+  // 🔁 전과목 오늘 복습 큐
+  const [reviewQueue, setReviewQueue] = useState([]);
+  const [rIdx, setRIdx] = useState(0);
+  const [rFlip, setRFlip] = useState(false);
 
   const subj = SUBJECTS.find(s => s.id === subjectId);
   const aiMastery = useMemo(() => getAiMastery(), [screen]);
@@ -213,6 +217,38 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
           </div>
         </div>
         <main className="main-content" style={{ marginTop: 18 }}>
+          {/* 🔁 전과목 오늘 복습 — SRS due 카드 통합 큐 */}
+          {(() => {
+            const cc = loadChatCards();
+            const now = Date.now();
+            const due = [];
+            for (const [lid, cards] of Object.entries(cc)) {
+              const srsMap = mem[lid]?.srs || {};
+              for (const c of cards) {
+                const s = srsMap[c.term.replace(/\s+/g, '')];
+                if (s && s.due <= now) due.push({ leafId: lid, card: { key: c.term.replace(/\s+/g, ''), ...c } });
+              }
+            }
+            if (!due.length) return null;
+            return (
+              <button onClick={() => { setReviewQueue(due.slice(0, 50)); setRIdx(0); setRFlip(false); setScreen('review'); }}
+                style={{ width: '100%', marginBottom: 16, padding: '15px 18px', borderRadius: 16,
+                  border: '1.5px solid #fcd34d', cursor: 'pointer', textAlign: 'left',
+                  background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
+                  display: 'flex', alignItems: 'center', gap: 12 }}>
+                <span style={{ fontSize: '1.7rem' }}>🔁</span>
+                <span style={{ flex: 1 }}>
+                  <span style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: '#92400e' }}>
+                    오늘 복습할 카드 {due.length}장
+                  </span>
+                  <span style={{ display: 'block', fontSize: '0.74rem', color: '#b45309', marginTop: 2 }}>
+                    전 과목 기한 도래(SRS) 카드 한 번에 — 잊기 전에 인출
+                  </span>
+                </span>
+                <span style={{ fontWeight: 800, color: '#d97706' }}>시작 →</span>
+              </button>
+            );
+          })()}
           {stages.map(([stage, label]) => (
             <section key={stage} style={{ marginBottom: 18 }}>
               <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#6b7280', marginBottom: 8 }}>{label}</div>
@@ -231,6 +267,87 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
               </div>
             </section>
           ))}
+        </main>
+      </div>
+    );
+  }
+
+  // ── 🔁 전과목 오늘 복습 러너 ──
+  if (screen === 'review') {
+    const item = reviewQueue[rIdx];
+    const gradeReview = (ok) => {
+      const { leafId, card } = item;
+      const srsMap = mem[leafId]?.srs || {};
+      const prev = srsMap[card.key] || { box: 0, miss: 0 };
+      const now = Date.now();
+      const entry = ok
+        ? { box: Math.min(prev.box + 1, SRS_DAYS.length), due: now + SRS_DAYS[Math.min(prev.box, SRS_DAYS.length - 1)] * 86400000, miss: prev.miss || 0 }
+        : { box: 0, due: now + 10 * 60000, miss: (prev.miss || 0) + 1 };
+      updateMem(leafId, { srs: { ...srsMap, [card.key]: entry } });
+      setRFlip(false); setRIdx(i => i + 1);
+    };
+    const leafLabel = (lid) => {
+      const segs = lid.split('__');
+      return segs.slice(-1)[0].replace(/_/g, ' ');
+    };
+    return (
+      <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
+        <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <button className="back-btn" onClick={() => setScreen('subjects')}>
+            <ArrowLeft size={24} style={{ marginRight: 8 }} />
+            <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>과목</span>
+          </button>
+          <span style={{ paddingRight: 10, fontWeight: 700, fontSize: '0.8rem', color: '#6b7280' }}>
+            🔁 {Math.min(rIdx, reviewQueue.length)}/{reviewQueue.length}
+          </span>
+        </header>
+        <main className="main-content" style={{ marginTop: 14 }}>
+          {!item ? (
+            <div style={{ padding: 40, textAlign: 'center' }}>
+              <div style={{ fontSize: '2.2rem' }}>🎉</div>
+              <div style={{ fontWeight: 800, marginTop: 8 }}>오늘 복습 완료!</div>
+              <div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: 6 }}>
+                틀린 카드는 10분 뒤 다시, 맞은 카드는 며칠 뒤에 돌아옵니다.
+              </div>
+              <button onClick={() => setScreen('subjects')}
+                style={{ marginTop: 18, padding: '11px 22px', borderRadius: 10, border: 'none',
+                  background: '#d97706', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+                과목으로
+              </button>
+            </div>
+          ) : (
+            <>
+              <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginBottom: 8 }}>
+                📍 {leafLabel(item.leafId)}
+              </div>
+              <div onClick={() => setRFlip(f => !f)}
+                style={{ background: '#fff', borderRadius: 16, padding: 22, minHeight: 220, cursor: 'pointer',
+                  border: `1.5px solid ${rFlip ? '#fcd34d' : '#e5e7eb'}`, boxShadow: '0 4px 14px rgba(0,0,0,0.06)',
+                  display: 'flex', flexDirection: 'column' }}>
+                <div style={{ fontWeight: 900, fontSize: '1.2rem', color: '#111827' }}>
+                  {item.card.term}
+                  {item.card.importance >= 3 && <span style={{ marginLeft: 8, fontSize: '0.72rem', color: '#d97706' }}>★ 핵심</span>}
+                </div>
+                {rFlip
+                  ? <div style={{ marginTop: 12, fontSize: '0.92rem', lineHeight: 1.7, color: '#374151' }}>{item.card.def}</div>
+                  : <div style={{ marginTop: 'auto', paddingTop: 26, textAlign: 'center', color: '#d97706',
+                      fontSize: '0.85rem', fontWeight: 700 }}>떠올려보세요 (탭하면 공개)</div>}
+              </div>
+              {rFlip ? (
+                <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>
+                  <button onClick={() => gradeReview(false)} style={gradeBtn('#dc2626', '#fef2f2', '#fecaca')}>✕ 모름</button>
+                  <button onClick={() => gradeReview(true)} style={gradeBtn('#059669', '#ecfdf5', '#a7f3d0')}>✓ 알았다</button>
+                </div>
+              ) : (
+                <button onClick={() => setRFlip(true)}
+                  style={{ width: '100%', marginTop: 14, padding: '13px', borderRadius: 12, border: 'none',
+                    background: '#d97706', color: '#fff', fontWeight: 800, fontSize: '0.95rem', cursor: 'pointer' }}>
+                  정답 보기
+                </button>
+              )}
+            </>
+          )}
         </main>
       </div>
     );
@@ -381,11 +498,11 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
 
   const srs = mem[leaf.id]?.srs || {};
   const grade = (card, ok) => {
-    const prev = srs[card.key] || { box: 0 };
+    const prev = srs[card.key] || { box: 0, miss: 0 };
     const now = Date.now();
     const entry = ok
-      ? { box: Math.min(prev.box + 1, SRS_DAYS.length), due: now + SRS_DAYS[Math.min(prev.box, SRS_DAYS.length - 1)] * 86400000 }
-      : { box: 0, due: now + 10 * 60000 };
+      ? { box: Math.min(prev.box + 1, SRS_DAYS.length), due: now + SRS_DAYS[Math.min(prev.box, SRS_DAYS.length - 1)] * 86400000, miss: prev.miss || 0 }
+      : { box: 0, due: now + 10 * 60000, miss: (prev.miss || 0) + 1 }; // miss≥2 → AI 튜터가 재설명(역피드백)
     updateMem(leaf.id, { srs: { ...srs, [card.key]: entry } });
     setCombo(ok ? combo + 1 : 0);
     setSessionDone(n => n + 1);
@@ -399,7 +516,7 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
     const now = Date.now();
     const cs = knowledge.cards;
     const due = cs.filter(c => srs[c.key] && srs[c.key].due <= now);
-    const fresh = cs.filter(c => !srs[c.key]);
+    const fresh = cs.filter(c => !srs[c.key]).sort((a, b) => (b.importance || 2) - (a.importance || 2));
     const rest = cs.filter(c => srs[c.key] && srs[c.key].due > now);
     return [...due, ...fresh, ...rest];
   }, [knowledge, mode]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -475,6 +592,16 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
                   </span>
                 </button>
               )}
+              {knowledge.cards.length >= 4 && (
+                <button onClick={() => { setMode('mcq'); setIdx(0); setFlipped(false); setCombo(0); setSessionDone(0); }}
+                  style={trainBtn('#d97706', '#fffbeb', '#fde68a')}>
+                  <span style={{ fontSize: '1.5rem' }}>✅</span>
+                  <span style={{ flex: 1 }}>
+                    <b style={{ display: 'block', color: '#92400e' }}>4지선다 {queue.length}문</b>
+                    <span style={smallDesc}>객관식으로 변환 — 1차 실전 형식으로 확인</span>
+                  </span>
+                </button>
+              )}
               {knowledge.outline.length >= 3 && (
                 <button onClick={() => { setMode('outline'); setRevealCnt(0); }}
                   style={trainBtn('#059669', '#ecfdf5', '#a7f3d0')}>
@@ -499,6 +626,71 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
               </span>
             </button>
           </div>
+        </main>
+      </div>
+    );
+  }
+
+  // ── ✅ 4지선다 러너 — 카드 → 객관식 자동 변환 (정답 term + 같은 단원 오답 3) ──
+  if (mode === 'mcq') {
+    const card = queue[idx];
+    if (!card) {
+      return (
+        <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh' }}>
+          {header}
+          <main className="main-content" style={{ marginTop: 40, textAlign: 'center' }}>
+            <div style={{ fontSize: '2.2rem' }}>🎉</div>
+            <div style={{ fontWeight: 800, marginTop: 8 }}>4지선다 완료! ({sessionDone}문)</div>
+            <button onClick={() => { setMode('hub'); setIdx(0); }}
+              style={{ marginTop: 18, padding: '11px 22px', borderRadius: 10, border: 'none',
+                background: '#d97706', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+              훈련 선택으로
+            </button>
+          </main>
+        </div>
+      );
+    }
+    const stem = card.cloze || clozeText(card) || card.def.replace(card.term, '⬜⬜');
+    // 보기: 정답 + 같은 단원 다른 term 3 (id 시드 셔플 — 같은 문제는 같은 배열)
+    const others = knowledge.cards.filter(c => c.key !== card.key).map(c => c.term);
+    const seed = (card.id || card.key).split('').reduce((s, ch) => s + ch.charCodeAt(0), 0);
+    const opts = [card.term, ...others.sort((a, b) => ((a + seed).length % 3) - ((b + seed).length % 3)).slice(0, 3)]
+      .sort((a, b) => ((a.charCodeAt(0) + seed) % 7) - ((b.charCodeAt(0) + seed) % 7));
+    const picked = flipped; // flipped를 '선택한 보기' 저장으로 재사용 (string)
+    return (
+      <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh' }}>
+        {header}
+        <main className="main-content" style={{ marginTop: 14 }}>
+          <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#9ca3af', marginBottom: 8 }}>
+            ✅ 4지선다 · {idx + 1}/{queue.length}
+          </div>
+          <div style={{ background: '#fff', borderRadius: 14, padding: 18, marginBottom: 12,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.05)', fontSize: '0.95rem', lineHeight: 1.7, color: '#111827' }}>
+            ⬜에 들어갈 것은?
+            <div style={{ marginTop: 8, color: '#374151' }}>{stem}</div>
+          </div>
+          {opts.map((o, i) => {
+            const isAns = o === card.term;
+            const isSel = picked === o;
+            let border = '#e5e7eb'; let bg = '#fff';
+            if (picked) {
+              if (isAns) { border = '#16a34a'; bg = '#f0fdf4'; }
+              else if (isSel) { border = '#ef4444'; bg = '#fef2f2'; }
+            }
+            return (
+              <button key={i} disabled={!!picked}
+                onClick={() => {
+                  setFlipped(o);
+                  timerRef.current = setTimeout(() => { grade(card, o === card.term); }, o === card.term ? 600 : 1100);
+                }}
+                style={{ display: 'block', width: '100%', textAlign: 'left', padding: '12px 14px',
+                  marginBottom: 8, borderRadius: 12, border: `1.5px solid ${border}`, background: bg,
+                  fontSize: '0.92rem', fontWeight: 600, color: '#1f2937',
+                  cursor: picked ? 'default' : 'pointer' }}>
+                {i + 1}. {o}
+              </button>
+            );
+          })}
         </main>
       </div>
     );
@@ -540,7 +732,10 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
               display: 'flex', flexDirection: 'column' }}>
             {mode === 'cards' ? (
               <>
-                <div style={{ fontWeight: 900, fontSize: '1.25rem', color: '#111827' }}>{card.term}</div>
+                <div style={{ fontWeight: 900, fontSize: '1.25rem', color: '#111827' }}>
+                  {card.term}
+                  {card.importance >= 3 && <span style={{ marginLeft: 8, fontSize: '0.75rem', color: '#d97706' }}>★ 핵심</span>}
+                </div>
                 {flipped
                   ? <div style={{ marginTop: 14, fontSize: '0.92rem', lineHeight: 1.7, color: '#374151' }}>{card.def}</div>
                   : <div style={{ marginTop: 'auto', paddingTop: 30, textAlign: 'center', color: '#7c3aed',
@@ -560,6 +755,7 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
             )}
           </div>
           {flipped ? (
+            <>
             <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>
               <button onClick={() => grade(card, false)} style={gradeBtn('#dc2626', '#fef2f2', '#fecaca')}>
                 ✕ 모름<br /><span style={{ fontSize: '0.65rem' }}>10분 후</span>
@@ -569,6 +765,16 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
                   {SRS_DAYS[Math.min(srs[card.key]?.box || 0, SRS_DAYS.length - 1)]}일 후</span>
               </button>
             </div>
+            <button onClick={() => {
+              if (!window.confirm('이 카드를 삭제할까요? (부실하거나 불필요한 카드 정리)')) return;
+              if (card.id) removeChatCard(leaf.id, card.id);
+              setFlipped(false); setIdx(i => i + 1);
+            }}
+              style={{ width: '100%', marginTop: 8, padding: '7px', borderRadius: 8, border: 'none',
+                background: 'none', color: '#9ca3af', fontSize: '0.72rem', cursor: 'pointer' }}>
+              🗑 부실 카드 삭제
+            </button>
+            </>
           ) : (
             <button onClick={() => setFlipped(true)}
               style={{ width: '100%', marginTop: 14, padding: '13px', borderRadius: 12, border: 'none',

@@ -59,6 +59,14 @@ export function loadChatCards() {
 function saveChatCards(all) {
   try { localStorage.setItem(CHATCARDS_KEY, JSON.stringify(all)); } catch { /* full */ }
 }
+// 퀴즈 탭에서 부실 카드 삭제 (자동 출제 품질의 최종 관문은 사용자)
+export function removeChatCard(leafId, cardId) {
+  const all = loadChatCards();
+  if (!all[leafId]) return;
+  all[leafId] = all[leafId].filter(c => c.id !== cardId);
+  if (!all[leafId].length) delete all[leafId];
+  saveChatCards(all);
+}
 
 const CARDGEN_FAST = { anthropic: 'claude-haiku-4-5-20251001', openai: 'gpt-5.4-mini', google: 'gemini-3.1-flash-lite' };
 
@@ -71,7 +79,9 @@ async function generateChatCards({ provider, apiKey, baseUrl, leafId, leafPath, 
     const sys = `당신은 감정평가사 수험 암기카드 작성기입니다. 방금의 튜터링 문답에서 학생이 배운 "시험에 나올 수 있는 핵심 포인트"만 카드로 추출합니다.
 규칙:
 - 대화에 실제로 설명된 내용만. 잡담·인사·메타 대화·단순 확인이면 빈 배열.
-- 카드: {"term":"용어(2~20자)","def":"핵심 내용(40~200자, 시험 포인트·근거조문 포함)","cloze":"def에서 핵심어 1곳을 ⬜⬜로 가린 문장","type":"개념|구별|요건|조문|판례|숫자"}
+- 카드: {"term":"용어(2~20자)","def":"핵심 내용(40~200자, 시험 포인트·근거조문 포함)","cloze":"def에서 핵심어 1곳을 ⬜⬜로 가린 문장","type":"개념|구별|요건|조문|판례|숫자","importance":1~3}
+- importance: 3=빈출·핵심(학생이 헷갈려했거나 시험 단골), 2=중요, 1=참고
+- 학생 질문에 "모르겠다/헷갈린다/다시" 같은 혼란 신호가 있으면 그 지점을 반드시 카드화하고 importance 3.
 - 최대 3장. 이미 있는 카드와 중복 금지: [${have.join(', ')}]
 - JSON만 출력: {"cards":[...]}`;
     const { text } = await sendMessagesUnified({
@@ -92,7 +102,8 @@ async function generateChatCards({ provider, apiKey, baseUrl, leafId, leafPath, 
       if (seen.has(key)) continue;
       seen.add(key);
       arr.push({ id: `cc-${Date.now()}-${added}`, term: c.term.trim(), def: c.def.trim(),
-        cloze: c.cloze || '', type: c.type || '개념', ts: Date.now() });
+        cloze: c.cloze || '', type: c.type || '개념',
+        importance: Math.min(3, Math.max(1, c.importance || 2)), ts: Date.now() });
       added++;
     }
     if (!added) return;
@@ -1698,7 +1709,18 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     const curLeaf = leaves.find((l) => l.id === current?.leaf_id);
     const curMastery = current ? getChapterMastery(current.leaf_id) : null;
     const lastSession = getSessions().slice(-2, -1)[0];
-    const recentSummary = lastSession?.summary || '';
+    let recentSummary = lastSession?.summary || '';
+    // 🔁 퀴즈 탭 반복 오답(miss≥2) 카드 → 튜터가 대화 중 자연스럽게 재설명·확인하도록 주입
+    try {
+      const memAll = JSON.parse(localStorage.getItem('quiz-mem-v1') || '{}');
+      const srsMap = memAll[sendLeafId]?.srs || {};
+      const weak = (loadChatCards()[sendLeafId] || [])
+        .filter(c => (srsMap[c.term.replace(/\s+/g, '')]?.miss || 0) >= 2)
+        .slice(0, 5).map(c => c.term);
+      if (weak.length) {
+        recentSummary += `\n[퀴즈 반복 오답] 학생이 암기 퀴즈에서 거듭 틀린 포인트: ${weak.join(', ')} — 이번 대화에서 기회가 되면 자연스럽게 다시 설명하고 이해를 확인하는 질문을 하라.`;
+      }
+    } catch { /* noop */ }
     const subjStage = getSubjectMeta(subjectId)?.stage || 1;
     // problems 자료 조건부 로딩 — 항상 보내면 캐시 한 자리(약 10K 토큰)를 점유.
     //  · 1차 practice / 2차 mock_full 은 항상 (문제풀이가 주 활동)
