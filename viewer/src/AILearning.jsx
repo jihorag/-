@@ -1980,6 +1980,21 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             <Sparkles size={20} color="#4f46e5" /> AI 학습
           </h2>
         </header>
+        {/* 키가 없어도 무엇을 할 수 있는지 먼저 보여줌 */}
+        <div style={{ maxWidth: 520, margin: '0 auto 4px', padding: 16, background: '#f5f3ff',
+          border: '1px solid #ddd6fe', borderRadius: 12 }}>
+          <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#4f46e5', marginBottom: 8 }}>
+            AI 튜터와 단원별 1:1 학습
+          </div>
+          <ul style={{ margin: 0, paddingLeft: 18, fontSize: '0.82rem', color: '#4b5563', lineHeight: 1.8 }}>
+            <li>교재 전 단원을 대화하며 개념 학습 → 이해 확인 퀴즈</li>
+            <li>문제풀이 중 막히면 「AI 튜터로 이 단원 배우기」로 바로 연결</li>
+            <li>학습 기록 기반 약점 분석·복습 추천</li>
+          </ul>
+          <div style={{ marginTop: 10, fontSize: '0.75rem', color: '#7c3aed' }}>
+            사용하려면 아래에 본인 Claude API 키를 한 번만 등록하세요. (기기에만 저장)
+          </div>
+        </div>
         <ApiKeyForm initial="" onSave={(k) => { setByok(k); setByokState(k); }} />
       </div>
     );

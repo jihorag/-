@@ -478,7 +478,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       </div>
       <main className="main-content" style={{ marginTop: 16 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          {manifest.chapters.filter(c => (c.count || 0) > 0 || c.aiUnit).map(c => {
+          {manifest.chapters.filter(c => c.id !== 'cleanup' && ((c.count || 0) > 0 || c.aiUnit)).map(c => {
             const cd = chapterCache[c.id];
             const done = cd ? cd.questions.filter(q => progress[q.id]?.attempts?.length).length : 0;
             const pct = c.count ? Math.round((done / c.count) * 100) : 0;
@@ -496,8 +496,11 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                 </div>
                 <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 6 }}>
                   {c.count > 0 ? `${c.count}문항` : '준비 중'}
-                  {c.count > 0 && c.matchedAnswer != null ? ` · 답안 ${c.matchedAnswer}/${c.count}` : ''}
-                  {c.rounds?.length ? ` · 회차 ${c.rounds.join(', ')}회` : ''}
+                  {c.count > 0 && c.withAnswer > 0 ? ` · 답안 ${Math.min(c.withAnswer, c.count)}/${c.count}` : ''}
+                  {c.sessionCount ? ` · 모의 ${c.sessionCount}회분` : ''}
+                  {c.rounds?.length ? (c.rounds.length > 8
+                    ? ` · ${c.rounds.length}개 회차 (${c.rounds[0]}~${c.rounds[c.rounds.length - 1]}회)`
+                    : ` · 회차 ${c.rounds.join(', ')}회`) : ''}
                 </div>
                 <div style={{ height: 4, background: '#f3f4f6', borderRadius: 2,
                   marginTop: 8, overflow: 'hidden' }}>
@@ -785,9 +788,18 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   )}
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: '0.88rem', color: '#374151', lineHeight: 1.5,
-                    display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden' }}>
+                  {q.topic && !isPracticeSet && (
+                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#111827',
+                      lineHeight: 1.45, marginBottom: 3,
+                      display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden' }}>
+                      {q.topic}
+                    </div>
+                  )}
+                  <div style={{ fontSize: q.topic && !isPracticeSet ? '0.78rem' : '0.88rem',
+                    color: q.topic && !isPracticeSet ? '#9ca3af' : '#374151', lineHeight: 1.5,
+                    display: '-webkit-box', WebkitLineClamp: q.topic && !isPracticeSet ? 1 : 2,
+                    WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                     {q.body.slice(0, 200).replace(/\n/g, ' ')}
                   </div>
                   <div style={{ marginTop: 6, display: 'flex', gap: 8, flexWrap: 'wrap',
@@ -857,8 +869,14 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
           <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>저장 후 종료</span>
         </button>
         <div style={{ display: 'flex', alignItems: 'center', padding: '6px 12px',
-          fontSize: '0.85rem', color: '#374151', fontWeight: 700 }}>
+          fontSize: '0.85rem', fontWeight: 700,
+          color: currentQuestion.points && elapsed > currentQuestion.points * 60000 ? '#dc2626' : '#374151' }}>
           ⏱ {fmtClock(elapsed)}
+          {currentQuestion.points ? (
+            <span style={{ marginLeft: 6, fontSize: '0.72rem', fontWeight: 600, color: '#9ca3af' }}>
+              / 권장 {currentQuestion.points}분
+            </span>
+          ) : null}
         </div>
       </header>
 
@@ -925,19 +943,33 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         {/* 모범답안 미리보기 (제출 전 확인) */}
         {currentQuestion.modelAnswer && (
           <div style={{ marginBottom: 14 }}>
-            <button onClick={() => setPreviewModelInWrite(p => !p)}
+            <button onClick={() => setPreviewModelInWrite(p => p === true ? false : p === 'ask' ? true : 'ask')}
               style={{ width: '100%', padding: '10px 14px', borderRadius: 10,
-                border: `1px dashed ${previewModelInWrite ? '#16a34a' : '#d1d5db'}`,
-                background: previewModelInWrite ? '#f0fdf4' : '#fff',
-                color: previewModelInWrite ? '#15803d' : '#6b7280',
+                border: `1px dashed ${previewModelInWrite === true ? '#16a34a' : '#d1d5db'}`,
+                background: previewModelInWrite === true ? '#f0fdf4' : '#fff',
+                color: previewModelInWrite === true ? '#15803d' : '#6b7280',
                 fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', textAlign: 'left',
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span>💡 모범답안 미리 보기 {previewModelInWrite ? '(보는 중)' : ''}</span>
+              <span>💡 모범답안 미리 보기 {previewModelInWrite === true ? '(보는 중)' : ''}</span>
               <span style={{ fontSize: '0.72rem', fontWeight: 600 }}>
-                {previewModelInWrite ? '▲ 닫기' : '▼ 펼치기'}
+                {previewModelInWrite === true ? '▲ 닫기' : '▼ 펼치기'}
               </span>
             </button>
-            {previewModelInWrite && (
+            {previewModelInWrite === 'ask' && (
+              <div style={{ marginTop: 8, padding: '10px 14px', background: '#fffbeb',
+                border: '1px solid #fde68a', borderRadius: 10, fontSize: '0.8rem',
+                color: '#92400e', display: 'flex', justifyContent: 'space-between',
+                alignItems: 'center', gap: 10 }}>
+                <span>제출 전에 보면 학습 효과가 줄어요. 직접 작성 후 「제출 → 모범답안 보기」를 권장합니다.</span>
+                <button onClick={() => setPreviewModelInWrite(true)}
+                  style={{ flexShrink: 0, padding: '6px 12px', borderRadius: 8,
+                    border: '1px solid #f59e0b', background: '#fff', color: '#b45309',
+                    fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer' }}>
+                  그래도 보기
+                </button>
+              </div>
+            )}
+            {previewModelInWrite === true && (
               <div style={{ marginTop: 8, padding: 14, background: '#f9fafb',
                 borderRadius: 10, border: '1px solid #e5e7eb',
                 fontSize: 'calc(0.85rem * var(--q-fs, 1))', lineHeight: 1.65,

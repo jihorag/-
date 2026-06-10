@@ -44,6 +44,12 @@ body {
   line-height: 1.5;
 }
 
+/* 데스크톱: 중앙 칼럼과 바깥 배경 구분 */
+@media (min-width: 640px) {
+  body { background-color: #e2e8f0; }
+  .app-container { box-shadow: 0 0 32px rgba(15, 23, 42, 0.10); }
+}
+
 .app-container {
   max-width: 600px;
   margin: 0 auto;
@@ -119,6 +125,10 @@ body {
 }
 
 /* Banner */
+html, body {
+  overflow-x: hidden; /* 모바일 가로 끌림·제목 잘림 방지 */
+}
+
 .banner {
   min-height: 170px;
   background: var(--primary);
@@ -972,8 +982,26 @@ body {
   position: sticky;
   top: 0;
   z-index: 30;
+  background: #fff; /* 스크롤 시 본문과 겹침 방지 */
   box-shadow: var(--shadow-sm);
 }
+
+/* ===== 마크다운 표 — 가로 스크롤 가능 힌트 ===== */
+.md-table-wrap {
+  position: relative;
+  background:
+    linear-gradient(to right, #fff 30%, rgba(255,255,255,0)),
+    linear-gradient(to left, #fff 30%, rgba(255,255,255,0)) 100% 0,
+    radial-gradient(farthest-side at 0 50%, rgba(0,0,0,0.14), rgba(0,0,0,0)),
+    radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,0.14), rgba(0,0,0,0)) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 40px 100%, 40px 100%, 12px 100%, 12px 100%;
+  background-attachment: local, local, scroll, scroll;
+  scrollbar-width: thin;
+}
+.md-table-wrap::-webkit-scrollbar { height: 6px; }
+.md-table-wrap::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+.md-table-wrap table { background: transparent; }
 
 @media (prefers-reduced-motion: reduce) {
   .lightbox { animation: none; }

@@ -367,7 +367,7 @@ export const ParsedText = ({ text }) => {
         }
         if (b.type === 'table') {
           return (
-            <div key={idx} style={{ overflowX: 'auto', margin: '8px 0' }}>
+            <div key={idx} className="md-table-wrap" style={{ overflowX: 'auto', margin: '8px 0' }}>
               <table style={{ borderCollapse: 'collapse', fontSize: '0.85em',
                 width: '100%', minWidth: 'max-content' }}>
                 <thead>

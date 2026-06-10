@@ -1,14 +1,14 @@
 {
  "built_at": "2026-05-31T06:04:01.250547+00:00",
  "subject": "감정평가실무",
- "total": 2125,
+ "total": 1260,
  "chapters": [
   {
    "id": "1",
    "title": "감정평가실무 기초",
    "file": "1.json",
    "count": 425,
-   "withAnswer": 0,
+   "withAnswer": 121,
    "generatedCount": 0,
    "subchapters": [
     {
@@ -33,21 +33,37 @@
     }
    ],
    "aiUnit": true,
-   "practiceCount": 425
+   "practiceCount": 425,
+   "matchedAnswer": 121,
+   "rounds": []
   },
   {
    "id": "2a",
    "title": "3방식 기초 — 공시지가·거래사례·원가",
    "file": "2a.json",
-   "count": 145,
-   "withAnswer": 318,
-   "matchedAnswer": 304,
+   "count": 262,
+   "withAnswer": 116,
+   "matchedAnswer": 116,
    "rounds": [
     1,
+    3,
+    4,
     5,
-    18,
+    7,
+    8,
+    9,
+    10,
+    11,
+    16,
+    19,
+    21,
+    23,
     25,
+    27,
+    29,
     31,
+    33,
+    34,
     35
    ],
    "generatedCount": 6,
@@ -130,22 +146,40 @@
      "title": "실질임료·계약임료"
     }
    ],
-   "aiUnit": true
+   "aiUnit": true,
+   "matchedAnswer": 0,
+   "rounds": []
   },
   {
    "id": "3",
    "title": "건물·복합·구분·임대료",
    "file": "3.json",
    "count": 76,
-   "withAnswer": 267,
-   "matchedAnswer": 61,
+   "withAnswer": 52,
+   "matchedAnswer": 52,
    "rounds": [
+    1,
+    2,
     4,
+    5,
+    8,
+    11,
+    12,
     13,
+    14,
     15,
+    16,
+    17,
+    18,
     22,
-    23,
-    32
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    32,
+    33
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -182,10 +216,21 @@
    "title": "유형별 평가",
    "file": "4.json",
    "count": 41,
-   "withAnswer": 252,
-   "matchedAnswer": 4,
+   "withAnswer": 28,
+   "matchedAnswer": 28,
    "rounds": [
-    24
+    1,
+    3,
+    5,
+    6,
+    13,
+    17,
+    19,
+    22,
+    24,
+    27,
+    28,
+    29
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -218,15 +263,27 @@
    "title": "비가치추계·기업가치·무형자산",
    "file": "5.json",
    "count": 57,
-   "withAnswer": 266,
-   "matchedAnswer": 34,
+   "withAnswer": 31,
+   "matchedAnswer": 31,
    "rounds": [
+    2,
+    5,
+    6,
+    8,
     10,
-    12,
+    13,
     14,
-    16,
+    15,
     17,
-    29,
+    18,
+    20,
+    21,
+    23,
+    30,
+    31,
+    33,
+    34,
+    35,
     36
    ],
    "generatedCount": 0,
@@ -264,13 +321,22 @@
    "title": "토지보상 기본·원칙",
    "file": "6a.json",
    "count": 46,
-   "withAnswer": 260,
-   "matchedAnswer": 22,
+   "withAnswer": 27,
+   "matchedAnswer": 27,
    "rounds": [
     2,
     3,
+    7,
     9,
-    19
+    12,
+    13,
+    14,
+    18,
+    19,
+    21,
+    32,
+    33,
+    35
    ],
    "generatedCount": 5,
    "subchapters": [
@@ -307,12 +373,27 @@
    "title": "토지보상 — 공법상제한·특수",
    "file": "6b.json",
    "count": 29,
-   "withAnswer": 258,
-   "matchedAnswer": 12,
+   "withAnswer": 11,
+   "matchedAnswer": 11,
    "rounds": [
+    5,
+    6,
+    7,
     8,
+    9,
+    10,
+    11,
+    12,
+    15,
+    21,
+    24,
+    25,
+    26,
     28,
-    34
+    29,
+    30,
+    34,
+    36
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -349,12 +430,21 @@
    "title": "건축물·영업·기타 보상",
    "file": "7.json",
    "count": 23,
-   "withAnswer": 259,
-   "matchedAnswer": 13,
+   "withAnswer": 10,
+   "matchedAnswer": 10,
    "rounds": [
+    1,
+    3,
     11,
+    12,
+    15,
+    16,
+    17,
+    19,
     26,
-    27
+    27,
+    31,
+    32
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -391,13 +481,24 @@
    "title": "목적별 평가",
    "file": "8a.json",
    "count": 41,
-   "withAnswer": 258,
-   "matchedAnswer": 18,
+   "withAnswer": 20,
+   "matchedAnswer": 20,
    "rounds": [
     6,
+    9,
+    12,
+    13,
+    16,
+    17,
+    18,
     20,
-    21,
-    30
+    22,
+    23,
+    24,
+    26,
+    31,
+    32,
+    36
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -434,11 +535,22 @@
    "title": "표준지·정비·불의타",
    "file": "8b.json",
    "count": 27,
-   "withAnswer": 251,
-   "matchedAnswer": 7,
+   "withAnswer": 14,
+   "matchedAnswer": 14,
    "rounds": [
+    2,
+    6,
     7,
-    33
+    12,
+    17,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    34,
+    35
    ],
    "generatedCount": 0,
    "subchapters": [
@@ -475,8 +587,8 @@
    "title": "🧹 정리중 (보강 대기)",
    "file": "cleanup.json",
    "count": 982,
-   "withAnswer": 0,
-   "matchedAnswer": 0,
+   "withAnswer": 982,
+   "matchedAnswer": 982,
    "rounds": [],
    "generatedCount": 0,
    "subchapters": []
@@ -487,29 +599,8 @@
    "file": "gs0.json",
    "count": 77,
    "withAnswer": 77,
-   "matchedAnswer": 0,
-   "rounds": [
-    101,
-    102,
-    201,
-    202,
-    301,
-    302,
-    401,
-    402,
-    501,
-    502,
-    601,
-    602,
-    701,
-    702,
-    801,
-    802,
-    901,
-    902,
-    1001,
-    1002
-   ],
+   "matchedAnswer": 77,
+   "rounds": [],
    "generatedCount": 0,
    "subchapters": [
     {
@@ -559,7 +650,8 @@
     "7": 1,
     "8a": 4,
     "8b": 2
-   }
+   },
+   "sessionCount": 20
   },
   {
    "id": "gs1",
@@ -567,29 +659,8 @@
    "file": "gs1.json",
    "count": 81,
    "withAnswer": 77,
-   "matchedAnswer": 81,
-   "rounds": [
-    101,
-    102,
-    201,
-    202,
-    301,
-    302,
-    401,
-    402,
-    501,
-    502,
-    601,
-    602,
-    701,
-    702,
-    801,
-    802,
-    901,
-    902,
-    1001,
-    1002
-   ],
+   "matchedAnswer": 77,
+   "rounds": [],
    "generatedCount": 0,
    "subchapters": [
     {
@@ -639,7 +710,8 @@
     "7": 5,
     "8a": 10,
     "8b": 4
-   }
+   },
+   "sessionCount": 20
   },
   {
    "id": "gs2",
@@ -647,19 +719,8 @@
    "file": "gs2.json",
    "count": 36,
    "withAnswer": 36,
-   "matchedAnswer": 47,
-   "rounds": [
-    101,
-    201,
-    301,
-    401,
-    501,
-    601,
-    701,
-    801,
-    901,
-    1001
-   ],
+   "matchedAnswer": 36,
+   "rounds": [],
    "generatedCount": 0,
    "subchapters": [
     {
@@ -704,7 +765,8 @@
     "7": 2,
     "8a": 4,
     "8b": 7
-   }
+   },
+   "sessionCount": 10
   },
   {
    "id": "gs3",
@@ -712,19 +774,8 @@
    "file": "gs3.json",
    "count": 39,
    "withAnswer": 39,
-   "matchedAnswer": 0,
-   "rounds": [
-    101,
-    201,
-    301,
-    401,
-    501,
-    601,
-    701,
-    801,
-    901,
-    1001
-   ],
+   "matchedAnswer": 39,
+   "rounds": [],
    "generatedCount": 0,
    "subchapters": [
     {
@@ -774,7 +825,8 @@
     "7": 2,
     "8a": 3,
     "8b": 1
-   }
+   },
+   "sessionCount": 10
   },
   {
    "id": "kichul",
@@ -783,9 +835,7 @@
    "count": 0,
    "withAnswer": 0,
    "matchedAnswer": 0,
-   "rounds": [
-    1
-   ],
+   "rounds": [],
    "generatedCount": 0,
    "subchapters": []
   },
@@ -794,13 +844,9 @@
    "title": "기출 전회차 (단원 미분류)",
    "file": "past.json",
    "count": 0,
-   "withAnswer": 6,
-   "matchedAnswer": 6,
-   "rounds": [
-    33,
-    35,
-    36
-   ],
+   "withAnswer": 0,
+   "matchedAnswer": 0,
+   "rounds": [],
    "generatedCount": 0
   }
  ],

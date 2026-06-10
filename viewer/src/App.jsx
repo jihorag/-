@@ -688,7 +688,7 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
         </span>
         <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
-            {q.exam} {q.year}년 {q.number}번
+            {q.exam}{q.year ? ` ${q.year}년` : ''}{q.number ? ` ${q.number}번` : ''}
           </span>
           {onToggleBookmark && (() => {
             const m = bmReason ? BM_META[bmReason] : null;
@@ -2315,7 +2315,7 @@ const App = () => {
       review: true,
       backView,                       // 학습 종료 후 복귀할 화면(review | today)
       title,
-      subtitle: backView === 'today' ? '오늘 복습' : backView === 'search' ? '검색 학습' : backView === 'status' ? '북마크 복습' : '오답 복습',
+      subtitle: backView === 'today' ? '오늘 복습' : backView === 'search' ? '검색 학습' : backView === 'status' ? '북마크 복습' : backView === 'quizHome' ? '랜덤 퀴즈' : '오답 복습',
       filterFn: (q) => set.has(qid(q)),
     });
     setStudyIdx(0);
@@ -5129,11 +5129,18 @@ const App = () => {
   // ===== 퀴즈 탭 =====
   if (currentView === 'quizHome') {
     const QUIZ_MODES = [
-      { id: 'random', icon: '🎲', label: '랜덤 퀴즈', desc: '과목 구분 없이 섞어서', color: '#3182F6', bg: '#EFF6FF', border: '#BFDBFE' },
+      { id: 'random', icon: '🎲', label: '랜덤 퀴즈', desc: '과목 구분 없이 20문제', color: '#3182F6', bg: '#EFF6FF', border: '#BFDBFE', ready: true },
       { id: 'time',   icon: '⏱', label: '타임어택', desc: '제한 시간 안에 최대한', color: '#7C3AED', bg: '#F5F3FF', border: '#DDD6FE' },
       { id: 'unit',   icon: '🎯', label: '단원 집중', desc: '약한 단원만 골라서',   color: '#059669', bg: '#ECFDF5', border: '#A7F3D0' },
       { id: 'battle', icon: '🏆', label: '도전 모드', desc: '오답률 TOP 문제에 도전', color: '#D97706', bg: '#FFFBEB', border: '#FDE68A' },
     ];
+    const startRandomQuiz = () => {
+      // 전 과목에서 무작위 20문 (미학습 우선, 모자라면 전체에서 충당)
+      const shuffled = [...classifiedList].sort(() => Math.random() - 0.5);
+      const unseen = shuffled.filter(q => !progress[qid(q)]);
+      const picked = [...unseen, ...shuffled.filter(q => progress[qid(q)])].slice(0, 20);
+      if (picked.length) startReview(picked.map(qid), '🎲 랜덤 퀴즈', 'quizHome');
+    };
     return shell(
       <div className="app-container">
         {/* 헤더 배너 */}
@@ -5159,30 +5166,34 @@ const App = () => {
             background: '#F8FAFC', border: '1px dashed #CBD5E1',
             display: 'flex', alignItems: 'center', gap: 10,
           }}>
-            <span style={{ fontSize: '1.4rem' }}>🚧</span>
+            <span style={{ fontSize: '1.4rem' }}>🎲</span>
             <div>
-              <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#475569' }}>퀴즈 모드 개발 중</div>
-              <div style={{ fontSize: '0.78rem', color: '#94A3B8', marginTop: 2 }}>아래 모드들이 순차적으로 오픈돼요</div>
+              <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#475569' }}>랜덤 퀴즈 오픈!</div>
+              <div style={{ fontSize: '0.78rem', color: '#94A3B8', marginTop: 2 }}>나머지 모드는 순차적으로 오픈돼요</div>
             </div>
           </div>
 
           {/* 모드 카드 2×2 그리드 */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             {QUIZ_MODES.map((m) => (
-              <div key={m.id} style={{
-                background: m.bg, border: `1.5px solid ${m.border}`,
-                borderRadius: 18, padding: '20px 16px',
-                display: 'flex', flexDirection: 'column', gap: 8,
-                opacity: 0.85,
-              }}>
+              <div key={m.id} role={m.ready ? 'button' : undefined}
+                onClick={m.ready ? startRandomQuiz : undefined}
+                style={{
+                  background: m.bg, border: `1.5px solid ${m.border}`,
+                  borderRadius: 18, padding: '20px 16px',
+                  display: 'flex', flexDirection: 'column', gap: 8,
+                  opacity: m.ready ? 1 : 0.7,
+                  cursor: m.ready ? 'pointer' : 'default',
+                  boxShadow: m.ready ? '0 2px 8px rgba(49,130,246,0.18)' : 'none',
+                }}>
                 <div style={{ fontSize: '2rem', lineHeight: 1 }}>{m.icon}</div>
                 <div>
                   <div style={{ fontSize: '1rem', fontWeight: 800, color: m.color, letterSpacing: '-0.01em' }}>{m.label}</div>
                   <div style={{ fontSize: '0.76rem', color: '#6B7280', marginTop: 3 }}>{m.desc}</div>
                 </div>
                 <div style={{ marginTop: 4 }}>
-                  <span style={{ fontSize: '0.68rem', fontWeight: 700, background: '#fff', color: m.color, border: `1px solid ${m.border}`, padding: '3px 9px', borderRadius: 999 }}>
-                    준비 중
+                  <span style={{ fontSize: '0.68rem', fontWeight: 700, background: m.ready ? m.color : '#fff', color: m.ready ? '#fff' : m.color, border: `1px solid ${m.border}`, padding: '3px 9px', borderRadius: 999 }}>
+                    {m.ready ? '바로 시작 →' : '준비 중'}
                   </span>
                 </div>
               </div>
