@@ -137,11 +137,41 @@ export function memProgressOf(mem, leafId) {
 
 // ───────────────────────── 메인 컴포넌트 ─────────────────────────
 // 자체 내비: subjects → leaves → train(허브+훈련). App은 quizHome 뷰에서 이 컴포넌트만 렌더.
+// 문제풀이 드릴과 동일한 토스 스타일 리스트 행 (browse-row CSS 공유)
+function splitRowPrefix(title) {
+  const m = (title || '').match(/^(PART\s*\d+|Chapter\s*\d+|제\d+(?:장|절|관|편)|\d+절)\s+(.+)$/);
+  if (m) return { prefix: m[1], rest: m[2] };
+  return { prefix: null, rest: title };
+}
+function MemRow({ title, countLabel, pct, showBar, meta, onClick }) {
+  const { prefix, rest } = splitRowPrefix(title);
+  return (
+    <button className="browse-row" onClick={onClick}>
+      <div className="browse-row__main">
+        <div className="browse-row__title">
+          {prefix && <span className="browse-row__prefix">{prefix}</span>}
+          {rest}
+        </div>
+        {showBar && <div className="browse-row__bar"><div style={{ width: `${Math.max(2, pct)}%` }} /></div>}
+        {meta && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 5,
+            fontSize: '0.68rem', color: '#6b7280' }}>{meta}</div>
+        )}
+      </div>
+      <div className="browse-row__meta">
+        {showBar && pct > 0 && <span className="browse-row__pct">{pct}%</span>}
+        <span className="browse-row__count">{countLabel}</span>
+        <span className="browse-row__chev">›</span>
+      </div>
+    </button>
+  );
+}
+
 export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolve, onGoAI }) {
   const [screen, setScreen] = useState('subjects'); // subjects | leaves | train
   const [subjectId, setSubjectId] = useState(null);
   const [leaves, setLeaves] = useState([]);
-  const [rootFilter, setRootFilter] = useState(null);
+  const [pathStack, setPathStack] = useState([]);   // 계층 드릴다운 경로 (문제풀이와 동일 탐색)
   const [leaf, setLeaf] = useState(null);
   const [mem, setMem] = useState(loadMem);
 
@@ -187,7 +217,7 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                 {SUBJECTS.filter(s => s.stage === stage).map(s => (
                   <button key={s.id}
-                    onClick={() => { setSubjectId(s.id); setRootFilter(null); setScreen('leaves'); }}
+                    onClick={() => { setSubjectId(s.id); setPathStack([]); setScreen('leaves'); }}
                     style={{ padding: '16px 14px', textAlign: 'left', cursor: 'pointer',
                       background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14,
                       boxShadow: '0 2px 8px rgba(15,23,42,0.05)' }}>
@@ -204,79 +234,92 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
     );
   }
 
-  // ── 화면 2: 단원 목차 (AI 학습과 동일 leaves) + 브리지 상태 ──
+  // ── 화면 2: 단원 드릴다운 — 문제풀이와 동일한 계층 탐색 UI (browse-row) ──
   if (screen === 'leaves') {
-    const roots = [...new Set(leaves.map(l => l.path?.[0]).filter(Boolean))];
-    const visible = leaves.filter(l => !rootFilter || l.path?.[0] === rootFilter);
+    // 현재 경로(pathStack) 하위의 다음 레벨 그룹/절 계산
+    const under = leaves.filter(l => pathStack.every((seg, i) => l.path?.[i] === seg));
+    const depth = pathStack.length;
+    const groupsMap = new Map(); // seg → leaves[]
+    const leafRows = [];
+    for (const l of under) {
+      if ((l.path?.length || 0) === depth + 1) leafRows.push(l);
+      else {
+        const seg = l.path?.[depth];
+        if (!seg) continue;
+        if (!groupsMap.has(seg)) groupsMap.set(seg, []);
+        groupsMap.get(seg).push(l);
+      }
+    }
+    const dot = (on, color, half) => (
+      <span style={{ width: 8, height: 8, borderRadius: '50%', display: 'inline-block',
+        background: on ? color : half ? `${color}55` : '#e5e7eb' }} />
+    );
+    const memPctOf = (ls) => {
+      let known = 0, total = 0;
+      for (const l of ls) {
+        const mp = memProgressOf(mem, l.id);
+        known += mp.known; total += mp.total;
+      }
+      return total > 0 ? Math.round((known / total) * 100) : 0;
+    };
     return (
       <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
-          <button className="back-btn" onClick={() => setScreen('subjects')}>
+          <button className="back-btn"
+            onClick={() => (depth === 0 ? setScreen('subjects') : setPathStack(p => p.slice(0, -1)))}>
             <ArrowLeft size={24} style={{ marginRight: 8 }} />
-            <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>과목</span>
+            <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>
+              {depth === 0 ? '과목' : '뒤로가기'}
+            </span>
           </button>
         </header>
         <div className="screen-head">
-          <h1 className="screen-title">{subj?.icon} {subj?.title} 암기</h1>
+          {/* 문제풀이와 동일한 브레드크럼 */}
+          <div style={{ fontSize: '0.74rem', color: '#9ca3af', fontWeight: 600, marginBottom: 4 }}>
+            {subj?.short} 암기{pathStack.map((s, i) => <span key={i}> ▸ {s}</span>)}
+          </div>
+          <h1 className="screen-title">
+            {subj?.icon} {pathStack.length ? pathStack[pathStack.length - 1] : `${subj?.title}`}
+          </h1>
           <p style={{ fontSize: '0.78rem', color: '#6b7280', marginTop: 4 }}>
-            🤖 이해 → ⚡ 암기 → ✍️ 적용 — 단원별 3단계 진행을 한눈에
+            🤖 이해 → ⚡ 암기 → ✍️ 적용
           </p>
         </div>
         <main className="main-content" style={{ marginTop: 10 }}>
-          {roots.length > 1 && (
-            <div style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 8, marginBottom: 8 }}>
-              <button onClick={() => setRootFilter(null)}
-                style={{ flexShrink: 0, padding: '6px 12px', borderRadius: 999, fontSize: '0.76rem', fontWeight: 700,
-                  border: `1.5px solid ${!rootFilter ? '#7c3aed' : '#d1d5db'}`,
-                  background: !rootFilter ? '#f5f3ff' : '#fff',
-                  color: !rootFilter ? '#5b21b6' : '#6b7280', cursor: 'pointer' }}>
-                전체
-              </button>
-              {roots.map(r => (
-                <button key={r} onClick={() => setRootFilter(r)}
-                  style={{ flexShrink: 0, padding: '6px 12px', borderRadius: 999, fontSize: '0.76rem', fontWeight: 700,
-                    border: `1.5px solid ${rootFilter === r ? '#7c3aed' : '#d1d5db'}`,
-                    background: rootFilter === r ? '#f5f3ff' : '#fff',
-                    color: rootFilter === r ? '#5b21b6' : '#6b7280', cursor: 'pointer', whiteSpace: 'nowrap' }}>
-                  {r}
-                </button>
-              ))}
-            </div>
-          )}
-          {visible.length === 0 && (
+          {leaves.length === 0 && (
             <div style={{ padding: 30, textAlign: 'center', color: '#9ca3af', fontSize: '0.85rem' }}>목차 불러오는 중…</div>
           )}
-          {visible.map(l => {
-            const ai = aiMastery[l.id]?.status; // 'mastered' | 'in_progress' | undefined
+          {/* 그룹 행 (장·편 — 문제풀이 BrowseRow와 동일 룩) */}
+          {[...groupsMap.entries()].map(([seg, ls]) => {
+            const pct = memPctOf(ls);
+            return (
+              <MemRow key={seg} title={seg} countLabel={`${ls.length}개 절`}
+                pct={pct} showBar={pct > 0}
+                onClick={() => setPathStack(p => [...p, seg])} />
+            );
+          })}
+          {/* 절(leaf) 행 — 브리지 3단계 상태를 메타로 */}
+          {leafRows.map(l => {
+            const ai = aiMastery[l.id]?.status;
             const mp = memProgressOf(mem, l.id);
             const qs = leafQuizStats(l, classifiedList, progress, qid);
-            const dot = (on, color, half) => (
-              <span style={{ width: 9, height: 9, borderRadius: '50%', display: 'inline-block',
-                background: on ? color : half ? `${color}55` : '#e5e7eb' }} />
-            );
             return (
-              <button key={l.id} onClick={() => { setLeaf(l); setScreen('train'); }}
-                style={{ width: '100%', textAlign: 'left', background: '#fff', borderRadius: 12,
-                  border: '1px solid #e5e7eb', padding: '12px 14px', marginBottom: 8, cursor: 'pointer' }}>
-                <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginBottom: 3 }}>
-                  {(l.path || []).slice(0, -1).join(' › ')}
-                </div>
-                <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#111827', lineHeight: 1.4 }}>
-                  {l.title || l.path?.slice(-1)[0]}
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 7, fontSize: '0.7rem', color: '#6b7280' }}>
+              <MemRow key={l.id} title={l.title || l.path?.slice(-1)[0]}
+                countLabel={mp.total > 0 ? `${mp.pct}%` : '암기'}
+                pct={mp.pct} showBar={mp.pct > 0}
+                meta={<>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
                     {dot(ai === 'mastered', '#4f46e5', ai === 'in_progress')} 🤖 이해
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                    {dot(mp.pct >= 80, '#7c3aed', mp.pct > 0)} ⚡ 암기 {mp.total > 0 ? `${mp.pct}%` : ''}
+                    {dot(mp.pct >= 80, '#7c3aed', mp.pct > 0)} ⚡ 암기
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
                     {dot(qs.total > 0 && qs.accuracy >= 0.8 && qs.coverage >= 0.5, '#059669', qs.answered > 0)}
-                    ✍️ 적용 {qs.answered > 0 ? `${Math.round(qs.accuracy * 100)}%` : qs.total > 0 ? `${qs.total}문` : ''}
+                    ✍️ 적용{qs.answered > 0 ? ` ${Math.round(qs.accuracy * 100)}%` : ''}
                   </span>
-                </div>
-              </button>
+                </>}
+                onClick={() => { setLeaf(l); setScreen('train'); }} />
             );
           })}
         </main>
