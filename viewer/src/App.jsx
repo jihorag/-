@@ -706,6 +706,173 @@ function VariantChallenge({ q, wasWrong }) {
   );
 }
 
+// ✨ 홈 AI 검색 — "모르는 건 뭐든지 물어보세요". 단원 선택 없이 어떤 개념·산식·조문이든
+// 즉답하는 전역 질문 창구. BYOK Claude 직호출, 대화는 localStorage에 최근 1세션 유지.
+const ASKAI_KEY = 'quiz-askai-session-v1';
+const ASKAI_SYSTEM = `당신은 한국 감정평가사 시험 전문 AI 튜터입니다.
+- 1차(민법·경제학원론·부동산학원론·회계학·감정평가관계법규)와 2차(감정평가실무·이론·보상법규) 전 과목을 다룹니다.
+- 수험생 눈높이로 간결하게: 핵심 정의 → 시험 포인트 → 짧은 예시 순. 불필요한 서론 금지.
+- 산식은 KaTeX($...$), 비교는 마크다운 표 사용. 근거 조문이 있으면 명시(예: 감칙 §14, 토지보상법 §70).
+- 답 끝에 관련 과목·단원을 한 줄로 안내 (예: "→ 2차 실무 · 토지보상 단원").
+- 확실하지 않으면 모른다고 말하고 추측을 사실처럼 말하지 마세요.`;
+const ASKAI_CHIPS = [
+  '환원이율과 할인율 차이가 뭐야?',
+  '사실상 사도는 왜 1/3로 보상해?',
+  '유량과 저량 예시 들어줘',
+  '그 밖의 요인 보정 산식 알려줘',
+  '미지급용지 평가기준은?',
+];
+
+function AskAI({ onBack }) {
+  const [messages, setMessages] = useState(() => {
+    try { return JSON.parse(localStorage.getItem(ASKAI_KEY) || '[]') || []; } catch { return []; }
+  });
+  const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const bottomRef = useRef(null);
+  const hasKey = (localStorage.getItem('ailearn-byok') || '').startsWith('sk-');
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, loading]);
+
+  const persist = (arr) => {
+    try { localStorage.setItem(ASKAI_KEY, JSON.stringify(arr.slice(-20))); } catch { /* full */ }
+  };
+
+  const ask = async (text) => {
+    const q = (text || input).trim();
+    if (!q || loading) return;
+    const key = localStorage.getItem('ailearn-byok') || '';
+    if (!key.startsWith('sk-')) { setError('nokey'); return; }
+    const next = [...messages, { role: 'user', content: q }];
+    setMessages(next); persist(next);
+    setInput(''); setLoading(true); setError('');
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json', 'x-api-key': key,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true',
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6', max_tokens: 1600,
+          system: ASKAI_SYSTEM,
+          messages: next.slice(-12).map(m => ({ role: m.role, content: m.content })),
+        }),
+      });
+      if (!res.ok) throw new Error(`API ${res.status}`);
+      const data = await res.json();
+      const out = (data.content || []).map(b => b.text || '').join('');
+      const fin = [...next, { role: 'assistant', content: out }];
+      setMessages(fin); persist(fin);
+    } catch (e) {
+      setError(e.message || '요청 실패');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="app-container" style={{ display: 'flex', flexDirection: 'column',
+      height: 'calc(100dvh - 64px - env(safe-area-inset-bottom, 0px))', background: '#f8fafc' }}>
+      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', flexShrink: 0,
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <button className="back-btn" onClick={onBack}>
+          <ArrowLeft size={24} style={{ marginRight: 8 }} />
+          <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>홈</span>
+        </button>
+        <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827', paddingRight: 8 }}>
+          ✨ AI에게 뭐든 물어보기
+        </span>
+        {messages.length > 0 ? (
+          <button onClick={() => { setMessages([]); persist([]); }} aria-label="대화 지우기"
+            style={{ border: 'none', background: 'none', color: '#9ca3af', cursor: 'pointer',
+              fontSize: '0.75rem', fontWeight: 700, padding: '6px 10px' }}>
+            지우기
+          </button>
+        ) : <span style={{ width: 52 }} />}
+      </header>
+
+      <main style={{ flex: 1, overflowY: 'auto', padding: '14px 16px' }}>
+        {messages.length === 0 && (
+          <div style={{ marginTop: 28, textAlign: 'center' }}>
+            <div style={{ fontSize: '2.4rem' }}>✨</div>
+            <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#111827', marginTop: 8 }}>
+              모르는 건 뭐든지 물어보세요
+            </div>
+            <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 6, lineHeight: 1.6 }}>
+              개념·산식·조문·판례, 1차든 2차든.<br />과목 선택 없이 바로 답해드려요.
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center', marginTop: 18 }}>
+              {ASKAI_CHIPS.map((c, i) => (
+                <button key={i} onClick={() => ask(c)}
+                  style={{ padding: '8px 13px', borderRadius: 999, border: '1px solid #c7d2fe',
+                    background: '#eef2ff', color: '#3730a3', fontSize: '0.78rem', fontWeight: 600,
+                    cursor: 'pointer' }}>
+                  {c}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+        {messages.map((m, i) => (
+          <div key={i} style={{ display: 'flex',
+            justifyContent: m.role === 'user' ? 'flex-end' : 'flex-start', margin: '8px 0' }}>
+            <div style={{ maxWidth: m.role === 'user' ? '80%' : '96%', padding: '11px 14px',
+              borderRadius: 14, fontSize: '0.92rem', lineHeight: 1.65,
+              background: m.role === 'user' ? '#4f46e5' : '#fff',
+              color: m.role === 'user' ? '#fff' : '#111827',
+              border: m.role === 'user' ? 'none' : '1px solid #e5e7eb',
+              whiteSpace: m.role === 'user' ? 'pre-wrap' : 'normal', wordBreak: 'break-word' }}>
+              {m.role === 'user' ? m.content : <ParsedText text={m.content} />}
+            </div>
+          </div>
+        ))}
+        {loading && (
+          <div style={{ color: '#6b7280', fontSize: '0.85rem', padding: '8px 4px' }}>
+            ✨ 생각 중…
+          </div>
+        )}
+        {error === 'nokey' && (
+          <div style={{ marginTop: 10, padding: '10px 14px', background: '#fffbeb',
+            border: '1px solid #fde68a', borderRadius: 10, fontSize: '0.82rem', color: '#92400e' }}>
+            AI 학습 탭에서 Claude API 키를 한 번만 등록하면 바로 사용할 수 있어요. (기기에만 저장)
+          </div>
+        )}
+        {error && error !== 'nokey' && (
+          <div style={{ marginTop: 10, fontSize: '0.8rem', color: '#dc2626' }}>
+            요청 실패({error}) — 다시 시도해주세요.
+          </div>
+        )}
+        <div ref={bottomRef} />
+      </main>
+
+      <div style={{ flexShrink: 0, padding: '10px 12px', background: '#fff',
+        borderTop: '1px solid #e5e7eb', display: 'flex', gap: 6, alignItems: 'flex-end' }}>
+        <textarea value={input} onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) { e.preventDefault(); ask(); }
+          }}
+          placeholder={hasKey ? '모르는 건 뭐든지 물어보세요' : 'AI 학습 탭에서 API 키 등록 후 사용'}
+          rows={1}
+          style={{ flex: 1, padding: '11px 13px', border: '1px solid #d1d5db', borderRadius: 12,
+            fontSize: '16px', resize: 'none', fontFamily: 'inherit' }} />
+        <button onClick={() => ask()} disabled={!input.trim() || loading}
+          aria-label="질문 보내기"
+          style={{ padding: '11px 16px', borderRadius: 12, border: 'none', fontWeight: 800,
+            background: input.trim() && !loading ? '#4f46e5' : '#e5e7eb',
+            color: input.trim() && !loading ? '#fff' : '#9ca3af',
+            cursor: input.trim() && !loading ? 'pointer' : 'default' }}>
+          ✨
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // Interactive Question Component
 // 연습문제 선지별 메타(왜 옳은지/틀렸는지 · 조문 · 법리 · 판례 요지) — 채점 후 표시.
 function OptionMeta({ om, selected }) {
@@ -2557,7 +2724,7 @@ const App = () => {
       || currentView === 'mock' || currentView === 'mockResult'
       || currentView === 'essay_subjects' || currentView === 'essay_chapters'
       || currentView === 'essay_questions' || currentView === 'essay_result'
-      || currentView === 'essay_cards') ? 'home'
+      || currentView === 'essay_cards' || currentView === 'askAI') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'browse'
     : currentView === 'quizHome' ? 'quiz'
     : currentView === 'planner' ? 'planner'
@@ -3197,6 +3364,11 @@ const App = () => {
 
   // 2차 essay 모드 — 5 sub-view (subjects/chapters/questions/write/result)
   // write는 집중 모드(no shell), 나머지는 하단 nav 유지
+  // ✨ 홈 AI 전체 검색 — 모르는 건 뭐든지
+  if (currentView === 'askAI') {
+    return shell(<AskAI onBack={() => setCurrentView('home')} />);
+  }
+
   if (currentView === 'essay_subjects' || currentView === 'essay_chapters'
       || currentView === 'essay_questions' || currentView === 'essay_result'
       || currentView === 'essay_cards') {
@@ -4845,6 +5017,25 @@ const App = () => {
             </button>
           );
         })()}
+
+        {/* ✨ AI 전체 검색 — 모르는 건 뭐든지 */}
+        <button onClick={() => setCurrentView('askAI')}
+          style={{ width: '100%', marginBottom: 14, padding: '14px 16px', borderRadius: 14,
+            border: '1.5px solid #c7d2fe', cursor: 'pointer', textAlign: 'left',
+            background: 'linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%)',
+            display: 'flex', alignItems: 'center', gap: 12,
+            boxShadow: '0 2px 10px rgba(79,70,229,0.10)' }}>
+          <span style={{ fontSize: '1.5rem' }}>✨</span>
+          <span style={{ flex: 1 }}>
+            <span style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: '#3730a3' }}>
+              모르는 건 뭐든지 물어보세요
+            </span>
+            <span style={{ display: 'block', fontSize: '0.76rem', color: '#6b7280', marginTop: 2 }}>
+              개념·산식·조문·판례 — 과목 선택 없이 AI가 바로 답해요
+            </span>
+          </span>
+          <span style={{ color: '#4f46e5', fontWeight: 800 }}>→</span>
+        </button>
 
         {/* ⚡ 4탭 빠른 진입 — AI학습·문제풀이·복습·현황 통합 허브 */}
         {(() => {
