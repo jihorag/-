@@ -10,6 +10,7 @@ import { ArrowLeft } from 'lucide-react';
 import { SUBJECTS, getMastery as getAiMastery } from './aiLearningStore';
 import { sliceSection } from './aiClaudeClient';
 import { leafQuizStats } from './leafStats';
+import { loadChatCards } from './AILearning';
 
 const MEM_KEY = 'quiz-mem-v1';
 const SRS_DAYS = [1, 3, 7, 14, 30];
@@ -127,12 +128,13 @@ function clozeText(card) {
   return blanked === card.def ? null : blanked;
 }
 
-// leaf의 암기 진행률 (아는 카드 비율)
-export function memProgressOf(mem, leafId) {
+// leaf의 암기 진행률 (아는 카드 비율) — total은 채팅카드 실수량 우선
+export function memProgressOf(mem, leafId, totalOverride) {
   const m = mem[leafId];
-  if (!m || !m.total) return { pct: 0, known: 0, total: m?.total || 0, outlineDone: !!m?.outlineDone };
-  const known = Object.values(m.srs || {}).filter(s => s.box >= 2).length;
-  return { pct: Math.round((known / m.total) * 100), known, total: m.total, outlineDone: !!m.outlineDone };
+  const total = totalOverride != null ? totalOverride : (m?.total || 0);
+  if (!total) return { pct: 0, known: 0, total: 0, outlineDone: !!m?.outlineDone };
+  const known = Math.min(total, Object.values(m?.srs || {}).filter(s => s.box >= 2).length);
+  return { pct: Math.round((known / total) * 100), known, total, outlineDone: !!m?.outlineDone };
 }
 
 // ───────────────────────── 메인 컴포넌트 ─────────────────────────
@@ -207,7 +209,7 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
           <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.85)', fontWeight: 700, letterSpacing: '0.05em' }}>MEMORIZE</div>
           <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', lineHeight: 1.2, marginTop: 4 }}>⚡ 퀴즈 — 교재 암기</div>
           <div style={{ fontSize: '0.84rem', color: 'rgba(255,255,255,0.9)', marginTop: 6, fontWeight: 500 }}>
-            🤖 AI 학습으로 이해 → ⚡ 퀴즈로 암기 → ✍️ 문제풀이로 적용
+            AI 학습 대화에서 자동 출제된 <b>내 카드</b>로 암기 — 이해 → 암기 → 적용
           </div>
         </div>
         <main className="main-content" style={{ marginTop: 18 }}>
@@ -236,6 +238,8 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
 
   // ── 화면 2: 단원 드릴다운 — 문제풀이와 동일한 계층 탐색 UI (browse-row) ──
   if (screen === 'leaves') {
+    const chatCards = loadChatCards();
+    const cardsOf = (id) => (chatCards[id] || []).length;
     // 현재 경로(pathStack) 하위의 다음 레벨 그룹/절 계산
     const under = leaves.filter(l => pathStack.every((seg, i) => l.path?.[i] === seg));
     const depth = pathStack.length;
@@ -257,11 +261,12 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
     const memPctOf = (ls) => {
       let known = 0, total = 0;
       for (const l of ls) {
-        const mp = memProgressOf(mem, l.id);
+        const mp = memProgressOf(mem, l.id, cardsOf(l.id));
         known += mp.known; total += mp.total;
       }
       return total > 0 ? Math.round((known / total) * 100) : 0;
     };
+    const groupCards = (ls) => ls.reduce((s, l) => s + cardsOf(l.id), 0);
     return (
       <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb' }}>
@@ -292,8 +297,10 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
           {/* 그룹 행 (장·편 — 문제풀이 BrowseRow와 동일 룩) */}
           {[...groupsMap.entries()].map(([seg, ls]) => {
             const pct = memPctOf(ls);
+            const gc = groupCards(ls);
             return (
-              <MemRow key={seg} title={seg} countLabel={`${ls.length}개 절`}
+              <MemRow key={seg} title={seg}
+                countLabel={gc > 0 ? `카드 ${gc}장` : `${ls.length}개 절`}
                 pct={pct} showBar={pct > 0}
                 onClick={() => setPathStack(p => [...p, seg])} />
             );
@@ -301,11 +308,11 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
           {/* 절(leaf) 행 — 브리지 3단계 상태를 메타로 */}
           {leafRows.map(l => {
             const ai = aiMastery[l.id]?.status;
-            const mp = memProgressOf(mem, l.id);
+            const mp = memProgressOf(mem, l.id, cardsOf(l.id));
             const qs = leafQuizStats(l, classifiedList, progress, qid);
             return (
               <MemRow key={l.id} title={l.title || l.path?.slice(-1)[0]}
-                countLabel={mp.total > 0 ? `${mp.pct}%` : '암기'}
+                countLabel={mp.total > 0 ? `${mp.total}장 · ${mp.pct}%` : '카드 없음'}
                 pct={mp.pct} showBar={mp.pct > 0}
                 meta={<>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
@@ -348,36 +355,26 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
   const [sessionDone, setSessionDone] = useState(0);
   const timerRef = useRef(null);
 
-  // 교재 로드 → 지식 추출.
-  // 1순위: 큐레이션 덱 /data/memorize/{sid}/{unit_code}.json (AI가 교재에서 정제한 카드)
-  // 2순위: 교재 md 휴리스틱 자동 추출 (폴백)
+  // 카드 소스: 🃏 AI 학습 채팅에서 자동 출제된 내 카드(quiz-chatcards-v1).
+  // 목차 인출만 교재 헤딩에서 추출(구조 정보라 품질 안정적).
   useEffect(() => {
     let dead = false;
-    if (!leaf.unit_file) { setKnowledge({ cards: [], outline: [] }); return undefined; }
-    const unitCode = leaf.unit_code || (leaf.unit_file.match(/([^/]+)\.md$/) || [])[1];
     (async () => {
-      let curated = null;
-      if (unitCode) {
+      const myCards = (loadChatCards()[leaf.id] || []).map(c => ({
+        key: c.term.replace(/\s+/g, ''), ...c,
+      }));
+      let outline = [];
+      if (leaf.unit_file) {
         try {
-          const r = await fetch(`/data/memorize/${subjectId}/${unitCode}.json`);
-          if (r.ok && (r.headers.get('content-type') || '').includes('json')) {
-            const deck = await r.json();
-            curated = deck?.[leaf.id] || null;
-          }
-        } catch { /* no curated deck */ }
+          const md = await fetch(studyBase(subjectId) + leaf.unit_file).then(r => r.text());
+          const sliced = (leaf.section_key && leaf.section_key !== 'full' && leaf.section_lines)
+            ? sliceSection(md, { lines: leaf.section_lines }) : md;
+          outline = extractKnowledge(sliced).outline;
+        } catch { /* offline */ }
       }
-      let md = '';
-      try { md = await fetch(studyBase(subjectId) + leaf.unit_file).then(r => r.text()); } catch { /* offline */ }
       if (dead) return;
-      const sliced = (leaf.section_key && leaf.section_key !== 'full' && leaf.section_lines)
-        ? sliceSection(md, { lines: leaf.section_lines }) : md;
-      const auto = extractKnowledge(sliced);
-      const k = curated?.cards?.length
-        ? { cards: curated.cards.map(c => ({ key: c.term.replace(/\s+/g, ''), ...c })),
-            outline: curated.outline?.length ? curated.outline : auto.outline, curated: true }
-        : auto;
-      setKnowledge(k);
-      if (k.cards.length) updateMem(leaf.id, { total: k.cards.length });
+      setKnowledge({ cards: myCards, outline });
+      if (myCards.length) updateMem(leaf.id, { total: myCards.length });
     })();
     return () => { dead = true; clearTimeout(timerRef.current); };
   }, [subjectId, leaf.id]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -442,10 +439,21 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
           </div>
 
           {knowledge.cards.length === 0 ? (
-            <div style={{ padding: 24, background: '#fff', borderRadius: 12, border: '1px solid #e5e7eb',
-              fontSize: '0.85rem', color: '#6b7280', lineHeight: 1.7 }}>
-              이 단원 교재에서 자동 추출할 암기 항목을 찾지 못했어요.<br />
-              🤖 AI 학습에서 이 단원을 먼저 학습해보세요.
+            <div style={{ padding: 22, background: '#fff', borderRadius: 14, border: '1.5px dashed #c7d2fe',
+              textAlign: 'center' }}>
+              <div style={{ fontSize: '1.8rem' }}>🃏</div>
+              <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827', marginTop: 8 }}>
+                아직 이 단원 카드가 없어요
+              </div>
+              <div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: 6, lineHeight: 1.7 }}>
+                🤖 <b>AI 학습</b>에서 이 단원을 배우면, 대화에서 나온 핵심이<br />
+                <b>자동으로 암기카드로 출제</b>되어 여기에 쌓입니다.
+              </div>
+              <button onClick={() => onGoAI?.(subjectId, leaf)}
+                style={{ marginTop: 14, padding: '11px 22px', borderRadius: 12, border: 'none',
+                  background: '#4f46e5', color: '#fff', fontWeight: 800, cursor: 'pointer', fontSize: '0.88rem' }}>
+                🤖 AI 학습으로 배우러 가기
+              </button>
             </div>
           ) : (
             <>

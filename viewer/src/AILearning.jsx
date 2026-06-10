@@ -39,6 +39,7 @@ import AnswerHistoryWidget from './AnswerHistoryWidget';
 import { SpeakButton } from './Speech';
 import { buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
 import { sendMessagesUnified, getProviderForModel } from './aiProviders';
+import { toast } from './Toast';
 
 const indexUrl = (subjectId) => {
   const s = SUBJECTS.find((x) => x.id === subjectId);
@@ -47,6 +48,59 @@ const indexUrl = (subjectId) => {
 };
 const handoverUrl = (subjectId) => `/data/study/${subjectId}/handover.md`;
 const studyBase = (subjectId) => `/data/study/${subjectId}/`;
+
+// ── 🃏 채팅 → 자동 암기카드 (퀴즈 탭 연동) ─────────────────────────
+// AI 튜터와의 매 문답에서 "시험에 나올 암기 포인트"를 백그라운드로 추출해
+// localStorage(quiz-chatcards-v1)에 leaf별로 적재. 퀴즈 탭이 이 덱으로 훈련한다.
+export const CHATCARDS_KEY = 'quiz-chatcards-v1';
+export function loadChatCards() {
+  try { return JSON.parse(localStorage.getItem(CHATCARDS_KEY) || '{}') || {}; } catch { return {}; }
+}
+function saveChatCards(all) {
+  try { localStorage.setItem(CHATCARDS_KEY, JSON.stringify(all)); } catch { /* full */ }
+}
+
+const CARDGEN_FAST = { anthropic: 'claude-haiku-4-5-20251001', openai: 'gpt-5.4-mini', google: 'gemini-3.1-flash-lite' };
+
+// fire-and-forget — 채팅 UX를 막지 않는다. 실패는 조용히 무시.
+async function generateChatCards({ provider, apiKey, baseUrl, leafId, leafPath, userText, assistantText, onSaved }) {
+  try {
+    if (!apiKey || !leafId || !assistantText || assistantText.length < 80) return;
+    const existing = loadChatCards();
+    const have = (existing[leafId] || []).map(c => c.term).slice(-40);
+    const sys = `당신은 감정평가사 수험 암기카드 작성기입니다. 방금의 튜터링 문답에서 학생이 배운 "시험에 나올 수 있는 핵심 포인트"만 카드로 추출합니다.
+규칙:
+- 대화에 실제로 설명된 내용만. 잡담·인사·메타 대화·단순 확인이면 빈 배열.
+- 카드: {"term":"용어(2~20자)","def":"핵심 내용(40~200자, 시험 포인트·근거조문 포함)","cloze":"def에서 핵심어 1곳을 ⬜⬜로 가린 문장","type":"개념|구별|요건|조문|판례|숫자"}
+- 최대 3장. 이미 있는 카드와 중복 금지: [${have.join(', ')}]
+- JSON만 출력: {"cards":[...]}`;
+    const { text } = await sendMessagesUnified({
+      apiKey, model: CARDGEN_FAST[provider] || CARDGEN_FAST.anthropic,
+      system: sys, maxTokens: 600, baseUrl,
+      messages: [{ role: 'user', content: `[단원] ${leafPath}\n[학생] ${userText.slice(0, 800)}\n[튜터] ${assistantText.slice(0, 2500)}` }],
+    });
+    const m = text.match(/\{[\s\S]*\}/);
+    const parsed = JSON.parse(m ? m[0] : text);
+    const cards = (parsed.cards || []).filter(c => c.term && c.def && c.def.length >= 20);
+    if (!cards.length) return;
+    const all = loadChatCards();
+    const arr = all[leafId] || [];
+    const seen = new Set(arr.map(c => c.term.replace(/\s+/g, '')));
+    let added = 0;
+    for (const c of cards) {
+      const key = c.term.replace(/\s+/g, '');
+      if (seen.has(key)) continue;
+      seen.add(key);
+      arr.push({ id: `cc-${Date.now()}-${added}`, term: c.term.trim(), def: c.def.trim(),
+        cloze: c.cloze || '', type: c.type || '개념', ts: Date.now() });
+      added++;
+    }
+    if (!added) return;
+    all[leafId] = arr.slice(-200); // leaf당 최대 200장
+    saveChatCards(all);
+    onSaved?.(added, arr.length);
+  } catch { /* 카드 생성 실패는 학습 흐름에 영향 없음 */ }
+}
 
 // 홈 과목 카드의 대분류 버튼.
 // DIV_GROUPS: 여러 path[0]를 한 버튼으로 묶고 라벨을 지정. 정의된 과목은 이 그룹만 노출.
@@ -1743,6 +1797,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       if (ac.signal.aborted) return; // 단원 전환 등으로 취소됐으면 저장 안 함
       const aMsg = { role: 'assistant', content: out };
       appendRoomMessage(sendLeafId, aMsg);
+      // 🃏 이번 문답에서 암기 포인트를 백그라운드 추출 → 퀴즈 탭 자동 출제 (실패 무해)
+      generateChatCards({
+        provider, apiKey: providerKey, baseUrl: baseUrls[provider],
+        leafId: sendLeafId, leafPath: curLeaf ? curLeaf.path.join(' / ') : '',
+        userText: text, assistantText: out,
+        onSaved: (added, totalCards) => {
+          try { toast.show(`🃏 퀴즈 탭에 암기카드 ${added}장 자동 출제 (이 단원 ${totalCards}장)`, 'success', 2500); } catch { /* noop */ }
+        },
+      });
       // 전송 시점과 현재 단원이 같을 때만 화면 갱신 (다른 방으로 옮겼으면 무시)
       if (current?.leaf_id === sendLeafId) {
         setMessages((arr) => [...arr, { ...aMsg, ts: new Date().toISOString() }]);
