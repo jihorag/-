@@ -16,7 +16,7 @@ import CmdK from './CmdK';
 import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
 import { setCurrent as setAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS, getPrefs as getAiPrefs, setPrefs as setAiPrefs, getApiKey as getProviderKey, setApiKey as setProviderKey, getBaseUrls, setBaseUrl } from './aiLearningStore';
 import { MODELS as AI_MODELS } from './aiClaudeClient';
-import { getProviderForModel } from './aiProviders';
+import { getProviderForModel, ALL_MODELS, sendMessagesUnified, modelRequiresProxy } from './aiProviders';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
 import { ParsedText } from './ParsedText';
@@ -730,8 +730,16 @@ function AskAI({ onBack }) {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [model, setModel] = useState(() => {
+    try { return localStorage.getItem('quiz-askai-model') || 'claude-sonnet-4-6'; }
+    catch { return 'claude-sonnet-4-6'; }
+  });
   const bottomRef = useRef(null);
-  const hasKey = (localStorage.getItem('ailearn-byok') || '').startsWith('sk-');
+  const curModel = ALL_MODELS.find(m => m.id === model) || ALL_MODELS[0];
+  const providerKeyOf = (prov) => prov === 'anthropic'
+    ? (localStorage.getItem('ailearn-byok') || '')
+    : (getProviderKey(prov) || '');
+  const hasKey = !!providerKeyOf(curModel.provider);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -741,35 +749,33 @@ function AskAI({ onBack }) {
     try { localStorage.setItem(ASKAI_KEY, JSON.stringify(arr.slice(-20))); } catch { /* full */ }
   };
 
+  const pickModel = (id) => {
+    setModel(id);
+    try { localStorage.setItem('quiz-askai-model', id); } catch { /* noop */ }
+  };
+
   const ask = async (text) => {
     const q = (text || input).trim();
     if (!q || loading) return;
-    const key = localStorage.getItem('ailearn-byok') || '';
-    if (!key.startsWith('sk-')) { setError('nokey'); return; }
+    const prov = curModel.provider;
+    const key = providerKeyOf(prov);
+    if (!key) { setError('nokey'); return; }
     const next = [...messages, { role: 'user', content: q }];
     setMessages(next); persist(next);
     setInput(''); setLoading(true); setError('');
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json', 'x-api-key': key,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-access': 'true',
-        },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-6', max_tokens: 1600,
-          system: ASKAI_SYSTEM,
-          messages: next.slice(-12).map(m => ({ role: m.role, content: m.content })),
-        }),
+      const baseUrls = getBaseUrls();
+      const { text: out } = await sendMessagesUnified({
+        apiKey: key, model, system: ASKAI_SYSTEM,
+        messages: next.slice(-12).map(m => ({ role: m.role, content: m.content })),
+        maxTokens: 1600, baseUrl: baseUrls[prov],
       });
-      if (!res.ok) throw new Error(`API ${res.status}`);
-      const data = await res.json();
-      const out = (data.content || []).map(b => b.text || '').join('');
       const fin = [...next, { role: 'assistant', content: out }];
       setMessages(fin); persist(fin);
     } catch (e) {
-      setError(e.message || '요청 실패');
+      const proxyHint = modelRequiresProxy(model)
+        ? ' — 이 모델은 브라우저 직호출이 차단될 수 있어요. Claude 모델을 쓰거나 프록시를 설정하세요.' : '';
+      setError((e.message || '요청 실패') + proxyHint);
     } finally {
       setLoading(false);
     }
@@ -839,35 +845,68 @@ function AskAI({ onBack }) {
         {error === 'nokey' && (
           <div style={{ marginTop: 10, padding: '10px 14px', background: '#fffbeb',
             border: '1px solid #fde68a', borderRadius: 10, fontSize: '0.82rem', color: '#92400e' }}>
-            AI 학습 탭에서 Claude API 키를 한 번만 등록하면 바로 사용할 수 있어요. (기기에만 저장)
+            {curModel.provider === 'anthropic'
+              ? 'AI 학습 탭에서 Claude API 키를 한 번만 등록하면 바로 사용할 수 있어요. (기기에만 저장)'
+              : `${curModel.label} 모델은 ${curModel.provider === 'openai' ? 'OpenAI' : 'Google'} API 키가 필요해요 — AI 학습 탭 ⚙️ 설정에서 등록하세요.`}
           </div>
         )}
         {error && error !== 'nokey' && (
           <div style={{ marginTop: 10, fontSize: '0.8rem', color: '#dc2626' }}>
-            요청 실패({error}) — 다시 시도해주세요.
+            요청 실패: {error}
           </div>
         )}
         <div ref={bottomRef} />
       </main>
 
-      <div style={{ flexShrink: 0, padding: '10px 12px', background: '#fff',
-        borderTop: '1px solid #e5e7eb', display: 'flex', gap: 6, alignItems: 'flex-end' }}>
-        <textarea value={input} onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) { e.preventDefault(); ask(); }
-          }}
-          placeholder={hasKey ? '모르는 건 뭐든지 물어보세요' : 'AI 학습 탭에서 API 키 등록 후 사용'}
-          rows={1}
-          style={{ flex: 1, padding: '11px 13px', border: '1px solid #d1d5db', borderRadius: 12,
-            fontSize: '16px', resize: 'none', fontFamily: 'inherit' }} />
-        <button onClick={() => ask()} disabled={!input.trim() || loading}
-          aria-label="질문 보내기"
-          style={{ padding: '11px 16px', borderRadius: 12, border: 'none', fontWeight: 800,
-            background: input.trim() && !loading ? '#4f46e5' : '#e5e7eb',
-            color: input.trim() && !loading ? '#fff' : '#9ca3af',
-            cursor: input.trim() && !loading ? 'pointer' : 'default' }}>
-          ✨
-        </button>
+      {/* 큰 채팅박스 컴포저 — 위 textarea / 아래 컨트롤 행(범위 칩·모델 선택·전송) */}
+      <div style={{ flexShrink: 0, padding: '10px 12px', background: '#f8fafc' }}>
+        <div style={{ background: '#fff', border: '1.5px solid #a5b4fc', borderRadius: 18,
+          boxShadow: '0 2px 12px rgba(79,70,229,0.08)', padding: '4px 6px 6px' }}>
+          <textarea value={input} onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) { e.preventDefault(); ask(); }
+            }}
+            placeholder={hasKey ? '모르는 건 뭐든지 물어보세요' : 'API 키 등록 후 사용할 수 있어요'}
+            rows={2}
+            style={{ width: '100%', border: 'none', outline: 'none', resize: 'none',
+              padding: '10px 12px 2px', fontSize: '16px', fontFamily: 'inherit',
+              lineHeight: 1.5, background: 'transparent', boxSizing: 'border-box' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '2px 6px 2px 8px' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5,
+              padding: '5px 11px', borderRadius: 999, background: '#eef2ff',
+              color: '#4f46e5', fontSize: '0.76rem', fontWeight: 700,
+              whiteSpace: 'nowrap', flexShrink: 0 }}>
+              @ 전과목
+            </span>
+            {/* 모델 선택 — 여러 AI 중 선택 */}
+            <span style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+              <select value={model} onChange={(e) => pickModel(e.target.value)}
+                aria-label="AI 모델 선택"
+                style={{ appearance: 'none', WebkitAppearance: 'none', border: 'none',
+                  background: 'transparent', fontSize: '0.8rem', fontWeight: 700,
+                  color: '#374151', cursor: 'pointer', padding: '5px 18px 5px 4px',
+                  fontFamily: 'inherit' }}>
+                {ALL_MODELS.map(m => (
+                  <option key={m.id} value={m.id}>
+                    {m.icon} {m.label}{m.requiresProxy ? ' (프록시)' : ''}
+                  </option>
+                ))}
+              </select>
+              <span style={{ position: 'absolute', right: 2, pointerEvents: 'none',
+                color: '#9ca3af', fontSize: '0.65rem' }}>▼</span>
+            </span>
+            <span style={{ flex: 1 }} />
+            <button onClick={() => ask()} disabled={!input.trim() || loading}
+              aria-label="질문 보내기"
+              style={{ width: 38, height: 38, borderRadius: 12, border: 'none', fontWeight: 800,
+                fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                background: input.trim() && !loading ? '#4f46e5' : '#eef2f7',
+                color: input.trim() && !loading ? '#fff' : '#9ca3af',
+                cursor: input.trim() && !loading ? 'pointer' : 'default' }}>
+              ↵
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
