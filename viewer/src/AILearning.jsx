@@ -136,7 +136,7 @@ const DIV_LABEL_MAP = {
 const TOSS = {
   bg: '#F2F4F6',      // 페이지 배경
   card: '#FFFFFF',    // 카드 표면
-  blue: 'var(--primary)',    // 포인트(토스블루)
+  blue: '#3182F6',    // 포인트(토스블루)
   blueDark: '#1B64DA',
   blueWeak: '#E8F1FE',// 포인트 약한 배경
   ink: '#191F28',     // 주요 텍스트
@@ -237,7 +237,7 @@ function InlineConfirm({ label, danger, onYes, onNo, compact }) {
         onClick={() => setArmed(true)}
         style={{
           padding: compact ? '4px 8px' : '6px 10px', fontSize: '0.78rem',
-          background: danger ? 'var(--danger-light)' : '#fff',
+          background: danger ? '#fef2f2' : '#fff',
           color: danger ? '#991b1b' : '#374151',
           border: `1px solid ${danger ? '#fecaca' : '#d1d5db'}`,
           borderRadius: 6, cursor: 'pointer', fontWeight: 600,
@@ -252,7 +252,7 @@ function InlineConfirm({ label, danger, onYes, onNo, compact }) {
       <span style={{ fontSize: '0.75rem', color: '#92400e' }}>정말요?</span>
       <button
         onClick={() => { setArmed(false); onYes && onYes(); }}
-        style={{ padding: '4px 10px', fontSize: '0.78rem', background: danger ? 'var(--danger)' : 'var(--ai)', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}
+        style={{ padding: '4px 10px', fontSize: '0.78rem', background: danger ? '#dc2626' : '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}
       >
         예
       </button>
@@ -266,7 +266,7 @@ function InlineConfirm({ label, danger, onYes, onNo, compact }) {
   );
 }
 
-function MasteryBar({ value, color = 'var(--ai)' }) {
+function MasteryBar({ value, color = '#4f46e5' }) {
   const pct = Math.max(0, Math.min(1, value || 0)) * 100;
   return (
     <div style={{ background: '#f3f4f6', borderRadius: 6, height: 5, overflow: 'hidden' }}>
@@ -317,7 +317,7 @@ function LeafPicker({ leaves, current, onPick, mastery, due, quizStatsByLeaf, in
           }}
         >
           <span style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 1, minWidth: 0 }}>
-            <BookOpen size={18} color="var(--ai)" />
+            <BookOpen size={18} color="#4f46e5" />
             <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {cur ? cur.path.slice(1).join(' › ') || cur.path[0] : '단원 선택'}
             </span>
@@ -402,14 +402,14 @@ function LeafButton({ leaf, active, mastery, due, quizStatsByLeaf, onPick, depth
       onClick={onPick}
       style={{
         width: '100%', textAlign: 'left', padding: `6px 12px 6px ${12 + depth * 14}px`,
-        background: active ? 'var(--ai-light)' : '#fff', border: 'none', cursor: 'pointer',
+        background: active ? '#eef2ff' : '#fff', border: 'none', cursor: 'pointer',
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 6 }}>
         <span style={{ fontSize: '0.85rem', color: '#111827', flex: 1, minWidth: 0 }}>
           {sectionLabel && <span style={{ color: '#6b7280', fontSize: '0.76rem' }}>{sectionLabel} · </span>}
           {leaf.path[leaf.path.length - 1]}
-          {leaf.frequency >= 3 && <span style={{ color: 'var(--danger)', marginLeft: 4 }}>★</span>}
+          {leaf.frequency >= 3 && <span style={{ color: '#dc2626', marginLeft: 4 }}>★</span>}
           {isDue && <span style={{ background: '#fef3c7', color: '#92400e', fontSize: '0.7rem', padding: '0 6px', borderRadius: 4, marginLeft: 4 }}>복습</span>}
         </span>
         <span style={{ fontSize: '0.7rem', color: '#9ca3af', whiteSpace: 'nowrap' }}>
@@ -419,7 +419,7 @@ function LeafButton({ leaf, active, mastery, due, quizStatsByLeaf, onPick, depth
       {/* 진척: AI(상) + Quiz(하) 듀얼 막대 */}
       {(m.coverage > 0 || (qs && qs.answered > 0)) && (
         <div style={{ marginTop: 4, display: 'flex', flexDirection: 'column', gap: 2 }}>
-          {m.coverage > 0 && <MasteryBar value={m.coverage} color="var(--ai)" />}
+          {m.coverage > 0 && <MasteryBar value={m.coverage} color="#4f46e5" />}
           {qs && qs.total > 0 && qs.answered > 0 && (
             <MasteryBar value={qs.accuracy} color="#10b981" />
           )}
@@ -442,13 +442,13 @@ function ApiKeyForm({ initial, onSave }) {
   return (
     <div style={{ padding: 16, background: '#fff', border: '1px solid #e5e7eb', borderRadius: 12, maxWidth: 520, margin: '24px auto' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-        <Key size={18} color="var(--ai)" />
+        <Key size={18} color="#4f46e5" />
         <h3 style={{ margin: 0, fontSize: '1.05rem', color: '#111827' }}>Claude API 키 입력 (BYOK)</h3>
       </div>
       <p style={{ fontSize: '0.85rem', color: '#6b7280', lineHeight: 1.5 }}>
         본 앱은 사용자의 Claude API 키로 직접 Anthropic에 요청합니다. 키는 이 기기 localStorage에만 저장되고 서버로 전송되지 않습니다.
         <br />
-        키는 <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer" style={{ color: 'var(--ai)' }}>console.anthropic.com</a>에서 발급받을 수 있습니다.
+        키는 <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer" style={{ color: '#4f46e5' }}>console.anthropic.com</a>에서 발급받을 수 있습니다.
       </p>
       <div style={{ display: 'flex', gap: 6, marginTop: 12 }}>
         <input
@@ -467,7 +467,7 @@ function ApiKeyForm({ initial, onSave }) {
         disabled={!key.trim().startsWith('sk-')}
         style={{
           marginTop: 12, width: '100%', padding: '11px 16px',
-          background: key.trim().startsWith('sk-') ? 'var(--ai)' : '#9ca3af',
+          background: key.trim().startsWith('sk-') ? '#4f46e5' : '#9ca3af',
           color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700,
           cursor: key.trim().startsWith('sk-') ? 'pointer' : 'not-allowed',
         }}
@@ -562,7 +562,7 @@ function SettingsPanel({ byok, prefs, onClose, onSave }) {
           onClick={() => setStreaming((v) => !v)}
           style={{
             padding: '4px 12px', borderRadius: 14, fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer',
-            background: streaming ? 'var(--ai-light)' : '#f3f4f6',
+            background: streaming ? '#eef2ff' : '#f3f4f6',
             color: streaming ? '#4338ca' : '#6b7280',
             border: `1px solid ${streaming ? '#c7d2fe' : '#d1d5db'}`,
           }}
@@ -572,7 +572,7 @@ function SettingsPanel({ byok, prefs, onClose, onSave }) {
       <button
         onClick={save}
         style={{
-          width: '100%', padding: '11px', background: saved ? 'var(--success)' : 'var(--ai)',
+          width: '100%', padding: '11px', background: saved ? '#16a34a' : '#4f46e5',
           color: '#fff', border: 'none', borderRadius: 10, fontWeight: 800, fontSize: '0.95rem', cursor: 'pointer',
           transition: 'background .2s',
         }}
@@ -707,9 +707,9 @@ function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
           {axisPts.map((p, i) => (
             <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="#e5e7eb" strokeWidth="1" />
           ))}
-          <polygon points={polyStr} fill="var(--ai)" fillOpacity="0.22" stroke="var(--ai)" strokeWidth="2" />
+          <polygon points={polyStr} fill="#4f46e5" fillOpacity="0.22" stroke="#4f46e5" strokeWidth="2" />
           {pts.map((p, i) => (
-            <circle key={i} cx={p.x} cy={p.y} r="3" fill="var(--ai)" />
+            <circle key={i} cx={p.x} cy={p.y} r="3" fill="#4f46e5" />
           ))}
           {axisPts.map((p, i) => (
             <text key={i}
@@ -833,7 +833,7 @@ function LawCasesWidget({ casesMd, onAskAI }) {
   const c = cards[idx];
   return (
     <div style={{
-      background: 'linear-gradient(180deg, var(--danger-light) 0%, #fff 100%)',
+      background: 'linear-gradient(180deg, #fef2f2 0%, #fff 100%)',
       border: '1px solid #fecaca', borderRadius: 12, padding: 14, marginBottom: 10,
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
@@ -868,7 +868,7 @@ function LawCasesWidget({ casesMd, onAskAI }) {
         </button>
         <button onClick={() => onAskAI && onAskAI(c)}
           style={{ marginLeft: 'auto', padding: '6px 12px', cursor: 'pointer',
-            background: 'var(--danger)', color: '#fff', border: 'none', borderRadius: 6, fontWeight: 700, fontSize: '0.82rem' }}>
+            background: '#dc2626', color: '#fff', border: 'none', borderRadius: 6, fontWeight: 700, fontSize: '0.82rem' }}>
           🤖 답안 인용 시범
         </button>
       </div>
@@ -897,7 +897,7 @@ function TemplateCardWidget({ templatesMd, onAskAI }) {
   const actual = cards[order[idx] || 0];
   return (
     <div style={{
-      background: 'linear-gradient(180deg, var(--success-light) 0%, #fff 100%)',
+      background: 'linear-gradient(180deg, #f0fdf4 0%, #fff 100%)',
       border: '1px solid #86efac', borderRadius: 12, padding: 14, marginBottom: 10,
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
@@ -907,7 +907,7 @@ function TemplateCardWidget({ templatesMd, onAskAI }) {
         <div style={{ display: 'flex', gap: 4 }}>
           <button onClick={() => setShuffle((v) => !v)}
             style={{ fontSize: '0.7rem', padding: '3px 8px', cursor: 'pointer',
-              border: shuffle ? '1px solid var(--success)' : '1px solid #d1d5db',
+              border: shuffle ? '1px solid #16a34a' : '1px solid #d1d5db',
               background: shuffle ? '#dcfce7' : '#fff', color: shuffle ? '#15803d' : '#6b7280', borderRadius: 6 }}>
             🎲 셔플
           </button>
@@ -935,7 +935,7 @@ function TemplateCardWidget({ templatesMd, onAskAI }) {
         </button>
         <button onClick={() => onAskAI && onAskAI(actual)}
           style={{ marginLeft: 'auto', padding: '6px 12px', cursor: 'pointer',
-            background: 'var(--success)', color: '#fff', border: 'none', borderRadius: 6, fontWeight: 700, fontSize: '0.82rem' }}>
+            background: '#16a34a', color: '#fff', border: 'none', borderRadius: 6, fontWeight: 700, fontSize: '0.82rem' }}>
           🤖 AI에 더 자세히
         </button>
       </div>
@@ -976,9 +976,9 @@ function AnswerWriteInput({ scorePoint, onSubmit, disabled }) {
             <button key={p} onClick={() => setScoreSel(p)}
               style={{
                 padding: '3px 8px', fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer',
-                borderRadius: 6, border: scoreSel === p ? '1px solid var(--ai)' : '1px solid #d1d5db',
-                background: scoreSel === p ? 'var(--ai-light)' : '#fff',
-                color: scoreSel === p ? 'var(--primary-dark)' : '#6b7280',
+                borderRadius: 6, border: scoreSel === p ? '1px solid #4f46e5' : '1px solid #d1d5db',
+                background: scoreSel === p ? '#eef2ff' : '#fff',
+                color: scoreSel === p ? '#1d4ed8' : '#6b7280',
               }}>{p}점</button>
           ))}
         </div>
@@ -1019,7 +1019,7 @@ function AnswerWriteInput({ scorePoint, onSubmit, disabled }) {
         <button onClick={submit} disabled={!answer.trim() || disabled}
           style={{
             marginLeft: 'auto', padding: '8px 16px', fontSize: '0.85rem', fontWeight: 800, cursor: !answer.trim() || disabled ? 'not-allowed' : 'pointer',
-            background: !answer.trim() || disabled ? '#e5e7eb' : 'var(--ai)',
+            background: !answer.trim() || disabled ? '#e5e7eb' : '#4f46e5',
             color: !answer.trim() || disabled ? '#9ca3af' : '#fff',
             border: 'none', borderRadius: 8,
           }}>
@@ -1034,7 +1034,7 @@ function AnswerWriteInput({ scorePoint, onSubmit, disabled }) {
 function ScoringResultCard({ result, onRewrite, onShowModel }) {
   const pct = result.max > 0 ? (result.score / result.max) * 100 : 0;
   const tier = pct >= 70 ? '합격선' : pct >= 60 ? '통과권' : '보강 필요';
-  const color = pct >= 70 ? 'var(--success)' : pct >= 60 ? '#ea580c' : 'var(--danger)';
+  const color = pct >= 70 ? '#16a34a' : pct >= 60 ? '#ea580c' : '#dc2626';
   return (
     <div style={{ background: '#fff', border: `2px solid ${color}`, borderRadius: 14, padding: 14, marginTop: 6 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
@@ -1048,7 +1048,7 @@ function ScoringResultCard({ result, onRewrite, onShowModel }) {
       </div>
       {result.completion_pct != null && (() => {
         const cp = Math.max(0, Math.min(100, result.completion_pct));
-        const cpCol = cp >= 90 ? 'var(--success)' : cp >= 70 ? '#ea580c' : 'var(--danger)';
+        const cpCol = cp >= 90 ? '#16a34a' : cp >= 70 ? '#ea580c' : '#dc2626';
         return (
           <div style={{ marginTop: 10, padding: '8px 10px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 8 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 5 }}>
@@ -1069,7 +1069,7 @@ function ScoringResultCard({ result, onRewrite, onShowModel }) {
       {(result.structure_score != null || result.content_score != null) && (
         <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', gap: 4 }}>
           {[
-            ['구조', result.structure_score, 10, 'var(--ai)'],
+            ['구조', result.structure_score, 10, '#4f46e5'],
             ['내용', result.content_score, 15, '#10b981'],
             ['완성도', result.completeness_score, 5, '#f59e0b'],
           ].map(([label, s, max, col]) => s == null ? null : (
@@ -1108,7 +1108,7 @@ function ScoringResultCard({ result, onRewrite, onShowModel }) {
         );
       })()}
       {result.rewrite_hint && (
-        <div style={{ marginTop: 10, padding: 8, background: 'var(--amber-light)', border: '1px solid #fde68a', borderRadius: 6, fontSize: '0.78rem', color: '#92400e' }}>
+        <div style={{ marginTop: 10, padding: 8, background: '#fffbeb', border: '1px solid #fde68a', borderRadius: 6, fontSize: '0.78rem', color: '#92400e' }}>
           💡 {result.rewrite_hint}
         </div>
       )}
@@ -1127,7 +1127,7 @@ function ScoringResultCard({ result, onRewrite, onShowModel }) {
         )}
         {onRewrite && (
           <button onClick={onRewrite}
-            style={{ flex: 1, padding: '8px', background: 'var(--ai)', color: '#fff',
+            style={{ flex: 1, padding: '8px', background: '#4f46e5', color: '#fff',
               border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700, fontSize: '0.8rem' }}>
             📝 다시 쓰기
           </button>
@@ -1171,7 +1171,7 @@ function MessageBubble({ msg, fadeIn, leafId, leafTitle }) {
           // AI 메시지는 거의 전체 폭(98%), 사용자 메시지는 75% — 대비 + 읽기 편의
           padding: '12px 16px',
           borderRadius: 14,
-          background: isUser ? 'var(--ai)' : '#f3f4f6',
+          background: isUser ? '#4f46e5' : '#f3f4f6',
           color: isUser ? '#fff' : '#111827',
           fontSize: '0.95rem',
           lineHeight: 1.6,
@@ -1187,8 +1187,8 @@ function MessageBubble({ msg, fadeIn, leafId, leafTitle }) {
         {!isUser && (
           <div className="ai-msg-actions" style={{ display: 'flex', gap: 4, marginTop: 4, paddingLeft: 4 }}>
             <button onClick={() => rate(1)} title="이해됐어요" style={msgBtn(rating === 1 ? '#dcfce7' : '#fff', rating === 1 ? '#15803d' : '#6b7280')}>👍</button>
-            <button onClick={() => rate(-1)} title="더 자세히" style={msgBtn(rating === -1 ? 'var(--danger-light)' : '#fff', rating === -1 ? '#b91c1c' : '#6b7280')}>🤔</button>
-            <button onClick={saveAsNote} title="노트로 저장" style={msgBtn(savedToNote ? '#dbeafe' : '#fff', savedToNote ? 'var(--primary-dark)' : '#6b7280')}>
+            <button onClick={() => rate(-1)} title="더 자세히" style={msgBtn(rating === -1 ? '#fef2f2' : '#fff', rating === -1 ? '#b91c1c' : '#6b7280')}>🤔</button>
+            <button onClick={saveAsNote} title="노트로 저장" style={msgBtn(savedToNote ? '#dbeafe' : '#fff', savedToNote ? '#1d4ed8' : '#6b7280')}>
               {savedToNote ? '✓ 저장됨' : '💾'}
             </button>
             <SpeakButton text={msg.content} />
@@ -1269,7 +1269,7 @@ function HistoryPanel({ leaves, onClose, onJump, onClearRoom }) {
                 onClick={() => setPick(r.leafId)}
                 style={{
                   display: 'block', width: '100%', textAlign: 'left',
-                  padding: '8px 10px', background: pick === r.leafId ? 'var(--ai-light)' : 'transparent',
+                  padding: '8px 10px', background: pick === r.leafId ? '#eef2ff' : 'transparent',
                   border: 'none', borderRadius: 6, marginBottom: 4, cursor: 'pointer',
                   fontSize: '0.85rem', color: '#111827',
                 }}
@@ -1291,7 +1291,7 @@ function HistoryPanel({ leaves, onClose, onJump, onClearRoom }) {
                 <button
                   onClick={() => { if (pickLeaf) onJump(pickLeaf); }}
                   disabled={!pickLeaf}
-                  style={{ padding: '6px 10px', fontSize: '0.78rem', background: 'var(--ai)', color: '#fff', border: 'none', borderRadius: 6, cursor: pickLeaf ? 'pointer' : 'not-allowed' }}
+                  style={{ padding: '6px 10px', fontSize: '0.78rem', background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: pickLeaf ? 'pointer' : 'not-allowed' }}
                 >
                   이 단원으로 이동
                 </button>
@@ -2106,13 +2106,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       <div style={{ padding: 16 }}>
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '8px 0', marginBottom: 16 }}>
           <h2 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 8, color: '#111827' }}>
-            <Sparkles size={20} color="var(--ai)" /> AI 학습
+            <Sparkles size={20} color="#4f46e5" /> AI 학습
           </h2>
         </header>
         {/* 키가 없어도 무엇을 할 수 있는지 먼저 보여줌 */}
-        <div style={{ maxWidth: 520, margin: '0 auto 4px', padding: 16, background: 'var(--ai-light)',
+        <div style={{ maxWidth: 520, margin: '0 auto 4px', padding: 16, background: '#f5f3ff',
           border: '1px solid #ddd6fe', borderRadius: 12 }}>
-          <div style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--ai)', marginBottom: 8 }}>
+          <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#4f46e5', marginBottom: 8 }}>
             AI 튜터와 단원별 1:1 학습
           </div>
           <ul style={{ margin: 0, paddingLeft: 18, fontSize: '0.82rem', color: '#4b5563', lineHeight: 1.8 }}>
@@ -2193,14 +2193,14 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       {confirmAction && (
         <div style={{ padding: 12, borderBottom: '1px solid #e5e7eb' }}>
           <div style={{
-            background: confirmAction.danger ? 'var(--danger-light)' : 'var(--ai-light)',
+            background: confirmAction.danger ? '#fef2f2' : '#eef2ff',
             border: `1px solid ${confirmAction.danger ? '#fecaca' : '#c7d2fe'}`,
             color: confirmAction.danger ? '#991b1b' : '#1e40af',
             padding: 12, borderRadius: 10, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap',
           }}>
             <div style={{ flex: 1, fontSize: '0.88rem', fontWeight: 600 }}>{confirmAction.label}?</div>
             <button onClick={() => { const a = confirmAction; setConfirmAction(null); a.onYes && a.onYes(); }}
-              style={{ padding: '6px 14px', fontSize: '0.85rem', fontWeight: 700, background: confirmAction.danger ? 'var(--danger)' : TOSS.blue, color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>
+              style={{ padding: '6px 14px', fontSize: '0.85rem', fontWeight: 700, background: confirmAction.danger ? '#dc2626' : TOSS.blue, color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>
               네
             </button>
             <button onClick={() => setConfirmAction(null)}
@@ -2248,7 +2248,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             {
               stage: 1, label: '1차 시험 — 객관식', sub: '5지선다',
               subjects: SUBJECTS_BY_STAGE[1],
-              panelBg: 'var(--primary-light)', panelBorder: '#BFDBFE',
+              panelBg: '#EFF6FF', panelBorder: '#BFDBFE',
               chipBg: TOSS.blueWeak, chipFg: TOSS.blue,
               barColor: TOSS.blue, headerBg: TOSS.blue,
             },
@@ -2421,7 +2421,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         <button
           onClick={() => setAiView('home')}
           title="과목 홈"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: 'var(--ai)', fontSize: '0.85rem', fontWeight: 700, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 2 }}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: '#4f46e5', fontSize: '0.85rem', fontWeight: 700, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 2 }}
         >
           <ChevronLeft size={18} />홈
         </button>
@@ -2441,13 +2441,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             flex: 1, minWidth: 0,
             display: 'flex', alignItems: 'center', gap: 8,
             padding: '5px 10px',
-            background: 'linear-gradient(180deg, #f8fafc 0%, var(--ai-light) 100%)',
+            background: 'linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%)',
             border: '1px solid #e0e7ff',
             borderRadius: 10, cursor: 'pointer', textAlign: 'left',
           }}
           title="단원 변경"
         >
-          <Sparkles size={16} color="var(--ai)" style={{ flex: '0 0 auto' }} />
+          <Sparkles size={16} color="#4f46e5" style={{ flex: '0 0 auto' }} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#111827', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {curLeaf ? curLeaf.path.slice(-1)[0] : 'AI 학습'}
@@ -2473,7 +2473,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                 <span style={{
                   fontSize: '0.72rem', fontWeight: 800, padding: '3px 9px', borderRadius: 999,
                   background: isMaster ? '#d1fae5' : cnt > 0 ? '#ede9fe' : '#fff',
-                  color: isMaster ? '#047857' : cnt > 0 ? 'var(--ai-dark)' : '#475569',
+                  color: isMaster ? '#047857' : cnt > 0 ? '#5b21b6' : '#475569',
                   border: '1px solid ' + (isMaster ? '#a7f3d0' : cnt > 0 ? '#ddd6fe' : '#e2e8f0'),
                   whiteSpace: 'nowrap', flex: '0 0 auto',
                 }}>
@@ -2519,7 +2519,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               title={messages.length > 0 ? `이 단원 채팅 저장파일 내보내기 (${messages.length}개)` : '이 단원엔 대화 없음'}
               style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, opacity: messages.length === 0 ? 0.35 : 1 }}
             >
-              <Download size={16} color="var(--ai)" />
+              <Download size={16} color="#4f46e5" />
             </button>
             <button
               onClick={() => importInputRef.current && importInputRef.current.click()}
@@ -2556,13 +2556,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           </button>
         )}
         <button className="icon-btn" onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
-          <BarChart3 size={18} color={showAnalytics ? 'var(--ai)' : '#6b7280'} />
+          <BarChart3 size={18} color={showAnalytics ? '#4f46e5' : '#6b7280'} />
         </button>
         <button className="icon-btn" onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
-          <Calendar size={18} color={showHistory ? 'var(--ai)' : '#6b7280'} />
+          <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
         </button>
         <button className="icon-btn" onClick={() => setShowSettings((v) => !v)} title="설정 (API 키·프록시·cap)" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
-          <Settings size={18} color={showSettings ? 'var(--ai)' : '#6b7280'} />
+          <Settings size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
         </button>
       </header>
       {showSettings && (
@@ -2600,13 +2600,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             borderBottom: '1px solid #c4b5fd',
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6, flexWrap: 'wrap' }}>
-              <span style={{ fontWeight: 800, color: 'var(--ai-dark)', fontSize: '0.85rem' }}>
+              <span style={{ fontWeight: 800, color: '#5b21b6', fontSize: '0.85rem' }}>
                 🎬 실전 모의 {mockSession.curQ}/{mockSession.totalQ}
               </span>
               <span style={{ fontSize: '0.74rem', color: '#7c3aed', fontWeight: 700 }}>
                 ⏱ {overTime ? '+' : ''}{mm}:{ss}{overTime && ' 초과'}
               </span>
-              <span style={{ fontSize: '0.74rem', color: 'var(--ai-dark)' }}>
+              <span style={{ fontSize: '0.74rem', color: '#5b21b6' }}>
                 누적 {acc}/{accMax || 0}점 (만점 {totalMax})
               </span>
               <button onClick={endMock}
@@ -2620,7 +2620,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             </div>
             {mockSession.complete && (
               <div style={{ marginTop: 8, padding: 8, background: '#fff', borderRadius: 6, border: '1px solid #c4b5fd' }}>
-                <div style={{ fontWeight: 800, color: 'var(--ai-dark)', marginBottom: 4 }}>
+                <div style={{ fontWeight: 800, color: '#5b21b6', marginBottom: 4 }}>
                   ✅ 모의 완료 — 총 {acc}/{totalMax}점 ({Math.round((acc / totalMax) * 100)}%)
                 </div>
                 <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', fontSize: '0.72rem', color: '#374151' }}>
@@ -2665,9 +2665,9 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               title={desc}
               style={{
                 flex: '0 0 auto', padding: '4px 10px', borderRadius: 999,
-                border: mode === k ? '1.5px solid var(--ai)' : '1px solid #d1d5db',
-                background: mode === k ? 'var(--ai-light)' : '#fff',
-                color: mode === k ? 'var(--primary-dark)' : '#374151',
+                border: mode === k ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
+                background: mode === k ? '#eef2ff' : '#fff',
+                color: mode === k ? '#1d4ed8' : '#374151',
                 fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer',
                 display: 'inline-flex', alignItems: 'center', gap: 5,
                 lineHeight: 1.2, whiteSpace: 'nowrap',
@@ -2680,7 +2680,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         </div>
         {/* 단원 자료 없음만 작게 안내 */}
         {curLeaf && !curLeaf.unit_file && (
-          <div style={{ marginTop: 6, fontSize: '0.72rem', color: 'var(--danger)', fontWeight: 600 }}>
+          <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#dc2626', fontWeight: 600 }}>
             ⚠️ 단원 자료 없음 — 인수인계서만으로 진행
           </div>
         )}
@@ -2786,7 +2786,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                   <button
                     onClick={() => pickLeaf(nextLeaf)}
                     style={{
-                      padding: '9px 16px', background: 'var(--success)', color: '#fff', border: 'none',
+                      padding: '9px 16px', background: '#059669', color: '#fff', border: 'none',
                       borderRadius: 8, cursor: 'pointer', fontWeight: 700,
                       display: 'inline-flex', alignItems: 'center', gap: 6,
                     }}
@@ -2832,7 +2832,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                 </div>
                 <div style={{
                   background: '#fff', border: '1px solid #ddd6fe', borderRadius: 8,
-                  padding: '8px 12px', marginBottom: 12, fontSize: '0.74rem', color: 'var(--ai-dark)',
+                  padding: '8px 12px', marginBottom: 12, fontSize: '0.74rem', color: '#5b21b6',
                   display: 'inline-block',
                 }}>
                   📂 단원 {curLeaf.unit_code || '—'} · {curLeaf.est_minutes ? `권장 ${curLeaf.est_minutes}분` : '서술형'}
@@ -2847,17 +2847,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                     <Play size={14} /> 개념 시작
                   </button>
                   <button onClick={() => setMode('answer_write')}
-                    style={{ padding: '9px 14px', background: '#fff', color: 'var(--ai-dark)',
+                    style={{ padding: '9px 14px', background: '#fff', color: '#5b21b6',
                       border: '1px solid #c4b5fd', borderRadius: 8, cursor: 'pointer', fontWeight: 700 }}>
                     📝 답안 작성
                   </button>
                   <button onClick={() => setMode('template')}
-                    style={{ padding: '9px 14px', background: '#fff', color: 'var(--ai-dark)',
+                    style={{ padding: '9px 14px', background: '#fff', color: '#5b21b6',
                       border: '1px solid #c4b5fd', borderRadius: 8, cursor: 'pointer', fontWeight: 600 }}>
                     📋 양식
                   </button>
                   <button onClick={() => setMode('mock_full')}
-                    style={{ padding: '9px 14px', background: '#fff', color: 'var(--ai-dark)',
+                    style={{ padding: '9px 14px', background: '#fff', color: '#5b21b6',
                       border: '1px solid #c4b5fd', borderRadius: 8, cursor: 'pointer', fontWeight: 600 }}>
                     🎬 실전 모의
                   </button>
@@ -2874,7 +2874,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                   return (
                     <div style={{ marginTop: 14, padding: 10, background: '#fff', border: '1px solid #ddd6fe',
                       borderRadius: 8, textAlign: 'left' }}>
-                      <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ai-dark)', marginBottom: 6 }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5b21b6', marginBottom: 6 }}>
                         🎬 최근 모의 ({mocks.length})
                       </div>
                       {mocks.map((m, i) => (
@@ -2882,7 +2882,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                           alignItems: 'center', fontSize: '0.72rem', padding: '3px 0',
                           borderTop: i > 0 ? '1px solid #f3f4f6' : 'none' }}>
                           <span style={{ color: '#6b7280' }}>{(m.ts || '').slice(0, 10)}</span>
-                          <span style={{ fontWeight: 700, color: m.pct >= 70 ? 'var(--success)' : m.pct >= 60 ? '#ea580c' : 'var(--danger)' }}>
+                          <span style={{ fontWeight: 700, color: m.pct >= 70 ? '#16a34a' : m.pct >= 60 ? '#ea580c' : '#dc2626' }}>
                             {m.total}/{m.max} ({m.pct}%)
                           </span>
                           <span style={{ color: '#9ca3af' }}>{m.elapsed_min}분</span>
@@ -2896,7 +2896,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           }
           return (
             <div style={{
-              background: 'linear-gradient(180deg, var(--ai-light) 0%, #fff 100%)',
+              background: 'linear-gradient(180deg, #eef2ff 0%, #fff 100%)',
               border: '1px solid #c7d2fe', borderRadius: 14, padding: 18, marginTop: 12,
               textAlign: 'center',
             }}>
@@ -2931,7 +2931,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                     : '이 단원의 첫 절·관부터 한 사이클(개념→비유→확인 문제→피드백) 시작해줘.')}
                   disabled={!cap.ok}
                   style={{
-                    padding: '9px 16px', background: 'var(--ai)', color: '#fff', border: 'none',
+                    padding: '9px 16px', background: '#4f46e5', color: '#fff', border: 'none',
                     borderRadius: 8, cursor: cap.ok ? 'pointer' : 'not-allowed', fontWeight: 700,
                     display: 'inline-flex', alignItems: 'center', gap: 6,
                   }}
@@ -3045,7 +3045,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               <ParsedText text={draft} />
               <span className="ai-streaming-cursor" style={{
                 display: 'inline-block', width: 8, height: '1em',
-                background: 'var(--ai)', marginLeft: 2, verticalAlign: 'text-bottom',
+                background: '#4f46e5', marginLeft: 2, verticalAlign: 'text-bottom',
                 animation: 'aiCursorBlink 1s steps(2) infinite',
               }} />
             </div>
@@ -3054,15 +3054,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         {streaming && !draft && (
           <div style={{ padding: 12, color: '#6b7280', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: 8 }}>
             <span style={{ display: 'inline-flex', gap: 4 }}>
-              <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--ai)', animation: 'aiThink 1.2s ease-in-out infinite' }} />
-              <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--ai)', animation: 'aiThink 1.2s ease-in-out 0.2s infinite' }} />
-              <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--ai)', animation: 'aiThink 1.2s ease-in-out 0.4s infinite' }} />
+              <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4f46e5', animation: 'aiThink 1.2s ease-in-out infinite' }} />
+              <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4f46e5', animation: 'aiThink 1.2s ease-in-out 0.2s infinite' }} />
+              <span className="ai-thinking-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4f46e5', animation: 'aiThink 1.2s ease-in-out 0.4s infinite' }} />
             </span>
             생각하는 중…{thinkSec >= 3 ? ` ${thinkSec}s` : ''}
           </div>
         )}
         {error && (
-          <div style={{ background: 'var(--danger-light)', color: '#991b1b', padding: 10, borderRadius: 8, fontSize: '0.85rem', marginTop: 10, border: '1px solid #fecaca', display: 'flex', alignItems: 'flex-start', gap: 8, justifyContent: 'space-between' }}>
+          <div style={{ background: '#fef2f2', color: '#991b1b', padding: 10, borderRadius: 8, fontSize: '0.85rem', marginTop: 10, border: '1px solid #fecaca', display: 'flex', alignItems: 'flex-start', gap: 8, justifyContent: 'space-between' }}>
             <span style={{ flex: 1, minWidth: 0 }}>{error}</span>
             {lastFailedText && !streaming && (
               <button
@@ -3074,7 +3074,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         )}
         {confirmAction && (
           <div style={{
-            background: confirmAction.danger ? 'var(--danger-light)' : 'var(--ai-light)',
+            background: confirmAction.danger ? '#fef2f2' : '#eef2ff',
             border: `1px solid ${confirmAction.danger ? '#fecaca' : '#c7d2fe'}`,
             color: confirmAction.danger ? '#991b1b' : '#1e40af',
             padding: 12, borderRadius: 10, marginTop: 10,
@@ -3085,7 +3085,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               onClick={() => { const a = confirmAction; setConfirmAction(null); a.onYes && a.onYes(); }}
               style={{
                 padding: '6px 14px', fontSize: '0.85rem', fontWeight: 700,
-                background: confirmAction.danger ? 'var(--danger)' : 'var(--ai)',
+                background: confirmAction.danger ? '#dc2626' : '#4f46e5',
                 color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer',
               }}
             >
@@ -3104,7 +3104,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         )}
         {idlePromptShown && !streaming && messages.length > 0 && (
           <div style={{
-            background: 'var(--success-light)', color: '#065f46', padding: 12, borderRadius: 10,
+            background: '#ecfdf5', color: '#065f46', padding: 12, borderRadius: 10,
             marginTop: 10, border: '1px solid #a7f3d0',
           }}>
             <div style={{ fontWeight: 700, marginBottom: 4 }}>⏱️ 10분간 응답이 없네요</div>
@@ -3112,7 +3112,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             <div style={{ display: 'flex', gap: 6 }}>
               <button
                 onClick={() => { clearIdleTimer(); quickSend('오늘 학습 정리해줘. 끝.'); }}
-                style={{ padding: '6px 14px', background: 'var(--success)', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}
+                style={{ padding: '6px 14px', background: '#059669', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}
               >
                 정리하기
               </button>
@@ -3127,20 +3127,20 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         )}
         {pendingNext && (
           <div style={{
-            background: 'var(--ai-light)', color: '#1e40af', padding: 12, borderRadius: 10,
+            background: '#eef2ff', color: '#1e40af', padding: 12, borderRadius: 10,
             marginTop: 10, border: '1px solid #c7d2fe',
           }}>
             <div style={{ fontWeight: 700, marginBottom: 4 }}>
               📌 다음 추천: {pendingNext.leaf.path.slice(-1)[0]}
             </div>
-            <div style={{ fontSize: '0.78rem', color: 'var(--ai-dark)', marginBottom: 4 }}>
+            <div style={{ fontSize: '0.78rem', color: '#3730a3', marginBottom: 4 }}>
               {pendingNext.leaf.path.join(' › ')}
             </div>
             {pendingNext.reason && <div style={{ fontSize: '0.85rem', marginBottom: 8 }}>{pendingNext.reason}</div>}
             <div style={{ display: 'flex', gap: 6 }}>
               <button
                 onClick={() => { pickLeaf(pendingNext.leaf); setPendingNext(null); }}
-                style={{ padding: '6px 14px', background: 'var(--ai)', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}
+                style={{ padding: '6px 14px', background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}
               >
                 이 단원으로 이동
               </button>
@@ -3306,10 +3306,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         {/* 📷 첨부 사진 미리보기 */}
         {pendingImage && (
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6,
-            padding: '6px 8px', background: 'var(--ai-light)', border: '1px solid #ddd6fe', borderRadius: 10 }}>
+            padding: '6px 8px', background: '#f5f3ff', border: '1px solid #ddd6fe', borderRadius: 10 }}>
             <img src={pendingImage.dataUrl} alt="첨부한 문제 사진"
               style={{ height: 52, borderRadius: 6, border: '1px solid #c4b5fd' }} />
-            <span style={{ flex: 1, fontSize: '0.74rem', color: 'var(--ai-dark)', fontWeight: 600 }}>
+            <span style={{ flex: 1, fontSize: '0.74rem', color: '#5b21b6', fontWeight: 600 }}>
               📷 문제 사진 첨부됨 — 전송하면 AI가 풀이하고 관련 단원을 알려줘요
             </span>
             <button onClick={() => setPendingImage(null)} aria-label="사진 제거"
@@ -3322,7 +3322,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             <label aria-label="문제 사진 첨부" title="막힌 문제를 찍어서 질문"
               style={{ padding: '10px 11px', borderRadius: 10, cursor: (cap.ok && !streaming) ? 'pointer' : 'not-allowed',
                 border: `1px solid ${pendingImage ? '#a78bfa' : '#d1d5db'}`,
-                background: pendingImage ? 'var(--ai-light)' : '#fff', fontSize: '1.05rem', lineHeight: 1,
+                background: pendingImage ? '#f5f3ff' : '#fff', fontSize: '1.05rem', lineHeight: 1,
                 opacity: (cap.ok && !streaming) ? 1 : 0.5 }}>
               📷
               <input type="file" accept="image/*" style={{ display: 'none' }}
@@ -3352,7 +3352,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           />
           {streaming ? (
             <button onClick={stop} style={{
-              padding: '10px 14px', background: 'var(--danger-light)', color: '#991b1b',
+              padding: '10px 14px', background: '#fef2f2', color: '#991b1b',
               border: '1px solid #fecaca', borderRadius: 10, cursor: 'pointer', fontWeight: 700,
             }}>중단</button>
           ) : (
@@ -3361,7 +3361,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               disabled={!(input.trim() || pendingImage) || !cap.ok}
               style={{
                 padding: '10px 14px',
-                background: (input.trim() || pendingImage) && cap.ok ? 'var(--ai)' : '#e5e7eb',
+                background: (input.trim() || pendingImage) && cap.ok ? '#4f46e5' : '#e5e7eb',
                 color: (input.trim() || pendingImage) && cap.ok ? '#fff' : '#9ca3af',
                 border: 'none', borderRadius: 10, cursor: (input.trim() || pendingImage) && cap.ok ? 'pointer' : 'not-allowed',
                 display: 'flex', alignItems: 'center', gap: 4, fontWeight: 700,

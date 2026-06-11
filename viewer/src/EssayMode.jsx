@@ -34,18 +34,18 @@ export function extractOutline(modelAnswer) {
 }
 
 const DIFF_META = {
-  1: { label: '★☆☆☆☆', name: '입문',   color: 'var(--success)', bg: 'var(--success-light)' },
+  1: { label: '★☆☆☆☆', name: '입문',   color: '#16a34a', bg: '#f0fdf4' },
   2: { label: '★★☆☆☆', name: '기초',   color: '#0891b2', bg: '#ecfeff' },
-  3: { label: '★★★☆☆', name: '표준',   color: 'var(--primary)', bg: 'var(--primary-light)' },
+  3: { label: '★★★☆☆', name: '표준',   color: '#2563eb', bg: '#eff6ff' },
   4: { label: '★★★★☆', name: '응용',   color: '#ea580c', bg: '#fff7ed' },
-  5: { label: '★★★★★', name: '고난도', color: 'var(--danger)', bg: 'var(--danger-light)' },
+  5: { label: '★★★★★', name: '고난도', color: '#dc2626', bg: '#fef2f2' },
 };
 
 const TIER_OPTIONS = [
-  { id: 'great', label: '잘함', subLabel: '80점+ 수준', color: 'var(--success)', bg: 'var(--success-light)', score: 85 },
-  { id: 'ok',    label: '보통', subLabel: '60-79점',   color: 'var(--primary)', bg: 'var(--primary-light)', score: 70 },
+  { id: 'great', label: '잘함', subLabel: '80점+ 수준', color: '#16a34a', bg: '#f0fdf4', score: 85 },
+  { id: 'ok',    label: '보통', subLabel: '60-79점',   color: '#2563eb', bg: '#eff6ff', score: 70 },
   { id: 'weak',  label: '부족', subLabel: '40-59점',   color: '#ea580c', bg: '#fff7ed', score: 50 },
-  { id: 'fail',  label: '모름', subLabel: '40점 미만', color: 'var(--danger)', bg: 'var(--danger-light)', score: 30 },
+  { id: 'fail',  label: '모름', subLabel: '40점 미만', color: '#dc2626', bg: '#fef2f2', score: 30 },
 ];
 
 const RUBRIC_DEFAULT = [
@@ -116,7 +116,7 @@ const matchAll = (answerText, keyPoints) => {
 
 // 2차 논술 3과목 레지스트리 — 과목별 데이터 디렉토리
 const ESSAY_SUBJECTS = [
-  { key: 'practice', dir: '/data/essay/practice/', title: '감정평가실무', short: '실무', icon: '🏛️', color: '#7c3aed', bg: 'var(--ai-light)', border: '#ddd6fe', desc: '계산·산식 위주 논술' },
+  { key: 'practice', dir: '/data/essay/practice/', title: '감정평가실무', short: '실무', icon: '🏛️', color: '#7c3aed', bg: '#f5f3ff', border: '#ddd6fe', desc: '계산·산식 위주 논술' },
   { key: 'theory', dir: '/data/essay/theory/', title: '감정평가이론', short: '이론', icon: '📚', color: '#0d9488', bg: '#f0fdfa', border: '#99f6e4', desc: '논점 서술형 논술' },
   { key: 'law', dir: '/data/essay/law/', title: '감정평가 및 보상법규', short: '보상법규', icon: '⚖️', color: '#be123c', bg: '#fff1f2', border: '#fecdd3', desc: '행정법·보상 논술' },
 ];
@@ -469,13 +469,13 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
   if (manifestErr) {
     return shell(<>
       {header('2차 준비', '과목', 'essay_subjects')}
-      <div style={{ padding: 24, color: 'var(--danger)' }}>
+      <div style={{ padding: 24, color: '#dc2626' }}>
         {subj.title} 데이터 로드 실패: {manifestErr}
         <div style={{ marginTop: 8, fontSize: '0.85rem', color: '#9ca3af' }}>
           이 과목 데이터가 아직 없거나 누락됐을 수 있어요. 다른 과목을 선택해 주세요.
         </div>
         <button onClick={() => onNavigate('essay_subjects')}
-          style={{ marginTop: 14, padding: '10px 18px', borderRadius: 8, fontWeight: 700, border: 'none', background: 'var(--primary)', color: '#fff', cursor: 'pointer', minHeight: 44 }}>
+          style={{ marginTop: 14, padding: '10px 18px', borderRadius: 8, fontWeight: 700, border: 'none', background: '#2563eb', color: '#fff', cursor: 'pointer', minHeight: 44 }}>
           ← 과목 선택
         </button>
       </div>
@@ -508,9 +508,9 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         </p>
         <button onClick={() => onNavigate('essay_cards')}
           style={{ marginTop: 10, width: '100%', padding: '11px 14px', borderRadius: 12,
-            border: '1.5px solid #ddd6fe', background: 'var(--ai-light)', cursor: 'pointer',
+            border: '1.5px solid #ddd6fe', background: '#f5f3ff', cursor: 'pointer',
             display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--ai-dark)' }}>
+          <span style={{ fontWeight: 800, fontSize: '0.9rem', color: '#5b21b6' }}>
             🃏 논점 인출카드
           </span>
           <span style={{ fontSize: '0.72rem', color: '#7c3aed', fontWeight: 600 }}>
@@ -528,13 +528,13 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
               <button key={c.id}
                 onClick={() => { setChapter(c.id); setQuestionId(null); ensureChapter(c.id); onNavigate('essay_questions'); }}
                 style={{ background: '#fff', borderRadius: 12, padding: 16,
-                  border: 'none', textAlign: 'left', cursor: 'pointer',
+                  border: '1px solid #e5e7eb', textAlign: 'left', cursor: 'pointer',
                   boxShadow: 'var(--shadow-sm)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                   <div style={{ fontWeight: 800, fontSize: '1rem', color: '#111827' }}>
                     단원 {c.id} · {c.title}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 700 }}>{pct}%</div>
+                  <div style={{ fontSize: '0.75rem', color: '#2563eb', fontWeight: 700 }}>{pct}%</div>
                 </div>
                 <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 6 }}>
                   {c.count > 0 ? `${c.count}문항` : '준비 중'}
@@ -546,7 +546,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                 </div>
                 <div style={{ height: 4, background: '#f3f4f6', borderRadius: 2,
                   marginTop: 8, overflow: 'hidden' }}>
-                  <div style={{ width: `${pct}%`, height: '100%', background: 'var(--primary)' }} />
+                  <div style={{ width: `${pct}%`, height: '100%', background: '#2563eb' }} />
                 </div>
               </button>
             );
@@ -563,17 +563,13 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     if (!cd) return shell(
       chapterErrors[chapter]
         ? <div style={{ padding: 24, textAlign: 'center' }}>
-            <div style={{ color: 'var(--danger)', fontWeight: 600, marginBottom: 12 }}>⚠️ 단원 자료를 불러오지 못했어요</div>
+            <div style={{ color: '#dc2626', fontWeight: 600, marginBottom: 12 }}>⚠️ 단원 자료를 불러오지 못했어요</div>
             <div style={{ color: '#6b7280', fontSize: '0.85rem', marginBottom: 16 }}>{chapterErrors[chapter]}</div>
             <button onClick={() => retryChapter(chapter)}
               style={{ padding: '10px 18px', borderRadius: 8, fontWeight: 700, border: 'none',
-                background: 'var(--primary)', color: '#fff', cursor: 'pointer', minHeight: 44 }}>↻ 다시 시도</button>
+                background: '#2563eb', color: '#fff', cursor: 'pointer', minHeight: 44 }}>↻ 다시 시도</button>
           </div>
-        : <div style={{ padding: 16 }}>
-            <div className="skeleton skeleton-row" />
-            <div className="skeleton skeleton-row" />
-            <div className="skeleton skeleton-row" />
-          </div>
+        : <div style={{ padding: 24, color: '#6b7280' }}>단원 데이터 불러오는 중…</div>
     );
 
     // source별 카운트 — 기출(official/past) / GS 모의(gs) / 연습문제(practice-set) / AI 명확히 구분
@@ -645,8 +641,8 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         <p style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
           기출 {counts.official}문항{counts.gs > 0 && <> · 📗 GS {counts.gs}문항</>}{cd.generatedCount > 0 && <> · 🤖 AI/큐레이션 {cd.generatedCount}문항</>}
           {stats.attempted > 0 && (
-            <> · 풀이 <b style={{ color: 'var(--primary-dark)' }}>{stats.attempted}</b>
-              · 평균 <b style={{ color: 'var(--success)' }}>{stats.avgScore}점</b>
+            <> · 풀이 <b style={{ color: '#1d4ed8' }}>{stats.attempted}</b>
+              · 평균 <b style={{ color: '#16a34a' }}>{stats.avgScore}점</b>
               {stats.avgKeyword != null && (
                 <> · 키워드 적중 <b style={{ color: '#7c3aed' }}>{stats.avgKeyword}%</b></>
               )}
@@ -657,9 +653,9 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       <main className="main-content" style={{ marginTop: 16 }}>
         {/* 추천 학습 카드 — 약점 sub-concept 우선 미풀이 */}
         {recommendations.length > 0 && (
-          <section style={{ background: 'var(--primary-light)', borderRadius: 12, padding: 14,
+          <section style={{ background: '#eff6ff', borderRadius: 12, padding: 14,
             border: '1px solid #bfdbfe', marginBottom: 14 }}>
-            <div style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--primary-dark)',
+            <div style={{ fontWeight: 800, fontSize: '0.9rem', color: '#1d4ed8',
               marginBottom: 8 }}>
               💡 다음 추천 학습
               {stats.attempted > 0 && stats.subArr.filter(s => s.avgScore != null).length > 0 && (
@@ -677,7 +673,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                     borderRadius: 8, padding: '8px 12px', cursor: 'pointer',
                     textAlign: 'left', display: 'flex', alignItems: 'center', gap: 10 }}>
                   <span style={{ fontSize: '0.78rem', fontWeight: 700,
-                    color: 'var(--primary-dark)', minWidth: 30 }}>
+                    color: '#1d4ed8', minWidth: 30 }}>
                     {q.difficulty ? '★'.repeat(q.difficulty) : ''}
                   </span>
                   <span style={{ flex: 1, fontSize: '0.82rem', color: '#374151',
@@ -713,9 +709,9 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
               return (
                 <button key={c.id} onClick={() => setSourceFilter(c.id)}
                   style={{ flex: '0 0 auto', padding: '6px 11px', whiteSpace: 'nowrap',
-                    border: on ? '1.5px solid var(--primary)' : '1px solid #d1d5db',
-                    background: on ? 'var(--primary-light)' : '#fff',
-                    color: on ? 'var(--primary-dark)' : '#374151',
+                    border: on ? '1.5px solid #2563eb' : '1px solid #d1d5db',
+                    background: on ? '#eff6ff' : '#fff',
+                    color: on ? '#1d4ed8' : '#374151',
                     borderRadius: 999, fontWeight: on ? 800 : 600,
                     fontSize: '0.78rem', cursor: 'pointer' }}>
                   {c.label} {c.count}
@@ -851,7 +847,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   <div style={{ marginTop: 6, display: 'flex', gap: 8, flexWrap: 'wrap',
                     fontSize: '0.72rem', alignItems: 'center' }}>
                     {q.points && (
-                      <span style={{ color: 'var(--primary-dark)', fontWeight: 700 }}>{q.points}점</span>
+                      <span style={{ color: '#1d4ed8', fontWeight: 700 }}>{q.points}점</span>
                     )}
                     {q.difficulty && DIFF_META[q.difficulty] && (
                       <span style={{ color: DIFF_META[q.difficulty].color,
@@ -872,7 +868,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                       </span>
                     )}
                     {q.subconcept && (
-                      <span style={{ color: '#92400e', background: 'var(--amber-light)',
+                      <span style={{ color: '#92400e', background: '#fffbeb',
                         padding: '1px 7px', borderRadius: 999, fontWeight: 700,
                         maxWidth: 280, overflow: 'hidden', textOverflow: 'ellipsis',
                         whiteSpace: 'nowrap' }}>
@@ -883,7 +879,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                       <span style={{ color: '#9ca3af' }}>답안 없음</span>
                     )}
                     {attemptCount > 0 && (
-                      <span style={{ color: 'var(--success)', fontWeight: 700 }}>
+                      <span style={{ color: '#16a34a', fontWeight: 700 }}>
                         {attemptCount}회 풀이 · 마지막 {lastScore}점
                       </span>
                     )}
@@ -916,7 +912,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         </button>
         <div style={{ display: 'flex', alignItems: 'center', padding: '6px 12px',
           fontSize: '0.85rem', fontWeight: 700,
-          color: currentQuestion.points && elapsed > currentQuestion.points * 60000 ? 'var(--danger)' : '#374151' }}>
+          color: currentQuestion.points && elapsed > currentQuestion.points * 60000 ? '#dc2626' : '#374151' }}>
           ⏱ {fmtClock(elapsed)}
           {currentQuestion.points ? (
             <span style={{ marginLeft: 6, fontSize: '0.72rem', fontWeight: 600, color: '#9ca3af' }}>
@@ -949,13 +945,13 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
               )}
             </span>
             {currentQuestion.points && (
-              <span style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--primary-dark)' }}>
+              <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#1d4ed8' }}>
                 {currentQuestion.points}점
               </span>
             )}
           </div>
           {currentQuestion.source === 'ai-generated' && (
-            <div style={{ fontSize: '0.72rem', color: '#7c3aed', background: 'var(--ai-light)',
+            <div style={{ fontSize: '0.72rem', color: '#7c3aed', background: '#f5f3ff',
               border: '1px solid #ddd6fe', borderRadius: 8, padding: '6px 10px',
               marginBottom: 10 }}>
               AI 생성 문제입니다. 모범답안도 AI가 작성한 것이므로 학습 시 비판적으로 검토하세요.
@@ -966,7 +962,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             </div>
           )}
           {(currentQuestion.subconcept || currentQuestion.learningGoal) && (
-            <div style={{ fontSize: '0.75rem', background: 'var(--amber-light)',
+            <div style={{ fontSize: '0.75rem', background: '#fffbeb',
               border: '1px solid #fde68a', borderRadius: 8, padding: '8px 12px',
               marginBottom: 10, color: '#92400e' }}>
               {currentQuestion.subconcept && (
@@ -991,8 +987,8 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
           <div style={{ marginBottom: 14 }}>
             <button onClick={() => setPreviewModelInWrite(p => p === true ? false : p === 'ask' ? true : 'ask')}
               style={{ width: '100%', padding: '10px 14px', borderRadius: 10,
-                border: `1px dashed ${previewModelInWrite === true ? 'var(--success)' : '#d1d5db'}`,
-                background: previewModelInWrite === true ? 'var(--success-light)' : '#fff',
+                border: `1px dashed ${previewModelInWrite === true ? '#16a34a' : '#d1d5db'}`,
+                background: previewModelInWrite === true ? '#f0fdf4' : '#fff',
                 color: previewModelInWrite === true ? '#15803d' : '#6b7280',
                 fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', textAlign: 'left',
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -1002,7 +998,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
               </span>
             </button>
             {previewModelInWrite === 'ask' && (
-              <div style={{ marginTop: 8, padding: '10px 14px', background: 'var(--amber-light)',
+              <div style={{ marginTop: 8, padding: '10px 14px', background: '#fffbeb',
                 border: '1px solid #fde68a', borderRadius: 10, fontSize: '0.8rem',
                 color: '#92400e', display: 'flex', justifyContent: 'space-between',
                 alignItems: 'center', gap: 10 }}>
@@ -1037,14 +1033,14 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             <button onClick={() => { setOutlineMode(m => !m); setOutlineResult(null); }}
               style={{ padding: '4px 12px', borderRadius: 999, fontSize: '0.75rem', fontWeight: 700,
                 border: `1.5px solid ${outlineMode ? '#f59e0b' : '#d1d5db'}`,
-                background: outlineMode ? 'var(--amber-light)' : '#fff',
+                background: outlineMode ? '#fffbeb' : '#fff',
                 color: outlineMode ? '#b45309' : '#6b7280', cursor: 'pointer' }}>
               ⚡ 목차 스파링 {outlineMode ? 'ON' : 'OFF'}
             </button>
           )}
         </div>
         {outlineMode && (
-          <div style={{ fontSize: '0.75rem', color: '#b45309', background: 'var(--amber-light)',
+          <div style={{ fontSize: '0.75rem', color: '#b45309', background: '#fffbeb',
             border: '1px solid #fde68a', borderRadius: 8, padding: '7px 11px', marginBottom: 8 }}>
             답안 전체 대신 <b>목차만</b> 잡아보세요 (권장 5분). Ⅰ. Ⅱ. / 1. 2. 형식으로 줄바꿈하며 작성 →
             제출하면 모범답안 목차와 나란히 대조됩니다. 가볍게 여러 문제를 회독하는 훈련입니다.
@@ -1063,7 +1059,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
           return (
             <div style={{ marginTop: 12, border: '1.5px solid #f59e0b', borderRadius: 12,
               overflow: 'hidden' }}>
-              <div style={{ background: 'var(--amber-light)', padding: '8px 12px', fontWeight: 800,
+              <div style={{ background: '#fffbeb', padding: '8px 12px', fontWeight: 800,
                 fontSize: '0.85rem', color: '#b45309' }}>
                 ⚡ 목차 대조 — 빠진 항목·순서를 비교해보세요
               </div>
@@ -1075,7 +1071,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   </div>
                 </div>
                 <div style={{ padding: 12, background: '#fafaf9' }}>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--success)', marginBottom: 6 }}>모범답안 목차</div>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#16a34a', marginBottom: 6 }}>모범답안 목차</div>
                   <div style={{ fontSize: '0.8rem', lineHeight: 1.7, color: '#374151' }}>
                     {model.map((o, i) => (
                       <div key={i} style={{ paddingLeft: o.level * 12,
@@ -1086,7 +1082,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   </div>
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: 8, padding: '8px 12px', background: 'var(--amber-light)' }}>
+              <div style={{ display: 'flex', gap: 8, padding: '8px 12px', background: '#fffbeb' }}>
                 <button onClick={() => setOutlineResult(null)}
                   style={{ flex: 1, padding: '8px', borderRadius: 8, border: '1px solid #fcd34d',
                     background: '#fff', color: '#b45309', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer' }}>
@@ -1094,7 +1090,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                 </button>
                 <button onClick={() => setPreviewModelInWrite(true)}
                   style={{ flex: 1, padding: '8px', borderRadius: 8, border: 'none',
-                    background: 'var(--success)', color: '#fff', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer' }}>
+                    background: '#16a34a', color: '#fff', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer' }}>
                   전체 모범답안 보기
                 </button>
               </div>
@@ -1125,7 +1121,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
           disabled={draft.trim().length < (outlineMode ? 2 : 10)}
           style={{ flex: 2, padding: '12px', borderRadius: 10, fontWeight: 800,
             border: 'none',
-            background: draft.trim().length < (outlineMode ? 2 : 10) ? '#d1d5db' : (outlineMode ? 'var(--amber)' : 'var(--primary)'),
+            background: draft.trim().length < (outlineMode ? 2 : 10) ? '#d1d5db' : (outlineMode ? '#d97706' : '#2563eb'),
             color: '#fff', cursor: draft.trim().length < (outlineMode ? 2 : 10) ? 'default' : 'pointer' }}>
           {outlineMode ? '⚡ 목차 제출 → 모범 목차 대조' : '제출 → 모범답안 보기'}
         </button>
@@ -1163,9 +1159,9 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
           </div>
         </section>
 
-        <section style={{ background: 'var(--primary-light)', borderRadius: 12, padding: 16,
+        <section style={{ background: '#eff6ff', borderRadius: 12, padding: 16,
           border: '1px solid #bfdbfe', marginBottom: 14 }}>
-          <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--primary-dark)' }}>✍ 내 답안</div>
+          <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#1d4ed8' }}>✍ 내 답안</div>
           <div style={{ marginTop: 6, fontSize: '0.83rem', lineHeight: 1.7,
             color: '#111827', whiteSpace: 'pre-wrap' }}>
             {submittedAnswer || '(답안 없음)'}
@@ -1181,7 +1177,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
           const hitCount = matches.filter(m => m.matched).length;
           const total = matches.length;
           const pct = total ? Math.round((hitCount / total) * 100) : 0;
-          const color = pct >= 80 ? 'var(--success)' : pct >= 60 ? 'var(--primary)' : pct >= 40 ? '#ea580c' : 'var(--danger)';
+          const color = pct >= 80 ? '#16a34a' : pct >= 60 ? '#2563eb' : pct >= 40 ? '#ea580c' : '#dc2626';
           return (
             <section style={{ background: '#fff', borderRadius: 12, padding: 16,
               boxShadow: 'var(--shadow-sm)', marginBottom: 14 }}>
@@ -1201,7 +1197,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   <span key={i} style={{
                     padding: '4px 10px', borderRadius: 999,
                     fontSize: '0.75rem', fontWeight: 600,
-                    background: m.matched ? 'var(--success-light)' : 'var(--danger-light)',
+                    background: m.matched ? '#f0fdf4' : '#fef2f2',
                     color: m.matched ? '#15803d' : '#b91c1c',
                     border: `1px solid ${m.matched ? '#bbf7d0' : '#fecaca'}`,
                   }}>
@@ -1215,13 +1211,13 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
 
         {currentQuestion.modelAnswer ? (
           <section style={{ background: '#fff', borderRadius: 12, padding: 16,
-            border: 'none', marginBottom: 14 }}>
+            border: '1px solid #e5e7eb', marginBottom: 14 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <div style={{ fontWeight: 700, fontSize: '0.9rem',
                 color: currentQuestion.modelAnswerSource === 'ai-direct-note' ? '#0891b2'
                   : currentQuestion.modelAnswerSource === 'ai-generated' ? '#7c3aed'
-                  : currentQuestion.modelAnswerSource === 'ai-direct' ? 'var(--primary)'
-                  : 'var(--success)' }}>
+                  : currentQuestion.modelAnswerSource === 'ai-direct' ? '#2563eb'
+                  : '#16a34a' }}>
                 {currentQuestion.modelAnswerSource === 'ai-direct-note' ? '📚 학습 안내 (자기채점)'
                   : currentQuestion.modelAnswerSource === 'ai-generated' ? '🤖 AI 모범답안'
                   : currentQuestion.modelAnswerSource === 'ai-direct' ? '🧠 LLM 풀이 (학습용)'
@@ -1279,9 +1275,9 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   try { localStorage.setItem(SELF_TIER_KEY, id); } catch { /* SSR */ }
                 }}
                   style={{ fontSize: '0.72rem', padding: '4px 9px', borderRadius: 6,
-                    border: tierMode === id ? '1px solid var(--primary)' : '1px solid #d1d5db',
-                    background: tierMode === id ? 'var(--primary-light)' : '#fff',
-                    color: tierMode === id ? 'var(--primary-dark)' : '#6b7280',
+                    border: tierMode === id ? '1px solid #2563eb' : '1px solid #d1d5db',
+                    background: tierMode === id ? '#eff6ff' : '#fff',
+                    color: tierMode === id ? '#1d4ed8' : '#6b7280',
                     fontWeight: 700, cursor: 'pointer' }}>
                   {lbl}
                 </button>
@@ -1318,10 +1314,10 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   <button key={r.id} onClick={() => setRubric(prev => ({ ...prev, [r.id]: !prev[r.id] }))}
                     style={{ display: 'flex', alignItems: 'center', gap: 10,
                       padding: '10px 14px', borderRadius: 8, cursor: 'pointer',
-                      border: `1.5px solid ${on ? 'var(--success)' : '#e5e7eb'}`,
-                      background: on ? 'var(--success-light)' : '#fff', textAlign: 'left' }}>
+                      border: `1.5px solid ${on ? '#16a34a' : '#e5e7eb'}`,
+                      background: on ? '#f0fdf4' : '#fff', textAlign: 'left' }}>
                     <span style={{ width: 22, height: 22, borderRadius: 5,
-                      background: on ? 'var(--success)' : '#fff',
+                      background: on ? '#16a34a' : '#fff',
                       border: on ? 'none' : '1.5px solid #d1d5db',
                       color: '#fff', display: 'flex', alignItems: 'center',
                       justifyContent: 'center', fontSize: '0.85rem' }}>
@@ -1336,7 +1332,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                 );
               })}
               <div style={{ marginTop: 6, fontSize: '0.78rem', color: '#6b7280', textAlign: 'right' }}>
-                예상 점수: <b style={{ color: 'var(--primary-dark)' }}>
+                예상 점수: <b style={{ color: '#1d4ed8' }}>
                   {Math.round((RUBRIC_DEFAULT.reduce((s, r) => s + (rubric[r.id] ? r.weight : 0), 0) /
                     RUBRIC_DEFAULT.reduce((s, r) => s + r.weight, 0)) * 100) || 0}점
                 </b>
@@ -1355,7 +1351,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             style={{ width: '100%', marginTop: 12, padding: '12px',
               borderRadius: 10, fontWeight: 800,
               border: 'none',
-              background: tierMode === 'simple' && !selectedTier ? '#d1d5db' : 'var(--primary)',
+              background: tierMode === 'simple' && !selectedTier ? '#d1d5db' : '#2563eb',
               color: '#fff',
               cursor: tierMode === 'simple' && !selectedTier ? 'default' : 'pointer' }}>
             저장하고 문제 목록으로
@@ -1375,9 +1371,9 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   padding: '6px 10px', background: '#f9fafb', borderRadius: 6 }}>
                   <span style={{ color: '#6b7280' }}>{fmtDate(a.ts)}</span>
                   <span style={{ fontWeight: 800, color:
-                    a.selfScore >= 80 ? 'var(--success)' :
-                    a.selfScore >= 60 ? 'var(--primary)' :
-                    a.selfScore >= 40 ? '#ea580c' : 'var(--danger)' }}>
+                    a.selfScore >= 80 ? '#16a34a' :
+                    a.selfScore >= 60 ? '#2563eb' :
+                    a.selfScore >= 40 ? '#ea580c' : '#dc2626' }}>
                     {a.selfScore}점
                   </span>
                 </div>
@@ -1516,8 +1512,8 @@ export function EssayCards({ subjDir, manifest, onBack }) {
                       <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#7c3aed', marginBottom: 6 }}>핵심 논점</div>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 12 }}>
                         {card.logicalPoints.map((lp, i) => (
-                          <span key={i} style={{ fontSize: '0.78rem', background: 'var(--ai-light)',
-                            color: 'var(--ai-dark)', border: '1px solid #ddd6fe', borderRadius: 999,
+                          <span key={i} style={{ fontSize: '0.78rem', background: '#f5f3ff',
+                            color: '#5b21b6', border: '1px solid #ddd6fe', borderRadius: 999,
                             padding: '3px 10px', fontWeight: 600 }}>{lp}</span>
                         ))}
                       </div>
@@ -1541,16 +1537,16 @@ export function EssayCards({ subjDir, manifest, onBack }) {
             {flipped ? (
               <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>
                 <button onClick={() => grade('again')} style={{ flex: 1, padding: '13px',
-                  borderRadius: 12, border: '1px solid #fecaca', background: 'var(--danger-light)',
-                  color: 'var(--danger)', fontWeight: 800, cursor: 'pointer' }}>✕ 모름<br />
+                  borderRadius: 12, border: '1px solid #fecaca', background: '#fef2f2',
+                  color: '#dc2626', fontWeight: 800, cursor: 'pointer' }}>✕ 모름<br />
                   <span style={{ fontSize: '0.65rem', fontWeight: 600 }}>10분 후</span></button>
                 <button onClick={() => grade('hard')} style={{ flex: 1, padding: '13px',
-                  borderRadius: 12, border: '1px solid #fde68a', background: 'var(--amber-light)',
+                  borderRadius: 12, border: '1px solid #fde68a', background: '#fffbeb',
                   color: '#b45309', fontWeight: 800, cursor: 'pointer' }}>~ 애매<br />
                   <span style={{ fontSize: '0.65rem', fontWeight: 600 }}>1일 후</span></button>
                 <button onClick={() => grade('good')} style={{ flex: 1, padding: '13px',
-                  borderRadius: 12, border: '1px solid #a7f3d0', background: 'var(--success-light)',
-                  color: 'var(--success)', fontWeight: 800, cursor: 'pointer' }}>✓ 알았다<br />
+                  borderRadius: 12, border: '1px solid #a7f3d0', background: '#ecfdf5',
+                  color: '#059669', fontWeight: 800, cursor: 'pointer' }}>✓ 알았다<br />
                   <span style={{ fontSize: '0.65rem', fontWeight: 600 }}>
                     {SRS_DAYS[Math.min((srs[card.id]?.box || 0), SRS_DAYS.length - 1)]}일 후
                   </span></button>

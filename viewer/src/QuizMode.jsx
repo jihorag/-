@@ -6,7 +6,7 @@
 //   ② ⬜ 빈칸 인출 — 정의문의 핵심어를 가리고 떠올리기 (콤보)
 //   ③ 🗺 목차 인출 — 단원 소제목을 순서대로 떠올리기
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { ArrowLeft, Zap, Layers, PenLine, Map as MapIcon, ListChecks, RotateCcw, Bot, Trash2 } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { SUBJECTS, getMastery as getAiMastery } from './aiLearningStore';
 import { sliceSection } from './aiClaudeClient';
 import { leafQuizStats } from './leafStats';
@@ -209,18 +209,11 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
     const stages = [[1, '1차 — 객관식 5과목'], [2, '2차 — 논술 3과목']];
     return (
       <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
-        <div style={{ background: '#fff', padding: '26px 20px 20px',
-          paddingTop: 'calc(22px + env(safe-area-inset-top, 0px))', borderBottom: '1px solid var(--bg-color)' }}>
-          <div style={{ fontSize: '1.65rem', fontWeight: 800, color: 'var(--text-main)', lineHeight: 1.2,
-            letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ width: 36, height: 36, borderRadius: 11, background: 'var(--primary-light)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Zap size={20} color="var(--primary)" />
-            </span>
-            퀴즈
-          </div>
-          <div style={{ fontSize: '0.88rem', color: 'var(--text-sub)', marginTop: 8, fontWeight: 500, lineHeight: 1.5 }}>
-            AI 학습 대화에서 자동 출제된 <b style={{ color: 'var(--text-main)' }}>내 카드</b>로 암기해요
+        <div style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #0891b2 100%)', padding: '28px 20px 22px' }}>
+          <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.85)', fontWeight: 700, letterSpacing: '0.05em' }}>MEMORIZE</div>
+          <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', lineHeight: 1.2, marginTop: 4 }}>⚡ 퀴즈 — 교재 암기</div>
+          <div style={{ fontSize: '0.84rem', color: 'rgba(255,255,255,0.9)', marginTop: 6, fontWeight: 500 }}>
+            AI 학습 대화에서 자동 출제된 <b>내 카드</b>로 암기 — 이해 → 암기 → 적용
           </div>
         </div>
         <main className="main-content" style={{ marginTop: 18 }}>
@@ -240,22 +233,19 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
             return (
               <button onClick={() => { setReviewQueue(due.slice(0, 50)); setRIdx(0); setRFlip(false); setScreen('review'); }}
                 style={{ width: '100%', marginBottom: 16, padding: '15px 18px', borderRadius: 16,
-                  border: 'none', cursor: 'pointer', textAlign: 'left',
-                  background: 'linear-gradient(135deg, var(--amber-light) 0%, #fef3c7 100%)',
+                  border: '1.5px solid #fcd34d', cursor: 'pointer', textAlign: 'left',
+                  background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
                   display: 'flex', alignItems: 'center', gap: 12 }}>
-                <span style={{ width: 40, height: 40, borderRadius: 12, background: '#fff',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <RotateCcw size={20} color="var(--amber)" />
-                </span>
+                <span style={{ fontSize: '1.7rem' }}>🔁</span>
                 <span style={{ flex: 1 }}>
-                  <span style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--amber)' }}>
+                  <span style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: '#92400e' }}>
                     오늘 복습할 카드 {due.length}장
                   </span>
-                  <span style={{ display: 'block', fontSize: '0.74rem', color: 'var(--amber)', marginTop: 2 }}>
+                  <span style={{ display: 'block', fontSize: '0.74rem', color: '#b45309', marginTop: 2 }}>
                     전 과목 기한 도래(SRS) 카드 한 번에 — 잊기 전에 인출
                   </span>
                 </span>
-                <span style={{ fontWeight: 800, color: 'var(--amber)' }}>시작 →</span>
+                <span style={{ fontWeight: 800, color: '#d97706' }}>시작 →</span>
               </button>
             );
           })()}
@@ -266,8 +256,9 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
                 {SUBJECTS.filter(s => s.stage === stage).map(s => (
                   <button key={s.id}
                     onClick={() => { setSubjectId(s.id); setPathStack([]); setScreen('leaves'); }}
-                    style={{ padding: '20px 18px', textAlign: 'left', cursor: 'pointer',
-                      background: '#fff', border: 'none', borderRadius: 18 }}>
+                    style={{ padding: '16px 14px', textAlign: 'left', cursor: 'pointer',
+                      background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14,
+                      boxShadow: '0 2px 8px rgba(15,23,42,0.05)' }}>
                     <div style={{ fontSize: '1.5rem' }}>{s.icon}</div>
                     <div style={{ fontWeight: 800, fontSize: '0.92rem', color: '#111827', marginTop: 6 }}>{s.short}</div>
                     <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: 2 }}>{s.title}</div>
@@ -321,7 +312,7 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
               </div>
               <button onClick={() => setScreen('subjects')}
                 style={{ marginTop: 18, padding: '11px 22px', borderRadius: 10, border: 'none',
-                  background: 'var(--amber)', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+                  background: '#d97706', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
                 과목으로
               </button>
             </div>
@@ -336,22 +327,22 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
                   display: 'flex', flexDirection: 'column' }}>
                 <div style={{ fontWeight: 900, fontSize: '1.2rem', color: '#111827' }}>
                   {item.card.term}
-                  {item.card.importance >= 3 && <span style={{ marginLeft: 8, fontSize: '0.72rem', color: 'var(--amber)' }}>★ 핵심</span>}
+                  {item.card.importance >= 3 && <span style={{ marginLeft: 8, fontSize: '0.72rem', color: '#d97706' }}>★ 핵심</span>}
                 </div>
                 {rFlip
                   ? <div style={{ marginTop: 12, fontSize: '0.92rem', lineHeight: 1.7, color: '#374151' }}>{item.card.def}</div>
-                  : <div style={{ marginTop: 'auto', paddingTop: 26, textAlign: 'center', color: 'var(--amber)',
+                  : <div style={{ marginTop: 'auto', paddingTop: 26, textAlign: 'center', color: '#d97706',
                       fontSize: '0.85rem', fontWeight: 700 }}>떠올려보세요 (탭하면 공개)</div>}
               </div>
               {rFlip ? (
                 <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>
-                  <button onClick={() => gradeReview(false)} style={gradeBtn('var(--danger)', 'var(--danger-light)', '#fecaca')}>✕ 모름</button>
-                  <button onClick={() => gradeReview(true)} style={gradeBtn('var(--success)', 'var(--success-light)', '#bbf7d0')}>✓ 알았다</button>
+                  <button onClick={() => gradeReview(false)} style={gradeBtn('#dc2626', '#fef2f2', '#fecaca')}>✕ 모름</button>
+                  <button onClick={() => gradeReview(true)} style={gradeBtn('#059669', '#ecfdf5', '#a7f3d0')}>✓ 알았다</button>
                 </div>
               ) : (
                 <button onClick={() => setRFlip(true)}
                   style={{ width: '100%', marginTop: 14, padding: '13px', borderRadius: 12, border: 'none',
-                    background: 'var(--amber)', color: '#fff', fontWeight: 800, fontSize: '0.95rem', cursor: 'pointer' }}>
+                    background: '#d97706', color: '#fff', fontWeight: 800, fontSize: '0.95rem', cursor: 'pointer' }}>
                   정답 보기
                 </button>
               )}
@@ -418,12 +409,7 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
         </div>
         <main className="main-content" style={{ marginTop: 10 }}>
           {leaves.length === 0 && (
-            <>
-              <div className="skeleton skeleton-row" />
-              <div className="skeleton skeleton-row" />
-              <div className="skeleton skeleton-row" />
-              <div className="skeleton skeleton-row" />
-            </>
+            <div style={{ padding: 30, textAlign: 'center', color: '#9ca3af', fontSize: '0.85rem' }}>목차 불러오는 중…</div>
           )}
           {/* 그룹 행 (장·편 — 문제풀이 BrowseRow와 동일 룩) */}
           {[...groupsMap.entries()].map(([seg, ls]) => {
@@ -447,13 +433,13 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
                 pct={mp.pct} showBar={mp.pct > 0}
                 meta={<>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                    {dot(ai === 'mastered', 'var(--ai)', ai === 'in_progress')} 🤖 이해
+                    {dot(ai === 'mastered', '#4f46e5', ai === 'in_progress')} 🤖 이해
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                    {dot(mp.pct >= 80, 'var(--primary)', mp.pct > 0)} ⚡ 암기
+                    {dot(mp.pct >= 80, '#7c3aed', mp.pct > 0)} ⚡ 암기
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                    {dot(qs.total > 0 && qs.accuracy >= 0.8 && qs.coverage >= 0.5, 'var(--success)', qs.answered > 0)}
+                    {dot(qs.total > 0 && qs.accuracy >= 0.8 && qs.coverage >= 0.5, '#059669', qs.answered > 0)}
                     ✍️ 적용{qs.answered > 0 ? ` ${Math.round(qs.accuracy * 100)}%` : ''}
                   </span>
                 </>}
@@ -538,14 +524,7 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
   const clozeQueue = useMemo(() => queue.map(c => ({ ...c, blanked: c.cloze || clozeText(c) })).filter(c => c.blanked), [queue]);
 
   if (!knowledge) {
-    return (
-      <div className="app-container" style={{ padding: '60px 20px' }}>
-        <div className="skeleton" style={{ height: 28, width: '55%', marginBottom: 14 }} />
-        <div className="skeleton skeleton-row" />
-        <div className="skeleton skeleton-row" />
-        <div className="skeleton skeleton-row" />
-      </div>
-    );
+    return <div className="app-container" style={{ padding: 40, textAlign: 'center', color: '#9ca3af' }}>교재 불러오는 중…</div>;
   }
   const mp = memProgressOf(mem, leaf.id);
 
@@ -577,14 +556,9 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
           </div>
 
           {knowledge.cards.length === 0 ? (
-            <div style={{ padding: 22, background: '#fff', borderRadius: 14, border: '1.5px dashed #bfdbfe',
+            <div style={{ padding: 22, background: '#fff', borderRadius: 14, border: '1.5px dashed #c7d2fe',
               textAlign: 'center' }}>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <span style={{ width: 52, height: 52, borderRadius: 16, background: 'var(--ai-light)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Layers size={26} color="var(--ai)" />
-                </span>
-              </div>
+              <div style={{ fontSize: '1.8rem' }}>🃏</div>
               <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827', marginTop: 8 }}>
                 아직 이 단원 카드가 없어요
               </div>
@@ -594,46 +568,46 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
               </div>
               <button onClick={() => onGoAI?.(subjectId, leaf)}
                 style={{ marginTop: 14, padding: '11px 22px', borderRadius: 12, border: 'none',
-                  background: 'var(--ai)', color: '#fff', fontWeight: 800, cursor: 'pointer', fontSize: '0.88rem' }}>
-                <Bot size={16} style={{ verticalAlign: '-3px', marginRight: 6 }} />AI 학습으로 배우러 가기
+                  background: '#4f46e5', color: '#fff', fontWeight: 800, cursor: 'pointer', fontSize: '0.88rem' }}>
+                🤖 AI 학습으로 배우러 가기
               </button>
             </div>
           ) : (
             <>
               <button onClick={() => { setMode('cards'); setIdx(0); setFlipped(false); setCombo(0); setSessionDone(0); }}
-                style={trainBtn('var(--primary)', 'var(--ai-light)', '#bfdbfe')}>
-                <span style={{ width: 40, height: 40, borderRadius: 12, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Layers size={20} color="var(--primary)" /></span>
+                style={trainBtn('#7c3aed', '#f5f3ff', '#ddd6fe')}>
+                <span style={{ fontSize: '1.5rem' }}>🃏</span>
                 <span style={{ flex: 1 }}>
-                  <b style={{ display: 'block', color: 'var(--ai-dark)' }}>용어 카드 {knowledge.cards.length}장</b>
+                  <b style={{ display: 'block', color: '#5b21b6' }}>용어 카드 {knowledge.cards.length}장</b>
                   <span style={smallDesc}>교재 용어·정의 — 앞면 보고 떠올리기 (SRS 복습)</span>
                 </span>
               </button>
               {clozeQueue.length > 0 && (
                 <button onClick={() => { setMode('cloze'); setIdx(0); setFlipped(false); setCombo(0); setSessionDone(0); }}
-                  style={trainBtn('var(--primary)', 'var(--primary-light)', '#bfdbfe')}>
-                  <span style={{ width: 40, height: 40, borderRadius: 12, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><PenLine size={20} color="var(--primary)" /></span>
+                  style={trainBtn('#0891b2', '#ecfeff', '#a5f3fc')}>
+                  <span style={{ fontSize: '1.5rem' }}>⬜</span>
                   <span style={{ flex: 1 }}>
-                    <b style={{ display: 'block', color: 'var(--primary-dark)' }}>빈칸 인출 {clozeQueue.length}문</b>
+                    <b style={{ display: 'block', color: '#155e75' }}>빈칸 인출 {clozeQueue.length}문</b>
                     <span style={smallDesc}>정의문의 핵심어를 가리고 떠올리기</span>
                   </span>
                 </button>
               )}
               {knowledge.cards.length >= 4 && (
                 <button onClick={() => { setMode('mcq'); setIdx(0); setFlipped(false); setCombo(0); setSessionDone(0); }}
-                  style={trainBtn('var(--amber)', 'var(--amber-light)', '#fcd34d')}>
-                  <span style={{ width: 40, height: 40, borderRadius: 12, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><ListChecks size={20} color="var(--amber)" /></span>
+                  style={trainBtn('#d97706', '#fffbeb', '#fde68a')}>
+                  <span style={{ fontSize: '1.5rem' }}>✅</span>
                   <span style={{ flex: 1 }}>
-                    <b style={{ display: 'block', color: 'var(--amber)' }}>4지선다 {queue.length}문</b>
+                    <b style={{ display: 'block', color: '#92400e' }}>4지선다 {queue.length}문</b>
                     <span style={smallDesc}>객관식으로 변환 — 1차 실전 형식으로 확인</span>
                   </span>
                 </button>
               )}
               {knowledge.outline.length >= 3 && (
                 <button onClick={() => { setMode('outline'); setRevealCnt(0); }}
-                  style={trainBtn('var(--success)', 'var(--success-light)', '#bbf7d0')}>
-                  <span style={{ width: 40, height: 40, borderRadius: 12, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><MapIcon size={20} color="var(--success)" /></span>
+                  style={trainBtn('#059669', '#ecfdf5', '#a7f3d0')}>
+                  <span style={{ fontSize: '1.5rem' }}>🗺</span>
                   <span style={{ flex: 1 }}>
-                    <b style={{ display: 'block', color: 'var(--success)' }}>목차 인출 {knowledge.outline.length}항목</b>
+                    <b style={{ display: 'block', color: '#065f46' }}>목차 인출 {knowledge.outline.length}항목</b>
                     <span style={smallDesc}>이 단원의 뼈대를 순서대로 떠올리기 {mp.outlineDone && '✓'}</span>
                   </span>
                 </button>
@@ -643,11 +617,11 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
 
           {/* 교두보 — 전후 단계로 이동 */}
           <div style={{ display: 'flex', gap: 8, marginTop: 18 }}>
-            <button onClick={() => onGoAI?.(subjectId, leaf)} style={bridgeBtn('var(--ai)')}>
-              <Bot size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} />AI 학습으로<br /><span style={{ fontSize: '0.66rem', fontWeight: 600 }}>이해가 먼저라면</span>
+            <button onClick={() => onGoAI?.(subjectId, leaf)} style={bridgeBtn('#4f46e5')}>
+              🤖 AI 학습으로<br /><span style={{ fontSize: '0.66rem', fontWeight: 600 }}>이해가 먼저라면</span>
             </button>
-            <button onClick={() => onGoSolve?.(leaf)} disabled={!solveStats.total} style={bridgeBtn('var(--success)', !solveStats.total)}>
-              <PenLine size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} />문제풀이로<br /><span style={{ fontSize: '0.66rem', fontWeight: 600 }}>
+            <button onClick={() => onGoSolve?.(leaf)} disabled={!solveStats.total} style={bridgeBtn('#059669', !solveStats.total)}>
+              ✍️ 문제풀이로<br /><span style={{ fontSize: '0.66rem', fontWeight: 600 }}>
                 {solveStats.total ? `이 단원 ${solveStats.total}문 적용` : '연결된 문제 없음'}
               </span>
             </button>
@@ -669,7 +643,7 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
             <div style={{ fontWeight: 800, marginTop: 8 }}>4지선다 완료! ({sessionDone}문)</div>
             <button onClick={() => { setMode('hub'); setIdx(0); }}
               style={{ marginTop: 18, padding: '11px 22px', borderRadius: 10, border: 'none',
-                background: 'var(--amber)', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+                background: '#d97706', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
               훈련 선택으로
             </button>
           </main>
@@ -700,8 +674,8 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
             const isSel = picked === o;
             let border = '#e5e7eb'; let bg = '#fff';
             if (picked) {
-              if (isAns) { border = 'var(--success)'; bg = 'var(--success-light)'; }
-              else if (isSel) { border = '#ef4444'; bg = 'var(--danger-light)'; }
+              if (isAns) { border = '#16a34a'; bg = '#f0fdf4'; }
+              else if (isSel) { border = '#ef4444'; bg = '#fef2f2'; }
             }
             return (
               <button key={i} disabled={!!picked}
@@ -738,7 +712,7 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
             </div>
             <button onClick={() => { setMode('hub'); setIdx(0); }}
               style={{ marginTop: 18, padding: '11px 22px', borderRadius: 10, border: 'none',
-                background: 'var(--primary)', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+                background: '#7c3aed', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
               훈련 선택으로
             </button>
           </main>
@@ -754,17 +728,17 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
           </div>
           <div onClick={() => setFlipped(f => !f)}
             style={{ background: '#fff', borderRadius: 16, padding: 22, minHeight: 240, cursor: 'pointer',
-              border: `1.5px solid ${flipped ? '#93c5fd' : '#e5e7eb'}`, boxShadow: '0 4px 14px rgba(0,0,0,0.06)',
+              border: `1.5px solid ${flipped ? '#a78bfa' : '#e5e7eb'}`, boxShadow: '0 4px 14px rgba(0,0,0,0.06)',
               display: 'flex', flexDirection: 'column' }}>
             {mode === 'cards' ? (
               <>
                 <div style={{ fontWeight: 900, fontSize: '1.25rem', color: '#111827' }}>
                   {card.term}
-                  {card.importance >= 3 && <span style={{ marginLeft: 8, fontSize: '0.75rem', color: 'var(--amber)' }}>★ 핵심</span>}
+                  {card.importance >= 3 && <span style={{ marginLeft: 8, fontSize: '0.75rem', color: '#d97706' }}>★ 핵심</span>}
                 </div>
                 {flipped
                   ? <div style={{ marginTop: 14, fontSize: '0.92rem', lineHeight: 1.7, color: '#374151' }}>{card.def}</div>
-                  : <div style={{ marginTop: 'auto', paddingTop: 30, textAlign: 'center', color: 'var(--primary)',
+                  : <div style={{ marginTop: 'auto', paddingTop: 30, textAlign: 'center', color: '#7c3aed',
                       fontSize: '0.85rem', fontWeight: 700 }}>정의를 떠올려보세요<br />
                       <span style={{ color: '#9ca3af', fontWeight: 500, fontSize: '0.72rem' }}>(탭하면 공개)</span></div>}
               </>
@@ -773,20 +747,20 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
                 <div style={{ fontSize: '0.95rem', lineHeight: 1.75, color: '#374151' }}>
                   {flipped ? card.def : card.blanked}
                 </div>
-                {!flipped && <div style={{ marginTop: 'auto', paddingTop: 22, textAlign: 'center', color: 'var(--primary)',
+                {!flipped && <div style={{ marginTop: 'auto', paddingTop: 22, textAlign: 'center', color: '#0891b2',
                   fontSize: '0.85rem', fontWeight: 700 }}>⬜에 들어갈 말을 떠올려보세요<br />
                   <span style={{ color: '#9ca3af', fontWeight: 500, fontSize: '0.72rem' }}>(탭하면 공개)</span></div>}
-                {flipped && <div style={{ marginTop: 12, fontWeight: 800, color: 'var(--primary)' }}>정답: {card.term}</div>}
+                {flipped && <div style={{ marginTop: 12, fontWeight: 800, color: '#0891b2' }}>정답: {card.term}</div>}
               </>
             )}
           </div>
           {flipped ? (
             <>
             <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>
-              <button onClick={() => grade(card, false)} style={gradeBtn('var(--danger)', 'var(--danger-light)', '#fecaca')}>
+              <button onClick={() => grade(card, false)} style={gradeBtn('#dc2626', '#fef2f2', '#fecaca')}>
                 ✕ 모름<br /><span style={{ fontSize: '0.65rem' }}>10분 후</span>
               </button>
-              <button onClick={() => grade(card, true)} style={gradeBtn('var(--success)', 'var(--success-light)', '#bbf7d0')}>
+              <button onClick={() => grade(card, true)} style={gradeBtn('#059669', '#ecfdf5', '#a7f3d0')}>
                 ✓ 알았다<br /><span style={{ fontSize: '0.65rem' }}>
                   {SRS_DAYS[Math.min(srs[card.key]?.box || 0, SRS_DAYS.length - 1)]}일 후</span>
               </button>
@@ -798,13 +772,13 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
             }}
               style={{ width: '100%', marginTop: 8, padding: '7px', borderRadius: 8, border: 'none',
                 background: 'none', color: '#9ca3af', fontSize: '0.72rem', cursor: 'pointer' }}>
-              <Trash2 size={12} style={{ verticalAlign: '-2px', marginRight: 3 }} />부실 카드 삭제
+              🗑 부실 카드 삭제
             </button>
             </>
           ) : (
             <button onClick={() => setFlipped(true)}
               style={{ width: '100%', marginTop: 14, padding: '13px', borderRadius: 12, border: 'none',
-                background: mode === 'cards' ? 'var(--primary)' : 'var(--primary)', color: '#fff', fontWeight: 800,
+                background: mode === 'cards' ? '#7c3aed' : '#0891b2', color: '#fff', fontWeight: 800,
                 fontSize: '0.95rem', cursor: 'pointer' }}>
               정답 보기
             </button>
@@ -822,8 +796,8 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
       <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
         {header}
         <main className="main-content" style={{ marginTop: 14 }}>
-          <div style={{ fontSize: '0.85rem', color: 'var(--success)', background: 'var(--success-light)',
-            border: '1px solid #bbf7d0', borderRadius: 10, padding: '9px 13px', marginBottom: 12, lineHeight: 1.6 }}>
+          <div style={{ fontSize: '0.85rem', color: '#065f46', background: '#ecfdf5',
+            border: '1px solid #a7f3d0', borderRadius: 10, padding: '9px 13px', marginBottom: 12, lineHeight: 1.6 }}>
             🗺 이 단원의 뼈대 {items.length}개 — <b>먼저 머릿속으로 순서를 떠올린 뒤</b> 하나씩 확인하세요.
           </div>
           {items.map((o, i) => (
@@ -839,13 +813,13 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
           {!allOpen ? (
             <button onClick={() => setRevealCnt(n => n + 1)}
               style={{ width: '100%', marginTop: 10, padding: '13px', borderRadius: 12, border: 'none',
-                background: 'var(--success)', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+                background: '#059669', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
               다음 항목 공개 ({revealCnt}/{items.length})
             </button>
           ) : (
             <button onClick={() => { updateMem(leaf.id, { outlineDone: true }); setMode('hub'); }}
               style={{ width: '100%', marginTop: 10, padding: '13px', borderRadius: 12, border: 'none',
-                background: 'var(--success)', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+                background: '#065f46', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
               ✓ 목차 인출 완료
             </button>
           )}
@@ -856,18 +830,18 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
   return null;
 }
 
-const trainBtn = (color, bg) => ({
+const trainBtn = (color, bg, border) => ({
   width: '100%', display: 'flex', alignItems: 'center', gap: 12, textAlign: 'left',
-  padding: '16px 18px', marginBottom: 10, borderRadius: 16, cursor: 'pointer',
-  border: 'none', background: bg, fontSize: '0.92rem',
+  padding: '14px 16px', marginBottom: 10, borderRadius: 14, cursor: 'pointer',
+  border: `1.5px solid ${border}`, background: bg, fontSize: '0.92rem',
 });
 const smallDesc = { display: 'block', fontSize: '0.72rem', color: '#6b7280', marginTop: 2, fontWeight: 500 };
-const gradeBtn = (color, bg) => ({
-  flex: 1, padding: '15px', borderRadius: 14, border: 'none',
+const gradeBtn = (color, bg, border) => ({
+  flex: 1, padding: '13px', borderRadius: 12, border: `1px solid ${border}`,
   background: bg, color, fontWeight: 800, cursor: 'pointer',
 });
 const bridgeBtn = (color, disabled) => ({
-  flex: 1, padding: '13px', borderRadius: 14, border: 'none',
+  flex: 1, padding: '11px', borderRadius: 12, border: `1.5px solid ${color}44`,
   background: '#fff', color: disabled ? '#9ca3af' : color, fontWeight: 800, fontSize: '0.8rem',
   cursor: disabled ? 'default' : 'pointer', lineHeight: 1.5, opacity: disabled ? 0.6 : 1,
 });
