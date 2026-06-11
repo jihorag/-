@@ -59,6 +59,18 @@ export function loadChatCards() {
 function saveChatCards(all) {
   try { localStorage.setItem(CHATCARDS_KEY, JSON.stringify(all)); } catch { /* full */ }
 }
+// 퀴즈 탭에서 직접 카드 추가/수정 — 자동 출제와 같은 저장소를 쓰므로
+// SRS·오늘복습·4지선다·다기기 동기화가 그대로 적용된다.
+export function upsertChatCard(leafId, card) {
+  const all = loadChatCards();
+  const arr = all[leafId] || [];
+  const idx = arr.findIndex(c => c.id === card.id);
+  if (idx >= 0) arr[idx] = { ...arr[idx], ...card };
+  else arr.push(card);
+  all[leafId] = arr.slice(-200);
+  saveChatCards(all);
+  return arr;
+}
 // 퀴즈 탭에서 부실 카드 삭제 (자동 출제 품질의 최종 관문은 사용자)
 export function removeChatCard(leafId, cardId) {
   const all = loadChatCards();

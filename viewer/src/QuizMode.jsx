@@ -10,7 +10,7 @@ import { ArrowLeft } from 'lucide-react';
 import { SUBJECTS, getMastery as getAiMastery } from './aiLearningStore';
 import { sliceSection } from './aiClaudeClient';
 import { leafQuizStats } from './leafStats';
-import { loadChatCards, removeChatCard } from './AILearning';
+import { loadChatCards, removeChatCard, upsertChatCard } from './AILearning';
 
 const MEM_KEY = 'quiz-mem-v1';
 // 햅틱 — 1차 문제풀이와 동일한 패턴 (정답 짧게 / 오답 떨림)
@@ -528,7 +528,9 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
 // ───────────────────────── 단원 훈련 화면 ─────────────────────────
 function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoAI, solveStats }) {
   const [knowledge, setKnowledge] = useState(null); // {cards, outline}
-  const [mode, setMode] = useState('hub');          // hub | cards | cloze | outline
+  const [mode, setMode] = useState('hub');          // hub | cards | cloze | mcq | outline | manage
+  const [editCard, setEditCard] = useState(null);   // 'new' | card 객체 | null
+  const [refresh, setRefresh] = useState(0);        // 수동 추가/수정/삭제 후 카드 재로드
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [combo, setCombo] = useState(0);
@@ -558,7 +560,7 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
       if (myCards.length) updateMem(leaf.id, { total: myCards.length });
     })();
     return () => { dead = true; clearTimeout(timerRef.current); };
-  }, [subjectId, leaf.id]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [subjectId, leaf.id, refresh]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ⌨️ 데스크톱 단축키: Space=정답 보기, ←=모름, →=알았다, 1~4=4지선다 보기
   useEffect(() => {
@@ -579,6 +581,33 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }); // 매 렌더 최신 상태 클로저 사용
+
+  // ✏️ 수동 카드 저장 — 용어가 바뀌면 SRS 기록도 새 키로 이전(복습 연속성 유지)
+  const saveCard = (data, prev) => {
+    const id = prev?.id || `mc-${Date.now()}`;
+    upsertChatCard(leaf.id, {
+      id, term: data.term.trim(), def: data.def.trim(),
+      cloze: data.cloze?.trim() || '', type: data.type || '개념',
+      importance: data.importance || 2,
+      manual: true, ts: prev?.ts || Date.now(),
+    });
+    if (prev) {
+      const oldKey = prev.term.replace(/\s+/g, '');
+      const newKey = data.term.trim().replace(/\s+/g, '');
+      if (oldKey !== newKey) {
+        const srsMap = { ...(mem[leaf.id]?.srs || {}) };
+        if (srsMap[oldKey]) { srsMap[newKey] = srsMap[oldKey]; delete srsMap[oldKey]; }
+        updateMem(leaf.id, { srs: srsMap });
+      }
+    }
+    setEditCard(null);
+    setRefresh(n => n + 1);
+  };
+  const deleteCard = (card) => {
+    if (!window.confirm('이 카드를 삭제할까요?')) return;
+    removeChatCard(leaf.id, card.id);
+    setRefresh(n => n + 1);
+  };
 
   const srs = mem[leaf.id]?.srs || {};
   const grade = (card, ok) => {
@@ -616,7 +645,7 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
   const header = (
     <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb',
       display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <button className="back-btn" onClick={() => (mode === 'hub' ? onBack() : (setMode('hub'), setIdx(0), setFlipped(false), setCombo(0)))}>
+      <button className="back-btn" onClick={() => (mode === 'hub' ? onBack() : (setMode('hub'), setEditCard(null), setIdx(0), setFlipped(false), setCombo(0)))}>
         <ArrowLeft size={24} style={{ marginRight: 8 }} />
         <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>{mode === 'hub' ? '단원 목록' : '훈련 선택'}</span>
       </button>
@@ -655,6 +684,12 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
                 style={{ marginTop: 14, padding: '11px 22px', borderRadius: 12, border: 'none',
                   background: '#4f46e5', color: '#fff', fontWeight: 800, cursor: 'pointer', fontSize: '0.88rem' }}>
                 🤖 AI 학습으로 배우러 가기
+              </button>
+              <button onClick={() => { setMode('manage'); setEditCard('new'); }}
+                style={{ display: 'block', margin: '10px auto 0', padding: '8px 18px', borderRadius: 10,
+                  border: '1px solid #d1d5db', background: '#fff', color: '#6b7280',
+                  fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem' }}>
+                ✏️ 직접 카드 만들기
               </button>
             </div>
           ) : (
@@ -700,6 +735,19 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
             </>
           )}
 
+          {/* ✏️ 카드 관리 — 직접 추가·수정·삭제 */}
+          <button onClick={() => { setMode('manage'); setEditCard(knowledge.cards.length === 0 ? 'new' : null); }}
+            style={{ width: '100%', padding: '12px 16px', marginTop: 4, borderRadius: 12,
+              border: '1px dashed #c4b5fd', background: '#fff', cursor: 'pointer',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontWeight: 700, fontSize: '0.85rem', color: '#5b21b6' }}>
+              ✏️ 카드 직접 추가 · 관리
+            </span>
+            <span style={{ fontSize: '0.72rem', color: '#9ca3af', fontWeight: 600 }}>
+              {knowledge.cards.length}장 →
+            </span>
+          </button>
+
           {/* 교두보 — 전후 단계로 이동 */}
           <div style={{ display: 'flex', gap: 8, marginTop: 18 }}>
             <button onClick={() => onGoAI?.(subjectId, leaf)} style={bridgeBtn('#4f46e5')}>
@@ -711,6 +759,75 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
               </span>
             </button>
           </div>
+        </main>
+      </div>
+    );
+  }
+
+  // ── ✏️ 카드 관리 — 직접 추가·수정·삭제 ──
+  if (mode === 'manage') {
+    return (
+      <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
+        {header}
+        <main className="main-content" style={{ marginTop: 14 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+            <div>
+              <div style={{ fontWeight: 800, fontSize: '1rem', color: '#111827' }}>✏️ 카드 관리</div>
+              <div style={{ fontSize: '0.72rem', color: '#9ca3af', marginTop: 2 }}>
+                {leaf.title || leaf.path?.slice(-1)[0]} · {knowledge.cards.length}장
+              </div>
+            </div>
+            {editCard == null && (
+              <button onClick={() => setEditCard('new')}
+                style={{ padding: '9px 16px', borderRadius: 10, border: 'none', background: '#7c3aed',
+                  color: '#fff', fontWeight: 800, fontSize: '0.82rem', cursor: 'pointer' }}>
+                + 새 카드
+              </button>
+            )}
+          </div>
+
+          {editCard != null && (
+            <MemCardForm
+              key={editCard === 'new' ? 'new' : editCard.id}
+              initial={editCard === 'new' ? null : editCard}
+              onSave={(data) => saveCard(data, editCard === 'new' ? null : editCard)}
+              onCancel={() => setEditCard(null)} />
+          )}
+
+          {knowledge.cards.length === 0 && editCard == null && (
+            <div style={{ padding: 24, textAlign: 'center', color: '#9ca3af', fontSize: '0.85rem' }}>
+              아직 카드가 없어요 — '+ 새 카드'로 직접 만들거나 AI 학습에서 자동 출제받으세요.
+            </div>
+          )}
+          {knowledge.cards.map(c => (
+            <div key={c.key} style={{ background: '#fff', borderRadius: 12, padding: '12px 14px',
+              marginBottom: 8, border: '1px solid #e5e7eb' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 800, fontSize: '0.92rem', color: '#111827' }}>
+                    {c.term}
+                    {c.importance >= 3 && <span style={{ marginLeft: 6, fontSize: '0.68rem', color: '#d97706' }}>★</span>}
+                    <span style={{ marginLeft: 6, fontSize: '0.66rem', fontWeight: 700, color: '#9ca3af',
+                      background: '#f3f4f6', padding: '2px 7px', borderRadius: 999 }}>
+                      {c.type || '개념'}{c.manual ? ' · 수동' : ''}
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: 4, lineHeight: 1.55,
+                    display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                    {c.def}
+                  </div>
+                </div>
+                <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
+                  <button onClick={() => setEditCard(c)} aria-label="카드 수정"
+                    style={{ padding: '7px 10px', borderRadius: 8, border: '1px solid #e5e7eb',
+                      background: '#fff', cursor: 'pointer', fontSize: '0.8rem' }}>✏️</button>
+                  <button onClick={() => deleteCard(c)} aria-label="카드 삭제"
+                    style={{ padding: '7px 10px', borderRadius: 8, border: '1px solid #fecaca',
+                      background: '#fef2f2', cursor: 'pointer', fontSize: '0.8rem' }}>🗑</button>
+                </div>
+              </div>
+            </div>
+          ))}
         </main>
       </div>
     );
@@ -916,6 +1033,73 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
     );
   }
   return null;
+}
+
+// ✏️ 카드 입력 폼 — 용어/정의/빈칸(자동 생성 가능)/유형/중요도
+function MemCardForm({ initial, onSave, onCancel }) {
+  const [term, setTerm] = useState(initial?.term || '');
+  const [def, setDef] = useState(initial?.def || '');
+  const [cloze, setCloze] = useState(initial?.cloze || '');
+  const [type, setType] = useState(initial?.type || '개념');
+  const [imp, setImp] = useState(initial?.importance || 2);
+  const valid = term.trim().length >= 2 && term.trim().length <= 25 && def.trim().length >= 10;
+  const autoCloze = () => {
+    const c = clozeText({ term: term.trim(), def: def.trim() });
+    setCloze(c || '');
+    if (!c) window.alert('정의문에 용어가 그대로 등장해야 자동 생성돼요 — 직접 ⬜를 넣어 작성해주세요.');
+  };
+  const inputStyle = { width: '100%', padding: '11px 13px', border: '1px solid #d1d5db',
+    borderRadius: 10, fontSize: '16px', fontFamily: 'inherit', boxSizing: 'border-box', background: '#fff' };
+  return (
+    <div style={{ background: '#f5f3ff', borderRadius: 14, padding: 14, marginBottom: 14,
+      border: '1.5px solid #ddd6fe' }}>
+      <div style={{ fontWeight: 800, fontSize: '0.88rem', color: '#5b21b6', marginBottom: 10 }}>
+        {initial ? '카드 수정' : '새 카드 만들기'}
+      </div>
+      <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#6b7280' }}>용어 (앞면, 2~25자)</label>
+      <input value={term} onChange={e => setTerm(e.target.value)} placeholder="예: 관습법"
+        style={{ ...inputStyle, margin: '4px 0 10px' }} />
+      <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#6b7280' }}>정의·핵심 내용 (뒷면, 10자 이상)</label>
+      <textarea value={def} onChange={e => setDef(e.target.value)} rows={3}
+        placeholder="예: 사회 관행이 법적 확신을 얻어 성립한 법규범 (민법 §1)"
+        style={{ ...inputStyle, margin: '4px 0 10px', resize: 'vertical' }} />
+      <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#6b7280' }}>빈칸 문장 (선택 — ⬜로 가린 문장)</label>
+      <div style={{ display: 'flex', gap: 6, margin: '4px 0 10px' }}>
+        <input value={cloze} onChange={e => setCloze(e.target.value)} placeholder="비우면 빈칸 인출에서 제외"
+          style={{ ...inputStyle, flex: 1 }} />
+        <button onClick={autoCloze} disabled={!valid}
+          style={{ flexShrink: 0, padding: '0 14px', borderRadius: 10, border: '1px solid #c4b5fd',
+            background: '#fff', color: '#7c3aed', fontWeight: 700, fontSize: '0.78rem', cursor: 'pointer' }}>
+          자동 생성
+        </button>
+      </div>
+      <div style={{ display: 'flex', gap: 8, marginBottom: 12, alignItems: 'center' }}>
+        <select value={type} onChange={e => setType(e.target.value)} aria-label="카드 유형"
+          style={{ ...inputStyle, width: 'auto', padding: '9px 12px', fontSize: '0.82rem' }}>
+          {['개념', '구별', '요건', '조문', '판례', '숫자'].map(x => <option key={x}>{x}</option>)}
+        </select>
+        <button onClick={() => setImp(imp >= 3 ? 2 : 3)}
+          style={{ padding: '9px 14px', borderRadius: 10, fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer',
+            border: `1px solid ${imp >= 3 ? '#fcd34d' : '#d1d5db'}`,
+            background: imp >= 3 ? '#fffbeb' : '#fff', color: imp >= 3 ? '#b45309' : '#9ca3af' }}>
+          ★ 핵심 {imp >= 3 ? 'ON' : 'OFF'}
+        </button>
+      </div>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <button onClick={onCancel}
+          style={{ flex: 1, padding: '12px', borderRadius: 10, border: '1px solid #d1d5db',
+            background: '#fff', color: '#6b7280', fontWeight: 700, cursor: 'pointer' }}>
+          취소
+        </button>
+        <button onClick={() => valid && onSave({ term, def, cloze, type, importance: imp })} disabled={!valid}
+          style={{ flex: 2, padding: '12px', borderRadius: 10, border: 'none',
+            background: valid ? '#7c3aed' : '#d1d5db', color: '#fff', fontWeight: 800,
+            cursor: valid ? 'pointer' : 'default' }}>
+          {initial ? '수정 저장' : '카드 추가'}
+        </button>
+      </div>
+    </div>
+  );
 }
 
 const trainBtn = (color, bg, border) => ({
