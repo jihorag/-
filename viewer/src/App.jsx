@@ -819,6 +819,7 @@ function AskAI({ onBack }) {
     try { localStorage.setItem('quiz-askai-model', id); } catch { /* noop */ }
   };
 
+  const askAbortRef = useRef(null);
   const ask = async (text) => {
     const q = (text || input).trim();
     if (!q || loading) return;
@@ -828,19 +829,28 @@ function AskAI({ onBack }) {
     const next = [...messages, { role: 'user', content: q }];
     setMessages(next); persist(next);
     setInput(''); setLoading(true); setError('');
+    const ac = new AbortController();
+    askAbortRef.current = ac;
     try {
       const baseUrls = getBaseUrls();
       const { text: out } = await sendMessagesUnified({
         apiKey: key, model, system: ASKAI_SYSTEM,
         messages: next.slice(-12).map(m => ({ role: m.role, content: m.content })),
-        maxTokens: 1600, baseUrl: baseUrls[prov],
+        maxTokens: 1600, baseUrl: baseUrls[prov], signal: ac.signal,
       });
       const fin = [...next, { role: 'assistant', content: out }];
       setMessages(fin); persist(fin);
     } catch (e) {
-      const proxyHint = modelRequiresProxy(model)
-        ? ' — 이 모델은 브라우저 직호출이 차단될 수 있어요. Claude 모델을 쓰거나 프록시를 설정하세요.' : '';
-      setError((e.message || '요청 실패') + proxyHint);
+      if (ac.signal.aborted) {
+        // 사용자 중단: 질문을 입력창에 되살려 바로 수정·재전송 가능하게
+        setMessages(messages); persist(messages);
+        setInput(q);
+      } else {
+        const proxyHint = modelRequiresProxy(model)
+          ? ' — 이 모델은 브라우저 직호출이 차단될 수 있어요. Claude 모델을 쓰거나 프록시를 설정하세요.' : '';
+        setError((e.message || '요청 실패') + proxyHint);
+        setInput(q); // 실패해도 질문 보존 — 다시 입력하는 수고 제거
+      }
     } finally {
       setLoading(false);
     }
@@ -903,8 +913,13 @@ function AskAI({ onBack }) {
           </div>
         ))}
         {loading && (
-          <div style={{ color: '#6b7280', fontSize: '0.85rem', padding: '8px 4px' }}>
-            ✨ 생각 중…
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 4px' }}>
+            <span style={{ color: '#6b7280', fontSize: '0.85rem' }}>✨ 생각 중…</span>
+            <button onClick={() => askAbortRef.current?.abort()}
+              style={{ padding: '4px 12px', borderRadius: 999, border: '1px solid #fecaca',
+                background: '#fef2f2', color: '#b91c1c', fontSize: '0.74rem', fontWeight: 700, cursor: 'pointer' }}>
+              ■ 중단
+            </button>
           </div>
         )}
         {error === 'nokey' && (
@@ -2994,7 +3009,8 @@ const App = () => {
       {NAV_ITEMS.map(([t, Ico, label]) => {
         const active = navTab === t;
         return (
-          <button key={t} className={active ? 'active' : ''} onClick={() => goTab(t)}>
+          <button key={t} className={active ? 'active' : ''}
+            onClick={() => (active ? window.scrollTo({ top: 0, behavior: 'smooth' }) : goTab(t))}>
             <span className="nav-ico" style={{ position: 'relative' }}>
               <Ico size={22} strokeWidth={active ? 2.4 : 1.9} />
               {t === 'browse' && srs.due.length > 0 && (

@@ -13,6 +13,13 @@ import { leafQuizStats } from './leafStats';
 import { loadChatCards, removeChatCard } from './AILearning';
 
 const MEM_KEY = 'quiz-mem-v1';
+// 햅틱 — 1차 문제풀이와 동일한 패턴 (정답 짧게 / 오답 떨림)
+const buzz = (ok) => {
+  try {
+    if (!navigator.vibrate) return;
+    navigator.vibrate(ok ? 18 : [35, 30, 35]);
+  } catch { /* 미지원 */ }
+};
 const SRS_DAYS = [1, 3, 7, 14, 30];
 
 const indexUrl = (subjectId) => {
@@ -173,9 +180,11 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
   const [screen, setScreen] = useState('subjects'); // subjects | leaves | train
   const [subjectId, setSubjectId] = useState(null);
   const [leaves, setLeaves] = useState([]);
+  const [leavesError, setLeavesError] = useState(false);
   const [pathStack, setPathStack] = useState([]);   // 계층 드릴다운 경로 (문제풀이와 동일 탐색)
   const [leaf, setLeaf] = useState(null);
   const [mem, setMem] = useState(loadMem);
+  const leavesScrollRef = useRef(0); // 단원 목록 스크롤 보존 (훈련 갔다 와도 그 자리)
   // 🔁 전과목 오늘 복습 큐
   const [reviewQueue, setReviewQueue] = useState([]);
   const [rIdx, setRIdx] = useState(0);
@@ -184,15 +193,25 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
   const subj = SUBJECTS.find(s => s.id === subjectId);
   const aiMastery = useMemo(() => getAiMastery(), [screen]);
 
+  // 목록 복귀 시 스크롤 복원 / 새 화면은 맨 위
+  useEffect(() => {
+    if (screen === 'leaves') window.scrollTo(0, leavesScrollRef.current || 0);
+    else window.scrollTo(0, 0);
+  }, [screen]);
+
   // 과목 목차 로드 (AI 학습과 동일 index)
   useEffect(() => {
     if (!subjectId) return;
     let dead = false;
-    fetch(indexUrl(subjectId)).then(r => r.json()).then(raw => {
+    setLeavesError(false);
+    fetch(indexUrl(subjectId)).then(r => {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json();
+    }).then(raw => {
       if (dead) return;
       const ls = raw?.leaves || raw || [];
       setLeaves(Array.isArray(ls) ? ls : []);
-    }).catch(() => setLeaves([]));
+    }).catch(() => { if (!dead) { setLeaves([]); setLeavesError(true); } });
     return () => { dead = true; };
   }, [subjectId]);
 
@@ -284,6 +303,7 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
         ? { box: Math.min(prev.box + 1, SRS_DAYS.length), due: now + SRS_DAYS[Math.min(prev.box, SRS_DAYS.length - 1)] * 86400000, miss: prev.miss || 0, ts: now }
         : { box: 0, due: now + 10 * 60000, miss: (prev.miss || 0) + 1, ts: now };
       updateMem(leafId, { srs: { ...srsMap, [card.key]: entry } });
+      buzz(ok);
       setRFlip(false); setRIdx(i => i + 1);
     };
     const leafLabel = (lid) => {
@@ -408,8 +428,20 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
           </p>
         </div>
         <main className="main-content" style={{ marginTop: 10 }}>
-          {leaves.length === 0 && (
+          {leaves.length === 0 && !leavesError && (
             <div style={{ padding: 30, textAlign: 'center', color: '#9ca3af', fontSize: '0.85rem' }}>목차 불러오는 중…</div>
+          )}
+          {leavesError && (
+            <div style={{ padding: 26, textAlign: 'center', background: '#fff', borderRadius: 12,
+              border: '1px solid #fecaca' }}>
+              <div style={{ fontSize: '0.88rem', color: '#b91c1c', fontWeight: 700 }}>목차를 불러오지 못했어요</div>
+              <div style={{ fontSize: '0.76rem', color: '#9ca3af', marginTop: 4 }}>네트워크 상태를 확인해주세요</div>
+              <button onClick={() => { setSubjectId(null); setTimeout(() => setSubjectId(subj?.id || subjectId), 0); }}
+                style={{ marginTop: 12, padding: '9px 20px', borderRadius: 9, border: 'none',
+                  background: 'var(--primary, #2563eb)', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
+                다시 시도
+              </button>
+            </div>
           )}
           {/* 그룹 행 (장·편 — 문제풀이 BrowseRow와 동일 룩) */}
           {[...groupsMap.entries()].map(([seg, ls]) => {
@@ -443,7 +475,7 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
                     ✍️ 적용{qs.answered > 0 ? ` ${Math.round(qs.accuracy * 100)}%` : ''}
                   </span>
                 </>}
-                onClick={() => { setLeaf(l); setScreen('train'); }} />
+                onClick={() => { leavesScrollRef.current = window.scrollY; setLeaf(l); setScreen('train'); }} />
             );
           })}
         </main>
@@ -496,6 +528,26 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
     return () => { dead = true; clearTimeout(timerRef.current); };
   }, [subjectId, leaf.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // ⌨️ 데스크톱 단축키: Space=정답 보기, ←=모름, →=알았다, 1~4=4지선다 보기
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (mode === 'cards' || mode === 'cloze') {
+        const list = mode === 'cards' ? queue : clozeQueue;
+        const card = list[idx];
+        if (!card) return;
+        if (e.code === 'Space') { e.preventDefault(); setFlipped(f => !f); }
+        else if (flipped && e.key === 'ArrowLeft') grade(card, false);
+        else if (flipped && e.key === 'ArrowRight') grade(card, true);
+      } else if (mode === 'mcq' && /^[1-4]$/.test(e.key) && !flipped) {
+        const btns = document.querySelectorAll('main button[data-mcq]');
+        btns[parseInt(e.key, 10) - 1]?.click();
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }); // 매 렌더 최신 상태 클로저 사용
+
   const srs = mem[leaf.id]?.srs || {};
   const grade = (card, ok) => {
     const prev = srs[card.key] || { box: 0, miss: 0 };
@@ -504,6 +556,7 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
       ? { box: Math.min(prev.box + 1, SRS_DAYS.length), due: now + SRS_DAYS[Math.min(prev.box, SRS_DAYS.length - 1)] * 86400000, miss: prev.miss || 0, ts: now }
       : { box: 0, due: now + 10 * 60000, miss: (prev.miss || 0) + 1, ts: now }; // miss≥2 → AI 튜터가 재설명(역피드백)
     updateMem(leaf.id, { srs: { ...srs, [card.key]: entry } });
+    buzz(ok);
     setCombo(ok ? combo + 1 : 0);
     setSessionDone(n => n + 1);
     setFlipped(false);
@@ -678,7 +731,7 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
               else if (isSel) { border = '#ef4444'; bg = '#fef2f2'; }
             }
             return (
-              <button key={i} disabled={!!picked}
+              <button key={i} disabled={!!picked} data-mcq
                 onClick={() => {
                   setFlipped(o);
                   timerRef.current = setTimeout(() => { grade(card, o === card.term); }, o === card.term ? 600 : 1100);
@@ -783,6 +836,9 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
               정답 보기
             </button>
           )}
+          <div style={{ marginTop: 10, textAlign: 'center', fontSize: '0.68rem', color: '#c2c8d0' }}>
+            ⌨️ Space 정답 · ← 모름 · → 알았다
+          </div>
         </main>
       </div>
     );
