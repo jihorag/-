@@ -528,7 +528,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
               <button key={c.id}
                 onClick={() => { setChapter(c.id); setQuestionId(null); ensureChapter(c.id); onNavigate('essay_questions'); }}
                 style={{ background: '#fff', borderRadius: 12, padding: 16,
-                  border: '1px solid #e5e7eb', textAlign: 'left', cursor: 'pointer',
+                  border: 'none', textAlign: 'left', cursor: 'pointer',
                   boxShadow: 'var(--shadow-sm)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                   <div style={{ fontWeight: 800, fontSize: '1rem', color: '#111827' }}>
@@ -1215,7 +1215,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
 
         {currentQuestion.modelAnswer ? (
           <section style={{ background: '#fff', borderRadius: 12, padding: 16,
-            border: '1px solid #e5e7eb', marginBottom: 14 }}>
+            border: 'none', marginBottom: 14 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <div style={{ fontWeight: 700, fontSize: '0.9rem',
                 color: currentQuestion.modelAnswerSource === 'ai-direct-note' ? '#0891b2'

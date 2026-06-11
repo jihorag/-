@@ -209,14 +209,18 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
     const stages = [[1, '1차 — 객관식 5과목'], [2, '2차 — 논술 3과목']];
     return (
       <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
-        <div style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)', padding: '28px 20px 22px' }}>
-          <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.85)', fontWeight: 700, letterSpacing: '0.05em' }}>MEMORIZE</div>
-          <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', lineHeight: 1.2, marginTop: 4,
-            display: 'flex', alignItems: 'center', gap: 8 }}>
-            <Zap size={26} fill="#fde047" color="#fde047" /> 퀴즈 — 교재 암기
+        <div style={{ background: '#fff', padding: '26px 20px 20px',
+          paddingTop: 'calc(22px + env(safe-area-inset-top, 0px))', borderBottom: '1px solid var(--bg-color)' }}>
+          <div style={{ fontSize: '1.65rem', fontWeight: 800, color: 'var(--text-main)', lineHeight: 1.2,
+            letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ width: 36, height: 36, borderRadius: 11, background: 'var(--primary-light)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Zap size={20} color="var(--primary)" />
+            </span>
+            퀴즈
           </div>
-          <div style={{ fontSize: '0.84rem', color: 'rgba(255,255,255,0.9)', marginTop: 6, fontWeight: 500 }}>
-            AI 학습 대화에서 자동 출제된 <b>내 카드</b>로 암기 — 이해 → 암기 → 적용
+          <div style={{ fontSize: '0.88rem', color: 'var(--text-sub)', marginTop: 8, fontWeight: 500, lineHeight: 1.5 }}>
+            AI 학습 대화에서 자동 출제된 <b style={{ color: 'var(--text-main)' }}>내 카드</b>로 암기해요
           </div>
         </div>
         <main className="main-content" style={{ marginTop: 18 }}>
@@ -236,7 +240,7 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
             return (
               <button onClick={() => { setReviewQueue(due.slice(0, 50)); setRIdx(0); setRFlip(false); setScreen('review'); }}
                 style={{ width: '100%', marginBottom: 16, padding: '15px 18px', borderRadius: 16,
-                  border: '1.5px solid #fcd34d', cursor: 'pointer', textAlign: 'left',
+                  border: 'none', cursor: 'pointer', textAlign: 'left',
                   background: 'linear-gradient(135deg, var(--amber-light) 0%, #fef3c7 100%)',
                   display: 'flex', alignItems: 'center', gap: 12 }}>
                 <span style={{ width: 40, height: 40, borderRadius: 12, background: '#fff',
@@ -262,9 +266,8 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
                 {SUBJECTS.filter(s => s.stage === stage).map(s => (
                   <button key={s.id}
                     onClick={() => { setSubjectId(s.id); setPathStack([]); setScreen('leaves'); }}
-                    style={{ padding: '16px 14px', textAlign: 'left', cursor: 'pointer',
-                      background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14,
-                      boxShadow: '0 2px 8px rgba(15,23,42,0.05)' }}>
+                    style={{ padding: '20px 18px', textAlign: 'left', cursor: 'pointer',
+                      background: '#fff', border: 'none', borderRadius: 18 }}>
                     <div style={{ fontSize: '1.5rem' }}>{s.icon}</div>
                     <div style={{ fontWeight: 800, fontSize: '0.92rem', color: '#111827', marginTop: 6 }}>{s.short}</div>
                     <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: 2 }}>{s.title}</div>
@@ -853,18 +856,18 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
   return null;
 }
 
-const trainBtn = (color, bg, border) => ({
+const trainBtn = (color, bg) => ({
   width: '100%', display: 'flex', alignItems: 'center', gap: 12, textAlign: 'left',
-  padding: '14px 16px', marginBottom: 10, borderRadius: 14, cursor: 'pointer',
-  border: `1.5px solid ${border}`, background: bg, fontSize: '0.92rem',
+  padding: '16px 18px', marginBottom: 10, borderRadius: 16, cursor: 'pointer',
+  border: 'none', background: bg, fontSize: '0.92rem',
 });
 const smallDesc = { display: 'block', fontSize: '0.72rem', color: '#6b7280', marginTop: 2, fontWeight: 500 };
-const gradeBtn = (color, bg, border) => ({
-  flex: 1, padding: '13px', borderRadius: 12, border: `1px solid ${border}`,
+const gradeBtn = (color, bg) => ({
+  flex: 1, padding: '15px', borderRadius: 14, border: 'none',
   background: bg, color, fontWeight: 800, cursor: 'pointer',
 });
 const bridgeBtn = (color, disabled) => ({
-  flex: 1, padding: '11px', borderRadius: 12, border: `1.5px solid ${color}44`,
+  flex: 1, padding: '13px', borderRadius: 14, border: 'none',
   background: '#fff', color: disabled ? '#9ca3af' : color, fontWeight: 800, fontSize: '0.8rem',
   cursor: disabled ? 'default' : 'pointer', lineHeight: 1.5, opacity: disabled ? 0.6 : 1,
 });

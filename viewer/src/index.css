@@ -17,15 +17,15 @@
   --warn: #ea580c;
   --amber: #d97706;
   --amber-light: #fffbeb;
-  --bg-color: #f1f5f9;
-  --card-bg: rgba(255, 255, 255, 0.95);
-  --text-main: #0f172a;
-  --text-sub: #64748b;
-  --border-color: #e2e8f0;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --radius: 16px;
+  --bg-color: #f2f4f6;          /* 토스 그레이 — 면 분할의 바탕 */
+  --card-bg: #ffffff;
+  --text-main: #191f28;          /* 토스 잉크 */
+  --text-sub: #8b95a1;           /* 토스 서브 그레이 */
+  --border-color: #eceef0;
+  --shadow-sm: 0 1px 3px 0 rgb(15 23 42 / 0.04);
+  --shadow-md: 0 2px 8px 0 rgb(15 23 42 / 0.06);
+  --shadow-lg: 0 8px 20px -4px rgb(15 23 42 / 0.10);
+  --radius: 18px;
   /* 본문 글자 크기 배율(설정에서 변경) */
   --q-fs: 1;
   /* z-index 스케일 — 오버레이 층위 일원화 (매직넘버 난립 방지) */
@@ -138,26 +138,18 @@ html, body {
 }
 
 .banner {
-  min-height: 170px;
-  background: var(--primary);
+  min-height: 150px;
+  background: #fff;
   position: relative;
   overflow: hidden;
   padding: 28px 24px 70px;
   padding-top: calc(26px + env(safe-area-inset-top, 0px));
   box-sizing: border-box;
-  color: white;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--bg-color);
 }
 
-.banner::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
-  z-index: 1;
-}
+.banner::before { content: none; }
 
 .banner-content {
   position: relative;
@@ -176,10 +168,10 @@ html, body {
 }
 
 .banner-title {
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--text-main);
 }
 
 /* Content Area */
@@ -427,17 +419,17 @@ html, body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 17px 18px;
-  background: none;
+  padding: 18px 20px;
+  background: #fff;
   border: none;
-  border-bottom: 1px solid var(--border-color);
+  border-radius: 16px;
+  margin-bottom: 8px;
   cursor: pointer;
   text-align: left;
   transition: background 0.15s ease;
 }
-.browse-row:last-child { border-bottom: none; }
-.browse-row:hover { background: var(--primary-light); }
-.browse-row:active { background: #e0e9ff; }
+.browse-row:hover { background: #fafbfc; }
+.browse-row:active { background: var(--bg-color); }
 .browse-row__main { flex: 1; min-width: 0; }
 .browse-row__title {
   font-size: 1rem;

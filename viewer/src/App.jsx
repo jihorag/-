@@ -1266,7 +1266,7 @@ function StrategyTools({ stage1 }) {
   const [tab, setTab] = useState('board'); // board | timer | check
   const tabs = [['board', '🎯 목표·버리기'], ['timer', '⏱ 회독 타이머'], ['check', '🧮 검산']];
   return (
-    <div style={{ border: '1px solid #e5e7eb', borderRadius: 14, background: '#fff', overflow: 'hidden', marginBottom: 16 }}>
+    <div style={{ border: 'none', borderRadius: 18, background: '#fff', overflow: 'hidden', marginBottom: 16 }}>
       <div style={{ display: 'flex', borderBottom: '1px solid #f3f4f6' }}>
         {tabs.map(([k, label]) => (
           <button key={k} onClick={() => setTab(k)}
@@ -4503,7 +4503,7 @@ const App = () => {
 
           {/* ②.5 합격 코치 + 5과목 레이더 — 종합 시각화 */}
           {coachUsed.readiness != null && (
-            <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+            <section style={{ background: '#fff', border: 'none', borderRadius: '18px',
               padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, alignItems: 'center' }}>
                 {/* 좌: 합격 코치 도넛 */}
@@ -4587,7 +4587,7 @@ const App = () => {
             const maxCell = last56Days.reduce((a, x) => x.count > a.count ? x : a, { count: 0 });
             // 셀이 비어있을 때는 의미가 떨어지므로 데이터가 거의 없으면 안내만 표시
             if (totalCount === 0) return (
-              <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+              <section style={{ background: '#fff', border: 'none', borderRadius: '18px',
                 padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)', textAlign: 'center' }}>
                 <div style={{ fontWeight: 800, fontSize: '0.95rem', marginBottom: 8 }}>📅 학습 캘린더</div>
                 <div style={{ fontSize: '0.82rem', color: '#9ca3af' }}>
@@ -4598,7 +4598,7 @@ const App = () => {
             const weekLabels = ['7주전', '6주전', '5주전', '4주전', '3주전', '2주전', '지난주', '이번주'];
             const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
             return (
-              <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+              <section style={{ background: '#fff', border: 'none', borderRadius: '18px',
                 padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
                 <div style={{ marginBottom: 4 }}>
                   <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>📅 학습 캘린더 — 최근 56일</div>
@@ -4687,7 +4687,7 @@ const App = () => {
             { label: '📖 1차 시험 (5과목)', matrix: matrixStage1 },
             { label: '✍️ 2차 시험 (3과목)', matrix: matrixStage2 },
           ].map(({ label, matrix }) => matrix.length === 0 ? null : (
-            <section key={label} style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+            <section key={label} style={{ background: '#fff', border: 'none', borderRadius: '18px',
               padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
                 <div style={{ fontWeight: 800, fontSize: '1rem' }}>📊 {label}</div>
@@ -4888,7 +4888,7 @@ const App = () => {
           </section>
 
           {/* ⑦ 난이도별 정답률 — 미니 차트 */}
-          <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+          <section style={{ background: '#fff', border: 'none', borderRadius: '18px',
             padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
             <div style={{ fontWeight: 800, fontSize: '0.95rem', marginBottom: 10 }}>📈 난이도별 정답률</div>
             <div style={{ display: 'flex', gap: '6px' }}>
@@ -5169,23 +5169,23 @@ const App = () => {
           top: 'calc(env(safe-area-inset-top, 0px) + 14px)', zIndex: 20, /* banner-content(z10)에 가리지 않게 */
           display: 'flex', gap: '8px' }}>
           <button aria-label="검색" onClick={() => setShowCmdK(true)} title="검색 (⌘K)"
-            style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
-              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
+            style={{ width: 44, height: 44, borderRadius: '50%', border: 'none', cursor: 'pointer',
+              background: 'var(--bg-color)', color: 'var(--text-main)', fontSize: '1.2rem',
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             🔍
           </button>
           <button aria-label={authUser ? `프로필 (${authUser.email} 로그인됨)` : '프로필 (로그인 안 됨)'}
             onClick={() => setCurrentView('profile')}
-            style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
-              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem', position: 'relative',
+            style={{ width: 44, height: 44, borderRadius: '50%', border: 'none', cursor: 'pointer',
+              background: 'var(--bg-color)', color: 'var(--text-main)', fontSize: '1.2rem', position: 'relative',
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             👤
             {authUser && <span style={{ position: 'absolute', right: 2, bottom: 2, width: 11, height: 11,
-              borderRadius: '50%', background: '#34d399', border: '2px solid #fff' }} />}
+              borderRadius: '50%', background: '#34d399', border: '2px solid #f2f4f6' }} />}
           </button>
           <button aria-label="설정" onClick={() => openSettings('home')}
-            style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
-              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
+            style={{ width: 44, height: 44, borderRadius: '50%', border: 'none', cursor: 'pointer',
+              background: 'var(--bg-color)', color: 'var(--text-main)', fontSize: '1.2rem',
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             ⚙️
           </button>
@@ -5207,8 +5207,8 @@ const App = () => {
                 <button onClick={() => openSettings('home')}
                   title="시험일 설정"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: 5,
-                    background: 'rgba(255,255,255,0.28)', border: '1px solid rgba(255,255,255,0.3)',
-                    borderRadius: 999, padding: '4px 11px', color: '#fff', cursor: 'pointer',
+                    background: 'var(--primary-light)', border: 'none',
+                    borderRadius: 999, padding: '5px 12px', color: 'var(--primary)', cursor: 'pointer',
                     fontSize: '0.82rem', fontWeight: 700 }}>
                   📅 {near ? `${near.label} ${fmtDday(near.d)}` : '시험일 등록'}
                 </button>
