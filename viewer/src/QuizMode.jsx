@@ -281,8 +281,8 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
       const prev = srsMap[card.key] || { box: 0, miss: 0 };
       const now = Date.now();
       const entry = ok
-        ? { box: Math.min(prev.box + 1, SRS_DAYS.length), due: now + SRS_DAYS[Math.min(prev.box, SRS_DAYS.length - 1)] * 86400000, miss: prev.miss || 0 }
-        : { box: 0, due: now + 10 * 60000, miss: (prev.miss || 0) + 1 };
+        ? { box: Math.min(prev.box + 1, SRS_DAYS.length), due: now + SRS_DAYS[Math.min(prev.box, SRS_DAYS.length - 1)] * 86400000, miss: prev.miss || 0, ts: now }
+        : { box: 0, due: now + 10 * 60000, miss: (prev.miss || 0) + 1, ts: now };
       updateMem(leafId, { srs: { ...srsMap, [card.key]: entry } });
       setRFlip(false); setRIdx(i => i + 1);
     };
@@ -501,8 +501,8 @@ function LeafTrainer({ subjectId, leaf, mem, updateMem, onBack, onGoSolve, onGoA
     const prev = srs[card.key] || { box: 0, miss: 0 };
     const now = Date.now();
     const entry = ok
-      ? { box: Math.min(prev.box + 1, SRS_DAYS.length), due: now + SRS_DAYS[Math.min(prev.box, SRS_DAYS.length - 1)] * 86400000, miss: prev.miss || 0 }
-      : { box: 0, due: now + 10 * 60000, miss: (prev.miss || 0) + 1 }; // miss≥2 → AI 튜터가 재설명(역피드백)
+      ? { box: Math.min(prev.box + 1, SRS_DAYS.length), due: now + SRS_DAYS[Math.min(prev.box, SRS_DAYS.length - 1)] * 86400000, miss: prev.miss || 0, ts: now }
+      : { box: 0, due: now + 10 * 60000, miss: (prev.miss || 0) + 1, ts: now }; // miss≥2 → AI 튜터가 재설명(역피드백)
     updateMem(leaf.id, { srs: { ...srs, [card.key]: entry } });
     setCombo(ok ? combo + 1 : 0);
     setSessionDone(n => n + 1);

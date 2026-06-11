@@ -108,6 +108,70 @@ const resetUserData = () => {
   }
 };
 
+// ── ☁️ 다기기 병합 동기화 ──────────────────────────────────────────
+// 스냅샷 통째 덮어쓰기(last-write-wins) 대신, 핵심 학습 데이터는 키별로
+// 타임스탬프 기준 합집합 병합 → 두 기기를 번갈아 써도 기록이 사라지지 않는다.
+const parseJ = (s, d) => { try { return JSON.parse(s) ?? d; } catch { return d; } };
+const mergeStateData = (remoteData) => {
+  let changed = 0;
+  const setIf = (k, v) => {
+    const s = JSON.stringify(v);
+    if (localStorage.getItem(k) !== s) { localStorage.setItem(k, s); changed++; }
+  };
+  for (const [k, rv] of Object.entries(remoteData || {})) {
+    if (!isSyncKey(k) || typeof rv !== 'string') continue;
+    const lv = localStorage.getItem(k);
+    if (lv == null) { localStorage.setItem(k, rv); changed++; continue; } // 이 기기에 없던 키 → 수용
+    if (lv === rv) continue;
+    if (k === 'quiz-progress-v1') {
+      // 문제 풀이 기록: 문항별 ts 최신 우선
+      const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = { ...r };
+      for (const [id, e] of Object.entries(l)) {
+        const re = m[id];
+        if (!re || (e?.ts || 0) >= (re?.ts || 0)) m[id] = e;
+      }
+      setIf(k, m);
+    } else if (k === 'quiz-chatcards-v1') {
+      // 자동 출제 카드: 카드 id 기준 합집합 (양쪽에서 만든 카드 모두 보존)
+      const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = {};
+      for (const lid of new Set([...Object.keys(l), ...Object.keys(r)])) {
+        const seen = new Map();
+        for (const c of [...(r[lid] || []), ...(l[lid] || [])]) {
+          if (c && c.id && !seen.has(c.id)) seen.set(c.id, c);
+        }
+        m[lid] = [...seen.values()].sort((a, b) => (a.ts || 0) - (b.ts || 0)).slice(-200);
+      }
+      setIf(k, m);
+    } else if (k === 'quiz-mem-v1') {
+      // SRS 상태: 카드별 ts(없으면 due) 최신 우선, outlineDone은 OR
+      const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = {};
+      for (const lid of new Set([...Object.keys(l), ...Object.keys(r)])) {
+        const a = l[lid] || {}; const b = r[lid] || {};
+        const srs = { ...(b.srs || {}) };
+        for (const [ck, e] of Object.entries(a.srs || {})) {
+          const re = srs[ck];
+          if (!re || (e?.ts || e?.due || 0) >= (re?.ts || re?.due || 0)) srs[ck] = e;
+        }
+        m[lid] = { ...b, ...a, total: Math.max(a.total || 0, b.total || 0),
+          outlineDone: !!(a.outlineDone || b.outlineDone), srs };
+      }
+      setIf(k, m);
+    } else if (k === 'quiz-sessions-v1') {
+      // 퀴즈 세션 기록: ts+mode 합집합
+      const l = parseJ(lv, []); const r = parseJ(rv, []);
+      const seen = new Set(); const m = [];
+      for (const s of [...l, ...r]) {
+        const key = `${s?.ts}-${s?.mode}`;
+        if (s && !seen.has(key)) { seen.add(key); m.push(s); }
+      }
+      m.sort((a, b) => (a.ts || 0) - (b.ts || 0));
+      setIf(k, m.slice(-100));
+    }
+    // 그 외 키(설정·프로필 등): 로컬 우선 — 이 기기의 환경설정을 원격이 덮지 않음
+  }
+  return changed;
+};
+
 // v4 난이도(1~5) 배지 메타: 색/라벨
 const DIFFICULTY_META = {
   1: { label: '난이도 1 · 매우쉬움', bg: '#ecfdf5', fg: '#047857' },
@@ -1683,6 +1747,31 @@ const App = () => {
     const onHide = () => { if (document.visibilityState === 'hidden') cloudPush(true); };
     document.addEventListener('visibilitychange', onHide);
     return () => document.removeEventListener('visibilitychange', onHide);
+  }, [authUser, cloudPush]);
+  // ☁️ 다기기 자동 동기화: 시작 시 원격을 키별 병합으로 받아들이고(덮어쓰기 X) 합본을 push.
+  // 병합으로 로컬이 바뀌었으면 1회 새로고침해 화면 상태 반영(합본은 이미 push되어 재병합 변경 0 → 루프 없음).
+  const syncedOnceRef = useRef(false);
+  useEffect(() => {
+    if (!supabase || !authUser || syncedOnceRef.current) return;
+    syncedOnceRef.current = true;
+    (async () => {
+      try {
+        const row = await pullState();
+        const changed = row?.data?.data ? mergeStateData(row.data.data) : 0;
+        await pushState(collectUserData());
+        saveProfile({ ...loadProfile(), lastCloud: new Date().toISOString() });
+        if (changed > 0) {
+          toast.show(`☁️ 다른 기기의 학습기록 병합(${changed}개 항목) — 화면을 새로고침합니다`, 'success', 1700);
+          setTimeout(() => window.location.reload(), 1800);
+        }
+      } catch { /* 오프라인 등 — 백그라운드 전환 시 push로 보완 */ }
+    })();
+  }, [authUser]);
+  // ☁️ 학습 중 주기 자동 push (5분) — 강제종료로 인한 유실 창 최소화
+  useEffect(() => {
+    if (!supabase || !authUser) return;
+    const iv = setInterval(() => cloudPush(true), 5 * 60000);
+    return () => clearInterval(iv);
   }, [authUser, cloudPush]);
   const [notifPref, setNotifPref] = useState(() => {
     try { return localStorage.getItem('quiz-notif') === '1' && typeof Notification !== 'undefined' && Notification.permission === 'granted'; }
