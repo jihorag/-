@@ -1707,17 +1707,45 @@ const App = () => {
   const [cloudMsg, setCloudMsg] = useState('');
   const [cloudEmail, setCloudEmail] = useState('');
   const [cloudPw, setCloudPw] = useState('');
+  const [authBusy, setAuthBusy] = useState(false);
+  const AUTH_ERR_KO = {
+    'Invalid login credentials': '이메일 또는 비밀번호가 올바르지 않습니다.',
+    'User already registered': '이미 가입된 이메일이에요 — 로그인을 눌러주세요.',
+    'Password should be at least 6 characters.': '비밀번호는 6자 이상이어야 합니다.',
+    'Email not confirmed': '이메일 인증이 필요해요. 받은편지함을 확인해주세요.',
+    'Unable to validate email address: invalid format': '이메일 형식이 올바르지 않습니다.',
+    'Email rate limit exceeded': '시도가 너무 잦아요 — 잠시 후 다시 시도해주세요.',
+  };
+  const koAuthErr = (e) => AUTH_ERR_KO[e?.message] || e?.message || String(e);
   const cloudAuth = async (mode) => {
+    const email = cloudEmail.trim();
+    if (!email || !email.includes('@')) { setCloudMsg('이메일을 입력해주세요.'); return; }
+    if ((cloudPw || '').length < 6) { setCloudMsg('비밀번호는 6자 이상이어야 합니다.'); return; }
+    setAuthBusy(true);
     setCloudMsg('처리 중…');
     try {
-      const creds = { email: cloudEmail.trim(), password: cloudPw };
+      const creds = { email, password: cloudPw };
       const { error } = mode === 'signup'
         ? await supabase.auth.signUp(creds)
         : await supabase.auth.signInWithPassword(creds);
       if (error) throw error;
       setCloudPw('');
-      setCloudMsg(mode === 'signup' ? '가입 완료. 로그인되었어요.' : '로그인되었어요.');
-    } catch (e) { setCloudMsg((e.message || String(e))); }
+      setCloudMsg(mode === 'signup'
+        ? '🎉 가입 완료! 로그인되었어요 — 이 기기의 학습기록이 계정에 연결됩니다.'
+        : '로그인되었어요. 학습기록을 동기화합니다.');
+    } catch (e) { setCloudMsg(koAuthErr(e)); }
+    finally { setAuthBusy(false); }
+  };
+  const cloudResetPw = async () => {
+    const email = cloudEmail.trim();
+    if (!email || !email.includes('@')) { setCloudMsg('비밀번호를 재설정할 이메일을 먼저 입력해주세요.'); return; }
+    setAuthBusy(true);
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
+      if (error) throw error;
+      setCloudMsg('📧 재설정 메일을 보냈어요 — 받은편지함을 확인해주세요.');
+    } catch (e) { setCloudMsg(koAuthErr(e)); }
+    finally { setAuthBusy(false); }
   };
   useEffect(() => {
     if (!supabase) return;
@@ -4141,6 +4169,77 @@ const App = () => {
         </header>
         <div className="screen-head"><h1 className="screen-title">👤 내 프로필</h1></div>
         <main className="main-content" style={{ marginTop: '16px' }}>
+          {/* ── 👤 계정 (1급) — 로그인하면 기기 간 자동 동기화 ── */}
+          {cloudEnabled && (
+            <section style={{ borderRadius: '16px', padding: '18px', marginBottom: '16px',
+              background: authUser ? 'linear-gradient(135deg, #ecfdf5 0%, #f0fdfa 100%)' : 'linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%)',
+              border: `1.5px solid ${authUser ? '#a7f3d0' : '#c7d2fe'}`, boxShadow: 'var(--shadow-md)' }}>
+              {authUser ? (
+                <>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <span style={{ width: 38, height: 38, borderRadius: '50%', background: '#059669',
+                      color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontWeight: 800, fontSize: '1rem' }}>
+                      {(authUser.email || '?')[0].toUpperCase()}
+                    </span>
+                    <span style={{ flex: 1, minWidth: 0 }}>
+                      <span style={{ display: 'block', fontWeight: 800, fontSize: '0.92rem', color: '#065f46',
+                        overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{authUser.email}</span>
+                      <span style={{ display: 'block', fontSize: '0.72rem', color: '#047857', marginTop: 1 }}>
+                        ● 로그인됨 — 기기 간 자동 동기화 중
+                        {loadProfile().lastCloud && <> · 마지막 {new Date(loadProfile().lastCloud).toLocaleString('ko-KR', { month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</>}
+                      </span>
+                    </span>
+                  </div>
+                  <div style={{ display: 'flex', gap: '8px', marginTop: 12 }}>
+                    <button onClick={() => cloudPush(false)} disabled={authBusy}
+                      style={{ flex: 1, padding: '11px', borderRadius: '10px', border: 'none', background: '#059669', color: '#fff', fontWeight: 700, fontSize: '0.84rem', cursor: 'pointer' }}>
+                      ☁⬆ 지금 백업
+                    </button>
+                    <button onClick={cloudPull} disabled={authBusy}
+                      style={{ flex: 1, padding: '11px', borderRadius: '10px', border: '1px solid #a7f3d0', background: '#fff', color: '#047857', fontWeight: 700, fontSize: '0.84rem', cursor: 'pointer' }}>
+                      ☁⬇ 복원
+                    </button>
+                    <button onClick={async () => { await cloudPush(true); await supabase.auth.signOut(); setCloudMsg('로그아웃되었어요. (학습기록은 클라우드에 백업됨)'); }}
+                      style={{ flexShrink: 0, padding: '11px 14px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#6b7280', fontWeight: 700, fontSize: '0.84rem', cursor: 'pointer' }}>
+                      로그아웃
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#3730a3' }}>로그인 / 회원가입</div>
+                  <div style={{ fontSize: '0.78rem', color: '#6b7280', margin: '4px 0 12px', lineHeight: 1.6 }}>
+                    이메일로 로그인하면 <b>여러 기기에서 학습기록·암기카드가 자동으로 합쳐지고</b>,
+                    같은 기기를 쓰는 다른 계정과는 분리됩니다.
+                  </div>
+                  <input value={cloudEmail} onChange={(e) => setCloudEmail(e.target.value)} placeholder="이메일" type="email"
+                    autoComplete="email" disabled={authBusy}
+                    style={{ width: '100%', padding: '12px 14px', marginBottom: '8px', fontSize: '16px', border: '1px solid #c7d2fe', borderRadius: '10px', boxSizing: 'border-box', background: '#fff' }} />
+                  <input value={cloudPw} onChange={(e) => setCloudPw(e.target.value)} placeholder="비밀번호 (6자 이상)" type="password"
+                    autoComplete="current-password" disabled={authBusy}
+                    onKeyDown={(e) => { if (e.key === 'Enter') cloudAuth('signin'); }}
+                    style={{ width: '100%', padding: '12px 14px', marginBottom: '10px', fontSize: '16px', border: '1px solid #c7d2fe', borderRadius: '10px', boxSizing: 'border-box', background: '#fff' }} />
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <button onClick={() => cloudAuth('signin')} disabled={authBusy}
+                      style={{ flex: 1.4, padding: '13px', borderRadius: '10px', border: 'none', background: authBusy ? '#a5b4fc' : '#4f46e5', color: '#fff', fontWeight: 800, fontSize: '0.92rem', cursor: authBusy ? 'default' : 'pointer' }}>
+                      {authBusy ? '처리 중…' : '로그인'}
+                    </button>
+                    <button onClick={() => cloudAuth('signup')} disabled={authBusy}
+                      style={{ flex: 1, padding: '13px', borderRadius: '10px', border: '1.5px solid #c7d2fe', background: '#fff', color: '#4f46e5', fontWeight: 800, fontSize: '0.92rem', cursor: authBusy ? 'default' : 'pointer' }}>
+                      회원가입
+                    </button>
+                  </div>
+                  <button onClick={cloudResetPw} disabled={authBusy}
+                    style={{ width: '100%', marginTop: 8, padding: '6px', border: 'none', background: 'none',
+                      color: '#6b7280', fontSize: '0.75rem', cursor: 'pointer', textDecoration: 'underline' }}>
+                    비밀번호를 잊으셨나요?
+                  </button>
+                </>
+              )}
+              {cloudMsg && <div style={{ fontSize: '0.8rem', color: authUser ? '#047857' : '#1d4ed8', marginTop: '10px' }}>{cloudMsg}</div>}
+            </section>
+          )}
           <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
             <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6b7280' }}>닉네임</label>
             <input
@@ -4195,55 +4294,6 @@ const App = () => {
             <input ref={fileRef} type="file" accept="application/json,.json" onChange={onImportFile} style={{ display: 'none' }} />
           </section>
 
-          <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '12px' }}>
-            <div style={{ fontWeight: 800, marginBottom: '4px' }}>☁ 클라우드 동기화</div>
-            {!cloudEnabled ? (
-              <div style={{ fontSize: '0.82rem', color: '#9ca3af' }}>설정되지 않음 (파일 백업만 사용)</div>
-            ) : authUser ? (
-              <>
-                <div style={{ fontSize: '0.82rem', color: '#6b7280', marginBottom: '12px' }}>
-                  로그인: <b>{authUser.email}</b>
-                  {loadProfile().lastCloud && <> · 마지막 동기화 {new Date(loadProfile().lastCloud).toLocaleString('ko-KR')}</>}
-                  <br />다른 기기에서도 같은 계정으로 로그인하면 이어집니다. (앱을 닫을 때 자동 백업)
-                </div>
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                  <button onClick={() => cloudPush(false)}
-                    style={{ flex: 1, minWidth: 120, padding: '12px', borderRadius: '10px', border: 'none', background: 'var(--primary)', color: '#fff', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>
-                    ☁⬆ 클라우드에 백업
-                  </button>
-                  <button onClick={cloudPull}
-                    style={{ flex: 1, minWidth: 120, padding: '12px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#374151', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>
-                    ☁⬇ 클라우드에서 복원
-                  </button>
-                </div>
-                <button onClick={async () => { await cloudPush(true); await supabase.auth.signOut(); setCloudMsg('로그아웃되었어요. (학습기록은 클라우드에 백업됨)'); }}
-                  style={{ width: '100%', marginTop: '8px', padding: '10px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#6b7280', fontWeight: 700, fontSize: '0.82rem', cursor: 'pointer' }}>
-                  로그아웃
-                </button>
-              </>
-            ) : (
-              <>
-                <div style={{ fontSize: '0.82rem', color: '#6b7280', marginBottom: '12px' }}>
-                  이메일로 로그인하면 여러 기기에서 학습 기록이 자동으로 이어져요.
-                </div>
-                <input value={cloudEmail} onChange={(e) => setCloudEmail(e.target.value)} placeholder="이메일" type="email"
-                  style={{ width: '100%', padding: '11px 14px', marginBottom: '8px', border: '1px solid #d1d5db', borderRadius: '10px', boxSizing: 'border-box' }} />
-                <input value={cloudPw} onChange={(e) => setCloudPw(e.target.value)} placeholder="비밀번호(6자 이상)" type="password"
-                  style={{ width: '100%', padding: '11px 14px', marginBottom: '10px', border: '1px solid #d1d5db', borderRadius: '10px', boxSizing: 'border-box' }} />
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <button onClick={() => cloudAuth('signin')}
-                    style={{ flex: 1, padding: '12px', borderRadius: '10px', border: 'none', background: 'var(--primary)', color: '#fff', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>
-                    로그인
-                  </button>
-                  <button onClick={() => cloudAuth('signup')}
-                    style={{ flex: 1, padding: '12px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#374151', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>
-                    회원가입
-                  </button>
-                </div>
-              </>
-            )}
-            {cloudMsg && <div style={{ fontSize: '0.8rem', color: '#1d4ed8', marginTop: '10px' }}>{cloudMsg}</div>}
-          </section>
 
           <div style={{ fontSize: '0.75rem', color: '#9ca3af', textAlign: 'center', padding: '0 8px' }}>
             파일 백업도 함께 쓰면 가장 안전해요.
@@ -5080,7 +5130,7 @@ const App = () => {
     <div className="app-container">
       <div className="banner">
         <div style={{ position: 'absolute', right: '16px',
-          top: 'calc(env(safe-area-inset-top, 0px) + 14px)', zIndex: 10,
+          top: 'calc(env(safe-area-inset-top, 0px) + 14px)', zIndex: 20, /* banner-content(z10)에 가리지 않게 */
           display: 'flex', gap: '8px' }}>
           <button aria-label="검색" onClick={() => setShowCmdK(true)} title="검색 (⌘K)"
             style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
@@ -5088,11 +5138,14 @@ const App = () => {
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             🔍
           </button>
-          <button aria-label="프로필" onClick={() => setCurrentView('profile')}
+          <button aria-label={authUser ? `프로필 (${authUser.email} 로그인됨)` : '프로필 (로그인 안 됨)'}
+            onClick={() => setCurrentView('profile')}
             style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
-              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
+              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem', position: 'relative',
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             👤
+            {authUser && <span style={{ position: 'absolute', right: 2, bottom: 2, width: 11, height: 11,
+              borderRadius: '50%', background: '#34d399', border: '2px solid #fff' }} />}
           </button>
           <button aria-label="설정" onClick={() => openSettings('home')}
             style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
