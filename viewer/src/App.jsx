@@ -1221,6 +1221,7 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
   // ★2 검산 — 계산 과목에서 검산 자기보고 (한 번만)
   const isCalc = CALC_SUBJECTS.includes(q.taxSubjectName);
   const [gyeomLogged, setGyeomLogged] = useState(false);
+  const resultRef = useRef(null); // 📍 응답 직후 해설 카드로 자동 스크롤
 
   const handleOptionClick = (optIdx) => {
     if (isRevealed) return; // 응답 후 변경 방지
@@ -1234,6 +1235,11 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
     } catch { /* 미지원 */ }
     // correct: 정답 있으면 boolean, 없으면 null(채점 제외)
     if (onAnswer) onAnswer(q, sel, correct);
+    // 📍 보기 탭 직후 결과·해설이 시야 밖(아래)에 있으므로 부드럽게 데려간다.
+    //    렌더 후 실행되도록 다음 프레임 + 여유 (autoNext 대기 중에도 해설을 보게 됨)
+    setTimeout(() => {
+      try { resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch { /* noop */ }
+    }, 180);
   };
 
   // 가이드 학습: 숫자키 1~9로 보기 선택(단일 문항 표시 화면에서만)
@@ -1356,7 +1362,9 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
         const correct = hasAnswer && selectedOpt === q.answerNorm;
         const accent = !hasAnswer ? '#6b7280' : (correct ? '#16a34a' : '#ef4444');
         return (
-          <div className="result-box" style={{ padding: '16px', background: '#f3f4f6', borderRadius: '8px', borderLeft: `4px solid ${accent}` }}>
+          <div className="result-box" ref={resultRef}
+            style={{ padding: '16px', background: '#f3f4f6', borderRadius: '8px', borderLeft: `4px solid ${accent}`,
+              scrollMarginTop: 96 /* sticky 헤더 아래로 정렬 */ }}>
             <div style={{ fontWeight: '700', marginBottom: q.explanation ? '8px' : '0', fontSize: '0.95rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
                 {q.explanation ? '해설' : '결과'}
