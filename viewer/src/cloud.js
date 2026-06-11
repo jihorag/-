@@ -3,8 +3,8 @@
 // env(VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY)가 있으면 우선 사용.
 import { createClient } from '@supabase/supabase-js';
 
-const URL = import.meta.env.VITE_SUPABASE_URL || 'https://otjsixympssmnarodzqu.supabase.co';
-const KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_KAXe6kdJyIhT3tkQ67C4mQ_cnFFmcVi';
+const URL = import.meta.env.VITE_SUPABASE_URL || 'https://crlqdphephctpurgwxqe.supabase.co';
+const KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_shIb9-WGZNfJZsiOJT_2Ew_inH3y5Re';
 
 export const cloudEnabled = !!(URL && KEY);
 export const supabase = cloudEnabled
