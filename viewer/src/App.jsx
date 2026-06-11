@@ -108,6 +108,196 @@ const resetUserData = () => {
   }
 };
 
+// ── ✨ AI 문제 생성 — 사용자가 고른 절에 LLM이 문제를 추가 ──────────
+// 생성 문제는 quiz-aigen-v1(localStorage)에 저장되어 기존 문제와 함께
+// 분류축에 합류한다 (진행률·SRS·백업·다기기 동기화 자동 적용).
+const AIGEN_KEY = 'quiz-aigen-v1';
+const loadAigen = () => {
+  try { return JSON.parse(localStorage.getItem(AIGEN_KEY) || '[]') || []; } catch { return []; }
+};
+const saveAigen = (arr) => {
+  try { localStorage.setItem(AIGEN_KEY, JSON.stringify(arr)); } catch { /* full */ }
+};
+
+function AIGenPanel({ sampleQuestions, taxNames, existingCount, onSaved, onDeleteAll }) {
+  const [open, setOpen] = useState(false);
+  const [count, setCount] = useState(5);
+  const [instruction, setInstruction] = useState('');
+  const [model, setModel] = useState(() => {
+    try { return localStorage.getItem('quiz-askai-model') || 'claude-sonnet-4-6'; } catch { return 'claude-sonnet-4-6'; }
+  });
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState('');
+  const [preview, setPreview] = useState(null); // 생성 결과 미리보기
+  const providerKeyOf = (prov) => prov === 'anthropic'
+    ? (localStorage.getItem('ailearn-byok') || '')
+    : (getProviderKey(prov) || '');
+
+  const generate = async () => {
+    const prov = getProviderForModel(model);
+    const key = providerKeyOf(prov);
+    if (!key) { setErr('API 키가 없습니다 — AI 학습 탭 ⚙️ 설정에서 등록해주세요.'); return; }
+    setBusy(true); setErr(''); setPreview(null);
+    try {
+      // 같은 절의 기존 문제 3개를 스타일 기준으로 제공
+      const samples = (sampleQuestions || []).slice(0, 3).map((q, i) =>
+        `[기존 문제 예시 ${i + 1}]\n${q.question}\n${(q.options || []).map((o, j) => `${j + 1}. ${o}`).join('\n')}\n정답: ${q.answerNorm || q.answer}\n해설: ${(q.explanation || '').slice(0, 300)}`
+      ).join('\n\n');
+      const sys = `당신은 감정평가사 1차 시험 출제위원입니다. 요청된 절(단원)의 연습문제를 만듭니다.
+
+[규칙]
+- 반드시 5지선다. 기존 문제 예시와 같은 과목·절 범위 안에서만 출제.
+- 오답 선지도 그럴듯하게 — 해당 절의 유사 개념으로 함정 구성.
+- 해설은 정답 근거 + 각 오답이 왜 틀렸는지 포함.
+- 출력은 오직 JSON 배열만. 다른 텍스트 금지:
+[{"question":"...","options":["..","..","..","..",".."],"answer":1,"explanation":"...","question_type":"개념5지|옳지않은것|박스형|개수형|사례형 중 하나","difficulty":1~5}]`;
+      const user = `[출제 범위] ${taxNames.subject}${taxNames.sub_subject ? ' > ' + taxNames.sub_subject : ''} > ${taxNames.chapter || ''} > ${taxNames.section || ''}${taxNames.item ? ' > ' + taxNames.item : ''}
+
+${samples}
+
+[요청] 위 범위에서 새 문제 ${count}개를 만들어주세요.
+${instruction.trim() ? `[추가 지시] ${instruction.trim()}` : ''}
+기존 예시와 중복되지 않는 새로운 포인트로, JSON 배열만 출력.`;
+      const { text: out } = await sendMessagesUnified({
+        apiKey: key, model, system: sys,
+        messages: [{ role: 'user', content: user }],
+        maxTokens: 4096, baseUrl: getBaseUrls()[prov],
+      });
+      const m = out.match(/\[[\s\S]*\]/);
+      if (!m) throw new Error('생성 결과에서 JSON을 찾지 못했습니다 — 다시 시도해주세요.');
+      const arr = JSON.parse(m[0]);
+      const valid = arr.filter((q) =>
+        q && typeof q.question === 'string' && Array.isArray(q.options) && q.options.length === 5 &&
+        q.answer >= 1 && q.answer <= 5 && typeof q.explanation === 'string');
+      if (!valid.length) throw new Error('유효한 문제가 생성되지 않았습니다 — 다시 시도해주세요.');
+      setPreview(valid);
+    } catch (e) {
+      const hint = modelRequiresProxy(model) ? ' (이 모델은 프록시 필요할 수 있음 — Claude 모델 권장)' : '';
+      setErr((e.message || String(e)) + hint);
+    } finally { setBusy(false); }
+  };
+
+  const saveAll = () => {
+    const ts = Date.now();
+    const built = preview.map((q, i) => ({
+      id: `aigen-${ts}-${i}`,
+      exam: '[AI생성]',
+      subject: taxNames.subject,
+      source: 'practice', // 연습문제 필터에 포함
+      number: `AI-${String(existingCount + i + 1).padStart(2, '0')}`,
+      year: '',
+      question: q.question,
+      options: q.options,
+      answer: String(q.answer),
+      explanation: q.explanation,
+      question_type: q.question_type || '개념5지',
+      option_meta: [],
+      indexing_v4: {
+        processed_by: 'aigen', in_scope: true,
+        difficulty: Math.min(5, Math.max(1, q.difficulty || 3)),
+        mapped_taxonomy: {
+          subject: taxNames.subject, sub_subject: taxNames.sub_subject || '',
+          chapter: taxNames.chapter || '', section: taxNames.section || '',
+          item: taxNames.item || '', difficulty: Math.min(5, Math.max(1, q.difficulty || 3)),
+        },
+      },
+    }));
+    onSaved(built);
+    setPreview(null); setOpen(false);
+    toast.show(`✨ AI 생성 문제 ${built.length}개를 이 절에 추가했어요`, 'success', 2500);
+  };
+
+  return (
+    <div style={{ margin: '0 20px 14px' }}>
+      {!open ? (
+        <button onClick={() => setOpen(true)}
+          style={{ width: '100%', padding: '12px 16px', borderRadius: 12, cursor: 'pointer',
+            border: '1px dashed #c4b5fd', background: '#faf5ff',
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontWeight: 800, fontSize: '0.86rem', color: '#6d28d9' }}>✨ AI 문제 생성 — 이 절에 추가</span>
+          <span style={{ fontSize: '0.72rem', color: '#9ca3af', fontWeight: 600 }}>
+            {existingCount > 0 ? `생성됨 ${existingCount}개` : 'BYOK'} →
+          </span>
+        </button>
+      ) : (
+        <div style={{ border: '1.5px solid #ddd6fe', background: '#faf5ff', borderRadius: 14, padding: 14 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+            <span style={{ fontWeight: 800, fontSize: '0.9rem', color: '#6d28d9' }}>✨ AI 문제 생성</span>
+            <button onClick={() => { setOpen(false); setPreview(null); setErr(''); }}
+              style={{ border: 'none', background: 'none', color: '#9ca3af', cursor: 'pointer', fontSize: '0.9rem' }}>✕</button>
+          </div>
+          {!preview && (
+            <>
+              <div style={{ display: 'flex', gap: 6, marginBottom: 8 }}>
+                {[3, 5, 10].map((n) => (
+                  <button key={n} onClick={() => setCount(n)}
+                    style={{ flex: 1, padding: '8px', borderRadius: 9, cursor: 'pointer', fontWeight: 700, fontSize: '0.8rem',
+                      border: count === n ? 'none' : '1px solid #ddd6fe',
+                      background: count === n ? '#7c3aed' : '#fff', color: count === n ? '#fff' : '#6d28d9' }}>
+                    {n}문제
+                  </button>
+                ))}
+                <select value={model} onChange={(e) => { setModel(e.target.value); try { localStorage.setItem('quiz-askai-model', e.target.value); } catch { /* noop */ } }}
+                  aria-label="모델 선택"
+                  style={{ flex: 1.4, padding: '8px', borderRadius: 9, border: '1px solid #ddd6fe', background: '#fff',
+                    color: '#374151', fontWeight: 700, fontSize: '0.74rem' }}>
+                  {ALL_MODELS.map((mm) => <option key={mm.id} value={mm.id}>{mm.icon} {mm.label}</option>)}
+                </select>
+              </div>
+              <textarea value={instruction} onChange={(e) => setInstruction(e.target.value)} rows={2}
+                placeholder="어떤 문제를 원하는지 지시해보세요 (선택) — 예: 개수형 함정문제 위주로 / 판례 사례형 / 계산문제만 / 최고난도로"
+                style={{ width: '100%', padding: '10px 12px', borderRadius: 10, border: '1px solid #ddd6fe',
+                  fontSize: '16px', fontFamily: 'inherit', boxSizing: 'border-box', resize: 'vertical', background: '#fff' }} />
+              <button onClick={generate} disabled={busy}
+                style={{ width: '100%', marginTop: 8, padding: '12px', borderRadius: 10, border: 'none',
+                  background: busy ? '#c4b5fd' : '#7c3aed', color: '#fff', fontWeight: 800, cursor: busy ? 'default' : 'pointer' }}>
+                {busy ? '⏳ 출제 중… (10~30초)' : `✨ ${count}문제 생성하기`}
+              </button>
+              {existingCount > 0 && (
+                <button onClick={() => { if (window.confirm(`이 절의 AI 생성 문제 ${existingCount}개를 모두 삭제할까요?`)) { onDeleteAll(); setOpen(false); } }}
+                  style={{ width: '100%', marginTop: 6, padding: '8px', borderRadius: 9, border: 'none',
+                    background: 'none', color: '#b91c1c', fontWeight: 700, fontSize: '0.74rem', cursor: 'pointer', textDecoration: 'underline' }}>
+                  이 절의 AI 생성 문제 {existingCount}개 전체 삭제
+                </button>
+              )}
+            </>
+          )}
+          {preview && (
+            <>
+              <div style={{ fontSize: '0.78rem', color: '#374151', fontWeight: 700, marginBottom: 8 }}>
+                {preview.length}개 생성됨 — 미리보기 후 추가하세요
+              </div>
+              <div style={{ maxHeight: 300, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 10 }}>
+                {preview.map((q, i) => (
+                  <div key={i} style={{ background: '#fff', borderRadius: 10, padding: '10px 12px', border: '1px solid #ede9fe' }}>
+                    <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#111827', lineHeight: 1.5 }}>
+                      {i + 1}. {q.question.slice(0, 120)}{q.question.length > 120 ? '…' : ''}
+                    </div>
+                    <div style={{ fontSize: '0.7rem', color: '#7c3aed', marginTop: 4, fontWeight: 700 }}>
+                      정답 {q.answer}번 · {q.question_type || '개념5지'} · 난이도 {q.difficulty || 3}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button onClick={() => setPreview(null)}
+                  style={{ flex: 1, padding: '11px', borderRadius: 10, border: '1px solid #d1d5db', background: '#fff', color: '#6b7280', fontWeight: 700, cursor: 'pointer' }}>
+                  버리기
+                </button>
+                <button onClick={saveAll}
+                  style={{ flex: 2, padding: '11px', borderRadius: 10, border: 'none', background: '#7c3aed', color: '#fff', fontWeight: 800, cursor: 'pointer' }}>
+                  ✓ 이 절에 {preview.length}개 추가
+                </button>
+              </div>
+            </>
+          )}
+          {err && <div style={{ fontSize: '0.76rem', color: '#b91c1c', marginTop: 8 }}>{err}</div>}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── ☁️ 다기기 병합 동기화 ──────────────────────────────────────────
 // 스냅샷 통째 덮어쓰기(last-write-wins) 대신, 핵심 학습 데이터는 키별로
 // 타임스탬프 기준 합집합 병합 → 두 기기를 번갈아 써도 기록이 사라지지 않는다.
@@ -1470,6 +1660,7 @@ function GyeomsanWidget() {
 
 const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
+  const [aigenList, setAigenList] = useState(loadAigen); // ✨ AI 생성 문제 (localStorage)
   const [taxonomyData, setTaxonomyData] = useState(null);
   // 플로팅 설정 드로어 — 탭별 컨텍스트로 다른 항목 표시
   const [showGlobalSettings, setShowGlobalSettings] = useState(false);
@@ -2027,14 +2218,14 @@ const App = () => {
   // Process data
   const processedData = useMemo(() => {
     if (loading || !questionsData) return [];
-    return questionsData.map(q => {
+    return [...questionsData, ...aigenList].map(q => {
       // V4 분류 정보: Gemini 또는 Claude로 분류되어 mapped_taxonomy가 있고
       // in_scope!==false 인 문제만 전 탭(시험/과목/단원/연도)에 노출.
       const iv = q.indexing_v4;
       const mt = iv && iv.mapped_taxonomy;
       const isClassified = !!(
         iv && mt && mt.subject &&
-        (iv.processed_by === 'gemini-2.5-flash' || iv.processed_by === 'claude-sonnet-4-6') &&
+        (iv.processed_by === 'gemini-2.5-flash' || iv.processed_by === 'claude-sonnet-4-6' || iv.processed_by === 'aigen') &&
         iv.in_scope !== false
       );
 
@@ -2058,7 +2249,7 @@ const App = () => {
         taxItemName: isClassified ? (mt.item || null) : null,
       };
     });
-  }, [loading, questionsData]);
+  }, [loading, questionsData, aigenList]);
 
   // 가이드 학습: 키보드 ← 이전 / → · Enter 다음
   useEffect(() => {
@@ -3813,6 +4004,17 @@ const App = () => {
 
   if (currentView === 'question_list' && selectedGroup) {
     const filteredQuestions = filteredQuestionsMemo;
+    // ✨ AI 문제 생성 — 이 절(그룹)의 분류 정보를 기존 문제에서 상속
+    const taxRef = filteredQuestions.find((q) => q.taxSubjectName) || null;
+    const aigenTax = taxRef ? {
+      subject: taxRef.taxSubjectName, sub_subject: taxRef.taxSubSubjectName || '',
+      chapter: taxRef.taxChapterName || '', section: taxRef.taxSectionName || '',
+      item: taxRef.taxItemName || '',
+    } : null;
+    const aigenHere = aigenTax ? aigenList.filter((q) => {
+      const mt = q.indexing_v4?.mapped_taxonomy || {};
+      return mt.subject === aigenTax.subject && (mt.section || '') === aigenTax.section && (mt.item || '') === aigenTax.item;
+    }) : [];
     
     return (
       <div className="app-container">
@@ -3842,6 +4044,21 @@ const App = () => {
         </div>
 
         {renderAiTutorLink(aiLeafForQuestion(filteredQuestions[0]))}
+
+        {aigenTax && (
+          <AIGenPanel
+            sampleQuestions={filteredQuestions}
+            taxNames={aigenTax}
+            existingCount={aigenHere.length}
+            onSaved={(built) => { const next = [...aigenList, ...built]; setAigenList(next); saveAigen(next); }}
+            onDeleteAll={() => {
+              const ids = new Set(aigenHere.map((q) => q.id));
+              const next = aigenList.filter((q) => !ids.has(q.id));
+              setAigenList(next); saveAigen(next);
+              toast.show('AI 생성 문제를 삭제했어요', 'info', 1800);
+            }}
+          />
+        )}
 
         <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto', paddingBottom: 'calc(40px + env(safe-area-inset-bottom, 0px))' }}>
           {filteredQuestions.map((q) => (
