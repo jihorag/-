@@ -29,6 +29,9 @@ def main():
     args = ap.parse_args()
 
     db_path = ROOT / args.db
+    if db_path.name == 'questions_db.json':
+        raise SystemExit('🚫 기출(questions_db.json)은 원본 보존 — 삭제 적용 불가. '
+                         '정답 불일치는 감사 리포트(answer_mismatch)를 보고 수동 교정하세요.')
     audit_path = AUDIT_DIR / (db_path.stem + '.jsonl')
     if not audit_path.exists():
         raise SystemExit(f'감사 파일 없음: {audit_path} — quality_audit_local.py 먼저 실행')
