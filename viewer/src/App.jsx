@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import { ArrowLeft, House, Compass, RotateCcw, BookOpen, Sparkles, Calendar, Zap } from 'lucide-react';
+import { ArrowLeft, House, Compass, RotateCcw, BookOpen, Sparkles, Calendar, Zap, Bot, Layers } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
 import VizGallery from './viz/VizGallery';
@@ -30,9 +30,9 @@ import {
 } from './studyMeta';
 // 셀프진단 신뢰도 라벨 메타
 const CONF_META = {
-  know: { label: '안다', icon: '✓', color: '#16a34a', bg: '#dcfce7' },
+  know: { label: '안다', icon: '✓', color: 'var(--success)', bg: '#dcfce7' },
   fuzzy: { label: '애매', icon: '~', color: '#b45309', bg: '#fef3c7' },
-  unknown: { label: '모른다', icon: '✗', color: '#dc2626', bg: '#fee2e2' },
+  unknown: { label: '모른다', icon: '✗', color: 'var(--danger)', bg: '#fee2e2' },
 };
 const CONF_CYCLE = [null, 'know', 'fuzzy', 'unknown'];
 const CALC_SUBJECTS = ['경제학원론', '회계학']; // 검산 리마인더 대상(계산 과목)
@@ -174,11 +174,11 @@ const mergeStateData = (remoteData) => {
 
 // v4 난이도(1~5) 배지 메타: 색/라벨
 const DIFFICULTY_META = {
-  1: { label: '난이도 1 · 매우쉬움', bg: '#ecfdf5', fg: '#047857' },
-  2: { label: '난이도 2 · 쉬움', bg: '#f0fdf4', fg: '#15803d' },
+  1: { label: '난이도 1 · 매우쉬움', bg: 'var(--success-light)', fg: '#047857' },
+  2: { label: '난이도 2 · 쉬움', bg: 'var(--success-light)', fg: '#15803d' },
   3: { label: '난이도 3 · 보통', bg: '#fefce8', fg: '#a16207' },
   4: { label: '난이도 4 · 어려움', bg: '#fff7ed', fg: '#c2410c' },
-  5: { label: '난이도 5 · 매우어려움', bg: '#fef2f2', fg: '#b91c1c' },
+  5: { label: '난이도 5 · 매우어려움', bg: 'var(--danger-light)', fg: '#b91c1c' },
 };
 
 // 멀티-프로바이더 API 키 + 프록시 baseUrl 위젯 (GlobalSettingsDrawer 'ai' 컨텍스트용)
@@ -325,7 +325,7 @@ const swipe = { x: 0, y: 0 };
 const scrollMem = { qlist: 0 };
 
 // A4: 컨페티 조각(모듈 로드 시 1회 생성 — 렌더 순수성 규칙 밖)
-const CONFETTI_COLORS = ['#2563eb', '#16a34a', '#ea580c', '#eab308', '#ec4899', '#06b6d4'];
+const CONFETTI_COLORS = ['var(--primary)', 'var(--success)', '#ea580c', '#eab308', '#ec4899', '#06b6d4'];
 const CONFETTI_PIECES = Array.from({ length: 90 }, () => ({
   left: Math.random() * 100,
   delay: Math.random() * 0.5,
@@ -720,7 +720,7 @@ function VariantChallenge({ q, wasWrong }) {
           </div>
         )}
         {status === 'error' && (
-          <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#dc2626' }}>생성 실패({errMsg}) — 다시 시도해보세요.</div>
+          <div style={{ marginTop: 6, fontSize: '0.72rem', color: 'var(--danger)' }}>생성 실패({errMsg}) — 다시 시도해보세요.</div>
         )}
       </div>
     );
@@ -730,7 +730,7 @@ function VariantChallenge({ q, wasWrong }) {
   const vCorrect = revealed && String(sel) === String(variant.answer);
   return (
     <div style={{ marginTop: 12, border: '1.5px solid #c4b5fd', borderRadius: 10, overflow: 'hidden' }}>
-      <div style={{ background: '#f5f3ff', padding: '7px 12px', fontSize: '0.78rem', fontWeight: 800, color: '#5b21b6' }}>
+      <div style={{ background: 'var(--ai-light)', padding: '7px 12px', fontSize: '0.78rem', fontWeight: 800, color: 'var(--ai-dark)' }}>
         🤖 변형 문제 — AI 생성이므로 비판적으로 검토하세요
       </div>
       <div style={{ padding: 12, background: '#fff' }}>
@@ -746,8 +746,8 @@ function VariantChallenge({ q, wasWrong }) {
               style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 10px',
                 marginBottom: 6, borderRadius: 8, cursor: revealed ? 'default' : 'pointer',
                 fontSize: '0.85rem', lineHeight: 1.5,
-                border: `1.5px solid ${revealed ? (isAns ? '#16a34a' : isSel ? '#ef4444' : '#e5e7eb') : '#e5e7eb'}`,
-                background: revealed ? (isAns ? '#f0fdf4' : isSel ? '#fef2f2' : '#fff') : '#fff',
+                border: `1.5px solid ${revealed ? (isAns ? 'var(--success)' : isSel ? '#ef4444' : '#e5e7eb') : '#e5e7eb'}`,
+                background: revealed ? (isAns ? 'var(--success-light)' : isSel ? 'var(--danger-light)' : '#fff') : '#fff',
                 color: '#1f2937' }}>
               {n}. {opt}
             </button>
@@ -755,7 +755,7 @@ function VariantChallenge({ q, wasWrong }) {
         })}
         {revealed && (
           <div style={{ marginTop: 8, padding: 10, background: '#f9fafb', borderRadius: 8, fontSize: '0.82rem' }}>
-            <div style={{ fontWeight: 800, color: vCorrect ? '#16a34a' : '#ef4444', marginBottom: 4 }}>
+            <div style={{ fontWeight: 800, color: vCorrect ? 'var(--success)' : '#ef4444', marginBottom: 4 }}>
               {vCorrect ? '✓ 정답! 논점을 잡았어요.' : `✕ 오답 — 정답 ${variant.answer}번`}
             </div>
             <div style={{ color: '#4b5563', lineHeight: 1.6 }}><ParsedText text={variant.explanation || ''} /></div>
@@ -855,8 +855,9 @@ function AskAI({ onBack }) {
           <ArrowLeft size={24} style={{ marginRight: 8 }} />
           <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>홈</span>
         </button>
-        <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827', paddingRight: 8 }}>
-          ✨ AI에게 뭐든 물어보기
+        <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827', paddingRight: 8,
+          display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+          <Sparkles size={16} color="var(--ai)" /> AI에게 뭐든 물어보기
         </span>
         {messages.length > 0 ? (
           <button onClick={() => { setMessages([]); persist([]); }} aria-label="대화 지우기"
@@ -881,7 +882,7 @@ function AskAI({ onBack }) {
               {ASKAI_CHIPS.map((c, i) => (
                 <button key={i} onClick={() => ask(c)}
                   style={{ padding: '8px 13px', borderRadius: 999, border: '1px solid #c7d2fe',
-                    background: '#eef2ff', color: '#3730a3', fontSize: '0.78rem', fontWeight: 600,
+                    background: 'var(--ai-light)', color: 'var(--ai-dark)', fontSize: '0.78rem', fontWeight: 600,
                     cursor: 'pointer' }}>
                   {c}
                 </button>
@@ -894,7 +895,7 @@ function AskAI({ onBack }) {
             justifyContent: m.role === 'user' ? 'flex-end' : 'flex-start', margin: '8px 0' }}>
             <div style={{ maxWidth: m.role === 'user' ? '80%' : '96%', padding: '11px 14px',
               borderRadius: 14, fontSize: '0.92rem', lineHeight: 1.65,
-              background: m.role === 'user' ? '#4f46e5' : '#fff',
+              background: m.role === 'user' ? 'var(--ai)' : '#fff',
               color: m.role === 'user' ? '#fff' : '#111827',
               border: m.role === 'user' ? 'none' : '1px solid #e5e7eb',
               whiteSpace: m.role === 'user' ? 'pre-wrap' : 'normal', wordBreak: 'break-word' }}>
@@ -908,7 +909,7 @@ function AskAI({ onBack }) {
           </div>
         )}
         {error === 'nokey' && (
-          <div style={{ marginTop: 10, padding: '10px 14px', background: '#fffbeb',
+          <div style={{ marginTop: 10, padding: '10px 14px', background: 'var(--amber-light)',
             border: '1px solid #fde68a', borderRadius: 10, fontSize: '0.82rem', color: '#92400e' }}>
             {curModel.provider === 'anthropic'
               ? 'AI 학습 탭에서 Claude API 키를 한 번만 등록하면 바로 사용할 수 있어요. (기기에만 저장)'
@@ -916,7 +917,7 @@ function AskAI({ onBack }) {
           </div>
         )}
         {error && error !== 'nokey' && (
-          <div style={{ marginTop: 10, fontSize: '0.8rem', color: '#dc2626' }}>
+          <div style={{ marginTop: 10, fontSize: '0.8rem', color: 'var(--danger)' }}>
             요청 실패: {error}
           </div>
         )}
@@ -938,8 +939,8 @@ function AskAI({ onBack }) {
               lineHeight: 1.5, background: 'transparent', boxSizing: 'border-box' }} />
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '2px 6px 2px 8px' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5,
-              padding: '5px 11px', borderRadius: 999, background: '#eef2ff',
-              color: '#4f46e5', fontSize: '0.76rem', fontWeight: 700,
+              padding: '5px 11px', borderRadius: 999, background: 'var(--ai-light)',
+              color: 'var(--ai)', fontSize: '0.76rem', fontWeight: 700,
               whiteSpace: 'nowrap', flexShrink: 0 }}>
               @ 전과목
             </span>
@@ -965,7 +966,7 @@ function AskAI({ onBack }) {
               aria-label="질문 보내기"
               style={{ width: 38, height: 38, borderRadius: 12, border: 'none', fontWeight: 800,
                 fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                background: input.trim() && !loading ? '#4f46e5' : '#eef2f7',
+                background: input.trim() && !loading ? 'var(--ai)' : '#eef2f7',
                 color: input.trim() && !loading ? '#fff' : '#9ca3af',
                 cursor: input.trim() && !loading ? 'pointer' : 'default' }}>
               ↵
@@ -984,14 +985,14 @@ function OptionMeta({ om, selected }) {
   const good = !!om.correct;
   const chip = { fontSize: '0.72rem', fontWeight: 700, padding: '2px 8px', borderRadius: 999, background: '#fff', border: '1px solid #d1d5db', color: '#374151', whiteSpace: 'nowrap' };
   return (
-    <div style={{ margin: '6px 0 2px 6px', padding: '8px 12px', borderLeft: `3px solid ${good ? '#16a34a' : '#ef4444'}`, background: good ? '#f0fdf4' : '#fef2f2', borderRadius: 6, fontSize: '0.83rem', color: '#374151', lineHeight: 1.55 }}>
+    <div style={{ margin: '6px 0 2px 6px', padding: '8px 12px', borderLeft: `3px solid ${good ? 'var(--success)' : '#ef4444'}`, background: good ? 'var(--success-light)' : 'var(--danger-light)', borderRadius: 6, fontSize: '0.83rem', color: '#374151', lineHeight: 1.55 }}>
       <div>
-        <b style={{ color: good ? '#16a34a' : '#dc2626' }}>{good ? 'O 옳은 선지' : 'X 틀린 선지'}{selected ? ' · 내 선택' : ''}</b>
+        <b style={{ color: good ? 'var(--success)' : 'var(--danger)' }}>{good ? 'O 옳은 선지' : 'X 틀린 선지'}{selected ? ' · 내 선택' : ''}</b>
         {om.why ? <> — {om.why}</> : null}
       </div>
       {(om.principle || (om.articles && om.articles.length) || om.case?.no) && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 6, alignItems: 'center' }}>
-          {om.principle && <span style={{ ...chip, background: '#eff6ff', borderColor: '#bfdbfe', color: '#1d4ed8' }}>⚖ {om.principle}</span>}
+          {om.principle && <span style={{ ...chip, background: 'var(--primary-light)', borderColor: '#bfdbfe', color: 'var(--primary-dark)' }}>⚖ {om.principle}</span>}
           {(om.articles || []).map((a, i) => <span key={i} style={chip}>{a}</span>)}
           {om.case?.no && <span style={chip}>{om.case.no}</span>}
         </div>
@@ -1049,7 +1050,7 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
     <div style={{ background: '#fff', borderRadius: '12px', padding: '24px', marginBottom: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', gap: '8px' }}>
         <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ fontWeight: '700', fontSize: '1.125rem', color: '#2563eb' }}>Q. {q.number}</span>
+          <span style={{ fontWeight: '700', fontSize: '1.125rem', color: 'var(--primary)' }}>Q. {q.number}</span>
           {typeof q.difficulty === 'number' && (() => {
             const m = DIFFICULTY_META[q.difficulty] || DIFFICULTY_META[3];
             return (
@@ -1106,10 +1107,10 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
           let bgColor, borderColor, badgeBg = '#fff', badgeColor = '#4b5563', badgeBorder = '1.5px solid #d1d5db';
           let anim = '';
           if (showCorrect) {
-            bgColor = '#eff6ff'; borderColor = '#93c5fd'; badgeBg = '#2563eb'; badgeColor = '#fff'; badgeBorder = 'none';
+            bgColor = 'var(--primary-light)'; borderColor = '#93c5fd'; badgeBg = 'var(--primary)'; badgeColor = '#fff'; badgeBorder = 'none';
             anim = 'opt-correct';
           } else if (showWrong) {
-            bgColor = '#fef2f2'; borderColor = '#fca5a5'; badgeBg = '#dc2626'; badgeColor = '#fff'; badgeBorder = 'none';
+            bgColor = 'var(--danger-light)'; borderColor = '#fca5a5'; badgeBg = 'var(--danger)'; badgeColor = '#fff'; badgeBorder = 'none';
             anim = 'opt-wrong';
           } else {
             bgColor = '#f9fafb'; borderColor = '#e5e7eb';
@@ -1149,7 +1150,7 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
       {isRevealed && (() => {
         // 채점 결과: 정답 정보 없으면 중립 안내, 있으면 정/오답
         const correct = hasAnswer && selectedOpt === q.answerNorm;
-        const accent = !hasAnswer ? '#6b7280' : (correct ? '#16a34a' : '#ef4444');
+        const accent = !hasAnswer ? '#6b7280' : (correct ? 'var(--success)' : '#ef4444');
         return (
           <div className="result-box" style={{ padding: '16px', background: '#f3f4f6', borderRadius: '8px', borderLeft: `4px solid ${accent}` }}>
             <div style={{ fontWeight: '700', marginBottom: q.explanation ? '8px' : '0', fontSize: '0.95rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
@@ -1270,8 +1271,8 @@ function StrategyTools({ stage1 }) {
         {tabs.map(([k, label]) => (
           <button key={k} onClick={() => setTab(k)}
             style={{ flex: 1, padding: '10px 6px', border: 'none', cursor: 'pointer', fontSize: '0.82rem', fontWeight: 700,
-              background: tab === k ? '#eef2ff' : '#fff', color: tab === k ? '#4338ca' : '#6b7280',
-              borderBottom: tab === k ? '2px solid #4f46e5' : '2px solid transparent' }}>
+              background: tab === k ? 'var(--ai-light)' : '#fff', color: tab === k ? '#4338ca' : '#6b7280',
+              borderBottom: tab === k ? '2px solid var(--ai)' : '2px solid transparent' }}>
             {label}
           </button>
         ))}
@@ -1321,19 +1322,19 @@ function TargetBoard({ stage1 }) {
                   현재 {cur != null ? `${cur}%` : '–'}
                 </span>
                 <div style={{ flex: 1, height: 6, background: '#f3f4f6', borderRadius: 3, overflow: 'hidden', position: 'relative' }}>
-                  <div style={{ width: `${cur || 0}%`, height: '100%', background: meet ? '#16a34a' : '#4f46e5' }} />
+                  <div style={{ width: `${cur || 0}%`, height: '100%', background: meet ? 'var(--success)' : 'var(--ai)' }} />
                   {target !== '' && (
                     <div style={{ position: 'absolute', top: -2, left: `${Math.min(100, Number(target))}%`, width: 2, height: 10, background: '#ef4444' }} title={`목표 ${target}`} />
                   )}
                 </div>
-                <span style={{ fontSize: '0.7rem', fontWeight: 700, color: meet ? '#16a34a' : '#9a3412', width: 44, textAlign: 'right' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 700, color: meet ? 'var(--success)' : '#9a3412', width: 44, textAlign: 'right' }}>
                   {target === '' ? '' : (cur == null ? '–' : (meet ? '달성✓' : `${Number(target) - cur}↑`))}
                 </span>
               </div>
               {quizScored < 5 && <div style={{ fontSize: '0.66rem', color: '#9ca3af', marginTop: 3 }}>· 5문 이상 풀면 현재 정답률이 표시돼요</div>}
               <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginTop: 8, alignItems: 'center' }}>
                 {ab.map((label) => (
-                  <span key={label} style={{ fontSize: '0.7rem', background: '#fef2f2', color: '#b91c1c', border: '1px solid #fecaca', borderRadius: 999, padding: '2px 8px', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                  <span key={label} style={{ fontSize: '0.7rem', background: 'var(--danger-light)', color: '#b91c1c', border: '1px solid #fecaca', borderRadius: 999, padding: '2px 8px', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
                     버림: {label}
                     <button onClick={() => setPlan(removeAbandoned(subj, label))} style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#b91c1c', padding: 0, fontSize: '0.8rem' }}>✕</button>
                   </span>
@@ -1381,20 +1382,20 @@ function RoundTimer() {
         한 단원·회독에 걸린 시간을 재보세요. <b>시간이 줄어드는 것 = 숙달</b>의 객관적 신호예요.
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, justifyContent: 'center', padding: '8px 0' }}>
-        <span style={{ fontSize: '2rem', fontWeight: 800, fontVariantNumeric: 'tabular-nums', color: running ? '#4f46e5' : '#111827' }}>{fmt(elapsed)}</span>
+        <span style={{ fontSize: '2rem', fontWeight: 800, fontVariantNumeric: 'tabular-nums', color: running ? 'var(--ai)' : '#111827' }}>{fmt(elapsed)}</span>
         {!running
-          ? <button onClick={start} style={{ padding: '8px 18px', borderRadius: 8, border: 'none', background: '#4f46e5', color: '#fff', fontWeight: 700, cursor: 'pointer', minHeight: 40 }}>▶ 시작</button>
-          : <button onClick={stop} style={{ padding: '8px 18px', borderRadius: 8, border: 'none', background: '#dc2626', color: '#fff', fontWeight: 700, cursor: 'pointer', minHeight: 40 }}>⏹ 정지</button>}
+          ? <button onClick={start} style={{ padding: '8px 18px', borderRadius: 8, border: 'none', background: 'var(--ai)', color: '#fff', fontWeight: 700, cursor: 'pointer', minHeight: 40 }}>▶ 시작</button>
+          : <button onClick={stop} style={{ padding: '8px 18px', borderRadius: 8, border: 'none', background: 'var(--danger)', color: '#fff', fontWeight: 700, cursor: 'pointer', minHeight: 40 }}>⏹ 정지</button>}
       </div>
       {pending && (
-        <div style={{ background: '#eef2ff', border: '1px solid #c7d2fe', borderRadius: 8, padding: 10, marginTop: 6 }}>
+        <div style={{ background: 'var(--ai-light)', border: '1px solid #c7d2fe', borderRadius: 8, padding: 10, marginTop: 6 }}>
           <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#4338ca', marginBottom: 6 }}>{fmt(pending.ms)} 기록</div>
           <div style={{ display: 'flex', gap: 6 }}>
             <input value={label} onChange={(e) => setLabel(e.target.value)} placeholder="단원/구간"
               style={{ flex: 1, padding: '6px 8px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '16px' }} />
             <input value={items} onChange={(e) => setItems(e.target.value)} placeholder="문항수" inputMode="numeric"
               style={{ width: 70, padding: '6px 8px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: '16px' }} />
-            <button onClick={save} style={{ padding: '6px 12px', borderRadius: 6, border: 'none', background: '#4f46e5', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>저장</button>
+            <button onClick={save} style={{ padding: '6px 12px', borderRadius: 6, border: 'none', background: 'var(--ai)', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>저장</button>
           </div>
         </div>
       )}
@@ -1427,11 +1428,11 @@ function GyeomsanWidget() {
       </div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
         <div style={{ flex: 1, textAlign: 'center', background: '#f8fafc', borderRadius: 8, padding: '10px 0' }}>
-          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#4f46e5' }}>{s.checks}</div>
+          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--ai)' }}>{s.checks}</div>
           <div style={{ fontSize: '0.68rem', color: '#6b7280' }}>검산 횟수</div>
         </div>
-        <div style={{ flex: 1, textAlign: 'center', background: '#fef2f2', borderRadius: 8, padding: '10px 0' }}>
-          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#dc2626' }}>{s.caught}</div>
+        <div style={{ flex: 1, textAlign: 'center', background: 'var(--danger-light)', borderRadius: 8, padding: '10px 0' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--danger)' }}>{s.caught}</div>
           <div style={{ fontSize: '0.68rem', color: '#6b7280' }}>실수 적발</div>
         </div>
         <div style={{ flex: 1, textAlign: 'center', background: '#fff7ed', borderRadius: 8, padding: '10px 0' }}>
@@ -1445,7 +1446,7 @@ function GyeomsanWidget() {
           ✓ 검산함 (이상 없음)
         </button>
         <button onClick={() => setS(bumpGyeomsan(true))}
-          style={{ flex: 1, padding: '10px', borderRadius: 8, border: 'none', background: '#dc2626', color: '#fff', fontWeight: 700, cursor: 'pointer', minHeight: 44 }}>
+          style={{ flex: 1, padding: '10px', borderRadius: 8, border: 'none', background: 'var(--danger)', color: '#fff', fontWeight: 700, cursor: 'pointer', minHeight: 44 }}>
           ⚠ 검산으로 실수 잡음
         </button>
       </div>
@@ -3028,7 +3029,7 @@ const App = () => {
         <header style={{
           padding: '14px 16px', borderBottom: '1px solid #e5e7eb',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          background: 'linear-gradient(180deg, #eef2ff 0%, #fff 100%)',
+          background: 'linear-gradient(180deg, var(--ai-light) 0%, #fff 100%)',
         }}>
           <h2 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 800, color: '#1e3a8a' }}>⚙️ 설정</h2>
           <button onClick={() => setShowGlobalSettings(false)}
@@ -3042,9 +3043,9 @@ const App = () => {
               <button onClick={onClick}
                 style={{
                   flex: 1, padding: '7px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer',
-                  border: on ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
-                  background: on ? '#eef2ff' : '#fff',
-                  color: on ? '#1d4ed8' : '#6b7280',
+                  border: on ? '1.5px solid var(--ai)' : '1px solid #d1d5db',
+                  background: on ? 'var(--ai-light)' : '#fff',
+                  color: on ? 'var(--primary-dark)' : '#6b7280',
                 }}>{label}</button>
             );
             const Section = ({ title, desc, children }) => (
@@ -3069,7 +3070,7 @@ const App = () => {
             return (
               <>
                 <div style={{ fontSize: '0.75rem', color: '#6b7280', fontWeight: 700,
-                  background: '#eef2ff', padding: '6px 10px', borderRadius: 8, alignSelf: 'flex-start' }}>
+                  background: 'var(--ai-light)', padding: '6px 10px', borderRadius: 8, alignSelf: 'flex-start' }}>
                   {meta.icon} {meta.label}
                 </div>
 
@@ -3127,9 +3128,9 @@ const App = () => {
                               {grp.items.map(([v, l]) => (
                                 <button key={v} onClick={() => { const next = setAiPrefs({ model: v }); setAiPrefsState(next); }}
                                   style={{ padding: '8px 10px', textAlign: 'left', borderRadius: 8, cursor: 'pointer', fontSize: '0.85rem', fontWeight: 700,
-                                    border: aiPrefs.model === v ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
-                                    background: aiPrefs.model === v ? '#eef2ff' : '#fff',
-                                    color: aiPrefs.model === v ? '#1d4ed8' : '#374151' }}>
+                                    border: aiPrefs.model === v ? '1.5px solid var(--ai)' : '1px solid #d1d5db',
+                                    background: aiPrefs.model === v ? 'var(--ai-light)' : '#fff',
+                                    color: aiPrefs.model === v ? 'var(--primary-dark)' : '#374151' }}>
                                   {l}
                                 </button>
                               ))}
@@ -3199,7 +3200,7 @@ const App = () => {
                               setTimeout(() => window.location.reload(), 600);
                             }}
                             disabled={msgCount === 0}
-                            style={{ width: '100%', padding: '8px', background: msgCount === 0 ? '#f3f4f6' : '#fef2f2', color: msgCount === 0 ? '#9ca3af' : '#991b1b',
+                            style={{ width: '100%', padding: '8px', background: msgCount === 0 ? '#f3f4f6' : 'var(--danger-light)', color: msgCount === 0 ? '#9ca3af' : '#991b1b',
                               border: `1px solid ${msgCount === 0 ? '#e5e7eb' : '#fecaca'}`, borderRadius: 8, fontSize: '0.82rem', fontWeight: 700,
                               cursor: msgCount === 0 ? 'not-allowed' : 'pointer' }}>
                             {msgCount === 0 ? '이 단원에 메시지 없음' : `🗑️ ${msgCount}개 메시지 삭제`}
@@ -3213,7 +3214,7 @@ const App = () => {
                           setShowGlobalSettings(false);
                           window.location.hash = '#viz-gallery';
                         }}
-                        style={{ width: '100%', padding: '8px', background: '#eef2ff', color: '#4338ca',
+                        style={{ width: '100%', padding: '8px', background: 'var(--ai-light)', color: '#4338ca',
                           border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
                         🎨 갤러리 열기
                       </button>
@@ -3233,7 +3234,7 @@ const App = () => {
                           toast.success('AI 학습 진척 초기화 완료 · 새로고침합니다');
                           setTimeout(() => window.location.reload(), 600);
                         }}
-                        style={{ width: '100%', padding: '10px', background: '#fef2f2', color: '#991b1b',
+                        style={{ width: '100%', padding: '10px', background: 'var(--danger-light)', color: '#991b1b',
                           border: '1px solid #fecaca', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}>
                         🗑️ AI 학습 진척 초기화
                       </button>
@@ -3289,10 +3290,10 @@ const App = () => {
                           else Notification.requestPermission().then((r) => setNotifPref(r === 'granted'));
                         }}
                         style={{ width: '100%', padding: '10px', cursor: 'pointer',
-                          border: notifPref ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
-                          background: notifPref ? '#eef2ff' : '#fff',
+                          border: notifPref ? '1.5px solid var(--ai)' : '1px solid #d1d5db',
+                          background: notifPref ? 'var(--ai-light)' : '#fff',
                           borderRadius: 8, fontWeight: 700, fontSize: '0.85rem',
-                          color: notifPref ? '#1d4ed8' : '#6b7280' }}>
+                          color: notifPref ? 'var(--primary-dark)' : '#6b7280' }}>
                         {notifPref ? '🔔 켜짐' : '🔕 꺼짐'}
                       </button>
                     </Section>
@@ -3443,9 +3444,9 @@ const App = () => {
       flex: '1 0 auto',
       padding: '8px 12px',
       whiteSpace: 'nowrap',
-      border: on ? '1.5px solid #2563eb' : '1px solid #d1d5db',
-      background: on ? '#eff6ff' : '#fff',
-      color: on ? '#1d4ed8' : '#374151',
+      border: on ? '1.5px solid var(--primary)' : '1px solid #d1d5db',
+      background: on ? 'var(--primary-light)' : '#fff',
+      color: on ? 'var(--primary-dark)' : '#374151',
       borderRadius: 10,
       fontWeight: on ? 800 : 600,
       fontSize: '0.85rem',
@@ -3459,7 +3460,7 @@ const App = () => {
         </button>
         <button onClick={() => setBrowseExam('')} style={{
           ...pillStyle(!browseExam),
-          color: !browseExam ? '#1d4ed8' : '#6b7280',
+          color: !browseExam ? 'var(--primary-dark)' : '#6b7280',
         }}>
           🌐 전체 DB ({TARGET_EXAMS.length === 1 ? '14자격' : ''})
         </button>
@@ -3650,7 +3651,7 @@ const App = () => {
               <div style={{ width: `${total ? Math.round((s.answered / total) * 100) : 0}%`, height: '100%', background: 'var(--primary)', transition: 'width .3s' }} />
             </div>
             <span style={{ fontSize: '0.8rem', color: '#6b7280', whiteSpace: 'nowrap' }}>
-              {idx + 1} / {total} · 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b>
+              {idx + 1} / {total} · 정답 <b style={{ color: 'var(--success)' }}>{s.correct}</b>
             </span>
           </div>
           <div style={{ display: 'flex', gap: '8px', marginTop: '10px', flexWrap: 'wrap' }}>
@@ -3674,7 +3675,7 @@ const App = () => {
             {autoNext && [3, 5, 8].map(sec => (
               <button key={sec} onClick={() => setAutoSec(sec)}
                 style={{ border: `1px solid ${autoSec === sec ? 'var(--primary)' : '#d1d5db'}`,
-                  background: autoSec === sec ? '#eff6ff' : '#fff', color: autoSec === sec ? 'var(--primary)' : '#6b7280',
+                  background: autoSec === sec ? 'var(--primary-light)' : '#fff', color: autoSec === sec ? 'var(--primary)' : '#6b7280',
                   borderRadius: '999px', padding: '6px 10px', fontSize: '0.74rem', fontWeight: 700, cursor: 'pointer' }}>
                 {sec}초
               </button>
@@ -3703,7 +3704,7 @@ const App = () => {
           {q ? (
             <>
               {selectedGroup.resumeIdx > 0 && studyIdx === selectedGroup.resumeIdx && (
-                <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', color: '#1d4ed8',
+                <div style={{ background: 'var(--primary-light)', border: '1px solid #bfdbfe', color: 'var(--primary-dark)',
                   borderRadius: '10px', padding: '10px 14px', marginBottom: '12px', fontSize: '0.85rem', fontWeight: 600 }}>
                   ⏯️ 이어서 풀기 — {studyIdx + 1}번째 문제부터
                 </div>
@@ -3720,7 +3721,7 @@ const App = () => {
               {autoPending && (
                 <div onClick={() => { clearAutoTimer(); setAutoPending(false); }}
                   style={{ marginTop: '10px', padding: '10px 14px', borderRadius: '10px', cursor: 'pointer',
-                    background: '#eff6ff', border: '1px solid #bfdbfe', color: '#1d4ed8', fontSize: '0.85rem', fontWeight: 600, textAlign: 'center' }}>
+                    background: 'var(--primary-light)', border: '1px solid #bfdbfe', color: 'var(--primary-dark)', fontSize: '0.85rem', fontWeight: 600, textAlign: 'center' }}>
                   ⏩ 잠시 후 다음 문제로… (탭하여 멈춤)
                 </div>
               )}
@@ -3746,12 +3747,12 @@ const App = () => {
                 const stillWrong = ordered.filter(x => { const p = progress[qid(x)]; return p && p.correct === false; });
                 const cleared = total - stillWrong.length;
                 return (
-                  <div style={{ marginTop: '20px', padding: '20px', background: stillWrong.length ? '#fef2f2' : '#ecfdf5', border: `1px solid ${stillWrong.length ? '#fecaca' : '#a7f3d0'}`, borderRadius: '12px', textAlign: 'center' }}>
+                  <div style={{ marginTop: '20px', padding: '20px', background: stillWrong.length ? 'var(--danger-light)' : 'var(--success-light)', border: `1px solid ${stillWrong.length ? '#fecaca' : '#a7f3d0'}`, borderRadius: '12px', textAlign: 'center' }}>
                     <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '6px' }}>
                       {stillWrong.length ? '복습 1회전 완료' : '오답 전부 해결 🎉'}
                     </div>
                     <div style={{ color: '#374151', marginBottom: '14px' }}>
-                      복습 {total}개 · 해결 <b style={{ color: '#16a34a' }}>{cleared}</b> · 여전히 오답 <b style={{ color: '#dc2626' }}>{stillWrong.length}</b>
+                      복습 {total}개 · 해결 <b style={{ color: 'var(--success)' }}>{cleared}</b> · 여전히 오답 <b style={{ color: 'var(--danger)' }}>{stillWrong.length}</b>
                     </div>
                     {stillWrong.length > 0 ? (
                       <button onClick={() => startReview(stillWrong.map(qid), selectedGroup.title, selectedGroup.backView)}
@@ -3760,7 +3761,7 @@ const App = () => {
                       </button>
                     ) : (
                       <button onClick={() => { const bv = selectedGroup.backView || 'review'; setSelectedGroup(null); setReviewSubject(null); setCurrentView(bv); window.scrollTo(0, 0); }}
-                        style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: '#16a34a', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
+                        style={{ padding: '12px 20px', borderRadius: '10px', border: 'none', background: 'var(--success)', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>
                         {/* today면 오늘 복습으로 */}목록으로
                       </button>
                     )}
@@ -3768,10 +3769,10 @@ const App = () => {
                 );
               })()}
               {done && !selectedGroup.review && (
-                <div style={{ marginTop: '20px', padding: '20px', background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '12px', textAlign: 'center' }}>
+                <div style={{ marginTop: '20px', padding: '20px', background: 'var(--primary-light)', border: '1px solid #bfdbfe', borderRadius: '12px', textAlign: 'center' }}>
                   <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '6px' }}>이 개념 학습 완료 🎉</div>
                   <div style={{ color: '#374151', marginBottom: '14px' }}>
-                    {total}문제 중 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b> · 오답 <b style={{ color: '#dc2626' }}>{s.scored - s.correct}</b>
+                    {total}문제 중 정답 <b style={{ color: 'var(--success)' }}>{s.correct}</b> · 오답 <b style={{ color: 'var(--danger)' }}>{s.scored - s.correct}</b>
                     {s.answered > s.scored && <> · 채점제외 <b style={{ color: '#6b7280' }}>{s.answered - s.scored}</b></>}
                     {s.accuracy !== null && <> · 정답률 <b>{s.accuracy}%</b></>}
                   </div>
@@ -3791,7 +3792,7 @@ const App = () => {
                             setStudyNonce(n => n + 1);     // 카드 강제 리마운트(이전 응답 표시 제거)
                             window.scrollTo(0, 0);
                           }}
-                          style={{ padding: '12px 20px', borderRadius: '10px', border: '1px solid #bfdbfe', background: '#fff', color: '#1d4ed8', fontWeight: 700, cursor: 'pointer' }}>
+                          style={{ padding: '12px 20px', borderRadius: '10px', border: '1px solid #bfdbfe', background: '#fff', color: 'var(--primary-dark)', fontWeight: 700, cursor: 'pointer' }}>
                           처음부터 다시
                         </button>
                       </div>
@@ -3832,7 +3833,7 @@ const App = () => {
                   <div style={{ width: `${pct}%`, height: '100%', background: 'var(--primary)', transition: 'width .3s' }} />
                 </div>
                 <div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: '6px' }}>
-                  푼 문제 <b>{s.answered}/{s.total}</b> · 정답 <b style={{ color: '#16a34a' }}>{s.correct}</b>
+                  푼 문제 <b>{s.answered}/{s.total}</b> · 정답 <b style={{ color: 'var(--success)' }}>{s.correct}</b>
                 </div>
               </div>
             );
@@ -3904,7 +3905,7 @@ const App = () => {
             ) : (
               <button onClick={c.onClick} style={{
                 border: 'none', background: 'none', padding: 0, cursor: 'pointer',
-                color: '#1d4ed8', fontSize: 'inherit', fontWeight: 600
+                color: 'var(--primary-dark)', fontSize: 'inherit', fontWeight: 600
               }}>{c.label}</button>
             )}
           </span>
@@ -4112,8 +4113,8 @@ const App = () => {
           <h1 className="screen-title">
             🔍 검색
             {browseExam && (
-              <span style={{ marginLeft: 8, fontSize: '0.78rem', color: '#1d4ed8',
-                fontWeight: 700, padding: '3px 9px', background: '#eff6ff',
+              <span style={{ marginLeft: 8, fontSize: '0.78rem', color: 'var(--primary-dark)',
+                fontWeight: 700, padding: '3px 9px', background: 'var(--primary-light)',
                 borderRadius: 999, verticalAlign: 'middle' }}>
                 {browseExam} 모드
               </span>
@@ -4189,12 +4190,12 @@ const App = () => {
           {/* ── 👤 계정 (1급) — 로그인하면 기기 간 자동 동기화 ── */}
           {cloudEnabled && (
             <section style={{ borderRadius: '16px', padding: '18px', marginBottom: '16px',
-              background: authUser ? 'linear-gradient(135deg, #ecfdf5 0%, #f0fdfa 100%)' : 'linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%)',
+              background: authUser ? 'linear-gradient(135deg, var(--success-light) 0%, #f0fdfa 100%)' : 'linear-gradient(135deg, var(--ai-light) 0%, #faf5ff 100%)',
               border: `1.5px solid ${authUser ? '#a7f3d0' : '#c7d2fe'}`, boxShadow: 'var(--shadow-md)' }}>
               {authUser ? (
                 <>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <span style={{ width: 38, height: 38, borderRadius: '50%', background: '#059669',
+                    <span style={{ width: 38, height: 38, borderRadius: '50%', background: 'var(--success)',
                       color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontWeight: 800, fontSize: '1rem' }}>
                       {(authUser.email || '?')[0].toUpperCase()}
@@ -4210,7 +4211,7 @@ const App = () => {
                   </div>
                   <div style={{ display: 'flex', gap: '8px', marginTop: 12 }}>
                     <button onClick={() => cloudPush(false)} disabled={authBusy}
-                      style={{ flex: 1, padding: '11px', borderRadius: '10px', border: 'none', background: '#059669', color: '#fff', fontWeight: 700, fontSize: '0.84rem', cursor: 'pointer' }}>
+                      style={{ flex: 1, padding: '11px', borderRadius: '10px', border: 'none', background: 'var(--success)', color: '#fff', fontWeight: 700, fontSize: '0.84rem', cursor: 'pointer' }}>
                       ☁⬆ 지금 백업
                     </button>
                     <button onClick={cloudPull} disabled={authBusy}
@@ -4225,7 +4226,7 @@ const App = () => {
                 </>
               ) : (
                 <>
-                  <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#3730a3' }}>로그인 / 회원가입</div>
+                  <div style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--ai-dark)' }}>로그인 / 회원가입</div>
                   <div style={{ fontSize: '0.78rem', color: '#6b7280', margin: '4px 0 12px', lineHeight: 1.6 }}>
                     이메일로 로그인하면 <b>여러 기기에서 학습기록·암기카드가 자동으로 합쳐지고</b>,
                     같은 기기를 쓰는 다른 계정과는 분리됩니다.
@@ -4257,11 +4258,11 @@ const App = () => {
                     style={{ width: '100%', padding: '12px 14px', marginBottom: '10px', fontSize: '16px', border: '1px solid #c7d2fe', borderRadius: '10px', boxSizing: 'border-box', background: '#fff' }} />
                   <div style={{ display: 'flex', gap: '8px' }}>
                     <button onClick={() => cloudAuth('signin')} disabled={authBusy}
-                      style={{ flex: 1.4, padding: '13px', borderRadius: '10px', border: 'none', background: authBusy ? '#a5b4fc' : '#4f46e5', color: '#fff', fontWeight: 800, fontSize: '0.92rem', cursor: authBusy ? 'default' : 'pointer' }}>
+                      style={{ flex: 1.4, padding: '13px', borderRadius: '10px', border: 'none', background: authBusy ? '#a5b4fc' : 'var(--ai)', color: '#fff', fontWeight: 800, fontSize: '0.92rem', cursor: authBusy ? 'default' : 'pointer' }}>
                       {authBusy ? '처리 중…' : '로그인'}
                     </button>
                     <button onClick={() => cloudAuth('signup')} disabled={authBusy}
-                      style={{ flex: 1, padding: '13px', borderRadius: '10px', border: '1.5px solid #c7d2fe', background: '#fff', color: '#4f46e5', fontWeight: 800, fontSize: '0.92rem', cursor: authBusy ? 'default' : 'pointer' }}>
+                      style={{ flex: 1, padding: '13px', borderRadius: '10px', border: '1.5px solid #c7d2fe', background: '#fff', color: 'var(--ai)', fontWeight: 800, fontSize: '0.92rem', cursor: authBusy ? 'default' : 'pointer' }}>
                       회원가입
                     </button>
                   </div>
@@ -4272,7 +4273,7 @@ const App = () => {
                   </button>
                 </>
               )}
-              {cloudMsg && <div style={{ fontSize: '0.8rem', color: authUser ? '#047857' : '#1d4ed8', marginTop: '10px' }}>{cloudMsg}</div>}
+              {cloudMsg && <div style={{ fontSize: '0.8rem', color: authUser ? '#047857' : 'var(--primary-dark)', marginTop: '10px' }}>{cloudMsg}</div>}
             </section>
           )}
           <section style={{ background: '#fff', borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
@@ -4299,7 +4300,7 @@ const App = () => {
             </div>
           </section>
 
-          <section style={{ background: stale ? '#fffbeb' : '#fff', border: `1px solid ${stale ? '#fde68a' : '#e5e7eb'}`,
+          <section style={{ background: stale ? 'var(--amber-light)' : '#fff', border: `1px solid ${stale ? '#fde68a' : '#e5e7eb'}`,
             borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
             <div style={{ fontWeight: 800, marginBottom: '4px' }}>데이터 백업</div>
             <div style={{ fontSize: '0.82rem', color: '#6b7280', marginBottom: '12px' }}>
@@ -4323,7 +4324,7 @@ const App = () => {
             </div>
             <button onClick={() => { if (window.confirm('모든 학습 기록을 삭제할까요? 되돌릴 수 없습니다.')) { resetUserData(); window.location.reload(); } }}
               style={{ width: '100%', marginTop: '8px', padding: '11px', borderRadius: '10px', border: '1px solid #fecaca',
-                background: '#fef2f2', color: '#b91c1c', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer' }}>
+                background: 'var(--danger-light)', color: '#b91c1c', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer' }}>
               전체 초기화
             </button>
             <input ref={fileRef} type="file" accept="application/json,.json" onChange={onImportFile} style={{ display: 'none' }} />
@@ -4491,10 +4492,10 @@ const App = () => {
 
           {/* ② 종합 KPI — quiz + AI 통합 */}
           <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
-            {kpi(`${overallPct}%`, '종합 학습률', '#4f46e5', '#eef2ff')}
-            {kpi(coachUsed.skillAcc == null ? '–' : `${coachUsed.skillAcc}%`, '기출 정답률', '#16a34a')}
+            {kpi(`${overallPct}%`, '종합 학습률', 'var(--ai)', 'var(--ai-light)')}
+            {kpi(coachUsed.skillAcc == null ? '–' : `${coachUsed.skillAcc}%`, '기출 정답률', 'var(--success)')}
             {kpi(`${analytics.streak}일`, '연속 학습', '#ea580c')}
-            {kpi(todoCount, '오늘 할 일', todoCount > 0 ? '#dc2626' : '#9ca3af')}
+            {kpi(todoCount, '오늘 할 일', todoCount > 0 ? 'var(--danger)' : '#9ca3af')}
           </div>
 
           {/* 합격 전략 도구 — 과목별 목표/버리기 보드 + 회독 타이머 + 검산 (합격 수기 기반) */}
@@ -4512,7 +4513,7 @@ const App = () => {
                     <Donut
                       size={140}
                       value={Math.min(1, coachUsed.readiness / COACH_TARGET)}
-                      color={coachUsed.readiness >= COACH_TARGET ? '#16a34a' : '#4f46e5'}
+                      color={coachUsed.readiness >= COACH_TARGET ? 'var(--success)' : 'var(--ai)'}
                       stroke={10}
                       centerText={`${coachUsed.readiness}%`}
                       centerSub={`목표 ${COACH_TARGET}%`}
@@ -4546,10 +4547,10 @@ const App = () => {
                           const p = pt(i, 1);
                           return <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="#e5e7eb" strokeWidth="1" />;
                         })}
-                        <polygon points={polyPts} fill="#4f46e5" fillOpacity="0.22" stroke="#4f46e5" strokeWidth="2" />
+                        <polygon points={polyPts} fill="var(--ai)" fillOpacity="0.22" stroke="var(--ai)" strokeWidth="2" />
                         {radarStats.map((st, i) => {
                           const p = pt(i, st.score);
-                          return <circle key={i} cx={p.x} cy={p.y} r="3.5" fill="#4f46e5" />;
+                          return <circle key={i} cx={p.x} cy={p.y} r="3.5" fill="var(--ai)" />;
                         })}
                         {radarStats.map((st, i) => {
                           const p = pt(i, 1.18);
@@ -4571,7 +4572,7 @@ const App = () => {
                 <button onClick={() => startConcept(coachUsed.topFix.name,
                   `${browseExam ? browseExam + ' · ' : ''}${coachUsed.topFix.name} 보강`, browseExam || null)}
                   style={{ width: '100%', marginTop: 14, padding: '11px 14px',
-                    background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 10, fontWeight: 800, cursor: 'pointer' }}>
+                    background: 'var(--ai)', color: '#fff', border: 'none', borderRadius: 10, fontWeight: 800, cursor: 'pointer' }}>
                   🔥 약점 보강 · {coachUsed.topFix.name} → 시작
                 </button>
               )}
@@ -4652,7 +4653,7 @@ const App = () => {
                             const bg = intensity === 0 ? '#f3f4f6'
                               : intensity < 0.4 ? '#c7d2fe'
                               : intensity < 0.7 ? '#818cf8'
-                              : '#4f46e5';
+                              : 'var(--ai)';
                             const day = (cell.date.getMonth() + 1) + '월 ' + cell.date.getDate() + '일';
                             return (
                               <div key={di}
@@ -4671,7 +4672,7 @@ const App = () => {
                 {/* 범례 */}
                 <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 4, marginTop: 10, fontSize: '0.68rem', color: '#9ca3af' }}>
                   <span>적음</span>
-                  {['#f3f4f6', '#c7d2fe', '#818cf8', '#4f46e5'].map((c) => (
+                  {['#f3f4f6', '#c7d2fe', '#818cf8', 'var(--ai)'].map((c) => (
                     <span key={c} style={{ width: 12, height: 12, borderRadius: 3, background: c, display: 'inline-block' }} />
                   ))}
                   <span>많음</span>
@@ -4695,7 +4696,7 @@ const App = () => {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 10 }}>
                 {matrix.map(({ s, aiCov, aiMaster, aiTotal, quizAcc, quizCov, quizScored, quizTotal, score, isStage2, avgScorePct, answerCountSum }) => {
                   const scorePct = Math.round(score * 100);
-                  const blueShade = scorePct >= 70 ? '#1d4ed8' : scorePct >= 40 ? '#4f46e5' : '#818cf8';
+                  const blueShade = scorePct >= 70 ? 'var(--primary-dark)' : scorePct >= 40 ? 'var(--ai)' : '#818cf8';
                   const tierLabel = scorePct >= 70 ? '안정' : scorePct >= 40 ? '진행' : '시작';
                   return (
                     <div key={s.id} style={{
@@ -4707,7 +4708,7 @@ const App = () => {
                         <span style={{ fontSize: '1.1rem' }}>{s.icon}</span>
                         <span style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '0.9rem' }}>{s.short}</span>
                         <span style={{ marginLeft: 'auto', fontSize: '0.62rem', fontWeight: 700, color: '#4338ca',
-                          background: '#eef2ff', padding: '2px 6px', borderRadius: 999, border: '1px solid #c7d2fe' }}>
+                          background: 'var(--ai-light)', padding: '2px 6px', borderRadius: 999, border: '1px solid #c7d2fe' }}>
                           {tierLabel}
                         </span>
                       </div>
@@ -4720,7 +4721,7 @@ const App = () => {
                         <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                           <span style={{ fontSize: '0.65rem', color: '#6b7280', width: 14 }}>🎓</span>
                           <div style={{ flex: 1, height: 4, background: '#fff', borderRadius: 2, overflow: 'hidden', border: '1px solid #e0e7ff' }}>
-                            <div style={{ width: `${Math.round(aiCov * 100)}%`, height: '100%', background: '#4f46e5' }} />
+                            <div style={{ width: `${Math.round(aiCov * 100)}%`, height: '100%', background: 'var(--ai)' }} />
                           </div>
                           <span style={{ fontSize: '0.62rem', color: '#374151', minWidth: 32, textAlign: 'right' }}>
                             {Math.round(aiCov * 100)}%
@@ -4759,7 +4760,7 @@ const App = () => {
                             if (sl) jumpToAILearn(sl); else jumpToAILearn(null);
                           }}
                           style={{ flex: 1, padding: '5px', fontSize: '0.7rem', fontWeight: 700,
-                            background: '#4f46e5', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
+                            background: 'var(--ai)', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
                           🎓
                         </button>
                         {!isStage2 && (
@@ -4792,14 +4793,14 @@ const App = () => {
             const pct = Math.min(100, Math.round((done / dailyGoal) * 100));
             const met = done >= dailyGoal;
             return (
-              <section style={{ background: met ? '#ecfdf5' : '#fff', border: `1px solid ${met ? '#a7f3d0' : '#e5e7eb'}`,
+              <section style={{ background: met ? 'var(--success-light)' : '#fff', border: `1px solid ${met ? '#a7f3d0' : '#e5e7eb'}`,
                 borderRadius: '16px', padding: '18px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                  <span style={{ fontWeight: 800 }}>🎯 오늘 목표 {met && <span style={{ color: '#16a34a' }}>달성!</span>}</span>
+                  <span style={{ fontWeight: 800 }}>🎯 오늘 목표 {met && <span style={{ color: 'var(--success)' }}>달성!</span>}</span>
                   <span style={{ fontSize: '0.9rem', color: '#374151' }}><b>{done}</b> / {dailyGoal}문제</span>
                 </div>
                 <div style={{ height: '10px', background: '#f1f5f9', borderRadius: '999px', overflow: 'hidden', marginBottom: '12px' }}>
-                  <div style={{ width: `${pct}%`, height: '100%', background: met ? '#16a34a' : 'var(--primary)', transition: 'width .3s' }} />
+                  <div style={{ width: `${pct}%`, height: '100%', background: met ? 'var(--success)' : 'var(--primary)', transition: 'width .3s' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                   <span style={{ fontSize: '0.85rem', color: '#374151' }}>
@@ -4809,7 +4810,7 @@ const App = () => {
                     {analytics.weekMet.map((w, i) => (
                       <span key={i} title={w.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
                         <span style={{ width: 14, height: 14, borderRadius: '50%',
-                          background: w.met ? '#16a34a' : '#e5e7eb',
+                          background: w.met ? 'var(--success)' : '#e5e7eb',
                           outline: w.isToday ? '2px solid var(--primary)' : 'none', outlineOffset: '1px' }} />
                         <span style={{ fontSize: '0.55rem', color: '#9ca3af' }}>{w.label}</span>
                       </span>
@@ -4860,11 +4861,11 @@ const App = () => {
                       y2={H - PAD - (H - 2 * PAD) * g}
                       stroke="#f3f4f6" strokeWidth="1" strokeDasharray="2,3" />
                   ))}
-                  <polygon points={areaPts} fill="#4f46e5" fillOpacity="0.12" />
-                  <polyline points={linePts} fill="none" stroke="#4f46e5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <polygon points={areaPts} fill="var(--ai)" fillOpacity="0.12" />
+                  <polyline points={linePts} fill="none" stroke="var(--ai)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   {data.map((t, i) => (
                     <circle key={i} cx={xAt(i)} cy={yAt(t.count)} r={t.isToday ? 3.5 : 1.8}
-                      fill={t.isToday ? '#ea580c' : '#4f46e5'}
+                      fill={t.isToday ? '#ea580c' : 'var(--ai)'}
                       stroke={t.isToday ? '#fff' : 'none'} strokeWidth={t.isToday ? 1.5 : 0}>
                       <title>{t.label} · {t.count}문제{t.acc != null ? ` · ${t.acc}%` : ''}</title>
                     </circle>
@@ -4908,7 +4909,7 @@ const App = () => {
 
           {/* 북마크 요약 */}
           {bookmarkedList.length > 0 && (
-            <section style={{ background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '16px', padding: '18px', marginBottom: '8px' }}>
+            <section style={{ background: 'var(--amber-light)', border: '1px solid #fde68a', borderRadius: '16px', padding: '18px', marginBottom: '8px' }}>
               <div style={{ fontWeight: 800, marginBottom: '10px', color: '#b45309' }}>★ 북마크 {bookmarkedList.length}</div>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 {BM_REASONS.map(r => {
@@ -4968,7 +4969,7 @@ const App = () => {
                     <div key={t.principle} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                       <span style={{ flex: 1, minWidth: 0, fontSize: '0.88rem', fontWeight: 700, color: '#374151', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.principle}</span>
                       <div style={{ width: 90, height: 6, background: '#f3f4f6', borderRadius: 999, overflow: 'hidden' }}>
-                        <div style={{ width: `${rate}%`, height: '100%', background: rate >= 50 ? '#dc2626' : '#f59e0b' }} />
+                        <div style={{ width: `${rate}%`, height: '100%', background: rate >= 50 ? 'var(--danger)' : '#f59e0b' }} />
                       </div>
                       <span style={{ fontSize: '0.76rem', color: '#6b7280', fontWeight: 700, width: 64, textAlign: 'right' }}>{t.wrong}/{t.total} 틀림</span>
                     </div>
@@ -5048,7 +5049,7 @@ const App = () => {
             <div className="study-grid">
               <div className="study-card"
                 onClick={() => startReview(srs.due.map(qid), '오늘 복습 전체', 'today')}
-                style={{ background: '#eff6ff', borderColor: '#bfdbfe', cursor: 'pointer' }}>
+                style={{ background: 'var(--primary-light)', borderColor: '#bfdbfe', cursor: 'pointer' }}>
                 <div className="card-badge" style={{ background: 'var(--primary)', color: '#fff', border: 'none' }}>전체</div>
                 <h3 className="card-title" style={{ fontSize: '1.1rem' }}>오늘 복습 전체</h3>
                 <div className="card-total">총 {srs.due.length} 문제</div>
@@ -5128,7 +5129,7 @@ const App = () => {
             <div className="study-grid">
               <div className="study-card"
                 onClick={() => startReview(scopeWrong.map(qid), reviewSubject ? `${reviewSubject} 오답` : '전체 오답 복습')}
-                style={{ background: '#fef2f2', borderColor: '#fecaca', cursor: 'pointer' }}>
+                style={{ background: 'var(--danger-light)', borderColor: '#fecaca', cursor: 'pointer' }}>
                 <div className="card-badge" style={{ background: '#ef4444', color: '#fff', border: 'none' }}>{reviewSubject ? '과목 전체' : '전체'}</div>
                 <h3 className="card-title" style={{ fontSize: '1.1rem' }}>{reviewSubject ? `${reviewSubject} 전체 오답` : '전체 오답 복습'}</h3>
                 <div className="card-total">총 {scopeWrong.length} 문제</div>
@@ -5261,19 +5262,22 @@ const App = () => {
         <button onClick={() => setCurrentView('askAI')}
           style={{ width: '100%', marginBottom: 14, padding: '14px 16px', borderRadius: 14,
             border: '1.5px solid #c7d2fe', cursor: 'pointer', textAlign: 'left',
-            background: 'linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%)',
+            background: 'linear-gradient(135deg, var(--ai-light) 0%, #faf5ff 100%)',
             display: 'flex', alignItems: 'center', gap: 12,
             boxShadow: '0 2px 10px rgba(79,70,229,0.10)' }}>
-          <span style={{ fontSize: '1.5rem' }}>✨</span>
+          <span style={{ width: 40, height: 40, borderRadius: 12, background: '#fff', flexShrink: 0,
+            display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Sparkles size={20} color="var(--ai)" />
+          </span>
           <span style={{ flex: 1 }}>
-            <span style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: '#3730a3' }}>
+            <span style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--ai-dark)' }}>
               모르는 건 뭐든지 물어보세요
             </span>
             <span style={{ display: 'block', fontSize: '0.76rem', color: '#6b7280', marginTop: 2 }}>
               개념·산식·조문·판례 — 과목 선택 없이 AI가 바로 답해요
             </span>
           </span>
-          <span style={{ color: '#4f46e5', fontWeight: 800 }}>→</span>
+          <span style={{ color: 'var(--ai)', fontWeight: 800 }}>→</span>
         </button>
 
         {/* ⚡ 4탭 빠른 진입 — AI학습·문제풀이·복습·현황 통합 허브 */}
@@ -5297,11 +5301,11 @@ const App = () => {
                   onClick={() => setCurrentView('civil')}
                   style={{
                     padding: 14, textAlign: 'left', cursor: 'pointer',
-                    background: 'linear-gradient(160deg, #eef2ff 0%, #ffffff 100%)',
+                    background: 'linear-gradient(160deg, var(--ai-light) 0%, #ffffff 100%)',
                     border: '1px solid #c7d2fe', borderRadius: 12,
                     display: 'flex', flexDirection: 'column', gap: 4,
                   }}>
-                  <div style={{ fontSize: '1.3rem' }}>🤖</div>
+                  <div style={{ width: 40, height: 40, borderRadius: 12, background: 'rgba(255,255,255,0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Bot size={20} color="var(--ai)" /></div>
                   <div style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '1rem' }}>AI 학습</div>
                   <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
                     {aiCurLeaf ? `이어서: ${aiCurLeaf.path.slice(-1)[0]}` : '단원 선택 후 대화 시작'}
@@ -5315,11 +5319,11 @@ const App = () => {
                   onClick={() => setCurrentView('dashboard')}
                   style={{
                     padding: 14, textAlign: 'left', cursor: 'pointer',
-                    background: 'linear-gradient(160deg, #ecfdf5 0%, #ffffff 100%)',
+                    background: 'linear-gradient(160deg, var(--success-light) 0%, #ffffff 100%)',
                     border: '1px solid #a7f3d0', borderRadius: 12,
                     display: 'flex', flexDirection: 'column', gap: 4,
                   }}>
-                  <div style={{ fontSize: '1.3rem' }}>📚</div>
+                  <div style={{ width: 40, height: 40, borderRadius: 12, background: 'rgba(255,255,255,0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><BookOpen size={20} color="var(--success)" /></div>
                   <div style={{ fontWeight: 800, color: '#065f46', fontSize: '1rem' }}>문제풀이</div>
                   <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
                     {overall.answered > 0 ? `${overall.answered}/${overall.total} 풀이` : '8과목 기출 풀이'}
@@ -5340,7 +5344,7 @@ const App = () => {
                     borderRadius: 12,
                     display: 'flex', flexDirection: 'column', gap: 4,
                   }}>
-                  <div style={{ fontSize: '1.3rem' }}>🔁</div>
+                  <div style={{ width: 40, height: 40, borderRadius: 12, background: 'rgba(255,255,255,0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><RotateCcw size={20} color="var(--amber)" /></div>
                   <div style={{ fontWeight: 800, color: srs.due.length > 0 || aiDueArr.length > 0 ? '#92400e' : '#374151', fontSize: '1rem' }}>
                     복습
                   </div>
@@ -5362,7 +5366,7 @@ const App = () => {
                     border: '1px solid #fbcfe8', borderRadius: 12,
                     display: 'flex', flexDirection: 'column', gap: 4,
                   }}>
-                  <div style={{ fontSize: '1.3rem' }}>📅</div>
+                  <div style={{ width: 40, height: 40, borderRadius: 12, background: 'rgba(255,255,255,0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Calendar size={20} color="var(--primary)" /></div>
                   <div style={{ fontWeight: 800, color: '#9d174d', fontSize: '1rem' }}>플래너</div>
                   <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
                     월간 학습 계획
@@ -5403,7 +5407,7 @@ const App = () => {
                   🎯 1차 5과목 진척 <b style={{ color: 'var(--primary)', fontSize: '0.78rem' }}>합격선 {COACH_TARGET}%</b>
                 </span>
                 <button onClick={() => setShowDetails(true)}
-                  style={{ fontSize: '0.72rem', color: '#1d4ed8',
+                  style={{ fontSize: '0.72rem', color: 'var(--primary-dark)',
                     background: 'none', border: 'none', cursor: 'pointer', fontWeight: 700 }}>
                   상세 분석 →
                 </button>
@@ -5416,10 +5420,10 @@ const App = () => {
                   const cov = v.total ? Math.round((v.scored / v.total) * 100) : 0;
                   const pct = has ? Math.min(100, Math.round((acc / COACH_TARGET) * 100)) : 0;
                   const color = !has ? '#d1d5db'
-                    : acc >= COACH_TARGET ? '#16a34a'
-                    : acc >= 55 ? '#2563eb'
+                    : acc >= COACH_TARGET ? 'var(--success)'
+                    : acc >= 55 ? 'var(--primary)'
                     : acc >= 40 ? '#ea580c'
-                    : '#dc2626';
+                    : 'var(--danger)';
                   const verdict = !has ? `학습 ${cov}% · 시작 →`
                     : acc >= COACH_TARGET ? '안정권'
                     : acc >= 55 ? '근접'
@@ -5498,22 +5502,22 @@ const App = () => {
                   {reached ? '🎉 오늘 목표 달성!' : '🎯 오늘의 목표'}
                 </div>
                 <div style={{ fontSize: '0.85rem', color: '#6b7280', fontWeight: 600 }}>
-                  <span style={{ color: reached ? '#16a34a' : '#1d4ed8', fontWeight: 800 }}>{done}</span> / {goal}문제
+                  <span style={{ color: reached ? 'var(--success)' : 'var(--primary-dark)', fontWeight: 800 }}>{done}</span> / {goal}문제
                 </div>
               </div>
               <div className="progress-bar-container" style={{ marginTop: '12px' }}>
                 <div className="progress-bar-fill" style={{ width: `${gpct}%`,
-                  background: reached ? '#16a34a' : undefined }}></div>
+                  background: reached ? 'var(--success)' : undefined }}></div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '14px' }}>
                 <div style={{ display: 'flex', gap: '6px' }}>
                   {analytics.weekMet.map((w, i) => (
                     <div key={i} title={w.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
                       <div style={{ width: 22, height: 22, borderRadius: '50%',
-                        background: w.met ? '#16a34a' : '#e5e7eb',
+                        background: w.met ? 'var(--success)' : '#e5e7eb',
                         color: w.met ? '#fff' : '#9ca3af', fontSize: '0.7rem',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        outline: w.isToday ? '2px solid #1d4ed8' : 'none', outlineOffset: '1px' }}>
+                        outline: w.isToday ? '2px solid var(--primary-dark)' : 'none', outlineOffset: '1px' }}>
                         {w.met ? '✓' : ''}
                       </div>
                       <span style={{ fontSize: '0.68rem', color: '#9ca3af' }}>{w.label}</span>
@@ -5536,7 +5540,7 @@ const App = () => {
           <button onClick={() => setCurrentView('mock')}
             style={{ flex: 1, display: 'flex', flexDirection: 'column',
               padding: '14px', borderRadius: 12,
-              border: '1px solid #fde68a', background: '#fffbeb',
+              border: '1px solid #fde68a', background: 'var(--amber-light)',
               color: '#92400e', cursor: 'pointer', textAlign: 'left' }}>
             <span style={{ fontWeight: 800, fontSize: '0.9rem' }}>🎯 1차 모의고사</span>
             <span style={{ fontSize: '0.74rem', color: '#a16207', marginTop: 2,
@@ -5547,8 +5551,8 @@ const App = () => {
           <button onClick={() => setCurrentView('essay_subjects')}
             style={{ flex: 1, display: 'flex', flexDirection: 'column',
               padding: '14px', borderRadius: 12,
-              border: '1px solid #c4b5fd', background: '#f5f3ff',
-              color: '#5b21b6', cursor: 'pointer', textAlign: 'left' }}>
+              border: '1px solid #c4b5fd', background: 'var(--ai-light)',
+              color: 'var(--ai-dark)', cursor: 'pointer', textAlign: 'left' }}>
             <span style={{ fontWeight: 800, fontSize: '0.9rem' }}>📝 2차 논술</span>
             <span style={{ fontSize: '0.74rem', color: '#6d28d9', marginTop: 2,
               lineHeight: 1.4 }}>
@@ -5566,8 +5570,8 @@ const App = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {(modeAnalytics ? modeAnalytics.weak : analytics.weak).map((w) => {
                 const critical = w.acc < 50;   // 50% 미만만 빨강(진짜 위험), 그 외 주황
-                const fg = critical ? '#dc2626' : '#c2410c';
-                const bg = critical ? '#fef2f2' : '#fff7ed';
+                const fg = critical ? 'var(--danger)' : '#c2410c';
+                const bg = critical ? 'var(--danger-light)' : '#fff7ed';
                 const bd = critical ? '#fecaca' : '#fed7aa';
                 return (
                   <button key={w.name} onClick={() => startConcept(w.name,
@@ -5615,7 +5619,7 @@ const App = () => {
                   <div>
                     <span className="stat-dot"></span>
                     학습한 문제 <span className="stat-bold">{overall.answered}/{totalQuestions}</span>
-                    {acc !== null && <> · 정답률 <span className="stat-bold" style={{ color: '#16a34a' }}>{acc}%</span></>}
+                    {acc !== null && <> · 정답률 <span className="stat-bold" style={{ color: 'var(--success)' }}>{acc}%</span></>}
                   </div>
                   <div>{pct}%</div>
                 </div>
@@ -5626,10 +5630,10 @@ const App = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', marginTop: '16px' }}>
             {[
               ['미응답', coverage.unseen, '#6b7280', '#f3f4f6'],
-              ['학습', coverage.learned, '#1d4ed8', '#eff6ff'],
+              ['학습', coverage.learned, 'var(--primary-dark)', 'var(--primary-light)'],
               // 복습필요는 통계라 차분한 주황 (위험 X)
               ['복습필요', coverage.review, '#c2410c', '#fff7ed'],
-              ['마스터', coverage.mastered, '#16a34a', '#f0fdf4'],
+              ['마스터', coverage.mastered, 'var(--success)', 'var(--success-light)'],
             ].map(([lbl, n, c, bg]) => (
               <div key={lbl} style={{ background: bg, borderRadius: '10px', padding: '10px 6px', textAlign: 'center' }}>
                 <div style={{ fontSize: '1.05rem', fontWeight: 800, color: c }}>{n}</div>
@@ -5642,7 +5646,7 @@ const App = () => {
             <button
               onClick={() => setShowDetails((v) => !v)}
               style={{ width: '100%', textAlign: 'center', padding: '12px', marginTop: '14px', borderRadius: '12px',
-                border: '1px solid #bfdbfe', background: '#eff6ff', color: '#1d4ed8', cursor: 'pointer',
+                border: '1px solid #bfdbfe', background: 'var(--primary-light)', color: 'var(--primary-dark)', cursor: 'pointer',
                 fontWeight: 700, fontSize: '0.9rem' }}
             >
               📊 상세 분석 {showDetails ? '접기 ▲' : '펼치기 ▼'}
@@ -5698,10 +5702,10 @@ const App = () => {
           onClick={() => srs.due.length && setCurrentView('today')}
           style={{ padding: '18px', marginBottom: '12px', borderRadius: '12px',
             border: `1px solid ${srs.due.length ? '#bfdbfe' : '#e5e7eb'}`,
-            background: srs.due.length ? '#eff6ff' : '#fff',
+            background: srs.due.length ? 'var(--primary-light)' : '#fff',
             cursor: srs.due.length ? 'pointer' : 'default' }}
         >
-          <div style={{ fontWeight: 700, fontSize: '1.05rem', color: srs.due.length ? '#1d4ed8' : '#6b7280' }}>
+          <div style={{ fontWeight: 700, fontSize: '1.05rem', color: srs.due.length ? 'var(--primary-dark)' : '#6b7280' }}>
             📅 오늘 복습 {srs.due.length > 0 ? `${srs.due.length}문제` : '없음'}
           </div>
           <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: '4px' }}>
@@ -5726,7 +5730,7 @@ const App = () => {
           })).filter((x) => x.leaf);
           return (
             <div style={{ padding: '14px', marginBottom: '12px', borderRadius: '12px',
-              border: '1px solid #c7d2fe', background: '#eef2ff' }}>
+              border: '1px solid #c7d2fe', background: 'var(--ai-light)' }}>
               <div style={{ fontWeight: 700, fontSize: '1.05rem', color: '#4338ca', marginBottom: 4 }}>
                 🎓 AI 학습 복습 만기 {dueLeaves.length}단원
               </div>
@@ -5759,7 +5763,7 @@ const App = () => {
           onClick={() => wrongList.length && (setReviewSubject(null), setCurrentView('review'))}
           style={{ padding: '18px', borderRadius: '12px',
             border: `1px solid ${wrongList.length ? '#fecaca' : '#e5e7eb'}`,
-            background: wrongList.length ? '#fef2f2' : '#fff',
+            background: wrongList.length ? 'var(--danger-light)' : '#fff',
             cursor: wrongList.length ? 'pointer' : 'default' }}
         >
           <div style={{ fontWeight: 700, fontSize: '1.05rem', color: wrongList.length ? '#b91c1c' : '#9ca3af' }}>
@@ -5818,13 +5822,13 @@ const App = () => {
           const ids = classifiedList.filter((q) => { const c = cmap[qid(q)]; return c === 'fuzzy' || c === 'unknown'; });
           if (ids.length === 0) return null;
           return (
-            <div style={{ padding: '18px', marginTop: '12px', borderRadius: '12px', border: '1px solid #fde68a', background: '#fffbeb' }}>
+            <div style={{ padding: '18px', marginTop: '12px', borderRadius: '12px', border: '1px solid #fde68a', background: 'var(--amber-light)' }}>
               <div style={{ fontWeight: 700, fontSize: '1.05rem', color: '#b45309' }}>🤔 셀프진단 보충 {ids.length}문제</div>
               <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: '4px' }}>
                 스스로 '애매·모른다'로 표시한 문항만 모아 약점을 좁혀요 ('이해 착시' 깨기)
               </div>
               <button onClick={() => startReview(ids.map(qid), '셀프진단 보충 (애매·모른다)', 'reviewHome')}
-                style={{ marginTop: 12, width: '100%', padding: '11px', borderRadius: 8, border: 'none', background: '#d97706', color: '#fff', fontWeight: 700, fontSize: '0.9rem', cursor: 'pointer', minHeight: 44 }}>
+                style={{ marginTop: 12, width: '100%', padding: '11px', borderRadius: 8, border: 'none', background: 'var(--amber)', color: '#fff', fontWeight: 700, fontSize: '0.9rem', cursor: 'pointer', minHeight: 44 }}>
                 ▶ 보충 학습 시작 ({ids.length}문)
               </button>
             </div>
@@ -5832,7 +5836,7 @@ const App = () => {
         })()}
         <div style={{ padding: '18px', marginTop: '12px', borderRadius: '12px',
           border: `1px solid ${bookmarkedList.length ? '#fde68a' : '#e5e7eb'}`,
-          background: bookmarkedList.length ? '#fffbeb' : '#fff' }}>
+          background: bookmarkedList.length ? 'var(--amber-light)' : '#fff' }}>
           <div
             onClick={() => bookmarkedList.length && startReview(bookmarkedList.map(qid), '북마크 전체', 'reviewHome')}
             style={{ cursor: bookmarkedList.length ? 'pointer' : 'default' }}
@@ -5949,7 +5953,7 @@ const App = () => {
                 // 1차 5과목 카드 — AI 학습 탭과 동일한 TOSS 카드 디자인.
                 //   세부과목 2~4개: 분류 칩(민법총칙/물권법 등) / 없으면: 단일 과목 버튼.
                 if (!isStage2 && active) {
-                  const T = { card: '#FFFFFF', blue: '#3182F6', blueWeak: '#E8F1FE', ink: '#191F28', sub: '#8B95A1', track: '#E5E8EB', shadow: '0 2px 8px rgba(0, 23, 51, 0.06)', radius: 20 };
+                  const T = { card: '#FFFFFF', blue: 'var(--primary)', blueWeak: '#E8F1FE', ink: '#191F28', sub: '#8B95A1', track: '#E5E8EB', shadow: '0 2px 8px rgba(0, 23, 51, 0.06)', radius: 20 };
                   const chipStyle = {
                     padding: '11px 6px', fontSize: '0.84rem', fontWeight: 700,
                     background: T.blueWeak, color: T.blue, border: 'none',
@@ -5994,7 +5998,7 @@ const App = () => {
                   );
                 }
                 // 2차 카드 — AI 학습 홈과 동일한 TOSS 카드 디자인
-                const T2 = { card: '#FFFFFF', blue: '#3182F6', blueWeak: '#E8F1FE', ink: '#191F28', sub: '#8B95A1', track: '#E5E8EB', shadow: '0 2px 8px rgba(0, 23, 51, 0.06)', radius: 20 };
+                const T2 = { card: '#FFFFFF', blue: 'var(--primary)', blueWeak: '#E8F1FE', ink: '#191F28', sub: '#8B95A1', track: '#E5E8EB', shadow: '0 2px 8px rgba(0, 23, 51, 0.06)', radius: 20 };
                 const chipStyle2 = {
                   padding: '11px 6px', fontSize: '0.84rem', fontWeight: 700,
                   background: T2.blueWeak, color: T2.blue, border: 'none',
@@ -6045,10 +6049,10 @@ const App = () => {
               onClick={() => srs.due.length && setCurrentView('today')}
               style={{ padding: '16px 18px', borderRadius: 14,
                 border: `1px solid ${srs.due.length ? '#bfdbfe' : '#e5e7eb'}`,
-                background: srs.due.length ? '#eff6ff' : 'var(--card-bg)',
+                background: srs.due.length ? 'var(--primary-light)' : 'var(--card-bg)',
                 cursor: srs.due.length ? 'pointer' : 'default' }}
             >
-              <div style={{ fontWeight: 700, fontSize: '1rem', color: srs.due.length ? '#1d4ed8' : '#9ca3af' }}>
+              <div style={{ fontWeight: 700, fontSize: '1rem', color: srs.due.length ? 'var(--primary-dark)' : '#9ca3af' }}>
                 📅 오늘 복습 {srs.due.length > 0 ? `${srs.due.length}문제` : '없음'}
               </div>
               <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 4 }}>
@@ -6060,7 +6064,7 @@ const App = () => {
               onClick={() => wrongList.length && (setReviewSubject(null), setCurrentView('review'))}
               style={{ padding: '16px 18px', borderRadius: 14,
                 border: `1px solid ${wrongList.length ? '#fecaca' : '#e5e7eb'}`,
-                background: wrongList.length ? '#fef2f2' : 'var(--card-bg)',
+                background: wrongList.length ? 'var(--danger-light)' : 'var(--card-bg)',
                 cursor: wrongList.length ? 'pointer' : 'default' }}
             >
               <div style={{ fontWeight: 700, fontSize: '1rem', color: wrongList.length ? '#b91c1c' : '#9ca3af' }}>
@@ -6106,11 +6110,11 @@ const App = () => {
               const ids = classifiedList.filter((q) => { const c = cmap[qid(q)]; return c === 'fuzzy' || c === 'unknown'; });
               if (ids.length === 0) return null;
               return (
-                <div style={{ padding: '16px 18px', borderRadius: 14, border: '1px solid #fde68a', background: '#fffbeb' }}>
+                <div style={{ padding: '16px 18px', borderRadius: 14, border: '1px solid #fde68a', background: 'var(--amber-light)' }}>
                   <div style={{ fontWeight: 700, fontSize: '1rem', color: '#b45309' }}>🤔 셀프진단 보충 {ids.length}문제</div>
                   <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 4 }}>스스로 '애매·모른다'로 표시한 문항 약점 집중</div>
                   <button onClick={() => startReview(ids.map(qid), '셀프진단 보충 (애매·모른다)', 'dashboard')}
-                    style={{ marginTop: 10, width: '100%', padding: '10px', borderRadius: 8, border: 'none', background: '#d97706', color: '#fff', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer', minHeight: 44 }}>
+                    style={{ marginTop: 10, width: '100%', padding: '10px', borderRadius: 8, border: 'none', background: 'var(--amber)', color: '#fff', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer', minHeight: 44 }}>
                     ▶ 보충 학습 시작 ({ids.length}문)
                   </button>
                 </div>
@@ -6118,7 +6122,7 @@ const App = () => {
             })()}
             {/* 북마크 */}
             {bookmarkedList.length > 0 && (
-              <div style={{ padding: '16px 18px', borderRadius: 14, border: '1px solid #fde68a', background: '#fffbeb' }}>
+              <div style={{ padding: '16px 18px', borderRadius: 14, border: '1px solid #fde68a', background: 'var(--amber-light)' }}>
                 <div onClick={() => startReview(bookmarkedList.map(qid), '북마크 전체', 'dashboard')}
                   style={{ cursor: 'pointer' }}>
                   <div style={{ fontWeight: 700, fontSize: '1rem', color: '#b45309' }}>★ 북마크 {bookmarkedList.length}문제</div>
@@ -6147,7 +6151,7 @@ const App = () => {
               const dueLeaves = aiDueArr.map((d) => ({ leaf: flat.find((l) => l.id === d.code), days_overdue: d.days_overdue })).filter((x) => x.leaf);
               if (dueLeaves.length === 0) return null;
               return (
-                <div style={{ padding: '16px 18px', borderRadius: 14, border: '1px solid #c7d2fe', background: '#eef2ff' }}>
+                <div style={{ padding: '16px 18px', borderRadius: 14, border: '1px solid #c7d2fe', background: 'var(--ai-light)' }}>
                   <div style={{ fontWeight: 700, fontSize: '1rem', color: '#4338ca', marginBottom: 8 }}>🎓 AI 학습 복습 만기 {dueLeaves.length}단원</div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                     {dueLeaves.slice(0, 4).map((x) => (
