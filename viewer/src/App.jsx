@@ -1727,6 +1727,11 @@ const App = () => {
   }, []);
   const cloudPush = useCallback(async (silent) => {
     try {
+      // 계정별 격리: 이 기기 데이터의 소유 계정과 현재 로그인 계정이 다르면
+      // (전환 처리 전) push 금지 — 이전 계정 기록이 새 계정 클라우드를 오염시키지 않도록.
+      const { data: u } = await supabase.auth.getUser();
+      const owner = localStorage.getItem('gp-sync-owner');
+      if (u?.user && owner && owner !== u.user.id) return;
       const at = await pushState(collectUserData());
       saveProfile({ ...loadProfile(), lastCloud: at });
       if (!silent) setCloudMsg('클라우드에 백업했어요.');
@@ -1750,14 +1755,31 @@ const App = () => {
   }, [authUser, cloudPush]);
   // ☁️ 다기기 자동 동기화: 시작 시 원격을 키별 병합으로 받아들이고(덮어쓰기 X) 합본을 push.
   // 병합으로 로컬이 바뀌었으면 1회 새로고침해 화면 상태 반영(합본은 이미 push되어 재병합 변경 0 → 루프 없음).
-  const syncedOnceRef = useRef(false);
+  const syncedUidRef = useRef(null);
   useEffect(() => {
-    if (!supabase || !authUser || syncedOnceRef.current) return;
-    syncedOnceRef.current = true;
+    if (!supabase || !authUser || syncedUidRef.current === authUser.id) return;
+    syncedUidRef.current = authUser.id;
     (async () => {
       try {
+        const OWNER_KEY = 'gp-sync-owner'; // 동기화 대상 아님(quiz-* 프리픽스 회피) — 기기 로컬 마커
+        const owner = localStorage.getItem(OWNER_KEY);
         const row = await pullState();
+        if (owner && owner !== authUser.id) {
+          // 🔁 계정 전환: 이전 계정 데이터와 절대 섞지 않는다 — 로컬을 새 계정 클라우드로 교체
+          resetUserData();
+          if (row?.data?.data) {
+            for (const [k, v] of Object.entries(row.data.data)) {
+              if (isSyncKey(k) && typeof v === 'string') localStorage.setItem(k, v);
+            }
+          }
+          localStorage.setItem(OWNER_KEY, authUser.id);
+          toast.show('☁️ 계정 전환 — 이 계정의 학습기록으로 교체했어요', 'success', 1700);
+          setTimeout(() => window.location.reload(), 1800);
+          return;
+        }
+        // 같은 계정(다기기 병합) 또는 첫 로그인(익명 기록을 이 계정으로 입양)
         const changed = row?.data?.data ? mergeStateData(row.data.data) : 0;
+        localStorage.setItem(OWNER_KEY, authUser.id);
         await pushState(collectUserData());
         saveProfile({ ...loadProfile(), lastCloud: new Date().toISOString() });
         if (changed > 0) {
@@ -4194,7 +4216,7 @@ const App = () => {
                     ☁⬇ 클라우드에서 복원
                   </button>
                 </div>
-                <button onClick={async () => { await supabase.auth.signOut(); setCloudMsg('로그아웃되었어요.'); }}
+                <button onClick={async () => { await cloudPush(true); await supabase.auth.signOut(); setCloudMsg('로그아웃되었어요. (학습기록은 클라우드에 백업됨)'); }}
                   style={{ width: '100%', marginTop: '8px', padding: '10px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#6b7280', fontWeight: 700, fontSize: '0.82rem', cursor: 'pointer' }}>
                   로그아웃
                 </button>
