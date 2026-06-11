@@ -171,7 +171,10 @@ async function sendGoogle({ apiKey, model, system, messages, maxTokens, baseUrl,
   const sysText = flattenSystem(system);
   const body = {
     contents,
-    generationConfig: { maxOutputTokens: maxTokens },
+    // Gemini 플래시 계열(2.5+)은 내부 사고(thinking) 토큰이 maxOutputTokens에
+    // 포함된다 — 앱의 모드별 한도(600~1800)만 주면 사고가 한도를 먹고
+    // 보이는 답변이 문장 중간에 잘림(MAX_TOKENS). 사고 여유분을 더해준다.
+    generationConfig: { maxOutputTokens: (maxTokens || 1200) + 4096 },
   };
   if (sysText) body.systemInstruction = { parts: [{ text: sysText }] };
 

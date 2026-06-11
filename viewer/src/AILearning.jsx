@@ -1402,7 +1402,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [streaming, setStreaming] = useState(false);
   const [draft, setDraft] = useState('');
   const [error, setError] = useState('');
-  const [lastFailedText, setLastFailedText] = useState(''); // 전송 실패 시 재시도용
+  const [lastFailedText, setLastFailedText] = useState('');
+  const [lastTruncated, setLastTruncated] = useState(false); // ✂️ 마지막 답변이 한도로 잘렸는지 // 전송 실패 시 재시도용
   const [thinkSec, setThinkSec] = useState(0); // 비스트리밍 대기 경과초
   const [showHistory, setShowHistory] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
@@ -1829,7 +1830,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       if (!providerKey) {
         throw new Error(`${providerName} API 키가 설정되지 않았습니다. 우상단 ⚙️ 설정에서 입력해주세요.`);
       }
-      const { text: out, usage } = await sendMessagesUnified({
+      const { text: out, usage, stop_reason } = await sendMessagesUnified({
         apiKey: providerKey,
         model: prefs.model,
         system,
@@ -1844,6 +1845,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       if (ac.signal.aborted) return; // 단원 전환 등으로 취소됐으면 저장 안 함
       const aMsg = { role: 'assistant', content: out };
       appendRoomMessage(sendLeafId, aMsg);
+      // ✂️ 출력 한도 잘림 감지 (Gemini MAX_TOKENS / OpenAI length / Claude max_tokens)
+      const wasTruncated = /max_?tokens|length/i.test(String(stop_reason || ''));
+      setLastTruncated(wasTruncated);
+      if (wasTruncated) {
+        try { toast.show('✂️ 답변이 출력 한도에 걸려 잘렸어요 — 아래 [이어쓰기]를 누르면 계속 작성합니다', 'info', 3000); } catch { /* noop */ }
+      }
       // 🃏 이번 문답에서 암기 포인트를 백그라운드 추출 → 퀴즈 탭 자동 출제 (실패 무해)
       // 재생성은 같은 문답 반복이므로 중복 출제 방지 차원에서 생략
       if (!isRegen) generateChatCards({
@@ -3075,7 +3082,18 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               )}
               {/* 🔄 답변 다시 생성 — 마지막 assistant 응답에만, 생성 중엔 숨김 */}
               {isLast && m.role === 'assistant' && !streaming && (
-                <div style={{ display: 'flex', justifyContent: 'flex-start', margin: '2px 0 6px 4px' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-start', gap: 6, margin: '2px 0 6px 4px' }}>
+                  {lastTruncated && (
+                    <button onClick={() => { setLastTruncated(false); quickSend('방금 답변이 중간에 끊겼어. 끊긴 지점부터 이어서 계속 작성해줘.'); }}
+                      disabled={!cap.ok}
+                      title="한도로 잘린 답변을 이어서 작성"
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: 5,
+                        padding: '6px 12px', borderRadius: 999, cursor: cap.ok ? 'pointer' : 'default',
+                        border: '1px solid #fcd34d', background: '#fffbeb',
+                        color: '#b45309', fontSize: '0.74rem', fontWeight: 800 }}>
+                      ✍️ 이어쓰기
+                    </button>
+                  )}
                   <button onClick={regenerate} disabled={!cap.ok}
                     title="마지막 답변을 버리고 같은 질문으로 다시 생성"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: 5,
