@@ -2242,36 +2242,32 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           );
         })()}
 
-        {/* 1차 / 2차 — 2단 사이드바이사이드 패널 */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 14, alignItems: 'start' }}>
+        {/* 1차 / 2차 — 문제풀이 탭과 동일한 평면 섹션 + 흰 카드 그리드 */}
+        <div>
           {[
             {
-              stage: 1, label: '1차 시험 — 객관식', sub: '5지선다',
+              stage: 1, label: '1차 시험 — 객관식 5지선다',
               subjects: SUBJECTS_BY_STAGE[1],
-              panelBg: '#EFF6FF', panelBorder: '#BFDBFE',
               chipBg: TOSS.blueWeak, chipFg: TOSS.blue,
-              barColor: TOSS.blue, headerBg: TOSS.blue,
+              barColor: TOSS.blue,
             },
             {
-              stage: 2, label: '2차 시험 — 서술형', sub: '논술',
+              stage: 2, label: '2차 시험 — 서술형·답안 작성',
               subjects: SUBJECTS_BY_STAGE[2],
-              panelBg: '#F5F3FF', panelBorder: '#DDD6FE',
               chipBg: '#F0EBFF', chipFg: '#7C3AED',
-              barColor: '#7C3AED', headerBg: '#7C3AED',
+              barColor: '#7C3AED',
             },
-          ].map(({ stage, label, sub, subjects, panelBg, panelBorder, chipBg, chipFg, barColor, headerBg }) => (
-            <div key={stage} style={{ background: panelBg, borderRadius: 20, border: `1.5px solid ${panelBorder}`, overflow: 'hidden' }}>
-              {/* 패널 헤더 */}
-              <div style={{ background: headerBg, padding: '12px 16px' }}>
-                <div style={{ fontSize: '1rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.01em' }}>
+          ].map(({ stage, label, subjects, chipBg, chipFg, barColor }) => (
+            <div key={stage} style={{ marginBottom: 18 }}>
+              {/* 섹션 라벨 — 문제풀이와 동일 패턴 */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+                <div style={{ fontSize: '1rem', color: TOSS.ink, fontWeight: 800 }}>
                   {stage === 1 ? '📖' : '✍️'} {label}
                 </div>
-                <div style={{ fontSize: '0.76rem', color: 'rgba(255,255,255,0.8)', fontWeight: 600, marginTop: 3 }}>
-                  {sub} · {subjects.length}과목
-                </div>
+                <span style={{ fontSize: '0.82rem', color: TOSS.sub, fontWeight: 600 }}>{subjects.length}과목</span>
               </div>
-              {/* 과목 카드 그리드 */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(155px, 1fr))', gap: 10, padding: 10, alignItems: 'start' }}>
+              {/* 과목 카드 그리드 — 문제풀이와 동일 스펙 */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', rowGap: 14, columnGap: 12, alignItems: 'start' }}>
                 {subjects.map((s) => {
                   const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__') || k.startsWith(s.id + '_'));
                   const covAvg = ks.length ? ks.reduce((a, k) => a + (mastery[k]?.coverage || 0), 0) / ks.length : 0;
@@ -2284,7 +2280,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                   const showDivs = !isStage2 && divisions.length >= 2 && divisions.length <= 4;
                   const showSingle = isStage2 || (!isStage2 && divisions.length >= 5);
                   const chipStyle = {
-                    padding: '9px 6px', fontSize: '0.82rem', fontWeight: 700,
+                    padding: '11px 6px', fontSize: '0.84rem', fontWeight: 700,
                     background: chipBg, color: chipFg, border: 'none',
                     borderRadius: 10, cursor: 'pointer', whiteSpace: 'nowrap',
                     overflow: 'hidden', textOverflow: 'ellipsis', textAlign: 'center',
@@ -2293,27 +2289,30 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                     <div
                       key={s.id}
                       style={{
-                        background: TOSS.card, border: 'none', borderRadius: 14,
+                        background: TOSS.card, border: 'none', borderRadius: 20, position: 'relative',
                         display: 'flex', flexDirection: 'column',
-                        boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+                        boxShadow: '0 2px 8px rgba(0, 23, 51, 0.06)',
                       }}
                     >
                       <button
                         onClick={() => enterSubjectWhole(s.id)}
                         style={{
-                          padding: '14px 13px 11px', textAlign: 'left', background: 'none', border: 'none',
-                          cursor: 'pointer', width: '100%', display: 'flex', flexDirection: 'column', gap: 9,
+                          padding: '20px 18px 16px', textAlign: 'left', background: 'none', border: 'none',
+                          cursor: 'pointer', width: '100%', display: 'flex', flexDirection: 'column', gap: 12,
                         }}
                       >
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
+                        <div style={{ display: 'flex' }}>
+                          <span style={{ fontSize: '0.7rem', fontWeight: 800, background: chipBg, color: chipFg, padding: '3px 9px', borderRadius: 999 }}>{isStage2 ? '2차' : '1차'}</span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
                           <div style={{ minWidth: 0, flex: 1 }}>
-                            <div style={{ fontWeight: 800, color: TOSS.ink, fontSize: '1.1rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
-                            <div style={{ fontSize: '0.76rem', color: TOSS.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 3 }}>{s.title}</div>
+                            <div style={{ fontWeight: 800, color: TOSS.ink, fontSize: '1.2rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
+                            <div style={{ fontSize: '0.82rem', color: TOSS.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 4 }}>{s.title}</div>
                           </div>
-                          <div style={{ fontSize: '1.6rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
+                          <div style={{ fontSize: '2rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
                         </div>
                         <div>
-                          <div style={{ height: 5, background: TOSS.track, borderRadius: 999, overflow: 'hidden' }}>
+                          <div style={{ height: 6, background: TOSS.track, borderRadius: 999, overflow: 'hidden' }}>
                             <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: barColor, borderRadius: 999 }} />
                           </div>
                           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginTop: 5 }}>
@@ -2329,7 +2328,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                         )}
                       </button>
                       {showDivs && (
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 5, padding: '0 13px 11px', marginTop: 'auto' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, padding: '0 18px 14px', marginTop: 'auto' }}>
                           {divisions.map((d) => (
                             <button key={d.label} onClick={() => jumpToLeaf(s.id, d.leaf, { label: d.label, tops: d.tops })} title={d.label} style={chipStyle}>
                               {cleanDivLabel(d.label)}
@@ -2338,7 +2337,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                         </div>
                       )}
                       {showSingle && (
-                        <div style={{ padding: '0 13px 11px', marginTop: 'auto' }}>
+                        <div style={{ padding: '0 18px 14px', marginTop: 'auto' }}>
                           <button onClick={() => enterSubjectWhole(s.id)} style={{ ...chipStyle, width: '100%' }}>
                             {s.title}
                           </button>

@@ -223,69 +223,101 @@ export default function MemorizeBridge({ classifiedList, progress, qid, onGoSolv
     });
   };
 
-  // ── 화면 1: 과목 (AI 학습과 동일 과목 구성) ──
+  // ── 화면 1: 과목 — 문제풀이 탭과 동일한 섹션·카드 디자인 ──
   if (screen === 'subjects') {
-    const stages = [[1, '1차 — 객관식 5과목'], [2, '2차 — 논술 3과목']];
+    const T = { card: '#FFFFFF', blue: '#3182F6', blueWeak: '#E8F1FE', ink: '#191F28', sub: '#8B95A1', track: '#E5E8EB', shadow: '0 2px 8px rgba(0, 23, 51, 0.06)', radius: 20 };
+    const chatCards = loadChatCards();
+    // 과목별 카드/암기 진행 집계
+    const statOf = (sid) => {
+      let total = 0, known = 0;
+      for (const [lid, cards] of Object.entries(chatCards)) {
+        if (!lid.startsWith(sid + '__') && !lid.startsWith(sid + '_')) continue;
+        total += cards.length;
+        const srsMap = mem[lid]?.srs || {};
+        known += cards.filter(c => (srsMap[c.term.replace(/\s+/g, '')]?.box || 0) >= 2).length;
+      }
+      return { total, known, pct: total ? Math.round((known / total) * 100) : 0 };
+    };
+    // 오늘 복습 due 집계
+    const now = Date.now();
+    const due = [];
+    for (const [lid, cards] of Object.entries(chatCards)) {
+      const srsMap = mem[lid]?.srs || {};
+      for (const c of cards) {
+        const s = srsMap[c.term.replace(/\s+/g, '')];
+        if (s && s.due <= now) due.push({ leafId: lid, card: { key: c.term.replace(/\s+/g, ''), ...c } });
+      }
+    }
     return (
-      <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', paddingBottom: 24 }}>
-        <div style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #0891b2 100%)', padding: '28px 20px 22px' }}>
-          <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.85)', fontWeight: 700, letterSpacing: '0.05em' }}>MEMORIZE</div>
-          <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', lineHeight: 1.2, marginTop: 4 }}>⚡ 퀴즈 — 교재 암기</div>
-          <div style={{ fontSize: '0.84rem', color: 'rgba(255,255,255,0.9)', marginTop: 6, fontWeight: 500 }}>
-            AI 학습 대화에서 자동 출제된 <b>내 카드</b>로 암기 — 이해 → 암기 → 적용
-          </div>
+      <div className="app-container" style={{ minHeight: '100dvh', paddingBottom: 24 }}>
+        <div className="screen-head" style={{ paddingTop: 'calc(18px + env(safe-area-inset-top, 0px))' }}>
+          <h1 className="screen-title">⚡ 퀴즈</h1>
+          <p style={{ fontSize: '0.875rem', color: 'var(--text-sub, #64748b)', marginTop: 4 }}>
+            AI 학습 대화에서 자동 출제된 내 카드로 암기해요 — 이해 → 암기 → 적용
+          </p>
         </div>
-        <main className="main-content" style={{ marginTop: 18 }}>
-          {/* 🔁 전과목 오늘 복습 — SRS due 카드 통합 큐 */}
-          {(() => {
-            const cc = loadChatCards();
-            const now = Date.now();
-            const due = [];
-            for (const [lid, cards] of Object.entries(cc)) {
-              const srsMap = mem[lid]?.srs || {};
-              for (const c of cards) {
-                const s = srsMap[c.term.replace(/\s+/g, '')];
-                if (s && s.due <= now) due.push({ leafId: lid, card: { key: c.term.replace(/\s+/g, ''), ...c } });
-              }
-            }
-            if (!due.length) return null;
+        <main className="main-content" style={{ marginTop: 16 }}>
+          {/* 🔁 오늘 복습 — 문제풀이의 통합검색 자리와 동일한 상단 배치 */}
+          {due.length > 0 && (
+            <button onClick={() => { setReviewQueue(due.slice(0, 50)); setRIdx(0); setRFlip(false); setScreen('review'); }}
+              style={{ width: '100%', textAlign: 'left', padding: '14px 16px', marginBottom: 20,
+                border: '1px solid #fde68a', borderRadius: 12, background: '#fffbeb',
+                color: '#92400e', fontSize: '0.95rem', cursor: 'pointer', fontWeight: 700,
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span>🔁 오늘 복습할 카드 {due.length}장 — 잊기 전에 인출</span>
+              <span style={{ fontWeight: 800 }}>시작 →</span>
+            </button>
+          )}
+          {[
+            { stage: 1, label: '1차 시험 — 객관식 5지선다', chipBg: T.blueWeak, chipFg: T.blue, bar: T.blue },
+            { stage: 2, label: '2차 시험 — 서술형·답안 작성', chipBg: '#F0EBFF', chipFg: '#7C3AED', bar: '#7C3AED' },
+          ].map(({ stage, label, chipBg, chipFg, bar }) => {
+            const subjects = SUBJECTS.filter(s => s.stage === stage);
             return (
-              <button onClick={() => { setReviewQueue(due.slice(0, 50)); setRIdx(0); setRFlip(false); setScreen('review'); }}
-                style={{ width: '100%', marginBottom: 16, padding: '15px 18px', borderRadius: 16,
-                  border: '1.5px solid #fcd34d', cursor: 'pointer', textAlign: 'left',
-                  background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
-                  display: 'flex', alignItems: 'center', gap: 12 }}>
-                <span style={{ fontSize: '1.7rem' }}>🔁</span>
-                <span style={{ flex: 1 }}>
-                  <span style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: '#92400e' }}>
-                    오늘 복습할 카드 {due.length}장
-                  </span>
-                  <span style={{ display: 'block', fontSize: '0.74rem', color: '#b45309', marginTop: 2 }}>
-                    전 과목 기한 도래(SRS) 카드 한 번에 — 잊기 전에 인출
-                  </span>
-                </span>
-                <span style={{ fontWeight: 800, color: '#d97706' }}>시작 →</span>
-              </button>
-            );
-          })()}
-          {stages.map(([stage, label]) => (
-            <section key={stage} style={{ marginBottom: 18 }}>
-              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#6b7280', marginBottom: 8 }}>{label}</div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-                {SUBJECTS.filter(s => s.stage === stage).map(s => (
-                  <button key={s.id}
-                    onClick={() => { setSubjectId(s.id); setPathStack([]); setScreen('leaves'); }}
-                    style={{ padding: '16px 14px', textAlign: 'left', cursor: 'pointer',
-                      background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14,
-                      boxShadow: '0 2px 8px rgba(15,23,42,0.05)' }}>
-                    <div style={{ fontSize: '1.5rem' }}>{s.icon}</div>
-                    <div style={{ fontWeight: 800, fontSize: '0.92rem', color: '#111827', marginTop: 6 }}>{s.short}</div>
-                    <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: 2 }}>{s.title}</div>
-                  </button>
-                ))}
+              <div key={stage} style={{ marginBottom: 18 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+                  <div style={{ fontSize: '1rem', color: T.ink, fontWeight: 800 }}>
+                    {stage === 1 ? '📖' : '✍️'} {label}
+                  </div>
+                  <span style={{ fontSize: '0.82rem', color: T.sub, fontWeight: 600 }}>{subjects.length}과목</span>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', rowGap: 14, columnGap: 12, alignItems: 'start' }}>
+                  {subjects.map(s => {
+                    const st = statOf(s.id);
+                    return (
+                      <div key={s.id} style={{ background: T.card, border: 'none', borderRadius: T.radius,
+                        display: 'flex', flexDirection: 'column', boxShadow: T.shadow }}>
+                        <button onClick={() => { setSubjectId(s.id); setPathStack([]); setScreen('leaves'); }}
+                          style={{ padding: '20px 18px 16px', textAlign: 'left', background: 'none', border: 'none',
+                            cursor: 'pointer', width: '100%', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                          <div style={{ display: 'flex' }}>
+                            <span style={{ fontSize: '0.7rem', fontWeight: 800, background: chipBg, color: chipFg,
+                              padding: '3px 9px', borderRadius: 999 }}>{stage === 1 ? '1차' : '2차'}</span>
+                          </div>
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                            <div style={{ minWidth: 0, flex: 1 }}>
+                              <div style={{ fontWeight: 800, color: T.ink, fontSize: '1.2rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
+                              <div style={{ fontSize: '0.82rem', color: T.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 4 }}>{s.title}</div>
+                            </div>
+                            <div style={{ fontSize: '2rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
+                          </div>
+                          <div>
+                            <div style={{ height: 6, background: T.track, borderRadius: 999, overflow: 'hidden' }}>
+                              <div style={{ width: `${Math.max(2, st.pct)}%`, height: '100%', background: bar, borderRadius: 999 }} />
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginTop: 5 }}>
+                              <span style={{ fontWeight: 800, color: T.ink }}>{st.pct}%</span>
+                              <span style={{ color: T.sub, fontWeight: 600 }}>{st.total > 0 ? `카드 ${st.total}장` : '카드 없음'}</span>
+                            </div>
+                          </div>
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </section>
-          ))}
+            );
+          })}
         </main>
       </div>
     );
