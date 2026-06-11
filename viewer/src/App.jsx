@@ -1736,6 +1736,23 @@ const App = () => {
     } catch (e) { setCloudMsg(koAuthErr(e)); }
     finally { setAuthBusy(false); }
   };
+  const cloudGoogle = async () => {
+    setAuthBusy(true);
+    setCloudMsg('구글 로그인으로 이동합니다…');
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.origin },
+      });
+      if (error) throw error;
+      // 성공 시 구글로 리다이렉트 → 돌아오면 onAuthStateChange가 로그인 처리
+    } catch (e) {
+      setCloudMsg(e?.message?.includes('not enabled')
+        ? '구글 로그인이 아직 활성화되지 않았어요 — Supabase 대시보드에서 Google Provider를 켜야 합니다.'
+        : koAuthErr(e));
+      setAuthBusy(false);
+    }
+  };
   const cloudResetPw = async () => {
     const email = cloudEmail.trim();
     if (!email || !email.includes('@')) { setCloudMsg('비밀번호를 재설정할 이메일을 먼저 입력해주세요.'); return; }
@@ -4212,6 +4229,24 @@ const App = () => {
                   <div style={{ fontSize: '0.78rem', color: '#6b7280', margin: '4px 0 12px', lineHeight: 1.6 }}>
                     이메일로 로그인하면 <b>여러 기기에서 학습기록·암기카드가 자동으로 합쳐지고</b>,
                     같은 기기를 쓰는 다른 계정과는 분리됩니다.
+                  </div>
+                  <button onClick={cloudGoogle} disabled={authBusy}
+                    style={{ width: '100%', padding: '12px', marginBottom: 10, borderRadius: '10px',
+                      border: '1.5px solid #d1d5db', background: '#fff', color: '#1f2937',
+                      fontWeight: 700, fontSize: '0.9rem', cursor: authBusy ? 'default' : 'pointer',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+                    <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+                      <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.2 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/>
+                      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.2 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+                      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+                      <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.2 5.2C39.9 36.6 44 31 44 24c0-1.3-.1-2.6-.4-3.9z"/>
+                    </svg>
+                    구글로 계속하기
+                  </button>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '2px 0 10px' }}>
+                    <span style={{ flex: 1, height: 1, background: '#e5e7eb' }} />
+                    <span style={{ fontSize: '0.7rem', color: '#9ca3af' }}>또는 이메일로</span>
+                    <span style={{ flex: 1, height: 1, background: '#e5e7eb' }} />
                   </div>
                   <input value={cloudEmail} onChange={(e) => setCloudEmail(e.target.value)} placeholder="이메일" type="email"
                     autoComplete="email" disabled={authBusy}
