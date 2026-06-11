@@ -4165,7 +4165,9 @@ const App = () => {
         ['tax_chapters', 'tax_sections', 'tax_items'].includes(currentView)
         || (currentView === 'tax_sub_subjects' && !subjectHasSubSubjects)
       );
-    return (
+    // 드릴 목록(탐색) 화면에도 하단 탭바 유지 — 깊은 단계에서도 탭 한 번에 홈/퀴즈 이동.
+    // 풀이(study)·목록(question_list) 등 몰입 화면은 기존대로 탭바 없음.
+    return shell(
     <div className="app-container">
       {drillHeader()}
       {renderBreadcrumb()}
