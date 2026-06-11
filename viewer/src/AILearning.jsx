@@ -1685,9 +1685,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     setSessionId(id);
   };
 
-  const send = useCallback(async (overrideText) => {
+  const send = useCallback(async (overrideText, opts = {}) => {
+    const isRegen = !!opts.regenerate; // 🔄 답변 다시 생성 — 마지막 응답을 버리고 같은 질문 재요청
     setError('');
-    const img = pendingImage; // 📷 첨부 사진 (이번 전송에만 사용)
+    const img = isRegen ? null : pendingImage; // 📷 첨부 사진 (이번 전송에만 사용, 재생성엔 미사용)
     let text = (typeof overrideText === 'string' ? overrideText : input).trim();
     if (img && !text) text = '이 문제(사진)를 단계별로 풀이해주고, 어떤 단원·논점인지 알려줘.';
     if (!text || streaming) return;
@@ -1707,11 +1708,23 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     const sendLeafId = current.leaf_id; // 응답 저장 대상 고정 (전송 중 단원 전환 레이스 방지)
     // 사진은 localStorage 용량 문제로 저장본에는 텍스트 표식만 남기고,
     // 화면(imageUrl)·이번 API 호출에만 실데이터를 사용한다.
-    const userMsg = { role: 'user', content: (img ? '[📷 문제 사진 첨부]\n' : '') + text };
-    appendRoomMessage(sendLeafId, userMsg);
-    setMessages((arr) => [...arr, { ...userMsg, ts: new Date().toISOString(), imageUrl: img?.dataUrl }]);
-    setPendingImage(null);
-    if (typeof overrideText !== 'string') setInput('');
+    let regenPopped = null; // 재생성 실패 시 기존 답변 복원용
+    if (isRegen) {
+      // 저장소·화면 양쪽에서 마지막 assistant 응답 제거 → 히스토리가 user로 끝나게
+      const roomArr = getRoomMessages(sendLeafId);
+      if (roomArr.length && roomArr[roomArr.length - 1].role === 'assistant') regenPopped = popRoomMessage(sendLeafId);
+      setMessages((arr) => {
+        const a = [...arr];
+        if (a.length && a[a.length - 1].role === 'assistant') a.pop();
+        return a;
+      });
+    } else {
+      const userMsg = { role: 'user', content: (img ? '[📷 문제 사진 첨부]\n' : '') + text };
+      appendRoomMessage(sendLeafId, userMsg);
+      setMessages((arr) => [...arr, { ...userMsg, ts: new Date().toISOString(), imageUrl: img?.dataUrl }]);
+      setPendingImage(null);
+      if (typeof overrideText !== 'string') setInput('');
+    }
     stickBottomRef.current = true; // 내가 보냈으면 바닥으로
     setLastFailedText('');
     setError('');
@@ -1832,7 +1845,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       const aMsg = { role: 'assistant', content: out };
       appendRoomMessage(sendLeafId, aMsg);
       // 🃏 이번 문답에서 암기 포인트를 백그라운드 추출 → 퀴즈 탭 자동 출제 (실패 무해)
-      generateChatCards({
+      // 재생성은 같은 문답 반복이므로 중복 출제 방지 차원에서 생략
+      if (!isRegen) generateChatCards({
         provider, apiKey: providerKey, baseUrl: baseUrls[provider],
         leafId: sendLeafId, leafPath: curLeaf ? curLeaf.path.join(' / ') : '',
         userText: text, assistantText: out,
@@ -1941,6 +1955,13 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         }
         setLastFailedText(text);
         if (typeof overrideText !== 'string') setInput(text);
+        // 🔄 재생성 실패 — 지웠던 기존 답변을 원위치 (재생성이 실패해도 손해 없음)
+        if (isRegen && regenPopped) {
+          appendRoomMessage(sendLeafId, regenPopped);
+          if (current?.leaf_id === sendLeafId) {
+            setMessages((arr) => [...arr, { ...regenPopped, ts: new Date().toISOString() }]);
+          }
+        }
         const isNet = e.message && /fetch|network|cors|failed to fetch/i.test(e.message);
         const provName = getProviderForModel(prefs.model);
         const provLabel = provName === 'openai' ? 'GPT' : provName === 'google' ? 'Gemini' : 'Claude';
@@ -1965,6 +1986,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
   // 빠른 액션: input을 거치지 않고 즉시 send (overrideText 사용)
   const quickSend = (text) => { if (!streaming) send(text); };
+
+  // 🔄 답변 다시 생성 — 마지막 assistant 응답을 버리고 직전 질문으로 재요청
+  const regenerate = () => {
+    if (streaming) return;
+    const last = messages[messages.length - 1];
+    if (!last || last.role !== 'assistant') return;
+    const lastUser = [...messages].reverse().find((m) => m.role === 'user');
+    if (!lastUser) return;
+    const text = (lastUser.content || '').replace(/^\[📷 문제 사진 첨부\]\n/, '');
+    send(text, { regenerate: true });
+  };
 
   // mockSession.complete가 true로 바뀌면 자동 저장 (멱등성 — saved 플래그)
   useEffect(() => {
@@ -3040,6 +3072,19 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                   onRewrite={() => quickSend('같은 논점으로 다시 답안 작성할게. 같은 문제 다시 보여줘.')}
                   onShowModel={() => quickSend('이 문제의 모범 답안과 핵심 키워드를 보여줘.')}
                 />
+              )}
+              {/* 🔄 답변 다시 생성 — 마지막 assistant 응답에만, 생성 중엔 숨김 */}
+              {isLast && m.role === 'assistant' && !streaming && (
+                <div style={{ display: 'flex', justifyContent: 'flex-start', margin: '2px 0 6px 4px' }}>
+                  <button onClick={regenerate} disabled={!cap.ok}
+                    title="마지막 답변을 버리고 같은 질문으로 다시 생성"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 5,
+                      padding: '6px 12px', borderRadius: 999, cursor: cap.ok ? 'pointer' : 'default',
+                      border: `1px solid ${TOSS.line}`, background: '#fff',
+                      color: TOSS.sub, fontSize: '0.74rem', fontWeight: 700 }}>
+                    <RotateCcw size={12} /> 답변 다시 생성
+                  </button>
+                </div>
               )}
             </div>
           );
