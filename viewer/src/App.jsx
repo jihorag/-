@@ -4340,7 +4340,63 @@ const App = () => {
       return sum / allLeavesFlat.length;
     })();
     const overallPct = Math.round((quizLearnedPct * 0.5 + aiCovAvg * 0.5) * 100);
-    const todoCount = srs.due.length + aiDueArr.length;
+
+    // 🃏 암기카드(퀴즈 탭) 현황 — 3축(기출·AI·암기) 통합 분석의 셋째 축
+    const memStat = (() => {
+      let cards = {}, memDb = {};
+      try { cards = JSON.parse(localStorage.getItem('quiz-chatcards-v1') || '{}') || {}; } catch { /* noop */ }
+      try { memDb = JSON.parse(localStorage.getItem('quiz-mem-v1') || '{}') || {}; } catch { /* noop */ }
+      const now = Date.now();
+      let total = 0, known = 0, due = 0;
+      const missTop = [];
+      for (const [lid, arr] of Object.entries(cards)) {
+        const srsMap = memDb[lid]?.srs || {};
+        for (const c of arr) {
+          total += 1;
+          const e = srsMap[(c.term || '').replace(/\s+/g, '')];
+          if (e && e.box >= 2) known += 1;
+          if (e && e.due <= now) due += 1;
+          if (e && (e.miss || 0) >= 2) missTop.push({ term: c.term, miss: e.miss, leafId: lid });
+        }
+      }
+      missTop.sort((a, b) => b.miss - a.miss);
+      return { total, known, due, pct: total ? Math.round((known / total) * 100) : 0, missTop: missTop.slice(0, 3) };
+    })();
+    const todoCount = srs.due.length + aiDueArr.length + memStat.due;
+
+    // ⏱ 시험까지 페이스 — 최근 7일 풀이량 기준 1회독 가능성 계산
+    const paceStat = (() => {
+      const d1 = daysUntil(examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM]);
+      if (d1 == null || d1 < 0) return null;
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const weekAgo = today.getTime() - 6 * 86400000;
+      let recent7 = 0;
+      Object.values(progress || {}).forEach((pr) => { if (pr?.ts && pr.ts >= weekAgo) recent7 += 1; });
+      const perDay = Math.round(recent7 / 7 * 10) / 10;
+      const remainQ = Math.max(0, (cv.total || 0) - (cv.learned + cv.mastered + cv.review));
+      const projected = Math.round(perDay * d1);
+      const needPerDay = d1 > 0 ? Math.ceil(remainQ / d1) : remainQ;
+      return { d1, perDay, remainQ, projected, needPerDay, onTrack: projected >= remainQ };
+    })();
+
+    // 🕐 시간대 학습 패턴 — 골든타임 찾기
+    const hourStat = (() => {
+      const buckets = [
+        { label: '새벽 0~6', n: 0, ok: 0 }, { label: '오전 6~12', n: 0, ok: 0 },
+        { label: '오후 12~18', n: 0, ok: 0 }, { label: '밤 18~24', n: 0, ok: 0 },
+      ];
+      Object.values(progress || {}).forEach((pr) => {
+        if (!pr?.ts) return;
+        const h = new Date(pr.ts).getHours();
+        const b = buckets[Math.floor(h / 6)];
+        b.n += 1;
+        if (pr.correct === true) b.ok += 1;
+      });
+      const totalN = buckets.reduce((a, b) => a + b.n, 0);
+      if (totalN < 20) return null; // 표본 부족 시 미표시
+      const best = buckets.reduce((a, b) => (b.n >= 5 && (b.ok / b.n) > (a.n >= 5 ? a.ok / a.n : -1) ? b : a), buckets[0]);
+      return { buckets, totalN, best };
+    })();
 
     // 5과목 매트릭스 (quiz + AI 통합) — 통합 점수 낮은 순 정렬
     const subjectMatrix = AI_SUBJECTS.map((s) => {
@@ -4553,6 +4609,37 @@ const App = () => {
                   🔥 약점 보강 · {coachUsed.topFix.name} → 시작
                 </button>
               )}
+            </section>
+          )}
+
+          {/* ②.6 🃏 암기 현황 — 퀴즈 탭(자동 출제 카드) 데이터의 셋째 축 */}
+          {memStat.total > 0 && (
+            <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+              padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <Donut size={78} value={memStat.pct / 100} color="#7c3aed" stroke={9}
+                  centerText={`${memStat.pct}%`} centerSub="암기" />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>🃏 암기카드 현황</div>
+                  <div style={{ fontSize: '0.78rem', color: '#6b7280', marginTop: 3, lineHeight: 1.6 }}>
+                    카드 <b style={{ color: '#374151' }}>{memStat.total}장</b> 중{' '}
+                    <b style={{ color: '#7c3aed' }}>{memStat.known}장</b> 암기 완료
+                    {memStat.due > 0 && <> · 오늘 복습 <b style={{ color: '#dc2626' }}>{memStat.due}장</b></>}
+                  </div>
+                  {memStat.missTop.length > 0 && (
+                    <div style={{ fontSize: '0.72rem', color: '#b45309', marginTop: 4,
+                      overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      ⚠️ 자주 틀림: {memStat.missTop.map(m => `${m.term}(${m.miss})`).join(' · ')}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <button onClick={() => { setCurrentView('quizHome'); window.scrollTo(0, 0); }}
+                style={{ width: '100%', marginTop: 12, padding: '11px', borderRadius: 10, border: 'none',
+                  background: memStat.due > 0 ? '#7c3aed' : '#f5f3ff',
+                  color: memStat.due > 0 ? '#fff' : '#7c3aed', fontWeight: 800, cursor: 'pointer', fontSize: '0.85rem' }}>
+                {memStat.due > 0 ? `🔁 밀린 카드 ${memStat.due}장 지금 복습 →` : '퀴즈 탭에서 암기 이어가기 →'}
+              </button>
             </section>
           )}
 
@@ -4811,7 +4898,12 @@ const App = () => {
           {/* 추세 — 일별 학습량 라인 + 누적 정답률 */}
           <section style={{ background: '#fff', borderRadius: '16px', padding: '16px', boxShadow: 'var(--shadow-md)', marginBottom: '16px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <span style={{ fontWeight: 800, fontSize: '0.95rem' }}>📈 최근 {trendDays}일 · {analytics.trendSum}문제</span>
+              <span style={{ fontWeight: 800, fontSize: '0.95rem' }}>
+                📈 최근 {trendDays}일 · {analytics.trendSum}문제
+                <span style={{ fontSize: '0.64rem', fontWeight: 600, color: '#9ca3af', marginLeft: 8 }}>
+                  <span style={{ color: '#4f46e5' }}>━</span> 풀이량 <span style={{ color: '#16a34a' }}>┅</span> 정답률
+                </span>
+              </span>
               <span style={{ display: 'flex', gap: '4px' }}>
                 {[7, 30].map(d => (
                   <button key={d} onClick={() => setTrendDays(d)}
@@ -4840,6 +4932,14 @@ const App = () => {
                   ))}
                   <polygon points={areaPts} fill="#4f46e5" fillOpacity="0.12" />
                   <polyline points={linePts} fill="none" stroke="#4f46e5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  {/* 정답률 라인(0~100% 별도 스케일) — 실력이 오르는지 한눈에 */}
+                  {(() => {
+                    const accPts = data.map((tt, i) => (tt.acc == null ? null : `${xAt(i).toFixed(1)},${(H - PAD - (H - 2 * PAD) * (tt.acc / 100)).toFixed(1)}`))
+                      .filter(Boolean);
+                    if (accPts.length < 2) return null;
+                    return <polyline points={accPts.join(' ')} fill="none" stroke="#16a34a" strokeWidth="1.6"
+                      strokeDasharray="4,3" strokeLinecap="round" strokeLinejoin="round" opacity="0.85" />;
+                  })()}
                   {data.map((t, i) => (
                     <circle key={i} cx={xAt(i)} cy={yAt(t.count)} r={t.isToday ? 3.5 : 1.8}
                       fill={t.isToday ? '#ea580c' : '#4f46e5'}
@@ -4863,6 +4963,63 @@ const App = () => {
               );
             })()}
           </section>
+
+          {/* ⏱ 시험까지 페이스 — 현재 속도로 1회독이 되는지 */}
+          {paceStat && paceStat.remainQ > 0 && (
+            <section style={{ background: paceStat.onTrack ? '#ecfdf5' : '#fff7ed',
+              border: `1px solid ${paceStat.onTrack ? '#a7f3d0' : '#fed7aa'}`, borderRadius: '16px',
+              padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.95rem', marginBottom: 6 }}>
+                ⏱ 시험까지 페이스 <span style={{ fontSize: '0.74rem', color: '#6b7280', fontWeight: 600 }}>1차 D-{paceStat.d1}</span>
+              </div>
+              <div style={{ fontSize: '0.82rem', color: '#374151', lineHeight: 1.7 }}>
+                최근 7일 하루 평균 <b>{paceStat.perDay}문제</b> → 시험까지 약 <b>{paceStat.projected}문제</b> 가능.
+                남은 미학습 <b>{paceStat.remainQ}문제</b>{' '}
+                {paceStat.onTrack
+                  ? <b style={{ color: '#16a34a' }}>— 이 페이스면 전 범위 1회독 가능 ✓</b>
+                  : <>를 다 돌리려면 하루 <b style={{ color: '#ea580c' }}>{paceStat.needPerDay}문제</b>가 필요해요</>}
+              </div>
+              {!paceStat.onTrack && (
+                <div style={{ marginTop: 8, height: 8, background: '#fff', borderRadius: 999, overflow: 'hidden', border: '1px solid #fed7aa' }}>
+                  <div style={{ width: `${Math.min(100, Math.round((paceStat.projected / paceStat.remainQ) * 100))}%`,
+                    height: '100%', background: '#fb923c' }} />
+                </div>
+              )}
+            </section>
+          )}
+
+          {/* 🕐 시간대 골든타임 — 언제 가장 잘 맞히는가 */}
+          {hourStat && (
+            <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
+              padding: '16px', marginBottom: '16px', boxShadow: 'var(--shadow-md)' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.95rem', marginBottom: 2 }}>🕐 시간대 골든타임</div>
+              <div style={{ fontSize: '0.72rem', color: '#9ca3af', marginBottom: 10 }}>
+                {hourStat.best.n >= 5
+                  ? <>정답률이 가장 높은 시간: <b style={{ color: '#4f46e5' }}>{hourStat.best.label}시</b> — 어려운 과목은 이때</>
+                  : '시간대별 풀이 분포'}
+              </div>
+              <div style={{ display: 'flex', gap: 6 }}>
+                {hourStat.buckets.map((b) => {
+                  const maxN = Math.max(1, ...hourStat.buckets.map(x => x.n));
+                  const acc = b.n > 0 ? Math.round((b.ok / b.n) * 100) : null;
+                  const isBest = b === hourStat.best && b.n >= 5;
+                  return (
+                    <div key={b.label} style={{ flex: 1, textAlign: 'center' }}>
+                      <div style={{ height: 44, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
+                        <div style={{ width: '60%', borderRadius: '4px 4px 0 0',
+                          height: `${Math.max(4, (b.n / maxN) * 42)}px`,
+                          background: isBest ? '#4f46e5' : '#c7d2fe' }} />
+                      </div>
+                      <div style={{ fontSize: '0.6rem', color: isBest ? '#4338ca' : '#9ca3af', marginTop: 3, fontWeight: isBest ? 800 : 500 }}>{b.label}</div>
+                      <div style={{ fontSize: '0.66rem', fontWeight: 700, color: acc == null ? '#d1d5db' : '#374151' }}>
+                        {acc == null ? '–' : `${acc}%`}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
 
           {/* ⑦ 난이도별 정답률 — 미니 차트 */}
           <section style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '16px',
