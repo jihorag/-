@@ -1720,65 +1720,51 @@ const App = () => {
   // 클라우드 동기화(선택)
   const [authUser, setAuthUser] = useState(null);
   const [cloudMsg, setCloudMsg] = useState('');
-  const [cloudEmail, setCloudEmail] = useState('');
-  const [cloudPw, setCloudPw] = useState('');
+  const [cloudCode, setCloudCode] = useState('');
   const [authBusy, setAuthBusy] = useState(false);
-  const AUTH_ERR_KO = {
-    'Invalid login credentials': '이메일 또는 비밀번호가 올바르지 않습니다.',
-    'User already registered': '이미 가입된 이메일이에요 — 로그인을 눌러주세요.',
-    'Password should be at least 6 characters.': '비밀번호는 6자 이상이어야 합니다.',
-    'Email not confirmed': '이메일 인증이 필요해요. 받은편지함을 확인해주세요.',
-    'Unable to validate email address: invalid format': '이메일 형식이 올바르지 않습니다.',
-    'Email rate limit exceeded': '시도가 너무 잦아요 — 잠시 후 다시 시도해주세요.',
-  };
-  const koAuthErr = (e) => AUTH_ERR_KO[e?.message] || e?.message || String(e);
-  const cloudAuth = async (mode) => {
-    const email = cloudEmail.trim();
-    if (!email || !email.includes('@')) { setCloudMsg('이메일을 입력해주세요.'); return; }
-    if ((cloudPw || '').length < 6) { setCloudMsg('비밀번호는 6자 이상이어야 합니다.'); return; }
+  // 발급 아이디 로그인 — 아이디 하나가 곧 자격증명.
+  // 내부적으로 Supabase 계정({아이디}@id.gampyeong.app)에 매핑되며,
+  // 최초 입력 시 그 아이디를 점유(개설)하고 이후엔 어느 기기서든 같은 아이디로 이어진다.
+  const codeAuth = async () => {
+    const code = cloudCode.trim().toLowerCase().replace(/\s+/g, '');
+    if (code.length < 6 || code.length > 32 || !/^[a-z0-9-]+$/.test(code)) {
+      setCloudMsg('아이디는 영문·숫자·하이픈 6~32자입니다. 발급받은 아이디를 그대로 입력해주세요.');
+      return;
+    }
     setAuthBusy(true);
-    setCloudMsg('처리 중…');
+    setCloudMsg('확인 중…');
+    // 플러스 별칭 매핑: Supabase의 도메인(MX) 검증을 통과하고,
+    // 비밀번호 재설정 메일이 전부 관리자 메일함으로만 가므로 아이디 탈취 불가.
+    const creds = { email: `y.day0925+${code}@gmail.com`, password: `gp:${code}:sync-v1` };
     try {
-      const creds = { email, password: cloudPw };
-      const { error } = mode === 'signup'
-        ? await supabase.auth.signUp(creds)
-        : await supabase.auth.signInWithPassword(creds);
-      if (error) throw error;
-      setCloudPw('');
-      setCloudMsg(mode === 'signup'
-        ? '🎉 가입 완료! 로그인되었어요 — 이 기기의 학습기록이 계정에 연결됩니다.'
-        : '로그인되었어요. 학습기록을 동기화합니다.');
-    } catch (e) { setCloudMsg(koAuthErr(e)); }
-    finally { setAuthBusy(false); }
-  };
-  const cloudGoogle = async () => {
-    setAuthBusy(true);
-    setCloudMsg('구글 로그인으로 이동합니다…');
-    try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: { redirectTo: window.location.origin },
-      });
-      if (error) throw error;
-      // 성공 시 구글로 리다이렉트 → 돌아오면 onAuthStateChange가 로그인 처리
+      let { data, error } = await supabase.auth.signInWithPassword(creds);
+      if (error && /invalid login credentials/i.test(error.message || '')) {
+        // 미사용 아이디 → 최초 점유(개설)
+        const su = await supabase.auth.signUp(creds);
+        if (su.error) throw su.error;
+        if (!su.data?.session) {
+          setCloudMsg('이 아이디를 개설했지만 자동 로그인이 막혔어요 — Supabase 대시보드 Authentication → Email에서 "Confirm email"을 꺼주세요.');
+          return;
+        }
+        data = su.data;
+        setCloudMsg(`🎉 아이디 [${code}] 등록 완료 — 이 기기의 학습기록이 연결됩니다.`);
+      } else if (error) {
+        throw error;
+      } else {
+        setCloudMsg('로그인되었어요. 학습기록을 동기화합니다.');
+      }
+      setCloudCode('');
     } catch (e) {
-      setCloudMsg(e?.message?.includes('not enabled')
-        ? '구글 로그인이 아직 활성화되지 않았어요 — Supabase 대시보드에서 Google Provider를 켜야 합니다.'
-        : koAuthErr(e));
+      const m = e?.message || String(e);
+      setCloudMsg(/rate limit/i.test(m) ? '시도가 너무 잦아요 — 잠시 후 다시 시도해주세요.'
+        : /not confirmed/i.test(m) ? '아이디가 아직 활성화되지 않았어요 — 관리자 설정(Confirm email 끄기) 후 다시 시도해주세요.'
+        : m);
+    } finally {
       setAuthBusy(false);
     }
   };
-  const cloudResetPw = async () => {
-    const email = cloudEmail.trim();
-    if (!email || !email.includes('@')) { setCloudMsg('비밀번호를 재설정할 이메일을 먼저 입력해주세요.'); return; }
-    setAuthBusy(true);
-    try {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
-      if (error) throw error;
-      setCloudMsg('📧 재설정 메일을 보냈어요 — 받은편지함을 확인해주세요.');
-    } catch (e) { setCloudMsg(koAuthErr(e)); }
-    finally { setAuthBusy(false); }
-  };
+  // 로그인 표시용 아이디 (별칭 이메일 y.day0925+{아이디}@gmail.com에서 복원)
+  const authCode = ((authUser?.email || '').split('@')[0].split('+')[1]) || (authUser?.email || '').split('@')[0];
   useEffect(() => {
     if (!supabase) return;
     supabase.auth.getSession().then(({ data }) => setAuthUser(data?.session?.user || null));
@@ -4213,11 +4199,11 @@ const App = () => {
                     <span style={{ width: 38, height: 38, borderRadius: '50%', background: '#059669',
                       color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontWeight: 800, fontSize: '1rem' }}>
-                      {(authUser.email || '?')[0].toUpperCase()}
+                      {(authCode || '?')[0].toUpperCase()}
                     </span>
                     <span style={{ flex: 1, minWidth: 0 }}>
                       <span style={{ display: 'block', fontWeight: 800, fontSize: '0.92rem', color: '#065f46',
-                        overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{authUser.email}</span>
+                        overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>아이디 {authCode}</span>
                       <span style={{ display: 'block', fontSize: '0.72rem', color: '#047857', marginTop: 1 }}>
                         ● 로그인됨 — 기기 간 자동 동기화 중
                         {loadProfile().lastCloud && <> · 마지막 {new Date(loadProfile().lastCloud).toLocaleString('ko-KR', { month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</>}
@@ -4241,51 +4227,27 @@ const App = () => {
                 </>
               ) : (
                 <>
-                  <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#3730a3' }}>로그인 / 회원가입</div>
+                  <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#3730a3' }}>아이디 로그인</div>
                   <div style={{ fontSize: '0.78rem', color: '#6b7280', margin: '4px 0 12px', lineHeight: 1.6 }}>
-                    이메일로 로그인하면 <b>여러 기기에서 학습기록·암기카드가 자동으로 합쳐지고</b>,
-                    같은 기기를 쓰는 다른 계정과는 분리됩니다.
+                    발급받은 아이디 하나면 됩니다 — <b>다른 기기에서 같은 아이디를 입력하면
+                    학습기록·암기카드가 자동으로 이어지고</b>, 같은 기기의 다른 아이디와는 분리됩니다.
                   </div>
-                  <button onClick={cloudGoogle} disabled={authBusy}
-                    style={{ width: '100%', padding: '12px', marginBottom: 10, borderRadius: '10px',
-                      border: '1.5px solid #d1d5db', background: '#fff', color: '#1f2937',
-                      fontWeight: 700, fontSize: '0.9rem', cursor: authBusy ? 'default' : 'pointer',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
-                    <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
-                      <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.2 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/>
-                      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.2 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
-                      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
-                      <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.2 5.2C39.9 36.6 44 31 44 24c0-1.3-.1-2.6-.4-3.9z"/>
-                    </svg>
-                    구글로 계속하기
+                  <input value={cloudCode} onChange={(e) => setCloudCode(e.target.value)}
+                    placeholder="발급 아이디 (예: gp-7k2m-9qx4)" type="text"
+                    autoComplete="off" autoCapitalize="none" spellCheck={false} disabled={authBusy}
+                    onKeyDown={(e) => { if (e.key === 'Enter') codeAuth(); }}
+                    style={{ width: '100%', padding: '13px 14px', marginBottom: '10px', fontSize: '16px',
+                      border: '1px solid #c7d2fe', borderRadius: '10px', boxSizing: 'border-box',
+                      background: '#fff', letterSpacing: '0.04em' }} />
+                  <button onClick={codeAuth} disabled={authBusy}
+                    style={{ width: '100%', padding: '13px', borderRadius: '10px', border: 'none',
+                      background: authBusy ? '#a5b4fc' : '#4f46e5', color: '#fff', fontWeight: 800,
+                      fontSize: '0.92rem', cursor: authBusy ? 'default' : 'pointer' }}>
+                    {authBusy ? '확인 중…' : '로그인'}
                   </button>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '2px 0 10px' }}>
-                    <span style={{ flex: 1, height: 1, background: '#e5e7eb' }} />
-                    <span style={{ fontSize: '0.7rem', color: '#9ca3af' }}>또는 이메일로</span>
-                    <span style={{ flex: 1, height: 1, background: '#e5e7eb' }} />
+                  <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: 8, lineHeight: 1.5 }}>
+                    아이디를 잊으면 기록을 찾을 수 없으니 안전한 곳에 보관하세요.
                   </div>
-                  <input value={cloudEmail} onChange={(e) => setCloudEmail(e.target.value)} placeholder="이메일" type="email"
-                    autoComplete="email" disabled={authBusy}
-                    style={{ width: '100%', padding: '12px 14px', marginBottom: '8px', fontSize: '16px', border: '1px solid #c7d2fe', borderRadius: '10px', boxSizing: 'border-box', background: '#fff' }} />
-                  <input value={cloudPw} onChange={(e) => setCloudPw(e.target.value)} placeholder="비밀번호 (6자 이상)" type="password"
-                    autoComplete="current-password" disabled={authBusy}
-                    onKeyDown={(e) => { if (e.key === 'Enter') cloudAuth('signin'); }}
-                    style={{ width: '100%', padding: '12px 14px', marginBottom: '10px', fontSize: '16px', border: '1px solid #c7d2fe', borderRadius: '10px', boxSizing: 'border-box', background: '#fff' }} />
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    <button onClick={() => cloudAuth('signin')} disabled={authBusy}
-                      style={{ flex: 1.4, padding: '13px', borderRadius: '10px', border: 'none', background: authBusy ? '#a5b4fc' : '#4f46e5', color: '#fff', fontWeight: 800, fontSize: '0.92rem', cursor: authBusy ? 'default' : 'pointer' }}>
-                      {authBusy ? '처리 중…' : '로그인'}
-                    </button>
-                    <button onClick={() => cloudAuth('signup')} disabled={authBusy}
-                      style={{ flex: 1, padding: '13px', borderRadius: '10px', border: '1.5px solid #c7d2fe', background: '#fff', color: '#4f46e5', fontWeight: 800, fontSize: '0.92rem', cursor: authBusy ? 'default' : 'pointer' }}>
-                      회원가입
-                    </button>
-                  </div>
-                  <button onClick={cloudResetPw} disabled={authBusy}
-                    style={{ width: '100%', marginTop: 8, padding: '6px', border: 'none', background: 'none',
-                      color: '#6b7280', fontSize: '0.75rem', cursor: 'pointer', textDecoration: 'underline' }}>
-                    비밀번호를 잊으셨나요?
-                  </button>
                 </>
               )}
               {cloudMsg && <div style={{ fontSize: '0.8rem', color: authUser ? '#047857' : '#1d4ed8', marginTop: '10px' }}>{cloudMsg}</div>}
@@ -5189,7 +5151,7 @@ const App = () => {
               display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             🔍
           </button>
-          <button aria-label={authUser ? `프로필 (${authUser.email} 로그인됨)` : '프로필 (로그인 안 됨)'}
+          <button aria-label={authUser ? `프로필 (아이디 ${authCode} 로그인됨)` : '프로필 (로그인 안 됨)'}
             onClick={() => setCurrentView('profile')}
             style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
               background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem', position: 'relative',
