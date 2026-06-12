@@ -978,13 +978,42 @@ const ASKAI_CHIPS = [
   '미지급용지 평가기준은?',
 ];
 
-function AskAI({ onBack }) {
+// 질문 → 검색 토큰 (2자+ 한글·영문, 불용어 제외, 최대 8개)
+const ASKAI_STOP = new Set(['그리고', '하지만', '무엇', '어떻게', '설명', '설명해줘', '알려줘', '대해', '관해',
+  '관한', '뭐야', '뭔가', '대한', '차이', '차이점', '인가요', '무엇인가요', '있나요', '하나요', '같은', '경우']);
+const askaiTokens = (s) => Array.from(new Set(
+  (s || '').replace(/[^가-힣a-zA-Z0-9\s]/g, ' ').split(/\s+/)
+    .filter((w) => w.length >= 2 && !ASKAI_STOP.has(w))
+)).slice(0, 8);
+
+function AskAI({ onBack, classifiedList = [], leaves = [], onSolveQuestions, onLearnLeaf }) {
   const [messages, setMessages] = useState(() => {
     try { return JSON.parse(localStorage.getItem(ASKAI_KEY) || '[]') || []; } catch { return []; }
   });
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [pendingImage, setPendingImage] = useState(null); // 📷 사진 질문
+  const fileRef = useRef(null);
+  const attachImage = (file) => {
+    if (!file || !file.type.startsWith('image/')) return;
+    const fr = new FileReader();
+    fr.onload = () => {
+      const imgEl = new Image();
+      imgEl.onload = () => {
+        const MAX = 1568; // Claude vision 권장 한도 — 축소 + JPEG 재인코딩
+        const scale = Math.min(1, MAX / Math.max(imgEl.width, imgEl.height));
+        const cv = document.createElement('canvas');
+        cv.width = Math.round(imgEl.width * scale);
+        cv.height = Math.round(imgEl.height * scale);
+        cv.getContext('2d').drawImage(imgEl, 0, 0, cv.width, cv.height);
+        const dataUrl = cv.toDataURL('image/jpeg', 0.85);
+        setPendingImage({ dataUrl, media_type: 'image/jpeg', data: dataUrl.split(',')[1] });
+      };
+      imgEl.src = fr.result;
+    };
+    fr.readAsDataURL(file);
+  };
   const [model, setModel] = useState(() => {
     try { return localStorage.getItem('quiz-askai-model') || 'claude-sonnet-4-6'; }
     catch { return 'claude-sonnet-4-6'; }
@@ -1001,7 +1030,8 @@ function AskAI({ onBack }) {
   }, [messages, loading]);
 
   const persist = (arr) => {
-    try { localStorage.setItem(ASKAI_KEY, JSON.stringify(arr.slice(-20))); } catch { /* full */ }
+    // 사진 dataUrl은 용량 문제로 저장하지 않음 (세션 내 표시만)
+    try { localStorage.setItem(ASKAI_KEY, JSON.stringify(arr.slice(-20).map(({ imageUrl, ...m }) => m))); } catch { /* full */ }
   };
 
   const pickModel = (id) => {
@@ -1010,22 +1040,46 @@ function AskAI({ onBack }) {
   };
 
   const askAbortRef = useRef(null);
-  const ask = async (text) => {
-    const q = (text || input).trim();
+  const ask = async (text, opts = {}) => {
+    const img = opts.regenerate ? null : pendingImage;
+    let q = (text || input).trim();
+    if (img && !q) q = '이 문제(사진)를 풀이해주고, 어떤 과목·개념인지 알려줘.';
     if (!q || loading) return;
     const prov = curModel.provider;
     const key = providerKeyOf(prov);
     if (!key) { setError('nokey'); return; }
-    const next = [...messages, { role: 'user', content: q }];
+    if (img && prov !== 'anthropic') {
+      setError('사진 질문은 Claude 모델에서만 지원돼요 — 모델을 Claude로 바꿔주세요.');
+      return;
+    }
+    let next;
+    if (opts.regenerate) {
+      // 🔄 마지막 답변 폐기 후 같은 질문 재요청
+      next = messages[messages.length - 1]?.role === 'assistant' ? messages.slice(0, -1) : [...messages];
+    } else {
+      next = [...messages, { role: 'user', content: (img ? '[📷 사진 첨부]\n' : '') + q, imageUrl: img?.dataUrl }];
+    }
     setMessages(next); persist(next);
+    setPendingImage(null);
     setInput(''); setLoading(true); setError('');
     const ac = new AbortController();
     askAbortRef.current = ac;
     try {
       const baseUrls = getBaseUrls();
+      const apiMessages = next.slice(-12).map(m => ({ role: m.role, content: m.content }));
+      if (img && apiMessages.length) {
+        // 📷 마지막 user 메시지를 vision 블록으로 (Claude 형식)
+        apiMessages[apiMessages.length - 1] = {
+          role: 'user',
+          content: [
+            { type: 'image', source: { type: 'base64', media_type: img.media_type, data: img.data } },
+            { type: 'text', text: q },
+          ],
+        };
+      }
       const { text: out } = await sendMessagesUnified({
         apiKey: key, model, system: ASKAI_SYSTEM,
-        messages: next.slice(-12).map(m => ({ role: m.role, content: m.content })),
+        messages: apiMessages,
         maxTokens: 1600, baseUrl: baseUrls[prov], signal: ac.signal,
       });
       const fin = [...next, { role: 'assistant', content: out }];
@@ -1090,18 +1144,99 @@ function AskAI({ onBack }) {
           </div>
         )}
         {messages.map((m, i) => (
-          <div key={i} style={{ display: 'flex',
-            justifyContent: m.role === 'user' ? 'flex-end' : 'flex-start', margin: '8px 0' }}>
+          <div key={i} style={{ display: 'flex', flexDirection: 'column',
+            alignItems: m.role === 'user' ? 'flex-end' : 'flex-start', margin: '8px 0' }}>
+            {m.imageUrl && (
+              <img src={m.imageUrl} alt="첨부 사진" style={{ maxWidth: '60%', borderRadius: 12,
+                marginBottom: 4, border: '1px solid #e5e7eb' }} />
+            )}
             <div style={{ maxWidth: m.role === 'user' ? '80%' : '96%', padding: '11px 14px',
               borderRadius: 14, fontSize: '0.92rem', lineHeight: 1.65,
               background: m.role === 'user' ? '#4f46e5' : '#fff',
               color: m.role === 'user' ? '#fff' : '#111827',
               border: m.role === 'user' ? 'none' : '1px solid #e5e7eb',
               whiteSpace: m.role === 'user' ? 'pre-wrap' : 'normal', wordBreak: 'break-word' }}>
-              {m.role === 'user' ? m.content : <ParsedText text={m.content} />}
+              {m.role === 'user' ? m.content.replace(/^\[📷 사진 첨부\]\n/, '') : <ParsedText text={m.content} />}
             </div>
           </div>
         ))}
+        {/* 마지막 답변 액션: 후속 칩·관련 기출·단원 연계·다시 생성 */}
+        {!loading && messages.length > 0 && messages[messages.length - 1].role === 'assistant' && (() => {
+          const lastUser = [...messages].reverse().find((m) => m.role === 'user');
+          const tokens = askaiTokens((lastUser?.content || '').replace(/^\[📷 사진 첨부\]\n/, ''));
+          // 관련 기출: 질문 토큰이 2개 이상 등장하는 문항 상위 3
+          const related = tokens.length >= 2 ? classifiedList
+            .map((qq) => {
+              let s = 0;
+              for (const tk of tokens) if ((qq.question || '').includes(tk)) s += 1;
+              return s >= 2 ? { qq, s } : null;
+            })
+            .filter(Boolean).sort((a, b) => b.s - a.s).slice(0, 3) : [];
+          // 관련 단원: leaf 경로에 토큰 매칭 상위 1
+          const leafHit = tokens.length ? leaves
+            .map((l) => {
+              const path = (l.path || []).join(' ');
+              let s = 0;
+              for (const tk of tokens) if (path.includes(tk)) s += 1;
+              return s >= 1 ? { l, s } : null;
+            })
+            .filter(Boolean).sort((a, b) => b.s - a.s)[0] : null;
+          return (
+            <div style={{ margin: '2px 0 10px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                {['더 쉽게 설명해줘', '구체적인 예시 들어줘', '기출 스타일 문제로 내줘', '한 줄로 요약해줘'].map((c) => (
+                  <button key={c} onClick={() => ask(c)}
+                    style={{ padding: '6px 12px', borderRadius: 999, border: '1px solid #e5e7eb',
+                      background: '#fff', color: '#374151', fontSize: '0.74rem', fontWeight: 700, cursor: 'pointer' }}>
+                    {c}
+                  </button>
+                ))}
+                <button onClick={() => ask((lastUser?.content || '').replace(/^\[📷 사진 첨부\]\n/, ''), { regenerate: true })}
+                  title="마지막 답변을 버리고 다시 생성"
+                  style={{ padding: '6px 12px', borderRadius: 999, border: '1px solid #e5e7eb',
+                    background: '#fff', color: '#9ca3af', fontSize: '0.74rem', fontWeight: 700, cursor: 'pointer' }}>
+                  🔄 다시 생성
+                </button>
+              </div>
+              {(related.length > 0 || leafHit) && (
+                <div style={{ marginTop: 8, background: '#eef2ff', borderRadius: 12, padding: '10px 12px' }}>
+                  {related.length > 0 && (
+                    <>
+                      <div style={{ fontSize: '0.7rem', fontWeight: 800, color: '#3730a3', marginBottom: 6 }}>
+                        📚 이 주제 기출로 바로 적용
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        {related.map(({ qq }) => (
+                          <button key={qq.id} onClick={() => onSolveQuestions?.([qq])}
+                            style={{ textAlign: 'left', padding: '8px 10px', borderRadius: 8, border: 'none',
+                              background: '#fff', cursor: 'pointer', fontSize: '0.78rem', color: '#111827',
+                              overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                            {(qq.exam || '')} {(qq.question || '').slice(0, 44)}…
+                          </button>
+                        ))}
+                        {related.length > 1 && (
+                          <button onClick={() => onSolveQuestions?.(related.map((r) => r.qq))}
+                            style={{ padding: '8px', borderRadius: 8, border: 'none', background: '#4f46e5',
+                              color: '#fff', fontWeight: 800, fontSize: '0.76rem', cursor: 'pointer' }}>
+                            관련 기출 {related.length}문제 풀기 →
+                          </button>
+                        )}
+                      </div>
+                    </>
+                  )}
+                  {leafHit && (
+                    <button onClick={() => onLearnLeaf?.(leafHit.l)}
+                      style={{ width: '100%', marginTop: related.length ? 6 : 0, padding: '8px 10px',
+                        borderRadius: 8, border: '1px dashed #a5b4fc', background: '#fff', cursor: 'pointer',
+                        fontSize: '0.76rem', color: '#4338ca', fontWeight: 700, textAlign: 'left' }}>
+                      🎓 이 주제 단원에서 제대로 배우기 — {(leafHit.l.path || []).slice(-1)[0]} →
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })()}
         {loading && (
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 4px' }}>
             <span style={{ color: '#6b7280', fontSize: '0.85rem' }}>✨ 생각 중…</span>
@@ -1130,6 +1265,17 @@ function AskAI({ onBack }) {
 
       {/* 큰 채팅박스 컴포저 — 위 textarea / 아래 컨트롤 행(범위 칩·모델 선택·전송) */}
       <div style={{ flexShrink: 0, padding: '10px 12px', background: '#f8fafc' }}>
+        {pendingImage && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8,
+            background: '#fff', border: '1px solid #c7d2fe', borderRadius: 12, padding: '6px 10px' }}>
+            <img src={pendingImage.dataUrl} alt="첨부 예정 사진" style={{ height: 44, borderRadius: 8 }} />
+            <span style={{ flex: 1, fontSize: '0.74rem', color: '#4338ca', fontWeight: 700 }}>
+              📷 사진 첨부됨 — 전송하면 함께 질문해요
+            </span>
+            <button onClick={() => setPendingImage(null)} aria-label="사진 제거"
+              style={{ border: 'none', background: 'none', color: '#9ca3af', cursor: 'pointer', fontWeight: 700 }}>✕</button>
+          </div>
+        )}
         <div style={{ background: '#fff', border: '1.5px solid #a5b4fc', borderRadius: 18,
           boxShadow: '0 2px 12px rgba(79,70,229,0.08)', padding: '4px 6px 6px' }}>
           <textarea value={input} onChange={(e) => setInput(e.target.value)}
@@ -1142,6 +1288,16 @@ function AskAI({ onBack }) {
               padding: '10px 12px 2px', fontSize: '16px', fontFamily: 'inherit',
               lineHeight: 1.5, background: 'transparent', boxSizing: 'border-box' }} />
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '2px 6px 2px 8px' }}>
+            <input ref={fileRef} type="file" accept="image/*" style={{ display: 'none' }}
+              onChange={(e) => { attachImage(e.target.files?.[0]); e.target.value = ''; }} />
+            <button onClick={() => fileRef.current?.click()} aria-label="문제 사진 첨부"
+              title="문제 사진으로 질문"
+              style={{ flexShrink: 0, width: 32, height: 32, borderRadius: 999, cursor: 'pointer',
+                border: pendingImage ? '1.5px solid #4f46e5' : '1px solid #e5e7eb',
+                background: pendingImage ? '#eef2ff' : '#fff', fontSize: '0.95rem',
+                display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              📷
+            </button>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5,
               padding: '5px 11px', borderRadius: 999, background: '#eef2ff',
               color: '#4f46e5', fontSize: '0.76rem', fontWeight: 700,
@@ -2295,13 +2451,13 @@ const App = () => {
     // 기출/연습 소스 토글
     if (sourceFilter === 'official' && isPractice) return false;
     if (sourceFilter === 'practice' && !isPractice) return false;
+    // 연습문제는 기출 시험명(browseExam, taxScope.kind === 'exam') 필터를 받지 않고 단원 축에 항상 포함(소스 토글로만 제어).
+    if (isPractice) return true;
     if (taxScope) {
       if (taxScope.kind === 'exam') return item.exam === taxScope.value;
       if (taxScope.kind === 'year') return String(item.year) === String(taxScope.value);
       return true;
     }
-    // 연습문제는 기출 시험명(browseExam) 필터를 받지 않고 단원 축에 항상 포함(소스 토글로만 제어).
-    if (isPractice) return true;
     if (browseExam && item.exam !== browseExam) return false;
     return true;
   }, [taxScope, browseExam, sourceFilter]);
@@ -3763,7 +3919,17 @@ const App = () => {
   // write는 집중 모드(no shell), 나머지는 하단 nav 유지
   // ✨ 홈 AI 전체 검색 — 모르는 건 뭐든지
   if (currentView === 'askAI') {
-    return shell(<AskAI onBack={() => setCurrentView('home')} />);
+    return shell(<AskAI onBack={() => setCurrentView('home')}
+      classifiedList={classifiedList}
+      leaves={Object.values(leavesBySubject).flat()}
+      onSolveQuestions={(qs) => startReview(qs.map(qid), 'AI 질문 관련 기출', 'askAI')}
+      onLearnLeaf={(leaf) => {
+        const subjId = (leaf?.id || '').split('__')[0];
+        if (subjId) {
+          try { localStorage.setItem('ailearn-current', JSON.stringify({ subject: subjId, leaf_id: leaf.id })); } catch { /* noop */ }
+        }
+        setCurrentView('civil');
+      }} />);
   }
 
   if (currentView === 'essay_subjects' || currentView === 'essay_chapters'
