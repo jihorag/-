@@ -96,7 +96,7 @@ def llm_solve(q, model, think=False, timeout=300):
         'think': think,           # 재검 단계에서만 사고 모드 (정확도↑, 속도↓)
         'stream': False,
         # 사고 모드는 사고 토큰이 num_predict에 포함 — 부족하면 JSON이 비어 나옴
-        'options': {'temperature': 0.1, 'num_predict': 6000 if think else 250},
+        'options': {'temperature': 0.1, 'num_predict': 6000 if think else 450},
     }).encode('utf-8')
     req = urllib.request.Request(OLLAMA, data=body, headers={'Content-Type': 'application/json'})
     with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -104,7 +104,14 @@ def llm_solve(q, model, think=False, timeout=300):
     content = (data.get('message') or {}).get('content', '')
     content = re.sub(r'<think>[\s\S]*?</think>', '', content).strip()
     m = re.search(r'\{[\s\S]*\}', content)
-    parsed = json.loads(m.group(0) if m else content)
+    try:
+        parsed = json.loads(m.group(0) if m else content)
+    except json.JSONDecodeError:
+        ma = re.search(r'"my_answer"\s*:\s*(\d)', content)
+        cf = re.search(r'"confidence"\s*:\s*"(high|medium|low)"', content)
+        if not ma:
+            raise
+        parsed = {'my_answer': int(ma.group(1)), 'confidence': cf.group(1) if cf else 'low', 'reason': '(잘림 회수)'}
     return {
         'my_answer': int(parsed.get('my_answer', 0)),
         'confidence': str(parsed.get('confidence', 'low')),
@@ -141,7 +148,13 @@ def llm_explain_check(q, model, timeout=180):
         data = json.loads(r.read())
     content = re.sub(r'<think>[\s\S]*?</think>', '', (data.get('message') or {}).get('content', '')).strip()
     m = re.search(r'\{[\s\S]*\}', content)
-    parsed = json.loads(m.group(0) if m else content)
+    try:
+        parsed = json.loads(m.group(0) if m else content)
+    except json.JSONDecodeError:
+        ea = re.search(r'"explained_answer"\s*:\s*(\d)', content)
+        if not ea:
+            raise
+        parsed = {'explained_answer': int(ea.group(1)), 'reason': '(잘림 회수)'}
     return int(parsed.get('explained_answer', 0)), str(parsed.get('reason', ''))[:150]
 
 
@@ -265,7 +278,7 @@ def main():
                 prev[r['id']] = r
             except (json.JSONDecodeError, KeyError):
                 pass
-    done = set(prev)
+    done = {i for i, r in prev.items() if r.get('verdict') != 'error'}  # error는 재시도
 
     if args.verify_explanation:
         targets = {i for i, r in prev.items()
@@ -273,7 +286,7 @@ def main():
         todo = [q for q in db if q.get('id') in targets]
     elif args.recheck:
         # 불일치·의심 문항만 사고 모드로 재검
-        targets = {i for i, r in prev.items() if r.get('verdict') in ('answer_mismatch', 'answer_doubt') and not r.get('rechecked')}
+        targets = {i for i, r in prev.items() if r.get('verdict') in ('answer_mismatch', 'answer_doubt', 'key_error_candidate') and not r.get('rechecked')}
         todo = [q for q in db if q.get('id') in targets]
     else:
         todo = [q for q in db if q.get('id') not in done]
@@ -320,13 +333,26 @@ def main():
                     out.write(json.dumps(rec, ensure_ascii=False) + '\n')
                     out.flush()
                     continue
+                has_expl = len((q.get('explanation') or '').strip()) >= 30
                 try:
-                    ev = llm_solve(q, args.model, think=args.recheck)
-                    rec.update(ev)
-                    rec['recorded'] = recorded
-                    rec['verdict'] = answer_verdict(recorded, ev)
-                    if args.recheck:
-                        rec['rechecked'] = True
+                    if has_expl and not args.recheck:
+                        # 해설 있는 문항: 해설 대조가 1차 — 독해 과제라 위양성 거의 없음.
+                        # 해설 지지 번호 != 기록 정답 → key_error_candidate (2단 독립풀이 대상)
+                        ea, why = llm_explain_check(q, args.model)
+                        rec.update({'recorded': recorded, 'explained_answer': ea, 'explain_reason': why})
+                        if ea == recorded and ea != 0:
+                            rec['verdict'] = 'ok'
+                        elif ea != 0:
+                            rec['verdict'] = 'key_error_candidate'
+                        else:
+                            rec['verdict'] = 'answer_doubt'
+                    else:
+                        ev = llm_solve(q, args.model, think=args.recheck)
+                        rec.update(ev)
+                        rec['recorded'] = recorded
+                        rec['verdict'] = answer_verdict(recorded, ev)
+                        if args.recheck:
+                            rec['rechecked'] = True
                 except Exception as e:  # noqa: BLE001
                     if args.recheck:
                         print(f'  재검 실패(보류): {q.get("id")} — {str(e)[:80]}', flush=True)
@@ -380,10 +406,10 @@ def main():
     for r in recs:
         by[r['verdict']] = by.get(r['verdict'], 0) + 1
     print(f'\n=== {db_path.name} 감사 현황 (누적 {len(recs)}) ===')
-    for k in ('keep', 'review', 'drop', 'ok', 'key_error_likely', 'answer_mismatch', 'answer_doubt', 'image_skip', 'no_answer', 'error', 'rules_pass'):
+    for k in ('keep', 'review', 'drop', 'ok', 'key_error_likely', 'key_error_candidate', 'answer_mismatch', 'answer_doubt', 'image_skip', 'no_answer', 'error', 'rules_pass'):
         if by.get(k):
             print(f'  {k:16s} {by[k]}')
-    mis = [r for r in recs if r.get('verdict') in ('key_error_likely', 'answer_mismatch')][:8]
+    mis = [r for r in recs if r.get('verdict') in ('key_error_likely', 'key_error_candidate', 'answer_mismatch')][:8]
     if mis:
         print('\n  ⚠️ 정답 불일치 의심 (기록 vs LLM):')
         for r in mis:
