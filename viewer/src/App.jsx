@@ -4651,7 +4651,7 @@ const App = () => {
                       style={{ flex: 1, padding: '11px', borderRadius: '10px', border: '1px solid #a7f3d0', background: '#fff', color: '#047857', fontWeight: 700, fontSize: '0.84rem', cursor: 'pointer' }}>
                       ☁⬇ 복원
                     </button>
-                    <button onClick={async () => { await cloudPush(true); await supabase.auth.signOut(); setCloudMsg('로그아웃되었어요. (학습기록은 클라우드에 백업됨)'); }}
+                    <button onClick={async () => { await cloudPush(true); syncedUidRef.current = null; await supabase.auth.signOut(); setCloudMsg('로그아웃되었어요. (학습기록은 클라우드에 백업됨)'); }}
                       style={{ flexShrink: 0, padding: '11px 14px', borderRadius: '10px', border: '1px solid #d1d5db', background: '#fff', color: '#6b7280', fontWeight: 700, fontSize: '0.84rem', cursor: 'pointer' }}>
                       로그아웃
                     </button>
