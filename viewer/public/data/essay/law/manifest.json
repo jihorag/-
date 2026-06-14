@@ -21,10 +21,37 @@
    "subchapters": [
     {
      "id": "1-1",
-     "title": "행정법 개관·일반원칙·행정법관계",
+     "title": "행정법 의의·법원",
+     "aiTopicId": "01-1",
+     "keywords": []
+    },
+    {
+     "id": "1-2",
+     "title": "행정법 일반원칙 — 비례·신뢰보호",
+     "aiTopicId": "01-2",
+     "keywords": []
+    },
+    {
+     "id": "1-3",
+     "title": "행정법관계 — 공권·공의무",
+     "aiTopicId": "01-3",
+     "keywords": []
+    },
+    {
+     "id": "1-4",
+     "title": "특별권력관계",
+     "aiTopicId": "01-4",
+     "keywords": []
+    },
+    {
+     "id": "1-5",
+     "title": "행정법관계의 변동",
+     "aiTopicId": "01-5",
      "keywords": []
     }
-   ]
+   ],
+   "aiUnit": true,
+   "aiCode": "01"
   },
   {
    "id": "2",
@@ -50,10 +77,43 @@
    "subchapters": [
     {
      "id": "2-1",
-     "title": "행정입법·행정행위",
+     "title": "행정입법 — 법규명령·행정규칙",
+     "aiTopicId": "02-1",
+     "keywords": []
+    },
+    {
+     "id": "2-2",
+     "title": "행정행위 — 의의·성립요건",
+     "aiTopicId": "02-2",
+     "keywords": []
+    },
+    {
+     "id": "2-3",
+     "title": "행정행위 — 분류·재량·기속",
+     "aiTopicId": "02-3",
+     "keywords": []
+    },
+    {
+     "id": "2-4",
+     "title": "행정행위 — 부관(조건·기한·부담)",
+     "aiTopicId": "02-4",
+     "keywords": []
+    },
+    {
+     "id": "2-5",
+     "title": "행정행위 — 하자·취소·철회",
+     "aiTopicId": "02-5",
+     "keywords": []
+    },
+    {
+     "id": "2-6",
+     "title": "확약·공법상 사실행위",
+     "aiTopicId": "02-6",
      "keywords": []
     }
-   ]
+   ],
+   "aiUnit": true,
+   "aiCode": "02"
   },
   {
    "id": "3",
@@ -67,10 +127,31 @@
    "subchapters": [
     {
      "id": "3-1",
-     "title": "행정계획·인허가의제·공법상계약",
+     "title": "행정계획 — 의의·법적 성질",
+     "aiTopicId": "03-1",
+     "keywords": []
+    },
+    {
+     "id": "3-2",
+     "title": "계획재량·형량명령",
+     "aiTopicId": "03-2",
+     "keywords": []
+    },
+    {
+     "id": "3-3",
+     "title": "인허가의제 — 의의·요건",
+     "aiTopicId": "03-3",
+     "keywords": []
+    },
+    {
+     "id": "3-4",
+     "title": "공법상 계약",
+     "aiTopicId": "03-4",
      "keywords": []
     }
-   ]
+   ],
+   "aiUnit": true,
+   "aiCode": "03"
   },
   {
    "id": "4",
@@ -91,14 +172,41 @@
    "subchapters": [
     {
      "id": "4-1",
-     "title": "행정절차·실효성확보수단",
+     "title": "행정절차 — 의견청취·이유제시",
+     "aiTopicId": "04-1",
+     "keywords": []
+    },
+    {
+     "id": "4-2",
+     "title": "청문·공청회·의견제출",
+     "aiTopicId": "04-2",
+     "keywords": []
+    },
+    {
+     "id": "4-3",
+     "title": "실효성확보수단 — 강제집행",
+     "aiTopicId": "04-3",
+     "keywords": []
+    },
+    {
+     "id": "4-4",
+     "title": "직접강제·이행강제금·과징금",
+     "aiTopicId": "04-4",
+     "keywords": []
+    },
+    {
+     "id": "4-5",
+     "title": "행정조사",
+     "aiTopicId": "04-5",
      "keywords": []
     }
-   ]
+   ],
+   "aiUnit": true,
+   "aiCode": "04"
   },
   {
    "id": "5",
-   "title": "행정쟁송(심판·취소소송)",
+   "title": "행정쟁송 (심판·취소소송·기타)",
    "file": "5.json",
    "count": 21,
    "withAnswer": 0,
@@ -127,10 +235,49 @@
    "subchapters": [
     {
      "id": "5-1",
-     "title": "행정쟁송(심판·취소소송)",
+     "title": "행정심판 — 의의·종류",
+     "aiTopicId": "05-1",
+     "keywords": []
+    },
+    {
+     "id": "5-2",
+     "title": "취소소송 — 원고적격·대상적격 ★",
+     "aiTopicId": "05-2",
+     "keywords": []
+    },
+    {
+     "id": "5-3",
+     "title": "취소소송 — 협의의 소익",
+     "aiTopicId": "05-3",
+     "keywords": []
+    },
+    {
+     "id": "5-4",
+     "title": "취소소송 — 제소기간·관할",
+     "aiTopicId": "05-4",
+     "keywords": []
+    },
+    {
+     "id": "5-5",
+     "title": "취소소송 — 본안판단",
+     "aiTopicId": "05-5",
+     "keywords": []
+    },
+    {
+     "id": "5-6",
+     "title": "무효등확인소송·부작위위법확인",
+     "aiTopicId": "05-6",
+     "keywords": []
+    },
+    {
+     "id": "5-7",
+     "title": "당사자소송·기관소송",
+     "aiTopicId": "05-7",
      "keywords": []
     }
-   ]
+   ],
+   "aiUnit": true,
+   "aiCode": "05"
   },
   {
    "id": "6",
@@ -147,14 +294,35 @@
    "subchapters": [
     {
      "id": "6-1",
-     "title": "행정상 손해전보",
+     "title": "국가배상 — 공무원·공공시설",
+     "aiTopicId": "06-1",
+     "keywords": []
+    },
+    {
+     "id": "6-2",
+     "title": "국가배상 — 요건·법리",
+     "aiTopicId": "06-2",
+     "keywords": []
+    },
+    {
+     "id": "6-3",
+     "title": "손해배상 vs 손실보상",
+     "aiTopicId": "06-3",
+     "keywords": []
+    },
+    {
+     "id": "6-4",
+     "title": "결과제거청구",
+     "aiTopicId": "06-4",
      "keywords": []
     }
-   ]
+   ],
+   "aiUnit": true,
+   "aiCode": "06"
   },
   {
    "id": "7",
-   "title": "공용수용(사업인정·재결)",
+   "title": "공용수용 (사업인정·재결·약식)",
    "file": "7.json",
    "count": 21,
    "withAnswer": 0,
@@ -183,14 +351,53 @@
    "subchapters": [
     {
      "id": "7-1",
-     "title": "공용수용(사업인정·재결)",
+     "title": "공용수용 — 의의·요건 ★★",
+     "aiTopicId": "07-1",
+     "keywords": []
+    },
+    {
+     "id": "7-2",
+     "title": "사업인정 — 의의·효과 (2011두1051)",
+     "aiTopicId": "07-2",
+     "keywords": []
+    },
+    {
+     "id": "7-3",
+     "title": "사업인정 — 절차·고시·실효",
+     "aiTopicId": "07-3",
+     "keywords": []
+    },
+    {
+     "id": "7-4",
+     "title": "재결 — 의의·신청·절차",
+     "aiTopicId": "07-4",
+     "keywords": []
+    },
+    {
+     "id": "7-5",
+     "title": "재결신청청구 (2011두2309)",
+     "aiTopicId": "07-5",
+     "keywords": []
+    },
+    {
+     "id": "7-6",
+     "title": "협의성립확인 (2018두57865)",
+     "aiTopicId": "07-6",
+     "keywords": []
+    },
+    {
+     "id": "7-7",
+     "title": "약식절차 — 천재지변·시급",
+     "aiTopicId": "07-7",
      "keywords": []
     }
-   ]
+   ],
+   "aiUnit": true,
+   "aiCode": "07"
   },
   {
    "id": "8",
-   "title": "손실보상(보상기준·환매·생활보상)",
+   "title": "손실보상 (보상기준·환매·생활보상)",
    "file": "8.json",
    "count": 36,
    "withAnswer": 0,
@@ -224,10 +431,55 @@
    "subchapters": [
     {
      "id": "8-1",
-     "title": "손실보상(보상기준·환매·생활보상)",
+     "title": "손실보상 — 의의·법적 근거 ★★★",
+     "aiTopicId": "08-1",
+     "keywords": []
+    },
+    {
+     "id": "8-2",
+     "title": "보상기준 — 정당보상·공시지가",
+     "aiTopicId": "08-2",
+     "keywords": []
+    },
+    {
+     "id": "8-3",
+     "title": "잔여지 수용 (2008두822, 2014두46669)",
+     "aiTopicId": "08-3",
+     "keywords": []
+    },
+    {
+     "id": "8-4",
+     "title": "환매권 — 요건·행사",
+     "aiTopicId": "08-4",
+     "keywords": []
+    },
+    {
+     "id": "8-5",
+     "title": "이주대책 (92다35783 전합)",
+     "aiTopicId": "08-5",
+     "keywords": []
+    },
+    {
+     "id": "8-6",
+     "title": "주거이전비 (2011두3685)",
+     "aiTopicId": "08-6",
+     "keywords": []
+    },
+    {
+     "id": "8-7",
+     "title": "생활보상 — 의의·범위",
+     "aiTopicId": "08-7",
+     "keywords": []
+    },
+    {
+     "id": "8-8",
+     "title": "영업손실보상",
+     "aiTopicId": "08-8",
      "keywords": []
     }
-   ]
+   ],
+   "aiUnit": true,
+   "aiCode": "08"
   },
   {
    "id": "9",
@@ -255,10 +507,37 @@
    "subchapters": [
     {
      "id": "9-1",
-     "title": "부동산 가격공시법",
+     "title": "부동산 가격공시 — 의의·체계",
+     "aiTopicId": "09-1",
+     "keywords": []
+    },
+    {
+     "id": "9-2",
+     "title": "표준지 공시지가 — 결정·이의",
+     "aiTopicId": "09-2",
+     "keywords": []
+    },
+    {
+     "id": "9-3",
+     "title": "개별공시지가 — 산정·정정",
+     "aiTopicId": "09-3",
+     "keywords": []
+    },
+    {
+     "id": "9-4",
+     "title": "표준주택·개별주택 공시",
+     "aiTopicId": "09-4",
+     "keywords": []
+    },
+    {
+     "id": "9-5",
+     "title": "비주거용 부동산공시",
+     "aiTopicId": "09-5",
      "keywords": []
     }
-   ]
+   ],
+   "aiUnit": true,
+   "aiCode": "09"
   },
   {
    "id": "10",
@@ -287,10 +566,37 @@
    "subchapters": [
     {
      "id": "10-1",
-     "title": "감정평가법·도정법",
+     "title": "감정평가법 — 평가사 의무·책임",
+     "aiTopicId": "10-1",
+     "keywords": []
+    },
+    {
+     "id": "10-2",
+     "title": "평가사 — 자격·등록·징계",
+     "aiTopicId": "10-2",
+     "keywords": []
+    },
+    {
+     "id": "10-3",
+     "title": "감정평가법인",
+     "aiTopicId": "10-3",
+     "keywords": []
+    },
+    {
+     "id": "10-4",
+     "title": "도시정비법 — 정비사업 개관",
+     "aiTopicId": "10-4",
+     "keywords": []
+    },
+    {
+     "id": "10-5",
+     "title": "재개발·재건축 — 분양·관리처분",
+     "aiTopicId": "10-5",
      "keywords": []
     }
-   ]
+   ],
+   "aiUnit": true,
+   "aiCode": "10"
   }
  ]
 }

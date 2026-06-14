@@ -532,7 +532,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                   boxShadow: 'var(--shadow-sm)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                   <div style={{ fontWeight: 800, fontSize: '1rem', color: '#111827' }}>
-                    단원 {c.id} · {c.title}
+                    단원 {c.aiCode || c.id} · {c.title}
                   </div>
                   <div style={{ fontSize: '0.75rem', color: '#2563eb', fontWeight: 700 }}>{pct}%</div>
                 </div>
@@ -636,7 +636,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     const recommendations = recommendNext(cd.questions, progress);
 
     return shell(<>
-      {header(`단원 ${chapter}`, '단원 목록', 'essay_chapters')}
+      {header(`단원 ${meta?.aiCode || chapter}`, '단원 목록', 'essay_chapters')}
       <div className="screen-head"><h1 className="screen-title">{meta?.title || chapter}</h1>
         <p style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
           기출 {counts.official}문항{counts.gs > 0 && <> · 📗 GS {counts.gs}문항</>}{cd.generatedCount > 0 && <> · 🤖 AI/큐레이션 {cd.generatedCount}문항</>}
