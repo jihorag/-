@@ -356,6 +356,45 @@ const mergeStateData = (remoteData) => {
       }
       m.sort((a, b) => (a.ts || 0) - (b.ts || 0));
       setIf(k, m.slice(-100));
+    } else if (k === 'ailearn-mastery') {
+      // AI 학습 진척: 단원(code)별 last_studied(ISO) 최신 우선 + 누적값은 max로 보존
+      const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = { ...r };
+      for (const [code, e] of Object.entries(l)) {
+        const re = m[code];
+        if (!re) { m[code] = e; continue; }
+        const base = (e?.last_studied || '') >= (re?.last_studied || '') ? e : re;
+        m[code] = { ...base,
+          coverage: Math.max(e?.coverage || 0, re?.coverage || 0),
+          answer_count: Math.max(e?.answer_count || 0, re?.answer_count || 0) };
+      }
+      setIf(k, m);
+    } else if (k === 'ailearn-sessions') {
+      // AI 학습 세션 배열: id(또는 시작시각+단원) 기준 합집합
+      const l = parseJ(lv, []); const r = parseJ(rv, []);
+      const seen = new Set(); const m = [];
+      for (const s of [...(Array.isArray(r) ? r : []), ...(Array.isArray(l) ? l : [])]) {
+        const key = s?.id || `${s?.started_at || s?.ts}-${s?.leaf_id || ''}`;
+        if (s && !seen.has(key)) { seen.add(key); m.push(s); }
+      }
+      setIf(k, m.slice(-200));
+    } else if (k === 'ailearn-usage') {
+      // 일별 사용량: 날짜별 필드 max (양쪽 합산은 중복 집계 위험 → 보수적 max)
+      const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = { ...r };
+      for (const [day, lu] of Object.entries(l)) {
+        const ru = m[day];
+        if (!ru) { m[day] = lu; continue; }
+        const merged = {};
+        for (const f of new Set([...Object.keys(lu || {}), ...Object.keys(ru || {})])) {
+          merged[f] = (typeof lu?.[f] === 'number' || typeof ru?.[f] === 'number')
+            ? Math.max(lu?.[f] || 0, ru?.[f] || 0) : (lu?.[f] ?? ru?.[f]);
+        }
+        m[day] = merged;
+      }
+      setIf(k, m);
+    } else if (k.startsWith('ailearn-room:') || k.startsWith('ailearn-answers:')) {
+      // 채팅방·답안 로그(append-only): 항목 수가 많은 쪽 채택 (양 기기 동시 분기는 드묾)
+      const l = parseJ(lv, []); const r = parseJ(rv, []);
+      if (Array.isArray(l) && Array.isArray(r)) setIf(k, r.length > l.length ? r : l);
     }
     // 그 외 키(설정·프로필 등): 로컬 우선 — 이 기기의 환경설정을 원격이 덮지 않음
   }
@@ -791,7 +830,7 @@ function buildCoverage(list, progress) {
     .sort((a, b) => b.total - a.total);
   return {
     total: list.length, unseen, learned, review, mastered,
-    pct: (n) => Math.round((n / total) * 100),
+    pct: (n) => (total ? Math.round((n / total) * 100) : 0),
     exams,
   };
 }
