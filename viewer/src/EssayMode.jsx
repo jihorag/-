@@ -519,34 +519,34 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         </button>
       </div>
       <main className="main-content" style={{ marginTop: 16 }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        {/* 1차 문제풀이와 동일한 browse-list 드릴다운 UI */}
+        <div className="browse-list">
           {manifest.chapters.filter(c => c.id !== 'cleanup' && ((c.count || 0) > 0 || c.aiUnit)).map(c => {
             const cd = chapterCache[c.id];
             const done = cd ? cd.questions.filter(q => progress[q.id]?.attempts?.length).length : 0;
             const pct = c.count ? Math.round((done / c.count) * 100) : 0;
+            const subMeta = [
+              c.count > 0 && c.withAnswer > 0 ? `답안 ${Math.min(c.withAnswer, c.count)}/${c.count}` : '',
+              c.sessionCount ? `모의 ${c.sessionCount}회분` : '',
+              c.rounds?.length ? (c.rounds.length > 8
+                ? `${c.rounds.length}개 회차 (${c.rounds[0]}~${c.rounds[c.rounds.length - 1]}회)`
+                : `회차 ${c.rounds.join(', ')}회`) : '',
+            ].filter(Boolean).join(' · ');
             return (
-              <button key={c.id}
-                onClick={() => { setChapter(c.id); setQuestionId(null); ensureChapter(c.id); onNavigate('essay_questions'); }}
-                style={{ background: '#fff', borderRadius: 12, padding: 16,
-                  border: '1px solid #e5e7eb', textAlign: 'left', cursor: 'pointer',
-                  boxShadow: 'var(--shadow-sm)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                  <div style={{ fontWeight: 800, fontSize: '1rem', color: '#111827' }}>
-                    단원 {c.aiCode || c.id} · {c.title}
+              <button key={c.id} className="browse-row"
+                onClick={() => { setChapter(c.id); setQuestionId(null); ensureChapter(c.id); onNavigate('essay_questions'); }}>
+                <div className="browse-row__main">
+                  <div className="browse-row__title">
+                    <span className="browse-row__prefix">단원 {c.aiCode || c.id}</span>
+                    {c.title}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: '#2563eb', fontWeight: 700 }}>{pct}%</div>
+                  {done > 0 && <div className="browse-row__bar"><div style={{ width: `${Math.max(2, pct)}%` }} /></div>}
+                  {subMeta && <div style={{ fontSize: '0.72rem', color: '#9ca3af', marginTop: 5 }}>{subMeta}</div>}
                 </div>
-                <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 6 }}>
-                  {c.count > 0 ? `${c.count}문항` : '준비 중'}
-                  {c.count > 0 && c.withAnswer > 0 ? ` · 답안 ${Math.min(c.withAnswer, c.count)}/${c.count}` : ''}
-                  {c.sessionCount ? ` · 모의 ${c.sessionCount}회분` : ''}
-                  {c.rounds?.length ? (c.rounds.length > 8
-                    ? ` · ${c.rounds.length}개 회차 (${c.rounds[0]}~${c.rounds[c.rounds.length - 1]}회)`
-                    : ` · 회차 ${c.rounds.join(', ')}회`) : ''}
-                </div>
-                <div style={{ height: 4, background: '#f3f4f6', borderRadius: 2,
-                  marginTop: 8, overflow: 'hidden' }}>
-                  <div style={{ width: `${pct}%`, height: '100%', background: '#2563eb' }} />
+                <div className="browse-row__meta">
+                  {done > 0 && <span className="browse-row__pct">{pct}%</span>}
+                  <span className="browse-row__count">{c.count > 0 ? `${c.count}문항` : '준비 중'}</span>
+                  <span className="browse-row__chev">›</span>
                 </div>
               </button>
             );
