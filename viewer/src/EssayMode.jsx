@@ -651,13 +651,15 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     const isPractice = (q) => q.source === 'practice-set';
     const isAIVary = (q) => q.source === 'ai-generated' && q.genMode === 'vary';
     const isAINew = (q) => q.source === 'ai-generated' && q.genMode === 'new';
+    // 소스 칩 카운트도 소단원 진입 시 그 소단원 기준 (전체 풀기면 단원 전체)
+    const countBase = subchapterFilter ? cd.questions.filter(q => q.subchapter === subchapterFilter) : cd.questions;
     const counts = {
-      all: cd.questions.length,
-      official: cd.questions.filter(isOfficial).length,
-      gs: cd.questions.filter(isGS).length,
-      'practice-set': cd.questions.filter(isPractice).length,
-      'ai-vary': cd.questions.filter(isAIVary).length,
-      'ai-new': cd.questions.filter(isAINew).length,
+      all: countBase.length,
+      official: countBase.filter(isOfficial).length,
+      gs: countBase.filter(isGS).length,
+      'practice-set': countBase.filter(isPractice).length,
+      'ai-vary': countBase.filter(isAIVary).length,
+      'ai-new': countBase.filter(isAINew).length,
     };
     const filterChips = [
       { id: 'all',          label: '전체',          count: counts.all },
@@ -715,25 +717,28 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         hasSubs && subchapterFilter ? subchapterList.find(s => s.id === subchapterFilter)?.title || meta?.title : `단원 ${meta?.aiCode || chapter}`,
         hasSubs ? '소단원' : '단원 목록',
         hasSubs ? 'essay_subchapters' : 'essay_chapters')}
-      <div className="screen-head"><h1 className="screen-title">{meta?.title || chapter} ({cd.questions.length}문항)</h1>
-        {/* 진행바 — 1차 question_list와 동일 구조 */}
-        {(() => {
-          const totalQ = cd.questions.length;
-          const pct = totalQ ? Math.round((stats.attempted / totalQ) * 100) : 0;
-          return (
-            <>
-              <div style={{ height: 6, background: '#eef2f7', borderRadius: 999, overflow: 'hidden', margin: '10px 0 8px' }}>
-                <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#2563eb', borderRadius: 999 }} />
-              </div>
-              <p style={{ fontSize: '0.85rem', color: '#6b7280', margin: 0 }}>
-                푼 문제 <b style={{ color: '#1d4ed8' }}>{stats.attempted}/{totalQ}</b>
-                {stats.attempted > 0 && <> · 평균 <b style={{ color: '#16a34a' }}>{stats.avgScore}점</b></>}
-                {stats.avgKeyword != null && <> · 키워드 <b style={{ color: '#7c3aed' }}>{stats.avgKeyword}%</b></>}
-              </p>
-            </>
-          );
-        })()}
-      </div>
+      {(() => {
+        // 소단원 진입 시 제목·문항수·진행을 그 소단원 기준으로 (전체 풀기면 단원 기준)
+        const scTitle = subchapterFilter ? subchapterList.find(s => s.id === subchapterFilter)?.title : null;
+        const scope = subchapterFilter ? cd.questions.filter(q => q.subchapter === subchapterFilter) : cd.questions;
+        const totalQ = scope.length;
+        const doneQ = scope.filter(q => progress[q.id]?.attempts?.length).length;
+        const pct = totalQ ? Math.round((doneQ / totalQ) * 100) : 0;
+        return (
+          <div className="screen-head">
+            <h1 className="screen-title">{scTitle || meta?.title || chapter} ({totalQ}문항)</h1>
+            {scTitle && <p style={{ fontSize: '0.78rem', color: '#9ca3af', margin: '2px 0 0' }}>{meta?.title}</p>}
+            <div style={{ height: 6, background: '#eef2f7', borderRadius: 999, overflow: 'hidden', margin: '10px 0 8px' }}>
+              <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#2563eb', borderRadius: 999 }} />
+            </div>
+            <p style={{ fontSize: '0.85rem', color: '#6b7280', margin: 0 }}>
+              푼 문제 <b style={{ color: '#1d4ed8' }}>{doneQ}/{totalQ}</b>
+              {!subchapterFilter && stats.attempted > 0 && <> · 평균 <b style={{ color: '#16a34a' }}>{stats.avgScore}점</b></>}
+              {!subchapterFilter && stats.avgKeyword != null && <> · 키워드 <b style={{ color: '#7c3aed' }}>{stats.avgKeyword}%</b></>}
+            </p>
+          </div>
+        );
+      })()}
       <main className="main-content" style={{ marginTop: 16 }}>
         {/* 추천 학습 카드 — 단원 전체 풀기일 때만 (소단원 드릴 진입 시엔 중복이라 숨김) */}
         {recommendations.length > 0 && subchapterFilter === null && (
@@ -834,8 +839,9 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             })}
           </div>
         )}
-        {/* subchapter 필터 chip — 단원 세분화 */}
-        {subchapterList.length > 1 && (
+        {/* subchapter 필터 chip — '전체 풀기'로 들어왔을 때만. 소단원 드릴 진입 시엔
+            이미 그 소단원이므로 칩 숨김(중복·'전체'처럼 보임 방지) — 다른 소단원은 뒤로가서 선택 */}
+        {subchapterList.length > 1 && subchapterFilter === null && (
           <div style={{ display: 'flex', gap: 6, marginBottom: 14, overflowX: 'auto',
             WebkitOverflowScrolling: 'touch' }}>
             <button onClick={() => setSubchapterFilter(null)}
