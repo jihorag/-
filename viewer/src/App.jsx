@@ -87,7 +87,7 @@ const exportUserData = () => {
   a.click();
   URL.revokeObjectURL(url);
 };
-const SYNC_PREFIXES = ['quiz-', 'mem-', 'ailearn-'];
+const SYNC_PREFIXES = ['quiz-', 'mem-', 'ailearn-', 'drill-'];
 const isSyncKey = (k) => k && k !== 'ailearn-byok' && SYNC_PREFIXES.some((p) => k.startsWith(p));
 const importUserData = (text) => {
   const parsed = JSON.parse(text);
@@ -403,6 +403,23 @@ const mergeStateData = (remoteData) => {
       // 채팅방·답안 로그(append-only): 항목 수가 많은 쪽 채택 (양 기기 동시 분기는 드묾)
       const l = parseJ(lv, []); const r = parseJ(rv, []);
       if (Array.isArray(l) && Array.isArray(r)) setIf(k, r.length > l.length ? r : l);
+    } else if (k === 'drill-topics-custom-v1') {
+      // 드릴 수동 주제: leafId별 id 합집합 (양 기기에서 추가한 주제 보존)
+      const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = {};
+      for (const lid of new Set([...Object.keys(l), ...Object.keys(r)])) {
+        const seen = new Map();
+        for (const t of [...(r[lid] || []), ...(l[lid] || [])]) if (t && t.id && !seen.has(t.id)) seen.set(t.id, t);
+        m[lid] = [...seen.values()];
+      }
+      setIf(k, m);
+    } else if (k === 'drill-progress-v1') {
+      // 드릴 진행도: topicId별 ts 최신 우선
+      const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = { ...r };
+      for (const [id, e] of Object.entries(l)) {
+        const re = m[id];
+        if (!re || (e?.ts || 0) >= (re?.ts || 0)) m[id] = e;
+      }
+      setIf(k, m);
     }
     // 그 외 키(설정·프로필 등): 로컬 우선 — 이 기기의 환경설정을 원격이 덮지 않음
   }
@@ -3390,7 +3407,7 @@ const App = () => {
   const NAV_ITEMS = [
     ['home', House, '홈'],
     ['ai', Sparkles, 'AI 학습'],
-    ['quiz', Zap, '퀴즈'],
+    ['quiz', Zap, '드릴'],
     ['browse', Compass, '문제풀이'],
     ['planner', Calendar, '플래너'],
   ];
