@@ -637,18 +637,24 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
 
     return shell(<>
       {header(`단원 ${meta?.aiCode || chapter}`, '단원 목록', 'essay_chapters')}
-      <div className="screen-head"><h1 className="screen-title">{meta?.title || chapter}</h1>
-        <p style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
-          기출 {counts.official}문항{counts.gs > 0 && <> · 📗 GS {counts.gs}문항</>}{cd.generatedCount > 0 && <> · 🤖 AI/큐레이션 {cd.generatedCount}문항</>}
-          {stats.attempted > 0 && (
-            <> · 풀이 <b style={{ color: '#1d4ed8' }}>{stats.attempted}</b>
-              · 평균 <b style={{ color: '#16a34a' }}>{stats.avgScore}점</b>
-              {stats.avgKeyword != null && (
-                <> · 키워드 적중 <b style={{ color: '#7c3aed' }}>{stats.avgKeyword}%</b></>
-              )}
+      <div className="screen-head"><h1 className="screen-title">{meta?.title || chapter} ({cd.questions.length}문항)</h1>
+        {/* 진행바 — 1차 question_list와 동일 구조 */}
+        {(() => {
+          const totalQ = cd.questions.length;
+          const pct = totalQ ? Math.round((stats.attempted / totalQ) * 100) : 0;
+          return (
+            <>
+              <div style={{ height: 6, background: '#eef2f7', borderRadius: 999, overflow: 'hidden', margin: '10px 0 8px' }}>
+                <div style={{ width: `${Math.max(2, pct)}%`, height: '100%', background: '#2563eb', borderRadius: 999 }} />
+              </div>
+              <p style={{ fontSize: '0.85rem', color: '#6b7280', margin: 0 }}>
+                푼 문제 <b style={{ color: '#1d4ed8' }}>{stats.attempted}/{totalQ}</b>
+                {stats.attempted > 0 && <> · 평균 <b style={{ color: '#16a34a' }}>{stats.avgScore}점</b></>}
+                {stats.avgKeyword != null && <> · 키워드 <b style={{ color: '#7c3aed' }}>{stats.avgKeyword}%</b></>}
+              </p>
             </>
-          )}
-        </p>
+          );
+        })()}
       </div>
       <main className="main-content" style={{ marginTop: 16 }}>
         {/* 추천 학습 카드 — 약점 sub-concept 우선 미풀이 */}
@@ -789,101 +795,71 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             const isAI = q.source === 'ai-generated';
             const isPracticeSet = q.source === 'practice-set';
             const practiceMeta = isPracticeSet ? practiceOrder[q.id] : null;
-            // 카드 색상: 실문제(흰), 연습문제(연한 라임), AI(연한 보라)
-            const cardBorder = isAI ? '1px solid #ddd6fe'
-              : isPracticeSet ? '1px solid #d9f99d'
-              : '1px solid #e5e7eb';
-            const cardBg = isAI ? '#fafaff'
-              : isPracticeSet ? '#fefce8'
-              : '#fff';
+            // 1차 문항 카드와 동일하게 흰 카드 통일 — 출처 구분은 상단 배지로
+            const cardBorder = '1px solid #eef0f2';
+            const cardBg = '#fff';
+            // 출처 배지 — 1차 카드 헤더의 출처 표기와 동일 톤
+            const src = isAI
+              ? { label: `🤖 AI ${q.genMode === 'new' ? '신규' : '변형'}`, fg: '#7c3aed', bg: '#f3f0ff' }
+              : isPracticeSet
+                ? { label: practiceMeta ? `📝 연습 ${practiceMeta.no}` : '📝 연습', fg: '#65a30d', bg: '#f7fee7' }
+                : q.gsRound
+                  ? { label: `GS ${q.gsRound} ${q.questionNum}번`, fg: '#0891b2', bg: '#ecfeff' }
+                  : { label: `${q.round}회 ${q.questionNum}번`, fg: '#1d4ed8', bg: '#eff6ff' };
             return (
               <button key={q.id}
                 onClick={() => { setQuestionId(q.id); onNavigate('essay_write'); }}
-                style={{ background: cardBg, borderRadius: 10, padding: '14px 16px',
-                  border: cardBorder,
-                  textAlign: 'left', cursor: 'pointer',
-                  display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-                <div style={{ minWidth: 92, maxWidth: 92, fontSize: '0.78rem',
-                  color: '#9ca3af', fontWeight: 700, lineHeight: 1.3 }}>
-                  {isAI ? (
-                    <>🤖<br /><span style={{ color: '#7c3aed', fontSize: '0.72rem' }}>
-                      {q.genMode === 'new' ? '신규' : '변형'}
-                    </span></>
-                  ) : isPracticeSet && practiceMeta ? (
-                    <>
-                      <span style={{ color: '#65a30d', fontSize: '0.7rem', fontWeight: 700,
-                        display: 'block', overflow: 'hidden', textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap' }} title={practiceMeta.title}>
-                        {practiceMeta.title}
-                      </span>
-                      <span style={{ color: '#374151', fontSize: '0.74rem', fontWeight: 600 }}>
-                        연습문제 {practiceMeta.no}
-                      </span>
-                    </>
-                  ) : isPracticeSet ? (
-                    <><span style={{ color: '#65a30d', fontSize: '0.7rem' }}>📝 연습</span><br />
-                      <span style={{ color: '#374151', fontSize: '0.74rem' }}>{q.id}</span></>
-                  ) : q.gsRound ? (
-                    <><span style={{ color: '#0891b2', fontSize: '0.7rem' }}>GS</span><br /><span style={{ color: '#374151', fontSize: '0.78rem' }}>{q.gsRound}</span><br /><span style={{ color: '#9ca3af', fontSize: '0.72rem' }}>{q.questionNum}번</span></>
-                  ) : (
-                    <>{q.round}회<br /><span style={{ color: '#374151', fontSize: '0.85rem' }}>{q.questionNum}번</span></>
-                  )}
-                </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  {q.topic && !isPracticeSet && (
-                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#111827',
-                      lineHeight: 1.45, marginBottom: 3,
-                      display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
-                      overflow: 'hidden' }}>
-                      {q.topic}
-                    </div>
-                  )}
-                  <div style={{ fontSize: q.topic && !isPracticeSet ? '0.78rem' : '0.88rem',
-                    color: q.topic && !isPracticeSet ? '#9ca3af' : '#374151', lineHeight: 1.5,
-                    display: '-webkit-box', WebkitLineClamp: q.topic && !isPracticeSet ? 1 : 2,
-                    WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                    {q.body.slice(0, 200).replace(/\n/g, ' ')}
-                  </div>
-                  <div style={{ marginTop: 6, display: 'flex', gap: 8, flexWrap: 'wrap',
-                    fontSize: '0.72rem', alignItems: 'center' }}>
-                    {q.points && (
-                      <span style={{ color: '#1d4ed8', fontWeight: 700 }}>{q.points}점</span>
-                    )}
+                style={{ background: cardBg, borderRadius: 12, padding: '18px 20px',
+                  border: cardBorder, textAlign: 'left', cursor: 'pointer',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.05)', display: 'block', width: '100%' }}>
+                {/* 상단: Q + 출처·난이도 배지 (좌) · 배점 (우) — 1차 문항 카드와 동일 구조 */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                  gap: 8, marginBottom: 12, flexWrap: 'wrap' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                    <span style={{ fontWeight: 700, fontSize: '1.05rem', color: '#2563eb' }}>Q.</span>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '2px 9px',
+                      borderRadius: 999, color: src.fg, background: src.bg }}>{src.label}</span>
                     {q.difficulty && DIFF_META[q.difficulty] && (
-                      <span style={{ color: DIFF_META[q.difficulty].color,
-                        background: DIFF_META[q.difficulty].bg,
-                        padding: '1px 7px', borderRadius: 999, fontWeight: 700 }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '2px 8px',
+                        borderRadius: 999, color: DIFF_META[q.difficulty].color, background: DIFF_META[q.difficulty].bg }}>
                         {DIFF_META[q.difficulty].label} {DIFF_META[q.difficulty].name}
                       </span>
                     )}
-                    {isAI && q.genMode === 'vary' && q.seedQuestionId && (
-                      <span style={{ color: '#7c3aed', fontWeight: 600 }}>
-                        원본: {q.seedQuestionId.replace('v3-', '').replace(/-/g, ' ')}
-                      </span>
-                    )}
-                    {isAI && q.genMode === 'new' && q.topic && !q.subconcept && (
-                      <span style={{ color: '#7c3aed', fontWeight: 600, maxWidth: 260,
-                        overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                        {q.topic}
-                      </span>
-                    )}
-                    {q.subconcept && (
-                      <span style={{ color: '#92400e', background: '#fffbeb',
-                        padding: '1px 7px', borderRadius: 999, fontWeight: 700,
-                        maxWidth: 280, overflow: 'hidden', textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap' }}>
-                        📚 {q.subconcept}
-                      </span>
-                    )}
-                    {!hasAnswer && (
-                      <span style={{ color: '#9ca3af' }}>답안 없음</span>
-                    )}
-                    {attemptCount > 0 && (
-                      <span style={{ color: '#16a34a', fontWeight: 700 }}>
-                        {attemptCount}회 풀이 · 마지막 {lastScore}점
-                      </span>
-                    )}
+                  </span>
+                  {q.points && (
+                    <span style={{ color: '#1d4ed8', fontWeight: 800, fontSize: '0.95rem', flexShrink: 0 }}>{q.points}점</span>
+                  )}
+                </div>
+                {/* 논점(topic) — 있으면 굵게 */}
+                {q.topic && !isPracticeSet && (
+                  <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#111827', lineHeight: 1.45,
+                    marginBottom: 4, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                    {q.topic}
                   </div>
+                )}
+                {/* 문제 본문 */}
+                <div style={{ fontSize: '0.95rem', color: '#1f2937', lineHeight: 1.6,
+                  display: '-webkit-box', WebkitLineClamp: q.topic && !isPracticeSet ? 2 : 3,
+                  WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  {q.body.slice(0, 260).replace(/\n/g, ' ').replace(/\*\*/g, '').replace(/^#+\s*/gm, '').replace(/`/g, '')}
+                </div>
+                {q.subconcept && (
+                  <div style={{ marginTop: 8 }}>
+                    <span style={{ color: '#92400e', background: '#fffbeb', fontSize: '0.72rem',
+                      padding: '2px 8px', borderRadius: 999, fontWeight: 700,
+                      display: 'inline-block', maxWidth: '100%', overflow: 'hidden',
+                      textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>📚 {q.subconcept}</span>
+                  </div>
+                )}
+                {/* 하단: 풀이 기록 (좌) · 답안 작성 CTA (우) */}
+                <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid #f1f3f5',
+                  display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.78rem' }}>
+                  <span style={{ color: attemptCount > 0 ? '#16a34a' : '#9ca3af', fontWeight: attemptCount > 0 ? 700 : 500 }}>
+                    {attemptCount > 0
+                      ? `✓ ${attemptCount}회 풀이 · 마지막 ${lastScore}점`
+                      : (hasAnswer ? '예시답안 있음' : '답안 없음')}
+                  </span>
+                  <span style={{ color: '#2563eb', fontWeight: 700 }}>답안 작성 →</span>
                 </div>
               </button>
             );
