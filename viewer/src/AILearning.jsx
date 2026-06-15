@@ -1529,6 +1529,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     setMessages(getRoomMessages(current.leaf_id));
     setPendingNext(null);
     setIdlePromptShown(false);
+    setLastTruncated(false); // 단원 전환 시 이전 단원의 '이어쓰기' 플래그가 새 단원에 누출되지 않게
     setInput('');
     if (abortRef.current) abortRef.current.abort();
     if (idleTimerRef.current) clearTimeout(idleTimerRef.current);

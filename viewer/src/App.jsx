@@ -356,6 +356,14 @@ const mergeStateData = (remoteData) => {
       }
       m.sort((a, b) => (a.ts || 0) - (b.ts || 0));
       setIf(k, m.slice(-100));
+    } else if (k === 'quiz-aigen-v1') {
+      // AI 생성 문제: 문항 id 기준 합집합 (양 기기에서 만든 문제 모두 보존)
+      const l = parseJ(lv, []); const r = parseJ(rv, []);
+      const seen = new Map();
+      for (const q of [...(Array.isArray(r) ? r : []), ...(Array.isArray(l) ? l : [])]) {
+        if (q && q.id && !seen.has(q.id)) seen.set(q.id, q);
+      }
+      setIf(k, [...seen.values()]);
     } else if (k === 'ailearn-mastery') {
       // AI 학습 진척: 단원(code)별 last_studied(ISO) 최신 우선 + 누적값은 max로 보존
       const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = { ...r };
@@ -2486,7 +2494,8 @@ const App = () => {
   // browseExam: 둘러보기 상단 모드 픽커 — taxScope 없을 때만 작동(taxScope가 더 구체적)
   const baseFilter = useCallback((item) => {
     if (!item.isClassified) return false;
-    const isPractice = item.period === 'practice' || item.exam === '[연습문제]' || (item.id && item.id.startsWith('practice-'));
+    const isPractice = item.period === 'practice' || item.exam === '[연습문제]'
+      || item.source === 'practice' || (item.id && (item.id.startsWith('practice-') || item.id.startsWith('aigen-')));
     // 기출/연습 소스 토글
     if (sourceFilter === 'official' && isPractice) return false;
     if (sourceFilter === 'practice' && !isPractice) return false;
@@ -4226,7 +4235,9 @@ const App = () => {
     } : null;
     const aigenHere = aigenTax ? aigenList.filter((q) => {
       const mt = q.indexing_v4?.mapped_taxonomy || {};
-      return mt.subject === aigenTax.subject && (mt.section || '') === aigenTax.section && (mt.item || '') === aigenTax.item;
+      // chapter까지 비교 — 같은 과목 내 동명 절(section)이 다른 장에 있을 때 카운트·삭제 누출 방지
+      return mt.subject === aigenTax.subject && (mt.chapter || '') === aigenTax.chapter
+        && (mt.section || '') === aigenTax.section && (mt.item || '') === aigenTax.item;
     }) : [];
     
     return (
