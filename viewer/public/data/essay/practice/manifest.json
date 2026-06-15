@@ -1,7 +1,7 @@
 {
  "built_at": "2026-05-31T06:04:01.250547+00:00",
  "subject": "감정평가실무",
- "total": 1260,
+ "total": 1259,
  "chapters": [
   {
    "id": "1",
@@ -41,9 +41,9 @@
    "id": "2a",
    "title": "3방식 기초 — 공시지가·거래사례·원가",
    "file": "2a.json",
-   "count": 262,
-   "withAnswer": 116,
-   "matchedAnswer": 116,
+   "count": 301,
+   "withAnswer": 152,
+   "matchedAnswer": 152,
    "rounds": [
     1,
     3,
@@ -66,7 +66,7 @@
     34,
     35
    ],
-   "generatedCount": 6,
+   "generatedCount": 8,
    "subchapters": [
     {
      "id": "2a-1",
@@ -154,9 +154,9 @@
    "id": "3",
    "title": "건물·복합·구분·임대료",
    "file": "3.json",
-   "count": 76,
-   "withAnswer": 52,
-   "matchedAnswer": 52,
+   "count": 128,
+   "withAnswer": 104,
+   "matchedAnswer": 104,
    "rounds": [
     1,
     2,
@@ -215,9 +215,9 @@
    "id": "4",
    "title": "유형별 평가",
    "file": "4.json",
-   "count": 41,
-   "withAnswer": 28,
-   "matchedAnswer": 28,
+   "count": 69,
+   "withAnswer": 56,
+   "matchedAnswer": 56,
    "rounds": [
     1,
     3,
@@ -262,9 +262,9 @@
    "id": "5",
    "title": "비가치추계·기업가치·무형자산",
    "file": "5.json",
-   "count": 57,
-   "withAnswer": 31,
-   "matchedAnswer": 31,
+   "count": 90,
+   "withAnswer": 62,
+   "matchedAnswer": 62,
    "rounds": [
     2,
     5,
@@ -320,9 +320,9 @@
    "id": "6a",
    "title": "토지보상 기본·원칙",
    "file": "6a.json",
-   "count": 46,
-   "withAnswer": 27,
-   "matchedAnswer": 27,
+   "count": 70,
+   "withAnswer": 54,
+   "matchedAnswer": 54,
    "rounds": [
     2,
     3,
@@ -338,7 +338,7 @@
     33,
     35
    ],
-   "generatedCount": 5,
+   "generatedCount": 2,
    "subchapters": [
     {
      "id": "6a-1",
@@ -372,9 +372,9 @@
    "id": "6b",
    "title": "토지보상 — 공법상제한·특수",
    "file": "6b.json",
-   "count": 29,
-   "withAnswer": 11,
-   "matchedAnswer": 11,
+   "count": 40,
+   "withAnswer": 22,
+   "matchedAnswer": 22,
    "rounds": [
     5,
     6,
@@ -429,9 +429,9 @@
    "id": "7",
    "title": "건축물·영업·기타 보상",
    "file": "7.json",
-   "count": 23,
-   "withAnswer": 10,
-   "matchedAnswer": 10,
+   "count": 33,
+   "withAnswer": 20,
+   "matchedAnswer": 20,
    "rounds": [
     1,
     3,
@@ -480,9 +480,9 @@
    "id": "8a",
    "title": "목적별 평가",
    "file": "8a.json",
-   "count": 41,
-   "withAnswer": 20,
-   "matchedAnswer": 20,
+   "count": 62,
+   "withAnswer": 40,
+   "matchedAnswer": 40,
    "rounds": [
     6,
     9,
@@ -534,9 +534,9 @@
    "id": "8b",
    "title": "표준지·정비·불의타",
    "file": "8b.json",
-   "count": 27,
-   "withAnswer": 14,
-   "matchedAnswer": 14,
+   "count": 41,
+   "withAnswer": 28,
+   "matchedAnswer": 28,
    "rounds": [
     2,
     6,
@@ -597,9 +597,9 @@
    "id": "gs0",
    "title": "📘 실무 GS 0기 (20회분·예시답안)",
    "file": "gs0.json",
-   "count": 77,
-   "withAnswer": 77,
-   "matchedAnswer": 77,
+   "count": 0,
+   "withAnswer": 0,
+   "matchedAnswer": 0,
    "rounds": [],
    "generatedCount": 0,
    "subchapters": [
@@ -651,15 +651,15 @@
     "8a": 4,
     "8b": 2
    },
-   "sessionCount": 20
+   "sessionCount": 0
   },
   {
    "id": "gs1",
    "title": "📗 실무 GS 1기 (20회분·예시답안)",
    "file": "gs1.json",
-   "count": 81,
-   "withAnswer": 77,
-   "matchedAnswer": 77,
+   "count": 0,
+   "withAnswer": 0,
+   "matchedAnswer": 0,
    "rounds": [],
    "generatedCount": 0,
    "subchapters": [
@@ -711,15 +711,15 @@
     "8a": 10,
     "8b": 4
    },
-   "sessionCount": 20
+   "sessionCount": 0
   },
   {
    "id": "gs2",
    "title": "📙 실무 GS 2기 (10회분·예시답안)",
    "file": "gs2.json",
-   "count": 36,
-   "withAnswer": 36,
-   "matchedAnswer": 36,
+   "count": 0,
+   "withAnswer": 0,
+   "matchedAnswer": 0,
    "rounds": [],
    "generatedCount": 0,
    "subchapters": [
@@ -766,15 +766,15 @@
     "8a": 4,
     "8b": 7
    },
-   "sessionCount": 10
+   "sessionCount": 0
   },
   {
    "id": "gs3",
    "title": "📕 실무 GS 3기 (10회분·예시답안)",
    "file": "gs3.json",
-   "count": 39,
-   "withAnswer": 39,
-   "matchedAnswer": 39,
+   "count": 0,
+   "withAnswer": 0,
+   "matchedAnswer": 0,
    "rounds": [],
    "generatedCount": 0,
    "subchapters": [
@@ -826,7 +826,7 @@
     "8a": 3,
     "8b": 1
    },
-   "sessionCount": 10
+   "sessionCount": 0
   },
   {
    "id": "kichul",
