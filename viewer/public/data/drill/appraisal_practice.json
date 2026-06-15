@@ -1,0 +1,636 @@
+{
+ "appraisal_practice__1": [
+  {
+   "id": "appraisal_practice__1__1-1",
+   "title": "화폐의 시간가치(TVM) — 6공식",
+   "hint": "",
+   "lines": [
+    396,
+    526
+   ]
+  },
+  {
+   "id": "appraisal_practice__1__1-2",
+   "title": "면적·도로 — 사각형·도로조건",
+   "hint": "",
+   "lines": [
+    42,
+    172
+   ]
+  },
+  {
+   "id": "appraisal_practice__1__1-3",
+   "title": "단가 환산 — 원/㎡·소수점",
+   "hint": "",
+   "lines": [
+    45,
+    175
+   ]
+  },
+  {
+   "id": "appraisal_practice__1__1-4",
+   "title": "단위면적·환산 기초",
+   "hint": "",
+   "lines": [
+    42,
+    172
+   ]
+  },
+  {
+   "id": "appraisal_practice__1__1-5",
+   "title": "용도지역·이용상황 분류",
+   "hint": "",
+   "lines": [
+    160,
+    290
+   ]
+  }
+ ],
+ "appraisal_practice__2a": [
+  {
+   "id": "appraisal_practice__2a__2a-1",
+   "title": "공시지가기준법 — 의의·산식",
+   "hint": "",
+   "lines": [
+    1,
+    125
+   ]
+  },
+  {
+   "id": "appraisal_practice__2a__2a-2",
+   "title": "비교표준지 선정 — 우선순위",
+   "hint": "",
+   "lines": [
+    21,
+    151
+   ]
+  },
+  {
+   "id": "appraisal_practice__2a__2a-3",
+   "title": "시점수정 — 지가변동률·생산자물가",
+   "hint": "",
+   "lines": [
+    42,
+    172
+   ]
+  },
+  {
+   "id": "appraisal_practice__2a__2a-4",
+   "title": "지역요인 비교",
+   "hint": "",
+   "lines": [
+    72,
+    202
+   ]
+  },
+  {
+   "id": "appraisal_practice__2a__2a-5",
+   "title": "개별요인 비교 — 격자형 정리",
+   "hint": "",
+   "lines": [
+    47,
+    177
+   ]
+  },
+  {
+   "id": "appraisal_practice__2a__2a-6",
+   "title": "그밖의 요인 보정 — 산정·검증",
+   "hint": "",
+   "lines": [
+    21,
+    151
+   ]
+  },
+  {
+   "id": "appraisal_practice__2a__2a-7",
+   "title": "거래사례비교법 — 사례 선택·배제",
+   "hint": "",
+   "lines": [
+    1,
+    126
+   ]
+  },
+  {
+   "id": "appraisal_practice__2a__2a-8",
+   "title": "사정보정 — 정상화·계량화",
+   "hint": "",
+   "lines": [
+    555,
+    685
+   ]
+  },
+  {
+   "id": "appraisal_practice__2a__2a-9",
+   "title": "원가법 — 재조달원가·감가수정",
+   "hint": "",
+   "lines": [
+    1,
+    127
+   ]
+  },
+  {
+   "id": "appraisal_practice__2a__2a-10",
+   "title": "감가수정 — 내용연수·정액·정율",
+   "hint": "",
+   "lines": [
+    1,
+    128
+   ]
+  }
+ ],
+ "appraisal_practice__2b": [
+  {
+   "id": "appraisal_practice__2b__2b-1",
+   "title": "수익환원법 — 직접환원법",
+   "hint": "",
+   "lines": [
+    263,
+    393
+   ]
+  },
+  {
+   "id": "appraisal_practice__2b__2b-2",
+   "title": "DCF — 할인현금흐름분석",
+   "hint": "",
+   "lines": [
+    1,
+    128
+   ]
+  },
+  {
+   "id": "appraisal_practice__2b__2b-3",
+   "title": "환원이율 결정 — 시장추출·요소구성",
+   "hint": "",
+   "lines": [
+    1,
+    126
+   ]
+  },
+  {
+   "id": "appraisal_practice__2b__2b-4",
+   "title": "자본환원율·재매도가격",
+   "hint": "",
+   "lines": [
+    348,
+    478
+   ]
+  },
+  {
+   "id": "appraisal_practice__2b__2b-5",
+   "title": "임대료 평가 — 적산법·임대사례",
+   "hint": "",
+   "lines": [
+    76,
+    206
+   ]
+  },
+  {
+   "id": "appraisal_practice__2b__2b-6",
+   "title": "실질임료·계약임료",
+   "hint": "",
+   "lines": [
+    576,
+    706
+   ]
+  }
+ ],
+ "appraisal_practice__3": [
+  {
+   "id": "appraisal_practice__3__3-1",
+   "title": "건물 평가 — 원가법 적용",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__3__3-2",
+   "title": "복합부동산 — 일체비준",
+   "hint": "",
+   "lines": [
+    1,
+    128
+   ]
+  },
+  {
+   "id": "appraisal_practice__3__3-3",
+   "title": "복합부동산 — 토지·건물 구분",
+   "hint": "",
+   "lines": [
+    1,
+    128
+   ]
+  },
+  {
+   "id": "appraisal_practice__3__3-4",
+   "title": "구분소유 건물 — 전유부분·공용부분",
+   "hint": "",
+   "lines": [
+    1537,
+    1667
+   ]
+  },
+  {
+   "id": "appraisal_practice__3__3-5",
+   "title": "구분소유 — 대지권",
+   "hint": "",
+   "lines": [
+    1537,
+    1667
+   ]
+  },
+  {
+   "id": "appraisal_practice__3__3-6",
+   "title": "임대료 평가 — 건물·복합",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  }
+ ],
+ "appraisal_practice__4": [
+  {
+   "id": "appraisal_practice__4__4-1",
+   "title": "토지 평가 — 일반·특수",
+   "hint": "",
+   "lines": [
+    1,
+    125
+   ]
+  },
+  {
+   "id": "appraisal_practice__4__4-2",
+   "title": "건물 평가 — 일반·특수",
+   "hint": "",
+   "lines": [
+    3,
+    133
+   ]
+  },
+  {
+   "id": "appraisal_practice__4__4-3",
+   "title": "기계기구 평가",
+   "hint": "",
+   "lines": [
+    13,
+    143
+   ]
+  },
+  {
+   "id": "appraisal_practice__4__4-4",
+   "title": "선박·항공기 평가",
+   "hint": "",
+   "lines": [
+    18,
+    148
+   ]
+  },
+  {
+   "id": "appraisal_practice__4__4-5",
+   "title": "자동차·건설기계",
+   "hint": "",
+   "lines": [
+    18,
+    148
+   ]
+  }
+ ],
+ "appraisal_practice__5": [
+  {
+   "id": "appraisal_practice__5__5-1",
+   "title": "비가치추계 — 의의·방법",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__5__5-2",
+   "title": "기업가치 평가 — DCF·시장가치",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__5__5-3",
+   "title": "기업가치 — 자본환원",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__5__5-4",
+   "title": "무형자산 평가 — 영업권",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__5__5-5",
+   "title": "무형자산 — 특허·상표",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__5__5-6",
+   "title": "주식·채권 평가",
+   "hint": "",
+   "lines": [
+    1,
+    128
+   ]
+  }
+ ],
+ "appraisal_practice__6a": [
+  {
+   "id": "appraisal_practice__6a__6a-1",
+   "title": "토지보상 — 평가원칙·보상기준",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__6a__6a-2",
+   "title": "공시지가기준 보상",
+   "hint": "",
+   "lines": [
+    1274,
+    1404
+   ]
+  },
+  {
+   "id": "appraisal_practice__6a__6a-3",
+   "title": "비교표준지 선정 — 보상평가",
+   "hint": "",
+   "lines": [
+    129,
+    259
+   ]
+  },
+  {
+   "id": "appraisal_practice__6a__6a-4",
+   "title": "시점수정 — 보상",
+   "hint": "",
+   "lines": [
+    238,
+    368
+   ]
+  },
+  {
+   "id": "appraisal_practice__6a__6a-5",
+   "title": "그밖의 요인 — 보상사례 활용",
+   "hint": "",
+   "lines": [
+    25,
+    155
+   ]
+  },
+  {
+   "id": "appraisal_practice__6a__6a-6",
+   "title": "잔여지 — 의의·평가",
+   "hint": "",
+   "lines": [
+    657,
+    787
+   ]
+  }
+ ],
+ "appraisal_practice__6b": [
+  {
+   "id": "appraisal_practice__6b__6b-1",
+   "title": "공법상 제한 — 일반·개별",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__6b__6b-2",
+   "title": "용도지역 변경 — 영향평가",
+   "hint": "",
+   "lines": [
+    23,
+    153
+   ]
+  },
+  {
+   "id": "appraisal_practice__6b__6b-3",
+   "title": "도시계획시설 부지",
+   "hint": "",
+   "lines": [
+    22,
+    152
+   ]
+  },
+  {
+   "id": "appraisal_practice__6b__6b-4",
+   "title": "미보상 토지 — 손실보상",
+   "hint": "",
+   "lines": [
+    2229,
+    2359
+   ]
+  },
+  {
+   "id": "appraisal_practice__6b__6b-5",
+   "title": "특수 토지 — 분묘·도로·하천",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__6b__6b-6",
+   "title": "환매권 — 의의·요건",
+   "hint": "",
+   "lines": [
+    1079,
+    1209
+   ]
+  }
+ ],
+ "appraisal_practice__7": [
+  {
+   "id": "appraisal_practice__7__7-1",
+   "title": "건축물 보상 — 잔여건축물·이전료",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__7__7-2",
+   "title": "영업손실 보상 — 휴업·폐업",
+   "hint": "",
+   "lines": [
+    72,
+    202
+   ]
+  },
+  {
+   "id": "appraisal_practice__7__7-3",
+   "title": "영업손실 — 잔여시설 보수",
+   "hint": "",
+   "lines": [
+    72,
+    202
+   ]
+  },
+  {
+   "id": "appraisal_practice__7__7-4",
+   "title": "농업 손실 — 농작물·과수",
+   "hint": "",
+   "lines": [
+    10,
+    140
+   ]
+  },
+  {
+   "id": "appraisal_practice__7__7-5",
+   "title": "광업·어업 손실",
+   "hint": "",
+   "lines": [
+    8,
+    138
+   ]
+  },
+  {
+   "id": "appraisal_practice__7__7-6",
+   "title": "기타 손실 — 휴직·실직",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  }
+ ],
+ "appraisal_practice__8a": [
+  {
+   "id": "appraisal_practice__8a__8a-1",
+   "title": "담보 평가 — 의의·방법",
+   "hint": "",
+   "lines": [
+    1,
+    125
+   ]
+  },
+  {
+   "id": "appraisal_practice__8a__8a-2",
+   "title": "경매·공매 평가",
+   "hint": "",
+   "lines": [
+    1,
+    126
+   ]
+  },
+  {
+   "id": "appraisal_practice__8a__8a-3",
+   "title": "국·공유재산 평가",
+   "hint": "",
+   "lines": [
+    1,
+    128
+   ]
+  },
+  {
+   "id": "appraisal_practice__8a__8a-4",
+   "title": "소송 평가 — 일반",
+   "hint": "",
+   "lines": [
+    1,
+    127
+   ]
+  },
+  {
+   "id": "appraisal_practice__8a__8a-5",
+   "title": "조세 부과 평가",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__8a__8a-6",
+   "title": "회계·재무보고 평가",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  }
+ ],
+ "appraisal_practice__8b": [
+  {
+   "id": "appraisal_practice__8b__8b-1",
+   "title": "표준지 공시지가 — 평가",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  },
+  {
+   "id": "appraisal_practice__8b__8b-2",
+   "title": "표준주택 가격 — 평가",
+   "hint": "",
+   "lines": [
+    1,
+    128
+   ]
+  },
+  {
+   "id": "appraisal_practice__8b__8b-3",
+   "title": "정비사업 — 재개발·재건축",
+   "hint": "",
+   "lines": [
+    1,
+    125
+   ]
+  },
+  {
+   "id": "appraisal_practice__8b__8b-4",
+   "title": "정비사업 — 분양가·종전자산",
+   "hint": "",
+   "lines": [
+    1,
+    125
+   ]
+  },
+  {
+   "id": "appraisal_practice__8b__8b-5",
+   "title": "관리처분 평가",
+   "hint": "",
+   "lines": [
+    216,
+    346
+   ]
+  },
+  {
+   "id": "appraisal_practice__8b__8b-6",
+   "title": "불의타 — 손실 평가",
+   "hint": "",
+   "lines": [
+    1,
+    121
+   ]
+  }
+ ]
+}

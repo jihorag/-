@@ -79,7 +79,18 @@ export default function MemorizeBridge({ onGoSolve, onGoAI }) {
     let dead = false;
     setLeavesError(false);
     fetch(indexUrl(subjectId)).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
-      .then((raw) => { if (!dead) setLeaves(Array.isArray(raw?.leaves || raw) ? (raw.leaves || raw) : []); })
+      .then((raw) => {
+        if (dead) return;
+        // 2차(ai_index)는 units 구조 → unit을 드릴 단원(leaf)으로 변환 (topic은 주제)
+        let ls = raw?.leaves || raw || [];
+        if (raw?.stage === 2 && Array.isArray(raw.units)) {
+          ls = raw.units.map((u) => ({
+            id: `${raw.subject_id}__${u.code}`, title: u.title, path: [u.title],
+            unit_file: u.unit_file, section_key: 'full', section_lines: null,
+          }));
+        }
+        setLeaves(Array.isArray(ls) ? ls : []);
+      })
       .catch(() => { if (!dead) { setLeaves([]); setLeavesError(true); } });
     fetch(drillUrl(subjectId)).then((r) => r.ok ? r.json() : {})
       .then((d) => { if (!dead) setDrillTopics(d || {}); })
@@ -343,7 +354,9 @@ function DrillSession({ subjectId, leaf, topic, onBack, onProgress, nextTopic, o
     if (!leaf.unit_file) { setSliceMd(''); return; }
     fetch(studyBase(subjectId) + leaf.unit_file).then((r) => r.text()).then((md) => {
       if (dead) return;
-      const sliced = (leaf.section_key && leaf.section_key !== 'full' && leaf.section_lines) ? sliceSection(md, { lines: leaf.section_lines }) : md;
+      // 주제(topic)에 자체 lines가 있으면(2차) 그 부분만, 아니면 leaf 슬라이스(1차)
+      const sliced = topic.lines ? sliceSection(md, { lines: topic.lines })
+        : (leaf.section_key && leaf.section_key !== 'full' && leaf.section_lines) ? sliceSection(md, { lines: leaf.section_lines }) : md;
       setSliceMd(sliced.slice(0, 6000));
     }).catch(() => { if (!dead) setSliceMd(''); });
     return () => { dead = true; };
