@@ -534,7 +534,13 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
             ].filter(Boolean).join(' · ');
             return (
               <button key={c.id} className="browse-row"
-                onClick={() => { setChapter(c.id); setQuestionId(null); ensureChapter(c.id); onNavigate('essay_questions'); }}>
+                onClick={() => {
+                  setChapter(c.id); setQuestionId(null); setSubchapterFilter(null); ensureChapter(c.id);
+                  // 소단원(subchapter)이 2개 이상이면 소단원 목록으로 한 단계 더 — 1차 장→절→관,
+                  // AI학습 unit→topic과 동일한 계층. GS·기출 등 소단원 없는 단원은 바로 문항으로.
+                  const hasSubs = (c.subchapters || []).length >= 2;
+                  onNavigate(hasSubs ? 'essay_subchapters' : 'essay_questions');
+                }}>
                 <div className="browse-row__main">
                   <div className="browse-row__title">
                     <span className="browse-row__prefix">단원 {c.aiCode || c.id}</span>
@@ -546,6 +552,73 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
                 <div className="browse-row__meta">
                   {done > 0 && <span className="browse-row__pct">{pct}%</span>}
                   <span className="browse-row__count">{c.count > 0 ? `${c.count}문항` : '준비 중'}</span>
+                  <span className="browse-row__chev">›</span>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </main>
+    </>);
+  }
+
+  // ═══════════════════ subchapters (소단원 드릴 — 1차 절→관·AI학습 unit→topic과 동일 계층) ═══════════════════
+  if (mode === 'essay_subchapters') {
+    const cd = chapter ? chapterCache[chapter] : null;
+    const meta = chapter ? manifest.chapters.find(c => c.id === chapter) : null;
+    if (!cd) return shell(
+      chapterErrors[chapter]
+        ? <div style={{ padding: 24, textAlign: 'center' }}>
+            <div style={{ color: '#dc2626', fontWeight: 600, marginBottom: 12 }}>⚠️ 단원 자료를 불러오지 못했어요</div>
+            <button onClick={() => retryChapter(chapter)}
+              style={{ padding: '10px 18px', borderRadius: 8, fontWeight: 700, border: 'none', background: '#2563eb', color: '#fff', cursor: 'pointer', minHeight: 44 }}>↻ 다시 시도</button>
+          </div>
+        : <div style={{ padding: 16 }}><div className="skeleton skeleton-row" /><div className="skeleton skeleton-row" /><div className="skeleton skeleton-row" /></div>
+    );
+    const subs = meta?.subchapters || [];
+    const subCount = {}; const subDone = {};
+    cd.questions.forEach(q => {
+      if (!q.subchapter) return;
+      subCount[q.subchapter] = (subCount[q.subchapter] || 0) + 1;
+      if (progress[q.id]?.attempts?.length) subDone[q.subchapter] = (subDone[q.subchapter] || 0) + 1;
+    });
+    const totalQ = cd.questions.length;
+    const totalDone = cd.questions.filter(q => progress[q.id]?.attempts?.length).length;
+    const goQuestions = (scId) => { setSubchapterFilter(scId); onNavigate('essay_questions'); };
+    return shell(<>
+      {header(`단원 ${meta?.aiCode || chapter}`, '단원 목록', 'essay_chapters')}
+      <div className="screen-head"><h1 className="screen-title">{meta?.title || chapter}</h1>
+        <p style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>소단원 선택 · 진행 {totalDone}/{totalQ}</p>
+      </div>
+      <main className="main-content" style={{ marginTop: 16 }}>
+        <div className="browse-list">
+          {/* 전체 풀기 — 1차 '장 전체 풀기' 행과 동일 */}
+          <button className="browse-row browse-row--all" onClick={() => goQuestions(null)}>
+            <div className="browse-row__main">
+              <div className="browse-row__title">
+                <span className="browse-row__prefix">전체</span>{meta?.title} 전체 풀기
+              </div>
+            </div>
+            <div className="browse-row__meta">
+              <span className="browse-row__count">{totalQ}문항</span>
+              <span className="browse-row__chev">›</span>
+            </div>
+          </button>
+          {/* 소단원 행 — 문항 있는 것만 (AI학습 topic 목록과 일치) */}
+          {subs.filter(sc => subCount[sc.id] > 0).map((sc, i) => {
+            const cnt = subCount[sc.id]; const done = subDone[sc.id] || 0;
+            const pct = cnt ? Math.round((done / cnt) * 100) : 0;
+            return (
+              <button key={sc.id} className="browse-row" onClick={() => goQuestions(sc.id)}>
+                <div className="browse-row__main">
+                  <div className="browse-row__title">
+                    <span className="browse-row__prefix">{i + 1}</span>{sc.title}
+                  </div>
+                  {done > 0 && <div className="browse-row__bar"><div style={{ width: `${Math.max(2, pct)}%` }} /></div>}
+                </div>
+                <div className="browse-row__meta">
+                  {done > 0 && <span className="browse-row__pct">{pct}%</span>}
+                  <span className="browse-row__count">{cnt}문항</span>
                   <span className="browse-row__chev">›</span>
                 </div>
               </button>
@@ -635,8 +708,13 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
     const stats = computeStats(cd.questions, progress);
     const recommendations = recommendNext(cd.questions, progress);
 
+    // 뒤로가기: 소단원 경유로 들어왔으면 소단원 목록으로, 아니면(GS 등) 단원 목록으로
+    const hasSubs = (meta?.subchapters || []).length >= 2;
     return shell(<>
-      {header(`단원 ${meta?.aiCode || chapter}`, '단원 목록', 'essay_chapters')}
+      {header(
+        hasSubs && subchapterFilter ? subchapterList.find(s => s.id === subchapterFilter)?.title || meta?.title : `단원 ${meta?.aiCode || chapter}`,
+        hasSubs ? '소단원' : '단원 목록',
+        hasSubs ? 'essay_subchapters' : 'essay_chapters')}
       <div className="screen-head"><h1 className="screen-title">{meta?.title || chapter} ({cd.questions.length}문항)</h1>
         {/* 진행바 — 1차 question_list와 동일 구조 */}
         {(() => {
@@ -657,8 +735,8 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
         })()}
       </div>
       <main className="main-content" style={{ marginTop: 16 }}>
-        {/* 추천 학습 카드 — 약점 sub-concept 우선 미풀이 */}
-        {recommendations.length > 0 && (
+        {/* 추천 학습 카드 — 단원 전체 풀기일 때만 (소단원 드릴 진입 시엔 중복이라 숨김) */}
+        {recommendations.length > 0 && subchapterFilter === null && (
           <section style={{ background: '#eff6ff', borderRadius: 12, padding: 14,
             border: '1px solid #bfdbfe', marginBottom: 14 }}>
             <div style={{ fontWeight: 800, fontSize: '0.9rem', color: '#1d4ed8',

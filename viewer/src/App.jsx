@@ -3323,7 +3323,8 @@ const App = () => {
     (currentView === 'home' || currentView === 'profile'
       || currentView === 'mock' || currentView === 'mockResult'
       || currentView === 'essay_subjects' || currentView === 'essay_chapters'
-      || currentView === 'essay_questions' || currentView === 'essay_result'
+      || currentView === 'essay_subchapters' || currentView === 'essay_questions'
+      || currentView === 'essay_result'
       || currentView === 'essay_cards' || currentView === 'askAI') ? 'home'
     : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'browse'
     : currentView === 'quizHome' ? 'quiz'
@@ -3981,7 +3982,8 @@ const App = () => {
   }
 
   if (currentView === 'essay_subjects' || currentView === 'essay_chapters'
-      || currentView === 'essay_questions' || currentView === 'essay_result'
+      || currentView === 'essay_subchapters' || currentView === 'essay_questions'
+      || currentView === 'essay_result'
       || currentView === 'essay_cards') {
     return shell(
       <EssayMode
