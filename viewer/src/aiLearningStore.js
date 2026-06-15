@@ -69,7 +69,10 @@ export function recordAnswerScore(leafId, scoreResult) {
   const all = getMastery();
   const prev = { ...MASTERY_DEFAULT, ...(all[leafId] || {}) };
   const count = (prev.answer_count || 0) + 1;
-  const pct = Math.max(0, Math.min(100, (scoreResult.score / scoreResult.max) * 100));
+  // max<=0·NaN이면 pct→NaN이 되어 평균이 영구 오염되므로 방어 (호출처가 b.max||30로 막지만 공개 함수 자체도 가드)
+  const safeMax = Number(scoreResult.max) > 0 ? Number(scoreResult.max) : 30;
+  const safeScore = Number.isFinite(Number(scoreResult.score)) ? Number(scoreResult.score) : 0;
+  const pct = Math.max(0, Math.min(100, (safeScore / safeMax) * 100));
   const newAvg = (prev.avg_score_pct * (count - 1) + pct) / count;
   const timeRatio = scoreResult.time_target_min > 0
     ? scoreResult.time_used_min / scoreResult.time_target_min
