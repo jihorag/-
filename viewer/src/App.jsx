@@ -1985,6 +1985,15 @@ const App = () => {
       item: q.taxItemName,
     });
   }, [findAiLeafForTax]);
+  // ⚡ 드릴 탭으로 점프 (특정 leaf의 주제 목록으로 딥링크) — 오답·약점 → 그 개념 체화
+  const [drillJump, setDrillJump] = useState(null); // { subjectId, leafId, ts }
+  const jumpToDrill = useCallback((leaf) => {
+    if (!leaf?.id) return;
+    const sid = (leaf.id || '').split('__')[0];
+    setDrillJump({ subjectId: sid, leafId: leaf.id, ts: Date.now() });
+    setCurrentView('quizHome');
+    window.scrollTo(0, 0);
+  }, []);
   // 🎓 AI 튜터로 이 단원 배우기 링크 (드릴 그리드·풀이 화면 공통)
   const renderAiTutorLink = (aiLeaf) => aiLeaf ? (
     <div style={{ padding: '8px 20px 0' }}>
@@ -1999,6 +2008,25 @@ const App = () => {
       >
         <span>🎓 AI 튜터로 이 단원 배우기</span>
         <span style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 600 }}>
+          {aiLeaf.path.slice(-1)[0]} ›
+        </span>
+      </button>
+    </div>
+  ) : null;
+  // ⚡ 이 개념 드릴로 체화하기 — AI 학습(배움) 링크와 한 쌍. 틀린 개념을 좁은 질답으로.
+  const renderDrillLink = (aiLeaf) => aiLeaf ? (
+    <div style={{ padding: '6px 20px 0' }}>
+      <button
+        onClick={() => jumpToDrill(aiLeaf)}
+        style={{
+          width: '100%', padding: '10px 14px', background: '#f5f3ff',
+          border: '1px solid #ddd6fe', borderRadius: 10, color: '#6d28d9',
+          fontSize: '0.88rem', fontWeight: 700, cursor: 'pointer',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        }}
+      >
+        <span>⚡ 이 개념 드릴로 체화하기</span>
+        <span style={{ fontSize: '0.75rem', color: '#7c3aed', fontWeight: 600 }}>
           {aiLeaf.path.slice(-1)[0]} ›
         </span>
       </button>
@@ -4122,6 +4150,7 @@ const App = () => {
         </div>
 
         {renderAiTutorLink(aiLeafForQuestion(q))}
+        {renderDrillLink(aiLeafForQuestion(q))}
 
         <main
           style={{ padding: '20px', maxWidth: '800px', margin: '0 auto', paddingBottom: 'calc(40px + env(safe-area-inset-bottom, 0px))' }}
@@ -4287,6 +4316,7 @@ const App = () => {
         </div>
 
         {renderAiTutorLink(aiLeafForQuestion(filteredQuestions[0]))}
+        {renderDrillLink(aiLeafForQuestion(filteredQuestions[0]))}
 
         {aigenTax && (
           <AIGenPanel
@@ -4426,6 +4456,7 @@ const App = () => {
         </div>
       )}
       {renderAiTutorLink(aiLeaf)}
+      {renderDrillLink(aiLeaf)}
 
       <main className="main-content" style={{ marginTop: '20px' }}>
         {listMode ? (
@@ -5552,6 +5583,7 @@ const App = () => {
                 }
                 setCurrentView('civil');
               }}
+              onDrill={(leaf) => jumpToDrill(leaf)}
             />
           </div>
           {weakPrinciples.length > 0 && (
@@ -6269,6 +6301,8 @@ const App = () => {
         classifiedList={classifiedList}
         progress={progress}
         qid={qid}
+        initialJump={drillJump}
+        onJumpConsumed={() => setDrillJump(null)}
         onGoAI={(sid, leaf) => {
           try { setAiCurrent({ subject: sid, leaf_id: leaf.id }); } catch { /* noop */ }
           setCurrentView('civil');

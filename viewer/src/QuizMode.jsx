@@ -53,7 +53,7 @@ function Row({ title, countLabel, pct, showBar, meta, onClick }) {
 }
 
 // ───────────────────────── 메인 ─────────────────────────
-export default function MemorizeBridge({ onGoSolve, onGoAI }) {
+export default function MemorizeBridge({ onGoSolve, onGoAI, initialJump, onJumpConsumed }) {
   const [screen, setScreen] = useState('subjects'); // subjects | leaves | topics | drill
   const [subjectId, setSubjectId] = useState(null);
   const [leaves, setLeaves] = useState([]);
@@ -97,6 +97,16 @@ export default function MemorizeBridge({ onGoSolve, onGoAI }) {
       .catch(() => { if (!dead) setDrillTopics({}); });
     return () => { dead = true; };
   }, [subjectId]);
+
+  // 외부 딥링크(오답·약점 → 이 개념 드릴): subjectId 로드 후 해당 leaf의 주제 화면으로 점프
+  useEffect(() => {
+    if (!initialJump?.leafId) return;
+    if (subjectId !== initialJump.subjectId) { setSubjectId(initialJump.subjectId); setPathStack([]); return; }
+    if (!leaves.length) return; // leaf 목록 로드 대기
+    const found = leaves.find((l) => l.id === initialJump.leafId);
+    if (found) { setLeaf(found); setTopic(null); setScreen('topics'); onJumpConsumed && onJumpConsumed(); }
+    else { onJumpConsumed && onJumpConsumed(); } // 매칭 실패 시 과목 목차에 머무름
+  }, [initialJump, subjectId, leaves]);
 
   // leaf의 주제 = 정적 추출분 + 수동 추가분
   const topicsOf = (leafId) => [...(drillTopics[leafId] || []), ...((custom[leafId] || []))];
