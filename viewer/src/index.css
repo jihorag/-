@@ -127,7 +127,11 @@ body {
 
 /* Banner */
 html, body {
-  overflow-x: hidden; /* 모바일 가로 끌림·제목 잘림 방지 */
+  /* clip = 가로 끌림/제목 잘림은 막되 '스크롤 컨테이너'는 만들지 않음.
+     hidden 이면 body 가 스크롤 컨테이너가 되고, 콘텐츠가 딱 맞아 스스로 스크롤 못 하는데
+     body 의 overscroll-behavior-y:none 이 html 로의 스크롤 체이닝까지 막아 마우스 휠이
+     전혀 안 먹는 버그가 남. clip 은 overflow-y 를 auto 로 강등시키지 않아 휠 정상. */
+  overflow-x: clip;
 }
 
 .banner {
