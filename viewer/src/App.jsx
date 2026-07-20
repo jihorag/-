@@ -47,7 +47,9 @@ const collectUserData = () => {
     // API 키(ailearn-byok)는 단일 기기에 머물러야 하므로 동기화에서 제외.
     if (!k) continue;
     if (k === 'ailearn-byok') continue;
-    if (k.startsWith('quiz-') || k.startsWith('mem-') || k.startsWith('ailearn-')) {
+    // ⚠️ 반드시 isSyncKey/SYNC_PREFIXES 와 동일 집합이어야 함. drill-* 이 빠져 있으면
+    // 복원·계정전환 시 isSyncKey 가 drill-* 를 지우는데 여기서 담지 않아 드릴 데이터가 소실된다.
+    if (k.startsWith('quiz-') || k.startsWith('mem-') || k.startsWith('ailearn-') || k.startsWith('drill-')) {
       data[k] = localStorage.getItem(k);
     }
   }
@@ -364,6 +366,12 @@ const mergeStateData = (remoteData) => {
         if (q && q.id && !seen.has(q.id)) seen.set(q.id, q);
       }
       setIf(k, [...seen.values()]);
+    } else if (k === 'quiz-bookmarks-v1') {
+      // 북마크 맵({qid:사유}): qid 합집합으로 양 기기 북마크 보존. 병합 분기가 없으면
+      // 기본(로컬 우선)으로 떨어져 원격에만 있던 북마크가 이후 push 에서 지워진다.
+      const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = {};
+      for (const [id, v] of Object.entries({ ...r, ...l })) { if (v) m[id] = v; }
+      setIf(k, m);
     } else if (k === 'ailearn-mastery') {
       // AI 학습 진척: 단원(code)별 last_studied(ISO) 최신 우선 + 누적값은 max로 보존
       const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = { ...r };
@@ -371,9 +379,17 @@ const mergeStateData = (remoteData) => {
         const re = m[code];
         if (!re) { m[code] = e; continue; }
         const base = (e?.last_studied || '') >= (re?.last_studied || '') ? e : re;
+        // 누적 카운터는 max 로 보존(더 많이 푼 쪽 유지) — base 만 쓰면 오래됐지만 last_studied 가
+        // 더 최근인 쪽이 attempted/correct 를 후퇴시켜, detectWeaknesses 의 attempted>=3 문턱을
+        // 깨고 약점이 갑자기 사라지는 문제가 생긴다. accuracy 는 보존한 값으로 재계산.
+        const attempted = Math.max(e?.attempted || 0, re?.attempted || 0);
+        const correct = Math.max(e?.correct || 0, re?.correct || 0);
         m[code] = { ...base,
           coverage: Math.max(e?.coverage || 0, re?.coverage || 0),
-          answer_count: Math.max(e?.answer_count || 0, re?.answer_count || 0) };
+          answer_count: Math.max(e?.answer_count || 0, re?.answer_count || 0),
+          attempted, correct,
+          accuracy: attempted ? correct / attempted : (base?.accuracy || 0),
+          avg_score_pct: Math.max(e?.avg_score_pct || 0, re?.avg_score_pct || 0) };
       }
       setIf(k, m);
     } else if (k === 'ailearn-sessions') {
@@ -400,9 +416,19 @@ const mergeStateData = (remoteData) => {
       }
       setIf(k, m);
     } else if (k.startsWith('ailearn-room:') || k.startsWith('ailearn-answers:')) {
-      // 채팅방·답안 로그(append-only): 항목 수가 많은 쪽 채택 (양 기기 동시 분기는 드묾)
+      // 채팅방·답안 로그(append-only): ts 기준 합집합. "긴 쪽 채택"이면 양 기기가 각자
+      // 추가한 경우 짧은 쪽이 통째로 사라진다(답안 로그는 detectWeaknesses 입력이라 손실 큼).
       const l = parseJ(lv, []); const r = parseJ(rv, []);
-      if (Array.isArray(l) && Array.isArray(r)) setIf(k, r.length > l.length ? r : l);
+      if (Array.isArray(l) && Array.isArray(r)) {
+        const seen = new Set(); const m = [];
+        for (const rec of [...r, ...l]) {
+          if (!rec) continue;
+          const key = `${rec.ts || ''}-${rec.role || ''}-${String(rec.content || rec.text || rec.answer || '').slice(0, 40)}`;
+          if (!seen.has(key)) { seen.add(key); m.push(rec); }
+        }
+        m.sort((a, b) => (a.ts || 0) - (b.ts || 0));
+        setIf(k, m.slice(-500));
+      }
     } else if (k === 'drill-topics-custom-v1') {
       // 드릴 수동 주제: leafId별 id 합집합 (양 기기에서 추가한 주제 보존)
       const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = {};
@@ -2360,9 +2386,14 @@ const App = () => {
           if (!cancelled) setLoadPct(Math.min(99, Math.round((receivedBytes / totalBytes) * 100)));
           return arr;
         });
-        const chunks = await Promise.all(chunkPromises);
+        // 한 청크(예: exams/NN.json)가 일시적으로 404/네트워크 오류여도 나머지는 살린다.
+        // Promise.all 이면 1개 실패로 전체 로드가 죽어 '문항 0개' 오류화면이 뜬다.
+        const settled = await Promise.allSettled(chunkPromises);
         if (cancelled) return;
-        const qData = chunks.flat();
+        const qData = settled.filter((s) => s.status === 'fulfilled').flatMap((s) => s.value);
+        const failed = settled.filter((s) => s.status === 'rejected').length;
+        if (!qData.length) throw new Error('문제 데이터를 한 청크도 불러오지 못했습니다');
+        if (failed) console.warn(`[load] ${failed}개 청크 실패 — ${qData.length}문항으로 계속`);
         setLoadPct(100);
         setQuestionsData(qData);
         setTaxonomyData(tData);
@@ -3825,8 +3856,9 @@ const App = () => {
   const shell = (content, extraClass = '') => (
     <div className={`app-shell with-nav${extraClass ? ' ' + extraClass : ''}`}>
       {content}
-      {/* 홈은 banner에 자체 ⚙️ 버튼이 있어 FAB 중복 노출 회피 */}
-      {currentView !== 'home' && currentView !== 'civil' && !showGlobalSettings && globalSettingsFab}
+      {/* 홈은 banner에 자체 ⚙️ 버튼이 있어 FAB 중복 노출 회피.
+          askAI는 우상단 '지우기' 버튼과 FAB(right:14)가 겹쳐 탭이 가로채지므로 제외. */}
+      {currentView !== 'home' && currentView !== 'civil' && currentView !== 'askAI' && !showGlobalSettings && globalSettingsFab}
       {globalSettingsDrawer}
       {bottomNav}
       {overlays}

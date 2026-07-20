@@ -1463,7 +1463,11 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
 
   // 인덱스·인수인계서 로드 — subjectId 변경 시 재로드
   useEffect(() => {
+    // dead 플래그: 과목 A→B 빠른 전환 시 A 응답이 늦게 도착해 B의 leaves/current/handover 를
+    // 덮어써 '화면은 B, LLM 컨텍스트는 A' 가 되는 크로스-과목 오염 방지.
+    let dead = false;
     fetch(indexUrl(subjectId)).then((r) => r.json()).then((raw) => {
+      if (dead) return;
       const idx = raw?.stage === 2 ? normalizeStage2Index(raw) : raw;
       setIndexMeta(idx);
       setLeaves(idx.leaves || []);
@@ -1480,33 +1484,39 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           setCurrent(next);
         }
       }
-    }).catch((e) => setError('단원 인덱스를 불러오지 못했습니다: ' + e.message));
-    fetch(handoverUrl(subjectId)).then((r) => r.text()).then(setHandoverMd).catch(() => setHandoverMd(''));
+    }).catch((e) => { if (!dead) setError('단원 인덱스를 불러오지 못했습니다: ' + e.message); });
+    fetch(handoverUrl(subjectId)).then((r) => r.text()).then((md) => { if (!dead) setHandoverMd(md); }).catch(() => { if (!dead) setHandoverMd(''); });
     pruneOldConversations(7);
+    return () => { dead = true; };
   }, [subjectId]); // eslint-disable-line
 
   // leaf 자료 로드 (section_lines 슬라이스)
   useEffect(() => {
-    if (!current?.leaf_id || leaves.length === 0) return;
+    if (!current?.leaf_id || leaves.length === 0) return undefined;
     const leaf = leaves.find((l) => l.id === current.leaf_id);
-    if (!leaf || !leaf.unit_file) { setUnitMd(''); setSectionMd(''); return; }
+    if (!leaf || !leaf.unit_file) { setUnitMd(''); setSectionMd(''); return undefined; }
+    let dead = false; // 빠른 단원 전환 시 이전 leaf 자료가 늦게 도착해 덮어쓰는 것 방지
     fetch(studyBase(subjectId) + leaf.unit_file).then((r) => r.text()).then((md) => {
+      if (dead) return;
       setUnitMd(md);
       if (leaf.section_key && leaf.section_key !== 'full' && leaf.section_lines) {
         setSectionMd(sliceSection(md, { lines: leaf.section_lines }));
       } else {
         setSectionMd('');
       }
-    }).catch((e) => setError('단원 자료 로드 실패: ' + e.message));
+    }).catch((e) => { if (!dead) setError('단원 자료 로드 실패: ' + e.message); });
+    return () => { dead = true; };
   }, [current?.leaf_id, leaves, subjectId]);
 
   // 문제·기출 자료 로드 — 1차 practice, 2차 answer_write / mock_full / topic_extract 모드에서
   useEffect(() => {
     const needs = mode === 'practice' || mode === 'answer_write' || mode === 'mock_full' || mode === 'topic_extract';
-    if (!needs || !current?.leaf_id) { setProblemsMd(''); return; }
+    if (!needs || !current?.leaf_id) { setProblemsMd(''); return undefined; }
     const leaf = leaves.find((l) => l.id === current.leaf_id);
-    if (!leaf || !leaf.problems_file) { setProblemsMd(''); return; }
-    fetch(studyBase(subjectId) + leaf.problems_file).then((r) => r.text()).then(setProblemsMd).catch(() => setProblemsMd(''));
+    if (!leaf || !leaf.problems_file) { setProblemsMd(''); return undefined; }
+    let dead = false; // 빠른 단원/모드 전환 시 이전 leaf 문제자료가 늦게 덮어쓰는 것 방지
+    fetch(studyBase(subjectId) + leaf.problems_file).then((r) => r.text()).then((md) => { if (!dead) setProblemsMd(md); }).catch(() => { if (!dead) setProblemsMd(''); });
+    return () => { dead = true; };
   }, [mode, current?.leaf_id, leaves, subjectId]);
 
   // 2차 template 모드 — 자료 로드

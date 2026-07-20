@@ -8,15 +8,19 @@ import { useEffect } from 'react';
 // CmdK 컴포넌트가 open) 모달이 중첩될 때, 각 인스턴스가 직전 overflow 값을
 // 캡처·복원하면 'hidden'을 서로 물려받아 마지막 해제 시 잠금이 영구히 남는다
 // (CmdK 한 번 열었다 닫으면 전체 상하 스크롤 멈춤). 카운트 0일 때만 해제.
+//
+// ⚠️ 잠금 대상은 '실제 스크롤러'인 documentElement(html)여야 한다. index.css 가
+// html/body { overflow-x: clip } 이라 body 는 더 이상 스크롤 컨테이너가 아니므로
+// body 에 overflow:hidden 을 줘도 뷰포트 스크롤을 막지 못한다(모달 배경이 스크롤됨).
 let _scrollLockCount = 0;
 export function useScrollLock(active) {
   useEffect(() => {
     if (!active) return undefined;
     _scrollLockCount += 1;
-    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     return () => {
       _scrollLockCount = Math.max(0, _scrollLockCount - 1);
-      if (_scrollLockCount === 0) document.body.style.overflow = '';
+      if (_scrollLockCount === 0) document.documentElement.style.overflow = '';
     };
   }, [active]);
 }

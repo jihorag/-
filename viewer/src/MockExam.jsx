@@ -261,9 +261,15 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
     });
   }, []);
 
+  const submittedIdRef = useRef(null);
   const submitMock = useCallback((auto = false) => {
     const s = current;
     if (!s || s.submitted) return;
+    // 동기 재진입 가드: 제출 버튼 더블탭이나 만료타이머+클릭이 같은 프레임에 겹치면
+    // current 가 아직 non-null 이라 두 번 채점되어 recordAnswer 가 통계를 중복 집계한다.
+    const sessionKey = `${s.exam}-${s.year}-${s.startedAt}`;
+    if (submittedIdRef.current === sessionKey) return;
+    submittedIdRef.current = sessionKey;
     const endedAt = Date.now();
     const elapsedMs = endedAt - s.startedAt;
     // 채점

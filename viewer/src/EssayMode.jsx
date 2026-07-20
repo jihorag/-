@@ -124,6 +124,7 @@ const ESSAY_SUBJECTS = [
 const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuestionId, fontScale, entrySubject, entryNonce, entryChapter, entrySubchapter }) => {
   const [subjKey, setSubjKey] = useState(entrySubject || 'practice'); // 현재 2차 과목
   const subj = ESSAY_SUBJECTS.find((s) => s.key === subjKey) || ESSAY_SUBJECTS[0];
+  const subjDirRef = useRef(subj.dir); subjDirRef.current = subj.dir; // 현재 과목 dir(레이스 가드용)
   // 문제풀이 탭 등에서 특정 과목으로 진입할 때 동기화 (nonce가 바뀔 때마다)
   useEffect(() => {
     if (entrySubject && ESSAY_SUBJECTS.some((s) => s.key === entrySubject)) setSubjKey(entrySubject);
@@ -278,12 +279,16 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
   // ─────────── chapter 데이터 lazy fetch (official + generated 병합) ───────────
   const ensureChapter = useCallback(async (id) => {
     if (chapterCache[id]) return chapterCache[id];
+    const dir = subj.dir; // 호출 시점 과목 — 도착 시 과목이 바뀌었으면 캐시 쓰지 않음
     try {
       const [official, generated] = await Promise.all([
-        safeJson(`${subj.dir}${id}.json`),
-        safeJson(`${subj.dir}${id}-generated.json`),
+        safeJson(`${dir}${id}.json`),
+        safeJson(`${dir}${id}-generated.json`),
       ]);
       if (!official) throw new Error(`chapter ${id} not found`);
+      // 과목이 바뀐 뒤 옛 fetch 가 도착하면, 리셋된 새 과목 캐시에 같은 id 로 덮어써
+      // 다른 과목의 논술 문제가 노출된다 → 도착 시점 과목이 다르면 폐기.
+      if (dir !== subjDirRef.current) return null;
       const genQ = generated?.questions || [];
       const merged = {
         ...official,
@@ -325,11 +330,15 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
   }, [mode, questionId]);
 
   // ─────────── auto-save 매 10초 ───────────
+  // draft 를 deps 에 넣으면 매 키입력마다 clearInterval→새 10초 카운트가 리셋되어,
+  // 쉼 없이 타이핑하는 동안엔 자동저장이 영영 안 뜬다(크래시/새로고침 시 작성분 유실).
+  // draft 는 ref 로 읽고, 인터벌은 문항이 바뀔 때만 재설정한다.
+  const draftRef = useRef(draft); draftRef.current = draft;
   useEffect(() => {
-    if (mode !== 'essay_write' || !questionId) return;
-    const t = setInterval(() => saveDraft(questionId, draft), 10000);
+    if (mode !== 'essay_write' || !questionId) return undefined;
+    const t = setInterval(() => saveDraft(questionId, draftRef.current), 10000);
     return () => clearInterval(t);
-  }, [mode, questionId, draft]);
+  }, [mode, questionId]);
 
   // ─────────── 작성 중 새로고침·탭 닫기 경고 (최대 10초 분량 유실 방지) ───────────
   useEffect(() => {

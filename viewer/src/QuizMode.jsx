@@ -102,11 +102,15 @@ export default function MemorizeBridge({ onGoSolve, onGoAI, initialJump, onJumpC
   useEffect(() => {
     if (!initialJump?.leafId) return;
     if (subjectId !== initialJump.subjectId) { setSubjectId(initialJump.subjectId); setPathStack([]); return; }
+    if (leavesError) { onJumpConsumed && onJumpConsumed(); return; } // 인덱스 로드 실패 → 소비(안 하면 stale jump가 네비 하이재킹)
     if (!leaves.length) return; // leaf 목록 로드 대기
-    const found = leaves.find((l) => l.id === initialJump.leafId);
-    if (found) { setLeaf(found); setTopic(null); setScreen('topics'); onJumpConsumed && onJumpConsumed(); }
-    else { onJumpConsumed && onJumpConsumed(); } // 매칭 실패 시 과목 목차에 머무름
-  }, [initialJump, subjectId, leaves]);
+    // 1차는 정확 매칭. 2차는 딥링크 leafId가 topic 단위(subject__code__topicId)일 수 있어
+    // 드릴 leaf(subject__code)와 안 맞음 → 앞 2토막(단원 prefix)으로 폴백.
+    const unitId = initialJump.leafId.split('__').slice(0, 2).join('__');
+    const found = leaves.find((l) => l.id === initialJump.leafId) || leaves.find((l) => l.id === unitId);
+    if (found) { setLeaf(found); setTopic(null); setScreen('topics'); }
+    onJumpConsumed && onJumpConsumed(); // 성공/실패 무관 1회 소비
+  }, [initialJump, subjectId, leaves, leavesError]);
 
   // leaf의 주제 = 정적 추출분 + 수동 추가분
   const topicsOf = (leafId) => [...(drillTopics[leafId] || []), ...((custom[leafId] || []))];
@@ -153,8 +157,13 @@ export default function MemorizeBridge({ onGoSolve, onGoAI, initialJump, onJumpC
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', rowGap: 14, columnGap: 12, alignItems: 'start' }}>
                   {subjects.map((s) => {
-                    // 과목 완료 주제 수 — topicId가 subjectId로 시작
-                    const done = Object.entries(prog).filter(([id, p]) => p?.status === 'done' && id.startsWith(s.id)).length;
+                    // 과목 완료 주제 수 — 정적 주제 id는 subjectId로 시작하지만, 수동 주제 id는
+                    // 'custom-…'라 prefix로 안 잡힌다. 해당 과목 leaf 아래 커스텀 주제 id도 포함.
+                    const customIds = new Set();
+                    Object.entries(custom).forEach(([lid, arr]) => {
+                      if (lid.startsWith(s.id)) (arr || []).forEach((t) => customIds.add(t.id));
+                    });
+                    const done = Object.entries(prog).filter(([id, p]) => p?.status === 'done' && (id.startsWith(s.id) || customIds.has(id))).length;
                     return (
                       <div key={s.id} style={{ background: T.card, borderRadius: 20, boxShadow: T.shadow }}>
                         <button onClick={() => { setSubjectId(s.id); setPathStack([]); setScreen('leaves'); }}
@@ -461,7 +470,9 @@ ${tail}`;
   }
 
   return (
-    <div className="app-container" style={{ background: '#f8fafc', minHeight: '100dvh', display: 'flex', flexDirection: 'column' }}>
+    // 고정 높이(하단 탭바 64px 예약) + main minHeight:0 — 안 그러면 입력창이 고정탭 아래로
+    // 가리고 main 이 내부 스크롤되지 않는다(AILearning 채팅과 동일 패턴).
+    <div className="app-container" style={{ background: '#f8fafc', height: 'calc(100dvh - 64px - env(safe-area-inset-bottom, 0px))', display: 'flex', flexDirection: 'column' }}>
       <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', flexShrink: 0 }}>
         <button className="back-btn" onClick={() => { abortRef.current?.abort(); onBack(); }}>
           <ArrowLeft size={24} style={{ marginRight: 8 }} /><span style={{ fontSize: '0.95rem', fontWeight: 600 }}>주제 목록</span>
@@ -472,7 +483,7 @@ ${tail}`;
         <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#111827', marginTop: 2 }}>{topic.title}</div>
         {topic.hint && <div style={{ fontSize: '0.76rem', color: '#7c3aed', marginTop: 2 }}>{topic.hint}</div>}
       </div>
-      <main className="main-content" style={{ flex: 1, marginTop: 0, overflowY: 'auto', paddingBottom: 12 }}>
+      <main className="main-content" style={{ flex: 1, minHeight: 0, marginTop: 0, overflowY: 'auto', paddingBottom: 12 }}>
         {!started && (
           <div style={{ textAlign: 'center', padding: '30px 16px' }}>
             <div style={{ fontSize: '0.86rem', color: '#6b7280', lineHeight: 1.6, marginBottom: 16 }}>
