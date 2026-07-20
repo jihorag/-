@@ -71,6 +71,7 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
   const [bType, setBType] = useState('drill');
   const [bSubject, setBSubject] = useState('');
   const [bLeaf, setBLeaf] = useState('');
+  const [bLeafQuery, setBLeafQuery] = useState(''); // 단원 검색어(수백 개 네이티브 드롭다운 대체)
   const [bRound, setBRound] = useState('');
   const [bScope, setBScope] = useState('');
   const [showCycle, setShowCycle] = useState(false);
@@ -105,7 +106,7 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
       text, done: false,
     };
     update(addItemToDate(selected, item));
-    setBScope(''); setBLeaf(''); setBRound('');
+    setBScope(''); setBLeaf(''); setBLeafQuery(''); setBRound('');
   };
 
   const toggleItem = (id) =>
@@ -177,6 +178,12 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
   const curSubjMeta = bSubject ? SUBJECTS.find((s) => s.id === bSubject) : null;
   const bTypeMeta = typeMeta(bType);
   const subjLeaves = (bSubject && leavesBySubject[bSubject]) || [];
+  const selectedLeafObj = bLeaf ? subjLeaves.find((l) => l.id === bLeaf) : null;
+  const leafMatches = (() => {
+    const q = bLeafQuery.trim().toLowerCase();
+    if (!q) return [];
+    return subjLeaves.filter((l) => ((l.path ? l.path.join(' ') : '') + ' ' + (l.title || '')).toLowerCase().includes(q)).slice(0, 30);
+  })();
 
   const inputStyle = { fontSize: '0.82rem', padding: '8px 10px', border: '1px solid #e5e7eb', borderRadius: 9, background: '#fff', color: '#374151' };
 
@@ -421,7 +428,7 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
               {Object.entries(TASK_TYPES).map(([k, tm]) => {
                 const on = bType === k;
                 return (
-                  <button key={k} onClick={() => { setBType(k); if (!TASK_TYPES[k].needsSubject) { setBSubject(''); setBLeaf(''); } }}
+                  <button key={k} onClick={() => { setBType(k); setBLeaf(''); setBLeafQuery(''); if (!TASK_TYPES[k].needsSubject) { setBSubject(''); } }}
                     style={{ fontSize: '0.74rem', fontWeight: 700, borderRadius: 999, padding: '5px 10px', cursor: 'pointer',
                       border: on ? `1.5px solid ${tm.color}` : '1px solid #e5e7eb',
                       background: on ? tm.bg : '#fff', color: on ? tm.color : '#6b7280' }}>
@@ -433,7 +440,7 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
             {/* 과목 / 단원 / 회독 / 범위 */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>
               {bTypeMeta.needsSubject && (
-                <select value={bSubject} onChange={(e) => { setBSubject(e.target.value); setBLeaf(''); }} style={{ ...inputStyle, flex: '1 1 120px' }}>
+                <select value={bSubject} onChange={(e) => { setBSubject(e.target.value); setBLeaf(''); setBLeafQuery(''); }} style={{ ...inputStyle, flex: '1 1 120px' }}>
                   <option value="">과목 선택…</option>
                   <optgroup label="1차">
                     {SUBJECTS.filter((s) => s.stage === 1).map((s) => <option key={s.id} value={s.id}>{s.icon} {s.short}</option>)}
@@ -443,11 +450,33 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
                   </optgroup>
                 </select>
               )}
+              {/* 단원: 검색형(수백 개라 네이티브 드롭다운은 스크롤이 끝없이 길어짐) */}
               {bTypeMeta.needsLeaf && bSubject && subjLeaves.length > 0 && (
-                <select value={bLeaf} onChange={(e) => setBLeaf(e.target.value)} style={{ ...inputStyle, flex: '1 1 140px' }}>
-                  <option value="">단원 전체</option>
-                  {subjLeaves.map((l) => <option key={l.id} value={l.id}>{leafShort(l)}</option>)}
-                </select>
+                <div style={{ flex: '1 1 100%' }}>
+                  {selectedLeafObj ? (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#eef2ff', border: '1px solid #c7d2fe', borderRadius: 9, padding: '7px 10px' }}>
+                      <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '0.82rem', color: '#4338ca', fontWeight: 700 }}>📍 {leafShort(selectedLeafObj)}</span>
+                      <button onClick={() => { setBLeaf(''); setBLeafQuery(''); }} style={{ flexShrink: 0, background: 'none', border: 'none', color: '#6366f1', cursor: 'pointer', fontSize: '0.74rem', fontWeight: 700 }}>✕ 전체</button>
+                    </div>
+                  ) : (
+                    <>
+                      <input type="text" value={bLeafQuery} onChange={(e) => setBLeafQuery(e.target.value)}
+                        placeholder="단원 검색 (미선택 시 전체)" style={{ ...inputStyle, width: '100%', boxSizing: 'border-box' }} />
+                      {bLeafQuery.trim() && (
+                        <div style={{ marginTop: 4, maxHeight: 168, overflowY: 'auto', border: '1px solid #e5e7eb', borderRadius: 9, background: '#fff' }}>
+                          {leafMatches.length ? leafMatches.map((l) => (
+                            <button key={l.id} onClick={() => { setBLeaf(l.id); setBLeafQuery(''); }}
+                              style={{ display: 'flex', alignItems: 'baseline', gap: 6, width: '100%', textAlign: 'left', padding: '7px 10px',
+                                background: 'none', border: 'none', borderBottom: '1px solid #f1f5f9', cursor: 'pointer' }}>
+                              <span style={{ fontSize: '0.8rem', color: '#374151', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{leafShort(l)}</span>
+                              {l.path && l.path.length > 1 && <span style={{ flexShrink: 0, marginLeft: 'auto', fontSize: '0.68rem', color: '#9ca3af' }}>{l.path[l.path.length - 2]}</span>}
+                            </button>
+                          )) : <div style={{ padding: '8px 10px', fontSize: '0.78rem', color: '#9ca3af' }}>일치하는 단원 없음</div>}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
               )}
               {bTypeMeta.round && (
                 <select value={bRound} onChange={(e) => setBRound(e.target.value)} style={{ ...inputStyle, flex: '0 0 92px' }}>
