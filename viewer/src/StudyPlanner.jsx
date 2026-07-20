@@ -74,6 +74,8 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
   const [bRound, setBRound] = useState('');
   const [bScope, setBScope] = useState('');
   const [showCycle, setShowCycle] = useState(false);
+  const [showBuilder, setShowBuilder] = useState(false); // 태스크 추가 폼 기본 접힘
+  const [showRecord, setShowRecord] = useState(false);   // 자동 공부기록 기본 접힘
 
   const update = (next) => { setPlans(next); savePlans(next); };
 
@@ -318,11 +320,16 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
             const stage2 = SUBJECTS.filter((s) => s.stage === 2);
             if (total === 0) return null;
             return (
-              <div style={{ marginBottom: 14 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>
-                  <span style={{ background: '#eef2ff', color: '#4338ca', fontWeight: 800, borderRadius: 8, padding: '4px 9px', fontSize: '0.76rem' }}>🕒 총 {fmtClock(total)}</span>
-                  <span style={{ fontSize: '0.72rem', color: '#6b7280' }}>🤖 {fmtDuration(t.ai)} · 📚 {fmtDuration(t.quiz)}</span>
-                </div>
+              <div style={{ marginBottom: 12 }}>
+                <button onClick={() => setShowRecord((v) => !v)}
+                  style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    background: '#f8fafc', border: '1px solid #eef0f2', borderRadius: 10, padding: '8px 12px',
+                    cursor: 'pointer', fontSize: '0.76rem', fontWeight: 700, color: '#475569' }}>
+                  <span>⏱ 이 날 공부 기록 · {fmtClock(total)} <span style={{ color: '#9ca3af', fontWeight: 600 }}>(🤖 {fmtDuration(t.ai)} · 📚 {fmtDuration(t.quiz)})</span></span>
+                  <span style={{ color: '#9ca3af' }}>{showRecord ? '▲' : '▼'}</span>
+                </button>
+                {showRecord && (
+                <div style={{ marginTop: 10 }}>
                 <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
                   <div style={{ flex: '1 1 0', minWidth: 0 }}>
                     <div style={{ fontSize: '0.66rem', color: '#9ca3af', fontWeight: 800, marginBottom: 5 }}>1차</div>
@@ -351,6 +358,8 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
                     </div>
                   </div>
                 </div>
+                </div>
+                )}
               </div>
             );
           })()}
@@ -391,15 +400,22 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
                 );
               })}
             </div>
-          ) : (
-            <div style={{ fontSize: '0.8rem', color: '#9ca3af', textAlign: 'center', padding: '8px 0 14px' }}>
-              아직 계획이 없어요. 아래에서 학습 태스크를 추가해보세요.
-            </div>
-          )}
+          ) : null}
 
-          {/* 태스크 빌더 */}
+          {/* 태스크 빌더 — 기본 접힘: '+ 오늘 학습 추가'로 열기 */}
+          {!showBuilder ? (
+            <button onClick={() => setShowBuilder(true)}
+              style={{ width: '100%', padding: '12px', borderRadius: 12, border: '1px dashed #c7d2fe',
+                background: '#f5f6ff', color: '#4f46e5', fontWeight: 800, fontSize: '0.88rem', cursor: 'pointer' }}>
+              + 오늘 학습 추가
+            </button>
+          ) : (
           <div style={{ background: '#f8fafc', borderRadius: 12, padding: 12, border: '1px solid #eef0f2' }}>
-            <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#475569', marginBottom: 8 }}>+ 학습 태스크 추가</div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+              <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#475569' }}>학습 태스크 추가</div>
+              <button onClick={() => setShowBuilder(false)}
+                style={{ fontSize: '0.72rem', color: '#9ca3af', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 700 }}>닫기 ✕</button>
+            </div>
             {/* 타입 칩 */}
             <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginBottom: 9 }}>
               {Object.entries(TASK_TYPES).map(([k, tm]) => {
@@ -462,6 +478,7 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
             </button>
             {showCycle && <CyclePlanner subjects={SUBJECTS} startKey={selected} examDates={examDates} primaryExam={primaryExam} onGenerate={genCycle} />}
           </div>
+          )}
         </section>
       </main>
     </div>
