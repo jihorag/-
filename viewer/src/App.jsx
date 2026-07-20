@@ -3257,6 +3257,39 @@ const App = () => {
     window.scrollTo(0, 0);
   };
 
+  // 📅 플래너 학습 태스크 열기 — 타입별로 해당 기능/단원으로 딥링크
+  const openPlannerTask = (task) => {
+    if (!task) return;
+    const subjMeta = task.subjectId ? AI_SUBJECTS.find((s) => s.id === task.subjectId) : null;
+    const leaf = task.leafId ? Object.values(leavesBySubject).flat().find((l) => l.id === task.leafId) : null;
+    const is2 = subjMeta?.stage === 2;
+    switch (task.type) {
+      case 'drill':
+        if (leaf) jumpToDrill(leaf);
+        else { setCurrentView('quizHome'); window.scrollTo(0, 0); }
+        break;
+      case 'study': {
+        const target = leaf || (task.subjectId ? (leavesBySubject[task.subjectId] || [])[0] : null);
+        if (target) jumpToAILearn(target);
+        else { setCurrentView('civil'); window.scrollTo(0, 0); }
+        break;
+      }
+      case 'solve':
+        if (is2) { setCurrentView('essay_subjects'); }
+        else if (subjMeta?.tax_key) {
+          setTaxScope(null); setTaxSubject(subjMeta.tax_key);
+          setTaxSubSubject(null); setTaxChapter(null); setTaxSection(null);
+          setCurrentView('tax_sub_subjects');
+        } else setCurrentView('dashboard');
+        window.scrollTo(0, 0);
+        break;
+      case 'mock': setCurrentView('mock'); window.scrollTo(0, 0); break;
+      case 'essay': setCurrentView('essay_subjects'); window.scrollTo(0, 0); break;
+      case 'review': setCurrentView('reviewHome'); window.scrollTo(0, 0); break;
+      default: break;
+    }
+  };
+
   // 오답 복습 시작: 진입 시점의 오답 id를 스냅샷 → 세션 중 목록 안정, 가이드 학습 재사용
   const startReview = (ids, title, backView = 'review') => {
     const set = new Set(ids);
@@ -4843,7 +4876,7 @@ const App = () => {
 
   // ===== 스터디 플래너 탭 — 월간 캘린더 =====
   if (currentView === 'planner') {
-    return shell(<StudyPlanner examDates={examDates} primaryExam={PRIMARY_EXAM} />);
+    return shell(<StudyPlanner examDates={examDates} primaryExam={PRIMARY_EXAM} leavesBySubject={leavesBySubject} onOpenTask={openPlannerTask} />);
   }
 
   // ===== 홈 '상세 분석' 렌더 (구 현황 탭 내용) — showDetails 토글로 펼침 =====
