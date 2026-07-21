@@ -136,6 +136,21 @@ const renderInlines = (text, keyPrefix) => {
   return out;
 };
 
+// 콜아웃 톤 — 선두 이모지의 의미에 맞춰 색을 달리해 훑어볼 때 성격이 바로 보이게.
+const CALLOUT_TONES = {
+  '💡': { bg: '#eff6ff', bar: '#3b82f6' },   // 팁·보충
+  '🔑': { bg: '#eef2ff', bar: '#6366f1' },   // 핵심·꼭 외울 것
+  '⚠️': { bg: '#fff7ed', bar: '#f97316' },   // 함정·주의
+  '⚠': { bg: '#fff7ed', bar: '#f97316' },
+  '✏️': { bg: '#f0fdf4', bar: '#22c55e' },   // 예제·풀이
+  '✏': { bg: '#f0fdf4', bar: '#22c55e' },
+  '⭐': { bg: '#fefce8', bar: '#eab308' },   // 기출 출제포인트
+  '📌': { bg: '#f8fafc', bar: '#94a3b8' },   // 참고·메모
+  '📖': { bg: '#faf5ff', bar: '#a855f7' },   // 도입·개관
+  '⏳': { bg: '#f8fafc', bar: '#cbd5e1' },   // 준비중
+  _default: { bg: '#f7f9fc', bar: '#93a4c9' },
+};
+
 // 미완성 마크다운 토큰 자동 보정 (streaming 중간 / max_tokens 절단 대응)
 function sanitizeMarkdown(text) {
   if (!text) return text;
@@ -176,16 +191,33 @@ const renderTextBlock = (text, keyPrefix) => {
       i++;
       continue;
     }
-    // 헤더 — ##/### 등
+    // 헤더 — 위계를 시각적으로 분명히. #~### = 절/관 타이틀(밑줄), #### = 소제목(좌측 액센트 바)
     const hMatch = trimmed.match(/^(#{1,4})\s+(.+)$/);
     if (hMatch) {
       const level = hMatch[1].length;
       const content = hMatch[2];
-      const fontSize = level === 1 ? '1.1em' : level === 2 ? '1.05em' : level === 3 ? '0.98em' : '0.92em';
-      const color = level <= 2 ? '#111827' : '#374151';
-      const marginTop = level <= 2 ? 12 : 8;
+      const style = level <= 3
+        ? {
+            fontWeight: 800,
+            fontSize: level === 1 ? '1.24em' : level === 2 ? '1.15em' : '1.08em',
+            color: '#0f172a',
+            margin: level === 1 ? '4px 0 12px' : '24px 0 10px',
+            paddingBottom: 7,
+            borderBottom: '2px solid #e2e8f0',
+            letterSpacing: '-0.01em',
+            lineHeight: 1.45,
+          }
+        : {
+            fontWeight: 700,
+            fontSize: '1em',
+            color: '#1e293b',
+            margin: '18px 0 7px',
+            paddingLeft: 10,
+            borderLeft: '3px solid #6366f1',
+            lineHeight: 1.45,
+          };
       elements.push(
-        <div key={`${keyPrefix}-h-${i}`} style={{ fontWeight: 700, fontSize, color, margin: `${marginTop}px 0 4px` }}>
+        <div key={`${keyPrefix}-h-${i}`} style={style}>
           {renderInlines(content, `${keyPrefix}-h-${i}`)}
         </div>
       );
@@ -248,18 +280,19 @@ const renderTextBlock = (text, keyPrefix) => {
       }
       const body = raw.join('\n');
       const emojiHead = body.match(/^(\p{Extended_Pictographic}[️]?)\s*(.*)$/su);
+      const tone = CALLOUT_TONES[emojiHead?.[1]] || CALLOUT_TONES._default;
       elements.push(
         <div
           key={`${keyPrefix}-cal-${i}`}
           style={{
-            background: '#f7f9fc',
-            borderLeft: '4px solid #93a4c9',
-            borderRadius: '4px',
-            padding: '10px 14px',
-            margin: '10px 0',
-            color: '#374151',
-            fontSize: '0.94em',
-            lineHeight: 1.65,
+            background: tone.bg,
+            borderLeft: `4px solid ${tone.bar}`,
+            borderRadius: '6px',
+            padding: '11px 15px',
+            margin: '14px 0',
+            color: '#334155',
+            fontSize: '0.95em',
+            lineHeight: 1.75,
           }}
         >
           {emojiHead ? (
@@ -283,9 +316,9 @@ const renderTextBlock = (text, keyPrefix) => {
         i++;
       }
       elements.push(
-        <ul key={`${keyPrefix}-ul-${i}`} style={{ margin: '4px 0 4px 0', paddingLeft: 20 }}>
+        <ul key={`${keyPrefix}-ul-${i}`} style={{ margin: '8px 0', paddingLeft: 22 }}>
           {items.map((it, k) => (
-            <li key={k} style={{ margin: '2px 0' }}>{renderInlines(it, `${keyPrefix}-li-${k}`)}</li>
+            <li key={k} style={{ margin: '5px 0', lineHeight: 1.75 }}>{renderInlines(it, `${keyPrefix}-li-${k}`)}</li>
           ))}
         </ul>
       );
@@ -307,7 +340,7 @@ const renderTextBlock = (text, keyPrefix) => {
       i++;
     }
     elements.push(
-      <div key={`${keyPrefix}-p-${i}`} style={{ margin: '2px 0' }}>
+      <div key={`${keyPrefix}-p-${i}`} style={{ margin: '9px 0', lineHeight: 1.8 }}>
         {paraLines.map((pl, k) => (
           <span key={k}>
             {renderInlines(pl, `${keyPrefix}-p-${i}-${k}`)}
@@ -403,15 +436,16 @@ export const ParsedText = ({ text }) => {
         }
         if (b.type === 'table') {
           return (
-            <div key={idx} className="md-table-wrap" style={{ overflowX: 'auto', margin: '8px 0' }}>
-              <table style={{ borderCollapse: 'collapse', fontSize: '0.85em',
+            <div key={idx} className="md-table-wrap" style={{ overflowX: 'auto', margin: '14px 0',
+              border: '1px solid #e2e8f0', borderRadius: 8 }}>
+              <table style={{ borderCollapse: 'collapse', fontSize: '0.88em',
                 width: '100%', minWidth: 'max-content' }}>
                 <thead>
                   <tr>
                     {b.headers.map((h, k) => (
-                      <th key={k} style={{ border: '1px solid #d1d5db', padding: '6px 10px',
-                        background: '#f9fafb', fontWeight: 700, textAlign: 'left',
-                        whiteSpace: 'nowrap' }}>
+                      <th key={k} style={{ padding: '9px 12px', background: '#f1f5f9',
+                        color: '#0f172a', fontWeight: 700, textAlign: 'left',
+                        whiteSpace: 'nowrap', borderBottom: '2px solid #cbd5e1' }}>
                         {renderTableInlines(h)}
                       </th>
                     ))}
@@ -419,10 +453,10 @@ export const ParsedText = ({ text }) => {
                 </thead>
                 <tbody>
                   {b.rows.map((r, ri) => (
-                    <tr key={ri}>
+                    <tr key={ri} style={{ background: ri % 2 ? '#fafbfc' : '#fff' }}>
                       {r.map((c, ci) => (
-                        <td key={ci} style={{ border: '1px solid #e5e7eb', padding: '6px 10px',
-                          verticalAlign: 'top' }}>
+                        <td key={ci} style={{ padding: '9px 12px', verticalAlign: 'top',
+                          borderTop: ri ? '1px solid #eef2f6' : 'none', lineHeight: 1.7 }}>
                           {renderTableInlines(c)}
                         </td>
                       ))}
