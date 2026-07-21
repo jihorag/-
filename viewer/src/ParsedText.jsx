@@ -177,6 +177,97 @@ const CALLOUT_TONES = {
   _default: { bg: '#f8f9fa', bar: '#a3a3a3' },
 };
 
+// ── 법전(法典) 블록 ───────────────────────────────────────────────
+// `> 📌 **국토계획법 제6조(용도지역의 지정)** — "① … 1. … 가. …"` 형태의 조문 인용을
+// 실제 법전 지면처럼 조·항·호·목 계층으로 펼쳐 보여준다.
+// 원문이 한 줄로 뭉쳐 들어와도 마커(①/1./가.)를 기준으로 줄을 나눈다.
+
+// 조문 인용인지 판별 — 볼드 제목 안에 `제N조`가 있고 ` — ` 로 문언이 이어지는 형태.
+const STATUTE_RE = /^\*\*([^*]*제\s*\d+조[^*]*)\*\*\s*[—–-]\s*([\s\S]+)$/;
+const MOK_LETTERS = '가나다라마바사아자차카타파하';
+
+// 제목을 [법령명, 조문표시] 로 쪼갠다. 예: "국토계획법 시행령 제31조 제2항" → ["국토계획법 시행령", "제31조 제2항"]
+function splitStatuteTitle(title) {
+  const m = title.match(/^(.*?)\s*(제\s*\d+조.*)$/);
+  return m ? [m[1].trim(), m[2].trim()] : ['', title.trim()];
+}
+
+// 문언을 마커 단위 토큰으로 분해. depth 1=항, 2=호, 3=목.
+function parseStatuteBody(raw) {
+  // 저술 시 목 구분에 ` / ` 를 쓴 곳이 있다. 마커(가./나.)가 계층을 알려주므로 공백으로 눕힌다.
+  const text = String(raw)
+    .replace(/^["“”]|["“”]$/g, '')
+    .replace(/\s*\/\s*/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const re = new RegExp(`([①-⑳])|(?:^|[\\s])(\\d{1,2})\\.\\s|(?:^|[\\s])([${MOK_LETTERS}])\\.\\s`, 'g');
+  const tokens = [];
+  let cur = { depth: 0, marker: '', text: '' };
+  let last = 0;
+  let m;
+  while ((m = re.exec(text))) {
+    cur.text += text.slice(last, m.index);
+    tokens.push(cur);
+    const depth = m[1] ? 1 : m[2] ? 2 : 3;
+    const marker = m[1] || `${m[2] || m[3]}.`;
+    cur = { depth, marker, text: '' };
+    last = re.lastIndex;
+  }
+  cur.text += text.slice(last);
+  tokens.push(cur);
+  return tokens
+    .map((t) => ({ ...t, text: t.text.trim() }))
+    .filter((t) => t.text || t.marker);
+}
+
+function StatuteBlock({ title, body, keyPrefix }) {
+  const [lawName, article] = splitStatuteTitle(title);
+  const tokens = parseStatuteBody(body);
+  return (
+    <div style={{
+      background: '#fdfcf8', border: '1px solid #e8e3d6', borderLeft: '3px solid #8a7f6a',
+      borderRadius: 5, margin: '14px 0', overflow: 'hidden',
+      fontFamily: '"Nanum Myeongjo", "AppleMyungjo", Georgia, serif',
+    }}>
+      <div style={{
+        display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap',
+        padding: '8px 14px', background: '#f6f2e8', borderBottom: '1px solid #e8e3d6',
+      }}>
+        <span style={{ fontWeight: 800, fontSize: '0.97em', color: '#3f3a2f', letterSpacing: '-0.01em' }}>
+          {article}
+        </span>
+        {lawName && (
+          <span style={{
+            marginLeft: 'auto', fontSize: '0.74em', fontWeight: 700, color: '#7c7259',
+            border: '1px solid #ddd5c2', borderRadius: 3, padding: '1px 7px', background: '#fdfcf8',
+            fontFamily: 'inherit', whiteSpace: 'nowrap',
+          }}>
+            {lawName}
+          </span>
+        )}
+      </div>
+      <div style={{ padding: '10px 14px 12px', color: '#2f2b24', fontSize: '0.93em', lineHeight: 1.95 }}>
+        {tokens.map((t, k) => (
+          <div key={k} style={{
+            display: 'flex', gap: 6,
+            paddingLeft: t.depth > 1 ? (t.depth - 1) * 17 : 0,
+            margin: t.depth === 1 ? '5px 0 0' : '1px 0',
+          }}>
+            {t.marker && (
+              <span style={{ flex: '0 0 auto', fontWeight: t.depth === 1 ? 700 : 500, color: '#6b6250' }}>
+                {t.marker}
+              </span>
+            )}
+            <span style={{ flex: 1, textAlign: 'justify' }}>
+              {renderInlines(t.text, `${keyPrefix}-st-${k}`)}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // 미완성 마크다운 토큰 자동 보정 (streaming 중간 / max_tokens 절단 대응)
 function sanitizeMarkdown(text) {
   if (!text) return text;
@@ -306,6 +397,15 @@ const renderTextBlock = (text, keyPrefix) => {
       }
       const body = raw.join('\n');
       const emojiHead = body.match(/^(\p{Extended_Pictographic}[️]?)\s*(.*)$/su);
+      // 조문 인용(📌 **○○법 제N조(표제)** — "문언")은 법전 지면처럼 조·항·호·목으로 펼친다.
+      const st = (emojiHead ? emojiHead[2] : body).match(STATUTE_RE);
+      if (st) {
+        elements.push(
+          <StatuteBlock key={`${keyPrefix}-law-${i}`} title={st[1]} body={st[2]}
+            keyPrefix={`${keyPrefix}-law-${i}`} />
+        );
+        continue;
+      }
       const tone = CALLOUT_TONES[emojiHead?.[1]] || CALLOUT_TONES._default;
       elements.push(
         <div
