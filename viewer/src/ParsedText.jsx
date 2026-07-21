@@ -238,6 +238,42 @@ const renderTextBlock = (text, keyPrefix) => {
       );
       continue;
     }
+    // 콜아웃(인용박스) — 연속된 "> ..." 라인 묶기. 강사 여백노트/팁/보충 표현용.
+    // 첫 토큰이 이모지(💡⚠️📌📖✏️🔑 등)면 라벨로 강조.
+    if (/^>\s?/.test(trimmed)) {
+      const raw = [];
+      while (i < rawLines.length && /^>\s?/.test(rawLines[i].trim())) {
+        raw.push(rawLines[i].trim().replace(/^>\s?/, ''));
+        i++;
+      }
+      const body = raw.join('\n');
+      const emojiHead = body.match(/^(\p{Extended_Pictographic}[️]?)\s*(.*)$/su);
+      elements.push(
+        <div
+          key={`${keyPrefix}-cal-${i}`}
+          style={{
+            background: '#f7f9fc',
+            borderLeft: '4px solid #93a4c9',
+            borderRadius: '4px',
+            padding: '10px 14px',
+            margin: '10px 0',
+            color: '#374151',
+            fontSize: '0.94em',
+            lineHeight: 1.65,
+          }}
+        >
+          {emojiHead ? (
+            <>
+              <span style={{ marginRight: 6 }}>{emojiHead[1]}</span>
+              {renderTextBlock(emojiHead[2], `${keyPrefix}-cal-${i}-b`)}
+            </>
+          ) : (
+            renderTextBlock(body, `${keyPrefix}-cal-${i}-b`)
+          )}
+        </div>
+      );
+      continue;
+    }
     // 리스트 항목 — 연속된 - / * 라인 묶기
     if (/^\s*[-*]\s+/.test(ln)) {
       const items = [];
@@ -266,7 +302,7 @@ const renderTextBlock = (text, keyPrefix) => {
     while (i < rawLines.length) {
       const cur = rawLines[i];
       const ct = cur.trim();
-      if (ct === '' || /^(---+|___+|\*\*\*+)$/.test(ct) || /^(#{1,4})\s+/.test(ct) || /^\s*[-*]\s+/.test(cur) || /^[ㄱㄴㄷㄹㅁㅂㅅㅇ]\.\s+/.test(ct)) break;
+      if (ct === '' || /^(---+|___+|\*\*\*+)$/.test(ct) || /^(#{1,4})\s+/.test(ct) || /^\s*[-*]\s+/.test(cur) || /^>\s?/.test(ct) || /^[ㄱㄴㄷㄹㅁㅂㅅㅇ]\.\s+/.test(ct)) break;
       paraLines.push(cur);
       i++;
     }
