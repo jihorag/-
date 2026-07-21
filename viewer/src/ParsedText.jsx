@@ -54,6 +54,18 @@ const HILITE = {
   borderRadius: 1,
 };
 
+// 볼드 안에 형광펜이 들어간 경우(**…==핵심==…**)를 살려서 렌더한다.
+// 바깥 split 이 볼드를 통째로 잡아가므로, 볼드 내부를 한 번 더 쪼갠다.
+const withHilite = (text, keyPrefix) => {
+  const parts = String(text).split(/(==(?:(?!==)[\s\S])+==)/g);
+  if (parts.length === 1) return text;
+  return parts.map((pt, i) =>
+    pt.startsWith('==') && pt.endsWith('==') && pt.length > 4
+      ? <mark key={`${keyPrefix}-nh${i}`} style={HILITE}>{pt.slice(2, -2)}</mark>
+      : <span key={`${keyPrefix}-nt${i}`}>{pt}</span>
+  );
+};
+
 const renderTableInlines = (cell) => {
   // 셀 내 KaTeX + bold(**...**) + <br> 처리 (셀 안 줄바꿈은 <br>로 명시)
   if (cell == null) return null;
@@ -74,7 +86,7 @@ const renderTableInlines = (cell) => {
       const boldParts = p.split(/(\*\*[^*]+\*\*|==(?:(?!==)[\s\S])+==)/g);
       boldParts.forEach((bp, k) => {
         if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
-          inner.push(<strong key={`${ci}-${i}-b${k}`}>{bp.slice(2, -2)}</strong>);
+          inner.push(<strong key={`${ci}-${i}-b${k}`}>{withHilite(bp.slice(2, -2), `${ci}-${i}-b${k}`)}</strong>);
         } else if (bp.startsWith('==') && bp.endsWith('==') && bp.length > 4) {
           inner.push(<mark key={`${ci}-${i}-hl${k}`} style={HILITE}>{bp.slice(2, -2)}</mark>);
         } else if (bp) {
@@ -135,7 +147,8 @@ const renderInlines = (text, keyPrefix) => {
       const boldParts = mp.split(/(\*\*[^*]+\*\*|==(?:(?!==)[\s\S])+==)/g);
       boldParts.forEach((bp, k) => {
         if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
-          out.push(<strong key={`${keyPrefix}-${i}-${di}-${j}-b${k}`}>{bp.slice(2, -2)}</strong>);
+          const kp = `${keyPrefix}-${i}-${di}-${j}-b${k}`;
+          out.push(<strong key={kp}>{withHilite(bp.slice(2, -2), kp)}</strong>);
         } else if (bp.startsWith('==') && bp.endsWith('==') && bp.length > 4) {
           out.push(<mark key={`${keyPrefix}-${i}-${di}-${j}-hl${k}`} style={HILITE}>{bp.slice(2, -2)}</mark>);
         } else if (bp) {
