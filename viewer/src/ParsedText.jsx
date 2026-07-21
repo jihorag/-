@@ -46,6 +46,14 @@ const isPipeRow = (l) => {
 };
 const splitCells = (l) => l.trim().slice(1, -1).split('|').map(c => c.trim());
 
+// 형광펜(==텍스트==) — 실제 형광펜처럼 글자 아래쪽만 칠해지는 마커 효과.
+const HILITE = {
+  background: 'linear-gradient(transparent 58%, #f6e7a1 58%)',
+  color: 'inherit',
+  padding: '0 1px',
+  borderRadius: 1,
+};
+
 const renderTableInlines = (cell) => {
   // 셀 내 KaTeX + bold(**...**) + <br> 처리 (셀 안 줄바꿈은 <br>로 명시)
   if (cell == null) return null;
@@ -63,10 +71,12 @@ const renderTableInlines = (cell) => {
         } catch { inner.push(<span key={`${ci}-${i}-m`}>{p}</span>); }
         return;
       }
-      const boldParts = p.split(/(\*\*[^*]+\*\*)/g);
+      const boldParts = p.split(/(\*\*[^*]+\*\*|==(?:(?!==)[\s\S])+==)/g);
       boldParts.forEach((bp, k) => {
         if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
           inner.push(<strong key={`${ci}-${i}-b${k}`}>{bp.slice(2, -2)}</strong>);
+        } else if (bp.startsWith('==') && bp.endsWith('==') && bp.length > 4) {
+          inner.push(<mark key={`${ci}-${i}-hl${k}`} style={HILITE}>{bp.slice(2, -2)}</mark>);
         } else if (bp) {
           inner.push(<span key={`${ci}-${i}-t${k}`}>{bp}</span>);
         }
@@ -121,11 +131,13 @@ const renderInlines = (text, keyPrefix) => {
         }
         return;
       }
-      // 4) bold (**text**) 분리
-      const boldParts = mp.split(/(\*\*[^*]+\*\*)/g);
+      // 4) bold(**text**) + 형광펜(==text==) 분리
+      const boldParts = mp.split(/(\*\*[^*]+\*\*|==(?:(?!==)[\s\S])+==)/g);
       boldParts.forEach((bp, k) => {
         if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
           out.push(<strong key={`${keyPrefix}-${i}-${di}-${j}-b${k}`}>{bp.slice(2, -2)}</strong>);
+        } else if (bp.startsWith('==') && bp.endsWith('==') && bp.length > 4) {
+          out.push(<mark key={`${keyPrefix}-${i}-${di}-${j}-hl${k}`} style={HILITE}>{bp.slice(2, -2)}</mark>);
         } else if (bp) {
           out.push(<span key={`${keyPrefix}-${i}-${di}-${j}-t${k}`}>{bp}</span>);
         }
@@ -136,19 +148,20 @@ const renderInlines = (text, keyPrefix) => {
   return out;
 };
 
-// 콜아웃 톤 — 선두 이모지의 의미에 맞춰 색을 달리해 훑어볼 때 성격이 바로 보이게.
+// 콜아웃 톤 — 수험서 지면처럼 채도를 낮춘 종이·먹색 계열.
+// 성격 구분은 되되 화면이 알록달록해지지 않도록 배경은 거의 무채색, 좌측 바로만 구분한다.
 const CALLOUT_TONES = {
-  '💡': { bg: '#eff6ff', bar: '#3b82f6' },   // 팁·보충
-  '🔑': { bg: '#eef2ff', bar: '#6366f1' },   // 핵심·꼭 외울 것
-  '⚠️': { bg: '#fff7ed', bar: '#f97316' },   // 함정·주의
-  '⚠': { bg: '#fff7ed', bar: '#f97316' },
-  '✏️': { bg: '#f0fdf4', bar: '#22c55e' },   // 예제·풀이
-  '✏': { bg: '#f0fdf4', bar: '#22c55e' },
-  '⭐': { bg: '#fefce8', bar: '#eab308' },   // 기출 출제포인트
-  '📌': { bg: '#f8fafc', bar: '#94a3b8' },   // 참고·메모
-  '📖': { bg: '#faf5ff', bar: '#a855f7' },   // 도입·개관
-  '⏳': { bg: '#f8fafc', bar: '#cbd5e1' },   // 준비중
-  _default: { bg: '#f7f9fc', bar: '#93a4c9' },
+  '💡': { bg: '#f7f8f9', bar: '#64748b' },   // 팁·보충 — 슬레이트
+  '🔑': { bg: '#f8f7f4', bar: '#57534e' },   // 핵심 — 먹색
+  '⚠️': { bg: '#fbf7f5', bar: '#9a3412' },   // 함정·주의 — 적갈
+  '⚠': { bg: '#fbf7f5', bar: '#9a3412' },
+  '✏️': { bg: '#f7f9f7', bar: '#4d7c5f' },   // 예제·풀이 — 청록회색
+  '✏': { bg: '#f7f9f7', bar: '#4d7c5f' },
+  '⭐': { bg: '#faf8f2', bar: '#a16207' },   // 필수·출제포인트 — 황토
+  '📌': { bg: '#f8f9fa', bar: '#94a3b8' },   // 참고
+  '📖': { bg: '#f8f8f9', bar: '#6b7280' },   // 도입
+  '⏳': { bg: '#f8fafc', bar: '#cbd5e1' },
+  _default: { bg: '#f8f9fa', bar: '#a3a3a3' },
 };
 
 // 미완성 마크다운 토큰 자동 보정 (streaming 중간 / max_tokens 절단 대응)
@@ -200,20 +213,20 @@ const renderTextBlock = (text, keyPrefix) => {
         ? {
             fontWeight: 800,
             fontSize: level === 1 ? '1.24em' : level === 2 ? '1.15em' : '1.08em',
-            color: '#0f172a',
+            color: '#1c1917',
             margin: level === 1 ? '4px 0 12px' : '24px 0 10px',
             paddingBottom: 7,
-            borderBottom: '2px solid #e2e8f0',
+            borderBottom: '1.5px solid #d6d3d1',
             letterSpacing: '-0.01em',
             lineHeight: 1.45,
           }
         : {
             fontWeight: 700,
             fontSize: '1em',
-            color: '#1e293b',
+            color: '#292524',
             margin: '18px 0 7px',
             paddingLeft: 10,
-            borderLeft: '3px solid #6366f1',
+            borderLeft: '3px solid #78716c',
             lineHeight: 1.45,
           };
       elements.push(
@@ -437,15 +450,15 @@ export const ParsedText = ({ text }) => {
         if (b.type === 'table') {
           return (
             <div key={idx} className="md-table-wrap" style={{ overflowX: 'auto', margin: '14px 0',
-              border: '1px solid #e2e8f0', borderRadius: 8 }}>
+              border: '1px solid #e7e5e4', borderRadius: 6 }}>
               <table style={{ borderCollapse: 'collapse', fontSize: '0.88em',
                 width: '100%', minWidth: 'max-content' }}>
                 <thead>
                   <tr>
                     {b.headers.map((h, k) => (
-                      <th key={k} style={{ padding: '9px 12px', background: '#f1f5f9',
-                        color: '#0f172a', fontWeight: 700, textAlign: 'left',
-                        whiteSpace: 'nowrap', borderBottom: '2px solid #cbd5e1' }}>
+                      <th key={k} style={{ padding: '9px 12px', background: '#f5f5f4',
+                        color: '#1c1917', fontWeight: 700, textAlign: 'left',
+                        whiteSpace: 'nowrap', borderBottom: '1.5px solid #d6d3d1' }}>
                         {renderTableInlines(h)}
                       </th>
                     ))}
@@ -453,10 +466,10 @@ export const ParsedText = ({ text }) => {
                 </thead>
                 <tbody>
                   {b.rows.map((r, ri) => (
-                    <tr key={ri} style={{ background: ri % 2 ? '#fafbfc' : '#fff' }}>
+                    <tr key={ri} style={{ background: ri % 2 ? '#fafaf9' : '#fff' }}>
                       {r.map((c, ci) => (
                         <td key={ci} style={{ padding: '9px 12px', verticalAlign: 'top',
-                          borderTop: ri ? '1px solid #eef2f6' : 'none', lineHeight: 1.7 }}>
+                          borderTop: ri ? '1px solid #f0efed' : 'none', lineHeight: 1.7 }}>
                           {renderTableInlines(c)}
                         </td>
                       ))}
