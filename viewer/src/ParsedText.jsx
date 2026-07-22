@@ -489,19 +489,46 @@ function TAccount({ raw, keyPrefix }) {
 // ── 계산 연습 ────────────────────────────────────────────────────
 // 회계는 "읽어서" 늘지 않고 "손으로 풀어야" 는다. 풀이를 가려 두고 스스로 세운 뒤 열어 본다.
 // (합격수기 공통: 회계는 휘발성 1위 — 정형 틀을 안 보고 재현하는 인출 연습이 핵심)
+// `표:` 섹션이 있으면 상각표·전개표를 직접 채워 채점받는 표 채우기 연습이 된다.
+//   표: 유효이자율 상각표
+//   연도 | 기초장부 | 유효이자 | 표시이자 | 상각액 | 기말장부
+//   20X1 | 950,263 | ?95,026 | ?80,000 | ?15,026 | ?965,289   ← ?뒤가 정답인 빈칸
 function PracticeCard({ raw, keyPrefix, seq = 0 }) {
   const [open, setOpen] = useState(false);
   const [hint, setHint] = useState(false);
   const [graded, setGraded] = useState(null);
+  const [typed, setTyped] = useState({});
+  const [checked, setChecked] = useState(false);
   const parts = { 문제: [], 힌트: [], 풀이: [], 답: [] };
+  let caption = '';
+  const tblRows = [];
   let cur = '문제';
   for (const l of raw.split('\n')) {
-    const m = l.match(/^\s*(문제|힌트|풀이|답)\s*[:：]\s*(.*)$/);
-    if (m) { cur = m[1]; if (m[2].trim()) parts[cur].push(m[2]); continue; }
+    const m = l.match(/^\s*(문제|힌트|풀이|답|표)\s*[:：]\s*(.*)$/);
+    if (m) {
+      if (m[1] === '표') { cur = '표'; caption = m[2].trim(); continue; }
+      cur = m[1]; if (m[2].trim()) parts[cur].push(m[2]); continue;
+    }
+    if (cur === '표' && l.includes('|')) { tblRows.push(l.split('|').map((c) => c.trim())); continue; }
+    if (cur === '표') { if (l.trim()) parts['문제'].push(l); continue; }  // 표 밖 줄은 문제로
     parts[cur].push(l);
   }
   const body = (k) => parts[k].join('\n').trim();
   const solution = [body('풀이'), body('답') && `**답 — ${body('답')}**`].filter(Boolean).join('\n\n');
+  // 표 채우기 준비
+  const header = tblRows.length ? tblRows[0] : null;
+  const data = tblRows.slice(1);
+  const blanks = [];
+  data.forEach((r, ri) => r.forEach((c, ci) => { if (c.startsWith('?')) blanks.push({ ri, ci, ans: c.slice(1).trim() }); }));
+  const hasTable = header && blanks.length > 0;
+  const key = (ri, ci) => `${ri}-${ci}`;
+  const rightN = checked ? blanks.filter((b) => fmtAmount(typed[key(b.ri, b.ci)] ?? '') === fmtAmount(b.ans)).length : 0;
+  const checkTable = () => {
+    setChecked(true);
+    const ok = blanks.every((b) => fmtAmount(typed[key(b.ri, b.ci)] ?? '') === fmtAmount(b.ans));
+    setGraded(ok);
+    recordItem({ kind: 'prac', idx: seq, q: body('문제') || caption, isCorrect: ok });
+  };
   const grade = (ok) => {
     setGraded(ok);
     recordItem({ kind: 'prac', idx: seq, q: body('문제'), isCorrect: ok });
@@ -531,7 +558,7 @@ function PracticeCard({ raw, keyPrefix, seq = 0 }) {
           background: open ? '#faf8f2' : '#fff', color: open ? '#a16207' : '#57534e',
         }}>{open ? '🔒 다시 가리기' : '👁 풀이 보기'}</button>
       </div>
-      {open && graded === null && (
+      {open && graded === null && !hasTable && (
         <div style={{
           display: 'flex', alignItems: 'center', gap: 8, padding: '7px 13px',
           background: '#fcfbf7', borderBottom: '1px solid #eee9dd', fontSize: '0.76em', color: '#6b6250',
@@ -561,6 +588,61 @@ function PracticeCard({ raw, keyPrefix, seq = 0 }) {
             margin: '9px 0 0', padding: '8px 12px', background: '#faf8f2',
             borderLeft: '3px solid #a16207', borderRadius: 4, fontSize: '0.93em',
           }}>{renderTextBlock(body('힌트'), `${keyPrefix}-h`)}</div>
+        )}
+        {hasTable && (
+          <div style={{ marginTop: 10, border: '1px solid #cfd8e3', borderRadius: 6, background: '#fbfcfe', overflow: 'hidden' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 12px', background: '#eef2f7', borderBottom: '1px solid #dde4ed' }}>
+              <span style={{ fontSize: '0.73em', fontWeight: 800, color: '#44546a' }}>📊 표 채우기{caption ? ` — ${caption}` : ''}</span>
+              {checked && (
+                <span style={{ fontSize: '0.73em', fontWeight: 800, color: rightN === blanks.length ? '#4d7c5f' : '#9a3412' }}>
+                  {rightN} / {blanks.length} 정답{rightN === blanks.length ? ' · 완성!' : ''}
+                </span>
+              )}
+              <button onClick={checkTable} style={{
+                marginLeft: 'auto', fontSize: '0.71em', fontWeight: 800, padding: '3px 11px', borderRadius: 5,
+                cursor: 'pointer', border: '1.5px solid #2563eb', background: '#fff', color: '#2563eb',
+              }}>채점</button>
+              {checked && (
+                <button onClick={() => { setChecked(false); setTyped({}); setGraded(null); }} style={{
+                  fontSize: '0.71em', fontWeight: 700, padding: '3px 9px', borderRadius: 5, cursor: 'pointer',
+                  border: '1px solid #d6d3d1', background: '#fff', color: '#57534e',
+                }}>🔄</button>
+              )}
+            </div>
+            <div style={{ overflowX: 'auto', padding: '0 6px 8px' }}>
+              <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.86em' }}>
+                <thead><tr>{header.map((h, ci) => (
+                  <th key={ci} style={{ padding: '5px 10px', borderBottom: '1.5px solid #57534e', fontWeight: 700,
+                    color: '#44403c', textAlign: ci === 0 ? 'left' : 'right', whiteSpace: 'nowrap' }}>{h}</th>
+                ))}</tr></thead>
+                <tbody>{data.map((r, ri) => (
+                  <tr key={ri}>{r.map((c, ci) => {
+                    if (!c.startsWith('?')) return (
+                      <td key={ci} style={{ padding: '4px 10px', whiteSpace: 'nowrap', textAlign: ci === 0 ? 'left' : 'right',
+                        fontFamily: ci === 0 ? undefined : MONO, color: '#292524' }}>{renderInlines(c, `${keyPrefix}-t${ri}-${ci}`)}</td>
+                    );
+                    const ans = c.slice(1).trim();
+                    const got = (typed[key(ri, ci)] ?? '').trim();
+                    const ok = checked && fmtAmount(got) === fmtAmount(ans);
+                    const ng = checked && !ok;
+                    return (
+                      <td key={ci} style={{ padding: '3px 8px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+                          <input value={typed[key(ri, ci)] ?? ''}
+                            onChange={(e) => setTyped((s) => ({ ...s, [key(ri, ci)]: e.target.value }))} placeholder="?"
+                            style={{ width: 90, textAlign: 'right', fontFamily: MONO, fontSize: '0.95em', padding: '2px 6px',
+                              borderRadius: 4, border: '1px solid ' + (ng ? '#9a3412' : ok ? '#4d7c5f' : '#c9d3df'),
+                              background: ng ? '#fbf5f3' : ok ? '#f5f8f5' : '#fff', color: '#1f2937' }} />
+                          {ng && <span style={{ fontSize: '0.82em', color: '#9a3412', fontWeight: 700 }}>{fmtAmount(ans)}</span>}
+                          {ok && <span style={{ fontSize: '0.82em', color: '#4d7c5f', fontWeight: 800 }}>✓</span>}
+                        </span>
+                      </td>
+                    );
+                  })}</tr>
+                ))}</tbody>
+              </table>
+            </div>
+          </div>
         )}
       </div>
       {solution && (
