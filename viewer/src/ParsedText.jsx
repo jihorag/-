@@ -7,6 +7,7 @@ import 'katex/dist/katex.min.css';
 import VizRouter, { VizPending } from './viz/VizRouter';
 import SafeSvg from './viz/SafeSvg';
 import MermaidView from './viz/MermaidView';
+import { recordItem } from './studyDrill';
 
 export const SafeImage = ({ src }) => {
   const [errored, setErrored] = useState(false);
@@ -488,9 +489,10 @@ function TAccount({ raw, keyPrefix }) {
 // ── 계산 연습 ────────────────────────────────────────────────────
 // 회계는 "읽어서" 늘지 않고 "손으로 풀어야" 는다. 풀이를 가려 두고 스스로 세운 뒤 열어 본다.
 // (합격수기 공통: 회계는 휘발성 1위 — 정형 틀을 안 보고 재현하는 인출 연습이 핵심)
-function PracticeCard({ raw, keyPrefix }) {
+function PracticeCard({ raw, keyPrefix, seq = 0 }) {
   const [open, setOpen] = useState(false);
   const [hint, setHint] = useState(false);
+  const [graded, setGraded] = useState(null);
   const parts = { 문제: [], 힌트: [], 풀이: [], 답: [] };
   let cur = '문제';
   for (const l of raw.split('\n')) {
@@ -500,6 +502,10 @@ function PracticeCard({ raw, keyPrefix }) {
   }
   const body = (k) => parts[k].join('\n').trim();
   const solution = [body('풀이'), body('답') && `**답 — ${body('답')}**`].filter(Boolean).join('\n\n');
+  const grade = (ok) => {
+    setGraded(ok);
+    recordItem({ kind: 'prac', idx: seq, q: body('문제'), isCorrect: ok });
+  };
   return (
     <div style={{
       margin: '14px 0', border: '1px solid #dcd8cf', borderRadius: 6, overflow: 'hidden',
@@ -525,6 +531,29 @@ function PracticeCard({ raw, keyPrefix }) {
           background: open ? '#faf8f2' : '#fff', color: open ? '#a16207' : '#57534e',
         }}>{open ? '🔒 다시 가리기' : '👁 풀이 보기'}</button>
       </div>
+      {open && graded === null && (
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 8, padding: '7px 13px',
+          background: '#fcfbf7', borderBottom: '1px solid #eee9dd', fontSize: '0.76em', color: '#6b6250',
+        }}>
+          <span style={{ fontWeight: 700 }}>스스로 채점하세요</span>
+          <button onClick={() => grade(true)} style={{
+            marginLeft: 'auto', fontSize: '0.95em', fontWeight: 800, padding: '3px 12px', borderRadius: 5,
+            cursor: 'pointer', border: '1.5px solid #4d7c5f', background: '#fff', color: '#4d7c5f',
+          }}>✓ 맞음</button>
+          <button onClick={() => grade(false)} style={{
+            fontSize: '0.95em', fontWeight: 800, padding: '3px 12px', borderRadius: 5,
+            cursor: 'pointer', border: '1.5px solid #9a3412', background: '#fff', color: '#9a3412',
+          }}>✗ 틀림</button>
+        </div>
+      )}
+      {graded !== null && (
+        <div style={{
+          padding: '6px 13px', fontSize: '0.76em', fontWeight: 800,
+          background: graded ? '#f5f8f5' : '#fbf5f3', color: graded ? '#4d7c5f' : '#9a3412',
+          borderBottom: '1px solid ' + (graded ? '#e3ece3' : '#f0e2dc'),
+        }}>{graded ? '✓ 맞음으로 기록했습니다' : '✗ 틀림으로 기록했습니다 — 오답 목록에 들어갑니다'}</div>
+      )}
       <div style={{ padding: '11px 14px' }}>
         {renderTextBlock(body('문제'), `${keyPrefix}-q`)}
         {hint && body('힌트') && (
@@ -560,8 +589,11 @@ function PracticeCard({ raw, keyPrefix }) {
 // ── 와꾸(정형 풀이 틀) ────────────────────────────────────────────
 // 계산 유형마다 정해진 틀이 있다. 그 틀을 **안 보고 재현**하는 것이 인출 연습이다.
 // 값을 가려 빈 틀로 만들었다가 채워 볼 수 있다.
-function FrameCard({ raw, keyPrefix }) {
+function FrameCard({ raw, keyPrefix, seq = 0 }) {
   const [blank, setBlank] = useState(false);
+  const [fill, setFill] = useState(false);      // 직접 입력해 재현하는 모드
+  const [typed, setTyped] = useState({});
+  const [checked, setChecked] = useState(false);
   let title = '';
   const rows = [];
   for (const l of raw.split('\n')) {
@@ -588,7 +620,34 @@ function FrameCard({ raw, keyPrefix }) {
           cursor: 'pointer', border: '1px solid ' + (blank ? '#2563eb' : '#d6dde6'),
           background: blank ? '#eff6ff' : '#fff', color: blank ? '#2563eb' : '#57534e',
         }}>{blank ? '👁 채운 틀 보기' : '✍️ 빈 틀로 연습'}</button>
+        <button onClick={() => { setFill((v) => !v); setChecked(false); setTyped({}); setBlank(false); }} style={{
+          fontSize: '0.71em', fontWeight: 800, padding: '3px 10px', borderRadius: 5,
+          cursor: 'pointer', border: '1px solid ' + (fill ? '#a16207' : '#d6dde6'),
+          background: fill ? '#faf8f2' : '#fff', color: fill ? '#a16207' : '#57534e',
+        }}>{fill ? '✕ 훈련 종료' : '🧠 재현 훈련'}</button>
       </div>
+      {fill && (
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 8, padding: '7px 13px',
+          background: '#fcfbf7', borderBottom: '1px solid #eee9dd', fontSize: '0.76em', color: '#6b6250',
+        }}>
+          <span style={{ fontWeight: 700 }}>틀을 보지 않고 값을 채워 보세요</span>
+          <button onClick={() => {
+            setChecked(true);
+            const wrong = rows.filter((r) => {
+              const want = fmtAmount(r[1]);
+              const got = (typed[rows.indexOf(r)] ?? '').trim();
+              return want !== '—' && got !== '' && fmtAmount(got) !== want;
+            }).length;
+            const blankN = rows.filter((r, k) => (typed[k] ?? '').trim() === '' && fmtAmount(r[1]) !== '—').length;
+            recordItem({ kind: 'frame', idx: seq, q: `[와꾸] ${title || keyPrefix}`,
+              isCorrect: wrong === 0 && blankN === 0 });
+          }} style={{
+            marginLeft: 'auto', fontSize: '0.95em', fontWeight: 800, padding: '3px 12px', borderRadius: 5,
+            cursor: 'pointer', border: '1.5px solid #2563eb', background: '#fff', color: '#2563eb',
+          }}>대조하기</button>
+        </div>
+      )}
       <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.88em' }}>
         <tbody>
           {rows.map((r, k) => {
@@ -608,7 +667,33 @@ function FrameCard({ raw, keyPrefix }) {
                   padding: '3px 12px', whiteSpace: 'nowrap', fontWeight: strong ? 700 : 400,
                   color: blank ? '#c7cdd4' : '#1f2937',
                   borderTop: strong ? '1px solid #9ca3af' : undefined,
-                }}>{blank ? '________' : fmtAmount(r[1])}</td>
+                }}>
+                  {fill ? (() => {
+                    const want = fmtAmount(r[1]);
+                    const got = (typed[k] ?? '').trim();
+                    const ok = checked && want !== '—' && fmtAmount(got) === want;
+                    const ng = checked && want !== '—' && !ok;
+                    return (
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                        <input
+                          value={typed[k] ?? ''}
+                          onChange={(e) => setTyped((s) => ({ ...s, [k]: e.target.value }))}
+                          placeholder={want === '—' ? '' : '?'}
+                          disabled={want === '—'}
+                          style={{
+                            width: 96, textAlign: 'right', fontFamily: MONO, fontSize: '0.95em',
+                            padding: '2px 6px', borderRadius: 4,
+                            border: '1px solid ' + (ng ? '#9a3412' : ok ? '#4d7c5f' : '#d6dde6'),
+                            background: want === '—' ? '#f5f5f4' : ng ? '#fbf5f3' : ok ? '#f5f8f5' : '#fff',
+                            color: '#1f2937',
+                          }}
+                        />
+                        {ng && <span style={{ fontSize: '0.8em', color: '#9a3412', fontWeight: 700 }}>{want}</span>}
+                        {ok && <span style={{ fontSize: '0.8em', color: '#4d7c5f', fontWeight: 800 }}>✓</span>}
+                      </span>
+                    );
+                  })() : blank ? '________' : fmtAmount(r[1])}
+                </td>
                 {rows.some((x) => x[2]) && (
                   <td style={{ padding: '3px 12px', fontSize: '0.9em', color: '#6b7280' }}>
                     {renderInlines(r[2], `${keyPrefix}-fn-${k}`)}
@@ -973,8 +1058,14 @@ export const ParsedText = ({ text }) => {
         if (b.type === 'je') return <JournalEntry key={idx} raw={b.raw} keyPrefix={`je-${idx}`} />;
         if (b.type === 'ta') return <TAccount key={idx} raw={b.raw} keyPrefix={`ta-${idx}`} />;
         if (b.type === 'ans') return <AnswerSheet key={idx} raw={b.raw} keyPrefix={`ans-${idx}`} />;
-        if (b.type === 'prac') return <PracticeCard key={idx} raw={b.raw} keyPrefix={`prac-${idx}`} />;
-        if (b.type === 'frame') return <FrameCard key={idx} raw={b.raw} keyPrefix={`frame-${idx}`} />;
+        if (b.type === 'prac') {
+          const seq = blocks.slice(0, idx).filter((x) => x.type === 'prac').length;
+          return <PracticeCard key={idx} raw={b.raw} keyPrefix={`prac-${idx}`} seq={seq} />;
+        }
+        if (b.type === 'frame') {
+          const seq = blocks.slice(0, idx).filter((x) => x.type === 'frame').length;
+          return <FrameCard key={idx} raw={b.raw} keyPrefix={`frame-${idx}`} seq={seq} />;
+        }
         if (b.type === 'viz_pending') {
           return <VizPending key={idx} name={b.name} />;
         }
