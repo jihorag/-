@@ -718,24 +718,41 @@ const ANSWER_LEVELS = [
   { re: /^([①-⑳])\s*(.*)$/, depth: 3, weight: 400 },
 ];
 
-function AnswerSheet({ raw, keyPrefix }) {
+function AnswerSheet({ raw, keyPrefix, seq = 0 }) {
   const rows = raw.split('\n').filter((l) => l.trim());
+  // 2차는 목차 자체가 점수다. 가려 놓고 안 보고 재현하는 것이 곧 인출 훈련이다.
+  const [hide, setHide] = useState(false);
   return (
     <div style={{
       margin: '16px 0', border: '1px solid #dcd8cf', borderLeft: '3px solid #6b7280',
       borderRadius: 5, background: '#fdfdfc', padding: '12px 16px 14px',
     }}>
-      <div style={{
-        fontSize: '0.72em', fontWeight: 800, color: '#6b7280', letterSpacing: '0.04em',
-        marginBottom: 8, textTransform: 'uppercase',
-      }}>✍️ 답안 목차</div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+        <span style={{
+          fontSize: '0.72em', fontWeight: 800, color: '#6b7280', letterSpacing: '0.04em',
+          textTransform: 'uppercase',
+        }}>✍️ 답안 목차</span>
+        <button onClick={() => setHide((v) => !v)} style={{
+          marginLeft: 'auto', fontSize: '0.71em', fontWeight: 800, padding: '3px 10px', borderRadius: 5,
+          cursor: 'pointer', border: '1px solid ' + (hide ? '#a16207' : '#dcd8cf'),
+          background: hide ? '#faf8f2' : '#fff', color: hide ? '#a16207' : '#57534e',
+        }}>{hide ? '👁 목차 보기' : '🧠 가리고 재현'}</button>
+        {hide && (
+          <button onClick={() => { setHide(false); recordItem({ kind: 'outline', idx: seq, q: `[답안목차] ${rows[0] || keyPrefix}`, isCorrect: true }); }}
+            style={{
+              fontSize: '0.71em', fontWeight: 800, padding: '3px 10px', borderRadius: 5, cursor: 'pointer',
+              border: '1.5px solid #4d7c5f', background: '#fff', color: '#4d7c5f',
+            }}>✓ 재현했다</button>
+        )}
+      </div>
       {rows.map((l, k) => {
         const s = l.trim();
         const hit = ANSWER_LEVELS.find((lv) => lv.re.test(s));
         if (!hit) {
           return (
             <div key={k} style={{ paddingLeft: 18, margin: '2px 0', color: '#57534e', fontSize: '0.9em' }}>
-              {renderInlines(s, `${keyPrefix}-ans-${k}`)}
+              {hide ? <span style={{ color: '#d6d3d1' }}>{'_'.repeat(Math.min(28, s.length))}</span>
+                    : renderInlines(s, `${keyPrefix}-ans-${k}`)}
             </div>
           );
         }
@@ -749,7 +766,11 @@ function AnswerSheet({ raw, keyPrefix }) {
             lineHeight: 1.7,
           }}>
             <span style={{ flex: '0 0 auto', color: '#78716c' }}>{m[1]}</span>
-            <span>{renderInlines(m[2], `${keyPrefix}-ans-${k}`)}</span>
+            <span>{hide
+              ? <span style={{ color: '#d6d3d1', letterSpacing: '0.06em' }}>
+                  {'_'.repeat(Math.max(6, Math.min(24, (m[2] || '').length)))}
+                </span>
+              : renderInlines(m[2], `${keyPrefix}-ans-${k}`)}</span>
           </div>
         );
       })}
@@ -1057,7 +1078,10 @@ export const ParsedText = ({ text }) => {
         if (b.type === 'fs') return <FinancialStatement key={idx} raw={b.raw} keyPrefix={`fs-${idx}`} />;
         if (b.type === 'je') return <JournalEntry key={idx} raw={b.raw} keyPrefix={`je-${idx}`} />;
         if (b.type === 'ta') return <TAccount key={idx} raw={b.raw} keyPrefix={`ta-${idx}`} />;
-        if (b.type === 'ans') return <AnswerSheet key={idx} raw={b.raw} keyPrefix={`ans-${idx}`} />;
+        if (b.type === 'ans') {
+          const seq = blocks.slice(0, idx).filter((x) => x.type === 'ans').length;
+          return <AnswerSheet key={idx} raw={b.raw} keyPrefix={`ans-${idx}`} seq={seq} />;
+        }
         if (b.type === 'prac') {
           const seq = blocks.slice(0, idx).filter((x) => x.type === 'prac').length;
           return <PracticeCard key={idx} raw={b.raw} keyPrefix={`prac-${idx}`} seq={seq} />;

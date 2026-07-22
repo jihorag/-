@@ -1,637 +1,3769 @@
 {
-  "subject": "감정평가이론",
-  "subject_id": "appraisal_theory",
-  "subject_short": "이론",
-  "stage": 2,
-  "exam": "감정평가사 2차",
-  "essence": "지식 깊이가 아닌 정형 답안 목차(Ⅰ·Ⅱ·Ⅲ)와 키워드로 100분 4문항 풀어내는 답안 작성 기술 시험",
-  "exam_meta": {
-    "minutes": 100,
-    "problems_per_session": 4,
-    "score_distribution": [
-      40,
-      30,
-      20,
-      10
-    ],
-    "pass_threshold": 60
-  },
-  "units_dir": "/data/study/appraisal_theory/units",
-  "problems_dir": "/data/study/appraisal_theory/problems",
-  "handover_file": "/data/study/appraisal_theory/handover.md",
-  "high_priority": [
-    "08",
-    "03",
-    "06",
-    "02"
+ "subject": "감정평가이론",
+ "subject_id": "appraisal_theory",
+ "subject_short": "이론",
+ "stage": 2,
+ "exam": "감정평가사 2차",
+ "essence": "지식 깊이가 아닌 정형 답안 목차(Ⅰ·Ⅱ·Ⅲ)와 키워드로 100분 4문항 풀어내는 답안 작성 기술 시험",
+ "exam_meta": {
+  "minutes": 100,
+  "problems_per_session": 4,
+  "score_distribution": [
+   40,
+   30,
+   20,
+   10
   ],
-  "study_progression": [
-    "01",
-    "02",
-    "03",
-    "04",
-    "05",
-    "06",
-    "07",
-    "08",
-    "09",
-    "10"
-  ],
-  "units": [
+  "pass_threshold": 60
+ },
+ "units_dir": "/data/study/appraisal_theory/units",
+ "problems_dir": "/data/study/appraisal_theory/problems",
+ "handover_file": "/data/study/appraisal_theory/handover.md",
+ "high_priority": [
+  "08",
+  "03",
+  "06",
+  "02"
+ ],
+ "study_progression": [
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10"
+ ],
+ "units": [
+  {
+   "code": "01",
+   "title": "감정평가 기초·분류·절차",
+   "subtitle": "기초 개념",
+   "frequency": 2,
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "est_minutes": 90,
+   "topics": [
     {
-      "code": "01",
-      "title": "감정평가 기초·분류·절차",
-      "subtitle": "기초 개념",
-      "frequency": 2,
-      "unit_file": "units/01.md",
-      "problems_file": "problems/01.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "01-1",
-          "title": "감정평가 의의·목적",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/01.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "01-2",
-          "title": "감정평가 분류 — 평가목적별",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/01.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "01-3",
-          "title": "감정평가 절차 — 의뢰부터 보고서",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/01.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "01-4",
-          "title": "평가서·평가의견서 작성",
-          "section_lines": [
-            495,
-            625
-          ],
-          "unit_file": "units/01.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "01-5",
-          "title": "평가사 의무·책임",
-          "section_lines": [
-            29,
-            159
-          ],
-          "unit_file": "units/01.md",
-          "section_key": "auto_narrow"
-        }
-      ]
+     "id": "01-1",
+     "title": "감정평가 의의·목적",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/01.md",
+     "section_key": "auto_narrow"
     },
     {
-      "code": "02",
-      "title": "부동산 가치이론·가격형성",
-      "subtitle": "가치이론",
-      "frequency": 2,
-      "unit_file": "units/02.md",
-      "problems_file": "problems/02.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "02-1",
-          "title": "부동산 가치이론 — 사용가치·교환가치",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/02.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "02-2",
-          "title": "가치형성요인 — 자연·사회·경제",
-          "section_lines": [
-            1,
-            127
-          ],
-          "unit_file": "units/02.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "02-3",
-          "title": "가격형성과정",
-          "section_lines": [
-            74,
-            204
-          ],
-          "unit_file": "units/02.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "02-4",
-          "title": "시장가격 vs 정상가격",
-          "section_lines": [
-            167,
-            297
-          ],
-          "unit_file": "units/02.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "02-5",
-          "title": "특수가격 — 한정·특정",
-          "section_lines": [
-            57,
-            187
-          ],
-          "unit_file": "units/02.md",
-          "section_key": "auto_narrow"
-        }
-      ]
+     "id": "01-2",
+     "title": "감정평가 분류 — 평가목적별",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/01.md",
+     "section_key": "auto_narrow"
     },
     {
-      "code": "03",
-      "title": "가격제원칙·시장론·시장분석",
-      "subtitle": "가격제원칙 ★",
-      "frequency": 3,
-      "unit_file": "units/03.md",
-      "problems_file": "problems/03.md",
-      "est_minutes": 105,
-      "topics": [
-        {
-          "id": "03-1",
-          "title": "가격제원칙 — 최유효이용 ★",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/03.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "03-2",
-          "title": "가격제원칙 — 균형·적합·기여",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/03.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "03-3",
-          "title": "가격제원칙 — 변동·경쟁·예측",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/03.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "03-4",
-          "title": "시장론 — 부동산시장의 특성",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/03.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "03-5",
-          "title": "시장분석 — 수급·가격",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/03.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "03-6",
-          "title": "지역분석 — 인근지역·유사지역",
-          "section_lines": [
-            98,
-            228
-          ],
-          "unit_file": "units/03.md",
-          "section_key": "auto_narrow"
-        }
-      ]
+     "id": "01-3",
+     "title": "감정평가 절차 — 의뢰부터 보고서",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/01.md",
+     "section_key": "auto_narrow"
     },
     {
-      "code": "04",
-      "title": "3방식 개관·거래사례비교법",
-      "subtitle": "비교법",
-      "frequency": 2,
-      "unit_file": "units/04.md",
-      "problems_file": "problems/04.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "04-1",
-          "title": "3방식 개관 — 원가·비교·수익",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/04.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "04-2",
-          "title": "거래사례비교법 — 의의·절차",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/04.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "04-3",
-          "title": "사례 선택·사정보정·시점수정",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/04.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "04-4",
-          "title": "지역요인·개별요인 비교",
-          "section_lines": [
-            49,
-            179
-          ],
-          "unit_file": "units/04.md",
-          "section_key": "auto_narrow"
-        }
-      ]
+     "id": "01-4",
+     "title": "평가서·평가의견서 작성",
+     "section_lines": [
+      495,
+      625
+     ],
+     "unit_file": "units/01.md",
+     "section_key": "auto_narrow"
     },
     {
-      "code": "05",
-      "title": "원가법",
-      "subtitle": "원가법",
-      "frequency": 2,
-      "unit_file": "units/05.md",
-      "problems_file": "problems/05.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "05-1",
-          "title": "원가법 — 의의·산식",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/05.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "05-2",
-          "title": "재조달원가 — 추계방법",
-          "section_lines": [
-            16,
-            146
-          ],
-          "unit_file": "units/05.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "05-3",
-          "title": "감가수정 — 물리적·기능적·경제적",
-          "section_lines": [
-            18,
-            148
-          ],
-          "unit_file": "units/05.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "05-4",
-          "title": "감가수정 — 정액·정율·상환기금",
-          "section_lines": [
-            18,
-            148
-          ],
-          "unit_file": "units/05.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "06",
-      "title": "수익환원법",
-      "subtitle": "★ 8회 빈출",
-      "frequency": 3,
-      "unit_file": "units/06.md",
-      "problems_file": "problems/06.md",
-      "est_minutes": 105,
-      "topics": [
-        {
-          "id": "06-1",
-          "title": "수익환원법 — 의의·체계",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/06.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "06-2",
-          "title": "직접환원법 — 환원이율",
-          "section_lines": [
-            43,
-            173
-          ],
-          "unit_file": "units/06.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "06-3",
-          "title": "DCF — 할인율·미래현금흐름",
-          "section_lines": [
-            98,
-            228
-          ],
-          "unit_file": "units/06.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "06-4",
-          "title": "환원이율 산정 — 시장추출·요소구성",
-          "section_lines": [
-            188,
-            318
-          ],
-          "unit_file": "units/06.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "06-5",
-          "title": "자본환원율",
-          "section_lines": [
-            71,
-            201
-          ],
-          "unit_file": "units/06.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "06-6",
-          "title": "운영순수익 산정",
-          "section_lines": [
-            44,
-            174
-          ],
-          "unit_file": "units/06.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "07",
-      "title": "기타방식·임료",
-      "subtitle": "임료·기타",
-      "frequency": 1,
-      "unit_file": "units/07.md",
-      "problems_file": "problems/07.md",
-      "est_minutes": 75,
-      "topics": [
-        {
-          "id": "07-1",
-          "title": "기타 평가방식",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/07.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "07-2",
-          "title": "적산법·임대사례비교법",
-          "section_lines": [
-            40,
-            170
-          ],
-          "unit_file": "units/07.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "07-3",
-          "title": "임료의 종류·산정",
-          "section_lines": [
-            1,
-            126
-          ],
-          "unit_file": "units/07.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "07-4",
-          "title": "실질임료·지불임료",
-          "section_lines": [
-            23,
-            153
-          ],
-          "unit_file": "units/07.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "08",
-      "title": "기업가치·물건별 평가",
-      "subtitle": "★★★ 16회 1순위",
-      "frequency": 3,
-      "unit_file": "units/08.md",
-      "problems_file": "problems/08.md",
-      "est_minutes": 105,
-      "topics": [
-        {
-          "id": "08-1",
-          "title": "기업가치 평가 — 방식",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/08.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "08-2",
-          "title": "기업가치 — DCF·자본환원",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/08.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "08-3",
-          "title": "무형자산 — 영업권·특허",
-          "section_lines": [
-            118,
-            248
-          ],
-          "unit_file": "units/08.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "08-4",
-          "title": "물건별 평가 — 총론 ★★★",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/08.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "08-5",
-          "title": "물건별 평가 — 5분류",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/08.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "08-6",
-          "title": "주식·채권·동산 평가",
-          "section_lines": [
-            38,
-            168
-          ],
-          "unit_file": "units/08.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "09",
-      "title": "부동산 투자·금융론",
-      "subtitle": "투자·금융",
-      "frequency": 2,
-      "unit_file": "units/09.md",
-      "problems_file": "problems/09.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "09-1",
-          "title": "부동산 투자분석 — NPV·IRR",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/09.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "09-2",
-          "title": "부동산 금융 — 모기지·MBS",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/09.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "09-3",
-          "title": "부동산 자금조달",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/09.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "09-4",
-          "title": "리츠·부동산 펀드",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/09.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "10",
-      "title": "부동산 정책론·기타논점",
-      "subtitle": "정책론",
-      "frequency": 2,
-      "unit_file": "units/10.md",
-      "problems_file": "problems/10.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "10-1",
-          "title": "부동산 정책 — 토지·주택",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/10.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "10-2",
-          "title": "정책 효과 분석",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/10.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "10-3",
-          "title": "부동산 조세",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/10.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "10-4",
-          "title": "기타 — ESG·디지털 부동산",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/10.md",
-          "section_key": "auto_narrow"
-        }
-      ]
+     "id": "01-5",
+     "title": "평가사 의무·책임",
+     "section_lines": [
+      29,
+      159
+     ],
+     "unit_file": "units/01.md",
+     "section_key": "auto_narrow"
     }
-  ],
-  "default_unit": "01",
-  "has_calc": false,
-  "has_templates": true,
-  "has_cases": false,
-  "version": "v1.0"
+   ]
+  },
+  {
+   "code": "02",
+   "title": "부동산 가치이론·가격형성",
+   "subtitle": "가치이론",
+   "frequency": 2,
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "est_minutes": 90,
+   "topics": [
+    {
+     "id": "02-1",
+     "title": "부동산 가치이론 — 사용가치·교환가치",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/02.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "02-2",
+     "title": "가치형성요인 — 자연·사회·경제",
+     "section_lines": [
+      1,
+      127
+     ],
+     "unit_file": "units/02.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "02-3",
+     "title": "가격형성과정",
+     "section_lines": [
+      74,
+      204
+     ],
+     "unit_file": "units/02.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "02-4",
+     "title": "시장가격 vs 정상가격",
+     "section_lines": [
+      167,
+      297
+     ],
+     "unit_file": "units/02.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "02-5",
+     "title": "특수가격 — 한정·특정",
+     "section_lines": [
+      57,
+      187
+     ],
+     "unit_file": "units/02.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "03",
+   "title": "가격제원칙·시장론·시장분석",
+   "subtitle": "가격제원칙 ★",
+   "frequency": 3,
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "est_minutes": 105,
+   "topics": [
+    {
+     "id": "03-1",
+     "title": "가격제원칙 — 최유효이용 ★",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/03.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "03-2",
+     "title": "가격제원칙 — 균형·적합·기여",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/03.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "03-3",
+     "title": "가격제원칙 — 변동·경쟁·예측",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/03.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "03-4",
+     "title": "시장론 — 부동산시장의 특성",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/03.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "03-5",
+     "title": "시장분석 — 수급·가격",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/03.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "03-6",
+     "title": "지역분석 — 인근지역·유사지역",
+     "section_lines": [
+      98,
+      228
+     ],
+     "unit_file": "units/03.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "04",
+   "title": "3방식 개관·거래사례비교법",
+   "subtitle": "비교법",
+   "frequency": 2,
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "est_minutes": 90,
+   "topics": [
+    {
+     "id": "04-1",
+     "title": "3방식 개관 — 원가·비교·수익",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/04.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "04-2",
+     "title": "거래사례비교법 — 의의·절차",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/04.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "04-3",
+     "title": "사례 선택·사정보정·시점수정",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/04.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "04-4",
+     "title": "지역요인·개별요인 비교",
+     "section_lines": [
+      49,
+      179
+     ],
+     "unit_file": "units/04.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "05",
+   "title": "원가법",
+   "subtitle": "원가법",
+   "frequency": 2,
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "est_minutes": 90,
+   "topics": [
+    {
+     "id": "05-1",
+     "title": "원가법 — 의의·산식",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/05.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "05-2",
+     "title": "재조달원가 — 추계방법",
+     "section_lines": [
+      16,
+      146
+     ],
+     "unit_file": "units/05.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "05-3",
+     "title": "감가수정 — 물리적·기능적·경제적",
+     "section_lines": [
+      18,
+      148
+     ],
+     "unit_file": "units/05.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "05-4",
+     "title": "감가수정 — 정액·정율·상환기금",
+     "section_lines": [
+      18,
+      148
+     ],
+     "unit_file": "units/05.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "06",
+   "title": "수익환원법",
+   "subtitle": "★ 8회 빈출",
+   "frequency": 3,
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "est_minutes": 105,
+   "topics": [
+    {
+     "id": "06-1",
+     "title": "수익환원법 — 의의·체계",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/06.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "06-2",
+     "title": "직접환원법 — 환원이율",
+     "section_lines": [
+      43,
+      173
+     ],
+     "unit_file": "units/06.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "06-3",
+     "title": "DCF — 할인율·미래현금흐름",
+     "section_lines": [
+      98,
+      228
+     ],
+     "unit_file": "units/06.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "06-4",
+     "title": "환원이율 산정 — 시장추출·요소구성",
+     "section_lines": [
+      188,
+      318
+     ],
+     "unit_file": "units/06.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "06-5",
+     "title": "자본환원율",
+     "section_lines": [
+      71,
+      201
+     ],
+     "unit_file": "units/06.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "06-6",
+     "title": "운영순수익 산정",
+     "section_lines": [
+      44,
+      174
+     ],
+     "unit_file": "units/06.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "07",
+   "title": "기타방식·임료",
+   "subtitle": "임료·기타",
+   "frequency": 1,
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "est_minutes": 75,
+   "topics": [
+    {
+     "id": "07-1",
+     "title": "기타 평가방식",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/07.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "07-2",
+     "title": "적산법·임대사례비교법",
+     "section_lines": [
+      40,
+      170
+     ],
+     "unit_file": "units/07.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "07-3",
+     "title": "임료의 종류·산정",
+     "section_lines": [
+      1,
+      126
+     ],
+     "unit_file": "units/07.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "07-4",
+     "title": "실질임료·지불임료",
+     "section_lines": [
+      23,
+      153
+     ],
+     "unit_file": "units/07.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "08",
+   "title": "기업가치·물건별 평가",
+   "subtitle": "★★★ 16회 1순위",
+   "frequency": 3,
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "est_minutes": 105,
+   "topics": [
+    {
+     "id": "08-1",
+     "title": "기업가치 평가 — 방식",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/08.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "08-2",
+     "title": "기업가치 — DCF·자본환원",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/08.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "08-3",
+     "title": "무형자산 — 영업권·특허",
+     "section_lines": [
+      118,
+      248
+     ],
+     "unit_file": "units/08.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "08-4",
+     "title": "물건별 평가 — 총론 ★★★",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/08.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "08-5",
+     "title": "물건별 평가 — 5분류",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/08.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "08-6",
+     "title": "주식·채권·동산 평가",
+     "section_lines": [
+      38,
+      168
+     ],
+     "unit_file": "units/08.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "09",
+   "title": "부동산 투자·금융론",
+   "subtitle": "투자·금융",
+   "frequency": 2,
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "est_minutes": 90,
+   "topics": [
+    {
+     "id": "09-1",
+     "title": "부동산 투자분석 — NPV·IRR",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/09.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "09-2",
+     "title": "부동산 금융 — 모기지·MBS",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/09.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "09-3",
+     "title": "부동산 자금조달",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/09.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "09-4",
+     "title": "리츠·부동산 펀드",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/09.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "10",
+   "title": "부동산 정책론·기타논점",
+   "subtitle": "정책론",
+   "frequency": 2,
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "est_minutes": 90,
+   "topics": [
+    {
+     "id": "10-1",
+     "title": "부동산 정책 — 토지·주택",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/10.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "10-2",
+     "title": "정책 효과 분석",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/10.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "10-3",
+     "title": "부동산 조세",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/10.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "10-4",
+     "title": "기타 — ESG·디지털 부동산",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/10.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  }
+ ],
+ "default_unit": "01",
+ "has_calc": false,
+ "has_templates": true,
+ "has_cases": false,
+ "version": "v1.0",
+ "leaves": [
+  {
+   "id": "thry-01-01",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가의 기초",
+    "감정평가의 개념 — 일원설·이원설·삼원설과 기준가치·복수감정평가"
+   ],
+   "leaf_type": "논점",
+   "title": "감정평가의 개념 — 일원설·이원설·삼원설과 기준가치·복수감정평가",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    25,
+    146
+   ],
+   "section_name": "감정평가의 기초"
+  },
+  {
+   "id": "thry-01-02",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가의 기초",
+    "감정평가의 필요성 — 부동산의 특성·시장의 불완전성과 전문가에 의한 평가의 필연성"
+   ],
+   "leaf_type": "논점",
+   "title": "감정평가의 필요성 — 부동산의 특성·시장의 불완전성과 전문가에 의한 평가의 필연성",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    147,
+    264
+   ],
+   "section_name": "감정평가의 기초"
+  },
+  {
+   "id": "thry-01-03",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가의 기초",
+    "감정평가의 기능 — 정책적 기능·일반경제적 기능과 사회성·공공성"
+   ],
+   "leaf_type": "논점",
+   "title": "감정평가의 기능 — 정책적 기능·일반경제적 기능과 사회성·공공성",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    265,
+    379
+   ],
+   "section_name": "감정평가의 기초"
+  },
+  {
+   "id": "thry-01-04",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가의 기초",
+    "감정평가사의 직업윤리 — 이론적 근거·법률적 근거와 공인·전문인으로서의 윤리"
+   ],
+   "leaf_type": "논점",
+   "title": "감정평가사의 직업윤리 — 이론적 근거·법률적 근거와 공인·전문인으로서의 윤리",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    380,
+    509
+   ],
+   "section_name": "감정평가의 기초"
+  },
+  {
+   "id": "thry-01-05",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가의 기초",
+    "실무기준상 기본윤리·업무윤리와 현행 윤리규정의 문제점·개선방안"
+   ],
+   "leaf_type": "논점",
+   "title": "실무기준상 기본윤리·업무윤리와 현행 윤리규정의 문제점·개선방안",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    510,
+    635
+   ],
+   "section_name": "감정평가의 기초"
+  },
+  {
+   "id": "thry-01-06",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가의 기초",
+    "감정평가의 공정성·독립성과 감정평가서 심사·검토·타당성조사"
+   ],
+   "leaf_type": "논점",
+   "title": "감정평가의 공정성·독립성과 감정평가서 심사·검토·타당성조사",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    636,
+    775
+   ],
+   "section_name": "감정평가의 기초"
+  },
+  {
+   "id": "thry-01-07",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가의 분류",
+    "분류의 목적과 체계 — 감칙상 분류와 강학상 분류의 준별"
+   ],
+   "leaf_type": "논점",
+   "title": "분류의 목적과 체계 — 감칙상 분류와 강학상 분류의 준별",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    776,
+    895
+   ],
+   "section_name": "감정평가의 분류"
+  },
+  {
+   "id": "thry-01-08",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가의 분류",
+    "개별물건기준 원칙과 그 예외 — 일괄·구분·부분감정평가"
+   ],
+   "leaf_type": "논점",
+   "title": "개별물건기준 원칙과 그 예외 — 일괄·구분·부분감정평가",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    896,
+    1023
+   ],
+   "section_name": "감정평가의 분류"
+  },
+  {
+   "id": "thry-01-09",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가의 분류",
+    "현황기준 원칙과 조건부평가 — 감정평가조건의 부가요건·검토사항·유의사항"
+   ],
+   "leaf_type": "논점",
+   "title": "현황기준 원칙과 조건부평가 — 감정평가조건의 부가요건·검토사항·유의사항",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1024,
+    1154
+   ],
+   "section_name": "감정평가의 분류"
+  },
+  {
+   "id": "thry-01-10",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가의 분류",
+    "기준시점에 따른 분류 — 소급평가와 기한부평가"
+   ],
+   "leaf_type": "논점",
+   "title": "기준시점에 따른 분류 — 소급평가와 기한부평가",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1155,
+    1271
+   ],
+   "section_name": "감정평가의 분류"
+  },
+  {
+   "id": "thry-01-11",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가 절차",
+    "감칙 제8조의 7단계 절차 — 절차의 필요성과 단계별 내용"
+   ],
+   "leaf_type": "논점",
+   "title": "감칙 제8조의 7단계 절차 — 절차의 필요성과 단계별 내용",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1272,
+    1397
+   ],
+   "section_name": "감정평가 절차"
+  },
+  {
+   "id": "thry-01-12",
+   "path": [
+    "감정평가이론",
+    "단원 01 — 감정평가 기초·분류·절차",
+    "감정평가 절차",
+    "기본적 사항의 확정과 대상물건의 확인 — 확정·확인의 관계와 물적 불일치"
+   ],
+   "leaf_type": "논점",
+   "title": "기본적 사항의 확정과 대상물건의 확인 — 확정·확인의 관계와 물적 불일치",
+   "subject_root": "감정평가이론",
+   "unit_code": "01",
+   "unit_file": "units/01.md",
+   "problems_file": "problems/01.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1398,
+    1517
+   ],
+   "section_name": "감정평가 절차"
+  },
+  {
+   "id": "thry-02-01",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "부동산 가치이론",
+    "가치와 가격의 구별 — 부동산 가격의 본질과 특징"
+   ],
+   "leaf_type": "논점",
+   "title": "가치와 가격의 구별 — 부동산 가격의 본질과 특징",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    21,
+    134
+   ],
+   "section_name": "부동산 가치이론"
+  },
+  {
+   "id": "thry-02-02",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "부동산 가치이론",
+    "가치이론 발달사 — 고전학파·한계효용학파·신고전학파"
+   ],
+   "leaf_type": "논점",
+   "title": "가치이론 발달사 — 고전학파·한계효용학파·신고전학파",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    135,
+    255
+   ],
+   "section_name": "부동산 가치이론"
+  },
+  {
+   "id": "thry-02-03",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "부동산 가치이론",
+    "부동산 가치의 3면성과 감정평가 3방식 6방법"
+   ],
+   "leaf_type": "논점",
+   "title": "부동산 가치의 3면성과 감정평가 3방식 6방법",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    256,
+    376
+   ],
+   "section_name": "부동산 가치이론"
+  },
+  {
+   "id": "thry-02-04",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "부동산 가치이론",
+    "시장가치 — 개념의 변천과 통계학적 의미"
+   ],
+   "leaf_type": "논점",
+   "title": "시장가치 — 개념의 변천과 통계학적 의미",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    377,
+    491
+   ],
+   "section_name": "부동산 가치이론"
+  },
+  {
+   "id": "thry-02-05",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "부동산 가치이론",
+    "시장가치 외의 가치와 가치다원론 — 감칙 제5조"
+   ],
+   "leaf_type": "논점",
+   "title": "시장가치 외의 가치와 가치다원론 — 감칙 제5조",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    492,
+    607
+   ],
+   "section_name": "부동산 가치이론"
+  },
+  {
+   "id": "thry-02-06",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "부동산 가격형성",
+    "가치발생요인 — 효용·상대적 희소성·유효수요와 이전성 논의"
+   ],
+   "leaf_type": "논점",
+   "title": "가치발생요인 — 효용·상대적 희소성·유효수요와 이전성 논의",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    608,
+    729
+   ],
+   "section_name": "부동산 가격형성"
+  },
+  {
+   "id": "thry-02-07",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "부동산 가격형성",
+    "가치형성요인 — 일반요인·지역요인·개별요인의 3분류"
+   ],
+   "leaf_type": "논점",
+   "title": "가치형성요인 — 일반요인·지역요인·개별요인의 3분류",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    730,
+    852
+   ],
+   "section_name": "부동산 가격형성"
+  },
+  {
+   "id": "thry-02-08",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "부동산 가격형성",
+    "가치형성과정 — 가격수준의 형성과 구체적 가격의 결정"
+   ],
+   "leaf_type": "논점",
+   "title": "가치형성과정 — 가격수준의 형성과 구체적 가격의 결정",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    853,
+    967
+   ],
+   "section_name": "부동산 가격형성"
+  },
+  {
+   "id": "thry-02-09",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "부동산 가격형성",
+    "가치발생요인·가격결정요인·가치의 3면성 — 제29회 40점 종합형"
+   ],
+   "leaf_type": "논점",
+   "title": "가치발생요인·가격결정요인·가치의 3면성 — 제29회 40점 종합형",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    968,
+    1075
+   ],
+   "section_name": "부동산 가격형성"
+  },
+  {
+   "id": "thry-02-10",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "부동산 가격형성",
+    "행정적 요인과 부동산 거래규제 — 규제가 감정평가에 미치는 영향"
+   ],
+   "leaf_type": "논점",
+   "title": "행정적 요인과 부동산 거래규제 — 규제가 감정평가에 미치는 영향",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1076,
+    1178
+   ],
+   "section_name": "부동산 가격형성"
+  },
+  {
+   "id": "thry-02-11",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "가치형성요인분석",
+    "지역분석 — 의의·필요성·방법·3방식에의 활용"
+   ],
+   "leaf_type": "논점",
+   "title": "지역분석 — 의의·필요성·방법·3방식에의 활용",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1179,
+    1301
+   ],
+   "section_name": "가치형성요인분석"
+  },
+  {
+   "id": "thry-02-12",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "가치형성요인분석",
+    "개별분석 — 최유효이용의 판정과 가격의 개별화·구체화"
+   ],
+   "leaf_type": "논점",
+   "title": "개별분석 — 최유효이용의 판정과 가격의 개별화·구체화",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1302,
+    1413
+   ],
+   "section_name": "가치형성요인분석"
+  },
+  {
+   "id": "thry-02-13",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "가치형성요인분석",
+    "지역분석과 개별분석의 관계 — 표준적 이용과 최유효이용"
+   ],
+   "leaf_type": "논점",
+   "title": "지역분석과 개별분석의 관계 — 표준적 이용과 최유효이용",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1414,
+    1524
+   ],
+   "section_name": "가치형성요인분석"
+  },
+  {
+   "id": "thry-02-14",
+   "path": [
+    "감정평가이론",
+    "단원 02 — 부동산 가치이론·가격형성",
+    "가치형성요인분석",
+    "지역분석의 대상지역 — 인근지역·유사지역·동일수급권"
+   ],
+   "leaf_type": "논점",
+   "title": "지역분석의 대상지역 — 인근지역·유사지역·동일수급권",
+   "subject_root": "감정평가이론",
+   "unit_code": "02",
+   "unit_file": "units/02.md",
+   "problems_file": "problems/02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1525,
+    1649
+   ],
+   "section_name": "가치형성요인분석"
+  },
+  {
+   "id": "thry-03-01",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "가격제원칙",
+    "가격제원칙의 의의·특징과 체계 — 최유효이용을 중심으로 한 3분류"
+   ],
+   "leaf_type": "논점",
+   "title": "가격제원칙의 의의·특징과 체계 — 최유효이용을 중심으로 한 3분류",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    21,
+    143
+   ],
+   "section_name": "가격제원칙"
+  },
+  {
+   "id": "thry-03-02",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "최유효이용의 원칙",
+    "개념과 성립근거 — 왜 부동산 가격은 최유효이용을 전제로 형성되는가"
+   ],
+   "leaf_type": "논점",
+   "title": "개념과 성립근거 — 왜 부동산 가격은 최유효이용을 전제로 형성되는가",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    144,
+    263
+   ],
+   "section_name": "최유효이용의 원칙"
+  },
+  {
+   "id": "thry-03-03",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "최유효이용의 원칙",
+    "판정기준 4단계 — 물리적 채택가능성·법적 허용성·경제적 타당성·최대수익성"
+   ],
+   "leaf_type": "논점",
+   "title": "판정기준 4단계 — 물리적 채택가능성·법적 허용성·경제적 타당성·최대수익성",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    264,
+    387
+   ],
+   "section_name": "최유효이용의 원칙"
+  },
+  {
+   "id": "thry-03-04",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "최유효이용의 원칙",
+    "두 분석결과가 상이한 경우 — 중도적 이용과 일치성 이용의 원리"
+   ],
+   "leaf_type": "논점",
+   "title": "두 분석결과가 상이한 경우 — 중도적 이용과 일치성 이용의 원리",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    388,
+    504
+   ],
+   "section_name": "최유효이용의 원칙"
+  },
+  {
+   "id": "thry-03-05",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "최유효이용의 원칙",
+    "판정 시 유의사항·장애요인과 시장 침체국면에서의 판단"
+   ],
+   "leaf_type": "논점",
+   "title": "판정 시 유의사항·장애요인과 시장 침체국면에서의 판단",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    505,
+    635
+   ],
+   "section_name": "최유효이용의 원칙"
+  },
+  {
+   "id": "thry-03-06",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "최유효이용의 원칙",
+    "특수상황하의 최유효이용 — 중도적 이용·비적법적 이용·비최고최선의 이용"
+   ],
+   "leaf_type": "논점",
+   "title": "특수상황하의 최유효이용 — 중도적 이용·비적법적 이용·비최고최선의 이용",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    636,
+    754
+   ],
+   "section_name": "최유효이용의 원칙"
+  },
+  {
+   "id": "thry-03-07",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "가격제원칙",
+    "내부측면의 원칙 — 균형·기여·수익체증체감·수익배분과 추가투자 적부"
+   ],
+   "leaf_type": "논점",
+   "title": "내부측면의 원칙 — 균형·기여·수익체증체감·수익배분과 추가투자 적부",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    755,
+    868
+   ],
+   "section_name": "가격제원칙"
+  },
+  {
+   "id": "thry-03-08",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "가격제원칙",
+    "외부측면의 원칙 — 적합·외부성·대체·경쟁·수요공급·기회비용"
+   ],
+   "leaf_type": "논점",
+   "title": "외부측면의 원칙 — 적합·외부성·대체·경쟁·수요공급·기회비용",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    869,
+    993
+   ],
+   "section_name": "가격제원칙"
+  },
+  {
+   "id": "thry-03-09",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "가격제원칙",
+    "토대가 되는 원칙 — 예측의 원칙과 변동의 원칙"
+   ],
+   "leaf_type": "논점",
+   "title": "토대가 되는 원칙 — 예측의 원칙과 변동의 원칙",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    994,
+    1109
+   ],
+   "section_name": "가격제원칙"
+  },
+  {
+   "id": "thry-03-10",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "가격제원칙",
+    "사례형 적용 — 담보평가·추가투자·환경변화와 3방식으로의 연결"
+   ],
+   "leaf_type": "논점",
+   "title": "사례형 적용 — 담보평가·추가투자·환경변화와 3방식으로의 연결",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1110,
+    1226
+   ],
+   "section_name": "가격제원칙"
+  },
+  {
+   "id": "thry-03-11",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "부동산시장론",
+    "부동산시장의 의의·특징·기능과 수요·공급의 특징"
+   ],
+   "leaf_type": "논점",
+   "title": "부동산시장의 의의·특징·기능과 수요·공급의 특징",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1227,
+    1346
+   ],
+   "section_name": "부동산시장론"
+  },
+  {
+   "id": "thry-03-12",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "부동산시장론",
+    "공간시장과 자산시장 — 4사분면 모형과 이자율의 파급경로"
+   ],
+   "leaf_type": "논점",
+   "title": "공간시장과 자산시장 — 4사분면 모형과 이자율의 파급경로",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1347,
+    1474
+   ],
+   "section_name": "부동산시장론"
+  },
+  {
+   "id": "thry-03-13",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "경기변동론",
+    "부동산 경기변동의 특징과 제 국면 — 3방식 적용상 유의점"
+   ],
+   "leaf_type": "논점",
+   "title": "부동산 경기변동의 특징과 제 국면 — 3방식 적용상 유의점",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1475,
+    1602
+   ],
+   "section_name": "경기변동론"
+  },
+  {
+   "id": "thry-03-14",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "경기변동론",
+    "부동산가격지수와 경기측정지표 — 특성가격모형·반복매매모형"
+   ],
+   "leaf_type": "논점",
+   "title": "부동산가격지수와 경기측정지표 — 특성가격모형·반복매매모형",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1603,
+    1722
+   ],
+   "section_name": "경기변동론"
+  },
+  {
+   "id": "thry-03-15",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "시장분석론",
+    "시장분석의 의의·목적과 6단계 절차 — 생산성분석에서 포착률 추계까지"
+   ],
+   "leaf_type": "논점",
+   "title": "시장분석의 의의·목적과 6단계 절차 — 생산성분석에서 포착률 추계까지",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1723,
+    1854
+   ],
+   "section_name": "시장분석론"
+  },
+  {
+   "id": "thry-03-16",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "시장분석론",
+    "시장분석의 수준(레벨 A~D)과 타당성분석·최유효이용분석의 구분"
+   ],
+   "leaf_type": "논점",
+   "title": "시장분석의 수준(레벨 A~D)과 타당성분석·최유효이용분석의 구분",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1855,
+    1976
+   ],
+   "section_name": "시장분석론"
+  },
+  {
+   "id": "thry-03-17",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "시장분석론",
+    "시장성분석과 흡수율분석 — 시장분석과의 관계, 유형별 흡수율 추정"
+   ],
+   "leaf_type": "논점",
+   "title": "시장성분석과 흡수율분석 — 시장분석과의 관계, 유형별 흡수율 추정",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1977,
+    2106
+   ],
+   "section_name": "시장분석론"
+  },
+  {
+   "id": "thry-03-18",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "시장분석론",
+    "지역분석 — 인근지역·유사지역·동일수급권과 표준적 이용"
+   ],
+   "leaf_type": "논점",
+   "title": "지역분석 — 인근지역·유사지역·동일수급권과 표준적 이용",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2107,
+    2251
+   ],
+   "section_name": "시장분석론"
+  },
+  {
+   "id": "thry-03-19",
+   "path": [
+    "감정평가이론",
+    "단원 03 — 가격제원칙·시장론·시장분석",
+    "시장분석론",
+    "지역분석·개별분석·시장분석의 상호관계 — 가격의 구체화 과정"
+   ],
+   "leaf_type": "논점",
+   "title": "지역분석·개별분석·시장분석의 상호관계 — 가격의 구체화 과정",
+   "subject_root": "감정평가이론",
+   "unit_code": "03",
+   "unit_file": "units/03.md",
+   "problems_file": "problems/03.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2252,
+    2381
+   ],
+   "section_name": "시장분석론"
+  },
+  {
+   "id": "thry-04-01",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "감정평가3방식",
+    "가치의 3면성과 감정평가 3방식 6방법 — 이론 전체의 뼈대"
+   ],
+   "leaf_type": "논점",
+   "title": "가치의 3면성과 감정평가 3방식 6방법 — 이론 전체의 뼈대",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    20,
+    153
+   ],
+   "section_name": "감정평가3방식"
+  },
+  {
+   "id": "thry-04-02",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "감정평가3방식",
+    "각 방식의 이론적 근거·적용대상·장단점 — 그리고 토지에의 적용"
+   ],
+   "leaf_type": "논점",
+   "title": "각 방식의 이론적 근거·적용대상·장단점 — 그리고 토지에의 적용",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    154,
+    270
+   ],
+   "section_name": "감정평가3방식"
+  },
+  {
+   "id": "thry-04-03",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "감정평가3방식",
+    "3방식 병용의 필요성과 단일방식 평가가 인정되는 경우"
+   ],
+   "leaf_type": "논점",
+   "title": "3방식 병용의 필요성과 단일방식 평가가 인정되는 경우",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    271,
+    384
+   ],
+   "section_name": "감정평가3방식"
+  },
+  {
+   "id": "thry-04-04",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "시산가액 조정",
+    "개념·법적 근거·전제 — 감칙 제12조와 물건별 주된 방법의 관계"
+   ],
+   "leaf_type": "논점",
+   "title": "개념·법적 근거·전제 — 감칙 제12조와 물건별 주된 방법의 관계",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    385,
+    511
+   ],
+   "section_name": "시산가액 조정"
+  },
+  {
+   "id": "thry-04-05",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "시산가액 조정",
+    "조정의 방법·기준과 유의사항 — 적정증시와 5적부 1정합"
+   ],
+   "leaf_type": "논점",
+   "title": "조정의 방법·기준과 유의사항 — 적정증시와 5적부 1정합",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    512,
+    632
+   ],
+   "section_name": "시산가액 조정"
+  },
+  {
+   "id": "thry-04-06",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "시산가액 조정",
+    "우리나라 현실에 맞지 않는 논거와 개선방안"
+   ],
+   "leaf_type": "논점",
+   "title": "우리나라 현실에 맞지 않는 논거와 개선방안",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    633,
+    753
+   ],
+   "section_name": "시산가액 조정"
+  },
+  {
+   "id": "thry-04-07",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "감정평가3방식",
+    "공시지가기준법의 지위 — 3방식 체계와 실정법의 정합성"
+   ],
+   "leaf_type": "논점",
+   "title": "공시지가기준법의 지위 — 3방식 체계와 실정법의 정합성",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    754,
+    880
+   ],
+   "section_name": "감정평가3방식"
+  },
+  {
+   "id": "thry-04-08",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "감정평가3방식",
+    "직접법과 간접법 — 간접법이 우수한 이유"
+   ],
+   "leaf_type": "논점",
+   "title": "직접법과 간접법 — 간접법이 우수한 이유",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    881,
+    974
+   ],
+   "section_name": "감정평가3방식"
+  },
+  {
+   "id": "thry-04-09",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "거래사례비교법",
+    "의의·성립근거·절차 — 비준가액이 만들어지는 과정"
+   ],
+   "leaf_type": "논점",
+   "title": "의의·성립근거·절차 — 비준가액이 만들어지는 과정",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    975,
+    1090
+   ],
+   "section_name": "거래사례비교법"
+  },
+  {
+   "id": "thry-04-10",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "거래사례비교법",
+    "사례의 수집·선택기준과 다수사례 수집의 필요성"
+   ],
+   "leaf_type": "논점",
+   "title": "사례의 수집·선택기준과 다수사례 수집의 필요성",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1091,
+    1203
+   ],
+   "section_name": "거래사례비교법"
+  },
+  {
+   "id": "thry-04-11",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "거래사례비교법",
+    "사정보정 — 보정을 요하는 요인과 보정의 타당성"
+   ],
+   "leaf_type": "논점",
+   "title": "사정보정 — 보정을 요하는 요인과 보정의 타당성",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1204,
+    1315
+   ],
+   "section_name": "거래사례비교법"
+  },
+  {
+   "id": "thry-04-12",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "거래사례비교법",
+    "시점수정과 가치형성요인 비교 — 사례의 정상화와 비교분석 기법"
+   ],
+   "leaf_type": "논점",
+   "title": "시점수정과 가치형성요인 비교 — 사례의 정상화와 비교분석 기법",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1316,
+    1435
+   ],
+   "section_name": "거래사례비교법"
+  },
+  {
+   "id": "thry-04-13",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "거래사례비교법",
+    "배분법 — 복합부동산 사례에서 동일 유형만 추출하는 기법"
+   ],
+   "leaf_type": "논점",
+   "title": "배분법 — 복합부동산 사례에서 동일 유형만 추출하는 기법",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1436,
+    1535
+   ],
+   "section_name": "거래사례비교법"
+  },
+  {
+   "id": "thry-04-14",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "거래사례비교법",
+    "우리나라 토지평가방법과 거래사례비교법의 관계"
+   ],
+   "leaf_type": "논점",
+   "title": "우리나라 토지평가방법과 거래사례비교법의 관계",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1536,
+    1661
+   ],
+   "section_name": "거래사례비교법"
+  },
+  {
+   "id": "thry-04-15",
+   "path": [
+    "감정평가이론",
+    "단원 04 — 3방식개관·거래사례비교법",
+    "거래사례비교법",
+    "적용상 한계와 과학화·객관화 방안 — 시장 침체기의 대응 포함"
+   ],
+   "leaf_type": "논점",
+   "title": "적용상 한계와 과학화·객관화 방안 — 시장 침체기의 대응 포함",
+   "subject_root": "감정평가이론",
+   "unit_code": "04",
+   "unit_file": "units/04.md",
+   "problems_file": "problems/04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1662,
+    1787
+   ],
+   "section_name": "거래사례비교법"
+  },
+  {
+   "id": "thry-05-01",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "원가법의 의의·성립근거와 적용 — 비용성의 원리와 적산가액"
+   ],
+   "leaf_type": "논점",
+   "title": "원가법의 의의·성립근거와 적용 — 비용성의 원리와 적산가액",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    19,
+    128
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-02",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "재조달원가의 의의·성격과 종류 — 복제원가와 대치원가의 비교"
+   ],
+   "leaf_type": "논점",
+   "title": "재조달원가의 의의·성격과 종류 — 복제원가와 대치원가의 비교",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    129,
+    249
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-03",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "재조달원가의 구성요소와 산정방법 — 직접법·간접법과 비용추계 4방법"
+   ],
+   "leaf_type": "논점",
+   "title": "재조달원가의 구성요소와 산정방법 — 직접법·간접법과 비용추계 4방법",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    250,
+    367
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-04",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "감가수정의 의의와 이론적 근거 — 가격제원칙과의 연결"
+   ],
+   "leaf_type": "논점",
+   "title": "감가수정의 의의와 이론적 근거 — 가격제원칙과의 연결",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    368,
+    483
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-05",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "감가요인 3종 — 물리적·기능적·경제적 감가요인"
+   ],
+   "leaf_type": "논점",
+   "title": "감가요인 3종 — 물리적·기능적·경제적 감가요인",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    484,
+    587
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-06",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "감가수정과 회계상 감가상각의 비교"
+   ],
+   "leaf_type": "논점",
+   "title": "감가수정과 회계상 감가상각의 비교",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    588,
+    701
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-07",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "감가수정의 방법 개관 — 내용연수법과 관찰감가법의 장단점·병용"
+   ],
+   "leaf_type": "논점",
+   "title": "감가수정의 방법 개관 — 내용연수법과 관찰감가법의 장단점·병용",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    702,
+    818
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-08",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "내용연수의 종류와 조정 — 실제연수법·유효연수법·미래수명법"
+   ],
+   "leaf_type": "논점",
+   "title": "내용연수의 종류와 조정 — 실제연수법·유효연수법·미래수명법",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    819,
+    939
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-09",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "분해법의 구조와 물리적 감가 — 치유가능·치유불능(단기·장기)"
+   ],
+   "leaf_type": "논점",
+   "title": "분해법의 구조와 물리적 감가 — 치유가능·치유불능(단기·장기)",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    940,
+    1059
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-10",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "분해법상 기능적 감가 — 결핍·대체·과잉과 치유가능성 판단"
+   ],
+   "leaf_type": "논점",
+   "title": "분해법상 기능적 감가 — 결핍·대체·과잉과 치유가능성 판단",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1060,
+    1185
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-11",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "분해법상 경제적 감가 — 산정방법과 토지·건물 배분, 이중감가 방지"
+   ],
+   "leaf_type": "논점",
+   "title": "분해법상 경제적 감가 — 산정방법과 토지·건물 배분, 이중감가 방지",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1186,
+    1300
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-12",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "그 밖의 감가수정방법 — 시장추출법과 임대료손실환원법"
+   ],
+   "leaf_type": "논점",
+   "title": "그 밖의 감가수정방법 — 시장추출법과 임대료손실환원법",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1301,
+    1399
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-13",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "적산가액과 시장가치의 괴리 — 중고주택·리모델링 부동산의 감정평가"
+   ],
+   "leaf_type": "논점",
+   "title": "적산가액과 시장가치의 괴리 — 중고주택·리모델링 부동산의 감정평가",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1400,
+    1514
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-05-14",
+   "path": [
+    "감정평가이론",
+    "단원 05 — 원가법",
+    "원가법",
+    "원가방식과 타 방식의 관련성 — 3방식에서 감가수정의 반영과 효용의 고려"
+   ],
+   "leaf_type": "논점",
+   "title": "원가방식과 타 방식의 관련성 — 3방식에서 감가수정의 반영과 효용의 고려",
+   "subject_root": "감정평가이론",
+   "unit_code": "05",
+   "unit_file": "units/05.md",
+   "problems_file": "problems/05.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1515,
+    1628
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "thry-06-01",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "총론 — 의의·성립근거·유용성과 적용대상"
+   ],
+   "leaf_type": "논점",
+   "title": "총론 — 의의·성립근거·유용성과 적용대상",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    29,
+    164
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-02",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "순수익 — 의의·종류·산정방법과 부동산평가회계"
+   ],
+   "leaf_type": "논점",
+   "title": "순수익 — 의의·종류·산정방법과 부동산평가회계",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    165,
+    296
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-03",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "환원율·할인율·기대이율의 구별 — 이 단원 최대 단골"
+   ],
+   "leaf_type": "논점",
+   "title": "환원율·할인율·기대이율의 구별 — 이 단원 최대 단골",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    297,
+    462
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-04",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "환원율·할인율의 산정방법 — 시장추출법·요소구성법·투자결합법·Ellwood법·부채감당률법"
+   ],
+   "leaf_type": "논점",
+   "title": "환원율·할인율의 산정방법 — 시장추출법·요소구성법·투자결합법·Ellwood법·부채감당률법",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    463,
+    606
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-05",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "직접환원법과 할인현금흐름분석법의 비교 — 개념·가정·투하자본 회수"
+   ],
+   "leaf_type": "논점",
+   "title": "직접환원법과 할인현금흐름분석법의 비교 — 개념·가정·투하자본 회수",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    607,
+    758
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-06",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "전통적 직접환원법과 자본회수방법 — 직접법·직선법·상환기금법·연금법"
+   ],
+   "leaf_type": "논점",
+   "title": "전통적 직접환원법과 자본회수방법 — 직접법·직선법·상환기금법·연금법",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    759,
+    883
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-07",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "잔여환원법 — 토지·건물·부동산잔여법과 건물잔여법의 과대·과소투자 판단"
+   ],
+   "leaf_type": "논점",
+   "title": "잔여환원법 — 토지·건물·부동산잔여법과 건물잔여법의 과대·과소투자 판단",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    884,
+    1016
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-08",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "자본환원이론의 발달과정과 저당지분환원법(Ellwood법)"
+   ],
+   "leaf_type": "논점",
+   "title": "자본환원이론의 발달과정과 저당지분환원법(Ellwood법)",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1017,
+    1160
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-09",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "DCF법 — 보유기간·현금흐름·기말 복귀가액의 산정"
+   ],
+   "leaf_type": "논점",
+   "title": "DCF법 — 보유기간·현금흐름·기말 복귀가액의 산정",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1161,
+    1285
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-10",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "동적(확률적) DCF법 — 불확실성의 반영"
+   ],
+   "leaf_type": "논점",
+   "title": "동적(확률적) DCF법 — 불확실성의 반영",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1286,
+    1420
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-11",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "우리나라에서의 적용상 문제점과 개선방안 — 조사자료 항목 포함"
+   ],
+   "leaf_type": "논점",
+   "title": "우리나라에서의 적용상 문제점과 개선방안 — 조사자료 항목 포함",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1421,
+    1542
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-12",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "수익형 부동산 — 특징·가치형성원리·평가방법"
+   ],
+   "leaf_type": "논점",
+   "title": "수익형 부동산 — 특징·가치형성원리·평가방법",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1543,
+    1661
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-13",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "수익성 부동산의 평가절차와 보증금의 처리"
+   ],
+   "leaf_type": "논점",
+   "title": "수익성 부동산의 평가절차와 보증금의 처리",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1662,
+    1792
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-06-14",
+   "path": [
+    "감정평가이론",
+    "단원 06 — 수익환원법",
+    "수익환원법",
+    "수익방식에 의한 담보가치 — 두 방법의 비교와 결정 시 고려사항"
+   ],
+   "leaf_type": "논점",
+   "title": "수익방식에 의한 담보가치 — 두 방법의 비교와 결정 시 고려사항",
+   "subject_root": "감정평가이론",
+   "unit_code": "06",
+   "unit_file": "units/06.md",
+   "problems_file": "problems/06.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1793,
+    1915
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "thry-07-01",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "임료의 평가",
+    "임료의 개념과 가격과의 관계 — 원본과 과실, 기준시점·실현시점"
+   ],
+   "leaf_type": "논점",
+   "title": "임료의 개념과 가격과의 관계 — 원본과 과실, 기준시점·실현시점",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    24,
+    141
+   ],
+   "section_name": "임료의 평가"
+  },
+  {
+   "id": "thry-07-02",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "임료의 평가",
+    "실질임료와 지급임료 — 구성항목·공익비와 부가사용료의 처리"
+   ],
+   "leaf_type": "논점",
+   "title": "실질임료와 지급임료 — 구성항목·공익비와 부가사용료의 처리",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    142,
+    259
+   ],
+   "section_name": "임료의 평가"
+  },
+  {
+   "id": "thry-07-03",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "임료의 평가",
+    "임대사례비교법 — 비준임료의 산정과 임대사례의 선택요건"
+   ],
+   "leaf_type": "논점",
+   "title": "임대사례비교법 — 비준임료의 산정과 임대사례의 선택요건",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    260,
+    382
+   ],
+   "section_name": "임료의 평가"
+  },
+  {
+   "id": "thry-07-04",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "임료의 평가",
+    "적산법 — 성립근거·산식·적용대상과 장단점"
+   ],
+   "leaf_type": "논점",
+   "title": "적산법 — 성립근거·산식·적용대상과 장단점",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    383,
+    508
+   ],
+   "section_name": "임료의 평가"
+  },
+  {
+   "id": "thry-07-05",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "임료의 평가",
+    "기초가액 — 시장가치와의 구별, 이론상 적산법과 실무상 적산법"
+   ],
+   "leaf_type": "논점",
+   "title": "기초가액 — 시장가치와의 구별, 이론상 적산법과 실무상 적산법",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    509,
+    638
+   ],
+   "section_name": "임료의 평가"
+  },
+  {
+   "id": "thry-07-06",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "임료의 평가",
+    "기대이율 — 환원율과의 구별, 산정방법과 용도·이용제약별 변화"
+   ],
+   "leaf_type": "논점",
+   "title": "기대이율 — 환원율과의 구별, 산정방법과 용도·이용제약별 변화",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    639,
+    773
+   ],
+   "section_name": "임료의 평가"
+  },
+  {
+   "id": "thry-07-07",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "임료의 평가",
+    "수익분석법 — 수익임료의 산정과 순환논리의 문제"
+   ],
+   "leaf_type": "논점",
+   "title": "수익분석법 — 수익임료의 산정과 순환논리의 문제",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    774,
+    881
+   ],
+   "section_name": "임료의 평가"
+  },
+  {
+   "id": "thry-07-08",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "임료의 평가",
+    "신규임료와 계속임료 — 구별과 계속임료 4방법"
+   ],
+   "leaf_type": "논점",
+   "title": "신규임료와 계속임료 — 구별과 계속임료 4방법",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    882,
+    1002
+   ],
+   "section_name": "임료의 평가"
+  },
+  {
+   "id": "thry-07-09",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "임료의 평가",
+    "임료의 시산가액 조정과 임대료 감정평가 규정의 문제점"
+   ],
+   "leaf_type": "논점",
+   "title": "임료의 시산가액 조정과 임대료 감정평가 규정의 문제점",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1003,
+    1120
+   ],
+   "section_name": "임료의 평가"
+  },
+  {
+   "id": "thry-07-10",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "임료의 평가",
+    "임대권과 임차권의 평가 — 귀속소득과 소유권 가치의 관계"
+   ],
+   "leaf_type": "논점",
+   "title": "임대권과 임차권의 평가 — 귀속소득과 소유권 가치의 관계",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1121,
+    1240
+   ],
+   "section_name": "임료의 평가"
+  },
+  {
+   "id": "thry-07-11",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "기타 방식",
+    "통계적 평가방법 — 의의·절차와 3방식 대비 시장가치 괴리 이유"
+   ],
+   "leaf_type": "논점",
+   "title": "통계적 평가방법 — 의의·절차와 3방식 대비 시장가치 괴리 이유",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1241,
+    1374
+   ],
+   "section_name": "기타 방식"
+  },
+  {
+   "id": "thry-07-12",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "기타 방식",
+    "회귀분석과 특성가격함수모형 — 자료요건·통계치 검증·주관적 평가와의 비교"
+   ],
+   "leaf_type": "논점",
+   "title": "회귀분석과 특성가격함수모형 — 자료요건·통계치 검증·주관적 평가와의 비교",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1375,
+    1500
+   ],
+   "section_name": "기타 방식"
+  },
+  {
+   "id": "thry-07-13",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "기타 방식",
+    "노선가식 평가법과 조소득승수법 — 대량평가의 두 고전적 기법"
+   ],
+   "leaf_type": "논점",
+   "title": "노선가식 평가법과 조소득승수법 — 대량평가의 두 고전적 기법",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1501,
+    1612
+   ],
+   "section_name": "기타 방식"
+  },
+  {
+   "id": "thry-07-14",
+   "path": [
+    "감정평가이론",
+    "단원 07 — 기타방식·임료",
+    "기타 방식",
+    "개발법과 대량평가 — 광평수 토지의 평가와 감정평가사의 역할"
+   ],
+   "leaf_type": "논점",
+   "title": "개발법과 대량평가 — 광평수 토지의 평가와 감정평가사의 역할",
+   "subject_root": "감정평가이론",
+   "unit_code": "07",
+   "unit_file": "units/07.md",
+   "problems_file": "problems/07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1613,
+    1753
+   ],
+   "section_name": "기타 방식"
+  },
+  {
+   "id": "thry-08-01",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "물건별 평가",
+    "개별물건기준 원칙과 물건별 주된 방법 — 감칙 제14조~제26조 총괄"
+   ],
+   "leaf_type": "논점",
+   "title": "개별물건기준 원칙과 물건별 주된 방법 — 감칙 제14조~제26조 총괄",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    27,
+    192
+   ],
+   "section_name": "물건별 평가"
+  },
+  {
+   "id": "thry-08-02",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "기업가치",
+    "기업가치의 개념·구성요소와 감정평가 시 유의사항"
+   ],
+   "leaf_type": "논점",
+   "title": "기업가치의 개념·구성요소와 감정평가 시 유의사항",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    193,
+    338
+   ],
+   "section_name": "기업가치"
+  },
+  {
+   "id": "thry-08-03",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "기업가치",
+    "수익환원법의 적용 — 할인현금흐름분석법·직접환원법·옵션평가모형"
+   ],
+   "leaf_type": "논점",
+   "title": "수익환원법의 적용 — 할인현금흐름분석법·직접환원법·옵션평가모형",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    339,
+    486
+   ],
+   "section_name": "기업가치"
+  },
+  {
+   "id": "thry-08-04",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "기업가치",
+    "할인율의 결정 — 가중평균자본비용(WACC)과 자기자본비용"
+   ],
+   "leaf_type": "논점",
+   "title": "할인율의 결정 — 가중평균자본비용(WACC)과 자기자본비용",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    487,
+    635
+   ],
+   "section_name": "기업가치"
+  },
+  {
+   "id": "thry-08-05",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "기업가치",
+    "거래사례비교법·원가법의 적용과 시산가액 조정·구성요소별 배분"
+   ],
+   "leaf_type": "논점",
+   "title": "거래사례비교법·원가법의 적용과 시산가액 조정·구성요소별 배분",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    636,
+    791
+   ],
+   "section_name": "기업가치"
+  },
+  {
+   "id": "thry-08-06",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "유가증권",
+    "주식·채권의 감정평가 — 상장·비상장의 분기와 비상장주식 평가"
+   ],
+   "leaf_type": "논점",
+   "title": "주식·채권의 감정평가 — 상장·비상장의 분기와 비상장주식 평가",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    792,
+    947
+   ],
+   "section_name": "유가증권"
+  },
+  {
+   "id": "thry-08-07",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "토지평가",
+    "나지·건부지·맹지 — 공시지가기준법 원칙과 건부감가"
+   ],
+   "leaf_type": "논점",
+   "title": "나지·건부지·맹지 — 공시지가기준법 원칙과 건부감가",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    948,
+    1104
+   ],
+   "section_name": "토지평가"
+  },
+  {
+   "id": "thry-08-08",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "토지평가",
+    "규모가 과대하거나 과소한 토지 — 광평수토지와 소규모토지"
+   ],
+   "leaf_type": "논점",
+   "title": "규모가 과대하거나 과소한 토지 — 광평수토지와 소규모토지",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1105,
+    1255
+   ],
+   "section_name": "토지평가"
+  },
+  {
+   "id": "thry-08-09",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "토지평가",
+    "일단으로 이용 중인 토지 — 일단지의 개념·판단기준·가격영향"
+   ],
+   "leaf_type": "논점",
+   "title": "일단으로 이용 중인 토지 — 일단지의 개념·판단기준·가격영향",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1256,
+    1418
+   ],
+   "section_name": "토지평가"
+  },
+  {
+   "id": "thry-08-10",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "토지평가",
+    "권리가 설정된 토지 — 지상권·구분지상권·공중권"
+   ],
+   "leaf_type": "논점",
+   "title": "권리가 설정된 토지 — 지상권·구분지상권·공중권",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1419,
+    1586
+   ],
+   "section_name": "토지평가"
+  },
+  {
+   "id": "thry-08-11",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "토지평가",
+    "소유·점유관계가 특수한 토지 — 지상 정착물 상이·제시외 건물·공유지분·공공용지"
+   ],
+   "leaf_type": "논점",
+   "title": "소유·점유관계가 특수한 토지 — 지상 정착물 상이·제시외 건물·공유지분·공공용지",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1587,
+    1755
+   ],
+   "section_name": "토지평가"
+  },
+  {
+   "id": "thry-08-12",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "토지평가",
+    "택지 등 조성공사 중에 있는 토지 — 소지·택지후보지·공제방식과 가산방식"
+   ],
+   "leaf_type": "논점",
+   "title": "택지 등 조성공사 중에 있는 토지 — 소지·택지후보지·공제방식과 가산방식",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1756,
+    1939
+   ],
+   "section_name": "토지평가"
+  },
+  {
+   "id": "thry-08-13",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "건물·복합부동산",
+    "건물의 감정평가와 복합부동산 — 개별평가 원칙과 일괄감정평가"
+   ],
+   "leaf_type": "논점",
+   "title": "건물의 감정평가와 복합부동산 — 개별평가 원칙과 일괄감정평가",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1940,
+    2098
+   ],
+   "section_name": "건물·복합부동산"
+  },
+  {
+   "id": "thry-08-14",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "구분소유 부동산",
+    "구분소유권의 감정평가 — 일체 거래사례비교법과 층별·위치별 효용비"
+   ],
+   "leaf_type": "논점",
+   "title": "구분소유권의 감정평가 — 일체 거래사례비교법과 층별·위치별 효용비",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2099,
+    2264
+   ],
+   "section_name": "구분소유 부동산"
+  },
+  {
+   "id": "thry-08-15",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "구분소유 부동산",
+    "대지사용권 미등기 구분건물과 구분점포(오픈상가)"
+   ],
+   "leaf_type": "논점",
+   "title": "대지사용권 미등기 구분건물과 구분점포(오픈상가)",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2265,
+    2428
+   ],
+   "section_name": "구분소유 부동산"
+  },
+  {
+   "id": "thry-08-16",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "물건별 평가",
+    "산림·과수원·공장재단·광업재단·기계기구·동산 등 — 그 밖의 물건"
+   ],
+   "leaf_type": "논점",
+   "title": "산림·과수원·공장재단·광업재단·기계기구·동산 등 — 그 밖의 물건",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2429,
+    2601
+   ],
+   "section_name": "물건별 평가"
+  },
+  {
+   "id": "thry-08-17",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "무형자산",
+    "영업권의 감정평가 — 초과수익력의 자본화"
+   ],
+   "leaf_type": "논점",
+   "title": "영업권의 감정평가 — 초과수익력의 자본화",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2602,
+    2771
+   ],
+   "section_name": "무형자산"
+  },
+  {
+   "id": "thry-08-18",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "무형자산",
+    "지식재산권의 감정평가 — 기술기여도·실시료율과 담보적격성"
+   ],
+   "leaf_type": "논점",
+   "title": "지식재산권의 감정평가 — 기술기여도·실시료율과 담보적격성",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2772,
+    2950
+   ],
+   "section_name": "무형자산"
+  },
+  {
+   "id": "thry-08-19",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "무형자산",
+    "상가권리금의 감정평가와 무형자산 평가의 현실적 한계"
+   ],
+   "leaf_type": "논점",
+   "title": "상가권리금의 감정평가와 무형자산 평가의 현실적 한계",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2951,
+    3117
+   ],
+   "section_name": "무형자산"
+  },
+  {
+   "id": "thry-08-20",
+   "path": [
+    "감정평가이론",
+    "단원 08 — 기업가치·물건별 평가",
+    "가치하락분",
+    "소음등으로 인한 가치하락분 — 스티그마·일조조망 침해·오염부동산"
+   ],
+   "leaf_type": "논점",
+   "title": "소음등으로 인한 가치하락분 — 스티그마·일조조망 침해·오염부동산",
+   "subject_root": "감정평가이론",
+   "unit_code": "08",
+   "unit_file": "units/08.md",
+   "problems_file": "problems/08.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    3118,
+    3301
+   ],
+   "section_name": "가치하락분"
+  },
+  {
+   "id": "thry-09-01",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산투자",
+    "위험과 수익의 관계 — 기대수익률·요구수익률·위험프리미엄과 환원율의 구조"
+   ],
+   "leaf_type": "논점",
+   "title": "위험과 수익의 관계 — 기대수익률·요구수익률·위험프리미엄과 환원율의 구조",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    27,
+    154
+   ],
+   "section_name": "부동산투자"
+  },
+  {
+   "id": "thry-09-02",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산투자",
+    "투자위험의 유형과 처리방법 — 위험조정할인율법·확실성등가법·보수적 예측"
+   ],
+   "leaf_type": "논점",
+   "title": "투자위험의 유형과 처리방법 — 위험조정할인율법·확실성등가법·보수적 예측",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    155,
+    281
+   ],
+   "section_name": "부동산투자"
+  },
+  {
+   "id": "thry-09-03",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산투자",
+    "불확실성의 계량적 분석 — 민감도분석·시나리오분석·확률분석"
+   ],
+   "leaf_type": "논점",
+   "title": "불확실성의 계량적 분석 — 민감도분석·시나리오분석·확률분석",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    282,
+    400
+   ],
+   "section_name": "부동산투자"
+  },
+  {
+   "id": "thry-09-04",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산투자",
+    "포트폴리오이론과 CAPM — 분산투자·효율적 전선·체계적 위험과 할인율 산정"
+   ],
+   "leaf_type": "논점",
+   "title": "포트폴리오이론과 CAPM — 분산투자·효율적 전선·체계적 위험과 할인율 산정",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    401,
+    529
+   ],
+   "section_name": "부동산투자"
+  },
+  {
+   "id": "thry-09-05",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산투자",
+    "투자분석기법 — NPV·IRR·PI의 의사결정기준과 상호 비교"
+   ],
+   "leaf_type": "논점",
+   "title": "투자분석기법 — NPV·IRR·PI의 의사결정기준과 상호 비교",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    530,
+    656
+   ],
+   "section_name": "부동산투자"
+  },
+  {
+   "id": "thry-09-06",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산투자",
+    "NPV법과 IRR법의 상충 — 재투자수익률 가정·피셔수익률·해결방법"
+   ],
+   "leaf_type": "논점",
+   "title": "NPV법과 IRR법의 상충 — 재투자수익률 가정·피셔수익률·해결방법",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    657,
+    774
+   ],
+   "section_name": "부동산투자"
+  },
+  {
+   "id": "thry-09-07",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산투자",
+    "지렛대효과와 자본구조 — 정·부·중립적 레버리지, LTV·DCR과 종합환원율"
+   ],
+   "leaf_type": "논점",
+   "title": "지렛대효과와 자본구조 — 정·부·중립적 레버리지, LTV·DCR과 종합환원율",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    775,
+    899
+   ],
+   "section_name": "부동산투자"
+  },
+  {
+   "id": "thry-09-08",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산투자",
+    "실물옵션 — NPV법의 한계 극복과 유연성의 가치"
+   ],
+   "leaf_type": "논점",
+   "title": "실물옵션 — NPV법의 한계 극복과 유연성의 가치",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    900,
+    1033
+   ],
+   "section_name": "부동산투자"
+  },
+  {
+   "id": "thry-09-09",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산금융론",
+    "부동산 증권화 — 도입배경·원리·기초자산의 평가기법"
+   ],
+   "leaf_type": "논점",
+   "title": "부동산 증권화 — 도입배경·원리·기초자산의 평가기법",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1034,
+    1182
+   ],
+   "section_name": "부동산금융론"
+  },
+  {
+   "id": "thry-09-10",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산금융론",
+    "부동산투자회사(REITs) — 제도의 의의·시장에 미친 영향·평가방법"
+   ],
+   "leaf_type": "논점",
+   "title": "부동산투자회사(REITs) — 제도의 의의·시장에 미친 영향·평가방법",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1183,
+    1317
+   ],
+   "section_name": "부동산금융론"
+  },
+  {
+   "id": "thry-09-11",
+   "path": [
+    "감정평가이론",
+    "단원 09 — 부동산투자·금융론",
+    "부동산금융론",
+    "프로젝트 파이낸싱(PF) — 개념·특징·단계별 감정평가와 개선방안"
+   ],
+   "leaf_type": "논점",
+   "title": "프로젝트 파이낸싱(PF) — 개념·특징·단계별 감정평가와 개선방안",
+   "subject_root": "감정평가이론",
+   "unit_code": "09",
+   "unit_file": "units/09.md",
+   "problems_file": "problems/09.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1318,
+    1454
+   ],
+   "section_name": "부동산금융론"
+  },
+  {
+   "id": "thry-10-01",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "정부의 시장개입 근거 — 시장실패·형평성·최유효이용의 강제"
+   ],
+   "leaf_type": "논점",
+   "title": "정부의 시장개입 근거 — 시장실패·형평성·최유효이용의 강제",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    28,
+    151
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-02",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "부동산의 특성이 낳는 부동산문제와 정책수단 — 직접개입 vs 간접개입"
+   ],
+   "leaf_type": "논점",
+   "title": "부동산의 특성이 낳는 부동산문제와 정책수단 — 직접개입 vs 간접개입",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    152,
+    283
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-03",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "부동산조세와 시장 — 전가·귀착·자본화·동결효과"
+   ],
+   "leaf_type": "논점",
+   "title": "부동산조세와 시장 — 전가·귀착·자본화·동결효과",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    284,
+    422
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-04",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "부동산가격공시제도의 체계와 정책효과 — 감정평가의 공적 기능"
+   ],
+   "leaf_type": "논점",
+   "title": "부동산가격공시제도의 체계와 정책효과 — 감정평가의 공적 기능",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    423,
+    562
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-05",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "표준지공시지가와 표준주택가격 — 같은 점·다른 점"
+   ],
+   "leaf_type": "논점",
+   "title": "표준지공시지가와 표준주택가격 — 같은 점·다른 점",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    563,
+    680
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-06",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "'조사·평가'와 '조사·산정'의 비교 — 공시업무 이원화의 쟁점"
+   ],
+   "leaf_type": "논점",
+   "title": "'조사·평가'와 '조사·산정'의 비교 — 공시업무 이원화의 쟁점",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    681,
+    786
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-07",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "공시가격 현실화와 실거래가 기반 과세 — 적정가격의 성격 논쟁"
+   ],
+   "leaf_type": "논점",
+   "title": "공시가격 현실화와 실거래가 기반 과세 — 적정가격의 성격 논쟁",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    787,
+    918
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-08",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "공적평가에서 복수평가의 필요성 — 단수평가 도입론의 검토"
+   ],
+   "leaf_type": "논점",
+   "title": "공적평가에서 복수평가의 필요성 — 단수평가 도입론의 검토",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    919,
+    1047
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-09",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "비주거용 부동산가격공시제도 — 도입 필요성과 미시행의 과제"
+   ],
+   "leaf_type": "논점",
+   "title": "비주거용 부동산가격공시제도 — 도입 필요성과 미시행의 과제",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1048,
+    1170
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-10",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "분양가상한제와 감정평가사의 역할 — 택지비 감정평가"
+   ],
+   "leaf_type": "논점",
+   "title": "분양가상한제와 감정평가사의 역할 — 택지비 감정평가",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1171,
+    1307
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-11",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "부동산정책론",
+    "토지거래허가제 등 부동산거래규제와 감정평가 — 규제형 문항의 표준 골격"
+   ],
+   "leaf_type": "논점",
+   "title": "토지거래허가제 등 부동산거래규제와 감정평가 — 규제형 문항의 표준 골격",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1308,
+    1444
+   ],
+   "section_name": "부동산정책론"
+  },
+  {
+   "id": "thry-10-12",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "기타 논점",
+    "건부감가와 건부증가 — 판단기준·산출방법·성립논리"
+   ],
+   "leaf_type": "논점",
+   "title": "건부감가와 건부증가 — 판단기준·산출방법·성립논리",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1445,
+    1562
+   ],
+   "section_name": "기타 논점"
+  },
+  {
+   "id": "thry-10-13",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "기타 논점",
+    "토양오염 부동산의 감정평가 — 스티그마 효과와 동태적 분석"
+   ],
+   "leaf_type": "논점",
+   "title": "토양오염 부동산의 감정평가 — 스티그마 효과와 동태적 분석",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1563,
+    1701
+   ],
+   "section_name": "기타 논점"
+  },
+  {
+   "id": "thry-10-14",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "기타 논점",
+    "시장가격이 없는 부동산의 감정평가 — CVM·헤도닉·비용편익분석"
+   ],
+   "leaf_type": "논점",
+   "title": "시장가격이 없는 부동산의 감정평가 — CVM·헤도닉·비용편익분석",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1702,
+    1821
+   ],
+   "section_name": "기타 논점"
+  },
+  {
+   "id": "thry-10-15",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "기타 논점",
+    "녹색건축물·ESG와 부동산가치 — 친환경요인의 가치형성요인화"
+   ],
+   "leaf_type": "논점",
+   "title": "녹색건축물·ESG와 부동산가치 — 친환경요인의 가치형성요인화",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1822,
+    1951
+   ],
+   "section_name": "기타 논점"
+  },
+  {
+   "id": "thry-10-16",
+   "path": [
+    "감정평가이론",
+    "단원 10 — 부동산정책론·기타논점",
+    "기타 논점",
+    "프롭테크·데이터기반 평가와 AVM — 대량평가 시대의 감정평가사"
+   ],
+   "leaf_type": "논점",
+   "title": "프롭테크·데이터기반 평가와 AVM — 대량평가 시대의 감정평가사",
+   "subject_root": "감정평가이론",
+   "unit_code": "10",
+   "unit_file": "units/10.md",
+   "problems_file": "problems/10.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1952,
+    2098
+   ],
+   "section_name": "기타 논점"
+  }
+ ],
+ "default_leaf": "thry-01-01"
 }
