@@ -989,10 +989,81 @@ const renderTextBlock = (text, keyPrefix) => {
   return elements;
 };
 
+// ── 대표 예제·사례형의 풀이 가리기 ──────────────────────────────
+// `#### ✏️ 대표 예제` / `#### ✏️ 사례형 적용` 섹션에서 문제(콜아웃)는 남기고
+// 풀이만 가린다. 스스로 풀어 본 뒤 열어 보게 하려는 것.
+// 데이터를 건드리지 않고, 풀이 구간을 <!--풀이가림--> 센티넬로 감싼 뒤
+// 블록 파서가 reveal 블록으로 렌더한다(내부에 ```표·분개 펜스가 있어도 안전).
+const EX_HEAD = /^####\s*✏️\s*(대표\s*예제|사례형\s*적용)/;
+const SOLUTION_MARK = /^\s*\*\*(풀이|검토|해설|정답|답)\b/;
+function wrapExampleSolutions(text) {
+  const src = text.split('\n');
+  const out = [];
+  let i = 0;
+  while (i < src.length) {
+    if (!EX_HEAD.test(src[i])) { out.push(src[i]); i += 1; continue; }
+    out.push(src[i]); i += 1;                      // 예제 헤딩은 그대로
+    // 섹션 본문 = 다음 헤딩(또는 EOF) 전까지
+    const start = i;
+    while (i < src.length && !/^#{1,6}\s/.test(src[i])) i += 1;
+    const body = src.slice(start, i);
+    // 분할점: 풀이 마커 우선, 없으면 선행 콜아웃 블록 뒤
+    let cut = body.findIndex((l) => SOLUTION_MARK.test(l));
+    if (cut < 0) {
+      let k = 0;
+      while (k < body.length && body[k].trim() === '') k += 1;
+      if (k < body.length && /^\s*>/.test(body[k])) {   // 문제가 콜아웃이면
+        while (k < body.length && (/^\s*>/.test(body[k]) || body[k].trim() === '')) k += 1;
+        cut = k;
+      }
+    }
+    const hasSolution = cut >= 0 && body.slice(cut).some((l) => l.trim());
+    const hasProblem = cut > 0 && body.slice(0, cut).some((l) => l.trim());
+    // 문제·풀이 어느 쪽이든 비면 그대로 둔다(문제까지 가리는 사고 방지)
+    if (!hasSolution || !hasProblem) { out.push(...body); continue; }
+    out.push(...body.slice(0, cut));
+    out.push('<!--풀이가림-->');
+    out.push(...body.slice(cut));
+    out.push('<!--/풀이가림-->');
+  }
+  return out.join('\n');
+}
+
+// 풀이 가림 블록 — 클릭하면 열리고 다시 가릴 수 있다.
+function SolutionReveal({ raw, keyPrefix }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ margin: '4px 0 10px' }}>
+      <button onClick={() => setOpen((v) => !v)} style={{
+        fontSize: '0.74rem', fontWeight: 800, padding: '4px 11px', borderRadius: 6, cursor: 'pointer',
+        border: '1px solid ' + (open ? '#a16207' : '#d6d3d1'),
+        background: open ? '#faf8f2' : '#fff', color: open ? '#a16207' : '#57534e',
+      }}>{open ? '🔒 풀이 가리기' : '👁 풀이 보기'}</button>
+      <div
+        onClick={() => !open && setOpen(true)}
+        style={{
+          position: 'relative', marginTop: 6, borderRadius: 8, padding: '2px 12px',
+          background: open ? 'transparent' : '#f7f7f6', cursor: open ? 'default' : 'pointer',
+          filter: open ? 'none' : 'blur(6px)', opacity: open ? 1 : 0.5,
+          userSelect: open ? 'auto' : 'none', transition: 'filter .15s, opacity .15s',
+        }}
+      >
+        <ParsedText text={raw} />
+      </div>
+      {!open && (
+        <div onClick={() => setOpen(true)} style={{
+          textAlign: 'center', marginTop: -30, position: 'relative', paddingBottom: 8,
+          fontSize: '0.75rem', fontWeight: 700, color: '#8a7f6a', cursor: 'pointer',
+        }}>먼저 스스로 풀어 보세요 · 클릭하면 풀이가 열립니다</div>
+      )}
+    </div>
+  );
+}
+
 export const ParsedText = ({ text }) => {
   if (!text) return null;
   // 라인 단위로 스캔하면서 표 블록과 일반 텍스트 블록을 교차 추출
-  const lines = text.split('\n');
+  const lines = wrapExampleSolutions(text).split('\n');
   const blocks = [];   // { type: 'table' | 'text', ... }
   let i = 0;
   let textBuf = [];
@@ -1004,6 +1075,16 @@ export const ParsedText = ({ text }) => {
   };
   while (i < lines.length) {
     const l = lines[i];
+    // 풀이 가림 센티넬 — 내부에 ``` 펜스가 있어도 안전하도록 주석 마커로 감싼다.
+    if (l.trim() === '<!--풀이가림-->') {
+      flushText();
+      const bodyLines = [];
+      let j = i + 1;
+      while (j < lines.length && lines[j].trim() !== '<!--/풀이가림-->') { bodyLines.push(lines[j]); j += 1; }
+      blocks.push({ type: 'reveal', raw: bodyLines.join('\n') });
+      i = j + 1;
+      continue;
+    }
     // 시각자료 fence 감지: ```viz <template-name>  /  ```mermaid  /  ```svg
     const vizMatch = l.match(/^```(viz)\s+([a-z0-9_-]+)\s*$/i);
     const mermaidMatch = l.match(/^```mermaid\s*$/i);
@@ -1078,6 +1159,7 @@ export const ParsedText = ({ text }) => {
         if (b.type === 'fs') return <FinancialStatement key={idx} raw={b.raw} keyPrefix={`fs-${idx}`} />;
         if (b.type === 'je') return <JournalEntry key={idx} raw={b.raw} keyPrefix={`je-${idx}`} />;
         if (b.type === 'ta') return <TAccount key={idx} raw={b.raw} keyPrefix={`ta-${idx}`} />;
+        if (b.type === 'reveal') return <SolutionReveal key={idx} raw={b.raw} keyPrefix={`rv-${idx}`} />;
         if (b.type === 'ans') {
           const seq = blocks.slice(0, idx).filter((x) => x.type === 'ans').length;
           return <AnswerSheet key={idx} raw={b.raw} keyPrefix={`ans-${idx}`} seq={seq} />;
