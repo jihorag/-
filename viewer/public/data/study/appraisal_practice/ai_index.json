@@ -1,850 +1,4066 @@
 {
-  "subject": "감정평가실무",
-  "subject_id": "appraisal_practice",
-  "subject_short": "실무",
-  "stage": 2,
-  "exam": "감정평가사 2차",
-  "essence": "주어진 자료에서 출제자가 숨겨놓은 논점을 읽어내고, 산식 흐름을 누락 없이 보여주는 시험",
-  "exam_meta": {
-    "minutes": 100,
-    "problems_per_session": 4,
-    "score_distribution": [
-      40,
-      30,
-      20,
-      10
-    ],
-    "min_score_per_question": 40,
-    "pass_threshold": 60
-  },
-  "units_dir": "/data/study/appraisal_practice/units",
-  "problems_dir": "/data/study/appraisal_practice/problems",
-  "handover_file": "/data/study/appraisal_practice/handover.md",
-  "high_priority": [
-    "2a",
-    "3",
-    "6a",
-    "5"
+ "subject": "감정평가실무",
+ "subject_id": "appraisal_practice",
+ "subject_short": "실무",
+ "stage": 2,
+ "exam": "감정평가사 2차",
+ "essence": "주어진 자료에서 출제자가 숨겨놓은 논점을 읽어내고, 산식 흐름을 누락 없이 보여주는 시험",
+ "exam_meta": {
+  "minutes": 100,
+  "problems_per_session": 4,
+  "score_distribution": [
+   40,
+   30,
+   20,
+   10
   ],
-  "study_progression": [
-    "1",
-    "2a",
-    "2b",
-    "3",
-    "5",
-    "6a",
-    "6b",
-    "4",
-    "7",
-    "8a",
-    "8b"
-  ],
-  "units": [
+  "min_score_per_question": 40,
+  "pass_threshold": 60
+ },
+ "units_dir": "/data/study/appraisal_practice/units",
+ "problems_dir": "/data/study/appraisal_practice/problems",
+ "handover_file": "/data/study/appraisal_practice/handover.md",
+ "high_priority": [
+  "2a",
+  "3",
+  "6a",
+  "5"
+ ],
+ "study_progression": [
+  "1",
+  "2a",
+  "2b",
+  "3",
+  "5",
+  "6a",
+  "6b",
+  "4",
+  "7",
+  "8a",
+  "8b"
+ ],
+ "units": [
+  {
+   "code": "1",
+   "title": "감정평가실무 기초",
+   "subtitle": "TVM·금융계수·면적·도로",
+   "frequency": 1,
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "est_minutes": 75,
+   "topics": [
     {
-      "code": "1",
-      "title": "감정평가실무 기초",
-      "subtitle": "TVM·금융계수·면적·도로",
-      "frequency": 1,
-      "unit_file": "units/1.md",
-      "problems_file": "problems/1.md",
-      "est_minutes": 75,
-      "topics": [
-        {
-          "id": "1-1",
-          "title": "화폐의 시간가치(TVM) — 6공식",
-          "section_lines": [
-            396,
-            526
-          ],
-          "unit_file": "units/1.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "1-2",
-          "title": "면적·도로 — 사각형·도로조건",
-          "section_lines": [
-            42,
-            172
-          ],
-          "unit_file": "units/1.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "1-3",
-          "title": "단가 환산 — 원/㎡·소수점",
-          "section_lines": [
-            45,
-            175
-          ],
-          "unit_file": "units/1.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "1-4",
-          "title": "단위면적·환산 기초",
-          "section_lines": [
-            42,
-            172
-          ],
-          "unit_file": "units/1.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "1-5",
-          "title": "용도지역·이용상황 분류",
-          "section_lines": [
-            160,
-            290
-          ],
-          "unit_file": "units/1.md",
-          "section_key": "auto_narrow"
-        }
-      ]
+     "id": "1-1",
+     "title": "화폐의 시간가치(TVM) — 6공식",
+     "section_lines": [
+      396,
+      526
+     ],
+     "unit_file": "units/1.md",
+     "section_key": "auto_narrow"
     },
     {
-      "code": "2a",
-      "title": "3방식 기초 — 공시지가·거래사례·원가",
-      "subtitle": "공시지가기준법 ★",
-      "frequency": 3,
-      "unit_file": "units/2a.md",
-      "problems_file": "problems/2a.md",
-      "est_minutes": 105,
-      "topics": [
-        {
-          "id": "2a-1",
-          "title": "공시지가기준법 — 의의·산식",
-          "section_lines": [
-            1,
-            125
-          ],
-          "unit_file": "units/2a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2a-2",
-          "title": "비교표준지 선정 — 우선순위",
-          "section_lines": [
-            21,
-            151
-          ],
-          "unit_file": "units/2a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2a-3",
-          "title": "시점수정 — 지가변동률·생산자물가",
-          "section_lines": [
-            42,
-            172
-          ],
-          "unit_file": "units/2a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2a-4",
-          "title": "지역요인 비교",
-          "section_lines": [
-            72,
-            202
-          ],
-          "unit_file": "units/2a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2a-5",
-          "title": "개별요인 비교 — 격자형 정리",
-          "section_lines": [
-            47,
-            177
-          ],
-          "unit_file": "units/2a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2a-6",
-          "title": "그밖의 요인 보정 — 산정·검증",
-          "section_lines": [
-            21,
-            151
-          ],
-          "unit_file": "units/2a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2a-7",
-          "title": "거래사례비교법 — 사례 선택·배제",
-          "section_lines": [
-            1,
-            126
-          ],
-          "unit_file": "units/2a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2a-8",
-          "title": "사정보정 — 정상화·계량화",
-          "section_lines": [
-            555,
-            685
-          ],
-          "unit_file": "units/2a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2a-9",
-          "title": "원가법 — 재조달원가·감가수정",
-          "section_lines": [
-            1,
-            127
-          ],
-          "unit_file": "units/2a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2a-10",
-          "title": "감가수정 — 내용연수·정액·정율",
-          "section_lines": [
-            1,
-            128
-          ],
-          "unit_file": "units/2a.md",
-          "section_key": "auto_narrow"
-        }
-      ]
+     "id": "1-2",
+     "title": "면적·도로 — 사각형·도로조건",
+     "section_lines": [
+      42,
+      172
+     ],
+     "unit_file": "units/1.md",
+     "section_key": "auto_narrow"
     },
     {
-      "code": "2b",
-      "title": "3방식 — 수익환원·임대",
-      "subtitle": "DCF·임대료",
-      "frequency": 2,
-      "unit_file": "units/2b.md",
-      "problems_file": "problems/2b.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "2b-1",
-          "title": "수익환원법 — 직접환원법",
-          "section_lines": [
-            263,
-            393
-          ],
-          "unit_file": "units/2b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2b-2",
-          "title": "DCF — 할인현금흐름분석",
-          "section_lines": [
-            1,
-            128
-          ],
-          "unit_file": "units/2b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2b-3",
-          "title": "환원이율 결정 — 시장추출·요소구성",
-          "section_lines": [
-            1,
-            126
-          ],
-          "unit_file": "units/2b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2b-4",
-          "title": "자본환원율·재매도가격",
-          "section_lines": [
-            348,
-            478
-          ],
-          "unit_file": "units/2b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2b-5",
-          "title": "임대료 평가 — 적산법·임대사례",
-          "section_lines": [
-            76,
-            206
-          ],
-          "unit_file": "units/2b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "2b-6",
-          "title": "실질임료·계약임료",
-          "section_lines": [
-            576,
-            706
-          ],
-          "unit_file": "units/2b.md",
-          "section_key": "auto_narrow"
-        }
-      ]
+     "id": "1-3",
+     "title": "단가 환산 — 원/㎡·소수점",
+     "section_lines": [
+      45,
+      175
+     ],
+     "unit_file": "units/1.md",
+     "section_key": "auto_narrow"
     },
     {
-      "code": "3",
-      "title": "건물·복합·구분·임대료",
-      "subtitle": "★ 19회 빈출",
-      "frequency": 3,
-      "unit_file": "units/3.md",
-      "problems_file": "problems/3.md",
-      "est_minutes": 105,
-      "topics": [
-        {
-          "id": "3-1",
-          "title": "건물 평가 — 원가법 적용",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/3.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "3-2",
-          "title": "복합부동산 — 일체비준",
-          "section_lines": [
-            1,
-            128
-          ],
-          "unit_file": "units/3.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "3-3",
-          "title": "복합부동산 — 토지·건물 구분",
-          "section_lines": [
-            1,
-            128
-          ],
-          "unit_file": "units/3.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "3-4",
-          "title": "구분소유 건물 — 전유부분·공용부분",
-          "section_lines": [
-            1537,
-            1667
-          ],
-          "unit_file": "units/3.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "3-5",
-          "title": "구분소유 — 대지권",
-          "section_lines": [
-            1537,
-            1667
-          ],
-          "unit_file": "units/3.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "3-6",
-          "title": "임대료 평가 — 건물·복합",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/3.md",
-          "section_key": "auto_narrow"
-        }
-      ]
+     "id": "1-4",
+     "title": "단위면적·환산 기초",
+     "section_lines": [
+      42,
+      172
+     ],
+     "unit_file": "units/1.md",
+     "section_key": "auto_narrow"
     },
     {
-      "code": "4",
-      "title": "유형별 평가",
-      "subtitle": "토지·건물·기계기구",
-      "frequency": 2,
-      "unit_file": "units/4.md",
-      "problems_file": "problems/4.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "4-1",
-          "title": "토지 평가 — 일반·특수",
-          "section_lines": [
-            1,
-            125
-          ],
-          "unit_file": "units/4.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "4-2",
-          "title": "건물 평가 — 일반·특수",
-          "section_lines": [
-            3,
-            133
-          ],
-          "unit_file": "units/4.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "4-3",
-          "title": "기계기구 평가",
-          "section_lines": [
-            13,
-            143
-          ],
-          "unit_file": "units/4.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "4-4",
-          "title": "선박·항공기 평가",
-          "section_lines": [
-            18,
-            148
-          ],
-          "unit_file": "units/4.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "4-5",
-          "title": "자동차·건설기계",
-          "section_lines": [
-            18,
-            148
-          ],
-          "unit_file": "units/4.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "5",
-      "title": "비가치추계·기업가치·무형자산",
-      "subtitle": "DCF·기업가치",
-      "frequency": 2,
-      "unit_file": "units/5.md",
-      "problems_file": "problems/5.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "5-1",
-          "title": "비가치추계 — 의의·방법",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/5.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "5-2",
-          "title": "기업가치 평가 — DCF·시장가치",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/5.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "5-3",
-          "title": "기업가치 — 자본환원",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/5.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "5-4",
-          "title": "무형자산 평가 — 영업권",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/5.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "5-5",
-          "title": "무형자산 — 특허·상표",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/5.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "5-6",
-          "title": "주식·채권 평가",
-          "section_lines": [
-            1,
-            128
-          ],
-          "unit_file": "units/5.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "6a",
-      "title": "토지보상 기본·원칙",
-      "subtitle": "★ 보상 핵심",
-      "frequency": 3,
-      "unit_file": "units/6a.md",
-      "problems_file": "problems/6a.md",
-      "est_minutes": 105,
-      "topics": [
-        {
-          "id": "6a-1",
-          "title": "토지보상 — 평가원칙·보상기준",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/6a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "6a-2",
-          "title": "공시지가기준 보상",
-          "section_lines": [
-            1274,
-            1404
-          ],
-          "unit_file": "units/6a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "6a-3",
-          "title": "비교표준지 선정 — 보상평가",
-          "section_lines": [
-            129,
-            259
-          ],
-          "unit_file": "units/6a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "6a-4",
-          "title": "시점수정 — 보상",
-          "section_lines": [
-            238,
-            368
-          ],
-          "unit_file": "units/6a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "6a-5",
-          "title": "그밖의 요인 — 보상사례 활용",
-          "section_lines": [
-            25,
-            155
-          ],
-          "unit_file": "units/6a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "6a-6",
-          "title": "잔여지 — 의의·평가",
-          "section_lines": [
-            657,
-            787
-          ],
-          "unit_file": "units/6a.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "6b",
-      "title": "토지보상 — 공법상제한·특수",
-      "subtitle": "공법상제한·잔여지",
-      "frequency": 2,
-      "unit_file": "units/6b.md",
-      "problems_file": "problems/6b.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "6b-1",
-          "title": "공법상 제한 — 일반·개별",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/6b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "6b-2",
-          "title": "용도지역 변경 — 영향평가",
-          "section_lines": [
-            23,
-            153
-          ],
-          "unit_file": "units/6b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "6b-3",
-          "title": "도시계획시설 부지",
-          "section_lines": [
-            22,
-            152
-          ],
-          "unit_file": "units/6b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "6b-4",
-          "title": "미보상 토지 — 손실보상",
-          "section_lines": [
-            2229,
-            2359
-          ],
-          "unit_file": "units/6b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "6b-5",
-          "title": "특수 토지 — 분묘·도로·하천",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/6b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "6b-6",
-          "title": "환매권 — 의의·요건",
-          "section_lines": [
-            1079,
-            1209
-          ],
-          "unit_file": "units/6b.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "7",
-      "title": "건축물·영업·기타 보상",
-      "subtitle": "영업손실보상",
-      "frequency": 2,
-      "unit_file": "units/7.md",
-      "problems_file": "problems/7.md",
-      "est_minutes": 90,
-      "topics": [
-        {
-          "id": "7-1",
-          "title": "건축물 보상 — 잔여건축물·이전료",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/7.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "7-2",
-          "title": "영업손실 보상 — 휴업·폐업",
-          "section_lines": [
-            72,
-            202
-          ],
-          "unit_file": "units/7.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "7-3",
-          "title": "영업손실 — 잔여시설 보수",
-          "section_lines": [
-            72,
-            202
-          ],
-          "unit_file": "units/7.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "7-4",
-          "title": "농업 손실 — 농작물·과수",
-          "section_lines": [
-            10,
-            140
-          ],
-          "unit_file": "units/7.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "7-5",
-          "title": "광업·어업 손실",
-          "section_lines": [
-            8,
-            138
-          ],
-          "unit_file": "units/7.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "7-6",
-          "title": "기타 손실 — 휴직·실직",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/7.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "8a",
-      "title": "목적별 평가",
-      "subtitle": "목적별 4종",
-      "frequency": 1,
-      "unit_file": "units/8a.md",
-      "problems_file": "problems/8a.md",
-      "est_minutes": 75,
-      "topics": [
-        {
-          "id": "8a-1",
-          "title": "담보 평가 — 의의·방법",
-          "section_lines": [
-            1,
-            125
-          ],
-          "unit_file": "units/8a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "8a-2",
-          "title": "경매·공매 평가",
-          "section_lines": [
-            1,
-            126
-          ],
-          "unit_file": "units/8a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "8a-3",
-          "title": "국·공유재산 평가",
-          "section_lines": [
-            1,
-            128
-          ],
-          "unit_file": "units/8a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "8a-4",
-          "title": "소송 평가 — 일반",
-          "section_lines": [
-            1,
-            127
-          ],
-          "unit_file": "units/8a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "8a-5",
-          "title": "조세 부과 평가",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/8a.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "8a-6",
-          "title": "회계·재무보고 평가",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/8a.md",
-          "section_key": "auto_narrow"
-        }
-      ]
-    },
-    {
-      "code": "8b",
-      "title": "표준지·정비·불의타",
-      "subtitle": "표준지·정비사업",
-      "frequency": 1,
-      "unit_file": "units/8b.md",
-      "problems_file": "problems/8b.md",
-      "est_minutes": 75,
-      "topics": [
-        {
-          "id": "8b-1",
-          "title": "표준지 공시지가 — 평가",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/8b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "8b-2",
-          "title": "표준주택 가격 — 평가",
-          "section_lines": [
-            1,
-            128
-          ],
-          "unit_file": "units/8b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "8b-3",
-          "title": "정비사업 — 재개발·재건축",
-          "section_lines": [
-            1,
-            125
-          ],
-          "unit_file": "units/8b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "8b-4",
-          "title": "정비사업 — 분양가·종전자산",
-          "section_lines": [
-            1,
-            125
-          ],
-          "unit_file": "units/8b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "8b-5",
-          "title": "관리처분 평가",
-          "section_lines": [
-            216,
-            346
-          ],
-          "unit_file": "units/8b.md",
-          "section_key": "auto_narrow"
-        },
-        {
-          "id": "8b-6",
-          "title": "불의타 — 손실 평가",
-          "section_lines": [
-            1,
-            121
-          ],
-          "unit_file": "units/8b.md",
-          "section_key": "auto_narrow"
-        }
-      ]
+     "id": "1-5",
+     "title": "용도지역·이용상황 분류",
+     "section_lines": [
+      160,
+      290
+     ],
+     "unit_file": "units/1.md",
+     "section_key": "auto_narrow"
     }
-  ],
-  "default_unit": "1",
-  "has_calc": true,
-  "has_templates": false,
-  "has_cases": false,
-  "version": "v1.0"
+   ]
+  },
+  {
+   "code": "2a",
+   "title": "3방식 기초 — 공시지가·거래사례·원가",
+   "subtitle": "공시지가기준법 ★",
+   "frequency": 3,
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "est_minutes": 105,
+   "topics": [
+    {
+     "id": "2a-1",
+     "title": "공시지가기준법 — 의의·산식",
+     "section_lines": [
+      1,
+      125
+     ],
+     "unit_file": "units/2a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2a-2",
+     "title": "비교표준지 선정 — 우선순위",
+     "section_lines": [
+      21,
+      151
+     ],
+     "unit_file": "units/2a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2a-3",
+     "title": "시점수정 — 지가변동률·생산자물가",
+     "section_lines": [
+      42,
+      172
+     ],
+     "unit_file": "units/2a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2a-4",
+     "title": "지역요인 비교",
+     "section_lines": [
+      72,
+      202
+     ],
+     "unit_file": "units/2a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2a-5",
+     "title": "개별요인 비교 — 격자형 정리",
+     "section_lines": [
+      47,
+      177
+     ],
+     "unit_file": "units/2a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2a-6",
+     "title": "그밖의 요인 보정 — 산정·검증",
+     "section_lines": [
+      21,
+      151
+     ],
+     "unit_file": "units/2a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2a-7",
+     "title": "거래사례비교법 — 사례 선택·배제",
+     "section_lines": [
+      1,
+      126
+     ],
+     "unit_file": "units/2a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2a-8",
+     "title": "사정보정 — 정상화·계량화",
+     "section_lines": [
+      555,
+      685
+     ],
+     "unit_file": "units/2a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2a-9",
+     "title": "원가법 — 재조달원가·감가수정",
+     "section_lines": [
+      1,
+      127
+     ],
+     "unit_file": "units/2a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2a-10",
+     "title": "감가수정 — 내용연수·정액·정율",
+     "section_lines": [
+      1,
+      128
+     ],
+     "unit_file": "units/2a.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "2b",
+   "title": "3방식 — 수익환원·임대",
+   "subtitle": "DCF·임대료",
+   "frequency": 2,
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "est_minutes": 90,
+   "topics": [
+    {
+     "id": "2b-1",
+     "title": "수익환원법 — 직접환원법",
+     "section_lines": [
+      263,
+      393
+     ],
+     "unit_file": "units/2b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2b-2",
+     "title": "DCF — 할인현금흐름분석",
+     "section_lines": [
+      1,
+      128
+     ],
+     "unit_file": "units/2b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2b-3",
+     "title": "환원이율 결정 — 시장추출·요소구성",
+     "section_lines": [
+      1,
+      126
+     ],
+     "unit_file": "units/2b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2b-4",
+     "title": "자본환원율·재매도가격",
+     "section_lines": [
+      348,
+      478
+     ],
+     "unit_file": "units/2b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2b-5",
+     "title": "임대료 평가 — 적산법·임대사례",
+     "section_lines": [
+      76,
+      206
+     ],
+     "unit_file": "units/2b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "2b-6",
+     "title": "실질임료·계약임료",
+     "section_lines": [
+      576,
+      706
+     ],
+     "unit_file": "units/2b.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "3",
+   "title": "건물·복합·구분·임대료",
+   "subtitle": "★ 19회 빈출",
+   "frequency": 3,
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "est_minutes": 105,
+   "topics": [
+    {
+     "id": "3-1",
+     "title": "건물 평가 — 원가법 적용",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/3.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "3-2",
+     "title": "복합부동산 — 일체비준",
+     "section_lines": [
+      1,
+      128
+     ],
+     "unit_file": "units/3.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "3-3",
+     "title": "복합부동산 — 토지·건물 구분",
+     "section_lines": [
+      1,
+      128
+     ],
+     "unit_file": "units/3.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "3-4",
+     "title": "구분소유 건물 — 전유부분·공용부분",
+     "section_lines": [
+      1537,
+      1667
+     ],
+     "unit_file": "units/3.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "3-5",
+     "title": "구분소유 — 대지권",
+     "section_lines": [
+      1537,
+      1667
+     ],
+     "unit_file": "units/3.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "3-6",
+     "title": "임대료 평가 — 건물·복합",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/3.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "4",
+   "title": "유형별 평가",
+   "subtitle": "토지·건물·기계기구",
+   "frequency": 2,
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "est_minutes": 90,
+   "topics": [
+    {
+     "id": "4-1",
+     "title": "토지 평가 — 일반·특수",
+     "section_lines": [
+      1,
+      125
+     ],
+     "unit_file": "units/4.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "4-2",
+     "title": "건물 평가 — 일반·특수",
+     "section_lines": [
+      3,
+      133
+     ],
+     "unit_file": "units/4.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "4-3",
+     "title": "기계기구 평가",
+     "section_lines": [
+      13,
+      143
+     ],
+     "unit_file": "units/4.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "4-4",
+     "title": "선박·항공기 평가",
+     "section_lines": [
+      18,
+      148
+     ],
+     "unit_file": "units/4.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "4-5",
+     "title": "자동차·건설기계",
+     "section_lines": [
+      18,
+      148
+     ],
+     "unit_file": "units/4.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "5",
+   "title": "비가치추계·기업가치·무형자산",
+   "subtitle": "DCF·기업가치",
+   "frequency": 2,
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "est_minutes": 90,
+   "topics": [
+    {
+     "id": "5-1",
+     "title": "비가치추계 — 의의·방법",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/5.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "5-2",
+     "title": "기업가치 평가 — DCF·시장가치",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/5.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "5-3",
+     "title": "기업가치 — 자본환원",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/5.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "5-4",
+     "title": "무형자산 평가 — 영업권",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/5.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "5-5",
+     "title": "무형자산 — 특허·상표",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/5.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "5-6",
+     "title": "주식·채권 평가",
+     "section_lines": [
+      1,
+      128
+     ],
+     "unit_file": "units/5.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "6a",
+   "title": "토지보상 기본·원칙",
+   "subtitle": "★ 보상 핵심",
+   "frequency": 3,
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "est_minutes": 105,
+   "topics": [
+    {
+     "id": "6a-1",
+     "title": "토지보상 — 평가원칙·보상기준",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/6a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "6a-2",
+     "title": "공시지가기준 보상",
+     "section_lines": [
+      1274,
+      1404
+     ],
+     "unit_file": "units/6a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "6a-3",
+     "title": "비교표준지 선정 — 보상평가",
+     "section_lines": [
+      129,
+      259
+     ],
+     "unit_file": "units/6a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "6a-4",
+     "title": "시점수정 — 보상",
+     "section_lines": [
+      238,
+      368
+     ],
+     "unit_file": "units/6a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "6a-5",
+     "title": "그밖의 요인 — 보상사례 활용",
+     "section_lines": [
+      25,
+      155
+     ],
+     "unit_file": "units/6a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "6a-6",
+     "title": "잔여지 — 의의·평가",
+     "section_lines": [
+      657,
+      787
+     ],
+     "unit_file": "units/6a.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "6b",
+   "title": "토지보상 — 공법상제한·특수",
+   "subtitle": "공법상제한·잔여지",
+   "frequency": 2,
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "est_minutes": 90,
+   "topics": [
+    {
+     "id": "6b-1",
+     "title": "공법상 제한 — 일반·개별",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/6b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "6b-2",
+     "title": "용도지역 변경 — 영향평가",
+     "section_lines": [
+      23,
+      153
+     ],
+     "unit_file": "units/6b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "6b-3",
+     "title": "도시계획시설 부지",
+     "section_lines": [
+      22,
+      152
+     ],
+     "unit_file": "units/6b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "6b-4",
+     "title": "미보상 토지 — 손실보상",
+     "section_lines": [
+      2229,
+      2359
+     ],
+     "unit_file": "units/6b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "6b-5",
+     "title": "특수 토지 — 분묘·도로·하천",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/6b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "6b-6",
+     "title": "환매권 — 의의·요건",
+     "section_lines": [
+      1079,
+      1209
+     ],
+     "unit_file": "units/6b.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "7",
+   "title": "건축물·영업·기타 보상",
+   "subtitle": "영업손실보상",
+   "frequency": 2,
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "est_minutes": 90,
+   "topics": [
+    {
+     "id": "7-1",
+     "title": "건축물 보상 — 잔여건축물·이전료",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/7.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "7-2",
+     "title": "영업손실 보상 — 휴업·폐업",
+     "section_lines": [
+      72,
+      202
+     ],
+     "unit_file": "units/7.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "7-3",
+     "title": "영업손실 — 잔여시설 보수",
+     "section_lines": [
+      72,
+      202
+     ],
+     "unit_file": "units/7.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "7-4",
+     "title": "농업 손실 — 농작물·과수",
+     "section_lines": [
+      10,
+      140
+     ],
+     "unit_file": "units/7.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "7-5",
+     "title": "광업·어업 손실",
+     "section_lines": [
+      8,
+      138
+     ],
+     "unit_file": "units/7.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "7-6",
+     "title": "기타 손실 — 휴직·실직",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/7.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "8a",
+   "title": "목적별 평가",
+   "subtitle": "목적별 4종",
+   "frequency": 1,
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "est_minutes": 75,
+   "topics": [
+    {
+     "id": "8a-1",
+     "title": "담보 평가 — 의의·방법",
+     "section_lines": [
+      1,
+      125
+     ],
+     "unit_file": "units/8a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "8a-2",
+     "title": "경매·공매 평가",
+     "section_lines": [
+      1,
+      126
+     ],
+     "unit_file": "units/8a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "8a-3",
+     "title": "국·공유재산 평가",
+     "section_lines": [
+      1,
+      128
+     ],
+     "unit_file": "units/8a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "8a-4",
+     "title": "소송 평가 — 일반",
+     "section_lines": [
+      1,
+      127
+     ],
+     "unit_file": "units/8a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "8a-5",
+     "title": "조세 부과 평가",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/8a.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "8a-6",
+     "title": "회계·재무보고 평가",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/8a.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  },
+  {
+   "code": "8b",
+   "title": "표준지·정비·불의타",
+   "subtitle": "표준지·정비사업",
+   "frequency": 1,
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "est_minutes": 75,
+   "topics": [
+    {
+     "id": "8b-1",
+     "title": "표준지 공시지가 — 평가",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/8b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "8b-2",
+     "title": "표준주택 가격 — 평가",
+     "section_lines": [
+      1,
+      128
+     ],
+     "unit_file": "units/8b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "8b-3",
+     "title": "정비사업 — 재개발·재건축",
+     "section_lines": [
+      1,
+      125
+     ],
+     "unit_file": "units/8b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "8b-4",
+     "title": "정비사업 — 분양가·종전자산",
+     "section_lines": [
+      1,
+      125
+     ],
+     "unit_file": "units/8b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "8b-5",
+     "title": "관리처분 평가",
+     "section_lines": [
+      216,
+      346
+     ],
+     "unit_file": "units/8b.md",
+     "section_key": "auto_narrow"
+    },
+    {
+     "id": "8b-6",
+     "title": "불의타 — 손실 평가",
+     "section_lines": [
+      1,
+      121
+     ],
+     "unit_file": "units/8b.md",
+     "section_key": "auto_narrow"
+    }
+   ]
+  }
+ ],
+ "default_unit": "1",
+ "has_calc": true,
+ "has_templates": false,
+ "has_cases": false,
+ "version": "v1.0",
+ "leaves": [
+  {
+   "id": "prac-1-01",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "평가절차",
+    "감정평가의 절차 7단계와 감정평가서 기재사항"
+   ],
+   "leaf_type": "논점",
+   "title": "감정평가의 절차 7단계와 감정평가서 기재사항",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    21,
+    228
+   ],
+   "section_name": "평가절차"
+  },
+  {
+   "id": "prac-1-02",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "기본적사항",
+    "기본적 사항의 확정 — 8개 협의사항과 기준시점의 결정"
+   ],
+   "leaf_type": "논점",
+   "title": "기본적 사항의 확정 — 8개 협의사항과 기준시점의 결정",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    229,
+    420
+   ],
+   "section_name": "기본적사항"
+  },
+  {
+   "id": "prac-1-03",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "기준가치",
+    "시장가치기준 원칙과 그 예외 — 시장가치 외의 가치"
+   ],
+   "leaf_type": "논점",
+   "title": "시장가치기준 원칙과 그 예외 — 시장가치 외의 가치",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    421,
+    595
+   ],
+   "section_name": "기준가치"
+  },
+  {
+   "id": "prac-1-04",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "현황기준",
+    "현황기준 원칙과 감정평가조건 — 불법·일시적 이용의 처리"
+   ],
+   "leaf_type": "논점",
+   "title": "현황기준 원칙과 감정평가조건 — 불법·일시적 이용의 처리",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    596,
+    781
+   ],
+   "section_name": "현황기준"
+  },
+  {
+   "id": "prac-1-05",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "개별물건기준",
+    "개별물건기준 원칙과 예외 — 일괄·구분·부분감정평가"
+   ],
+   "leaf_type": "논점",
+   "title": "개별물건기준 원칙과 예외 — 일괄·구분·부분감정평가",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    782,
+    960
+   ],
+   "section_name": "개별물건기준"
+  },
+  {
+   "id": "prac-1-06",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "3방식6방법",
+    "가격 3면성과 감정평가 3방식 6방법 — 방식별 장단점·적용대상"
+   ],
+   "leaf_type": "논점",
+   "title": "가격 3면성과 감정평가 3방식 6방법 — 방식별 장단점·적용대상",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    961,
+    1166
+   ],
+   "section_name": "3방식6방법"
+  },
+  {
+   "id": "prac-1-07",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "시산가액조정",
+    "시산가액 조정 — 합리성 검토와 가중치 부여"
+   ],
+   "leaf_type": "논점",
+   "title": "시산가액 조정 — 합리성 검토와 가중치 부여",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1167,
+    1351
+   ],
+   "section_name": "시산가액조정"
+  },
+  {
+   "id": "prac-1-08",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "화폐의시간가치",
+    "TVM 6계수 — 산식·역수관계·용도의 완전정리"
+   ],
+   "leaf_type": "논점",
+   "title": "TVM 6계수 — 산식·역수관계·용도의 완전정리",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1352,
+    1577
+   ],
+   "section_name": "화폐의시간가치"
+  },
+  {
+   "id": "prac-1-09",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "화폐의시간가치",
+    "기초지급·월단위 보정과 K계수·J계수"
+   ],
+   "leaf_type": "논점",
+   "title": "기초지급·월단위 보정과 K계수·J계수",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1578,
+    1806
+   ],
+   "section_name": "화폐의시간가치"
+  },
+  {
+   "id": "prac-1-10",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "화폐의시간가치",
+    "상환비율·잔금비율과 현금등가 — 저당대출 승계의 처리"
+   ],
+   "leaf_type": "논점",
+   "title": "상환비율·잔금비율과 현금등가 — 저당대출 승계의 처리",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1807,
+    2036
+   ],
+   "section_name": "화폐의시간가치"
+  },
+  {
+   "id": "prac-1-11",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "계산관행",
+    "유효숫자·반올림·절사 — 답안 수치처리의 원칙"
+   ],
+   "leaf_type": "논점",
+   "title": "유효숫자·반올림·절사 — 답안 수치처리의 원칙",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2037,
+    2249
+   ],
+   "section_name": "계산관행"
+  },
+  {
+   "id": "prac-1-12",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "면적·단가",
+    "도량형 환산과 대지면적·건폐율·용적률 산정"
+   ],
+   "leaf_type": "논점",
+   "title": "도량형 환산과 대지면적·건폐율·용적률 산정",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2250,
+    2514
+   ],
+   "section_name": "면적·단가"
+  },
+  {
+   "id": "prac-1-13",
+   "path": [
+    "감정평가실무",
+    "단원 1 — 감정평가실무 기초",
+    "토지특성",
+    "용도지역·도로조건·형상·이용상황의 판단"
+   ],
+   "leaf_type": "논점",
+   "title": "용도지역·도로조건·형상·이용상황의 판단",
+   "subject_root": "감정평가실무",
+   "unit_code": "1",
+   "unit_file": "units/1.md",
+   "problems_file": "problems/1.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2515,
+    2790
+   ],
+   "section_name": "토지특성"
+  },
+  {
+   "id": "prac-2a-01",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "공시지가기준법",
+    "공시지가기준법 — 의의·산식·적용 순서"
+   ],
+   "leaf_type": "논점",
+   "title": "공시지가기준법 — 의의·산식·적용 순서",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    43,
+    234
+   ],
+   "section_name": "공시지가기준법"
+  },
+  {
+   "id": "prac-2a-02",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "공시지가기준법",
+    "적용공시지가의 선택 — 공시기준일·공시일·기준시점"
+   ],
+   "leaf_type": "논점",
+   "title": "적용공시지가의 선택 — 공시기준일·공시일·기준시점",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    235,
+    385
+   ],
+   "section_name": "공시지가기준법"
+  },
+  {
+   "id": "prac-2a-03",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "공시지가기준법",
+    "비교표준지 선정 — 선정기준(용이주지)과 배제사유 기재"
+   ],
+   "leaf_type": "논점",
+   "title": "비교표준지 선정 — 선정기준(용이주지)과 배제사유 기재",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    386,
+    562
+   ],
+   "section_name": "공시지가기준법"
+  },
+  {
+   "id": "prac-2a-04",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "공시지가기준법",
+    "시점수정 — 지가변동률 산정·양편넣기·미고시월 추정"
+   ],
+   "leaf_type": "논점",
+   "title": "시점수정 — 지가변동률 산정·양편넣기·미고시월 추정",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    563,
+    753
+   ],
+   "section_name": "공시지가기준법"
+  },
+  {
+   "id": "prac-2a-05",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "공시지가기준법",
+    "시점수정의 예외 — 생산자물가상승률과 용도지역 대체적용"
+   ],
+   "leaf_type": "논점",
+   "title": "시점수정의 예외 — 생산자물가상승률과 용도지역 대체적용",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    754,
+    931
+   ],
+   "section_name": "공시지가기준법"
+  },
+  {
+   "id": "prac-2a-06",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "요인비교",
+    "지역요인 비교 — 우세·열세 문언의 해석과 격차율"
+   ],
+   "leaf_type": "논점",
+   "title": "지역요인 비교 — 우세·열세 문언의 해석과 격차율",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    932,
+    1120
+   ],
+   "section_name": "요인비교"
+  },
+  {
+   "id": "prac-2a-07",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "요인비교",
+    "개별요인 비교 — 조건 상승식·항목 총화식과 격자표 읽기"
+   ],
+   "leaf_type": "논점",
+   "title": "개별요인 비교 — 조건 상승식·항목 총화식과 격자표 읽기",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1121,
+    1352
+   ],
+   "section_name": "요인비교"
+  },
+  {
+   "id": "prac-2a-08",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "요인비교",
+    "공법상 제한·일부 저촉 토지의 개별요인 처리"
+   ],
+   "leaf_type": "논점",
+   "title": "공법상 제한·일부 저촉 토지의 개별요인 처리",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1353,
+    1571
+   ],
+   "section_name": "요인비교"
+  },
+  {
+   "id": "prac-2a-09",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "그밖의요인",
+    "그 밖의 요인 보정 — 대상토지기준·표준지기준 산정방식"
+   ],
+   "leaf_type": "논점",
+   "title": "그 밖의 요인 보정 — 대상토지기준·표준지기준 산정방식",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1572,
+    1818
+   ],
+   "section_name": "그밖의요인"
+  },
+  {
+   "id": "prac-2a-10",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "그밖의요인",
+    "참작 사례의 선정·배제와 보정치의 결정·검증"
+   ],
+   "leaf_type": "논점",
+   "title": "참작 사례의 선정·배제와 보정치의 결정·검증",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1819,
+    2047
+   ],
+   "section_name": "그밖의요인"
+  },
+  {
+   "id": "prac-2a-11",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "거래사례비교법",
+    "거래사례의 선정과 배제 — 사례의 중복사용 원칙"
+   ],
+   "leaf_type": "논점",
+   "title": "거래사례의 선정과 배제 — 사례의 중복사용 원칙",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2048,
+    2267
+   ],
+   "section_name": "거래사례비교법"
+  },
+  {
+   "id": "prac-2a-12",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "거래사례비교법",
+    "사정보정 — 금융조건·철거비·고저가·배분법·합필증분"
+   ],
+   "leaf_type": "논점",
+   "title": "사정보정 — 금융조건·철거비·고저가·배분법·합필증분",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2268,
+    2548
+   ],
+   "section_name": "거래사례비교법"
+  },
+  {
+   "id": "prac-2a-13",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "원가법",
+    "재조달원가와 감가수정 — 직접법·간접법·내용연수 조정·분해법"
+   ],
+   "leaf_type": "논점",
+   "title": "재조달원가와 감가수정 — 직접법·간접법·내용연수 조정·분해법",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2549,
+    2813
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "prac-2a-14",
+   "path": [
+    "감정평가실무",
+    "단원 2a — 3방식기초 공시지가·거래사례·원가",
+    "원가법",
+    "조성원가법 — 소지매입비·조성공사비·유효택지면적"
+   ],
+   "leaf_type": "논점",
+   "title": "조성원가법 — 소지매입비·조성공사비·유효택지면적",
+   "subject_root": "감정평가실무",
+   "unit_code": "2a",
+   "unit_file": "units/2a.md",
+   "problems_file": "problems/2a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2814,
+    3057
+   ],
+   "section_name": "원가법"
+  },
+  {
+   "id": "prac-2b-01",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "수익환원법",
+    "수익환원법의 체계 — 직접환원법과 할인현금흐름분석법의 선택"
+   ],
+   "leaf_type": "논점",
+   "title": "수익환원법의 체계 — 직접환원법과 할인현금흐름분석법의 선택",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    34,
+    221
+   ],
+   "section_name": "수익환원법"
+  },
+  {
+   "id": "prac-2b-02",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "순수익",
+    "가능총수익과 유효총수익 — 보증금 운용수익·일시금·공실손실상당액"
+   ],
+   "leaf_type": "논점",
+   "title": "가능총수익과 유효총수익 — 보증금 운용수익·일시금·공실손실상당액",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    222,
+    386
+   ],
+   "section_name": "순수익"
+  },
+  {
+   "id": "prac-2b-03",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "순수익",
+    "운영경비(OE) — 포함·제외 항목의 완전정리"
+   ],
+   "leaf_type": "논점",
+   "title": "운영경비(OE) — 포함·제외 항목의 완전정리",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    387,
+    600
+   ],
+   "section_name": "순수익"
+  },
+  {
+   "id": "prac-2b-04",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "순수익",
+    "보험료와 대체충당금 — 소멸성·비소멸성의 기간배분"
+   ],
+   "leaf_type": "논점",
+   "title": "보험료와 대체충당금 — 소멸성·비소멸성의 기간배분",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    601,
+    777
+   ],
+   "section_name": "순수익"
+  },
+  {
+   "id": "prac-2b-05",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "환원율",
+    "시장추출법 — 직접시장비교법과 투자시장질적평점비교법"
+   ],
+   "leaf_type": "논점",
+   "title": "시장추출법 — 직접시장비교법과 투자시장질적평점비교법",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    778,
+    975
+   ],
+   "section_name": "환원율"
+  },
+  {
+   "id": "prac-2b-06",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "환원율",
+    "요소구성법과 물리적 투자결합법 — 상각전·상각후 환원율의 전환"
+   ],
+   "leaf_type": "논점",
+   "title": "요소구성법과 물리적 투자결합법 — 상각전·상각후 환원율의 전환",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    976,
+    1141
+   ],
+   "section_name": "환원율"
+  },
+  {
+   "id": "prac-2b-07",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "환원율",
+    "금융적 투자결합법과 부채감당률법 — Ross·Kazdin·Gettel"
+   ],
+   "leaf_type": "논점",
+   "title": "금융적 투자결합법과 부채감당률법 — Ross·Kazdin·Gettel",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1142,
+    1341
+   ],
+   "section_name": "환원율"
+  },
+  {
+   "id": "prac-2b-08",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "환원율",
+    "Ellwood법과 유효총수익승수법(EGIM)"
+   ],
+   "leaf_type": "논점",
+   "title": "Ellwood법과 유효총수익승수법(EGIM)",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1342,
+    1546
+   ],
+   "section_name": "환원율"
+  },
+  {
+   "id": "prac-2b-09",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "직접환원법",
+    "자본회수 유형 — 직선법·상환기금법·연금법"
+   ],
+   "leaf_type": "논점",
+   "title": "자본회수 유형 — 직선법·상환기금법·연금법",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1547,
+    1723
+   ],
+   "section_name": "직접환원법"
+  },
+  {
+   "id": "prac-2b-10",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "잔여환원법",
+    "토지·건물·부동산잔여법과 지분·저당잔여법"
+   ],
+   "leaf_type": "논점",
+   "title": "토지·건물·부동산잔여법과 지분·저당잔여법",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1724,
+    1913
+   ],
+   "section_name": "잔여환원법"
+  },
+  {
+   "id": "prac-2b-11",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "DCF법",
+    "현금흐름표 전개 — NOI·BTCF·ATCF 모델과 K계수"
+   ],
+   "leaf_type": "논점",
+   "title": "현금흐름표 전개 — NOI·BTCF·ATCF 모델과 K계수",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1914,
+    2134
+   ],
+   "section_name": "DCF법"
+  },
+  {
+   "id": "prac-2b-12",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "DCF법",
+    "기말복귀가액과 보유기간 — 재매도가치·매도비용·최종환원율"
+   ],
+   "leaf_type": "논점",
+   "title": "기말복귀가액과 보유기간 — 재매도가치·매도비용·최종환원율",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2135,
+    2343
+   ],
+   "section_name": "DCF법"
+  },
+  {
+   "id": "prac-2b-13",
+   "path": [
+    "감정평가실무",
+    "단원 2b — 3방식 수익환원·임대",
+    "시산가액 조정",
+    "수익가액의 합리성 검토와 감정평가액의 결정"
+   ],
+   "leaf_type": "논점",
+   "title": "수익가액의 합리성 검토와 감정평가액의 결정",
+   "subject_root": "감정평가실무",
+   "unit_code": "2b",
+   "unit_file": "units/2b.md",
+   "problems_file": "problems/2b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2344,
+    2508
+   ],
+   "section_name": "시산가액 조정"
+  },
+  {
+   "id": "prac-3-01",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "건물",
+    "건물의 재조달원가 — 도급방식 기준·직접법과 간접법"
+   ],
+   "leaf_type": "논점",
+   "title": "건물의 재조달원가 — 도급방식 기준·직접법과 간접법",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    34,
+    218
+   ],
+   "section_name": "건물"
+  },
+  {
+   "id": "prac-3-02",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "건물",
+    "감가수정의 체계 — 내용연수법(정액·정률·상환기금)과 관찰감가·시장추출법"
+   ],
+   "leaf_type": "논점",
+   "title": "감가수정의 체계 — 내용연수법(정액·정률·상환기금)과 관찰감가·시장추출법",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    219,
+    387
+   ],
+   "section_name": "건물"
+  },
+  {
+   "id": "prac-3-03",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "건물",
+    "내용연수의 조정과 증축부분의 감가수정"
+   ],
+   "leaf_type": "논점",
+   "title": "내용연수의 조정과 증축부분의 감가수정",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    388,
+    558
+   ],
+   "section_name": "건물"
+  },
+  {
+   "id": "prac-3-04",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "건물",
+    "분해법 — 물리적·기능적·경제적 감가의 항목별 분해"
+   ],
+   "leaf_type": "논점",
+   "title": "분해법 — 물리적·기능적·경제적 감가의 항목별 분해",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    559,
+    792
+   ],
+   "section_name": "건물"
+  },
+  {
+   "id": "prac-3-05",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "건물",
+    "건물의 거래사례비교법 — 잔가율 비교와 배분법"
+   ],
+   "leaf_type": "논점",
+   "title": "건물의 거래사례비교법 — 잔가율 비교와 배분법",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    793,
+    974
+   ],
+   "section_name": "건물"
+  },
+  {
+   "id": "prac-3-06",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "복합부동산",
+    "개별평가 원칙과 일괄평가의 선택"
+   ],
+   "leaf_type": "논점",
+   "title": "개별평가 원칙과 일괄평가의 선택",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    975,
+    1139
+   ],
+   "section_name": "복합부동산"
+  },
+  {
+   "id": "prac-3-07",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "복합부동산",
+    "일괄 거래사례비교법과 토지·건물가액의 배분"
+   ],
+   "leaf_type": "논점",
+   "title": "일괄 거래사례비교법과 토지·건물가액의 배분",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1140,
+    1330
+   ],
+   "section_name": "복합부동산"
+  },
+  {
+   "id": "prac-3-08",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "구분소유",
+    "구분소유 부동산의 감정평가 — 대지사용권 일체평가와 시점수정"
+   ],
+   "leaf_type": "논점",
+   "title": "구분소유 부동산의 감정평가 — 대지사용권 일체평가와 시점수정",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1331,
+    1515
+   ],
+   "section_name": "구분소유"
+  },
+  {
+   "id": "prac-3-09",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "구분소유",
+    "층별효용비율 — 효용비·효용적수·효용비율의 3단 전개"
+   ],
+   "leaf_type": "논점",
+   "title": "층별효용비율 — 효용비·효용적수·효용비율의 3단 전개",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1516,
+    1690
+   ],
+   "section_name": "구분소유"
+  },
+  {
+   "id": "prac-3-10",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "구분소유",
+    "위치별효용비율과 구분소유권 가액의 산정"
+   ],
+   "leaf_type": "논점",
+   "title": "위치별효용비율과 구분소유권 가액의 산정",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1691,
+    1859
+   ],
+   "section_name": "구분소유"
+  },
+  {
+   "id": "prac-3-11",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "임대료",
+    "실질임대료와 지급임대료 — 임대료의 기준시점·산정기간과 보증금 운용익"
+   ],
+   "leaf_type": "논점",
+   "title": "실질임대료와 지급임대료 — 임대료의 기준시점·산정기간과 보증금 운용익",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1860,
+    2050
+   ],
+   "section_name": "임대료"
+  },
+  {
+   "id": "prac-3-12",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "임대료",
+    "임대사례비교법 — 비준임료의 산정"
+   ],
+   "leaf_type": "논점",
+   "title": "임대사례비교법 — 비준임료의 산정",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2051,
+    2239
+   ],
+   "section_name": "임대료"
+  },
+  {
+   "id": "prac-3-13",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "임대료",
+    "적산법 — 기초가액·기대이율·필요제경비"
+   ],
+   "leaf_type": "논점",
+   "title": "적산법 — 기초가액·기대이율·필요제경비",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2240,
+    2448
+   ],
+   "section_name": "임대료"
+  },
+  {
+   "id": "prac-3-14",
+   "path": [
+    "감정평가실무",
+    "단원 3 — 건물·복합·구분·임대료",
+    "임대료",
+    "수익분석법과 계속임료의 평가"
+   ],
+   "leaf_type": "논점",
+   "title": "수익분석법과 계속임료의 평가",
+   "subject_root": "감정평가실무",
+   "unit_code": "3",
+   "unit_file": "units/3.md",
+   "problems_file": "problems/3.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2449,
+    2652
+   ],
+   "section_name": "임대료"
+  },
+  {
+   "id": "prac-5-01",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "투자타당성",
+    "NPV·IRR·PI — 세 지표의 산정과 결과가 상반될 때의 처리"
+   ],
+   "leaf_type": "논점",
+   "title": "NPV·IRR·PI — 세 지표의 산정과 결과가 상반될 때의 처리",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    37,
+    222
+   ],
+   "section_name": "투자타당성"
+  },
+  {
+   "id": "prac-5-02",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "투자타당성",
+    "보유·매각 타당성 — 지분현금흐름(BTCF·ATCF)과 기간말 복귀액"
+   ],
+   "leaf_type": "논점",
+   "title": "보유·매각 타당성 — 지분현금흐름(BTCF·ATCF)과 기간말 복귀액",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    223,
+    409
+   ],
+   "section_name": "투자타당성"
+  },
+  {
+   "id": "prac-5-03",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "투자타당성",
+    "매후환대차(Sale & Leaseback) 타당성 분석"
+   ],
+   "leaf_type": "논점",
+   "title": "매후환대차(Sale & Leaseback) 타당성 분석",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    410,
+    575
+   ],
+   "section_name": "투자타당성"
+  },
+  {
+   "id": "prac-5-04",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "최유효이용",
+    "나지상정 최유효이용분석과 개발법 — 개발 후 가치에서 개발비용을 뺀다"
+   ],
+   "leaf_type": "논점",
+   "title": "나지상정 최유효이용분석과 개발법 — 개발 후 가치에서 개발비용을 뺀다",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    576,
+    775
+   ],
+   "section_name": "최유효이용"
+  },
+  {
+   "id": "prac-5-05",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "최유효이용",
+    "개량부동산 최유효이용분석 — 용도전환·철거 타당성과 중도적 이용"
+   ],
+   "leaf_type": "논점",
+   "title": "개량부동산 최유효이용분석 — 용도전환·철거 타당성과 중도적 이용",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    776,
+    952
+   ],
+   "section_name": "최유효이용"
+  },
+  {
+   "id": "prac-5-06",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "기업가치",
+    "기업가치의 구조와 감정평가방법 체계 — 영업가치·비영업가치의 분리"
+   ],
+   "leaf_type": "논점",
+   "title": "기업가치의 구조와 감정평가방법 체계 — 영업가치·비영업가치의 분리",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    953,
+    1147
+   ],
+   "section_name": "기업가치"
+  },
+  {
+   "id": "prac-5-07",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "기업가치",
+    "FCFF 추정 — 기업잉여현금흐름표(FCFF Table)의 작성"
+   ],
+   "leaf_type": "논점",
+   "title": "FCFF 추정 — 기업잉여현금흐름표(FCFF Table)의 작성",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1148,
+    1340
+   ],
+   "section_name": "기업가치"
+  },
+  {
+   "id": "prac-5-08",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "기업가치",
+    "WACC 산정 — CAPM·세후타인자본비용·목표자본구조"
+   ],
+   "leaf_type": "논점",
+   "title": "WACC 산정 — CAPM·세후타인자본비용·목표자본구조",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1341,
+    1508
+   ],
+   "section_name": "기업가치"
+  },
+  {
+   "id": "prac-5-09",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "기업가치",
+    "DCF 전개 — 추정기간 현가합과 영구영업가치의 결합"
+   ],
+   "leaf_type": "논점",
+   "title": "DCF 전개 — 추정기간 현가합과 영구영업가치의 결합",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1509,
+    1692
+   ],
+   "section_name": "기업가치"
+  },
+  {
+   "id": "prac-5-10",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "무형자산",
+    "영업권 — 영업투하자본 차감법과 초과이익환원법"
+   ],
+   "leaf_type": "논점",
+   "title": "영업권 — 영업투하자본 차감법과 초과이익환원법",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1693,
+    1876
+   ],
+   "section_name": "무형자산"
+  },
+  {
+   "id": "prac-5-11",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "무형자산",
+    "지식재산권 — 기술기여도법·로열티공제법·유효 잔존수명"
+   ],
+   "leaf_type": "논점",
+   "title": "지식재산권 — 기술기여도법·로열티공제법·유효 잔존수명",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1877,
+    2080
+   ],
+   "section_name": "무형자산"
+  },
+  {
+   "id": "prac-5-12",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "유가증권",
+    "상장·비상장 주식과 채권 — 물건별 주된 방법의 분기"
+   ],
+   "leaf_type": "논점",
+   "title": "상장·비상장 주식과 채권 — 물건별 주된 방법의 분기",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2081,
+    2275
+   ],
+   "section_name": "유가증권"
+  },
+  {
+   "id": "prac-5-13",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "권리금",
+    "유형재산·무형재산의 개별평가와 일괄평가"
+   ],
+   "leaf_type": "논점",
+   "title": "유형재산·무형재산의 개별평가와 일괄평가",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2276,
+    2464
+   ],
+   "section_name": "권리금"
+  },
+  {
+   "id": "prac-5-14",
+   "path": [
+    "감정평가실무",
+    "단원 5 — 비가치추계·기업가치·무형자산",
+    "비가치추계",
+    "광업권·어업권 — 전체 평가액에서 현존시설을 뺀다"
+   ],
+   "leaf_type": "논점",
+   "title": "광업권·어업권 — 전체 평가액에서 현존시설을 뺀다",
+   "subject_root": "감정평가실무",
+   "unit_code": "5",
+   "unit_file": "units/5.md",
+   "problems_file": "problems/5.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2465,
+    2668
+   ],
+   "section_name": "비가치추계"
+  },
+  {
+   "id": "prac-6a-01",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "보상원칙",
+    "손실보상의 기본원칙 — 사업시행자·사전·현금·개인별·일괄·상계금지"
+   ],
+   "leaf_type": "논점",
+   "title": "손실보상의 기본원칙 — 사업시행자·사전·현금·개인별·일괄·상계금지",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    29,
+    195
+   ],
+   "section_name": "보상원칙"
+  },
+  {
+   "id": "prac-6a-02",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "기준시점",
+    "시가보상과 기준시점의 확정 — 협의성립일·수용재결일"
+   ],
+   "leaf_type": "논점",
+   "title": "시가보상과 기준시점의 확정 — 협의성립일·수용재결일",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    196,
+    353
+   ],
+   "section_name": "기준시점"
+  },
+  {
+   "id": "prac-6a-03",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "사업인정",
+    "사업인정고시일의 의제와 행위제한일 — 개별법별 확정·추가 세목고시"
+   ],
+   "leaf_type": "논점",
+   "title": "사업인정고시일의 의제와 행위제한일 — 개별법별 확정·추가 세목고시",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    354,
+    521
+   ],
+   "section_name": "사업인정"
+  },
+  {
+   "id": "prac-6a-04",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "적용공시지가",
+    "적용공시지가의 선택 — 법 제70조 제3항·제4항의 원칙"
+   ],
+   "leaf_type": "논점",
+   "title": "적용공시지가의 선택 — 법 제70조 제3항·제4항의 원칙",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    522,
+    684
+   ],
+   "section_name": "적용공시지가"
+  },
+  {
+   "id": "prac-6a-05",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "적용공시지가",
+    "법 제70조 제5항 — 공고·고시로 인한 토지가격 변동의 판정"
+   ],
+   "leaf_type": "논점",
+   "title": "법 제70조 제5항 — 공고·고시로 인한 토지가격 변동의 판정",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    685,
+    893
+   ],
+   "section_name": "적용공시지가"
+  },
+  {
+   "id": "prac-6a-06",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "개발이익배제",
+    "해당 공익사업으로 인한 가격변동의 배제 — 4단계 배제장치"
+   ],
+   "leaf_type": "논점",
+   "title": "해당 공익사업으로 인한 가격변동의 배제 — 4단계 배제장치",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    894,
+    1058
+   ],
+   "section_name": "개발이익배제"
+  },
+  {
+   "id": "prac-6a-07",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "비교표준지",
+    "비교표준지의 선정 — 사업시행지구 안 선정 원칙과 그 예외"
+   ],
+   "leaf_type": "논점",
+   "title": "비교표준지의 선정 — 사업시행지구 안 선정 원칙과 그 예외",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1059,
+    1236
+   ],
+   "section_name": "비교표준지"
+  },
+  {
+   "id": "prac-6a-08",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "시점수정",
+    "지가변동률의 적용 — 해당 사업 영향 배제와 인근 시·군·구 지가변동률"
+   ],
+   "leaf_type": "논점",
+   "title": "지가변동률의 적용 — 해당 사업 영향 배제와 인근 시·군·구 지가변동률",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1237,
+    1427
+   ],
+   "section_name": "시점수정"
+  },
+  {
+   "id": "prac-6a-09",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "시점수정",
+    "생산자물가상승률의 병용 — 산정·비교·결정"
+   ],
+   "leaf_type": "논점",
+   "title": "생산자물가상승률의 병용 — 산정·비교·결정",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1428,
+    1578
+   ],
+   "section_name": "시점수정"
+  },
+  {
+   "id": "prac-6a-10",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "그밖의요인",
+    "보상평가의 그 밖의 요인 보정 — 보상선례의 요건과 개발이익 배제"
+   ],
+   "leaf_type": "논점",
+   "title": "보상평가의 그 밖의 요인 보정 — 보상선례의 요건과 개발이익 배제",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1579,
+    1781
+   ],
+   "section_name": "그밖의요인"
+  },
+  {
+   "id": "prac-6a-11",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "평가기준",
+    "토지 보상평가의 평가기준 — 객관적·현실적 이용상황·개별·나지상정"
+   ],
+   "leaf_type": "논점",
+   "title": "토지 보상평가의 평가기준 — 객관적·현실적 이용상황·개별·나지상정",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1782,
+    1962
+   ],
+   "section_name": "평가기준"
+  },
+  {
+   "id": "prac-6a-12",
+   "path": [
+    "감정평가실무",
+    "단원 6a — 토지보상 기본·원칙",
+    "보상절차",
+    "보상평가의 절차와 감정평가서 기재사항 — 복수평가·재평가·심사"
+   ],
+   "leaf_type": "논점",
+   "title": "보상평가의 절차와 감정평가서 기재사항 — 복수평가·재평가·심사",
+   "subject_root": "감정평가실무",
+   "unit_code": "6a",
+   "unit_file": "units/6a.md",
+   "problems_file": "problems/6a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1963,
+    2137
+   ],
+   "section_name": "보상절차"
+  },
+  {
+   "id": "prac-6b-01",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "공법상제한",
+    "일반적 계획제한과 개별적 계획제한 — 제한받는 상태 대로의 감정평가"
+   ],
+   "leaf_type": "논점",
+   "title": "일반적 계획제한과 개별적 계획제한 — 제한받는 상태 대로의 감정평가",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    26,
+    231
+   ],
+   "section_name": "공법상제한"
+  },
+  {
+   "id": "prac-6b-02",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "공법상제한",
+    "도시·군계획시설 저촉·접한 토지 — 보상평가와 일반평가의 정반대 처리"
+   ],
+   "leaf_type": "논점",
+   "title": "도시·군계획시설 저촉·접한 토지 — 보상평가와 일반평가의 정반대 처리",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    232,
+    410
+   ],
+   "section_name": "공법상제한"
+  },
+  {
+   "id": "prac-6b-03",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "공법상제한",
+    "용도지역등이 변경된 토지 — 변경 전 기준으로 되돌리는 요건"
+   ],
+   "leaf_type": "논점",
+   "title": "용도지역등이 변경된 토지 — 변경 전 기준으로 되돌리는 요건",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    411,
+    592
+   ],
+   "section_name": "공법상제한"
+  },
+  {
+   "id": "prac-6b-04",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "공법상제한",
+    "개발제한구역 안 토지 — 건축물 있는 '대'와 없는 '대'의 격차"
+   ],
+   "leaf_type": "논점",
+   "title": "개발제한구역 안 토지 — 건축물 있는 '대'와 없는 '대'의 격차",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    593,
+    771
+   ],
+   "section_name": "공법상제한"
+  },
+  {
+   "id": "prac-6b-05",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "특수토지",
+    "무허가건축물 등의 부지 — 1989.1.24 기준과 건폐율 면적사정"
+   ],
+   "leaf_type": "논점",
+   "title": "무허가건축물 등의 부지 — 1989.1.24 기준과 건폐율 면적사정",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    772,
+    974
+   ],
+   "section_name": "특수토지"
+  },
+  {
+   "id": "prac-6b-06",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "특수토지",
+    "불법형질변경토지 — 1995.1.7과 '편입 시점'의 판정"
+   ],
+   "leaf_type": "논점",
+   "title": "불법형질변경토지 — 1995.1.7과 '편입 시점'의 판정",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    975,
+    1169
+   ],
+   "section_name": "특수토지"
+  },
+  {
+   "id": "prac-6b-07",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "특수토지",
+    "미지급용지 — 편입 당시 이용상황과 이중 개발이익의 배제"
+   ],
+   "leaf_type": "논점",
+   "title": "미지급용지 — 편입 당시 이용상황과 이중 개발이익의 배제",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1170,
+    1364
+   ],
+   "section_name": "특수토지"
+  },
+  {
+   "id": "prac-6b-08",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "특수토지",
+    "도로·구거부지 — 1/5·1/3의 감액 비율과 예정공도"
+   ],
+   "leaf_type": "논점",
+   "title": "도로·구거부지 — 1/5·1/3의 감액 비율과 예정공도",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1365,
+    1576
+   ],
+   "section_name": "특수토지"
+  },
+  {
+   "id": "prac-6b-09",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "특수토지",
+    "개간비 — 보상요건·한도액·토지가액과의 관계"
+   ],
+   "leaf_type": "논점",
+   "title": "개간비 — 보상요건·한도액·토지가액과의 관계",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1577,
+    1774
+   ],
+   "section_name": "특수토지"
+  },
+  {
+   "id": "prac-6b-10",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "잔여지",
+    "가치하락 손실과 공사비 보상 — 편입 전후 잔여지 가액의 차"
+   ],
+   "leaf_type": "논점",
+   "title": "가치하락 손실과 공사비 보상 — 편입 전후 잔여지 가액의 차",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1775,
+    1994
+   ],
+   "section_name": "잔여지"
+  },
+  {
+   "id": "prac-6b-11",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "잔여지",
+    "잔여지 매수·수용청구 — 전체가액에서 편입토지 가액을 뺀 금액"
+   ],
+   "leaf_type": "논점",
+   "title": "잔여지 매수·수용청구 — 전체가액에서 편입토지 가액을 뺀 금액",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1995,
+    2184
+   ],
+   "section_name": "잔여지"
+  },
+  {
+   "id": "prac-6b-12",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "환매",
+    "환매토지의 감정평가와 환매금액 — 시행령 제48조 협의요건"
+   ],
+   "leaf_type": "논점",
+   "title": "환매토지의 감정평가와 환매금액 — 시행령 제48조 협의요건",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2185,
+    2421
+   ],
+   "section_name": "환매"
+  },
+  {
+   "id": "prac-6b-13",
+   "path": [
+    "감정평가실무",
+    "단원 6b — 토지보상 공법상제한·특수",
+    "특수토지",
+    "토지의 사용과 소유권 외의 권리 — 지하공간·선하지·구분지상권"
+   ],
+   "leaf_type": "논점",
+   "title": "토지의 사용과 소유권 외의 권리 — 지하공간·선하지·구분지상권",
+   "subject_root": "감정평가실무",
+   "unit_code": "6b",
+   "unit_file": "units/6b.md",
+   "problems_file": "problems/6b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2422,
+    2703
+   ],
+   "section_name": "특수토지"
+  },
+  {
+   "id": "prac-4-01",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "물건별평가",
+    "물건별 주된 감정평가방법 총정리 — 감칙 제14조~제26조와 시산가액 조정"
+   ],
+   "leaf_type": "논점",
+   "title": "물건별 주된 감정평가방법 총정리 — 감칙 제14조~제26조와 시산가액 조정",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    49,
+    256
+   ],
+   "section_name": "물건별평가"
+  },
+  {
+   "id": "prac-4-02",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "특수토지",
+    "골프장·광천지·공공용지·사도·석산 — 특수토지의 감정평가"
+   ],
+   "leaf_type": "논점",
+   "title": "골프장·광천지·공공용지·사도·석산 — 특수토지의 감정평가",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    257,
+    440
+   ],
+   "section_name": "특수토지"
+  },
+  {
+   "id": "prac-4-03",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "토지",
+    "공법상 제한을 받는 토지 — 도시·군계획시설 저촉과 둘 이상의 용도지역"
+   ],
+   "leaf_type": "논점",
+   "title": "공법상 제한을 받는 토지 — 도시·군계획시설 저촉과 둘 이상의 용도지역",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    441,
+    614
+   ],
+   "section_name": "토지"
+  },
+  {
+   "id": "prac-4-04",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "토지",
+    "일단지·공유지분·규모 과대과소 — 면적사정과 지분의 논점"
+   ],
+   "leaf_type": "논점",
+   "title": "일단지·공유지분·규모 과대과소 — 면적사정과 지분의 논점",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    615,
+    785
+   ],
+   "section_name": "토지"
+  },
+  {
+   "id": "prac-4-05",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "토지",
+    "지상 정착물과 소유자가 다른 토지·제시외 건물 — 법정지상권 성립 판단"
+   ],
+   "leaf_type": "논점",
+   "title": "지상 정착물과 소유자가 다른 토지·제시외 건물 — 법정지상권 성립 판단",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    786,
+    1001
+   ],
+   "section_name": "토지"
+  },
+  {
+   "id": "prac-4-06",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "권리",
+    "지상권이 설정된 토지 — 지상권 가치의 산정과 저당권부 지상권의 예외"
+   ],
+   "leaf_type": "논점",
+   "title": "지상권이 설정된 토지 — 지상권 가치의 산정과 저당권부 지상권의 예외",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1002,
+    1202
+   ],
+   "section_name": "권리"
+  },
+  {
+   "id": "prac-4-07",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "토지",
+    "맹지 — 도로개설비 공제와 합병 조건부 평가"
+   ],
+   "leaf_type": "논점",
+   "title": "맹지 — 도로개설비 공제와 합병 조건부 평가",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1203,
+    1398
+   ],
+   "section_name": "토지"
+  },
+  {
+   "id": "prac-4-08",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "건물",
+    "건물의 유형별 평가 — 증축·미등재·인접지 걸침·공사중단"
+   ],
+   "leaf_type": "논점",
+   "title": "건물의 유형별 평가 — 증축·미등재·인접지 걸침·공사중단",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1399,
+    1604
+   ],
+   "section_name": "건물"
+  },
+  {
+   "id": "prac-4-09",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "산림·과수원",
+    "산지와 입목의 구분평가 — 소경목림의 원가법"
+   ],
+   "leaf_type": "논점",
+   "title": "산지와 입목의 구분평가 — 소경목림의 원가법",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1605,
+    1795
+   ],
+   "section_name": "산림·과수원"
+  },
+  {
+   "id": "prac-4-10",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "기계기구",
+    "도입기계의 재조달원가 — CIF·관세·부대비용과 정률법 감가"
+   ],
+   "leaf_type": "논점",
+   "title": "도입기계의 재조달원가 — CIF·관세·부대비용과 정률법 감가",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1796,
+    2033
+   ],
+   "section_name": "기계기구"
+  },
+  {
+   "id": "prac-4-11",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "공장재단",
+    "개별평가 원칙과 일괄 수익환원 — 과잉유휴시설의 처리"
+   ],
+   "leaf_type": "논점",
+   "title": "개별평가 원칙과 일괄 수익환원 — 과잉유휴시설의 처리",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2034,
+    2264
+   ],
+   "section_name": "공장재단"
+  },
+  {
+   "id": "prac-4-12",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "의제부동산",
+    "자동차·건설기계·선박·항공기 — 주된 방법의 분기와 해체처분가액"
+   ],
+   "leaf_type": "논점",
+   "title": "자동차·건설기계·선박·항공기 — 주된 방법의 분기와 해체처분가액",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2265,
+    2457
+   ],
+   "section_name": "의제부동산"
+  },
+  {
+   "id": "prac-4-13",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "광업권",
+    "광산의 수익환원법과 광업권 — 상각전 순수익·배당이율·축적이율"
+   ],
+   "leaf_type": "논점",
+   "title": "광산의 수익환원법과 광업권 — 상각전 순수익·배당이율·축적이율",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2458,
+    2664
+   ],
+   "section_name": "광업권"
+  },
+  {
+   "id": "prac-4-14",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "어업권",
+    "어장의 수익가액과 어업권 — 현존시설 가액의 공제"
+   ],
+   "leaf_type": "논점",
+   "title": "어장의 수익가액과 어업권 — 현존시설 가액의 공제",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2665,
+    2875
+   ],
+   "section_name": "어업권"
+  },
+  {
+   "id": "prac-4-15",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "권리금",
+    "권리금의 유형·무형재산 구분평가와 영업권"
+   ],
+   "leaf_type": "논점",
+   "title": "권리금의 유형·무형재산 구분평가와 영업권",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2876,
+    3081
+   ],
+   "section_name": "권리금"
+  },
+  {
+   "id": "prac-4-16",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "동산·유가증권",
+    "동산·재고자산과 주식·채권의 감정평가"
+   ],
+   "leaf_type": "논점",
+   "title": "동산·재고자산과 주식·채권의 감정평가",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    3082,
+    3266
+   ],
+   "section_name": "동산·유가증권"
+  },
+  {
+   "id": "prac-4-17",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "구분지상권",
+    "선하지·지하 구분지상권 — 입체이용저해율과 보정률"
+   ],
+   "leaf_type": "논점",
+   "title": "선하지·지하 구분지상권 — 입체이용저해율과 보정률",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    3267,
+    3501
+   ],
+   "section_name": "구분지상권"
+  },
+  {
+   "id": "prac-4-18",
+   "path": [
+    "감정평가실무",
+    "단원 4 — 유형별 평가",
+    "가치하락",
+    "소음·진동·일조침해·환경오염 — 스티그마와 가치하락분"
+   ],
+   "leaf_type": "논점",
+   "title": "소음·진동·일조침해·환경오염 — 스티그마와 가치하락분",
+   "subject_root": "감정평가실무",
+   "unit_code": "4",
+   "unit_file": "units/4.md",
+   "problems_file": "problems/4.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    3502,
+    3750
+   ],
+   "section_name": "가치하락"
+  },
+  {
+   "id": "prac-7-01",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "건축물보상",
+    "이전비 보상 원칙과 물건가격 보상의 예외"
+   ],
+   "leaf_type": "논점",
+   "title": "이전비 보상 원칙과 물건가격 보상의 예외",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    38,
+    238
+   ],
+   "section_name": "건축물보상"
+  },
+  {
+   "id": "prac-7-02",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "건축물보상",
+    "주거용 건축물의 보상 특례 — 거래사례비교법·최저보상액"
+   ],
+   "leaf_type": "논점",
+   "title": "주거용 건축물의 보상 특례 — 거래사례비교법·최저보상액",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    239,
+    413
+   ],
+   "section_name": "건축물보상"
+  },
+  {
+   "id": "prac-7-03",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "잔여건축물",
+    "잔여 건축물의 가격감소·보수비 보상과 매수청구"
+   ],
+   "leaf_type": "논점",
+   "title": "잔여 건축물의 가격감소·보수비 보상과 매수청구",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    414,
+    608
+   ],
+   "section_name": "잔여건축물"
+  },
+  {
+   "id": "prac-7-04",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "공작물·동산",
+    "공작물등의 평가와 동산의 이전비 보상"
+   ],
+   "leaf_type": "논점",
+   "title": "공작물등의 평가와 동산의 이전비 보상",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    609,
+    781
+   ],
+   "section_name": "공작물·동산"
+  },
+  {
+   "id": "prac-7-05",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "지장물",
+    "과수·수익수·관상수 — 이전비·고손액·감수액"
+   ],
+   "leaf_type": "논점",
+   "title": "과수·수익수·관상수 — 이전비·고손액·감수액",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    782,
+    997
+   ],
+   "section_name": "지장물"
+  },
+  {
+   "id": "prac-7-06",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "지장물",
+    "묘목·입목·농작물의 보상평가"
+   ],
+   "leaf_type": "논점",
+   "title": "묘목·입목·농작물의 보상평가",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    998,
+    1198
+   ],
+   "section_name": "지장물"
+  },
+  {
+   "id": "prac-7-07",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "지장물",
+    "분묘 보상액의 산정 — 4항목 합산구조"
+   ],
+   "leaf_type": "논점",
+   "title": "분묘 보상액의 산정 — 4항목 합산구조",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1199,
+    1399
+   ],
+   "section_name": "지장물"
+  },
+  {
+   "id": "prac-7-08",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "영업보상",
+    "보상대상 요건과 무허가영업·무허가건물 임차인 특례"
+   ],
+   "leaf_type": "논점",
+   "title": "보상대상 요건과 무허가영업·무허가건물 임차인 특례",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1400,
+    1581
+   ],
+   "section_name": "영업보상"
+  },
+  {
+   "id": "prac-7-09",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "영업보상",
+    "폐업보상 — 폐업요건 3가지와 2년분 영업이익"
+   ],
+   "leaf_type": "논점",
+   "title": "폐업보상 — 폐업요건 3가지와 2년분 영업이익",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1582,
+    1775
+   ],
+   "section_name": "영업보상"
+  },
+  {
+   "id": "prac-7-10",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "영업보상",
+    "영업이익의 산정 — 3년 평균과 3방법 합리성 검토"
+   ],
+   "leaf_type": "논점",
+   "title": "영업이익의 산정 — 3년 평균과 3방법 합리성 검토",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1776,
+    1992
+   ],
+   "section_name": "영업보상"
+  },
+  {
+   "id": "prac-7-11",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "영업보상",
+    "휴업보상 — 5개 구성항목의 합산구조"
+   ],
+   "leaf_type": "논점",
+   "title": "휴업보상 — 5개 구성항목의 합산구조",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1993,
+    2203
+   ],
+   "section_name": "영업보상"
+  },
+  {
+   "id": "prac-7-12",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "영업보상",
+    "고정적 비용·이전비·감손상당액의 세부 산정"
+   ],
+   "leaf_type": "논점",
+   "title": "고정적 비용·이전비·감손상당액의 세부 산정",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2204,
+    2411
+   ],
+   "section_name": "영업보상"
+  },
+  {
+   "id": "prac-7-13",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "영업보상",
+    "영업시설 일부편입·임시영업소·공익사업시행지구 밖 영업손실"
+   ],
+   "leaf_type": "논점",
+   "title": "영업시설 일부편입·임시영업소·공익사업시행지구 밖 영업손실",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2412,
+    2612
+   ],
+   "section_name": "영업보상"
+  },
+  {
+   "id": "prac-7-14",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "농업손실",
+    "영농손실액 — 통계소득·실제소득과 보상금의 배분"
+   ],
+   "leaf_type": "논점",
+   "title": "영농손실액 — 통계소득·실제소득과 보상금의 배분",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2613,
+    2868
+   ],
+   "section_name": "농업손실"
+  },
+  {
+   "id": "prac-7-15",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "권리·축산",
+    "광업권·어업권·축산업·잠업 손실과 휴직·실직보상"
+   ],
+   "leaf_type": "논점",
+   "title": "광업권·어업권·축산업·잠업 손실과 휴직·실직보상",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2869,
+    3096
+   ],
+   "section_name": "권리·축산"
+  },
+  {
+   "id": "prac-7-16",
+   "path": [
+    "감정평가실무",
+    "단원 7 — 건축물·영업·기타 보상",
+    "생활보상",
+    "주거이전비·이사비·이주정착금·재편입가산금·사업폐지 보상"
+   ],
+   "leaf_type": "논점",
+   "title": "주거이전비·이사비·이주정착금·재편입가산금·사업폐지 보상",
+   "subject_root": "감정평가실무",
+   "unit_code": "7",
+   "unit_file": "units/7.md",
+   "problems_file": "problems/7.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    3097,
+    3313
+   ],
+   "section_name": "생활보상"
+  },
+  {
+   "id": "prac-8a-01",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "담보평가",
+    "담보평가의 기준가치와 4대 원칙 — 확인·보수·처분·현황"
+   ],
+   "leaf_type": "논점",
+   "title": "담보평가의 기준가치와 4대 원칙 — 확인·보수·처분·현황",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    35,
+    237
+   ],
+   "section_name": "담보평가"
+  },
+  {
+   "id": "prac-8a-02",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "담보평가",
+    "평가외·평가제외 물건의 판정 — 무엇을 빼고 무엇을 담는가"
+   ],
+   "leaf_type": "논점",
+   "title": "평가외·평가제외 물건의 판정 — 무엇을 빼고 무엇을 담는가",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    238,
+    420
+   ],
+   "section_name": "담보평가"
+  },
+  {
+   "id": "prac-8a-03",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "담보평가",
+    "물적불일치·공유지분·구분소유적 공유의 처리"
+   ],
+   "leaf_type": "논점",
+   "title": "물적불일치·공유지분·구분소유적 공유의 처리",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    421,
+    584
+   ],
+   "section_name": "담보평가"
+  },
+  {
+   "id": "prac-8a-04",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "경매평가",
+    "경매평가의 대상 — 의뢰목록·부합물·종물·제시외 건물"
+   ],
+   "leaf_type": "논점",
+   "title": "경매평가의 대상 — 의뢰목록·부합물·종물·제시외 건물",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    585,
+    775
+   ],
+   "section_name": "경매평가"
+  },
+  {
+   "id": "prac-8a-05",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "경매평가",
+    "법정지상권·유치권·용익권 — 권리 부담의 감가 반영"
+   ],
+   "leaf_type": "논점",
+   "title": "법정지상권·유치권·용익권 — 권리 부담의 감가 반영",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    776,
+    978
+   ],
+   "section_name": "경매평가"
+  },
+  {
+   "id": "prac-8a-06",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "목적별 대비",
+    "담보·경매·보상 3면 비교 — 같은 토지, 세 개의 답"
+   ],
+   "leaf_type": "논점",
+   "title": "담보·경매·보상 3면 비교 — 같은 토지, 세 개의 답",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    979,
+    1181
+   ],
+   "section_name": "목적별 대비"
+  },
+  {
+   "id": "prac-8a-07",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "국공유재산",
+    "처분(매각) 감정평가 — 예정가격·시가·적용법률의 선택"
+   ],
+   "leaf_type": "논점",
+   "title": "처분(매각) 감정평가 — 예정가격·시가·적용법률의 선택",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1182,
+    1400
+   ],
+   "section_name": "국공유재산"
+  },
+  {
+   "id": "prac-8a-08",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "국공유재산",
+    "사용료·대부료 산정 — 법정 요율과 재산가액"
+   ],
+   "leaf_type": "논점",
+   "title": "사용료·대부료 산정 — 법정 요율과 재산가액",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1401,
+    1623
+   ],
+   "section_name": "국공유재산"
+  },
+  {
+   "id": "prac-8a-09",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "도시정비평가",
+    "종전자산·종후자산과 비례율·분담금"
+   ],
+   "leaf_type": "논점",
+   "title": "종전자산·종후자산과 비례율·분담금",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1624,
+    1827
+   ],
+   "section_name": "도시정비평가"
+  },
+  {
+   "id": "prac-8a-10",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "재무보고평가",
+    "공정가치 — 기준가치와 시장가치의 관계"
+   ],
+   "leaf_type": "논점",
+   "title": "공정가치 — 기준가치와 시장가치의 관계",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1828,
+    2034
+   ],
+   "section_name": "재무보고평가"
+  },
+  {
+   "id": "prac-8a-11",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "택지비평가",
+    "공공택지 외의 택지 감정평가 — 분양가상한제 택지비"
+   ],
+   "leaf_type": "논점",
+   "title": "공공택지 외의 택지 감정평가 — 분양가상한제 택지비",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2035,
+    2240
+   ],
+   "section_name": "택지비평가"
+  },
+  {
+   "id": "prac-8a-12",
+   "path": [
+    "감정평가실무",
+    "단원 8a — 목적별 평가",
+    "소송·컨설팅",
+    "소송평가와 상담자문등·정보제공등"
+   ],
+   "leaf_type": "논점",
+   "title": "소송평가와 상담자문등·정보제공등",
+   "subject_root": "감정평가실무",
+   "unit_code": "8a",
+   "unit_file": "units/8a.md",
+   "problems_file": "problems/8a.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2241,
+    2443
+   ],
+   "section_name": "소송·컨설팅"
+  },
+  {
+   "id": "prac-8b-01",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "표준지공시지가",
+    "표준지의 선정기준과 신규 표준지의 결정"
+   ],
+   "leaf_type": "논점",
+   "title": "표준지의 선정기준과 신규 표준지의 결정",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    38,
+    193
+   ],
+   "section_name": "표준지공시지가"
+  },
+  {
+   "id": "prac-8b-02",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "표준지공시지가",
+    "조사·평가의 5대 기준 — 적정가격·실제이용·나지상정·공법상 제한·개발이익"
+   ],
+   "leaf_type": "논점",
+   "title": "조사·평가의 5대 기준 — 적정가격·실제이용·나지상정·공법상 제한·개발이익",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    194,
+    371
+   ],
+   "section_name": "표준지공시지가"
+  },
+  {
+   "id": "prac-8b-03",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "표준지공시지가",
+    "평가방식의 적용 — 원가법·거래사례비교법·수익환원법"
+   ],
+   "leaf_type": "논점",
+   "title": "평가방식의 적용 — 원가법·거래사례비교법·수익환원법",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    372,
+    584
+   ],
+   "section_name": "표준지공시지가"
+  },
+  {
+   "id": "prac-8b-04",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "표준지공시지가",
+    "공법상 제한토지·특수토지의 평가기준"
+   ],
+   "leaf_type": "논점",
+   "title": "공법상 제한토지·특수토지의 평가기준",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    585,
+    757
+   ],
+   "section_name": "표준지공시지가"
+  },
+  {
+   "id": "prac-8b-05",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "표준지공시지가",
+    "공시절차·이의신청·효력과 현실화율 반영"
+   ],
+   "leaf_type": "논점",
+   "title": "공시절차·이의신청·효력과 현실화율 반영",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    758,
+    917
+   ],
+   "section_name": "표준지공시지가"
+  },
+  {
+   "id": "prac-8b-06",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "개별공시지가",
+    "토지가격비준표에 의한 산정·검증·정정"
+   ],
+   "leaf_type": "논점",
+   "title": "토지가격비준표에 의한 산정·검증·정정",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    918,
+    1086
+   ],
+   "section_name": "개별공시지가"
+  },
+  {
+   "id": "prac-8b-07",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "주택가격공시",
+    "표준주택·개별주택·공동주택가격"
+   ],
+   "leaf_type": "논점",
+   "title": "표준주택·개별주택·공동주택가격",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1087,
+    1234
+   ],
+   "section_name": "주택가격공시"
+  },
+  {
+   "id": "prac-8b-08",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "도시정비평가",
+    "정비사업의 절차와 감정평가 종류별 기준시점"
+   ],
+   "leaf_type": "논점",
+   "title": "정비사업의 절차와 감정평가 종류별 기준시점",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1235,
+    1407
+   ],
+   "section_name": "도시정비평가"
+  },
+  {
+   "id": "prac-8b-09",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "도시정비평가",
+    "종전자산 감정평가 — 목록 확정과 토지·건물·구분건물"
+   ],
+   "leaf_type": "논점",
+   "title": "종전자산 감정평가 — 목록 확정과 토지·건물·구분건물",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1408,
+    1607
+   ],
+   "section_name": "도시정비평가"
+  },
+  {
+   "id": "prac-8b-10",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "도시정비평가",
+    "종후자산 감정평가와 조합원분양가"
+   ],
+   "leaf_type": "논점",
+   "title": "종후자산 감정평가와 조합원분양가",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1608,
+    1787
+   ],
+   "section_name": "도시정비평가"
+  },
+  {
+   "id": "prac-8b-11",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "도시정비평가",
+    "비례율·권리가액·분담금 — 관리처분계획의 계산"
+   ],
+   "leaf_type": "논점",
+   "title": "비례율·권리가액·분담금 — 관리처분계획의 계산",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1788,
+    2039
+   ],
+   "section_name": "도시정비평가"
+  },
+  {
+   "id": "prac-8b-12",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "도시정비평가",
+    "정비기반시설 무상귀속·무상양도와 국·공유재산 매각평가"
+   ],
+   "leaf_type": "논점",
+   "title": "정비기반시설 무상귀속·무상양도와 국·공유재산 매각평가",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2040,
+    2261
+   ],
+   "section_name": "도시정비평가"
+  },
+  {
+   "id": "prac-8b-13",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "도시정비평가",
+    "현금청산·매도청구 감정평가 — 재개발과 재건축의 분기"
+   ],
+   "leaf_type": "논점",
+   "title": "현금청산·매도청구 감정평가 — 재개발과 재건축의 분기",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2262,
+    2452
+   ],
+   "section_name": "도시정비평가"
+  },
+  {
+   "id": "prac-8b-14",
+   "path": [
+    "감정평가실무",
+    "단원 8b — 표준지·정비·불의타",
+    "불의타",
+    "처음 보는 유형 — 논점 포착 절차와 부분점수 답안 전략"
+   ],
+   "leaf_type": "논점",
+   "title": "처음 보는 유형 — 논점 포착 절차와 부분점수 답안 전략",
+   "subject_root": "감정평가실무",
+   "unit_code": "8b",
+   "unit_file": "units/8b.md",
+   "problems_file": "problems/8b.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    2453,
+    2668
+   ],
+   "section_name": "불의타"
+  }
+ ],
+ "default_leaf": "prac-1-01"
 }

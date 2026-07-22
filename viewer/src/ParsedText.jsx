@@ -485,6 +485,55 @@ function TAccount({ raw, keyPrefix }) {
   );
 }
 
+// ── 2차 답안 양식 ────────────────────────────────────────────────
+// 감정평가실무 2차는 "답안을 쓰는 시험"이라 목차 계층(Ⅰ / 1. / (1) / ①)이 곧 점수다.
+// 답안지 지면처럼 계층을 들여쓰고 상위 항목을 굵게 세운다.
+const ANSWER_LEVELS = [
+  { re: /^([ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+)[.·]?\s*(.*)$/, depth: 0, weight: 800 },
+  { re: /^(\d+)\.\s*(.*)$/, depth: 1, weight: 700 },
+  { re: /^(\(\d+\))\s*(.*)$/, depth: 2, weight: 600 },
+  { re: /^([①-⑳])\s*(.*)$/, depth: 3, weight: 400 },
+];
+
+function AnswerSheet({ raw, keyPrefix }) {
+  const rows = raw.split('\n').filter((l) => l.trim());
+  return (
+    <div style={{
+      margin: '16px 0', border: '1px solid #dcd8cf', borderLeft: '3px solid #6b7280',
+      borderRadius: 5, background: '#fdfdfc', padding: '12px 16px 14px',
+    }}>
+      <div style={{
+        fontSize: '0.72em', fontWeight: 800, color: '#6b7280', letterSpacing: '0.04em',
+        marginBottom: 8, textTransform: 'uppercase',
+      }}>✍️ 답안 목차</div>
+      {rows.map((l, k) => {
+        const s = l.trim();
+        const hit = ANSWER_LEVELS.find((lv) => lv.re.test(s));
+        if (!hit) {
+          return (
+            <div key={k} style={{ paddingLeft: 18, margin: '2px 0', color: '#57534e', fontSize: '0.9em' }}>
+              {renderInlines(s, `${keyPrefix}-ans-${k}`)}
+            </div>
+          );
+        }
+        const m = s.match(hit.re);
+        return (
+          <div key={k} style={{
+            display: 'flex', gap: 7, paddingLeft: hit.depth * 18,
+            margin: hit.depth === 0 ? '7px 0 2px' : '2px 0',
+            fontWeight: hit.weight, color: hit.depth === 0 ? '#1c1917' : '#44403c',
+            fontSize: hit.depth === 0 ? '0.95em' : '0.9em',
+            lineHeight: 1.7,
+          }}>
+            <span style={{ flex: '0 0 auto', color: '#78716c' }}>{m[1]}</span>
+            <span>{renderInlines(m[2], `${keyPrefix}-ans-${k}`)}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 // 미완성 마크다운 토큰 자동 보정 (streaming 중간 / max_tokens 절단 대응)
 function sanitizeMarkdown(text) {
   if (!text) return text;
@@ -716,11 +765,12 @@ export const ParsedText = ({ text }) => {
     const mermaidMatch = l.match(/^```mermaid\s*$/i);
     const svgMatch = l.match(/^```svg\s*$/i);
     // 회계 양식 fence — 재무제표 / 분개 / T계정
-    const acctMatch = l.match(/^```(재무제표|분개|T계정|t계정)\s*$/);
+    const acctMatch = l.match(/^```(재무제표|분개|T계정|t계정|답안)\s*$/);
     if (vizMatch || mermaidMatch || svgMatch || acctMatch) {
       flushText();
       const kind = acctMatch
-        ? (acctMatch[1] === '재무제표' ? 'fs' : acctMatch[1] === '분개' ? 'je' : 'ta')
+        ? (acctMatch[1] === '재무제표' ? 'fs' : acctMatch[1] === '분개' ? 'je'
+           : acctMatch[1] === '답안' ? 'ans' : 'ta')
         : vizMatch ? 'viz' : mermaidMatch ? 'mermaid' : 'svg';
       const name = vizMatch ? vizMatch[2] : kind;
       const bodyLines = [];
@@ -734,7 +784,7 @@ export const ParsedText = ({ text }) => {
       if (closed) {
         if (kind === 'viz')         blocks.push({ type: 'viz', name, raw: bodyLines.join('\n') });
         else if (kind === 'mermaid') blocks.push({ type: 'mermaid', raw: bodyLines.join('\n') });
-        else if (kind === 'fs' || kind === 'je' || kind === 'ta')
+        else if (kind === 'fs' || kind === 'je' || kind === 'ta' || kind === 'ans')
           blocks.push({ type: kind, raw: bodyLines.join('\n') });
         else                          blocks.push({ type: 'svg', raw: bodyLines.join('\n') });
         i = j + 1;
@@ -783,6 +833,7 @@ export const ParsedText = ({ text }) => {
         if (b.type === 'fs') return <FinancialStatement key={idx} raw={b.raw} keyPrefix={`fs-${idx}`} />;
         if (b.type === 'je') return <JournalEntry key={idx} raw={b.raw} keyPrefix={`je-${idx}`} />;
         if (b.type === 'ta') return <TAccount key={idx} raw={b.raw} keyPrefix={`ta-${idx}`} />;
+        if (b.type === 'ans') return <AnswerSheet key={idx} raw={b.raw} keyPrefix={`ans-${idx}`} />;
         if (b.type === 'viz_pending') {
           return <VizPending key={idx} name={b.name} />;
         }
