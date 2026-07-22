@@ -485,6 +485,144 @@ function TAccount({ raw, keyPrefix }) {
   );
 }
 
+// ── 계산 연습 ────────────────────────────────────────────────────
+// 회계는 "읽어서" 늘지 않고 "손으로 풀어야" 는다. 풀이를 가려 두고 스스로 세운 뒤 열어 본다.
+// (합격수기 공통: 회계는 휘발성 1위 — 정형 틀을 안 보고 재현하는 인출 연습이 핵심)
+function PracticeCard({ raw, keyPrefix }) {
+  const [open, setOpen] = useState(false);
+  const [hint, setHint] = useState(false);
+  const parts = { 문제: [], 힌트: [], 풀이: [], 답: [] };
+  let cur = '문제';
+  for (const l of raw.split('\n')) {
+    const m = l.match(/^\s*(문제|힌트|풀이|답)\s*[:：]\s*(.*)$/);
+    if (m) { cur = m[1]; if (m[2].trim()) parts[cur].push(m[2]); continue; }
+    parts[cur].push(l);
+  }
+  const body = (k) => parts[k].join('\n').trim();
+  const solution = [body('풀이'), body('답') && `**답 — ${body('답')}**`].filter(Boolean).join('\n\n');
+  return (
+    <div style={{
+      margin: '14px 0', border: '1px solid #dcd8cf', borderRadius: 6, overflow: 'hidden',
+      background: '#fffefb',
+    }}>
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 8, padding: '7px 13px',
+        background: '#f6f4ee', borderBottom: '1px solid #e7e3d9',
+      }}>
+        <span style={{ fontSize: '0.74em', fontWeight: 800, color: '#6b6250', letterSpacing: '0.03em' }}>
+          🧮 계산 연습
+        </span>
+        {body('힌트') && (
+          <button onClick={() => setHint((v) => !v)} style={{
+            marginLeft: 'auto', fontSize: '0.71em', fontWeight: 700, padding: '3px 9px', borderRadius: 5,
+            cursor: 'pointer', border: '1px solid #e0dbcf', background: hint ? '#faf8f2' : '#fff', color: '#8a7f6a',
+          }}>{hint ? '힌트 닫기' : '💡 힌트'}</button>
+        )}
+        <button onClick={() => setOpen((v) => !v)} style={{
+          marginLeft: body('힌트') ? 0 : 'auto',
+          fontSize: '0.71em', fontWeight: 800, padding: '3px 10px', borderRadius: 5, cursor: 'pointer',
+          border: '1px solid ' + (open ? '#a16207' : '#d6d3d1'),
+          background: open ? '#faf8f2' : '#fff', color: open ? '#a16207' : '#57534e',
+        }}>{open ? '🔒 다시 가리기' : '👁 풀이 보기'}</button>
+      </div>
+      <div style={{ padding: '11px 14px' }}>
+        {renderTextBlock(body('문제'), `${keyPrefix}-q`)}
+        {hint && body('힌트') && (
+          <div style={{
+            margin: '9px 0 0', padding: '8px 12px', background: '#faf8f2',
+            borderLeft: '3px solid #a16207', borderRadius: 4, fontSize: '0.93em',
+          }}>{renderTextBlock(body('힌트'), `${keyPrefix}-h`)}</div>
+        )}
+      </div>
+      {solution && (
+        <div
+          onClick={() => !open && setOpen(true)}
+          style={{
+            position: 'relative', padding: '11px 14px', borderTop: '1px dashed #e0dbcf',
+            background: '#fdfdfb', cursor: open ? 'default' : 'pointer',
+            filter: open ? 'none' : 'blur(5px)', opacity: open ? 1 : 0.5,
+            userSelect: open ? 'auto' : 'none', transition: 'filter .15s, opacity .15s',
+          }}
+        >
+          {renderTextBlock(solution, `${keyPrefix}-a`)}
+        </div>
+      )}
+      {!open && solution && (
+        <div onClick={() => setOpen(true)} style={{
+          textAlign: 'center', padding: '0 0 10px', marginTop: -34, position: 'relative',
+          fontSize: '0.76em', color: '#8a7f6a', cursor: 'pointer', fontWeight: 700,
+        }}>먼저 직접 풀어 보세요 · 클릭하면 풀이가 열립니다</div>
+      )}
+    </div>
+  );
+}
+
+// ── 와꾸(정형 풀이 틀) ────────────────────────────────────────────
+// 계산 유형마다 정해진 틀이 있다. 그 틀을 **안 보고 재현**하는 것이 인출 연습이다.
+// 값을 가려 빈 틀로 만들었다가 채워 볼 수 있다.
+function FrameCard({ raw, keyPrefix }) {
+  const [blank, setBlank] = useState(false);
+  let title = '';
+  const rows = [];
+  for (const l of raw.split('\n')) {
+    if (!l.trim()) continue;
+    const m = l.match(/^\s*(제목|틀)\s*[:：]\s*(.*)$/);
+    if (m) { title = m[2].trim(); continue; }
+    const c = l.split('|');
+    rows.push([c[0] ?? '', (c[1] ?? '').trim(), (c[2] ?? '').trim()]);
+  }
+  return (
+    <div style={{
+      margin: '14px 0', border: '1.5px solid #cfd8e3', borderRadius: 6,
+      background: '#fbfcfe', overflow: 'hidden',
+    }}>
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 8, padding: '7px 13px',
+        background: '#eef2f7', borderBottom: '1px solid #dde4ed',
+      }}>
+        <span style={{ fontSize: '0.74em', fontWeight: 800, color: '#44546a', letterSpacing: '0.03em' }}>
+          📐 와꾸{title ? ` — ${title}` : ''}
+        </span>
+        <button onClick={() => setBlank((v) => !v)} style={{
+          marginLeft: 'auto', fontSize: '0.71em', fontWeight: 800, padding: '3px 10px', borderRadius: 5,
+          cursor: 'pointer', border: '1px solid ' + (blank ? '#2563eb' : '#d6dde6'),
+          background: blank ? '#eff6ff' : '#fff', color: blank ? '#2563eb' : '#57534e',
+        }}>{blank ? '👁 채운 틀 보기' : '✍️ 빈 틀로 연습'}</button>
+      </div>
+      <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.88em' }}>
+        <tbody>
+          {rows.map((r, k) => {
+            const label = r[0];
+            const strong = /^\s*=/.test(label);
+            const clean = label.replace(/^\s*=\s*/, '').trimEnd();
+            const pad = (clean.match(/^\s*/) || [''])[0].length;
+            return (
+              <tr key={k}>
+                <td style={{
+                  padding: '3px 12px', paddingLeft: 12 + pad * 4, whiteSpace: 'nowrap',
+                  fontWeight: strong ? 700 : 400, color: '#1f2937',
+                  borderTop: strong ? '1px solid #9ca3af' : undefined,
+                }}>{renderInlines(clean.trim(), `${keyPrefix}-f-${k}`)}</td>
+                <td style={{
+                  textAlign: 'right', fontFamily: MONO, fontVariantNumeric: 'tabular-nums',
+                  padding: '3px 12px', whiteSpace: 'nowrap', fontWeight: strong ? 700 : 400,
+                  color: blank ? '#c7cdd4' : '#1f2937',
+                  borderTop: strong ? '1px solid #9ca3af' : undefined,
+                }}>{blank ? '________' : fmtAmount(r[1])}</td>
+                {rows.some((x) => x[2]) && (
+                  <td style={{ padding: '3px 12px', fontSize: '0.9em', color: '#6b7280' }}>
+                    {renderInlines(r[2], `${keyPrefix}-fn-${k}`)}
+                  </td>
+                )}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 // ── 2차 답안 양식 ────────────────────────────────────────────────
 // 감정평가실무 2차는 "답안을 쓰는 시험"이라 목차 계층(Ⅰ / 1. / (1) / ①)이 곧 점수다.
 // 답안지 지면처럼 계층을 들여쓰고 상위 항목을 굵게 세운다.
@@ -765,12 +903,13 @@ export const ParsedText = ({ text }) => {
     const mermaidMatch = l.match(/^```mermaid\s*$/i);
     const svgMatch = l.match(/^```svg\s*$/i);
     // 회계 양식 fence — 재무제표 / 분개 / T계정
-    const acctMatch = l.match(/^```(재무제표|분개|T계정|t계정|답안)\s*$/);
+    const acctMatch = l.match(/^```(재무제표|분개|T계정|t계정|답안|연습|와꾸)\s*$/);
     if (vizMatch || mermaidMatch || svgMatch || acctMatch) {
       flushText();
       const kind = acctMatch
         ? (acctMatch[1] === '재무제표' ? 'fs' : acctMatch[1] === '분개' ? 'je'
-           : acctMatch[1] === '답안' ? 'ans' : 'ta')
+           : acctMatch[1] === '답안' ? 'ans' : acctMatch[1] === '연습' ? 'prac'
+           : acctMatch[1] === '와꾸' ? 'frame' : 'ta')
         : vizMatch ? 'viz' : mermaidMatch ? 'mermaid' : 'svg';
       const name = vizMatch ? vizMatch[2] : kind;
       const bodyLines = [];
@@ -784,7 +923,7 @@ export const ParsedText = ({ text }) => {
       if (closed) {
         if (kind === 'viz')         blocks.push({ type: 'viz', name, raw: bodyLines.join('\n') });
         else if (kind === 'mermaid') blocks.push({ type: 'mermaid', raw: bodyLines.join('\n') });
-        else if (kind === 'fs' || kind === 'je' || kind === 'ta' || kind === 'ans')
+        else if (['fs','je','ta','ans','prac','frame'].includes(kind))
           blocks.push({ type: kind, raw: bodyLines.join('\n') });
         else                          blocks.push({ type: 'svg', raw: bodyLines.join('\n') });
         i = j + 1;
@@ -834,6 +973,8 @@ export const ParsedText = ({ text }) => {
         if (b.type === 'je') return <JournalEntry key={idx} raw={b.raw} keyPrefix={`je-${idx}`} />;
         if (b.type === 'ta') return <TAccount key={idx} raw={b.raw} keyPrefix={`ta-${idx}`} />;
         if (b.type === 'ans') return <AnswerSheet key={idx} raw={b.raw} keyPrefix={`ans-${idx}`} />;
+        if (b.type === 'prac') return <PracticeCard key={idx} raw={b.raw} keyPrefix={`prac-${idx}`} />;
+        if (b.type === 'frame') return <FrameCard key={idx} raw={b.raw} keyPrefix={`frame-${idx}`} />;
         if (b.type === 'viz_pending') {
           return <VizPending key={idx} name={b.name} />;
         }
