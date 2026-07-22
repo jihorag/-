@@ -268,6 +268,223 @@ function StatuteBlock({ title, body, keyPrefix }) {
   );
 }
 
+// ── 회계 지면 ────────────────────────────────────────────────────
+// 회계는 "표"가 아니라 **양식**이다. 금액은 우측정렬·천단위 콤마·음수는 괄호,
+// 계정은 계층 들여쓰기, 소계는 단선·총계는 이중선. 일반 마크다운 표로는 표현되지 않는다.
+
+const MONO = '"SF Mono", "Menlo", "D2Coding", monospace';
+
+// 숫자면 회계 표기로. 음수는 (1,200), 0은 —, 그 외 문자열은 그대로.
+function fmtAmount(v) {
+  const s = String(v == null ? '' : v).trim();
+  if (s === '' || s === '-' || s === '—') return '—';
+  const cleaned = s.replace(/,/g, '');
+  if (!/^-?\d+(\.\d+)?$/.test(cleaned)) return s;
+  const n = Number(cleaned);
+  const body = Math.abs(n).toLocaleString('ko-KR');
+  return n < 0 ? `(${body})` : body;
+}
+
+// `　` 전각공백 또는 2칸 들여쓰기로 계정 계층을 표현한다.
+function accountIndent(label) {
+  const m = String(label).match(/^([\s　]*)/);
+  const pad = m ? m[1].replace(/　/g, '  ').length : 0;
+  return { depth: Math.floor(pad / 2), text: String(label).trim() };
+}
+
+const AmountCell = ({ v, bold, rule }) => (
+  <td style={{
+    textAlign: 'right', fontFamily: MONO, fontVariantNumeric: 'tabular-nums',
+    padding: '3px 10px', whiteSpace: 'nowrap',
+    fontWeight: bold ? 700 : 400,
+    borderTop: rule === 'sub' ? '1px solid #9ca3af' : undefined,
+    borderBottom: rule === 'total' ? '3px double #4b5563' : undefined,
+  }}>{fmtAmount(v)}</td>
+);
+
+/** ```재무제표 — 첫 줄 메타(제목/단위), 이후 `계정 | 금액 | 금액` */
+function FinancialStatement({ raw, keyPrefix }) {
+  const lines = raw.split('\n').map(l => l.replace(/\s+$/, '')).filter(l => l.trim());
+  const meta = {};
+  const body = [];
+  for (const l of lines) {
+    const m = l.match(/^(제목|단위|기준일|기간|회사)\s*[:：]\s*(.*)$/);
+    if (m) { meta[m[1]] = m[2].trim(); continue; }
+    if (/^[-=]{3,}$/.test(l.trim())) continue;
+    body.push(l);
+  }
+  if (!body.length) return null;
+  const cells = body.map(l => l.split('|').map(c => c.replace(/\s+$/, '')));
+  const headerRow = cells[0].length > 1 && cells[0].slice(1).every(c => !/\d/.test(c)) ? cells[0] : null;
+  const rows = headerRow ? cells.slice(1) : cells;
+  const nCols = Math.max(...cells.map(c => c.length)) - 1;
+
+  return (
+    <div style={{
+      margin: '16px 0', border: '1px solid #d6d3d1', borderRadius: 5,
+      background: '#fffefb', overflowX: 'auto',
+    }}>
+      {(meta['제목'] || meta['회사'] || meta['단위'] || meta['기준일'] || meta['기간']) && (
+        <div style={{ padding: '9px 14px 7px', borderBottom: '1px solid #e7e5e4', background: '#faf9f6' }}>
+          {meta['제목'] && (
+            <div style={{ textAlign: 'center', fontWeight: 800, fontSize: '1.02em', color: '#292524', letterSpacing: '0.02em' }}>
+              {meta['제목']}
+            </div>
+          )}
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 3, fontSize: '0.76em', color: '#78716c' }}>
+            <span>{meta['회사'] || ''}</span>
+            <span>{meta['기준일'] || meta['기간'] || ''}</span>
+            <span>{meta['단위'] ? `(단위: ${meta['단위']})` : ''}</span>
+          </div>
+        </div>
+      )}
+      <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.88em' }}>
+        {headerRow && (
+          <thead>
+            <tr>
+              <th style={{ textAlign: 'left', padding: '5px 12px', borderBottom: '1.5px solid #57534e', fontWeight: 700, color: '#44403c' }}>
+                {headerRow[0].trim() || '과목'}
+              </th>
+              {headerRow.slice(1).map((h, k) => (
+                <th key={k} style={{ textAlign: 'right', padding: '5px 10px', borderBottom: '1.5px solid #57534e', fontWeight: 700, color: '#44403c', whiteSpace: 'nowrap' }}>
+                  {h.trim()}
+                </th>
+              ))}
+            </tr>
+          </thead>
+        )}
+        <tbody>
+          {rows.map((r, k) => {
+            let label = r[0] ?? '';
+            // 접두 `=` 총계(이중선) · `-` 소계(단선) · `**굵게**`
+            let rule = null;
+            const t = label.trim();
+            if (t.startsWith('=')) { rule = 'total'; label = label.replace('=', ''); }
+            else if (t.startsWith('~')) { rule = 'sub'; label = label.replace('~', ''); }
+            const { depth, text } = accountIndent(label);
+            const bold = rule !== null || /^\*\*.*\*\*$/.test(text);
+            const clean = text.replace(/^\*\*|\*\*$/g, '');
+            const vals = r.slice(1);
+            return (
+              <tr key={k}>
+                <td style={{
+                  padding: '3px 12px', paddingLeft: 12 + depth * 16,
+                  fontWeight: bold ? 700 : 400, color: '#292524', whiteSpace: 'nowrap',
+                  borderTop: rule === 'sub' ? '1px solid #9ca3af' : undefined,
+                  borderBottom: rule === 'total' ? '3px double #4b5563' : undefined,
+                }}>{renderInlines(clean, `${keyPrefix}-fs-${k}`)}</td>
+                {Array.from({ length: nCols }).map((_, c) => (
+                  <AmountCell key={c} v={vals[c]} bold={bold} rule={rule} />
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/** ```분개 — `차변계정 | 금액 | 대변계정 | 금액` */
+function JournalEntry({ raw, keyPrefix }) {
+  const lines = raw.split('\n').filter(l => l.trim() && !/^[-=]{3,}$/.test(l.trim()));
+  const meta = {};
+  const rows = [];
+  for (const l of lines) {
+    const m = l.match(/^(제목|일자|설명)\s*[:：]\s*(.*)$/);
+    if (m) { meta[m[1]] = m[2].trim(); continue; }
+    const c = l.split('|').map(x => x.trim());
+    rows.push([c[0] || '', c[1] || '', c[2] || '', c[3] || '']);
+  }
+  const sum = (i) => rows.reduce((a, r) => {
+    const n = Number(String(r[i]).replace(/[,()]/g, ''));
+    return a + (Number.isFinite(n) ? n : 0);
+  }, 0);
+  const dr = sum(1), cr = sum(3);
+  return (
+    <div style={{ margin: '16px 0', border: '1px solid #d6d3d1', borderRadius: 5, background: '#fffefb', overflowX: 'auto' }}>
+      <div style={{ padding: '7px 12px', borderBottom: '1px solid #e7e5e4', background: '#f6f5f1', fontSize: '0.8em', fontWeight: 800, color: '#44403c' }}>
+        ✍️ 분개{meta['일자'] ? ` · ${meta['일자']}` : ''}{meta['제목'] ? ` — ${meta['제목']}` : ''}
+      </div>
+      <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.88em' }}>
+        <thead>
+          <tr>
+            {['차변', '금액', '대변', '금액'].map((h, k) => (
+              <th key={k} style={{
+                padding: '4px 10px', borderBottom: '1.5px solid #57534e', fontWeight: 700, color: '#44403c',
+                textAlign: k % 2 ? 'right' : 'left',
+                borderLeft: k === 2 ? '1px solid #d6d3d1' : undefined,
+              }}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, k) => (
+            <tr key={k}>
+              <td style={{ padding: '3px 10px', whiteSpace: 'nowrap' }}>{renderInlines(r[0], `${keyPrefix}-je-d-${k}`)}</td>
+              <AmountCell v={r[1]} />
+              <td style={{ padding: '3px 10px', whiteSpace: 'nowrap', borderLeft: '1px solid #d6d3d1' }}>
+                {renderInlines(r[2], `${keyPrefix}-je-c-${k}`)}
+              </td>
+              <AmountCell v={r[3]} />
+            </tr>
+          ))}
+          {rows.length > 1 && (
+            <tr>
+              <td style={{ padding: '3px 10px', fontWeight: 700, borderTop: '1px solid #9ca3af' }}>합계</td>
+              <AmountCell v={dr} bold rule="sub" />
+              <td style={{ padding: '3px 10px', fontWeight: 700, borderTop: '1px solid #9ca3af', borderLeft: '1px solid #d6d3d1' }}>합계</td>
+              <AmountCell v={cr} bold rule="sub" />
+            </tr>
+          )}
+        </tbody>
+      </table>
+      {rows.length > 1 && dr !== cr && (
+        <div style={{ padding: '5px 12px', fontSize: '0.76em', color: '#9a3412', background: '#fbf7f5' }}>
+          ⚠️ 차변 합계와 대변 합계가 다릅니다 ({fmtAmount(dr)} / {fmtAmount(cr)})
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** ```T계정 — `차변항목 | 금액 | 대변항목 | 금액`, 첫 줄 `제목:` */
+function TAccount({ raw, keyPrefix }) {
+  const lines = raw.split('\n').filter(l => l.trim() && !/^[-=]{3,}$/.test(l.trim()));
+  let title = '';
+  const rows = [];
+  for (const l of lines) {
+    const m = l.match(/^(제목|계정)\s*[:：]\s*(.*)$/);
+    if (m) { title = m[2].trim(); continue; }
+    const c = l.split('|').map(x => x.trim());
+    rows.push([c[0] || '', c[1] || '', c[2] || '', c[3] || '']);
+  }
+  return (
+    <div style={{ margin: '16px 0', maxWidth: 560 }}>
+      {title && (
+        <div style={{ textAlign: 'center', fontWeight: 800, fontSize: '0.92em', color: '#292524', marginBottom: 2 }}>
+          {title}
+        </div>
+      )}
+      <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.86em',
+        borderTop: '2px solid #57534e' }}>
+        <tbody>
+          {rows.map((r, k) => (
+            <tr key={k}>
+              <td style={{ padding: '3px 10px', whiteSpace: 'nowrap' }}>{renderInlines(r[0], `${keyPrefix}-t-a-${k}`)}</td>
+              <AmountCell v={r[1]} />
+              <td style={{ padding: '3px 10px', whiteSpace: 'nowrap', borderLeft: '2px solid #57534e' }}>
+                {renderInlines(r[2], `${keyPrefix}-t-b-${k}`)}
+              </td>
+              <AmountCell v={r[3]} />
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 // 미완성 마크다운 토큰 자동 보정 (streaming 중간 / max_tokens 절단 대응)
 function sanitizeMarkdown(text) {
   if (!text) return text;
@@ -498,9 +715,13 @@ export const ParsedText = ({ text }) => {
     const vizMatch = l.match(/^```(viz)\s+([a-z0-9_-]+)\s*$/i);
     const mermaidMatch = l.match(/^```mermaid\s*$/i);
     const svgMatch = l.match(/^```svg\s*$/i);
-    if (vizMatch || mermaidMatch || svgMatch) {
+    // 회계 양식 fence — 재무제표 / 분개 / T계정
+    const acctMatch = l.match(/^```(재무제표|분개|T계정|t계정)\s*$/);
+    if (vizMatch || mermaidMatch || svgMatch || acctMatch) {
       flushText();
-      const kind = vizMatch ? 'viz' : mermaidMatch ? 'mermaid' : 'svg';
+      const kind = acctMatch
+        ? (acctMatch[1] === '재무제표' ? 'fs' : acctMatch[1] === '분개' ? 'je' : 'ta')
+        : vizMatch ? 'viz' : mermaidMatch ? 'mermaid' : 'svg';
       const name = vizMatch ? vizMatch[2] : kind;
       const bodyLines = [];
       let j = i + 1;
@@ -513,6 +734,8 @@ export const ParsedText = ({ text }) => {
       if (closed) {
         if (kind === 'viz')         blocks.push({ type: 'viz', name, raw: bodyLines.join('\n') });
         else if (kind === 'mermaid') blocks.push({ type: 'mermaid', raw: bodyLines.join('\n') });
+        else if (kind === 'fs' || kind === 'je' || kind === 'ta')
+          blocks.push({ type: kind, raw: bodyLines.join('\n') });
         else                          blocks.push({ type: 'svg', raw: bodyLines.join('\n') });
         i = j + 1;
       } else {
@@ -557,6 +780,9 @@ export const ParsedText = ({ text }) => {
         if (b.type === 'svg') {
           return <SafeSvg key={idx} raw={b.raw} />;
         }
+        if (b.type === 'fs') return <FinancialStatement key={idx} raw={b.raw} keyPrefix={`fs-${idx}`} />;
+        if (b.type === 'je') return <JournalEntry key={idx} raw={b.raw} keyPrefix={`je-${idx}`} />;
+        if (b.type === 'ta') return <TAccount key={idx} raw={b.raw} keyPrefix={`ta-${idx}`} />;
         if (b.type === 'viz_pending') {
           return <VizPending key={idx} name={b.name} />;
         }
