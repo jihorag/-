@@ -25,7 +25,7 @@
    "section_key": "authored_ordinal",
    "section_lines": [
     26,
-    455
+    473
    ],
    "section_name": "Chapter 01. 원가관리회계의 개념과 원가의 흐름",
    "problems_file": "problems/C01.md"
@@ -46,8 +46,8 @@
    "unit_file": "units/C01.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    456,
-    915
+    474,
+    945
    ],
    "section_name": "Chapter 01. 원가관리회계의 개념과 원가의 흐름",
    "problems_file": "problems/C01.md"
@@ -68,8 +68,8 @@
    "unit_file": "units/C01.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    916,
-    1288
+    946,
+    1331
    ],
    "section_name": "Chapter 03. 개별원가계산",
    "problems_file": "problems/C01.md"
@@ -90,8 +90,8 @@
    "unit_file": "units/C01.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1289,
-    1676
+    1332,
+    1735
    ],
    "section_name": "Chapter 03. 개별원가계산",
    "problems_file": "problems/C01.md"
@@ -112,8 +112,8 @@
    "unit_file": "units/C01.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1677,
-    2094
+    1736,
+    2166
    ],
    "section_name": "Chapter 03. 개별원가계산",
    "problems_file": "problems/C01.md"
@@ -134,8 +134,8 @@
    "unit_file": "units/C01.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2095,
-    2427
+    2167,
+    2511
    ],
    "section_name": "Chapter 03. 개별원가계산",
    "problems_file": "problems/C01.md"
@@ -156,8 +156,8 @@
    "unit_file": "units/C01.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2428,
-    2871
+    2512,
+    2981
    ],
    "section_name": "Chapter 03. 개별원가계산",
    "problems_file": "problems/C01.md"
@@ -178,8 +178,8 @@
    "unit_file": "units/C01.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2872,
-    3279
+    2982,
+    3402
    ],
    "section_name": "Chapter 04. 종합원가계산",
    "problems_file": "problems/C01.md"
@@ -200,8 +200,8 @@
    "unit_file": "units/C01.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    3280,
-    3711
+    3403,
+    3846
    ],
    "section_name": "Chapter 04. 종합원가계산",
    "problems_file": "problems/C01.md"
@@ -222,8 +222,8 @@
    "problems_file": "problems/C01.md",
    "section_name": "종합원가계산",
    "section_lines": [
-    3712,
-    4010
+    3847,
+    4163
    ],
    "section_key": "authored_ordinal"
   },
@@ -243,32 +243,10 @@
    "problems_file": "problems/C01.md",
    "section_name": "종합원가계산",
    "section_lines": [
-    4011,
-    4478
+    4164,
+    4644
    ],
    "section_key": "authored_ordinal"
-  },
-  {
-   "id": "accounting__원가관리회계__제2장_원가계산__Chapter_06_결합원가계산__1절_결합원가란",
-   "path": [
-    "원가관리회계",
-    "제2장 원가계산",
-    "Chapter 06 결합원가계산",
-    "1절 결합원가란?"
-   ],
-   "leaf_type": "item",
-   "title": "1절 결합원가란?",
-   "subject_root": "원가관리회계",
-   "frequency": 2,
-   "unit_code": "C01",
-   "unit_file": "units/C01.md",
-   "section_key": "authored_ordinal",
-   "section_lines": [
-    4479,
-    4930
-   ],
-   "section_name": "Chapter 03. 개별원가계산",
-   "problems_file": "problems/C01.md"
   },
   {
    "id": "accounting__원가관리회계__제2장_원가계산__Chapter_04_활동기준원가계산__1절_활동기준원가계산",
@@ -287,9 +265,31 @@
    "section_key": "authored_ordinal",
    "section_lines": [
     30,
-    641
+    666
    ],
    "section_name": "Chapter 08. 활동기준원가계산",
+   "problems_file": "problems/C02.md"
+  },
+  {
+   "id": "accounting__원가관리회계__제2장_원가계산__Chapter_06_결합원가계산__1절_결합원가란",
+   "path": [
+    "원가관리회계",
+    "제2장 원가계산",
+    "Chapter 06 결합원가계산",
+    "1절 결합원가란?"
+   ],
+   "leaf_type": "item",
+   "title": "1절 결합원가란?",
+   "subject_root": "원가관리회계",
+   "frequency": 2,
+   "unit_code": "C02",
+   "unit_file": "units/C02.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    667,
+    1129
+   ],
+   "section_name": "Chapter 03. 개별원가계산",
    "problems_file": "problems/C02.md"
   },
   {
@@ -308,8 +308,8 @@
    "unit_file": "units/C02.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    642,
-    1202
+    1130,
+    1690
    ],
    "section_name": "Chapter 03. 개별원가계산",
    "problems_file": "problems/C02.md"
@@ -330,8 +330,8 @@
    "unit_file": "units/C02.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1203,
-    1769
+    1691,
+    2257
    ],
    "section_name": "Chapter 03. 개별원가계산",
    "problems_file": "problems/C02.md"
@@ -352,8 +352,8 @@
    "unit_file": "units/C02.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1770,
-    2505
+    2258,
+    3021
    ],
    "section_name": "원가관리회계",
    "problems_file": "problems/C02.md"
@@ -374,8 +374,8 @@
    "unit_file": "units/C02.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2506,
-    3105
+    3022,
+    3620
    ],
    "section_name": "원가관리회계",
    "problems_file": "problems/C02.md"
@@ -397,7 +397,7 @@
    "section_key": "authored_ordinal",
    "section_lines": [
     31,
-    444
+    460
    ],
    "section_name": "원가함수의 추정",
    "problems_file": "problems/C03.md"
@@ -418,8 +418,8 @@
    "unit_file": "units/C03.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    445,
-    789
+    461,
+    819
    ],
    "section_name": "원가관리회계",
    "problems_file": "problems/C03.md"
@@ -440,8 +440,8 @@
    "unit_file": "units/C03.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    790,
-    1181
+    820,
+    1225
    ],
    "section_name": "원가관리회계",
    "problems_file": "problems/C03.md"
@@ -462,8 +462,8 @@
    "unit_file": "units/C03.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1182,
-    1525
+    1226,
+    1585
    ],
    "section_name": "원가관리회계",
    "problems_file": "problems/C03.md"
@@ -484,8 +484,8 @@
    "unit_file": "units/C03.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1526,
-    1957
+    1586,
+    2017
    ],
    "section_name": "원가관리회계",
    "problems_file": "problems/C03.md"
@@ -506,8 +506,8 @@
    "unit_file": "units/C03.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1958,
-    2264
+    2018,
+    2324
    ],
    "section_name": "1절 의사결정의 유형",
    "problems_file": "problems/C03.md"
@@ -528,8 +528,8 @@
    "unit_file": "units/C03.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2265,
-    2683
+    2325,
+    2743
    ],
    "section_name": "관련원가와 의사결정",
    "problems_file": "problems/C03.md"
@@ -550,32 +550,10 @@
    "unit_file": "units/C03.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2684,
-    3041
+    2744,
+    3102
    ],
    "section_name": "관련원가와 의사결정",
-   "problems_file": "problems/C03.md"
-  },
-  {
-   "id": "accounting__원가관리회계__제5장_의사결정회계__Chapter_12_대체가격결정__1절_대체가격이란",
-   "path": [
-    "원가관리회계",
-    "제5장 의사결정회계",
-    "Chapter 12 대체가격결정",
-    "1절 대체가격이란?"
-   ],
-   "leaf_type": "item",
-   "title": "1절 대체가격이란?",
-   "subject_root": "원가관리회계",
-   "frequency": 2,
-   "unit_code": "C03",
-   "unit_file": "units/C03.md",
-   "section_key": "authored_ordinal",
-   "section_lines": [
-    3042,
-    3393
-   ],
-   "section_name": "대체가격결정",
    "problems_file": "problems/C03.md"
   },
   {
@@ -594,8 +572,8 @@
    "unit_file": "units/C03.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    3394,
-    3830
+    3103,
+    3550
    ],
    "section_name": "Chapter 13. 종합예산",
    "problems_file": "problems/C03.md"
@@ -617,7 +595,7 @@
    "section_key": "authored_ordinal",
    "section_lines": [
     25,
-    474
+    502
    ],
    "section_name": "Chapter 14. 표준원가계산",
    "problems_file": "problems/C04.md"
@@ -638,8 +616,8 @@
    "problems_file": "problems/C04.md",
    "section_name": "표준원가계산",
    "section_lines": [
-    475,
-    923
+    503,
+    975
    ],
    "section_key": "authored_ordinal"
   },
@@ -659,10 +637,32 @@
    "problems_file": "problems/C04.md",
    "section_name": "표준원가계산",
    "section_lines": [
-    924,
-    1344
+    976,
+    1442
    ],
    "section_key": "authored_ordinal"
+  },
+  {
+   "id": "accounting__원가관리회계__제5장_의사결정회계__Chapter_12_대체가격결정__1절_대체가격이란",
+   "path": [
+    "원가관리회계",
+    "제5장 의사결정회계",
+    "Chapter 12 대체가격결정",
+    "1절 대체가격이란?"
+   ],
+   "leaf_type": "item",
+   "title": "1절 대체가격이란?",
+   "subject_root": "원가관리회계",
+   "frequency": 2,
+   "unit_code": "C04",
+   "unit_file": "units/C04.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    1443,
+    1794
+   ],
+   "section_name": "대체가격결정",
+   "problems_file": "problems/C04.md"
   },
   {
    "id": "accounting__원가관리회계__제5장_의사결정회계__Chapter_12_대체가격결정__2절_대체가격_결정방법",
@@ -680,8 +680,8 @@
    "unit_file": "units/C04.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1345,
-    1790
+    1795,
+    2252
    ],
    "section_name": "대체가격결정",
    "problems_file": "problems/C04.md"
@@ -702,8 +702,8 @@
    "unit_file": "units/C04.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1791,
-    2231
+    2253,
+    2717
    ],
    "section_name": "투자중심점 성과평가",
    "problems_file": "problems/C04.md"
@@ -724,8 +724,8 @@
    "unit_file": "units/C04.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2232,
-    2597
+    2718,
+    3099
    ],
    "section_name": "원가관리회계",
    "problems_file": "problems/C04.md"
@@ -746,8 +746,8 @@
    "unit_file": "units/C04.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2598,
-    3047
+    3100,
+    3575
    ],
    "section_name": "원가관리회계",
    "problems_file": "problems/C04.md"
@@ -768,8 +768,8 @@
    "unit_file": "units/C04.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    3048,
-    3437
+    3576,
+    3993
    ],
    "section_name": "원가관리회계",
    "problems_file": "problems/C04.md"
@@ -2542,7 +2542,7 @@
    "section_key": "authored_ordinal",
    "section_lines": [
     20,
-    470
+    493
    ],
    "section_name": "Chapter 19. 주당이익",
    "problems_file": "problems/F07.md"
@@ -2563,8 +2563,8 @@
    "unit_file": "units/F07.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    471,
-    909
+    494,
+    932
    ],
    "section_name": "Chapter 19. 주당이익",
    "problems_file": "problems/F07.md"
@@ -2585,8 +2585,8 @@
    "unit_file": "units/F07.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    910,
-    1351
+    933,
+    1374
    ],
    "section_name": "Chapter 21. 재무회계 기타사항",
    "problems_file": "problems/F07.md"
@@ -2607,8 +2607,8 @@
    "unit_file": "units/F07.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1352,
-    1737
+    1375,
+    1760
    ],
    "section_name": "Chapter 21. 재무회계 기타사항",
    "problems_file": "problems/F07.md"
@@ -2629,8 +2629,8 @@
    "unit_file": "units/F07.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1738,
-    2233
+    1761,
+    2256
    ],
    "section_name": "Chapter 20. 현금흐름표",
    "problems_file": "problems/F07.md"
@@ -2651,8 +2651,8 @@
    "unit_file": "units/F07.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2234,
-    2686
+    2257,
+    2751
    ],
    "section_name": "Chapter 20. 현금흐름표",
    "problems_file": "problems/F07.md"
@@ -2673,8 +2673,8 @@
    "unit_file": "units/F07.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2687,
-    3147
+    2752,
+    3212
    ],
    "section_name": "Chapter 20. 현금흐름표",
    "problems_file": "problems/F07.md"
@@ -2695,10 +2695,32 @@
    "unit_file": "units/F07.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    3148,
-    3580
+    3213,
+    3645
    ],
    "section_name": "Chapter 21. 재무회계 기타사항",
+   "problems_file": "problems/F07.md"
+  },
+  {
+   "id": "accounting__재무회계__제6장_기타_재무보고__Chapter_21_재무제표_분석__2절_수익성비율",
+   "path": [
+    "재무회계",
+    "제6장 기타 재무보고",
+    "Chapter 21 재무제표 분석",
+    "2절 수익성비율"
+   ],
+   "leaf_type": "item",
+   "title": "2절 수익성비율",
+   "subject_root": "재무회계",
+   "frequency": 2,
+   "unit_code": "F07",
+   "unit_file": "units/F07.md",
+   "section_key": "authored_ordinal",
+   "section_lines": [
+    3646,
+    4064
+   ],
+   "section_name": "재무회계",
    "problems_file": "problems/F07.md"
   },
   {
@@ -2717,8 +2739,8 @@
    "unit_file": "units/F07.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    3581,
-    4004
+    4065,
+    4487
    ],
    "section_name": "Chapter 21. 재무회계 기타사항",
    "problems_file": "problems/F07.md"
@@ -2806,7 +2828,7 @@
    "section_key": "authored_ordinal",
    "section_lines": [
     1229,
-    1645
+    1680
    ],
    "section_name": "1절 건설계약",
    "problems_file": "problems/F08.md"
@@ -2827,8 +2849,8 @@
    "unit_file": "units/F08.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    1646,
-    2032
+    1681,
+    2067
    ],
    "section_name": "건설계약",
    "problems_file": "problems/F08.md"
@@ -2849,32 +2871,10 @@
    "unit_file": "units/F08.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    2033,
-    2380
+    2068,
+    2416
    ],
    "section_name": "건설계약",
-   "problems_file": "problems/F08.md"
-  },
-  {
-   "id": "accounting__재무회계__제6장_기타_재무보고__Chapter_21_재무제표_분석__2절_수익성비율",
-   "path": [
-    "재무회계",
-    "제6장 기타 재무보고",
-    "Chapter 21 재무제표 분석",
-    "2절 수익성비율"
-   ],
-   "leaf_type": "item",
-   "title": "2절 수익성비율",
-   "subject_root": "재무회계",
-   "frequency": 2,
-   "unit_code": "F08",
-   "unit_file": "units/F08.md",
-   "section_key": "authored_ordinal",
-   "section_lines": [
-    2381,
-    2799
-   ],
-   "section_name": "재무회계",
    "problems_file": "problems/F08.md"
   },
   {
@@ -2893,8 +2893,8 @@
    "problems_file": "problems/F08.md",
    "section_name": "관계기업투자주식",
    "section_lines": [
-    2800,
-    3239
+    2417,
+    2867
    ],
    "section_key": "authored_ordinal"
   },
@@ -2914,8 +2914,8 @@
    "problems_file": "problems/F08.md",
    "section_name": "관계기업투자주식",
    "section_lines": [
-    3240,
-    3681
+    2868,
+    3309
    ],
    "section_key": "authored_ordinal"
   },
@@ -2935,8 +2935,8 @@
    "unit_file": "units/F08.md",
    "section_key": "authored_ordinal",
    "section_lines": [
-    3682,
-    4130
+    3310,
+    3757
    ],
    "section_name": "재무회계",
    "problems_file": "problems/F08.md"
