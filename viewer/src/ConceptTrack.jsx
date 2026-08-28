@@ -6,9 +6,13 @@
 //
 // body·viz·check 는 사전 생성분을 그대로 읽는다 — API 키 없이도, 오프라인에서도
 // 여기까지는 동작한다. "더 묻기" 를 눌렀을 때만 대화 엔진이 붙는다.
+//
+// 목차·장면 렌더는 이 파일이 들지 않는다 — ConceptOutline(단일 목차 모델)과
+// ConceptScene(턴 진행)에 넘긴다. 이 파일은 트랙 fetch·진도 저장만 하는 셸이다.
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { ChevronRight, CheckCircle2, HelpCircle, MessageCircle } from 'lucide-react';
-import ParsedText from './ParsedText';
+import { ChevronRight, CheckCircle2 } from 'lucide-react';
+import ConceptOutline from './ConceptOutline';
+import ConceptScene from './ConceptScene';
 import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
 } from './trackProgress';
@@ -21,7 +25,6 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
   const [track, setTrack] = useState(null);      // 이 관의 { leaf_id, title, points }
   const [progress, setProgress] = useState(() => getTrackProgress());
   const [idx, setIdx] = useState(0);
-  const [revealed, setRevealed] = useState(false);   // check 정답 공개
   const [loading, setLoading] = useState(false);
 
   const leaf = useMemo(() => leaves.find((l) => l.id === leafId) || null, [leaves, leafId]);
@@ -34,6 +37,18 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => { if (!dead) setExtra(d?.leaves || []); })
       .catch(() => { if (!dead) setExtra([]); });
+    return () => { dead = true; };
+  }, [subjectId]);
+
+  // 목차가 읽을 색인과 범위 규칙. 트랙 파일 전부를 받지 않고 이 둘만 받는다.
+  const [index, setIndex] = useState(null);
+  const [scope, setScope] = useState(null);
+  useEffect(() => {
+    let dead = false;
+    Promise.all([
+      fetch(`${studyBase(subjectId)}lectures/track/_index.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      fetch(`${studyBase(subjectId)}lectures/scope.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    ]).then(([i, s]) => { if (!dead) { setIndex(i); setScope(s); } });
     return () => { dead = true; };
   }, [subjectId]);
 
@@ -55,7 +70,6 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
       const withId = found ? { ...found, leaf_id: leafId } : null;
       setTrack(withId);
       setIdx(resumeIdx(withId));
-      setRevealed(false);
       setLoading(false);
       return undefined;
     }
@@ -69,7 +83,6 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
         const found = d?.leaves?.find((x) => x.leaf_id === leafId) || null;
         setTrack(found);
         setIdx(resumeIdx(found));
-        setRevealed(false);
       })
       .catch(() => { if (!dead) setTrack(null); })
       .finally(() => { if (!dead) setLoading(false); });
@@ -90,13 +103,13 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
     updateChapterMastery(leafId, { coverage: cov }, 'basic');
   }, [track, leafId]);
 
-  const mark = (state) => {
+  const mark = useCallback((state) => {
     if (!point) return;
     const next = setPointState(leafId, point.id, state);
     setProgress({ ...next });
     syncCoverage(next);
     markActiveToday();
-  };
+  }, [leafId, point, syncCoverage]);
 
   // 논점을 열면 '설명 봄'
   useEffect(() => {
@@ -105,7 +118,6 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
   }, [point?.id]);
 
   const goNext = () => {
-    setRevealed(false);
     setIdx((i) => Math.min((track?.points?.length || 1) - 1, i + 1));
   };
 
@@ -119,7 +131,8 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
         {extra.filter((e) => e.kind === 'prereq').map((e) => (
           <ExtraCard key={e.title} entry={e} onPick={() => setLeafId(`_extra:${e.title}`)} />
         ))}
-        <LeafList leaves={leaves} onPick={setLeafId} />
+        <ConceptOutline leaves={leaves} scope={scope} index={index}
+          progress={progress} onPick={setLeafId} />
         {extra.filter((e) => e.kind === 'review').map((e) => (
           <ExtraCard key={e.title} entry={e} onPick={() => setLeafId(`_extra:${e.title}`)} />
         ))}
@@ -176,65 +189,19 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
       )}
 
       {point && (
-        <article>
-          <h3 style={{ fontSize: '1.02rem', margin: '0 0 2px' }}>
-            {point.seq}. {point.title}
-          </h3>
-          <p style={{ color: '#6b7280', fontSize: '0.83rem', margin: '0 0 12px' }}>{point.gist}</p>
-
-          {point.viz && (
-            <ParsedText text={'```viz ' + point.viz.template + '\n'
-              + JSON.stringify({ ...point.viz.params, steps: point.viz.steps }, null, 1)
-              + '\n```'} />
-          )}
-
-          <ParsedText text={point.body} />
-
-          {point.check && (
-            <section style={{
-              marginTop: 16, padding: '12px 14px',
-              border: '1px solid #e5e7eb', borderRadius: 8, background: '#fafafa',
-            }}>
-              <div style={{ fontSize: '0.76rem', color: '#6b7280', fontWeight: 700, marginBottom: 6 }}>
-                <HelpCircle size={13} style={{ verticalAlign: -2, marginRight: 4 }} />확인
-              </div>
-              <ParsedText text={point.check.q} />
-              {revealed
-                ? (
-                  <>
-                    <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px dashed #d1d5db' }}>
-                      <ParsedText text={point.check.a} />
-                    </div>
-                    <div style={{ display: 'flex', gap: 6, marginTop: 12 }}>
-                      <button onClick={() => { mark(STATE.PASSED); goNext(); }} style={primaryBtn()}>
-                        이해했어요 · 다음 <ChevronRight size={14} style={{ verticalAlign: -2 }} />
-                      </button>
-                      <button onClick={goNext} style={ghostBtn()}>넘어가기</button>
-                    </div>
-                  </>
-                )
-                : (
-                  <button onClick={() => setRevealed(true)} style={{ ...ghostBtn(), marginTop: 10 }}>
-                    답 확인
-                  </button>
-                )}
-            </section>
-          )}
-
-          {onOpenDeep && (
-            <button onClick={() => onOpenDeep(leafId)} style={{ ...linkBtn(), marginTop: 16 }}>
-              <MessageCircle size={13} style={{ verticalAlign: -2, marginRight: 4 }} />
-              이 논점에 대해 더 묻기
-            </button>
-          )}
-        </article>
+        <ConceptScene
+          point={point}
+          onPassed={() => mark(STATE.PASSED)}
+          onNext={goNext}
+          onAsk={onOpenDeep ? () => onOpenDeep(leafId, point) : null}
+        />
       )}
 
       <nav style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginTop: 22 }}>
         {track.points.map((p, i) => {
           const s = (progress[leafId] || {})[p.id] || 0;
           return (
-            <button key={p.id} onClick={() => { setIdx(i); setRevealed(false); }}
+            <button key={p.id} onClick={() => setIdx(i)}
               title={p.title}
               style={{
                 width: 26, height: 26, borderRadius: 6, cursor: 'pointer',
@@ -247,38 +214,6 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
         })}
       </nav>
     </div>
-  );
-}
-
-function LeafList({ leaves, onPick }) {
-  const progress = getTrackProgress();
-  return (
-    <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-      {leaves.map((l) => {
-        const rec = progress[l.id] || {};
-        const passed = Object.values(rec).filter((s) => s >= STATE.PASSED).length;
-        return (
-          <li key={l.id}>
-            <button onClick={() => onPick(l.id)} style={{
-              width: '100%', textAlign: 'left', padding: '10px 12px',
-              border: '1px solid #e5e7eb', borderRadius: 8, background: '#fff',
-              cursor: 'pointer', marginBottom: 6,
-              display: 'flex', alignItems: 'center', gap: 8,
-            }}>
-              <span style={{ flex: 1, fontSize: '0.87rem', color: '#111827' }}>
-                {l.path?.slice(-1)[0] || l.title}
-              </span>
-              {passed > 0 && (
-                <span style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 700 }}>
-                  {passed}개 완료
-                </span>
-              )}
-              <ChevronRight size={14} color="#9ca3af" />
-            </button>
-          </li>
-        );
-      })}
-    </ul>
   );
 }
 
@@ -307,12 +242,4 @@ function ExtraCard({ entry, onPick }) {
 const linkBtn = () => ({
   background: 'none', border: 'none', padding: 0, cursor: 'pointer',
   color: '#4b5563', fontSize: '0.8rem', fontWeight: 700,
-});
-const primaryBtn = () => ({
-  padding: '7px 12px', borderRadius: 7, border: 'none', cursor: 'pointer',
-  background: '#374151', color: '#fff', fontSize: '0.82rem', fontWeight: 700,
-});
-const ghostBtn = () => ({
-  padding: '7px 12px', borderRadius: 7, border: '1px solid #d1d5db', cursor: 'pointer',
-  background: '#fff', color: '#374151', fontSize: '0.82rem', fontWeight: 700,
 });
