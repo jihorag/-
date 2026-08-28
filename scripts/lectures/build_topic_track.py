@@ -166,6 +166,51 @@ def track_path(base, unit, phase):
     return base / 'track' / ('%s.%s.json' % (unit, phase))
 
 
+def leaf_already_built(base, unit, phase, lid, cache):
+    """이 관의 논점이 트랙 파일에 이미 있는지. 파일 하나를 유닛당 한 번만 읽는다."""
+    if unit not in cache:
+        p = track_path(base, unit, phase)
+        cache[unit] = json.loads(p.read_text(encoding='utf-8')) if p.exists() else None
+    track = cache[unit]
+    return any(lf.get('leaf_id') == lid and lf.get('points')
+               for lf in (track or {}).get('leaves') or [])
+
+
+def save_leaf(base, subject, phase, unit, lid, title, pts):
+    """관 하나의 논점을 트랙 파일에 즉시 병합해 저장한다.
+
+    루프가 도중에 죽어도 이미 만든 관은 남는다. 기존 관 순서를 지키고 이번에
+    만든 관만 갈아끼운다 — 통째로 다시 쓰면 이번에 안 돌린 관이 사라진다
+    (generate_notes 와 같은 규칙).
+    """
+    out_dir = base / 'track'
+    out_dir.mkdir(parents=True, exist_ok=True)
+    dst = track_path(base, unit, phase)
+    old = json.loads(dst.read_text(encoding='utf-8')) if dst.exists() else None
+    leaves = list((old or {}).get('leaves') or [])
+    index = {lf.get('leaf_id'): i for i, lf in enumerate(leaves)}
+    li = index.get(lid, len(leaves))
+    for seq, p in enumerate(pts, 1):
+        p['seq'] = seq
+        p['id'] = make_point_id(unit, li, seq)
+        p.setdefault('viz', None)
+        p.setdefault('check', None)
+        p.setdefault('src', [])
+    entry = {'leaf_id': lid, 'title': title, 'points': pts}
+    if lid in index:
+        leaves[index[lid]] = entry
+    else:
+        leaves.append(entry)
+        index[lid] = len(leaves) - 1
+    track = {'subject': subject, 'phase': phase, 'unit_code': unit,
+             'leaves': leaves, 'orphans': (old or {}).get('orphans') or []}
+    if old:
+        d = diff_ids(old, track)
+        if d['removed']:
+            print('  ⚠ %s: 사라진 논점 id %d개 — 진도 확인 필요' % (unit, len(d['removed'])))
+    dst.write_text(json.dumps(track, ensure_ascii=False, indent=1), encoding='utf-8')
+
+
 def do_check(subject, phase):
     base = STUDY / subject / 'lectures'
     align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
@@ -199,6 +244,7 @@ def main():
     ap.add_argument('--limit', type=int)
     ap.add_argument('--only', help='특정 leaf_id 하나만')
     ap.add_argument('--check', action='store_true', help='생성하지 않고 검증만')
+    ap.add_argument('--force', action='store_true', help='이미 만든 관도 다시 생성')
     ap.add_argument('--model', default=MODEL)
     args = ap.parse_args()
 
@@ -237,11 +283,26 @@ def main():
     targets = [lid for lid in align['by_leaf'] if lid in sections]
     if args.only:
         targets = [t for t in targets if t == args.only]
+
+    track_cache = {}
+    skipped = 0
+    if not args.force:
+        kept = []
+        for lid in targets:
+            unit = sections[lid]['unit_code']
+            if leaf_already_built(base, unit, args.phase, lid, track_cache):
+                title = sections[lid]['path'][-1] if sections[lid]['path'] else lid
+                print('  건너뜀(이미 생성됨) %s' % title)
+                skipped += 1
+            else:
+                kept.append(lid)
+        targets = kept
+
     if args.limit:
         targets = targets[:args.limit]
-    print('대상 관 %d개 · 모델 %s\n' % (len(targets), args.model))
+    print('대상 관 %d개(건너뜀 %d개) · 모델 %s\n' % (len(targets), skipped, args.model))
 
-    by_unit = {}
+    units_touched = set()
     t0 = time.time()
     for n, lid in enumerate(targets, 1):
         sec = sections[lid]
@@ -263,42 +324,13 @@ def main():
         if not pts:
             print('  [%d/%d] ❌ 논점 0개 %s' % (n, len(targets), title))
             continue
-        by_unit.setdefault(sec['unit_code'], []).append((lid, title, pts))
+        save_leaf(base, args.subject, args.phase, sec['unit_code'], lid, title, pts)
+        units_touched.add(sec['unit_code'])
         print('  [%d/%d] %-34s 논점 %d개 · %d분' % (n, len(targets), title[:34],
                                                   len(pts), bundle['total_minutes']))
 
-    out_dir = base / 'track'
-    out_dir.mkdir(parents=True, exist_ok=True)
-    for unit, items in by_unit.items():
-        dst = track_path(base, unit, args.phase)
-        old = json.loads(dst.read_text(encoding='utf-8')) if dst.exists() else None
-        # 기존 관 순서를 지키고 이번에 만든 관만 갈아끼운다.
-        # 통째로 다시 쓰면 이번에 안 돌린 관이 사라진다(generate_notes 와 같은 규칙).
-        leaves = list((old or {}).get('leaves') or [])
-        index = {lf.get('leaf_id'): i for i, lf in enumerate(leaves)}
-        for lid, title, pts in items:
-            li = index.get(lid, len(leaves))
-            for seq, p in enumerate(pts, 1):
-                p['seq'] = seq
-                p['id'] = make_point_id(unit, li, seq)
-                p.setdefault('viz', None)
-                p.setdefault('check', None)
-                p.setdefault('src', [])
-            entry = {'leaf_id': lid, 'title': title, 'points': pts}
-            if lid in index:
-                leaves[index[lid]] = entry
-            else:
-                leaves.append(entry)
-                index[lid] = len(leaves) - 1
-        track = {'subject': args.subject, 'phase': args.phase, 'unit_code': unit,
-                 'leaves': leaves, 'orphans': (old or {}).get('orphans') or []}
-        if old:
-            d = diff_ids(old, track)
-            if d['removed']:
-                print('  ⚠ %s: 사라진 논점 id %d개 — 진도 확인 필요' % (unit, len(d['removed'])))
-        dst.write_text(json.dumps(track, ensure_ascii=False, indent=1), encoding='utf-8')
-
-    print('\n유닛 %d개 저장 · %.1f분' % (len(by_unit), (time.time() - t0) / 60))
+    print('\n유닛 %d개 저장 · 건너뜀 %d개 · %.1f분' % (len(units_touched), skipped,
+                                              (time.time() - t0) / 60))
     print('토큰 in %s / out %s' % ('{:,}'.format(usage_holder['in']),
                                   '{:,}'.format(usage_holder['out'])))
 
