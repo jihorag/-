@@ -8,10 +8,14 @@
 환경: GEMINI_API_KEY 필요.
 
 사용:
-  python3 pipeline/9_tiering/tier_judge.py [--limit 50] [--model gemini-2.0-flash] [--self-test]
+  python3 pipeline/9_tiering/tier_judge.py [--limit 50] [--sample 20] [--model gemini-2.5-flash] [--self-test]
+
+--sample N 은 판정 대상을 앵커 수준(item/section/chapter/none) 4무리로 나눠 고르게 N개를 뽑는다
+(seed=42 고정, 재현 가능). --limit 은 앞에서부터 자르는 기존 방식 그대로 남겨둔다.
 """
 import json
 import os
+import random
 import re
 import shutil
 import sys
@@ -67,6 +71,33 @@ def build_prompt(q, anchors):
     return "\n".join(lines)
 
 
+ANCHOR_LEVELS = ("item", "section", "chapter", "none")
+
+
+def stratified_sample(targets, index, n, seed=42):
+    """판정 대상을 앵커 수준(item/section/chapter/none) 4무리로 나눠 고르게 n개를 뽑는다.
+
+    무리가 n/4보다 적으면 있는 만큼만 쓰고 부족분은 다른 무리에서 채운다.
+    """
+    groups = {lvl: [] for lvl in ANCHOR_LEVELS}
+    for q in targets:
+        mt = (q.get("indexing_v4") or {}).get("mapped_taxonomy") or {}
+        _, level = pick_anchors(index, mt)
+        groups[level].append(q)
+    rng = random.Random(seed)
+    for g in groups.values():
+        rng.shuffle(g)
+    base, extra = divmod(n, len(ANCHOR_LEVELS))
+    picked, leftover = [], []
+    for i, lvl in enumerate(ANCHOR_LEVELS):
+        want = base + (1 if i < extra else 0)
+        picked.extend(groups[lvl][:want])
+        leftover.extend(groups[lvl][want:])
+    if len(picked) < n:
+        picked.extend(leftover[: n - len(picked)])
+    return picked[:n]
+
+
 def parse_verdict(text):
     """모델 응답에서 판정 JSON을 꺼낸다. 형식이 어긋나면 None."""
     m = re.search(r"\{.*?\}", text or "", re.S)
@@ -108,6 +139,43 @@ def _self_test():
     p = build_prompt(q, [{"question": "앵커본문", "options": ["a"], "answer": "1",
                           "exam": "감정평가사", "year": "2020"}])
     assert "대상문항본문" in p and "앵커본문" in p and "해설본문" in p
+
+    # 층화 표본 — 4무리(item/section/chapter/none)가 충분하면 고르게 5개씩
+    def _q(id_, item, section, chapter):
+        return {"id": id_, "indexing_v4": {"mapped_taxonomy":
+                {"item": item, "section": section, "chapter": chapter}}}
+
+    idx = {"item::A": [{"id": "x1"}], "section::B": [{"id": "x2"}],
+           "chapter::C": [{"id": "x3"}]}
+    targets = ([_q(f"item{i}", "A", "B", "C") for i in range(10)]
+               + [_q(f"sec{i}", "Z", "B", "C") for i in range(10)]
+               + [_q(f"chap{i}", "Z", "Y", "C") for i in range(10)]
+               + [_q(f"none{i}", "Z", "Y", "X") for i in range(10)])
+
+    def _level_counts(sample):
+        c = Counter()
+        for q in sample:
+            mt = q["indexing_v4"]["mapped_taxonomy"]
+            _, lvl = pick_anchors(idx, mt)
+            c[lvl] += 1
+        return c
+
+    sample = stratified_sample(targets, idx, 20, seed=42)
+    assert len(sample) == 20
+    assert _level_counts(sample) == {"item": 5, "section": 5, "chapter": 5, "none": 5}
+
+    # 재현 가능 — 같은 시드면 같은 결과
+    assert [q["id"] for q in sample] == [q["id"] for q in stratified_sample(targets, idx, 20, seed=42)]
+
+    # 무리가 부족하면 있는 만큼만 쓰고 나머지 무리에서 채운다
+    short_targets = ([_q(f"item{i}", "A", "B", "C") for i in range(2)]
+                      + [_q(f"sec{i}", "Z", "B", "C") for i in range(10)]
+                      + [_q(f"chap{i}", "Z", "Y", "C") for i in range(10)]
+                      + [_q(f"none{i}", "Z", "Y", "X") for i in range(10)])
+    sample2 = stratified_sample(short_targets, idx, 20, seed=42)
+    assert len(sample2) == 20
+    assert _level_counts(sample2)["item"] == 2
+
     print("tier_judge self-test 통과")
 
 
@@ -116,12 +184,15 @@ def main():
         _self_test()
         return
 
-    model_name = "gemini-2.0-flash"
+    model_name = "gemini-2.5-flash"
     if "--model" in sys.argv:
         model_name = sys.argv[sys.argv.index("--model") + 1]
     limit = None
     if "--limit" in sys.argv:
         limit = int(sys.argv[sys.argv.index("--limit") + 1])
+    sample = None
+    if "--sample" in sys.argv:
+        sample = int(sys.argv[sys.argv.index("--sample") + 1])
 
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
@@ -134,7 +205,9 @@ def main():
     db = json.loads(DB.read_text(encoding="utf-8"))
     index = json.loads(ANCHORS.read_text(encoding="utf-8"))
     targets = [q for q in db if not q.get("tier")]
-    if limit:
+    if sample:
+        targets = stratified_sample(targets, index, sample)
+    elif limit:
         targets = targets[:limit]
     print(f"판정 대상 {len(targets)}문항 · 모델 {model_name}")
 
