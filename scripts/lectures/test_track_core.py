@@ -1,7 +1,7 @@
 import unittest
 
 from track_core import (make_point_id, order_spans, chunk_lectures,
-                        parse_points, check_track)
+                        parse_points, check_track, diff_ids)
 
 
 class TestPointId(unittest.TestCase):
@@ -102,6 +102,72 @@ class TestCheckTrack(unittest.TestCase):
         t = self._track()
         t['leaves'][0]['points'] = t['leaves'][0]['points'] * 41
         self.assertTrue(any('논점 수' in i for i in check_track(t, align, set())))
+
+    def test_leaf_id_none_skips_anchor_check(self):
+        """leaf_id가 None인 관은 앵커 검사를 건너뛰고 다른 문제는 보고하지 않는다."""
+        t = self._track()
+        t['leaves'][0]['leaf_id'] = None
+        align = {}  # 아무 항목도 없음
+        issues = check_track(t, align, {'supply-demand'})
+        self.assertEqual(issues, [])  # 앵커 관련 문제 없음
+
+
+class TestDiffIds(unittest.TestCase):
+    def test_removed_ids_reported(self):
+        """논점이 사라진 경우 removed에 그 id가 들어간다."""
+        old = {
+            'unit_code': 'M01',
+            'leaves': [{'leaf_id': 'L', 'points': [
+                {'id': 'M01-L00-p01'},
+                {'id': 'M01-L00-p02'}
+            ]}],
+            'orphans': []
+        }
+        new = {
+            'unit_code': 'M01',
+            'leaves': [{'leaf_id': 'L', 'points': [
+                {'id': 'M01-L00-p01'}
+            ]}],
+            'orphans': []
+        }
+        result = diff_ids(old, new)
+        self.assertEqual(result['removed'], ['M01-L00-p02'])
+        self.assertEqual(result['added'], [])
+
+    def test_added_ids_reported(self):
+        """논점이 새로 생긴 경우 added에 그 id가 들어간다."""
+        old = {
+            'unit_code': 'M01',
+            'leaves': [{'leaf_id': 'L', 'points': [
+                {'id': 'M01-L00-p01'}
+            ]}],
+            'orphans': []
+        }
+        new = {
+            'unit_code': 'M01',
+            'leaves': [{'leaf_id': 'L', 'points': [
+                {'id': 'M01-L00-p01'},
+                {'id': 'M01-L00-p02'}
+            ]}],
+            'orphans': []
+        }
+        result = diff_ids(old, new)
+        self.assertEqual(result['removed'], [])
+        self.assertEqual(result['added'], ['M01-L00-p02'])
+
+    def test_old_track_none_treats_all_as_added(self):
+        """old_track이 None이어도 터지지 않고 전부 added로 잡힌다."""
+        new = {
+            'unit_code': 'M01',
+            'leaves': [{'leaf_id': 'L', 'points': [
+                {'id': 'M01-L00-p01'},
+                {'id': 'M01-L00-p02'}
+            ]}],
+            'orphans': []
+        }
+        result = diff_ids(None, new)
+        self.assertEqual(result['removed'], [])
+        self.assertEqual(sorted(result['added']), ['M01-L00-p01', 'M01-L00-p02'])
 
 
 if __name__ == '__main__':
