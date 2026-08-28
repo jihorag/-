@@ -41,7 +41,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  /* 기본 폰트는 tokens.css 의 --font-sans(Pretendard) 하나로만 정의한다.
+     여기 스택을 따로 적어두면 tokens.css 와 갈라져서(예전엔 'Pretendard' 정적본과
+     'Apple SD Gothic Neo' 폴백이 빠져 있었다) 브라우저·기기마다 다른 글꼴이 나온다.
+     이 * 규칙은 body 상속을 덮어쓰므로, 여기서 var() 를 써야 앱 전체에 실제로 걸린다. */
+  font-family: var(--font-sans);
 }
 
 
@@ -2013,3 +2017,4 @@ html, body {
 @media (min-width: 1024px) {
   .home-quick { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+@keyframes vizStepIn { from { opacity: 0.25; } to { opacity: 1; } }
