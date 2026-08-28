@@ -7,9 +7,9 @@ const REMOVE_EXACT = [
   'quiz-progress-v1', 'quiz-essay-progress', 'quiz-essay-cards-srs-v1', 'quiz-mem-v1',
   'quiz-mock-history', 'quiz-sessions-v1', 'quiz-studytime-v1', 'quiz-journey-v3',
   'quiz-chatcards-v1', 'wrong-rounds-v1',
-  // AI 학습 숙련도·SRS·사용량·현재상태·확인대기
+  // AI 학습 숙련도·SRS·사용량·현재상태·확인대기·논점 트랙 진도
   'ailearn-mastery', 'ailearn-items-v1', 'ailearn-usage', 'ailearn-current',
-  'ailearn-msg-ratings', 'ailearn-pending-check',
+  'ailearn-msg-ratings', 'ailearn-pending-check', 'ailearn-track-progress',
   // 드릴 진행
   'drill-progress-v1',
   // 커리큘럼 진행/실측/회독카운터/오늘·월간 계획

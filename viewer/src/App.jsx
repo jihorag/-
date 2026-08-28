@@ -451,6 +451,20 @@ const mergeStateData = (remoteData) => {
           avg_score_pct: Math.max(e?.avg_score_pct || 0, re?.avg_score_pct || 0) };
       }
       setIf(k, m);
+    } else if (k === 'ailearn-track-progress') {
+      // 논점 트랙 진도: { leafId: { pointId: state(0/1/2) } } — 논점 단위로 max 병합.
+      // 분기가 없으면 기본(로컬 우선)으로 떨어져 다른 기기에서만 소진한 논점이
+      // 이후 push 에서 지워진다(trackProgress.js 의 setPointState 와 같은 "되돌리지 않는다" 원칙).
+      const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = { ...r };
+      for (const [leafId, lpts] of Object.entries(l)) {
+        const rpts = m[leafId] || {};
+        const merged = { ...rpts };
+        for (const [pid, state] of Object.entries(lpts || {})) {
+          merged[pid] = Math.max(merged[pid] || 0, state || 0);
+        }
+        m[leafId] = merged;
+      }
+      setIf(k, m);
     } else if (k === 'ailearn-sessions') {
       // AI 학습 세션 배열: id(또는 시작시각+단원) 기준 합집합
       const l = parseJ(lv, []); const r = parseJ(rv, []);
