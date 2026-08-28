@@ -117,12 +117,45 @@ def _fix_bad_escapes(s):
     return ''.join(out)
 
 
+# \frac→\x0c+rac, \bar→\x08+ar, \times→\t+imes 처럼 JSON 유효 이스케이프와 겹치는
+# LaTeX 명령은 1차 파싱이 성공해 버려 복구 경로를 안 탄다. 결과를 다시 훑어 잡는다.
+# \t·\r 은 본문에 정상적으로 쓰일 수 있으므로 "뒤에 영문자가 붙은 경우"만 깨짐으로 본다.
+_LATEX_BREAK = re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f]|[\t\r](?=[a-zA-Z])')
+
+
+def _extract_points(d):
+    if isinstance(d, dict):
+        d = d.get('points') or []
+    return [p for p in d if isinstance(p, dict) and p.get('title')]
+
+
+def _latex_broken(points):
+    """points 의 title/gist/body/check.q/check.a 문자열에 LaTeX 깨짐 흔적이 있는가.
+
+    json.dumps 로 재직렬화해서 검사하면 제어문자가 다시 \\t·\\f 로 이스케이프되어
+    보이지 않는다 — 반드시 파싱된 문자열 값을 직접 훑는다.
+    """
+    for p in points:
+        for key in ('title', 'gist', 'body'):
+            v = p.get(key)
+            if isinstance(v, str) and _LATEX_BREAK.search(v):
+                return True
+        chk = p.get('check')
+        if isinstance(chk, dict):
+            for key in ('q', 'a'):
+                v = chk.get(key)
+                if isinstance(v, str) and _LATEX_BREAK.search(v):
+                    return True
+    return False
+
+
 def parse_points(raw):
     """모델 응답에서 논점 배열을 꺼낸다. 실패하면 빈 리스트(호출부가 건너뛴다)."""
     if not raw:
         return []
     txt = re.sub(r'^```(?:json)?\s*|\s*```$', '', raw.strip())
     d = _try_json_loads(txt)
+    candidate = txt
     if d is None:
         m = re.search(r'[\[{].*[\]}]', txt, flags=re.S)
         if not m:
@@ -135,9 +168,18 @@ def parse_points(raw):
             d = _try_json_loads(_fix_bad_escapes(candidate))
         if d is None:
             return []
-    if isinstance(d, dict):
-        d = d.get('points') or []
-    return [p for p in d if isinstance(p, dict) and p.get('title')]
+    points = _extract_points(d)
+    # \frac/\bar/\times 같은 명령은 JSON 표준 이스케이프와 겹쳐 1차 파싱이
+    # 예외 없이 성공해버린다. 성공한 결과라도 제어문자 흔적이 있으면 복구를
+    # 재시도한다 — 복구본이 더 나쁘면(파싱 실패·논점 소실·여전히 깨짐) 원본을
+    # 그대로 유지한다.
+    if _latex_broken(points):
+        recovered = _try_json_loads(_fix_bad_escapes(candidate))
+        if recovered is not None:
+            recovered_points = _extract_points(recovered)
+            if recovered_points and not _latex_broken(recovered_points):
+                return recovered_points
+    return points
 
 
 LOW_SEVERITY_PREFIX = '[시각추정]'
@@ -173,6 +215,14 @@ def check_track(track, align_by_leaf, template_names):
         elif len(pts) > MAX_POINTS:
             issues.append('%s / %s: 논점 수 %d개 (%d개 초과 — 잘게 쪼갠 것 의심)'
                           % (unit, title, len(pts), MAX_POINTS))
+
+        # 청크 일부가 실패한 채 저장된 관 — build_topic_track.py 의 gen_leaf 가
+        # 몇 청크를 성공했는지 chunks_ok/chunks_total 에 남긴다. 필드가 없는
+        # 관(이 검사 이전에 저장된 기존 관)은 대조할 게 없으니 통과시킨다.
+        c_ok, c_total = leaf.get('chunks_ok'), leaf.get('chunks_total')
+        if c_ok is not None and c_total is not None and c_ok < c_total:
+            issues.append('%s / %s: 청크 %d/%d 성공 — 강의 일부가 유실됐을 수 있음'
+                          % (unit, title, c_ok, c_total))
 
         # 앵커가 이 관의 실제 강의 구간 안에 있는가.
         # 밖이면 다른 관의 이야기가 새어 들어온 것이다.

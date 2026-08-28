@@ -81,14 +81,12 @@ class TestParsePoints(unittest.TestCase):
 
     def test_recovers_frac_without_formfeed_corruption(self):
         """가장 중요한 케이스: \\f 는 JSON에서 그 자체로는 유효한 이스케이프(폼피드)라
-        \\frac 하나만 있으면 json.loads 가 예외 없이 성공해버리고, 대신 body 안에
-        폼피드 문자 + 'rac{1}{1-c}' 로 조용히 깨진다 — 복구가 "실패했을 때만" 도는
-        구조라 이 케이스 단독으로는 못 잡는다. 실제 실패 응답들은 관 하나에 여러
-        수식이 함께 나와 \\sum 같은 진짜 무효 이스케이프가 최소 하나는 끼어
-        전체 파싱을 깨뜨렸다 — 그 상황을 그대로 재현해 복구가 걸리게 하고,
-        걸린 김에 \\frac 도 같이 살아남는지 확인한다."""
+        \\frac 만 있으면 json.loads 가 예외 없이 성공해버리고 body 안에
+        폼피드 문자 + 'rac{1}{1-c}' 로 조용히 깨진다. 1차 파싱이 성공해도 결과에
+        제어문자 흔적이 있으면 재검사·재파싱해야 이 케이스를 잡는다 — \\sum 같은
+        무효 이스케이프를 곁들이지 않은, \\frac 단독 입력이다."""
         raw = ('[{"title":"t","gist":"g",'
-               '"body":"수렴 조건은 $\\frac{1}{1-c}$ 이고 총합은 $\\sum x_i$ 이다."}]')
+               '"body":"수렴 조건은 $\\frac{1}{1-c}$ 이다."}]')
         pts = parse_points(raw)
         self.assertEqual(len(pts), 1)
         body = pts[0]['body']
@@ -96,11 +94,20 @@ class TestParsePoints(unittest.TestCase):
         self.assertNotIn('\f', body)
 
     def test_recovers_times(self):
-        raw = ('[{"title":"t","gist":"g",'
-               '"body":"$A \\times B$ 이고 총합은 $\\sum x_i$ 로 계산한다."}]')
+        """\\times 단독 입력. \\t 는 JSON 유효 이스케이프(탭)라 1차 파싱이 성공해버린다."""
+        raw = '[{"title":"t","gist":"g","body":"$A \\times B$ 로 계산한다."}]'
         pts = parse_points(raw)
         self.assertEqual(len(pts), 1)
         self.assertIn('\\times', pts[0]['body'])
+        self.assertNotIn('\t', pts[0]['body'])
+
+    def test_recovers_bar(self):
+        """\\bar 단독 입력. \\b 는 JSON 유효 이스케이프(백스페이스)라 1차 파싱이 성공해버린다."""
+        raw = '[{"title":"t","gist":"g","body":"$Y = f(L, \\bar{K})$ 로 쓴다."}]'
+        pts = parse_points(raw)
+        self.assertEqual(len(pts), 1)
+        self.assertIn('\\bar{K}', pts[0]['body'])
+        self.assertNotIn('\b', pts[0]['body'])
 
     def test_properly_escaped_input_untouched(self):
         """정상적으로 이스케이프된 응답은 첫 시도(json.loads)에서 바로 성공해야
@@ -110,6 +117,14 @@ class TestParsePoints(unittest.TestCase):
         self.assertEqual(len(pts), 1)
         self.assertEqual(pts[0]['body'], '첫 줄\n둘째 줄')
         self.assertEqual(pts[0]['note'], 'real backslash: \\')
+
+    def test_tab_not_followed_by_letter_preserved(self):
+        """탭 뒤에 영문자가 아닌 문자(숫자·한글·공백)가 오면 정상적인 본문 탭으로
+        보고 깨짐으로 오판하지 않는다."""
+        raw = '[{"title":"t","gist":"g","body":"항목1\\t항목2 그리고 탭\\t123"}]'
+        pts = parse_points(raw)
+        self.assertEqual(len(pts), 1)
+        self.assertIn('\t', pts[0]['body'])
 
 
 class TestCheckTrack(unittest.TestCase):
@@ -177,6 +192,31 @@ class TestCheckTrack(unittest.TestCase):
                              align, {'supply-demand'})
         self.assertTrue(any(i.startswith(LOW_SEVERITY_PREFIX) for i in issues))
         self.assertFalse(any('이 관에 없는 강의' in i for i in issues))
+
+    def test_chunk_partial_failure_reported(self):
+        """청크 일부가 실패한 채 저장된 관(chunks_ok < chunks_total)은 강의 일부
+        유실 의심으로 보고된다."""
+        align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
+        t = self._track()
+        t['leaves'][0]['chunks_ok'] = 1
+        t['leaves'][0]['chunks_total'] = 3
+        issues = check_track(t, align, {'supply-demand'})
+        self.assertTrue(any('청크' in i for i in issues))
+
+    def test_chunk_fields_absent_not_reported(self):
+        """chunks_ok/chunks_total 필드가 없는(이 검사 이전에 저장된) 관은
+        청크 관련 문제를 보고하지 않는다."""
+        align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
+        issues = check_track(self._track(), align, {'supply-demand'})
+        self.assertFalse(any('청크' in i for i in issues))
+
+    def test_chunk_full_success_not_reported(self):
+        align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
+        t = self._track()
+        t['leaves'][0]['chunks_ok'] = 3
+        t['leaves'][0]['chunks_total'] = 3
+        issues = check_track(t, align, {'supply-demand'})
+        self.assertFalse(any('청크' in i for i in issues))
 
     def test_leaf_id_none_skips_anchor_check(self):
         """leaf_id가 None인 관은 앵커 검사를 건너뛰고 다른 문제는 보고하지 않는다."""
