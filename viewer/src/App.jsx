@@ -1,25 +1,44 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import { ArrowLeft, House, Compass, RotateCcw, BookOpen, Sparkles, Calendar, Zap } from 'lucide-react';
+import { ArrowLeft, House, Compass, RotateCcw, BookOpen, Sparkles, CalendarCheck, Zap, Gauge, PenLine, Settings } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
 import VizGallery from './viz/VizGallery';
 import WeaknessPanel from './WeaknessPanel';
+import { isDesktop, saveBackupNative, loadBackupNative } from './desktopBackup';
 import DDayPlanner from './DDayPlanner';
 import NotesPanel from './NotesPanel';
 import StreakBadge from './StreakBadge';
-import JourneyTimeline from './JourneyTimeline';
+import { loadJourneyRows } from './JourneyTimeline';
+import HomeToday from './HomeToday';
+import { computeProficiency } from './proficiencyEngine';
+
+// 모바일(<640px)에서 과목명 칸이 76px 뿐이라 정식 명칭이 잘린다.
+// CSS 로는 못 줄이므로 데이터로 들고 있다가 브레이크포인트에서 골라 쓴다.
+const SUBJECT_SHORT = {
+  economics: '경제학', realestate: '부동산학', law: '관계법규',
+  civil: '민법', accounting: '회계학',
+};
+import { getDrillCounts } from './studyDrill';
 import StudyPlanner from './StudyPlanner';
+import Curriculum from './Curriculum';
+import PassStories from './PassStories';
+import Proficiency from './Proficiency';
+import ExamAnalysis from './ExamAnalysis';
+import SubjectIcon from './SubjectIcon';
+import { buildSubjectState } from './learnState';
 import { addStudySeconds } from './studyTime';
 import UsageDashboard from './UsageDashboard';
 import ToastContainer, { toast } from './Toast';
 import CmdK from './CmdK';
 import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
-import { setCurrent as setAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS, getPrefs as getAiPrefs, setPrefs as setAiPrefs, getApiKey as getProviderKey, setApiKey as setProviderKey, getBaseUrls, setBaseUrl } from './aiLearningStore';
+import { setCurrent as setAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS, getPrefs as getAiPrefs, setPrefs as setAiPrefs, getApiKey as getProviderKey, setApiKey as setProviderKey, getBaseUrls, setBaseUrl, getPendingChecks, clearPendingCheck } from './aiLearningStore';
 import { MODELS as AI_MODELS } from './aiClaudeClient';
 import { getProviderForModel, ALL_MODELS, sendMessagesUnified, modelRequiresProxy } from './aiProviders';
 import MockExam from './MockExam';
 import EssayMode from './EssayMode';
 import MemorizeBridge from './QuizMode';
+import MnemonicDeck from './MnemonicDeck';
+import CalcWakku from './CalcWakku';
 import { ParsedText } from './ParsedText';
 import { SpeakButton } from './Speech';
 import { useScrollLock } from './uiHooks';
@@ -27,6 +46,8 @@ import {
   getStudyPlan, setSubjectTarget, addAbandoned, removeAbandoned,
   getTimerLogs, addTimerLog, getGyeomsanStats, bumpGyeomsan,
   getConfidence, setConfidence, getConfidenceMap,
+  MISTAKE_TYPES, getMistake, toggleMistake, getMistakeSummary,
+  getNote, setNote, getNoteMap,
 } from './studyMeta';
 // 셀프진단 신뢰도 라벨 메타
 const CONF_META = {
@@ -70,22 +91,59 @@ const getWrongRounds = () => {
 };
 const bumpWrongRound = (currentWrongCount) => {
   const cur = getWrongRounds();
+  const round = (cur.rounds || 0) + 1;
   const next = {
-    rounds: (cur.rounds || 0) + 1,
+    rounds: round,
     lastStartCount: currentWrongCount,   // 이번 회독 시작 시 오답 수
     startedAt: Date.now(),
+    // 회독 추이 — 각 회독 시작 시점의 '남은 오답 수'. 회독을 거듭할수록 줄어드는 소진 곡선.
+    history: [...(cur.history || []), { r: round, w: currentWrongCount, ts: Date.now() }].slice(-30),
   };
   try { localStorage.setItem(WRONG_ROUNDS_KEY, JSON.stringify(next)); } catch { /* noop */ }
   return next;
 };
-const exportUserData = () => {
+// 회독별 '남은 오답' 소진 곡선 — 회독을 거듭할수록 막대가 낮아지면 실력이 오르는 것.
+function RoundTrend({ history, current }) {
+  let pts = (history || []).filter((h) => typeof h.w === 'number').map((h) => ({ r: h.r, w: h.w }));
+  if (typeof current === 'number' && (pts.length === 0 || current !== pts[pts.length - 1].w)) {
+    pts = [...pts, { r: '지금', w: current, now: true }];
+  }
+  if (pts.length < 2) return null;
+  const max = Math.max(...pts.map((p) => p.w), 1);
+  const H = 34;
+  return (
+    <div style={{ marginTop: 10 }}>
+      <div style={{ fontSize: '0.68rem', color: '#9a3412', fontWeight: 700, marginBottom: 4 }}>📉 회독별 남은 오답 — 줄어들수록 실력이 오르는 중</div>
+      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 8, height: H + 16 }}>
+        {pts.map((p, i) => {
+          const h = Math.max(3, Math.round((p.w / max) * H));
+          return (
+            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+              <span style={{ fontSize: '0.6rem', color: p.now ? '#047857' : '#c2410c', fontWeight: 800 }}>{p.w}</span>
+              <div title={`${p.r}회독: 남은 오답 ${p.w}문`} style={{ width: 14, height: h, borderRadius: 3, background: p.now ? '#059669' : '#fdba74' }} />
+              <span style={{ fontSize: '0.58rem', color: '#9ca3af' }}>{p.now ? '지금' : `${p.r}회`}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+const exportUserData = async () => {
   // 백업 시각 기록(백업 후 수집되도록 먼저 저장)
   saveProfile({ ...loadProfile(), lastBackup: new Date().toISOString() });
-  const blob = new Blob([JSON.stringify(collectUserData(), null, 2)], { type: 'application/json' });
+  const json = JSON.stringify(collectUserData(), null, 2);
+  const name = `gampyeong-backup-${new Date().toISOString().slice(0, 10)}.json`;
+  // 데스크톱: 네이티브 저장 대화상자 (WKWebView 는 Blob 다운로드가 불안정)
+  if (isDesktop()) {
+    try { await saveBackupNative(json, name); return; }
+    catch { /* 실패 시 아래 Blob 경로로 폴백 */ }
+  }
+  const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `gampyeong-backup-${new Date().toISOString().slice(0, 10)}.json`;
+  a.download = name;
   a.click();
   URL.revokeObjectURL(url);
 };
@@ -635,6 +693,27 @@ const ladderFor = (mode) => {
   const f = (SRS_MODES[mode] || SRS_MODES.normal).factor;
   return SRS_LADDER.map(d => Math.max(1, Math.round(d * f)));
 };
+// 학습과학 근거(Cepeda 2006/2008): 복습 간격 ≈ 시험까지 남은 기간(RI)의 10~20%. 고정 사다리 대신 RI 비례.
+const SRS_GAP_PROP = [0.05, 0.08, 0.12, 0.17, 0.23, 0.30]; // box별 RI 대비 비율
+const examRemainingDays = () => {
+  try {
+    const ed = loadExamDates();
+    const now = Date.now();
+    const ds = Object.values(ed)
+      .map((s) => { const d = new Date(s + 'T00:00:00').getTime(); return isNaN(d) ? null : Math.ceil((d - now) / DAY); })
+      .filter((x) => x != null && x > 0);
+    return ds.length ? Math.min(...ds) : null;
+  } catch { return null; }
+};
+// box별 다음 복습 간격(일) — 시험일 있으면 RI 비례(모드 factor 반영), 없으면 고정 사다리.
+const srsGapDays = (box, mode) => {
+  const R = examRemainingDays();
+  if (R && R > 1 && box < SRS_GAP_PROP.length) {
+    const f = (SRS_MODES[mode] || SRS_MODES.normal).factor;
+    return Math.max(1, Math.min(Math.round(R * SRS_GAP_PROP[box] * f), R - 1));
+  }
+  return ladderFor(mode)[Math.min(box, SRS_LADDER.length - 1)];
+};
 // prevSrs + 정오답 → 다음 srs. due는 해당 날짜 0시(ms). graduated면 due=null.
 const nextSrs = (prevSrs, correct, mode = 'normal') => {
   const ladder = ladderFor(mode);
@@ -642,13 +721,13 @@ const nextSrs = (prevSrs, correct, mode = 'normal') => {
   const reps = (prevSrs && prevSrs.reps) || 0;
   if (!correct) {
     return { box: 0, reps: reps + 1, lapses: lapses + 1,
-             due: dayStart(Date.now()) + ladder[0] * DAY };
+             due: dayStart(Date.now()) + srsGapDays(0, mode) * DAY };
   }
   const box = ((prevSrs && typeof prevSrs.box === 'number') ? prevSrs.box : -1) + 1;
   if (box >= ladder.length) {
     return { box, reps: reps + 1, lapses, due: null, graduated: true };
   }
-  return { box, reps: reps + 1, lapses, due: dayStart(Date.now()) + ladder[box] * DAY };
+  return { box, reps: reps + 1, lapses, due: dayStart(Date.now()) + srsGapDays(box, mode) * DAY };
 };
 
 // 진행률 상태 + 영속화 훅. record(q,sel,correct) 최초기록, update() 복습 재채점.
@@ -1076,7 +1155,7 @@ const askaiTokens = (s) => Array.from(new Set(
     .filter((w) => w.length >= 2 && !ASKAI_STOP.has(w))
 )).slice(0, 8);
 
-function AskAI({ onBack, classifiedList = [], leaves = [], onSolveQuestions, onLearnLeaf }) {
+function AskAI({ onBack, classifiedList = [], leaves = [], onSolveQuestions, onLearnLeaf, initialQuery = '', onConsumeInitial }) {
   const [messages, setMessages] = useState(() => {
     try { return JSON.parse(localStorage.getItem(ASKAI_KEY) || '[]') || []; } catch { return []; }
   });
@@ -1118,6 +1197,18 @@ function AskAI({ onBack, classifiedList = [], leaves = [], onSolveQuestions, onL
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
+
+  // 커리큘럼 등에서 넘어온 사전 질문을 진입 시 1회 자동 전송
+  const initedRef = useRef(false);
+  useEffect(() => {
+    if (initedRef.current) return;
+    const q = (initialQuery || '').trim();
+    if (!q) return;
+    initedRef.current = true;
+    onConsumeInitial && onConsumeInitial();
+    ask(q);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialQuery]);
 
   const persist = (arr) => {
     // 사진 dataUrl은 용량 문제로 저장하지 않음 (세션 내 표시만)
@@ -1467,6 +1558,9 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
   // ★2 검산 — 계산 과목에서 검산 자기보고 (한 번만)
   const isCalc = CALC_SUBJECTS.includes(q.taxSubjectName);
   const [gyeomLogged, setGyeomLogged] = useState(false);
+  // ★5 오답 원인 태그 + 초압축 오답노트 (문항별) — 왜 틀렸나 유형화 + 한 줄 메모
+  const [mtags, setMtags] = useState(() => getMistake(qid(q))?.t || []);
+  const [note, setNoteVal] = useState(() => getNote(qid(q)));
   const resultRef = useRef(null); // 📍 응답 직후 해설 카드로 자동 스크롤
 
   const handleOptionClick = (optIdx) => {
@@ -1657,6 +1751,34 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
                 </div>
               )
             )}
+            {/* ★5 왜 틀렸나 — 오답 원인 태그 + 초압축 오답노트. 오답이거나 '애매/모른다'일 때만 노출.
+                합격수기: 원인 유형화(자릿수·부호·인출실패…)로 처방을 만들고, 노트는 한 줄로 압축. */}
+            {(() => {
+              const showWhy = (hasAnswer && !correct) || conf === 'fuzzy' || conf === 'unknown';
+              if (!showWhy) return null;
+              const subjName = q.taxSubjectName || q.subject || '';
+              return (
+                <div style={{ marginTop: 12, padding: '10px 12px', background: '#fff', border: '1px solid #fecdd3', borderRadius: 8 }}>
+                  <div style={{ fontSize: '0.74rem', color: '#9f1239', fontWeight: 800, marginBottom: 8 }}>❓ 왜 틀렸나 — 원인을 콕 짚어두면 나중에 실수 패턴이 보여요</div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 10 }}>
+                    {MISTAKE_TYPES.map((mt) => {
+                      const on = mtags.includes(mt.key);
+                      return (
+                        <button key={mt.key} onClick={() => setMtags(toggleMistake(qid(q), subjName, mt.key))}
+                          style={{ padding: '4px 9px', borderRadius: 999, fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer', minHeight: 30,
+                            border: `1px solid ${on ? '#e11d48' : '#e5e7eb'}`, background: on ? '#ffe4e6' : '#fff', color: on ? '#be123c' : '#9ca3af' }}>
+                          {mt.icon} {mt.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <input value={note} onChange={(e) => setNoteVal(e.target.value)} onBlur={() => setNote(qid(q), note, { s: subjName, q: `${q.exam || ''} ${q.number || ''}`.trim() })}
+                    placeholder="✍️ 초압축 오답노트 — 한 줄로 (예: 유효이자=기초장부×유효율)" maxLength={120}
+                    style={{ width: '100%', padding: '8px 10px', border: '1px solid #e5e7eb', borderRadius: 8, fontSize: '15px', boxSizing: 'border-box', fontFamily: 'inherit' }} />
+                  {note.trim() && <div style={{ fontSize: '0.66rem', color: '#9ca3af', marginTop: 4 }}>· 복습·오답 목록에서 이 노트가 함께 보여요</div>}
+                </div>
+              );
+            })()}
           </div>
         );
       })()}
@@ -1665,29 +1787,31 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
 };
 
 // ── 문제풀이 탭 통일 카드 — 드릴/둘러보기/과목 그리드 공통(study-card 토큰 기반) ──
-function BrowseCard({ icon, badge, badgeStyle, badge2, badge2Style, subtitle, title, pct, footerLeft, footerRight, extra, cta = '선택', highlight, disabled, onClick }) {
+function BrowseCard({ icon, badge, badgeStyle, badge2, badge2Style, subtitle, title, pct, footerLeft, footerRight, extra, cta = '선택', highlight, disabled, onClick, drillCount = 0, drillOnly = false }) {
   return (
     <button className="study-card" onClick={disabled ? undefined : onClick} disabled={disabled}
       style={{
         textAlign: 'left', border: '1px solid transparent',
         ...(highlight ? { background: 'var(--primary-light)', borderColor: 'var(--primary-light)' } : {}),
+        ...(drillOnly ? { opacity: 0.72 } : {}),
         ...(disabled ? { opacity: 0.55, cursor: 'not-allowed' } : {}),
       }}>
       {icon && <div className="card-ico">{icon}</div>}
-      {(badge || badge2) && (
+      {(badge || badge2 || drillCount > 0) && (
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10, flexWrap: 'wrap' }}>
           {badge && <span className="card-badge" style={{ marginBottom: 0, ...badgeStyle }}>{badge}</span>}
           {badge2 && <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '3px 9px', borderRadius: 999, ...badge2Style }}>{badge2}</span>}
+          {drillCount > 0 && <span style={{ fontSize: '0.68rem', fontWeight: 800, color: '#7c3aed', background: '#f5f3ff', border: '1px solid #ede9fe', borderRadius: 999, padding: '2px 8px' }}>📝 연습 {drillCount}</span>}
         </div>
       )}
       {subtitle && <div className="card-subtitle" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{subtitle}</div>}
-      <h3 className="card-title" style={{ fontSize: '1.1rem', marginBottom: 10, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{title}</h3>
+      <h3 className="card-title" style={{ fontSize: '1.1rem', marginBottom: 10, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', ...(drillOnly ? { color: '#94a3b8' } : {}) }}>{title}</h3>
       {pct != null && <div className="card-progress-container"><div className="card-progress-fill" style={{ width: `${Math.max(2, pct)}%` }} /></div>}
       {(footerLeft != null || footerRight != null) && (
-        <div className="card-foot"><span className="pct">{footerLeft}</span><span>{footerRight}</span></div>
+        <div className="card-foot"><span className="pct">{drillOnly ? '드릴에서 연습' : footerLeft}</span><span>{footerRight}</span></div>
       )}
       {extra}
-      {!disabled && <div className="play-btn">{cta}</div>}
+      {!disabled && <div className="play-btn">{drillOnly ? '드릴' : cta}</div>}
     </button>
   );
 }
@@ -1699,20 +1823,22 @@ function splitRowPrefix(title) {
   return { prefix: null, rest: title };
 }
 
-function BrowseRow({ title, total, pct, answered, isAll, onClick }) {
+function BrowseRow({ title, total, pct, answered, isAll, onClick, drillCount = 0, drillOnly = false }) {
   const { prefix, rest } = splitRowPrefix(title);
   return (
-    <button className={`browse-row${isAll ? ' browse-row--all' : ''}`} onClick={onClick}>
+    <button className={`browse-row${isAll ? ' browse-row--all' : ''}`} onClick={onClick}
+      style={drillOnly ? { opacity: 0.72 } : undefined}>
       <div className="browse-row__main">
-        <div className="browse-row__title">
+        <div className="browse-row__title" style={drillOnly ? { color: '#94a3b8' } : undefined}>
           {prefix && <span className="browse-row__prefix">{prefix}</span>}
           {rest}
+          {drillCount > 0 && <span style={{ marginLeft: 6, fontSize: '0.62rem', fontWeight: 800, color: '#7c3aed', background: '#f5f3ff', border: '1px solid #ede9fe', borderRadius: 6, padding: '1px 6px', verticalAlign: 'middle', whiteSpace: 'nowrap' }}>📝 연습 {drillCount}</span>}
         </div>
         {answered > 0 && <div className="browse-row__bar"><div style={{ width: `${Math.max(2, pct)}%` }} /></div>}
       </div>
       <div className="browse-row__meta">
         {answered > 0 && <span className="browse-row__pct">{pct}%</span>}
-        <span className="browse-row__count">{total}문제</span>
+        <span className="browse-row__count">{drillOnly ? '드릴' : `${total}문제`}</span>
         <span className="browse-row__chev">›</span>
       </div>
     </button>
@@ -1908,6 +2034,32 @@ function GyeomsanWidget() {
           ⚠ 검산으로 실수 잡음
         </button>
       </div>
+      {/* 내 실수 유형 Top — 문제풀이에서 태그한 '왜 틀렸나' 집계 (합격수기: 실수 유형화가 처방의 시작) */}
+      {(() => {
+        const summ = getMistakeSummary();
+        const rows = MISTAKE_TYPES.map((mt) => ({ ...mt, n: summ[mt.key] || 0 })).filter((r) => r.n > 0).sort((a, b) => b.n - a.n);
+        const totalN = rows.reduce((sum, r) => sum + r.n, 0);
+        if (!rows.length) {
+          return <div style={{ marginTop: 12, fontSize: '0.7rem', color: '#9ca3af', lineHeight: 1.5 }}>문제풀이에서 오답에 <b>'왜 틀렸나'</b> 원인을 태그하면, 여기에 내 실수 유형 순위가 쌓여요.</div>;
+        }
+        const top = rows[0];
+        return (
+          <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px dashed #e5e7eb' }}>
+            <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#9f1239', marginBottom: 8 }}>🔎 내 실수 유형 Top — 가장 잦은 <b>{top.icon} {top.label}</b>부터 잡으세요</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {rows.slice(0, 4).map((r) => (
+                <div key={r.key} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span style={{ fontSize: '0.72rem', width: 92, flexShrink: 0, color: '#6b7280', fontWeight: 700 }}>{r.icon} {r.label}</span>
+                  <div style={{ flex: 1, height: 8, background: '#f3f4f6', borderRadius: 999, overflow: 'hidden' }}>
+                    <div style={{ width: `${Math.round((r.n / totalN) * 100)}%`, height: '100%', background: '#fb7185' }} />
+                  </div>
+                  <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#be123c', width: 24, textAlign: 'right' }}>{r.n}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }
@@ -1921,6 +2073,8 @@ const App = () => {
   const [settingsContext, setSettingsContext] = useState('home'); // home | ai | practice | review | status
   // Cmd+K 글로벌 검색 모달
   const [showCmdK, setShowCmdK] = useState(false);
+  const [showMnemonicDeck, setShowMnemonicDeck] = useState(false); // 🔑 두문자 암기덱 오버레이
+  const [showCalcWakku, setShowCalcWakku] = useState(false); // 🧮 경제 계산 와꾸 오버레이
   useScrollLock(showGlobalSettings || showCmdK); // 오버레이 열림 시 배경 스크롤 잠금
   const [aiPrefs, setAiPrefsState] = useState(() => getAiPrefs());
   const openSettings = (ctx) => { setSettingsContext(ctx); setShowGlobalSettings(true); };
@@ -1928,7 +2082,7 @@ const App = () => {
     let ctx = 'home';
     if (currentView === 'civil') ctx = 'ai';
     else if (currentView === 'reviewHome' || currentView === 'today' || currentView === 'review') ctx = 'practice';
-    else if (currentView === 'planner') ctx = 'home';
+    else if (currentView === 'planner' || currentView === 'curriculum') ctx = 'home';
     else if (currentView === 'home') ctx = 'home';
     else ctx = 'practice';
     openSettings(ctx);
@@ -1992,11 +2146,16 @@ const App = () => {
     return findLeafByPath(leavesBySubject[subjId], path);
   }, [leavesBySubject]);
   // AI 학습 탭으로 점프 (특정 leaf 지정 가능)
-  const jumpToAILearn = useCallback((leaf) => {
+  const jumpToAILearn = useCallback((leaf, mode, docTab) => {
     if (leaf) {
       const sid = (leaf.id || '').split('__')[0];
       try { setAiCurrent({ subject: sid, leaf_id: leaf.id }); } catch { /* SSR */ }
     }
+    // 커리큘럼 스텝이 특정 AI 모드·문서탭으로 진입하도록 딥링크 힌트 저장(AILearning이 mount 시 소비).
+    try {
+      if (mode || docTab) localStorage.setItem('ailearn-jump', JSON.stringify({ mode: mode || null, docTab: docTab || null, ts: Date.now() }));
+      else localStorage.removeItem('ailearn-jump');
+    } catch { /* SSR */ }
     setCurrentView('civil');
     window.scrollTo(0, 0);
   }, []);
@@ -2012,6 +2171,8 @@ const App = () => {
     });
   }, [findAiLeafForTax]);
   // ⚡ 드릴 탭으로 점프 (특정 leaf의 주제 목록으로 딥링크) — 오답·약점 → 그 개념 체화
+  // 다중 LLM: 앱 시작 시 1회 — 로컬(Ollama) 감지되면 드릴·생성 역할을 로컬(무료)로 시드
+  useEffect(() => { import('./modelRegistry').then((m) => m.seedRoleDefaults()).catch(() => {}); }, []);
   const [drillJump, setDrillJump] = useState(null); // { subjectId, leafId, ts }
   const jumpToDrill = useCallback((leaf) => {
     if (!leaf?.id) return;
@@ -2137,6 +2298,21 @@ const App = () => {
     };
     r.readAsText(f);
   };
+  const restoreFileRef = useRef(null);
+  const restoreBackup = async () => {
+    // 데스크톱: 네이티브 열기 대화상자. 웹: 숨긴 파일 입력.
+    if (isDesktop()) {
+      try {
+        const text = await loadBackupNative();
+        if (text == null) return; // 취소
+        importUserData(text);
+        toast.success('가져오기 완료 · 새로고침합니다');
+        setTimeout(() => window.location.reload(), 600);
+      } catch (err) { toast.error('복원 실패: ' + (err.message || err)); }
+      return;
+    }
+    restoreFileRef.current?.click();
+  };
   const clearAutoTimer = () => { if (autoTimerRef.current) { clearTimeout(autoTimerRef.current); autoTimerRef.current = null; } };
   const [autoPending, setAutoPending] = useState(false); // 자동 다음 대기 표시
   const [studyOrder, setStudyOrderState] = useState(() => {
@@ -2176,6 +2352,8 @@ const App = () => {
   const [nowTs] = useState(() => Date.now()); // 세션 기준 현재시각(렌더 순수성)
   const [trendDays, setTrendDays] = useState(7); // 학습 추이 기간(7|30)
   const [showDetails, setShowDetails] = useState(false); // 홈 상세 분석 접기/펼치기
+  const [askAIQuery, setAskAIQuery] = useState('');       // askAI 진입 시 자동 질문(커리큘럼 AI 코치 등)
+  const [pendingCheckLeaf, setPendingCheckLeaf] = useState(null); // 학습 후 자동 인출 체크 대상 단원
   const [dailyGoal, setDailyGoalState] = useState(() => {
     try { const n = parseInt(localStorage.getItem('quiz-daily-goal'), 10); return [10, 20, 30, 50].includes(n) ? n : 20; }
     catch { return 20; }
@@ -2461,7 +2639,7 @@ const App = () => {
       if (inField) return;
       if (mod && e.key >= '1' && e.key <= '5') {
         e.preventDefault();
-        const map = { '1': 'home', '2': 'civil', '3': 'quizHome', '4': 'dashboard', '5': 'planner' };
+        const map = { '1': 'home', '2': 'curriculum', '3': 'civil', '4': 'quizHome', '5': 'dashboard', '6': 'planner' };
         const v = map[e.key];
         if (v) { setCurrentView(v); window.scrollTo(0, 0); }
         return;
@@ -2505,6 +2683,7 @@ const App = () => {
   // Process data
   const processedData = useMemo(() => {
     if (loading || !questionsData) return [];
+    const seenStem = new Set(); // [연습문제] 중복 판정 — 같은 문두는 첫 문항만 고품질 후보
     return [...questionsData, ...aigenList].map(q => {
       // V4 분류 정보: Gemini 또는 Claude로 분류되어 mapped_taxonomy가 있고
       // in_scope!==false 인 문제만 전 탭(시험/과목/단원/연도)에 노출.
@@ -2517,6 +2696,17 @@ const App = () => {
       );
 
       const opts = q.options || q.choices || [];
+      // 🏅 연습문제 품질 — [연습문제] 중 선지근거(option_meta) 있고 중복 아니면 고품질(문제풀이),
+      //    아니면 저품질(드릴 연습용). 기출·AI생성 문항은 대상 아님(그대로 문제풀이).
+      const isAigen = q.exam === '[AI생성]' || (q.id && String(q.id).startsWith('aigen-'));
+      const isPracticeQ = !isAigen && (q.source === 'practice' || q.exam === '[연습문제]' || (q.id && String(q.id).startsWith('practice-')));
+      let lowq = false;
+      if (isPracticeQ) {
+        const stem = (q.question || '').slice(0, 60);
+        const first = !seenStem.has(stem); seenStem.add(stem);
+        const hasMeta = Array.isArray(q.option_meta) && q.option_meta.length > 0;
+        lowq = !(hasMeta && first);
+      }
       return {
         ...q,
         year: q.year || '2025',
@@ -2534,6 +2724,7 @@ const App = () => {
         taxChapterName: isClassified ? (mt.chapter || null) : null,
         taxSectionName: isClassified ? (mt.section || null) : null,
         taxItemName: isClassified ? (mt.item || null) : null,
+        lowq,
       };
     });
   }, [loading, questionsData, aigenList]);
@@ -2570,6 +2761,7 @@ const App = () => {
   // browseExam: 둘러보기 상단 모드 픽커 — taxScope 없을 때만 작동(taxScope가 더 구체적)
   const baseFilter = useCallback((item) => {
     if (!item.isClassified) return false;
+    if (item.lowq) return false; // 저품질 연습문제는 문제풀이에서 제외 → 드릴에서 연습용으로
     const isPractice = item.period === 'practice' || item.exam === '[연습문제]'
       || item.source === 'practice' || (item.id && (item.id.startsWith('practice-') || item.id.startsWith('aigen-')));
     // 기출/연습 소스 토글
@@ -2630,7 +2822,7 @@ const App = () => {
           subtitle: '자격시험',
           total: 0,
           weak: false,
-          tag: '기출문제'
+          tag: 'sources/기출문제'
         };
       }
       groups[key].total += 1;
@@ -3051,6 +3243,60 @@ const App = () => {
     [classifiedList, progress, trendDays, dailyGoal]
   );
   // 합격 코치: 전체 데이터 기반 (현황 탭 default + startRecommended 입력)
+
+  // ── 홈 화면이 쓰는 파생값 ──
+  // 실력 점수는 계산이 무거워(과목별 기출 빈도 로딩 포함) 홈에 들어올 때 한 번만 구한다.
+  const [profReport, setProfReport] = useState(null);
+  useEffect(() => {
+    if (currentView !== 'home') return undefined;
+    let alive = true;
+    computeProficiency({ leavesBySubject, classifiedList, progress, qidFn: qid })
+      .then((r) => { if (alive) setProfReport(r); })
+      .catch(() => { /* 점수를 못 구하면 홈은 정답률로 대신 보여준다 */ });
+    return () => { alive = false; };
+  }, [currentView, leavesBySubject, classifiedList, progress]);
+
+  const homeSubjectState = useMemo(() => (
+    leavesBySubject && Object.keys(leavesBySubject).length
+      ? buildSubjectState({ leavesBySubject, classifiedList, progress, qidFn: qid, mastery: getAiMastery() })
+      : null
+  ), [leavesBySubject, classifiedList, progress]);
+
+  const dueDrillCount = useMemo(() => {
+    const c = getDrillCounts();
+    return c.wrong + c.due;
+  }, [currentView, progress]);
+
+  // 합격까지의 여정 — '다음 목표'는 아직 안 지난 것 중 가장 이른 하나뿐이다.
+  const homeJourney = useMemo(() => {
+    const rows = loadJourneyRows();
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = now.getMonth() + 1;
+    let next = null;
+    for (const r of rows) {
+      for (const mk of (r.markers || [])) {
+        if (mk.status === 'passed') continue;
+        if (r.year < y || (r.year === y && mk.month < m)) continue;
+        if (!next || r.year < next.year || (r.year === next.year && mk.month < next.month)) {
+          next = { year: r.year, month: mk.month, id: mk.id, label: mk.label };
+        }
+      }
+    }
+    const marked = rows.map((r) => ({
+      ...r,
+      markers: (r.markers || []).map((mk) => ({
+        ...mk, next: !!(next && next.year === r.year && next.month === mk.month && next.id === mk.id),
+      })),
+    }));
+    const dd = next ? daysUntil(new Date(next.year, next.month - 1, 15).toISOString().slice(0, 10)) : null;
+    return {
+      rows: marked, thisYear: y, thisMonth: m,
+      nextLabel: next ? `다음 ${next.year} ${next.label}까지 ${fmtDday(dd)}` : '',
+      onEdit: () => setCurrentView('planner'),
+    };
+  }, [currentView]);
+
   const coach = useMemo(() => buildCoach(analytics.subjects), [analytics.subjects]);
 
   // 모드(browseExam) 컨텍스트 — set일 때 analytics/coach/coverage를 그 시험만으로 재계산
@@ -3198,6 +3444,28 @@ const App = () => {
     startReview(finalIds, title, 'home');
   };
 
+  // 🩺 레벨 진단 — 과목의 여러 단원에서 미응답 우선으로 넓게 샘플링해 실력을 빠르게 측정.
+  // 결과(정오)는 quiz-progress-v1에 쌓여 학습상태·계획에 자동 반영된다.
+  const startDiagnostic = (subjectId) => {
+    const ID2KOR = { civil: '민법', economics: '경제학원론', accounting: '회계학', realestate: '부동산학원론', law: '감정평가관계법규' };
+    const kor = ID2KOR[subjectId];
+    const subjQs = classifiedList.filter((q) => (q.taxSubjectName || '') === kor);
+    if (!subjQs.length) return;
+    const byUnit = {};
+    for (const q of subjQs) { const u = q.taxChapterName || q.taxSectionName || '기타'; (byUnit[u] = byUnit[u] || []).push(q); }
+    const PER = 2, CAP = 24;
+    let picked = [];
+    for (const u of Object.keys(byUnit)) {
+      const qs = byUnit[u];
+      const unseen = qs.filter((q) => !progress[qid(q)]);
+      const src = unseen.length ? unseen : qs;
+      picked.push(...sampleN(src, Math.min(PER, src.length)).map(qid));
+    }
+    const ids = picked.length > CAP ? sampleN(picked, CAP) : picked;
+    const short = (AI_SUBJECTS.find((s) => s.id === subjectId) || {}).short || kor;
+    if (ids.length) startReview(ids, `${short} 레벨 진단`, 'home');
+  };
+
   // 오늘의 추천(적응형): 합격 임팩트 큰 약점 절 → 약점 과목 오답 → 그 외 오답 → 약점 미학습 → 그 외 미학습
   // examFilter set이면 그 시험 안에서만 추천 (modeCoach 기준)
   const startRecommended = (examFilter = null) => {
@@ -3270,11 +3538,16 @@ const App = () => {
         break;
       case 'study': {
         const target = leaf || (task.subjectId ? (leavesBySubject[task.subjectId] || [])[0] : null);
-        if (target) jumpToAILearn(target);
+        if (target) jumpToAILearn(target, task.mode, task.docTab);
         else { setCurrentView('civil'); window.scrollTo(0, 0); }
         break;
       }
-      case 'solve':
+      case 'solve': {
+        // 단원(leaf)이 지정된 계획 태스크면 그 단원의 기출만 바로 풀기
+        if (!is2 && leaf) {
+          const ids = questionsInLeaf(classifiedList, leaf).map(qid);
+          if (ids.length) { startReview(ids, `${leaf.path?.slice(-1)[0] || subjMeta?.short || ''} 기출`, 'home'); break; }
+        }
         if (is2) { setCurrentView('essay_subjects'); }
         else if (subjMeta?.tax_key) {
           setTaxScope(null); setTaxSubject(subjMeta.tax_key);
@@ -3283,12 +3556,47 @@ const App = () => {
         } else setCurrentView('dashboard');
         window.scrollTo(0, 0);
         break;
+      }
       case 'mock': setCurrentView('mock'); window.scrollTo(0, 0); break;
       case 'essay': setCurrentView('essay_subjects'); window.scrollTo(0, 0); break;
       case 'review': setCurrentView('reviewHome'); window.scrollTo(0, 0); break;
       default: break;
     }
   };
+
+  // 🤖 AI 코치로 이동 — 사전 질문을 담아 askAI 화면을 연다(커리큘럼 일정 맞춤 조정 등)
+  const openAskAIWith = (q) => {
+    setAskAIQuery(q || '');
+    setCurrentView('askAI');
+    window.scrollTo(0, 0);
+  };
+
+  // 🔎 학습 후 자동 인출 체크 — AI 학습을 떠날 때, 방금 공부한 단원이 '체크 대기'면 확인 퀴즈를 띄운다.
+  const prevViewRef = useRef(currentView);
+  useEffect(() => {
+    const prev = prevViewRef.current;
+    prevViewRef.current = currentView;
+    if (prev === 'civil' && currentView !== 'civil' && currentView !== 'study') {
+      try {
+        const cur = JSON.parse(localStorage.getItem('ailearn-current') || 'null');
+        const pend = getPendingChecks();
+        if (cur?.leaf_id && pend[cur.leaf_id]) {
+          const leaf = Object.values(leavesBySubject).flat().find((l) => l.id === cur.leaf_id);
+          if (leaf && questionsInLeaf(classifiedList, leaf).length > 0) setPendingCheckLeaf(leaf);
+          else if (leaf) clearPendingCheck(leaf.id); // 문제 없는 단원은 대기 해제
+        }
+      } catch { /* */ }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentView]);
+  // 체크 시작: 방금 공부한 단원 기출 4문제 인출 → 결과가 진척·SRS·학습도에 자동 반영
+  const runAutoCheck = (leaf) => {
+    clearPendingCheck(leaf.id);
+    setPendingCheckLeaf(null);
+    const ids = sampleN(questionsInLeaf(classifiedList, leaf), 4).map(qid);
+    if (ids.length) startReview(ids, `${leaf.path?.slice(-1)[0] || ''} 인출 체크`, 'home');
+  };
+  const dismissAutoCheck = (leaf) => { clearPendingCheck(leaf.id); setPendingCheckLeaf(null); };
 
   // 오답 복습 시작: 진입 시점의 오답 id를 스냅샷 → 세션 중 목록 안정, 가이드 학습 재사용
   const startReview = (ids, title, backView = 'review') => {
@@ -3298,7 +3606,7 @@ const App = () => {
       review: true,
       backView,                       // 학습 종료 후 복귀할 화면(review | today)
       title,
-      subtitle: backView === 'today' ? '오늘 복습' : backView === 'search' ? '검색 학습' : backView === 'status' ? '북마크 복습' : backView === 'quizHome' ? '랜덤 퀴즈' : '오답 복습',
+      subtitle: backView === 'today' ? '오늘 복습' : backView === 'search' ? '검색 학습' : backView === 'status' ? '북마크 복습' : backView === 'quizHome' ? '드릴 연습' : '오답 복습',
       filterFn: (q) => set.has(qid(q)),
     });
     setStudyIdx(0);
@@ -3435,18 +3743,21 @@ const App = () => {
       || currentView === 'essay_subchapters' || currentView === 'essay_questions'
       || currentView === 'essay_result'
       || currentView === 'essay_cards' || currentView === 'askAI') ? 'home'
-    : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'browse'
-    : currentView === 'quizHome' ? 'quiz'
-    : currentView === 'planner' ? 'planner'
-    : currentView === 'civil' ? 'ai'
-    : 'browse'; // dashboard + tax_* + search(둘러보기 흡수)
+    : (currentView === 'reviewHome' || currentView === 'review' || currentView === 'today') ? 'quiz'
+    : currentView === 'quizHome' ? 'drill'
+    : (currentView === 'planner' || currentView === 'curriculum') ? 'plan'
+    : (currentView === 'proficiency' || currentView === 'stories') ? 'report'
+    : currentView === 'civil' ? 'tutor'
+    : 'quiz'; // dashboard + tax_* + search(둘러보기 흡수)
+  // 탭 키 → 화면. 탭을 6개로 접으면서 커리큘럼은 '계획', 합격수기는 '실력' 아래로 갔다.
+  // 탭을 누르면 각 묶음의 기본 화면으로 간다.
+  const TAB_HOME_VIEW = {
+    home: 'home', plan: 'planner', tutor: 'civil',
+    drill: 'quizHome', quiz: 'dashboard', report: 'proficiency',
+  };
   const goTab = (t) => {
     clearAutoTimer();
-    if (t === 'home') setCurrentView('home');
-    else if (t === 'browse') setCurrentView('dashboard');
-    else if (t === 'quiz') setCurrentView('quizHome');
-    else if (t === 'ai') setCurrentView('civil');
-    else if (t === 'planner') setCurrentView('planner');
+    setCurrentView(TAB_HOME_VIEW[t] || 'home');
     window.scrollTo(0, 0);
   };
 
@@ -3496,34 +3807,92 @@ const App = () => {
     return () => { clearInterval(id); flush(); evs.forEach((e) => window.removeEventListener(e, onActivity)); };
   }, [studyCategory, leavesBySubject]);
 
+  // 탭 6개. 커리큘럼+플래너를 「계획」으로, 합격수기는 「실력」 아래로 접었다.
+  // 접힌 화면은 각 탭 안의 하위 전환(subNav)으로 들어간다 — 탭에서 빼기만 하면
+  // 그 화면들은 진입로가 아예 없어진다(둘 다 탭이 유일한 입구였다).
   const NAV_ITEMS = [
     ['home', House, '홈'],
-    ['ai', Sparkles, 'AI 학습'],
-    ['quiz', Zap, '드릴'],
-    ['browse', Compass, '문제풀이'],
-    ['planner', Calendar, '플래너'],
+    ['plan', CalendarCheck, '계획'],
+    ['tutor', Sparkles, 'AI 학습'],
+    ['drill', Zap, '드릴'],
+    ['quiz', Compass, '문제풀이'],
+    ['report', Gauge, '실력'],
   ];
-  const bottomNav = (
-    <nav className="bottom-nav">
-      {NAV_ITEMS.map(([t, Ico, label]) => {
-        const active = navTab === t;
-        return (
-          <button key={t} className={active ? 'active' : ''}
-            onClick={() => (active ? window.scrollTo({ top: 0, behavior: 'smooth' }) : goTab(t))}>
-            <span className="nav-ico" style={{ position: 'relative' }}>
-              <Ico size={22} strokeWidth={active ? 2.4 : 1.9} />
-              {t === 'browse' && srs.due.length > 0 && (
-                <span className="nav-badge">{srs.due.length > 99 ? '99+' : srs.due.length}</span>
-              )}
-            </span>
+  // 모바일(sm)에서는 5개까지가 390px 한계다. 드릴은 홈 빠른 진입과 문맥 링크로 간다.
+  const MOBILE_NAV = NAV_ITEMS.filter(([t]) => t !== 'drill');
+
+  const navBtn = (t, Ico, label, active) => (
+    <button key={t} className={active ? 'active' : ''} aria-current={active ? 'page' : undefined}
+      title={label} aria-label={label}
+      onClick={() => (active ? window.scrollTo({ top: 0, behavior: 'smooth' }) : goTab(t))}>
+      <span className="nav-ico">
+        <Ico size={21} strokeWidth={active ? 2.2 : 1.7} aria-hidden />
+        {t === 'quiz' && srs.due.length > 0 && (
+          <span className="nav-badge">{srs.due.length > 99 ? '99+' : srs.due.length}</span>
+        )}
+      </span>
+      <span className="nav-label">{label}</span>
+    </button>
+  );
+
+  // 탭에서 접은 화면으로 가는 길. 이게 없으면 커리큘럼·합격수기는 도달 불가가 된다.
+  // 각 화면 컴포넌트를 건드리지 않도록 셸 쪽에서 얹는다.
+  const SUB_TABS = {
+    plan: [['planner', '플래너'], ['curriculum', '커리큘럼']],
+    report: [['proficiency', '실력 리포트'], ['stories', '합격수기']],
+  };
+  const subNav = (() => {
+    const items = SUB_TABS[navTab];
+    if (!items) return null;
+    return (
+      <div className="sub-nav" role="tablist" aria-label={navTab === 'plan' ? '계획' : '실력'}>
+        {items.map(([view, label]) => (
+          <button key={view} role="tab" aria-selected={currentView === view}
+            className={currentView === view ? 'active' : ''}
+            onClick={() => { if (currentView !== view) { setCurrentView(view); window.scrollTo(0, 0); } }}>
             {label}
           </button>
-        );
-      })}
+        ))}
+      </div>
+    );
+  })();
+
+  const bottomNav = (
+    <nav className="bottom-nav" aria-label="주요 화면">
+      {MOBILE_NAV.map(([t, Ico, label]) => navBtn(t, Ico, label, navTab === t))}
+    </nav>
+  );
+
+  const leftRail = (
+    <nav className="app-rail" aria-label="주요 화면">
+      {NAV_ITEMS.map(([t, Ico, label]) => navBtn(t, Ico, label, navTab === t))}
+      <button className="rail-settings" onClick={openContextSettings} title="설정" aria-label="설정">
+        <span className="nav-ico"><Settings size={20} strokeWidth={1.7} aria-hidden /></span>
+        <span className="nav-label">설정</span>
+      </button>
     </nav>
   );
   // 전역 오버레이(컨페티) — 루트/드릴 양쪽에 삽입
-  const overlays = <>{confetti && <Confetti />}</>;
+  // 📝 학습 후 자동 인출 체크 모달
+  const pendingCheckModal = pendingCheckLeaf ? (
+    <>
+      <div onClick={() => dismissAutoCheck(pendingCheckLeaf)}
+        style={{ position: 'fixed', inset: 0, background: 'rgba(15,23,42,0.5)', zIndex: 'var(--z-overlay)', animation: 'fadeIn 0.18s ease-out' }} />
+      <div style={{ position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: 'min(360px, 88vw)', background: '#fff', borderRadius: 18, zIndex: 'var(--z-modal)', boxShadow: '0 20px 50px rgba(0,0,0,0.25)', padding: '22px 20px', textAlign: 'center' }}>
+        <div style={{ fontSize: '2rem', marginBottom: 8 }}>📝</div>
+        <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#111827' }}>방금 공부한 단원, 인출 체크!</div>
+        <div style={{ fontSize: '0.85rem', color: '#6b7280', margin: '6px 0 4px', lineHeight: 1.6 }}>
+          <b style={{ color: '#4338ca' }}>{pendingCheckLeaf.path?.slice(-1)[0] || ''}</b><br />
+          읽었다고 아는 게 아니에요 — 4문제로 확인하면 학습도가 자동 측정돼요
+        </div>
+        <div style={{ display: 'flex', gap: 8, marginTop: 16 }}>
+          <button onClick={() => dismissAutoCheck(pendingCheckLeaf)} style={{ flex: 1, padding: '11px', borderRadius: 10, border: '1px solid #e5e7eb', background: '#fff', color: '#6b7280', fontWeight: 700, fontSize: '0.88rem', cursor: 'pointer' }}>나중에</button>
+          <button onClick={() => runAutoCheck(pendingCheckLeaf)} style={{ flex: 1.4, padding: '11px', borderRadius: 10, border: 'none', background: 'linear-gradient(135deg,#4f46e5,#7c3aed)', color: '#fff', fontWeight: 800, fontSize: '0.88rem', cursor: 'pointer' }}>✓ 체크 시작</button>
+        </div>
+      </div>
+    </>
+  ) : null;
+  const overlays = <>{confetti && <Confetti />}{pendingCheckModal}</>;
   // 글로벌 설정 플로팅 드로어 — 우측에서 슬라이드
   const globalSettingsDrawer = showGlobalSettings ? (
     <>
@@ -3599,7 +3968,7 @@ const App = () => {
                             <label key={label} style={{ flex: 1, fontSize: '0.74rem', color: '#9ca3af' }}>
                               {label} <span style={{ fontSize: '0.66rem' }}>({hint})</span>
                               <input type="date" value={examDates[key] || ''}
-                                onChange={(e) => setExamDates(key, e.target.value)}
+                                onChange={(e) => setExamDate(key, e.target.value)}
                                 style={{ width: '100%', padding: '6px 8px', marginTop: 2,
                                   border: '1px solid #d1d5db', borderRadius: 6, fontSize: '0.85rem' }} />
                             </label>
@@ -3611,6 +3980,41 @@ const App = () => {
                       <div style={{ display: 'flex', gap: 4 }}>
                         {[10, 20, 30, 50].map((g) => <Pill key={g} on={dailyGoal === g} label={`${g}문제`} onClick={() => setDailyGoal(g)} />)}
                       </div>
+                    </Section>
+                    <Section title="🤖 AI 모델" desc="AI 학습·드릴이 이 모델을 씁니다. 앤트로픽은 브라우저 직호출.">
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                        {[
+                          { group: 'Anthropic — 브라우저 직호출', items: [
+                            ['claude-sonnet-4-6', '🎯 Sonnet 4.6 (균형·권장)'],
+                            ['claude-haiku-4-5-20251001', '⚡ Haiku 4.5 (빠름·저렴)'],
+                            ['claude-opus-4-7', '🧠 Opus 4.7 (최고품질)'],
+                          ] },
+                          { group: 'OpenAI — 프록시 필요', items: [
+                            ['gpt-5.4', '🔵 GPT-5.4'],
+                            ['gpt-5.4-mini', '🔵 GPT-5.4 mini (저렴)'],
+                          ] },
+                          { group: 'Google — 일부 직호출', items: [
+                            ['gemini-3.5-flash', '🟢 Gemini 3.5 Flash'],
+                            ['gemini-3.1-flash-lite', '🟢 Flash Lite (저렴)'],
+                          ] },
+                        ].map((grp) => (
+                          <div key={grp.group}>
+                            <div style={{ fontSize: '0.7rem', color: '#9ca3af', fontWeight: 700, marginBottom: 4 }}>{grp.group}</div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                              {grp.items.map(([v, l]) => (
+                                <button key={v} onClick={() => { const next = setAiPrefs({ model: v }); setAiPrefsState(next); }}
+                                  style={{ padding: '8px 10px', textAlign: 'left', borderRadius: 8, cursor: 'pointer', fontSize: '0.85rem', fontWeight: 700,
+                                    border: aiPrefs.model === v ? '1.5px solid #2563eb' : '1px solid #d1d5db',
+                                    background: aiPrefs.model === v ? '#eff6ff' : '#fff',
+                                    color: aiPrefs.model === v ? '#1d4ed8' : '#374151' }}>{l}</button>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </Section>
+                    <Section title="🔑 API 키" desc="키를 넣으면 AI 학습·드릴이 작동합니다. 현재 활성 표시됨.">
+                      <ApiKeysWidget activeProvider={getProviderForModel(aiPrefs.model)} onChange={() => setAiPrefsState({ ...aiPrefs })} />
                     </Section>
                   </>
                 )}
@@ -3834,20 +4238,13 @@ const App = () => {
                       border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>
                     📥 백업 다운로드
                   </button>
-                  <label style={{ display: 'block', width: '100%', padding: '10px', background: '#fff', color: '#1e40af',
-                    border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', textAlign: 'center' }}>
+                  <button onClick={restoreBackup}
+                    style={{ display: 'block', width: '100%', padding: '10px', background: '#fff', color: '#1e40af',
+                      border: '1px solid #c7d2fe', borderRadius: 8, fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', textAlign: 'center' }}>
                     📤 백업 복원
-                    <input type="file" accept="application/json" style={{ display: 'none' }}
-                      onChange={(e) => {
-                        const f = e.target.files?.[0]; if (!f) return;
-                        const r = new FileReader();
-                        r.onload = () => {
-                          try { importUserData(String(r.result)); toast.success('가져오기 완료 · 새로고침합니다'); setTimeout(() => window.location.reload(), 600); }
-                          catch (err) { toast.error('형식 오류: ' + err.message); }
-                        };
-                        r.readAsText(f);
-                      }} />
-                  </label>
+                  </button>
+                  <input ref={restoreFileRef} type="file" accept="application/json" style={{ display: 'none' }}
+                    onChange={onImportFile} />
                 </Section>
 
                 {/* 프로필 진입 */}
@@ -3886,10 +4283,17 @@ const App = () => {
     </button>
   );
 
+  // 셸 — 가로 flex. 640px 이상은 좌측 레일, 미만은 하단 탭바.
+  // 어느 쪽을 띄울지는 CSS 가 정한다(.app-rail / .bottom-nav 의 display).
+  // JS 로 고르면 창을 줄이는 순간 둘 다 안 보이거나 둘 다 보이는 구간이 생긴다.
   const shell = (content, extraClass = '') => (
     <div className={`app-shell with-nav${extraClass ? ' ' + extraClass : ''}`}>
-      {content}
-      {/* 홈은 banner에 자체 ⚙️ 버튼이 있어 FAB 중복 노출 회피.
+      {leftRail}
+      <div className="app-main">
+        {subNav}
+        {content}
+      </div>
+      {/* 홈은 자체 설정 진입이 있어 FAB 중복 노출 회피.
           askAI는 우상단 '지우기' 버튼과 FAB(right:14)가 겹쳐 탭이 가로채지므로 제외. */}
       {currentView !== 'home' && currentView !== 'civil' && currentView !== 'askAI' && !showGlobalSettings && globalSettingsFab}
       {globalSettingsDrawer}
@@ -3937,6 +4341,8 @@ const App = () => {
           }
         }}
       />
+      {showMnemonicDeck && <MnemonicDeck onClose={() => setShowMnemonicDeck(false)} />}
+      {showCalcWakku && <CalcWakku onClose={() => setShowCalcWakku(false)} />}
     </div>
   );
 
@@ -4079,6 +4485,8 @@ const App = () => {
   // ✨ 홈 AI 전체 검색 — 모르는 건 뭐든지
   if (currentView === 'askAI') {
     return shell(<AskAI onBack={() => setCurrentView('home')}
+      initialQuery={askAIQuery}
+      onConsumeInitial={() => setAskAIQuery('')}
       classifiedList={classifiedList}
       leaves={Object.values(leavesBySubject).flat()}
       onSolveQuestions={(qs) => startReview(qs.map(qid), 'AI 질문 관련 기출', 'askAI')}
@@ -4506,6 +4914,14 @@ const App = () => {
         <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '4px' }}>{subtitle}</div>
         <h1 className="screen-title">{title}</h1>
       </div>
+      {currentView === 'tax_subjects' && (
+        <div style={{ padding: '0 20px 10px' }}>
+          <button onClick={() => setCurrentView('exam_analysis')}
+            style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, fontSize: '0.84rem', fontWeight: 800, color: '#4361ee', background: '#eef1fe', border: '1px solid #c6cefb', borderRadius: 10, padding: '11px', cursor: 'pointer' }}>
+            📊 과목별 기출 출제경향 분석
+          </button>
+        </div>
+      )}
       {['tax_chapters', 'tax_sections', 'tax_items'].includes(currentView) && (
         <div style={{ padding: '0 20px', display: 'flex', gap: 4, background: 'transparent' }}>
           <div style={{ display: 'inline-flex', gap: 4, background: 'var(--primary-light)', padding: 3, borderRadius: 10, border: '1px solid var(--border-color)' }}>
@@ -4589,6 +5005,19 @@ const App = () => {
   if (currentView === 'tax_sections' && taxChapter) return renderStudyGrid(`${scopePrefix}${taxChapter}`, '절(Section) 선택', taxSectionGroups);
   if (currentView === 'tax_items' && taxSection) return renderStudyGrid(`${scopePrefix}${taxSection}`, '관(Item) 선택', taxItemGroups);
 
+  // 📊 기출 분석 — 과목별 출제경향(빈출 단원·유형·난이도·연도·개념)
+  if (currentView === 'exam_analysis') {
+    return <ExamAnalysis
+      onBack={() => setCurrentView('dashboard')}
+      onGoChapter={(sid, chapterName) => {
+        const meta = AI_SUBJECTS.find((s) => s.id === sid);
+        const taxKey = meta?.tax_key; if (!taxKey) return;
+        const ids = classifiedList.filter((q) => q.exam === PRIMARY_EXAM && q.taxSubjectName === taxKey && q.taxChapterName === chapterName).map(qid);
+        if (ids.length) startReview(ids, `${chapterName} 기출`, 'exam_analysis');
+      }}
+    />;
+  }
+
   // 시각자료 갤러리 — 모든 view 위에 오버레이
   if (showVizGallery) {
     return <VizGallery onClose={() => {
@@ -4603,7 +5032,7 @@ const App = () => {
 
   if (loading) {
     const stage = loadPct < 5 ? '시험 목록 확인 중'
-      : loadPct < 100 ? `기출문제 ${loadPct}% 받는 중 (13시험 동시 다운로드)`
+      : loadPct < 100 ? `sources/기출문제 ${loadPct}% 받는 중 (13시험 동시 다운로드)`
       : '정리하는 중…';
     return (
       <div className="boot">
@@ -4877,6 +5306,55 @@ const App = () => {
   // ===== 스터디 플래너 탭 — 월간 캘린더 =====
   if (currentView === 'planner') {
     return shell(<StudyPlanner examDates={examDates} primaryExam={PRIMARY_EXAM} leavesBySubject={leavesBySubject} onOpenTask={openPlannerTask} />);
+  }
+
+  // ===== 🏆 합격수기 열람 — 정독·구조화한 실제 합격자 수기 =====
+  if (currentView === 'stories') {
+    return shell(<PassStories onBack={() => setCurrentView('home')} />);
+  }
+
+  // ===== 📊 실력 리포트 — AI 학습·드릴·문제풀이 종합 진단 =====
+  if (currentView === 'proficiency') {
+    return shell(
+      <Proficiency
+        ctx={{ leavesBySubject, classifiedList, progress, qidFn: qid }}
+        onBack={() => setCurrentView('home')}
+        onGoDrill={(subjectId, leaf) => { setDrillJump({ subjectId, leafId: leaf.id }); setCurrentView('quizHome'); window.scrollTo(0, 0); }}
+        onGoQuiz={() => { setCurrentView('dashboard'); window.scrollTo(0, 0); }}
+        onReview={(ids, title) => { if (ids && ids.length) startReview(ids, title || '약점 진단 다시풀기', 'proficiency'); }}
+        onOpen={(task) => openPlannerTask(task)}
+      />
+    );
+  }
+
+  // ===== 🎓 합격 커리큘럼 — 합격수기 기반 단계별 로드맵 =====
+  if (currentView === 'curriculum') {
+    // 실측 지표 — 커리큘럼 마일스톤 자동 체크용(과목별 AI 커버리지·기출 풀이·정답률 + 모의·복습)
+    const cMetrics = (() => {
+      const KOR2ID = { '민법': 'civil', '경제학원론': 'economics', '부동산학원론': 'realestate', '감정평가관계법규': 'law', '회계학': 'accounting' };
+      const aiMastery = getAiMastery();
+      const bySubject = {};
+      for (const sid of Object.values(KOR2ID)) {
+        const leaves = leavesBySubject[sid] || [];
+        const cov = leaves.length ? leaves.reduce((a, l) => a + (aiMastery[l.id]?.coverage || 0), 0) / leaves.length : 0;
+        bySubject[sid] = { aiCov: cov, answered: 0, correct: 0, total: 0 };
+      }
+      for (const q of classifiedList) {
+        if (q.exam !== PRIMARY_EXAM) continue;
+        const sid = KOR2ID[q.taxSubjectName];
+        if (!sid) continue;
+        const b = bySubject[sid];
+        b.total++;
+        const p = progress[qid(q)];
+        if (p && (p.correct === true || p.correct === false)) { b.answered++; if (p.correct === true) b.correct++; }
+      }
+      let mockCount = 0;
+      try { mockCount = (JSON.parse(localStorage.getItem('quiz-mock-history') || '[]') || []).length; } catch { /* */ }
+      const reviewDue = (srs?.due?.length || 0) + getAiDue().length;
+      return { bySubject, mockCount, reviewDue };
+    })();
+    const cLearnCtx = { leavesBySubject, classifiedList, progress, qidFn: qid, mastery: getAiMastery() };
+    return shell(<Curriculum examDates={examDates} primaryExam={PRIMARY_EXAM} onOpenTask={openPlannerTask} onAskAI={openAskAIWith} onDiagnostic={startDiagnostic} metrics={cMetrics} learnCtx={cLearnCtx} />);
   }
 
   // ===== 홈 '상세 분석' 렌더 (구 현황 탭 내용) — showDetails 토글로 펼침 =====
@@ -5327,7 +5805,7 @@ const App = () => {
                       display: 'flex', flexDirection: 'column', gap: 6,
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <span style={{ fontSize: '1.1rem' }}>{s.icon}</span>
+                        <SubjectIcon id={s.id} size={16} color="#8B95A1" style={{ verticalAlign: '-3px' }} />
                         <span style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '0.9rem' }}>{s.short}</span>
                         <span style={{ marginLeft: 'auto', fontSize: '0.62rem', fontWeight: 700, color: '#4338ca',
                           background: '#eef2ff', padding: '2px 6px', borderRadius: 999, border: '1px solid #c7d2fe' }}>
@@ -5855,506 +6333,106 @@ const App = () => {
 
   // ===== 홈 탭 =====
   if (currentView === 'home') {
+    // 홈은 「지금 뭘 하지」에 답하는 화면이다. 상세 지표는 별도 화면으로 뺀다.
+    const d1 = daysUntil(examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM]);
+    const d2 = daysUntil(examDates[`${PRIMARY_EXAM}_2차`]);
+    const near = [{ label: '1차', d: d1 }, { label: '2차', d: d2 }]
+      .filter((x) => x.d != null && x.d >= 0).sort((a, b) => a.d - b.d)[0];
+
+    // 지금 할 일 — 우선순위: 기출 SRS → AI 복습 → 약점 → 이어풀기
+    const aiDueLocal = getAiDue();
+    const weak0 = (modeAnalytics ? modeAnalytics.weak[0] : null) || analytics.weak[0];
+    let nowTask;
+    if (srs.due.length > 0) {
+      const sName = (AI_SUBJECTS.find((s) => s.id === srs.due[0]?.subjectId) || {}).title;
+      nowTask = { label: '지금 할 일', title: `기출 복습 ${srs.due.length}문항`,
+        desc: `${sName ? sName + ' · ' : ''}기억 곡선이 도래했어요 — 지금이 가장 잘 외워질 때예요`,
+        cta: '복습 시작', minutes: Math.max(5, Math.round(srs.due.length * 0.8)),
+        onGo: () => setCurrentView('today') };
+    } else if (aiDueLocal.length > 0) {
+      nowTask = { label: '지금 할 일', title: `AI 학습 복습 ${aiDueLocal.length}단원`,
+        desc: '배운 단원의 복습 시점이 됐어요',
+        cta: '복습 시작', minutes: Math.max(5, aiDueLocal.length * 6),
+        onGo: () => setCurrentView('civil') };
+    } else if (weak0) {
+      nowTask = { label: '지금 할 일', title: `약점 보강 · ${weak0.label || weak0.name || '취약 단원'}`,
+        desc: '정답률이 낮은 단원부터 끌어올리는 게 가장 빠릅니다',
+        cta: '문제 풀기', minutes: 20, onGo: () => setCurrentView('dashboard') };
+    } else {
+      nowTask = { label: '지금 할 일', title: '오늘 학습 시작하기',
+        desc: '복습 대기가 없어요 — 새 단원을 진행할 차례입니다',
+        cta: '이어서 학습', minutes: 25, onGo: () => setCurrentView('civil') };
+    }
+
+    // 과목 현황 — 실력 점수(0~100, 합격선 60). 아직 못 구했으면 정답률로 대신한다.
+    const subjRows = AI_SUBJECTS.filter((s) => s.stage === 1).map((s) => {
+      const pr = profReport && profReport.subjects ? profReport.subjects[s.id] : null;
+      const st = homeSubjectState ? homeSubjectState[s.id] : null;
+      // 아직 한 번도 안 건드린 과목은 0점이 아니라 '모름'이다.
+      // 0으로 두면 시작도 안 한 과목이 전부 과락 경고로 뜬다.
+      const measured = pr && (pr.quizN > 0 || (pr.buckets && pr.buckets.untouched < pr.buckets.total));
+      const score = measured ? pr.score : (st && st.avgAccuracy != null ? st.avgAccuracy : null);
+      return { id: s.id, name: s.title, shortName: SUBJECT_SHORT[s.id] || s.short,
+        score, danger: score != null && score < 40 };
+    });
+    // 점수가 하나도 없으면 눈금만 남은 빈 막대를 5줄 세우지 않는다.
+    const emptyHint = subjRows.every((r) => r.score == null)
+      ? '아직 푼 문항이 없어요. 문제풀이에서 시작하면 과목별 실력이 여기 쌓입니다.' : null;
+
+    // 과락 배너는 화면당 하나. 가장 낮은 과목만 쓰고 나머지는 "외 N과목"으로 붙인다.
+    const risk = subjRows.filter((r) => r.danger).sort((a, b) => a.score - b.score);
+    const josa = (w, withB, without) => {
+      const c = (w || '').trim().slice(-1).charCodeAt(0);
+      if (!(c >= 0xac00 && c <= 0xd7a3)) return without;
+      return (c - 0xac00) % 28 ? withB : without;
+    };
+    const riskNote = risk.length ? (() => {
+      const head = risk[0].name;
+      const more = risk.length > 1 ? ` 외 ${risk.length - 1}과목` : '';
+      return `${head}${more}${josa(more || head, '이', '가')} 과락 구간입니다.`
+        + (d1 != null && d1 >= 0 ? ` 남은 ${d1}일 중 ${head}에 배분된 시간이 부족해요.` : '');
+    })() : null;
+
+    // 부제는 실제 값이 있을 때만. 자리채움 문구를 넣지 않는다.
+    const quick = [
+      { key: 'tutor', title: 'AI 학습', desc: aiDueLocal.length ? `복습 ${aiDueLocal.length}단원 도래` : null,
+        onGo: () => setCurrentView('civil') },
+      { key: 'drill', title: '드릴', desc: dueDrillCount ? `주제 ${dueDrillCount}개 도래` : null,
+        onGo: () => setCurrentView('quizHome') },
+      { key: 'quiz', title: '문제풀이', desc: srs.due.length ? `복습 ${srs.due.length}문항 대기` : null,
+        onGo: () => setCurrentView('dashboard') },
+      { key: 'plan', title: '계획', desc: null, onGo: () => setCurrentView('planner') },
+    ];
+
     return shell(
-    <div className="app-container">
-      <div className="banner">
-        <div style={{ position: 'absolute', right: '16px',
-          top: 'calc(env(safe-area-inset-top, 0px) + 14px)', zIndex: 20, /* banner-content(z10)에 가리지 않게 */
-          display: 'flex', gap: '8px' }}>
-          <button aria-label="검색" onClick={() => setShowCmdK(true)} title="검색 (⌘K)"
-            style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
-              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
-              display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            🔍
-          </button>
-          <button aria-label={authUser ? `프로필 (아이디 ${authCode} 로그인됨)` : '프로필 (로그인 안 됨)'}
-            onClick={() => setCurrentView('profile')}
-            style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
-              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem', position: 'relative',
-              display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            👤
-            {authUser && <span style={{ position: 'absolute', right: 2, bottom: 2, width: 11, height: 11,
-              borderRadius: '50%', background: '#34d399', border: '2px solid #fff' }} />}
-          </button>
-          <button aria-label="설정" onClick={() => openSettings('home')}
-            style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer',
-              background: 'rgba(255,255,255,0.28)', color: '#fff', fontSize: '1.2rem',
-              display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            ⚙️
-          </button>
-        </div>
-        <div className="banner-content">
-          <div className="banner-title">{PRIMARY_EXAM} 합격 트랙</div>
-          <p style={{ marginTop: '6px', opacity: 0.85, fontSize: '0.9rem', fontWeight: 500 }}>
-            {nickname ? `${nickname}님, 오늘도 한 걸음 더` : '오늘도 한 걸음 더'}
-          </p>
-          <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-            <StreakBadge compact />
-            {(() => {
-              // 시험일 — 가장 임박한 미래 시험 하나만 D-237 식으로 간단 표기
-              const d1 = daysUntil(examDates[`${PRIMARY_EXAM}_1차`] || examDates[PRIMARY_EXAM]);
-              const d2 = daysUntil(examDates[`${PRIMARY_EXAM}_2차`]);
-              const near = [{ label: '1차', d: d1 }, { label: '2차', d: d2 }]
-                .filter((x) => x.d != null && x.d >= 0).sort((a, b) => a.d - b.d)[0];
-              return (
-                <button onClick={() => openSettings('home')}
-                  title="시험일 설정"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 5,
-                    background: 'rgba(255,255,255,0.28)', border: '1px solid rgba(255,255,255,0.3)',
-                    borderRadius: 999, padding: '4px 11px', color: '#fff', cursor: 'pointer',
-                    fontSize: '0.82rem', fontWeight: 700 }}>
-                  📅 {near ? `${near.label} ${fmtDday(near.d)}` : '시험일 등록'}
-                </button>
-              );
-            })()}
-          </div>
-        </div>
-      </div>
-
-      <main className="main-content">
-        {/* 🗺️ 합격까지의 여정 타임라인 — 연도별 12칸(월) 그리드 + 1차/2차 마커 */}
-        <JourneyTimeline />
-        {/* 오늘 할 일 — 4탭 통합 액션 (우선순위: SRS 기출 → AI 복습 → 약점 → 추천) */}
-        {(() => {
-          const aiDueLocal = getAiDue();
-          const modeWeak = modeAnalytics ? modeAnalytics.weak[0] : null;
-          const w0 = modeWeak || analytics.weak[0];
-          let act;
-          if (srs.due.length > 0) {
-            act = { tag: '🔁 기출 복습', title: `오늘 복습 ${srs.due.length}문제`,
-              desc: '기억 곡선이 도래했어요 · 지금이 가장 잘 외워질 때',
-              go: () => setCurrentView('today') };
-          } else if (aiDueLocal.length > 0) {
-            const firstLeaf = Object.values(leavesBySubject).flat().find((l) => l.id === aiDueLocal[0].code);
-            const leafName = firstLeaf ? firstLeaf.path.slice(-1)[0] : '단원';
-            act = { tag: '🎓 AI 복습', title: `AI 학습 복습 ${aiDueLocal.length}단원`,
-              desc: `${leafName} 등 마스터 단원 SRS 도래`,
-              go: () => firstLeaf ? jumpToAILearn(firstLeaf) : jumpToAILearn(null) };
-          } else if (w0) {
-            const prefix = browseExam ? `${browseExam} · ` : '';
-            act = { tag: '🔥 약점 보강', title: `${prefix}${w0.name} 집중`,
-              desc: `현재 정답률 ${w0.acc}% — 약한 곳부터 끌어올려요`,
-              go: () => startConcept(w0.name, `${prefix}${w0.name} 집중 학습`, browseExam || null) };
-          } else {
-            const prefix = browseExam ? `${browseExam} ` : '오늘의 ';
-            act = { tag: '✨ 추천', title: `${prefix}추천 ${dailyGoal}문제`,
-              desc: '미학습 위주로 골라 담았어요 · 한 번에 시작',
-              go: () => startRecommended(browseExam || null) };
-          }
-          return (
-            <button onClick={act.go} className="todo-hero">
-              <span className="todo-tag">{act.tag}</span>
-              <span className="todo-title">{act.title}</span>
-              <span className="todo-desc">{act.desc}</span>
-              <span className="todo-cta">바로 시작하기 →</span>
+      <div className="app-container">
+        {showDetails ? (
+          <div className="home-col">
+            <button onClick={() => setShowDetails(false)}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', minHeight: 44,
+                padding: '0 2px', fontSize: 'var(--text-sm)', color: 'var(--accent-ink)' }}>
+              ← 홈으로
             </button>
-          );
-        })()}
-
-        {/* ✨ AI 전체 검색 — 모르는 건 뭐든지 */}
-        <button onClick={() => setCurrentView('askAI')}
-          style={{ width: '100%', marginBottom: 14, padding: '14px 16px', borderRadius: 14,
-            border: '1.5px solid #c7d2fe', cursor: 'pointer', textAlign: 'left',
-            background: 'linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%)',
-            display: 'flex', alignItems: 'center', gap: 12,
-            boxShadow: '0 2px 10px rgba(79,70,229,0.10)' }}>
-          <span style={{ fontSize: '1.5rem' }}>✨</span>
-          <span style={{ flex: 1 }}>
-            <span style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: '#3730a3' }}>
-              모르는 건 뭐든지 물어보세요
-            </span>
-            <span style={{ display: 'block', fontSize: '0.76rem', color: '#6b7280', marginTop: 2 }}>
-              개념·산식·조문·판례 — 과목 선택 없이 AI가 바로 답해요
-            </span>
-          </span>
-          <span style={{ color: '#4f46e5', fontWeight: 800 }}>→</span>
-        </button>
-
-        {/* ⚡ 4탭 빠른 진입 — AI학습·문제풀이·복습·현황 통합 허브 */}
-        {(() => {
-          const aiMastery = getAiMastery();
-          const aiDueArr = getAiDue();
-          const aiCur = (() => {
-            try { return JSON.parse(localStorage.getItem('ailearn-current') || 'null'); } catch { return null; }
-          })();
-          const allLeavesFlat = Object.values(leavesBySubject).flat();
-          const aiCurLeaf = aiCur ? allLeavesFlat.find((l) => l.id === aiCur.leaf_id) : null;
-          const aiMastered = Object.values(aiMastery).filter((m) => m?.status === 'mastered').length;
-          return (
-            <section style={{ marginBottom: 14 }}>
-              <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#111827', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 6 }}>
-                ⚡ 빠른 진입
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-                {/* 🤖 AI 학습 */}
-                <button
-                  onClick={() => setCurrentView('civil')}
-                  style={{
-                    padding: 14, textAlign: 'left', cursor: 'pointer',
-                    background: 'linear-gradient(160deg, #eef2ff 0%, #ffffff 100%)',
-                    border: '1px solid #c7d2fe', borderRadius: 12,
-                    display: 'flex', flexDirection: 'column', gap: 4,
-                  }}>
-                  <div style={{ fontSize: '1.3rem' }}>🤖</div>
-                  <div style={{ fontWeight: 800, color: '#1e3a8a', fontSize: '1rem' }}>AI 학습</div>
-                  <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
-                    {aiCurLeaf ? `이어서: ${aiCurLeaf.path.slice(-1)[0]}` : '단원 선택 후 대화 시작'}
-                  </div>
-                  <div style={{ fontSize: '0.72rem', color: '#475569', marginTop: 2 }}>
-                    마스터 {aiMastered}{aiDueArr.length > 0 ? ` · 🔁 ${aiDueArr.length}` : ''}
-                  </div>
-                </button>
-                {/* 📚 문제풀이 */}
-                <button
-                  onClick={() => setCurrentView('dashboard')}
-                  style={{
-                    padding: 14, textAlign: 'left', cursor: 'pointer',
-                    background: 'linear-gradient(160deg, #ecfdf5 0%, #ffffff 100%)',
-                    border: '1px solid #a7f3d0', borderRadius: 12,
-                    display: 'flex', flexDirection: 'column', gap: 4,
-                  }}>
-                  <div style={{ fontSize: '1.3rem' }}>📚</div>
-                  <div style={{ fontWeight: 800, color: '#065f46', fontSize: '1rem' }}>문제풀이</div>
-                  <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
-                    {overall.answered > 0 ? `${overall.answered}/${overall.total} 풀이` : '8과목 기출 풀이'}
-                  </div>
-                  <div style={{ fontSize: '0.72rem', color: '#475569', marginTop: 2 }}>
-                    {coach?.skillAcc != null ? `정답률 ${coach.skillAcc}%` : '학습 시작'}
-                  </div>
-                </button>
-                {/* 🔁 복습 */}
-                <button
-                  onClick={() => { setReviewSubject(null); setCurrentView('dashboard'); }}
-                  style={{
-                    padding: 14, textAlign: 'left', cursor: 'pointer',
-                    background: srs.due.length > 0 || aiDueArr.length > 0
-                      ? 'linear-gradient(160deg, #fef3c7 0%, #ffffff 100%)'
-                      : 'linear-gradient(160deg, #f9fafb 0%, #ffffff 100%)',
-                    border: srs.due.length > 0 || aiDueArr.length > 0 ? '1px solid #fcd34d' : '1px solid #e5e7eb',
-                    borderRadius: 12,
-                    display: 'flex', flexDirection: 'column', gap: 4,
-                  }}>
-                  <div style={{ fontSize: '1.3rem' }}>🔁</div>
-                  <div style={{ fontWeight: 800, color: srs.due.length > 0 || aiDueArr.length > 0 ? '#92400e' : '#374151', fontSize: '1rem' }}>
-                    복습
-                  </div>
-                  <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
-                    {srs.due.length > 0 || aiDueArr.length > 0
-                      ? `기출 ${srs.due.length} · AI ${aiDueArr.length}단원`
-                      : '복습 만기 없음'}
-                  </div>
-                  <div style={{ fontSize: '0.72rem', color: '#475569', marginTop: 2 }}>
-                    🔥 {analytics.streak}일 연속
-                  </div>
-                </button>
-                {/* 📅 플래너 */}
-                <button
-                  onClick={() => setCurrentView('planner')}
-                  style={{
-                    padding: 14, textAlign: 'left', cursor: 'pointer',
-                    background: 'linear-gradient(160deg, #fce7f3 0%, #ffffff 100%)',
-                    border: '1px solid #fbcfe8', borderRadius: 12,
-                    display: 'flex', flexDirection: 'column', gap: 4,
-                  }}>
-                  <div style={{ fontSize: '1.3rem' }}>📅</div>
-                  <div style={{ fontWeight: 800, color: '#9d174d', fontSize: '1rem' }}>플래너</div>
-                  <div style={{ fontSize: '0.78rem', color: '#1f2937', fontWeight: 600 }}>
-                    월간 학습 계획
-                  </div>
-                  <div style={{ fontSize: '0.72rem', color: '#475569', marginTop: 2 }}>
-                    날짜별 할 일 관리
-                  </div>
-                </button>
-              </div>
-            </section>
-          );
-        })()}
-
-        {/* 감정평가사 1차 5과목 합격 준비도 — 단일 시험 multi-subject gauge */}
-        {(() => {
-          // 감정평가사 시험만 필터해서 과목별 readiness 계산
-          const subjStats = {};
-          for (const q of classifiedList) {
-            if (q.exam !== PRIMARY_EXAM) continue;
-            const sName = q.taxSubjectName || '기타';
-            const s = subjStats[sName] || (subjStats[sName] = { total: 0, scored: 0, correct: 0 });
-            s.total++;
-            const p = progress[qid(q)];
-            if (!p) continue;
-            if (p.correct === true || p.correct === false) {
-              s.scored++; if (p.correct === true) s.correct++;
-            }
-          }
-          // 1차 표준 5과목 + 데이터에 실제로 있는 과목만 표시
-          const subjects = APPRAISER_1ST_SUBJECTS.filter(name => (subjStats[name]?.total || 0) > 0);
-          if (subjects.length === 0) return null;
-          return (
-            <section style={{ background: '#fff', borderRadius: 16, padding: 16,
-              boxShadow: 'var(--shadow-md)', marginBottom: 14 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between',
-                alignItems: 'baseline', marginBottom: 12 }}>
-                <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827' }}>
-                  🎯 1차 5과목 진척 <b style={{ color: 'var(--primary)', fontSize: '0.78rem' }}>합격선 {COACH_TARGET}%</b>
-                </span>
-                <button onClick={() => setShowDetails(true)}
-                  style={{ fontSize: '0.72rem', color: '#1d4ed8',
-                    background: 'none', border: 'none', cursor: 'pointer', fontWeight: 700 }}>
-                  상세 분석 →
-                </button>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
-                {subjects.map(name => {
-                  const v = subjStats[name];
-                  const has = v && v.scored >= 5;
-                  const acc = has ? Math.round((v.correct / v.scored) * 100) : null;
-                  const cov = v.total ? Math.round((v.scored / v.total) * 100) : 0;
-                  const pct = has ? Math.min(100, Math.round((acc / COACH_TARGET) * 100)) : 0;
-                  const color = !has ? '#d1d5db'
-                    : acc >= COACH_TARGET ? '#16a34a'
-                    : acc >= 55 ? '#2563eb'
-                    : acc >= 40 ? '#ea580c'
-                    : '#dc2626';
-                  const verdict = !has ? `학습 ${cov}% · 시작 →`
-                    : acc >= COACH_TARGET ? '안정권'
-                    : acc >= 55 ? '근접'
-                    : acc >= 40 ? '보강 필요'
-                    : '집중 학습';
-                  return (
-                    <button key={name}
-                      onClick={() => startConcept(name, `${name} 집중`, PRIMARY_EXAM)}
-                      style={{ display: 'flex', alignItems: 'center', gap: 10,
-                        padding: '8px 10px', borderRadius: 10,
-                        border: '1px solid transparent', background: 'transparent',
-                        cursor: 'pointer', textAlign: 'left' }}>
-                      <div style={{ minWidth: 110 }}>
-                        <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#374151' }}>
-                          {name}
-                        </div>
-                        <div style={{ fontSize: '0.68rem', color: '#9ca3af', marginTop: 1 }}>
-                          {v.scored}/{v.total}문제
-                        </div>
-                      </div>
-                      <div style={{ flex: 1, position: 'relative' }}>
-                        <div style={{ height: 8, background: '#f3f4f6',
-                          borderRadius: 4, overflow: 'hidden' }}>
-                          <div style={{ width: `${pct}%`, height: '100%',
-                            background: color, transition: 'width 0.3s' }} />
-                        </div>
-                        <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: 3 }}>
-                          {verdict}
-                        </div>
-                      </div>
-                      <div style={{ minWidth: 44, textAlign: 'right' }}>
-                        <div style={{ fontWeight: 800, fontSize: '1.05rem', color }}>
-                          {has ? `${acc}` : '—'}
-                          {has && <span style={{ fontSize: '0.7rem', fontWeight: 600 }}>%</span>}
-                        </div>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </section>
-          );
-        })()}
-
-        {/* 다음 목표(마일스톤) — 단일 진행 지표 */}
-        {(() => {
-          const ms = [50, 100, 300, 500, 1000, 2000, 3000, 5000];
-          const next = ms.find(m => overall.answered < m);
-          if (!next) return null;
-          const prev = ms[ms.indexOf(next) - 1] || 0;
-          const p = Math.round(((overall.answered - prev) / (next - prev)) * 100);
-          return (
-            <div className="milestone">
-              <div className="milestone-row">
-                <span>🏁 다음 목표 <b>{next}문제</b></span>
-                <span style={{ color: 'var(--text-sub)' }}>{next - overall.answered}문제 남음</span>
-              </div>
-              <div className="progress-bar-container" style={{ marginTop: 8, height: 6 }}>
-                <div className="progress-bar-fill" style={{ width: `${p}%` }} />
-              </div>
-            </div>
-          );
-        })()}
-
-        {/* 오늘의 목표 */}
-        {(() => {
-          const goal = dailyGoal;
-          const done = analytics.todayCount;
-          const gpct = Math.min(100, Math.round((done / (goal || 1)) * 100));
-          const reached = done >= goal;
-          return (
-            <section style={{ background: '#fff', borderRadius: '16px', padding: '18px',
-              boxShadow: 'var(--shadow-md)', marginBottom: '14px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#111827' }}>
-                  {reached ? '🎉 오늘 목표 달성!' : '🎯 오늘의 목표'}
-                </div>
-                <div style={{ fontSize: '0.85rem', color: '#6b7280', fontWeight: 600 }}>
-                  <span style={{ color: reached ? '#16a34a' : '#1d4ed8', fontWeight: 800 }}>{done}</span> / {goal}문제
-                </div>
-              </div>
-              <div className="progress-bar-container" style={{ marginTop: '12px' }}>
-                <div className="progress-bar-fill" style={{ width: `${gpct}%`,
-                  background: reached ? '#16a34a' : undefined }}></div>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '14px' }}>
-                <div style={{ display: 'flex', gap: '6px' }}>
-                  {analytics.weekMet.map((w, i) => (
-                    <div key={i} title={w.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
-                      <div style={{ width: 22, height: 22, borderRadius: '50%',
-                        background: w.met ? '#16a34a' : '#e5e7eb',
-                        color: w.met ? '#fff' : '#9ca3af', fontSize: '0.7rem',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        outline: w.isToday ? '2px solid #1d4ed8' : 'none', outlineOffset: '1px' }}>
-                        {w.met ? '✓' : ''}
-                      </div>
-                      <span style={{ fontSize: '0.68rem', color: '#9ca3af' }}>{w.label}</span>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ea580c' }}>
-                    🔥 {analytics.streak}일
-                  </div>
-                  <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>연속 학습</div>
-                </div>
-              </div>
-            </section>
-          );
-        })()}
-
-        {/* 모의고사 + 2차 논술 진입 — 감정평가사 1차/2차 시험 트랙 */}
-        <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
-          <button onClick={() => setCurrentView('mock')}
-            style={{ flex: 1, display: 'flex', flexDirection: 'column',
-              padding: '14px', borderRadius: 12,
-              border: '1px solid #fde68a', background: '#fffbeb',
-              color: '#92400e', cursor: 'pointer', textAlign: 'left' }}>
-            <span style={{ fontWeight: 800, fontSize: '0.9rem' }}>🎯 1차 모의고사</span>
-            <span style={{ fontSize: '0.74rem', color: '#a16207', marginTop: 2,
-              lineHeight: 1.4 }}>
-              5과목 · 시간제한 · 자동채점
-            </span>
-          </button>
-          <button onClick={() => setCurrentView('essay_subjects')}
-            style={{ flex: 1, display: 'flex', flexDirection: 'column',
-              padding: '14px', borderRadius: 12,
-              border: '1px solid #c4b5fd', background: '#f5f3ff',
-              color: '#5b21b6', cursor: 'pointer', textAlign: 'left' }}>
-            <span style={{ fontWeight: 800, fontSize: '0.9rem' }}>📝 2차 논술</span>
-            <span style={{ fontSize: '0.74rem', color: '#6d28d9', marginTop: 2,
-              lineHeight: 1.4 }}>
-              실무·이론·법규 · 모범답안
-            </span>
-          </button>
-        </div>
-
-        {/* 약점 집중 — 모드 적용. 보강 권유는 주황 톤(긴급 X)으로 — 빨강은 D-30 등 진짜 임박용 */}
-        {(modeAnalytics ? modeAnalytics.weak : analytics.weak).length > 0 && (
-          <section style={{ marginBottom: '14px' }}>
-            <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#374151', margin: '0 2px 10px' }}>
-              📉 약점 집중{browseExam && ` · ${browseExam}`}
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {(modeAnalytics ? modeAnalytics.weak : analytics.weak).map((w) => {
-                const critical = w.acc < 50;   // 50% 미만만 빨강(진짜 위험), 그 외 주황
-                const fg = critical ? '#dc2626' : '#c2410c';
-                const bg = critical ? '#fef2f2' : '#fff7ed';
-                const bd = critical ? '#fecaca' : '#fed7aa';
-                return (
-                  <button key={w.name} onClick={() => startConcept(w.name,
-                    `${browseExam ? browseExam + ' · ' : ''}${w.name} 집중 학습`, browseExam || null)}
-                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px',
-                      padding: '13px 15px', borderRadius: '12px', cursor: 'pointer',
-                      border: `1px solid ${bd}`, background: bg, textAlign: 'left' }}>
-                    <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#374151' }}>{w.name}</span>
-                    <span style={{ fontSize: '0.82rem', color: fg, fontWeight: 700, flexShrink: 0 }}>
-                      정답률 {w.acc}% · 보강 →
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </section>
+            {renderHomeDetails()}
+          </div>
+        ) : (
+          <HomeToday
+            greeting={nickname ? `${nickname}님, 오늘도 이어서 가볼까요` : '오늘도 이어서 가볼까요'}
+            streakDays={analytics.streak}
+            examLabel={near ? `${near.label} 시험` : ''}
+            dday={near ? fmtDday(near.d) : ''}
+            now={nowTask}
+            goal={{ done: analytics.todayCount, target: dailyGoal, week: analytics.weekMet }}
+            quick={quick}
+            subjects={subjRows}
+            emptyHint={emptyHint}
+            riskNote={riskNote}
+            journey={homeJourney}
+            onDetail={() => { setShowDetails(true); window.scrollTo(0, 0); }}
+          />
         )}
-
-        {/* 학습 진행 요약 */}
-        <section className="overview-card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <div>
-              <h2 className="overview-title">나의 학습 진행</h2>
-              <p className="overview-subtitle">전체 {totalQuestions}개 문항 중 현재 진행 현황</p>
-            </div>
-            {overall.answered > 0 && (
-              <button
-                onClick={() => { if (window.confirm('학습 진행률을 모두 초기화할까요?')) resetProgress(); }}
-                style={{ background: 'var(--primary-light)', padding: '8px 16px', borderRadius: '12px', color: 'var(--primary)', fontWeight: '700', fontSize: '0.9rem', border: 'none', cursor: 'pointer' }}
-              >
-                초기화
-              </button>
-            )}
-          </div>
-
-          {(() => {
-            const pct = totalQuestions ? Math.round((overall.answered / totalQuestions) * 100) : 0;
-            const acc = overall.accuracy;
-            return (
-              <>
-                <div className="progress-bar-container">
-                  <div className="progress-bar-fill" style={{ width: `${pct}%` }}></div>
-                </div>
-                <div className="progress-stats">
-                  <div>
-                    <span className="stat-dot"></span>
-                    학습한 문제 <span className="stat-bold">{overall.answered}/{totalQuestions}</span>
-                    {acc !== null && <> · 정답률 <span className="stat-bold" style={{ color: '#16a34a' }}>{acc}%</span></>}
-                  </div>
-                  <div>{pct}%</div>
-                </div>
-              </>
-            );
-          })()}
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', marginTop: '16px' }}>
-            {[
-              ['미응답', coverage.unseen, '#6b7280', '#f3f4f6'],
-              ['학습', coverage.learned, '#1d4ed8', '#eff6ff'],
-              // 복습필요는 통계라 차분한 주황 (위험 X)
-              ['복습필요', coverage.review, '#c2410c', '#fff7ed'],
-              ['마스터', coverage.mastered, '#16a34a', '#f0fdf4'],
-            ].map(([lbl, n, c, bg]) => (
-              <div key={lbl} style={{ background: bg, borderRadius: '10px', padding: '10px 6px', textAlign: 'center' }}>
-                <div style={{ fontSize: '1.05rem', fontWeight: 800, color: c }}>{n}</div>
-                <div style={{ fontSize: '0.7rem', color: '#6b7280', marginTop: '2px' }}>{lbl}</div>
-              </div>
-            ))}
-          </div>
-
-          {overall.answered > 0 && (
-            <button
-              onClick={() => setShowDetails((v) => !v)}
-              style={{ width: '100%', textAlign: 'center', padding: '12px', marginTop: '14px', borderRadius: '12px',
-                border: '1px solid #bfdbfe', background: '#eff6ff', color: '#1d4ed8', cursor: 'pointer',
-                fontWeight: 700, fontSize: '0.9rem' }}
-            >
-              📊 상세 분석 {showDetails ? '접기 ▲' : '펼치기 ▼'}
-            </button>
-          )}
-        </section>
-
-        {/* 📊 상세 분석 — 구 현황 탭 통합 (KPI·합격코치·레이더·56일 캘린더·8과목 도넛·추세 등) */}
-        <button onClick={() => setShowDetails((v) => !v)}
-          style={{ width: '100%', textAlign: 'center', padding: '13px', marginTop: 2, marginBottom: 14,
-            borderRadius: 12, border: '1px solid #e5e7eb', background: '#fff', color: '#374151',
-            cursor: 'pointer', fontWeight: 800, fontSize: '0.92rem', boxShadow: 'var(--shadow-sm)' }}>
-          📊 상세 분석 {showDetails ? '접기 ▲' : '펼치기 ▼'}
-        </button>
-        {showDetails && renderHomeDetails()}
-
-      </main>
-    </div>
+      </div>,
+      'home-wide'
     );
   }
 
@@ -6366,6 +6444,7 @@ const App = () => {
         classifiedList={classifiedList}
         progress={progress}
         qid={qid}
+        leavesBySubject={leavesBySubject}
         initialJump={drillJump}
         onJumpConsumed={() => setDrillJump(null)}
         onGoAI={(sid, leaf) => {
@@ -6374,9 +6453,18 @@ const App = () => {
           window.scrollTo(0, 0);
         }}
         onGoSolve={(leaf) => {
-          const qs = questionsInLeaf(classifiedList, leaf);
+          // 드릴 전용 = 저품질 연습문제만(문제풀이 탭과 완전 분리). 없으면 진입 안 함.
+          const qs = questionsInLeaf(classifiedList, leaf).filter((q) => q.lowq);
           if (!qs.length) return;
-          startReview(qs.map(qid), `✍️ ${leaf.title || '단원'} 적용 풀이`, 'quizHome');
+          startReview(qs.map(qid), `📝 ${leaf.title || '단원'} 연습문제`, 'quizHome');
+        }}
+        onGoSubjectPractice={(subjectId) => {
+          // 과목 전체 저품질 연습문제(단원 미매핑분 포함) — 단원 매핑과 무관하게 전부 접근.
+          const subjName = AI_SUBJECT_TO_QUIZ[subjectId];
+          if (!subjName) return;
+          const qs = classifiedList.filter((q) => q.taxSubjectName === subjName && q.lowq);
+          if (!qs.length) return;
+          startReview(qs.map(qid), `📝 ${subjName} 연습문제 전체`, 'quizHome');
         }}
       />
     );
@@ -6390,6 +6478,62 @@ const App = () => {
         <p style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '4px' }}>기억 곡선 복습과 누적 오답을 한곳에서</p>
       </div>
       <main className="main-content" style={{ marginTop: '16px' }}>
+        {/* 🎯 통합 오늘 복습 — 흩어진 복습원(모른다·오답·기억곡선·노트)을 한 번에 모아 결정 피로 제거.
+            합격수기: 회독·오답관리의 최대 실패는 '무엇을 복습할지 매번 정하다 지침'. */}
+        {(() => {
+          const cmap = getConfidenceMap();
+          const nmap = getNoteMap();
+          const seen = new Set();
+          const pool = [];
+          const add = (arr) => { for (const q of arr) { const id = qid(q); if (!seen.has(id)) { seen.add(id); pool.push(q); } } };
+          const unsure = classifiedList.filter((q) => { const c = cmap[qid(q)]; return c === 'fuzzy' || c === 'unknown'; });
+          const noted = classifiedList.filter((q) => nmap[qid(q)]);
+          add(unsure); add(wrongList); add(srs.due); add(noted); // 우선순위: 모른다 → 오답 → 기억곡선 → 노트
+          const n = pool.length;
+          const parts = [];
+          if (unsure.length) parts.push(`모른다·애매 ${unsure.length}`);
+          if (wrongList.length) parts.push(`오답 ${wrongList.length}`);
+          if (srs.due.length) parts.push(`기억곡선 ${srs.due.length}`);
+          if (noted.length) parts.push(`노트 ${noted.length}`);
+          return (
+            <div style={{ padding: '18px', marginBottom: 14, borderRadius: 14,
+              border: `1px solid ${n ? '#6366f1' : '#e5e7eb'}`,
+              background: n ? 'linear-gradient(135deg,#eef2ff,#faf5ff)' : '#fff' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <div style={{ fontWeight: 800, fontSize: '1.1rem', color: n ? '#4338ca' : '#9ca3af' }}>🎯 오늘 복습 한 번에</div>
+                {n > 0 && <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#4338ca', background: '#e0e7ff', padding: '3px 10px', borderRadius: 999 }}>{n}문제</span>}
+              </div>
+              <div style={{ fontSize: '0.82rem', color: '#6b7280', marginTop: 4, lineHeight: 1.5 }}>
+                {n > 0 ? `${parts.join(' · ')} — 흩어진 복습을 하나로 모아 순서대로 풀어요` : '틀린 문제·모른다 표시·복습 일정이 쌓이면 여기 모여요'}
+              </div>
+              {n > 0 && (
+                <button onClick={() => startReview(pool.map(qid), '🎯 오늘 복습 (통합)', 'reviewHome')}
+                  style={{ marginTop: 12, width: '100%', padding: '12px', borderRadius: 10, border: 'none', background: '#4f46e5', color: '#fff', fontWeight: 800, fontSize: '0.95rem', cursor: 'pointer', minHeight: 46 }}>
+                  ▶ 통합 복습 시작 ({n}문)
+                </button>
+              )}
+              <div style={{ fontSize: '0.68rem', color: '#9ca3af', marginTop: 8 }}>· 교재 인출·AI 단원 복습은 유형이 달라 아래 카드에서 이어집니다</div>
+            </div>
+          );
+        })()}
+        {/* 🔑 두문자 암기덱 — 전 과목 교재의 '🧠 암기법'을 한 카드덱으로 모아 가리고 재현 */}
+        <div onClick={() => setShowMnemonicDeck(true)}
+          style={{ padding: '18px', marginBottom: 12, borderRadius: 12, cursor: 'pointer',
+            border: '1px solid #ddd6fe', background: 'linear-gradient(135deg,#faf5ff,#eef2ff)' }}>
+          <div style={{ fontWeight: 700, fontSize: '1.05rem', color: '#6d28d9' }}>🔑 두문자 암기덱</div>
+          <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
+            교재에 흩어진 암기법·두문자를 한 곳에 모아 가리고 재현해요 — "효자과목" 만들기 →
+          </div>
+        </div>
+        {/* 🧮 경제 계산 와꾸 — 경제학 계산을 표 채우기로 반복 훈련 */}
+        <div onClick={() => setShowCalcWakku(true)}
+          style={{ padding: '18px', marginBottom: 12, borderRadius: 12, cursor: 'pointer',
+            border: '1px solid #a5f3fc', background: 'linear-gradient(135deg,#ecfeff,#eff6ff)' }}>
+          <div style={{ fontWeight: 700, fontSize: '1.05rem', color: '#0891b2' }}>🧮 경제 계산 와꾸</div>
+          <div style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: 4 }}>
+            탄력성·비용·승수·후생… 계산의 '틀'을 표 채우기로 반복 훈련해요 (68문항) →
+          </div>
+        </div>
         <div
           onClick={() => srs.due.length && setCurrentView('today')}
           style={{ padding: '18px', marginBottom: '12px', borderRadius: '12px',
@@ -6497,6 +6641,7 @@ const App = () => {
                   ✅ 지난 회독 이후 {graduated}문 졸업!
                 </div>
               )}
+              <RoundTrend history={wr.history} current={wrongList.length} />
               {has && (
                 <button
                   onClick={() => { bumpWrongRound(wrongList.length); startReview(wrongList.map(qid), `${rounds + 1}회독 · 오답 전체`, 'reviewHome'); }}
@@ -6586,17 +6731,17 @@ const App = () => {
 
         {/* 1차/2차 과목 카드 그리드 — AI 학습 홈과 통일된 디자인 */}
         {[
-          { stage: 1, label: '1차 시험 — 객관식 5지선다', subjects: AI_SUBJECTS.filter((s) => s.stage === 1) },
+          { stage: 1, label: '1차 시험 — 객관식 5지선다', subjects: ['accounting', 'economics', 'civil', 'realestate', 'law'].map((id) => AI_SUBJECTS.find((s) => s.id === id)).filter(Boolean) },
           { stage: 2, label: '2차 시험 — 서술형·답안 작성', subjects: AI_SUBJECTS.filter((s) => s.stage === 2) },
         ].map(({ stage, label, subjects }) => (
           <div key={stage} style={{ marginBottom: 18 }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
               <div style={{ fontSize: '1rem', color: 'var(--text-main)', fontWeight: 800 }}>
-                {stage === 1 ? '📖' : '✍️'} {label}
+                {stage === 1 ? <BookOpen size={16} color="#8B95A1" strokeWidth={2} style={{ verticalAlign: '-3px' }} /> : <PenLine size={16} color="#8B95A1" strokeWidth={2} style={{ verticalAlign: '-3px' }} />} {label}
               </div>
               <span style={{ fontSize: '0.82rem', color: 'var(--text-sub)', fontWeight: 600 }}>{subjects.length}과목</span>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', rowGap: 14, columnGap: 12, alignItems: 'start' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', rowGap: 14, columnGap: 12, alignItems: 'stretch' }}>
               {subjects.map((s) => {
                 const subjStat = analytics.subjects.find((x) => x.name === s.title);
                 const totalN = subjStat?.total || 0;
@@ -6663,7 +6808,7 @@ const App = () => {
                             <div style={{ fontWeight: 800, color: T.ink, fontSize: '1.2rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
                             <div style={{ fontSize: '0.82rem', color: T.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 4 }}>{s.title}</div>
                           </div>
-                          <div style={{ fontSize: '2rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
+                          <div style={{ flex: '0 0 auto', display: 'flex', alignItems: 'center' }}><SubjectIcon id={s.id} size={30} color="#8B95A1" /></div>
                         </div>
                         <div>
                           <div style={{ height: 6, background: T.track, borderRadius: 999, overflow: 'hidden' }}>
@@ -6708,7 +6853,7 @@ const App = () => {
                           <div style={{ fontWeight: 800, color: T2.ink, fontSize: '1.2rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
                           <div style={{ fontSize: '0.82rem', color: T2.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 4 }}>{s.title}</div>
                         </div>
-                        <div style={{ fontSize: '2rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
+                        <div style={{ flex: '0 0 auto', display: 'flex', alignItems: 'center' }}><SubjectIcon id={s.id} size={30} color="#8B95A1" /></div>
                       </div>
                       <div>
                         <div style={{ height: 6, background: T2.track, borderRadius: 999, overflow: 'hidden' }}>
@@ -6785,6 +6930,7 @@ const App = () => {
                     {has ? `남은 오답 ${wrongList.length}문 — 0이 될 때까지 반복!` : '틀린 문제가 모이면 회독을 시작할 수 있어요'}
                   </div>
                   {graduated > 0 && <div style={{ fontSize: '0.76rem', color: '#047857', fontWeight: 700, marginTop: 4 }}>✅ 지난 회독 이후 {graduated}문 졸업!</div>}
+                  <RoundTrend history={wr.history} current={wrongList.length} />
                   {has && (
                     <button
                       onClick={() => { bumpWrongRound(wrongList.length); startReview(wrongList.map(qid), `${rounds + 1}회독 · 오답 전체`, 'dashboard'); }}

@@ -1217,7 +1217,7 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
           </div>
           {currentQuestion.sourceRound && currentQuestion.sourceQNum && (
             <div style={{ marginTop: 4, fontSize: '0.72rem', color: '#0891b2', fontWeight: 600 }}>
-              📚 출처: {currentQuestion.sourceRound}회 {currentQuestion.sourceQNum}번 기출문제 변형
+              📚 출처: {currentQuestion.sourceRound}회 {currentQuestion.sourceQNum}번 sources/기출문제 변형
             </div>
           )}
           <div style={{ marginTop: 10, fontWeight: 700, fontSize: '0.88rem', color: '#374151' }}>📝 문제</div>

@@ -12,6 +12,40 @@
 // OpenAI/Gemini 는 prompt caching 이 자동(implicit) — cache_control 메타는 drop.
 
 import { sendMessages as sendAnthropic } from './aiClaudeClient';
+import { isTauri, nativeFetch } from './tauriShim';
+
+// 데스크톱(Tauri): 네이티브 HTTP로 직접 호출 → CORS/프록시 불필요.
+// 웹: 기존 window.fetch. plugin-http 은 Tauri 에서만 동적 로드(웹 번들 오염 방지).
+let _tauriFetch = null;
+async function httpFetch(url, init) {
+  if (isTauri()) {
+    if (!_tauriFetch) _tauriFetch = nativeFetch;
+    return _tauriFetch(url, init);
+  }
+  return fetch(url, init);
+}
+
+// SSE 라인 이터레이터 — 스트리밍(res.body.getReader) 또는 버퍼(res.text) 양쪽 대응.
+// Tauri fetch 가 스트리밍 body 를 안 주는 경우에도 전체 텍스트를 파싱해 동작.
+async function* sseLines(res) {
+  if (res.body && typeof res.body.getReader === 'function') {
+    const reader = res.body.getReader();
+    const dec = new TextDecoder();
+    let buf = '';
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      const parts = buf.split('\n');
+      buf = parts.pop() || '';
+      for (const l of parts) yield l;
+    }
+    if (buf) yield buf;
+  } else {
+    const full = await res.text();
+    for (const l of full.split('\n')) yield l;
+  }
+}
 
 // 모든 모델 카탈로그
 export const ALL_MODELS = [
@@ -26,14 +60,24 @@ export const ALL_MODELS = [
   { id: 'gemini-3.5-flash',       provider: 'google',  label: 'Gemini 3.5 Flash',     icon: '🟢', tier: 'balanced', requiresProxy: true },
   { id: 'gemini-3.1-pro-preview', provider: 'google',  label: 'Gemini 3.1 Pro',    icon: '🟢', tier: 'balanced', requiresProxy: true },
   { id: 'gemini-3.1-flash-lite',  provider: 'google',  label: 'Gemini 3.1 Flash Lite', icon: '🟢', tier: 'fast', requiresProxy: true },
+  // Moonshot (Kimi) — OpenAI 호환, 저렴+강력. 데스크톱 네이티브 fetch로 CORS 없음.
+  { id: 'moonshot:kimi-k2.6', provider: 'moonshot', label: 'Kimi K2.6 (가성비)', icon: '🌙', tier: 'balanced' },
+  { id: 'moonshot:kimi-k3',   provider: 'moonshot', label: 'Kimi K3 (최상급)',   icon: '🌙', tier: 'premium' },
+  { id: 'moonshot:kimi-k2.5', provider: 'moonshot', label: 'Kimi K2.5 (최저가)', icon: '🌙', tier: 'fast' },
 ];
 
 export function getProviderForModel(modelId) {
+  // provider:modelId 형식(로컬·문샷·커스텀). 예: local:qwen3.6:latest, moonshot:kimi-k2.6
+  if (typeof modelId === 'string') {
+    if (modelId.startsWith('local:')) return 'local';
+    if (modelId.startsWith('moonshot:')) return 'moonshot';
+  }
   const m = ALL_MODELS.find((x) => x.id === modelId);
   return m?.provider || 'anthropic';
 }
 
 export function modelRequiresProxy(modelId) {
+  if (isTauri()) return false; // 데스크톱은 네이티브 직접 호출 → 프록시 불필요
   return !!ALL_MODELS.find((x) => x.id === modelId)?.requiresProxy;
 }
 
@@ -86,7 +130,7 @@ async function sendOpenAI({ apiKey, model, system, messages, maxTokens, baseUrl,
       : { max_tokens: maxTokens }),
   };
   if (stream) body.stream_options = { include_usage: true };
-  const res = await fetch(endpoint, {
+  const res = await httpFetch(endpoint, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -115,39 +159,29 @@ async function sendOpenAI({ apiKey, model, system, messages, maxTokens, baseUrl,
       raw: data,
     };
   }
-  // SSE 파싱
-  const reader = res.body.getReader();
-  const decoder = new TextDecoder();
-  let buf = '';
+  // SSE 파싱 (스트림/버퍼 양쪽 대응)
   let text = '';
   let usage = {};
   let stop_reason = null;
-  for (;;) {
-    const { value, done } = await reader.read();
-    if (done) break;
-    buf += decoder.decode(value, { stream: true });
-    const lines = buf.split('\n');
-    buf = lines.pop() || '';
-    for (const line of lines) {
-      if (!line.startsWith('data:')) continue;
-      const payload = line.slice(5).trim();
-      if (!payload || payload === '[DONE]') continue;
-      let evt;
-      try { evt = JSON.parse(payload); } catch { continue; }
-      const delta = evt.choices?.[0]?.delta?.content || '';
-      if (delta) {
-        text += delta;
-        try { onDelta(delta, text); } catch { /* noop */ }
-      }
-      if (evt.choices?.[0]?.finish_reason) stop_reason = evt.choices[0].finish_reason;
-      if (evt.usage) {
-        usage = {
-          input_tokens: evt.usage.prompt_tokens || 0,
-          output_tokens: evt.usage.completion_tokens || 0,
-          cache_read_input_tokens: evt.usage.prompt_tokens_details?.cached_tokens || 0,
-          cache_creation_input_tokens: 0,
-        };
-      }
+  for await (const line of sseLines(res)) {
+    if (!line.startsWith('data:')) continue;
+    const payload = line.slice(5).trim();
+    if (!payload || payload === '[DONE]') continue;
+    let evt;
+    try { evt = JSON.parse(payload); } catch { continue; }
+    const delta = evt.choices?.[0]?.delta?.content || '';
+    if (delta) {
+      text += delta;
+      try { onDelta(delta, text); } catch { /* noop */ }
+    }
+    if (evt.choices?.[0]?.finish_reason) stop_reason = evt.choices[0].finish_reason;
+    if (evt.usage) {
+      usage = {
+        input_tokens: evt.usage.prompt_tokens || 0,
+        output_tokens: evt.usage.completion_tokens || 0,
+        cache_read_input_tokens: evt.usage.prompt_tokens_details?.cached_tokens || 0,
+        cache_creation_input_tokens: 0,
+      };
     }
   }
   return { text, usage, stop_reason };
@@ -178,7 +212,7 @@ async function sendGoogle({ apiKey, model, system, messages, maxTokens, baseUrl,
   };
   if (sysText) body.systemInstruction = { parts: [{ text: sysText }] };
 
-  const res = await fetch(endpoint, {
+  const res = await httpFetch(endpoint, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -208,41 +242,77 @@ async function sendGoogle({ apiKey, model, system, messages, maxTokens, baseUrl,
       raw: data,
     };
   }
-  // SSE 파싱
-  const reader = res.body.getReader();
-  const decoder = new TextDecoder();
-  let buf = '';
+  // SSE 파싱 (스트림/버퍼 양쪽 대응)
   let text = '';
   let usage = {};
   let stop_reason = null;
-  for (;;) {
-    const { value, done } = await reader.read();
-    if (done) break;
-    buf += decoder.decode(value, { stream: true });
-    const lines = buf.split('\n');
-    buf = lines.pop() || '';
-    for (const line of lines) {
-      if (!line.startsWith('data:')) continue;
-      const payload = line.slice(5).trim();
-      if (!payload) continue;
-      let evt;
-      try { evt = JSON.parse(payload); } catch { continue; }
-      const cand = evt.candidates?.[0];
-      const chunk = (cand?.content?.parts || []).map((p) => p.text || '').join('');
-      if (chunk) {
-        text += chunk;
-        try { onDelta(chunk, text); } catch { /* noop */ }
-      }
-      if (cand?.finishReason) stop_reason = cand.finishReason;
-      if (evt.usageMetadata) {
-        usage = {
-          input_tokens: evt.usageMetadata.promptTokenCount || 0,
-          output_tokens: evt.usageMetadata.candidatesTokenCount || 0,
-          cache_read_input_tokens: evt.usageMetadata.cachedContentTokenCount || 0,
-          cache_creation_input_tokens: 0,
-        };
-      }
+  for await (const line of sseLines(res)) {
+    if (!line.startsWith('data:')) continue;
+    const payload = line.slice(5).trim();
+    if (!payload) continue;
+    let evt;
+    try { evt = JSON.parse(payload); } catch { continue; }
+    const cand = evt.candidates?.[0];
+    const chunk = (cand?.content?.parts || []).map((p) => p.text || '').join('');
+    if (chunk) {
+      text += chunk;
+      try { onDelta(chunk, text); } catch { /* noop */ }
     }
+    if (cand?.finishReason) stop_reason = cand.finishReason;
+    if (evt.usageMetadata) {
+      usage = {
+        input_tokens: evt.usageMetadata.promptTokenCount || 0,
+        output_tokens: evt.usageMetadata.candidatesTokenCount || 0,
+        cache_read_input_tokens: evt.usageMetadata.cachedContentTokenCount || 0,
+        cache_creation_input_tokens: 0,
+      };
+    }
+  }
+  return { text, usage, stop_reason };
+}
+
+// 로컬(Ollama)·Moonshot 기본 호스트. Moonshot 은 OpenAI 호환('/v1/chat/completions' 자동첨부)이라 /v1 없이 호스트만.
+export const LOCAL_BASE = 'http://localhost:11434';
+export const MOONSHOT_BASE = 'https://api.moonshot.ai';
+
+// ── 로컬 Ollama (네이티브 /api/chat) ─────────────────────────────
+// ⚠️ OpenAI 호환(/v1) 대신 네이티브 API 를 쓰는 이유: qwen3 계열은 thinking 이 기본 ON 이라
+//    /v1 에선 사고가 num_predict 를 다 먹어 답이 빈다. 네이티브 API 의 think:false 로 확실히 끈다.
+async function sendOllama({ model, system, messages, maxTokens, baseUrl, signal, onDelta }) {
+  const base = (baseUrl && baseUrl.trim() ? baseUrl.trim().replace(/\/$/, '') : LOCAL_BASE);
+  const endpoint = `${base}/api/chat`;
+  const stream = typeof onDelta === 'function';
+  const apiMsgs = [];
+  const sysText = flattenSystem(system);
+  if (sysText) apiMsgs.push({ role: 'system', content: sysText });
+  for (const m of messages) apiMsgs.push({ role: m.role, content: flattenMessageContent(m.content) });
+  const body = {
+    model, messages: apiMsgs, stream,
+    think: false, // thinking OFF — 대화·드릴에선 사고가 토큰 예산을 다 먹어 답이 비는 것 방지
+    options: { num_predict: maxTokens || 1200 },
+  };
+  const res = await httpFetch(endpoint, {
+    method: 'POST', headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(body), signal,
+  });
+  if (!res.ok) {
+    let detail = ''; try { detail = (await res.json()).error || ''; } catch { /* noop */ }
+    throw new Error(`Ollama ${res.status}${detail ? ': ' + detail : ''} — 로컬 모델(Ollama)이 실행 중인지 확인하세요`);
+  }
+  const toUsage = (o) => ({ input_tokens: o.prompt_eval_count || 0, output_tokens: o.eval_count || 0, cache_read_input_tokens: 0, cache_creation_input_tokens: 0 });
+  if (!stream) {
+    const data = await res.json();
+    return { text: data.message?.content || '', usage: toUsage(data), stop_reason: data.done_reason || 'stop', raw: data };
+  }
+  // 네이티브 스트림 = 줄 단위 JSON(SSE 아님). sseLines 로 줄을 뽑아 각 줄을 JSON 파싱.
+  let text = ''; let usage = {}; let stop_reason = null;
+  for await (const line of sseLines(res)) {
+    const t = line.trim();
+    if (!t) continue;
+    let evt; try { evt = JSON.parse(t); } catch { continue; }
+    const chunk = evt.message?.content || '';
+    if (chunk) { text += chunk; try { onDelta(chunk, text); } catch { /* noop */ } }
+    if (evt.done) { stop_reason = evt.done_reason || 'stop'; usage = toUsage(evt); }
   }
   return { text, usage, stop_reason };
 }
@@ -250,6 +320,14 @@ async function sendGoogle({ apiKey, model, system, messages, maxTokens, baseUrl,
 // ── 통합 dispatch ─────────────────────────────────────────────────
 export async function sendMessagesUnified(opts) {
   const provider = getProviderForModel(opts.model);
+  if (provider === 'local') {
+    // 네이티브 Ollama API(think:false). 키 불필요.
+    return sendOllama({ ...opts, model: opts.model.replace(/^local:/, ''), baseUrl: opts.baseUrl || LOCAL_BASE });
+  }
+  if (provider === 'moonshot') {
+    return sendOpenAI({ ...opts, model: opts.model.replace(/^moonshot:/, ''),
+      baseUrl: opts.baseUrl || MOONSHOT_BASE });
+  }
   if (provider === 'openai') return sendOpenAI(opts);
   if (provider === 'google') return sendGoogle(opts);
   return sendAnthropic(opts);

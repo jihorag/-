@@ -1,15 +1,13 @@
 <!doctype html>
-<html lang="ko">
+<!-- data-theme="light" — tokens.css 의 다크 팔레트를 잠근다.
+     앱의 나머지 CSS 가 아직 라이트 고정이라 지금 다크를 켜면 화면이 반만 바뀐다. -->
+<html lang="ko" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/pwa-192x192.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="theme-color" content="#1e293b" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <title>감정평가사 기출정복 PWA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>감정평가사</title>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

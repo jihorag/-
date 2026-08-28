@@ -188,11 +188,19 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
   const inputStyle = { fontSize: '0.82rem', padding: '8px 10px', border: '1px solid #e5e7eb', borderRadius: 9, background: '#fff', color: '#374151' };
 
   return (
-    <div className="app-container">
-      <div className="screen-head" style={{ padding: '0 4px' }}>
-        <h1 className="screen-title">📅 스터디 플래너</h1>
-      </div>
-      <main className="main-content" style={{ marginTop: '16px' }}>
+    <div className="app-container" style={{ boxShadow: 'none' }}>
+      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
+        <h1 style={{ margin: 0, fontSize: '1.18rem', fontWeight: 800, color: '#111827' }}>📅 스터디 플래너</h1>
+        {dday && (
+          <span style={{ fontSize: '0.76rem', fontWeight: 700, color: '#374151', background: '#fff', border: '1px solid #eef0f2', borderRadius: 999, padding: '5px 12px', boxShadow: '0 1px 3px rgba(0,0,0,0.06)' }}>
+            {primaryExam} {dday.label} <b style={{ color: dday.d <= 30 ? '#dc2626' : dday.d <= 90 ? '#ea580c' : '#1d4ed8', fontVariantNumeric: 'tabular-nums' }}>D-{dday.d}</b>
+          </span>
+        )}
+      </header>
+      <main className="main-content" style={{ marginTop: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 14, alignItems: 'start' }}>
+          {/* ── 좌: 오늘 시간 + 캘린더 ── */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14, minWidth: 0 }}>
         {/* 🕒 오늘 공부 시간 */}
         {(() => {
           const t = getDayStudyTime(todayKey);
@@ -235,11 +243,6 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
             <button onClick={() => moveMonth(1)} aria-label="다음 달"
               style={{ width: 34, height: 34, borderRadius: 8, border: '1px solid #e5e7eb', background: '#fff', cursor: 'pointer', fontSize: '1rem', color: '#374151' }}>›</button>
           </div>
-          {dday && (
-            <div style={{ textAlign: 'center', fontSize: '0.76rem', color: '#6b7280', marginBottom: 12 }}>
-              {primaryExam} {dday.label}까지 <b style={{ color: dday.d <= 30 ? '#dc2626' : dday.d <= 90 ? '#ea580c' : '#1d4ed8' }}>D-{dday.d}</b>
-            </div>
-          )}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', marginBottom: 4 }}>
             {WD.map((w, i) => (
               <div key={w} style={{ textAlign: 'center', fontSize: '0.7rem', fontWeight: 700, color: i === 0 ? '#dc2626' : i === 6 ? '#2563eb' : '#9ca3af' }}>{w}</div>
@@ -277,7 +280,9 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
             })}
           </div>
         </section>
-
+          </div>{/* /좌 */}
+          {/* ── 우: 선택 날짜 상세 ── */}
+          <div style={{ minWidth: 0 }}>
         {/* 선택 날짜 */}
         <section style={{ background: '#fff', borderRadius: 16, padding: 16, boxShadow: 'var(--shadow-md)' }}>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 12 }}>
@@ -509,6 +514,8 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '감정평�
           </div>
           )}
         </section>
+          </div>{/* /우 */}
+        </div>{/* /grid */}
       </main>
     </div>
   );

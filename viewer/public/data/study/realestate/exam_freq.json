@@ -1,0 +1,514 @@
+{
+"subject": "realestate",
+"method": "기출 출제량(leaf.title↔chapter/section/item 레벨불문 매칭 + 부모 분배), tier=과목 내 상대 백분위",
+"exam_total": 1052,
+"rated_leaves": 101,
+"total_leaves": 101,
+"byLeaf": {
+"realestate__PART_01_부동산학_총론__Chapter_02_부동산의_개념__제2절_정착물과_준부동산": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_01_부동산학_총론__Chapter_03_부동산의_분류__제1절_토지의_분류_및_용어_정의": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_01_부동산학_총론__Chapter_03_부동산의_분류__제2절_주택의_분류": {
+"n": 2.0,
+"direct": 2,
+"tier": "C"
+},
+"realestate__PART_01_부동산학_총론__Chapter_04_부동산의_특성__제1절_자연적_특성": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_02_경제론__Chapter_02_수요와_공급이론__제3절_계산_문제": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_02_경제론__Chapter_03_수요와_공급의_탄력성__제3절_계산_문제": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_03_시장론__Chapter_01_부동산_시장과_주택_시장__제1절_부동산_시장의_특징": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_03_시장론__Chapter_01_부동산_시장과_주택_시장__제2절_디파스퀠리_위튼의_4사분면_모형": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_03_시장론__Chapter_02_부동산_시장과_정보의_효율성__제1절_효율적_시장_이론": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_03_시장론__Chapter_02_부동산_시장과_정보의_효율성__제3절_계산_문제": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_04_부동산_정책론__Chapter_01_부동산_정책의_이해__제2절_정부의_시장_개입방식": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_04_부동산_정책론__Chapter_03_임대주택_및_분양주택_정책__제1절_임대주택_정책": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_04_부동산_정책론__Chapter_04_부동산_조세_정책__제2절_우리나라_조세_체계": {
+"n": 2.0,
+"direct": 2,
+"tier": "C"
+},
+"realestate__PART_04_부동산_정책론__Chapter_04_부동산_조세_정책__제3절_계산_문제": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_04_부동산_정책론__Chapter_05_다양한_부동산_정책__제1절_부동산_정책": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_02_투자결정이론__제1절_기대수익률_요구수익률_평균_분산_지배원리": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_03_위험의_관리__제2절_포트폴리오_이론": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_04_투자분석의_기본도구__제2절_미래가치와_현재가치_계산_연습": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_05_부동산_투자분석기법__제1절_할인현금흐름분석법": {
+"n": 2.0,
+"direct": 2,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_05_부동산_투자분석기법__제2절_할인법_계산_문제": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_06_금융론__Chapter_01_금융의_이해__제1절_금융의_구분": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_06_금융론__Chapter_01_금융의_이해__제2절_금융의_위험": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_06_금융론__Chapter_02_대출금액_대출금리_및_상환방식__제5절_상환방식_계산_문제": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_06_금융론__Chapter_03_주택저당채권_유동화제도": {
+"n": 17.0,
+"direct": 17,
+"tier": "B"
+},
+"realestate__PART_06_금융론__Chapter_04_부동산투자회사": {
+"n": 14.0,
+"direct": 14,
+"tier": "B"
+},
+"realestate__PART_06_금융론__Chapter_05_기타_부동산_관련_금융제도__제2절_주택담보노후연금_한국주택금융공사": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_06_금융론__Chapter_05_기타_부동산_관련_금융제도__제3절_부동산신탁": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_07_부동산_개발론__Chapter_01_부동산_개발론__제3절_개발을_위한_부동산_분석": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_07_부동산_개발론__Chapter_01_부동산_개발론__제5절_공영개발의_방식": {
+"n": 2.0,
+"direct": 2,
+"tier": "C"
+},
+"realestate__PART_07_부동산_개발론__Chapter_01_부동산_개발론__제7절_민간투자사업방식_민자사업": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_07_부동산_개발론__Chapter_02_부동산_관리__제1절_부동산_관리의_구분": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_07_부동산_개발론__Chapter_03_부동산_마케팅": {
+"n": 19.0,
+"direct": 19,
+"tier": "B"
+},
+"realestate__PART_07_부동산_개발론__Chapter_04_부동산_중개론__제2절_공인중개사에_관한_법률": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_07_부동산_개발론__Chapter_04_부동산_중개론__제4절_권리분석": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_07_부동산_개발론__Chapter_04_부동산_중개론__제5절_권리분석의_구체적_내용": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_08_토지_경제와_지리_경제__Chapter_01_지대ㆍ지가이론": {
+"n": 13.0,
+"direct": 13,
+"tier": "B"
+},
+"realestate__PART_08_토지_경제와_지리_경제__Chapter_02_도시_내부_구조이론": {
+"n": 12.0,
+"direct": 12,
+"tier": "B"
+},
+"realestate__PART_08_토지_경제와_지리_경제__Chapter_03_공업입지론": {
+"n": 3.0,
+"direct": 3,
+"tier": "C"
+},
+"realestate__PART_09_감정평가론__Chapter_01_부동산_가치이론": {
+"n": 3.0,
+"direct": 3,
+"tier": "C"
+},
+"realestate__PART_09_감정평가론__Chapter_02_지역분석과_개별분석": {
+"n": 7.0,
+"direct": 7,
+"tier": "C"
+},
+"realestate__PART_09_감정평가론__Chapter_03_부동산_가격원칙": {
+"n": 6.0,
+"direct": 6,
+"tier": "C"
+},
+"realestate__PART_09_감정평가론__Chapter_04_감정평가제도__제1절_감정평가에_관한_규칙": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_09_감정평가론__Chapter_04_감정평가제도__제2절_표준지의_조사_및_평가": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_09_감정평가론__Chapter_05_감정평가방식__제3절_거래사례비교법_공시지가기준법": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_09_감정평가론__Chapter_05_감정평가방식__제4절_비교방식_계산_문제": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_09_감정평가론__Chapter_05_감정평가방식__제8절_수익환원법_계산_문제": {
+"n": 1.0,
+"direct": 1,
+"tier": "C"
+},
+"realestate__PART_09_감정평가론__Chapter_05_감정평가방식__제10절_물건별_주된_감정평가": {
+"n": 2.0,
+"direct": 2,
+"tier": "C"
+},
+"realestate__PART_09_감정평가론__Chapter_06_부동산_가격공시제도": {
+"n": 18.0,
+"direct": 18,
+"tier": "B"
+},
+"realestate__PART_01_부동산학_총론__Chapter_01_부동산학과_부동산_활동__제1절_부동산학의_의미": {
+"n": 2.5,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_01_부동산학_총론__Chapter_01_부동산학과_부동산_활동__제2절_부동산_활동": {
+"n": 5.0,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_01_부동산학_총론__Chapter_02_부동산의_개념__제1절_부동산의_복합개념": {
+"n": 20.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_01_부동산학_총론__Chapter_04_부동산의_특성__제2절_인문적_특성": {
+"n": 24.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_01_부동산학_총론__Chapter_05_기타_유형": {
+"n": 88.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_02_경제론__Chapter_01_경제론의_기본개념": {
+"n": 64.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_02_경제론__Chapter_02_수요와_공급이론__제1절_수요와_공급": {
+"n": 20.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_02_경제론__Chapter_02_수요와_공급이론__제2절_균형을_변화시키는_4가지_규칙": {
+"n": 40.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_02_경제론__Chapter_03_수요와_공급의_탄력성__제1절_탄력성의_의미": {
+"n": 11.0,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_02_경제론__Chapter_03_수요와_공급의_탄력성__제2절_탄력성의_응용": {
+"n": 22.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_03_시장론__Chapter_02_부동산_시장과_정보의_효율성__제2절_할당_효율적_시장": {
+"n": 12.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_03_시장론__Chapter_03_부동산_시장의_변화__제1절_부동산_경기변동": {
+"n": 7.3,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_03_시장론__Chapter_03_부동산_시장의_변화__제2절_거미집_모형": {
+"n": 11.0,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_03_시장론__Chapter_03_부동산_시장의_변화__제3절_주거분리_현상_주택여과_현상": {
+"n": 22.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_04_부동산_정책론__Chapter_01_부동산_정책의_이해__제1절_시장실패": {
+"n": 15.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_04_부동산_정책론__Chapter_02_외부효과와_공공재__제1절_외부효과": {
+"n": 2.5,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_04_부동산_정책론__Chapter_02_외부효과와_공공재__제2절_공공재": {
+"n": 5.0,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_04_부동산_정책론__Chapter_03_임대주택_및_분양주택_정책__제2절_분양주택_정책": {
+"n": 15.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_04_부동산_정책론__Chapter_04_부동산_조세_정책__제1절_조세_전가와_조세_부담": {
+"n": 28.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_04_부동산_정책론__Chapter_05_다양한_부동산_정책__제2절_기타_유형": {
+"n": 37.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_05_투자론__Chapter_01_부동산_투자의_수익과_위험__제1절_투자의_수익": {
+"n": 8.0,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_01_부동산_투자의_수익과_위험__제2절_지렛대_효과": {
+"n": 10.7,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_01_부동산_투자의_수익과_위험__제3절_투자의_위험": {
+"n": 16.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_05_투자론__Chapter_01_부동산_투자의_수익과_위험__제4절_계산_문제": {
+"n": 32.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_05_투자론__Chapter_02_투자결정이론__제2절_기대수익률_분산_및_변동계수_계산_문제": {
+"n": 8.0,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_03_위험의_관리__제1절_위험을_관리하는_방법": {
+"n": 7.0,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_04_투자분석의_기본도구__제1절_화폐의_시간가치": {
+"n": 7.3,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_04_투자분석의_기본도구__제3절_투자의_현금흐름_분석": {
+"n": 11.0,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_05_투자론__Chapter_04_투자분석의_기본도구__제4절_현금흐름_계산_문제": {
+"n": 22.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_05_투자론__Chapter_05_부동산_투자분석기법__제3절_비할인법": {
+"n": 24.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_05_투자론__Chapter_05_부동산_투자분석기법__제4절_비할인법_계산_문제": {
+"n": 48.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_06_금융론__Chapter_02_대출금액_대출금리_및_상환방식__제1절_대출금액_계산_문제": {
+"n": 10.0,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_06_금융론__Chapter_02_대출금액_대출금리_및_상환방식__제2절_저당_잔금_계산_문제": {
+"n": 13.3,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_06_금융론__Chapter_02_대출금액_대출금리_및_상환방식__제3절_변동금리상품과_고정금리상품": {
+"n": 20.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_06_금융론__Chapter_02_대출금액_대출금리_및_상환방식__제4절_상환방식의_이해": {
+"n": 40.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_06_금융론__Chapter_05_기타_부동산_관련_금융제도__제1절_프로젝트_대출": {
+"n": 10.0,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_06_금융론__Chapter_05_기타_부동산_관련_금융제도__제4절_자산의_유동화": {
+"n": 20.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_07_부동산_개발론__Chapter_01_부동산_개발론__제1절_개발의_이해": {
+"n": 13.8,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_07_부동산_개발론__Chapter_01_부동산_개발론__제2절_개발의_위험": {
+"n": 18.3,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_07_부동산_개발론__Chapter_01_부동산_개발론__제4절_입지계수_계산_문제": {
+"n": 27.5,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_07_부동산_개발론__Chapter_01_부동산_개발론__제6절_민간개발의_방식": {
+"n": 55.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_07_부동산_개발론__Chapter_02_부동산_관리__제2절_비율임대차_계산_문제": {
+"n": 12.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_07_부동산_개발론__Chapter_02_부동산_관리__제3절_건물의_생애주기": {
+"n": 24.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_07_부동산_개발론__Chapter_04_부동산_중개론__제1절_중개계약의_종류": {
+"n": 18.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_07_부동산_개발론__Chapter_04_부동산_중개론__제3절_에스크로_제도": {
+"n": 36.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_08_토지_경제와_지리_경제__Chapter_04_상업입지론__제1절_상업입지_이론": {
+"n": 10.5,
+"direct": 0,
+"tier": "C"
+},
+"realestate__PART_08_토지_경제와_지리_경제__Chapter_04_상업입지론__제2절_상업입지_계산_문제": {
+"n": 21.0,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_09_감정평가론__Chapter_05_감정평가방식__제1절_감정평가방식의_분류": {
+"n": 13.7,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_09_감정평가론__Chapter_05_감정평가방식__제2절_시산가액의_조정": {
+"n": 16.4,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_09_감정평가론__Chapter_05_감정평가방식__제5절_원가법": {
+"n": 20.5,
+"direct": 0,
+"tier": "B"
+},
+"realestate__PART_09_감정평가론__Chapter_05_감정평가방식__제6절_원가법_계산_문제": {
+"n": 27.3,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_09_감정평가론__Chapter_05_감정평가방식__제7절_수익환원법": {
+"n": 41.0,
+"direct": 0,
+"tier": "A"
+},
+"realestate__PART_09_감정평가론__Chapter_05_감정평가방식__제9절_임대료_평가": {
+"n": 82.0,
+"direct": 0,
+"tier": "A"
+}
+}
+}

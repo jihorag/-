@@ -8,6 +8,7 @@ dist-ssr/
 __pycache__/
 *.py[cod]
 *$py.class
+.venv/
 venv/
 .env
 
@@ -21,3 +22,6 @@ venv/
 
 # Claude Code 내부 워크트리 (커밋 금지)
 .claude/worktrees/
+
+# 정리용 휴지통(커밋 제외)
+_휴지통/

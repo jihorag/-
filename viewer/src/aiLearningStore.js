@@ -21,7 +21,9 @@ export const KEY = {
   byok: 'ailearn-byok',                              // Anthropic (legacy 호환)
   byokOpenai: 'ailearn-byok-openai',                 // OpenAI API key
   byokGoogle: 'ailearn-byok-google',                 // Google AI API key
+  byokMoonshot: 'ailearn-byok-moonshot',             // Moonshot(Kimi) API key
   baseUrls: 'ailearn-base-urls',                     // 프록시 URL { openai, google }
+  roles: 'ailearn-roles',                            // 역할→모델 { drill, gen, essay, ... } (기기별=로컬우선)
   prefs: 'ailearn-prefs',
   current: 'ailearn-current',
   mastery: 'ailearn-mastery',
@@ -46,7 +48,7 @@ export const KEY = {
 
 export const DEFAULT_PREFS = {
   daily_cap: 500,
-  model: 'gemini-3.5-flash',
+  model: 'moonshot:kimi-k2.6',
   max_tokens: 1200,
   reasoning_effort: 'minimal', // GPT-5: minimal | low | medium | high  (학습에는 minimal 권장)
   verbosity: 'high',           // GPT-5: low | medium | high
@@ -63,11 +65,102 @@ const MASTERY_DEFAULT = {
   avg_time_ratio: 1.0,   // 사용시간/목표시간
 };
 
+// ── 회독(phase) 축 ────────────────────────────────────────────
+// 강사 커리큘럼 단계(기본이론→심화이론→문제풀이→모의)와 같은 축이다.
+// 앱의 `stage`(1차/2차)와는 직교하는 별개 개념이므로 이름을 phase 로 쓴다.
+export const MASTERY_PHASES = ['basic', 'deep', 'prac', 'mock', 'final'];
+export const PHASE_LABEL = {
+  basic: '1회독 기본', deep: '2회독 심화', prac: '3회독 문풀',
+  mock: '4회독 모의', final: '마무리 특강',
+};
+
+// 모드 탭이 곧 회독 축이라는 설계의 유일한 연결점.
+// 탭을 누르면 그 회독의 강의 필기가 주입되고, 진척도 그 회독에 쌓인다.
+export const MODE_TO_PHASE = {
+  study: 'basic', deep: 'deep', practice: 'prac', diagnose: 'mock', summary: 'final',
+};
+export function modeToPhase(mode) { return MODE_TO_PHASE[mode] || 'basic'; }
+
+// 강의 카탈로그의 단계 → 회독. 입문·기초이론은 1회독에 흡수한다
+// (부동산학원론은 심화이론 없이 기초이론+기본이론으로 운영된다).
+export function lecturePhaseToMastery(p) {
+  return (p === 'intro' || p === 'found') ? 'basic' : p;
+}
+
+// 회독별 레코드에서 전체 롤업을 만든다.
+// 기존 소비자(DDayPlanner·WeaknessPanel·leafStats·proficiencyEngine·getDueChapters)는 최상위
+// 필드를 그대로 읽으므로, 롤업을 항상 최신으로 유지해야 회독 도입이 기존 화면을 깨뜨리지 않는다.
+function rollupPhases(phases) {
+  const active = MASTERY_PHASES
+    .map((p) => phases[p])
+    .filter((m) => m && (m.coverage > 0 || m.attempted > 0 || m.answer_count > 0));
+  if (!active.length) return { ...MASTERY_DEFAULT };
+
+  const attempted = active.reduce((a, m) => a + (m.attempted || 0), 0);
+  const correct = active.reduce((a, m) => a + (m.correct || 0), 0);
+  const answerCount = active.reduce((a, m) => a + (m.answer_count || 0), 0);
+  const coverage = active.reduce((a, m) => a + (m.coverage || 0), 0) / active.length;
+  const accuracy = attempted > 0
+    ? correct / attempted
+    : active.reduce((a, m) => a + (m.accuracy || 0), 0) / active.length;
+
+  const times = active.map((m) => m.last_studied).filter(Boolean).sort();
+  const reviews = active.map((m) => m.next_review).filter(Boolean).sort();
+
+  const out = {
+    ...MASTERY_DEFAULT,
+    coverage, accuracy, attempted, correct,
+    answer_count: answerCount,
+    avg_score_pct: answerCount > 0
+      ? active.reduce((a, m) => a + (m.avg_score_pct || 0) * (m.answer_count || 0), 0) / answerCount
+      : 0,
+    avg_time_ratio: answerCount > 0
+      ? active.reduce((a, m) => a + (m.avg_time_ratio || 1) * (m.answer_count || 0), 0) / answerCount
+      : 1.0,
+    last_studied: times.length ? times[times.length - 1] : null,
+    next_review: reviews.length ? reviews[0] : null,   // 가장 이른 만기
+    srs_box: Math.min(...active.map((m) => m.srs_box || 0)),
+  };
+  if (out.coverage >= 0.95 && out.accuracy >= 0.8) out.status = 'mastered';
+  else if (out.coverage > 0) out.status = 'in_progress';
+  return out;
+}
+
+// 레거시 레코드(회독 없이 필드가 최상위에 있던 형태)를 phases.basic 으로 옮긴다.
+// 그동안 쌓인 학습 기록은 전부 1회독으로 간주한다.
+function normalizeRecord(rec) {
+  if (!rec) return { ...MASTERY_DEFAULT, phases: {} };
+  if (rec.phases) return rec;
+  const legacy = { ...MASTERY_DEFAULT };
+  Object.keys(MASTERY_DEFAULT).forEach((k) => {
+    if (rec[k] !== undefined) legacy[k] = rec[k];
+  });
+  const hasData = legacy.coverage > 0 || legacy.attempted > 0 || legacy.answer_count > 0;
+  return { ...rec, phases: hasData ? { basic: legacy } : {} };
+}
+
+let _migrated = false;
+function migrateMasteryPhases() {
+  if (_migrated) return;
+  _migrated = true;
+  const all = lsGet(KEY.mastery, {});
+  let touched = false;
+  Object.keys(all).forEach((code) => {
+    if (all[code] && !all[code].phases) {
+      all[code] = normalizeRecord(all[code]);
+      touched = true;
+    }
+  });
+  if (touched) lsSet(KEY.mastery, all);
+}
+
 // 2차 답안 채점 결과 반영
-export function recordAnswerScore(leafId, scoreResult) {
+// 2차는 회독 축을 쓰지 않으므로 기본 회독(basic)에 누적한다.
+export function recordAnswerScore(leafId, scoreResult, phase = 'basic') {
   if (!leafId || !scoreResult) return null;
   const all = getMastery();
-  const prev = { ...MASTERY_DEFAULT, ...(all[leafId] || {}) };
+  const rec = normalizeRecord(all[leafId]);
+  const prev = { ...MASTERY_DEFAULT, ...(rec.phases[phase] || {}) };
   const count = (prev.answer_count || 0) + 1;
   // max<=0·NaN이면 pct→NaN이 되어 평균이 영구 오염되므로 방어 (호출처가 b.max||30로 막지만 공개 함수 자체도 가드)
   const safeMax = Number(scoreResult.max) > 0 ? Number(scoreResult.max) : 30;
@@ -100,7 +193,8 @@ export function recordAnswerScore(leafId, scoreResult) {
     next.srs_box = 0;
     next.next_review = new Date(now + SRS_LADDER[0] * DAY_MS).toISOString();
   }
-  all[leafId] = next;
+  const phases = { ...rec.phases, [phase]: next };
+  all[leafId] = { ...rollupPhases(phases), phases };
   lsSet(KEY.mastery, all);
   return next;
 }
@@ -136,12 +230,29 @@ export function setByok(k) { lsSet(KEY.byok, k || null); }
 export function getApiKey(provider) {
   if (provider === 'openai') return lsGet(KEY.byokOpenai, '');
   if (provider === 'google') return lsGet(KEY.byokGoogle, '');
+  if (provider === 'moonshot') return lsGet(KEY.byokMoonshot, '');
+  if (provider === 'local') return 'ollama'; // 키 불필요(더미)
   return lsGet(KEY.byok, ''); // anthropic 기본
 }
 export function setApiKey(provider, k) {
   if (provider === 'openai') return lsSet(KEY.byokOpenai, k || null);
   if (provider === 'google') return lsSet(KEY.byokGoogle, k || null);
+  if (provider === 'moonshot') return lsSet(KEY.byokMoonshot, k || null);
   return lsSet(KEY.byok, k || null);
+}
+
+// ── 역할(role)→모델 라우팅 ────────────────────────────────────────
+// role: 'drill' | 'gen' | 'essay' | 'ask' (chat 은 prefs.model 사용)
+export function getRoles() { return lsGet(KEY.roles, {}); }
+export function getRoleModel(role, fallback = null) {
+  const v = getRoles()[role];
+  return v || fallback;
+}
+export function setRoleModel(role, modelRef) {
+  const cur = getRoles();
+  if (modelRef) cur[role] = modelRef; else delete cur[role];
+  lsSet(KEY.roles, cur);
+  return cur;
 }
 
 // 프록시 baseUrl (CORS 우회용) — { openai?: 'https://my-proxy.workers.dev', google?: '...' }
@@ -187,14 +298,47 @@ export function getCurrent() {
 }
 export function setCurrent(cur) { lsSet(KEY.current, cur); }
 
-export function getMastery() { return lsGet(KEY.mastery, {}); }
-export function getChapterMastery(code) {
-  const all = getMastery();
-  return { ...MASTERY_DEFAULT, ...(all[code] || {}) };
+export function getMastery() {
+  migrateMasteryPhases();
+  return lsGet(KEY.mastery, {});
 }
-export function updateChapterMastery(code, patch) {
+
+// ── 학습 후 자동 인출 체크 대기 ──────────────────────────────
+// "읽었다=끝"이 아니라 어느 정도 학습한 단원은 인출(퀴즈)로 확인해야 진짜 측정된다(시험효과).
+// 커버리지가 임계 이상 오르고 아직 퀴즈로 확인 안 된 단원을 여기 올려두고, 학습을 떠날 때 자동 체크한다.
+const PENDING_KEY = 'ailearn-pending-check';
+export function getPendingChecks() { return lsGet(PENDING_KEY, {}); }
+export function addPendingCheck(leafId, coverage) {
+  if (!leafId) return;
+  const all = lsGet(PENDING_KEY, {});
+  if (!all[leafId]) { all[leafId] = { ts: Date.now(), coverage: coverage || 0 }; lsSet(PENDING_KEY, all); }
+}
+export function clearPendingCheck(leafId) {
+  const all = lsGet(PENDING_KEY, {});
+  if (all[leafId]) { delete all[leafId]; lsSet(PENDING_KEY, all); }
+}
+
+/** phase 를 주면 그 회독의 기록, 생략하면 회독 전체를 합친 값. */
+export function getChapterMastery(code, phase) {
+  const rec = normalizeRecord(getMastery()[code]);
+  if (phase) return { ...MASTERY_DEFAULT, ...(rec.phases[phase] || {}) };
+  return { ...MASTERY_DEFAULT, ...rollupPhases(rec.phases) };
+}
+
+/** 관 하나의 회독별 기록 전체. 회독 배지·진척 화면이 쓴다. */
+export function getChapterPhases(code) {
+  const rec = normalizeRecord(getMastery()[code]);
+  const out = {};
+  MASTERY_PHASES.forEach((p) => {
+    out[p] = { ...MASTERY_DEFAULT, ...(rec.phases[p] || {}) };
+  });
+  return out;
+}
+
+export function updateChapterMastery(code, patch, phase = 'basic') {
   const all = getMastery();
-  const prev = { ...MASTERY_DEFAULT, ...(all[code] || {}) };
+  const rec = normalizeRecord(all[code]);
+  const prev = { ...MASTERY_DEFAULT, ...(rec.phases[phase] || {}) };
   const next = { ...prev, ...patch, last_studied: new Date().toISOString() };
   // 학습 상태 자동 분류
   if (next.coverage >= 0.95 && next.accuracy >= 0.8) next.status = 'mastered';
@@ -210,21 +354,25 @@ export function updateChapterMastery(code, patch) {
     next.srs_box = box;
     next.next_review = new Date(now + SRS_LADDER[box] * DAY_MS).toISOString();
   }
-  all[code] = next;
+  // 어느 정도 학습(coverage≥0.4)했지만 아직 퀴즈로 확인(attempted<3) 안 됐으면 → 자동 체크 대기 등록.
+  if (next.coverage >= 0.4 && next.status !== 'mastered' && (next.attempted || 0) < 3) addPendingCheck(code, next.coverage);
+  else if ((next.attempted || 0) >= 3 || next.status === 'mastered') clearPendingCheck(code);
+  const phases = { ...rec.phases, [phase]: next };
+  // 최상위는 롤업으로 항상 덮어쓴다 — 기존 화면들이 여기를 읽는다.
+  all[code] = { ...rollupPhases(phases), phases };
   lsSet(KEY.mastery, all);
   return next;
 }
 
 // 채점 결과를 누적해 accuracy 갱신 + SRS lapse 처리
-export function recordGrade(code, isCorrect) {
-  const all = getMastery();
-  const prev = { ...MASTERY_DEFAULT, ...(all[code] || {}) };
+export function recordGrade(code, isCorrect, phase = 'basic') {
+  const prev = getChapterMastery(code, phase);
   const attempted = (prev.attempted || 0) + 1;
   const correct = (prev.correct || 0) + (isCorrect ? 1 : 0);
   const accuracy = attempted > 0 ? correct / attempted : 0;
   const patch = { attempted, correct, accuracy };
   if (!isCorrect && prev.srs_box > 0) patch.srs_box = Math.max(0, prev.srs_box - 1);
-  return updateChapterMastery(code, patch);
+  return updateChapterMastery(code, patch, phase);
 }
 
 // 오늘 복습 만기인 단원 코드 목록

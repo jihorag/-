@@ -38,7 +38,7 @@ const SUBJECTS_BUILD = [
       { id: 'mulgwon', title: '물권법', file: '물권법_정리.md' },
     ],
     sourceDirs: [
-      join(HOME, 'Documents', 'Claude KAPA CHATING', '1차 - 민법_학습자료'),
+      join(HOME, 'Documents', 'sources/옛자료(Claude 대화본)', '1차 - 민법_학습자료'),
       join(repoRoot, '8_civil'),
     ],
   },
@@ -52,8 +52,8 @@ const SUBJECTS_BUILD = [
       { id: 'cpa-cost', title: '원가회계', file: '황윤하_원가회계.md' },
     ],
     sourceDirs: [
-      join(HOME, 'Documents', 'Claude KAPA CHATING', '1차 - 회계학_학습자료'),
-      join(repoRoot, '8_accounting'),
+      join(HOME, 'Documents', 'sources/옛자료(Claude 대화본)', '1차 - 회계학_학습자료'),
+      join(repoRoot, 'pipeline/8_accounting'),
     ],
   },
   {
@@ -65,7 +65,7 @@ const SUBJECTS_BUILD = [
       { id: 'gook', title: '국승옥 강의노트', file: '국승옥_강의노트.md' },
     ],
     sourceDirs: [
-      join(HOME, 'Documents', 'Claude KAPA CHATING', '1차 - 부동산학원론_학습자료'),
+      join(HOME, 'Documents', 'sources/옛자료(Claude 대화본)', '1차 - 부동산학원론_학습자료'),
       join(repoRoot, '8_realestate'),
     ],
   },

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """2차 논술 이론·법규 essay 데이터 생성 (실제 기출 전문 추출 + 논점 폴백).
-소스: 'Claude KAPA CHATING copy' 의 _최종산출물 단원 마크다운.
+소스: '학습자료(강의노트)' 의 _최종산출물 단원 마크다운.
  · 이론: "기출문제 N. … (회차.점수)" 블록(본문+물음) 추출 → 실제 기출
  · 법규: "… (N점) [N회, 문N]" 마커가 붙은 실제 기출 문항 추출
  · 마커가 없는 단원(주로 행정법·이론 일부)은 단원 논점명 프롬프트로 폴백
@@ -11,7 +11,7 @@ import json, re, datetime, unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / 'Claude KAPA CHATING copy'
+SRC = ROOT / '학습자료(강의노트)'
 OUT_BASE = ROOT / 'viewer/public/data/essay'
 NOW = datetime.datetime.now(datetime.timezone.utc).isoformat()
 

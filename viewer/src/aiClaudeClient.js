@@ -36,6 +36,13 @@ export const SYSTEM_RULES = `당신은 감정평가사 1차 시험 과외 선생
 1. 제공된 인수인계서와 단원 자료에 적힌 내용만 가르치세요. 일반 지식·자체 추론으로 보충하지 마세요.
 2. 교재 내용과 일반론이 다르면 → 교재가 정답입니다.
 3. 답할 수 없거나 자료에 없으면 정직하게 "교재 범위 밖"이라고 알리세요. 추측 금지.
+4. [강의 필기]는 강의에서 뽑아 교재 문체로 다듬은 보충 본문입니다. 교재와 같은 급의 근거로 쓰세요.
+   · \`[43강 39:45]\` 는 나중에 그 대목을 되짚기 위한 표시일 뿐입니다.
+     학생에게 답할 때 **굳이 인용 시각을 붙이지 마세요** — 읽는 흐름만 끊습니다.
+     학생이 "몇 강에서 나왔냐"고 물을 때만 알려주면 됩니다.
+   · "강사가 ~라고 했다", "강의에서는 ~" 같은 표현도 쓰지 마세요. 그냥 교재 내용처럼 설명하세요.
+5. \`> 🐶 복습 메이트\` 블록은 **내용 설명이 아니라 학습 조언**입니다(무엇을 외우고 무엇은 넘길지).
+   설명의 근거로 인용하지 말고, 조언이 필요할 때만 그대로 전하세요.
 
 [수업 스타일 — 한 사이클]
 1. **일상 언어로 개념 도입** ("쉽게 말해 이건 ○○○이에요")
@@ -303,6 +310,81 @@ export const SUBJECT_RULES = {
   appraisal_law: LAW_S2_RULES,
 };
 
+// ── 1차 과목별 규칙 ─────────────────────────────────────
+// 합격수기(회계사·세무사·감평) 만장일치: 회계는 '설명 듣는 과목'이 아니라
+// '분개와 와꾸로 손이 기억하게' 만드는 과목. 튜터가 이걸 강제해야 한다.
+export const ACCOUNTING_RULES = `
+
+[💰 회계학 학습 규칙 — 분개와 와꾸로 '손이 기억하게' 만드는 시험]
+- 감평 회계학은 재무회계 30 / 원가관리 10, **과락(40점) 방지**가 목표다(2026년 과락률 57%·평균 36.7점의 최대 난관). 깊이보다 '풀 문제를 시간 안에 푸는' 훈련이 핵심. 고급회계·리스·현금흐름표·종합예산 등 저효율 유형은 후순위로 안내하라.
+- 재무회계는 **말로만 설명하고 끝내지 마라.** 개념을 짚은 뒤 반드시 **"이 거래를 분개해보세요"**로 학생이 직접 차변/대변을 쓰게 하고, 그 분개가 재무제표(B/S·I/S)로 어떻게 흘러가는지 보여줘라. "회계의 처음과 끝은 분개"다.
+- 원가·계산 유형은 **정형 풀이틀('와꾸')을 먼저** 제시하라(예: 종합원가 = ①물량흐름 ②완성품환산량 ③원가배분). 학생이 그 틀의 빈칸을 채우게 하고, 와꾸마다 '왜 그렇게 푸는지' 한 줄 근거를 붙여라(와꾸만 외우면 변형문제에서 무너진다).
+- 계산은 한 번에 답 주지 말고 **한 단계씩**(식→대입→계산→단위). 막히면 다음 단계 힌트만.
+- **휘발성 경고**: 회계는 앞을 배우면 뒤에서 잊는 게 정상. 학생이 이전 개념을 잊었으면 짧게 복습시키고 "N회독으로 덮어야 한다"고 알려라.
+- **선행 결손 역추적**: 학생이 중급회계 등에서 계속 막히면 원인이 앞 단원(회계원리·기초 분개·계정 분류) 결손인 경우가 많다. 증상만 고치지 말고 "어느 선행 개념부터 다시 봐야 하는지"를 콕 집어 되짚어 줘라. 되짚을 땐 메시지 끝에 아래 JSON을 붙여 학생이 그 단원으로 바로 이동하게 하라(화면엔 숨겨지고 이동 버튼이 뜬다):
+\`\`\`json
+{"prereq": true, "unit": "계정과 분개", "reason": "이 계산의 토대라 먼저 다져야 함"}
+\`\`\`
+unit은 앞 단원 제목의 핵심어(교재 단원명과 겹치게), reason은 한 줄.
+- 실수는 **유형으로** 짚어라: 부호(+/-), 기간 안분(월할), 취득원가 포함여부(→감가상각·처분손익까지 연쇄 오류). 검산은 '같은 방식 재계산'은 무효 → **다른 경로**로 확인시켜라.
+- 예시는 반드시 회계 숫자로(예: "기계 취득원가 1,000,000·잔존 100,000·5년 정액 → 연 감가상각 180,000").`;
+
+export const STAGE1_SUBJECT_RULES = {
+  accounting: ACCOUNTING_RULES,
+};
+
+export const JOURNAL_RULES = `
+
+[✍️ 분개 채점 모드 — 재무회계 체화]
+- 목적: 학생이 거래를 스스로 분개하고 재무제표 영향을 이해하게 한다. "직접 분개해 재무제표 영향 확인"이 최고의 재무회계 학습 행동이다.
+- 한 사이클: ① 짧은 거래 상황 1개(구체 숫자) 제시 → "차변/대변으로 분개해보세요" → ② 학생 분개 입력 → ③ 채점: 맞으면 인정+한 줄 근거, 틀리면 **어느 계정·어느 방향이 틀렸는지 정확히** 짚고 올바른 분개 제시 → ④ 이 분개의 B/S·I/S 영향 1~2줄 → ⑤ 다음 거래(난이도 조절).
+- 분개는 '차변 계정 XXX / 금액,  대변 계정 XXX / 금액' 형식으로. 자산·비용 증가는 차변, 부채·자본·수익 증가는 대변.
+- 한 번에 거래 1개. 3개 연속 정답이면 난이도를 올리거나 관련 계산(감가상각·처분손익·유효이자 등)으로 확장하라.
+- 첫 메시지는 인사 없이 바로 첫 거래 제시.
+- **매 채점(③) 뒤 메시지 맨 끝에** 다음 JSON을 붙여라(화면엔 자동으로 숨겨지고, 틀린 분개는 복습 큐로 들어간다):
+\`\`\`json
+{"journal": true, "correct": true, "topic": "감가상각 분개"}
+\`\`\`
+correct는 학생 분개의 정오(boolean), topic은 거래 유형 5~15자.`;
+
+export const CALC_S1_RULES = `
+
+[🧮 계산 코칭 모드 (1차) — 한 단계씩]
+- 목적: 회계·경제 계산을 학생이 스스로 단계를 밟게 한다. **정답만 주지 마라**(기존 학습앱 최대 불만이 "정답만 보여주고 끝").
+- 진행: 문제 1개 제시 → "먼저 무슨 식을 써야 할까요?"부터 한 단계씩 학생에게 물어라. 매 단계 식→대입→계산→단위.
+- 막히면 답을 주지 말고 **다음 한 단계 힌트만**. 계산 실수면 어느 단계에서 틀렸는지 짚어라.
+- 계산형은 정형 풀이틀(와꾸)을 먼저 상기시켜라.
+- 끝나면 검산 유도: "같은 방식 재계산 말고 **다른 경로**로 확인해보자"(예: 총액↔단가 역산, 대차평균).`;
+
+// 회독(phase)별 튜터 태도. 같은 관이라도 1회독 학생과 3회독 학생에게 같은 깊이로 말하면 안 된다.
+// 모드 탭 = 회독 축이므로 MODE_RULES 와 짝을 이뤄 붙는다.
+export const PHASE_RULES = {
+  basic: `
+[회독 — 1회독(기본이론)]
+- 지금은 **뼈대를 세우는 단계**입니다. 정의와 용어부터 확실히.
+- 예외·함정은 아직 꺼내지 마세요. 큰 그림이 먼저입니다.
+- "이건 나중에 심화에서 다룹니다" 라고 미뤄도 좋습니다.`,
+  deep: `
+[회독 — 2회독(심화이론)]
+- 1회독으로 정의는 아는 학생입니다. 정의만 반복하면 지루해집니다.
+- **경계·예외·유사 개념 구별**에 집중하세요. "왜 그런가"를 설명하세요.
+- A와 B가 어떻게 다른지 대조표를 적극 활용하세요.`,
+  prac: `
+[회독 — 3회독(문제풀이)]
+- 이론은 이미 두 번 봤습니다. **기출 적용과 함정 식별**이 목표입니다.
+- 선지가 왜 틀렸는지, 출제자가 어디를 비틀었는지를 짚으세요.
+- 개념 설명은 짧게, 문제 안에서 설명하세요.`,
+  mock: `
+[회독 — 4회독(모의·핵심)]
+- 마무리 단계입니다. **인출 속도**가 관건입니다.
+- 길게 설명하지 말고 학생이 스스로 떠올리게 하세요. 먼저 묻고 나중에 확인.
+- 자주 틀리는 포인트만 압축해서 짚으세요.`,
+  final: `
+[회독 — 마무리(특강)]
+- 시험 직전 압축 정리입니다. 새 내용을 추가하지 마세요.
+- 출제 가능성이 높은 것만, 표·요약 형태로 짧게.`,
+};
+
 export const MODE_RULES = {
   // 1차
   study: STUDY_RULES,
@@ -310,6 +392,8 @@ export const MODE_RULES = {
   deep: DEEP_RULES,
   summary: SUMMARY_RULES,
   diagnose: DIAGNOSE_RULES,
+  journal: JOURNAL_RULES,
+  calc: CALC_S1_RULES,
   // 2차 신규
   concept_s2: CONCEPT_S2_RULES,
   template: TEMPLATE_RULES,
@@ -326,13 +410,16 @@ function getEndpoint(baseUrl) {
 // 1시간 캐시 TTL — extended-cache-ttl beta. 같은 단원 1시간 내 재방문 시 캐시 히트.
 const CACHE_1H = { type: 'ephemeral', ttl: '1h' };
 
-export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, mode, currentMastery, recentSummary, leafPath, stage, subjectId }) {
-  // 캐시 prefix는 [SYSTEM_RULES + 과목별 규칙] → [handover + viz_catalog] → [section] → [problems] 순.
+export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, lectureMd, phase, mode, currentMastery, recentSummary, leafPath, stage, subjectId, passInsights }) {
+  // 캐시 prefix는 [SYSTEM_RULES + 과목별 규칙 + 합격방법론] → [handover + viz_catalog] → [section] → [problems] 순.
   // 과목/단원이 바뀌지 않는 한 prefix는 안정. 모드 규칙은 prefix 뒤로 빼서 모드 전환에도 캐시 보존.
   let systemHead = SYSTEM_RULES;
   if (stage === 2) {
     systemHead += STAGE2_RULES + (SUBJECT_RULES[subjectId] || '');
+  } else {
+    systemHead += (STAGE1_SUBJECT_RULES[subjectId] || ''); // 1차 과목별(회계 등) 규칙
   }
+  if (passInsights) systemHead += passInsights; // 합격수기 78건 기반 과목별 공부법(과목당 안정 → prefix 캐시 유지)
   const blocks = [
     { type: 'text', text: systemHead },
   ];
@@ -364,6 +451,15 @@ export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, m
       cache_control: CACHE_1H,
     });
   }
+  // 강의 필기 — 해당 관·해당 회독의 강의에서 뽑은 압축본.
+  // 단원 자료 뒤·기출 앞에 둬야 모드를 바꿔도 앞쪽 prefix 캐시가 보존된다.
+  if (lectureMd) {
+    blocks.push({
+      type: 'text',
+      text: `\n\n[강의 필기 — 강사 설명]\n${lectureMd}`,
+      cache_control: CACHE_1H,
+    });
+  }
   if (mode === 'practice' && problemsMd) {
     blocks.push({
       type: 'text',
@@ -375,6 +471,11 @@ export function buildSystemBlocks({ handoverMd, unitMd, sectionMd, problemsMd, m
   const modeRules = MODE_RULES[mode] || '';
   if (modeRules) {
     blocks.push({ type: 'text', text: modeRules });
+  }
+  // 회독 규칙도 캐시 뒤. 1차에서만 의미가 있다(2차는 회독 축을 쓰지 않는다).
+  if (stage !== 2) {
+    const phaseRules = PHASE_RULES[phase] || '';
+    if (phaseRules) blocks.push({ type: 'text', text: phaseRules });
   }
   // 상태(leafPath/mastery/recentSummary)는 매번 변하므로 가장 뒤.
   const stateLines = [];
@@ -499,4 +600,178 @@ export function sliceSection(fullMd, section) {
   const lines = fullMd.split('\n');
   const [start, end] = section.lines;
   return lines.slice(Math.max(0, start - 1), Math.min(lines.length, end)).join('\n');
+}
+
+/** 강의 필기에서 이 관(leaf)의 구간만 잘라낸다.
+ *
+ * 필기 파일은 유닛(unit_code) 하나에 관 여러 개가 `<!-- leaf: … -->` 앵커로 이어져 있다.
+ * 통째로 챗에 넣으면 지금 배우는 관과 무관한 내용까지 토큰을 먹고, 화면에도 엉뚱한 관이 보인다.
+ * 앵커를 못 찾으면(예전 형식) 전체를 그대로 돌려준다.
+ */
+export function sliceLectureNote(fullMd, leafId) {
+  if (!fullMd || !leafId) return fullMd || '';
+  const anchor = `<!-- leaf: ${leafId} -->`;
+  const start = fullMd.indexOf(anchor);
+  if (start < 0) return fullMd;
+  const rest = fullMd.slice(start);
+  const next = rest.indexOf('<!-- leaf:', anchor.length);
+  return (next > 0 ? rest.slice(0, next) : rest).trim();
+}
+
+/** 화면에 뿌릴 때 쓰는 형태 — HTML 주석(앵커·표기규칙)을 걷어낸다.
+ *  마크다운 렌더러는 주석을 숨기지 않고 글자 그대로 찍는다. */
+export function stripNoteComments(md) {
+  return (md || '').replace(/<!--[\s\S]*?-->/g, '').trim();
+}
+
+/** 화면용으로 출처 표기를 지운다.
+ *
+ * `[43강 48:30]` 같은 인용 시각은 문장 사이에 끼면 읽는 흐름을 끊는다.
+ * 다만 파일에는 남겨둔다 — 나중에 "이 대목 강의 다시 듣기"로 되짚어야 하고,
+ * 챗은 필요할 때 근거로 쓸 수 있어야 한다. 그래서 **표시할 때만** 걷어낸다.
+ */
+export function stripLectureCitations(md) {
+  return (md || '')
+    .replace(/\s*\[\d+강\s*\d+:\d{2}(?:~\d+:\d{2})?\]/g, '')
+    // 상단의 "> 📖 이 관의 강의: …" 출처 줄도 화면에서는 뺀다
+    .replace(/^>\s*📖\s*이 관의 강의:.*$/gm, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/** 교재 소제목 한 줄이 어느 탭 소속인지 판정한다.
+ *
+ * 교재는 한 파일 안에 이론·OX·암기법·법전…이 소제목으로 섞여 있고, 화면에서는 탭으로
+ * 갈라 보여준다. 그 갈라내는 규칙이 여기 한 곳에 있어야 한다 — 화면 분할(splitDocTabs)과
+ * 강의 필기 배정(splitLectureByTab)이 서로 다른 기준을 쓰면 필기가 엉뚱한 탭으로 간다.
+ */
+export function classifyDocHeading(title) {
+  const t = title || '';
+  if (/\bOX\b|O\s*\/\s*X|확인문제|점검문제/i.test(t)) return 'ox';
+  if (/암기|두문자|기억법/.test(t)) return 'mem';
+  if (/법조문 원문|법전/.test(t)) return 'law';
+  if (/계산 연습|연습문제|와꾸/.test(t)) return 'prac';
+  if (/기준서 원문|기준서 근거/.test(t)) return 'std';
+  return 'theory';
+}
+
+/** 강의 필기를 교재 **탭별로 나눈다**.
+ *
+ * 필기의 앵커가 `🧠 암기법` 처럼 이론이 아닌 소제목을 가리키는 경우가 있다.
+ * 그런데 화면은 그 소제목 줄을 이론 본문에서 **떼어내 다른 탭으로 보내면서 줄 자체를 지운다**.
+ * 그래서 앵커가 갈 곳을 잃고, 그 필기는 이론 탭 맨 뒤로 밀려 문맥과 동떨어져 놓인다.
+ * (경제학·부동산학원론 기준 못 붙는 앵커 40개 중 37개가 이 경우였다.)
+ *
+ * 여기서는 앵커가 가리키는 소제목이 속한 탭을 찾아 그 탭 몫으로 넘긴다.
+ * 짝을 못 찾은 블록과 `_top` 은 이론이 받는다.
+ *
+ * 예외 — **OX 탭은 받지 않는다.** OX 탭은 마크다운을 그대로 그리지 않고 지문을 파싱해
+ * 퀴즈로 만들기 때문에, 필기를 섞으면 파싱이 깨지고 내용도 사라진다. 이론에 남긴다.
+ */
+export function splitLectureByTab(docMd, lectureMd) {
+  const out = { theory: '', ox: '', mem: '', law: '', prac: '', std: '' };
+  const { blocks } = stripNoteComments2(lectureMd);
+  if (!blocks.length) return out;
+
+  // 교재 소제목 → 소속 탭.
+  // splitDocTabs 와 **똑같이** 상태를 이어가며 훑어야 한다. 탭을 가르는 건 2~4단계
+  // 소제목뿐이고, 5~6단계는 직전 탭에 그대로 남기 때문이다. 단순히 소제목마다
+  // 따로 판정하면 `##### 암기 포인트` 같은 줄이 이론에서 암기 탭으로 잘못 빠진다.
+  const owner = [];
+  let cur = 'theory';
+  for (const ln of (docMd || '').split('\n')) {
+    const h = ln.match(/^(#{2,6})\s*(.*)$/);
+    if (!h) continue;
+    const title = h[2].trim();
+    if (h[1].length <= 4) cur = classifyDocHeading(title);
+    owner.push({ heading: title, tab: cur });
+  }
+
+  const norm = (s) => (s || '').replace(/\s+/g, '');
+  const per = { theory: [], ox: [], mem: [], law: [], prac: [], std: [] };
+  for (const b of blocks) {
+    let tab = 'theory';
+    if (b.after && b.after !== '_top') {
+      const hit = owner.find((o) => norm(o.heading).includes(norm(b.after)));
+      // 소제목을 못 찾으면 앵커 문구 자체로 판정한다 — 지워진 소제목을 가리킨 경우가 있다.
+      const t = hit ? hit.tab : classifyDocHeading(b.after);
+      if (t !== 'ox') tab = t; // OX 탭은 위 사유로 받지 않는다
+    }
+    // 앵커를 그대로 살려서 되붙인다 — 받는 탭에서 다시 소제목 매칭을 하기 때문이다.
+    per[tab].push(b.after ? `<!-- after: ${b.after} -->\n${b.body}` : b.body);
+  }
+  for (const k of Object.keys(out)) out[k] = per[k].join('\n\n');
+  return out;
+}
+
+/** 교재 본문에 강의 설명을 **끼워 넣어** 하나의 흐름으로 만든다.
+ *
+ * 강의 필기를 교재 뒤에 통째로 붙이면 같은 주제를 두 번 읽게 되고 둘이 따로 논다.
+ * 그래서 필기 쪽에 `<!-- after: 2. IS곡선의 도출 -->` 앵커를 달아두고,
+ * 교재의 해당 소제목 단락이 끝나는 자리에 그 대목의 강의 설명을 꽂는다.
+ *
+ * · `<!-- after: _top -->`  → 교재 맨 앞(도입) 자리
+ * · 짝을 못 찾은 블록은 유실되지 않도록 맨 뒤에 붙인다.
+ */
+export function mergeLectureIntoDoc(docMd, lectureMd) {
+  const lecture = stripNoteComments2(lectureMd);
+  if (!lecture.blocks.length) return docMd || '';
+  if (!docMd) return lecture.blocks.map((b) => b.body).join('\n\n');
+
+  const lines = docMd.split('\n');
+  // 교재를 소제목 단위로 자른다(제목 줄 + 그 아래 본문).
+  const chunks = [];
+  let cur = { heading: '', body: [] };
+  for (const ln of lines) {
+    if (/^#{2,6}\s/.test(ln)) {
+      chunks.push(cur);
+      cur = { heading: ln.replace(/^#+\s*/, '').trim(), body: [ln] };
+    } else {
+      cur.body.push(ln);
+    }
+  }
+  chunks.push(cur);
+
+  const used = new Set();
+  const pick = (heading) => lecture.blocks.filter((b, idx) => {
+    if (used.has(idx) || !b.after || b.after === '_top') return false;
+    const hit = heading && heading.replace(/\s+/g, '').includes(b.after.replace(/\s+/g, ''));
+    if (hit) used.add(idx);
+    return hit;
+  });
+
+  const out = [];
+  lecture.blocks.forEach((b, idx) => {
+    if (b.after === '_top') { out.push(b.body); used.add(idx); }
+  });
+  chunks.forEach((c) => {
+    if (c.body.length) out.push(c.body.join('\n'));
+    pick(c.heading).forEach((b) => out.push(b.body));
+  });
+  lecture.blocks.forEach((b, idx) => { if (!used.has(idx)) out.push(b.body); });
+
+  return out.filter((s) => s && s.trim()).join('\n\n');
+}
+
+/** 필기 md → `<!-- after: … -->` 앵커 기준 블록 목록. 주석은 제거해 돌려준다. */
+function stripNoteComments2(md) {
+  const src = md || '';
+  const re = /<!--\s*after:\s*(.+?)\s*-->/g;
+  const marks = [];
+  let m;
+  while ((m = re.exec(src)) !== null) marks.push({ after: m[1], start: m.index, len: m[0].length });
+  if (!marks.length) {
+    const body = stripNoteComments(src);
+    return { blocks: body ? [{ after: null, body }] : [] };
+  }
+  const blocks = [];
+  // 첫 앵커 앞부분(제목·출처 줄)은 맨 앞에 둔다.
+  const head = stripNoteComments(src.slice(0, marks[0].start));
+  if (head) blocks.push({ after: '_top', body: head });
+  marks.forEach((mk, i) => {
+    const end = i + 1 < marks.length ? marks[i + 1].start : src.length;
+    const body = stripNoteComments(src.slice(mk.start + mk.len, end));
+    if (body) blocks.push({ after: mk.after, body });
+  });
+  return { blocks };
 }

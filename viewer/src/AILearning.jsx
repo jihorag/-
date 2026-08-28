@@ -12,12 +12,16 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable react-refresh/only-export-components */
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Send, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play, BarChart3, ArrowRight, Download, Upload, Settings } from 'lucide-react';
+import { Send, BookOpen, RotateCcw, ChevronDown, ChevronLeft, ChevronRight, Calendar, Sparkles, Key, Search, Trash2, Play, BarChart3, ArrowRight, Download, Upload, Settings,
+  RefreshCw, Lightbulb, Flag, FileText, Shuffle, CheckCircle2, Brain, AlertTriangle, GitCompare, Zap, Bookmark, ListOrdered, Target, Activity, ClipboardList, HelpCircle, Calculator, SkipForward, PenLine, Layers,
+  PencilLine, Timer, Compass } from 'lucide-react';
 import ParsedText from './ParsedText';
+import SubjectIcon from './SubjectIcon';
 import {
   getByok, setByok, getPrefs, setPrefs,
   getCurrent, setCurrent,
   getMastery, getChapterMastery, updateChapterMastery,
+  modeToPhase, MASTERY_PHASES, PHASE_LABEL,
   recordGrade, recordAnswerScore, getDueChapters,
   getSessions, addSession, updateSession,
   getRoomMessages, appendRoomMessage, popRoomMessage, clearRoom, getAllRooms,
@@ -31,14 +35,173 @@ import {
   SUBJECTS, SUBJECTS_BY_STAGE, getSubjectMeta,
   getApiKey, getBaseUrls, setApiKey, setBaseUrl,
   appendAnswer,
-  getMsgRatings, rateMsg, addNote,
+  getMsgRatings, rateMsg, addNote, getNotes,
   markActiveToday,
 } from './aiLearningStore';
+import { buildPersonalNotes, personalNoteStats } from './studyMeta';
 import { useScrollLock, useEscClose } from './uiHooks';
 import AnswerHistoryWidget from './AnswerHistoryWidget';
 import { SpeakButton } from './Speech';
-import { buildSystemBlocks, sliceSection, extractJsonBlocks, MODELS } from './aiClaudeClient';
+import { buildSystemBlocks, sliceSection, sliceLectureNote, stripNoteComments, stripLectureCitations, mergeLectureIntoDoc, splitLectureByTab, classifyDocHeading, extractJsonBlocks, MODELS } from './aiClaudeClient';
+import { loadPassInsights, passInsightBlock } from './passInsights';
+
+// AI가 로직용으로 붙이는 ```json 마커(채점·진단·분개·선행)는 화면에서 숨긴다.
+const stripAiMarkers = (s) => (s || '').replace(/```json[\s\S]*?```/g, '').trim();
+
+// 교재 슬라이스를 탭별로 분리 — "#### ✅ OX 확인문제" / "#### 🧠 암기법" 헤딩을 만나면
+// 그 아래 내용을 해당 탭으로 보낸다. 관 제목급(###)을 만나면 다시 이론으로 복귀.
+export function splitDocTabs(md) {
+  const empty = { theory: '', ox: '', mem: '', law: '', prac: '', std: '' };
+  if (!md) return empty;
+  const buckets = { theory: [], ox: [], mem: [], law: [], prac: [], std: [] };
+  let cur = 'theory';
+  for (const line of md.split('\n')) {
+    const h = line.match(/^(#{2,4})\s*(.*)$/);
+    if (h) {
+      const title = h[2];
+      // 갈라내는 규칙은 aiClaudeClient 의 classifyDocHeading 한 곳에 있다.
+      // 강의 필기 배정(splitLectureByTab)도 같은 규칙을 써야 필기가 같은 탭으로 간다.
+      const tab = classifyDocHeading(title);
+      // 특수 섹션 제목 줄은 탭 이름이 대신하므로 본문에서 뺀다.
+      // 특수 섹션에 해당하지 않는 헤딩을 만나면 이론으로 되돌린다.
+      // level<=3 만 리셋하면, 관 중간에 있는 `#### 📐 기준서 원문` 뒤의 모든 절
+      // (요건표·분개·재무제표·계산예제·기출포인트)이 기준서 탭으로 새어 들어간다.
+      cur = tab;
+      if (tab !== 'theory') continue;
+    }
+    buckets[cur].push(line);
+  }
+  return {
+    theory: buckets.theory.join('\n').trim(),
+    ox: buckets.ox.join('\n').trim(),
+    mem: buckets.mem.join('\n').trim(),
+    law: buckets.law.join('\n').trim(),
+    prac: buckets.prac.join('\n').trim(),
+    std: buckets.std.join('\n').trim(),
+  };
+}
+
+// OX 지문 파싱 — "**1.** 지문" 다음 줄의 "→ ..." 를 정답·해설로 묶는다.
+function parseOX(md) {
+  const items = [];
+  const intro = [];
+  let cur = null;
+  for (const line of (md || '').split('\n')) {
+    const q = line.match(/^\s*\*\*(\d+)\.\*\*\s*(.*)$/);
+    if (q) {
+      if (cur) items.push(cur);
+      cur = { no: q[1], q: [q[2]], a: [] };
+      continue;
+    }
+    if (/^\s*→/.test(line)) {
+      if (cur) cur.a.push(line.replace(/^\s*→\s*/, ''));
+      continue;
+    }
+    if (cur) (cur.a.length ? cur.a : cur.q).push(line);
+    else intro.push(line);
+  }
+  if (cur) items.push(cur);
+  return {
+    intro: intro.join('\n').trim(),
+    items: items.map((it) => ({ no: it.no, q: it.q.join('\n').trim(), a: it.a.join('\n').trim() })),
+  };
+}
+
+// OX 확인문제 — 정답은 가려두고 클릭하면 드러난다. 초기화로 다시 전부 가림.
+// 해설 첫머리의 `**O**.` / `**X**.` 에서 정답을 읽는다.
+const oxAnswerOf = (a) => {
+  const m = String(a || '').match(/^\s*\*\*\s*([OXox])\s*\*\*/);
+  return m ? m[1].toUpperCase() : null;
+};
+
+function OXQuiz({ md }) {
+  const { intro, items } = useMemo(() => parseOX(md), [md]);
+  const [picked, setPicked] = useState({});   // { [i]: 'O' | 'X' }
+  const [shown, setShown] = useState({});
+  useEffect(() => { setShown({}); setPicked({}); }, [md]);   // 관이 바뀌면 자동 초기화
+  if (!items.length) return <ParsedText text={md} />;
+  const graded = items.map((it, i) => {
+    const ans = oxAnswerOf(it.a);
+    const p = picked[i];
+    return p && ans ? p === ans : null;
+  });
+  const answered = graded.filter((g) => g !== null).length;
+  const right = graded.filter((g) => g === true).length;
+  const btn = {
+    fontSize: '0.72rem', fontWeight: 700, padding: '4px 9px', borderRadius: 6,
+    border: '1px solid #d6d3d1', background: '#fff', color: '#57534e', cursor: 'pointer',
+  };
+  const pick = (i, v, it) => {
+    if (picked[i]) return;                       // 한 번 답하면 고정 — 기록의 신뢰도를 지킨다
+    const ans = oxAnswerOf(it.a);
+    setPicked((s) => ({ ...s, [i]: v }));
+    setShown((s) => ({ ...s, [i]: true }));      // 답하면 해설을 바로 연다
+    if (ans) recordItem({ kind: 'ox', idx: i, q: it.q, isCorrect: v === ans });
+  };
+  const choiceBtn = (on, tone) => ({
+    fontSize: '0.82rem', fontWeight: 800, width: 38, height: 30, borderRadius: 6, cursor: 'pointer',
+    border: '1.5px solid ' + (on ? tone : '#dcd8d3'),
+    background: on ? tone : '#fff', color: on ? '#fff' : '#78716c',
+  });
+  return (
+    <>
+      {intro && <ParsedText text={intro} />}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, margin: '12px 0 4px', flexWrap: 'wrap' }}>
+        <span style={{ fontSize: '0.75rem', fontWeight: 800, color: answered === items.length ? '#4d7c5f' : '#a8a29e' }}>
+          {answered} / {items.length} 풀이
+          {answered > 0 && <span style={{ color: '#57534e' }}> · 정답 {right} ({Math.round((right / answered) * 100)}%)</span>}
+        </span>
+        <button style={{ ...btn, marginLeft: 'auto' }} onClick={() => { setShown({}); setPicked({}); }}>🔄 초기화</button>
+        <button style={btn} onClick={() => setShown(Object.fromEntries(items.map((_, i) => [i, true])))}>👁 모두 보기</button>
+      </div>
+      {items.map((it, i) => {
+        const g = graded[i];
+        return (
+          <div key={i} style={{ borderTop: '1px solid #eeecea', padding: '12px 0 4px' }}>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'baseline' }}>
+              <span style={{ fontWeight: 800, color: '#78716c', flexShrink: 0 }}>{it.no}.</span>
+              <div style={{ flex: 1, minWidth: 0 }}><ParsedText text={it.q} /></div>
+            </div>
+            <div style={{ display: 'flex', gap: 6, alignItems: 'center', margin: '6px 0 2px' }}>
+              <button style={choiceBtn(picked[i] === 'O', '#4d7c5f')} onClick={() => pick(i, 'O', it)}>O</button>
+              <button style={choiceBtn(picked[i] === 'X', '#9a3412')} onClick={() => pick(i, 'X', it)}>X</button>
+              {g !== null && (
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: g ? '#4d7c5f' : '#9a3412' }}>
+                  {g ? '✓ 정답' : '✗ 오답'}
+                </span>
+              )}
+              {g === null && !shown[i] && (
+                <span style={{ fontSize: '0.72rem', color: '#a8a29e' }}>먼저 답해 보세요</span>
+              )}
+            </div>
+            <div
+              onClick={() => setShown((s) => ({ ...s, [i]: !s[i] }))}
+              title={shown[i] ? '다시 가리기' : '클릭하여 정답 확인'}
+              style={{ position: 'relative', cursor: 'pointer', marginTop: 2, borderRadius: 6,
+                background: shown[i] ? (g === false ? '#fbf7f5' : '#f7f9f7') : '#f5f5f4', padding: '7px 10px', minHeight: 34 }}
+            >
+              <div style={{ filter: shown[i] ? 'none' : 'blur(5px)', opacity: shown[i] ? 1 : 0.55,
+                userSelect: shown[i] ? 'auto' : 'none', transition: 'filter .15s, opacity .15s', pointerEvents: 'none' }}>
+                <ParsedText text={it.a} />
+              </div>
+              {!shown[i] && (
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '0.73rem', fontWeight: 700, color: '#78716c', letterSpacing: '0.02em' }}>
+                  클릭하여 정답 확인
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </>
+  );
+}
+import { recordItem, setActiveLeaf, buildLearnerStatus, getDrillQueue, getDrillCounts } from './studyDrill';
+import DailyDrill from './DailyDrill';
 import { sendMessagesUnified, getProviderForModel } from './aiProviders';
+import { discoverLocalModels } from './modelRegistry';
+import { isTauri } from './tauriShim';
 import { toast } from './Toast';
 
 const indexUrl = (subjectId) => {
@@ -131,18 +294,35 @@ async function generateChatCards({ provider, apiKey, baseUrl, leafId, leafPath, 
 const DIV_GROUPS = {
   economics: [
     { label: '미시경제', tops: ['미시경제학'] },
-    { label: '거시경제', tops: ['거시경제학', '국제경제학'] }, // 국제경제학을 거시에 포함
-    // 재정학은 홈 버튼에서 제외(어느 그룹에도 안 넣음)
+    { label: '거시경제', tops: ['거시경제학'] },
+    { label: '국제경제', tops: ['국제경제학'] },
+    { label: '재정학', tops: ['재정학'] },
   ],
   accounting: [
+    { label: '회계원리', tops: ['회계원리'] },
     { label: '재무회계', tops: ['재무회계'] },
-    { label: '원가회계', tops: ['원가관리회계'] },
+    { label: '원가관리회계', tops: ['원가관리회계'] },
+    { label: '고급회계', tops: ['고급회계'] },
+  ],
+  civil: [
+    { label: '민법총칙', tops: ['민법총칙'] },
+    { label: '물권총론', tops: ['물권총론'] },
+    { label: '소유권', tops: ['소유권'] },
+    { label: '제한물권', tops: ['제한물권'] },
+  ],
+  realestate: [
+    { label: '부동산학원론', tops: ['부동산학원론'] },
+    { label: '감정평가론', tops: ['감정평가론'] },
+  ],
+  // 법규 9개 PART → 3개 그룹(빈출 감정평가법·공시 먼저). 필요시 그룹핑 조정 가능.
+  law: [
+    { label: '감정평가·공시', tops: ['PART 08 감정평가 및 감정평가사에 관한 법률', 'PART 07 부동산 가격공시에 관한 법률'] },
+    { label: '국토·건축·정비', tops: ['PART 01 국토의 계획 및 이용에 관한 법률', 'PART 02 건축법', 'PART 03 도시 및 주거환경정비법'] },
+    { label: '등기·지적·국유·담보', tops: ['PART 05 부동산등기법', 'PART 04 공간정보의 구축 및 관리 등에 관한 법률', 'PART 06 국유재산법', 'PART 09 동산.채권 등의 담보에 관한 법률'] },
   ],
 };
 const DIV_EXCLUDE = {};
-const DIV_LABEL_MAP = {
-  '원가관리회계': '원가회계', // 버튼 폭에서 잘리지 않게 축약
-};
+const DIV_LABEL_MAP = {};
 
 // 토스(Toss) 스타일 디자인 토큰 — 연회색 배경 + 순백 카드 + 부드러운 그림자 + 단일 포인트색
 const TOSS = {
@@ -496,18 +676,21 @@ function SettingsPanel({ byok, prefs, onClose, onSave }) {
   const [antKey, setAntKey] = useState(byok || '');
   const [oaiKey, setOaiKey] = useState(() => getApiKey('openai'));
   const [gKey, setGKey] = useState(() => getApiKey('google'));
+  const [msKey, setMsKey] = useState(() => getApiKey('moonshot'));
   const [baseUrls, setBaseUrlsState] = useState(() => getBaseUrls());
   const [dailyCap, setDailyCap] = useState(prefs.daily_cap || 500);
   const [streaming, setStreaming] = useState(!!prefs.streaming);
   const [showAnt, setShowAnt] = useState(false);
   const [showOai, setShowOai] = useState(false);
   const [showG, setShowG] = useState(false);
+  const [showMs, setShowMs] = useState(false);
   const [saved, setSaved] = useState(false);
 
   const save = () => {
     setByok(antKey.trim() || null);
     setApiKey('openai', oaiKey.trim() || null);
     setApiKey('google', gKey.trim() || null);
+    setApiKey('moonshot', msKey.trim() || null);
     setBaseUrl('openai', baseUrls.openai || null);
     setBaseUrl('google', baseUrls.google || null);
     setPrefs({ daily_cap: Number(dailyCap) || 500, streaming });
@@ -543,6 +726,7 @@ function SettingsPanel({ byok, prefs, onClose, onSave }) {
       </div>
 
       <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#4338ca', marginBottom: 8 }}>🔑 API 키</div>
+      {row('Moonshot (Kimi · 추천)', msKey, setMsKey, showMs, setShowMs, 'sk-... (platform.moonshot.ai)')}
       {row('Anthropic (Claude)', antKey, setAntKey, showAnt, setShowAnt, 'sk-ant-...')}
       {row('OpenAI (GPT)', oaiKey, setOaiKey, showOai, setShowOai, 'sk-...')}
       {row('Google (Gemini)', gKey, setGKey, showG, setShowG, 'AIza...')}
@@ -764,7 +948,7 @@ function AnalyticsPanel({ mastery, onClose, onJump, leavesBySubject }) {
               {stats.map((st) => (
                 <tr key={st.s.id} style={{ borderTop: '1px solid #f3f4f6' }}>
                   <td style={{ padding: '4px 0', color: st.s.color, fontWeight: 700 }}>
-                    {st.s.icon} {st.s.short}
+                    <SubjectIcon id={st.s.id} size={13} color="#8B95A1" style={{ verticalAlign: '-2px', marginRight: 3 }} />{st.s.short}
                     {st.isStage2 && <span style={{ marginLeft: 4, fontSize: '0.6rem', background: st.s.color, color: '#fff', padding: '1px 4px', borderRadius: 4 }}>2차</span>}
                   </td>
                   <td style={{ textAlign: 'right' }}>{Math.round(st.covAvg * 100)}%</td>
@@ -1194,7 +1378,7 @@ function MessageBubble({ msg, fadeIn, leafId, leafTitle }) {
             <img src={msg.imageUrl} alt="첨부한 문제 사진"
               style={{ maxWidth: '100%', borderRadius: 10, marginBottom: 8, display: 'block' }} />
           )}
-          {isUser ? msg.content : <ParsedText text={msg.content} />}
+          {isUser ? msg.content : <ParsedText text={stripAiMarkers(msg.content)} />}
         </div>
         {!isUser && (
           <div className="ai-msg-actions" style={{ display: 'flex', gap: 4, marginTop: 4, paddingLeft: 4 }}>
@@ -1351,11 +1535,58 @@ function matchWeakLeaves(weakPaths, leaves) {
 
 const IDLE_MS = 10 * 60 * 1000; // 10분
 
+// 모드 아이콘(단색 lucide)/이름 — 추천 배너·모드 버튼 공용
+const MODE_ICON = {
+  study: BookOpen, practice: PencilLine, deep: Brain, summary: Zap, diagnose: Target, journal: PenLine, calc: Calculator,
+  concept_s2: BookOpen, template: ClipboardList, topic_extract: Search, answer_write: PenLine, mock_full: Timer, calc_s2: Calculator,
+};
+const MODE_NAME = {
+  study: '이론', practice: '문제풀이', deep: '심화', summary: '복습', diagnose: '진단', journal: '분개', calc: '계산',
+  concept_s2: '개념', template: '양식', topic_extract: '논점', answer_write: '답안', mock_full: '실전', calc_s2: '계산',
+};
+
+// 🧭 실시간 학습 추천 — 현재 단원의 실력 신호로 '다음에 누를 모드'를 고른다.
+// 학습과학 흐름: (기록없음→진단) 이해부족→이론 · 이해했으면→문제풀이(인출) · 틀리면→심화 · 오래되면→복습.
+function recommendMode({ m, qs, isDue, stage, subjectId }) {
+  const cov = m?.coverage || 0;
+  const attempted = (m?.attempted || 0) + (qs?.answered || 0);
+  const acc = (qs && qs.answered) ? qs.accuracy : (m?.accuracy || 0);
+  const box = m?.srs_box || 0;
+  const mastered = m?.status === 'mastered';
+  const pct = (x) => Math.round(x * 100);
+
+  if (stage === 2) {
+    if (cov < 0.4) return { mode: 'concept_s2', reason: '아직 논점 개념이 얕아요 — 개념 도입부터 시작하세요.' };
+    if (attempted < 1) return { mode: 'template', reason: '개념은 잡혔어요 — 답안 골격(양식)을 외울 때입니다.' };
+    if (acc && acc < 0.6) return { mode: 'topic_extract', reason: '논점 포착이 약해요 — 사례로 논점 뽑기를 연습하세요.' };
+    if (!mastered) return { mode: 'answer_write', reason: '이제 실제로 답안을 써서 채점받아 볼 때입니다.' };
+    return { mode: 'mock_full', reason: '완성 단계 — 실전 타이머로 굳히세요.', done: true };
+  }
+  // 1차
+  if (isDue) return { mode: 'summary', reason: '복습 시기가 됐어요 — 기억이 옅어지기 전에 핵심만 빠르게 다지기.' };
+  if (cov < 0.15 && attempted === 0) return { mode: 'diagnose', reason: '아직 학습 기록이 없어요 — OX 5문제로 지금 실력부터 진단해요.' };
+  if (cov < 0.45) return { mode: 'study', reason: `이론 이해가 ${pct(cov)}%로 아직 낮아요 — 개념부터 배우세요.` };
+  if (attempted < 3) return { mode: 'practice', reason: '이론은 익혔어요 — 기출을 풀어 인출·적용으로 확인할 때.' };
+  if (acc < 0.6) {
+    const calcSubj = subjectId === 'accounting' || subjectId === 'economics';
+    return { mode: 'deep', reason: `정답률이 ${pct(acc)}%예요 — 함정·판례 심화로 약점을 보강하세요.`, alt: calcSubj ? 'calc' : null };
+  }
+  if (box < 2 && !mastered) return { mode: 'summary', reason: '잘하고 있어요 — 핵심 압축 복습으로 굳히고 회독을 올리세요.' };
+  if (mastered) return { mode: 'summary', reason: '이 단원 완성 ✓ — 가끔 복습으로 유지하고 다음 단원으로 넘어가도 좋아요.', done: true };
+  return { mode: 'practice', reason: '꾸준히 문제로 감각을 유지하세요.' };
+}
+
 export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPathsBySubject, leavesBySubject: leavesBySubjectProp, onJumpToBrowse, getQuizCountForLeaf, quizStatsByLeaf }) {
   useEffect(() => { migrateLegacyCivilIds(); }, []);
   const isDesktop = useIsDesktop();
+  const [showDoc, setShowDoc] = useState(true); // 데스크톱 3단: 우측 패널 표시
+  const [docTab, setDocTab] = useState('doc');   // 우측 패널 탭: doc(이론) | ox | mem | progress
+  const [maskHl, setMaskHl] = useState(false);   // 형광펜 가리기(암기 시트) 모드
   const [byok, setByokState] = useState(getByok());
   const [prefs, setPrefsState] = useState(getPrefs());
+  // 로컬(Ollama) 설치 모델 자동감지 — 드롭다운 선택지로만 노출(기본은 Kimi). 자동 전환 안 함.
+  const [localModels, setLocalModels] = useState([]);
+  useEffect(() => { let dead = false; discoverLocalModels().then((m) => { if (!dead) setLocalModels(m); }); return () => { dead = true; }; }, []);
   const [indexMeta, setIndexMeta] = useState(null);
   const [leaves, setLeaves] = useState([]);
   const initCur = getCurrent();
@@ -1371,10 +1602,67 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const [handoverMd, setHandoverMd] = useState('');
   const [unitMd, setUnitMd] = useState('');
   const [sectionMd, setSectionMd] = useState('');
+  // 🎓 합격수기 78건 기반 과목별 공부법 — 튜터 프롬프트에 얹어 '합격자처럼' 강조점·암기법 반영
+  const [passInsights, setPassInsights] = useState(null);
+  useEffect(() => { loadPassInsights().then((d) => { if (d) setPassInsights(d); }); }, []);
+  // 교재 슬라이스를 이론/OX/암기로 분리 — 우측 패널 탭 구성에 사용
+  const docParts = useMemo(() => splitDocTabs(sectionMd || unitMd), [sectionMd, unitMd]);
+  // 인출 대기(오답 + 복습 만기) 개수 — 탭 배지에 쓴다. 문항을 풀 때마다 갱신되도록
+  // docTab·sectionMd 변화에 얹어 다시 센다(로컬 저장소 읽기라 비용이 없다).
+  const drillN = useMemo(() => {
+    const c = getDrillCounts();
+    return c.wrong + c.due;
+  }, [docTab, sectionMd]);
+  // 상단 헤더 실폭 감지 — 교재 패널을 열면 가운데가 좁아져 아이콘이 겹치므로 단계적으로 감춘다.
+  // 콜백 ref — 헤더는 과목 진입 후에야 렌더되므로 useEffect([])로는 옵저버가 붙지 않는다.
+  const headRoRef = useRef(null);
+  const [headW, setHeadW] = useState(1200);
+  const headerRef = useCallback((node) => {
+    if (headRoRef.current) { headRoRef.current.disconnect(); headRoRef.current = null; }
+    if (node && typeof ResizeObserver !== 'undefined') {
+      setHeadW(node.getBoundingClientRect().width);
+      const ro = new ResizeObserver((entries) => {
+        for (const e of entries) setHeadW(e.contentRect.width);
+      });
+      ro.observe(node);
+      headRoRef.current = ro;
+    }
+  }, []);
+  const tight = headW < 560;       // 저장·불러오기·초기화(파일/삭제) 숨김
+  const veryTight = headW < 440;   // 채팅방 달력까지 숨김
+  const ICON_BTN = { background: 'none', border: 'none', cursor: 'pointer', padding: 4, flex: '0 0 auto' };
   const [problemsMd, setProblemsMd] = useState('');
+  const [lectureMd, setLectureMd] = useState('');   // 관 × 회독별 강의 필기(유닛 파일 전체)
+  // 이 관의 강의 필기를 탭별로 미리 나눠 둔다.
+  // 앵커가 `🧠 암기법` 같은 다른 탭의 소제목을 가리키면 이론 맨 뒤로 밀리는데,
+  // 그러면 정작 그 내용이 있어야 할 암기 탭에는 없고 이론 끝에 뜬금없이 붙는다.
+  const lectureByTab = useMemo(
+    () => splitLectureByTab(sectionMd || unitMd,
+                            stripLectureCitations(sliceLectureNote(lectureMd, current?.leaf_id))),
+    [sectionMd, unitMd, lectureMd, current?.leaf_id],
+  );
+  const [showLectureNote, setShowLectureNote] = useState(false);
   const [mode, setMode] = useState('study'); // 'study' | 'practice' | 'deep' | 'summary' | 'diagnose'
   const [pendingNext, setPendingNext] = useState(null);
   const [due, setDue] = useState(() => getDueChapters());
+  // 커리큘럼 스텝 딥링크 — mount 시 저장된 AI 모드/문서탭으로 1회 진입(과목 진입 로직 정착 후 적용).
+  useEffect(() => {
+    let j = null;
+    try { j = JSON.parse(localStorage.getItem('ailearn-jump') || 'null'); } catch { j = null; }
+    if (!j) return;
+    try { localStorage.removeItem('ailearn-jump'); } catch { /* noop */ }
+    const S1 = ['study', 'practice', 'deep', 'summary', 'diagnose', 'journal', 'calc'];
+    const S2 = ['concept_s2', 'template', 'topic_extract', 'answer_write', 'mock_full', 'calc_s2'];
+    const timer = setTimeout(() => {
+      if (j.mode) {
+        const st = SUBJECTS.find((s) => s.id === subjectId)?.stage || 1;
+        if ((st === 2 ? S2 : S1).includes(j.mode)) setMode(j.mode);
+      }
+      if (j.docTab) setDocTab(j.docTab);
+    }, 80);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   // 📷 문제 사진 첨부 — 이번 전송 1회용 {dataUrl, media_type, data}
@@ -1471,6 +1759,22 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       const idx = raw?.stage === 2 ? normalizeStage2Index(raw) : raw;
       setIndexMeta(idx);
       setLeaves(idx.leaves || []);
+      // 대분류(division) 진입 대기 스코프가 있으면 그것을 원자적으로 적용(default_leaf보다 우선).
+      const pend = pendingScopeRef.current;
+      if (pend) {
+        pendingScopeRef.current = null;
+        const div = pend.division;
+        const tops = div ? (div.tops || (div.label ? [div.label] : null)) : null;
+        const lf = (idx.leaves || []).find((l) => l.id === pend.leafId)
+          || (tops ? (idx.leaves || []).find((l) => tops.includes(l.path && l.path[0])) : null)
+          || (idx.default_leaf && (idx.leaves || []).find((l) => l.id === idx.default_leaf))
+          || (idx.leaves || [])[0];
+        if (lf) {
+          const next = { subject: subjectId, leaf_id: lf.id, division: div ? (div.label || null) : null, divisionTops: tops };
+          setCurrentState(next); setCurrent(next);
+        }
+        return;
+      }
       const subjectChanged = current?.subject !== subjectId;
       const exists = !subjectChanged && current?.leaf_id && (idx.leaves || []).some((l) => l.id === current.leaf_id);
       // 저장된 단원이 인덱스에 없더라도 채팅 기록이 남아 있으면 덮어쓰지 않는다.
@@ -1495,6 +1799,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     if (!current?.leaf_id || leaves.length === 0) return undefined;
     const leaf = leaves.find((l) => l.id === current.leaf_id);
     if (!leaf || !leaf.unit_file) { setUnitMd(''); setSectionMd(''); return undefined; }
+    setActiveLeaf({ subject: subjectId, leafId: leaf.id, leafTitle: leaf.title || '' });
     let dead = false; // 빠른 단원 전환 시 이전 leaf 자료가 늦게 도착해 덮어쓰는 것 방지
     fetch(studyBase(subjectId) + leaf.unit_file).then((r) => r.text()).then((md) => {
       if (dead) return;
@@ -1516,6 +1821,22 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     if (!leaf || !leaf.problems_file) { setProblemsMd(''); return undefined; }
     let dead = false; // 빠른 단원/모드 전환 시 이전 leaf 문제자료가 늦게 덮어쓰는 것 방지
     fetch(studyBase(subjectId) + leaf.problems_file).then((r) => r.text()).then((md) => { if (!dead) setProblemsMd(md); }).catch(() => { if (!dead) setProblemsMd(''); });
+    return () => { dead = true; };
+  }, [mode, current?.leaf_id, leaves, subjectId]);
+
+  // 강의 필기 로드 — 관 × 회독별. 모드 탭을 바꾸면 그 회독의 강의 필기로 갈아끼운다.
+  // 아직 만들어지지 않은 관·회독이 대부분이므로 404는 조용히 빈 문자열 처리한다.
+  useEffect(() => {
+    if (!current?.leaf_id || leaves.length === 0) { setLectureMd(''); return undefined; }
+    const leaf = leaves.find((l) => l.id === current.leaf_id);
+    const unitCode = leaf?.unit_code;
+    if (!unitCode) { setLectureMd(''); return undefined; }
+    const phase = modeToPhase(mode);
+    let dead = false;
+    fetch(`${studyBase(subjectId)}lectures/notes/${unitCode}.${phase}.md`)
+      .then((r) => (r.ok ? r.text() : ''))
+      .then((md) => { if (!dead) setLectureMd(md || ''); })
+      .catch(() => { if (!dead) setLectureMd(''); });
     return () => { dead = true; };
   }, [mode, current?.leaf_id, leaves, subjectId]);
 
@@ -1586,6 +1907,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   }, [leaves, weakPaths, weakPathsBySubject, subjectId]);
 
   // 과목 전환 헬퍼
+  // 과목 전환 후 인덱스가 로드되면 적용할 '대기 스코프'(division 진입). setTimeout 경쟁 제거용.
+  const pendingScopeRef = useRef(null); // { leafId, division:{label,tops} } | null
   const switchSubject = (sid, enterStudy = false) => {
     if (sid === subjectId && !enterStudy) return;
     if (abortRef.current) abortRef.current.abort();
@@ -1596,7 +1919,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     setMockSession(null); // 과목 전환 시 진행 중 모의 세션 정리 (다른 과목 맥락 잔존 방지)
     // stage 전환 시 적합한 default 모드로
     const nextStage = SUBJECTS.find((s) => s.id === sid)?.stage || 1;
-    const stage1Modes = ['study', 'practice', 'deep', 'summary', 'diagnose'];
+    const stage1Modes = ['study', 'practice', 'deep', 'summary', 'diagnose', 'journal', 'calc'];
     const stage2Modes = ['concept_s2', 'template', 'topic_extract', 'answer_write', 'mock_full', 'calc_s2'];
     if (nextStage === 2 && !stage2Modes.includes(mode)) setMode('concept_s2');
     else if (nextStage === 1 && !stage1Modes.includes(mode)) setMode('study');
@@ -1636,8 +1959,14 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   // 홈 대분류 버튼 → 그 분류로 진입(범위 한정). division = path[0] 원문.
   const jumpToLeaf = (sid, leaf, division = null) => {
     if (!leaf) return;
-    if (sid !== subjectId) switchSubject(sid, true); else setAiView('study');
-    setTimeout(() => pickLeaf(leaf, division), 50);
+    if (sid !== subjectId) {
+      // 과목 전환: 인덱스 로드 후 원자적으로 스코프 적용(경쟁 없음).
+      pendingScopeRef.current = { leafId: leaf.id, division };
+      switchSubject(sid, true);
+    } else {
+      setAiView('study');
+      pickLeaf(leaf, division);
+    }
   };
   // 과목 전체 학습 진입 — 대분류 스코프 해제
   const enterSubjectWhole = (sid) => {
@@ -1744,7 +2073,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     setDraft('');
 
     const curLeaf = leaves.find((l) => l.id === current?.leaf_id);
-    const curMastery = current ? getChapterMastery(current.leaf_id) : null;
+    // 진척은 지금 보고 있는 회독 기준으로 튜터에게 알린다 — 1회독 학생과 3회독 학생에게
+    // 같은 깊이로 말하면 안 되기 때문이다.
+    const curPhase = modeToPhase(mode);
+    const curMastery = current ? getChapterMastery(current.leaf_id, curPhase) : null;
     const lastSession = getSessions().slice(-2, -1)[0];
     let recentSummary = lastSession?.summary || '';
     // 🔁 퀴즈 탭 반복 오답(miss≥2) 카드 → 튜터가 대화 중 자연스럽게 재설명·확인하도록 주입
@@ -1774,12 +2106,18 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       unitMd: sectionMd ? '' : unitMd,
       sectionMd,
       problemsMd: usesProblems ? problemsMd : '',
+      lectureMd: sliceLectureNote(lectureMd, current?.leaf_id),
+      phase: curPhase,
       mode,
       currentMastery: curMastery,
-      recentSummary,
+      // 교재만 주던 AI에게 ① 문항 성적 ② 학생이 직접 쓴 노트·약점을 함께 준다 — 개인화해 약한 곳부터 짚게 한다.
+      recentSummary: recentSummary
+        + buildLearnerStatus(current?.leaf_id, curLeaf?.title)
+        + buildPersonalNotes(getSubjectMeta(subjectId)?.tax_key || getSubjectMeta(subjectId)?.title || '', curLeaf?.title, getNotes()),
       leafPath: curLeaf ? curLeaf.path.join(' / ') : '',
       stage: subjStage,
       subjectId,
+      passInsights: passInsightBlock(passInsights, subjectId, subjStage), // 합격수기 기반 과목별 공부법
     });
 
     // 대화 히스토리 캐싱:
@@ -1835,10 +2173,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       // OpenAI·Gemini 는 보통 CORS 차단되지만, 일부 환경(extension, 프록시 헤더, 정책 변경)에서 통과될 수 있어 일단 시도.
       // 실패하면 catch 에서 안내.
       const provider = getProviderForModel(prefs.model);
-      const providerName = provider === 'openai' ? 'OpenAI' : provider === 'google' ? 'Google' : 'Anthropic';
+      const providerName = provider === 'openai' ? 'OpenAI' : provider === 'google' ? 'Google'
+        : provider === 'moonshot' ? 'Moonshot' : provider === 'local' ? '로컬(Ollama)' : 'Anthropic';
       const providerKey = provider === 'anthropic' ? byok : getApiKey(provider);
       const baseUrls = getBaseUrls();
-      if (!providerKey) {
+      // 로컬(Ollama)은 키 불필요. 그 외 프로바이더는 키 필수.
+      if (provider !== 'local' && !providerKey) {
         throw new Error(`${providerName} API 키가 설정되지 않았습니다. 우상단 ⚙️ 설정에서 입력해주세요.`);
       }
       const { text: out, usage, stop_reason } = await sendMessagesUnified({
@@ -1864,7 +2204,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       }
       // 🃏 이번 문답에서 암기 포인트를 백그라운드 추출 → 퀴즈 탭 자동 출제 (실패 무해)
       // 재생성은 같은 문답 반복이므로 중복 출제 방지 차원에서 생략
-      if (!isRegen) generateChatCards({
+      // 로컬은 CARDGEN_FAST 매핑이 없어 클라우드로 새는 걸 방지 — 카드 자동생성은 4.5-b(역할 라우팅)에서 로컬 지원.
+      if (!isRegen && provider !== 'local' && provider !== 'moonshot') generateChatCards({
         provider, apiKey: providerKey, baseUrl: baseUrls[provider],
         leafId: sendLeafId, leafPath: curLeaf ? curLeaf.path.join(' / ') : '',
         userText: text, assistantText: out,
@@ -1888,7 +2229,19 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       let coverageBumped = false;
       blocks.forEach((b) => {
         if (b && typeof b.correct === 'boolean' && current) {
-          recordGrade(current.leaf_id, b.correct);
+          recordGrade(current.leaf_id, b.correct, curPhase);
+        }
+        // ✍️ 분개 채점 결과 → 문항 단위 SRS 기록. 유형(topic)으로 키를 잡아
+        // 같은 유형을 또 맞히면 졸업, 계속 틀리면 오늘의 인출에 재출제된다.
+        if (b && b.journal === true && typeof b.correct === 'boolean') {
+          const slug = (b.topic || '분개').replace(/\s+/g, '').slice(0, 40);
+          try { recordItem({ kind: 'journal', idx: slug, q: (b.topic || '분개 연습').slice(0, 200), isCorrect: b.correct }); } catch { /* noop */ }
+        }
+        // 🔙 선행 결손 역추적 → 원클릭으로 그 단원 이동(pendingNext 재사용)
+        if (b && b.prereq === true && b.unit) {
+          const cand = leaves.find((l) => (l.title || '').includes(b.unit))
+            || leaves.find((l) => (l.path || []).join('/').includes(b.unit));
+          if (cand) setPendingNext({ leaf: cand, reason: b.reason || `선행 개념 복습: ${b.unit}` });
         }
         // 2차 답안 채점 결과
         if (b && b.graded === true && b.stage === 2 && typeof b.score === 'number' && current) {
@@ -1932,10 +2285,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         }
         if (b && b.session_summary && current) {
           const delta = Number(b.coverage_delta) || 0.05;
-          const prev = getChapterMastery(current.leaf_id);
+          const prev = getChapterMastery(current.leaf_id, curPhase);
           updateChapterMastery(current.leaf_id, {
             coverage: Math.min(1, (prev.coverage || 0) + Math.max(0, Math.min(0.3, delta))),
-          });
+        }, curPhase);
           coverageBumped = true;
           if (sessionId) updateSession(sessionId, { summary: b.session_summary, ended_at: new Date().toISOString() });
           addAssessment({
@@ -1954,10 +2307,10 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         }
       });
       if (!coverageBumped && current) {
-        const m = getChapterMastery(current.leaf_id);
+        const m = getChapterMastery(current.leaf_id, curPhase);
         updateChapterMastery(current.leaf_id, {
           coverage: Math.min(1, (m.coverage || 0) + 0.01),
-        });
+        }, curPhase);
       }
       setMasteryState(getMastery());
       setDue(getDueChapters());
@@ -2163,7 +2516,46 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
   const curLeaf = leaves.find((l) => l.id === current?.leaf_id);
   const cap = canSendMessage();
 
-  if (!byok) {
+  // 회독 진척 — 지금 탭(=회독)에서 이 과목의 관을 몇 개 끝냈는지, 다음에 뭘 볼지.
+  // 2차는 회독 축을 쓰지 않으므로 표시하지 않는다.
+  const PHASE_DONE = 0.95;
+  const phaseProgress = useMemo(() => {
+    if (getSubjectMeta(subjectId)?.stage === 2 || !leaves.length) return null;
+    const phase = modeToPhase(mode);
+    let done = 0;
+    let next = null;
+    leaves.forEach((l) => {
+      if ((mastery[l.id]?.phases?.[phase]?.coverage || 0) >= PHASE_DONE) done += 1;
+      else if (!next) next = l;
+    });
+    // 게이팅은 막지 않고 안내만 — 앞 회독이 덜 된 관을 다음 회독으로 보고 있으면 한 줄 띄운다.
+    let gateHint = null;
+    const idx = MASTERY_PHASES.indexOf(phase);
+    if (idx > 0 && curLeaf) {
+      const prevPhase = MASTERY_PHASES[idx - 1];
+      if ((mastery[curLeaf.id]?.phases?.[prevPhase]?.coverage || 0) < PHASE_DONE) {
+        gateHint = `이 관은 ${PHASE_LABEL[prevPhase]}이 아직입니다`;
+      }
+    }
+    return { phase, total: leaves.length, done, next, gateHint };
+  }, [leaves, mastery, mode, subjectId, curLeaf]);
+
+  // 🧭 실시간 학습 추천 — 현재 단원 실력을 진단해 다음 모드를 자동 제안(모드 버튼에 내제화)
+  const rec = (() => {
+    if (!current?.leaf_id) return null;
+    const m = mastery[current.leaf_id] || {};
+    const qs = quizStatsByLeaf?.[current.leaf_id];
+    const isDue = Array.isArray(due) ? due.some((d) => (d.code || d) === current.leaf_id) : false;
+    const stage = getSubjectMeta(subjectId)?.stage || 1;
+    return recommendMode({ m, qs, isDue, stage, subjectId });
+  })();
+
+  // 게이트: Claude 키가 없어도 로컬(Ollama)이나 다른 프로바이더 키가 있으면 통과.
+  // 데스크톱(Tauri)에선 로컬 감지 타이밍/네이티브 fetch 여부와 무관하게 항상 UI 진입 허용
+  // (모델 드롭다운·send 에러가 안내). 웹에서만 키 게이트 유지.
+  const hasUsableModel = byok || localModels.length > 0
+    || getApiKey('openai') || getApiKey('google') || getApiKey('moonshot');
+  if (!hasUsableModel && !isTauri()) {
     return (
       <div style={{ padding: 16 }}>
         <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', padding: '8px 0', marginBottom: 16 }}>
@@ -2309,7 +2701,8 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           {[
             {
               stage: 1, label: '1차 시험 — 객관식 5지선다',
-              subjects: SUBJECTS_BY_STAGE[1],
+              // 표시 순서: 회계학·경제학·민법 (위) / 부동산학·관계법규 (아래) — 3+2
+              subjects: ['accounting', 'economics', 'civil', 'realestate', 'law'].map((id) => SUBJECTS.find((s) => s.id === id)).filter(Boolean),
               chipBg: TOSS.blueWeak, chipFg: TOSS.blue,
               barColor: TOSS.blue,
             },
@@ -2324,12 +2717,12 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               {/* 섹션 라벨 — 문제풀이와 동일 패턴 */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                 <div style={{ fontSize: '1rem', color: TOSS.ink, fontWeight: 800 }}>
-                  {stage === 1 ? '📖' : '✍️'} {label}
+                  {stage === 1 ? <BookOpen size={16} color="#8B95A1" strokeWidth={2} style={{ verticalAlign: '-3px' }} /> : <PenLine size={16} color="#8B95A1" strokeWidth={2} style={{ verticalAlign: '-3px' }} />} {label}
                 </div>
                 <span style={{ fontSize: '0.82rem', color: TOSS.sub, fontWeight: 600 }}>{subjects.length}과목</span>
               </div>
               {/* 과목 카드 그리드 — 문제풀이와 동일 스펙 */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', rowGap: 14, columnGap: 12, alignItems: 'start' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', rowGap: 14, columnGap: 12, alignItems: 'stretch' }}>
                 {subjects.map((s) => {
                   const ks = Object.keys(mastery).filter((k) => k.startsWith(s.id + '__') || k.startsWith(s.id + '_'));
                   const covAvg = ks.length ? ks.reduce((a, k) => a + (mastery[k]?.coverage || 0), 0) / ks.length : 0;
@@ -2371,7 +2764,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                             <div style={{ fontWeight: 800, color: TOSS.ink, fontSize: '1.2rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.short}</div>
                             <div style={{ fontSize: '0.82rem', color: TOSS.sub, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', marginTop: 4 }}>{s.title}</div>
                           </div>
-                          <div style={{ fontSize: '2rem', lineHeight: 1, flex: '0 0 auto' }}>{s.icon}</div>
+                          <div style={{ flex: '0 0 auto', display: 'flex', alignItems: 'center' }}><SubjectIcon id={s.id} size={30} color="#8B95A1" /></div>
                         </div>
                         <div>
                           <div style={{ height: 6, background: TOSS.track, borderRadius: 999, overflow: 'hidden' }}>
@@ -2424,16 +2817,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     ) : (
     <div style={isDesktop ? {
       display: 'grid',
-      gridTemplateColumns: '340px minmax(0, 1fr)',
+      // 교재 패널은 기본서 상세(표·수식·그래프)를 담아 더 넓게 — 화면이 넓을수록 여유 있게
+      gridTemplateColumns: showDoc ? '340px minmax(0, 1fr) clamp(360px, 30vw, 520px)' : '340px minmax(0, 1fr)',
       // 단일 행을 뷰포트 높이로 고정. 미지정 시 행이 콘텐츠(implicit auto)로 잡혀
       // 좌측 단원 트리가 길면 그리드가 뷰포트보다 커지고 채팅 컬럼 스크롤이 깨짐.
       gridTemplateRows: 'minmax(0, 1fr)',
       gap: 0,
-      height: 'calc(100dvh - 64px - env(safe-area-inset-bottom, 0px))',
-      // viewport escape trick — 부모 max-width 제약 무시하고 전체 화면 폭 확보
-      width: '100vw',
-      marginLeft: 'calc(50% - 50vw)',
-      marginRight: 'calc(50% - 50vw)',
+      height: isTauri() ? '100dvh' : 'calc(100dvh - 64px - env(safe-area-inset-bottom, 0px))',
+      // 데스크톱 셸이 좌측 rail 만큼 padding-left 를 주므로 100% 로 그 영역을 채운다(구 100vw 트릭 제거)
+      width: '100%',
       position: 'relative',
       background: '#fff',
     } : { display: 'flex', flexDirection: 'column', minHeight: 0, height: 'calc(100dvh - 64px - env(safe-area-inset-bottom, 0px))', maxWidth: 1100, margin: '0 auto', width: '100%' }}>
@@ -2478,7 +2870,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         </aside>
       )}
       <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, minHeight: 0, height: '100%' }}>
-      <header className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', gap: 6, padding: '6px 8px', position: 'static', minHeight: 0, flex: '0 0 auto' }}>
+      <header ref={headerRef} className="top-nav" style={{ borderBottom: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', gap: 6, padding: '6px 8px', position: 'static', minHeight: 0, flex: '0 0 auto', overflow: 'hidden' }}>
         <button
           onClick={() => setAiView('home')}
           title="과목 홈"
@@ -2490,10 +2882,16 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           onClick={() => prevLeaf && pickLeaf(prevLeaf)}
           disabled={!prevLeaf}
           title={prevLeaf ? `← ${prevLeaf.path.slice(-1)[0]}` : ''}
-          style={{ background: 'none', border: 'none', cursor: prevLeaf ? 'pointer' : 'not-allowed', padding: 4, opacity: prevLeaf ? 1 : 0.3 }}
+          style={{ ...ICON_BTN, cursor: prevLeaf ? 'pointer' : 'not-allowed', opacity: prevLeaf ? 1 : 0.55 }}
         >
           <ChevronLeft size={20} color="#374151" />
         </button>
+        {isDesktop && (
+          <button onClick={() => setShowDoc((v) => !v)} title={showDoc ? '교재 원문 패널 숨기기' : '교재 원문 보기'}
+            style={{ background: showDoc ? '#eef2ff' : 'none', border: 'none', cursor: 'pointer', padding: '4px 8px', borderRadius: 8, color: showDoc ? '#4f46e5' : '#9ca3af', fontSize: '0.76rem', fontWeight: 800, flex: '0 0 auto', whiteSpace: 'nowrap' }}>
+            📖 교재
+          </button>
+        )}
 
         {/* 가운데: 단원 박스 — 클릭 시 LeafPicker 모달 (단원/소단원 선택 통합) */}
         <button
@@ -2562,11 +2960,11 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           onClick={() => nextLeaf && pickLeaf(nextLeaf)}
           disabled={!nextLeaf}
           title={nextLeaf ? `${nextLeaf.path.slice(-1)[0]} →` : ''}
-          style={{ background: 'none', border: 'none', cursor: nextLeaf ? 'pointer' : 'not-allowed', padding: 4, opacity: nextLeaf ? 1 : 0.3 }}
+          style={{ ...ICON_BTN, cursor: nextLeaf ? 'pointer' : 'not-allowed', opacity: nextLeaf ? 1 : 0.55 }}
         >
           <ChevronRight size={20} color="#374151" />
         </button>
-        {curLeaf && (
+        {curLeaf && !tight && (
           <>
             <input
               ref={importInputRef}
@@ -2578,20 +2976,20 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             <button
               onClick={exportRoom}
               title={messages.length > 0 ? `이 단원 채팅 저장파일 내보내기 (${messages.length}개)` : '이 단원엔 대화 없음'}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, opacity: messages.length === 0 ? 0.35 : 1 }}
+              style={{ ...ICON_BTN, opacity: messages.length === 0 ? 0.6 : 1 }}
             >
               <Download size={16} color="#4f46e5" />
             </button>
             <button
               onClick={() => importInputRef.current && importInputRef.current.click()}
               title="저장파일 불러오기 (현재 단원 채팅 교체)"
-              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+              style={ICON_BTN}
             >
               <Upload size={16} color="#0891b2" />
             </button>
           </>
         )}
-        {curLeaf && (
+        {curLeaf && !tight && (
           <button
             onClick={() => {
               if (messages.length === 0) {
@@ -2608,21 +3006,20 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               });
             }}
             title={messages.length > 0 ? `이 채팅방 초기화 (${messages.length}개)` : '이 단원엔 대화 없음'}
-            style={{
-              background: 'none', border: 'none', cursor: 'pointer', padding: 4,
-              opacity: messages.length === 0 ? 0.35 : 1,
-            }}
+            style={{ ...ICON_BTN, opacity: messages.length === 0 ? 0.6 : 1 }}
           >
             <Trash2 size={16} color="#ef4444" />
           </button>
         )}
-        <button className="icon-btn" onClick={() => setShowAnalytics((v) => !v)} title="분석" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+        <button className="icon-btn" onClick={() => setShowAnalytics((v) => !v)} title="분석" style={ICON_BTN}>
           <BarChart3 size={18} color={showAnalytics ? '#4f46e5' : '#6b7280'} />
         </button>
-        <button className="icon-btn" onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
-          <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
-        </button>
-        <button className="icon-btn" onClick={() => setShowSettings((v) => !v)} title="설정 (API 키·프록시·cap)" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}>
+        {!veryTight && (
+          <button className="icon-btn" onClick={() => setShowHistory((v) => !v)} title="단원별 채팅방" style={ICON_BTN}>
+            <Calendar size={18} color={showHistory ? '#4f46e5' : '#6b7280'} />
+          </button>
+        )}
+        <button className="icon-btn" onClick={() => setShowSettings((v) => !v)} title="설정 (API 키·프록시·cap)" style={ICON_BTN}>
           <Settings size={18} color={showSettings ? '#4f46e5' : '#6b7280'} />
         </button>
       </header>
@@ -2698,17 +3095,37 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
       })()}
 
       <div style={{ padding: '4px 12px', borderBottom: '1px solid #e5e7eb', background: '#f9fafb' }}>
+        {/* 🧭 실시간 학습 추천 — 실력 진단 → 다음 모드 자동 제안 */}
+        {rec && rec.mode !== mode && (() => {
+          const RIcon = MODE_ICON[rec.mode]; const rlabel = MODE_NAME[rec.mode] || '';
+          return (
+            <button onClick={() => setMode(rec.mode)}
+              style={{ width: '100%', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: 2, marginTop: 4, marginBottom: 6,
+                background: rec.done ? '#ecfdf5' : '#eef2ff', border: `1px solid ${rec.done ? '#a7f3d0' : '#c7d2fe'}`, borderRadius: 10, padding: '7px 11px', cursor: 'pointer' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, fontSize: '0.72rem', fontWeight: 800, color: rec.done ? '#047857' : '#4338ca' }}><Compass size={12} strokeWidth={2.2} /> AI 추천</span>
+                {RIcon && <RIcon size={15} strokeWidth={2} color={rec.done ? '#047857' : '#4338ca'} />}
+                <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#111827' }}>{rlabel}</span>
+                <span style={{ marginLeft: 'auto', fontSize: '0.74rem', fontWeight: 800, color: rec.done ? '#047857' : '#4338ca' }}>▶ 시작</span>
+              </div>
+              <div style={{ fontSize: '0.74rem', color: '#475569', lineHeight: 1.4 }}>{rec.reason}</div>
+            </button>
+          );
+        })()}
         <div style={{ display: 'flex', gap: 4, marginBottom: 0, overflowX: 'auto', paddingBottom: 2 }}>
           {(() => {
             const isStage2 = getSubjectMeta(subjectId)?.stage === 2;
             if (!isStage2) {
-              return [
+              const s1 = [
                 ['study', '📖', '이론', '처음 배움'],
                 ['practice', '✏️', '문제풀이', '기출 풀이'],
                 ['deep', '🧠', '심화', '판례·함정'],
                 ['summary', '⚡', '복습', '핵심 압축'],
                 ['diagnose', '🎯', '진단', 'OX 5문제'],
               ];
+              if (subjectId === 'accounting') s1.push(['journal', '✍️', '분개', '차변/대변 채점']);
+              if (subjectId === 'accounting' || subjectId === 'economics') s1.push(['calc', '🧮', '계산', '한 단계씩']);
+              return s1;
             }
             const list = [
               ['concept_s2', '📖', '개념', '논점 도입'],
@@ -2719,26 +3136,70 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             ];
             if (subjectId === 'appraisal_practice') list.push(['calc_s2', '🧮', '계산', '산식 풀이']);
             return list;
-          })().map(([k, icon, label, desc]) => (
+          })().map(([k, icon, label, desc]) => {
+            const isRec = rec && rec.mode === k && mode !== k; // 추천이면서 현재 모드가 아님
+            return (
             <button
               key={k}
               onClick={() => setMode(k)}
-              title={desc}
+              title={isRec ? `🧭 추천: ${rec.reason}` : desc}
               style={{
                 flex: '0 0 auto', padding: '4px 10px', borderRadius: 999,
-                border: mode === k ? '1.5px solid #4f46e5' : '1px solid #d1d5db',
-                background: mode === k ? '#eef2ff' : '#fff',
-                color: mode === k ? '#1d4ed8' : '#374151',
+                border: mode === k ? '1.5px solid #4f46e5' : isRec ? '1.5px solid #10b981' : '1px solid #d1d5db',
+                background: mode === k ? '#eef2ff' : isRec ? '#ecfdf5' : '#fff',
+                color: mode === k ? '#1d4ed8' : isRec ? '#047857' : '#374151',
                 fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer',
                 display: 'inline-flex', alignItems: 'center', gap: 5,
                 lineHeight: 1.2, whiteSpace: 'nowrap',
+                boxShadow: isRec ? '0 0 0 2px #a7f3d0' : 'none',
               }}
             >
-              <span style={{ fontSize: '0.9rem' }}>{icon}</span>
+              {isRec && <span style={{ width: 6, height: 6, borderRadius: 999, background: '#10b981', flexShrink: 0 }} />}
+              {(() => { const MI = MODE_ICON[k]; return MI ? <MI size={15} strokeWidth={2} color={mode === k ? '#1d4ed8' : isRec ? '#047857' : '#6b7280'} /> : <span style={{ fontSize: '0.9rem' }}>{icon}</span>; })()}
               <span>{label}</span>
             </button>
-          ))}
+            );
+          })}
         </div>
+        {/* 회독 진척 배지 — 모드 탭이 곧 회독 축이므로 지금 탭의 회독 상태를 보여준다.
+            1차에서만 의미가 있다(2차는 회독 축을 쓰지 않는다). */}
+        {phaseProgress && (
+          <div style={{
+            marginTop: 6, display: 'flex', alignItems: 'center', gap: 8,
+            flexWrap: 'wrap', fontSize: '0.72rem', color: '#4b5563',
+          }}>
+            <span style={{ fontWeight: 800, color: '#374151' }}>
+              🔁 {PHASE_LABEL[phaseProgress.phase]}
+            </span>
+            <span style={{
+              flex: '0 0 96px', height: 5, borderRadius: 999,
+              background: '#e5e7eb', overflow: 'hidden',
+            }}>
+              <span style={{
+                display: 'block', height: '100%', borderRadius: 999, background: '#6b7280',
+                width: `${phaseProgress.total ? (phaseProgress.done / phaseProgress.total) * 100 : 0}%`,
+              }} />
+            </span>
+            <span>{phaseProgress.total}관 중 <b style={{ color: '#374151' }}>{phaseProgress.done}관</b> 완료</span>
+            {phaseProgress.next && (
+              <button
+                onClick={() => pickLeaf(phaseProgress.next)}
+                style={{
+                  padding: '2px 8px', borderRadius: 999, border: '1px solid #d1d5db',
+                  background: '#fff', color: '#374151', fontSize: '0.7rem',
+                  fontWeight: 700, cursor: 'pointer', maxWidth: 220,
+                  overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                }}
+                title={phaseProgress.next.path.join(' › ')}
+              >
+                다음: {phaseProgress.next.title || phaseProgress.next.path.slice(-1)[0]}
+              </button>
+            )}
+            {phaseProgress.gateHint && (
+              <span style={{ color: '#b45309' }}>· {phaseProgress.gateHint}</span>
+            )}
+          </div>
+        )}
         {/* 단원 자료 없음만 작게 안내 */}
         {curLeaf && !curLeaf.unit_file && (
           <div style={{ marginTop: 6, fontSize: '0.72rem', color: '#dc2626', fontWeight: 600 }}>
@@ -3063,6 +3524,23 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             </div>
           </div>
         )}
+        {/* 🧠 개인화 배지 — AI가 학생이 직접 쓴 노트·약점을 참고 중임을 보여준다 */}
+        {messages.length === 0 && curLeaf && (() => {
+          const sn = getSubjectMeta(subjectId)?.tax_key || getSubjectMeta(subjectId)?.title || '';
+          const ps = personalNoteStats(sn);
+          if (!ps.notes && !ps.mistakes) return null;
+          const bits = [];
+          if (ps.notes) bits.push(`내 오답노트 ${ps.notes}개`);
+          if (ps.mistakes && ps.topLabel) bits.push(`자주 하는 '${ps.topLabel}' 실수`);
+          return (
+            <div style={{ background: '#eef2ff', border: '1px solid #c7d2fe', borderRadius: 10, padding: '10px 12px', marginTop: 12, display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+              <Brain size={16} color="#4338ca" style={{ marginTop: 2, flexShrink: 0 }} />
+              <div style={{ fontSize: '0.8rem', color: '#3730a3', lineHeight: 1.55 }}>
+                <b>AI가 내 노트를 참고해요</b> — {bits.join(' · ')}을(를) 반영해 개인화된 설명과 확인 질문을 합니다.
+              </div>
+            </div>
+          );
+        })()}
         {messages.map((m, i) => {
           const isLast = i === messages.length - 1;
           const showChoices = isLast && !streaming && mode === 'practice' && m.role === 'assistant';
@@ -3246,64 +3724,76 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           {({
             // 1차
             study: [
-              ['▶️ 이 단원 시작', '이 단원의 첫 절·관부터 한 사이클(일상언어→한자풀이→비유→교재표현→쉬운 OX) 시작해줘.'],
-              ['🔁 이어서 진행', '직전에 멈춘 곳에서 자연스럽게 이어서 진행해줘.'],
-              ['❓ 더 쉽게', '방금 설명한 거 더 쉽게 일상 비유로 다시 풀어줘.'],
-              ['🏁 오늘 끝 — 정리', '오늘 학습 정리해줘. 끝.'],
+              [Play, '이 단원 시작', '이 단원을 처음부터 시작하자. ① 오늘 다룰 범위를 한 줄로 예고하고 ② 첫 개념을 「일상 언어 → 한자 풀이 → 생활 비유 → 교재 표현」 순서로 설명한 뒤 ③ 이해 확인용 쉬운 OX 2문제를 내줘. 한 번에 개념 하나씩만, 내가 답하면 다음으로 넘어가자.'],
+              [RefreshCw, '이어서 진행', '직전에 어디까지 했는지 한 줄로 짚어주고 거기서부터 이어서 진행해줘. 앞에서 내가 틀렸거나 헷갈려 한 부분이 있으면 그것부터 짧게 복습시킨 다음 넘어가줘.'],
+              [Lightbulb, '더 쉽게', '방금 설명을 더 쉽게 다시 풀어줘. 전문용어는 최대한 빼고, 구체적인 숫자 예시와 일상 비유를 들어서 처음 배우는 사람도 이해할 수준으로. 마지막에 한 문장 요약을 붙여줘.'],
+              [Flag, '오늘 끝 · 정리', '오늘 학습을 마무리하자. ① 오늘 다룬 개념 3~5줄 요약 ② 내가 약했던 포인트 ③ 다음에 이어서 볼 지점 ④ 복습용 핵심 키워드 5개 순으로 정리해줘.'],
             ],
             practice: [
-              ['📝 기출 한 문제', '기출 한 문제 출제해줘. 함정 분석도 같이.'],
-              ['🔄 다른 문제', '같은 주제로 다른 기출 문제 한 개 더.'],
-              ['💡 정답·해설', '방금 문제 정답과 해설을 자세히 알려줘.'],
+              [FileText, '기출 한 문제', '이 단원 기출 유형으로 5지선다 1문제를 내줘. 지금은 정답을 알려주지 말고 문제만 제시해줘. 내가 답을 고르면 그때 정답과 해설, 오답 선지별 함정을 짚어줘.'],
+              [Shuffle, '다른 문제', '같은 단원의 다른 논점으로 5지선다 1문제 더 내줘. 앞 문제와 겹치지 않는 포인트로, 역시 정답은 내가 답한 뒤에.'],
+              [CheckCircle2, '정답 · 해설', '방금 문제의 정답과 해설을 알려줘. 각 선지가 왜 맞고 틀렸는지 하나씩 짚고, 이 문제의 핵심 함정과 앞으로 나올 수 있는 변형 방향까지 알려줘.'],
             ],
             deep: [
-              ['🧠 더 깊게', '이 개념을 더 깊게 — 통설·소수설·관련 판례 정리해줘.'],
-              ['⚠️ 함정 분석', '이 단원의 시험 단골 함정 3개 표로 정리해줘.'],
-              ['🔀 유사 개념 비교', '헷갈리는 유사 개념과 비교표로 정리해줘.'],
+              [Brain, '더 깊게', '이 개념을 시험 수준보다 한 단계 깊게 설명해줘. 이론적 배경, 학설 대립이 있다면 통설과 소수설, 그리고 실제 출제된 심화 논점까지 짚어줘.'],
+              [AlertTriangle, '함정 분석', '이 단원에서 수험생이 자주 틀리는 함정 5개를 표로 정리해줘. 열은 「함정 / 틀리는 이유 / 올바른 이해 / 관련 출제 포인트」로.'],
+              [GitCompare, '유사 개념 비교', '이 단원에서 헷갈리기 쉬운 유사 개념들을 비교표로 정리해줘. 구별 기준을 명확히 하고, 각 항목에 한 줄 암기 팁을 붙여줘.'],
             ],
             summary: [
-              ['⚡ 핵심 카드', '이 단원 핵심을 압축 카드 한 장으로(정의·키워드·암기 두문자·빈출 포인트).'],
-              ['📌 다음 카드', '다음 절·관 핵심 카드로 넘어가줘.'],
-              ['🔢 빈출 5', '이 단원에서 시험 빈출 5개만 짧게 정리.'],
+              [Zap, '핵심 카드', '이 단원 핵심을 압축 카드 한 장으로 만들어줘. 「정의 / 핵심 산식·명제 / 빈출 포인트 / 두문자 암기법 / 자주 틀리는 함정」 순서로 간결하게.'],
+              [Bookmark, '다음 카드', '다음 절·관의 핵심 카드로 넘어가줘. 앞과 같은 형식으로 만들어줘.'],
+              [ListOrdered, '빈출 5', '이 단원에서 시험에 가장 자주 나오는 5가지를 빈출 순으로 정리해줘. 각각 한 줄 설명과 어떤 형태로 출제되는지를 함께.'],
             ],
             diagnose: [
-              ['🎯 진단 시작', '이 단원 핵심 5문제 OX/단답을 한꺼번에 내줘. 답은 한 메시지로 적을게.'],
-              ['🩺 약점만 다시', '방금 진단에서 틀린 부분만 다시 친절히 가르쳐줘.'],
-              ['📊 종합 진단', '진단 결과 표로 정리하고 다음 학습 단원 추천.'],
+              [Target, '진단 시작', '이 단원 이해도를 진단하자. 핵심 5문제(OX 3 + 단답 2)를 번호를 붙여 한 번에 내줘. 정답은 내가 5개를 한 메시지로 답한 다음에 알려줘.'],
+              [Activity, '약점만 다시', '방금 진단에서 틀린 것만 골라 다시 가르쳐줘. 왜 틀렸는지 원인부터 짚고, 같은 함정을 쓰는 변형 문제 1개로 확인시켜줘.'],
+              [ClipboardList, '종합 진단', '진단 결과를 표로 정리해줘. 열은 「문항 / 정오 / 관련 개념 / 보완 필요도」로. 그리고 다음에 학습하면 좋을 단원을 추천해줘.'],
+            ],
+            // 1차 회계 — 분개 채점
+            journal: [
+              [PenLine, '분개 시작', '분개 드릴을 시작하자. 인사말 없이 바로, 이 단원에 맞는 짧은 거래 상황 1개(구체 숫자 포함)를 주고 내가 차변/대변으로 분개하도록 물어봐줘. 채점은 내가 분개를 쓴 뒤에.'],
+              [CheckCircle2, '채점해줘', '방금 내가 쓴 분개를 채점해줘. 어느 계정·어느 방향(차변/대변)이 틀렸는지 정확히 짚고, 올바른 분개와 이 거래가 재무상태표·손익계산서에 미치는 영향을 1~2줄로 알려줘. 그다음 조금 더 어려운 거래로 넘어가줘.'],
+              [Shuffle, '다른 거래', '같은 단원의 다른 유형 거래 1개를 더 내줘. 앞과 겹치지 않는 계정이 나오게, 역시 분개는 내가 한 뒤에 채점.'],
+            ],
+            // 1차 회계·경제 — 계산 단계 코칭
+            calc: [
+              [Calculator, '계산 시작', '이 단원 계산 유형 1문제를 내고, 한 번에 풀지 말고 한 단계씩 나를 이끌어줘. "먼저 무슨 식/틀(와꾸)을 써야 할까?"부터 물어봐줘. 정답은 마지막에.'],
+              [Lightbulb, '다음 단계 힌트', '지금 막혔어. 답을 주지 말고 다음 한 단계만 힌트로 알려줘.'],
+              [CheckCircle2, '검산', '내 답을 같은 방식 재계산 말고 다른 경로로 검산하는 법을 알려줘(예: 총액↔단가 역산, 대차평균, 단위 확인).'],
             ],
             // 2차
             concept_s2: [
-              ['▶️ 논점 도입', '이 단원의 첫 논점부터 답안에 어떻게 쓸지 같이 가르쳐줘.'],
-              ['📋 답안 골격', '이 논점의 답안 골격(Ⅰ·Ⅱ·Ⅲ)을 보여줘.'],
-              ['🔁 이어서', '직전에 멈춘 곳부터 이어서.'],
+              [Play, '논점 도입', '이 단원의 첫 논점부터 시작하자. 논점의 의의와 쟁점을 짚고, 실제 답안에서 이 논점을 어떤 목차·분량으로 쓰는지까지 함께 가르쳐줘.'],
+              [ClipboardList, '답안 골격', '이 논점의 답안 골격을 Ⅰ·Ⅱ·Ⅲ 목차로 보여줘. 각 목차에 들어갈 핵심 문장과 배점 비중도 함께.'],
+              [RefreshCw, '이어서', '직전에 멈춘 논점부터 이어서 진행해줘. 앞서 약했던 부분이 있으면 먼저 짚어주고.'],
             ],
             template: [
-              ['📋 양식 한 장', '이 단원의 빈출 논점 답안 양식 한 장 보여줘.'],
-              ['❓ 빈칸 퀴즈', '방금 양식의 핵심 키워드 5개를 빈칸으로 내줘.'],
-              ['🔢 빈출 양식 3', '이 단원 빈출 답안 양식 3개를 표로 정리.'],
+              [ClipboardList, '양식 한 장', '이 단원의 빈출 논점 답안 양식을 한 장으로 보여줘. 목차 구조와 각 항목의 필수 키워드를 포함해서.'],
+              [HelpCircle, '빈칸 퀴즈', '방금 양식에서 핵심 키워드 5개를 빈칸으로 만들어 내줘. 내가 채우면 채점해줘.'],
+              [ListOrdered, '빈출 양식 3', '이 단원 빈출 답안 양식 3개를 표로 정리해줘. 열은 「논점 / 목차 구조 / 필수 키워드 / 배점」으로.'],
             ],
             topic_extract: [
-              ['🔍 사례 분석', '이 단원 빈출 사례 1개 제시하고, 어떤 논점 다룰지 물어봐줘.'],
-              ['💡 정답 논점', '방금 사례의 정답 논점과 답안 배치 알려줘.'],
-              ['🔄 다른 사례', '같은 주제 다른 사례 1개 더.'],
+              [Search, '사례 분석', '이 단원 빈출 사례 1개를 제시하고, 내가 어떤 논점을 다룰지 먼저 답하도록 물어봐줘. 정답 논점은 내가 답한 뒤에.'],
+              [Lightbulb, '정답 논점', '방금 사례에서 다뤄야 할 정답 논점과 답안에서의 배치 순서를 알려줘. 놓치기 쉬운 부수 논점도 함께.'],
+              [Shuffle, '다른 사례', '같은 주제의 다른 사례 1개를 더 제시해줘. 앞 사례와 논점이 겹치지 않게.'],
             ],
             answer_write: [
-              ['📝 답안 문제', '이 단원에서 30점 분량 답안 문제 1개 출제. 학생이 답안 작성하면 채점해줄게.'],
-              ['🎯 40점 문제', '40점 짜리 사례형 논술 1개 출제.'],
-              ['📖 모범 답안', '방금 문제 모범 답안 양식 보여줘.'],
+              [PenLine, '답안 문제', '이 단원에서 30점 분량 답안 문제 1개를 출제해줘. 내가 답안을 작성하면 목차·논점·분량 기준으로 채점하고 첨삭해줘.'],
+              [Target, '40점 문제', '40점짜리 사례형 논술 1개를 출제해줘. 사실관계를 구체적으로 주고, 배점 배분도 함께 제시해줘.'],
+              [BookOpen, '모범 답안', '방금 문제의 모범 답안을 목차 형태로 보여줘. 각 목차별 필수 문장과 득점 포인트를 표시해줘.'],
             ],
             mock_full: mockSession ? [
-              ['⏭️ 다음 문제', '__nextMock__'],
-              ['🏁 마무리·종합', '__endMock__'],
+              [SkipForward, '다음 문제', '__nextMock__'],
+              [Flag, '마무리 · 종합', '__endMock__'],
             ] : [
-              ['🎬 모의 시작', '__startMock__'],
+              [Play, '모의 시작', '__startMock__'],
             ],
             calc_s2: [
-              ['🧮 계산 시범', '이 논점 계산 산식을 단계별로 시범 보여줘.'],
-              ['❓ 함정 체크', '계산 시 자주 빠뜨리는 함정 3개 알려줘.'],
-              ['📋 답안 적용', '이 계산을 답안에 어떻게 쓸지 한 줄.'],
+              [Calculator, '계산 시범', '이 논점의 계산 산식을 단계별로 시범 보여줘. 각 단계에서 어떤 값을 왜 쓰는지 설명하면서.'],
+              [AlertTriangle, '함정 체크', '이 계산에서 자주 빠뜨리는 함정 3개를 알려줘. 각각 실제로 어떻게 감점되는지와 함께.'],
+              [Layers, '답안 적용', '이 계산 결과를 답안에 어떻게 서술할지 실제 문장으로 보여줘. 산식 제시 방식과 단위 표기까지.'],
             ],
-          }[mode] || []).map(([label, prompt]) => (
+          }[mode] || []).map(([Icon, label, prompt]) => (
             <button
               key={label}
               disabled={streaming || !cap.ok}
@@ -3313,13 +3803,17 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
                 else if (prompt === '__endMock__') { setMockSession((s) => s ? { ...s, complete: true } : s); quickSend('모의 종료. 누적 점수·시간 분석·약점 단원 종합 정리.'); }
                 else quickSend(prompt);
               }}
+              title={prompt.startsWith('__') ? label : prompt}
               style={{
-                flex: '0 0 auto', padding: '5px 10px', borderRadius: 14,
-                border: '1px solid #d1d5db', background: '#fff', color: '#374151',
-                fontSize: '0.78rem', fontWeight: 600, cursor: streaming || !cap.ok ? 'not-allowed' : 'pointer',
-                whiteSpace: 'nowrap', opacity: streaming || !cap.ok ? 0.5 : 1,
+                flex: '0 0 auto', display: 'inline-flex', alignItems: 'center', gap: 5,
+                padding: '6px 11px', borderRadius: 8,
+                border: '1px solid #e7e5e4', background: '#fafaf9', color: '#44403c',
+                fontSize: '0.78rem', fontWeight: 700, letterSpacing: '-0.01em',
+                cursor: streaming || !cap.ok ? 'not-allowed' : 'pointer',
+                whiteSpace: 'nowrap', opacity: streaming || !cap.ok ? 0.45 : 1,
               }}
             >
+              <Icon size={13} strokeWidth={2.2} style={{ flexShrink: 0, color: '#78716c' }} />
               {label}
             </button>
           ))}
@@ -3331,13 +3825,25 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
               onChange={(e) => { const next = setPrefs({ model: e.target.value }); setPrefsState(next); }}
               disabled={streaming}
               style={{
-                padding: '2px 6px', fontSize: '0.72rem', fontWeight: 700,
-                border: '1px solid #d1d5db', borderRadius: 6,
-                background: streaming ? '#f3f4f6' : '#fff',
-                color: '#4338ca', cursor: streaming ? 'not-allowed' : 'pointer',
+                padding: '3px 6px', fontSize: '0.72rem', fontWeight: 700,
+                border: '1px solid #e7e5e4', borderRadius: 6,
+                background: streaming ? '#f5f5f4' : '#fafaf9',
+                color: '#57534e', cursor: streaming ? 'not-allowed' : 'pointer',
               }}
               title="응답 중에는 변경할 수 없습니다"
             >
+              <optgroup label="🌙 Moonshot (Kimi · 저렴+강력, 추천)">
+                <option value="moonshot:kimi-k2.6">🌙 Kimi K2.6 (가성비)</option>
+                <option value="moonshot:kimi-k3">🌙 Kimi K3 (최상급)</option>
+                <option value="moonshot:kimi-k2.5">🌙 Kimi K2.5 (최저가)</option>
+              </optgroup>
+              {localModels.length > 0 && (
+                <optgroup label="🖥 로컬 (Ollama · 무료·오프라인)">
+                  {localModels.map((m) => (
+                    <option key={m.ref} value={m.ref}>💰 {m.label}{m.sizeGB ? ` (${m.sizeGB}GB)` : ''}</option>
+                  ))}
+                </optgroup>
+              )}
               <optgroup label="Anthropic (브라우저 직호출)">
                 <option value="claude-sonnet-4-6">🎯 Sonnet 4.6</option>
                 <option value="claude-haiku-4-5-20251001">⚡ Haiku 4.5</option>
@@ -3458,6 +3964,116 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         </div>
       </div>
       </div>{/* /right column (PC) — wrapper added for 2-col grid */}
+      {/* PC 3단째: 우측 교재 원문 패널 — AI가 참고하는 원문을 대화와 나란히 */}
+      {isDesktop && showDoc && (
+        <aside style={{ borderLeft: '1px solid #e5e7eb', background: '#fbfbfd', display: 'flex', flexDirection: 'column', overflow: 'hidden', minHeight: 0 }}>
+          <div style={{ padding: '7px 8px', borderBottom: '1px solid #e5e7eb', background: '#fff', display: 'flex', alignItems: 'center', gap: 4, flex: '0 0 auto' }}>
+            {[
+              ['doc', '📖 이론'],
+              // 교재에 그 절이 없어도 **강의 필기만 있으면** 탭을 띄운다.
+              // 안 그러면 필기가 갈 탭이 통째로 안 보여 내용이 사라진다.
+              ...(docParts.ox ? [['ox', '✅ OX']] : []),
+              ...(docParts.mem || lectureByTab.mem ? [['mem', '🧠 암기']] : []),
+              ...(docParts.prac || lectureByTab.prac ? [['prac', '🧮 연습']] : []),
+              ...(docParts.std || lectureByTab.std ? [['std', '📐 기준서']] : []),
+              ...(docParts.law || lectureByTab.law ? [['law', '⚖️ 법전']] : []),
+              ['drill', drillN > 0 ? `🎯 인출 ${drillN}` : '🎯 인출'],
+            ].map(([k, lab]) => (
+              <button key={k} onClick={() => setDocTab(k)}
+                style={{ fontSize: '0.73rem', fontWeight: 800, padding: '5px 9px', borderRadius: 6, cursor: 'pointer',
+                  border: docTab === k ? '1px solid #d6d3d1' : '1px solid transparent',
+                  background: docTab === k ? '#f5f5f4' : 'none', color: docTab === k ? '#1c1917' : '#a8a29e' }}>
+                {lab}
+              </button>
+            ))}
+            {(docTab === 'doc' || docTab === 'mem') && (
+              <button
+                onClick={() => setMaskHl((v) => !v)}
+                title={maskHl ? '형광펜 다시 보이기' : '형광펜 가리기 — 암기 시트처럼 핵심어를 가리고 클릭하면 드러납니다'}
+                style={{ marginLeft: 'auto', fontSize: '0.72rem', fontWeight: 800, padding: '4px 8px', borderRadius: 6,
+                  cursor: 'pointer', border: '1px solid ' + (maskHl ? '#a16207' : '#e7e5e4'),
+                  background: maskHl ? '#faf8f2' : '#fff', color: maskHl ? '#a16207' : '#78716c' }}
+              >
+                {maskHl ? '👁 보이기' : '🔒 가리기'}
+              </button>
+            )}
+            <button onClick={() => setShowDoc(false)} title="패널 숨기기" style={{ marginLeft: (docTab === 'doc' || docTab === 'mem') ? 4 : 'auto', background: 'none', border: 'none', cursor: 'pointer', color: '#9ca3af', fontSize: '0.95rem', lineHeight: 1 }}>✕</button>
+          </div>
+          <div
+            className={maskHl ? 'hl-mask' : undefined}
+            onClick={maskHl ? (e) => {
+              // 가리기 모드에서 형광펜을 클릭하면 그 항목만 드러낸다(다시 누르면 가림)
+              const m = e.target.closest && e.target.closest('mark');
+              if (m) m.classList.toggle('hl-open');
+            } : undefined}
+            style={{ flex: 1, overflowY: 'auto', padding: '12px 16px', fontSize: '0.84rem', lineHeight: 1.75, color: '#374151' }}>
+            {docTab === 'drill' ? (
+              <DailyDrill
+                onGoLeaf={(it) => {
+                  const lf = leaves.find((l) => l.id === it.leafId);
+                  if (lf) { pickLeaf(lf); setDocTab('doc'); }
+                }}
+              />
+            ) : ['doc','ox','mem','law','prac','std'].includes(docTab) ? (
+              (() => {
+                const body = docTab === 'ox' ? docParts.ox : docTab === 'mem' ? docParts.mem
+                  : docTab === 'law' ? docParts.law : docTab === 'prac' ? docParts.prac
+                  : docTab === 'std' ? docParts.std : (docParts.theory || sectionMd || unitMd);
+                // 교재와 강의 설명을 **한 흐름으로 합쳐서** 보여준다.
+                // 뒤에 통째로 붙이면 같은 주제를 두 번 읽게 되고 둘이 따로 논다.
+                // 필기의 `<!-- after: … -->` 앵커가 교재 어느 소제목 뒤에 들어갈지 정한다.
+                // 암기·법전·연습·기준서 탭도 각자 몫의 필기를 받는다(lectureByTab).
+                // OX 탭만 예외 — 아래 OXQuiz 가 지문을 파싱해 퀴즈로 만들기 때문에 섞으면 깨진다.
+                const lecPart = docTab === 'doc' ? lectureByTab.theory : lectureByTab[docTab];
+                const merged = docTab === 'ox' ? body : mergeLectureIntoDoc(body, lecPart);
+                if (docTab === 'ox' && body) return <OXQuiz md={body} />;
+                if (merged) return <ParsedText text={merged} />;
+                return (
+                  <div style={{ color: '#9ca3af', fontSize: '0.82rem', textAlign: 'center', marginTop: 48, lineHeight: 1.6 }}>
+                    {docTab === 'ox' ? <>이 관의 OX 확인문제는<br />아직 준비되지 않았습니다.</>
+                      : docTab === 'mem' ? <>이 관의 암기법은<br />아직 준비되지 않았습니다.</>
+                      : docTab === 'law' ? <>이 관의 법조문 원문은<br />아직 준비되지 않았습니다.</>
+                      : docTab === 'prac' ? <>이 관의 계산 연습은<br />아직 준비되지 않았습니다.</>
+                      : docTab === 'std' ? <>이 관의 기준서 원문은<br />아직 준비되지 않았습니다.</>
+                      : <>단원을 선택하면<br />AI가 참고하는 교재 원문을<br />여기서 함께 볼 수 있어요.</>}
+                  </div>
+                );
+              })()
+            ) : (
+              (() => {
+                const m = (mastery && current?.leaf_id) ? (mastery[current.leaf_id] || {}) : {};
+                const qs = (quizStatsByLeaf && current?.leaf_id) ? quizStatsByLeaf[current.leaf_id] : null;
+                const cov = Math.round((m.coverage || 0) * 100);
+                const acc = m.attempted ? Math.round((m.accuracy || 0) * 100) : null;
+                const Bar = ({ pct, color }) => (
+                  <div style={{ height: 8, background: '#eef0f2', borderRadius: 999, overflow: 'hidden', marginTop: 4 }}>
+                    <div style={{ width: `${Math.min(100, pct)}%`, height: '100%', background: color }} />
+                  </div>
+                );
+                const Row = ({ label, value, pct, color }) => (
+                  <div style={{ marginBottom: 14 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', fontWeight: 700, color: '#374151' }}>
+                      <span>{label}</span><span style={{ color }}>{value}</span>
+                    </div>
+                    {pct != null && <Bar pct={pct} color={color} />}
+                  </div>
+                );
+                return (
+                  <div>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#111827', marginBottom: 12 }}>이 단원 진행</div>
+                    <Row label="AI 학습 커버리지" value={`${cov}%`} pct={cov} color="#4f46e5" />
+                    <Row label="이해도(채점)" value={acc == null ? '기록 없음' : `${acc}% · ${m.attempted}회`} pct={acc == null ? null : acc} color="#059669" />
+                    {qs && <Row label="기출 진행" value={`${qs.answered || 0}/${qs.total || 0}`} pct={qs.total ? Math.round((qs.answered / qs.total) * 100) : 0} color="#2563eb" />}
+                    <div style={{ fontSize: '0.72rem', color: '#9ca3af', marginTop: 8, lineHeight: 1.6 }}>
+                      대화하며 개념을 익히고, 문제풀이·채점으로 진행도가 올라갑니다.
+                    </div>
+                  </div>
+                );
+              })()
+            )}
+          </div>
+        </aside>
+      )}
     </div>
     )
   );

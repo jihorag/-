@@ -34,7 +34,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 DATA_DIR = Path('viewer/public/data/essay/practice')
-THEORY_DIR = Path('최종산출물/2과목_2차_감정평가실무')
+THEORY_DIR = Path('outputs/2과목_2차_감정평가실무')
 DEFAULT_MODEL = 'claude-sonnet-4-5'  # 안정·저렴. 더 어려운 신규 문제는 opus 권장
 API_URL = 'https://api.anthropic.com/v1/messages'
 

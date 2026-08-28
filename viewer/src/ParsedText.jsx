@@ -1,6 +1,6 @@
 // 인라인 이미지([IMAGE: ...]) + KaTeX($...$) + 줄바꿈 렌더러
 // App.jsx와 MockExam.jsx에서 동일한 문제 본문 렌더링을 위해 분리
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useScrollLock, useEscClose } from './uiHooks';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
@@ -8,6 +8,7 @@ import VizRouter, { VizPending } from './viz/VizRouter';
 import SafeSvg from './viz/SafeSvg';
 import MermaidView from './viz/MermaidView';
 import { recordItem } from './studyDrill';
+import { GLOSSARY, GLOSSARY_RE } from './glossary';
 
 export const SafeImage = ({ src }) => {
   const [errored, setErrored] = useState(false);
@@ -105,6 +106,88 @@ const renderTableInlines = (cell) => {
 };
 
 // 인라인 마크다운 (** ** bold, $ $ math, [IMAGE: ...]) 처리
+// ── 용어 툴팁 — 어려운 법률 용어에 마우스를 올리면(모바일은 탭) 뜻을 보여준다 ──
+function GlossaryTerm({ term, def }) {
+  const [pos, setPos] = useState(null); // null=닫힘, {left,top,above}=열림
+  const ref = useRef(null);
+  const show = () => {
+    const r = ref.current?.getBoundingClientRect();
+    if (!r) return;
+    const above = r.bottom + 140 > window.innerHeight; // 아래 공간 부족하면 위로
+    setPos({
+      left: Math.max(8, Math.min(r.left, window.innerWidth - 288)),
+      top: above ? r.top - 8 : r.bottom + 6,
+      above,
+    });
+  };
+  const hide = () => setPos(null);
+  return (
+    <span
+      ref={ref}
+      onMouseEnter={show}
+      onMouseLeave={hide}
+      onClick={(e) => { e.stopPropagation(); pos ? hide() : show(); }}
+      style={{
+        borderBottom: '1px dotted #6366f1', cursor: 'help',
+        textUnderlineOffset: 2, color: 'inherit',
+      }}
+    >
+      {term}
+      {pos && (
+        <span
+          role="tooltip"
+          style={{
+            position: 'fixed', left: pos.left, top: pos.top, zIndex: 5000,
+            transform: pos.above ? 'translateY(-100%)' : 'none',
+            width: 280, maxWidth: 'calc(100vw - 16px)',
+            background: '#1f2937', color: '#f3f4f6',
+            fontSize: '0.8rem', lineHeight: 1.55, fontWeight: 400,
+            padding: '9px 12px', borderRadius: 9, boxShadow: '0 6px 20px rgba(0,0,0,0.28)',
+            whiteSpace: 'normal', textAlign: 'left', pointerEvents: 'none',
+            fontFamily: 'inherit',
+          }}
+        >
+          <b style={{ color: '#c7d2fe' }}>{term}</b>
+          <span style={{ display: 'block', marginTop: 3 }}>{def}</span>
+        </span>
+      )}
+    </span>
+  );
+}
+
+// 평문에서 사전 용어를 찾아 GlossaryTerm으로 감싼다. 없으면 문자열 그대로 반환.
+function withGlossary(text, keyPrefix) {
+  if (!GLOSSARY_RE || !text) return text;
+  const parts = String(text).split(GLOSSARY_RE);
+  if (parts.length < 2) return text; // 매칭 없음
+  return parts.map((p, i) =>
+    (i % 2 === 1 && GLOSSARY[p])
+      ? <GlossaryTerm key={`${keyPrefix}-gl${i}`} term={p} def={GLOSSARY[p]} />
+      : p
+  );
+}
+
+// 인라인 수식($…$)과 일반 텍스트를 섞어 렌더. 굵게·형광펜 **안쪽**에서도 수식이 살아나도록
+// 별도 함수로 뺐다. plain=true 면 용어 사전(withGlossary)까지 적용한다.
+const renderMathish = (str, keyBase, plain = false) => {
+  const nodes = [];
+  String(str).split(/(\$[\s\S]*?\$)/g).forEach((mp, j) => {
+    if (mp.startsWith('$') && mp.endsWith('$') && mp.length > 2) {
+      try {
+        const html = katex.renderToString(mp.slice(1, -1), { throwOnError: false, output: 'html' });
+        nodes.push(<span key={`${keyBase}-${j}-m`} dangerouslySetInnerHTML={{ __html: html }} />);
+      } catch {
+        nodes.push(<span key={`${keyBase}-${j}-m`}>{mp}</span>);
+      }
+    } else if (mp) {
+      nodes.push(
+        <span key={`${keyBase}-${j}-t`}>{plain ? withGlossary(mp, `${keyBase}-${j}`) : mp}</span>
+      );
+    }
+  });
+  return nodes;
+};
+
 const renderInlines = (text, keyPrefix) => {
   if (text == null || text === '') return null;
   // 1) 이미지 분리
@@ -131,32 +214,20 @@ const renderInlines = (text, keyPrefix) => {
         }
         return;
       }
-      // 3) 인라인 수식 + bold (math 먼저)
-      const mathParts = dp.split(/(\$[\s\S]*?\$)/g);
-    mathParts.forEach((mp, j) => {
-      if (mp.startsWith('$') && mp.endsWith('$') && mp.length > 2) {
-        const math = mp.slice(1, -1);
-        try {
-          const html = katex.renderToString(math, { throwOnError: false, output: 'html' });
-          out.push(<span key={`${keyPrefix}-${i}-${di}-${j}-m`} dangerouslySetInnerHTML={{ __html: html }} />);
-        } catch {
-          out.push(<span key={`${keyPrefix}-${i}-${di}-${j}-m`}>{mp}</span>);
-        }
-        return;
-      }
-      // 4) bold(**text**) + 형광펜(==text==) 분리
-      const boldParts = mp.split(/(\*\*[^*]+\*\*|==(?:(?!==)[\s\S])+==)/g);
+      // 3) bold(**…**) · 형광펜(==…==) 을 **수식보다 먼저** 분리한다.
+      //    수식을 먼저 쪼개면 `**$IS_0$ · 케인즈 단순모형**` 처럼 굵게 안에 수식이 든 표현이
+      //    `**` 와 나머지로 찢어져 굵게 정규식에 걸리지 않고 별표가 글자로 새어 나온다.
+      const boldParts = dp.split(/(\*\*[^*]+\*\*|==(?:(?!==)[\s\S])+==)/g);
       boldParts.forEach((bp, k) => {
+        const base = `${keyPrefix}-${i}-${di}-${k}`;
         if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
-          const kp = `${keyPrefix}-${i}-${di}-${j}-b${k}`;
-          out.push(<strong key={kp}>{withHilite(bp.slice(2, -2), kp)}</strong>);
+          out.push(<strong key={`${base}-b`}>{renderMathish(bp.slice(2, -2), `${base}-b`)}</strong>);
         } else if (bp.startsWith('==') && bp.endsWith('==') && bp.length > 4) {
-          out.push(<mark key={`${keyPrefix}-${i}-${di}-${j}-hl${k}`} style={HILITE}>{bp.slice(2, -2)}</mark>);
+          out.push(<mark key={`${base}-hl`} style={HILITE}>{renderMathish(bp.slice(2, -2), `${base}-hl`)}</mark>);
         } else if (bp) {
-          out.push(<span key={`${keyPrefix}-${i}-${di}-${j}-t${k}`}>{bp}</span>);
+          out.push(...renderMathish(bp, base, true));
         }
       });
-    });
     });
   });
   return out;
@@ -174,6 +245,9 @@ const CALLOUT_TONES = {
   '⭐': { bg: '#faf8f2', bar: '#a16207' },   // 필수·출제포인트 — 황토
   '📌': { bg: '#f8f9fa', bar: '#94a3b8' },   // 참고
   '📖': { bg: '#f8f8f9', bar: '#6b7280' },   // 도입
+  // 복습 메이트(마스코트)가 거드는 말 — 강사 발언이 아니라 정리·조언이라는 표시.
+  // 다른 콜아웃과 성격이 다르므로 유일하게 푸른 계열을 쓰되 채도는 낮게 둔다.
+  '🐶': { bg: '#f5f7fb', bar: '#7c8db5' },
   '⏳': { bg: '#f8fafc', bar: '#cbd5e1' },
   _default: { bg: '#f8f9fa', bar: '#a3a3a3' },
 };
@@ -221,9 +295,60 @@ function parseStatuteBody(raw) {
     .filter((t) => t.text || t.marker);
 }
 
+// ── 조문 cloze(빈칸 가리기) — 인출 훈련 ─────────────────────────────
+// 조문에서 시험·암기의 핵심은 '수치(기간·비율·요건)'와 '핵심 법령어'다.
+// 이들을 빈칸으로 가리고, 탭하면 하나씩 드러나 스스로 떠올렸는지 확인한다.
+const CLOZE_NUM = String.raw`\d[\d,.]*(?:\s*(?:분의\s*\d+|년|개월|달|월|일|시간|주|퍼센트|%|배|원|만원|억원|명|개|호|회|이상|이하|미만|초과|이내))?`;
+const CLOZE_KEYWORDS = [
+  '국토교통부장관', '시장·군수·구청장', '감정평가법인등', '중앙토지수용위원회', '지방토지수용위원회',
+  '시·도지사', '시장·군수', '지정권자', '이해관계인', '손실보상', '이의신청', '의견청취',
+  '재결', '수용', '사용', '허가', '신고', '승인', '인가', '고시', '지정', '변경', '결정',
+  '협의', '공람', '열람', '심의', '보상금', '공익사업', '사업시행자', '토지소유자',
+];
+const CLOZE_RE_SRC = `(${CLOZE_NUM})|(${[...CLOZE_KEYWORDS].sort((a, b) => b.length - a.length).map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`;
+
+function StatuteClozeText({ text, keyBase, shownAll, revealed, onToggle }) {
+  const re = new RegExp(CLOZE_RE_SRC, 'g');
+  const parts = [];
+  let last = 0, m, idx = 0;
+  while ((m = re.exec(text))) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    let word = m[0], trail = '';
+    const t = word.match(/[.,]+$/);
+    if (t && /\d/.test(word)) { trail = t[0]; word = word.slice(0, -trail.length); }
+    const id = `${keyBase}-${idx++}`;
+    const shown = shownAll || revealed.has(id);
+    parts.push(
+      <button key={id} type="button" onClick={() => onToggle(id)}
+        style={{
+          display: 'inline-block', verticalAlign: 'baseline', font: 'inherit', cursor: 'pointer',
+          margin: '0 1px', padding: '0 3px', borderRadius: 3,
+          border: shown ? '1px solid transparent' : '1px dashed #b08d57',
+          borderBottom: '1.5px solid #b08d57',
+          background: shown ? 'transparent' : '#f3ead2',
+          color: shown ? '#a15c07' : 'transparent',
+          minWidth: `${Math.max(1.4, Math.min(7, word.length))}em`,
+          fontWeight: shown ? 700 : 400,
+        }}>
+        {shown ? word : ' '.repeat(Math.max(2, Math.min(6, word.length)))}
+      </button>
+    );
+    if (trail) parts.push(trail);
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts.length ? parts : text;
+}
+
 function StatuteBlock({ title, body, keyPrefix }) {
   const [lawName, article] = splitStatuteTitle(title);
   const tokens = parseStatuteBody(body);
+  const [cloze, setCloze] = useState(false);
+  const [shownAll, setShownAll] = useState(false);
+  const [revealed, setRevealed] = useState(() => new Set());
+  const toggleOne = (id) => setRevealed((prev) => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
+  const startCloze = () => { setCloze(true); setShownAll(false); setRevealed(new Set()); };
+  const hasBlank = cloze && new RegExp(CLOZE_RE_SRC).test(body);
   return (
     <div style={{
       background: '#fdfcf8', border: '1px solid #e8e3d6', borderLeft: '3px solid #8a7f6a',
@@ -237,9 +362,30 @@ function StatuteBlock({ title, body, keyPrefix }) {
         <span style={{ fontWeight: 800, fontSize: '0.97em', color: '#3f3a2f', letterSpacing: '-0.01em' }}>
           {article}
         </span>
+        <button type="button"
+          onClick={() => (cloze ? setCloze(false) : startCloze())}
+          title="핵심 수치·법령어를 빈칸으로 가리고 인출 훈련"
+          style={{
+            marginLeft: 'auto', fontSize: '0.72em', fontWeight: 700, cursor: 'pointer',
+            border: `1px solid ${cloze ? '#b08d57' : '#ddd5c2'}`, borderRadius: 3, padding: '1px 8px',
+            background: cloze ? '#f3ead2' : '#fdfcf8', color: cloze ? '#8a5a12' : '#7c7259',
+            fontFamily: 'inherit', whiteSpace: 'nowrap',
+          }}>
+          {cloze ? '👁 답 보기' : '🙈 빈칸'}
+        </button>
+        {cloze && (
+          <button type="button" onClick={() => setShownAll((v) => !v)}
+            style={{
+              fontSize: '0.72em', fontWeight: 700, cursor: 'pointer',
+              border: '1px solid #ddd5c2', borderRadius: 3, padding: '1px 8px',
+              background: '#fdfcf8', color: '#7c7259', fontFamily: 'inherit', whiteSpace: 'nowrap',
+            }}>
+            {shownAll ? '다시 가리기' : '모두 보기'}
+          </button>
+        )}
         {lawName && (
           <span style={{
-            marginLeft: 'auto', fontSize: '0.74em', fontWeight: 700, color: '#7c7259',
+            fontSize: '0.74em', fontWeight: 700, color: '#7c7259',
             border: '1px solid #ddd5c2', borderRadius: 3, padding: '1px 7px', background: '#fdfcf8',
             fontFamily: 'inherit', whiteSpace: 'nowrap',
           }}>
@@ -247,6 +393,11 @@ function StatuteBlock({ title, body, keyPrefix }) {
           </span>
         )}
       </div>
+      {cloze && !hasBlank && (
+        <div style={{ padding: '6px 14px', fontSize: '0.76em', color: '#9a8c6a', background: '#faf7ee' }}>
+          이 조문에는 가릴 수치·핵심어가 없어요.
+        </div>
+      )}
       <div style={{ padding: '10px 14px 12px', color: '#2f2b24', fontSize: '0.93em', lineHeight: 1.95 }}>
         {tokens.map((t, k) => (
           <div key={k} style={{
@@ -260,7 +411,9 @@ function StatuteBlock({ title, body, keyPrefix }) {
               </span>
             )}
             <span style={{ flex: 1, textAlign: 'justify' }}>
-              {renderInlines(t.text, `${keyPrefix}-st-${k}`)}
+              {cloze
+                ? <StatuteClozeText text={t.text} keyBase={`${keyPrefix}-cz-${k}`} shownAll={shownAll} revealed={revealed} onToggle={toggleOne} />
+                : renderInlines(t.text, `${keyPrefix}-st-${k}`)}
             </span>
           </div>
         ))}

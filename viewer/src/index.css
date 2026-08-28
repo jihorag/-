@@ -1,23 +1,30 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 
 :root {
-  /* 브랜드 컬러 — 전 화면에서 쓰던 인라인 #2563eb 계열로 토큰 통일 */
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --primary-light: #eff6ff;
-  --accent: #b45309;
-  --success: #16a34a;
-  --danger: #dc2626;
-  --warn: #ea580c;
-  --bg-color: #f1f5f9;
-  --card-bg: rgba(255, 255, 255, 0.95);
-  --text-main: #0f172a;
-  --text-sub: #64748b;
-  --border-color: #e2e8f0;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --radius: 16px;
+  /* ── 레거시 변수 = tokens.css 별칭 ──────────────────────────────
+     예전 이름을 그대로 두되 값만 토큰을 가리키게 한다.
+     이름을 바꾸면 이 이름을 쓰는 화면 16곳을 전부 손봐야 하고,
+     이름만 남기고 옛 hex 를 두면 홈(토큰)과 나머지(레거시)가
+     서로 다른 팔레트로 갈린다 — 실제로 한 화면에 바닥색이 둘 겹쳤다.
+     여기 한 곳을 바꾸면 16개 화면이 한 번에 새 팔레트로 넘어온다.
+
+     ⚠ 각 화면의 인라인 하드코딩 hex(1,800여 개)는 이 매핑을 타지 않는다.
+        그건 화면별 리디자인에서 처리한다. */
+  --primary:       var(--accent);
+  --primary-dark:  var(--accent-ink);
+  --primary-light: var(--accent-bg);
+  --success:       var(--correct);
+  --danger:        var(--seal);
+  --warn:          var(--caution);
+  --bg-color:      var(--paper);
+  --card-bg:       var(--sheet);
+  --text-main:     var(--ink);
+  --text-sub:      var(--ink-2);
+  --border-color:  var(--line);
+  --shadow-sm:     var(--shadow-sheet);
+  --shadow-md:     var(--shadow-lift);
+  --shadow-lg:     var(--shadow-lift);
+  --radius:        var(--radius-lg);
   /* 본문 글자 크기 배율(설정에서 변경) */
   --q-fs: 1;
   /* z-index 스케일 — 오버레이 층위 일원화 (매직넘버 난립 방지) */
@@ -37,25 +44,32 @@
   font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
+
+/* tokens.css 는 html { font-size: var(--text-base) } = 15px 을 건다.
+   그런데 이 파일의 기존 화면 16곳이 rem 을 141군데 쓰고 있어서, 그대로 두면
+   홈 이외 화면이 전부 6% 작아진다. 토큰 파일은 수정하지 않기로 했으므로 여기서 되돌린다.
+   --text-* 토큰은 px 절대값이라 이 선언에 영향받지 않는다. */
+html { font-size: 16px; }
+
+#root {
+  background: var(--paper);
+}
+
 body {
   overscroll-behavior-y: none; /* 당겨서 새로고침 오발동 방지 (시각 변화 없음) */
-  background-color: var(--bg-color);
+  background-color: var(--paper);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
 }
 
-/* 데스크톱: 중앙 칼럼과 바깥 배경 구분 */
-@media (min-width: 640px) {
-  body { background-color: #e2e8f0; }
-  .app-container { box-shadow: 0 0 32px rgba(15, 23, 42, 0.10); }
-}
+/* 데스크톱에서 바깥 배경(#e2e8f0)과 컨테이너 그림자로 '중앙 칼럼'을 만들던 처리는 없앴다.
+   셸이 화면 전체를 채우는 지금은 감쌀 바깥이 없어서, 그림자가 화면 아래쪽에
+   가로 경계선 한 줄로만 보였다. */
 
 .app-container {
-  max-width: 600px;
-  margin: 0 auto;
   min-height: 100dvh;
-  background: var(--bg-color);
+  background: var(--paper);
 }
 
 /* Header */
@@ -498,63 +512,152 @@ html, body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.spin { animation: spin 0.8s linear infinite; }
+
+/* 실력 리포트 — 인쇄 시 실제 문서처럼(네비·툴바·책상 배경·겹친 종이 숨김) */
+@media print {
+  nav, .report-tools, .report-stack, .bottom-nav { display: none !important; }
+  .report-desk { background: #fff !important; min-height: 0 !important; }
+  .report-desk > div { padding: 0 !important; }
+  .report-sheet { box-shadow: none !important; border: none !important; padding: 6mm 4mm !important; max-width: none !important; }
+  @page { margin: 12mm; }
+}
+/* AI 소견 본문(명조) — ParsedText 기본 여백 정리 */
+.report-prose p { margin: 0 0 7px; }
+.report-prose ul, .report-prose ol { margin: 5px 0 8px; padding-left: 17px; }
+.report-prose li { margin-bottom: 3px; }
 
 /* ===== 모바일 앱 셸 + 하단 탭바 ===== */
+/* ── 앱 골격 ────────────────────────────────────────────────
+   가로 flex. 폭을 고정하지 않는다 — 예전에는 600px 로 묶어 놓아
+   데스크톱에서 좌우가 통째로 비었다.
+   640px 이상 좌측 레일 / 미만 하단 탭바. 둘은 CSS 로만 갈린다.        */
 .app-shell {
-  max-width: 600px;
-  margin: 0 auto;
-  min-height: 100dvh;
+  display: flex;
+  width: 100%;
+  min-height: 100dvh;          /* vh 는 모바일 주소창 때문에 안 쓴다 */
+  background: var(--paper);
   position: relative;
-  background: var(--bg-color);
 }
 .app-shell .app-container {
   max-width: none;
   min-height: auto;
 }
-.app-shell.with-nav {
-  padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+.app-main {
+  flex: 1;
+  min-width: 0;                /* 넘치는 자식이 레이아웃을 밀지 않게 */
 }
+.app-shell.with-nav {
+  padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px));
+}
+
+/* 좌측 레일 — md 이상 */
+.app-rail {
+  display: none;
+  width: var(--rail-w);
+  flex: 0 0 var(--rail-w);
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100dvh;
+  background: var(--sheet);
+  border-right: 1px solid var(--line);
+  flex-direction: column;
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--space-2));
+  z-index: var(--z-nav);
+}
+@media (min-width: 640px) {
+  .app-rail { display: flex; }
+}
+.app-rail button {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-height: var(--touch-min);
+  padding: var(--space-1) 0;
+  display: flex;
+  justify-content: center;
+  color: var(--ink-3);
+}
+.app-rail button.active { color: var(--accent-ink); }
+/* 아이콘만 두고 이름은 스크린리더에만 남긴다. 활성 표시는 아이콘 뒤 칩으로 한다 —
+   레일이 좁아 글자를 넣으면 두 글자에서 잘린다. */
+.app-rail .nav-ico {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app-rail button.active .nav-ico { background: var(--accent-bg); }
+.app-rail .nav-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.app-rail .rail-settings { margin-top: auto; margin-bottom: var(--space-3); }
+.nav-ico { position: relative; line-height: 1; }
+
+/* 하위 전환 — 탭에서 접은 화면(커리큘럼·합격수기)으로 가는 길 */
+.sub-nav {
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4) 0;
+  max-width: 840px;
+  margin: 0 auto;
+}
+.sub-nav button {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-height: var(--touch-min);
+  padding: 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  border-bottom: 2px solid transparent;
+}
+.sub-nav button.active { color: var(--ink); border-bottom-color: var(--accent); }
+
 .bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 600px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  background: #fff;
-  border-top: 1px solid #e5e7eb;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px));
+  background: var(--sheet);
+  border-top: 1px solid var(--line);
   padding-bottom: env(safe-area-inset-bottom, 0px);
   z-index: var(--z-nav);
+}
+@media (min-width: 640px) {
+  .bottom-nav { display: none; }   /* 레일이 대신한다 */
 }
 .bottom-nav button {
   appearance: none;
   border: none;
   background: none;
   padding: 8px 4px 10px;
-  min-height: 56px;
+  min-height: var(--touch-min);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 3px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #9ca3af;
+  font-size: var(--text-2xs);
+  color: var(--ink-3);
   cursor: pointer;
-}
-.bottom-nav button {
   position: relative;
-  transition: color 0.15s ease;
 }
-.bottom-nav button .nav-ico {
-  font-size: 1.15rem;
-  line-height: 1;
-  transition: transform 0.15s ease;
-}
-.bottom-nav button.active { color: var(--primary, #2563eb); }
-.bottom-nav button.active .nav-ico { transform: scale(1.15); }
+.bottom-nav button .nav-ico { line-height: 1; }
+.bottom-nav button.active { color: var(--accent-ink); }
 .bottom-nav button.active::before {
   content: '';
   position: absolute;
@@ -564,7 +667,7 @@ html, body {
   width: 28px;
   height: 3px;
   border-radius: 0 0 3px 3px;
-  background: var(--primary, #2563eb);
+  background: var(--accent);
 }
 .bottom-nav button .nav-badge {
   position: absolute;
@@ -751,20 +854,27 @@ html, body {
 }
 
 /* ===== 홈: 오늘 할 일(단일 다음 행동) + 마일스톤 ===== */
+/* 커리큘럼 PC 2단 레이아웃 — 좁으면 1단, 넓으면 좌(오늘의 계획)+우(나머지) */
+.curr-2col { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 920px) {
+  .curr-2col { grid-template-columns: minmax(320px, 360px) 1fr; align-items: start; }
+  .curr-left { position: sticky; top: 12px; }
+}
+
 .todo-hero {
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: left;
   gap: 3px;
-  padding: 12px 14px;
-  margin-bottom: 10px;
+  padding: 15px 17px;
+  margin-bottom: 14px;
   border: none;
-  border-radius: 12px;
-  background: var(--primary);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
   color: #fff;
   cursor: pointer;
-  box-shadow: 0 6px 16px -6px rgba(37, 99, 235, 0.5);
+  box-shadow: 0 12px 28px -14px rgba(37, 99, 235, 0.6);
   transition: transform 0.12s ease;
 }
 .todo-hero:active { transform: scale(0.99); }
@@ -777,15 +887,16 @@ html, body {
   padding: 2px 8px;
   border-radius: 999px;
 }
-.todo-title { font-size: 1rem; font-weight: 800; line-height: 1.25; margin-top: 2px; }
+.todo-title { font-size: 1.05rem; font-weight: 800; line-height: 1.25; margin-top: 3px; }
 .todo-desc { font-size: 0.78rem; opacity: 0.9; line-height: 1.4; }
-.todo-cta { font-size: 0.78rem; font-weight: 700; margin-top: 4px; }
+.todo-cta { font-size: 0.78rem; font-weight: 700; margin-top: 5px; opacity: 0.95; }
 .milestone {
   background: #fff;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 13px 15px;
+  border: 1px solid #eceff3;
+  border-radius: 18px;
+  padding: 14px 16px;
   margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 10px 26px -16px rgba(16, 24, 40, 0.14);
 }
 .milestone-row {
   display: flex;
@@ -1879,4 +1990,26 @@ html, body {
   color: inherit !important;
   background: linear-gradient(transparent 58%, #f6e7a1 58%) !important;
   box-shadow: none;
+}
+
+
+
+/* ── 홈 컬럼 ─────────────────────────────────────────────────
+   전 구간 1단이다. 2단이나 그리드로 만들지 않는다.                 */
+.home-col {
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 16px 16px 72px;   /* sm — 탭바 높이 확보 */
+}
+@media (min-width: 640px)  { .home-col { padding: 20px; } }
+@media (min-width: 1024px) { .home-col { padding: 24px 24px 48px; } }
+
+.home-quick {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));   /* sm·md — 2×2 */
+  gap: 8px;
+}
+@media (min-width: 1024px) {
+  .home-quick { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }

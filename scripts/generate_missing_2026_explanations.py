@@ -13,7 +13,7 @@ import urllib.error
 import threading
 import unicodedata
 
-ROOT = "/Users/hanjiho/Documents/감정평가사 기출문제"
+ROOT = "/Users/hanjiho/Documents/감정평가사 기출문제"
 DB_PATH = os.path.join(ROOT, "questions_db.json")
 IMAGES_DIR = os.path.join(ROOT, "viewer/public/images")
 

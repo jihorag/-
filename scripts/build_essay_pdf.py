@@ -11,7 +11,7 @@ from pathlib import Path
 import pypdf
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / 'Claude KAPA CHATING copy'
+SRC = ROOT / '학습자료(강의노트)'
 OUT_BASE = ROOT / 'viewer/public/data/essay'
 NOW = datetime.datetime.now(datetime.timezone.utc).isoformat()
 

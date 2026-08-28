@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # build_essay.py — 2차 essay 문제 파서 (Python 버전, node 없는 환경용)
 #
-# 입력: 최종산출물/2과목_2차_감정평가실무/문제_*.md
+# 입력: outputs/2과목_2차_감정평가실무/문제_*.md
 # 출력: viewer/public/data/essay/practice/<chapter>.json + manifest.json
 #
 # 파싱 대상: `## 🎯 기출문제 + 답안` 섹션만 (워크북·GS는 v1에서 제외)
@@ -14,7 +14,7 @@ import re, json, sys, os, hashlib
 from pathlib import Path
 from datetime import datetime, timezone
 
-SRC = Path('최종산출물/2과목_2차_감정평가실무')
+SRC = Path('outputs/2과목_2차_감정평가실무')
 DEST = Path('viewer/public/data/essay/practice')
 SUBJECT = '감정평가실무'
 

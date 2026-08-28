@@ -76,5 +76,19 @@ export default defineConfig({
     fs: {
       allow: ['..']
     }
-  }
+  },
+  // 소스는 PC앱(gampyeong-desktop)과 공유한다. 그쪽에는 데스크톱 전용 `@tauri-apps/*` 가
+  // 있지만 웹앱에는 설치돼 있지 않다. 현재 src/ 안의 참조는 전부 `./tauriShim` 으로 바꿔
+  // 두었으므로 아래 설정 없이도 빌드된다 — PC앱에서 코드를 다시 가져올 때 놓친 import 가
+  // 섞여 들어와도 빌드가 통째로 깨지지 않게 하는 안전망으로 남겨 둔다.
+  // (dev 서버는 external 을 보지 않으므로, 동적 import 라도 반드시 셰임으로 바꿔야 한다.)
+  build: {
+    rollupOptions: {
+      external: [/^@tauri-apps\//],
+    },
+  },
+  optimizeDeps: {
+    exclude: ['@tauri-apps/api', '@tauri-apps/plugin-http',
+              '@tauri-apps/plugin-fs', '@tauri-apps/plugin-dialog'],
+  },
 })

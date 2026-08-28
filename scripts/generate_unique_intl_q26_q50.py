@@ -10,7 +10,7 @@ import re
 import random
 from pathlib import Path
 
-ROOT = Path("/Users/hanjiho/Documents/감정평가사 기출문제")
+ROOT = Path("/Users/hanjiho/Documents/감정평가사 기출문제")
 PRACTICE_DIR = ROOT / "viewer/public/data/practice/economics"
 
 # 다크 모드용 SVG 그래프 리소스 정의 (국제경제학 대표 그래프들)

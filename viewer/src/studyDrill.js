@@ -9,8 +9,35 @@ import { recordGrade } from './aiLearningStore';
 
 const KEY = 'ailearn-items-v1';
 const DAY = 86400000;
-// 틀리면 처음으로, 맞히면 한 칸씩 — 1일 → 3일 → 7일 → 16일 → 35일
+// 틀리면 처음으로, 맞히면 한 칸씩 — 1일 → 3일 → 7일 → 16일 → 35일 (시험일 미등록 시 폴백)
 const LADDER = [1, 3, 7, 16, 35];
+// 학습과학 근거(Cepeda 2006/2008): 복습 간격은 고정이 아니라 '시험까지 남은 기간(RI)'에 비례해야 한다.
+// 최적 간격 ≈ RI의 10~20%. 숙련도(box)가 오를수록 비율을 키우되 시험 전에 마지막 복습이 들어오게 캡한다.
+const GAP_PROP = [0.05, 0.09, 0.14, 0.20, 0.28]; // box별 RI 대비 복습 간격 비율
+
+// 가장 임박한 미래 시험까지 남은 일수(없으면 null) — quiz-exam-dates에서 읽음
+function remainingToExam() {
+  try {
+    const ed = JSON.parse(localStorage.getItem('quiz-exam-dates') || '{}') || {};
+    const now = Date.now();
+    const days = Object.values(ed)
+      .map((s) => { const d = new Date(s + 'T00:00:00').getTime(); return isNaN(d) ? null : Math.ceil((d - now) / DAY); })
+      .filter((x) => x != null && x > 0);
+    return days.length ? Math.min(...days) : null;
+  } catch { return null; }
+}
+// box(숙련도)에 맞는 다음 복습 간격(일). 시험일이 있으면 RI 비례, 없으면 고정 사다리.
+function nextGapDays(box) {
+  const R = remainingToExam();
+  if (R && R > 1) return Math.max(1, Math.min(Math.round(R * GAP_PROP[box]), R - 1));
+  return LADDER[box];
+}
+
+// 드릴 체화(회독)용 — box(회독 숙련도)에 맞는 다음 복습 도래 시각. 시험일 비례 간격(RI×10~20%)을 그대로 쓴다.
+export function drillReviewDue(box) {
+  const b = Math.max(0, Math.min(box || 0, GAP_PROP.length - 1));
+  return Date.now() + nextGapDays(b) * DAY;
+}
 
 function load() {
   try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch { return {}; }
@@ -43,7 +70,7 @@ export function recordItem({ kind, idx, q, isCorrect, leaf }) {
     lastCorrect: !!isCorrect,
     last: Date.now(),
     box,
-    due: Date.now() + LADDER[box] * DAY,
+    due: Date.now() + nextGapDays(box) * DAY, // 시험일에 비례한 간격(RI×10~20%), 미등록 시 사다리
   };
   all[k] = next;
   save(all);
@@ -100,7 +127,7 @@ export function buildLearnerStatus(leafId, leafTitle) {
     lines.push(`[이 관 성적] ${leafTitle || leafId} — ${cur.length}문항 풀이, 정답률 ${acc}%`);
     if (w.length) {
       lines.push(`[이 관에서 최근 틀린 문항 ${w.length}개]`);
-      w.slice(0, 5).forEach((i) => lines.push(`  - (${i.kind === 'ox' ? 'OX' : '계산'}) ${i.q.slice(0, 120)}`));
+      w.slice(0, 5).forEach((i) => lines.push(`  - (${i.kind === 'ox' ? 'OX' : i.kind === 'journal' ? '분개' : '계산'}) ${i.q.slice(0, 120)}`));
     }
   }
   const c = getDrillCounts();

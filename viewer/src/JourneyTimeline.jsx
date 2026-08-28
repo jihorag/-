@@ -21,13 +21,15 @@ const DEFAULT_ROWS = [
     markers: [mk('gp1', '1차', 4, 'gp'), mk('gp2', '2차', 7, 'gp', 'passed')] },
 ];
 
-const loadRows = () => {
+// 홈 화면도 같은 데이터를 읽는다 — 저장 형식이 갈리지 않게 여기 하나만 쓴다.
+export const loadJourneyRows = () => {
   try {
     const v = JSON.parse(localStorage.getItem(JOURNEY_KEY) || 'null');
     if (Array.isArray(v) && v.length) return v;
   } catch { /* noop */ }
   return DEFAULT_ROWS;
 };
+const loadRows = loadJourneyRows;
 const saveRows = (rows) => {
   try { localStorage.setItem(JOURNEY_KEY, JSON.stringify(rows)); } catch { /* SSR */ }
 };

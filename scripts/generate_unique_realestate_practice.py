@@ -12,7 +12,7 @@ import urllib.error
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
-ROOT = "/Users/hanjiho/Documents/감정평가사 기출문제"
+ROOT = "/Users/hanjiho/Documents/감정평가사 기출문제"
 PRACTICE_DIR = os.path.join(ROOT, "viewer/public/data/practice/realestate")
 TAX_INDEX = os.path.join(ROOT, "viewer/public/data/study/realestate/ai_taxonomy_index.json")
 

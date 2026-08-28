@@ -9,7 +9,7 @@ import re
 import json
 from pathlib import Path
 
-ROOT = Path("/Users/hanjiho/Documents/감정평가사 기출문제")
+ROOT = Path("/Users/hanjiho/Documents/감정평가사 기출문제")
 PRACTICE_DIR = ROOT / "viewer" / "public" / "data" / "practice" / "realestate"
 TAX_INDEX = ROOT / "viewer" / "public" / "data" / "study" / "realestate" / "ai_taxonomy_index.json"
 

@@ -235,7 +235,7 @@ practice-civil-{관slug}-d{난이도}-{seq}
 | p09c58s01 | Ch58+59 임대료산정·시산가액조정·물건별 주된 평가방법 (적산법·수익분석법·물건별방법) | 50 | ✅ v2 완료 |
 | p09c60s01 | Ch60 감정평가론 계산문제 (거래사례비교법·공시지가기준법·원가법·수익환원법 계산) | 50 | ✅ v2 완료 |
 
-강의노트 경로: `Claude KAPA CHATING copy/1차 - 부동산학원론_학습자료/국승옥_강의노트.md`
+강의노트 경로: `학습자료(강의노트)/1차 - 부동산학원론_학습자료/국승옥_강의노트.md`
 
 ---
 
@@ -244,7 +244,7 @@ practice-civil-{관slug}-d{난이도}-{seq}
 ```python
 import json
 
-DB_PATH = '/Users/hanjiho/Documents/감정평가사 기출문제/questions_db_re.json'
+DB_PATH = '/Users/hanjiho/Documents/감정평가사 sources/기출문제/questions_db_re.json'
 SECTION_KEY = 'p01c04s01'  # 작업할 절
 
 db = json.load(open(DB_PATH, encoding='utf-8'))
