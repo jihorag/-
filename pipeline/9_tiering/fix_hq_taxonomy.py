@@ -26,10 +26,14 @@ STOP = re.compile(r"^제\d+관\s*")
 
 
 def pick_item(sections, section_name, question):
-    """절 안의 관 중 본문과 키워드가 겹치는 것을 고른다."""
+    """절 안의 관 중 본문과 키워드가 겹치는 것을 고른다.
+
+    반환: (관 이름, 배정 방식). 배정 방식은 "keyword"(키워드 매칭 성공),
+    "fallback"(못 맞춰서 첫 관으로 보냄), ""(절/관이 없어 아무것도 못 함).
+    """
     items = sections.get(section_name) or []
     if not items:
-        return ""
+        return "", ""
     body = question or ""
     best, best_hit = "", 0
     for it in items:
@@ -38,7 +42,9 @@ def pick_item(sections, section_name, question):
         hit = sum(1 for w in words if w in body)
         if hit > best_hit:
             best, best_hit = it, hit
-    return best or items[0]
+    if best:
+        return best, "keyword"
+    return items[0], "fallback"
 
 
 def build_sections(tax):
@@ -57,9 +63,58 @@ def build_sections(tax):
     return out
 
 
+def backfill_tags(dry=False):
+    """356acf1e 커밋 직전에 채운 2,100건은 item_assigned_by 없이 저장됐다.
+
+    당시 백업(item이 비어 있던 시점의 스냅샷)과 현재 db를 인덱스로 대조해
+    "그때 비어 있었는데 지금은 채워진" 문항에만 소급으로 태그를 붙인다.
+    v1 자동생성분(당시 이미 item이 있던 문항)은 백업에서도 item이 있으므로
+    조건에서 자동으로 제외된다 — 건드리지 않는다.
+    """
+    db = json.loads(DB.read_text(encoding="utf-8"))
+    sections = build_sections(json.loads(TAX.read_text(encoding="utf-8")))
+    backups = sorted(BACKUP_DIR.glob("econ.pre_taxfix_*.json"))
+    if not backups:
+        print("백업 없음 — 소급 태깅 불가")
+        return
+    backup = json.loads(backups[0].read_text(encoding="utf-8"))
+    if len(backup) != len(db):
+        print(f"경고: 백업({len(backup)})과 현재 db({len(db)}) 길이가 달라 인덱스 대조 불가")
+        return
+
+    tagged = Counter()
+    for qb, qc in zip(backup, db):
+        mtb = (qb.get("indexing_v4") or {}).get("mapped_taxonomy")
+        if not mtb or mtb.get("item"):
+            continue  # 당시 이미 item 있었음 (v1 자동생성분) — 건드리지 않음
+        ivc = qc.get("indexing_v4") or {}
+        mtc = ivc.get("mapped_taxonomy") or {}
+        if not mtc.get("item") or ivc.get("item_assigned_by"):
+            continue
+        _, method = pick_item(sections, mtb.get("section"), qb.get("question"))
+        if method:
+            if not dry:
+                ivc["item_assigned_by"] = method
+            tagged[method] += 1
+
+    print(f"소급 태깅 keyword {tagged['keyword']} · fallback {tagged['fallback']}")
+    if dry:
+        print("dry-run — 저장하지 않음")
+        return
+    BACKUP_DIR.mkdir(parents=True, exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    shutil.copy2(DB, BACKUP_DIR / f"econ.pre_backfill_{ts}.json")
+    DB.write_text(json.dumps(db, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"저장 완료 (백업 econ.pre_backfill_{ts}.json)")
+
+
 def main():
     if "--self-test" in sys.argv:
         _self_test()
+        return
+
+    if "--backfill-tags" in sys.argv:
+        backfill_tags(dry="--dry-run" in sys.argv)
         return
 
     dry = "--dry-run" in sys.argv
@@ -71,10 +126,11 @@ def main():
         mt = (q.get("indexing_v4") or {}).get("mapped_taxonomy")
         if not mt or mt.get("item"):
             continue
-        item = pick_item(sections, mt.get("section"), q.get("question"))
+        item, method = pick_item(sections, mt.get("section"), q.get("question"))
         if item:
             if not dry:
                 mt["item"] = item
+                q["indexing_v4"]["item_assigned_by"] = method
             filled += 1
 
     # 중복 ID 재부여 — 뒤에 나온 것에 접미사를 붙인다
@@ -123,19 +179,19 @@ def main():
 def _self_test():
     sections = {"제13절 완전경쟁시장": ["제1관 완전경쟁의 조건", "제2관 단기 이윤극대화"]}
 
-    # 관 이름의 키워드가 본문에 있으면 그 관으로 간다
+    # 관 이름의 키워드가 본문에 있으면 그 관으로 간다 — "keyword"로 표시
     assert pick_item(sections, "제13절 완전경쟁시장",
-                     "단기 이윤극대화 생산량은?") == "제2관 단기 이윤극대화"
+                     "단기 이윤극대화 생산량은?") == ("제2관 단기 이윤극대화", "keyword")
 
-    # 아무 관에도 안 걸리면 첫 관으로 보낸다(빈 문자열보다 낫다)
+    # 아무 관에도 안 걸리면 첫 관으로 보낸다(빈 문자열보다 낫다) — "fallback"으로 표시
     assert pick_item(sections, "제13절 완전경쟁시장",
-                     "전혀 관계없는 본문") == "제1관 완전경쟁의 조건"
+                     "전혀 관계없는 본문") == ("제1관 완전경쟁의 조건", "fallback")
 
-    # 모르는 절이면 빈 문자열
-    assert pick_item(sections, "없는절", "본문") == ""
+    # 모르는 절이면 빈 문자열 + 빈 표시
+    assert pick_item(sections, "없는절", "본문") == ("", "")
 
-    # 관이 없는 절이면 빈 문자열
-    assert pick_item({"제1절 빈절": []}, "제1절 빈절", "본문") == ""
+    # 관이 없는 절이면 빈 문자열 + 빈 표시
+    assert pick_item({"제1절 빈절": []}, "제1절 빈절", "본문") == ("", "")
     print("fix_hq_taxonomy self-test 통과")
 
 
