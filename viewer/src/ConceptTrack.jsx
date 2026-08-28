@@ -39,11 +39,22 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
 
   // 트랙 로드 — 아직 만들어지지 않은 관·회독이 대부분이므로 404 는 조용히 빈 값.
   useEffect(() => {
+    // 이어보기 위치를 track 과 같은 커밋에서 확정한다. setIdx(0) 으로 먼저 그렸다가
+    // 별도 effect 에서 되돌리면, 그 중간 렌더의 논점 1번이 SEEN 으로 찍혀버린다
+    // (아래 [point?.id] effect 가 idx=0 렌더에도 반응하기 때문). track·idx 를 함께
+    // 세팅해 첫 렌더부터 이어보기 위치가 맞도록 한다.
+    const resumeIdx = (t) => {
+      if (!t?.points?.length) return 0;
+      const np = nextPoint(t, getTrackProgress());
+      const i = np ? t.points.findIndex((p) => p.id === np.id) : -1;
+      return i >= 0 ? i : 0;
+    };
     if (leafId?.startsWith('_extra:')) {
       const title = leafId.slice('_extra:'.length);
       const found = extra.find((e) => e.title === title) || null;
-      setTrack(found ? { ...found, leaf_id: leafId } : null);
-      setIdx(0);
+      const withId = found ? { ...found, leaf_id: leafId } : null;
+      setTrack(withId);
+      setIdx(resumeIdx(withId));
       setRevealed(false);
       setLoading(false);
       return undefined;
@@ -57,25 +68,13 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
         if (dead) return;
         const found = d?.leaves?.find((x) => x.leaf_id === leafId) || null;
         setTrack(found);
-        setIdx(0);
+        setIdx(resumeIdx(found));
         setRevealed(false);
       })
       .catch(() => { if (!dead) setTrack(null); })
       .finally(() => { if (!dead) setLoading(false); });
     return () => { dead = true; };
   }, [subjectId, leaf?.unit_code, leafId, extra]);
-
-  // 트랙을 열면 이어서 볼 논점으로 이동
-  useEffect(() => {
-    if (!track) return;
-    const np = nextPoint(track, progress);
-    if (np) {
-      const i = track.points.findIndex((p) => p.id === np.id);
-      if (i >= 0) setIdx(i);
-    }
-    // 진도 위치만 맞춘다. progress 를 의존성에 넣으면 답할 때마다 튄다.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [track]);
 
   const counts = track ? leafCounts(track, progress) : { total: 0, seen: 0, passed: 0 };
   const point = track?.points?.[idx] || null;
