@@ -12,6 +12,8 @@
 
 ## Global Constraints
 
+- **줄 번호는 참고용이다.** 다른 세션이 `App.jsx`를 계속 고치고 있으므로, 편집 전 `grep`으로 해당 코드를 다시 찾는다
+
 - **`questions_db.json`은 절대 쓰지 않는다** (CLAUDE.md 원본 보존 규칙). 기출의 C 등급은 저장하지 않고 앱에서 파생한다
 - 쓰기 대상은 `questions_db_econ.json` 하나뿐이다
 - 모든 JSON 저장은 `json.dump(..., ensure_ascii=False, indent=2)`
@@ -1073,7 +1075,7 @@ git commit -m "feat(등급): 사후 프로파일 검증 리포트"
 - Consumes: `questions_db_econ.json`, `taxonomy_v4.json`
 - Produces: hq 문항의 `mapped_taxonomy.item` 채움, 중복 ID 재부여, `difficulty` 이상치 교정. 함수 `pick_item(sections, section_name, question) -> str`
 
-**Why:** hq 수제 문항 2,240개는 `item`이 빈 문자열이라 `App.jsx:3025`의 관 카드 필터(`taxItemName === it.name`)에 걸리지 않는다. 등급을 붙여도 관 단위 학습에서 B 탭이 빈다.
+**Why:** hq 수제 문항 2,240개는 `item`이 빈 문자열이라 관 카드 필터 `taxItemName === it.name`에 걸리지 않는다. 등급을 붙여도 관 단위 학습에서 B 탭이 빈다.
 
 - [ ] **Step 1: 자기검증 테스트를 먼저 작성**
 
@@ -1254,11 +1256,11 @@ git commit -m "fix(경제): hq 문항 관 매핑 보정 + 중복 ID·난이도 �
 ### Task 8: 앱 A/B/C 탭 연결
 
 **Files:**
-- Modify: `viewer/src/App.jsx:2704-2710` (런타임 lowq 계산)
-- Modify: `viewer/src/App.jsx:2728` (반환 객체에 tier 추가)
-- Modify: `viewer/src/App.jsx:2763-2780` (baseFilter)
-- Modify: `viewer/src/App.jsx:2539` (sourceFilter 초기값)
-- Modify: `viewer/src/App.jsx:4941-4950` (토글 UI)
+- Modify: `viewer/src/App.jsx:2718` 근처 (런타임 lowq 계산)
+- Modify: `viewer/src/App.jsx:2742` 근처 (반환 객체에 tier 추가)
+- Modify: `viewer/src/App.jsx:2777` 근처 (baseFilter)
+- Modify: `viewer/src/App.jsx:2553` 근처 (sourceFilter 초기값)
+- Modify: `viewer/src/App.jsx:4956` 근처 (토글 UI)
 
 **Interfaces:**
 - Consumes: 문항의 `tier` 필드 (Task 4·5가 채움)
@@ -1271,7 +1273,7 @@ Expected: `✓ built in ...` — 변경 전 빌드가 통과함을 확인한다
 
 - [ ] **Step 2: `lowq` 를 저장된 tier 기반으로 바꾼다**
 
-`App.jsx:2704`의 블록을 아래로 교체한다. `tier`가 없는 문항(다른 과목·미판정)은 기존 휴리스틱으로 폴백해, 데이터와 코드를 따로 배포할 수 있게 한다.
+`let lowq = false;`로 시작하는 블록(현재 `App.jsx:2718` 근처)을 아래로 교체한다. `tier`가 없는 문항(다른 과목·미판정)은 기존 휴리스틱으로 폴백해, 데이터와 코드를 따로 배포할 수 있게 한다.
 
 ```jsx
       // 🏅 등급 — 저장된 tier 가 있으면 그걸 쓰고, 없으면 기존 휴리스틱으로 폴백한다.
@@ -1295,20 +1297,20 @@ Expected: `✓ built in ...` — 변경 전 빌드가 통과함을 확인한다
 
 - [ ] **Step 3: 반환 객체·필터·UI 를 잇는다**
 
-`App.jsx:2728`의 `lowq,` 아래에 한 줄 추가한다.
+반환 객체의 `lowq,` 줄 아래에 한 줄 추가한다.
 
 ```jsx
         lowq,
         tier,
 ```
 
-`App.jsx:2539`의 상태 이름을 바꾼다.
+`const [sourceFilter, setSourceFilter]` 줄(현재 `App.jsx:2553` 근처)의 상태 이름을 바꾼다.
 
 ```jsx
   const [tierFilter, setTierFilter] = useState('all');
 ```
 
-`App.jsx:2763` `baseFilter` 안에서 기존 `sourceFilter` 두 줄을 아래로 교체한다.
+`baseFilter`(현재 `App.jsx:2777` 근처) 안에서 기존 `sourceFilter` 두 줄을 아래로 교체한다.
 
 ```jsx
     // 등급 탭 — A 연습 / B 실전 / C 기출
@@ -1321,7 +1323,7 @@ Expected: `✓ built in ...` — 변경 전 빌드가 통과함을 확인한다
   }, [taxScope, browseExam, tierFilter]);
 ```
 
-`App.jsx:4941`의 토글 배열을 바꾼다.
+토글 배열(현재 `App.jsx:4956` 근처)을 바꾼다.
 
 ```jsx
             {[['all', '전체'], ['A', 'A 연습'], ['B', 'B 실전'], ['C', 'C 기출']].map(([k, lab]) => (
