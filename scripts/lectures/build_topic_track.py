@@ -69,6 +69,28 @@ STYLE = """당신은 감정평가사 1차 수험 교재를 쓰는 사람입니�
 - src: 이 논점의 근거가 된 대목. [12강 23:10] 표기에서 읽어 {"lec":12,"t":1390} 형태로.
   t 는 초 단위 정수입니다.
 
+[viz.steps — 상태가 변하는 논점이면 반드시 쓸 것]
+그 논점이 **변화 과정**을 설명한다면 (곡선이 이동해 균형이 옮겨가는 과정, 단기→장기
+조정, 정책 시행 전/직후/최종 효과, 그래프 위에 순차로 더해지는 요소 등) viz.steps 를
+채우세요. 이런 논점에 steps 없이 그림 한 장만 주는 것은 **잘못**입니다 — 경제학에서
+이건 예외가 아니라 대부분입니다.
+- steps 는 2~4단계.
+- 각 step 은 {"label": "...", ...그 단계에서 달라지는 파라미터만} — 전체 params 를
+  다시 쓰지 않습니다. 앱이 이전 단계 params 위에 얹어 적용합니다.
+- 정적인 그림 하나로 충분한 논점(분류표, 관계도 등 변화가 없는 것)에는 steps 를
+  쓰지 마세요.
+
+supply-demand 예시 — "소득 증가로 수요가 늘어 균형이 이동하는 과정":
+{"template":"supply-demand",
+ "params":{"scenario":"소득 증가 → 수요 우측 이동", "shifts":[],
+           "narration":"최초 균형에서 시작한다."},
+ "steps":[
+   {"label":"최초 균형", "shifts":[]},
+   {"label":"수요 우측 이동", "shifts":[{"curve":"D","direction":"right","magnitude":"moderate","reason":"소득 증가"}]},
+   {"label":"새 균형 형성", "shifts":[{"curve":"D","direction":"right","magnitude":"moderate","reason":"소득 증가"}],
+    "annotations":{"price_change":{"show_arrow":true},"quantity_change":{"show_arrow":true}}}
+ ]}
+
 [출력 형식 — JSON 배열만]
 설명·인사말·코드펜스 없이 JSON 배열 하나만 출력하세요.
 [
@@ -76,17 +98,18 @@ STYLE = """당신은 감정평가사 1차 수험 교재를 쓰는 사람입니�
    "viz":{"template":"supply-demand","params":{…},"steps":[{"label":"…", …}]},
    "check":{"q":"…","a":"…"},
    "src":[{"lec":12,"t":1390}]}
-]
-viz 의 steps 는 단계적으로 변하는 그림에만 씁니다(예: 곡선이 이동해 균형이 옮겨가는 과정).
-각 step 은 label 과, 그 단계에서 달라지는 파라미터만 담습니다."""
+]"""
 
 
-def load_viz_catalog():
+def load_viz_catalog(subject):
     """vizRegistry 가 앱에 주입하는 카탈로그와 같은 내용을 파이썬에서 읽는다.
 
     레지스트리는 JS 라 여기서 실행할 수 없다. exampleParams 를 그대로 뽑아 쓰는 대신,
     템플릿 이름과 helpText 만 정규식으로 긁어 온다. 파라미터 정확도는 --check 와
     앱의 VizRouter 검증이 잡는다.
+
+    subjects 필드로 이 과목에 쓰는 템플릿만 남긴다(vizRegistry.buildCatalog 와 동일한
+    필터). subjects 를 못 읽은 템플릿은 걸러내지 않고 포함한다 — 조용한 유실 방지.
     """
     src = (REPO / 'viewer/src/viz/vizRegistry.js').read_text(encoding='utf-8')
     names = re.findall(r"from './templates/(\w+)'", src)
@@ -99,11 +122,17 @@ def load_viz_catalog():
         nm = re.search(r"name:\s*'([^']+)'", t)
         ht = re.search(r"helpText:\s*'([^']*)'", t)
         ex = re.search(r'exampleParams:\s*(\{.*?\n  \},)', t, flags=re.S)
+        subj = re.search(r"subjects:\s*\[([^\]]*)\]", t)
         if not nm:
             continue
+        if subj:
+            subj_list = [s.strip().strip("'\"") for s in subj.group(1).split(',') if s.strip()]
+            if subject not in subj_list:
+                continue
         lines.append('### %s — %s\n```json\n%s\n```'
                      % (nm.group(1), ht.group(1) if ht else '',
                         (ex.group(1).rstrip(',') if ex else '{}')))
+    print('  viz 카탈로그: %s 과목 템플릿 %d개' % (subject, len(lines)))
     return ('## [VIZ_CATALOG] 쓸 수 있는 시각자료 템플릿\n\n'
             '아래에 없는 도식은 만들지 말고 viz 를 null 로 두세요.\n\n'
             + '\n\n'.join(lines))
@@ -277,7 +306,7 @@ def main():
                   if pdf and Path(pdf).exists() else {})
     sections = load_leaf_sections(args.subject)
     tdir, kdir = WORK / 'transcripts' / args.subject, WORK / 'keyframes' / args.subject
-    catalog = load_viz_catalog()
+    catalog = load_viz_catalog(args.subject)
     meta = lecture_meta(align)
 
     targets = [lid for lid in align['by_leaf'] if lid in sections]
