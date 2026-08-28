@@ -20,6 +20,20 @@ export default function ConceptOutline({ leaves, scope, index, progress, onPick 
     return { total, passed };
   };
 
+  // 장·절 자체가 학습 단위인 leaf(chapter.leaf, section.leaf) — buildUnitTree 가
+  // 이 두 자리에도 leaf 를 놓을 수 있다. UnitOutline.jsx 의 chapterLeaves() 와
+  // 같은 패턴으로 전부 모아 관 항목과 같은 모양으로 렌더한다. 안 하면 이 leaf 들이
+  // 목차에서 조용히 사라진다(경제학은 전부 관 레벨이라 증상이 안 보였을 뿐).
+  const chapterLeaves = (ch) => {
+    const out = [];
+    if (ch.leaf) out.push(ch.leaf);
+    ch.sections.forEach((sec) => {
+      if (sec.leaf) out.push(sec.leaf);
+      sec.items.forEach((it) => out.push(it.leaf));
+    });
+    return out;
+  };
+
   return (
     <div>
       {divisions.map((div) => (
@@ -32,8 +46,8 @@ export default function ConceptOutline({ leaves, scope, index, progress, onPick 
           {div.chapters.map((ch) => {
             const key = div.name + '/' + ch.name;
             const isOpen = open[key] !== false;   // 기본은 펼침
-            const chTotals = ch.sections.flatMap((s) => s.items).reduce((acc, it) => {
-              const c = counts(it.leaf.id);
+            const chTotals = chapterLeaves(ch).reduce((acc, leaf) => {
+              const c = counts(leaf.id);
               return { total: acc.total + c.total, passed: acc.passed + c.passed };
             }, { total: 0, passed: 0 });
             return (
@@ -52,35 +66,50 @@ export default function ConceptOutline({ leaves, scope, index, progress, onPick 
                   )}
                 </button>
 
-                {isOpen && ch.sections.map((sec) => (
-                  <div key={sec.name} style={{ marginLeft: 18, marginTop: 4 }}>
-                    <div style={{ fontSize: '0.76rem', color: '#6b7280', margin: '6px 0 2px' }}>
-                      {stripUnitPrefix(sec.name)}
-                    </div>
-                    {sec.items.map((it) => {
-                      const c = counts(it.leaf.id);
-                      const empty = c.total === 0;
-                      return (
-                        <button key={it.leaf.id} onClick={() => !empty && onPick(it.leaf.id)}
-                          disabled={empty} style={{ ...itemBtn, opacity: empty ? 0.45 : 1,
-                            cursor: empty ? 'default' : 'pointer' }}>
-                          <span style={{ flex: 1, fontSize: '0.84rem', color: '#111827', textAlign: 'left' }}>
-                            {stripUnitPrefix(it.name)}
-                          </span>
-                          <span style={countPill}>
-                            {empty ? '준비 중' : `${c.passed} / ${c.total}`}
-                          </span>
-                        </button>
-                      );
-                    })}
+                {isOpen && (
+                  <div style={{ marginLeft: 18, marginTop: 4 }}>
+                    {ch.leaf && (
+                      <ItemButton leaf={ch.leaf} name={ch.name} c={counts(ch.leaf.id)} onPick={onPick} />
+                    )}
+                    {ch.sections.map((sec) => (
+                      <div key={sec.name}>
+                        {sec.leaf
+                          ? <ItemButton leaf={sec.leaf} name={sec.name} c={counts(sec.leaf.id)} onPick={onPick} />
+                          : (
+                            <div style={{ fontSize: '0.76rem', color: '#6b7280', margin: '6px 0 2px' }}>
+                              {stripUnitPrefix(sec.name)}
+                            </div>
+                          )}
+                        {sec.items.map((it) => (
+                          <ItemButton key={it.leaf.id} leaf={it.leaf} name={it.name}
+                            c={counts(it.leaf.id)} onPick={onPick} />
+                        ))}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
             );
           })}
         </section>
       ))}
     </div>
+  );
+}
+
+function ItemButton({ leaf, name, c, onPick }) {
+  const empty = c.total === 0;
+  return (
+    <button onClick={() => !empty && onPick(leaf.id)}
+      disabled={empty} style={{ ...itemBtn, opacity: empty ? 0.45 : 1,
+        cursor: empty ? 'default' : 'pointer' }}>
+      <span style={{ flex: 1, fontSize: '0.84rem', color: '#111827', textAlign: 'left' }}>
+        {stripUnitPrefix(name)}
+      </span>
+      <span style={countPill}>
+        {empty ? '준비 중' : `${c.passed} / ${c.total}`}
+      </span>
+    </button>
   );
 }
 
