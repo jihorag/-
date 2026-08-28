@@ -1,7 +1,7 @@
 import unittest
 
 from track_core import (make_point_id, order_spans, chunk_lectures,
-                        parse_points, check_track, diff_ids)
+                        parse_points, check_track, diff_ids, LOW_SEVERITY_PREFIX)
 
 
 class TestPointId(unittest.TestCase):
@@ -157,6 +157,26 @@ class TestCheckTrack(unittest.TestCase):
         t = self._track()
         t['leaves'][0]['points'] = t['leaves'][0]['points'] * 41
         self.assertTrue(any('논점 수' in i for i in check_track(t, align, set())))
+
+    def test_anchor_unknown_lecture_reported_as_high_severity(self):
+        """앵커의 강 번호가 이 관의 spans 에 아예 없으면 진짜 신호 — 접두사 없이
+        '이 관에 없는 강의' 성격이 드러나는 문구로 보고되고, 낮은 심각도 접두사는
+        붙지 않는다."""
+        align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
+        issues = check_track(self._track(point={'src': [{'lec': 99, 't': 100}]}),
+                             align, {'supply-demand'})
+        self.assertTrue(any('이 관에 없는 강의' in i for i in issues))
+        self.assertFalse(any(i.startswith(LOW_SEVERITY_PREFIX) for i in issues))
+
+    def test_anchor_same_lecture_out_of_range_is_low_severity(self):
+        """강 번호는 이 관의 spans 에 있지만 시각만 허용치 밖이면 시각 추정 오차로
+        보고 낮은 심각도 접두사를 붙여 진짜 신호(다른 강의를 가리키는 앵커)와
+        구분한다."""
+        align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
+        issues = check_track(self._track(point={'src': [{'lec': 2, 't': 9999}]}),
+                             align, {'supply-demand'})
+        self.assertTrue(any(i.startswith(LOW_SEVERITY_PREFIX) for i in issues))
+        self.assertFalse(any('이 관에 없는 강의' in i for i in issues))
 
     def test_leaf_id_none_skips_anchor_check(self):
         """leaf_id가 None인 관은 앵커 검사를 건너뛰고 다른 문제는 보고하지 않는다."""

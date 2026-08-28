@@ -140,8 +140,26 @@ def parse_points(raw):
     return [p for p in d if isinstance(p, dict) and p.get('title')]
 
 
+LOW_SEVERITY_PREFIX = '[시각추정]'
+
+
 def check_track(track, align_by_leaf, template_names):
-    """트랙 하나를 검사해 사람이 읽는 문제 목록을 돌려준다."""
+    """트랙 하나를 검사해 사람이 읽는 문제 목록을 돌려준다.
+
+    반환값은 지금처럼 문자열 리스트다 (호출부인 build_topic_track.py 의
+    do_check 가 이 형태를 그대로 출력·카운트한다).
+
+    앵커(`src`) 검사는 성격이 다른 두 가지를 구분해서 담는다:
+      - 강 번호 자체가 그 관의 spans 에 없음 → 진짜 신호. 접두사 없이,
+        "이 관에 없는 강의를 가리킴" 문구로 보고한다. 다른 강의 내용이
+        섞였거나 모델이 강 번호를 지어낸 경우다.
+      - 강 번호는 맞고 시각만 그 강의 구간 밖(허용치 ANCHOR_TOL_SEC 초과)
+        → 낮은 심각도. 메시지 앞에 LOW_SEVERITY_PREFIX(`[시각추정]`) 를 붙여
+        구분한다. 전사는 그 관의 구간만 프롬프트에 넣으므로 내용 자체는
+        맞고, 모델이 긴 블록 뒷부분의 시각을 눈대중으로 외삽했을 뿐이다.
+    두 종류 모두 문자열 리스트에 섞여 담기지만 접두사로 구분되므로,
+    호출부에서 `[시각추정]` 유무로 걸러 세면 된다.
+    """
     issues = []
     unit = track.get('unit_code', '?')
     for leaf in track.get('leaves', []):
@@ -164,12 +182,17 @@ def check_track(track, align_by_leaf, template_names):
             for a in p.get('src') or []:
                 if not ranges:
                     continue
+                lec_known = any(no == a.get('lec') for no, st, en in ranges)
+                if not lec_known:
+                    issues.append('%s / %s / %s: 앵커 %s강 %ss — 이 관에 없는 강의를 가리킴'
+                                  % (unit, title, p.get('id'), a.get('lec'), a.get('t')))
+                    continue
                 ok = any(no == a.get('lec')
                          and st - ANCHOR_TOL_SEC <= a.get('t', -1) < en + ANCHOR_TOL_SEC
                          for no, st, en in ranges)
                 if not ok:
-                    issues.append('%s / %s / %s: 앵커 %s강 %ss 가 이 관의 구간 밖'
-                                  % (unit, title, p.get('id'), a.get('lec'), a.get('t')))
+                    issues.append('%s %s / %s / %s: 앵커 %s강 %ss 가 이 관의 구간 밖(같은 강의, 시각 추정 오차 의심)'
+                                  % (LOW_SEVERITY_PREFIX, unit, title, p.get('id'), a.get('lec'), a.get('t')))
 
             viz = p.get('viz')
             if viz and viz.get('template') not in template_names:
