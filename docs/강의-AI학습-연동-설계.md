@@ -7,7 +7,7 @@
 
 ## 1. 원본 실측
 
-원본 위치: `/Volumes/WD_Black/인터넷강의/감정평가사 인터넷강의/` (외장, 598GB · 여유 2.8TB)
+원본 위치: `/Volumes/T7 Shield/인터넷강의/감정평가사 인터넷강의/` (외장, 598GB · 여유 2.8TB)
 
 ### 1차 커리큘럼 매트릭스 (숫자 = 강의 수)
 
@@ -298,7 +298,7 @@
 ### 설치된 도구
 - `ffmpeg` 8.1.2 (homebrew)
 - `mlx-whisper` — venv `~/.venvs/lecture-whisper` (Python 3.12), 모델 `mlx-community/whisper-large-v3-turbo`
-- 작업 산출물 루트: `/Volumes/WD_Black/인터넷강의/_ai_pipeline/{audio,transcripts}/{subject}/`
+- 작업 산출물 루트: `/Volumes/T7 Shield/인터넷강의/_ai_pipeline/{audio,transcripts}/{subject}/`
 
 ---
 
@@ -321,6 +321,10 @@
 ---
 
 ## 10. 진행 현황
+
+> **실행 방법·현재 수치는 [강의-파이프라인-인수인계.md](강의-파이프라인-인수인계.md) 로 옮겼다.**
+> 이 문서는 설계 배경과 결정 이유만 유지한다. 아래는 그 시점의 기록이다.
+
 
 - [x] 원본 실측 · 커리큘럼 매트릭스 산출
 - [x] 앱 연동 지점 파악 · 회독 UI 설계 확정 (C+B)

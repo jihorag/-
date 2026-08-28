@@ -1,0 +1,3517 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기출정복 — 디자인·레이아웃 목업 (정적)</title>
+
+<!-- ===========================================================
+     이 파일은 무엇인가
+     ------------------------------------------------------------
+     감정평가사 학습 웹앱 "기출정복"(React 19 + Vite)의 디자인/레이아웃을
+     다른 AI·디자이너에게 한 번에 전달하기 위한 **정적 스냅샷**입니다.
+     동작하지 않습니다. 버튼·입력은 전부 죽어 있습니다.
+
+     CSS 는 실제 앱 파일을 그대로 인라인했습니다:
+       viewer/src/styles/tokens.css  (디자인 토큰 v2 — 무채색)
+       viewer/src/index.css          (전역 스타일·셸·컴포넌트)
+     마크업/인라인 스타일은 실제 화면 소스에서 옮겼습니다:
+       App.jsx / HomeToday.jsx / AILearning.jsx / Curriculum.jsx / QuizMode.jsx
+
+     ⚠ 알아둘 것 — 이 앱에는 **디자인 세대가 두 개** 섞여 있습니다.
+       (A) 신 세대: tokens.css 기반 무채색(--paper/--ink/--accent). 홈이 대표.
+       (B) 구 세대: 인라인 하드코딩 hex(#2563eb, #4f46e5, TOSS #3182F6 …).
+           문제풀이·AI학습·커리큘럼이 여기 해당. tokens.css 매핑을 타지 않음.
+       index.css 주석에 "각 화면의 인라인 하드코딩 hex(1,800여 개)는
+       이 매핑을 타지 않는다"고 명시되어 있습니다. 통일이 미완입니다.
+     =========================================================== -->
+
+<style>
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+/* ===== viewer/src/styles/tokens.css (원본 그대로) ===== */
+/* ============================================================
+   기출정복 — 디자인 토큰 v2
+   흰 배경 · 무채색. 채도는 학습 신호와 액센트에만 허용.
+   웹앱(데스크톱 / 태블릿 / 모바일 웹) 공용.
+   v1 대비 변경: 크림 계열 표면·선·잉크를 중립 무채색으로 전면 교체.
+   ============================================================ */
+
+:root {
+  /* ---------- 1. 표면 ---------- */
+  --paper:        #f6f6f5;   /* 앱 바닥 */
+  --sheet:        #ffffff;   /* 카드·지면 */
+  --sheet-2:      #fafafa;   /* 지면 위 옅은무늬·표 헤더 */
+  --sheet-3:      #f1f1f0;   /* 살짝 가라앉은 영역 */
+  --sunken:       #ebebea;   /* 입력틀·진행바 트랙 */
+  --overlay:      rgba(28, 28, 26, .45);
+
+  /* ---------- 2. 잉크 ---------- */
+  --ink:          #1c1c1a;   /* 본문·표제 — 순검정 아님 */
+  --ink-2:        #565654;   /* 보조 설명 */
+  --ink-3:        #6f6f6c;   /* 힌트·메타 — 흰 배경 AA 통과선까지 낮춤 */
+  --ink-4:        #adadaa;   /* 비활성 */
+  --ink-invert:   #ffffff;
+
+  /* ---------- 3. 선 ---------- */
+  --line:         #e4e4e2;
+  --line-2:       #efefed;
+  --line-strong:  #c8c8c5;
+  --line-ink:     #1c1c1a;
+
+  /* ---------- 4. 액센트 — 단 하나 ----------
+     링크·선택·포커스·현재위치 전담.
+     면색(--accent)과 글자색(--accent-ink)을 구분해 쓴다. 작은 글자에 --accent 를
+     쓰면 WCAG AA 에 미달한다(흰 배경 3.4:1). 글자는 --accent-ink(6.9:1)로. */
+  --accent:       #2f6feb;
+  --accent-ink:   #1b4ac4;
+  --accent-bg:    #eaf1fe;
+  --accent-line:  #b8cdf8;
+
+  /* ---------- 5. 인장 ----------
+     빈출 A티어 · 과락 위험 · 파괴적 액션에만. 화면당 하나 이하. */
+  --seal:         #9c3225;
+  --seal-ink:     #78241a;
+  --seal-bg:      #fbeae6;
+  --seal-line:    #e0b3a9;
+
+  /* ---------- 6. 학습 신호 ---------- */
+  --correct:      #2f6b46;
+  --correct-bg:   #eaf4ed;
+  --correct-line: #b4d3bf;
+
+  --wrong:        #b03328;
+  --wrong-bg:     #fceceb;
+  --wrong-line:   #e6b5b1;
+
+  --caution:      #916a12;
+  --caution-bg:   #fcf2dd;
+  --caution-line: #e2cb95;
+
+  --highlight:    #fbe98f;
+  --highlight-2:  #f2d768;
+
+  /* ---------- 7. 빈출 티어 — A만 인장색 ---------- */
+  --tier-a:       var(--seal);
+  --tier-a-bg:    var(--seal-bg);
+  --tier-b:       var(--ink-2);
+  --tier-c:       var(--ink-3);
+  --tier-d:       var(--ink-4);
+
+  /* ---------- 8. 난이도 1–5 — 색이 아니라 밀도 ---------- */
+  --diff-1:       #d4d4d1;
+  --diff-2:       #b0b0ad;
+  --diff-3:       #8a8a87;
+  --diff-4:       #565654;
+  --diff-5:       var(--seal);
+
+  /* ---------- 9. 차트 계열 — 과목을 색으로 구분하지 않음 ---------- */
+  --series-1:     #1c1c1a;
+  --series-2:     #464644;
+  --series-3:     #6b6b68;
+  --series-4:     #8a8a87;
+  --series-5:     #a5a5a2;
+  --series-6:     #bebebb;
+  --series-7:     #d4d4d1;
+  --series-8:     #e8e8e6;
+
+  /* ---------- 10. 타이포그래피 ---------- */
+  --font-serif: 'Nanum Myeongjo', 'AppleMyungjo', 'Batang', ui-serif, serif;
+  --font-sans:  'Pretendard Variable', 'Pretendard', -apple-system,
+                'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  --font-mono:  'D2Coding', 'SF Mono', 'Menlo', 'Consolas', monospace;
+
+  --text-2xs:  11px;
+  --text-xs:   12px;
+  --text-sm:   13px;
+  --text-base: 15px;
+  --text-md:   17px;
+  --text-lg:   20px;
+  --text-xl:   25px;
+  --text-2xl:  32px;
+
+  --leading-tight: 1.3;
+  --leading-ui:    1.5;
+  --leading-read:  1.75;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-bold:   700;
+
+  --tracking-seal: .18em;
+
+  /* ---------- 11. 간격 ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+
+  /* ---------- 12. 모서리 ---------- */
+  --radius-0:    0px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-pill: 999px;
+
+  /* ---------- 13. 그림자 — 2단계뿐 ---------- */
+  --shadow-sheet: 0 1px 2px rgba(28, 28, 26, .04);
+  --shadow-lift:  0 2px 4px rgba(28, 28, 26, .05), 0 12px 32px rgba(28, 28, 26, .07);
+
+  /* ---------- 14. 레이아웃 ---------- */
+  --container-max: 1440px;
+  --rail-w:        72px;
+  --nav-w:         232px;
+  --tree-w:        320px;
+  --source-w:      380px;
+  --tabbar-h:      56px;
+  --header-h:      52px;
+  --touch-min:     44px;
+  --read-measure:  68ch;
+
+  /* ---------- 15. 모션 ---------- */
+  --ease:      cubic-bezier(.2, .8, .2, 1);
+  --dur-fast:  120ms;
+  --dur-base:  200ms;
+  --dur-sheet: 280ms;
+}
+
+/* ============================================================
+   다크 모드 — 순검정은 쓰지 않는다.
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:        #141414;
+    --sheet:        #1c1c1c;
+    --sheet-2:      #191919;
+    --sheet-3:      #242424;
+    --sunken:       #0e0e0e;
+    --overlay:      rgba(0, 0, 0, .6);
+
+    --ink:          #ededeb;
+    --ink-2:        #b0b0ad;
+    --ink-3:        #8f8f8f;
+    --ink-4:        #5c5c5c;
+    --ink-invert:   #141414;
+
+    --line:         #303030;
+    --line-2:       #262626;
+    --line-strong:  #4a4a4a;
+    --line-ink:     #ededeb;
+
+    --accent:       #9aa6dd;
+    --accent-ink:   #c6cdef;
+    --accent-bg:    #23263a;
+    --accent-line:  #3f4771;
+
+    --seal:         #d78570;
+    --seal-ink:     #eaad9a;
+    --seal-bg:      #2e1e1a;
+    --seal-line:    #5b3830;
+
+    --correct:      #8bb897;
+    --correct-bg:   #17251b;
+    --correct-line: #37503d;
+
+    --wrong:        #e0938a;
+    --wrong-bg:     #2a1917;
+    --wrong-line:   #57332e;
+
+    --caution:      #d09f52;
+    --caution-bg:   #29220f;
+    --caution-line: #524224;
+
+    --highlight:    #56492a;
+    --highlight-2:  #75632f;
+
+    --diff-1:       #3a3a38;
+    --diff-2:       #565654;
+    --diff-3:       #808080;
+    --diff-4:       #b0b0ad;
+    --diff-5:       var(--seal);
+
+    --series-1:     #ededeb;
+    --series-2:     #c9c9c6;
+    --series-3:     #a5a5a2;
+    --series-4:     #808080;
+    --series-5:     #666664;
+    --series-6:     #4d4d4b;
+    --series-7:     #373735;
+    --series-8:     #262624;
+
+    --shadow-sheet: 0 1px 2px rgba(0, 0, 0, .35);
+    --shadow-lift:  0 2px 4px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .5);
+  }
+}
+
+/* ============================================================
+   브레이크포인트 — 4단
+     sm   < 640     모바일 웹        1단 + 하단 탭바 + 시트
+     md   640–1023  태블릿 세로      2단 + 서랍
+     lg   1024–1439 노트북           3단, 우문 축소
+     xl   ≥ 1440    데스크톱         3단 전개 + 레일
+   ============================================================ */
+@media (min-width: 640px)  { :root { --tabbar-h: 0px; --header-h: 56px; } }
+@media (min-width: 1024px) { :root { --source-w: 320px; --tree-w: 288px; } }
+@media (min-width: 1440px) { :root { --source-w: 440px; --tree-w: 320px; } }
+
+/* ============================================================
+   기본값
+   ============================================================ */
+html {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-ui);
+  -webkit-text-size-adjust: 100%;
+}
+
+.num, table td, .tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+.serif { font-family: var(--font-serif); }
+.mono  { font-family: var(--font-mono); }
+
+/* 형광펜 — 글자 아래 42%만 채운다. */
+.hl {
+  background: linear-gradient(to top,
+    var(--highlight) 0, var(--highlight) 42%, transparent 42%);
+}
+
+:where(a, button, [role="button"], input, select, summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ===== viewer/src/index.css (원본 그대로, @import 만 위로 뺌) ===== */
+
+:root {
+  /* ── 레거시 변수 = tokens.css 별칭 ──────────────────────────────
+     예전 이름을 그대로 두되 값만 토큰을 가리키게 한다.
+     이름을 바꾸면 이 이름을 쓰는 화면 16곳을 전부 손봐야 하고,
+     이름만 남기고 옛 hex 를 두면 홈(토큰)과 나머지(레거시)가
+     서로 다른 팔레트로 갈린다 — 실제로 한 화면에 바닥색이 둘 겹쳤다.
+     여기 한 곳을 바꾸면 16개 화면이 한 번에 새 팔레트로 넘어온다.
+
+     ⚠ 각 화면의 인라인 하드코딩 hex(1,800여 개)는 이 매핑을 타지 않는다.
+        그건 화면별 리디자인에서 처리한다. */
+  --primary:       var(--accent);
+  --primary-dark:  var(--accent-ink);
+  --primary-light: var(--accent-bg);
+  --success:       var(--correct);
+  --danger:        var(--seal);
+  --warn:          var(--caution);
+  --bg-color:      var(--paper);
+  --card-bg:       var(--sheet);
+  --text-main:     var(--ink);
+  --text-sub:      var(--ink-2);
+  --border-color:  var(--line);
+  --shadow-sm:     var(--shadow-sheet);
+  --shadow-md:     var(--shadow-lift);
+  --shadow-lg:     var(--shadow-lift);
+  --radius:        var(--radius-lg);
+  /* 본문 글자 크기 배율(설정에서 변경) */
+  --q-fs: 1;
+  /* z-index 스케일 — 오버레이 층위 일원화 (매직넘버 난립 방지) */
+  --z-nav: 50;        /* 하단 탭바 · 설정 FAB */
+  --z-sticky: 100;    /* 스크롤 따라가는 sticky 헤더 */
+  --z-overlay: 1000;  /* 모달 백드롭 */
+  --z-modal: 1001;    /* 일반 모달/드로어 패널 */
+  --z-modal-top: 1100;/* 중첩 모달(단원 picker·제출확인·CmdK) */
+  --z-lightbox: 1200; /* 이미지 라이트박스 */
+  --z-toast: 1300;    /* 토스트·컨페티 (항상 최상단) */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* 기본 폰트는 tokens.css 의 --font-sans(Pretendard) 하나로만 정의한다.
+     여기 스택을 따로 적어두면 tokens.css 와 갈라져서(예전엔 'Pretendard' 정적본과
+     'Apple SD Gothic Neo' 폴백이 빠져 있었다) 브라우저·기기마다 다른 글꼴이 나온다.
+     이 * 규칙은 body 상속을 덮어쓰므로, 여기서 var() 를 써야 앱 전체에 실제로 걸린다. */
+  font-family: var(--font-sans);
+}
+
+
+/* tokens.css 는 html { font-size: var(--text-base) } = 15px 을 건다.
+   그런데 이 파일의 기존 화면 16곳이 rem 을 141군데 쓰고 있어서, 그대로 두면
+   홈 이외 화면이 전부 6% 작아진다. 토큰 파일은 수정하지 않기로 했으므로 여기서 되돌린다.
+   --text-* 토큰은 px 절대값이라 이 선언에 영향받지 않는다. */
+html { font-size: 16px; }
+
+#root {
+  background: var(--paper);
+}
+
+body {
+  overscroll-behavior-y: none; /* 당겨서 새로고침 오발동 방지 (시각 변화 없음) */
+  background-color: var(--paper);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+/* 데스크톱에서 바깥 배경(#e2e8f0)과 컨테이너 그림자로 '중앙 칼럼'을 만들던 처리는 없앴다.
+   셸이 화면 전체를 채우는 지금은 감쌀 바깥이 없어서, 그림자가 화면 아래쪽에
+   가로 경계선 한 줄로만 보였다. */
+
+.app-container {
+  min-height: 100dvh;
+  background: var(--paper);
+}
+
+/* Header */
+.top-nav {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  padding-top: env(safe-area-inset-top, 0px);
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* AI 메시지 액션 버튼 — 데스크톱은 hover 시 진하게, 터치 기기는 항상 보이게 */
+.ai-msg-actions { opacity: 0.6; transition: opacity 0.15s; }
+@media (hover: hover) and (pointer: fine) {
+  .ai-msg-actions:hover { opacity: 1; }
+}
+@media (hover: none), (pointer: coarse) {
+  .ai-msg-actions { opacity: 1; }
+}
+
+/* 아이콘 전용 버튼 터치 타깃 최소 44x44 보장 (시각 크기는 유지, 히트영역만 확대) */
+.icon-btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 발문·해설 렌더 영역: 긴 영문/URL/토큰이 박스·단락 폭을 넘겨 가로 스크롤 유발하는 것 방지 */
+.parsed-text, .parsed-text * { overflow-wrap: break-word; }
+
+/* 모션 민감 사용자: 모든 애니메이션·전환·스크롤 효과 비활성 (인라인 애니메이션 포함) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.back-btn {
+  background: var(--primary-light);
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #dbeafe;
+  transform: translateX(-2px);
+}
+
+/* Banner */
+html, body {
+  /* clip = 가로 끌림/제목 잘림은 막되 '스크롤 컨테이너'는 만들지 않음.
+     hidden 이면 body 가 스크롤 컨테이너가 되고, 콘텐츠가 딱 맞아 스스로 스크롤 못 하는데
+     body 의 overscroll-behavior-y:none 이 html 로의 스크롤 체이닝까지 막아 마우스 휠이
+     전혀 안 먹는 버그가 남. clip 은 overflow-y 를 auto 로 강등시키지 않아 휠 정상. */
+  overflow-x: clip;
+}
+
+.banner {
+  min-height: 170px;
+  background: var(--primary);
+  position: relative;
+  overflow: hidden;
+  padding: 28px 24px 70px;
+  padding-top: calc(26px + env(safe-area-inset-top, 0px));
+  box-sizing: border-box;
+  color: white;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.banner-subtitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.banner-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+/* Content Area */
+.main-content {
+  padding: 0 24px 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: -60px;
+  z-index: 20;
+}
+
+/* Main Card */
+.overview-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.overview-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.overview-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-sub);
+  margin-bottom: 32px;
+}
+
+.progress-bar-container {
+  height: 10px;
+  background-color: #f1f5f9;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #60a5fa);
+  border-radius: 5px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.progress-stats {
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100%;
+  font-size: 0.95rem;
+  color: var(--text-sub);
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.stat-bold {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+}
+
+/* Section Title */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.view-toggle {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.view-toggle button {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-sub);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-toggle button.active {
+  background: white;
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Grid */
+.study-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .study-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 600px 셸 기준: 2열 초과는 카드가 좁아져 2열로 상한 */
+
+/* Study Card */
+.study-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 24px 24px 70px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+.study-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.card-badge {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: var(--primary-light);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.card-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-sub);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  color: var(--text-main);
+}
+
+.card-total {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  margin-bottom: 20px;
+}
+
+.play-btn {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  padding: 9px 18px;
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.study-card:hover .play-btn { transform: scale(1.05); }
+.study-card:active .play-btn { transform: scale(0.97); }
+
+/* 카드 진행바 (드릴·둘러보기 카드 공통) — 그동안 CSS 누락으로 안 보이던 것 복구 */
+.card-progress-container {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.card-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+/* 문제풀이 카드 상단 아이콘 + 통일된 푸터 통계 */
+.study-card .card-ico { font-size: 1.7rem; line-height: 1; margin-bottom: 8px; }
+.study-card .card-foot {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 0.85rem; color: var(--text-sub); font-weight: 600;
+}
+.study-card .card-foot .pct { font-weight: 800; color: var(--text-main); }
+
+/* 문제풀이 드릴 — 토스 스타일 리스트 (1차 과목 장/절/관 단계).
+   행 높이가 고정이라 글자 크기에 따라 카드가 들쭉날쭉하지 않는다. */
+.browse-list {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.browse-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 18px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+.browse-row:last-child { border-bottom: none; }
+.browse-row:hover { background: var(--primary-light); }
+.browse-row:active { background: #e0e9ff; }
+.browse-row__main { flex: 1; min-width: 0; }
+.browse-row__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  line-height: 1.4;
+}
+.browse-row__bar {
+  height: 4px;
+  background: #eef2f7;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.browse-row__bar > div { height: 100%; background: var(--primary); border-radius: 999px; }
+.browse-row__meta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.browse-row__count { font-size: 0.82rem; color: var(--text-sub); font-weight: 600; white-space: nowrap; }
+.browse-row__pct { font-size: 0.8rem; font-weight: 800; color: var(--primary); white-space: nowrap; }
+.browse-row__chev { color: #c4ccd6; font-size: 1.15rem; line-height: 1; }
+.browse-row--all { background: var(--primary-light); }
+.browse-row--all .browse-row__title { color: var(--primary-dark); font-weight: 800; }
+.browse-row__prefix {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--primary);
+  background: var(--primary-light);
+  border: 1px solid #bfdbfe;
+  padding: 1px 7px;
+  border-radius: 6px;
+  margin-right: 8px;
+  vertical-align: middle;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Question List Spacing */
+.q-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+@media (max-width: 640px) {
+  .top-nav { padding: 0 16px; }
+  .banner { min-height: 150px; padding: 24px 16px 64px; padding-top: calc(22px + env(safe-area-inset-top, 0px)); }
+  .banner-title { font-size: 1.45rem; }
+  .main-content { padding: 0 16px 40px; margin-top: -44px; }
+  .overview-card { padding: 24px; }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin { animation: spin 0.8s linear infinite; }
+
+/* 실력 리포트 — 인쇄 시 실제 문서처럼(네비·툴바·책상 배경·겹친 종이 숨김) */
+@media print {
+  nav, .report-tools, .report-stack, .bottom-nav { display: none !important; }
+  .report-desk { background: #fff !important; min-height: 0 !important; }
+  .report-desk > div { padding: 0 !important; }
+  .report-sheet { box-shadow: none !important; border: none !important; padding: 6mm 4mm !important; max-width: none !important; }
+  @page { margin: 12mm; }
+}
+/* AI 소견 본문(명조) — ParsedText 기본 여백 정리 */
+.report-prose p { margin: 0 0 7px; }
+.report-prose ul, .report-prose ol { margin: 5px 0 8px; padding-left: 17px; }
+.report-prose li { margin-bottom: 3px; }
+
+/* ===== 모바일 앱 셸 + 하단 탭바 ===== */
+/* ── 앱 골격 ────────────────────────────────────────────────
+   가로 flex. 폭을 고정하지 않는다 — 예전에는 600px 로 묶어 놓아
+   데스크톱에서 좌우가 통째로 비었다.
+   640px 이상 좌측 레일 / 미만 하단 탭바. 둘은 CSS 로만 갈린다.        */
+.app-shell {
+  display: flex;
+  width: 100%;
+  min-height: 100dvh;          /* vh 는 모바일 주소창 때문에 안 쓴다 */
+  background: var(--paper);
+  position: relative;
+}
+.app-shell .app-container {
+  max-width: none;
+  min-height: auto;
+}
+.app-main {
+  flex: 1;
+  min-width: 0;                /* 넘치는 자식이 레이아웃을 밀지 않게 */
+}
+.app-shell.with-nav {
+  padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px));
+}
+
+/* 좌측 레일 — md 이상 */
+.app-rail {
+  display: none;
+  width: var(--rail-w);
+  flex: 0 0 var(--rail-w);
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100dvh;
+  background: var(--sheet);
+  border-right: 1px solid var(--line);
+  flex-direction: column;
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--space-2));
+  z-index: var(--z-nav);
+}
+@media (min-width: 640px) {
+  .app-rail { display: flex; }
+}
+.app-rail button {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-height: var(--touch-min);
+  padding: var(--space-1) 0;
+  display: flex;
+  justify-content: center;
+  color: var(--ink-3);
+}
+.app-rail button.active { color: var(--accent-ink); }
+/* 아이콘만 두고 이름은 스크린리더에만 남긴다. 활성 표시는 아이콘 뒤 칩으로 한다 —
+   레일이 좁아 글자를 넣으면 두 글자에서 잘린다. */
+.app-rail .nav-ico {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app-rail button.active .nav-ico { background: var(--accent-bg); }
+.app-rail .nav-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.app-rail .rail-settings { margin-top: auto; margin-bottom: var(--space-3); }
+.nav-ico { position: relative; line-height: 1; }
+
+/* 하위 전환 — 탭에서 접은 화면(커리큘럼·합격수기)으로 가는 길 */
+.sub-nav {
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4) 0;
+  max-width: 840px;
+  margin: 0 auto;
+}
+.sub-nav button {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-height: var(--touch-min);
+  padding: 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  border-bottom: 2px solid transparent;
+}
+.sub-nav button.active { color: var(--ink); border-bottom-color: var(--accent); }
+
+.bottom-nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px));
+  background: var(--sheet);
+  border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  z-index: var(--z-nav);
+}
+@media (min-width: 640px) {
+  .bottom-nav { display: none; }   /* 레일이 대신한다 */
+}
+.bottom-nav button {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 8px 4px 10px;
+  min-height: var(--touch-min);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: var(--text-2xs);
+  color: var(--ink-3);
+  cursor: pointer;
+  position: relative;
+}
+.bottom-nav button .nav-ico { line-height: 1; }
+.bottom-nav button.active { color: var(--accent-ink); }
+.bottom-nav button.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--accent);
+}
+.bottom-nav button .nav-badge {
+  position: absolute;
+  transform: translate(14px, -10px);
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1px 5px;
+  min-width: 16px;
+}
+
+/* ===== 페이지 전환 / 화면 타이틀 / 빈 상태 ===== */
+@keyframes viewIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.app-container { animation: viewIn 0.18s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .app-container { animation: none; }
+}
+.screen-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+.screen-head {
+  padding: 20px 20px 0;
+  padding-top: calc(20px + env(safe-area-inset-top, 0px));
+}
+.empty-state {
+  text-align: center;
+  color: #6b7280;
+  padding: 56px 24px;
+}
+.empty-state .emoji { font-size: 2.4rem; display: block; margin-bottom: 12px; }
+.empty-state .title { font-size: 1.05rem; font-weight: 700; color: #374151; margin-bottom: 6px; }
+.empty-state .sub { font-size: 0.9rem; }
+.drill-head {
+  padding: 10px 20px 16px;
+  background: transparent;
+  border-bottom: none;
+}
+
+/* 로딩 스켈레톤 */
+.skeleton {
+  background: linear-gradient(100deg, #e9eef5 30%, #f4f7fb 50%, #e9eef5 70%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.3s ease-in-out infinite;
+}
+@keyframes skeletonShimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+}
+
+/* 드릴 헤더 우측 액션 (아이콘+라벨 알약) */
+.drill-action {
+  border: 1px solid var(--primary-light);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: transform 0.12s ease, background 0.15s ease;
+}
+.drill-action:active { transform: scale(0.96); }
+
+/* 탭 피드백: 누를 때 살짝 눌림 */
+.study-card:active { transform: scale(0.985); }
+.bottom-nav button:active .nav-ico { transform: scale(0.9); }
+
+/* ===== 콜드 스타트 / 오류 부트 화면 ===== */
+.boot {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+  background: var(--bg-color);
+}
+.boot-mark {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+.boot-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 28px;
+}
+.boot-bar {
+  width: 100%;
+  max-width: 280px;
+  height: 6px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+.boot-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+.boot-pct {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 12px;
+}
+.boot-note {
+  font-size: 0.82rem;
+  color: var(--text-sub);
+  margin-top: 14px;
+  max-width: 300px;
+  line-height: 1.55;
+}
+.boot-retry {
+  padding: 13px 26px;
+  border-radius: 12px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.boot-retry:active { transform: scale(0.97); }
+
+/* ===== 합격 코치 카드(홈 요약) ===== */
+.coach-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.coach-card:active { transform: scale(0.995); }
+.coach-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+.coach-gauge {
+  position: relative;
+  height: 8px;
+  background: #eef2f7;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.coach-gauge-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.coach-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.coach-verdict {
+  font-size: 0.82rem;
+  color: var(--text-sub);
+  margin-top: 8px;
+}
+
+/* ===== 홈: 오늘 할 일(단일 다음 행동) + 마일스톤 ===== */
+/* 커리큘럼 PC 2단 레이아웃 — 좁으면 1단, 넓으면 좌(오늘의 계획)+우(나머지) */
+.curr-2col { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 920px) {
+  .curr-2col { grid-template-columns: minmax(320px, 360px) 1fr; align-items: start; }
+  .curr-left { position: sticky; top: 12px; }
+}
+
+.todo-hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  gap: 3px;
+  padding: 15px 17px;
+  margin-bottom: 14px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 12px 28px -14px rgba(37, 99, 235, 0.6);
+  transition: transform 0.12s ease;
+}
+.todo-hero:active { transform: scale(0.99); }
+.todo-tag {
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.22);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.todo-title { font-size: 1.05rem; font-weight: 800; line-height: 1.25; margin-top: 3px; }
+.todo-desc { font-size: 0.78rem; opacity: 0.9; line-height: 1.4; }
+.todo-cta { font-size: 0.78rem; font-weight: 700; margin-top: 5px; opacity: 0.95; }
+.milestone {
+  background: #fff;
+  border: 1px solid #eceff3;
+  border-radius: 18px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 10px 26px -16px rgba(16, 24, 40, 0.14);
+}
+.milestone-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+/* ===== 첫 사용자 환영(빈 상태 활성화) ===== */
+.welcome {
+  min-height: calc(100dvh - 64px - env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 24px calc(40px + env(safe-area-inset-top, 0px));
+}
+.welcome-mark {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+.welcome-title {
+  font-size: 2rem;
+  line-height: 1.25;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+.welcome-sub {
+  font-size: 1rem;
+  color: var(--text-sub);
+  margin-top: 14px;
+  margin-bottom: 30px;
+}
+.welcome-cta {
+  width: 100%;
+  padding: 17px;
+  border-radius: 14px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.5);
+  transition: transform 0.12s ease;
+}
+.welcome-cta:active { transform: scale(0.985); }
+.welcome-2nd {
+  width: 100%;
+  margin-top: 12px;
+  padding: 13px;
+  border: none;
+  background: none;
+  color: var(--text-sub);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.welcome-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 40px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border-color);
+}
+.welcome-bullet {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===== C4. 입력 힌트: 기기에 맞는 것만 노출 ===== */
+.swipe-hint { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .kbd-hint { display: none; }
+  .swipe-hint { display: block; }
+}
+
+/* 학습 화면 키보드 단축키 안내 — 데스크탑(정밀 포인터)에서만 표시 */
+@media (hover: hover) and (pointer: fine) {
+  .study-kbd-hint { display: block !important; }
+}
+
+/* ===== B1. 본문 글자 크기 스케일 ===== */
+.q-text { font-size: calc(1.125rem * var(--q-fs)); }
+.q-opt  { font-size: calc(0.95rem  * var(--q-fs)); }
+.q-exp  { font-size: calc(0.95rem  * var(--q-fs)); }
+
+/* ===== A3. 보기 버튼(접근성·터치·눌림) ===== */
+.opt-btn {
+  width: 100%;
+  text-align: left;
+  appearance: none;
+  font: inherit;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  min-height: 52px;
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  background: #f9fafb;
+  color: #1f2937;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.opt-btn:not(:disabled):active { transform: scale(0.985); }
+.opt-btn:not(:disabled):hover { border-color: #c7d2fe; }
+.opt-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.opt-btn:disabled { cursor: default; }
+
+/* ===== A1. 정/오답 reveal 마이크로 애니메이션 ===== */
+@keyframes optPop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+@keyframes optShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+.opt-correct { animation: optPop 0.4s ease; }
+.opt-wrong { animation: optShake 0.36s ease; }
+@keyframes resultIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.result-box { animation: resultIn 0.28s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .opt-correct, .opt-wrong, .result-box { animation: none; }
+}
+
+/* ===== A4. 목표 달성 컨페티 ===== */
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-toast);
+  overflow: hidden;
+}
+.confetti-pc {
+  position: absolute;
+  top: -12px;
+  width: 9px;
+  height: 14px;
+  border-radius: 2px;
+  animation: confettiFall linear forwards;
+}
+@keyframes confettiFall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(102vh) rotate(720deg); opacity: 0.9; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .confetti-layer { display: none; }
+}
+
+/* ===== B2. 이미지 라이트박스 ===== */
+.q-img { cursor: zoom-in; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  padding-top: calc(16px + env(safe-area-inset-top, 0px));
+  animation: viewIn 0.16s ease-out;
+}
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  touch-action: pinch-zoom;
+}
+.lightbox-close {
+  position: absolute;
+  top: calc(14px + env(safe-area-inset-top, 0px));
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* ===== B3. 가이드 학습 진행 헤더 고정 ===== */
+.drill-head.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #fff; /* 스크롤 시 본문과 겹침 방지 */
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== 마크다운 표 — 가로 스크롤 가능 힌트 ===== */
+.md-table-wrap {
+  position: relative;
+  background:
+    linear-gradient(to right, #fff 30%, rgba(255,255,255,0)),
+    linear-gradient(to left, #fff 30%, rgba(255,255,255,0)) 100% 0,
+    radial-gradient(farthest-side at 0 50%, rgba(0,0,0,0.14), rgba(0,0,0,0)),
+    radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,0.14), rgba(0,0,0,0)) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 40px 100%, 40px 100%, 12px 100%, 12px 100%;
+  background-attachment: local, local, scroll, scroll;
+  scrollbar-width: thin;
+}
+.md-table-wrap::-webkit-scrollbar { height: 6px; }
+.md-table-wrap::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+.md-table-wrap table { background: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox { animation: none; }
+}
+
+/* ===== C1. 통암기 (암기 탭) — Phase 1~5 통합 ===== */
+/* 과목별 액센트는 인라인 CSS 변수로 주입: --c-primary, --c-light, --c-dark, --c-accent */
+
+.mem-root {
+  min-height: 100dvh; background: #f8fafc;
+  padding-top: env(safe-area-inset-top, 0px);
+  --c-primary: var(--primary, #2563eb);
+  --c-light: var(--primary-light, #eff6ff);
+  --c-dark: var(--primary-dark, #1d4ed8);
+  --c-accent: #60a5fa;
+}
+
+/* 헤더 — 미니멀, 좌우 40px 아이콘 자리만 */
+.mem-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 8px; background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky; top: 0; z-index: 30;
+}
+.mem-icon-btn {
+  width: 40px; height: 40px; border: none; background: transparent;
+  font-size: 1.5rem; color: #6b7280; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+}
+.mem-icon-btn:hover { background: #f1f5f9; }
+.mem-header-title {
+  font-weight: 800; font-size: 1.05rem; color: #111827;
+  display: flex; align-items: center; gap: 10px;
+}
+
+.mem-main { max-width: 600px; margin: 0 auto; padding: 28px 20px 100px; }
+
+/* ── 과목 picker (subjects view) ─────────────────────────── */
+.mem-hero-min { margin-bottom: 28px; }
+.mem-hero-eyebrow { font-size: 0.82rem; color: #94a3b8; font-weight: 600; margin-bottom: 8px; letter-spacing: 0.02em; }
+.mem-hero-h1 { font-size: 1.55rem; font-weight: 800; color: #0f172a; margin: 0; line-height: 1.3; }
+
+.mem-subject-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 480px) { .mem-subject-grid { grid-template-columns: 1fr 1fr; } }
+.mem-subject-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 18px; border-radius: 20px; border: 1.5px solid transparent;
+  background: linear-gradient(135deg, var(--c-light) 0%, #fff 60%);
+  cursor: pointer; text-align: left; position: relative;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.mem-subject-card:not(.is-soon):hover {
+  border-color: var(--c-primary); transform: translateY(-2px);
+  box-shadow: 0 8px 20px -8px rgb(0 0 0 / 0.15);
+}
+.mem-subject-card.is-soon { opacity: 0.55; cursor: not-allowed; background: #f1f5f9; }
+.mem-subject-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--c-primary); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem; flex-shrink: 0;
+  box-shadow: 0 4px 10px -2px var(--c-primary);
+}
+.mem-subject-card.is-soon .mem-subject-icon { background: #94a3b8; box-shadow: none; }
+.mem-subject-info { flex: 1; min-width: 0; }
+.mem-subject-title { font-weight: 800; font-size: 1.1rem; color: #0f172a; }
+.mem-subject-sub { font-size: 0.82rem; color: #64748b; margin-top: 2px; }
+.mem-subject-arrow { color: var(--c-primary); font-size: 1.3rem; font-weight: 800; }
+.mem-subject-soon {
+  font-size: 0.7rem; font-weight: 700; color: #fff;
+  background: #94a3b8; padding: 4px 10px; border-radius: 999px;
+}
+
+/* ── 책 picker (home view) ───────────────────────────────── */
+.mem-summary {
+  background: #fff; border-radius: 20px; padding: 22px 22px 18px;
+  margin-bottom: 28px;
+  border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+}
+.mem-summary-row { display: flex; align-items: center; gap: 14px; }
+.mem-summary-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--c-light); color: var(--c-primary);
+  display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+}
+.mem-summary-meta { color: #334155; font-size: 0.92rem; line-height: 1.6; }
+.mem-summary-meta b { color: #0f172a; font-size: 1.05rem; }
+.mem-summary-bar {
+  height: 8px; background: #e2e8f0; border-radius: 5px; overflow: hidden; margin-top: 16px;
+}
+.mem-summary-bar-fill {
+  height: 100%; background: linear-gradient(90deg, var(--c-primary), var(--c-accent));
+  transition: width 0.4s ease;
+}
+.mem-summary-pct {
+  font-size: 0.82rem; color: var(--c-primary); font-weight: 700; margin-top: 8px;
+}
+
+.mem-section-title {
+  font-weight: 800; font-size: 0.95rem; color: #475569;
+  margin: 0 2px 14px;
+}
+
+.mem-book-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 480px) { .mem-book-grid { grid-template-columns: 1fr 1fr; } }
+.mem-book-card {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 20px 18px; border-radius: 18px; border: 1px solid #e5e7eb;
+  background: #fff; cursor: pointer; text-align: left;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.mem-book-card:hover { transform: translateY(-2px); border-color: var(--c-primary); box-shadow: 0 8px 20px -8px rgb(0 0 0 / 0.15); }
+.mem-book-title { font-weight: 800; font-size: 1.1rem; color: #0f172a; }
+.mem-book-meta {
+  font-size: 0.82rem; color: #64748b;
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+}
+.mem-divider { color: #cbd5e1; }
+.mem-book-pct { font-size: 0.78rem; color: var(--c-primary); font-weight: 700; margin-top: 2px; }
+
+/* 박스 분포 차트 (책 카드) */
+.mem-bdc {
+  height: 8px; border-radius: 5px; overflow: hidden;
+  display: flex; background: #f1f5f9; margin-top: 4px;
+}
+.mem-bdc-seg { height: 100%; }
+
+/* 공통 pill */
+.mem-pill {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 3px 9px; border-radius: 999px;
+  font-size: 0.72rem; font-weight: 700;
+  background: var(--c-light); color: var(--c-dark);
+}
+.mem-pill-due { background: #fef3c7; color: #92400e; }
+.mem-pill-mast { background: #dcfce7; color: #15803d; }
+
+/* ── 가이드 ─────────────────────────────────────────────── */
+.mem-section { margin-top: 32px; }
+.mem-howto {
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 16px;
+  padding: 18px 22px 18px 36px; margin: 0 0 12px; color: #334155;
+  font-size: 0.9rem; line-height: 2;
+}
+.mem-howto li { margin: 2px 0; }
+.mem-howto b { color: var(--c-primary); font-weight: 700; }
+.mem-text-btn {
+  background: transparent; border: none; color: var(--c-primary);
+  font-size: 0.85rem; font-weight: 700; cursor: pointer; padding: 6px 0;
+}
+
+/* ── 빠른 시작 / 필터 ──────────────────────────────────── */
+.mem-quick { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.mem-btn-primary, .mem-btn-secondary {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 18px; border-radius: 16px; cursor: pointer;
+  font-weight: 800; font-size: 1rem; border: none; text-align: center;
+  line-height: 1.3; transition: transform 0.1s ease;
+}
+.mem-btn-primary {
+  background: var(--c-primary); color: #fff;
+  box-shadow: 0 4px 12px -4px var(--c-primary);
+}
+.mem-btn-primary:active { transform: scale(0.98); }
+.mem-btn-primary:disabled { background: #cbd5e1; box-shadow: none; cursor: not-allowed; }
+.mem-btn-secondary {
+  background: var(--c-light); color: var(--c-dark);
+  border: 1px solid color-mix(in srgb, var(--c-primary) 30%, transparent);
+}
+.mem-btn-sub { font-size: 0.78rem; font-weight: 600; opacity: 0.85; }
+
+.mem-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.mem-chip {
+  padding: 8px 14px; border-radius: 999px;
+  background: #fff; border: 1px solid #e2e8f0;
+  font-size: 0.85rem; font-weight: 600; color: #475569;
+  cursor: pointer; transition: all 0.15s ease;
+}
+.mem-chip:hover { border-color: var(--c-primary); }
+.mem-chip.is-active {
+  background: var(--c-primary); color: #fff;
+  border-color: var(--c-primary);
+}
+
+/* ── 단원 리스트 (browse view) ─────────────────────────── */
+.mem-ch-list { display: flex; flex-direction: column; gap: 10px; }
+.mem-ch-row {
+  display: grid; grid-template-columns: 1fr auto; gap: 8px 14px;
+  padding: 16px 18px; border-radius: 14px; border: 1px solid #e5e7eb;
+  background: #fff; cursor: pointer; text-align: left;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.03);
+  transition: transform 0.1s ease, border-color 0.15s ease;
+}
+.mem-ch-row:hover { transform: translateX(4px); border-color: var(--c-primary); }
+.mem-ch-row:disabled { opacity: 0.45; cursor: not-allowed; }
+.mem-ch-row.tone-mast { background: #f0fdf4; border-color: #bbf7d0; }
+.mem-ch-row.tone-mid  { background: var(--c-light); border-color: color-mix(in srgb, var(--c-primary) 30%, transparent); }
+.mem-ch-row.tone-low  { background: #fff; border-color: #e5e7eb; }
+.mem-ch-row.tone-fresh { background: #fff; border-color: #e5e7eb; }
+.mem-ch-name { font-weight: 700; font-size: 0.95rem; color: #0f172a; line-height: 1.4; }
+.mem-ch-meta { display: flex; gap: 6px; align-items: center; font-size: 0.78rem; color: #64748b; }
+.mem-ch-bar {
+  grid-column: 1/-1; height: 4px; background: #e2e8f0;
+  border-radius: 3px; overflow: hidden; margin-top: 6px;
+}
+.mem-ch-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--c-primary), var(--c-accent));
+  transition: width 0.3s ease;
+}
+.mem-ch-row.tone-mast .mem-ch-bar-fill { background: linear-gradient(90deg, #16a34a, #4ade80); }
+
+/* ── 세션 (session view) ───────────────────────────────── */
+.mem-progress-bar { height: 4px; background: #e2e8f0; }
+.mem-progress-fill {
+  height: 100%; background: var(--c-primary); transition: width 0.3s ease;
+}
+.mem-streak {
+  font-size: 0.85rem; font-weight: 800; color: #ea580c;
+  background: #fff7ed; padding: 2px 10px; border-radius: 999px;
+}
+.mem-session { padding-bottom: 24px; }
+
+.mem-card-meta {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
+  font-size: 0.78rem; color: #64748b; flex-wrap: wrap;
+}
+.mem-type-tag {
+  display: inline-block; padding: 4px 12px; border-radius: 999px;
+  font-size: 0.76rem; font-weight: 700;
+}
+.mem-card-path {
+  color: #94a3b8; font-size: 0.74rem; line-height: 1.5;
+  flex-basis: 100%; padding-top: 4px;
+}
+
+/* 박스 도트 */
+.mem-dots { display: inline-flex; gap: 3px; }
+.mem-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #e2e8f0; transition: background 0.2s;
+}
+.mem-dot.on { background: var(--c-primary); }
+.mem-box-graduated {
+  font-size: 0.78rem; font-weight: 700; color: #16a34a;
+}
+
+/* 카드 본문 */
+.mem-card {
+  position: relative;
+  background: #fff; border-radius: 24px; padding: 36px 28px 28px;
+  box-shadow: 0 4px 20px -6px rgb(0 0 0 / 0.1), 0 1px 3px rgb(0 0 0 / 0.05);
+  border: 1px solid #f1f5f9;
+  min-height: 320px; display: flex; flex-direction: column;
+  cursor: pointer; user-select: none;
+  touch-action: pan-y;
+  overflow: hidden;
+}
+.mem-card.is-revealed { cursor: default; }
+
+.mem-q {
+  font-size: calc(1.15rem * var(--mem-fs, 1));
+  line-height: 1.85; color: #0f172a; white-space: pre-wrap;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+.mem-q b { color: var(--c-dark); font-weight: 800; }
+.mem-blank {
+  display: inline-block;
+  color: var(--c-primary); font-weight: 800;
+  background: var(--c-light);
+  padding: 1px 12px; border-radius: 6px;
+  letter-spacing: 0.15em; margin: 0 2px;
+  border-bottom: 2px solid var(--c-primary);
+}
+.mem-divider-line { height: 1px; background: linear-gradient(90deg, transparent, #cbd5e1, transparent); margin: 20px 0; }
+.mem-reveal-zone {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.mem-reveal-zone.is-hidden {
+  opacity: 0; transform: translateY(8px); pointer-events: none;
+  height: 0; overflow: hidden;
+}
+.mem-a {
+  font-size: calc(1.05rem * var(--mem-fs, 1));
+  line-height: 1.85; color: #065f46;
+  white-space: pre-wrap; font-weight: 500;
+}
+.mem-a b { color: #064e3b; font-weight: 800; }
+.mem-note {
+  margin-top: 16px; padding: 14px 16px;
+  background: #fffbeb; border-radius: 12px;
+  font-size: 0.86rem; color: #78350f; line-height: 1.6;
+}
+.mem-card-hint {
+  margin-top: auto; padding-top: 28px;
+  color: #94a3b8; font-size: 0.82rem; text-align: center;
+}
+.mem-card-hint kbd {
+  font-size: 0.74rem; padding: 2px 6px; border-radius: 4px;
+  background: #f1f5f9; border: 1px solid #cbd5e1;
+  font-family: ui-monospace, monospace;
+}
+
+/* 스와이프 인디케이터 */
+.mem-swipe-ind {
+  position: absolute; top: 24px;
+  font-size: 1.2rem; font-weight: 800;
+  padding: 8px 18px; border-radius: 999px;
+  pointer-events: none;
+}
+.mem-swipe-ind.right { right: 24px; background: #dcfce7; color: #15803d; }
+.mem-swipe-ind.left  { left: 24px;  background: #fee2e2; color: #b91c1c; }
+
+/* O/X 채점 버튼 */
+.mem-judge {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-top: 24px;
+}
+.mem-judge-x, .mem-judge-o {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 18px 14px; border-radius: 18px; border: none; cursor: pointer;
+  font-weight: 800; transition: transform 0.1s ease;
+}
+.mem-judge-x:active, .mem-judge-o:active { transform: scale(0.96); }
+.mem-judge-x {
+  background: #fff; color: #dc2626;
+  border: 2px solid #fecaca;
+}
+.mem-judge-x:hover { background: #fef2f2; }
+.mem-judge-o {
+  background: #16a34a; color: #fff;
+  box-shadow: 0 4px 12px -4px #16a34a;
+}
+.mem-judge-emoji { font-size: 1.6rem; }
+.mem-judge-label { font-size: 1.05rem; }
+.mem-judge-hint { font-size: 0.72rem; font-weight: 600; opacity: 0.85; }
+
+.mem-kbd-hint {
+  margin-top: 14px; text-align: center;
+  font-size: 0.76rem; color: #94a3b8;
+}
+.mem-kbd-hint kbd {
+  font-size: 0.72rem; padding: 1px 5px; border-radius: 3px;
+  background: #f1f5f9; border: 1px solid #cbd5e1;
+  font-family: ui-monospace, monospace; color: #475569;
+}
+@media (hover: none) and (pointer: coarse) {
+  .mem-kbd-hint { display: none; }
+  .mem-card-hint kbd { display: none; }
+}
+
+.mem-session-stats {
+  margin-top: 20px; text-align: center;
+  font-size: 0.82rem; color: #94a3b8; line-height: 1.6;
+}
+
+/* ── 완료 화면 (done view) ─────────────────────────────── */
+.mem-done { text-align: center; padding-top: 40px; }
+.mem-done-emoji {
+  font-size: 4rem; line-height: 1;
+  animation: mem-pop 0.5s ease;
+}
+@keyframes mem-pop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.mem-done-title { font-size: 1.8rem; font-weight: 800; margin: 16px 0 4px; color: #0f172a; }
+.mem-done-sub { font-size: 1rem; color: #64748b; margin-bottom: 32px; }
+.mem-report {
+  background: #fff; border-radius: 20px; padding: 22px 20px;
+  border: 1px solid #e5e7eb; margin-bottom: 28px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+}
+.mem-report-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;
+}
+.mem-report-cell {
+  display: flex; flex-direction: column; gap: 4px; padding: 8px 0;
+}
+.mem-report-cell span { font-size: 0.78rem; color: #94a3b8; font-weight: 600; }
+.mem-report-cell b { font-size: 1.6rem; font-weight: 800; color: #0f172a; }
+.mem-report-mast {
+  margin-top: 16px; padding: 12px 16px;
+  background: #fef3c7; border-radius: 12px;
+  color: #92400e; font-size: 0.9rem; text-align: center;
+}
+.mem-report-mast b { color: #78350f; font-size: 1.1rem; }
+
+/* ── 옵션 화면 ─────────────────────────────────────────── */
+.mem-opt-section {
+  margin-bottom: 26px;
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 16px;
+  padding: 18px 18px 20px;
+}
+.mem-opt-label { font-weight: 800; font-size: 0.95rem; color: #334155; margin-bottom: 12px; }
+.mem-opt-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ── 스트릭 카드 + sparkline ───────────────────────────── */
+.mem-streak-card {
+  display: flex; align-items: center; gap: 16px;
+  background: #fff; border-radius: 18px; padding: 18px 20px;
+  border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+  margin-bottom: 16px;
+}
+.mem-streak-icon {
+  font-size: 2.2rem; line-height: 1;
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.15));
+}
+.mem-streak-body { flex: 0 0 auto; }
+.mem-streak-num {
+  font-size: 1.8rem; font-weight: 800; color: #0f172a; line-height: 1;
+}
+.mem-streak-num span {
+  font-size: 0.9rem; font-weight: 600; color: #64748b; margin-left: 4px;
+}
+.mem-streak-label {
+  font-size: 0.78rem; color: #64748b; margin-top: 4px;
+}
+.mem-spark {
+  flex: 1; min-width: 0;
+  display: flex; align-items: flex-end; gap: 2px;
+  height: 38px; padding-left: 8px;
+}
+.mem-spark-bar {
+  flex: 1; min-width: 2px;
+  border-radius: 2px; background: var(--c-primary);
+  transition: background 0.2s;
+}
+.mem-spark-bar.is-zero { background: #e2e8f0; }
+.mem-spark-bar.is-today { background: var(--c-dark); box-shadow: 0 0 0 1px var(--c-dark); }
+
+/* ── 북마크 빠른 진입 ───────────────────────────────────── */
+.mem-bookmark-row {
+  display: flex; align-items: center; gap: 12px;
+  background: #fef3c7; border: 1px solid #fde68a; border-radius: 14px;
+  padding: 14px 18px; margin-bottom: 24px;
+  cursor: pointer; text-align: left; width: 100%;
+  transition: transform 0.1s ease;
+}
+.mem-bookmark-row:hover { transform: translateY(-1px); }
+.mem-bookmark-ico { font-size: 1.4rem; }
+.mem-bookmark-text { flex: 1; color: #92400e; font-weight: 700; font-size: 0.95rem; }
+.mem-bookmark-text b { color: #78350f; font-size: 1.05rem; }
+.mem-bookmark-arrow { color: #b45309; font-weight: 800; }
+
+/* ── 카드 우상단 액션 (북마크/본문) ──────────────────── */
+.mem-card-actions {
+  margin-left: auto;
+  display: flex; gap: 4px;
+}
+.mem-card-action {
+  width: 32px; height: 32px; border-radius: 8px; border: none;
+  background: transparent; color: #94a3b8; cursor: pointer;
+  font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.mem-card-action:hover { background: #f1f5f9; color: #475569; }
+.mem-card-action.is-active { color: #ea580c; background: #fff7ed; }
+
+/* ── 출처 본문 패널 ────────────────────────────────────── */
+.mem-source {
+  margin-top: 14px;
+  background: #fefce8; border: 1px solid #fde68a; border-radius: 16px;
+  overflow: hidden;
+}
+.mem-source-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 14px 12px 18px;
+  background: #fef3c7; color: #78350f; font-weight: 800; font-size: 0.9rem;
+  border-bottom: 1px solid #fde68a;
+}
+.mem-source-body {
+  padding: 14px 18px; max-height: 320px; overflow-y: auto;
+}
+.mem-source-p {
+  font-size: calc(0.88rem * var(--mem-fs, 1));
+  line-height: 1.75; color: #422006;
+  margin-bottom: 10px; white-space: pre-wrap;
+}
+.mem-source-p.is-quote {
+  padding: 10px 14px; background: #fff; border-left: 3px solid #d97706;
+  border-radius: 0 8px 8px 0; font-style: italic;
+}
+.mem-source-empty {
+  padding: 18px; color: #92400e; font-size: 0.85rem; text-align: center;
+}
+.mem-source-hint {
+  padding: 8px 14px 12px; font-size: 0.72rem; color: #b45309; text-align: center;
+}
+
+/* ── 다크 모드 (data-mem-theme="dark") ─────────────────── */
+[data-mem-theme="dark"] .mem-root { background: #0f172a; }
+[data-mem-theme="dark"] .mem-header,
+[data-mem-theme="dark"] .mem-summary,
+[data-mem-theme="dark"] .mem-book-card,
+[data-mem-theme="dark"] .mem-ch-row,
+[data-mem-theme="dark"] .mem-card,
+[data-mem-theme="dark"] .mem-streak-card,
+[data-mem-theme="dark"] .mem-opt-section,
+[data-mem-theme="dark"] .mem-report,
+[data-mem-theme="dark"] .mem-howto {
+  background: #1e293b; border-color: #334155;
+  box-shadow: 0 4px 20px -6px rgb(0 0 0 / 0.4), 0 1px 3px rgb(0 0 0 / 0.2);
+}
+[data-mem-theme="dark"] .mem-header { box-shadow: none; }
+[data-mem-theme="dark"] .mem-header-title,
+[data-mem-theme="dark"] .mem-hero-h1,
+[data-mem-theme="dark"] .mem-subject-title,
+[data-mem-theme="dark"] .mem-book-title,
+[data-mem-theme="dark"] .mem-ch-name,
+[data-mem-theme="dark"] .mem-summary-meta b,
+[data-mem-theme="dark"] .mem-streak-num,
+[data-mem-theme="dark"] .mem-done-title,
+[data-mem-theme="dark"] .mem-q,
+[data-mem-theme="dark"] .mem-report-cell b,
+[data-mem-theme="dark"] .mem-opt-label { color: #f1f5f9; }
+[data-mem-theme="dark"] .mem-hero-eyebrow,
+[data-mem-theme="dark"] .mem-subject-sub,
+[data-mem-theme="dark"] .mem-summary-meta,
+[data-mem-theme="dark"] .mem-book-meta,
+[data-mem-theme="dark"] .mem-ch-meta,
+[data-mem-theme="dark"] .mem-section-title,
+[data-mem-theme="dark"] .mem-card-path,
+[data-mem-theme="dark"] .mem-card-hint,
+[data-mem-theme="dark"] .mem-kbd-hint,
+[data-mem-theme="dark"] .mem-session-stats,
+[data-mem-theme="dark"] .mem-done-sub,
+[data-mem-theme="dark"] .mem-streak-label,
+[data-mem-theme="dark"] .mem-report-cell span,
+[data-mem-theme="dark"] .mem-howto,
+[data-mem-theme="dark"] .mem-icon-btn { color: #94a3b8; }
+[data-mem-theme="dark"] .mem-icon-btn:hover { background: #334155; }
+[data-mem-theme="dark"] .mem-divider { color: #475569; }
+[data-mem-theme="dark"] .mem-subject-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+[data-mem-theme="dark"] .mem-subject-card.is-soon { background: #1e293b; }
+[data-mem-theme="dark"] .mem-a { color: #6ee7b7; }
+[data-mem-theme="dark"] .mem-a b { color: #a7f3d0; }
+[data-mem-theme="dark"] .mem-q b { color: #93c5fd; }
+[data-mem-theme="dark"] .mem-divider-line { background: linear-gradient(90deg, transparent, #475569, transparent); }
+[data-mem-theme="dark"] .mem-summary-bar,
+[data-mem-theme="dark"] .mem-progress-bar,
+[data-mem-theme="dark"] .mem-ch-bar,
+[data-mem-theme="dark"] .mem-bdc { background: #334155; }
+[data-mem-theme="dark"] .mem-spark-bar.is-zero { background: #334155; }
+[data-mem-theme="dark"] .mem-chip {
+  background: #1e293b; border-color: #334155; color: #cbd5e1;
+}
+[data-mem-theme="dark"] .mem-chip:hover { border-color: var(--c-primary); }
+[data-mem-theme="dark"] .mem-chip.is-active { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+[data-mem-theme="dark"] .mem-judge-x {
+  background: #1e293b; color: #f87171; border-color: #7f1d1d;
+}
+[data-mem-theme="dark"] .mem-judge-x:hover { background: #2d1b1b; }
+[data-mem-theme="dark"] .mem-note {
+  background: #422006; color: #fde68a;
+}
+[data-mem-theme="dark"] .mem-source,
+[data-mem-theme="dark"] .mem-bookmark-row {
+  background: #1c1917; border-color: #44403c;
+}
+[data-mem-theme="dark"] .mem-source-head { background: #292524; color: #fde68a; border-color: #44403c; }
+[data-mem-theme="dark"] .mem-source-p { color: #fef3c7; }
+[data-mem-theme="dark"] .mem-source-p.is-quote { background: #1e293b; }
+[data-mem-theme="dark"] .mem-bookmark-text { color: #fde68a; }
+[data-mem-theme="dark"] .mem-bookmark-text b { color: #fef3c7; }
+[data-mem-theme="dark"] .mem-card-action:hover { background: #334155; color: #cbd5e1; }
+[data-mem-theme="dark"] .mem-card-action.is-active { background: #422006; color: #fbbf24; }
+[data-mem-theme="dark"] .mem-blank {
+  background: rgb(255 255 255 / 0.06);
+  border-bottom-color: var(--c-accent);
+  color: var(--c-accent);
+}
+[data-mem-theme="dark"] .mem-report-mast { background: #422006; color: #fde68a; }
+[data-mem-theme="dark"] .mem-report-mast b { color: #fef3c7; }
+[data-mem-theme="dark"] .mem-streak {
+  background: #422006; color: #fbbf24;
+}
+[data-mem-theme="dark"] .mem-pill-due { background: #422006; color: #fbbf24; }
+[data-mem-theme="dark"] .mem-pill-mast { background: #14532d; color: #86efac; }
+[data-mem-theme="dark"] .mem-type-tag { opacity: 0.95; }
+[data-mem-theme="dark"] .mem-card-hint kbd,
+[data-mem-theme="dark"] .mem-kbd-hint kbd {
+  background: #334155; border-color: #475569; color: #cbd5e1;
+}
+[data-mem-theme="dark"] .mem-ch-row.tone-mast { background: #052e1a; border-color: #14532d; }
+[data-mem-theme="dark"] .mem-ch-row.tone-mid  { background: #1e293b; border-color: var(--c-primary); }
+[data-mem-theme="dark"] .mem-ch-row.tone-low,
+[data-mem-theme="dark"] .mem-ch-row.tone-fresh { background: #1e293b; border-color: #334155; }
+
+/* ── 4등급 채점 (sm2/type/choice 모드) ─────────────────── */
+.mem-grade {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 8px; margin-top: 22px;
+}
+.mem-grade-btn {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 14px 6px; border-radius: 14px; cursor: pointer;
+  background: #fff; border: 2px solid #e5e7eb;
+  color: #475569; font-weight: 800;
+  transition: transform 0.1s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.mem-grade-btn:hover {
+  border-color: var(--g-color); color: var(--g-color);
+  background: color-mix(in srgb, var(--g-color) 8%, #fff);
+}
+.mem-grade-btn:active { transform: scale(0.96); }
+.mem-grade-label { font-size: 0.92rem; }
+.mem-grade-hint  { font-size: 0.72rem; font-weight: 600; opacity: 0.7; }
+
+/* ── 타이핑 모드 ─────────────────────────────────────── */
+.mem-type-area {
+  margin-top: auto; padding-top: 24px;
+  display: flex; gap: 8px;
+}
+.mem-type-input {
+  flex: 1; padding: 12px 14px; border-radius: 10px;
+  border: 1.5px solid #cbd5e1; background: #f8fafc;
+  font-size: calc(1rem * var(--mem-fs, 1));
+  outline: none; transition: border-color 0.15s ease;
+  font-family: inherit; color: #0f172a;
+}
+.mem-type-input:focus { border-color: var(--c-primary); background: #fff; }
+.mem-type-confirm {
+  padding: 12px 20px; border-radius: 10px; border: none;
+  background: var(--c-primary); color: #fff;
+  font-weight: 800; cursor: pointer; font-size: 0.95rem;
+}
+.mem-type-result {
+  margin-bottom: 12px; padding: 10px 14px;
+  background: #f1f5f9; border-radius: 10px;
+  font-size: 0.9rem; color: #475569;
+}
+.mem-type-yours { display: flex; flex-direction: column; gap: 2px; }
+.mem-type-yours span { font-size: 0.75rem; font-weight: 600; color: #64748b; }
+.mem-type-yours b { color: #0f172a; font-size: 0.98rem; font-weight: 600; }
+
+/* ── 4지선다 모드 ─────────────────────────────────────── */
+.mem-choice-list {
+  margin-top: 20px; display: flex; flex-direction: column; gap: 8px;
+}
+.mem-choice-opt {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 16px; border-radius: 12px; border: 1.5px solid #e5e7eb;
+  background: #fff; cursor: pointer; text-align: left;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.mem-choice-opt:hover { border-color: var(--c-primary); background: var(--c-light); }
+.mem-choice-opt.is-picked { border-color: var(--c-primary); background: var(--c-light); }
+.mem-choice-label {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--c-light); color: var(--c-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.85rem;
+}
+.mem-choice-text {
+  flex: 1; font-size: 0.92rem; line-height: 1.55; color: #0f172a;
+  white-space: pre-wrap; word-break: keep-all;
+}
+.mem-choice-result {
+  margin-bottom: 12px; padding: 10px 14px; border-radius: 10px;
+  font-size: 0.92rem; font-weight: 700;
+}
+.mem-choice-result.ok { background: #f0fdf4; color: #15803d; }
+.mem-choice-result.no { background: #fef2f2; color: #b91c1c; }
+.mem-choice-result b { font-weight: 800; }
+
+/* ── 자기 설명 노트 ────────────────────────────────────── */
+.mem-note-area { margin-top: 14px; }
+.mem-note-toggle {
+  width: 100%; background: transparent; border: 1px dashed #cbd5e1;
+  border-radius: 12px; padding: 10px 14px;
+  color: #64748b; font-size: 0.86rem; font-weight: 600;
+  cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease;
+}
+.mem-note-toggle:hover { border-color: var(--c-primary); color: var(--c-primary); }
+.mem-note-input {
+  width: 100%; box-sizing: border-box;
+  padding: 12px 14px; border-radius: 12px;
+  border: 1.5px solid #cbd5e1; background: #fffef7;
+  font-size: 0.92rem; font-family: inherit; color: #0f172a;
+  resize: vertical; min-height: 56px; outline: none;
+}
+.mem-note-input:focus { border-color: var(--c-primary); }
+.mem-note-actions {
+  display: flex; gap: 12px; margin-top: 6px; justify-content: flex-end;
+}
+
+/* ── 옵션 화면 보강 ────────────────────────────────────── */
+.mem-opt-hint { color: #94a3b8; font-weight: 500; font-size: 0.78rem; }
+.mem-opt-desc {
+  margin-top: 10px; padding: 10px 14px;
+  background: #f1f5f9; border-radius: 10px;
+  color: #475569; font-size: 0.82rem; line-height: 1.6;
+}
+.mem-mode-chip { padding: 8px 14px; }
+
+/* 다크 모드 보강 */
+[data-mem-theme="dark"] .mem-grade-btn {
+  background: #1e293b; border-color: #334155; color: #cbd5e1;
+}
+[data-mem-theme="dark"] .mem-grade-btn:hover {
+  background: color-mix(in srgb, var(--g-color) 16%, #1e293b);
+}
+[data-mem-theme="dark"] .mem-type-input,
+[data-mem-theme="dark"] .mem-note-input {
+  background: #0f172a; border-color: #334155; color: #f1f5f9;
+}
+[data-mem-theme="dark"] .mem-type-input:focus,
+[data-mem-theme="dark"] .mem-note-input:focus { background: #0f172a; }
+[data-mem-theme="dark"] .mem-type-result { background: #1e293b; color: #cbd5e1; }
+[data-mem-theme="dark"] .mem-type-yours b { color: #f1f5f9; }
+[data-mem-theme="dark"] .mem-type-yours span { color: #94a3b8; }
+[data-mem-theme="dark"] .mem-choice-opt {
+  background: #1e293b; border-color: #334155;
+}
+[data-mem-theme="dark"] .mem-choice-opt:hover,
+[data-mem-theme="dark"] .mem-choice-opt.is-picked { background: #334155; }
+[data-mem-theme="dark"] .mem-choice-text { color: #f1f5f9; }
+[data-mem-theme="dark"] .mem-choice-result.ok { background: #052e1a; color: #6ee7b7; }
+[data-mem-theme="dark"] .mem-choice-result.no { background: #2d1b1b; color: #fca5a5; }
+[data-mem-theme="dark"] .mem-note-toggle { border-color: #334155; color: #94a3b8; }
+[data-mem-theme="dark"] .mem-opt-desc { background: #1e293b; color: #cbd5e1; }
+
+/* ── D-DAY 카드 ───────────────────────────────────────── */
+.mem-dday-card {
+  display: flex; align-items: center; gap: 16px;
+  background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-dark) 100%);
+  color: #fff;
+  border-radius: 18px; padding: 18px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 16px -6px var(--c-primary);
+}
+.mem-dday-num {
+  font-size: 2rem; font-weight: 800; letter-spacing: -0.02em;
+  line-height: 1;
+}
+.mem-dday-body { flex: 1; }
+.mem-dday-label { font-size: 0.78rem; opacity: 0.85; }
+.mem-dday-goal { font-size: 0.92rem; margin-top: 4px; }
+.mem-dday-goal b { font-size: 1.1rem; }
+.mem-dday-edit {
+  background: rgb(255 255 255 / 0.2); color: #fff; border: none;
+  padding: 6px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 700;
+  cursor: pointer;
+}
+.mem-dday-edit:hover { background: rgb(255 255 255 / 0.3); }
+
+/* ── 스트릭 보강 (freeze) ─────────────────────────────── */
+.mem-freeze-tag {
+  display: inline-block; margin-left: 8px;
+  font-size: 0.7rem; font-weight: 700;
+  background: #e0f2fe; color: #075985;
+  padding: 2px 8px; border-radius: 999px;
+}
+.mem-freeze-stock {
+  font-size: 0.72rem; color: #0369a1; font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ── 주간 히트맵 ───────────────────────────────────────── */
+.mem-heatmap {
+  background: #fff; border-radius: 16px; padding: 16px 18px;
+  border: 1px solid #e5e7eb; margin-bottom: 28px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+}
+.mem-heatmap-title {
+  font-size: 0.82rem; font-weight: 700; color: #64748b;
+  margin-bottom: 10px;
+}
+.mem-heatmap-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.mem-heatmap-dow {
+  font-size: 0.66rem; color: #94a3b8; text-align: center; font-weight: 600;
+  padding-bottom: 2px;
+}
+.mem-heatmap-cell {
+  aspect-ratio: 1; border-radius: 4px;
+  background: #f1f5f9;
+}
+.mem-heatmap-cell.level-1 { background: color-mix(in srgb, var(--c-primary) 22%, #f1f5f9); }
+.mem-heatmap-cell.level-2 { background: color-mix(in srgb, var(--c-primary) 45%, #f1f5f9); }
+.mem-heatmap-cell.level-3 { background: color-mix(in srgb, var(--c-primary) 70%, #f1f5f9); }
+.mem-heatmap-cell.level-4 { background: var(--c-primary); }
+.mem-heatmap-cell.is-today { outline: 2px solid var(--c-dark); outline-offset: 1px; }
+.mem-heatmap-legend {
+  display: flex; align-items: center; gap: 4px;
+  margin-top: 10px; font-size: 0.7rem; color: #94a3b8;
+}
+.mem-heatmap-legend .mem-heatmap-cell {
+  width: 12px; aspect-ratio: 1;
+}
+
+/* ── 날짜 input ───────────────────────────────────────── */
+.mem-date-input {
+  padding: 8px 12px; border-radius: 8px;
+  border: 1.5px solid #cbd5e1; background: #fff;
+  font-size: 0.9rem; font-family: inherit; color: #0f172a;
+  outline: none;
+}
+.mem-date-input:focus { border-color: var(--c-primary); }
+
+/* ── AI 해설 ──────────────────────────────────────────── */
+.mem-ai-area { margin-top: 18px; }
+.mem-ai-btn {
+  width: 100%; padding: 12px;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  color: #fff; border: none; border-radius: 12px;
+  font-weight: 800; font-size: 0.92rem; cursor: pointer;
+  box-shadow: 0 4px 12px -4px #6366f1;
+  transition: transform 0.1s ease;
+}
+.mem-ai-btn:active { transform: scale(0.98); }
+.mem-ai-loading {
+  padding: 12px; text-align: center;
+  background: #f5f3ff; color: #6d28d9;
+  border-radius: 12px; font-size: 0.88rem; font-weight: 600;
+}
+.mem-ai-result {
+  margin-top: 4px; padding: 14px 16px;
+  background: #faf5ff; border: 1px solid #e9d5ff;
+  border-radius: 12px;
+}
+.mem-ai-result.is-error { background: #fef2f2; border-color: #fecaca; }
+.mem-ai-head {
+  font-size: 0.82rem; font-weight: 800; color: #6d28d9;
+  margin-bottom: 8px;
+}
+.mem-ai-result.is-error .mem-ai-head { color: #b91c1c; }
+.mem-ai-body {
+  font-size: 0.9rem; line-height: 1.75; color: #4c1d95;
+  white-space: pre-wrap;
+}
+.mem-ai-result.is-error .mem-ai-body { color: #991b1b; }
+
+/* 다크 모드 보강 */
+[data-mem-theme="dark"] .mem-heatmap { background: #1e293b; border-color: #334155; }
+[data-mem-theme="dark"] .mem-heatmap-cell { background: #334155; }
+[data-mem-theme="dark"] .mem-date-input {
+  background: #0f172a; border-color: #334155; color: #f1f5f9;
+}
+[data-mem-theme="dark"] .mem-ai-loading { background: #2e1065; color: #c4b5fd; }
+[data-mem-theme="dark"] .mem-ai-result { background: #1e1b4b; border-color: #4c1d95; }
+[data-mem-theme="dark"] .mem-ai-result.is-error { background: #2d1b1b; border-color: #7f1d1d; }
+[data-mem-theme="dark"] .mem-ai-head { color: #c4b5fd; }
+[data-mem-theme="dark"] .mem-ai-body { color: #ddd6fe; }
+[data-mem-theme="dark"] .mem-ai-result.is-error .mem-ai-head { color: #fca5a5; }
+[data-mem-theme="dark"] .mem-ai-result.is-error .mem-ai-body { color: #fecaca; }
+[data-mem-theme="dark"] .mem-freeze-tag { background: #082f49; color: #7dd3fc; }
+[data-mem-theme="dark"] .mem-freeze-stock { color: #38bdf8; }
+
+/* ── 교재 암기 시트: 형광펜 가리기 ────────────────────────────────
+   고시 공부의 빨간 시트처럼, 형광펜 친 핵심어를 가렸다가 클릭하면 드러낸다. */
+.hl-mask mark {
+  color: transparent !important;
+  background: #e7e5e4 !important;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px #d6d3d1;
+  transition: color .12s, background .12s;
+}
+.hl-mask mark:hover { background: #dcd9d6 !important; }
+.hl-mask mark.hl-open {
+  color: inherit !important;
+  background: linear-gradient(transparent 58%, #f6e7a1 58%) !important;
+  box-shadow: none;
+}
+
+
+
+/* ── 홈 컬럼 ─────────────────────────────────────────────────
+   전 구간 1단이다. 2단이나 그리드로 만들지 않는다.                 */
+.home-col {
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 16px 16px 72px;   /* sm — 탭바 높이 확보 */
+}
+@media (min-width: 640px)  { .home-col { padding: 20px; } }
+@media (min-width: 1024px) { .home-col { padding: 24px 24px 48px; } }
+
+.home-quick {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));   /* sm·md — 2×2 */
+  gap: 8px;
+}
+@media (min-width: 1024px) {
+  .home-quick { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@keyframes vizStepIn { from { opacity: 0.25; } to { opacity: 1; } }
+
+/* ─────────────────────────────────────────────────────────────
+   ↓↓↓ 아래부터는 이 목업 문서 전용 스캐폴딩. 실제 앱에는 없습니다. ↓↓↓
+   ───────────────────────────────────────────────────────────── */
+body.mock { background: #d8d8d6; padding: 0 0 80px; }
+.mock-head {
+  max-width: 1180px; margin: 0 auto; padding: 40px 20px 8px;
+}
+.mock-head h1 { font-size: 28px; margin: 0 0 6px; letter-spacing: -0.02em; }
+.mock-head p { font-size: 14px; color: #4a4a48; line-height: 1.7; margin: 0 0 6px; max-width: 78ch; }
+.mock-legend {
+  max-width: 1180px; margin: 16px auto 0; padding: 14px 20px; background: #fff;
+  border: 1px solid #c8c8c5; border-radius: 10px; font-size: 13px; line-height: 1.7;
+}
+.mock-legend b { font-weight: 700; }
+.mock-sec { max-width: 1180px; margin: 44px auto 0; padding: 0 20px; }
+.mock-sec > h2 {
+  font-size: 15px; font-weight: 800; letter-spacing: .06em; color: #1c1c1a;
+  margin: 0 0 4px; display: flex; align-items: baseline; gap: 10px;
+}
+.mock-sec > h2 small { font-size: 12px; font-weight: 500; color: #6f6f6c; letter-spacing: 0; }
+.mock-sec > p.note { font-size: 13px; color: #565654; margin: 0 0 12px; line-height: 1.6; max-width: 80ch; }
+.gen-a, .gen-b {
+  display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px;
+  border-radius: 999px; vertical-align: 2px;
+}
+.gen-a { background: #eaf1fe; color: #1b4ac4; }
+.gen-b { background: #fcf2dd; color: #916a12; }
+
+/* 화면 프레임 — 브라우저 창 흉내 */
+.frame {
+  background: #f6f6f5; border: 1px solid #b9b9b6; border-radius: 12px;
+  overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.10);
+  position: relative;
+}
+.frame-bar {
+  height: 30px; background: #ececeb; border-bottom: 1px solid #dcdcda;
+  display: flex; align-items: center; gap: 6px; padding: 0 10px;
+  font-size: 11px; color: #6f6f6c;
+}
+.frame-bar i { width: 9px; height: 9px; border-radius: 999px; background: #cfcfcc; display: block; }
+.frame-body { position: relative; }
+
+/* 프레임 안에서만 셸 규칙을 눌러 놓는다 (실제 앱은 100dvh / position:fixed) */
+.frame .app-shell { min-height: 0; }
+.frame .app-rail { height: auto; position: static; padding-bottom: 12px; }
+.frame .bottom-nav { position: absolute; }
+.frame .top-nav { position: static; }
+.frame .app-container { animation: none; }
+
+/* 데스크톱 프레임은 레일을 강제로 보이게(문서를 좁은 창에서 열어도 보이도록) */
+.frame--desk .app-rail { display: flex; }
+.frame--phone { width: 390px; margin: 0 auto; --tabbar-h: 56px; --header-h: 52px; }
+.frame--phone .app-rail { display: none; }
+.frame--phone .app-shell { padding-bottom: 56px; }
+/* 폰 프레임은 데스크톱 뷰포트 안에 있어 미디어쿼리를 못 탄다 — 수동으로 sm 값 재현 */
+.frame--phone .home-col { padding: 16px 16px 8px; }
+.frame--phone .home-quick { grid-template-columns: repeat(2, minmax(0,1fr)); }
+/* 하단 탭바는 실제로는 <640px 에서만 뜬다. 문서 뷰포트가 넓어 미디어쿼리를 못 타므로 강제로 보인다 */
+.frame--phone .bottom-nav { display: grid !important; }
+.frame--phone .frame-body { height: 720px; overflow: hidden; }
+</style>
+</head>
+
+<body class="mock">
+
+<div class="mock-head">
+  <h1>기출정복 — 디자인 · 레이아웃 목업</h1>
+  <p>감정평가사(1차·2차) 수험 학습 웹앱. React 19 + Vite, Vercel 배포. 모바일 웹 우선이지만
+     데스크톱에서 3단 레이아웃까지 펼쳐집니다. 이 문서는 <b>디자인·레이아웃 전달용 정적 스냅샷</b>이며
+     기능은 동작하지 않습니다.</p>
+  <p>제품 성격: 기출 12,039문항 + 과목별 연습문제 35,217문항을 <b>단원 트리(taxonomy)</b>에 매달아 두고,
+     ① 교재 읽기 ② AI 튜터 대화 ③ 문제풀이 ④ 암기 드릴 ⑤ 실력 리포트로 순환시키는 개인 학습 도구입니다.</p>
+</div>
+
+<div class="mock-legend">
+  <b>이 앱에는 디자인 세대가 두 개 섞여 있습니다 — 통일이 미완입니다.</b><br>
+  <span class="gen-a">A · 토큰</span> <code>tokens.css</code> 기반 무채색 팔레트. 표면 <code>#f6f6f5/#fff</code>,
+  잉크 <code>#1c1c1a</code>, 액센트는 <code>#2f6feb</code> 하나뿐. 채도는 학습 신호(정답·오답·주의)와
+  인장색(과락 위험) 에만 허용. <b>홈 화면이 이 세대의 유일한 완성본</b>입니다.<br>
+  <span class="gen-b">B · 레거시</span> 화면마다 인라인 하드코딩 hex. 파랑 <code>#2563eb</code>,
+  인디고 <code>#4f46e5</code>, 토스블루 <code>#3182F6</code>, 슬레이트 회색이 뒤섞여 있고
+  라운드도 8/12/14/16/18/20px 이 공존합니다. 문제풀이·AI학습·커리큘럼이 여기 해당.<br>
+  사용자 선호는 <b>무채색(A)</b> 이므로, 리디자인 방향은 B → A 흡수입니다.
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     1. 앱 골격
+     ══════════════════════════════════════════════════════════ -->
+<section class="mock-sec">
+  <h2>01 · 앱 골격 <small>App.jsx — .app-shell / .app-rail / .bottom-nav</small></h2>
+  <p class="note">
+    가로 flex 한 겹. 폭을 고정하지 않습니다(예전엔 600px 로 묶어 데스크톱 좌우가 통째로 비었음).
+    <b>640px 이상 = 좌측 아이콘 레일(72px)</b>, <b>미만 = 하단 탭바(56px)</b>. 둘은 CSS 로만 갈립니다.
+    상단 탭 6개: 홈 · 계획 · AI 학습 · 드릴 · 문제풀이 · 실력.
+    모바일은 390px 에서 5개가 한계라 '드릴'을 빼고 홈 진입으로 보냅니다.
+    계획·실력 탭에는 하위 전환(.sub-nav)이 한 겹 더 붙습니다.
+  </p>
+  <div class="frame frame--desk">
+    <div class="frame-bar"><i></i><i></i><i></i><span>≥ 640px — 좌측 레일</span></div>
+    <div class="frame-body">
+      <div class="app-shell">
+
+        <!-- 좌측 레일 -->
+        <nav class="app-rail" aria-label="주요 화면">
+          <button class="active"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><span class="nav-label">홈</span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg></span><span class="nav-label">계획</span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg></span><span class="nav-label">AI 학습</span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span class="nav-label">드릴</span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg></span><span class="nav-label">문제풀이</span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg></span><span class="nav-label">실력</span></button>
+          <button class="rail-settings"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7.5 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 7.5l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3.6V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span><span class="nav-label">설정</span></button>
+        </nav>
+
+        <!-- 본문 -->
+        <div class="app-main">
+          <div class="app-container">
+            <div class="home-col">
+              <div style="border:1px dashed var(--line-strong);border-radius:12px;padding:40px;text-align:center;color:var(--ink-3);font-size:13px">
+                여기에 각 화면이 들어갑니다 (아래 02~08)
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     2. 홈
+     ══════════════════════════════════════════════════════════ -->
+<section class="mock-sec">
+  <h2>02 · 홈 <span class="gen-a">A · 토큰</span> <small>HomeToday.jsx</small></h2>
+  <p class="note">
+    "그래서 지금 뭘 하지"를 스크롤 없이 답하는 화면. 두 덩이만 남깁니다 —
+    <b>오늘</b>(할 일 하나 + 네 갈래 진입 + 오늘 목표 진행) / <b>현황</b>(과목 점수 + 합격까지의 여정).
+    상세 지표는 「상세 분석 보기」 뒤로 보냅니다.
+    <b>액센트를 쓰는 자리는 딱 셋</b>: ① 지금 할 일의 주 버튼 ② 여정의 '다음 목표' 마커 ③ D-day.
+    인장색(붉은색)은 과락 위험에만, 화면당 하나. 리터럴 색을 쓰지 않고 전부 <code>var()</code> 입니다.
+  </p>
+  <div class="frame frame--desk">
+    <div class="frame-bar"><i></i><i></i><i></i><span>홈 · 데스크톱</span></div>
+    <div class="frame-body">
+      <div class="app-shell">
+        <nav class="app-rail" aria-label="주요 화면">
+          <button class="active"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg></span></button>
+          <button class="rail-settings"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7.5 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 7.5l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3.6V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span></button>
+        </nav>
+        <div class="app-main"><div class="app-container">
+          <div class="home-col">
+
+            <header style="display:flex;align-items:baseline;gap:12px">
+              <h1 style="font-size:var(--text-base);font-weight:var(--weight-bold);color:var(--ink);margin:0">좋은 아침이에요</h1>
+              <div style="margin-left:auto;font-size:var(--text-2xs);color:var(--ink-3)">연속 12일 · 1차 시험 D-183</div>
+            </header>
+
+            <div class="ml">오늘</div>
+
+            <section class="mcard" style="margin-bottom:8px">
+              <div style="padding:18px">
+                <div style="font-size:var(--text-2xs);color:var(--ink-3);margin-bottom:8px">복습 도래 · 경제학원론</div>
+                <div style="font-size:22px;font-weight:var(--weight-bold);color:var(--ink);line-height:1.35;margin-bottom:6px">
+                  탄력성 결정요인 12문항 다시 풀기
+                </div>
+                <div style="font-size:var(--text-sm);color:var(--ink-2);margin-bottom:16px">
+                  지난주에 3번 틀린 논점이에요. 오늘 넘기면 망각 구간에 들어갑니다.
+                </div>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <button style="background:var(--accent);color:var(--ink-invert);border:none;border-radius:var(--radius-md);padding:12px 22px;min-height:var(--touch-min);font-size:var(--text-base);font-weight:var(--weight-bold);cursor:pointer">지금 시작</button>
+                  <span style="font-size:var(--text-sm);color:var(--ink-3)">약 18분</span>
+                </div>
+              </div>
+              <div style="border-top:.5px solid var(--line-2);padding:12px 18px;display:flex;align-items:center;gap:12px">
+                <div style="display:flex;align-items:center;gap:12px;width:100%">
+                  <span style="flex-shrink:0;white-space:nowrap;font-size:var(--text-xs);color:var(--ink-3)">오늘 목표</span>
+                  <div style="flex:1;height:6px;border-radius:var(--radius-pill);background:var(--sunken)">
+                    <div style="width:64%;height:100%;border-radius:var(--radius-pill);background:var(--ink-2)"></div>
+                  </div>
+                  <span class="num" style="flex-shrink:0;white-space:nowrap;font-size:var(--text-sm);color:var(--ink)">32 / 50</span>
+                  <span style="display:inline-flex;gap:4px;flex-shrink:0">
+                    <span class="wk on"></span><span class="wk on"></span><span class="wk on"></span>
+                    <span class="wk off"></span><span class="wk on"></span><span class="wk on"></span><span class="wk td"></span>
+                  </span>
+                </div>
+              </div>
+            </section>
+
+            <div class="home-quick">
+              <button class="mcard qk"><span class="qk-t"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg> AI 학습</span><span class="qk-d">경제학 · 제3관 이어서</span></button>
+              <button class="mcard qk"><span class="qk-t"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg> 드릴</span><span class="qk-d">복습 도래 24장</span></button>
+              <button class="mcard qk"><span class="qk-t"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg> 문제풀이</span><span class="qk-d">오답 41문항</span></button>
+              <button class="mcard qk"><span class="qk-t"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg> 계획</span><span class="qk-d">이번 주 3/6일</span></button>
+            </div>
+
+            <div class="ml">현황</div>
+
+            <section class="mcard" style="padding:16px;margin-bottom:8px">
+              <div style="display:flex;align-items:center;margin-bottom:14px">
+                <div class="ch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg> 과목 현황</div>
+                <div style="margin-left:auto;font-size:var(--text-2xs);color:var(--ink-3)">눈금 = 합격선 60</div>
+              </div>
+              <div class="sr"><span class="sr-n">회계학</span><span class="sr-b"><i style="width:71%"></i><u></u></span><span class="sr-v">71.2</span></div>
+              <div class="sr"><span class="sr-n">경제학원론</span><span class="sr-b"><i style="width:64%"></i><u></u></span><span class="sr-v">64.0</span></div>
+              <div class="sr"><span class="sr-n">민법</span><span class="sr-b"><i style="width:58%"></i><u></u></span><span class="sr-v">58.3</span></div>
+              <div class="sr"><span class="sr-n">부동산학원론</span><span class="sr-b"><i style="width:77%"></i><u></u></span><span class="sr-v">77.5</span></div>
+              <div class="sr danger"><span class="sr-n">감정평가관계법규</span><span class="sr-b"><i style="width:38%"></i><u></u></span><span class="sr-v">38.4</span></div>
+              <div style="margin-top:14px;background:var(--seal-bg);border:.5px solid var(--seal-line);border-radius:var(--radius-md);padding:10px 12px;display:flex;gap:8px;align-items:flex-start">
+                <span style="flex-shrink:0;color:var(--seal)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+                <span style="font-size:var(--text-xs);color:var(--seal-ink);line-height:1.5">
+                  감정평가관계법규가 과락선(40점) 아래입니다. 다른 과목을 올려도 여기서 떨어집니다.
+                </span>
+              </div>
+            </section>
+
+            <section class="mcard" style="padding:16px">
+              <div style="display:flex;align-items:center;margin-bottom:14px">
+                <div class="ch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><circle cx="18" cy="5" r="3"/><path d="M9 19h5a4 4 0 0 0 0-8H10a4 4 0 0 1 0-8h1"/></svg> 합격까지의 여정</div>
+                <div style="margin-left:auto;font-size:var(--text-2xs);color:var(--ink-3)">
+                  다음 1차 시험 <span class="num" style="color:var(--accent-ink)">D-183</span> · <span style="color:var(--ink-3)">편집</span>
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:68px repeat(12,1fr);gap:6px 2px">
+                <div></div>
+                <div class="mo">1</div><div class="mo">2</div><div class="mo">3</div><div class="mo">4</div>
+                <div class="mo">5</div><div class="mo">6</div><div class="mo">7</div><div class="mo">8</div>
+                <div class="mo">9</div><div class="mo">10</div><div class="mo">11</div><div class="mo">12</div>
+
+                <div><div style="font-size:var(--text-sm);color:var(--ink)">2026</div><div style="font-size:var(--text-2xs);color:var(--ink-3)">준비 · 33세</div></div>
+                <div class="jc"></div><div class="jc"></div><div class="jc"></div><div class="jc"></div>
+                <div class="jc"></div><div class="jc"></div><div class="jc"></div>
+                <div class="jc now"></div>
+                <div class="jc"></div><div class="jc"></div><div class="jc"></div><div class="jc"></div>
+
+                <div><div style="font-size:var(--text-sm);color:var(--ink)">2027</div><div style="font-size:var(--text-2xs);color:var(--ink-3)">1차 · 34세</div></div>
+                <div class="jc"></div>
+                <div class="jc"><span class="jl next">1차</span><span class="mk next"></span></div>
+                <div class="jc"></div><div class="jc"></div><div class="jc"></div><div class="jc"></div>
+                <div class="jc"><span class="jl">2차</span><span class="mk pend"></span></div>
+                <div class="jc"></div><div class="jc"></div><div class="jc"></div>
+                <div class="jc"><span class="jl">합격</span><span class="mk pend"></span></div>
+                <div class="jc"></div>
+              </div>
+              <div style="display:flex;gap:16px;margin-top:14px">
+                <span class="lg"><span class="mk pass sm">✓</span> 합격</span>
+                <span class="lg"><span class="mk next sm"></span> 다음 목표</span>
+                <span class="lg"><span class="mk pend sm"></span> 예정</span>
+              </div>
+            </section>
+
+            <div style="text-align:center;margin-top:8px">
+              <button style="background:none;border:none;cursor:pointer;min-height:var(--touch-min);padding:0 12px;font-size:var(--text-sm);color:var(--accent-ink)">상세 분석 보기 →</button>
+            </div>
+
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     3. 문제풀이
+     ══════════════════════════════════════════════════════════ -->
+<section class="mock-sec">
+  <h2>03 · 문제풀이 <span class="gen-b">B · 레거시</span> <small>App.jsx · QuizMode.jsx — .browse-list / .opt-btn / .result-box</small></h2>
+  <p class="note">
+    단원 트리를 <b>한 겹씩 파고드는 목록</b>(.browse-row: 제목 + 진도 막대 + 문항수 + 셰브론)으로 내려가다가
+    말단에서 문항 카드가 뜹니다. 카드는 흰 배경 + 12px 라운드 + 옅은 그림자, 보기는 원형 번호 배지가 붙은
+    풀폭 버튼. 채점하면 정답은 파랑(#eff6ff/#93c5fd), 오답은 빨강(#fef2f2/#fca5a5)으로 칠하고
+    해설 박스(.result-box)가 좌측 4px 컬러 바와 함께 열립니다.
+    해설 아래에 <b>셀프진단(안다/애매/모른다)</b>, 계산 과목이면 <b>검산 기록</b>, 오답이면 <b>원인 태그</b>가 이어집니다.
+  </p>
+  <div class="frame frame--desk">
+    <div class="frame-bar"><i></i><i></i><i></i><span>문제풀이 · 목록 → 문항</span></div>
+    <div class="frame-body">
+      <div class="app-shell">
+        <nav class="app-rail">
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span></button>
+          <button class="active"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg></span></button>
+          <button class="rail-settings"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7.5 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 7.5l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3.6V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span></button>
+        </nav>
+        <div class="app-main"><div class="app-container">
+
+          <div class="screen-head"><h1 class="screen-title">🧭 문제풀이</h1></div>
+          <main class="main-content">
+
+            <div class="browse-list" style="margin-bottom:24px">
+              <button class="browse-row browse-row--all">
+                <div class="browse-row__main"><div class="browse-row__title">전체 문항 풀기</div></div>
+                <div class="browse-row__meta"><span class="browse-row__count">2,412문항</span><span class="browse-row__chev">›</span></div>
+              </button>
+              <button class="browse-row">
+                <div class="browse-row__main">
+                  <div class="browse-row__title"><span class="browse-row__prefix">M03</span>&nbsp;수요·공급 이론</div>
+                  <div class="browse-row__bar"><div style="width:72%"></div></div>
+                </div>
+                <div class="browse-row__meta"><span class="browse-row__pct">72%</span><span class="browse-row__count">318문항</span><span class="browse-row__chev">›</span></div>
+              </button>
+              <button class="browse-row">
+                <div class="browse-row__main">
+                  <div class="browse-row__title"><span class="browse-row__prefix">M04</span>&nbsp;탄력성</div>
+                  <div class="browse-row__bar"><div style="width:41%"></div></div>
+                </div>
+                <div class="browse-row__meta"><span class="browse-row__pct">41%</span><span class="browse-row__count">204문항</span><span class="browse-row__chev">›</span></div>
+              </button>
+              <button class="browse-row">
+                <div class="browse-row__main">
+                  <div class="browse-row__title"><span class="browse-row__prefix">M05</span>&nbsp;소비자 이론</div>
+                  <div class="browse-row__bar"><div style="width:8%"></div></div>
+                </div>
+                <div class="browse-row__meta"><span class="browse-row__pct">8%</span><span class="browse-row__count">276문항</span><span class="browse-row__chev">›</span></div>
+              </button>
+            </div>
+
+            <!-- 문항 카드 -->
+            <div style="background:#fff;border-radius:12px;padding:24px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.05)">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:8px">
+                <span style="display:flex;align-items:center;gap:8px">
+                  <span style="font-weight:700;font-size:1.125rem;color:#2563eb">Q. 14</span>
+                  <span style="font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:999px;background:#fef3c7;color:#b45309">보통</span>
+                </span>
+                <span style="display:flex;align-items:center;gap:10px">
+                  <span style="font-size:.875rem;color:#9ca3af">감정평가사 1차 2025년 14번</span>
+                  <span style="font-size:1.2rem;color:#d1d5db">☆</span>
+                </span>
+              </div>
+
+              <h3 class="q-text" style="line-height:1.6;margin-bottom:20px;font-weight:600">
+                수요의 가격탄력성에 관한 설명으로 옳지 <b>않은</b> 것은? (단, 다른 조건은 일정하다고 가정한다)
+              </h3>
+
+              <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+                <button class="opt-btn" style="background:#fff;border-color:#e5e7eb" disabled>
+                  <span class="badge">1</span>
+                  <span class="q-opt" style="line-height:1.5;color:#1f2937">대체재가 많을수록 수요의 가격탄력성은 커진다.</span>
+                </button>
+                <button class="opt-btn opt-correct" style="background:#eff6ff;border-color:#93c5fd" disabled>
+                  <span class="badge on">✓</span>
+                  <span class="q-opt" style="line-height:1.5;color:#1f2937">수요의 가격탄력성이 1보다 크면 가격을 인상할 때 총수입은 증가한다.</span>
+                </button>
+                <button class="opt-btn opt-wrong" style="background:#fef2f2;border-color:#fca5a5" disabled>
+                  <span class="badge bad">✕</span>
+                  <span class="q-opt" style="line-height:1.5;color:#1f2937">측정 기간이 길어질수록 수요는 더 탄력적이 된다.</span>
+                </button>
+                <button class="opt-btn" style="background:#fff;border-color:#e5e7eb" disabled>
+                  <span class="badge">4</span>
+                  <span class="q-opt" style="line-height:1.5;color:#1f2937">사치재는 필수재보다 수요의 가격탄력성이 크다.</span>
+                </button>
+                <button class="opt-btn" style="background:#fff;border-color:#e5e7eb" disabled>
+                  <span class="badge">5</span>
+                  <span class="q-opt" style="line-height:1.5;color:#1f2937">소득에서 차지하는 지출 비중이 클수록 탄력적이다.</span>
+                </button>
+              </div>
+
+              <div class="result-box" style="padding:16px;background:#f3f4f6;border-radius:8px;border-left:4px solid #ef4444">
+                <div style="font-weight:700;margin-bottom:8px;font-size:.95rem;display:flex;justify-content:space-between;align-items:center;gap:8px">
+                  <span style="display:inline-flex;align-items:center;gap:6px">해설 <span style="font-size:.72rem;color:#6b7280;border:1px solid #e5e7eb;background:#fff;border-radius:4px;padding:2px 6px">🔊 듣기</span></span>
+                  <span style="color:#ef4444">✕ 오답입니다.</span>
+                </div>
+                <div class="q-exp" style="line-height:1.6;color:#4b5563">
+                  탄력적(ε&gt;1)인 재화는 가격을 올리면 수요량이 더 큰 폭으로 줄어 <b>총수입이 감소</b>합니다.
+                  총수입이 증가하는 것은 비탄력적(ε&lt;1)일 때입니다. ③은 옳은 설명 — 장기에는 대체재를 찾을 시간이 생기므로 탄력성이 커집니다.
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap">
+                  <span style="font-size:.74rem;color:#6b7280">정말 알았나요?</span>
+                  <span class="cf">😀 안다</span><span class="cf on">🤔 애매</span><span class="cf">😵 모른다</span>
+                </div>
+                <div style="margin-top:10px;padding:8px 10px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px">
+                  <div style="font-size:.74rem;color:#9a3412;margin-bottom:6px">🧮 <b>다른 방식으로 검산</b>했나요? (역연산·괄호계산)</div>
+                  <div style="display:flex;gap:6px">
+                    <span style="flex:1;padding:6px;border-radius:6px;border:1px solid #fdba74;background:#fff;color:#c2410c;font-weight:700;font-size:.76rem;text-align:center">검산함</span>
+                    <span style="flex:1;padding:6px;border-radius:6px;background:#ea580c;color:#fff;font-weight:700;font-size:.76rem;text-align:center">실수 잡음</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </main>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     4. AI 학습 홈
+     ══════════════════════════════════════════════════════════ -->
+<section class="mock-sec">
+  <h2>04 · AI 학습 — 과목 선택 <span class="gen-b">B · 레거시(TOSS 팔레트)</span> <small>AILearning.jsx</small></h2>
+  <p class="note">
+    앱의 중심 화면. 토스 스타일 팔레트(<code>#3182F6</code> 블루, <code>#191F28</code> 잉크,
+    <code>#8B95A1</code> 보조, 20px 라운드, 그림자 <code>0 2px 8px rgba(0,23,51,.06)</code>)를 씁니다.
+    상단에 <b>이어서 학습</b> 파란 히어로 카드, 그 아래 <b>1차(5과목) / 2차(4과목)</b> 섹션으로 나뉜 3열 카드 그리드.
+    카드 = 단계 칩 · 과목명 · 부제 · 아이콘 · 진도 막대 · 마스터 수 · (복습/약점 배지) · 하단 분야 칩.
+  </p>
+  <div class="frame frame--desk">
+    <div class="frame-bar"><i></i><i></i><i></i><span>AI 학습 · 과목 선택</span></div>
+    <div class="frame-body" style="background:#F2F4F6">
+      <div class="app-shell" style="background:#F2F4F6">
+        <nav class="app-rail">
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg></span></button>
+          <button class="active"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg></span></button>
+          <button class="rail-settings"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7.5 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 7.5l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3.6V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span></button>
+        </nav>
+        <div class="app-main" style="padding:8px 18px 32px">
+
+          <button style="width:100%;text-align:left;padding:18px;background:#3182F6;border:none;border-radius:20px;margin-bottom:18px;box-shadow:0 6px 16px rgba(49,130,246,.28)">
+            <div style="font-size:.78rem;color:rgba(255,255,255,.85);font-weight:700;margin-bottom:6px">▶ 이어서 학습 · 경제학</div>
+            <div style="font-size:1.15rem;font-weight:800;color:#fff;letter-spacing:-.01em">제3관 수요의 가격탄력성</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.8);margin-top:4px">경제학원론 › M04 탄력성</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.92);margin-top:10px;font-weight:600">대화 34건 · 진척 62%</div>
+          </button>
+
+          <div style="margin-bottom:18px">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+              <div style="font-size:1rem;color:#191F28;font-weight:800">📖 1차 시험 — 객관식 5지선다</div>
+              <span style="font-size:.82rem;color:#8B95A1;font-weight:600">5과목</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:14px;column-gap:12px;align-items:stretch">
+
+              <div class="tcard">
+                <div class="tcard-b">
+                  <div><span class="tchip">1차</span></div>
+                  <div class="tcard-h"><div><div class="tcard-t">회계학</div><div class="tcard-s">재무회계 · 원가관리회계</div></div><span class="tcard-i">▣</span></div>
+                  <div><div class="tbar"><div style="width:71%"></div></div><div class="tmeta"><span>71%</span><span>마스터 48</span></div></div>
+                  <div class="talert">🔁 복습 12</div>
+                </div>
+                <div class="tdiv"><span class="tc">재무회계</span><span class="tc">원가관리</span></div>
+              </div>
+
+              <div class="tcard">
+                <div class="tcard-b">
+                  <div><span class="tchip">1차</span></div>
+                  <div class="tcard-h"><div><div class="tcard-t">경제학</div><div class="tcard-s">경제학원론</div></div><span class="tcard-i">◈</span></div>
+                  <div><div class="tbar"><div style="width:62%"></div></div><div class="tmeta"><span>62%</span><span>마스터 137</span></div></div>
+                  <div class="talert">🔁 복습 24 <span>⚠️ 약점 6</span></div>
+                </div>
+                <div class="tdiv"><span class="tc">미시경제</span><span class="tc">거시경제</span></div>
+              </div>
+
+              <div class="tcard">
+                <div class="tcard-b">
+                  <div><span class="tchip">1차</span></div>
+                  <div class="tcard-h"><div><div class="tcard-t">민법</div><div class="tcard-s">민법총칙 · 물권법</div></div><span class="tcard-i">§</span></div>
+                  <div><div class="tbar"><div style="width:45%"></div></div><div class="tmeta"><span>45%</span><span>마스터 71</span></div></div>
+                </div>
+                <div class="tdiv"><span class="tc">민법총칙</span><span class="tc">물권법</span></div>
+              </div>
+
+              <div class="tcard">
+                <div class="tcard-b">
+                  <div><span class="tchip">1차</span></div>
+                  <div class="tcard-h"><div><div class="tcard-t">부동산학</div><div class="tcard-s">부동산학원론</div></div><span class="tcard-i">⌂</span></div>
+                  <div><div class="tbar"><div style="width:78%"></div></div><div class="tmeta"><span>78%</span><span>마스터 79</span></div></div>
+                </div>
+                <div class="tsingle"><span class="tc">부동산학원론</span></div>
+              </div>
+
+              <div class="tcard">
+                <div class="tcard-b">
+                  <div><span class="tchip">1차</span></div>
+                  <div class="tcard-h"><div><div class="tcard-t">관계법규</div><div class="tcard-s">감정평가관계법규</div></div><span class="tcard-i">⚖</span></div>
+                  <div><div class="tbar"><div style="width:22%"></div></div><div class="tmeta"><span>22%</span><span>마스터 12</span></div></div>
+                  <div class="talert"><span>⚠️ 약점 19</span></div>
+                </div>
+                <div class="tsingle"><span class="tc">감정평가관계법규</span></div>
+              </div>
+
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+              <div style="font-size:1rem;color:#191F28;font-weight:800">✎ 2차 시험 — 서술형·답안 작성</div>
+              <span style="font-size:.82rem;color:#8B95A1;font-weight:600">4과목</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:14px;column-gap:12px;align-items:stretch">
+              <div class="tcard">
+                <div class="tcard-b">
+                  <div><span class="tchip p2">2차</span></div>
+                  <div class="tcard-h"><div><div class="tcard-t">감정평가실무</div><div class="tcard-s">153논점</div></div><span class="tcard-i">✎</span></div>
+                  <div><div class="tbar"><div style="width:31%;background:#7C3AED"></div></div><div class="tmeta"><span>31%</span><span>답안 18</span></div></div>
+                </div>
+                <div class="tsingle"><span class="tc p2">감정평가실무</span></div>
+              </div>
+              <div class="tcard">
+                <div class="tcard-b">
+                  <div><span class="tchip p2">2차</span></div>
+                  <div class="tcard-h"><div><div class="tcard-t">감정평가이론</div><div class="tcard-s">149논점</div></div><span class="tcard-i">✎</span></div>
+                  <div><div class="tbar"><div style="width:12%;background:#7C3AED"></div></div><div class="tmeta"><span>12%</span><span>답안 6</span></div></div>
+                </div>
+                <div class="tsingle"><span class="tc p2">감정평가이론</span></div>
+              </div>
+              <div class="tcard">
+                <div class="tcard-b">
+                  <div><span class="tchip p2">2차</span></div>
+                  <div class="tcard-h"><div><div class="tcard-t">감정평가법규</div><div class="tcard-s">56관</div></div><span class="tcard-i">⚖</span></div>
+                  <div><div class="tbar"><div style="width:4%;background:#7C3AED"></div></div><div class="tmeta"><span>4%</span><span>답안 2</span></div></div>
+                </div>
+                <div class="tsingle"><span class="tc p2">감정평가 및 보상법규</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     5. AI 학습 3단
+     ══════════════════════════════════════════════════════════ -->
+<section class="mock-sec">
+  <h2>05 · AI 학습 — 3단 학습 화면 <span class="gen-b">B · 레거시</span> <small>AILearning.jsx — 앱에서 가장 복잡한 화면</small></h2>
+  <p class="note">
+    데스크톱(≥1024px)에서 <code>340px | 1fr | clamp(360px,30vw,520px)</code> 3단 그리드, 높이는
+    <code>calc(100dvh - 64px)</code> 로 고정하고 각 컬럼이 독립 스크롤합니다.
+    <b>좌 = 단원 트리</b>(관/절 단위 leaf, 숙련도 막대와 복습 도래 배지 포함) ·
+    <b>중 = AI 튜터 채팅</b>(사용자 말풍선 인디고 #4f46e5 / AI 말풍선 회색 #f3f4f6, 폭 78% vs 98%) ·
+    <b>우 = 교재 원문</b>(직접 저술한 수험 교재 마크다운. 표·수식(KaTeX)·SVG 그래프·형광펜 강조 렌더).
+    모바일에서는 세로 1단으로 접히고 트리·교재는 시트로 열립니다.
+  </p>
+  <div class="frame frame--desk">
+    <div class="frame-bar"><i></i><i></i><i></i><span>AI 학습 · 3단 (트리 | 채팅 | 교재)</span></div>
+    <div class="frame-body">
+      <div class="app-shell">
+        <nav class="app-rail">
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg></span></button>
+          <button class="active"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg></span></button>
+          <button class="rail-settings"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7.5 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 7.5l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3.6V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span></button>
+        </nav>
+        <div class="app-main">
+          <div style="display:grid;grid-template-columns:340px minmax(0,1fr) clamp(360px,30vw,520px);height:640px;background:#fff">
+
+            <!-- 좌: 단원 트리 -->
+            <aside style="border-right:1px solid #e5e7eb;background:#fafafa;display:flex;flex-direction:column;overflow:hidden">
+              <div style="padding:10px 12px;border-bottom:1px solid #e5e7eb;background:#fff;display:flex;align-items:center;justify-content:space-between">
+                <div>
+                  <div style="font-weight:800;font-size:.88rem;color:#111827">📂 경제학원론</div>
+                  <div style="font-size:.72rem;color:#3182F6;font-weight:700;margin-top:2px">미시경제 범위</div>
+                </div>
+                <span style="background:#E8F1FE;color:#3182F6;font-size:.72rem;font-weight:800;padding:4px 9px;border-radius:999px">전체 보기</span>
+              </div>
+              <div style="flex:1;overflow-y:auto;padding:8px">
+                <div class="lf-sec">M03 수요·공급 이론</div>
+                <div class="lf"><span class="lf-t">제1관 수요곡선</span><span class="lf-b"><i style="width:100%"></i></span><span class="lf-p">M</span></div>
+                <div class="lf"><span class="lf-t">제2관 공급곡선</span><span class="lf-b"><i style="width:84%"></i></span></div>
+                <div class="lf"><span class="lf-t">제3관 시장균형</span><span class="lf-b"><i style="width:56%"></i></span><span class="lf-d">6</span></div>
+                <div class="lf-sec">M04 탄력성</div>
+                <div class="lf on"><span class="lf-t">제1관 수요의 가격탄력성</span><span class="lf-b"><i style="width:62%"></i></span><span class="lf-d">3</span></div>
+                <div class="lf"><span class="lf-t">제2관 탄력성 결정요인</span><span class="lf-b"><i style="width:20%"></i></span></div>
+                <div class="lf"><span class="lf-t">제3관 공급의 가격탄력성</span><span class="lf-b"><i style="width:0%"></i></span></div>
+                <div class="lf"><span class="lf-t">제4관 소득·교차탄력성</span><span class="lf-b"><i style="width:0%"></i></span></div>
+                <div class="lf-sec">M05 소비자 이론</div>
+                <div class="lf"><span class="lf-t">제1관 효용함수</span><span class="lf-b"><i style="width:0%"></i></span></div>
+                <div class="lf"><span class="lf-t">제2관 무차별곡선</span><span class="lf-b"><i style="width:0%"></i></span></div>
+              </div>
+            </aside>
+
+            <!-- 중: 채팅 -->
+            <section style="display:flex;flex-direction:column;min-height:0;border-right:1px solid #e5e7eb">
+              <div class="top-nav" style="min-height:52px;gap:8px;padding:0 14px">
+                <div style="min-width:0">
+                  <div style="font-weight:800;font-size:.9rem;color:#111827">제1관 수요의 가격탄력성</div>
+                  <div style="font-size:.7rem;color:#9ca3af">경제학원론 › M04 탄력성 · 진척 62%</div>
+                </div>
+                <div style="margin-left:auto;display:flex;gap:2px;align-items:center">
+                  <span class="mode on">이론</span><span class="mode">심화</span><span class="mode">진단</span><span class="mode">암기</span>
+                  <span style="background:#eef2ff;color:#4f46e5;padding:4px 8px;border-radius:8px;font-size:.76rem;font-weight:800;margin-left:6px">교재</span>
+                </div>
+              </div>
+              <div style="flex:1;overflow-y:auto;padding:14px 16px;min-height:0">
+
+                <div style="display:flex;justify-content:flex-end;margin:8px 0">
+                  <div style="max-width:78%;padding:12px 16px;border-radius:14px;background:#4f46e5;color:#fff;font-size:.95rem;line-height:1.6">
+                    탄력성이 1보다 클 때 총수입이 어떻게 되는지 헷갈려요
+                  </div>
+                </div>
+
+                <div style="display:flex;justify-content:flex-start;margin:8px 0">
+                  <div style="max-width:98%;display:flex;flex-direction:column">
+                    <div style="padding:12px 16px;border-radius:14px;background:#f3f4f6;color:#111827;font-size:.95rem;line-height:1.6">
+                      한 문장으로 잡아 둡시다. <span class="hl">가격과 총수입은 <b>비탄력적일 때만 같은 방향</b>으로 움직입니다.</span><br><br>
+                      ε &gt; 1 (탄력적) → 가격 ↑ 이면 수요량이 더 크게 ↓ → <b>총수입 감소</b><br>
+                      ε &lt; 1 (비탄력적) → 가격 ↑ 이면 수요량이 조금 ↓ → <b>총수입 증가</b><br>
+                      ε = 1 (단위탄력적) → 총수입 <b>불변</b> (극대점)<br><br>
+                      확인 문제 하나. 어떤 재화의 ε = 2.5 일 때 가격을 10% 인상하면 총수입은?
+                    </div>
+                    <div class="ai-msg-actions" style="display:flex;gap:4px;margin-top:4px;padding-left:4px">
+                      <span class="mb">👍</span><span class="mb">🤔</span><span class="mb">💾</span><span class="mb">🔊</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display:flex;gap:6px;margin:10px 0 0 4px">
+                  <span class="ac">① 증가</span><span class="ac">② 감소</span><span class="ac">③ 불변</span><span class="ac">④ 알 수 없음</span>
+                </div>
+              </div>
+              <div style="border-top:1px solid #e5e7eb;padding:10px 14px;display:flex;gap:8px;align-items:center;background:#fff">
+                <span style="color:#9ca3af;font-size:1.1rem">＋</span>
+                <div style="flex:1;background:#f3f4f6;border-radius:999px;padding:10px 16px;font-size:.9rem;color:#9ca3af">질문을 입력하세요…</div>
+                <span style="background:#4f46e5;color:#fff;width:38px;height:38px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center">↑</span>
+              </div>
+            </section>
+
+            <!-- 우: 교재 원문 -->
+            <aside style="background:#fff;display:flex;flex-direction:column;min-height:0">
+              <div style="padding:10px 14px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between">
+                <div style="font-weight:800;font-size:.85rem;color:#111827">📕 교재 원문</div>
+                <span style="font-size:.72rem;color:#9ca3af">M04 · 제1관</span>
+              </div>
+              <div class="report-prose" style="flex:1;overflow-y:auto;padding:18px 20px;font-size:.9rem;line-height:1.75;color:#1f2937">
+                <h3 style="font-size:1.05rem;font-weight:800;margin:0 0 10px">제1관 수요의 가격탄력성</h3>
+                <p style="margin:0 0 12px"><b>1. 개념</b><br>
+                가격이 1% 변할 때 수요량이 몇 % 변하는가. 부호를 떼고 절댓값으로 쓴다.</p>
+                <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;text-align:center;margin:0 0 14px;font-family:var(--font-serif)">
+                  ε<sub>d</sub> &nbsp;=&nbsp; | (ΔQ/Q) ÷ (ΔP/P) |
+                </div>
+                <p style="margin:0 0 8px"><b>2. 총수입과의 관계</b></p>
+                <div class="md-table-wrap">
+                  <table style="width:100%;border-collapse:collapse;font-size:.84rem">
+                    <thead><tr style="background:#fafafa"><th style="border:1px solid #e5e7eb;padding:7px">구분</th><th style="border:1px solid #e5e7eb;padding:7px">가격 ↑</th><th style="border:1px solid #e5e7eb;padding:7px">가격 ↓</th></tr></thead>
+                    <tbody>
+                      <tr><td style="border:1px solid #e5e7eb;padding:7px">ε &gt; 1</td><td style="border:1px solid #e5e7eb;padding:7px">총수입 ↓</td><td style="border:1px solid #e5e7eb;padding:7px">총수입 ↑</td></tr>
+                      <tr><td style="border:1px solid #e5e7eb;padding:7px">ε = 1</td><td style="border:1px solid #e5e7eb;padding:7px">불변</td><td style="border:1px solid #e5e7eb;padding:7px">불변</td></tr>
+                      <tr><td style="border:1px solid #e5e7eb;padding:7px">ε &lt; 1</td><td style="border:1px solid #e5e7eb;padding:7px">총수입 ↑</td><td style="border:1px solid #e5e7eb;padding:7px">총수입 ↓</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p style="margin:14px 0 6px"><b>3. 그래프</b> — 선형 수요곡선 위의 탄력성 변화</p>
+                <svg viewBox="0 0 260 170" style="width:100%;background:#fff;border:1px solid #e5e7eb;border-radius:8px">
+                  <line x1="34" y1="14" x2="34" y2="140" stroke="#111827" stroke-width="1.2"/>
+                  <line x1="34" y1="140" x2="240" y2="140" stroke="#111827" stroke-width="1.2"/>
+                  <line x1="44" y1="22" x2="212" y2="134" stroke="#4f46e5" stroke-width="1.8"/>
+                  <circle cx="128" cy="78" r="3.4" fill="#4f46e5"/>
+                  <line x1="34" y1="78" x2="128" y2="78" stroke="#9ca3af" stroke-dasharray="3 3"/>
+                  <line x1="128" y1="78" x2="128" y2="140" stroke="#9ca3af" stroke-dasharray="3 3"/>
+                  <text x="60" y="42" font-size="9" fill="#6b7280">ε &gt; 1</text>
+                  <text x="136" y="72" font-size="9" fill="#4f46e5">ε = 1</text>
+                  <text x="182" y="126" font-size="9" fill="#6b7280">ε &lt; 1</text>
+                  <text x="14" y="20" font-size="9" fill="#111827">P</text>
+                  <text x="244" y="144" font-size="9" fill="#111827">Q</text>
+                </svg>
+                <div style="margin-top:14px;background:#fffbeb;border-left:3px solid #f59e0b;padding:10px 12px;border-radius:0 6px 6px 0;font-size:.84rem">
+                  <b>기출 분석</b> · 2019·2022·2025 3회 출제. 전부 "총수입 방향" 함정으로 나왔습니다.
+                </div>
+              </div>
+            </aside>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     6. 커리큘럼
+     ══════════════════════════════════════════════════════════ -->
+<section class="mock-sec">
+  <h2>06 · 계획 — 커리큘럼 <span class="gen-b">B · 레거시</span> <small>Curriculum.jsx — .curr-2col</small></h2>
+  <p class="note">
+    ≥920px 에서 <code>minmax(320px,360px) 1fr</code> 2단, 좌측이 sticky. 상단은 전폭으로
+    <b>월별 학습 플랜(간트)</b> + 과목 필터 칩. 좌측은 <b>오늘의 계획</b>(그라디언트 히어로 + 체크리스트),
+    우측은 <b>학습 달력</b> · <b>오늘의 학습 루틴</b>(앱 어느 기능으로 갈지 경로 안내) · 회독 목표.
+    이 화면이 색이 가장 시끄럽습니다 — 파란 그라디언트 히어로, 노랑 알림 칩, 보라 2차 배지가 한 화면에 공존.
+  </p>
+  <div class="frame frame--desk">
+    <div class="frame-bar"><i></i><i></i><i></i><span>계획 · 커리큘럼</span></div>
+    <div class="frame-body">
+      <div class="app-shell">
+        <nav class="app-rail">
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span></button>
+          <button class="active"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg></span></button>
+          <button class="rail-settings"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7.5 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 7.5l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3.6V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span></button>
+        </nav>
+        <div class="app-main"><div class="app-container">
+
+          <div class="sub-nav" role="tablist">
+            <button>플래너</button><button class="active">커리큘럼</button>
+          </div>
+          <div class="screen-head" style="padding:0 4px"><h1 class="screen-title">🎓 합격 커리큘럼</h1></div>
+          <main class="main-content" style="margin-top:16px">
+
+            <div style="display:flex;align-items:center;margin:0 4px 8px;gap:8px">
+              <span style="font-size:.86rem;font-weight:800;color:#1e293b">📅 월별 학습 플랜</span>
+              <span style="font-size:.64rem;color:#94a3b8">이 앱으로 합격하는</span>
+              <span style="margin-left:auto;font-size:.64rem;font-weight:800;border-radius:999px;padding:4px 10px;border:1px solid #e5e7eb;background:#fff;color:#94a3b8">🎯 목표점수 ▾</span>
+            </div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+              <span class="gc on">▣ 회계</span><span class="gc">◈ 경제</span><span class="gc">§ 민법</span>
+              <span class="gc">⌂ 부동산</span><span class="gc">⚖ 법규</span>
+            </div>
+
+            <section style="background:#fff;border:1px solid #eceff3;border-radius:16px;box-shadow:var(--shadow-md);padding:15px;margin-bottom:14px">
+              <div class="gantt">
+                <div class="gantt-h"><span></span><span>1월</span><span>2월</span><span>3월</span><span>4월</span><span>5월</span><span>6월</span><span>7월</span><span>8월</span><span>9월</span><span>10월</span><span>11월</span><span>12월</span></div>
+                <div class="gantt-r"><span class="gl">1회독</span><b style="grid-column:2 / span 4"></b></div>
+                <div class="gantt-r"><span class="gl">2회독</span><b style="grid-column:5 / span 3;background:#60a5fa"></b></div>
+                <div class="gantt-r"><span class="gl">기출 3회독</span><b style="grid-column:8 / span 3;background:#818cf8"></b></div>
+                <div class="gantt-r"><span class="gl">모의·마무리</span><b style="grid-column:11 / span 2;background:#a78bfa"></b></div>
+              </div>
+            </section>
+
+            <div class="curr-2col">
+              <div class="curr-left">
+                <section style="background:#fff;border-radius:16px;box-shadow:var(--shadow-md);padding:16px;margin-bottom:14px">
+                  <div style="border-radius:14px;padding:16px;background:#2563eb;color:#fff;margin-bottom:14px">
+                    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                      <span style="font-weight:800;font-size:1rem">⭐ 오늘의 계획</span>
+                      <span style="font-size:.64rem;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 9px;font-weight:700">2회독 심화기</span>
+                      <span style="margin-left:auto;font-size:.72rem;font-weight:700">화요일 · 6시간</span>
+                    </div>
+                    <div style="font-size:.64rem;opacity:.92;margin-top:7px;display:flex;gap:8px;flex-wrap:wrap">
+                      <span style="background:rgba(255,255,255,.16);border-radius:999px;padding:2px 8px;font-weight:700">📊 내 학습기록 반영</span>
+                      <span style="background:rgba(253,230,138,.28);border-radius:999px;padding:2px 8px;font-weight:800">🔔 복습 24개 도래</span>
+                    </div>
+                    <div style="margin-top:12px">
+                      <div style="display:flex;justify-content:space-between;font-size:.72rem;font-weight:700;margin-bottom:5px;opacity:.95"><span>완료 2 / 5</span><span>40%</span></div>
+                      <div style="height:6px;background:rgba(255,255,255,.25);border-radius:999px"><div style="width:40%;height:100%;background:#fff;border-radius:999px"></div></div>
+                    </div>
+                  </div>
+                  <div class="tk done"><span class="tk-c">✓</span><div><b>경제학</b> M04 탄력성 — AI 학습 1사이클<span class="tk-m">50분 · AI 학습</span></div></div>
+                  <div class="tk done"><span class="tk-c">✓</span><div><b>회계학</b> 원가배분 표 채우기 12개<span class="tk-m">35분 · 연습</span></div></div>
+                  <div class="tk"><span class="tk-c"></span><div><b>법규</b> 토지보상법 제61~70조 정독<span class="tk-m">60분 · 교재</span></div></div>
+                  <div class="tk"><span class="tk-c"></span><div><b>민법</b> 기출 2023년 40문항<span class="tk-m">45분 · 문제풀이</span></div></div>
+                  <div class="tk"><span class="tk-c"></span><div>복습 도래 24장 드릴<span class="tk-m">20분 · 드릴</span></div></div>
+                </section>
+              </div>
+
+              <div class="curr-right">
+                <section style="background:#fff;border:1px solid #eceff3;border-radius:16px;box-shadow:var(--shadow-md);margin-bottom:14px;padding:15px">
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+                    <span style="font-size:.86rem;font-weight:800;color:#1e293b">📅 2026년 8월</span>
+                    <span style="margin-left:auto;font-size:.64rem;color:#94a3b8;font-weight:700">회독 목표 3회</span>
+                  </div>
+                  <div class="cal">
+                    <span class="cal-d">일</span><span class="cal-d">월</span><span class="cal-d">화</span><span class="cal-d">수</span><span class="cal-d">목</span><span class="cal-d">금</span><span class="cal-d">토</span>
+                    <span class="cal-c off"></span><span class="cal-c off"></span><span class="cal-c off"></span><span class="cal-c off"></span><span class="cal-c off"></span><span class="cal-c">1</span><span class="cal-c f">2</span>
+                    <span class="cal-c f">3</span><span class="cal-c f">4</span><span class="cal-c f">5</span><span class="cal-c">6</span><span class="cal-c f">7</span><span class="cal-c f">8</span><span class="cal-c f">9</span>
+                    <span class="cal-c f">10</span><span class="cal-c">11</span><span class="cal-c f">12</span><span class="cal-c f">13</span><span class="cal-c f">14</span><span class="cal-c f">15</span><span class="cal-c f">16</span>
+                    <span class="cal-c f">17</span><span class="cal-c f">18</span><span class="cal-c f">19</span><span class="cal-c f">20</span><span class="cal-c f">21</span><span class="cal-c f">22</span><span class="cal-c f">23</span>
+                    <span class="cal-c f">24</span><span class="cal-c f">25</span><span class="cal-c f">26</span><span class="cal-c f">27</span><span class="cal-c today">28</span><span class="cal-c">29</span><span class="cal-c">30</span>
+                    <span class="cal-c">31</span>
+                  </div>
+                </section>
+
+                <section style="background:#fff;border:1px solid #eceff3;border-radius:16px;box-shadow:var(--shadow-md);margin-bottom:14px;padding:15px">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <span style="font-size:.86rem;font-weight:800;color:#1e293b">🔀 오늘의 학습 루틴</span>
+                    <span style="font-size:.64rem;color:#94a3b8;font-weight:700">앱에서 순서대로</span>
+                  </div>
+                  <div style="font-size:.72rem;color:#94a3b8;margin:4px 0 12px;line-height:1.5">
+                    AI 학습의 실제 기능(이론·심화·진단·암기시트 등)으로 단계를 안내합니다 ·
+                    <b style="color:#475569">회독이 오를수록 스텝·학습량이 늘어납니다</b>
+                  </div>
+                  <div class="rt"><span class="rt-n">1</span><div><b>교재 정독</b> — AI 학습 › 경제학 › M04<span class="rt-m">이론 모드 · 25분</span></div></div>
+                  <div class="rt"><span class="rt-n">2</span><div><b>AI 1사이클</b> — 개념→비유→확인문제→피드백<span class="rt-m">심화 모드 · 20분</span></div></div>
+                  <div class="rt"><span class="rt-n">3</span><div><b>기출 확인</b> — 문제풀이 › M04 탄력성<span class="rt-m">12문항 · 15분</span></div></div>
+                  <div class="rt"><span class="rt-n">4</span><div><b>암기 드릴</b> — 오늘 만든 카드 + 복습 도래<span class="rt-m">24장 · 10분</span></div></div>
+                </section>
+              </div>
+            </div>
+
+          </main>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     7. 드릴
+     ══════════════════════════════════════════════════════════ -->
+<section class="mock-sec">
+  <h2>07 · 드릴 (암기) <span class="gen-a">A · 토큰 근접</span> <small>DailyDrill.jsx / MnemonicDeck.jsx — .mem-* 계열</small></h2>
+  <p class="note">
+    SRS(간격 반복) 카드. 한 화면에 <b>카드 하나</b>만 두고 나머지를 비웁니다. 답을 가린 뒤
+    <b>자가 채점 4단계</b>(다시 / 어려움 / 보통 / 쉬움)로 다음 간격을 정합니다.
+    상단에 세션 진행 점(.mem-dots), 하단에 연속일·히트맵. 색은 거의 무채색이고
+    정/오답 신호에만 <code>--correct</code>/<code>--wrong</code> 을 씁니다.
+  </p>
+  <div class="frame frame--desk">
+    <div class="frame-bar"><i></i><i></i><i></i><span>드릴 · 카드</span></div>
+    <div class="frame-body">
+      <div class="app-shell">
+        <nav class="app-rail">
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg></span></button>
+          <button class="active"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg></span></button>
+          <button class="rail-settings"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7.5 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 7.5l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3.6V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span></button>
+        </nav>
+        <div class="app-main">
+          <div style="max-width:680px;margin:0 auto;padding:24px 20px 40px">
+
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+              <span style="font-size:var(--text-2xs);color:var(--ink-3);letter-spacing:.12em;font-weight:700">오늘의 드릴</span>
+              <span style="margin-left:auto;font-size:var(--text-xs);color:var(--ink-3)" class="num">7 / 24</span>
+            </div>
+            <div style="display:flex;gap:3px;margin-bottom:22px">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span>
+              <span class="dot on"></span><span class="dot on"></span><span class="dot cur"></span>
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+
+            <div style="background:var(--sheet);border:.5px solid var(--line);border-radius:var(--radius-lg);padding:32px 28px;box-shadow:var(--shadow-sheet)">
+              <div style="font-size:var(--text-2xs);color:var(--ink-3);margin-bottom:14px">감정평가관계법규 › 토지보상법 › 제3관 손실보상</div>
+              <div style="font-size:20px;font-weight:var(--weight-bold);color:var(--ink);line-height:1.5;margin-bottom:24px">
+                잔여지 수용청구의 요건 3가지는?
+              </div>
+              <div style="border-top:.5px solid var(--line-2);padding-top:20px">
+                <div style="font-size:var(--text-2xs);color:var(--ink-3);margin-bottom:8px">정답</div>
+                <ol style="margin:0;padding-left:18px;font-size:var(--text-base);color:var(--ink);line-height:1.9">
+                  <li>동일한 소유자에게 속할 것</li>
+                  <li>일단의 토지 일부가 협의·수용될 것</li>
+                  <li>잔여지를 <span class="hl">종래의 목적에 사용하는 것이 현저히 곤란</span>할 것</li>
+                </ol>
+                <div style="margin-top:14px;font-size:var(--text-xs);color:var(--ink-3);line-height:1.6">
+                  근거: 토지보상법 제74조 제1항 · 사업완료일까지 청구
+                </div>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px">
+              <button class="gr"><b>다시</b><span>1분</span></button>
+              <button class="gr"><b>어려움</b><span>10분</span></button>
+              <button class="gr"><b>보통</b><span>3일</span></button>
+              <button class="gr"><b>쉬움</b><span>10일</span></button>
+            </div>
+            <div style="text-align:center;margin-top:10px;font-size:var(--text-2xs);color:var(--ink-4)">
+              키보드 1 · 2 · 3 · 4 로도 채점됩니다
+            </div>
+
+            <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div style="background:var(--sheet);border:.5px solid var(--line);border-radius:var(--radius-lg);padding:16px">
+                <div style="font-size:var(--text-2xs);color:var(--ink-3);margin-bottom:8px">연속 학습</div>
+                <div style="font-size:28px;font-weight:800;color:var(--ink)" class="num">12<span style="font-size:14px;font-weight:500;color:var(--ink-3)">일</span></div>
+              </div>
+              <div style="background:var(--sheet);border:.5px solid var(--line);border-radius:var(--radius-lg);padding:16px">
+                <div style="font-size:var(--text-2xs);color:var(--ink-3);margin-bottom:8px">이번 주</div>
+                <div style="display:flex;gap:3px;align-items:flex-end;height:34px">
+                  <i class="sp" style="height:40%"></i><i class="sp" style="height:70%"></i><i class="sp" style="height:100%"></i>
+                  <i class="sp" style="height:20%"></i><i class="sp" style="height:85%"></i><i class="sp" style="height:60%"></i><i class="sp cur" style="height:45%"></i>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     8. 실력 리포트
+     ══════════════════════════════════════════════════════════ -->
+<section class="mock-sec">
+  <h2>08 · 실력 리포트 <span class="gen-a">A · 토큰</span> <small>Proficiency.jsx — .report-desk / .report-sheet / .report-prose</small></h2>
+  <p class="note">
+    3개 모드(문제풀이·AI 학습·드릴)의 기록을 하나의 점수로 합칩니다. 학습과학 가중 · 망각 할인 · 기출 빈출 가중을 반영.
+    <b>인쇄 가능한 "리포트 시트"</b> 형태 — 회색 데스크 위에 흰 A4 지면(.report-sheet)을 얹고,
+    인쇄 시 <code>nav, .report-tools</code> 를 숨깁니다. 본문은 <code>--font-serif</code> 로 문서처럼 읽힙니다.
+  </p>
+  <div class="frame frame--desk">
+    <div class="frame-bar"><i></i><i></i><i></i><span>실력 · 리포트</span></div>
+    <div class="frame-body">
+      <div class="app-shell">
+        <nav class="app-rail">
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg></span></button>
+          <button class="active"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg></span></button>
+          <button class="rail-settings"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7.5 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 7.5l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3.6V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span></button>
+        </nav>
+        <div class="app-main" style="background:#e8e8e6">
+          <div class="sub-nav" role="tablist" style="background:#fff;border-bottom:1px solid var(--line)">
+            <button class="active">실력 리포트</button><button>합격수기</button>
+          </div>
+          <div style="padding:24px 20px 40px">
+            <div style="max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-lift);padding:44px 52px">
+
+              <div style="display:flex;align-items:baseline;border-bottom:1px solid var(--line-ink);padding-bottom:12px;margin-bottom:24px">
+                <div>
+                  <div style="font-size:var(--text-2xs);letter-spacing:var(--tracking-seal);color:var(--ink-3);font-weight:700">PROFICIENCY REPORT</div>
+                  <h2 style="font-family:var(--font-serif);font-size:26px;margin:6px 0 0;font-weight:400">실력 리포트</h2>
+                </div>
+                <div style="margin-left:auto;text-align:right;font-size:var(--text-2xs);color:var(--ink-3);line-height:1.7">
+                  2026-08-28 기준<br>대상 기간 최근 90일<br>1차 시험 D-183
+                </div>
+              </div>
+
+              <div style="display:flex;gap:36px;align-items:flex-end;margin-bottom:30px">
+                <div>
+                  <div style="font-size:var(--text-2xs);color:var(--ink-3);margin-bottom:4px">종합 점수</div>
+                  <div class="num" style="font-size:52px;font-weight:800;line-height:1;color:var(--ink)">61.9</div>
+                </div>
+                <div style="flex:1">
+                  <div style="height:10px;background:var(--sunken);border-radius:var(--radius-pill);position:relative">
+                    <div style="width:61.9%;height:100%;background:var(--ink-2);border-radius:var(--radius-pill)"></div>
+                    <span style="position:absolute;left:60%;top:-4px;width:1px;height:18px;background:var(--ink-4)"></span>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:var(--text-2xs);color:var(--ink-3);margin-top:6px">
+                    <span>0</span><span>합격선 60</span><span>100</span>
+                  </div>
+                </div>
+                <div style="text-align:right">
+                  <div style="font-size:var(--text-2xs);color:var(--ink-3);margin-bottom:4px">30일 변화</div>
+                  <div class="num" style="font-size:20px;font-weight:700;color:var(--ink)">+4.3</div>
+                </div>
+              </div>
+
+              <h3 class="rh">1 · 과목별</h3>
+              <table class="rt-tbl">
+                <thead><tr><th>과목</th><th>점수</th><th>정답률</th><th>커버리지</th><th>망각 위험</th><th>추세</th></tr></thead>
+                <tbody>
+                  <tr><td>회계학</td><td class="num">71.2</td><td class="num">74%</td><td class="num">68%</td><td>낮음</td><td>▁▂▄▅▆▇</td></tr>
+                  <tr><td>경제학원론</td><td class="num">64.0</td><td class="num">69%</td><td class="num">62%</td><td>보통</td><td>▂▃▃▅▅▆</td></tr>
+                  <tr><td>민법</td><td class="num">58.3</td><td class="num">61%</td><td class="num">45%</td><td>보통</td><td>▂▂▃▃▄▄</td></tr>
+                  <tr><td>부동산학원론</td><td class="num">77.5</td><td class="num">81%</td><td class="num">78%</td><td>낮음</td><td>▄▅▆▆▇▇</td></tr>
+                  <tr class="risk"><td>감정평가관계법규</td><td class="num">38.4</td><td class="num">42%</td><td class="num">22%</td><td>높음</td><td>▁▁▂▁▂▂</td></tr>
+                </tbody>
+              </table>
+
+              <h3 class="rh">2 · 지금 손봐야 할 곳</h3>
+              <div class="rw"><span class="rw-n">1</span><div><b>토지보상법 손실보상 (법규)</b> — 커버리지 8%, 기출 빈출 A티어. 이 단원만 올려도 종합 +2.1 예상.</div></div>
+              <div class="rw"><span class="rw-n">2</span><div><b>물권변동 (민법)</b> — 정답률 41%, 오답 원인 태그 중 '인출 실패' 62%. 교재 재독보다 드릴 반복이 효율적입니다.</div></div>
+              <div class="rw"><span class="rw-n">3</span><div><b>원가배분 (회계)</b> — 계산 실수율 28%. 검산 기록이 있는 문항은 실수율 9%로 떨어집니다.</div></div>
+
+              <h3 class="rh">3 · 학습 패턴</h3>
+              <div class="report-prose" style="font-family:var(--font-serif);font-size:15px;line-height:var(--leading-read);color:var(--ink-2)">
+                최근 30일 학습 시간의 68%가 이미 70점을 넘긴 부동산학원론·회계학에 쏠려 있습니다.
+                점수가 오르는 재미가 있는 과목을 더 하게 되는 전형적 패턴입니다.
+                그러나 <span class="hl">합격 여부는 과락 과목이 결정</span>합니다.
+                법규에 주당 최소 6시간을 고정 배정하고, 나머지는 복습 도래분으로만 채우는 편이 종합 점수를 가장 빨리 올립니다.
+              </div>
+
+              <div style="margin-top:30px;border-top:1px solid var(--line);padding-top:12px;font-size:var(--text-2xs);color:var(--ink-4);display:flex">
+                <span>기출정복 · 학습 기록 기반 자동 생성</span><span style="margin-left:auto">1 / 3</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     9. 모바일
+     ══════════════════════════════════════════════════════════ -->
+<section class="mock-sec">
+  <h2>09 · 모바일 (390px) <small>&lt; 640px — 하단 탭바 5개, 레일 숨김</small></h2>
+  <p class="note">
+    실제 주 사용 환경. 홈은 데스크톱과 같은 컴포넌트지만 <code>useIsNarrow()</code> 로
+    <b>DOM 자체를 갈아 끼웁니다</b>(둘 다 그려놓고 CSS 로 감추지 않음).
+    여정은 12칸 격자 → 리스트로, 빠른 진입은 2×2 그리드로, 과목명은 축약형으로 바뀝니다.
+  </p>
+  <div class="frame frame--phone">
+    <div class="frame-bar"><i></i><i></i><i></i><span>390 × 720</span></div>
+    <div class="frame-body">
+      <div class="app-shell with-nav">
+        <div class="app-main"><div class="app-container">
+          <div class="home-col" style="padding:16px 16px 8px">
+
+            <header style="display:flex;align-items:baseline;gap:12px">
+              <h1 style="font-size:var(--text-base);font-weight:var(--weight-bold);margin:0">좋은 아침이에요</h1>
+              <div style="margin-left:auto;font-size:var(--text-2xs);color:var(--ink-3)">연속 12일 · D-183</div>
+            </header>
+
+            <div class="ml">오늘</div>
+            <section class="mcard" style="margin-bottom:8px">
+              <div style="padding:16px">
+                <div style="font-size:var(--text-2xs);color:var(--ink-3);margin-bottom:8px">복습 도래 · 경제학원론</div>
+                <div style="font-size:19px;font-weight:var(--weight-bold);line-height:1.35;margin-bottom:6px">탄력성 결정요인 12문항 다시 풀기</div>
+                <div style="font-size:var(--text-sm);color:var(--ink-2);margin-bottom:16px">오늘 넘기면 망각 구간에 들어갑니다.</div>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <button style="background:var(--accent);color:var(--ink-invert);border:none;border-radius:var(--radius-md);padding:12px 22px;min-height:44px;font-size:var(--text-base);font-weight:700">지금 시작</button>
+                  <span style="font-size:var(--text-sm);color:var(--ink-3)">약 18분</span>
+                </div>
+              </div>
+              <div style="border-top:.5px solid var(--line-2);padding:12px 16px;display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;align-items:center;gap:12px;width:100%">
+                  <span style="font-size:var(--text-xs);color:var(--ink-3);white-space:nowrap">오늘 목표</span>
+                  <div style="flex:1;height:6px;border-radius:999px;background:var(--sunken)"><div style="width:64%;height:100%;border-radius:999px;background:var(--ink-2)"></div></div>
+                  <span class="num" style="font-size:var(--text-sm)">32 / 50</span>
+                </div>
+                <span style="display:inline-flex;gap:4px">
+                  <span class="wk on"></span><span class="wk on"></span><span class="wk on"></span><span class="wk off"></span>
+                  <span class="wk on"></span><span class="wk on"></span><span class="wk td"></span>
+                </span>
+              </div>
+            </section>
+
+            <div class="home-quick">
+              <button class="mcard qk"><span class="qk-t"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg> AI 학습</span><span class="qk-d">경제학 이어서</span></button>
+              <button class="mcard qk"><span class="qk-t"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg> 드릴</span><span class="qk-d">복습 24장</span></button>
+              <button class="mcard qk"><span class="qk-t"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg> 문제풀이</span><span class="qk-d">오답 41문항</span></button>
+              <button class="mcard qk"><span class="qk-t"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg> 계획</span><span class="qk-d">이번 주 3/6일</span></button>
+            </div>
+
+            <div class="ml">현황</div>
+            <section class="mcard" style="padding:16px">
+              <div style="display:flex;align-items:center;margin-bottom:14px">
+                <div class="ch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg> 과목 현황</div>
+                <div style="margin-left:auto;font-size:var(--text-2xs);color:var(--ink-3)">눈금 = 60</div>
+              </div>
+              <div class="sr sm"><span class="sr-n">회계</span><span class="sr-b"><i style="width:71%"></i><u></u></span><span class="sr-v">71.2</span></div>
+              <div class="sr sm"><span class="sr-n">경제</span><span class="sr-b"><i style="width:64%"></i><u></u></span><span class="sr-v">64.0</span></div>
+              <div class="sr sm"><span class="sr-n">민법</span><span class="sr-b"><i style="width:58%"></i><u></u></span><span class="sr-v">58.3</span></div>
+              <div class="sr sm"><span class="sr-n">부동산</span><span class="sr-b"><i style="width:77%"></i><u></u></span><span class="sr-v">77.5</span></div>
+              <div class="sr sm danger"><span class="sr-n">법규</span><span class="sr-b"><i style="width:38%"></i><u></u></span><span class="sr-v">38.4</span></div>
+            </section>
+
+          </div>
+        </div></div>
+
+        <nav class="bottom-nav" aria-label="주요 화면">
+          <button class="active"><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><span class="nav-label">홈</span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8.5 15.5l2.2 2.2 4.3-4.3"/></svg></span><span class="nav-label">계획</span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg></span><span class="nav-label">AI 학습</span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg></span><span class="nav-badge">24</span><span class="nav-label">문제풀이</span></button>
+          <button><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 17.5a9 9 0 1 1 16.8 0"/><path d="M12 14.5 15.8 9.6"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg></span><span class="nav-label">실력</span></button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     10. 요약
+     ══════════════════════════════════════════════════════════ -->
+<section class="mock-sec">
+  <h2>10 · 리디자인할 때 알아야 할 제약</h2>
+  <div class="mock-legend" style="margin-top:0">
+    <b>1. 팔레트가 두 갈래다.</b> tokens.css 는 무채색 단일 액센트로 잘 정돈돼 있지만,
+    화면 16곳이 인라인 hex 약 1,800개를 들고 있어 매핑을 타지 않습니다. 리디자인의 본체는 이 hex 제거입니다.<br>
+    <b>2. 라운드·그림자가 제각각.</b> 8/12/14/16/18/20px 라운드가 공존하고, 그림자도 토큰 2단계 외에
+    <code>0 2px 8px rgba(0,23,51,.06)</code>, <code>0 6px 16px rgba(49,130,246,.28)</code> 등이 따로 삽니다.<br>
+    <b>3. 이모지가 UI 아이콘 역할을 한다.</b> 홈·레일만 lucide 라인 아이콘이고 나머지는 📅🎯🔀⭐ 이모지입니다.
+    플랫폼마다 다르게 렌더되고 톤도 안 맞습니다.<br>
+    <b>4. 콘텐츠 밀도가 진짜 요구사항이다.</b> 교재 패널에 표·수식(KaTeX)·SVG 그래프·판례 인용·형광펜이
+    한 문서에 다 들어옵니다. 여백을 늘리는 방향의 리디자인은 실사용에서 스크롤 지옥이 됩니다.<br>
+    <b>5. 접근성은 이미 지키고 있다.</b> 44px 터치 타깃, <code>role="progressbar"</code> + aria-valuetext,
+    <code>prefers-reduced-motion</code>, 색만으로 상태를 전하지 않기(마커에 ✓/도형 병기),
+    <code>--ink-3</code> 를 흰 배경 AA 통과선까지 낮춤 — 되돌리지 마세요.<br>
+    <b>6. 사용자 선호는 무채색.</b> 컬러는 자제, 아이콘은 단색. 반복적으로 요구된 사항입니다.
+  </div>
+</section>
+
+<style>
+/* ─── 목업 전용 컴포넌트 스타일 (실제 앱의 인라인 스타일을 클래스로 옮긴 것) ─── */
+/* .home-col / .home-quick 는 index.css 원본 규칙을 그대로 씁니다(≥1024px 에서 빠른 진입이 4열). */
+.mcard { background: var(--sheet); border: .5px solid var(--line); border-radius: var(--radius-lg); }
+.ml { font-size: var(--text-2xs); font-weight: 700; letter-spacing: .12em; color: var(--ink-3); padding-left: 2px; margin: 18px 0 8px; }
+.ch { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--ink); }
+.qk { padding: 12px 13px; min-height: 64px; display: flex; flex-direction: column; justify-content: center; text-align: left; cursor: pointer; }
+.qk-t { display: flex; align-items: center; gap: 6px; font-size: var(--text-sm); font-weight: 700; color: var(--ink); }
+.qk-d { display: block; margin-top: 3px; font-size: var(--text-2xs); color: var(--ink-3); }
+.qk svg { width: 15px; height: 15px; }
+
+.wk { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.wk.on { background: var(--ink-2); } .wk.off { background: var(--sunken); } .wk.td { background: var(--line-strong); }
+
+.sr { display: flex; align-items: center; gap: 12px; padding: 5px 0; }
+.sr-n { width: 104px; flex-shrink: 0; font-size: var(--text-xs); color: var(--ink-2); }
+.sr.sm .sr-n { width: 76px; }
+.sr-b { flex: 1; position: relative; height: 7px; border-radius: 999px; background: var(--sunken); }
+.sr-b i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; background: var(--ink-2); }
+.sr-b u { position: absolute; left: 60%; top: -3px; width: 1px; height: 13px; background: var(--ink-4); }
+.sr-v { width: 44px; flex-shrink: 0; text-align: right; font-size: var(--text-base); color: var(--ink); font-variant-numeric: tabular-nums; }
+.sr.danger .sr-n, .sr.danger .sr-v { color: var(--seal-ink); }
+.sr.danger .sr-b i { background: var(--seal); }
+
+.mo { text-align: center; font-size: var(--text-2xs); color: var(--ink-4); }
+.jc { position: relative; height: 44px; border-radius: var(--radius-sm); background: var(--sheet-3); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+.jc.now { background: var(--accent-bg); }
+.jl { font-size: var(--text-2xs); color: var(--ink-3); }
+.jl.next { color: var(--accent-ink); }
+.mk { width: 16px; height: 16px; border-radius: 999px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; }
+.mk.sm { width: 12px; height: 12px; }
+.mk.next { background: var(--accent); }
+.mk.pend { border: 1.5px solid var(--line-strong); }
+.mk.pass { background: var(--ink); color: var(--ink-invert); font-size: 9px; }
+.lg { display: inline-flex; align-items: center; gap: 6px; font-size: var(--text-2xs); color: var(--ink-3); }
+
+.opt-btn .badge { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #fff; color: #4b5563; border: 1.5px solid #d1d5db; font-size: .875rem; font-weight: 700; flex-shrink: 0; }
+.opt-btn .badge.on { background: #2563eb; color: #fff; border: none; }
+.opt-btn .badge.bad { background: #dc2626; color: #fff; border: none; }
+.cf { padding: 4px 10px; border-radius: 999px; font-size: .74rem; font-weight: 700; border: 1px solid #e5e7eb; background: #fff; color: #9ca3af; }
+.cf.on { border-color: #ea580c; background: #fff7ed; color: #ea580c; }
+
+.tcard { background: #fff; border: none; border-radius: 20px; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,23,51,.06); }
+.tcard-b { padding: 20px 18px 16px; display: flex; flex-direction: column; gap: 12px; }
+.tchip { font-size: .7rem; font-weight: 800; background: #E8F1FE; color: #3182F6; padding: 3px 9px; border-radius: 999px; }
+.tchip.p2 { background: #F0EBFF; color: #7C3AED; }
+.tcard-h { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tcard-t { font-weight: 800; color: #191F28; font-size: 1.2rem; letter-spacing: -.01em; line-height: 1.3; }
+.tcard-s { font-size: .82rem; color: #8B95A1; margin-top: 4px; }
+.tcard-i { font-size: 26px; color: #8B95A1; line-height: 1; }
+.tbar { height: 6px; background: #E5E8EB; border-radius: 999px; overflow: hidden; }
+.tbar > div { height: 100%; background: #3182F6; border-radius: 999px; }
+.tmeta { display: flex; justify-content: space-between; font-size: .82rem; margin-top: 5px; }
+.tmeta span:first-child { font-weight: 800; color: #191F28; }
+.tmeta span:last-child { color: #8B95A1; font-weight: 600; }
+.talert { font-size: .74rem; color: #FF8A00; display: flex; gap: 6px; font-weight: 700; }
+.tdiv { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 0 18px 14px; margin-top: auto; }
+.tsingle { padding: 0 18px 14px; margin-top: auto; }
+.tc { padding: 11px 6px; font-size: .84rem; font-weight: 700; background: #E8F1FE; color: #3182F6; border-radius: 10px; text-align: center; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tc.p2 { background: #F0EBFF; color: #7C3AED; }
+
+.lf-sec { font-size: .68rem; font-weight: 800; color: #9ca3af; letter-spacing: .04em; padding: 12px 6px 5px; }
+.lf { display: flex; align-items: center; gap: 8px; padding: 8px 9px; border-radius: 8px; font-size: .8rem; color: #374151; }
+.lf.on { background: #E8F1FE; color: #1B64DA; font-weight: 700; }
+.lf-t { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lf-b { width: 34px; height: 4px; background: #e5e7eb; border-radius: 999px; flex-shrink: 0; overflow: hidden; }
+.lf-b i { display: block; height: 100%; background: #3182F6; }
+.lf-p { font-size: .6rem; font-weight: 800; color: #15803d; background: #dcfce7; border-radius: 4px; padding: 1px 4px; }
+.lf-d { font-size: .6rem; font-weight: 800; color: #b45309; background: #fef3c7; border-radius: 999px; padding: 1px 6px; }
+.mode { white-space: nowrap; font-size: .74rem; font-weight: 700; color: #9ca3af; padding: 4px 8px; border-radius: 8px; }
+.mode.on { background: #f3f4f6; color: #111827; }
+.mb { padding: 3px 8px; background: #fff; color: #6b7280; border: 1px solid #e5e7eb; border-radius: 4px; font-size: .74rem; font-weight: 700; }
+.ac { padding: 7px 13px; border: 1px solid #d1d5db; border-radius: 999px; font-size: .8rem; color: #374151; background: #fff; }
+
+.gc { font-size: .72rem; font-weight: 800; border-radius: 999px; padding: 6px 12px; border: 1px solid #e5e7eb; background: #fff; color: #94a3b8; }
+.gc.on { border: 1.5px solid #2563eb; background: #eff6ff; color: #2563eb; }
+.gantt-h, .gantt-r { display: grid; grid-template-columns: 84px repeat(12, 1fr); gap: 3px; align-items: center; }
+.gantt-h span { font-size: .6rem; color: #94a3b8; text-align: center; }
+.gantt-r { margin-top: 5px; }
+.gantt-r b { height: 20px; border-radius: 5px; background: #2563eb; display: block; }
+.gl { font-size: .68rem; font-weight: 700; color: #475569; }
+.tk { display: flex; gap: 10px; align-items: flex-start; padding: 10px 2px; border-top: 1px solid #f1f5f9; font-size: .82rem; color: #334155; line-height: 1.5; }
+.tk-c { width: 18px; height: 18px; border-radius: 5px; border: 1.5px solid #cbd5e1; flex-shrink: 0; margin-top: 1px; display: inline-flex; align-items: center; justify-content: center; font-size: .7rem; }
+.tk.done .tk-c { background: #2563eb; border-color: #2563eb; color: #fff; }
+.tk.done { color: #94a3b8; text-decoration: line-through; }
+.tk-m { display: block; font-size: .68rem; color: #94a3b8; margin-top: 2px; text-decoration: none; }
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.cal-d { text-align: center; font-size: .62rem; color: #94a3b8; padding-bottom: 4px; }
+.cal-c { aspect-ratio: 1; max-height: 40px; display: flex; align-items: center; justify-content: center; font-size: .7rem; color: #475569; border-radius: 6px; background: #f8fafc; }
+.cal-c.f { background: #dbeafe; color: #1d4ed8; font-weight: 700; }
+.cal-c.today { background: #2563eb; color: #fff; font-weight: 800; }
+.cal-c.off { background: none; }
+.rt { display: flex; gap: 10px; align-items: flex-start; padding: 9px 2px; border-top: 1px solid #f1f5f9; font-size: .8rem; color: #334155; line-height: 1.5; }
+.rt-n { width: 19px; height: 19px; border-radius: 999px; background: #eff6ff; color: #2563eb; font-size: .66rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.rt-m { display: block; font-size: .68rem; color: #94a3b8; margin-top: 2px; }
+
+.dot { flex: 1; height: 3px; border-radius: 999px; background: var(--sunken); }
+.dot.on { background: var(--ink-2); }
+.dot.cur { background: var(--accent); }
+.gr { background: var(--sheet); border: .5px solid var(--line); border-radius: var(--radius-md); padding: 12px 6px; min-height: 56px; display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; }
+.gr b { font-size: var(--text-sm); color: var(--ink); }
+.gr span { font-size: var(--text-2xs); color: var(--ink-3); }
+.sp { flex: 1; background: var(--ink-3); border-radius: 2px; display: block; }
+.sp.cur { background: var(--accent); }
+
+.rh { font-family: var(--font-serif); font-weight: 400; font-size: 17px; margin: 28px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.rt-tbl { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+.rt-tbl th { text-align: left; font-weight: 500; font-size: var(--text-2xs); color: var(--ink-3); padding: 6px 8px; border-bottom: 1px solid var(--line-strong); }
+.rt-tbl td { padding: 8px; border-bottom: 1px solid var(--line-2); color: var(--ink); }
+.rt-tbl th:not(:first-child), .rt-tbl td:not(:first-child) { text-align: right; }
+.rt-tbl tr.risk td { color: var(--seal-ink); }
+.rw { display: flex; gap: 10px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--line-2); font-size: var(--text-sm); color: var(--ink-2); line-height: 1.6; }
+.rw-n { width: 19px; height: 19px; border-radius: 999px; background: var(--sheet-3); color: var(--ink-2); font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.rw b { color: var(--ink); }
+</style>
+
+</body>
+</html>
