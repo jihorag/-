@@ -167,20 +167,39 @@ def gen_leaf(key, sec, bundle, catalog, subject):
                 + '\n'.join('- ' + p['title'] for p in points)) if points else ''
         note_block = ('[강사 필기노트 — 강의 중 화면에 띄운 문서]\n%s\n\n' % bundle['note_text'][:8000]
                       if bundle.get('note_text', '').strip() else '')
+        # 밀도 지시 — 이 구간 분량에서 나와야 할 논점 개수를 프롬프트에 직접 숫자로 박는다.
+        # 목표: 강의 3~4분당 논점 1개. 상한 15개는 call_gemini 의 maxOutputTokens(8000,
+        # 수정 금지 파일)를 응답이 넘지 않게 하려는 안전판이지 할당량이 아니다.
+        chunk_minutes = round(sum(b.get('minutes', 0) for b in blocks), 1)
+        density_lo = min(15, max(3, int(chunk_minutes // 4)))
+        density_hi = min(15, max(density_lo, int(-(-chunk_minutes // 3))))  # ceil(minutes/3)
+        density_note = (
+            '\n[분량과 논점 개수]\n'
+            '이 구간은 %s분입니다. 논점 하나가 강의 3~4분치를 덮는 밀도를 목표로 하면\n'
+            '이 구간에서는 논점 %d~%d개가 나와야 합니다(상한 15개).\n'
+            '이 목록만 읽고 강의를 대체할 사람이 있으므로, 한 논점이 강의 10분치를\n'
+            '뭉뚱그리면 그 사람은 그 10분의 내용을 모릅니다.\n'
+            '다만 이 개수는 목표이지 할당량이 아닙니다 — 강의가 실제로 짧게 다룬 내용을\n'
+            '억지로 쪼개거나 없는 내용을 지어내 채우지 마세요. 강의가 정말 그만큼 다뤘을 때만\n'
+            '그만큼 쓰세요.\n' % (chunk_minutes, density_lo, density_hi)
+        )
         prompt = (
             '%s\n%s\n\n%s\n\n'
             '[관] %s\n\n'
             '[교재 본문 — 이 관의 범위를 알기 위한 참고. 여기 있는 내용을 그대로 옮기지 말고,\n'
             ' 강의가 실제로 다룬 것만 쓰세요.]\n%s\n\n'
-            '%s'
+            '%s%s'
             '[강의 전사 (%d/%d)]\n%s%s\n\n'
             '첨부한 이미지는 그 구간의 판서 화면입니다. 수식·도식이 텍스트에 없으면 여기서 읽어 반영하세요.'
             % (STYLE, SUBJECT_RULES.get(subject, ''), catalog,
-               ' / '.join(sec['path']), sec['body'][:12000], note_block,
+               ' / '.join(sec['path']), sec['body'][:12000], note_block, density_note,
                i, len(chunks), transcript, cont)
         )
         raw, usage = call_gemini(key_holder['key'], prompt, frames)
         got = parse_points(raw)
+        if not got and raw:
+            print('  ⚠ %s: 논점 파싱 실패 (%d/%d) — 응답 끝 100자: %r'
+                  % (key, i, len(chunks), raw[-100:]))
         points.extend(got)
         usage_holder['in'] += usage.get('promptTokenCount', 0)
         usage_holder['out'] += usage.get('candidatesTokenCount', 0)
