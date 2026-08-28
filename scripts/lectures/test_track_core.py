@@ -91,6 +91,20 @@ class TestCheckTrack(unittest.TestCase):
                              align, {'supply-demand'})
         self.assertTrue(any('앵커' in i for i in issues))
 
+    def test_anchor_within_tolerance_not_reported(self):
+        """앵커가 [36강 6:06] 표기에서 읽힌 초라 구간 시작보다 살짝 이를 수 있다.
+        허용치(5초) 안이면 거짓 경고를 내지 않는다."""
+        align = {'L': [{'no': 2, 'start': 366.1, 'end': 500.0}]}
+        issues = check_track(self._track(point={'src': [{'lec': 2, 't': 366}]}),
+                             align, {'supply-demand'})
+        self.assertEqual(issues, [])
+
+    def test_anchor_beyond_tolerance_still_reported(self):
+        align = {'L': [{'no': 2, 'start': 366.1, 'end': 500.0}]}
+        issues = check_track(self._track(point={'src': [{'lec': 2, 't': 300}]}),
+                             align, {'supply-demand'})
+        self.assertTrue(any('앵커' in i for i in issues))
+
     def test_unknown_template_reported(self):
         align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
         issues = check_track(self._track(point={'viz': {'template': 'nope', 'params': {}}}),

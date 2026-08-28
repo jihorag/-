@@ -22,8 +22,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from _paths import REPO, STUDY, WORK  # noqa: E402
-from build_note_bundle import build, DEFAULT_PDF  # noqa: E402
+from _paths import REPO, STUDY, WORK, SRC_ROOT  # noqa: E402
+from build_note_bundle import build  # noqa: E402
 from map_notes_to_leaves import extract_note_pages  # noqa: E402
 from generate_notes import (SUBJECT_RULES, call_gemini, load_leaf_sections,  # noqa: E402
                             MODEL, MAX_FRAMES)
@@ -31,6 +31,13 @@ from track_core import (make_point_id, order_spans, chunk_lectures,  # noqa: E40
                         parse_points, check_track, diff_ids)
 
 MAX_CHUNK_CHARS = 45000   # 한 번의 호출에 넣을 전사 글자수 상한
+
+# 강사 필기노트 PDF — 드라이브 이름을 박지 않는다. _paths.SRC_ROOT 가 마운트된 볼륨을 찾아 준다.
+# (build_note_bundle.DEFAULT_PDF 에는 옛 드라이브 이름(WD_Black)이 박혀 있어 쓰지 않는다.)
+NOTE_PDF = {
+    'economics': ('1차_경제학/손병익/[2026_기본이론] 경제학원론 (25년 7-8월:손병익)/'
+                  '강의자료/경제학+필기+노트/경제학 필기 노트_10판.pdf'),
+}
 
 STYLE = """당신은 감정평가사 1차 수험 교재를 쓰는 사람입니다.
 강의(음성 전사 + 판서 사진)를 읽고, 그 강의가 **실제로 다룬 논점**을
@@ -129,15 +136,18 @@ def gen_leaf(key, sec, bundle, catalog, subject):
         frames = [f['file'] for b in blocks for f in b['frames']][:MAX_FRAMES]
         cont = ('\n\n[이어서]\n앞 구간에서 이미 세운 논점입니다. 겹치지 말고 이어서 쓰세요.\n'
                 + '\n'.join('- ' + p['title'] for p in points)) if points else ''
+        note_block = ('[강사 필기노트 — 강의 중 화면에 띄운 문서]\n%s\n\n' % bundle['note_text'][:8000]
+                      if bundle.get('note_text', '').strip() else '')
         prompt = (
             '%s\n%s\n\n%s\n\n'
             '[관] %s\n\n'
             '[교재 본문 — 이 관의 범위를 알기 위한 참고. 여기 있는 내용을 그대로 옮기지 말고,\n'
             ' 강의가 실제로 다룬 것만 쓰세요.]\n%s\n\n'
+            '%s'
             '[강의 전사 (%d/%d)]\n%s%s\n\n'
             '첨부한 이미지는 그 구간의 판서 화면입니다. 수식·도식이 텍스트에 없으면 여기서 읽어 반영하세요.'
             % (STYLE, SUBJECT_RULES.get(subject, ''), catalog,
-               ' / '.join(sec['path']), sec['body'][:12000],
+               ' / '.join(sec['path']), sec['body'][:12000], note_block,
                i, len(chunks), transcript, cont)
         )
         raw, usage = call_gemini(key_holder['key'], prompt, frames)
@@ -213,10 +223,10 @@ def main():
     nm_path = base / 'note_map.json'
     note_map = (json.loads(nm_path.read_text(encoding='utf-8'))
                 if nm_path.exists() else {'pages': [], 'by_leaf': {}})
-    pdf = DEFAULT_PDF if args.subject == 'economics' else None
-    # DEFAULT_PDF 에는 옛 드라이브 이름(WD_Black)이 박혀 있다. 그 상수는 이 태스크에서
-    # 고치지 않는다(build_note_bundle.py 는 read-only 참조) — 대신 여기서 존재 확인만
-    # 하고, 없으면 pages_text 를 빈 dict 로 둔 채 넘어간다(전사·판서만으로 진행).
+    rel = NOTE_PDF.get(args.subject)
+    pdf = str(SRC_ROOT / rel) if rel else None
+    # 상대경로를 SRC_ROOT(마운트된 볼륨)에서 조립한다. 과목에 항목이 없거나 파일이
+    # 실제로 없으면 pages_text 를 빈 dict 로 둔 채 넘어간다(전사·판서만으로 진행).
     pages_text = ({p['page']: p['text'] for p in extract_note_pages(pdf)}
                   if pdf and Path(pdf).exists() else {})
     sections = load_leaf_sections(args.subject)

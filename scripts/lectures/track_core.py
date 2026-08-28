@@ -10,6 +10,10 @@ import re
 MIN_POINTS = 3
 MAX_POINTS = 40
 
+# 앵커의 초는 프롬프트에 들어간 [36강 6:06] 표기에서 읽히므로 구간 시작보다
+# 최대 1초 이르게 찍힌다. 경계 오차로 거짓 경고가 관마다 뜨면 진짜 누출 신호가 묻힌다.
+ANCHOR_TOL_SEC = 5
+
 
 def make_point_id(unit_code, leaf_idx, seq):
     """진도 저장의 키. 재생성해도 바뀌면 안 되므로 자리수를 고정한다."""
@@ -93,7 +97,8 @@ def check_track(track, align_by_leaf, template_names):
             for a in p.get('src') or []:
                 if not ranges:
                     continue
-                ok = any(no == a.get('lec') and st <= a.get('t', -1) < en
+                ok = any(no == a.get('lec')
+                         and st - ANCHOR_TOL_SEC <= a.get('t', -1) < en + ANCHOR_TOL_SEC
                          for no, st, en in ranges)
                 if not ok:
                     issues.append('%s / %s / %s: 앵커 %s강 %ss 가 이 관의 구간 밖'
