@@ -173,7 +173,15 @@ def lecture_meta(align):
 
 
 def gen_leaf(key, sec, bundle, catalog, subject):
-    """관 하나의 논점 목록을 만든다. 긴 관은 나눠 호출해 이어 붙인다."""
+    """관 하나의 논점 목록을 만든다. 긴 관은 나눠 호출해 이어 붙인다.
+
+    청크 성공/전체는 chunk_holder(전역, usage_holder 와 같은 패턴)에 남긴다 — 이
+    함수의 공개 시그니처(반환값 points 리스트)는 바꾸지 않는다. save_leaf 가
+    chunk_holder 를 읽어 트랙에 chunks_ok/chunks_total 을 적으면, 청크 일부가
+    빈 배열로 실패해도 "성공"으로 저장되던 문제를 --check 가 잡을 수 있다.
+    """
+    chunk_holder['ok'] = 0
+    chunk_holder['total'] = 0
     points = []
     chunks = chunk_lectures(bundle['lectures'], MAX_CHUNK_CHARS)
     for i, blocks in enumerate(chunks, 1):
@@ -214,9 +222,12 @@ def gen_leaf(key, sec, bundle, catalog, subject):
         )
         raw, usage = call_gemini(key_holder['key'], prompt, frames)
         got = parse_points(raw)
+        chunk_holder['total'] += 1
         if not got and raw:
             print('  ⚠ %s: 논점 파싱 실패 (%d/%d) — 응답 끝 100자: %r'
                   % (key, i, len(chunks), raw[-100:]))
+        else:
+            chunk_holder['ok'] += 1
         points.extend(got)
         usage_holder['in'] += usage.get('promptTokenCount', 0)
         usage_holder['out'] += usage.get('candidatesTokenCount', 0)
@@ -225,6 +236,7 @@ def gen_leaf(key, sec, bundle, catalog, subject):
 
 key_holder = {'key': None}
 usage_holder = {'in': 0, 'out': 0}
+chunk_holder = {'ok': 0, 'total': 0}
 
 
 def track_path(base, unit, phase):
@@ -232,16 +244,28 @@ def track_path(base, unit, phase):
 
 
 def leaf_already_built(base, unit, phase, lid, cache):
-    """이 관의 논점이 트랙 파일에 이미 있는지. 파일 하나를 유닛당 한 번만 읽는다."""
+    """이 관의 논점이 트랙 파일에 이미 있는지. 파일 하나를 유닛당 한 번만 읽는다.
+
+    청크 중 일부가 실패한 채 저장된 관(chunks_ok < chunks_total)은 "이미 만들어짐"
+    으로 치지 않는다 — 그렇지 않으면 강의 3분의 1이 사라진 관이 영구히 다시
+    만들어지지 않는다. chunks_ok/chunks_total 이 없는 관(이 필드 이전에 저장된
+    기존 관)은 완전한 것으로 간주해 불필요한 재생성을 강제하지 않는다.
+    """
     if unit not in cache:
         p = track_path(base, unit, phase)
         cache[unit] = json.loads(p.read_text(encoding='utf-8')) if p.exists() else None
     track = cache[unit]
-    return any(lf.get('leaf_id') == lid and lf.get('points')
-               for lf in (track or {}).get('leaves') or [])
+    for lf in (track or {}).get('leaves') or []:
+        if lf.get('leaf_id') != lid or not lf.get('points'):
+            continue
+        c_ok, c_total = lf.get('chunks_ok'), lf.get('chunks_total')
+        if c_ok is not None and c_total is not None and c_ok < c_total:
+            return False
+        return True
+    return False
 
 
-def save_leaf(base, subject, phase, unit, lid, title, pts):
+def save_leaf(base, subject, phase, unit, lid, title, pts, chunks_ok=None, chunks_total=None):
     """관 하나의 논점을 트랙 파일에 즉시 병합해 저장한다.
 
     루프가 도중에 죽어도 이미 만든 관은 남는다. 기존 관 순서를 지키고 이번에
@@ -261,7 +285,8 @@ def save_leaf(base, subject, phase, unit, lid, title, pts):
         p.setdefault('viz', None)
         p.setdefault('check', None)
         p.setdefault('src', [])
-    entry = {'leaf_id': lid, 'title': title, 'points': pts}
+    entry = {'leaf_id': lid, 'title': title, 'points': pts,
+             'chunks_ok': chunks_ok, 'chunks_total': chunks_total}
     if lid in index:
         leaves[index[lid]] = entry
     else:
@@ -396,6 +421,80 @@ def build_extra(args, base, tdir, catalog):
     print('저장: %s' % track_path(base, '_subject', args.phase))
 
 
+ORPHAN_MIN_GAP_SEC = 2.0   # 라운딩 오차(관측상 <2초)를 구멍으로 오인하지 않는 하한
+
+
+def _orphan_gist(transcripts_dir, lecture_id, t0, t1):
+    """구멍 구간과 겹치는 첫 전사 문장을 잘라 온다. API 를 새로 쓰지 않는다.
+
+    전사 파일이 없으면(외장 드라이브 미마운트 등) 빈 문자열 — 조용히 생략한다.
+    """
+    f = transcripts_dir / ('%s.json' % lecture_id)
+    if not f.exists():
+        return ''
+    try:
+        tr = json.loads(f.read_text(encoding='utf-8'))
+    except (ValueError, OSError):
+        return ''
+    for s in tr.get('segments') or []:
+        if s.get('start', 0) < t1 and s.get('end', 0) > t0:
+            return (s.get('text') or '')[:80]
+    return ''
+
+
+def compute_orphans(subject, align, sections, transcripts_dir):
+    """정렬(align)이 강의 시간 중 어느 관에도 못 붙인 구간을 모은다 (스펙 §5-3).
+
+    두 갈래를 합친다:
+      1. by_lecture 의 span 사이·앞·뒤에 남는 시간 간극 — 정렬 알고리즘이 그
+         구간을 아예 창(window)으로 만들지 못했거나 건너뛴 경우.
+      2. 이 과목 taxonomy 전체(sections)에는 있지만 align['by_leaf']에 스팬이
+         하나도 없는 관 — 정렬이 그 관의 실제 시간을 통째로 다른 관에 잘못
+         붙였을 때 이 형태로 드러난다. lec/sec 정보가 없으므로 0으로 둔다.
+    """
+    orphans = []
+    for lid, meta in (align.get('by_lecture') or {}).items():
+        spans = meta.get('spans') or []
+        no = meta.get('no')
+        if not spans:
+            continue
+        gaps = []
+        if spans[0].get('start', 0) > ORPHAN_MIN_GAP_SEC:
+            gaps.append((0.0, spans[0]['start']))
+        for i in range(len(spans) - 1):
+            g0, g1 = spans[i].get('end', 0), spans[i + 1].get('start', 0)
+            if g1 - g0 > ORPHAN_MIN_GAP_SEC:
+                gaps.append((g0, g1))
+        m = re.search(r'\((\d+)\s*분\)', meta.get('title') or '')
+        if m:
+            total_sec = int(m.group(1)) * 60
+            last_end = spans[-1].get('end', 0)
+            if total_sec - last_end > ORPHAN_MIN_GAP_SEC:
+                gaps.append((last_end, total_sec))
+        for g0, g1 in gaps:
+            orphans.append({'lec': no, 'sec': round(g1 - g0, 1),
+                            'gist': _orphan_gist(transcripts_dir, lid, g0, g1)})
+
+    hollow = sorted(set(sections.keys()) - set((align.get('by_leaf') or {}).keys()))
+    for lid in hollow:
+        title = sections[lid]['path'][-1] if sections[lid].get('path') else lid
+        orphans.append({'lec': None, 'sec': 0, 'leaf_id': lid,
+                        'gist': '이 관에 정렬(align)로 붙은 전사 구간이 하나도 없음: %s' % title})
+    return orphans
+
+
+def save_orphans(base, subject, phase, orphans):
+    """orphans 는 과목 전체 기준이라 유닛 파일마다 중복 적지 않고 _subject 트랙
+    파일 하나에만 적는다(과목 레벨 트랙과 이미 같은 파일을 공유한다).
+    """
+    dst = track_path(base, '_subject', phase)
+    old = json.loads(dst.read_text(encoding='utf-8')) if dst.exists() else None
+    track = {'subject': subject, 'phase': phase, 'unit_code': '_subject',
+             'leaves': (old or {}).get('leaves') or [], 'orphans': orphans}
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_text(json.dumps(track, ensure_ascii=False, indent=1), encoding='utf-8')
+
+
 def do_check(subject, phase):
     base = STUDY / subject / 'lectures'
     align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
@@ -404,6 +503,7 @@ def do_check(subject, phase):
     if not tdir.exists():
         sys.exit('트랙이 아직 없습니다: %s' % tdir)
     total_issues, total_points, total_leaves = 0, 0, 0
+    generated_leaf_ids = set()
     for f in sorted(tdir.glob('*.%s.json' % phase)):
         track = json.loads(f.read_text(encoding='utf-8'))
         issues = check_track(track, align['by_leaf'], names)
@@ -411,15 +511,43 @@ def do_check(subject, phase):
         for lf in track.get('leaves', []):
             total_leaves += 1
             total_points += len(lf.get('points') or [])
+            if lf.get('leaf_id'):
+                generated_leaf_ids.add(lf['leaf_id'])
         for i in issues:
             print('  ⚠ %s' % i)
     print('\n관 %d개 · 논점 %d개 · 문제 %d건' % (total_leaves, total_points, total_issues))
-    orphan_secs = 0
+
+    # F-3: align 에 있는데(=생성 대상이 될 수 있었는데) 트랙에 아예 없는 관.
+    # 존재하는 트랙 파일만 순회하는 위 루프는 이걸 절대 못 잡는다 — 관 하나가
+    # 통째로 건너뛰어져도 조용하다.
+    try:
+        sections = load_leaf_sections(subject)
+    except Exception as e:
+        sections = None
+        print('  ⚠ taxonomy 로드 실패로 F-3(관 누락) 검사를 건너뜀: %s' % e)
+    if sections is not None:
+        candidates = set(align['by_leaf'].keys()) & set(sections.keys())
+        missing = sorted(candidates - generated_leaf_ids)
+        if missing:
+            print('\n트랙이 아예 생성되지 않은 관 %d개:' % len(missing))
+            for lid in missing:
+                title = sections[lid]['path'][-1] if sections[lid].get('path') else lid
+                print('  ⚠ 생성 안 됨: %s (%s)' % (title, lid))
+
+    # F-1: orphans — 정렬이 어느 관에도 못 붙인 구간.
+    orphan_secs, orphan_top = 0, []
     for f in sorted(tdir.glob('*.%s.json' % phase)):
         track = json.loads(f.read_text(encoding='utf-8'))
-        orphan_secs += sum(o.get('sec', 0) for o in track.get('orphans') or [])
-    if orphan_secs:
-        print('관에 안 붙은 구간 합계 %.1f분' % (orphan_secs / 60))
+        for o in track.get('orphans') or []:
+            orphan_secs += o.get('sec', 0)
+            orphan_top.append(o)
+    if orphan_secs or orphan_top:
+        print('\n관에 안 붙은 구간 합계 %.1f분 (%d건)' % (orphan_secs / 60, len(orphan_top)))
+        for o in sorted(orphan_top, key=lambda x: -(x.get('sec') or 0))[:10]:
+            if o.get('lec') is None:
+                print('  ⚠ %s' % o.get('gist', ''))
+            else:
+                print('  ⚠ %s강 %.1f초 미매핑 — %s' % (o.get('lec'), o.get('sec', 0), o.get('gist', '')))
 
 
 def main():
@@ -466,6 +594,13 @@ def main():
     tdir, kdir = WORK / 'transcripts' / args.subject, WORK / 'keyframes' / args.subject
     catalog = load_viz_catalog(args.subject)
     meta = lecture_meta(align)
+
+    # orphans(F-1)는 과목 전체 기준이라 --limit/--only/--extra 와 무관하게, 이
+    # 실행에서 생성 대상 관을 정하기 전에 align 전체를 훑어 한 번만 갱신한다.
+    orphans = compute_orphans(args.subject, align, sections, tdir)
+    save_orphans(base, args.subject, args.phase, orphans)
+    orphan_sec = sum(o.get('sec', 0) for o in orphans)
+    print('orphans 갱신: %d건 · %.1f분' % (len(orphans), orphan_sec / 60))
 
     if args.extra:
         build_extra(args, base, tdir, catalog)
@@ -515,10 +650,13 @@ def main():
         if not pts:
             print('  [%d/%d] ❌ 논점 0개 %s' % (n, len(targets), title))
             continue
-        save_leaf(base, args.subject, args.phase, sec['unit_code'], lid, title, pts)
+        c_ok, c_total = chunk_holder['ok'], chunk_holder['total']
+        save_leaf(base, args.subject, args.phase, sec['unit_code'], lid, title, pts,
+                 chunks_ok=c_ok, chunks_total=c_total)
         units_touched.add(sec['unit_code'])
-        print('  [%d/%d] %-34s 논점 %d개 · %d분' % (n, len(targets), title[:34],
-                                                  len(pts), bundle['total_minutes']))
+        chunk_note = ' (청크 %d/%d 실패 있음)' % (c_ok, c_total) if c_ok < c_total else ''
+        print('  [%d/%d] %-34s 논점 %d개 · %d분%s' % (n, len(targets), title[:34],
+                                                  len(pts), bundle['total_minutes'], chunk_note))
 
     print('\n유닛 %d개 저장 · 건너뜀 %d개 · %.1f분' % (len(units_touched), skipped,
                                               (time.time() - t0) / 60))
