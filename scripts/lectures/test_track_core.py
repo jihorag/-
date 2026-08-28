@@ -156,10 +156,11 @@ class TestDiffIds(unittest.TestCase):
         self.assertEqual(result['added'], ['M01-L00-p02'])
 
     def test_old_track_none_treats_all_as_added(self):
-        """old_track이 None이어도 터지지 않고 전부 added로 잡힌다."""
+        """old_track이 None이어도 터지지 않고 전부 added로 잡힌다. 반환값은 정렬된 리스트."""
         new = {
             'unit_code': 'M01',
             'leaves': [{'leaf_id': 'L', 'points': [
+                {'id': 'M01-L00-p03'},
                 {'id': 'M01-L00-p01'},
                 {'id': 'M01-L00-p02'}
             ]}],
@@ -167,7 +168,7 @@ class TestDiffIds(unittest.TestCase):
         }
         result = diff_ids(None, new)
         self.assertEqual(result['removed'], [])
-        self.assertEqual(sorted(result['added']), ['M01-L00-p01', 'M01-L00-p02'])
+        self.assertEqual(result['added'], ['M01-L00-p01', 'M01-L00-p02', 'M01-L00-p03'])
 
 
 if __name__ == '__main__':
