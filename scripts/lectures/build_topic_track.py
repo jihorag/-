@@ -1,0 +1,297 @@
+#!/usr/bin/env python3
+"""관(leaf)별 논점 트랙 생성 — 전사 + 교재 + 판서 → 강의 진행 순서의 논점 목록.
+
+`generate_notes.py` 가 "교재에 없는 것만" 뽑는 보충이라면, 이쪽은 **강의가 실제로
+다룬 것을 빠짐없이** 순서대로 세운다. 개념 완성 화면이 이 목록을 하나씩 소진하고,
+다 비우면 그 관의 강의를 끝까지 들은 것과 같다.
+
+출력: viewer/public/data/study/{과목}/lectures/track/{unit}.{phase}.json
+
+사용:
+  python3 scripts/lectures/build_topic_track.py economics --phase basic --limit 2
+  python3 scripts/lectures/build_topic_track.py economics --phase basic
+  python3 scripts/lectures/build_topic_track.py economics --phase basic --check
+"""
+import argparse
+import json
+import os
+import re
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from _paths import REPO, STUDY, WORK  # noqa: E402
+from build_note_bundle import build, DEFAULT_PDF  # noqa: E402
+from map_notes_to_leaves import extract_note_pages  # noqa: E402
+from generate_notes import (SUBJECT_RULES, call_gemini, load_leaf_sections,  # noqa: E402
+                            MODEL, MAX_FRAMES)
+from track_core import (make_point_id, order_spans, chunk_lectures,  # noqa: E402
+                        parse_points, check_track, diff_ids)
+
+MAX_CHUNK_CHARS = 45000   # 한 번의 호출에 넣을 전사 글자수 상한
+
+STYLE = """당신은 감정평가사 1차 수험 교재를 쓰는 사람입니다.
+강의(음성 전사 + 판서 사진)를 읽고, 그 강의가 **실제로 다룬 논점**을
+**강의가 진행된 순서 그대로** 나열합니다.
+
+[가장 중요 — 빠뜨리지 말 것]
+- 이 목록을 다 읽은 사람은 강의를 듣지 않아도 됩니다. 강의에서 다룬 내용이
+  목록에 없으면 그 사람은 그걸 영영 모릅니다.
+- 반대로 강의에 없던 내용을 지어내 채우지 마세요. 교재에서 끌어와 부풀리는 것도 금지입니다.
+- 잡담·다음 강의 예고·수강 안내·시스템 공지는 논점이 아닙니다. 버리세요.
+- 지금 쓰는 것은 **이 관 하나**입니다. 전사에 다른 관 이야기가 섞여 있어도 걸러내세요.
+
+[문체 — 교재와 구분이 안 되게]
+- **"강사", "강의", "선생님" 이라는 단어를 아예 쓰지 마세요.** "강사가 제시한",
+  "강의에서 강조한" 같은 표현도 금지입니다. 출처를 밝히지 말고 교재처럼 단정 서술하세요.
+- 큰따옴표로 말을 옮기지 마세요. 내용만 일반 서술로 바꾸세요.
+- 전사 오류·음성 인식 같은 제작 뒷얘기는 절대 쓰지 마세요.
+- 문장은 '~이다/~한다' 체.
+
+[각 논점에 담을 것]
+- title: 논점 이름. 명사구가 아니라 **무엇을 알게 되는지**가 드러나게. 25자 이내.
+- gist: 한 줄 요약. 목록에서 이것만 보고도 무슨 얘긴지 알게. 60자 이내.
+- body: 본문 400~800자. 설명의 순서와 이유, 비유·예시, 무엇을 외우고 무엇은 넘길지,
+  판서에만 있는 수식·도식까지. 수식은 KaTeX 인라인 `$...$`.
+  둘 이상을 견주는 대목은 마크다운 표로 쓰세요(비교축 3개 이상).
+- check: 이 논점을 이해했는지 확인하는 질문 하나와, 정답 + 왜 그런지.
+- viz: 그림이 이해를 돕는 논점에만. 아래 [VIZ_CATALOG] 의 템플릿 중에서 고르세요.
+  카탈로그에 없으면 viz 를 null 로 두세요. 억지로 붙이지 마세요.
+- src: 이 논점의 근거가 된 대목. [12강 23:10] 표기에서 읽어 {"lec":12,"t":1390} 형태로.
+  t 는 초 단위 정수입니다.
+
+[출력 형식 — JSON 배열만]
+설명·인사말·코드펜스 없이 JSON 배열 하나만 출력하세요.
+[
+  {"title":"…","gist":"…","body":"…",
+   "viz":{"template":"supply-demand","params":{…},"steps":[{"label":"…", …}]},
+   "check":{"q":"…","a":"…"},
+   "src":[{"lec":12,"t":1390}]}
+]
+viz 의 steps 는 단계적으로 변하는 그림에만 씁니다(예: 곡선이 이동해 균형이 옮겨가는 과정).
+각 step 은 label 과, 그 단계에서 달라지는 파라미터만 담습니다."""
+
+
+def load_viz_catalog():
+    """vizRegistry 가 앱에 주입하는 카탈로그와 같은 내용을 파이썬에서 읽는다.
+
+    레지스트리는 JS 라 여기서 실행할 수 없다. exampleParams 를 그대로 뽑아 쓰는 대신,
+    템플릿 이름과 helpText 만 정규식으로 긁어 온다. 파라미터 정확도는 --check 와
+    앱의 VizRouter 검증이 잡는다.
+    """
+    src = (REPO / 'viewer/src/viz/vizRegistry.js').read_text(encoding='utf-8')
+    names = re.findall(r"from './templates/(\w+)'", src)
+    lines = []
+    for n in names:
+        f = REPO / 'viewer/src/viz/templates' / (n + '.jsx')
+        if not f.exists():
+            continue
+        t = f.read_text(encoding='utf-8')
+        nm = re.search(r"name:\s*'([^']+)'", t)
+        ht = re.search(r"helpText:\s*'([^']*)'", t)
+        ex = re.search(r'exampleParams:\s*(\{.*?\n  \},)', t, flags=re.S)
+        if not nm:
+            continue
+        lines.append('### %s — %s\n```json\n%s\n```'
+                     % (nm.group(1), ht.group(1) if ht else '',
+                        (ex.group(1).rstrip(',') if ex else '{}')))
+    return ('## [VIZ_CATALOG] 쓸 수 있는 시각자료 템플릿\n\n'
+            '아래에 없는 도식은 만들지 말고 viz 를 null 로 두세요.\n\n'
+            + '\n\n'.join(lines))
+
+
+def template_names():
+    src = (REPO / 'viewer/src/viz/vizRegistry.js').read_text(encoding='utf-8')
+    out = set()
+    for n in re.findall(r"from './templates/(\w+)'", src):
+        f = REPO / 'viewer/src/viz/templates' / (n + '.jsx')
+        if f.exists():
+            m = re.search(r"name:\s*'([^']+)'", f.read_text(encoding='utf-8'))
+            if m:
+                out.add(m.group(1))
+    return out
+
+
+def lecture_meta(align):
+    return {lid: {'no': v.get('no'), 'course': v.get('course') or v.get('phase') or ''}
+            for lid, v in align.get('by_lecture', {}).items()}
+
+
+def gen_leaf(key, sec, bundle, catalog, subject):
+    """관 하나의 논점 목록을 만든다. 긴 관은 나눠 호출해 이어 붙인다."""
+    points = []
+    chunks = chunk_lectures(bundle['lectures'], MAX_CHUNK_CHARS)
+    for i, blocks in enumerate(chunks, 1):
+        transcript = '\n\n'.join('[%s강 %s]\n%s' % (b['no'], b['ts'], b['transcript'])
+                                 for b in blocks)
+        frames = [f['file'] for b in blocks for f in b['frames']][:MAX_FRAMES]
+        cont = ('\n\n[이어서]\n앞 구간에서 이미 세운 논점입니다. 겹치지 말고 이어서 쓰세요.\n'
+                + '\n'.join('- ' + p['title'] for p in points)) if points else ''
+        prompt = (
+            '%s\n%s\n\n%s\n\n'
+            '[관] %s\n\n'
+            '[교재 본문 — 이 관의 범위를 알기 위한 참고. 여기 있는 내용을 그대로 옮기지 말고,\n'
+            ' 강의가 실제로 다룬 것만 쓰세요.]\n%s\n\n'
+            '[강의 전사 (%d/%d)]\n%s%s\n\n'
+            '첨부한 이미지는 그 구간의 판서 화면입니다. 수식·도식이 텍스트에 없으면 여기서 읽어 반영하세요.'
+            % (STYLE, SUBJECT_RULES.get(subject, ''), catalog,
+               ' / '.join(sec['path']), sec['body'][:12000],
+               i, len(chunks), transcript, cont)
+        )
+        raw, usage = call_gemini(key_holder['key'], prompt, frames)
+        got = parse_points(raw)
+        points.extend(got)
+        usage_holder['in'] += usage.get('promptTokenCount', 0)
+        usage_holder['out'] += usage.get('candidatesTokenCount', 0)
+    return points
+
+
+key_holder = {'key': None}
+usage_holder = {'in': 0, 'out': 0}
+
+
+def track_path(base, unit, phase):
+    return base / 'track' / ('%s.%s.json' % (unit, phase))
+
+
+def do_check(subject, phase):
+    base = STUDY / subject / 'lectures'
+    align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
+    names = template_names()
+    tdir = base / 'track'
+    if not tdir.exists():
+        sys.exit('트랙이 아직 없습니다: %s' % tdir)
+    total_issues, total_points, total_leaves = 0, 0, 0
+    for f in sorted(tdir.glob('*.%s.json' % phase)):
+        track = json.loads(f.read_text(encoding='utf-8'))
+        issues = check_track(track, align['by_leaf'], names)
+        total_issues += len(issues)
+        for lf in track.get('leaves', []):
+            total_leaves += 1
+            total_points += len(lf.get('points') or [])
+        for i in issues:
+            print('  ⚠ %s' % i)
+    print('\n관 %d개 · 논점 %d개 · 문제 %d건' % (total_leaves, total_points, total_issues))
+    orphan_secs = 0
+    for f in sorted(tdir.glob('*.%s.json' % phase)):
+        track = json.loads(f.read_text(encoding='utf-8'))
+        orphan_secs += sum(o.get('sec', 0) for o in track.get('orphans') or [])
+    if orphan_secs:
+        print('관에 안 붙은 구간 합계 %.1f분' % (orphan_secs / 60))
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('subject')
+    ap.add_argument('--phase', default='basic')
+    ap.add_argument('--limit', type=int)
+    ap.add_argument('--only', help='특정 leaf_id 하나만')
+    ap.add_argument('--check', action='store_true', help='생성하지 않고 검증만')
+    ap.add_argument('--model', default=MODEL)
+    args = ap.parse_args()
+
+    if args.check:
+        do_check(args.subject, args.phase)
+        return
+
+    import generate_notes
+    generate_notes.MODEL = args.model
+
+    env = {}
+    for line in (REPO / '.env').read_text(encoding='utf-8').splitlines():
+        if '=' in line and not line.strip().startswith('#'):
+            k, v = line.split('=', 1)
+            env[k.strip()] = v.strip()
+    key_holder['key'] = env.get('GEMINI_API_KEY') or os.environ.get('GEMINI_API_KEY')
+    if not key_holder['key']:
+        sys.exit('GEMINI_API_KEY 없음')
+
+    base = STUDY / args.subject / 'lectures'
+    align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
+    nm_path = base / 'note_map.json'
+    note_map = (json.loads(nm_path.read_text(encoding='utf-8'))
+                if nm_path.exists() else {'pages': [], 'by_leaf': {}})
+    pdf = DEFAULT_PDF if args.subject == 'economics' else None
+    # DEFAULT_PDF 에는 옛 드라이브 이름(WD_Black)이 박혀 있다. 그 상수는 이 태스크에서
+    # 고치지 않는다(build_note_bundle.py 는 read-only 참조) — 대신 여기서 존재 확인만
+    # 하고, 없으면 pages_text 를 빈 dict 로 둔 채 넘어간다(전사·판서만으로 진행).
+    pages_text = ({p['page']: p['text'] for p in extract_note_pages(pdf)}
+                  if pdf and Path(pdf).exists() else {})
+    sections = load_leaf_sections(args.subject)
+    tdir, kdir = WORK / 'transcripts' / args.subject, WORK / 'keyframes' / args.subject
+    catalog = load_viz_catalog()
+    meta = lecture_meta(align)
+
+    targets = [lid for lid in align['by_leaf'] if lid in sections]
+    if args.only:
+        targets = [t for t in targets if t == args.only]
+    if args.limit:
+        targets = targets[:args.limit]
+    print('대상 관 %d개 · 모델 %s\n' % (len(targets), args.model))
+
+    by_unit = {}
+    t0 = time.time()
+    for n, lid in enumerate(targets, 1):
+        sec = sections[lid]
+        title = sec['path'][-1] if sec['path'] else lid
+        bundle = build(args.subject, lid, pages_text, note_map, align, tdir, kdir)
+        # build() 가 내부에서 merge_spans() 로 (lecture_id, start) 재정렬을 해서
+        # 강좌별 순서가 무너진다. 여기서 bundle['lectures'] 를 다시 강좌 기준으로
+        # 정렬한다 — order_spans 는 'lecture_id'/'start' 키만 읽으므로 그대로 쓸 수 있다.
+        # sorted 는 안정 정렬이라 같은 강좌 안의 원래(시간) 순서는 유지된다.
+        bundle['lectures'] = order_spans(bundle['lectures'], meta)
+        if not bundle['lectures']:
+            print('  [%d/%d] 건너뜀(강의 구간 없음) %s' % (n, len(targets), title))
+            continue
+        try:
+            pts = gen_leaf(lid, sec, bundle, catalog, args.subject)
+        except Exception as e:
+            print('  [%d/%d] ❌ 실패 %s' % (n, len(targets), e))
+            continue
+        if not pts:
+            print('  [%d/%d] ❌ 논점 0개 %s' % (n, len(targets), title))
+            continue
+        by_unit.setdefault(sec['unit_code'], []).append((lid, title, pts))
+        print('  [%d/%d] %-34s 논점 %d개 · %d분' % (n, len(targets), title[:34],
+                                                  len(pts), bundle['total_minutes']))
+
+    out_dir = base / 'track'
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for unit, items in by_unit.items():
+        dst = track_path(base, unit, args.phase)
+        old = json.loads(dst.read_text(encoding='utf-8')) if dst.exists() else None
+        # 기존 관 순서를 지키고 이번에 만든 관만 갈아끼운다.
+        # 통째로 다시 쓰면 이번에 안 돌린 관이 사라진다(generate_notes 와 같은 규칙).
+        leaves = list((old or {}).get('leaves') or [])
+        index = {lf.get('leaf_id'): i for i, lf in enumerate(leaves)}
+        for lid, title, pts in items:
+            li = index.get(lid, len(leaves))
+            for seq, p in enumerate(pts, 1):
+                p['seq'] = seq
+                p['id'] = make_point_id(unit, li, seq)
+                p.setdefault('viz', None)
+                p.setdefault('check', None)
+                p.setdefault('src', [])
+            entry = {'leaf_id': lid, 'title': title, 'points': pts}
+            if lid in index:
+                leaves[index[lid]] = entry
+            else:
+                leaves.append(entry)
+                index[lid] = len(leaves) - 1
+        track = {'subject': args.subject, 'phase': args.phase, 'unit_code': unit,
+                 'leaves': leaves, 'orphans': (old or {}).get('orphans') or []}
+        if old:
+            d = diff_ids(old, track)
+            if d['removed']:
+                print('  ⚠ %s: 사라진 논점 id %d개 — 진도 확인 필요' % (unit, len(d['removed'])))
+        dst.write_text(json.dumps(track, ensure_ascii=False, indent=1), encoding='utf-8')
+
+    print('\n유닛 %d개 저장 · %.1f분' % (len(by_unit), (time.time() - t0) / 60))
+    print('토큰 in %s / out %s' % ('{:,}'.format(usage_holder['in']),
+                                  '{:,}'.format(usage_holder['out'])))
+
+
+if __name__ == '__main__':
+    main()
