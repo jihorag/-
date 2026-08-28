@@ -276,6 +276,126 @@ def save_leaf(base, subject, phase, unit, lid, title, pts):
     dst.write_text(json.dumps(track, ensure_ascii=False, indent=1), encoding='utf-8')
 
 
+# 관 축에 안 맞는 강의 — 제목에 면수가 없어 붙을 관이 없는 것들.
+# 버리면 "전부 파악"이 아니게 되므로 과목 레벨 트랙(_subject)으로 담는다.
+EXTRA_GROUPS = {
+    'economics': [
+        {'kind': 'prereq', 'title': '경제 기초수학',
+         'lectures': ['economics-basic-004', 'economics-basic-005']},
+        {'kind': 'review', 'title': '미시경제학 총정리',
+         'lectures': ['economics-basic-035']},
+        {'kind': 'review', 'title': '거시경제학 총정리',
+         'lectures': ['economics-basic-051']},
+    ],
+}
+
+
+def extra_group_built(base, phase, title):
+    """이 그룹이 _subject 트랙 파일에 이미 논점과 함께 들어있는지. title 로 식별한다
+    (leaf_id 가 전부 None 이라 leaf_id 로는 그룹을 구분할 수 없다)."""
+    p = track_path(base, '_subject', phase)
+    if not p.exists():
+        return False
+    track = json.loads(p.read_text(encoding='utf-8'))
+    return any(lf.get('title') == title and lf.get('points') for lf in track.get('leaves') or [])
+
+
+def save_extra_group(base, subject, phase, gi, kind, title, pts):
+    """그룹 하나의 논점을 _subject 트랙 파일에 즉시 병합해 저장한다.
+
+    save_leaf 와 같은 이유로 즉시 저장한다 — 도중에 죽어도 이미 만든 그룹은 남는다.
+    leaf_id 가 전부 None 이라 save_leaf 의 leaf_id 색인을 그대로 못 쓰므로 title 로 색인한다.
+    """
+    dst = track_path(base, '_subject', phase)
+    old = json.loads(dst.read_text(encoding='utf-8')) if dst.exists() else None
+    leaves = list((old or {}).get('leaves') or [])
+    index = {lf.get('title'): i for i, lf in enumerate(leaves)}
+    for seq, p in enumerate(pts, 1):
+        p['seq'] = seq
+        p['id'] = make_point_id('_subject', gi, seq)
+        p.setdefault('viz', None)
+        p.setdefault('check', None)
+        p.setdefault('src', [])
+    entry = {'leaf_id': None, 'kind': kind, 'title': title, 'points': pts}
+    if title in index:
+        leaves[index[title]] = entry
+    else:
+        leaves.append(entry)
+    track = {'subject': subject, 'phase': phase, 'unit_code': '_subject',
+             'leaves': leaves, 'orphans': (old or {}).get('orphans') or []}
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_text(json.dumps(track, ensure_ascii=False, indent=1), encoding='utf-8')
+
+
+# 관 빌드의 정상 경로는 align.json 의 span 이 강의를 몇 분 단위로 잘라 주므로 블록이
+# 자연히 여러 개다. 과목 레벨 트랙은 span 이 없어 강의 전체가 블록 하나가 되기 쉽고,
+# 긴 강의(50분 이상) 하나를 통째로 넣으면 밀도 지시(분당 논점 목표)가 커져 Gemini
+# 응답이 maxOutputTokens 를 넘어 파싱이 깨진다 — 미시경제학 총정리(58분)에서 실측.
+# 시간 창으로 블록을 잘게 쪼개고, 이 호출에서만 청크 글자수 상한도 낮춰
+# 자연히 여러 번 나눠 부르게 한다.
+EXTRA_WINDOW_SEC = 600     # 블록 하나당 시간 창(10분)
+EXTRA_MAX_CHUNK_CHARS = 12000
+
+
+def windowed_blocks(tr, no, window_sec=EXTRA_WINDOW_SEC):
+    segs = tr.get('segments') or []
+    blocks, i = [], 0
+    while i < len(segs):
+        t0 = segs[i]['start']
+        cur, j = [], i
+        while j < len(segs) and segs[j]['start'] < t0 + window_sec:
+            cur.append(segs[j])
+            j += 1
+        t1 = cur[-1]['end'] if cur else t0
+        blocks.append({
+            'no': no,
+            'ts': '%d:%02d~%d:%02d' % (int(t0) // 60, int(t0) % 60, int(t1) // 60, int(t1) % 60),
+            'minutes': round((t1 - t0) / 60, 1),
+            'transcript': ' '.join(s['text'] for s in cur),
+            'frames': [],
+        })
+        i = j
+    return blocks
+
+
+def build_extra(args, base, tdir, catalog):
+    groups = EXTRA_GROUPS.get(args.subject)
+    if not groups:
+        sys.exit('%s 는 과목 레벨 트랙 정의가 없습니다.' % args.subject)
+    global MAX_CHUNK_CHARS
+    for gi, g in enumerate(groups):
+        if not args.force and extra_group_built(base, args.phase, g['title']):
+            print('  건너뜀(이미 생성됨) %s' % g['title'])
+            continue
+        blocks = []
+        for lid in g['lectures']:
+            f = tdir / ('%s.json' % lid)
+            if not f.exists():
+                print('  ⚠ 전사 없음: %s' % lid)
+                continue
+            tr = json.loads(f.read_text(encoding='utf-8'))
+            no = tr.get('no')
+            if no is None:
+                no = int(re.search(r'(\d+)$', lid).group(1))
+            blocks.extend(windowed_blocks(tr, no))
+        if not blocks:
+            print('  ⚠ %s: 전사가 하나도 없어 건너뜀' % g['title'])
+            continue
+        sec = {'path': [g['title']], 'body': '', 'heads': [], 'unit_code': '_subject'}
+        orig_max = MAX_CHUNK_CHARS
+        MAX_CHUNK_CHARS = EXTRA_MAX_CHUNK_CHARS
+        try:
+            pts = gen_leaf(g['title'], sec, {'lectures': blocks}, catalog, args.subject)
+        finally:
+            MAX_CHUNK_CHARS = orig_max
+        if not pts:
+            print('  ❌ 논점 0개 %s' % g['title'])
+            continue
+        save_extra_group(base, args.subject, args.phase, gi, g['kind'], g['title'], pts)
+        print('  %-20s 논점 %d개' % (g['title'], len(pts)))
+    print('저장: %s' % track_path(base, '_subject', args.phase))
+
+
 def do_check(subject, phase):
     base = STUDY / subject / 'lectures'
     align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
@@ -310,6 +430,8 @@ def main():
     ap.add_argument('--only', help='특정 leaf_id 하나만')
     ap.add_argument('--check', action='store_true', help='생성하지 않고 검증만')
     ap.add_argument('--force', action='store_true', help='이미 만든 관도 다시 생성')
+    ap.add_argument('--extra', action='store_true',
+                    help='관에 안 붙은 강의를 과목 레벨 트랙(_subject)으로 생성')
     ap.add_argument('--model', default=MODEL)
     args = ap.parse_args()
 
@@ -344,6 +466,10 @@ def main():
     tdir, kdir = WORK / 'transcripts' / args.subject, WORK / 'keyframes' / args.subject
     catalog = load_viz_catalog(args.subject)
     meta = lecture_meta(align)
+
+    if args.extra:
+        build_extra(args, base, tdir, catalog)
+        return
 
     targets = [lid for lid in align['by_leaf'] if lid in sections]
     if args.only:
