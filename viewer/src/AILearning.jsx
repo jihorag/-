@@ -43,6 +43,7 @@ import { useScrollLock, useEscClose } from './uiHooks';
 import AnswerHistoryWidget from './AnswerHistoryWidget';
 import { SpeakButton } from './Speech';
 import { buildSystemBlocks, sliceSection, sliceLectureNote, stripNoteComments, stripLectureCitations, mergeLectureIntoDoc, splitLectureByTab, classifyDocHeading, extractJsonBlocks, MODELS } from './aiClaudeClient';
+import { getTrackProgress, leafCoverage } from './trackProgress';
 import { loadPassInsights, passInsightBlock } from './passInsights';
 
 // AI가 로직용으로 붙이는 ```json 마커(채점·진단·분개·선행)는 화면에서 숨긴다.
@@ -1840,6 +1841,22 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
     return () => { dead = true; };
   }, [mode, current?.leaf_id, leaves, subjectId]);
 
+  // 이 관에 논점 트랙이 있으면 coverage 를 AI 추정으로 올리지 않는다(개념 완성이 실측한다).
+  const [trackLeaf, setTrackLeaf] = useState(null);
+  useEffect(() => {
+    const leaf = leaves.find((l) => l.id === current?.leaf_id);
+    if (!leaf?.unit_code || modeToPhase(mode) !== 'basic') { setTrackLeaf(null); return undefined; }
+    let dead = false;
+    fetch(`${studyBase(subjectId)}lectures/track/${leaf.unit_code}.basic.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (dead) return;
+        setTrackLeaf(d?.leaves?.find((x) => x.leaf_id === current?.leaf_id) || null);
+      })
+      .catch(() => { if (!dead) setTrackLeaf(null); });
+    return () => { dead = true; };
+  }, [mode, current?.leaf_id, leaves, subjectId]);
+
   // 2차 template 모드 — 자료 로드
   // 이론: templates/_all.md (답안 양식 61개)
   // 법규: meta/cases.md (판례 카드)
@@ -2284,11 +2301,18 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
           }
         }
         if (b && b.session_summary && current) {
-          const delta = Number(b.coverage_delta) || 0.05;
-          const prev = getChapterMastery(current.leaf_id, curPhase);
-          updateChapterMastery(current.leaf_id, {
-            coverage: Math.min(1, (prev.coverage || 0) + Math.max(0, Math.min(0.3, delta))),
-        }, curPhase);
+          // 트랙이 있는 관은 개념 완성이 통과 논점 수로 실측한다. AI 자기 추정으로 덮지 않는다.
+          if (trackLeaf) {
+            updateChapterMastery(current.leaf_id, {
+              coverage: leafCoverage(trackLeaf, getTrackProgress()),
+            }, curPhase);
+          } else {
+            const delta = Number(b.coverage_delta) || 0.05;
+            const prev = getChapterMastery(current.leaf_id, curPhase);
+            updateChapterMastery(current.leaf_id, {
+              coverage: Math.min(1, (prev.coverage || 0) + Math.max(0, Math.min(0.3, delta))),
+            }, curPhase);
+          }
           coverageBumped = true;
           if (sessionId) updateSession(sessionId, { summary: b.session_summary, ended_at: new Date().toISOString() });
           addAssessment({
