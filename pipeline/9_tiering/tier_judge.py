@@ -32,7 +32,17 @@ DB = ROOT / "questions_db_econ.json"
 ANCHORS = Path(__file__).resolve().parent / "anchors_econ.json"
 BACKUP_DIR = Path(__file__).resolve().parent / "backup"
 CKPT_EVERY = 25
+MAX_RETRIES = 3
+CONSECUTIVE_FAIL_LIMIT = 20
+CALL_INTERVAL = 0.3
 VALID_TIERS = {"A", "B", "discard", "repair"}
+
+
+def _atomic_write_json(path, data):
+    """임시 파일에 쓰고 os.replace 로 원자적 치환한다. 중간에 죽어도 원본은 안전하다."""
+    tmp = path.parent / (path.name + ".tmp")
+    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    os.replace(tmp, path)
 
 RUBRIC = """너는 한국 감정평가사 1차 경제학원론 출제위원이다.
 아래 [대상 문항]을 [감평 기출 앵커]와 견주어 등급을 정한다.
@@ -99,19 +109,45 @@ def stratified_sample(targets, index, n, seed=42):
 
 
 def parse_verdict(text):
-    """모델 응답에서 판정 JSON을 꺼낸다. 형식이 어긋나면 None."""
-    m = re.search(r"\{.*?\}", text or "", re.S)
-    if not m:
-        return None
-    try:
-        v = json.loads(m.group(0))
-    except json.JSONDecodeError:
+    """모델 응답에서 판정 JSON을 꺼낸다. 형식이 어긋나면 None.
+
+    reason 안에 '}' 가 들어있으면 비탐욕 매칭이 잘라먹으므로 탐욕 매칭을 먼저
+    시도하고(전체 텍스트에서 첫 '{' ~ 마지막 '}'), 실패하면 비탐욕으로 폴백한다.
+    """
+    text = text or ""
+    v = None
+    for pattern in (r"\{.*\}", r"\{.*?\}"):
+        m = re.search(pattern, text, re.S)
+        if not m:
+            continue
+        try:
+            v = json.loads(m.group(0))
+            break
+        except json.JSONDecodeError:
+            continue
+    if v is None:
         return None
     if v.get("tier") not in VALID_TIERS:
         return None
     if not str(v.get("reason") or "").strip():
         return None      # 근거 없는 판정은 받지 않는다
     return {"tier": v["tier"], "reason": v["reason"]}
+
+
+def _call_with_retry(model, prompt, max_retries=MAX_RETRIES):
+    """최대 max_retries 회, 지수 백오프(2s→4s→8s)로 재시도한다. 다 실패하면 마지막 예외를 던진다."""
+    delay = 2
+    last_exc = None
+    for attempt in range(max_retries):
+        try:
+            r = model.generate_content(prompt, generation_config={"temperature": 0})
+            return r.text or ""
+        except Exception as e:
+            last_exc = e
+            if attempt < max_retries - 1:
+                time.sleep(delay)
+                delay *= 2
+    raise last_exc
 
 
 def _self_test():
@@ -132,6 +168,19 @@ def _self_test():
 
     # 쓰레기 응답
     assert parse_verdict("모르겠습니다") is None
+
+    # reason 안에 '}' 가 있어도(비탐욕 매칭이면 잘려서 깨졌을 응답) 탐욕 매칭으로 제대로 파싱한다
+    v = parse_verdict('{"tier":"A","reason":"보기 } 안에 함정이 있다"}')
+    assert v == {"tier": "A", "reason": "보기 } 안에 함정이 있다"}
+
+    # 원자적 저장 — 임시 파일이 남지 않고 내용이 실제로 바뀐다
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        p = Path(td) / "db.json"
+        p.write_text("[]", encoding="utf-8")
+        _atomic_write_json(p, [{"a": 1}])
+        assert json.loads(p.read_text(encoding="utf-8")) == [{"a": 1}]
+        assert not (Path(td) / "db.json.tmp").exists()
 
     # 프롬프트에 앵커 본문과 대상 문항이 모두 들어간다
     q = {"question": "대상문항본문", "options": ["1", "2", "3", "4", "5"],
@@ -217,22 +266,33 @@ def main():
 
     now = datetime.now().strftime("%Y-%m-%d")
     tally = Counter()
-    err = 0
+    api_err = 0
+    parse_err = 0
+    consecutive_fail = 0
     for i, q in enumerate(targets, 1):
         mt = (q.get("indexing_v4") or {}).get("mapped_taxonomy") or {}
         anchors, level = pick_anchors(index, mt)
         try:
-            r = model.generate_content(build_prompt(q, anchors),
-                                       generation_config={"temperature": 0})
-            v = parse_verdict(r.text or "")
+            text = _call_with_retry(model, build_prompt(q, anchors))
         except Exception as e:
-            err += 1
-            print(f"  [오류] {q.get('id')}: {str(e)[:80]}")
-            time.sleep(2)
+            api_err += 1
+            consecutive_fail += 1
+            print(f"  [API 오류] {q.get('id')}: {str(e)[:80]}")
+            if consecutive_fail >= CONSECUTIVE_FAIL_LIMIT:
+                _atomic_write_json(DB, db)
+                print(f"연속 {consecutive_fail}건 실패 — rate limit 또는 인증 문제로 추정, 중단합니다.")
+                sys.exit(1)
             continue
+        v = parse_verdict(text)
         if not v:
-            err += 1
+            parse_err += 1
+            consecutive_fail += 1
+            if consecutive_fail >= CONSECUTIVE_FAIL_LIMIT:
+                _atomic_write_json(DB, db)
+                print(f"연속 {consecutive_fail}건 실패 — rate limit 또는 인증 문제로 추정, 중단합니다.")
+                sys.exit(1)
             continue
+        consecutive_fail = 0
         q["tier"] = v["tier"]
         tm = q.get("tier_meta") or {}
         tm.update({"decided_by": f"gemini:{model_name}", "decided_at": now,
@@ -242,12 +302,13 @@ def main():
                    "anchor_fallback": level != "item"})
         q["tier_meta"] = tm
         tally[v["tier"]] += 1
+        time.sleep(CALL_INTERVAL)
         if i % CKPT_EVERY == 0:
-            DB.write_text(json.dumps(db, ensure_ascii=False, indent=2), encoding="utf-8")
-            print(f"  …{i}/{len(targets)} {dict(tally)} 오류 {err}")
+            _atomic_write_json(DB, db)
+            print(f"  …{i}/{len(targets)} {dict(tally)} API오류 {api_err} 파싱오류 {parse_err}")
 
-    DB.write_text(json.dumps(db, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"완료: {dict(tally)} · 오류 {err}")
+    _atomic_write_json(DB, db)
+    print(f"완료: {dict(tally)} · API오류 {api_err} 파싱오류 {parse_err}")
 
 
 if __name__ == "__main__":
