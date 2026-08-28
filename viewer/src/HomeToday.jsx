@@ -35,7 +35,7 @@ const card = {
 };
 const sectionLabel = {
   fontSize: 'var(--text-2xs)',
-  fontWeight: 'var(--weight-medium)',
+  fontWeight: 'var(--weight-bold)',
   letterSpacing: '0.12em',
   color: 'var(--ink-3)',
   paddingLeft: 2,
@@ -43,7 +43,7 @@ const sectionLabel = {
 };
 const cardHead = {
   display: 'flex', alignItems: 'center', gap: 6,
-  fontSize: 14, color: 'var(--ink)',
+  fontSize: 14, fontWeight: 'var(--weight-bold)', color: 'var(--ink)',
 };
 const num = { fontVariantNumeric: 'tabular-nums' };
 const srOnly = {
@@ -252,7 +252,7 @@ export default function HomeToday({
   return (
     <div className="home-col">
       <header style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
-        <h1 style={{ fontSize: 'var(--text-base)', fontWeight: 'var(--weight-medium)',
+        <h1 style={{ fontSize: 'var(--text-base)', fontWeight: 'var(--weight-bold)',
           color: 'var(--ink)', margin: 0 }}>{greeting}</h1>
         {meta && (
           <div style={{ marginLeft: 'auto', fontSize: 'var(--text-2xs)', color: 'var(--ink-3)' }}>
@@ -268,8 +268,8 @@ export default function HomeToday({
           <div style={{ fontSize: 'var(--text-2xs)', color: 'var(--ink-3)', marginBottom: 8 }}>
             {now.label}
           </div>
-          <div style={{ fontSize: narrow ? 19 : 22, color: 'var(--ink)',
-            lineHeight: 1.35, marginBottom: 6 }}>{now.title}</div>
+          <div style={{ fontSize: narrow ? 19 : 22, fontWeight: 'var(--weight-bold)',
+            color: 'var(--ink)', lineHeight: 1.35, marginBottom: 6 }}>{now.title}</div>
           {now.desc && (
             <div style={{ fontSize: 'var(--text-sm)', color: 'var(--ink-2)', marginBottom: 16 }}>
               {now.desc}
@@ -279,7 +279,7 @@ export default function HomeToday({
             <button onClick={now.onGo} style={{
               background: 'var(--accent)', color: 'var(--ink-invert)', border: 'none',
               borderRadius: 'var(--radius-md)', padding: '12px 22px', minHeight: 'var(--touch-min)',
-              fontSize: 'var(--text-base)', fontWeight: 'var(--weight-medium)', cursor: 'pointer',
+              fontSize: 'var(--text-base)', fontWeight: 'var(--weight-bold)', cursor: 'pointer',
             }}>{now.cta}</button>
             {now.minutes ? (
               <span style={{ fontSize: 'var(--text-sm)', color: 'var(--ink-3)' }}>약 {now.minutes}분</span>
@@ -328,7 +328,8 @@ export default function HomeToday({
             }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <Ico size={15} strokeWidth={1.8} color="var(--ink-2)" aria-hidden />
-                <span style={{ fontSize: 'var(--text-sm)', color: 'var(--ink)' }}>{q.title}</span>
+                <span style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-bold)',
+                  color: 'var(--ink)' }}>{q.title}</span>
               </span>
               {/* 자리채움 문구를 넣지 않는다. 값이 없으면 부제를 아예 안 낸다 */}
               {q.desc && (
