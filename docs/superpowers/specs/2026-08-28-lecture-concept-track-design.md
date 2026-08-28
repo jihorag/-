@@ -40,7 +40,18 @@
 ### 2-3 경제학 파일럿 대상 실측
 
 - 카탈로그 218강 중 `basic`(기본이론) 53강. 전사 53건.
-- **그런데 `align.json`의 `by_lecture`는 49건뿐이다. 4강이 `skipped: 0`으로 보고되면서 조용히 빠져 있다.** 파일럿에서 원인을 찾아 메운다.
+- **`align.json`의 `by_lecture`는 49건뿐이다.** 빠진 4강은 다음과 같고, 원인을 확인했다.
+
+  | id | 제목 | 왜 안 붙었나 |
+  |---|---|---|
+  | `economics-basic-004` | 1. 지수 (기초수학 특강) | 제목에 면수 없음 |
+  | `economics-basic-005` | 3. 총, 평균, 한계 (기초수학 특강) | 제목에 면수 없음 |
+  | `economics-basic-035` | 미시경제학 총정리 | 제목에 면수 없음 |
+  | `economics-basic-051` | 거시경제학 총 정리 | 제목에 면수 없음 |
+
+  경제학은 필기노트 PDF 쪽수를 사다리로 관을 찾는 방식이라 쪽수가 없으면 붙을 관이 없다. **정렬 실패가 아니라 원래 관 축에 안 맞는 강의다** — 특강 2강은 특정 관에 속하지 않는 선행 지식이고, 총정리 2강은 여러 관에 걸친다. 전사는 4건 모두 존재한다.
+
+  버리면 "전부 파악"이 아니게 되므로 §4-4의 **과목 레벨 트랙**으로 따로 담는다.
 - `by_leaf` 97관, 총 1,326 spans. 관당 spans 최소 1 / 중앙값 8 / 최대 128. span 창은 120초이므로 중앙값 관 하나가 약 16분, 최대 관은 4시간이 넘는다.
 - 교재 taxonomy는 221관. 강의(기본이론)가 닿는 범위는 그중 101관이고 97관이 매핑됐다.
 
@@ -124,6 +135,24 @@ viewer/public/data/study/{과목}/lectures/track/{unit_code}.{phase}.json
 - `check` — 논점당 정확히 하나. 완주 판정의 근거다.
 - `src` — **내부 앵커. 화면에 노출하지 않는다.** 지금 `[43강 39:45]`가 `stripLectureCitations`로 지워지는 것과 동일하게 취급한다. 재생성·검증·디버깅 전용이다.
 - `orphans` — 어느 관에도 매핑되지 않은 전사 구간. §5-3 참조.
+
+### 4-4 관에 안 붙는 강의 — 과목 레벨 트랙
+
+관 축에 매핑되지 않는 강의(§2-3의 4강)는 버리지 않고 `track/_subject.basic.json`에 담는다. 스키마는 §4-2와 같되 `leaves[].leaf_id`가 `null`이고 `title`이 강의 성격을 나타낸다.
+
+```json
+{ "subject":"economics", "phase":"basic", "unit_code":"_subject",
+  "leaves":[
+    { "leaf_id": null, "kind": "prereq", "title": "경제 기초수학",
+      "points":[ … ] },
+    { "leaf_id": null, "kind": "review", "title": "미시경제학 총정리",
+      "points":[ … ] }
+  ] }
+```
+
+- `kind: "prereq"` — 개념 완성 화면의 **맨 앞**에 놓는다. 본 과정 전에 훑는 선행이다.
+- `kind: "review"` — **맨 뒤**에 놓는다. 전 관을 마친 뒤의 총정리다.
+- 관에 안 붙으므로 `mastery` coverage에는 반영하지 않는다. 자체 진도만 센다.
 
 ### 4-3 분량 추정
 
@@ -304,13 +333,13 @@ Node 쪽은 `steps` 병합 검증에 대한 작은 단위 테스트 하나를 �
 
 ### 9-3 순서
 
-1. `align.json` 4강 누락 원인 확인 후 재정렬 (`rm -rf scripts/lectures/__pycache__` 먼저 — 인수인계서 5-1).
-2. `build_topic_track.py` 작성, `--limit 2`로 2관만 생성해 육안 검토.
+1. `build_topic_track.py` 작성, `--limit 2`로 2관만 생성해 육안 검토 (`rm -rf scripts/lectures/__pycache__` 먼저 — 인수인계서 5-1).
+2. `--check` 검증기.
 3. 품질 합의 후 97관 전체 생성.
 4. `VizRouter` 단계 재생 + `viz` 스키마 확장.
-5. 「개념 완성」 화면 + `SUB_TABS` 분리.
+5. 진도 저장 모듈 + 「개념 완성」 화면 + `SUB_TABS` 분리.
 6. coverage 쓰기 경로 교체.
-7. `sync-data` 반영, 실제 사용.
+7. 과목 레벨 트랙(§4-4) 4강 생성.
 
 ---
 
