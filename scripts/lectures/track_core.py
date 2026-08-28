@@ -53,20 +53,87 @@ def chunk_lectures(blocks, max_chars=45000):
     return chunks
 
 
+def _try_json_loads(s):
+    """json.loads 를 시도하고 실패하면 None. 예외를 상위로 흘리지 않기 위한 얇은 래퍼."""
+    try:
+        return json.loads(s)
+    except ValueError:
+        return None
+
+
+def _fix_bad_escapes(s):
+    """JSON 문자열 안의 잘못된 백슬래시 이스케이프를 복구한다.
+
+    Gemini 가 수식을 JSON으로 감싸면서 LaTeX 명령을 백슬래시 하나로 그대로 써
+    버린다 (`$\\sum MB = MC$`, `$\\frac{1}{1-c}$`, `$\\times$`). JSON 명세상
+    `\\s`·`\\u`(4자리 hex 아님)·`\\x` 등은 유효한 이스케이프가 아니라 그 지점에서
+    전체 파싱이 깨진다. 원본 json.loads 가 이미 실패했을 때만 이 함수를 거친다
+    — 정상 응답은 절대 이 경로를 타지 않는다.
+
+    규칙: 백슬래시를 만나면
+      - 다음 문자가 JSON 표준 이스케이프(`"` `\\` `/` `b` `f` `n` `r` `t`) 인데
+        그 뒤가 영문자가 아니면 → 진짜 이스케이프로 보고 그대로 둔다.
+        (`\\n\\n`, `\\"` 는 유지. `\\frac`/`\\times`/`\\beta` 처럼 `f`/`t`/`b`/`n`/`r`
+        다음에 알파벳이 이어지면 LaTeX 명령으로 보고 두 개로 늘린다 — 그렇지
+        않으면 `\\frac` 이 폼피드 문자 + `rac` 으로 깨져 파싱은 성공해도 내용이
+        망가진다.)
+      - 다음 문자가 `u` 이고 그 뒤 4자가 16진수면 → 유니코드 이스케이프이므로
+        그대로 둔다.
+      - 그 외 → LaTeX 명령으로 보고 백슬래시를 두 개로 늘린다.
+
+    한계: 순수 문자열 스캔이라 실제 문자열 리터럴 경계(따옴표 안팎)를 구분하지
+    않는다. JSON 구조 문자 자체에는 백슬래시가 나오지 않으므로 실무상 문제는
+    없지만, 100% 정확한 파서는 아니다. 판정이 틀려도 이 함수는 원본 파싱이
+    이미 실패했을 때만 쓰이고, 복구본도 실패하면 그대로 빈 리스트로 떨어진다.
+    """
+    out = []
+    i, n = 0, len(s)
+    while i < n:
+        c = s[i]
+        if c != '\\' or i + 1 >= n:
+            out.append(c)
+            i += 1
+            continue
+        nxt = s[i + 1]
+        if nxt == 'u' and re.match(r'^[0-9a-fA-F]{4}$', s[i + 2:i + 6]):
+            out.append(s[i:i + 6])
+            i += 6
+        elif nxt in '"\\/':
+            out.append(s[i:i + 2])
+            i += 2
+        elif nxt in 'bfnrt':
+            after = s[i + 2] if i + 2 < n else ''
+            # LaTeX 명령은 항상 ASCII 알파벳이다. 한글은 str.isalpha() 가 True를
+            # 돌려주므로 ASCII로 한정하지 않으면 "...\n둘째 줄" 같은 정상적인
+            # 줄바꿈 뒤 한글 문장까지 LaTeX로 오판해 이스케이프를 깨뜨린다.
+            if after.isalpha() and after.isascii():
+                out.append('\\\\' + nxt)
+            else:
+                out.append(s[i:i + 2])
+            i += 2
+        else:
+            out.append('\\\\' + nxt)
+            i += 2
+    return ''.join(out)
+
+
 def parse_points(raw):
     """모델 응답에서 논점 배열을 꺼낸다. 실패하면 빈 리스트(호출부가 건너뛴다)."""
     if not raw:
         return []
     txt = re.sub(r'^```(?:json)?\s*|\s*```$', '', raw.strip())
-    try:
-        d = json.loads(txt)
-    except ValueError:
+    d = _try_json_loads(txt)
+    if d is None:
         m = re.search(r'[\[{].*[\]}]', txt, flags=re.S)
         if not m:
             return []
-        try:
-            d = json.loads(m.group(0))
-        except ValueError:
+        candidate = m.group(0)
+        d = _try_json_loads(candidate)
+        if d is None:
+            # 코드펜스 제거·괄호 추출까지 다 실패한 경우에만 LaTeX 이스케이프
+            # 복구를 시도한다 (정상 응답의 동작은 절대 바꾸지 않는다).
+            d = _try_json_loads(_fix_bad_escapes(candidate))
+        if d is None:
             return []
     if isinstance(d, dict):
         d = d.get('points') or []

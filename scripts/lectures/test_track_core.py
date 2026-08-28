@@ -70,6 +70,47 @@ class TestParsePoints(unittest.TestCase):
     def test_garbage_returns_empty(self):
         self.assertEqual(parse_points('설명입니다. JSON 아님'), [])
 
+    def test_recovers_unescaped_sum(self):
+        """실패 사례 원문: 린달 조건 $\\sum MB = MC$ 가 백슬래시 하나로 들어와
+        json.loads 가 'Invalid \\escape' 로 죽던 케이스."""
+        raw = ('[{"title":"t","gist":"g",'
+               '"body":"한계비용($MC$)과 같아야 한다는 린달 조건($\\sum MB = MC$)이다."}]')
+        pts = parse_points(raw)
+        self.assertEqual(len(pts), 1)
+        self.assertIn('\\sum MB = MC', pts[0]['body'])
+
+    def test_recovers_frac_without_formfeed_corruption(self):
+        """가장 중요한 케이스: \\f 는 JSON에서 그 자체로는 유효한 이스케이프(폼피드)라
+        \\frac 하나만 있으면 json.loads 가 예외 없이 성공해버리고, 대신 body 안에
+        폼피드 문자 + 'rac{1}{1-c}' 로 조용히 깨진다 — 복구가 "실패했을 때만" 도는
+        구조라 이 케이스 단독으로는 못 잡는다. 실제 실패 응답들은 관 하나에 여러
+        수식이 함께 나와 \\sum 같은 진짜 무효 이스케이프가 최소 하나는 끼어
+        전체 파싱을 깨뜨렸다 — 그 상황을 그대로 재현해 복구가 걸리게 하고,
+        걸린 김에 \\frac 도 같이 살아남는지 확인한다."""
+        raw = ('[{"title":"t","gist":"g",'
+               '"body":"수렴 조건은 $\\frac{1}{1-c}$ 이고 총합은 $\\sum x_i$ 이다."}]')
+        pts = parse_points(raw)
+        self.assertEqual(len(pts), 1)
+        body = pts[0]['body']
+        self.assertIn('\\frac{1}{1-c}', body)
+        self.assertNotIn('\f', body)
+
+    def test_recovers_times(self):
+        raw = ('[{"title":"t","gist":"g",'
+               '"body":"$A \\times B$ 이고 총합은 $\\sum x_i$ 로 계산한다."}]')
+        pts = parse_points(raw)
+        self.assertEqual(len(pts), 1)
+        self.assertIn('\\times', pts[0]['body'])
+
+    def test_properly_escaped_input_untouched(self):
+        """정상적으로 이스케이프된 응답은 첫 시도(json.loads)에서 바로 성공해야
+        하고, 복구 경로를 타지 않아 줄바꿈·역슬래시 원래 의미가 유지된다."""
+        raw = r'[{"title":"t","gist":"g","body":"첫 줄\n둘째 줄","note":"real backslash: \\"}]'
+        pts = parse_points(raw)
+        self.assertEqual(len(pts), 1)
+        self.assertEqual(pts[0]['body'], '첫 줄\n둘째 줄')
+        self.assertEqual(pts[0]['note'], 'real backslash: \\')
+
 
 class TestCheckTrack(unittest.TestCase):
     def _track(self, **over):
