@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { ArrowLeft, House, Compass, RotateCcw, BookOpen, Sparkles, CalendarCheck, Zap, Gauge, PenLine, Settings } from 'lucide-react';
 import { cloudEnabled, supabase, pullState, pushState } from './cloud';
 import AILearning from './AILearning';
+import ConceptTrack from './ConceptTrack';
 import VizGallery from './viz/VizGallery';
 import WeaknessPanel from './WeaknessPanel';
 import { isDesktop, saveBackupNative, loadBackupNative } from './desktopBackup';
@@ -448,6 +449,20 @@ const mergeStateData = (remoteData) => {
           attempted, correct,
           accuracy: attempted ? correct / attempted : (base?.accuracy || 0),
           avg_score_pct: Math.max(e?.avg_score_pct || 0, re?.avg_score_pct || 0) };
+      }
+      setIf(k, m);
+    } else if (k === 'ailearn-track-progress') {
+      // 논점 트랙 진도: { leafId: { pointId: state(0/1/2) } } — 논점 단위로 max 병합.
+      // 분기가 없으면 기본(로컬 우선)으로 떨어져 다른 기기에서만 소진한 논점이
+      // 이후 push 에서 지워진다(trackProgress.js 의 setPointState 와 같은 "되돌리지 않는다" 원칙).
+      const l = parseJ(lv, {}); const r = parseJ(rv, {}); const m = { ...r };
+      for (const [leafId, lpts] of Object.entries(l)) {
+        const rpts = m[leafId] || {};
+        const merged = { ...rpts };
+        for (const [pid, state] of Object.entries(lpts || {})) {
+          merged[pid] = Math.max(merged[pid] || 0, state || 0);
+        }
+        m[leafId] = merged;
       }
       setIf(k, m);
     } else if (k === 'ailearn-sessions') {
@@ -3747,12 +3762,12 @@ const App = () => {
     : currentView === 'quizHome' ? 'drill'
     : (currentView === 'planner' || currentView === 'curriculum') ? 'plan'
     : (currentView === 'proficiency' || currentView === 'stories') ? 'report'
-    : currentView === 'civil' ? 'tutor'
+    : (currentView === 'civil' || currentView === 'concept') ? 'tutor'
     : 'quiz'; // dashboard + tax_* + search(둘러보기 흡수)
   // 탭 키 → 화면. 탭을 6개로 접으면서 커리큘럼은 '계획', 합격수기는 '실력' 아래로 갔다.
   // 탭을 누르면 각 묶음의 기본 화면으로 간다.
   const TAB_HOME_VIEW = {
-    home: 'home', plan: 'planner', tutor: 'civil',
+    home: 'home', plan: 'planner', tutor: 'concept',
     drill: 'quizHome', quiz: 'dashboard', report: 'proficiency',
   };
   const goTab = (t) => {
@@ -3839,13 +3854,15 @@ const App = () => {
   // 각 화면 컴포넌트를 건드리지 않도록 셸 쪽에서 얹는다.
   const SUB_TABS = {
     plan: [['planner', '플래너'], ['curriculum', '커리큘럼']],
+    tutor: [['concept', '개념 완성'], ['civil', '심화']],
     report: [['proficiency', '실력 리포트'], ['stories', '합격수기']],
   };
   const subNav = (() => {
     const items = SUB_TABS[navTab];
     if (!items) return null;
     return (
-      <div className="sub-nav" role="tablist" aria-label={navTab === 'plan' ? '계획' : '실력'}>
+      <div className="sub-nav" role="tablist"
+        aria-label={navTab === 'plan' ? '계획' : navTab === 'tutor' ? 'AI 학습' : '실력'}>
         {items.map(([view, label]) => (
           <button key={view} role="tab" aria-selected={currentView === view}
             className={currentView === view ? 'active' : ''}
@@ -4391,6 +4408,17 @@ const App = () => {
 
   // AI 학습 탭 — 하단 탭바 노출되는 루트 화면. (구 통암기 탭 대체)
   // PC 에서 사이드바+채팅 2컬럼이 전체 화면을 활용하도록 fullwidth 클래스.
+  if (currentView === 'concept') {
+    const subj = 'economics';   // 파일럿. 과목 전환은 다음 단계에서 붙인다.
+    return shell(
+      <ConceptTrack
+        subjectId={subj}
+        leaves={leavesBySubject[subj] || []}
+        onOpenDeep={() => setCurrentView('civil')}
+      />
+    );
+  }
+
   if (currentView === 'civil') {
     return shell(
       <AILearning

@@ -6,6 +6,8 @@ import { getTemplate } from './vizRegistry';
 import { validate } from './validate';
 import VizFrame from './VizFrame';
 import { incrementVizUsage } from '../aiLearningStore';
+import { stepParamsList, stepLabels } from './steps';
+import StepPlayer from './StepPlayer';
 
 function ErrorBox({ name, errors, rawText }) {
   return (
@@ -50,7 +52,14 @@ export default function VizRouter({ name, rawJson }) {
       <ErrorBox name={name} errors={[`JSON 파싱 오류: ${e.message}`]} rawText={rawJson} />
     </TrackedRender>;
   }
-  const v = validate(tpl.schema, params);
+  const paramsList = stepParamsList(params);
+  const labels = stepLabels(params);
+  const errs = [];
+  paramsList.forEach((p, i) => {
+    const r = validate(tpl.schema, p);
+    if (!r.ok) errs.push(...r.errors.map((e) => (paramsList.length > 1 ? `[${i + 1}단계] ${e}` : e)));
+  });
+  const v = { ok: errs.length === 0, errors: errs };
   if (!v.ok) {
     return <TrackedRender name={name} ok={false}>
       <ErrorBox name={name} errors={v.errors} rawText={rawJson} />
@@ -61,7 +70,9 @@ export default function VizRouter({ name, rawJson }) {
     <TrackedRender name={name} ok={true}>
       <VizFrame templateName={name}>
         <Suspense fallback={<div style={{ padding: 14, background: '#eef2ff', borderRadius: 8, fontSize: '0.82rem', color: '#4338ca', textAlign: 'center' }}>📊 {name} 로드 중...</div>}>
-          <Comp params={params} />
+          {paramsList.length > 1
+            ? <StepPlayer Comp={Comp} paramsList={paramsList} labels={labels} />
+            : <Comp params={paramsList[0]} />}
         </Suspense>
       </VizFrame>
     </TrackedRender>
