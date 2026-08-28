@@ -3161,6 +3161,15 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
             );
           })}
         </div>
+        {mode === 'study' && getSubjectMeta(subjectId)?.stage === 1 && (
+          <div style={{
+            margin: '8px 0', padding: '8px 10px', borderRadius: 7,
+            background: '#f3f4f6', fontSize: '0.79rem', color: '#374151',
+          }}>
+            기본 개념은 <b>개념 완성</b>에서 강의 논점을 순서대로 익히는 편이 빠릅니다.
+            여기서는 이미 아는 내용을 깊게 파고들 때 쓰세요.
+          </div>
+        )}
         {/* 회독 진척 배지 — 모드 탭이 곧 회독 축이므로 지금 탭의 회독 상태를 보여준다.
             1차에서만 의미가 있다(2차는 회독 축을 쓰지 않는다). */}
         {phaseProgress && (
