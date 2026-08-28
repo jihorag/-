@@ -26,8 +26,28 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
 
   const leaf = useMemo(() => leaves.find((l) => l.id === leafId) || null, [leaves, leafId]);
 
+  // 과목 레벨 트랙 — 관 축에 안 붙는 선행·총정리 강의 묶음.
+  const [extra, setExtra] = useState([]);
+  useEffect(() => {
+    let dead = false;
+    fetch(`${studyBase(subjectId)}lectures/track/_subject.basic.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (!dead) setExtra(d?.leaves || []); })
+      .catch(() => { if (!dead) setExtra([]); });
+    return () => { dead = true; };
+  }, [subjectId]);
+
   // 트랙 로드 — 아직 만들어지지 않은 관·회독이 대부분이므로 404 는 조용히 빈 값.
   useEffect(() => {
+    if (leafId?.startsWith('_extra:')) {
+      const title = leafId.slice('_extra:'.length);
+      const found = extra.find((e) => e.title === title) || null;
+      setTrack(found ? { ...found, leaf_id: leafId } : null);
+      setIdx(0);
+      setRevealed(false);
+      setLoading(false);
+      return undefined;
+    }
     if (!leaf?.unit_code) { setTrack(null); return undefined; }
     let dead = false;
     setLoading(true);
@@ -43,7 +63,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
       .catch(() => { if (!dead) setTrack(null); })
       .finally(() => { if (!dead) setLoading(false); });
     return () => { dead = true; };
-  }, [subjectId, leaf?.unit_code, leafId]);
+  }, [subjectId, leaf?.unit_code, leafId, extra]);
 
   // 트랙을 열면 이어서 볼 논점으로 이동
   useEffect(() => {
@@ -97,7 +117,13 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
         <p style={{ color: '#6b7280', fontSize: '0.84rem', margin: '0 0 14px' }}>
           강의가 다룬 논점을 순서대로 하나씩 익힙니다. 다 비우면 그 관을 마친 것입니다.
         </p>
+        {extra.filter((e) => e.kind === 'prereq').map((e) => (
+          <ExtraCard key={e.title} entry={e} onPick={() => setLeafId(`_extra:${e.title}`)} />
+        ))}
         <LeafList leaves={leaves} onPick={setLeafId} />
+        {extra.filter((e) => e.kind === 'review').map((e) => (
+          <ExtraCard key={e.title} entry={e} onPick={() => setLeafId(`_extra:${e.title}`)} />
+        ))}
       </div>
     );
   }
@@ -129,8 +155,9 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
       <div style={{ margin: '10px 0 4px', display: 'flex', alignItems: 'center', gap: 8 }}>
         <div style={{ flex: 1, height: 6, background: '#e5e7eb', borderRadius: 3, overflow: 'hidden' }}>
           <div style={{
-            width: `${counts.total ? (counts.passed / counts.total) * 100 : 0}%`,
-            height: '100%', background: '#374151', transition: 'width 0.3s ease-out',
+            width: '100%', height: '100%', background: '#374151',
+            transform: `scaleX(${counts.total ? counts.passed / counts.total : 0})`,
+            transformOrigin: 'left', transition: 'transform 0.3s ease-out',
           }} />
         </div>
         <span style={{ fontSize: '0.76rem', color: '#6b7280', fontWeight: 700, whiteSpace: 'nowrap' }}>
@@ -253,6 +280,28 @@ function LeafList({ leaves, onPick }) {
         );
       })}
     </ul>
+  );
+}
+
+function ExtraCard({ entry, onPick }) {
+  const progress = getTrackProgress();
+  const rec = progress[`_extra:${entry.title}`] || {};
+  const passed = Object.values(rec).filter((s) => s >= STATE.PASSED).length;
+  return (
+    <button onClick={onPick} style={{
+      width: '100%', textAlign: 'left', padding: '10px 12px', marginBottom: 6,
+      border: '1px dashed #d1d5db', borderRadius: 8, background: '#fafafa',
+      cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8,
+    }}>
+      <span style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 700 }}>
+        {entry.kind === 'prereq' ? '선행' : '총정리'}
+      </span>
+      <span style={{ flex: 1, fontSize: '0.87rem', color: '#111827' }}>{entry.title}</span>
+      {passed > 0 && (
+        <span style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 700 }}>{passed}개 완료</span>
+      )}
+      <ChevronRight size={14} color="#9ca3af" />
+    </button>
   );
 }
 
