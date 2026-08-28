@@ -1,6 +1,4234 @@
 {
- "count": 190,
+ "count": 513,
  "notes": [
+  {
+   "leaf_id": "accounting__원가관리회계__제1장_원가회계_기초__Chapter_01_제조기업의_원가흐름__1절_원가의_다양한_분류기준",
+   "title": "1절 원가의 다양한 분류기준",
+   "chars": 2788,
+   "preview": "원가관리회계는 10문제 중 9문제가 계산 문제로 출제되며, 이론(말 문제)의 비중이 매우 낮다. 특히 제1장 1절은 매년 한 해도 거르지 않고 반드시 한 문제가 출제되는 영역이므로, 기본적인 계산 틀(와꾸)을 완벽히 숙달해야 한다. [43강 02:15] 원가 정보는 이용 주체에 따라 요구되는 성격이 다르다. 구분 이용자 주요 목적 강조점 ------------ 원가회계 외부 정보 이용자 외부",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C01.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제1장_원가회계_기초__Chapter_01_제조기업의_원가흐름__2절_제조기업의_원가흐름",
+   "title": "2절 제조기업의 원가흐름",
+   "chars": 2732,
+   "preview": "제조기업의 원가는 원재료 → 재공품 → 제품의 물리적 흐름을 따라간다. 상기업이 외부에서 상품을 사와 단순히 보관하다 파는 것과 달리, 제조기업은 공장이라는 공간에서 원가를 '투입'하여 제품을 '만드는' 과정이 핵심이다. 따라서 원가흐름을 파악하는 것은 곧 공장의 시계바늘을 따라가는 것과 같다. [1강 45:12] 제조간접원가(OH)는 단순히 '기타 비용'이 아니라, 직접재료원가와 직접노무원",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C01.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제2장_원가계산__Chapter_02_개별원가계산__1절_실제개별원가계산",
+   "title": "1절 실제개별원가계산",
+   "chars": 2114,
+   "preview": "개별원가계산은 제품 하나하나의 원가를 정교하게 집계하므로 계산 과정에서 상당한 시간과 비용이 소요된다. 따라서 이 방식은 원가 계산에 투입되는 비용보다 정확한 원가 정보가 주는 효익이 더 큰 고가 제품군에 주로 적용된다. [2강 51:20] 구분 주문 생산(개별원가) 시장 생산(종합원가) --------- 제품 가치 항공기, 선박 등 고가 제품 라면, 볼펜 등 저가 생필품 생산 형태 고객의 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C01.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제2장_원가계산__Chapter_02_개별원가계산__2절_정상개별원가계산",
+   "title": "2절 정상개별원가계산",
+   "chars": 2856,
+   "preview": "제조간접원가는 수도광열비나 감가상각비 등 다양한 항목이 섞여 있어 실제 발생액을 집계하는 데 시간이 오래 걸린다. 마치 수술 중인 환자의 환부를 봉합해야 하는데, 실제 사용할 실(실제원가)이 도착하지 않아 봉합을 못 하고 기다리는 것과 같다. 이때 원가 집계가 늦어지는 문제를 해결하기 위해 미리 정해둔 실(예정원가)을 사용하여 우선 봉합하는 과정이 정상원가계산이다 [3강 07:45]. 정상원",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C01.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제2장_원가계산__Chapter_02_개별원가계산__3절_배부차이_및_배부차이_조정",
+   "title": "3절 배부차이 및 배부차이 조정",
+   "chars": 2559,
+   "preview": "정상원가계산 체계에서 배부차이 조정은 연초부터 기말까지 이어지는 일련의 과정 중 마지막 단계에 해당한다. 전체적인 계산 흐름은 다음과 같다. [4강 01:20] 1. 연초(예정배부율 설정): 제조간접원가 예산을 예정(정상)조업도로 나누어 배부율을 미리 정한다. 2. 연중(예정배부 실시): 실제 조업도가 파악될 때마다 연초에 정한 예정배부율을 곱하여 원가를 배부한다. 3. 기말(배부차이 조정)",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C01.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제2장_원가계산__Chapter_03_보조부문의_원가배부__1절_보조부문이_하나인_경우",
+   "title": "1절 보조부문이 하나인 경우",
+   "chars": 1856,
+   "preview": "부문별 원가계산은 공장 전체에서 발생한 제조간접원가를 하나의 배부기준으로 제품에 배부하는 방식보다 원가 계산의 정확도를 높이기 위해 도입한다. 공장 전체 원가를 뭉뚱그려 배부하면 제품별 원가 왜곡이 발생할 수 있으므로, 원가 발생 장소를 부문(Department)별로 세분화하여 집계한다. [4강 37:20] 보조부문 원가는 발생 시점에 즉시 비용(판매비와 관리비 등)으로 처리하지 않는다. 이",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C01.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제2장_원가계산__Chapter_03_보조부문의_원가배부__2절_보조부문이_여러_개인_경우",
+   "title": "2절 보조부문이 여러 개인 경우",
+   "chars": 2309,
+   "preview": "보조부문이 제조부문뿐만 아니라 다른 보조부문에도 용역을 제공하는 상황(예: 수선부문이 동력부문의 기계를 수리해주는 경우)을 어떻게 처리할 것인가가 핵심이다. 이를 '용역수수관계'라 하며, 이를 어디까지 장부에 반영하느냐에 따라 배분 결과가 달라진다. [5강 02:15] 질문의 의도를 정확히 파악하는 것이 실수를 줄이는 첫걸음이다. 단순히 다른 부문으로부터 '배부받은 금액'만을 묻는지, 아니면",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C01.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제2장_원가계산__Chapter_05_종합원가계산__1절_완성품환산량",
+   "title": "1절 완성품환산량",
+   "chars": 3304,
+   "preview": "종합원가계산은 제품별로 원가를 추적하는 대신 공정별로 집계하므로 개별원가계산과 관리의 초점이 다르다. 구분 개별원가계산 종합원가계산 --------- 생산 형태 다품종 소량, 주문 제작 단일품종 대량, 연속 생산 원가 집계 작업별(Job) 원가표 공정별(Process) 제조원가보고서 정확도 상대적으로 높음 상대적으로 낮음 계산 비용 많이 소요됨 적게 소요됨 주요 업종 건설업, 조선업, 회계법",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C01.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-C01-10",
+   "title": "3절 공손 — 정상공손·비정상공손 수량 결정",
+   "chars": 2328,
+   "preview": "공손은 석유화학, 시멘트 제조와 같은 연속 공정 환경에서 발생하는 필수 불가결한 요소이다. 공손 관리의 핵심은 단순히 불량품을 찾아내는 것에 그치지 않고, 이를 수량 측면에서 접근할 것인지 원가 측면에서 접근할 것인지 구분하는 데 있다. [10강 08:10] 구분 공손 수량(개수) 파악 공손 원가 배분 --------- 분석 대상 단순 물량(Units)의 부족분 공손품에 투입된 원가() 필요",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C01.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제2장_원가계산__Chapter_04_활동기준원가계산__1절_활동기준원가계산",
+   "title": "1절 활동기준원가계산",
+   "chars": 2592,
+   "preview": "최근의 제조 환경은 직접노무원가의 비중이 급격히 감소하고 기계 자동화에 따른 제조간접원가의 거액화가 특징이다. 과거에는 생산량이나 작업시간 같은 단순한 기준으로 원가를 나누어도 큰 무리가 없었으나, 제품군이 다양해진 현재는 이러한 방식이 원가를 심각하게 왜곡한다. [6강 41:20] 전통적 방식의 원가 왜곡을 직관적으로 이해하려면 '새우깡'과 '반도체'를 동시에 만드는 공장을 가정해 본다. ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제2장_원가계산__Chapter_06_결합원가계산__1절_결합원가란",
+   "title": "1절 결합원가란?",
+   "chars": 1060,
+   "preview": "결합공정은 공통공정이라고도 불린다. 라면이나 과자 공장처럼 동일한 재료와 공정을 공유하며 진행되다가, 특정 단계에 도달했을 때 비로소 서로 다른 제품으로 갈라지는 특성을 갖는다. [10강 43:45] 결합원가는 여러 제품을 만들기 위해 지출한 공통 경비를 각 제품에 나누어 주는 개념이다. 분리점에서 제품을 즉시 판매하는 것은 '라면 사리' 상태로 출하하는 것에 비유할 수 있으며, 추가가공을 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제2장_원가계산__Chapter_06_결합원가계산__2절_결합원가_배부방법",
+   "title": "2절 결합원가 배부방법",
+   "chars": 1494,
+   "preview": "결합원가와 개별원가를 식별할 때는 원가가 투입되는 방향성에 주목한다. 결합원가는 분리점까지 모든 제품이 공통으로 거쳐오는 선상에서 발생하지만, 개별원가(추가가공원가)는 분리점 이후 특정 제품에만 직선으로 독단적으로 연결되는 원가이다 [10강 45:50]. 따라서 계산 문제를 풀 때 자료에서 \"공통으로 거쳐온 단계\"인지 \"특정 제품만 단독으로 쓴 돈\"인지를 먼저 가려내야 한다 [10강 47:3",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제2장_원가계산__Chapter_06_결합원가계산__3절_결합원가_추가고려사항",
+   "title": "3절 결합원가 추가고려사항",
+   "chars": 2568,
+   "preview": "결합공정에서 발생하는 부수적인 산출물은 그 가치에 따라 관리 방식이 완전히 달라진다. 가구 공장에서 원목을 다듬을 때 나오는 톱밥이나 커피 전문점의 원두 찌꺼기를 떠올리면 쉽다. 이를 찾는 수요자가 많아 돈을 받고 팔 수 있다면(고양이 배변용 톱밥 등) 가치가 중요한 부산물이 되고, 그냥 버리거나 치우는 데 돈이 든다면 작업폐물이 된다. [10강 48:15] 구분 생산기준법(순실현가치법) 판",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제3장_원가추정과_CVP분석__Chapter_07_전부원가계산_변동원가계산__1절_전부원가계산_변동원가계산_초변동원가계산",
+   "title": "1절 전부원가계산, 변동원가계산, 초변동원가계산",
+   "chars": 1771,
+   "preview": "원가 요소를 발생 장소(공장)와 조업도에 따른 행태(변동·고정)를 결합하여 다음과 같이 1~4번의 고유 번호로 구분하면 논의가 명확해진다. 전부원가계산은 1~4번 전체를, 변동원가계산은 1~3번까지만 제품원가에 포함한다. [14강 06:45] 구분 원가 요소 원가 행태 전부원가 변동원가 ---------:---::---: 1 직접재료원가 변동원가 ○ ○ 2 직접노무원가 변동원가 ○ ○ 3 변",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제3장_원가추정과_CVP분석__Chapter_07_전부원가계산_변동원가계산__2절_각_원가계산방법들의_유용성과_한계점",
+   "title": "2절 각 원가계산방법들의 유용성과 한계점",
+   "chars": 2337,
+   "preview": "초변동원가계산이 등장한 배경에는 현대 제조 환경의 변화가 있다. 과거와 달리 오늘날의 직접노무원가는 생산량에 따라 유연하게 조절되는 변동비라기보다, 정규직 고용 등으로 인해 일감이 없어도 지급해야 하는 고정비의 성격이 강해졌다. 변동제조간접원가 역시 전기료의 기본요금처럼 조업도가 0이어도 발생하는 부분이 존재한다. 따라서 가장 확실한 변동비인 직접재료원가만 제품원가로 인정하자는 것이 초변동원",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제3장_원가추정과_CVP분석__Chapter_08_원가함수의_추정__1절_원가함수의_추정",
+   "title": "1절 원가함수의 추정",
+   "chars": 2581,
+   "preview": "원가추정은 실제 발생한 원가를 완벽하게 측정(measurement)하는 것이 아니라, 과거의 데이터를 바탕으로 미래의 원가 동력을 근사치로 예측(estimation)하는 작업이다. 따라서 분석의 복잡성을 줄이기 위해 현실을 단순화한 엄격한 가정이 전제되어야 한다. [13강 02:15] 원가함수를 Y = aX + b로 나타낼 때, 각 요소가 갖는 의미와 행태적 특징은 다음과 같다. 구분 요소 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제3장_원가추정과_CVP분석__Chapter_09_원가_조업도_이익분석_CVP분석__1절_원가_조업도_이익분석",
+   "title": "1절 원가-조업도-이익분석",
+   "chars": 2528,
+   "preview": "CVP분석은 외부 보고용 재무제표가 아닌, 경영자가 실질적으로 '내 주머니에 얼마가 남는가'를 파악하기 위해 사용하는 도구다. 예를 들어 프랜차이즈 치킨집을 운영할 때, 닭 한 마리를 팔아 얻는 수익에서 생닭 값과 양념 값(변동비)을 빼고 남은 돈이 얼마인지, 그 돈을 모아 임대료(고정비)를 내고 나면 진짜 수익이 얼마인지를 계산하는 과정과 같다. 이처럼 원가를 성격별로 분류하여 이익의 구조",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제3장_원가추정과_CVP분석__Chapter_09_원가_조업도_이익분석_CVP분석__2절_손익분기점_및_목표이익",
+   "title": "2절 손익분기점 및 목표이익",
+   "chars": 2451,
+   "preview": "CVP 분석의 성패는 문제에서 요구하는 값이 수량(Q)인지 매출액(S)인지를 빠르게 파악하고 그에 맞는 '짝꿍'을 찾아 대입하는 데 있다. 수량에는 단위당 금액을, 매출액에는 비율을 결합하는 것이 핵심이다. [17강 08:30] 손익분기점의 상태를 공헌이익의 관점에서 재정의하면 다음과 같다. [17강 19:20] 구분 일반적인 상태 손익분기점(BEP) 상태 --------- 공헌이익의 역할 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제3장_원가추정과_CVP분석__Chapter_09_원가_조업도_이익분석_CVP분석__3절_안전한계",
+   "title": "3절 안전한계",
+   "chars": 2081,
+   "preview": "안전한계는 결국 손익분기점이 어디인지를 묻는 또 다른 방식이다. 문제에서 안전한계를 물어본다면 \"손익분기점부터 찾아야 한다\"는 신호로 받아들여야 한다. 실무적으로는 매출이 감소할 때 적자로 돌아서지 않기 위한 '쿠션'이나 '여유'로 이해하면 쉽다. [17강 21:30] 손익분기점 매출까지는 오로지 고정비를 회수하는 구간이며, 기업의 실제 이익은 손익분기점을 초과하는 '안전한계 구간'에서만 발",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제3장_원가추정과_CVP분석__Chapter_09_원가_조업도_이익분석_CVP분석__4절_기타_CVP분석",
+   "title": "4절 기타 CVP분석",
+   "chars": 2478,
+   "preview": "복수제품 CVP분석의 핵심은 여러 종류의 제품을 하나의 바구니(세트)에 담아 단일제품처럼 취급하는 것이다. 이때 제품별 단위당 공헌이익을 단순히 합산하는 것이 아니라, 문제에서 제시된 매출배합 비율만큼 바구니에 채워 넣는 과정이 선행되어야 한다 [17강 57:10]. [단계별 계산 절차] 1. 단위당 공헌이익 산출: 각 제품의 판매가격에서 변동원가를 차감한다. 자료가 총액으로 주어진 경우 총",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제5장_의사결정회계__Chapter_11_관련원가와_의사결정__1절_의사결정의_유형",
+   "title": "1절 의사결정의 유형",
+   "chars": 2365,
+   "preview": "단기 의사결정은 공장 부지나 설비 규모를 당장 확장할 수 없는 주어진 생산능력(Capacity) 범위 내에서 이루어진다. 따라서 생산능력을 초과하는 주문이 들어오지 않는 한, 기존의 고정원가는 의사결정 전후에 차이가 발생하지 않는 비관련원가가 되는 것이 일반적이다. [18강 22:15] 구분 관련성 여부 이유 --------- 변동원가 관련원가 조업도 변화에 따라 총액이 변하므로 대안 간 차",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제5장_의사결정회계__Chapter_11_관련원가와_의사결정__2절_증분접근법_차액접근법",
+   "title": "2절 증분접근법(차액접근법)",
+   "chars": 1956,
+   "preview": "단기 의사결정의 핵심은 의사결정 대안 사이에 차이가 발생하는 관련원가를 식별하는 것이다. 일반적으로 변동원가와 기회비용은 관련원가에 해당하며, 이미 발생했거나 대안에 관계없이 일정한 고정원가는 비관련원가로 분류한다. 구분 관련원가 (의사결정 포함) 비관련원가 (의사결정 제외) --------- 원가 항목 변동원가, 기회비용 고정원가, 매몰원가 특징 대안별로 금액이 달라짐 대안에 관계없이 일정",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제5장_의사결정회계__Chapter_11_관련원가와_의사결정__3절_제약요인하의_의사결정",
+   "title": "3절 제약요인하의 의사결정",
+   "chars": 1481,
+   "preview": "의사결정의 핵심은 모든 숫자를 분석하는 것이 아니라, 대안 간에 차이를 일으키는 원인만 빠르게 찾아내는 것이다. 제약자원 문제에서 고정원가 자료가 주어지더라도 이를 무시하고 공헌이익에 집중하는 이유는 다음과 같은 원가 구조의 차이 때문이다. [14강 51:45] 구분 의사결정 포함 여부 이유 --------- 변동원가 관련원가 (포함) 생산량과 제약자원 사용량에 따라 총액이 직접 변함 고정원",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제4장_표준원가계산__Chapter_10_표준원가계산__1절_표준원가계산",
+   "title": "1절 표준원가계산",
+   "chars": 1556,
+   "preview": "실전 문제에서 표준조업도(SQ)는 '실제생산량 \\times 단위당 표준시간'의 형태로 직접 계산하게 나오기도 하지만, 이미 계산이 완료된 총 시간으로 제시되는 경우가 많다. 이때 제시된 수치가 '실제 생산량에 허용된 표준 직접노무시간'이라는 표현을 담고 있다면, 별도의 곱셈 과정 없이 그 값을 그대로 SQ로 사용한다 [21강 02:15]. 또한, 제조간접원가 차이 분석 시 변동제조간접원가와 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C04.basic.md",
+   "lectures": [
+    "21강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제5장_의사결정회계__Chapter_12_대체가격결정__1절_대체가격이란",
+   "title": "1절 대체가격이란?",
+   "chars": 2334,
+   "preview": "대체가격 결정은 본질적으로 특별주문의 수락 여부 결정과 궤를 같이한다. 외부 고객이 아닌 내부 사업부라는 특수한 상대에게 제품을 공급할 때, 기업 전체의 부를 감소시키지 않으면서 공급사업부가 받아들일 수 있는 '마지노선'을 찾는 과정이기 때문이다. 따라서 특별주문의 의사결정 원리인 증분분석(incremental analysis)을 그대로 적용하여 접근해야 한다. [21강 16:18] 대체가격",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C04.basic.md",
+   "lectures": [
+    "21강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제5장_의사결정회계__Chapter_12_대체가격결정__2절_대체가격_결정방법",
+   "title": "2절 대체가격 결정방법",
+   "chars": 1993,
+   "preview": "대체가격 결정은 본질적으로 단기 의사결정의 영역이다. 설비 확장이나 신규 투자를 수반하는 장기적 의사결정(자본예산)과는 구분해야 한다. 당장 보유한 생산능력 범위 내에서 내부 거래를 할지, 외부 거래를 할지 결정하는 문제이기 때문이다. [21강 45:10] 대체 여부를 고민하는 과정은 일상적인 '집밥 vs 배달'의 선택과 구조가 같다. 공급사업부는 집에서 직접 요리하는 비용(자가제조)을 따지",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C04.basic.md",
+   "lectures": [
+    "21강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제6장_계획과_통제__Chapter_15_최신_원가관리회계__1절_균형성과표",
+   "title": "1절 균형성과표",
+   "chars": 1769,
+   "preview": "균형성과표는 단순한 성과 측정 도구를 넘어, 기업의 비전과 전략을 구체적인 행동 지표로 변환하는 전략 경영 시스템이다. 재무 지표가 '과거의 성적표'라면, 비재무 지표는 '미래를 위한 예습'과 같다. [18강 45:20] 전통적 성과평가 시스템과 BSC의 철학적 차이는 다음과 같다. 구분 전통적 성과평가 균형성과표(BSC) --------- 관리의 초점 과거 결과의 통제 및 보상 미래 전략의",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C04.basic.md",
+   "lectures": [
+    "21강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제6장_계획과_통제__Chapter_15_최신_원가관리회계__2절_다양한_원가계산",
+   "title": "2절 다양한 원가계산",
+   "chars": 2258,
+   "preview": "표준원가계산은 모든 제조원가(직접재료원가, 직접노무원가, 제조간접원가)에 대해 사전에 표준을 설정하는 극단적인 사전원가 시스템이다. 제품을 만들기 전 레시피를 정하듯 미리 원가를 확정해 두므로, 생산이 완료되는 즉시 원가 보고서를 산출할 수 있을 만큼 계산 속도가 매우 빠르다 [19강 37:20]. 구분 장점 단점 --------- 원가계산 실제 생산량만 파악되면 즉시 원가 계산 가능 표준 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C04.basic.md",
+   "lectures": [
+    "21강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__원가관리회계__제6장_계획과_통제__Chapter_15_최신_원가관리회계__3절_품질원가",
+   "title": "3절 품질원가",
+   "chars": 1478,
+   "preview": "품질원가는 조업도(판매량)와의 상관관계에 따라 변동비와 고정비의 성격을 동시에 갖는다. 이를 구분하는 것은 조업도 변화에 따른 품질예산을 편성할 때 필수적이다. 구분 성격 항목 예시 --------- 변동품질원가 생산량이나 판매량에 비례하여 증감 검사비, 재작업비, 폐기비용, 제품보증수리비 고정품질원가 조업도와 무관하게 일정하게 발생 품질시스템 설계비, 품질교육훈련비, 검사장비 감가상각비 [",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C04.basic.md",
+   "lectures": [
+    "21강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-C04-02",
+   "title": "2절 원가차이 분석 — 직접재료·직접노무·변동제조간접원가",
+   "chars": 2609,
+   "preview": "표준원가계산의 핵심은 차이의 발생 원인을 추적하여 책임 소재를 명확히 하는 것이다. 직접재료원가의 경우 가격차이는 구매부서, 능률차이는 제조부서의 책임으로 귀속시킨다. 반면 직접노무원가는 인력을 '구입'하여 재고로 쌓아둘 수 없으므로, 재료원가와 달리 구입시점과 사용시점의 분리 논점이 존재하지 않는다 [20강 05:12]. 유리하거나 불리한 차이가 발생했을 때, 그것이 부서의 통제 가능한 범",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C04.basic.md",
+   "lectures": [
+    "21강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-C04-03",
+   "title": "3절 고정제조간접원가 차이와 원가차이 조정",
+   "chars": 2202,
+   "preview": "고정원가는 조업도와 관계없이 총액이 일정하지만, 이를 단위당 원가로 환산하면 조업도에 반비례하여 체감하는 특성을 갖는다. 이러한 행태적 차이가 표준원가계산에서 고정제조간접원가만의 독특한 분석 구조를 만든다. [12강 47:10] 구분 변동원가 고정원가 --------- 조업도 증가 시 총원가 비례하여 증가 일정함 조업도 증가 시 단위당 원가 일정함(기울기) 반비례하여 감소(체감) 투입-산출 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "C04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/C04.basic.md",
+   "lectures": [
+    "21강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_03_재고자산__1절_재고자산의_최초측정",
+   "title": "1절 재고자산의 최초측정",
+   "chars": 1307,
+   "preview": "재무회계 전체 30문제 중 재고자산은 매년 2문제 내외가 출제되는 핵심 단원이다. 계산 문제의 비중이 압도적으로 높지만, 기준서의 이론적 배경을 묻는 말문제도 무시할 수 없는 비중을 차지한다. 기본 과정에서는 전체 내용의 70~80%를 완벽히 소화하는 것을 목표로 하며, 지엽적인 고난도 주제는 심화 단계에서 보완하는 것이 효율적이다. [1강 08:15] 재고자산은 기업의 영업활동과 직결되는 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F01.basic.md",
+   "lectures": [
+    "1강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_03_재고자산__2절_기말재고금액",
+   "title": "2절 기말재고금액",
+   "chars": 2325,
+   "preview": "재고자산의 가액 결정은 단순히 숫자를 곱하는 과정이 아니라, 물량의 흐름(수량)과 가치의 흐름(단가)이라는 두 가지 독립된 의사결정을 결합하는 과정이다. 수량 결정방법과 단위원가 결정방법은 서로 영향을 주지 않는 별개의 선택지이며, 이들의 조합에 따라 기말재고액과 매출원가가 확정된다. [7강 08:15] 수량 결정방법의 차이는 정보를 기록하는 시점과 방식의 차이로 이해할 수 있다. 구분 계속",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F01.basic.md",
+   "lectures": [
+    "1강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_03_재고자산__3절_재고자산의_인식시점",
+   "title": "3절 재고자산의 인식시점",
+   "chars": 1801,
+   "preview": "재고자산의 인식 시점을 결정하는 것은 단순히 장부를 기록하는 기술적 절차를 넘어, 기업의 경제활동을 식별하고 측정하여 정보 이용자에게 전달하는 회계의 핵심 과정이다. 회계의 목적은 정보 이용자가 합리적인 경제적 의사결정을 할 수 있도록 유용한 정보를 제공하는 것이며, 재고자산이 어느 시점에 자산으로 기록되느냐에 따라 재무상태와 경영성과가 달라지므로 엄격한 기준이 필요하다 [1강 15:40].",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F01.basic.md",
+   "lectures": [
+    "1강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_04_유형자산__1절_유형자산의_인식_및_최초측정",
+   "title": "1절 유형자산의 인식 및 최초측정",
+   "chars": 1854,
+   "preview": "측정이란 재무제표에 인식될 요소의 화폐금액을 결정하는 과정이다. 단순히 얼마를 썼는지를 기록하는 것을 넘어, 어떤 기준(측정기준)으로 가치를 부여할 것인지가 핵심이다. [5강 02:15] 유형자산의 취득원가는 역사적 원가를 바탕으로 한다. 이는 자산을 취득하거나 창출할 때 지급한 대가에 거래 원가를 포함한 금액이다. [5강 03:45] \\text{역사적 원가} = \\text{지급한 대가} +",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F02.basic.md",
+   "lectures": [
+    "43강",
+    "5강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_04_유형자산__5절_차입원가_자본화",
+   "title": "5절 차입원가 자본화",
+   "chars": 593,
+   "preview": "11. 재무제표를 구성하는 5가지 요소(재무상태표, 포괄손익계산서, 자본변동표, 현금흐름표, 주석)는 정보의 중요도에 따라 비중이 다르다. → X. 5가지 재무제표는 모두 동등한 비중으로 중요하다. [1강 56:20] 12. 한국채택국제회계기준(K-IFRS)을 준수하여 재무제표를 작성하면 국제회계기준(IFRS)을 준수하였다고 주석으로 공시할 수 있다. → O. K-IFRS는 IFRS를 한국어",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F02.basic.md",
+   "lectures": [
+    "43강",
+    "5강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_05_무형자산__1절_무형자산의_정의_및_인식과_측정",
+   "title": "1절 무형자산의 정의 및 인식과 측정",
+   "chars": 1605,
+   "preview": "K-IFRS는 원칙 중심(Principle-based) 회계기준이다. 구체적인 회계처리 방법을 일일이 규정하기보다 경제적 실질에 맞는 선택권을 기업에 부여하되, 그 선택의 근거를 주석으로 상세히 공시하도록 요구한다. 무형자산처럼 형체가 없어 판단이 개입되기 쉬운 자산일수록, 단순히 이름이 무엇인지보다 해당 자산이 기준서의 바운더리(정의 및 인식요건) 내에 들어오는지를 따지는 것이 중요하다. ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F02.basic.md",
+   "lectures": [
+    "43강",
+    "5강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_05_무형자산__2절_무형자산의_상각",
+   "title": "2절 무형자산의 상각",
+   "chars": 2241,
+   "preview": "무형자산의 내용연수를 결정할 때는 자산의 경제적 수명과 법적 권리 기간을 모두 고려해야 한다. 특히 계약상 권리나 기타 법적 권리에서 발생하는 무형자산의 경우, 그 기간이 자산의 경제적 내용연수를 초과할 수 없다는 점에 유의한다. [25강 12:10] 구분 경제적 내용연수 법적 권리 기간 ------------ 정의 자산이 경제적 효익을 창출할 것으로 기대되는 기간 법령이나 계약에 의해 권리",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F02.basic.md",
+   "lectures": [
+    "43강",
+    "5강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_06_투자부동산__2절_투자부동산의_최초측정",
+   "title": "2절 투자부동산의 최초측정",
+   "chars": 1736,
+   "preview": "취득원가에 거래원가를 포함하는 이유는 그것이 자산을 의도한 상태로 만드는 데 필수적인 지출이기 때문이다. 그러나 모든 측정 기준이 거래원가를 포함하는 것은 아니다. 특히 공정가치로 측정할 때는 거래원가를 가산하거나 차감하지 않는다는 점에 주의해야 한다. 예를 들어 삼성전자 주식의 시장 가격이 70,000원이라면, 이를 살 때 수수료가 발생하더라도 공정가치는 그대로 70,000원이다. 거래원가",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F02.basic.md",
+   "lectures": [
+    "43강",
+    "5강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_06_투자부동산__3절_투자부동산의_후속측정",
+   "title": "3절 투자부동산의 후속측정",
+   "chars": 1436,
+   "preview": "측정이란 재무제표에 인식될 요소들의 화폐금액을 결정하고 부여하는 과정을 의미한다. 투자부동산의 가치를 평가할 때 적용되는 각 측정 기준은 거래원가의 포함 여부와 가치의 성격에 따라 다음과 같이 구분된다 [5강 34:55]. 측정 기준별 주요 특징 비교 구분 역사적 원가 공정가치 사용가치(이행가치) 현행원가 --------------- 가치의 방향 유입가치 유출가치 유출가치 유입가치 취득 시 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F02.basic.md",
+   "lectures": [
+    "43강",
+    "5강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_06_투자부동산__4절_투자부동산의_계정대체",
+   "title": "4절 투자부동산의 계정대체",
+   "chars": 2459,
+   "preview": "부동산의 용도 변경은 단순히 경영진이 \"내일부터 임대하겠다\"라고 마음먹는 것만으로는 부족하며, 물리적인 실체의 변화나 계약의 체결 등 객관적인 증거가 뒷받침되어야 한다. 만약 회계정책의 변경이나 오류수정이 아닌 단순한 계정대체라면 소급법을 적용하지 않으나, 표시 방법이 변경된 경우에는 전기 비교 재무제표의 해당 항목도 재분류하여 비교가능성을 높여야 한다 [7강 54:10]. 구분 용도 변경의",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F02.basic.md",
+   "lectures": [
+    "43강",
+    "5강"
+   ]
+  },
+  {
+   "leaf_id": "acct-F02-03",
+   "title": "3절 유형자산의 후속측정 — 감가상각",
+   "chars": 992,
+   "preview": "자산에 화폐금액을 부여하는 것을 측정이라 한다. 감가상각을 통해 취득원가에서 상각액을 차감해 나가는 과정은 자산의 가치를 새로 평가하는 것이 아니라, 역사적 원가를 시간의 경과에 따라 갱신(Update)하는 절차이다. 즉, 감가상각 후의 장부금액 역시 역사적 원가 시스템의 연장선에 있다. [5강 18:35] 역사적 원가 체계하에서의 감가상각은 현행가치 측정과 다음과 같은 차이가 있다. 구분 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F02.basic.md",
+   "lectures": [
+    "43강",
+    "5강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제3장_부채__Chapter_08_금융부채__1절_금융부채의_인식과_측정",
+   "title": "1절 금융부채의 인식과 측정",
+   "chars": 2262,
+   "preview": "부채의 핵심인 현재의무는 단순히 미래에 돈을 줄 '약속'을 한 상태를 넘어, 기업이 그 책임을 회피할 수 없는 상태를 의미한다. 이러한 의무는 발생 근거에 따라 다음과 같이 구분된다. 구분 법적 의무 의제의무 --------- 발생 근거 계약, 법률(법적 강제력) 기업의 과거 실무 관행, 공개된 경영방침 성립 요건 법적 이행 강제 가능 상대방이 의무를 이행할 것이라는 정당한 기대를 가짐 예시",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제3장_부채__Chapter_08_금융부채__2절_사채",
+   "title": "2절 사채",
+   "chars": 1235,
+   "preview": "역사적 원가 측정 시 자산과 부채는 거래원가를 처리하는 방향이 정반대이다. 자산은 취득을 위해 지급한 대가에 거래원가를 가산하여 인식하지만, 부채는 발행 시 수취한 대가에서 거래원가를 차감한 순액을 초기 장부금액으로 한다. 이는 부채가 '돈을 먼저 받고 나중에 갚는' 성격이기 때문에, 실제 손에 쥔 금액을 기준으로 측정하기 위함이다. [5강 43:07] 구분 자산 (취득 및 창출) 부채 (발",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제3장_부채__Chapter_09_충당부채_우발부채__1절_충당부채의_인식요건",
+   "title": "1절 충당부채의 인식요건",
+   "chars": 2140,
+   "preview": "충당부채의 측정은 기본적으로 유출가격(Exit Price)의 성격을 갖는다. 이는 보고기간 말에 해당 의무를 이행하기 위해 지출하거나 제3자에게 이전할 때 지급하게 될 가격을 의미한다 [5강 48:15]. 구분 유입가격 (Entry Price) 유출가격 (Exit Price) --------- 의미 자산을 취득하거나 부채를 인수할 때 가격 자산을 매도하거나 부채를 이전할 때 가격 관련 측정치",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제3장_부채__Chapter_09_충당부채_우발부채__2절_충당부채의_추정",
+   "title": "2절 충당부채의 추정",
+   "chars": 2559,
+   "preview": "회계는 발생주의를 원칙으로 하므로 현금의 유출입 시점과 관계없이 사건의 발생에 초점을 맞춘다. 따라서 외상 매입이나 복구의무와 같이 대금의 지급이 미래에 이루어지는 거래는 반드시 화폐의 시간가치를 반영해야 한다. 일시불 결제와 달리 장기 거래에는 '시간의 가치'인 이자가 포함되어 있기 때문이다. 실질 우선의 원칙에 따라 자산·부채의 원본과 이자 요소를 구분하여 인식하는 것이 현재가치 평가의 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제3장_부채__Chapter_09_충당부채_우발부채__3절_기타의_충당부채",
+   "title": "3절 기타의 충당부채",
+   "chars": 1982,
+   "preview": "재무보고 시 기업은 재무제표 외에도 경영진의 재무보고서, 환경 보고서, 부가가치 보고서 등을 추가로 제공할 수 있다. 그러나 이러한 부수적인 보고서들은 회계기준의 적용 범위에 해당하지 않는다. 즉, 기준을 반드시 준수해야 하는 대상은 오직 재무제표뿐이며, 그 외의 보고서는 기업의 필요에 따라 자유롭게 작성할 수 있다 [6강 28:15]. 구분 재무제표 재무제표 이외의 보고서 :--- :---",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제3장_부채__Chapter_09_충당부채_우발부채__4절_충당부채의_변제_및_변동",
+   "title": "4절 충당부채의 변제 및 변동",
+   "chars": 1404,
+   "preview": "충당부채의 변제는 기업이 제3자(피해자)에게 의무를 지고 있는 상태에서, 또 다른 제3자(보험사나 하도급업체 등)로부터 그 지출액을 보전받는 삼각 관계를 전제로 한다. 기업이 의무 자체를 면제받는 것이 아니라 지출 후 나중에 돌려받는 구조이기에, 부채의 소멸이 아닌 자산의 발생으로 접근해야 한다. 충당부채는 보고기간 말로부터 의무 이행 시점까지의 기간을 고려하여 유동부채와 비유동부채로 구분하",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제4장_자본__Chapter_10_자본__1절_자본의_의의",
+   "title": "1절 자본의 의의",
+   "chars": 2025,
+   "preview": "자본은 자산과 부채를 먼저 측정한 후 도출되는 종속적 권리이다. 따라서 자본 그 자체를 공정가치로 평가하거나 독립적으로 측정하는 기준은 존재하지 않는다. 자본의 크기는 자산과 부채를 어떤 측정 기준(역사적 원가 vs 공정가치)으로 평가하느냐에 따라 결정되는 결과값이다. [11강 10:45] 구분 자본거래 손익거래 :--- :--- :--- 거래 목적 자본의 조달 및 환급 재화·용역의 제공 및",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제4장_자본__Chapter_10_자본__2절_자본의_분류",
+   "title": "2절 자본의 분류",
+   "chars": 2121,
+   "preview": "기타포괄손익(OCI)은 \"손익은 맞지만 당기손익은 아닌 것\"으로 정의할 수 있다. 자산·부채의 가치 변화로 인해 자본이 변동했으나, 그 원천이 주주와의 거래가 아니고 당기순손익에 포함하기에는 부적절한 항목들을 모아둔 것이다 [9강 05:12]. 이러한 항목들은 주로 미실현된 평가손익으로 구성되며, 향후 해당 자산이 처분되어 이익이 실현되었을 때 이를 당기순손익으로 옮길 수 있는지에 따라 두 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제4장_자본__Chapter_10_자본__3절_주식의_발행",
+   "title": "3절 주식의 발행",
+   "chars": 1549,
+   "preview": "주식 발행의 핵심은 자본금의 고정성이다. 회계상 자본금은 발행한 주식의 형식적 가치인 액면금액만을 기록하는 계정이다. 따라서 시장에서 얼마에 거래되든, 실제 얼마를 투자받았든 자본금 계정에는 오직 발행주식수 \\times 액면금액만이 기입된다. 이를 초과하거나 미달하는 금액은 별도의 '잉여금'이나 '차금' 계정을 통해 조절함으로써 법정자본금을 엄격히 관리한다. 또한, 신주발행비는 수익 창출을 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제4장_자본__Chapter_10_자본__4절_증자와_감자",
+   "title": "4절 증자와 감자",
+   "chars": 1595,
+   "preview": "자본 항목 중 기타포괄손익누계액에 속하는 재평가잉여금은 일정한 요건을 갖추었을 때 이익잉여금으로 대체할 수 있다. 이는 자본 내에서의 이동일 뿐이므로 자본총계에는 영향이 없으며, 당기손익을 거치지 않고 자본에서 자본으로 직접 대체한다 [27강 10:12]. 구분 관련 자산 처분 시 자산 사용 중 (일부 대체) --------- 대체 시점 해당 자산을 폐기하거나 매각하여 제거할 때 자산을 사용",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제4장_자본__Chapter_10_자본__5절_자기주식",
+   "title": "5절 자기주식",
+   "chars": 2259,
+   "preview": "일반적인 자산은 보유 목적에 따라 계정과목이 달라지지만, 자기주식은 기업의 의도와 상관없이 자본의 차감으로 고정된다. 부동산을 예로 들면 판매 목적일 때는 재고자산, 사용 목적일 때는 유형자산, 시세 차익 목적일 때는 투자부동산으로 분류하는 것이 원칙이다[11강 15:10]. 그러나 자기지분상품은 \"나에 대한 나의 권리\"를 주장할 수 없다는 회계적 본질 때문에 어떤 목적으로 취득하든 자산이 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제4장_자본__Chapter_10_자본__6절_배당금의_배분",
+   "title": "6절 배당금의 배분",
+   "chars": 1665,
+   "preview": "포괄손익계산서상 주요 항목의 법인세 효과 표시 방법은 항목의 성격에 따라 다음과 같이 구분한다. 구분 표시 방법 비고 --------- 계속영업손익 법인세비용을 차감하기 전 금액으로 표시한 후, 법인세비용을 별도 항목으로 표시 본문에 직접 표시 [9강 32:15] 중단영업손익 법인세 효과를 차감한 후의 세후단일금액으로 표시 세부 내역은 주석 공시 [9강 30:40] 기타포괄손익(OCI) ① ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제7장_특수주제__Chapter_23_보고기간_후_사건_환율변동효과__1절_보고기간_후_사건의_유형_및_회계처리",
+   "title": "1절 보고기간 후 사건의 유형 및 회계처리",
+   "chars": 2441,
+   "preview": "보고기간 후 사건을 판단할 때 가장 핵심적인 사고방식은 '장부를 덮는 시점(12/31)과 확정하는 시점(발행승인일) 사이의 시차'를 어떻게 메울 것인가이다. 12월 31일에 창고에 있던 재고자산이 실제 얼마의 가치가 있는지는 그날 바로 알 수 없는 경우가 많다. 이때 보고기간 후에 이루어진 실제 판매는 단순히 '나중에 일어난 일'이 아니라, '12월 31일 당시 그 재고가 가졌던 가치(순실현",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제7장_특수주제__Chapter_23_보고기간_후_사건_환율변동효과__2절_수정을_요하는_보고기간_후_사건",
+   "title": "2절 수정을 요하는 보고기간 후 사건",
+   "chars": 2907,
+   "preview": "수정을 요하는 사건의 핵심은 '원인의 존재 여부'이다. 사건 자체는 보고기간 후에 발생했더라도, 그 사건이 보고기간말 현재 이미 존재하고 있었던 상황에 대해 더 명확한 증거를 사후적으로 제공하는 것이라면 재무제표를 고쳐야 한다. 이를 판단할 때는 \"이 사건이 보고기간말에 이미 있었던 일의 결과인가, 아니면 그 후에 새로 생긴 일인가?\"라는 질문을 던져야 한다. [43강 12:10] 수정 사건",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-F03-03",
+   "title": "3절 사채의 후속측정 — 유효이자율 상각",
+   "chars": 1722,
+   "preview": "이자비용의 방향성이 할인발행과 할증발행에서 서로 다르게 나타나는 이유는 기초 장부금액(부채의 잔액)의 변화에 있다. 할인발행은 이자를 적게 주는 대신 나중에 원금을 더 얹어 갚기로 약속한 것이므로, 매기 상각액만큼 부채의 잔액이 불어난다. 빚이 커지니 그에 따른 이자비용(기초 장부금액 \\times 유효이자율)도 매기 증가하는 원리다. 반면 할증발행은 초기에 돈을 더 많이 빌리고 매기 이자를 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-F03-04",
+   "title": "4절 사채의 상환과 연속상환사채",
+   "chars": 1716,
+   "preview": "연속상환사채는 매기 원금을 나누어 갚으므로, 시간이 흐를수록 부채의 본체(액면)가 줄어든다. 따라서 표시이자 또한 고정된 액면금액이 아니라 매기 상환 후 남은 잔액에 표시이자율을 곱하여 산출한다. 이는 은행 예금에서 돈을 일부 인출하면 남은 잔고에 대해서만 이자가 붙는 것과 같은 원리다 [11강 03:45]. 구분 만기일시상환사채 연속상환사채 --------- 원금 상환 만기에 전액 일시 상",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-F03-05",
+   "title": "5절 금융부채로 분류하는 상환우선주",
+   "chars": 1764,
+   "preview": "상환우선주를 부채로 분류하는 핵심 근거는 경제적 실질에 있다. 법적으로는 주식의 형태를 띠고 있어도, 발행자가 현금 유출을 회피할 수 있는 실제 능력이 없다면 이는 회계상 부채의 정의를 충족한다. 부채란 과거 사건의 결과로 경제적 자원을 이전해야 하는 현재의무이며, 여기서 의무는 상대방이 누구인지(신원)를 확정할 수 있는지보다 회피 불가능한 책임이 존재하는지가 더 중요하다. [43강 32:1",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F03.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제1장_회계의_기초__Chapter_01_개념체계__1절_목적",
+   "title": "1절 목적",
+   "chars": 1234,
+   "preview": "개념체계의 인식 원리는 반품권이 부여된 판매와 같은 변동대가 상황에서 수익의 크기를 결정하는 핵심 잣대가 된다. 단순히 물건을 넘기고 돈을 받았다고 해서 모두 자산(현금)의 증가와 수익(매출)으로 기록되는 것은 아니다. 예제 3 — 반품권이 있는 판매: 인식의 불확실성 12월 20일, 고객에게 상품 100개를 개당 ￦200(원가 ￦100)에 판매하고 현금을 수취하였다. 단, 이 상품은 1개월",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제1장_회계의_기초__Chapter_01_개념체계__3절_일반목적재무보고",
+   "title": "3절 일반목적재무보고",
+   "chars": 1696,
+   "preview": "정보 이용자인 투자자는 시장의 논리에 따라 움직이는 합리적인 주체이다. 이들이 기업에 자원을 제공할지 결정할 때는 단순히 기업이 제시하는 조건(표시이자율 등)만 보는 것이 아니라, 본인들이 시장에서 얻기를 기대하는 수익률인 시장 이자율을 기준으로 해당 투자의 가치를 평가한다. 따라서 재무보고는 이러한 합리적 투자자가 자신의 기대 수익률을 충족할 수 있는지 판단할 수 있도록 객관적인 데이터를 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제1장_회계의_기초__Chapter_01_개념체계__4절_유용한_재무정보의_질적_특성",
+   "title": "4절 유용한 재무정보의 질적 특성",
+   "chars": 1906,
+   "preview": "재무정보가 유용하기 위해서는 목적적합하고 충실하게 표현되어야 할 뿐만 아니라, 측정의 불확실성이 정보의 유용성을 저해하지 않는 수준이어야 한다. 특히 화폐의 시간가치를 반영하는 현재가치 측정은 목적적합성을 높이는 수단이지만, 시기나 금액을 확정할 수 없는 경우에는 오히려 표현충실성을 해칠 수 있어 적용이 제한된다. [52강 08:45] 목적적합한 정보를 제공하기 위해 변동 대가(금액이 확정되",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제1장_회계의_기초__Chapter_01_개념체계__5절_계속기업가정_보고기업",
+   "title": "5절 계속기업가정, 보고기업",
+   "chars": 2030,
+   "preview": "계속기업가정은 단순히 \"망하지 않는다\"는 믿음이 아니라, 회계 측정의 일관성을 부여하는 통제 장치이다. 이 전제가 무너지면 자산과 부채의 측정치는 '원시시대'의 논리인 청산가치로 회귀하게 된다. [42강 10:09] 구분 계속기업가정 성립 (Going Concern) 계속기업가정 불성립 (Liquidation) --------- 자산 측정 역사적 원가 기반 (감가상각 수행) 순실현가능가치 (",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제1장_회계의_기초__Chapter_01_개념체계__6절_재무제표의_요소",
+   "title": "6절 재무제표의 요소",
+   "chars": 2346,
+   "preview": "재무보고를 위한 개념체계에서 정의한 다섯 가지 요소 외에 별도의 영역은 존재하지 않는다. 따라서 두 가지 이상의 성격이 섞인 상품을 발행하더라도 이를 뭉뚱그려 표시할 수 없으며, 반드시 부채 요소와 자본 요소로 분리하여 인식해야 한다. 이는 자본이 독립적인 정의를 갖지 못하고 자산과 부채의 측정 결과에 의존하는 '잔여지분'이기 때문이다 [47강 63:42]. 구분 금융부채 지분상품(자본) -",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제1장_회계의_기초__Chapter_01_개념체계__7절_인식과_제거",
+   "title": "7절 인식과 제거",
+   "chars": 2698,
+   "preview": "인식 여부를 판단할 때 '경제적 효익의 유입·유출 가능성이 높다'는 것은 확률적으로 50%를 초과하는 상태를 의미한다. 시험 지문에서 '매우 높아야 한다'라고 서술하면 오답이다. 너무 엄격한 기준을 적용하면 인식해야 할 부채를 누락할 위험이 있기 때문이다. [44강 55:10] 인식을 위한 측정치를 결정할 때는 상황에 따라 다음의 방법을 선택한다. [44강 12:40] 방법 내용 적용 상황 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제1장_회계의_기초__Chapter_01_개념체계__8절_측정",
+   "title": "8절 측정",
+   "chars": 1582,
+   "preview": "재화의 인도 시점과 대금 수취 시점이 불일치하는 장기 할부 판매의 경우, 측정의 핵심은 '지금 당장 현금으로 거래했다면 얼마인가'를 파악하는 것이다. 이를 현금판매가격이라 하며, 미래에 받을 명목금액의 합계가 아닌 현재가치로 측정한다. 구분 일시불 판매 장기 할부 판매 (3년 분할) --------- 수익 인식 시점 인도 시점 인도 시점 (의무 이행 완료 시) 측정 금액 즉시 수취한 현금 미",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제1장_회계의_기초__Chapter_01_개념체계__9절_공정가치",
+   "title": "9절 공정가치",
+   "chars": 1493,
+   "preview": "공정가치 측정의 핵심은 내가 이 물건을 얼마에 팔고 싶은지(기업 특유의 가치)가 아니라, 시장에서 남들이 이 물건을 얼마에 사 가는지(시장 근거 측정치)를 찾아내는 과정이다. 따라서 측정 과정에서 기업의 주관적인 의도나 개별적인 사정은 철저히 배제된다. [51강 23:15] 공정가치와 기업 특유 가치의 가장 큰 차이는 '누구의 눈으로 보는가'에 있다. 예를 들어 같은 차량을 할부로 구매하더라",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제1장_회계의_기초__Chapter_02_재무제표_표시__1절_재무제표",
+   "title": "1절 재무제표",
+   "chars": 1832,
+   "preview": "- 연대책임의 표시: 제3자와 연대하여 책임을 지는 경우, 전체 의무 중 본인이 이행할 것으로 기대되는 부분은 충당부채로 인식하여 본문에 표시한다. 반면, 제3자가 변제할 것으로 기대되는 나머지 부분은 부채로 인식하지 않고 우발부채로 분류하여 주석에 공시한다 [44강 60:45]. 구분 재무상태표 (자산·부채) 포괄손익계산서 (수익·비용) --------- 일반 원칙 상계 금지 (총액 표시)",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제1장_회계의_기초__Chapter_02_재무제표_표시__2절_재무상태표",
+   "title": "2절 재무상태표",
+   "chars": 1586,
+   "preview": "- 유의적인 금융요소의 반영: 재화나 용역을 이전하는 시점과 대금을 지급하는 시점의 차이로 인해 발생하는 시간가치의 영향을 반영하는 것을 의미한다. 대금 지급이 장기로 이루어지는 경우, 해당 채권은 명목금액이 아닌 현금판매가격에 해당하는 현재가치(P.V)로 측정한다 [51강 28:40]. 구분 장기 할부 판매 단기 할부 판매 (1년 이내) --------- 현재가치(P.V) 평가 필수 적용 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-F04-01",
+   "title": "0절 회계 첫걸음 — 분개와 재무제표 5요소",
+   "chars": 1671,
+   "preview": "회계의 기록 대상이 되는 금융상품은 기본적으로 당사자 간의 계약에 기반한다. 계약을 통해 한쪽이 현금을 받을 권리(금융자산)를 가지면, 상대방은 현금을 지급해야 할 의무(금융부채)를 지게 되는 대칭적 구조를 가진다. 구분 금융자산 (A) 금융부채 (B) --------- 본질 현금을 수취할 계약상 권리 현금을 인도할 계약상 의무 측정 분류 AC, FVOCI, FVPL AC금융부채, FVPL금",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제2장_자산__Chapter_07_금융자산__3절_매출채권과_매입채무",
+   "title": "3절 매출채권과 매입채무",
+   "chars": 1244,
+   "preview": "매출채권의 측정 시 유의적인 금융요소를 반영할 때 적용하는 할인율은 계약 개시 시점의 고객 신용특성을 반영한 이자율이다. 일단 계약이 개시된 후에는 시장이자율이 변동하거나 고객의 신용위험 평가가 달라지더라도 최초에 결정한 할인율을 수정하지 않는다. [51강 33:05] 구분 장기할부판매 단기할부판매(1년 이내) --------- 금융요소 반영 여부 유의적인 금융요소 반영 실무적 간편법 적용 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F05.basic.md",
+   "lectures": [
+    "43강",
+    "51강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제4장_자본__Chapter_11_복합금융상품__1절_전환사채",
+   "title": "1절 전환사채",
+   "chars": 2304,
+   "preview": "복합금융상품은 옵션이 장착된 자동차와 같다. 기본 차체(부채)에 추가 비용을 지불하고 옵션(자본)을 부착한 형태이므로, 일반 사채보다 발행가격이 높게 형성된다. 투자자는 주가 상승 시 주주로 변신하여 얻을 이익을 기대하므로, 일반 사채보다 낮은 표시이자율을 수용한다. [48강 02:15] 구분 전환사채(CB) 신주인수권부사채(BW) --------- 행사 시 지위 사채권자 → 주주 (변신) ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F05.basic.md",
+   "lectures": [
+    "43강",
+    "51강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제4장_자본__Chapter_11_복합금융상품__2절_전환권의_행사",
+   "title": "2절 전환권의 행사",
+   "chars": 1883,
+   "preview": "전환권대가는 자본요소의 특성상 발행 이후 기말 공정가치 평가 등의 후속 측정을 전혀 하지 않는다. 행사 전까지는 아무런 회계처리를 하지 않는 '노터치' 상태로 유지하다가, 실제 주식으로 전환되는 시점에만 주식발행초과금으로 자리를 옮긴다. [48강 46:30] 전환권 행사의 본질은 투자자가 보유한 채무상품(부채)을 반납하고 지분상품(주식)을 받아가는 '교환'이다. 따라서 외부에서 현금이 유입되",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F05.basic.md",
+   "lectures": [
+    "43강",
+    "51강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제4장_자본__Chapter_11_복합금융상품__4절_신주인수권부사채",
+   "title": "4절 신주인수권부사채",
+   "chars": 2236,
+   "preview": "신주인수권부사채(BW)는 발행 시점의 회계처리가 전환사채(CB)와 동일하지만, 권리 행사 시점의 경제적 실질은 완전히 다르다. 전환사채가 부채를 주식으로 '교환'하는 것이라면, 신주인수권부사채는 사채라는 부채를 그대로 둔 채 현금을 추가로 납입하여 주식을 '매입'하는 것이다. 구분 전환사채(CB) 신주인수권부사채(BW) :--- :--- :--- 권리 행사 시 사채의 운명 주식으로 전환되어 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F05.basic.md",
+   "lectures": [
+    "43강",
+    "51강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_15_주식기준보상__1절_주식결제형_주식기준보상",
+   "title": "1절 주식결제형 주식기준보상",
+   "chars": 3134,
+   "preview": "수익 인식의 일반 원칙은 '준 것(재화·용역)'이 아니라 '받은 것(대가)'의 가치를 기준으로 한다. 내가 제공하는 용역의 가치를 스스로 30억 원이라 주장하더라도, 고객으로부터 받은 수강료가 100만 원이라면 매출은 100만 원이다. 즉, 수익은 '받은 가치'로 측정하여 매출 부풀리기를 경계한다. [50강 03:45] 그러나 주식기준보상은 이 원칙의 예외다. 기업이 종업원으로부터 제공받는 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F05.basic.md",
+   "lectures": [
+    "43강",
+    "51강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_15_주식기준보상__2절_현금결제형_주식기준보상",
+   "title": "2절 현금결제형 주식기준보상",
+   "chars": 1964,
+   "preview": "주식결제형이 부여일의 값을 끝까지 밀고 나가는 '양반' 같은 성격이라면, 현금결제형은 결제되어 돈이 나갈 때까지 기업을 따라다니며 괴롭히는 '귀신' 같은 성격이다 [58강 45:30]. 주식결제형은 가득 기간이 지나면 행사 여부와 상관없이 회계처리가 종료되지만, 현금결제형은 부채이므로 실제 현금이 지급되어 빚을 갚을 때까지 매 보고기간 말마다 장부를 새로 써야 한다 [58강 46:10]. 가",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F05.basic.md",
+   "lectures": [
+    "43강",
+    "51강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_14_종업원급여__1절_종업원급여",
+   "title": "1절 종업원급여",
+   "chars": 1923,
+   "preview": "종업원급여 회계처리의 핵심은 기업이 종업원으로부터 근무용역을 제공받고, 그 대가로 자원을 유출(급여 지급)하는 과정에서 발생하는 비용과 부채를 인식하는 것이다. 종업원 개인의 소득 관점이 아니라, 기업 실체 입장에서 수익 창출을 위해 투입된 경비(비용)라는 관점을 견지해야 한다. [55강 06:45] [종업원급여의 기본 관계도] \\text{종업원} \\xrightarrow{\\text{근무용역 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F06.basic.md",
+   "lectures": [
+    "43강",
+    "55강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_14_종업원급여__2절_퇴직급여제도",
+   "title": "2절 퇴직급여제도",
+   "chars": 1764,
+   "preview": "확정기여제도(DC) 하에서 종업원은 본인 명의의 개인 퇴직 계좌를 개설하며, 기업은 해당 계좌에 약정된 기여금을 입금함으로써 모든 의무를 이행한다. 종업원은 기업이 납입하는 금액 외에 본인의 자금을 해당 계좌에 추가 납입할 수 있으며, 이 경우 세액공제 혜택을 받을 수 있다. [55강 19:40] 반면 확정급여제도(DB)는 과거 기업이 퇴직급여를 내부적으로만 적립하다가 파산 등의 사유로 종업",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F06.basic.md",
+   "lectures": [
+    "43강",
+    "55강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_14_종업원급여__3절_확정급여제도의_재무상태표_표시",
+   "title": "3절 확정급여제도의 재무상태표 표시",
+   "chars": 3400,
+   "preview": "확정급여제도의 회계처리는 크게 '빚 통장(확정급여채무)'과 '적금 통장(사외적립자산)' 두 개를 나란히 관리하는 과정으로 이해할 수 있다. 기업은 종업원에게 줄 퇴직금이라는 부채를 관리하면서, 동시에 그 돈을 떼먹지 않도록 외부에 적립한 자산을 함께 굴린다. 기말에는 이 두 통장의 잔액을 합쳐서 순액으로 보고하는 것이 핵심이다 [55강 45:10]. 확정급여채무의 변동 요인은 크게 시간의 경",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F06.basic.md",
+   "lectures": [
+    "43강",
+    "55강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_16_리스__1절_금융리스로_분류하는_사례",
+   "title": "1절 금융리스로 분류하는 사례",
+   "chars": 2641,
+   "preview": "건설계약은 건물이라는 최종 결합산출물을 인도하기 위해 수많은 세부 작업을 수행하지만, 회계상으로는 이를 하나의 단일수행의무로 본다. 이는 자산의 통제권이 기간에 걸쳐 이전되는 대표적인 사례이므로, 공사 기간 동안의 성과를 측정하기 위해 진행기준을 적용한다. [53강 23:45] 건설계약의 손익 구조는 다음과 같이 결정된다. 구분 항목 성격 --------- 수익 계약수익(공사수익) 고객으로부",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F06.basic.md",
+   "lectures": [
+    "43강",
+    "55강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_16_리스__2절_리스이용자_회계처리",
+   "title": "2절 리스이용자 회계처리",
+   "chars": 2328,
+   "preview": "리스이용자 회계처리의 핵심은 자산과 부채의 측정치가 일치하지 않을 수 있다는 점을 이해하는 것이다. 리스부채는 오직 '앞으로 갚아야 할 돈'의 현재가치인 반면, 사용권자산은 그 권리를 얻기 위해 '과거와 현재에 투입된 모든 원가'를 포함하는 개념이기 때문이다. 따라서 리스개설직접원가나 선지급 리스료가 존재할 경우 리스개시일 시점의 사용권자산 금액은 리스부채보다 커지게 된다. [53강 50:1",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F06.basic.md",
+   "lectures": [
+    "43강",
+    "55강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_16_리스__3절_리스부채_재측정_및_리스변경",
+   "title": "3절 리스부채 재측정 및 리스변경",
+   "chars": 1677,
+   "preview": "리스부채의 재측정은 과거의 회계적 오류를 수정하는 것이 아니라, 시간이 흐름에 따라 변화한 상황을 반영하는 추정의 변경이다. 장기 계약인 리스의 특성상 리스료나 할인율에 대한 초기 추정치를 끝까지 유지하지 않는 것이 오히려 당연하며, 이는 회계 정보의 적절한 상태를 유지하기 위한 자연스러운 과정이다 [53강 54:38]. 재무제표는 리스이용자에게 두 가지 측면의 정보를 제공한다. 1. 포괄손",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F06.basic.md",
+   "lectures": [
+    "43강",
+    "55강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_17_법인세회계__1절_회계이익과_과세소득의_차이",
+   "title": "1절 회계이익과 과세소득의 차이",
+   "chars": 2120,
+   "preview": "회계와 세법은 수익과 비용을 인식하는 '시간적 기준(달력)'과 '항목의 인정 범위'에서 차이가 발생한다. 이를 조정하여 과세소득에 도달하는 과정은 다음과 같다. \\text{법인세비용차감전순이익} \\pm \\text{세무조정(익금산입·손금불산입 / 손금산입·익금불산입)} = \\text{과세소득} 회계이익에서 과세소득으로 가는 세무조정 사항은 그 성격에 따라 일시적차이와 영구적차이로 엄격히 구분하",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F06.basic.md",
+   "lectures": [
+    "43강",
+    "55강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_17_법인세회계__2절_법인세회계",
+   "title": "2절 법인세회계",
+   "chars": 2445,
+   "preview": "법인세회계의 궁극적인 목적은 세무서에 낼 세금을 계산하는 것에 그치지 않고, 회계상 수익과 대응되는 법인세비용을 확정하는 데 있다. 이를 위해 회계이익(법인세비용차감전순이익)과 세무상 과세소득의 차이를 조정하는 '세무조정' 과정을 거치며, 그 성격에 따라 다음과 같이 구분한다. [61강 08:15] 구분 기타의 차이 (영구적 차이) 일시적 차이 --------- 정의 회계와 세법의 규정 자체",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F06.basic.md",
+   "lectures": [
+    "43강",
+    "55강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_17_법인세회계__3절_자본에_가감하는_법인세효과",
+   "title": "3절 자본에 가감하는 법인세효과",
+   "chars": 1725,
+   "preview": "법인세회계의 일반적인 논리가 '수익과 비용의 대응'이라면, 이 관은 '자본의 유지'와 '순자산 접근법'에 기초한다. 일반적인 법인세가 누구나 마시는 커피처럼 보편적인 항목(당기손익)에 대한 것이라면, 자본에 직접 가감하는 세효과는 특정 요건을 갖춘 핵심 인재에게 부여하는 주식선택권(스톡옵션)처럼 매우 특수하고 '스페셜'한 항목에 대한 처리다. [56강 58:10] 이러한 처리를 하는 근본적인",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F06.basic.md",
+   "lectures": [
+    "43강",
+    "55강"
+   ]
+  },
+  {
+   "leaf_id": "acct-F06-07",
+   "title": "4절 리스제공자 회계처리 — 금융리스와 판매형리스",
+   "chars": 604,
+   "preview": "리스제공자의 장부에서 가장 중요한 구분은 '누적된 권리'와 '당기의 성과'를 분리하는 것이다. 재무상태표에 표시되는 리스채권(리스순투자)은 리스개시일부터 현재까지 리스제공자가 확보한 총체적인 권리의 잔액을 의미하며, 이는 보고기간 말 현재의 누적된 상태를 보여준다 [54강 23:15]. 반면 포괄손익계산서의 이자수익은 해당 연도에 발생한 성과만을 따로 떼어 보여주는 것이므로, 계산 시 전기까",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F06.basic.md",
+   "lectures": [
+    "43강",
+    "55강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제6장_기타_재무보고__Chapter_18_주당이익__1절_주당이익_EPS",
+   "title": "1절 주당이익(EPS)",
+   "chars": 2647,
+   "preview": "주당이익은 기업의 단순한 이익 규모가 아니라 내실(수익성)을 평가하는 지표이다. 자본금 규모가 큰 기업은 당기순이익이 커 보일 수 있으나, 이를 주식 수로 나눈 주당이익을 확인해야 규모 차이를 제거한 객관적인 성과 비교가 가능하다. [59강 06:11] 구분 기본주당이익(Basic EPS) 희석주당이익(Diluted EPS) --------- 산정 근거 실제 발생한 사건(Fact) 중심 잠재",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F07",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F07.basic.md",
+   "lectures": [
+    "43강",
+    "59강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제6장_기타_재무보고__Chapter_18_주당이익__2절_희석주당이익",
+   "title": "2절 희석주당이익",
+   "chars": 1158,
+   "preview": "희석주당이익은 잠재적보통주가 실제 발행되지 않았음에도 불구하고, 미래에 발생할 수 있는 자본 분산의 위험을 재무제표 이용자에게 경고하는 성격을 갖는다. 따라서 실제 전환 여부보다 '전환 가능성' 그 자체에 초점을 맞춘다. [60강 45:30] 잠재적보통주를 보통주식수에 산입하는 시점은 해당 상품의 성격에 따라 원칙과 예외로 나뉜다. 특히 계약 조건에 따라 선택권이 없는 경우의 처리에 유의한다",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F07",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F07.basic.md",
+   "lectures": [
+    "43강",
+    "59강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제6장_기타_재무보고__Chapter_19_회계변경_및_오류수정__1절_회계변경",
+   "title": "1절 회계변경",
+   "chars": 1986,
+   "preview": "회계정책의 변경은 그 대상이 한정적이므로, 정책 변경 사례를 우선 암기하고 그 외의 상황은 회계추정치의 변경으로 판단하는 것이 수험 전략상 효율적이다. 추정은 재무제표 작성의 필수적인 과정이며, 새로운 정보의 획득이나 경험의 축적에 따라 이를 수정하는 것은 재무제표의 신뢰성을 손상시키지 않는 자연스러운 현상이다. 따라서 과거를 부정하는 소급법 대신, 현재 시점의 최선의 판단을 반영하는 전진법",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F07",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F07.basic.md",
+   "lectures": [
+    "43강",
+    "59강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제6장_기타_재무보고__Chapter_19_회계변경_및_오류수정__2절_오류수정",
+   "title": "2절 오류수정",
+   "chars": 1875,
+   "preview": "회계변경이 '더 나은 방법으로의 교체'라면, 오류수정은 '과거의 잘못을 바로잡는 것'이다. 따라서 오류수정은 선택의 문제가 아닌 필수적 의무이며, 신뢰성 제고를 위해 과거 재무제표를 다시 그리는 '재작성'의 과정을 거친다. 실전에서는 오류가 발생한 시점부터 발견 시점까지의 누적 효과를 빠르게 계산해내는 것이 관건이다. [55강 59:11] 오류가 자본에 미치는 영향을 분석할 때는 자산 = 부",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F07",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F07.basic.md",
+   "lectures": [
+    "43강",
+    "59강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제6장_기타_재무보고__Chapter_20_현금흐름표__1절_현금흐름표",
+   "title": "1절 현금흐름표",
+   "chars": 1136,
+   "preview": "종업원 등에게 부여하는 주식기준보상거래는 결제 방식에 따라 현금흐름표에 미치는 영향이 완전히 다르다. 주식결제형은 주식을 발행할 뿐 현금이 유출되지 않는 반면, 현금결제형은 주가와 행사가격의 차액만큼 실제 현금이 기업 밖으로 빠져나가기 때문이다. [56강 64:17] 구분 주식결제형 (주식선택권 등) 현금결제형 (주가차액보상권) --------- 결제 방식 주식을 행사가격에 살 수 있는 권리",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F07",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F07.basic.md",
+   "lectures": [
+    "43강",
+    "59강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제6장_기타_재무보고__Chapter_21_재무제표_분석__2절_수익성비율",
+   "title": "2절 수익성비율",
+   "chars": 1686,
+   "preview": "재무회계의 수익성 분석은 기업 전체의 성과를 측정하는 도구이며, 이는 관리회계의 투자중심점 성과평가(ROI, 잔여이익)로 논리가 이어진다. 재무회계에서 학습하는 ROA의 개념이 관리회계에서는 투자수익률(ROI)이라는 이름으로 경영자의 성과를 판단하는 잣대가 된다. [60강 47:35] 수익성 지표는 손익계산서의 이익 단계에 따라 분석 목적이 달라지며, 아래와 같이 구분하여 해석한다. 구분 산",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F07",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F07.basic.md",
+   "lectures": [
+    "43강",
+    "59강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_12_고객과의_계약에서_생기는_수익__1절_수익의_정의",
+   "title": "1절 수익의 정의",
+   "chars": 1824,
+   "preview": "수익의 인식은 단순히 기분을 내는 과정이 아니라 경제적 실질이 실현되는 시점을 포착하는 것이다. 주식 투자를 예로 들면, 주가가 올랐을 때 느끼는 기분은 회계상 수익이 아니다. 주식은 '매수의 마술'이 아니라 '매도의 마술'이라는 말처럼, 실제로 자산을 처분하여 내 몫으로 확정되는 시점에 비로소 수익의 요건을 갖춘다. 고객과의 계약에서도 재화나 용역이 이전되어 대가에 대한 권리가 실현되어야 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F08",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F08.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_12_고객과의_계약에서_생기는_수익__2절_수익_인식의_5단계",
+   "title": "2절 수익 인식의 5단계",
+   "chars": 2907,
+   "preview": "1단계: 계약의 식별 요건 계약으로 인정받기 위해서는 다음의 5가지 요건을 모두 충족해야 한다. 하나라도 누락되면 수익을 인식할 수 없으며, 받은 돈은 부채(계약부채)로 처리한다. 요건 상세 내용 ------ 승인 및 이행 확약 당사자들이 계약을 승인하고 의무 이행을 확약함 권리 식별 이전할 재화나 용역에 대한 각 당사자의 권리를 식별할 수 있음 지급조건 식별 이전할 재화나 용역의 지급조건을",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F08",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F08.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "accounting__재무회계__제5장_수익과_비용__Chapter_13_건설계약__3절_진행률을_신뢰성_있게_측정하기_어려울_때",
+   "title": "3절 진행률을 신뢰성 있게 측정하기 어려울 때",
+   "chars": 1436,
+   "preview": "진행률을 합리적으로 측정할 수 없다가 비로소 측정 가능해진 시점의 처리는 회계추정의 변경에 해당한다. 이는 과거의 방법이 틀렸기 때문에 고치는 '오류수정'이 아니라, 새로운 정보가 쌓이고 상황이 변화함에 따라 더 적절한 추정치를 찾아가는 과정이다. \"그때는 그 추정이 맞았고, 지금은 이 추정이 맞다\"는 논리에 따라 과거를 부정하지 않고 현재부터 잘하자는 전진법을 적용한다. [62강 38:15",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "F08",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/F08.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-01",
+   "title": "제1절 회계의 목적",
+   "chars": 1137,
+   "preview": "재무제표는 기업의 가치를 직접적으로 확정하여 보여주는 결과물이 아니라, 정보이용자가 기업의 미래 가치를 추정하는 데 유용한 단서를 제공하는 도구이다. [18강 38:35] 예를 들어, 기업이 보유한 자산이 얼마나 활발하게 운용되고 있는지를 나타내는 활동성 비율은 기업의 역동성을 판단하는 핵심 지표가 된다. [18강 37:50] 활동성을 측정하는 대표적인 지표인 회전율(Turnover)은 특정",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-04",
+   "title": "제1절 재무상태표 표시",
+   "chars": 757,
+   "preview": "재무상태표는 특정 시점의 잔액을 나타내는 '저량(Stock)' 개념인 반면, 손익계산서의 수익과 비용은 일정 기간의 발생액을 나타내는 '유량(Flow)' 개념이다. 따라서 재무상태표 항목을 이용해 기업의 활동성을 분석할 때는 기간 개념을 맞추기 위해 기초 잔액과 기말 잔액의 평균치를 사용한다 [18강 40:15]. \\text{평균잔액} = \\frac{\\text{기초잔액} + \\text{기말잔",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-05",
+   "title": "제2절 재무상태표에 표시되는 사항",
+   "chars": 1890,
+   "preview": "유동자산과 비유동자산을 구분하는 기준인 정상영업주기는 기업이 원재료를 구매하여 제품을 생산·판매하고, 그 대금을 최종적으로 회수하기까지 걸리는 기간을 의미한다. 이는 재고자산이 판매되는 속도와 매출채권이 현금화되는 속도를 합산하여 계산하며, 이 주기가 짧을수록 기업의 자산 관리 효율성이 높다고 평가한다 [18강 42:15]. 정상영업주기를 산출하기 위한 단계별 계산 과정은 다음과 같다 [19",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-06",
+   "title": "제3절 재무상태표 특징",
+   "chars": 1249,
+   "preview": "재무상태표에 기재되는 자산의 가액은 취득 당시의 원가로 고정되는 것이 아니라, 자산의 성격에 따라 매 결산기마다 새로운 가치로 평가되어 반영되기도 한다. 특히 농림어업에서 발생하는 생물자산(어린 젖소, 돼지, 포도나무 등)은 시간이 흐름에 따라 '성장'이라는 생물적 변환을 거치므로 일반적인 자산과는 다른 측정 기준을 적용한다 [19강 27:15]. 구분 일반적인 재고자산 농림어업의 생물자산 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-09",
+   "title": "제3절 당기순손익",
+   "chars": 935,
+   "preview": "일반적인 재고자산과 달리 농림어업에서의 생물자산(어린 젖소, 돼지, 포도나무 등)은 생물적 변환을 통한 성장이 기업의 핵심적인 성과를 구성한다. 따라서 생물자산의 가치 변동분은 기타포괄손익(OCI)이 아닌 당기순손익으로 처리한다 [19강 29:09]. 구분 재고자산 생물자산 :--- :--- :--- 주요 측정 기준 원가 순공정가치 가치 변동의 성격 판매 시점에 주로 실현 성장(생물적 변환)",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-12",
+   "title": "제1절 회계상 거래란?",
+   "chars": 2595,
+   "preview": "회계상 거래는 단순히 외부 제3자와의 주고받는 행위에 국한되지 않는다. 기업 내부에서 발생하는 생물적 변환(성장, 퇴화, 생산 등)이나 정부보조금의 수취와 같이 자산의 가치가 변동하고 이를 측정할 수 있다면 모두 회계상 거래로 인식한다. 특히 농림업 활동에서의 생물자산은 시간이 흐름에 따라 스스로 가치가 변하는 특수한 거래 형태를 띤다. [19강 31:11] 구분 일반적인 매입 거래 생물자산",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-13",
+   "title": "제2절 분개(分介)",
+   "chars": 1572,
+   "preview": "거래를 분개할 때 세금(제세공금)의 성격에 따라 자산의 원가로 처리할지, 별도의 비용으로 처리할지 구분해야 한다. 특히 부동산이나 차량 취득 시 발생하는 세금은 판단에 주의를 요한다. 구분 취득 관련 세금 보유 관련 세금 --------- 주요 항목 취득세, 등록비용, 관세 재산세, 자동차세, 종합부동산세 회계 처리 자산 원가에 가산 비용(세금과공과) 처리 판단 근거 자산을 사용 가능한 상태",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-14",
+   "title": "제3절 전기(轉記)",
+   "chars": 1227,
+   "preview": "분개장이 거래의 발생 순서에 따른 '역사적 기록'이라면, 총계정원장은 특정 시점의 자산·부채·자본의 '상태'를 파악하기 위한 장부이다. 따라서 분개만으로는 특정 계정의 잔액을 즉시 알 수 없으며, 반드시 전기를 거쳐야만 결산의 기초 자료가 완성된다. 구분 분개장 총계정원장 --------- 기록 단위 거래 발생 순서(일자별) 계정과목별(항목별) 주요 목적 거래의 누락 방지 및 이중성 확인 계",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-17",
+   "title": "제3절 기말수정분개(결산수정분개)",
+   "chars": 2412,
+   "preview": "기말수정분개는 단순히 현금의 유출입을 기록하는 것이 아니라, 해당 지출이 어느 과정에서 발생했는지를 판단하여 성격을 규정하는 작업이다. 동일한 명목의 비용이라도 취득 단계와 보유 단계에 따라 처리 방식이 달라진다. [20강 58:10] 구분 취득 과정의 지출 보유(취득 후) 과정의 지출 :--- :--- :--- 성격 자산의 가동을 위한 필수 원가 자산의 유지 및 기간 비용 회계 처리 해당 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-20",
+   "title": "제2절 상기업의 회계처리 방법",
+   "chars": 1315,
+   "preview": "유형자산의 후속측정 방법은 자산의 분류별로 선택할 수 있다. 예를 들어 토지는 재평가모형을 적용하고, 건물은 원가모형을 적용하는 식의 선택적 운용이 가능하다. 재평가모형을 선택한 경우, 해당 자산은 감가상각과 공정가치 평가를 모두 수행하여 장부금액을 결정한다 [25강 59:38]. 구분 매년 재평가 주기적 재평가 (3~5년 등) --------- 적용 대상 공정가치의 변동이 빈번하고 금액적 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-22",
+   "title": "제1절 재무제표 표시의 일반원칙",
+   "chars": 2495,
+   "preview": "자산의 가치 변동은 자본의 변동으로 직결되며, 이는 주주와의 거래가 아닌 한 모두 손익거래에 해당한다. 재무제표 표시 과정에서 이러한 손익을 당기손익(NI)으로 보고할지, 기타포괄손익(OCI)으로 보고할지를 결정하는 것이 회계처리의 핵심이다. [26강 00:45] 구분 당기손익(NI) 기타포괄손익(OCI) --------- 보고 위치 손익계산서 상단(당기순이익) 손익계산서 하단(기타포괄손익)",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-23",
+   "title": "제2절 재무상태표",
+   "chars": 2184,
+   "preview": "(5) 자산의 제거(Derecognition) 재무상태표에 계상된 자산은 더 이상 미래 경제적 효익이 기대되지 않거나 처분하는 시점에 장부에서 제거한다. [28강 53:10] 1. 제거 사유: 돈을 받고 파는 '처분'뿐만 아니라, 더 이상 사용할 수 없어 버리는 '폐기'의 경우에도 재무상태표에서 제외한다. [28강 53:45] 2. 처분손익의 측정: 처분 시점의 장부금액과 순매각금액을 비교하",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-25",
+   "title": "제2절 재고자산의 단위원가 결정(원가흐름의 가정)",
+   "chars": 268,
+   "preview": "제공해주신 [강의 전사] 및 [판서 사진]의 내용은 '유형자산의 재평가'와 '무형자산의 인식'에 관한 것으로, 요청하신 [제8장 재고자산 / 제2절 재고자산의 단위원가 결정] 관의 범위와 무관합니다. 지침에 따라 \"이 관의 범위를 지킬 것\"과 \"이 관과 무관한 대목은 버릴 것\"을 준수하여, 해당 관에 보충할 본문이 존재하지 않으므로 내용을 생성하지 않습니다.",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-26",
+   "title": "제3절 감모손실과 평가손실",
+   "chars": 1403,
+   "preview": "재고자산의 가치 변동을 장부에 반영할 때는 전기의 기말 금액을 당기의 기초 금액으로 그대로 끌고 내려오는 연속성이 핵심이다. 당기 평가를 수행하기 전, 반드시 직전 시점의 장부금액이 얼마였는지 화살표를 그려 확인한 후 다음 단계로 진입한다 [26강 57:40]. 평가손실 및 환입의 단계별 계산 프로세스 1. 기초 장부금액 이월: 전기에 인식한 평가손실(재고자산평가충당금)이 반영된 후의 순장부",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-27",
+   "title": "제4절 재고자산의 추정",
+   "chars": 1839,
+   "preview": "회계추정의 변경(감가상각방법 및 잔존가치의 변경)과 재평가 모형이 결합된 경우, 변경된 시점의 장부금액을 기준으로 전진법을 적용하여 새로운 감가상각비를 산출한 뒤 기말 재평가를 수행한다. 1. 회계추정 변경에 따른 감가상각비 계산 상각방법이 정액법에서 연수학계법으로 변경되거나 잔존가치가 수정되면, 변경 시점의 장부금액을 새로운 취득원가로 보아 잔여 내용연수 동안 상각한다. [26강 61:12",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-29",
+   "title": "제1절 유형자산의 정의 및 종류",
+   "chars": 1659,
+   "preview": "부동산은 취득 목적(판매, 자가사용, 임대)에 따라 재고자산, 유형자산, 투자부동산으로 구분되지만, 최초 측정 시에는 모두 동일하게 원가로 측정한다. 취득 시점의 지출액은 향후의 사용 목적에 따라 달라지지 않기 때문이다. [33강 28:15] 최초 측정 금액 = 취득원가 + 거래원가 보유 목적에 따른 부동산의 분류 구분 재고자산 유형자산(자가사용부동산) 투자부동산 ------------ 주요",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-30",
+   "title": "제2절 유형자산의 최초 측정: 원가",
+   "chars": 916,
+   "preview": "유형자산의 원가 인식은 자산이 경영자가 의도하는 방식으로 운용될 수 있는 상태에 이르면 중단한다. 따라서 자산이 물리적으로 완성된 이후나 가동 중인 상태에서 발생하는 지출은 자산의 장부금액에 가산할 수 없다. [30강 47:50] 구분 항목 회계처리 원칙 --------- 원가 인식의 종료 경영자가 의도하는 방식으로 운용 가능한 상태에 도달한 시점 이후 발생하는 원가는 발생 시 비용 처리 자",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-31",
+   "title": "제3절 유형자산의 후속 지출",
+   "chars": 1585,
+   "preview": "자본적 지출과 수익적 지출을 결정하여 장부금액을 조정한 후에는, 해당 자산을 기말에 어떤 기준으로 측정할 것인지 후속 측정 모형을 선택해야 한다. [32강 02:15] 유형자산과 무형자산은 취득 이후 원가 모형과 재평가 모형 중 하나를 선택하여 적용할 수 있다. 다만, 재평가 모형을 적용하기 위해서는 해당 자산의 공정가치를 신뢰성 있게 측정할 수 있는 활성시장이 존재해야 한다. [32강 03",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-32",
+   "title": "제4절 감가상각",
+   "chars": 2167,
+   "preview": "유형자산과 투자부동산 사이의 용도 변경이 발생할 경우, 각 자산의 측정 모형에 따라 감가상각의 중단 또는 개시 시점이 달라진다. 투자부동산 모형별 대체 원칙 구분 투자부동산(원가모형) ↔ 유형자산 투자부동산(공정가치모형) → 유형자산 유형자산 → 투자부동산(공정가치모형) ------------ 측정 기준 장부금액 승계 분류변경일의 공정가치 분류변경일의 공정가치 대체 시 손익 발생하지 않음 투",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-35",
+   "title": "제2절 무형자산 인식요건(모두 충족)",
+   "chars": 2262,
+   "preview": "무형자산의 인식 여부를 판단할 때는 자산의 정의(식별가능성, 통제, 미래경제적효익)와 인식요건(효익 유입 가능성, 원가 측정 신뢰성)을 모두 고려해야 한다. 특히 내부적으로 창출한 브랜드, 제호, 출판표제, 고객 목록 등은 미래경제적효익을 창출하기 위해 발생한 원가와 사업 전체의 발전 원가를 구분할 수 없으므로 원가를 신뢰성 있게 측정할 수 없는 것으로 보아 무형자산으로 인식하지 않는다. [",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-36",
+   "title": "제3절 무형자산의 최초측정",
+   "chars": 905,
+   "preview": "내부적으로 창출한 무형자산은 기업이 외부에서 구입하지 않고 스스로 자원을 투입하여 만들어낸 자산이다. 이는 개별 취득과 달리 자산의 인식 요건을 충족하는지 판단하기 위해 프로젝트를 연구단계와 개발단계로 엄격히 구분하여 관리한다. [31강 00:45] 무형자산을 창출하기 위한 과정은 다음과 같은 선행 순서를 따른다. [31강 01:20] 내부 프로젝트의 단계적 흐름 \\text{연구단계(Rese",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-37",
+   "title": "제4절 연구활동·개발활동",
+   "chars": 1863,
+   "preview": "연구개발 지출은 기업의 장기적 성장을 위한 투자 성격이 강하지만, 회계적으로는 자산 인식 요건을 엄격히 적용하는 보수주의 관점을 유지한다. 연구단계에서 발생하는 지출은 미래 경제적 효익의 창출 여부가 불확실하므로 전액 비용 처리하며, 이는 기업의 단기 이익을 감소시키는 요인이 된다. 그러나 투자 관점에서는 연구비 비중이 높은 기업이 장기적인 기술 경쟁력을 확보하고 있을 가능성이 크다는 점에 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-38",
+   "title": "제5절 무형자산의 상각",
+   "chars": 1499,
+   "preview": "사업결합(합병)은 취득회사(매수자)가 피취득회사(피매수자)를 인수하는 과정이다. 이때 피취득회사의 재무제표상 장부금액을 그대로 신뢰하여 거래하면 자산 과대평가나 부채 누락의 위험이 있다. 따라서 반드시 실사를 통해 모든 자산과 부채를 공정가치로 재평가하는 과정이 선행되어야 한다 [31강 32:45]. 구분 장부금액(Book Value) 공정가치(Fair Value) --------- 산출 기",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-39",
+   "title": "제1절 금융상품의 정의",
+   "chars": 1703,
+   "preview": "금융상품은 나 혼자 존재할 수 없으며, 내가 권리(금융자산)를 가진다면 반드시 그 대척점에 의무를 지는 상대방이 존재하는 대칭적 관계를 갖는다. 따라서 금융자산의 회계처리를 이해하면 그 이면인 금융부채의 원리도 동일하게 파악할 수 있다. [37강 04:14] 금융상품의 정의를 충족하기 위해서는 경제적 실질이 현금의 수수로 귀결되어야 한다. 명칭에 '금'이나 '수익' 등이 포함되어 있더라도 실",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-40",
+   "title": "제2절 금융상품의 종류",
+   "chars": 1629,
+   "preview": "사업결합(합병)을 통해 금융자산과 금융부채를 승계받는 경우, 해당 항목들은 장부금액이 아닌 공정가치로 측정하여 인수한다. 이때 피취득자의 자산 공정가치에서 부채 공정가치를 차감한 순자산 공정가치를 산출하는 것이 영업권 계산의 기초가 된다. 자본금이나 이익잉여금 같은 자본 항목을 단순히 합산하는 방식은 회계상 자본의 실질(자산 - 부채)과 일치하지 않을 수 있으므로 반드시 개별 자산과 부채의 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-41",
+   "title": "제3절 금융상품에 해당하지 않는 사례",
+   "chars": 1116,
+   "preview": "무형자산의 일종인 영업권은 사업결합(합병) 과정에서 발생하며, 이를 취득하기 위해 지출한 부수적인 비용의 처리에 유의해야 한다. 합병 관련 자문수수료 등은 합병 대가에 포함되지 않으며, 영업권의 장부금액에도 영향을 주지 않는 별도의 비용으로 처리한다 [31강 58:20]. 영업권은 오직 지급한 대가와 취득한 회사의 순자산 공정가치를 비교하여 산출하며, 계산 과정은 다음과 같다 [31강 59:",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-42",
+   "title": "제1절 현금",
+   "chars": 1981,
+   "preview": "당좌예금 계좌를 개설할 때 납입하는 당좌개설보증금은 당좌거래를 해지하기 전까지는 인출이 제한되는 구속성 예금이므로 현금및현금성자산으로 분류하지 않는다 [36강 02:15]. 또한, 예금 잔액을 초과하여 수표를 발행했을 때 발생하는 당좌차월은 실질적으로 은행으로부터 빌린 돈이므로 현금이 아닌 단기차입금으로 처리한다 [36강 04:30]. 구분 회계상 분류 현금 포함 여부 --------- 당좌",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-43",
+   "title": "제2절 현금성자산",
+   "chars": 1555,
+   "preview": "부동산은 보유 목적에 따라 재고자산, 유형자산, 투자부동산으로 분류하며, 투자부동산은 기업이 보유한 다른 자산과 독립적으로 현금흐름을 창출한다는 점에서 차별화된다. 제조나 판매 과정을 통해 다른 자산과 결합하여 수익을 내는 재고·유형자산과 달리, 부동산 자체에서 발생하는 임대료나 가치 상승분이 주된 수익원이 된다. [32강 58:30] 구분 재고부동산 자가사용부동산 투자부동산 --------",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-44",
+   "title": "제3절 현금및현금성자산에서 제외되는 항목",
+   "chars": 1754,
+   "preview": "현금및현금성자산과 여기서 제외되어 채권(매출채권·미수금 등)으로 분류되는 항목들은 가치 측정과 위험 관리 측면에서 본질적인 차이가 있다. 구분 현금및현금성자산 매출채권·미수금 (제외 항목) :--- :--- :--- 가치 측정 액면금액 그대로 평가 회수 가능성을 고려한 추정치 반영 위험 요소 가치 변동 위험이 거의 없음 거래처 파산 등 지급불능 위험 존재 후속 관리 별도의 충당금 설정 불필요",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-45",
+   "title": "제1절 금융자산의 분류",
+   "chars": 1762,
+   "preview": "금융자산의 분류는 해당 자산이 원금과 이자라는 계약상 현금흐름을 갖는지와 이를 어떤 의도로 보유하는지를 결합하여 결정한다. 채권과 같은 채무상품은 원리금 수취가 가능하므로 모든 범주로 분류될 수 있으나, 주식과 같은 지분상품은 원리금 개념이 없어 분류 원칙이 다르다 [37강 08:21]. 금융자산은 상품의 성격(채무상품 vs 지분상품)에 따라 선택할 수 있는 측정 범주가 다음과 같이 구분된다",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-46",
+   "title": "제2절 투자지분상품",
+   "chars": 2144,
+   "preview": "동일한 주식을 여러 번에 걸쳐 취득하는 경우, 처분 시 비교 대상이 되는 장부금액은 이동평균법 등의 원가흐름가정을 적용하여 산정한다. 주식을 추가로 매입할 때마다 기존 잔액과 합산하여 새로운 평균 단가를 계산하는 방식이다. [38강 00:45] \\text{평균 단가} = \\frac{(\\text{기존 보유 주식 총원가} + \\text{신규 매입 주식 총원가})}{\\text{보유 주식 총수량}}",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-47",
+   "title": "제3절 투자채무상품",
+   "chars": 1597,
+   "preview": "투자채무상품(사채 등)의 공정가치는 해당 채권에서 발생하는 미래 현금흐름을 취득 당시의 시장금리로 할인한 현재가치와 같다. 주식과 달리 현금흐름이 확정되어 있어 공정가치 산정이 상대적으로 명확하다. 취득 시 발생하는 거래원가는 분류에 따라 다음과 같이 처리한다. 구분 AC 및 FVOCI FVPL --------- 거래원가 처리 최초 인식 금액에 가산 발생 즉시 비용(당기손익) 처리 이유 장기",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-49",
+   "title": "제1절 금융부채의 분류",
+   "chars": 1777,
+   "preview": "금융부채는 금융자산의 대칭적 개념이다. 시장에서 누군가 사채를 취득하여 금융자산으로 분류했다면, 반대편에는 해당 사채를 발행하여 자금을 조달한 기업(발행자)이 존재한다. 따라서 금융부채의 분류와 측정 논리는 금융자산의 회계처리와 거울을 보듯 일관성을 유지해야 한다. [41강 27:10] 금융부채의 분류는 기본적으로 계약상 현금흐름의 특성과 해당 부채를 관리하는 사업모형에 근거한다. 대부분의 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-50",
+   "title": "제2절 사채의 발행",
+   "chars": 1083,
+   "preview": "사채의 발행은 발행자(기업) 입장에서는 금융부채를 계상하는 사건이지만, 이를 매입하는 투자자 입장에서는 금융자산(투자사채)을 취득하는 사건이다. 동일한 사채를 두고 서로 반대의 회계처리를 수행하므로, 부채와 자산의 관점을 연결하여 이해하는 것이 효율적이다. [35강 31:45] 구분 발행자(기업) 투자자 --------- 계정 분류 금융부채 (사채) 금융자산 (채무상품) 현금 흐름 액면이자 ",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-51",
+   "title": "제3절 사채이자와 상각",
+   "chars": 1528,
+   "preview": "사채의 발행금액은 미래 현금흐름(액면금액과 액면이자)을 발행 시점의 시장이자율(유효이자율)로 현재가치화한 금액이다. 투자자 입장에서는 시장에서 요구하는 수익률인 유효이자가 실제 수익이 되며, 발행자 입장에서는 유효이자가 실제 부담하는 비용이 된다. [38강 58:45] 기말 장부금액의 간편 계산 시험에서 특정 시점의 장부금액만을 묻는 경우, 상각표 전체를 작성하지 않고 다음의 산식을 반복 적",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-52",
+   "title": "제4절 사채의 조기상환(만기 전 상환)",
+   "chars": 1646,
+   "preview": "사채의 상환은 부채를 변제하는 것이므로 자산을 매각하는 '처분'과는 반대의 관점에서 접근해야 한다. 장부금액보다 높은 금액을 지급하고 갚으면 사채상환손실이, 낮은 금액으로 해결하면 사채상환이익이 발생한다. [43강 05:12] 상환일의 장부금액을 신속하게 계산하는 것이 문제 풀이의 핵심이다. 유효이자율이 10\\%라면 직전 장부금액에 1.1을 곱하고 표시이자를 차감하는 방식을 반복하여 상환 시",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-53",
+   "title": "제1절 충당부채",
+   "chars": 1211,
+   "preview": "충당부채의 요건인 현재의무가 성립하기 위해서는 해당 사건이 의무발생사건이어야 한다. 의무발생사건이란 그 의무를 이행하는 것 외에는 현실적인 대안이 없는 경우를 의미한다. 만약 기업이 미래의 영업 방식 변경 등 스스로의 행위를 통해 해당 지출을 회피할 수 있다면, 이는 현재의무에 해당하지 않으므로 충당부채를 인식할 수 없다. [44강 0:15] 의무의 이행 상대방은 반드시 특정 개인이나 단체일",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-54",
+   "title": "제2절 우발부채",
+   "chars": 955,
+   "preview": "자원의 유출 가능성을 판단할 때는 '매우 높다'가 아닌 '높다(Probable)'를 기준으로 한다. 회계기준에서 '높다'는 확률적으로 50\\% 초과를 의미하며, 이는 의무가 존재할 가능성이 존재하지 않을 가능성보다 높은 상태를 말한다. 시험에서 이를 '매우 높다'라고 표현할 경우 오답이 되므로 용어 선택에 주의해야 한다. [44강 05:10] 자원 유출 가능성에 따른 회계처리를 구간별로 도식",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-55",
+   "title": "제3절 우발자산",
+   "chars": 1094,
+   "preview": "우발자산은 자산의 인식 요건을 충족하지 못한 잠재적 상태를 다루지만, 실무 및 수험 목적으로는 이미 인식된 자산의 가치가 변동하거나 자산을 처분하는 과정에서의 불확실성을 다루는 항목들과의 구분이 중요하다. 특히 매출채권과 관련하여 아래의 두 가지 특수 주제는 우발자산의 인식 원칙과 대비하여 반드시 정리해 두어야 한다. [39강 45:46] 구분 우발자산 손실충당금 받을어음의 할인 ------",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-56",
+   "title": "제1절 자본의 분류",
+   "chars": 1428,
+   "preview": "자본은 자산과 부채의 평가 결과에 따라 부수적으로 결정되는 종속적인 개념이다. 따라서 자본은 단독으로 측정하거나 평가할 수 없으며, 반드시 자산이나 부채의 변화가 선행되어야만 변동한다. 시험 문제에서 자본의 변화를 묻는다면, 이는 자본 항목 자체를 분석하기보다 자산과 부채가 각각 얼마나 증가하거나 감소했는지를 파악하라는 의미와 같다. [45강 12:15] 자본의 구성 항목은 발생 원천에 따라",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-57",
+   "title": "제2절 자본금의 변화",
+   "chars": 2412,
+   "preview": "기업은 자금 조달이 필요할 때 시장 상황에 따라 사채 발행(부채)이나 유상증자(자본) 중 하나를 선택한다. 주식 시장이 호황이고 투자 수요가 많을 때는 유상증자가 유리하며, 반대로 시장이 침체되어 주주 모집이 어려울 때는 사채 발행을 통해 자금을 조달하는 것이 일반적이다. [45강 20:27] 구분 유상증자 사채 발행 :--- :--- :--- 조달 대상 주주 모집 투자자(채권자) 모집 시장",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-58",
+   "title": "제3절 증자",
+   "chars": 1418,
+   "preview": "자본금의 변동은 크게 증자(자본금 증가)와 감자(자본금 감소)로 구분된다. 자본금의 증감과 별개로 자본 총계의 실질적 변화 여부에 따라 다음과 같이 세분할 수 있다. [46강 08:18] 구분 실질적 증자(유상증자) 형식적 증자(무상증자·주식배당) 실질적 감자(유상감자) 형식적 감자(무상감자) --------------- 자본금 증가 증가 감소 감소 자본 총계 증가 불변 감소 불변 주요 원인",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-59",
+   "title": "제4절 자본이 불변하는 다양한 사례",
+   "chars": 1505,
+   "preview": "자본의 증감 사건은 실제 자산(현금 등)의 유입·유출을 동반하는지 여부에 따라 실질적 거래와 형식적 거래로 구분할 수 있다. 시험에서 자본총계의 변화를 묻는 경우, 형식적 거래에 해당하는 항목들을 빠르게 제외하는 것이 문제 풀이의 핵심이다. [46강 16:50] 구분 실질적 거래 (유상) 형식적 거래 (무상) --------- 자산의 유출입 외부 자산의 유입 또는 유출 발생 외부 자산의 유입",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-60",
+   "title": "제5절 자기주식",
+   "chars": 1977,
+   "preview": "자기주식은 일반적인 금융자산(FVPL 등)과 달리 시세차익을 노린 투자 목적으로 취득하는 것이 아니다. 주로 주가 방어를 통해 시장을 안정시키거나, 임직원에게 주식선택권(스톡옵션)을 행사할 때 지급할 용도로 취득한다 [46강 28:15]. 따라서 자기주식은 취득 목적과 관계없이 자산성이 없으며, 다음과 같은 제약이 따른다. 구분 내용 ------ 의결권 인정되지 않음 (경영권 방어 수단 악용",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "acct-W01-61",
+   "title": "제6절 이익잉여금",
+   "chars": 1508,
+   "preview": "이익잉여금은 기업이 설립된 이래 발생한 당기순손익을 누적하여 집계해 놓은 장소이다. 당기순이익은 해당 회계연도의 성과만을 의미하지만, 이익잉여금은 회사가 영업을 지속해온 기간 전체의 수익 중 사내에 남아있는 몫을 의미한다. 이렇게 쌓인 이익잉여금을 배당이나 적립 등의 용도로 사용하는 것을 이익잉여금의 처분이라 하며, 이는 반드시 주주총회의 결의를 거쳐야 한다. [47강 04:07] 주주총회는",
+   "path": [],
+   "subject": "accounting",
+   "unit_code": "W01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/accounting/lectures/notes/W01.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제1장_물권법_총설__제1절_물권법_일반_제2절_물권변동__제3관_물권의_일반적_효력",
+   "title": "제3관 물권의 일반적 효력",
+   "chars": 1210,
+   "preview": "가등기에 의한 순위 보전의 구조 가등기는 장래에 행해질 본등기의 순위를 미리 확보하기 위한 예비등기이다. 가등기 자체만으로는 물권변동의 효력이 없으나, 후에 가등기에 기한 본등기가 마쳐지면 그 순위는 가등기를 한 때로 소급한다. [44강 01:55] 구분 가등기 (예비등기) 본등기 --------- 물권변동 효력 발생하지 않음 본등기를 마친 때 발생 순위 확정 시점 가등기 시로 소급 본등기 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B01.basic.md",
+   "lectures": [
+    "43강",
+    "44강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제1장_물권법_총설__제3절_부동산_물권변동__제1관_물권행위",
+   "title": "제1관 물권행위",
+   "chars": 1438,
+   "preview": "계약 해제에 따른 원상회복청구권은 그 주체가 매도인이냐 매수인이냐에 따라 법적 성질과 소멸시효 적용 여부가 완전히 달라진다. 판례가 취하는 물권적 효과설(유인성)에 따라 매도인의 권리는 물권적으로 보호되지만, 매수인의 권리는 채권적 관계에 머문다. 구분 매도인의 원상회복청구권 (말소청구) 매수인의 원상회복청구권 (대금반환) --------- 권리의 본질 물권적 청구권 (소유권에 기함) 채권적",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B01.basic.md",
+   "lectures": [
+    "43강",
+    "44강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제1장_물권법_총설__제3절_부동산_물권변동__제2관_등기절차와_등기청구권",
+   "title": "제2관 등기절차와 등기청구권",
+   "chars": 3256,
+   "preview": "물권적 청구권으로서의 등기청구권은 소유권과 그 운명을 같이한다. 따라서 소유권을 양도하면서 소유권에 기한 물권적 청구권만 전 소유자에게 남겨두기로(유보하기로) 약정하는 것은 허용되지 않으며, 소유권이 이전되면 등기청구권도 함께 이전된다[40강 01:30]. 저당권 설정 후 소유권이 제3자에게 이전된 경우, 피담보채권 소멸을 이유로 한 등기말소청구권은 청구권자에 따라 그 성질이 엄격히 구분된다",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B01.basic.md",
+   "lectures": [
+    "43강",
+    "44강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제1장_물권법_총설__제3절_부동산_물권변동__제3관_등기의_유효요건과_추정력",
+   "title": "제3관 등기의 유효요건과 추정력",
+   "chars": 2354,
+   "preview": "부동산 등기기록은 크게 표제부(사실란)와 권리란(갑구·을구)으로 구성된다. 민법 및 부동산등기법에서 다루는 물권변동의 핵심은 권리란에 있으며, 표제부는 부동산의 물리적 현황을 공시하는 데 그친다. [41강 13:00] 구분 표제부 (사실란) 권리란 (갑구·을구) --------- 기재 내용 면적, 층수, 구조 등 물리적 현황 소유권(갑구), 소유권 이외의 권리(을구) 인식 대상 외부에서 눈으",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B01.basic.md",
+   "lectures": [
+    "43강",
+    "44강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제1장_물권법_총설__제3절_부동산_물권변동__제4관_중간생략등기",
+   "title": "제4관 중간생략등기",
+   "chars": 1754,
+   "preview": "미등기건물 양수인의 등기청구권과 관련하여, 소유권이전등기를 마치기 위해서는 원시취득자 명의의 소유권보존등기가 선행되어야 한다. 만약 건물이 아직 완공되지 않아 보존등기를 할 수 없는 상태라면, 이는 등기청구권 행사의 법률상 장애에 해당한다. 따라서 이 경우 양수인의 등기청구권 소멸시효는 건물이 완공되어 보존등기가 가능해진 시점부터 비로소 진행된다 [34강 22:45]. 중간생략등기의 합의는 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B01.basic.md",
+   "lectures": [
+    "43강",
+    "44강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제1장_물권법_총설__제3절_부동산_물권변동__제5관_가등기",
+   "title": "제5관 가등기",
+   "chars": 627,
+   "preview": "가등기는 부동산 거래의 안전을 위한 '순위의 예약'이다. 소유자가 가등기 이후에도 부동산을 제3자에게 매도하는 것을 법적으로 막을 수는 없으나, 가등기권자가 나중에 본등기를 하게 되면 그 제3자의 등기를 무력화시킬 수 있는 강력한 '순위 보전의 힘'을 미리 확보해 두는 것이다. 이는 마치 인기 있는 식당에서 줄을 서지 않고 '미리 번호표를 받아두는 것'과 같다. 번호표(가등기)만으로는 아직 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B01.basic.md",
+   "lectures": [
+    "43강",
+    "44강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제1장_물권법_총설__제3절_부동산_물권변동__제6관_법률규정에_의한_물권변동",
+   "title": "제6관 법률규정에 의한 물권변동",
+   "chars": 2620,
+   "preview": "제187조 단서에서 \"등기를 하지 아니하면 이를 처분하지 못한다\"는 규정은 등기 없이 물권을 취득한 자가 그 상태에서 체결한 매매계약 등의 법률행위 효력까지 부정하는 것은 아니다. 즉, 상속인이 상속등기를 마치지 않은 채 제3자와 매매계약을 체결하더라도 그 계약 자체는 유효하다. 다만, 최종적으로 물권이 이전되려면 상속인 명의의 등기를 거쳐야 한다는 의미다. 만약 상속등기를 생략하고 피상속인",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B01.basic.md",
+   "lectures": [
+    "43강",
+    "44강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제1장_물권법_총설__제4절_동산_물권_변동__제2관_선의취득",
+   "title": "제2관 선의취득",
+   "chars": 624,
+   "preview": "진정한 소유자가 무권리자인 양도인에 대하여 갖는 부당이득반환청구권과 불법행위에 기한 손해배상청구권은 청구권 경합 관계에 있다. 양 권리는 서로 독립된 별개의 권리이므로, 소유자는 이 중 어느 것이든 선택하여 행사할 수 있으나 중첩적으로 이득을 얻을 수는 없다. [36강 52:15] 구분 부당이득반환청구권 불법행위 손해배상청구권 --------- 성립 근거 법률상 원인 없는 이득 발생 고의 또",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B01.basic.md",
+   "lectures": [
+    "43강",
+    "44강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제1장_물권법_총설__제5절_물권의_소멸__제1관_물권의_소멸원인",
+   "title": "제1관 물권의 소멸원인",
+   "chars": 1422,
+   "preview": "토지의 멸실(포락)과 소유권의 소멸 사건 당시의 기술 수준과 경제적 가치를 기준으로 토지가 바닷물 등에 침식되어 원상복구가 불가능한 상태(포락)가 되면 소유권은 절대적으로 소멸한다. 구분 내용 ------ 판단 기준 시점 포락 당시를 기준으로 판단하며, 그 이후의 사정은 고려하지 않음 [45강 01:25] 물리적 불능 성토(복구)가 기술적으로 불가능한 경우 [45강 01:10] 경제적 불능 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B01.basic.md",
+   "lectures": [
+    "43강",
+    "44강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제1장_물권법_총설__제5절_물권의_소멸__제2관_혼동",
+   "title": "제2관 혼동",
+   "chars": 1776,
+   "preview": "혼동은 '내 물건에 대해 내가 제한물권을 가질 필요가 없다'는 상식에서 출발한다. 자기 소유물에 대해 전세권이나 저당권을 보유하는 것은 법적으로 무의미하기 때문이다 [45강 06:45]. 다만, 물권의 혼동은 물권 상호 간의 문제인 반면, 채권의 혼동은 채권과 채무가 동일인에게 귀속되는 문제라는 점에서 구별된다 [45강 24:10]. 혼동의 예외를 판단할 때는 '내 뒤에 줄 서 있는 사람이 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B01.basic.md",
+   "lectures": [
+    "43강",
+    "44강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제2장_점유권__제1절_서론__제1관_점유의_의의와_관념화",
+   "title": "제1관 점유의 의의와 관념화",
+   "chars": 1570,
+   "preview": "점유권과 본권은 서로 독립된 별개의 권리이므로, 동일한 목적물에 대해 두 권리가 병존하는 경우 각 권리에 기한 청구권은 경합한다. 이때 각 권리는 소멸시효나 제척기간 등 사유에 있어 독립적으로 취급된다. 특히 어느 하나의 권리를 행사한다고 하여 다른 권리의 소멸시효가 당연히 중단되는 것은 아니라는 점에 유의해야 한다 [36강 54:10]. 구분 점유권에 기한 청구권 본권(소유권 등)에 기한 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B02.basic.md",
+   "lectures": [
+    "36강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제2장_점유권__제1절_서론__제3관_점유의_종류",
+   "title": "제3관 점유의 종류",
+   "chars": 1074,
+   "preview": "점유계정(제189조)에 의한 점유의 전환은 사실상의 물건 이동 없이 점유의 성질이 변하는 대표적인 사례이다. 매도인이 물건을 매도한 후 임대차 등을 통해 계속 점유하는 경우, 외관상으로는 점유의 상태에 변화가 없으나 법률상으로는 자주점유에서 타주점유로 즉시 전환된다. 구분 점유 이전 전 (매도인) 점유 이전 후 (임차인) --------- 점유의 종류 자주점유 타주점유 실제 점유자 甲 甲 (",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B02.basic.md",
+   "lectures": [
+    "36강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제2장_점유권__제2절_점유권의_취득과_소멸__제1관_점유권의_취득",
+   "title": "제1관 점유권의 취득",
+   "chars": 1602,
+   "preview": "점유권의 취득 및 시효취득과 관련하여, 시효가 완성된 이후에 채무자가 권리자에게 보여주는 태도에 따라 시효이익의 포기 여부가 결정된다. 이는 취소할 수 있는 법률행위의 추인과 유사한 논리 구조를 가진다. [37강 50:15] 구분 시효완성 사실을 알고 변제 시효완성 사실을 모르고 변제 완성 여부가 불분명한 경우 :--- :--- :--- :--- 포기 인정 여부 시효이익의 포기로 간주 원칙적",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B02.basic.md",
+   "lectures": [
+    "36강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제2장_점유권__제3절_점유권의_효력_제4절_준점유__제1관_점유의_추정적_효력",
+   "title": "제1관 점유의 추정적 효력",
+   "chars": 2077,
+   "preview": "부동산 물권에 대해서는 민법상 추정 규정이 명시되어 있지 않으나, 판례는 동산 점유의 추정력을 규정한 제200조를 유추적용하여 등기에도 추정적 효력을 인정한다. 이는 등기라는 공시방법이 점유보다 더 강력한 증명력을 가진다는 점을 고려한 결과이다. [43강 23:40] 등기의 추정력은 절차와 원인뿐만 아니라 그에 부수하는 권리관계 전반에 미친다. 특히 최근 기출에서는 저당권과 관련된 추정 범위",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B02.basic.md",
+   "lectures": [
+    "36강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제2장_점유권__제3절_점유권의_효력_제4절_준점유__제2관_점유자와_회복자의_관계",
+   "title": "제2관 점유자와 회복자의 관계",
+   "chars": 2365,
+   "preview": "민법 제201조부터 제203조까지의 규정은 독일 민법상 소유권에 기한 반환청구(\\S 213)가 이루어질 때 발생하는 부수적인 이해관계를 처리하기 위한 규정에서 유래하였다. 우리 민법은 물권적 청구권 규정과 이 규정들이 떨어져 있으나, 통설과 판례는 이를 동일하게 해석한다. 따라서 본 조항들은 점유자가 점유할 권리(임차권 등) 없이 무단으로 점유하다가 소유자의 반환 청구에 응해야 하는 상황에서",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B02.basic.md",
+   "lectures": [
+    "36강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제2장_점유권__제3절_점유권의_효력_제4절_준점유__제3관_점유보호청구권",
+   "title": "제3관 점유보호청구권",
+   "chars": 2541,
+   "preview": "점유보호청구권의 행사로 인한 소송 결과에 따라 점유의 태양(자주·타주, 선의·악의)이 전환되는 시점은 수험상 매우 중요한 지점이다. 특히 점유자가 원고가 되어 소를 제기한 경우와 본권자가 원고가 되어 점유자를 상대로 소를 제기한 경우를 엄격히 구분해야 한다. [46강 24:22] 원고 (소 제기자) 소송 결과 점유 태양의 변화 이유 ------------ 점유자 패소 전환되지 않음 권리 구제",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B02.basic.md",
+   "lectures": [
+    "36강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제2장_점유권__제3절_점유권의_효력_제4절_준점유__제5관_준점유",
+   "title": "제5관 준점유",
+   "chars": 1532,
+   "preview": "재산권 중에서도 점유를 수반하는지와 준점유가 성립하는지를 결정하는 핵심 기준은 권리의 양립 가능성이다. 특정 공간을 독점적으로 지배해야 하는 권리는 타인의 권리와 동시에 존재할 수 없으므로 점유를 수반하게 된다. [39강 23:10] 구분 양립 불가능한 권리 (점유 수반) 양립 가능한 권리 (점유 미수반) :--- :--- :--- 대상 권리 소유권, 지상권 등 저당권(담보물권) 등 이유 동",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B02.basic.md",
+   "lectures": [
+    "36강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제5절_소유권에_기한_물권적_청구권__제1관_소유물반환청구권",
+   "title": "제1관 소유물반환청구권",
+   "chars": 3285,
+   "preview": "본권(소유권)과 점유권은 서로 별개의 권리이다. 물건을 훔친 절도범은 물건을 사실상 지배하고 있으므로 점유권은 인정되나, 정당하게 점유할 권리인 본권은 없다. 반대로 소유자는 물건을 도난당해 사실상 지배를 상실했으므로 점유권은 없으나, 여전히 본권을 보유한다. 이러한 본권에 기하여 점유자에게 물건을 돌려달라고 하는 것이 소유물반환청구권이다 [45강 28:48]. 절도범에게도 점유권을 인정하는",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B02.basic.md",
+   "lectures": [
+    "36강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제5절_소유권에_기한_물권적_청구권__제2관_소유물방해제거청구권",
+   "title": "제2관 소유물방해제거청구권",
+   "chars": 2862,
+   "preview": "소유물방해제거청구에서 원고의 소유권은 청구의 근거이자 필수 요건이다. 따라서 피고 명의의 등기가 원인무효라 하더라도, 원고가 소유권을 취득하지 못했거나 상실했다면 청구는 인용될 수 없다. [53강 18:15] 구분 법리 및 사례 비고 --------- 원고의 소유권 증명 피고 등기가 무효라 하더라도 원고에게 소유권이 없음이 밝혀지면 청구는 기각됨 입증책임은 원고에게 있음 이중매매와 물권적 청",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B02.basic.md",
+   "lectures": [
+    "36강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제5절_소유권에_기한_물권적_청구권__제3관_소유물방해예방청구권",
+   "title": "제3관 소유물방해예방청구권",
+   "chars": 1454,
+   "preview": "방해의 염려를 판단할 때는 단순한 주관적 불안감만으로는 부족하다. 예컨대 인접지의 개발업자가 산을 개간하여 전원주택 부지를 조성하는 과정에서, 아래쪽 토지 소유자가 \"비가 오면 흙더미가 무너질 것 같다\"는 이유로 축대 재공사를 청구하는 경우를 상정할 수 있다. 이때 법원은 실제 지형의 안전성과 공사 상황을 객관적으로 심리하며, 위험성이 증명되지 않은 채 제기하는 단순한 불안감에 기한 청구는 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B02.basic.md",
+   "lectures": [
+    "36강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제1절_총설__제1관_소유권의_의의와_내용",
+   "title": "제1관 소유권의 의의와 내용",
+   "chars": 2907,
+   "preview": "토지는 인위적으로 구획된 '필' 단위로 독립성이 인정된다. 지적공부상 등록된 각 구역은 독립된 지번을 부여받으며, 그 개수는 공간정보의 구축 및 관리 등에 관한 법률(구 지적법)에 따라 결정된다. 수필의 토지를 하나로 합치는 하필이나, 한 필의 토지를 여러 개로 나누는 분필 절차 없이 등기부상으로만 분필 등기를 실행하더라도 그 효력은 인정되지 않는다. 반드시 측량을 통한 적법한 분필 절차를 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제1절_총설__제2관_토지소유권의_범위",
+   "title": "제2관 토지소유권의 범위",
+   "chars": 1931,
+   "preview": "상린관계에 관한 민법 규정들은 대부분 임의규정의 성격을 갖는다. 따라서 인접한 토지 소유자들이 조문 내용과 다른 별도의 합의를 하였다면 그 합의가 조문에 우선하여 유효하게 적용된다. 판례 역시 상린관계와 관련하여 분쟁이 발생했을 때 당사자 간의 특약을 우선시하는 경향이 있다 [48강 31:04]. 12. 구분소유권의 성립 요건과 등기 건물의 일부분이 독립된 구분소유권의 객체가 되기 위해서는 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제2절_상린관계__제2관_인지사용과_생활방해",
+   "title": "제2관 인지사용과 생활방해",
+   "chars": 1519,
+   "preview": "집합건물의 소유 및 관리에 관한 법률이 적용되는 아파트 등에서는 공용부분의 관리 및 사용과 관련하여 일반적인 상린관계보다 확장된 법리가 적용된다. 특히 체납 관리비의 승계 범위와 공용부분 무단 점유에 따른 부당이득 성립 여부가 핵심이다. 아파트의 전 입주자가 관리비를 체납한 상태에서 소유권이 이전된 경우, 특별승계인(매수인 등)이 승계하는 관리비의 범위는 공용부분에 한정된다. 이때 승계되는 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제2절_상린관계__제5관_주위토지통행권",
+   "title": "제5관 주위토지통행권",
+   "chars": 2249,
+   "preview": "주위토지통행권은 국토가 좁은 환경에서 특정 토지가 활용되지 못하고 방치되는 경제적 낭비를 막기 위한 제도이다. 맹지(공로에 접하지 않은 땅)의 소유자에게는 생존권적인 통로를 보장하되, 인접 토지 소유자에게는 그 희생에 따른 보상을 원칙으로 하여 양자의 이해관계를 조절한다 [48강 52:10]. 구분 주위토지통행권 인정 여부 이유 --------- 기존 통로가 협소함 인정 (O) 통로가 있더라",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제3절_소유권의_취득__제1관_취득시효_총설",
+   "title": "제1관 취득시효 총설",
+   "chars": 1728,
+   "preview": "부동산 점유취득시효는 법률 규정에 의한 물권변동임에도 불구하고 민법 제187조의 예외로서 등기를 요건으로 한다. 이는 점유라는 사실상태를 권리로 격상시키는 과정에서 거래의 안전을 도모하기 위함이다. 반면 등기부취득시효는 이미 점유자 명의로 등기가 마쳐진 상태이므로, 기간 경과와 함께 즉시 소유권을 취득한다. [50강 17:15] 비교 항목 점유취득시효 (제245조 제1항) 등기부취득시효 (제",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제3절_소유권의_취득__제2관_부동산_점유취득시효",
+   "title": "제2관 부동산 점유취득시효",
+   "chars": 1883,
+   "preview": "기산점을 임의로 선택하는 것을 원칙적으로 금지하는 이유는 제3자의 법적 지위를 보호하기 위함이다. 점유자가 임의로 기산점을 늦춰 잡는 것을 허용하면, 시효 완성 후 소유권을 취득한 제3자가 언제든지 시효 완성 전의 소유자로 뒤바뀔 수 있어 거래의 안전을 해친다. 또한, 점유자가 등기를 하지 않은 채 기산점만 계속 뒤로 미루며 조세 부과를 회피하는 것을 방지하려는 취지도 있다 [50강 30:1",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제3절_소유권의_취득__제3관_부동산_등기부취득시효",
+   "title": "제3관 부동산 등기부취득시효",
+   "chars": 3778,
+   "preview": "자기 소유의 물건이라도 시효취득의 목적물이 될 수 있다. 다만, 본인 명의로 등기가 되어 있고 점유까지 하고 있다면 등기의 추정력으로 인해 소유권 증명이 용이하므로 굳이 취득시효를 인정할 실익이 없다. 따라서 증명 곤란을 구제할 필요가 있는 예외적인 경우에만 자기 소유물에 대한 시효취득이 인정된다. [50강 35:11] 구분 시효취득 인정 여부 이유 --------- 등기부상 자기 명의인 경",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제3절_소유권의_취득__제4관_동산_취득시효",
+   "title": "제4관 동산 취득시효",
+   "chars": 2631,
+   "preview": "선의취득은 진정한 소유자(甲)의 소유권에 기한 물권적 반환청구권 행사에 대하여, 양수인(丙)이 자신의 소유권 취득을 주장하며 내세우는 항변권의 성격을 갖는다. 이는 일물일권주의 원칙상 甲의 소유권 상실을 전제로 하므로, 재판 과정에서는 '소유권 상실의 항변'으로 기능한다 [44강 32:15]. 구분 채권행위(매매 등) 물권행위(인도 등) --------- 원칙적 모습 유효 (타인 권리 매매도",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제3절_소유권의_취득__제5관_취득시효의_중단_정지와_효과",
+   "title": "제5관 취득시효의 중단·정지와 효과",
+   "chars": 1062,
+   "preview": "중단사유의 확장 판별 — 점유취득시효의 중단사유가 되기 위해서는 점유자가 누리는 '종래의 사실상태'를 물리적·법률적으로 박탈해야 한다. 따라서 등기부상에 권리관계의 변동을 예고하거나 보전하는 조치가 취해지더라도, 그것이 점유자의 점유 계속을 방해하지 않는다면 중단 효력이 발생하지 않는다. 사유 중단 여부 이유 --------- 가등기(예비등기) X 소유권이전등기청구권 보전을 위한 가등기만으로",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제4절_기타_소유권의_취득__제2관_첨부",
+   "title": "제2관 첨부",
+   "chars": 2559,
+   "preview": "부합의 원인에는 인위적인 행위뿐만 아니라 자연력에 의한 경우도 포함된다. 예를 들어 낙뢰나 태풍 등 자연적인 현상으로 인해 물건이 결합한 경우에도 첨부의 법리가 적용될 수 있다 [52강 35:05]. 또한, 첨부는 원칙적으로 소유자가 서로 다른 물건이 결합하는 것을 전제로 한다. 만약 결합하는 두 물건이 이미 동일인의 소유라면, 그 결합물 역시 당연히 그 소유자의 것이 되므로 민법상 첨부의 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제6절_공동소유__제1관_공동소유_총설",
+   "title": "제1관 공동소유 총설",
+   "chars": 2689,
+   "preview": "공동소유의 세 유형은 로마법적 개인주의와 게르만법적 단체성이라는 서로 다른 법적 뿌리에서 기인한다. 공유가 서로 얼굴도 모르는 이들이 기획부동산 등을 통해 우연히 결합한 형태라면, 합유는 친구 사이의 PC방 동업처럼 특정한 목적을 가진 능동적 결합이며, 총유는 문중이나 교회처럼 개인이 단체 속에 흡수된 강한 결합 형태다. [53강 56:14] 구분 공유 합유 총유 ------------ 법적",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제6절_공동소유__제2관_공유",
+   "title": "제2관 공유",
+   "chars": 3855,
+   "preview": "공동명의신탁(A가 갑·을·병에게 공동으로 명의를 신탁하는 경우)은 특별한 사정이 없는 한 수탁자들 사이의 공유관계가 성립한다 [54강 01:20]. 지분의 처분과 공유물의 처분 구분 공유지분은 각 공유자가 자유롭게 처분할 수 있으나, 공유물 자체를 처분할 때는 전원의 동의가 필요하다. 특히 토지의 특정 일부분을 처분하는 행위는 지분의 처분이 아니라 공유물 일부의 처분에 해당함을 주의해야 한다",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제6절_공동소유__제3관_합유",
+   "title": "제3관 합유",
+   "chars": 1267,
+   "preview": "합유관계가 종료되어 합유물을 분할하는 경우, 제274조 제2항에 따라 공유물 분할의 원칙이 그대로 준용된다. 이때 분할의 구체적인 방식과 허용 범위는 다음과 같다. 분할 방식 허용 여부 법리 및 효과 :--- :---: :--- 잔존자의 공유 유지 허용 분할을 청구한 甲의 지분(1/3)만 현물로 떼어주고, 분할을 원하지 않는 乙·丙은 남은 희망에 따라 공유관계를 유지하는 방식 [54강 54:",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제7절_명의신탁__제1관_명의신탁_총설과_부동산실명법",
+   "title": "제1관 명의신탁 총설과 부동산실명법",
+   "chars": 2807,
+   "preview": "명의신탁은 판례에 의해 형성된 법리가 1995년 부동산실명법 제정으로 인해 성문법 체계로 편입된 독특한 역사를 가진다. 따라서 현재의 법률관계를 정확히 파악하기 위해서는 부실법이 적용되어 무효가 되는 '원칙적 모습'과, 과거의 판례 법리가 여전히 유효하게 적용되는 '예외적 모습(특례)'을 이분법적으로 구분하는 것이 학습의 출발점이다. [55강 42:15] 구분 부실법 원칙 적용 (일반인) 부",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제7절_명의신탁__제2관_명의신탁의_유형과_효력",
+   "title": "제2관 명의신탁의 유형과 효력",
+   "chars": 2318,
+   "preview": "명의신탁에서 소유권자가 누구인지를 확정하는 것이 모든 법리 판단의 출발점이다. 양자간 명의신탁에서는 물권변동이 무효이므로 소유권이 신탁자에게 남아 있다. 따라서 신탁자는 소유권에 기한 방해배제청구권(민법 제214조)의 일환으로 진정명의회복을 원인으로 한 소유권이전등기를 청구할 수 있다 [55강 53:40]. 구분 양자간 명의신탁 3자간 명의신탁 :--- :--- :--- 소유권자 신탁자 매도",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제3장_소유권__제7절_명의신탁__제3관_유효한_명의신탁의_법률관계",
+   "title": "제3관 유효한 명의신탁의 법률관계",
+   "chars": 2920,
+   "preview": "대내관계에서 명의신탁자는 수탁자를 상대로 등기 없이도 소유권을 주장할 수 있을 뿐만 아니라, 수탁자가 소유권을 다투는 경우 소유권확인을 구하거나 소유권에 기한 물권적 청구권으로서 진정명의회복을 원인으로 한 소유권이전등기를 청구할 수 있다 [57강 15:40]. 반면, 대외관계에서는 수탁자만이 소유자이므로 신탁자가 제3자를 상대로 직접 진정명의회복을 원인으로 한 이전등기를 청구하는 것은 허용되",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B03.basic.md",
+   "lectures": [
+    "39강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제1절_지상권__제1관_지상권의_의의와_성립",
+   "title": "제1관 지상권의 의의와 성립",
+   "chars": 1417,
+   "preview": "용익물권 중 지상권과 전세권은 이론과 판례를 상세히 학습해야 하나, 지역권은 기초적인 개념을 파악한 후 기출 선지를 통해 지엽적인 내용을 보완하는 방식으로 학습 비중을 조절하는 것이 효율적이다. [57강 29:40] 지상권은 토지 소유자의 물권적 청구권에 맞설 수 있는 '점유할 권리'의 원천이 된다. 따라서 지상권이 성립하면 토지 소유자가 지상권자를 상대로 지상물의 철거 및 대지의 인도를 청",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제1절_지상권__제2관_지상권의_존속기간",
+   "title": "제2관 지상권의 존속기간",
+   "chars": 2466,
+   "preview": "지상권의 존속기간을 엄격하게 보호하는 이유는 사회경제적 비용을 절감하기 위함이다. 건물이나 수목은 조성에 큰 비용이 들고 시간이 오래 걸리는데, 존속기간을 너무 짧게 설정하면 멀쩡한 지상물을 철거해야 하는 상황이 발생하여 국가적인 낭비가 초래된다. 따라서 민법은 지상권자가 최소한 투입 비용을 회수하고 지상물을 활용할 수 있도록 최단기간을 강제한다. [57강 37:45] 무허가·미등기 건물의 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제1절_지상권__제3관_지상권의_효력",
+   "title": "제3관 지상권의 효력",
+   "chars": 2547,
+   "preview": "적법 점유의 효력 지상권은 설정행위에서 정한 목적 범위 내에서 토지를 사용할 정당한 권원이므로, 지상권자의 점유는 적법 점유에 해당한다. 따라서 토지소유자는 지상권자를 상대로 다음과 같은 청구를 할 수 없다. [57강 53:00] 1. 민법 제750조에 기한 불법행위 손해배상청구 2. 지상권자의 건물에 대한 철거 소송 제기 물권적 청구권의 대항력 지상권은 물권이므로 제3자가 토지를 무단 점유",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제1절_지상권__제4관_지상권의_소멸",
+   "title": "제4관 지상권의 소멸",
+   "chars": 1507,
+   "preview": "지료 연체액의 계산과 소멸청구의 범위 구분 내용 ------ 연체의 계산 2년 이상의 지료 연체는 반드시 연속적일 필요는 없으며, 연체된 금액의 합계가 2년분에 달하면 족하다. 공유 관계와 소멸청구 지상권자가 수인인 공유 관계일 경우, 지료 연체를 이유로 한 소멸청구는 공유자 전원에 대하여 하여야 하며, 지상권설정자가 수인인 경우에도 전원이 행사하여야 함이 원칙이다(불가분성). 소멸청구의 단",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제1절_지상권__제5관_구분지상권",
+   "title": "제5관 구분지상권",
+   "chars": 1413,
+   "preview": "구분지상권은 토지의 입체적 이용을 극대화하기 위한 제도로, 고압선이 통과하는 송전탑 및 전선 설치를 위해 공중 공간을 사용하거나 지하철 터널을 위해 지하 공간을 사용하는 것이 대표적이다. [58강 23:50] 상하의 범위는 등기 시에 명확히 특정되어야 한다. 예컨대 \"지표면으로부터 상공 9m에서 12m 사이\" 혹은 \"지하 10m에서 20m 사이\"와 같이 수치로 범위를 한정하여 설정한다. [5",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제1절_지상권__제6관_분묘기지권",
+   "title": "제6관 분묘기지권",
+   "chars": 1705,
+   "preview": "분묘기지권은 실무적으로 시골 지역의 토지를 감정평가하거나 매수할 때 반드시 현장 방문을 통해 봉분의 존재 여부를 확인해야 하는 항목이다. 공부상 확인이 불가능하므로 현장에서 분묘를 발견하지 못한 채 토지를 취득하면 예상치 못한 권리 제한을 받게 된다. [58강 28:15] 평장이나 암장의 경우 분묘기지권을 인정하지 않는 이유는 제3자가 해당 토지에 분묘가 있다는 사실을 객관적으로 인식할 방법",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제1절_지상권__제8관_관습법상_법정지상권",
+   "title": "제8관 관습법상 법정지상권",
+   "chars": 2993,
+   "preview": "관습법상 법정지상권은 건물을 매수한 자가 다음날 토지 소유자로부터 건물 철거 청구를 당하는 이른바 '안면몰수' 상황을 방지하기 위한 제도이다. 토지 소유권에 기한 물권적 청구권 행사를 저지할 수 있는 정당한 권원이 된다 [58강 43:05]. 이 권리의 성립 여부는 형식적인 요건 충족 여부뿐만 아니라, 실질적인 제도의 취지를 고려하여 판단한다. 즉, 건물을 철거하지 않고 계속 소유할 자를 보",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제2절_지역권__제1관_지역권의_의의와_성질",
+   "title": "제1관 지역권의 의의와 성질",
+   "chars": 1057,
+   "preview": "승역지는 서비스를 제공(承, 받들 승)하는 토지이고, 요역지는 서비스가 필요한(要, 요할 요) 토지라는 점을 한자 의미와 연결하여 이해하면 용어 혼동을 줄일 수 있다. [59강 34:50] 농지에서 농사를 짓기 위해 물길을 끌어오는 용수지역권을 상상하면 이해가 빠르다. 이때 물이 지나가는 통로가 되는 땅이 승역지, 물을 끌어와 혜택을 보는 내 땅이 요역지가 된다. [59강 34:55] 구분 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제2절_지역권__제2관_지역권의_취득",
+   "title": "제2관 지역권의 취득",
+   "chars": 589,
+   "preview": "(4) 시효취득의 주체와 점유의 성질 지역권의 시효취득을 주장하기 위해서는 요역지 점유자의 점유가 자주점유(소유의 의사가 있는 점유)여야 한다. 이는 지역권 시효취득에 제245조 제1항이 준용되기 때문이다. 따라서 점유의 권원상 소유의 의사가 인정되지 않는 타주점유자는 지역권을 시효취득할 수 없다. [56강 57:15] 구분 자주점유 (시효취득 가능) 타주점유 (시효취득 불가) -------",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제2절_지역권__제3관_지역권의_효력",
+   "title": "제3관 지역권의 효력",
+   "chars": 705,
+   "preview": "요역지와 승역지의 관계는 편익을 매개로 한 '주고받는' 관계이다. 요역지는 편익을 제공받는 토지이며, 승역지는 요역지를 위해 편익을 제공하는 토지이다. [59강 35:29] 민법은 물권적 청구권과 관련하여 점유를 수반하는 권리와 그렇지 않은 권리를 엄격히 구분하여 준용 규정을 두고 있다. 지역권은 저당권과 마찬가지로 목적물을 배타적으로 점유하는 권리가 아니기 때문에, 제213조(소유물반환청구",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제3절_전세권__제1관_전세권의_의의와_성립",
+   "title": "제1관 전세권의 의의와 성립",
+   "chars": 2347,
+   "preview": "전세권은 민법 개정을 통해 용익물권적 성격에 담보물권적 성격이 명문으로 결합된 형태를 띤다. 특히 제303조 제1항 후단의 우선변제권은 본래 담보물권의 핵심 권능이나, 전세권에서는 이를 당연한 효력으로 인정한다. 따라서 전세권은 존속기간 중에는 목적물을 사용·수익하는 용익물권으로 기능하다가, 기간 만료 후 전세금을 반환받지 못할 때는 목적물을 경매하여 우선변제를 받는 담보물권으로 변모하는 이",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제3절_전세권__제2관_전세권의_존속기간",
+   "title": "제2관 전세권의 존속기간",
+   "chars": 1327,
+   "preview": "민법 제312조는 각 항의 번호에 따라 적용 대상이 엄격히 구분된다. 조문 구조를 체계적으로 파악하면 토지전세권과 건물전세권의 차이를 혼동하지 않고 정리할 수 있다. [59강 55:20] 구분 해당 조문 적용 대상 주요 내용 ------------ 홀수항 제1항, 제3항 토지 + 건물 공통 최장기간(10년) 제한 및 합의갱신 짝수항 제2항, 제4항 건물 전용 최단기간(1년) 보장 및 법정갱신",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제3절_전세권__제3관_전세권의_효력",
+   "title": "제3관 전세권의 효력",
+   "chars": 1535,
+   "preview": "제304조 제1항에서 전세권의 효력이 건물의 소유를 목적으로 한 지상권·임차권에 미친다는 것은, 건물전세권자가 토지소유자의 퇴거 요구나 방해에 대하여 \"설정자가 가진 토지사용권을 나도 함께 행사할 수 있다\"고 주장하며 대항할 수 있음을 의미한다 [60강 15:50]. 제304조 제2항은 설정자가 토지소유자와 공모하여 전세권자를 내쫓기 위해 임의로 토지사용권을 소멸시키는 행위를 방지하기 위한 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제3절_전세권__제4관_전세권의_처분",
+   "title": "제4관 전세권의 처분",
+   "chars": 2289,
+   "preview": "전세권저당권의 법리적 구조를 이해할 때는 전세권의 성질을 순수 용익물권으로 간주하는 것이 효율적이다. 본래 전세권은 용익물권과 담보물권의 성격을 겸비하나, 우리 민법이 저당권 위에 다시 저당권을 설정하는 것을 허용하지 않으므로, 전세권에 저당권을 설정할 때는 전세권을 오직 용익적 권리로만 파악하여 그 권리가 소멸함에 따라 저당권이 채권(전세금반환채권)으로 전이되는 과정을 추적해야 한다 [65",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제4장_용익물권__제3절_전세권__제5관_전세권의_소멸",
+   "title": "제5관 전세권의 소멸",
+   "chars": 1947,
+   "preview": "목적물의 일부가 멸실되었을 때 '잔존부분으로 목적을 달성할 수 없는 경우'란, 가령 주거용 건물의 대부분이 소실되고 화장실 등 부수적인 부분만 남은 상태를 의미한다. 이때 전세권자는 6월의 유예기간 없이 즉시 소멸을 통고하고 이사를 나갈 수 있다 [60강 25:40]. 전세권자의 귀책사유로 손해가 발생하여 전세금으로 이를 충당할 때는 다음과 같은 산술적 관계가 성립한다 [60강 26:30].",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B04.basic.md",
+   "lectures": [
+    "43강",
+    "57강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제1절_총설__제2관_담보물권의_통유성",
+   "title": "제2관 담보물권의 통유성",
+   "chars": 1378,
+   "preview": "제369조는 문언상 '저당권'을 명시하고 있으나, 이는 모든 담보물권에 공통으로 적용되는 원리이다. 피담보채권(대출금 채권 등)이 변제나 시효 완성으로 소멸하면, 그에 의존하는 담보물권은 존재할 이유가 없으므로 당연히 함께 소멸한다. [60강 47:10] (1) 수반성과 분리양도 금지의 이유 제361조가 저당권과 채권의 분리 양도를 엄격히 금지하는 이유는 채권 없는 담보물권은 존재할 수 없다",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제3절_질권__제1관_동산질권의_성립",
+   "title": "제1관 동산질권의 성립",
+   "chars": 1386,
+   "preview": "질권의 피담보채권 범위에서 지연배상금의 1년분 제한이 없는 이유는 질권이 주로 목적물을 직접 점유하는 방식으로 운용되어 후순위 권리자가 출현할 가능성이 저당권보다 낮기 때문이다. 반면 저당권(제360조)에서 지연배상을 1년분으로 제한하는 것은 후순위 저당권자나 일반 채권자를 보호하기 위한 취지일 뿐, 채무자를 보호하기 위한 규정이 아니다. [64강 00:35] 따라서 질권설정자가 채무자 본인",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제3절_질권__제2관_동산질권의_효력",
+   "title": "제2관 동산질권의 효력",
+   "chars": 1840,
+   "preview": "점유 침탈 시의 권리 구제 동산질권은 유치적 효력을 본질로 하므로 점유의 계속이 권리 존속의 요건이다. 점유를 침탈당했을 때의 구제 수단은 유치권과 차이가 있다. 구분 유치권 동산질권 :--- :--- :--- 권리의 성격 점유가 권리 그 자체 점유가 권리의 존속요건 점유 침탈 시 효력 유치권은 즉시 소멸 질권은 즉시 소멸(단, 점유회수 시 소급 부활) 물권적 청구권 인정되지 않음(점유권에 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제3절_질권__제3관_권리질권",
+   "title": "제3관 권리질권",
+   "chars": 2921,
+   "preview": "담보로 제공하는 대상이 물건(동산)이면 동산질권, 타인에게 가진 채권 그 자체를 담보로 제공하면 권리질권(채권질권)이 된다. 실무적으로는 부동산 임차인이 임대인에게 가지는 보증금반환채권을 담보로 돈을 빌리는 경우가 대표적이다 [63강 04:50]. 과거 구민법에서는 지상권이나 전세권에 대한 질권 설정이 가능했으나, 현행법은 이를 금지하고 저당권의 목적으로만 설정할 수 있게 정리하였다. 이는 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제4절_저당권__제1관_저당권의_의의와_성립",
+   "title": "제1관 저당권의 의의와 성립",
+   "chars": 1901,
+   "preview": "저당권은 목적물의 점유를 채권자에게 이전하지 않으므로, 채무자나 물상보증인이 해당 부동산에 계속 거주하거나 이를 사용·수익하면서 담보로 제공할 수 있다는 점이 특징이다. [63강 41:06] 담보물권의 점유 및 취득 비교 구분 유치권 질권 저당권 ------------ 점유의 이전 필수 (성립 및 존속요건) 필수 (설정자로부터 이전) 불요 (설정자가 계속 점유) 시효취득 가능 (점유를 수반하",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제4절_저당권__제2관_효력이_미치는_범위",
+   "title": "제2관 효력이 미치는 범위",
+   "chars": 1905,
+   "preview": "건물 소유권(주된 권리)과 그 건물을 위한 지상권·임차권(종된 권리)의 결합 관계는 취득 원인에 따라 등기 필요 여부가 달라지므로 주의를 요한다. 구분 건물 매매(양도) 건물 경매(실행) --------- 근거 법리 제100조 제2항 유추적용 제358조, 제187조 등기 필요성 건물·지상권 모두 등기하여야 효력 발생(제186조) 등기 없이도 당연히 지상권 취득(제187조) 취득 시점 지상권 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제4절_저당권__제3관_우선변제적_효력과_물상대위",
+   "title": "제3관 우선변제적 효력과 물상대위",
+   "chars": 2090,
+   "preview": "물상대위는 저당권이 소멸하고 그 가치적 변형물이 남았을 때 비로소 등장한다. 목적물이 수용되거나 화재로 사라져 더 이상 저당권 자체를 행사할 수 없게 된 저당권자를 보호하기 위한 최후의 보루다. [61강 02:15] 물상대위권은 법률상 우선변제권이 인정되는 권리에만 부여되는 특권이다. 구분 물상대위 인정 여부 이유 --------- 질권·저당권·전세권 O 우선변제권이 인정되는 담보물권 유치권",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제4절_저당권__제4관_저당권의_침해와_구제",
+   "title": "제4관 저당권의 침해와 구제",
+   "chars": 1576,
+   "preview": "저당권 침해 시 구제수단은 크게 네 가지(물·배·보·즉)로 요약되며, 각 수단별로 청구할 수 있는 상대방의 범위가 다르다는 점이 핵심이다. 구제수단 상대방의 범위 특징 --------- 물권적 청구권 제한 없음 (채무자·설정자·제3자) 방해제거·예방만 가능 (반환 X) 손해배상청구권 제한 없음 (채무자·설정자·제3자) 실질적 손해 발생 시 금전 배상 담보물보충청구권 저당권설정자 (채무자 또는",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제4절_저당권__제5관_저당권의_처분과_소멸",
+   "title": "제5관 저당권의 처분과 소멸",
+   "chars": 1786,
+   "preview": "저당권의 법정 이전 — 변제자대위 저당권의 처분은 당사자 간의 합의(양도)뿐만 아니라 법률의 규정에 의해서도 일어난다. 변제할 정당한 이익이 있는 물상보증인이 채무자를 대신하여 변제하거나, 저당권 실행으로 소유권을 잃은 경우 채권자의 저당권은 물상보증인에게 법정 이전된다. 이를 변제자대위라 하며, 물상보증인은 채권자가 가졌던 저당권을 이전받아 채무자에게 구상권을 행사하는 담보로 활용할 수 있",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제4절_저당권__제6관_공동저당",
+   "title": "제6관 공동저당",
+   "chars": 1933,
+   "preview": "공동저당권자가 수 개의 목적물 중 어느 것을 먼저 경매하느냐는 우연한 사정에 불과하다. 이 우연한 선택에 의해 후순위저당권자의 배당액이 널뛰는 것은 합리적이지 않으므로, 이시배당 시에도 동시배당의 결과를 강제하는 것이 제368조 제2항 후문의 취지이다 [65강 23:15]. 구분 동시배당 (제368조 제1항) 이시배당 (제368조 제2항) --------- 배당 원칙 각 부동산 경매대가에 비",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제4절_저당권__제7관_근저당",
+   "title": "제7관 근저당",
+   "chars": 2957,
+   "preview": "근저당권은 담보물권의 대원칙인 부종성을 수정하여 거래의 편의를 도모한 제도이다. 채권액이 결산기 전까지 끊임없이 증감·변동하므로, 특정 시점에 채무가 일시적으로 전부 변제되어 0원이 되더라도 담보권이 소멸하지 않고 유지되는 것이 핵심이다. 이는 후순위 권리자가 담보 여력을 예측할 수 있도록 등기부상 '채권최고액'이라는 명확한 가이드라인을 제시함으로써 물권법적 안정성을 꾀한다 [65강 32:4",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제5절_비전형담보__제1관_비전형담보_총설",
+   "title": "제1관 비전형담보 총설",
+   "chars": 1870,
+   "preview": "비전형담보의 규제 논리는 민법 제339조의 유질계약 금지 원칙에서 출발한다. 채무자가 변제기 전에 \"돈을 못 갚으면 담보물의 소유권을 넘겨주겠다\"고 약속하는 것은 채무자의 궁박한 처지를 이용한 채권자의 폭리가 될 가능성이 높기 때문이다. 다만, 이 금지는 시점에 따라 효력이 달라진다는 점에 유의해야 한다 [62강 61:54]. 구분 변제기 전의 약정 변제기 후의 약정 :--- :--- :--",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제5절_비전형담보__제2관_가등기담보",
+   "title": "제2관 가등기담보",
+   "chars": 1748,
+   "preview": "가등기는 그 등기부상 형식만으로는 성질을 파악할 수 없으므로, 당사자 간의 실질적인 법률관계를 기준으로 구분한다. 구분 청구권 보존 가등기 담보 가등기 --------- 실질 관계 매매계약 등 부동산 소유권 이전 목적 금전소비대차 등 채권 담보 목적 [65강 58:30] 주된 기능 순위 보존 우선변제 및 소유권 취득(담보권) [65강 58:45] 경매 시 성격 인수의 대상(최선순위 시) 저당",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제5절_비전형담보__제3관_양도담보",
+   "title": "제3관 양도담보",
+   "chars": 2685,
+   "preview": "양도담보의 설정은 실질적으로 처분행위에 해당한다. 따라서 설정자에게는 해당 목적물에 대한 유효한 처분권한이 있어야 하며, 처분권 없는 자가 제3자 소유의 물건을 담보로 제공한 경우 특별한 사정이 없는 한 담보권은 유효하게 성립하지 않는다 [66강 33:15]. 집합동산 양도담보에서 설정자가 점유개정의 방법으로 일단 점유를 취득하면, 그 후 구성물인 개개의 물건(예: 뱀장어 치어)을 새로 반입",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__물권법__제5장_담보물권__제5절_비전형담보__제4관_소유권유보부_매매",
+   "title": "제4관 소유권유보부 매매",
+   "chars": 1519,
+   "preview": "◆ 유보물권이 타인의 물건에 부합된 경우의 보상관계 매수인이 대금을 완납하지 않은 상태에서 인도받은 목적물(예: 철강 등 건축자재)을 제3자의 물건(예: 제3자 소유의 건물)에 부합시킨 경우, 소유권을 상실한 매도인은 제3자에게 부당이득반환 내지 보상을 청구할 수 있는지가 문제 된다. [66강 57:42] 구분 제3자(수익자)가 선의·무과실인 경우 제3자(수익자)가 악의 또는 과실이 있는 경",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "B05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/B05.basic.md",
+   "lectures": [
+    "43강",
+    "60강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제1장_민법_서론__제1절_민법의_의의와_성격",
+   "title": "제1절 민법의 의의와 성격",
+   "chars": 1124,
+   "preview": "민법 제1조가 재판의 준거를 명시한 이유는 법관의 자의적인 판단을 방지하여 사법 신뢰를 확보하기 위함이다. 소송에서 원고(소를 제기한 자)와 피고(소를 제기당한 자)가 서로 상충하는 주장을 펼칠 때, 법관이 개인적인 학연, 지연, 혈연 또는 종교적 신념에 기초하여 판결하는 것을 금지한다. 법관은 반드시 법이 정한 순서인 성문법, 관습법, 조리에 따라 객관적으로 판단해야 할 의무가 있다 [2강",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제1장_민법_서론__제2절_민법의_법원",
+   "title": "제2절 민법의 법원",
+   "chars": 2662,
+   "preview": "법원(法源)은 법관이 재판 시 적용하는 '판단의 기준'이다. 민사 분쟁 발생 시 법관은 법률을 먼저 찾고, 없으면 관습법, 그마저 없으면 조리에 따라 판결한다. 조리는 법관의 양심이나 이성을 의미한다. [2강 10:45] 구분 판례 (대법원 판결) 헌법재판소 결정 --------- 근거 법령 법원조직법 제8조 헌법재판소법 제47조 제1항 기속력의 범위 해당 사건에 한하여 하급심 기속 모든 국",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제1장_민법_서론__제3절_민법의_기본원리",
+   "title": "제3절 민법의 기본원리",
+   "chars": 1980,
+   "preview": "호의관계와 법률관계의 구별 대가 없이 호의로 이루어지는 관계(예: 남녀 간의 데이트, 호의동승)는 원칙적으로 법률관계가 아니므로 계약상 책임을 물을 수 없다. 그러나 그 과정에서 사고가 발생하여 손해가 생긴 경우, 별개의 근거인 불법행위 책임은 성립할 수 있다. 구분 계약상 책임 (제390조) 불법행위 책임 (제750조) --------- 발생 근거 청약과 승낙의 합치(계약) 고의·과실로 인",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제1장_민법_서론__제4절_민법의_효력과_해석",
+   "title": "제4절 민법의 효력과 해석",
+   "chars": 1708,
+   "preview": "민법 학습의 목적은 단순히 조문을 암기하는 것이 아니라, 시험장에서 즉각적으로 인출할 수 있는 정확한 지식을 머릿속에 각인하는 데 있다. 책에 적힌 내용과 본인의 지식을 엄격히 구분하여야 하며, 이해되지 않는 지엽적인 부분에 매몰되기보다 핵심 내용을 반복하여 자기 것으로 만드는 과정이 선행되어야 한다. [1강 09:15] 구분 정확한 지식 산만하고 부정확한 지식 --------- 시험장 상태",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제2장_법률관계와_신의성실의_원칙__제1절_법률관계와_권리_의무__제2관_권리_의무의_의의",
+   "title": "제2관 권리·의무의 의의",
+   "chars": 1092,
+   "preview": "민법총칙은 뒤에 이어지는 물권법과 채권법의 내용을 이론적으로 총괄하는 단원이다. 따라서 총칙의 규정들은 물권법상의 개념을 전제로 하거나 채권법의 원리를 알아야만 온전히 이해되는 경우가 많다. 특히 채권법의 특정 내용은 민법총칙과 물권법의 체계를 확립하는 데 필수적이므로, 학습 시 단원 간의 유기적인 연결을 고려해야 한다. [1강 24:10] 형성권은 권리자의 일방적인 의사표시만으로 상대방의 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제2장_법률관계와_신의성실의_원칙__제1절_법률관계와_권리_의무__제3관_권리의_종류",
+   "title": "제3관 권리의 종류",
+   "chars": 2078,
+   "preview": "형성권은 권리자의 일방적인 의사표시만으로 법률관계의 변동(발생·변경·소멸)을 일으키는 강력한 힘을 가진다. 이러한 성질 때문에 상대방의 지위가 불안정해지는 것을 막기 위해 행사 방식에 일정한 제한이 따른다. [3강 02:03] 행사의 불가분성: 형성권은 성질상 권리의 일부만을 행사할 수 없으며, 원칙적으로 조건이나 기한을 붙일 수 없다. 철회의 제한: 일단 형성권을 행사하여 법률관계 변동의 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제2장_법률관계와_신의성실의_원칙__제1절_법률관계와_권리_의무__제4관_권리의_경합과_충돌",
+   "title": "제4관 권리의 경합과 충돌",
+   "chars": 1567,
+   "preview": "전세권 설정과 목적물 멸실에 따른 경합 사례 물권법상 '설정'은 권리를 '내어준다'는 의미로 이해하면 된다. 소유자(전세권설정자)가 세입자(전세권자)에게 전세권을 내어준 상황에서, 전세권자의 과실(예: 실화)로 목적물이 멸실되면 다음과 같은 권리 관계가 형성된다. [3강 08:14] 1. 채무불이행에 따른 손해배상청구권(\\S 390): 전세권 종료 시 목적물을 반환해야 할 계약상 의무를 이행",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제1절_자연인__제1관_권리능력",
+   "title": "제1관 권리능력",
+   "chars": 2853,
+   "preview": "권리능력은 현재 자산을 보유하고 있지 않더라도 향후 자산을 취득하고 그 권리를 보유할 수 있는 잠재적 가능성을 의미한다. 민법 총칙의 능력 규정은 선량한 풍속 기타 사회질서와 밀접한 관련이 있는 강행규정이다. 따라서 당사자 간의 합의로 특정인의 권리능력을 배제하거나 포기하기로 약정하더라도 이는 처음부터 무효이다 [6강 18:45]. 한편, 자연인이 아닌 동물은 권리능력의 주체가 될 수 없다.",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제1절_자연인__제2관_의사능력_책임능력",
+   "title": "제2관 의사능력·책임능력",
+   "chars": 1264,
+   "preview": "민법의 대원칙인 사적 자치의 원칙은 스스로 의사를 결정할 수 있는 능력이 있음을 전제로 한다. 만약 어떠한 설명을 들어도 그 행위의 의미를 이해할 수 없는 자가 체결한 계약에 대해 \"네가 결정했으니 책임져라\"라고 하는 것은 보호를 포기하는 것과 같다. 따라서 의사능력 제도는 인지 능력이 현저히 낮은 자가 아이스크림 몇 개에 고가의 토지를 넘기는 것과 같은 불공정한 결과를 방지하기 위한 최소한",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제1절_자연인__제3관_행위능력_총설",
+   "title": "제3관 행위능력 총설",
+   "chars": 3118,
+   "preview": "민법에서 정하는 나이는 별도의 표기가 없더라도 모두 만(滿) 나이를 의미한다. 따라서 만 19세 미만인 만 18세 이하의 자가 미성년자에 해당한다. [7강 30:15] 구분 무효 취소 :--- :--- :--- 주장권자 누구든지 주장 가능 법정 취소권자(제140조)에 한정 주장 기간 기간의 제한 없이 언제든 가능 제146조의 단기제척기간 제한을 받음 효력 상태 처음부터 당연히 효력이 없는 상",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제1절_자연인__제4관_미성년자",
+   "title": "제4관 미성년자",
+   "chars": 1649,
+   "preview": "실무적으로 미성년자의 법률행위는 소송상 재항변 사유로 주로 다루어진다. 상대방이 계약에 기한 이행을 청구할 때, 미성년자 측이 '제한능력'을 이유로 취소 항변을 하면, 상대방은 다시 '동의나 허락이 있었다'는 사실을 들어 계약의 유효를 주장하게 된다. 소송 단계 주장 내용 (공격·방어) 법리적 근거 --------- 청구원인 매매계약 체결 사실에 기한 대금 지급 청구 계약의 성립 항변 미성년",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제1절_자연인__제5관_피성년_피한정_피특정후견인",
+   "title": "제5관 피성년·피한정·피특정후견인",
+   "chars": 2430,
+   "preview": "실질적으로 사무 처리 능력이 결여되거나 부족한 상태에 있더라도, 가정법원의 형식적인 개시 심판이 없다면 제한능력자가 아니다. 따라서 심판 확정 전에 이루어진 법률행위는 사후에 후견 심판을 받았더라도 제한능력을 이유로 취소할 수 없다 [10강 05:20]. 가정법원은 직권으로 후견을 개시할 수 없다. 반드시 본인이나 친족 등의 청구가 있어야 한다. 이는 법원의 행정적 여력과 사법 자원의 효율적",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제1절_자연인__제6관_제한능력자의_상대방_보호",
+   "title": "제6관 제한능력자의 상대방 보호",
+   "chars": 2460,
+   "preview": "제한능력자와 거래한 상대방의 법률관계는 취소 전까지 유동적 유효 상태에 머문다. 상대방은 계약이 이행될 것을 믿고 대금을 준비하는 등 이행을 준비하지만, 제한능력자 측에서 언제든 취소권을 행사하여 소급적으로 무효화할 수 있기 때문에 법적 지위가 매우 불안정하다. 민법은 이러한 불균형을 해소하기 위해 일반적 보호방법 외에 제한능력자 제도에만 적용되는 특례를 두고 있다. [10강 39:34] 구",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제1절_자연인__제7관_주소",
+   "title": "제7관 주소",
+   "chars": 1026,
+   "preview": "출제 빈도가 낮고 휘발성이 강한 지엽적인 주제다. 과도한 에너지를 쏟기보다는 필수 개념 위주로 정리하여 남들이 다 맞히는 기출 지문에서 실수하지 않는 것을 목표로 한다. [11강 08:22] 우리 민법이 채택하고 있는 입법주의의 구체적 판정 기준은 다음과 같다. 구분 핵심 판정 기준 비고 --------- 실질주의 동사무소 신고 등 형식적 절차보다 실질적인 생활 터전인가를 중시 [11강 10",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제1절_자연인__제8관_부재자의_재산관리",
+   "title": "제8관 부재자의 재산관리",
+   "chars": 1855,
+   "preview": "부재자 재산관리 제도는 재산이 관리되지 못하고 방치된 상태를 해결하기 위한 것이다. 따라서 부재자가 외국에 있더라도 인터넷 뱅킹 등을 통해 스스로 재산을 관리하고 있거나, 국내에 친권자 등 법정대리인이 있어 대신 관리하고 있다면 국가가 개입할 필요가 없으므로 이 제도를 적용하지 않는다 [11강 12:26]. 법인은 형체가 없는 존재이므로 주소를 떠나 돌아올 가망이 없다는 개념이 성립할 수 없",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제1절_자연인__제9관_실종선고",
+   "title": "제9관 실종선고",
+   "chars": 2926,
+   "preview": "민법 조문에서 사용하는 '본다'는 간주(의제)를 의미하며, 이는 '추정한다'와 법적 효과가 엄격히 구분된다. 실종선고는 종래의 주소지를 거점으로 한 법률관계를 확정하기 위해 사망으로 간주하는 것이지, 자연인으로서의 생물학적 생명을 박탈하는 것이 아니다. [12강 02:05] 구분 실종선고 동시사망·인정사망 --------- 법적 성질 간주(의제) 추정 번복 방법 법원의 취소 절차가 반드시 필",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M02.basic.md",
+   "lectures": [
+    "43강",
+    "6강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제2절_법인__제1관_법인의_의의와_종류",
+   "title": "제1관 법인의 의의와 종류",
+   "chars": 1271,
+   "preview": "법인은 법률의 규정에 의함이 아니면 함부로 창설할 수 없다는 법정주의가 지배한다. 이는 국가가 단체의 법인격 취득을 엄격히 통제하겠다는 취지다 [13강 00:15]. 법인 파트를 학습할 때는 사단법인과 재단법인의 본질적 차이점을 명확히 인식하는 것이 모든 논의의 출발점이다 [13강 00:35]. 정관은 법인의 명칭, 사무소 소재지, 대표자 선임 방법 등 법인의 근본 규칙을 정한 것으로, 국가",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제2절_법인__제2관_법인의_설립",
+   "title": "제2관 법인의 설립",
+   "chars": 3152,
+   "preview": "법인의 설립 과정에서 사단법인과 재단법인은 구성 요소의 차이로 인해 기관의 필수성 여부가 갈린다. 시험에서는 이를 묶어 '법인의 필수기관'이라는 표현으로 함정을 파는 경우가 많으므로 주의가 필요하다. 구분 사단법인 재단법인 --------- 필수 기관 이사, 사원총회 이사 (사원총회 불필요) 존재 이유 인적 결합체(사원 존재) 재산의 집합체(사원 부존재) 기관 폐지 정관으로도 사원총회 폐지 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제2절_법인__제3관_법인의_능력",
+   "title": "제3관 법인의 능력",
+   "chars": 2598,
+   "preview": "법인격과 그 배후의 자연인은 별개의 인격체임이 원칙이다. 따라서 법인의 채무에 대해 구성원 개인의 재산에 강제집행을 할 수 없다. 그러나 배후자가 법인 제도를 악용하여 책임을 회피하려 하는 경우, 신의성실의 원칙에 근거하여 법인 뒤에 숨은 배후자에게 책임을 물을 수 있는데 이를 법인격 남용의 법리라 한다. [12강 48:15] 법인의 행위에 대하여 상대방이 책임을 추궁할 때는 계약상 책임과 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제2절_법인__제4관_법인의_기관",
+   "title": "제4관 법인의 기관",
+   "chars": 3681,
+   "preview": "법인은 형체가 없으므로 이를 대신하여 사무를 처리할 기관이 필요하다. 이때 이사는 법인의 손발이 되어야 하므로 반드시 자연인이어야 한다. 법인이 다른 법인의 이사가 되는 것은 불가능하다 [15강 01:20]. 법인과 이사의 관계는 신뢰를 기초로 하는 위임 유사 관계이므로, 정관에 정함이 없는 사항은 민법 제680조 이하의 위임 규정이 보충적으로 적용된다 [15강 02:15]. 이사의 성명과 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제2절_법인__제5관_정관의_변경",
+   "title": "제5관 정관의 변경",
+   "chars": 1108,
+   "preview": "법인의 정관 변경 가능 여부와 그 범위는 해당 법인이 사단법인인지 재단법인인지, 그리고 비영리성을 유지하는지에 따라 결정된다. 민법이 규율하는 법인은 원칙적으로 비영리법인에 한정되는데, 이는 법인의 활동으로 발생한 수익을 구성원에게 분배하지 않음을 의미한다. [12강 53:52] 정관 변경의 한계를 이해하기 위해서는 사단법인과 재단법인의 본질적 차이를 파악해야 한다. 특히 재단법인은 사단법인",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제2절_법인__제6관_법인의_소멸",
+   "title": "제6관 법인의 소멸",
+   "chars": 1511,
+   "preview": "사단법인의 해산사유 중 '사원이 없게 된 때'는 사원이 단 한 명도 남지 않은 경우를 의미한다. 따라서 사원이 단 1명이라도 잔존한다면 해산사유에 해당하지 않는다. [16강 11:30] 제78조에서 정한 '총사원 4분의 3 이상의 동의'라는 해산결의 정족수는 임의규정의 성격을 갖는다. 따라서 정관을 통해 이보다 높거나 낮은 숫자로 변경하여 규정하는 것이 가능하다. [16강 10:45] 청산절",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제3장_권리의_주체__제2절_법인__제8관_권리능력_없는_사단_재단",
+   "title": "제8관 권리능력 없는 사단·재단",
+   "chars": 2735,
+   "preview": "비법인사단은 단체로서의 실질을 가지나 법인격만 없는 상태이므로, 민법상 '조합' 및 '사단법인'과 단체성의 강약에 따라 구분된다. 구분 조합 (동업) 권리능력 없는 사단 사단법인 ------------ 단체성 약함 (개성이 강함) 강함 (실체 구비) 가장 강함 (법인격 취득) 근거 규정 민법 제703조 이하 (계약) 사단법인 규정 유추적용 민법 제31조 이하 (법인) 재산 소유 합유 총유 법",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M03.basic.md",
+   "lectures": [
+    "13강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제4장_권리의_객체__제1절_물건의_의의와_분류",
+   "title": "제1절 물건의 의의와 분류",
+   "chars": 1264,
+   "preview": "권리의 객체는 권리의 종류에 따라 다음과 같이 대비된다. 채권의 객체가 채무자의 특정 행위(급부)인 것과 달리, 물권의 객체는 원칙적으로 특정·독립된 물건이다. 구분 물권 채권 --------- 객체 물건 (부동산·동산) 채무자의 행위 (급부) 공시방법 등기(부동산), 인도(동산) 원칙적으로 불요 근거조문 제186조(부동산), 제188조(동산) 제373조 이하 비인격성(신체와 분리)의 예외적",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제4장_권리의_객체__제2절_부동산과_동산",
+   "title": "제2절 부동산과 동산",
+   "chars": 2484,
+   "preview": "우리 민법은 서구 법제와 달리 토지와 그 지상 건물을 각각 별개의 독립된 부동산으로 취급하는 이원적 체계를 취한다. 따라서 토지와 건물을 함께 거래하더라도 토지 등기부와 건물 등기부에 각각 소유권이전등기를 마쳐야 물권변동의 효력이 발생한다. 이러한 특수성으로 인해 토지 소유자와 건물 소유자가 달라지는 상황이 빈번하게 발생하며, 이는 관습법상 법정지상권 등 복잡한 법률 문제의 원인이 된다 [1",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제4장_권리의_객체__제3절_주물과_종물",
+   "title": "제3절 주물과 종물",
+   "chars": 2650,
+   "preview": "주물과 종물의 관계는 배와 노의 관계에 비유할 수 있다. 배(주물)가 앞으로 나아가는 본래의 기능을 다하기 위해 노(종물)가 결합하여 효용을 돕는 것과 같다. 이때 주물과 종물을 반드시 함께 처분해야 하는 것은 아니며, 당사자 간의 합의가 있다면 배만 팔거나 노만 따로 파는 것도 가능하다. 다만, 이러한 별도의 합의가 없는 경우에 한하여 민법 제100조 제2항이 적용되어 종물이 주물의 처분에",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제4장_권리의_객체__제4절_원물과_과실",
+   "title": "제4절 원물과 과실",
+   "chars": 1617,
+   "preview": "천연과실과 법정과실은 그 발생 근거에 따라 구분된다. 시험에서는 '물건의 용법'에 의한 수익을 법정과실로, '물건의 사용대가'로 받는 수익을 천연과실로 설명하여 서로 바꾸어 놓는 오답 지문이 자주 출제되므로 주의를 요한다 [18강 00:45]. 법정과실은 '물건'의 사용대가여야 하므로, 물건이 아닌 요소에 대한 대가는 과실에 해당하지 않는다. 구분 항목 법정과실 여부 사유 :--- :--- ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M04.basic.md",
+   "lectures": [
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제1절_총설__제1관_권리변동의_모습",
+   "title": "제1관 권리변동의 모습",
+   "chars": 1482,
+   "preview": "건물을 신축하여 소유권을 취득하는 것은 전주(前主)로부터 권리를 이어받는 것이 아니라, 신축자가 최초로 권리를 창설하는 것이므로 원시취득의 전형적인 모습이다. [18강 09:15] 승계취득 중 특정승계와 포괄승계는 단순히 승계되는 권리의 개수 차이가 아니라, 의무의 승계 여부와 인적 하자의 승계 여부에서 본질적인 차이가 있다. 비교 항목 특정승계 (예: 매매) 포괄승계 (예: 상속) ----",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제2절_법률행위__제1관_법률행위의_의의와_종류",
+   "title": "제1관 법률행위의 의의와 종류",
+   "chars": 1954,
+   "preview": "법률행위의 기초 개념은 향후 물권법의 취득시효 등 난도가 높은 판례를 이해하는 데 필수적인 전제가 된다. 단순히 용어를 정의하는 데 그치지 않고, 각 행위가 실제 권리 변동 과정에서 어떤 단계에 위치하는지 파악하는 것이 중요하다. [18강 14:29] 법률행위의 요건은 반드시 단계적으로 검토해야 한다. 1단계인 성립요건을 통과하지 못해 '불성립'으로 확정되었다면, 2단계인 효력요건(무효·취소",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제2절_법률행위__제2관_법률행위의_목적",
+   "title": "제2관 법률행위의 목적",
+   "chars": 1414,
+   "preview": "목적의 확정은 법률행위 당시에 반드시 100% 완료되어야 하는 것은 아니다. 당장 구체적인 액수나 대상을 지정하지 않더라도, 장차 이를 특정할 수 있는 기준이 마련되어 있다면 충분하다. 예를 들어 매매계약을 체결하면서 대금을 '계약일로부터 2개월 뒤의 해당 토지 공시지가'로 정하는 경우, 당장은 금액이 확정되지 않았으나 이행기까지 확정할 수 있는 표준이 존재하므로 유효한 법률행위가 된다. 따",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제2절_법률행위__제3관_강행규정과_단속규정",
+   "title": "제3관 강행규정과 단속규정",
+   "chars": 2223,
+   "preview": "임의규정과 강행규정을 구별하는 실익은 당사자의 합의(특약)가 법 규정보다 우선할 수 있느냐에 있다. 법령 중 선량한 풍속 기타 사회질서와 관계없는 규정을 임의규정이라 하며, 당사자가 이와 다른 의사를 표시한 경우에는 그 합의에 따라 법률관계를 처리한다. [18강 35:14] 구분 임의규정 강행규정(금지규정) --------- 당사자 합의 법 규정과 다른 합의 가능 합의로 규정 적용 배제 불가",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제2절_법률행위__제4관_반사회질서의_법률행위",
+   "title": "제4관 반사회질서의 법률행위",
+   "chars": 2840,
+   "preview": "법률행위의 사회질서 위반 여부를 판단하는 시점은 법률행위 당시의 가치관을 기준으로 한다. 과거에는 버스 안에서의 흡연이 허용되던 시절이 있었으나 현재는 금지되는 것과 같이, 시대에 따라 사회적 가치관은 변하기 마련이다. 따라서 계약 체결 이후에 사회적 인식이 바뀌었다 하더라도, 행위 당시의 기준에 비추어 반사회적이지 않다면 그 효력은 유지된다 [19강 05:40]. 동기의 불법이 문제되는 경",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제2절_법률행위__제5관_불공정한_법률행위",
+   "title": "제5관 불공정한 법률행위",
+   "chars": 2401,
+   "preview": "불공정한 법률행위는 반사회질서 법률행위(제103조)의 하나의 예시이므로, 양자는 무효의 성질은 같으나 적용 범위에서 차이가 있다. 특히 대가관계가 없는 무상행위(증여)의 경우 다음과 같이 구별하여 정리해야 한다. [20강 43:10] 구분 제103조 (반사회질서) 제104조 (불공정) --------- 성립 요건 사회적 타당성 결여 급부와 반대급부의 현저한 불균형 등 증여(무상행위) 적용 적",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제2절_법률행위__제6관_법률행위의_해석",
+   "title": "제6관 법률행위의 해석",
+   "chars": 2159,
+   "preview": "법률행위 해석의 주체는 법원이므로, 매매계약서 등에 \"이의가 생겼을 때에는 매도인의 해석에 따른다\"는 취지의 합의 조항을 두었더라도 이는 당사자 사이의 약속에 불과하다. 이러한 조항이 법원의 해석권을 구속하거나 당사자의 재판을 받을 권리를 침해할 수는 없다 [21강 05:10]. 해석 방법의 선택은 당사자의 주관적 의사와 상대방의 인식 가능성을 기준으로 결정된다. 구분 자연적 해석 규범적 해",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제3절_의사표시__제1관_의사표시_총설",
+   "title": "제1관 의사표시 총설",
+   "chars": 1647,
+   "preview": "전통적으로 사용해 온 '하자(瑕疵) 있는 의사표시'라는 용어는 일본식 표현의 영향이 강하여, 최근에는 이를 순화한 '흠 있는 의사표시'라는 용어를 혼용하여 사용한다 [21강 34:10]. 법률행위의 구성요소인 의사표시를 해석하고 그 효력을 확정하기 위해 법관이 사안을 판단하는 표준적인 순서는 다음과 같다 [21강 33:15]. 1. 해석 단계: 당사자의 의사가 불분명할 경우 사실인 관습 등을",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제3절_의사표시__제2관_진의_아닌_의사표시",
+   "title": "제2관 진의 아닌 의사표시",
+   "chars": 2593,
+   "preview": "의사표시의 불일치나 하자가 있는 경우, 민법은 각 유형에 따라 효력을 달리 규정하고 있다. 비진의표시는 원칙적으로 유효하다는 점에서 다른 유형들과 구별되므로, 학습 시 다음의 체계를 먼저 파악해야 한다. [21강 35:05] 구분 비진의표시 통정허위표시 착오 사기·강박 --------------- 근거 조문 제107조 제108조 제109조 제110조 의사와 표시 불일치(알고 함) 불일치(짜고",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제3절_의사표시__제3관_통정허위표시",
+   "title": "제3관 통정허위표시",
+   "chars": 3228,
+   "preview": "가장행위와 은닉행위가 결합된 경우, 외형상 드러난 매매계약서 등은 통정허위표시로서 108조 제1항에 의해 무효가 된다. 그러나 그 내면에 당사자의 진정한 합의가 있는 은닉행위(예: 실제로는 증여이나 매매로 가장한 경우)는 그 자체의 요건을 갖춘 이상 유효하다. 이때 매수인의 등기는 실체관계에 부합하는 등기로서 유효한 것이 된다 [23강 02:15]. 허위표시가 성립하기 위해 표의자가 그러한 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제3절_의사표시__제5관_사기_강박에_의한_의사표시",
+   "title": "제5관 사기·강박에 의한 의사표시",
+   "chars": 2247,
+   "preview": "의사표시의 취소 사유는 크게 제한능력, 착오, 사기·강박의 세 가지 체계로 나뉜다. 제110조는 이 중 타인의 부당한 간섭에 의해 의사결정의 자유가 침해된 경우를 다룬다. (1) 사기 법률행위의 성립 과정에서 특정 부분을 제외하기로 하는 제외 특약이 체결된 경우, 그 특약만을 사기에 의해 취소할 수는 없다. 취소는 법률행위가 유효하게 성립했음을 전제로 하는 '2단계'의 문제인데, 제외된 부분",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제1관_대리_서설",
+   "title": "제1관 대리 서설",
+   "chars": 1914,
+   "preview": "대리제도는 법률행위를 한 자(표의자)에게 그 효과가 귀속되어야 한다는 원칙에 대한 중대한 예외에 해당한다. 대리인과 상대방이 직접 대면하여 협상을 진행하더라도, 그 법률효과는 행위 현장에 없는 본인에게 직접 발생하기 때문이다 [26강 00:45]. 따라서 대리 관계를 파악할 때는 실제 행위를 하는 사람과 계약의 주체가 되는 사람을 엄격히 구별해야 한다. 구분 행위자 당사자(계약 상대방) 대리",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제2관_대리권",
+   "title": "제2관 대리권",
+   "chars": 2590,
+   "preview": "대리권 파트는 본인·대리인·상대방 사이의 삼각관계를 개별적으로 분리하여 접근해야 한다. 크게 ① 본인-대리인 사이의 대리권 관계(발생·범위·소멸), ② 대리인-상대방 사이의 대리행위 관계(현명·하자), ③ 상대방-본인 사이의 효과귀속 관계로 나뉜다. 이 중 제2관은 첫 번째 축인 대리권의 존부와 한계를 다룬다 [26강 42:15]. [보충] 대리인 본인 명의 행위와 상대방 확정 대리인이 본인",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제3관_대리권의_소멸",
+   "title": "제3관 대리권의 소멸",
+   "chars": 1199,
+   "preview": "대리인에게 파산이 발생했을 때 대리권이 소멸하도록 정한 것은, 파산 상태에 빠진 대리인이 자신의 급박한 경제적 사정을 해결하기 위해 본인의 재산을 유용하거나 대리권을 남용할 위험이 있기 때문이다. [27강 14:10] 또한, 제127조가 규정하는 후견 관련 소멸사유는 오직 성년후견개시뿐이다. 본인과 대리인 중 누구에게 발생하느냐에 따라 소멸 여부가 달라지므로 주의를 요한다. 구분 성년후견개시",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제4관_대리행위",
+   "title": "제4관 대리행위",
+   "chars": 2329,
+   "preview": "현명의 방식에는 제한이 없으므로 명시적·묵시적 방식은 물론 서면이나 구술 모두 가능하다. [27강 17:30] 구분 제115조(현명하지 않은 경우) 본인 성명 모용(교재 128p) --------- 대리인의 의사표시 \"나는 대리인 乙이다\"라고 표시 \"나는 본인 甲이다\"라고 표시 법적 성질 대리인 자신을 당사자로 확정 의사표시 해석의 문제(상대방 시각) 착오 취소 여부 착오 취소 불가 (법률 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제5관_복대리",
+   "title": "제5관 복대리",
+   "chars": 1604,
+   "preview": "복대리 구조를 이해할 때는 대리인이 외부 상대방과 행하는 대리행위와, 내부적으로 복대리인을 선임하는 복임행위를 엄격히 구분해야 한다. 복임행위는 대리권에 기초한 행위가 아니라 대리인 자신의 권한인 복임권에 기초한 것이므로, 반드시 대리인 자신의 이름으로 행한다. [27강 51:45] 또한, 복대리인은 누가 선임했느냐와 관계없이 성질상 100% 임의대리인이다. 법정대리인이 선임한 복대리인이라 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제6관_협의의_무권대리",
+   "title": "제6관 협의의 무권대리",
+   "chars": 3411,
+   "preview": "무권대리행위는 본인에게 효력이 없는 것이 원칙이나, 본인의 추인 여부에 따라 효력이 결정되는 유동적 무효 상태에 놓인다. 이는 무권리자가 타인의 물건을 자기의 이름으로 처분하는 '무권리자의 처분행위'와는 채권계약의 유효성 측면에서 구별된다. 구분 무권대리행위 무권리자의 처분행위 --------- 행위 형식 타인의 대리인으로 행세(현명) 자기의 이름으로 처분 채권계약 효력 무효 (본인 보호 목",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제4절_법률행위의_대리__제7관_표현대리",
+   "title": "제7관 표현대리",
+   "chars": 2717,
+   "preview": "표현대리는 민법 제125조, 제126조, 제129조의 세 가지 유형에 한하여 인정된다. 판례는 이 세 가지 조문 이외의 새로운 표현대리 유형을 인정하는 것에 대하여 부정설의 입장을 취한다. [28강 06:45] 표현대리가 성립한다고 하여 무권대리의 성질이 유권대리로 전환되는 것은 아니다. 따라서 상대방이 유권대리만을 주장하고 있다면, 설령 표현대리의 요건이 충족되는 것처럼 보이더라도 법원은 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제5절_법률행위의_무효와_취소__제1관_무효_총설",
+   "title": "제1관 무효 총설",
+   "chars": 1121,
+   "preview": "일부무효 법리의 확장: 대리권 초과와 담보권 설정 일부무효의 원칙은 대리인이 권한을 초과하여 법률행위를 한 경우에도 적용된다. 특히 본인이 수여한 대리권의 범위를 넘어서는 대출 및 담보권 설정 계약을 체결했을 때, 표현대리가 성립하지 않는다면 다음과 같이 효력이 분리된다. [28강 48:15] 구분 유효 범위 (유권대리) 무효 범위 (권한 초과) --------- 내용 본인이 수여한 위임 범",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제5절_법률행위의_무효와_취소__제2관_무효행위의_전환과_추인",
+   "title": "제2관 무효행위의 전환과 추인",
+   "chars": 2627,
+   "preview": "법률행위가 효력을 발생하기 위해서는 우선 성립요건을 충족하여 '존재'해야 한다. 의사의 합치가 없어 법률행위가 불성립한 경우에는 무효를 전제로 하는 무효행위의 전환(\\S138)이나 추인(\\S139) 법리가 적용될 여지가 없다 [30강 52:15]. (1) 무효행위의 전환에서의 의사 전환의 요건인 '당사자의 의사'는 무효임을 알았을 경우를 대비한 가정적 의사를 의미한다. 이는 실제 당사자가 가",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제5절_법률행위의_무효와_취소__제3관_취소_총설",
+   "title": "제3관 취소 총설",
+   "chars": 2385,
+   "preview": "무효는 의사표시의 효력이 처음부터 당연히 발생하지 않는 것이므로 누구든지 주장할 수 있는 반면, 취소는 법이 정한 특정인만이 행사할 수 있다는 점에서 차이가 있다 [31강 8:23]. 또한 하나의 행위에 여러 취소 사유가 겹치는 경우(예: 미성년자가 강박을 당해 계약한 경우), 취소권자는 각 사유를 선택적으로 주장하여 행사할 수 있다 [31강 8:23]. 구분 무효 취소 --------- 주",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제5절_법률행위의_무효와_취소__제4관_취소의_효과와_법정추인",
+   "title": "제4관 취소의 효과와 법정추인",
+   "chars": 3517,
+   "preview": "법률행위가 취소되면 부당이득반환의 문제가 발생하며, 이때 반환 범위는 민법 제748조의 일반 원칙과 제141조 단서의 특칙에 따라 구분된다. 제141조 단서는 제한능력자를 보호하기 위한 강력한 특칙으로, 무권대리인의 책임이 면제되는 제135조 제2항과 궤를 같이한다 [31강 23:50]. 구분 선의의 수익자 악의의 수익자 제한능력자(특칙) ------------ 반환 범위 현존이익 [31강 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제6절_법률행위의_부관__제1관_부관_서설",
+   "title": "제1관 부관 서설",
+   "chars": 2342,
+   "preview": "조건은 법률행위의 효력 발생이나 소멸을 결정하는 의사표시의 일부분이다. 따라서 조건부 의사가 내심에만 머물러서는 안 되며 반드시 외부에 표시되어야 한다. 표시되지 않은 조건은 단순한 동기에 불과하며 법률행위의 부관으로서 효력을 가질 수 없다. 표시의 방법에는 제한이 없으므로 명시적 방식뿐만 아니라 묵시적 방식으로도 가능하다. [32강 18:30] 구분 정지조건 해제조건 --------- 법률",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제6절_법률행위의_부관__제2관_조건",
+   "title": "제2관 조건",
+   "chars": 1853,
+   "preview": "단독행위에는 원칙적으로 조건을 붙일 수 없으나, 상대방에게 불이익을 주지 않는 경우에는 예외적으로 허용된다. 대표적으로 채무불이행 상태에 있는 상대방에게 이행 기회를 추가로 부여하면서 \"일정 기간 내에 이행하지 않으면 계약은 해제된 것으로 본다\"고 하는 정지조건부 해제는 상대방의 지위를 해치지 않으므로 유효하다. [32강 32:15] 1. 인과관계의 필요성 제150조 제1항이 적용되기 위해서",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제5장_권리의_변동__제6절_법률행위의_부관__제3관_기한",
+   "title": "제3관 기한",
+   "chars": 2430,
+   "preview": "기한은 조건과 마찬가지로 과거의 사실이 아닌 장래의 사실을 대상으로 한다. 양자의 결정적인 차이는 '확실성'에 있다. \"비가 오면\"과 같은 사실은 비록 시점은 알 수 없으나 언젠가는 반드시 발생하므로 조건이 아닌 기한(불확정기한)에 해당한다. 실현될 시기가 확정되지 않았다는 이유로 이를 조건으로 단정해서는 안 된다. [32강 53:10] 법질서 내에서 조건과 기한은 명확히 구분되나, 실제 분",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M05.basic.md",
+   "lectures": [
+    "18강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제2장_법률관계와_신의성실의_원칙__제2절_신의성실의_원칙__제1관_신의칙_서설",
+   "title": "제1관 신의칙 서설",
+   "chars": 2102,
+   "preview": "민법 제2조는 \"성실하게\", \"남용하지 못한다\"와 같이 구체적 기준이 명시되지 않은 추상적 규범이다. 조문 자체만으로는 판단 기준이 모호하므로, 축적된 판례의 입장을 통해 결론이 어떻게 구체화되었는지 파악하는 것이 학습의 핵심이다. [3강 17:15] 민법의 규정은 성격에 따라 임의규정과 강행규정으로 나뉜다. 신의칙은 사회적 약자 보호와 공익적 요청에 기초하므로 강행규정의 성질을 가진다. [",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M06.basic.md",
+   "lectures": [
+    "3강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제2장_법률관계와_신의성실의_원칙__제2절_신의성실의_원칙__제2관_신의칙의_파생원칙",
+   "title": "제2관 신의칙의 파생원칙",
+   "chars": 2244,
+   "preview": "권리관계의 변동을 가져오는 취소와 해제는 소급효가 있다는 점에서 유사하나, 그 발생 사유의 시점에 따라 엄격히 구분된다. 구분 취소 해제 --------- 발생 사유 시점 법률행위 성립 과정 중의 하자 법률행위 성립 후 발생한 사정 주요 사유 제한능력(\\S 5), 착오(\\S 109), 사기·강박(\\S 110) 채무불이행, 합의해제, 사정변경 적용 범위 모든 법률행위 주로 채권계약(매매 등) ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M06.basic.md",
+   "lectures": [
+    "3강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제2장_법률관계와_신의성실의_원칙__제2절_신의성실의_원칙__제3관_권리남용금지의_원칙",
+   "title": "제3관 권리남용금지의 원칙",
+   "chars": 2182,
+   "preview": "권리남용금지의 원칙은 민법총칙뿐만 아니라 물권법, 채권법 등 민법 전 영역에 적용되는 보편적 원칙이다. 특히 법인격이 형해화되거나 배후자의 개인적 이익을 위해 악용되는 경우에 적용되는 법인격 남용의 법리 또한 이 원칙에 그 뿌리를 두고 있다. [6강 00:45] 권리남용의 요건을 판단할 때 주관적 요건과 객관적 요건의 관계 및 예외 상황은 다음과 같이 정리할 수 있다. 구분 일반적인 권리남용",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M06.basic.md",
+   "lectures": [
+    "3강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제7장_소멸시효__제1절_총설_제2절_소멸시효의_요건__제1관_소멸시효_총설",
+   "title": "제1관 소멸시효 총설",
+   "chars": 1724,
+   "preview": "소멸시효는 민법총칙에서 대리 파트와 함께 가장 난도가 높은 영역으로 꼽힌다. 내용 자체가 난해하기보다 학습 분량이 방대하여 전체적인 흐름을 놓치기 쉽기 때문이다. 따라서 세부 법리를 학습할 때마다 현재 내가 ① 대상적격 ② 기산점 ③ 시효기간이라는 성립 요건을 보는지, 아니면 완성 이후의 ④ 중단·포기·신의칙이라는 재항변 사유를 보는 것인지 위치를 끊임없이 확인해야 한다. [33강 21:10",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M06.basic.md",
+   "lectures": [
+    "3강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제7장_소멸시효__제1절_총설_제2절_소멸시효의_요건__제2관_소멸시효의_대상_권리",
+   "title": "제2관 소멸시효의 대상 권리",
+   "chars": 2110,
+   "preview": "민법총칙의 후반부를 구성하는 대리와 소멸시효는 수험상 가장 난도가 높으면서도 매년 각각 2문제 이상 출제되는 핵심 전략 구간이다. 특히 소멸시효는 물권법의 점유취득시효, 계약법의 매매 및 임대차 법리와 밀접하게 연계되므로, 단순히 암기하기보다 권리의 성질에 따른 시효 진행의 차이를 입체적으로 이해해야 한다. [25강 48:30] 소멸시효 제도의 존재 이유는 '권리 위에 잠자는 자를 보호하지 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M06.basic.md",
+   "lectures": [
+    "3강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제7장_소멸시효__제1절_총설_제2절_소멸시효의_요건__제3관_소멸시효의_기산점",
+   "title": "제3관 소멸시효의 기산점",
+   "chars": 849,
+   "preview": "민법 총칙에서 소멸시효는 대리와 함께 수험생이 가장 어려워하면서도 출제 비중이 가장 높은 '양대 산맥'에 해당한다. 시험 직전 민법 총칙을 빠르게 회독할 때 가장 큰 걸림돌이 되는 부분이므로, 기본 학습 단계에서 이 두 파트를 완벽히 이해해 두어야 전체 학습 시간을 단축할 수 있다. [25강 50:15] 기한의 정함이 없는 채권에서 소멸시효의 기산점과 이행지체의 기산점은 법적 취지가 다르므로",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M06.basic.md",
+   "lectures": [
+    "3강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제7장_소멸시효__제1절_총설_제2절_소멸시효의_요건__제4관_소멸시효의_기간",
+   "title": "제4관 소멸시효의 기간",
+   "chars": 2431,
+   "preview": "단기소멸시효가 적용되는 계약에서 당사자 쌍방이 서로 가지는 채권의 소멸시효 기간은 반드시 일치하지 않는다. 채무자가 단기소멸시효에 해당하는 채권을 가진다고 하여, 그 반대급부인 채권자의 채권까지 당연히 동일한 단기시효에 걸리는 것은 아니다 [35강 03:40]. 구분 간병인(노역인)의 채권 환자(이용자)의 채권 --------- 채권의 성격 노역의 대가(임금) 불완전이행으로 인한 손해배상청구",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M06.basic.md",
+   "lectures": [
+    "3강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제7장_소멸시효__제3절_시효의_장애__제1관_소멸시효의_중단",
+   "title": "제1관 소멸시효의 중단",
+   "chars": 2238,
+   "preview": "지급명령에 의한 시효중단의 효력은 지급명령을 신청한 때에 발생한다. 채무자의 이의신청으로 인하여 소송절차로 이행되더라도, 중단 시점은 소송 이행시가 아니라 최초의 지급명령 신청시를 기준으로 한다. 이는 채무자가 시효 완성을 노리고 고의로 이의를 제기하여 시간을 끄는 것을 방지하기 위함이다 [36강 02:15]. 압류의 경우, 집행관이 채무자의 주거지에 착수하였으나 압류할 물건이 없어 집행불능",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M06.basic.md",
+   "lectures": [
+    "3강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "civil__민법총칙__제7장_소멸시효__제5절_제척기간__제1관_제척기간의_의의_성질",
+   "title": "제1관 제척기간의 의의·성질",
+   "chars": 1971,
+   "preview": "민법 조문을 해석할 때 해당 기간의 성질을 판별하는 일차적 기준은 '시효'라는 용어의 사용 여부이다. 조문에 '시효'라는 글자가 명시되어 있으면 소멸시효로, 해당 표현이 없으면 제척기간으로 보는 것이 통설적 견해이다. 예컨대 제146조(취소권의 소멸)는 3년과 10년의 기간을 정하면서도 '시효'라는 단어를 사용하지 않으므로 제척기간으로 해석한다 [39강 01:15]. 또한 제척기간은 권리의 ",
+   "path": [],
+   "subject": "civil",
+   "unit_code": "M06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/civil/lectures/notes/M06.basic.md",
+   "lectures": [
+    "3강",
+    "43강"
+   ]
+  },
   {
    "leaf_id": "economics__거시경제학__제1장_국민소득결정이론__제2절_국민소득의_측정과_경제구조__제2관_명목_실질_GDP_GDP_디플레이터",
    "title": "제2관 명목·실질 GDP, GDP 디플레이터",
@@ -2014,6 +6242,902 @@
    "file": "/data/study/economics/lectures/notes/M08.basic.md",
    "lectures": [
     "32강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_01_총칙",
+   "title": "Chapter 01 총칙",
+   "chars": 2594,
+   "preview": "국토계획법은 크게 계획 파트와 이용 파트로 나뉜다. 용도구역까지는 계획 파트의 영역이며, 개발밀도관리구역과 기반시설부담구역은 이용 파트에서 다루는 개념이다 [2강 30:37]. 수험적으로는 계획의 수립 주체와 대상 지역을 일치시키는 것이 체계 잡기의 시작이다. 용어의 정의를 공부할 때는 단순히 문장을 외우기보다 각 계획이 서로 어떤 영향을 주고받는지, 대상 지역이 어떻게 좁혀지는지를 파악해야",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_02_광역도시계획",
+   "title": "Chapter 02 광역도시계획",
+   "chars": 2898,
+   "preview": "광역도시계획은 국토의 계획 및 이용에 관한 법률에서 가장 먼저 등장하는 행정계획으로, 상위 계획인 국가계획과의 수직적 체계를 이해하는 것이 학습의 출발점이다. 모든 행정계획은 수직적 위계질서를 따르며, 하위 계획은 상위 계획에 부합해야 한다 [1강 30:00]. 구분 국가계획 광역도시계획 도시·군계획 :--- :--- :--- :--- 수립 범위 전국토 광역계획권 (2개 이상 지자체) 단일 ",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_03_도시_군기본계획",
+   "title": "Chapter 03 도시·군기본계획",
+   "chars": 2743,
+   "preview": "도시·군기본계획은 개별 시·군의 미래상을 그리는 청사진이다. 광역도시계획이 2개 이상의 시·군을 묶어 방향을 정한다면, 기본계획은 각 지자체가 앞으로 10년, 20년 뒤에 어떤 모습으로 발전할지 스스로 결정하는 계획이다. 이렇게 제시된 장기적 방향은 이후 도시·군관리계획을 통해 구체적인 실행 단계로 이어진다 [1강 35:16]. 구분 광역도시계획 도시·군기본계획 :--- :--- :--- 수",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_04_도시_군관리계획__제1절_도시_군관리계획",
+   "title": "제1절 도시·군관리계획",
+   "chars": 3290,
+   "preview": "도시·군계획은 수립 대상 지역의 범위에 따라 도시·군기본계획과 도시·군관리계획으로 구분하며, 이를 합쳐 부르는 용어이다. 광역도시계획은 인접한 둘 이상의 시·군을 대상으로 하므로 도시·군계획의 범주에 포함되지 않는다. 도시·군관리계획은 상위 계획인 광역도시계획 및 도시·군기본계획(생활권계획 포함)에서 제시한 방향을 구체화하여 토지의 용도를 개발·정비·보전으로 확정하는 실천적 계획이다. [1강",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_04_도시_군관리계획__제2절_용도지역_용도지구_용도구역",
+   "title": "제2절 용도지역·용도지구·용도구역",
+   "chars": 3596,
+   "preview": "국토는 이용 목적에 따라 크게 도시지역, 농림지역, 자연환경보전지역의 세 가지 기본 용도로 구분된다. 산과 농지가 어우러진 농림지역이 토지의 비옥도(지력)를 중시한다면, 도시지역은 비바람을 막아줄 건물이 들어서는 공간과 입지의 유용성을 중시한다. 이들 용도 간의 경계에서 완충 기능을 하며 도시지역으로의 편입 등을 준비하는 곳이 관리지역이다. [1강 20:15] 구분 본질적 가치 주요 특징 -",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_04_도시_군관리계획__제3절_기반시설과_도시_군계획시설_등",
+   "title": "제3절 기반시설과 도시·군계획시설 등",
+   "chars": 2720,
+   "preview": "기반시설과 도시·군계획시설은 별개의 시설이 아니라 관리계획 결정 여부에 따른 명칭의 변화로 이해해야 한다. 도로, 광장, 공원 등은 설치 전에는 '기반시설'에 불과하나, 서울특별시장이 어디에 몇 차선으로 설치할지 위치와 규모를 도시·군관리계획으로 결정하는 순간 그 이름이 '도시·군계획시설'로 바뀐다 [1강 47:47]. 공동구 의무 설치 지역 6곳은 다음과 같은 암기 코드를 활용하면 유용하다",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_04_도시_군관리계획__제4절_지구단위계획구역과_지구단위계획",
+   "title": "제4절 지구단위계획구역과 지구단위계획",
+   "chars": 2420,
+   "preview": "지구단위계획구역은 행정청이 개인에게 개발을 맡기지 않고 직접 주도하여 개발하겠다는 공적 개발의 의지를 나타낸다. 따라서 이 구역이 지정되었다는 것은 해당 지역을 아주 체계적이고 계획적으로 관리하겠다는 선언과 같다. [1강 51:48] 지구단위계획구역의 지정과 지구단위계획의 수립은 별개의 절차가 아니라 한몸처럼 움직이는 일련의 과정이다. 구역을 먼저 지정하여 대상을 확정하고, 그 뒤에 구체적인",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_05_개발행위의_허가_등",
+   "title": "Chapter 05 개발행위의 허가 등",
+   "chars": 3374,
+   "preview": "성장관리계획구역, 개발밀도관리구역, 기반시설부담구역은 국토의 계획 및 이용에 관한 법률의 체계상 '계획' 파트가 아닌 '이용' 파트에 소속된다. 따라서 이들 구역을 도시·군관리계획으로 결정하여 지정한다는 지문은 오답이므로 주의해야 한다. [1강 56:30] 개발행위허가는 사적 영역의 개발을 규제하는 것이 본질이다. 따라서 공적 영역인 도시·군계획사업(도시·군계획시설사업, 도시개발사업, 정비사",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_01_국토의_계획_및_이용에_관한_법률__Chapter_06_보칙_및_벌칙",
+   "title": "Chapter 06 보칙 및 벌칙",
+   "chars": 2278,
+   "preview": "국토계획법의 보칙은 행정의 실효성을 확보하기 위한 수단과 절차를 다룬다. 특히 타인 토지에 대한 출입 등 재산권 침해 요소가 있는 행위는 주체가 행정청인지 비행정청인지에 따라 허가 여부가 달라지므로 이를 엄격히 구분하여 정리해야 한다. [12강 32:15] 기반시설 설치비용의 납부 시기는 사용승인 신청 시까지이다. 부과 시점과 납부 시점을 혼동해서는 안 된다. 납부 방법은 현금 결제가 원칙이",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_02_건축법__Chapter_01_총칙",
+   "title": "Chapter 01 총칙",
+   "chars": 2155,
+   "preview": "건축법은 건축물의 안전, 기능, 환경, 미관을 향상시키기 위한 규제법이다. 학습 시에는 각 용어의 정의를 명확히 하고, 전체적인 흐름(스토리라인)을 잡는 것이 중요하다. 특히 규모에 따른 규제 수치와 예외 조항을 구별하는 것이 합격의 관건이다. [13강 00:15] 주요구조부는 화재 시 건물의 붕괴를 막는 핵심 부분이다. 사이 기둥이나 작은 보, 최하층 바닥은 불에 타더라도 전체 구조 안전에",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_02_건축법__Chapter_02_건축물의_건축_등",
+   "title": "Chapter 02 건축물의 건축 등",
+   "chars": 3308,
+   "preview": "사전결정은 건축허가를 신청하기 전, 해당 대지에 원하는 규모의 건물을 지을 수 있는지 허가권자에게 미리 확인받는 제도이다. 이는 의무 사항이 아닌 신청자의 선택 사항(할 수 있다)이며, 복잡한 설계에 들어가기 전 행정적 불확실성을 제거하는 단계이다. [13강 29:15] 환경영향평가 협의 시, 공장 등 환경 오염 우려가 있는 시설은 허가권자가 직접 판단하지 않고 권한이 있는 환경부장관이나 지",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_02_건축법__Chapter_03_건축물의_대지와_도로",
+   "title": "Chapter 03 건축물의 대지와 도로",
+   "chars": 2973,
+   "preview": "대지가 도로면보다 낮아도 되는 예외적 허용은 단순히 '지장이 없는 경우'를 넘어, 배수시설을 완비하여 침수 우려가 없는 상태를 전제로 한다. 습지나 매립지는 지반이 약해 건물의 무게를 견디기 어려우므로, 성토나 지반 개량을 통해 지반을 단단하게 바꾸는 조치가 필수적이다 [16강 03:45]. 옹벽 설치 및 안전 조치 기준 구분 세부 요건 조치 내용 --------- 성토·지반 개량 습지, 매",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_02_건축법__Chapter_04_건축물의_구조_및_재료",
+   "title": "Chapter 04 건축물의 구조 및 재료",
+   "chars": 1848,
+   "preview": "내진 관련 규정은 정책을 수립하는 주체와 개별 건축물을 관리하는 주체를 명확히 구분하여 정리해야 한다. 국가는 큰 틀에서의 등급을 설정하고, 실제 인허가권을 가진 지자체는 개별 건물이 그 기준을 맞췄는지 확인하는 구조다. [7강 51:10] 구분 내진등급 설정 내진성능 확보 확인 :--- :--- :--- 주체 국토교통부장관 지방자치단체의 장 성격 전국 단위의 기준 및 등급 수립 개별 건축허",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_02_건축법__Chapter_05_지역_및_지구_안의_건축물",
+   "title": "Chapter 05 지역 및 지구 안의 건축물",
+   "chars": 2854,
+   "preview": "건축법상 제한 규정을 위반할 경우의 벌칙과 공개공지 설치에 따른 수직적 밀도 완화의 상관관계는 다음과 같다. 구분 내용 [12강 51:02] --------- 2년 이하 징역 또는 2,000만 원 이하 벌금 ① 도시·군관리계획 결정 없이 기반시설 설치 <br> ② 공동구 수용 의무 위반 <br> ③ 지구단위계획에 맞지 않는 건축·용도변경 <br> ④ 용도지역·지구 안의 건축제한(용도·종류·규",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_02_건축법__Chapter_06_특별건축구역_건축협정_결합건축_벌칙",
+   "title": "Chapter 06 특별건축구역, 건축협정, 결합건축, 벌칙",
+   "chars": 1318,
+   "preview": "등기는 부동산의 권리관계를 공적 장부에 기록하여 공시하는 제도이다. 등기부는 크게 물리적 현황을 나타내는 표제부, 소유권에 관한 사항을 적는 갑구, 소유권 외의 권리(저당권 등)를 적는 을구로 구성된다 [6강 05:12]. 행정청이 등기를 촉탁하는 이유는 건축물대장(물리적 현황의 기준)의 내용이 변했을 때, 이를 근거로 등기부의 표제부를 강제로 일치시키기 위함이다. 만약 대장과 등기부의 현황",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART01",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART01.basic.md",
+   "lectures": [
+    "2강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_03_도시_및_주거환경정비법__Chapter_01_총칙",
+   "title": "Chapter 01 총칙",
+   "chars": 2397,
+   "preview": "도시 및 주거환경정비법(이하 도정법)은 정비사업의 흐름을 규정하는 절차법이다. 방대한 분량 탓에 난이도 조절용으로 활용되나, 실제 시험에서는 빈출되는 특정 지점만 정확히 공략하면 4문제 중 3문제를 확보할 수 있는 전략 과목이기도 하다. 전체적인 체계는 국가가 정하는 방향에서 지자체의 구체적인 집행으로 내려오는 '선계획-후개발'의 틀을 유지한다. [19강 01:20] 정비사업 3종은 입지적 ",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART02.basic.md",
+   "lectures": [
+    "19강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_03_도시_및_주거환경정비법__Chapter_02_기본계획의_수립_및_정비구역의_지정",
+   "title": "Chapter 02 기본계획의 수립 및 정비구역의 지정",
+   "chars": 2076,
+   "preview": "도시ㆍ주거환경정비기본방침 국토교통부장관은 도시 및 주거환경을 개선하기 위하여 10년마다 다음의 사항을 포함한 기본방침을 수립하여야 하며, 5년마다 타당성을 검토하여 그 결과를 반영하여야 한다. [19강 43:26] 1. 도시 및 주거환경정비를 위한 국가 정책 방향 2. 기본계획 수립 지침 3. 노후ㆍ불량주거지 정비 및 기초조사 방법 4. 정비사업에 필요한 재정지원 계획 등 기본계획의 작성기준",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART02.basic.md",
+   "lectures": [
+    "19강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_03_도시_및_주거환경정비법__Chapter_03_정비사업의_시행__제1절_시행자_및_사업시행계획",
+   "title": "제1절 시행자 및 사업시행계획",
+   "chars": 3901,
+   "preview": "사업별 시행방법은 '달동네(주거환경개선)'에서 '부자동네(재건축)'로 내려올수록 선택지가 줄어드는 구조로 이해하면 쉽다. 주거환경개선사업은 네 가지 기본 방법(스스로 개량, 수용, 환지, 관리처분)을 모두 사용할 수 있으며, 이를 섞어서 하는 혼용 방식도 오직 이 사업에서만 허용된다. [20강 25:40] 구분 주거환경개선 재개발 재건축 ------------ 시행방법 수 4가지 + 혼용 2",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART02.basic.md",
+   "lectures": [
+    "19강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_03_도시_및_주거환경정비법__Chapter_03_정비사업의_시행__제2절_관리처분계획_및_소유권이전",
+   "title": "제2절 관리처분계획 및 소유권이전",
+   "chars": 2714,
+   "preview": "분양설계는 분양신청 현황이 최종적으로 확정되는 분양신청기간이 만료되는 날을 기준으로 수립한다. 이는 우선 분양 대상자인 조합원 물량을 먼저 확정하고, 남은 잔여분을 일반 분양으로 돌리기 위한 기준점을 설정하는 것이다. [23강 04:08] 시장ㆍ군수등이 관리처분계획의 타당성 검증을 요청하는 경우 인가 여부 결정 통보 기간이 30일에서 60일로 연장된다. 이는 전문기관(토지주택공사등, 한국부동",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART02",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART02.basic.md",
+   "lectures": [
+    "19강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_01_총칙",
+   "title": "Chapter 01 총칙",
+   "chars": 1605,
+   "preview": "지적소관청의 범위를 정확히 이해하기 위해서는 우리나라의 지방자치제도에 따른 행정 구역 계층 구조를 파악해야 한다. 법령에서 특정 시장을 제외하거나 행정시장을 포함하는 것은 실질적인 행정 관리의 효율성과 인구 규모에 따른 권한 위임 체계 때문이다. [22강 12:45] 구분 행정적 성격 지적소관청 포함 여부 및 이유 --------- 제주특별자치도 행정시 도지사가 임명하는 시장(비자치시) 지방",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART03.basic.md",
+   "lectures": [
+    "22강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_02_측량",
+   "title": "Chapter 02 측량",
+   "chars": 3191,
+   "preview": "공간정보의 구축 및 관리 등에 관한 법률은 국토의 효율적인 관리와 국민의 소유권 보호를 궁극적인 목적으로 한다. 이 법에서 다루는 측량은 그 성격과 주체에 따라 다음과 같이 위계적으로 분류된다. [24강 00:45] 분류 정의 및 특징 실시 주체 --------- 기본측량 모든 측량의 기초가 되는 공간정보를 제공하기 위한 측량 국토교통부장관 공공측량 기본측량을 기초로 공공기관(국가·지자체 등",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART03.basic.md",
+   "lectures": [
+    "22강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_03_지적_地籍__제1절_토지의_조사_및_등록",
+   "title": "제1절 토지의 조사 및 등록",
+   "chars": 791,
+   "preview": "토지이동현황 조사계획의 수립 단위인 시·군·구와 읍·면·동은 해당 지역의 인구 밀집도와 행정적 특성에 따라 실무적으로 구분된다. 인구가 밀집되고 산업이 발달한 도시지역은 필지의 변동이 빈번하므로 읍·면·동별로 세분화하여 계획을 수립하는 것이 효율적이다. [14강 02:15] 구분 도시지역 군 지역(농촌) --------- 인구 기준 5만 명 이상 5만 명 미만 주요 특징 산업 발달 및 인구 ",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART03.basic.md",
+   "lectures": [
+    "22강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_03_지적_地籍__제2절_지번",
+   "title": "제2절 지번",
+   "chars": 1462,
+   "preview": "지번부여지역은 법령상 동·리 또는 이에 준하는 지역을 의미하며, 이는 도시지역의 '동'과 비도시지역의 '리'를 기준으로 지번이 독립적으로 부여됨을 뜻한다. 따라서 행정동이 아닌 법정동 단위로 지번이 관리된다는 점에 유의한다. [21강 06:45] 지번을 새로 부여하거나 변경하는 과정에서 기존에 사용하던 지번이 더 이상 사용되지 않게 되는 결번(缺番)이 발생할 수 있다. 구분 내용 ------",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART03.basic.md",
+   "lectures": [
+    "22강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_03_지적_地籍__제3절_지목",
+   "title": "제3절 지목",
+   "chars": 1938,
+   "preview": "지목은 단순히 토지의 형태를 분류하는 것에 그치지 않고, 국가의 조세 부과 및 보상 평가의 기준으로 활용하기 위해 설정된다. 과거 토지평가사와 공인감정사로 이원화되었던 자격 제도가 1989년 '지가공시 및 감정평가에 관한 법률' 제정과 함께 감정평가사로 통합된 역사적 배경에는, 지목별로 표준적인 지가를 공시하여 객관적인 과세 표준을 마련하려는 목적이 있었다 [12강 18:45]. 따라서 지목",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART03.basic.md",
+   "lectures": [
+    "22강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_03_지적_地籍__제4절_경계",
+   "title": "제4절 경계",
+   "chars": 1922,
+   "preview": "지상 경계의 결정기준은 물리적 현황에 따라 시각적으로 파악하면 암기가 용이하다. 연접 토지 사이에 담장이나 둑 같은 구조물이 있다면 그 중앙을 기준으로 삼는 것이 평등하나, 높낮이 차이가 발생하면 붕괴 위험이나 관리 책임을 고려하여 구조물의 하단부를 경계로 본다. 반면, 산을 깎아 도로를 만드는 절토(切土) 지역은 깎여나간 면의 끝부분인 상단부를 기준으로 삼아 토지의 범위를 확정한다. [25",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART03.basic.md",
+   "lectures": [
+    "22강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_03_지적_地籍__제5절_면적",
+   "title": "제5절 면적",
+   "chars": 1335,
+   "preview": "면적의 정의인 '수평면상 넓이'는 토지의 입체적인 굴곡이나 경사도를 고려하지 않고, 하늘에서 수직으로 내려다보았을 때 지표면에 그려지는 빗금 친 평면의 크기를 의미한다. 이는 건축물의 바닥면적을 산정할 때 상층부가 하층부를 덮고 있으면 위에서 보이는 넓은 층을 기준으로 삼는 것과 유사한 원리다 [20강 13:15]. 지적공부에 등록되는 면적과 실제 지표면의 면적은 다음과 같은 차이가 있다. ",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART03.basic.md",
+   "lectures": [
+    "22강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_04_지적공부",
+   "title": "Chapter 04 지적공부",
+   "chars": 1744,
+   "preview": "지적공부 7종을 구분할 때, 시각적으로 확인 가능한 도면과 문자로 기록된 대장의 성격 차이를 먼저 인지해야 한다. 대장은 토지의 내역을 상세히 설명하는 '텍스트' 중심의 서류이며, 도면은 그 토지가 어디에 어떤 모양으로 붙어 있는지를 보여주는 '이미지' 중심의 서류이다. [12강 49:20] 등록사항을 암기할 때는 과세(세금)를 키워드로 잡는다. 국가가 세금을 매기기 위해 가장 궁금해하는 정",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART03.basic.md",
+   "lectures": [
+    "22강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_05_토지의_이동_등__제1절_토지의_이동",
+   "title": "제1절 토지의 이동",
+   "chars": 2147,
+   "preview": "토지의 이동은 지적공부상의 등록사항인 토지의 표시가 물리적·행정적 사유로 인해 변동되는 것을 의미한다. 이는 권리관계의 변동인 소유자 변경이나 행정 편의적 수치인 공시지가 변경과는 엄격히 구분되는 개념이다. [26강 01:15] 구분 성격 주요 내용 지적측량 여부 ------------ 물리적 이동 토지의 외형이나 경계가 실제로 변동 신규등록, 등록전환, 분할, 축척변경 필요 행정적 이동 공",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART03.basic.md",
+   "lectures": [
+    "22강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_04_공간정보의_구축_및_관리_등에_관한_법률__Chapter_05_토지의_이동_등__제2절_등록사항의_정정_등",
+   "title": "제2절 등록사항의 정정 등",
+   "chars": 2170,
+   "preview": "등록사항 정정은 크게 토지의 표시를 바로잡는 것과 소유자에 관한 사항을 바로잡는 것으로 나뉜다. 이는 지적공부와 등기부의 공시 기능 차이에서 기인한다. 토지의 표시는 지적공부가 우선하며, 소유권에 관한 사항은 등기부가 우선한다는 대원칙에 따라 정정의 기준이 되는 서류가 결정된다 [26강 34:55]. 구분 정정의 중심 축 기준 서류의 성격 --------- 토지의 표시 정정 지적공부 (소재·",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART03",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART03.basic.md",
+   "lectures": [
+    "22강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_01_총칙",
+   "title": "Chapter 01 총칙",
+   "chars": 2055,
+   "preview": "법 제2조에서 정의하는 '토지등'은 감정평가사가 가치를 판정할 수 있는 업무적 대상 범위를 법으로 확정해둔 것이다. [37강 02:15] 구분 감정평가 감정평가업 --------- 핵심 행위 경제적 가치 판정 및 가액 표시 타인의 의뢰에 따른 감정평가 수행 성격 가치 판단의 기술적 측면 영리 목적의 업무 수행(업으로 행함) 요건 대상(토지등), 방법(가액 표시) 주체(법인등), 대가(일정한 ",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART04.basic.md",
+   "lectures": [
+    "37강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_02_감정평가사",
+   "title": "Chapter 02 감정평가사",
+   "chars": 2219,
+   "preview": "감정평가법인등의 업무 범위 중 「부동산 가격공시에 관한 법률」에 따른 업무를 수행할 때, 표준지공시지가의 조사·평가는 감정평가법인등의 고유 업무에 해당하나, 표준주택가격의 조사·산정은 한국부동산원이 수행하므로 감정평가사의 직무 범위에서 제외된다는 점에 유의해야 한다. [37강 32:40] 외국 감정평가사 자격 소지자의 경우 상호주의 원칙에 따라 해당 국가에서 대한민국 감정평가사 자격을 인정하",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART04.basic.md",
+   "lectures": [
+    "37강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_03_감정평가법인",
+   "title": "Chapter 03 감정평가법인",
+   "chars": 1745,
+   "preview": "정관 변경의 성격 구분 정관 변경 시 원칙적으로 인가를 받아야 하나, 사무소 소재지의 변경이나 사원의 인적 사항, 출자에 관한 사항 등은 감정평가 업무의 본질적 수행에 직접적인 영향을 주지 않는 지엽적인 사항으로 보아 신고만으로 가능하도록 규정하고 있다. [38강 17:15] 합병과 해산의 절차적 차이 합병은 기존 법인의 권리와 의무가 다른 법인으로 승계되는 중대한 조직 변화이므로 국토교통부",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART04.basic.md",
+   "lectures": [
+    "37강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_04_징계",
+   "title": "Chapter 04 징계",
+   "chars": 2557,
+   "preview": "감정평가법 내에서 가장 안정적으로 출제되는 구간으로, 매년 1문제 이상이 반드시 출제된다. 특히 징계 사유와 종류를 뒤섞거나, 징계가 아닌 행정처분(인가취소 등)을 징계 사유로 제시하는 함정이 빈번하므로 명확한 암기 코드가 필요하다. [38강 28:38] 가장 강력한 처분인 자격의 취소는 모든 징계 사유에 적용할 수 있는 것이 아니라, 법에서 정한 세 가지 경우에만 한정하여 행한다. 그 외의",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART04.basic.md",
+   "lectures": [
+    "37강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_05_과징금",
+   "title": "Chapter 05 과징금",
+   "chars": 1793,
+   "preview": "과징금 제도는 감정평가법인등이 업무정지 처분을 받았을 때 발생할 수 있는 공적 업무의 공백을 방지하기 위해 도입되었다. 특히 표준지공시지가의 조사·평가와 같은 업무는 국가 경제의 기초가 되는 공익적 성격이 강하므로, 법인에 문을 닫게 하는 대신 금전적 제재를 가하여 업무의 연속성을 유지하려는 취지다. [39강 01:15] 법인이 위반행위 후 합병을 통해 외형을 바꾸더라도 책임은 승계된다. A",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART04.basic.md",
+   "lectures": [
+    "37강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_08_감정평가_및_감정평가사에_관한_법률__Chapter_06_보칙_및_벌칙",
+   "title": "Chapter 06 보칙 및 벌칙",
+   "chars": 1682,
+   "preview": "국토교통부장관의 업무 위탁은 수탁기관의 성격에 따라 행정 사무 중심과 전문 분석 중심으로 구분된다. 구분 한국감정평가사협회 한국부동산원 --------- 업무 성격 접수 및 보관 위주 분석 및 구축 위주 주요 키워드 서류 접수, 등록 신청 접수, 신고 접수, 통보 접수 분석, 표본조사, 정보체계 구축·운영 위탁 특징 단순 행정 절차의 대행 전문성이 요구되는 통계 및 분석 업무 감정평가법인등이",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART04",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART04.basic.md",
+   "lectures": [
+    "37강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_05_부동산등기법__Chapter_01_총칙",
+   "title": "Chapter 01 총칙",
+   "chars": 1789,
+   "preview": "등기부부본자료는 전산 자료의 불의의 소실에 대비하여 하드디스크 등 별도의 보조기억장치에 동일한 내용을 복제해 둔 백업 자료를 의미한다. [27강 02:20] 등기기록이 개별 필지나 건물 단위의 '개별 데이터'라면, 등기부는 이러한 기록들을 모두 합쳐놓은 '전체 데이터베이스'의 개념이다. [27강 03:10] 실무상 '집문서'에 해당하는 등기필정보는 새로운 권리자가 된 매수인(등기권리자)에게 ",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_05_부동산등기법__Chapter_02_등기부_등",
+   "title": "Chapter 02 등기부 등",
+   "chars": 1924,
+   "preview": "부동산등기법의 등기부 관련 규정은 등기 효력 발생 시기와 함께 가장 기초가 되는 영역이다. 복잡한 권리 분석보다는 조문의 문언 그대로를 숙지하여 실수 없이 득점해야 하는 구간이다. 특히 장부의 종류에 따라 보존 기간과 반출 요건이 달라지는 지점을 명확히 구분하는 것이 핵심이다. [27강 14:40] 표제부에는 부동산의 물리적 현황인 '부동산의 표시'를 기록한다. 토지의 경우 소재, 지번, 지",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_05_부동산등기법__Chapter_03_등기절차",
+   "title": "Chapter 03 등기절차",
+   "chars": 2582,
+   "preview": "등기신청의 주체는 크게 사인(개인·법인)과 국가기관으로 나뉘며, 주체에 따라 용어를 엄격히 구분한다. 구분 주체 용어 특징 ------------ 원칙 일반 국민, 개인, 법인 신청 당사자의 자발적 의사에 의함 공권력 국가, 지자체 등 관공서 촉탁 신청과 실질은 같으나 관공서가 주체임 등기신청을 할 수 있는 자격인 등기신청적격(당사자 능력)은 실무상 가장 빈번하게 함정으로 활용되는 대목이다.",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_05_부동산등기법__Chapter_04_표시에_관한_등기",
+   "title": "Chapter 04 표시에 관한 등기",
+   "chars": 2800,
+   "preview": "표제부에 기록되는 표시번호는 부동산 현황이 변경된 순서를 나타내는 것으로, 권리의 우선순위를 정하는 갑구·을구의 순위번호와는 성격이 다르다. 또한 표제부에는 면적의 증감 등 물리적 변화의 이유인 등기원인은 기록하지만, 소유권 이전이나 저당권 설정과 같은 등기목적은 기록하지 않는다. 권리에 관한 사항이 없는 표제부의 특성상 등기목적이라는 항목 자체가 존재할 수 없기 때문이다 [27강 49:30",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_05_부동산등기법__Chapter_05_권리에_관한_등기",
+   "title": "Chapter 05 권리에 관한 등기",
+   "chars": 3810,
+   "preview": "권리에 관한 등기는 등기부의 갑구와 을구에 기록되는 사항을 다룬다. 표제부의 '표시번호'와 달리 권리 순위를 나타내는 '순위번호'라는 용어를 사용하며, 등기 절차의 공정성을 위해 접수연월일뿐만 아니라 접수번호를 함께 기록하여 선후 관계를 명확히 한다. [28강 29:45] 비법인 사단이나 재단(예: 종중) 명의로 등기할 때, 등기부상의 권리자 명의는 반드시 사단이나 재단 그 자체여야 한다. ",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_05_부동산등기법__Chapter_06_이의신청",
+   "title": "Chapter 06 이의신청",
+   "chars": 1394,
+   "preview": "이의신청 규정은 소유권에 관한 등기뿐만 아니라 소유권 외의 권리(저당권, 전세권 등)에 관한 결정이나 처분에도 동일하게 적용된다. [29강 53:10] 기존에는 서면 제출 방식만 허용되었으나, 최근 전산정보처리조직(인터넷 등기소)을 이용한 전자 신청 방식이 명문화되어 수험생의 주의가 필요하다. [29강 54:05] 구분 이의신청의 판단 주체 신청서의 제출처 --------- 해당 기관 관할 ",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_01_용어의_정의",
+   "title": "Chapter 01 용어의 정의",
+   "chars": 1967,
+   "preview": "부동산 가격공시는 크게 토지와 건축물로 나뉘며, 건축물은 다시 주택과 비주거용 부동산으로 세분된다. 이 분류 체계에 따라 공시 주체와 절차가 달라지므로 전체적인 구조를 먼저 파악해야 한다. 분류 세부 대상 공시 주체 비고 ------------ 토지 표준지 / 개별공시지가 국장 / 시군구청장 감정평가의 기준 주택 표준 / 개별 / 공동주택 국장 / 시군구청장 / 국장 단독과 공동으로 구분 비",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_02_표준지공시지가",
+   "title": "Chapter 02 표준지공시지가",
+   "chars": 2265,
+   "preview": "표준지는 일단의 토지 중에서 대표성이 인정되는 토지를 국토교통부장관이 선정하는 것으로, 선정 시 고려하는 유사성 요건은 이·주·자·사(이용상황, 주변 환경, 자연적 조건, 사회적 조건)로 요약할 수 있다. [34강 36:35] 토지가격비준표는 국토교통부장관이 작성하여 시장·군수 또는 구청장에게 제공하는 형식을 취한다. 이는 개별공시지가 산정의 객관적 기준을 하급 기관에 하달하는 의미를 갖는다",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_03_개별공시지가",
+   "title": "Chapter 03 개별공시지가",
+   "chars": 2752,
+   "preview": "개별공시지가는 국세 및 지방세 등 각종 세금 부과(과세)를 위한 기초 자료로 활용되는 것이 가장 핵심적인 목적이다. 따라서 실무적으로는 세금 부과 대상이 되는지 여부에 따라 공시 의무가 결정되는 경향이 있다 [35강 00:05]. 구분 개별공시지가 (토지) 개별주택·공동주택가격 (건물) --------- 결정·공시 기한 매년 5월 31일까지 매년 4월 30일까지 특징 건물보다 한 달 늦게 공",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_04_주택가격의_공시",
+   "title": "Chapter 04 주택가격의 공시",
+   "chars": 2488,
+   "preview": "표준주택가격을 조사·산정할 때, 국토교통부장관은 인근 유사 단독주택의 거래가격·임대료 등을 참작하되 지식 부족이나 특수한 사정이 개입된 거래는 그러한 사정이 없었을 때의 상태(적정가격)를 기준으로 산정한다 [35강 22:41]. 주택의 비용추정액은 다음과 같은 산식의 개념을 바탕으로 한다. 비용추정액 = 표준적인 건축비 + 부대비용 여기서 부대비용은 인건비 등을 포함한 제반 비용을 의미한다 ",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_05_비주거용_부동산가격의_공시",
+   "title": "Chapter 05 비주거용 부동산가격의 공시",
+   "chars": 2265,
+   "preview": "비주거용 부동산가격의 공시는 토지나 주택과 달리 조문의 어미가 모두 「할 수 있다」는 재량 사항으로 규정되어 있다. 이는 해당 제도가 현재 완전히 시행되지 않고 준비 단계에 있기 때문이며, 실제 시험에서도 「하여야 한다」와 혼동하지 않도록 주의가 필요하다 [36강 11:30]. 비주거용 표준부동산의 선정과 의뢰 과정은 기존의 표준지나 표준주택과는 다른 독특한 체계를 가진다. 구분 표준지·표준",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_07_부동산_가격공시에_관한_법률__Chapter_06_부동산가격공시위원회",
+   "title": "Chapter 06 부동산가격공시위원회",
+   "chars": 1481,
+   "preview": "부동산가격공시위원회는 국토교통부(중앙)와 시·군·구(기초지자체) 단위로만 설치 운영된다. 광역지자체인 시·도에는 별도의 부동산가격공시위원회를 두지 않는다는 점에 유의해야 한다. [36강 51:20] 심의사항을 구분하는 핵심 원리는 결정·공시 권한의 주체와 심의 기구를 일치시키는 것이다. 국토교통부장관의 권한에 속하는 사항은 중앙위가, 시장·군수·구청장의 권한에 속하는 사항은 시·군·구위가 담",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_09_동산_채권_등의_담보에_관한_법률__Chapter_01_동산담보권",
+   "title": "Chapter 01 동산담보권",
+   "chars": 1983,
+   "preview": "이 법은 중소기업 등이 보유한 고가의 기계 설비와 같은 동산을 담보로 활용할 수 있게 하여 자금 조달을 원활하게 하려는 취지에서 제정되었다. [39강 20:15] 민법상 점유개정에 의한 양도담보의 한계를 극복하기 위해 등기라는 공시 방법을 도입한 것이 핵심이다. [39강 19:40] 구분 동산담보권 채권담보권 지식재산권담보 ------------ 목적물 기계, 장비 등 동산 금전지급 목적 지",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_09_동산_채권_등의_담보에_관한_법률__Chapter_02_채권담보권",
+   "title": "Chapter 02 채권담보권",
+   "chars": 1411,
+   "preview": "장래에 발생할 채권의 경우, 현재 시점에서 채무자가 확정되어 있지 않더라도 채권의 종류나 발생 원인 등을 통해 특정만 가능하다면 담보등기의 대상이 된다. 만약 선지에서 \"채무자가 특정되지 않은 장래 채권은 제외한다\"라고 서술하면 오답이다. [39강 47:13] 채권담보권의 실행은 피담보채권과 목적 채권의 변제기 선후 관계에 따라 다음과 같이 구분하여 이해한다. [39강 49:20] 상황 실행",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_09_동산_채권_등의_담보에_관한_법률__Chapter_03_담보등기",
+   "title": "Chapter 03 담보등기",
+   "chars": 2661,
+   "preview": "담보등기 제도는 기본적으로 부동산등기법의 원리를 준용하되, 동산과 채권이라는 목적물의 특수성을 고려하여 관할과 편성 방식에서 결정적인 차이를 둔다. 부동산과 달리 동산은 이동이 잦고 채권은 형체가 없으므로, 물건의 소재지가 아닌 사람(담보권설정자)을 기준으로 모든 기록을 관리하는 것이 이 법의 핵심이다. [39강 52:10] 담보등기부는 부동산등기부와 달리 인적 편성주의를 채택한다. 이는 담",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART05",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART05.basic.md",
+   "lectures": [
+    "27강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_06_국유재산법__Chapter_01_총칙",
+   "title": "Chapter 01 총칙",
+   "chars": 2938,
+   "preview": "국유재산의 범위 중 궤도차량(기관차, 전차, 객차, 화차, 기동차 등)은 해당 정부기업이나 시설이 폐지되더라도 국유재산에서 제외되지 않고 그대로 유지된다. 시험에서는 '기업이 폐지되면 국유재산에서 제외된다'는 식으로 오답을 구성하므로 주의가 필요하다 [30강 15:40]. 또한 지식재산권에는 특허권, 실용신안권 외에도 디자인권, 상표권, 저작권, 품종보호권 등이 폭넓게 포함된다 [30강 16",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART06.basic.md",
+   "lectures": [
+    "30강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_06_국유재산법__Chapter_02_총괄청",
+   "title": "Chapter 02 총괄청",
+   "chars": 1678,
+   "preview": "총괄청(기획재정부장관)과 중앙관서의 장(각 부처 장관)은 국유재산 관리 체계상 상급행정청과 하급행정청의 수직관계에 있다. 총괄청은 전체 국유재산의 '대장' 역할을 수행하며, 하급 기관인 중앙관서의 장을 감독하고 업무를 조정하는 위치에 서게 된다. 이러한 수직적 구조를 이해하면 보고 요구, 감사, 용도폐지 요구 등의 권한 흐름을 쉽게 파악할 수 있다 [31강 00:45]. 직권 용도폐지는 중앙",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART06.basic.md",
+   "lectures": [
+    "30강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_06_국유재산법__Chapter_03_행정재산",
+   "title": "Chapter 03 행정재산",
+   "chars": 2429,
+   "preview": "행정재산의 관리 효율성을 높이기 위해 각 중앙관서의 장은 소속 고위공무원 중 기획 업무를 총괄하는 자를 국유재산책임관으로 임명한다. 이는 국유재산이 방대하여 총괄청이 모든 기관의 책임관을 직접 임명할 수 없기 때문이며, 특정인을 지정하는 대신 해당 직위를 지정하는 방식으로 가름할 수도 있다. [31강 18:45] 중앙관서의 장이 관리 사무를 소속 공무원이나 다른 기관에 위임할 때는 절차적 투",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART06.basic.md",
+   "lectures": [
+    "30강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_06_국유재산법__Chapter_04_일반재산",
+   "title": "Chapter 04 일반재산",
+   "chars": 2797,
+   "preview": "행정재산의 '사용허가'가 공법상 행정처분인 것과 달리, 일반재산의 '대부계약'은 사법상 계약의 성질을 띤다. 따라서 행정재산은 '빌려 사용한다'고 표현하고, 일반재산은 '대부받는다'고 구분하여 용어를 사용한다. [29강 51:40] 일반재산 중 증권의 가액 결정은 상장 여부에 따라 평가 방식이 달라진다. 구분 평가 방식 비고 --------- 상장증권 증권거래소의 30일간 가중평균 금액 통상",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART06.basic.md",
+   "lectures": [
+    "30강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_06_국유재산법__Chapter_05_지식재산_관리_처분의_특례",
+   "title": "Chapter 05 지식재산 관리·처분의 특례",
+   "chars": 2136,
+   "preview": "지식재산은 부동산과 달리 물리적 실체가 없는 무체재산이므로, 여러 사람이 동시다발적으로 이용할 수 있다는 독특한 성질을 가진다. 이러한 비배타적 특성 때문에 국유재산법은 경쟁을 통해 한 명에게 독점권을 주기보다, 수의계약을 통해 최대한 많은 사람이 활용하도록 유도하는 특례를 두고 있다. [30강 14:50] 지식재산의 관리 방식이 일반적인 국유재산과 근본적으로 다른 이유는 재산의 물리적 한계",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART06.basic.md",
+   "lectures": [
+    "30강",
+    "43강"
+   ]
+  },
+  {
+   "leaf_id": "law__PART_06_국유재산법__Chapter_06_대장과_보고_및_보칙",
+   "title": "Chapter 06 대장과 보고 및 보칙",
+   "chars": 3282,
+   "preview": "국유재산법은 타 국가고시에서는 거의 다루지 않는 감정평가사 시험만의 특유 과목이다. 전체 분량은 국토의 계획 및 이용에 관한 법률의 80%에 육박할 정도로 방대하지만, 출제 문항 수는 4문제에 불과하여 학습 효율이 낮게 느껴질 수 있다. 출제 포인트가 산발적이므로 모든 내용을 완벽히 암기하기보다 주요 흐름과 핵심 개념 위주로 최소 3~4회 반복 읽기를 통해 3문제 이상 득점하는 것을 목표로 ",
+   "path": [],
+   "subject": "law",
+   "unit_code": "PART06",
+   "phase": "basic",
+   "phase_label": "1회독 기본",
+   "file": "/data/study/law/lectures/notes/PART06.basic.md",
+   "lectures": [
+    "30강",
     "43강"
    ]
   },
