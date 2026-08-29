@@ -64,13 +64,30 @@ def _self_test():
         {"tier": "A", "tier_meta": {"decided_by": "gemini"}},             # LLM 판정
         {"tier": "discard", "tier_meta": {"decided_by": "gemini"}},       # LLM discard
         {"tier": "discard", "tier_meta": {"decided_by": "tier_gate"}},    # tier_gate discard
+        {"tier": "B"},                                                     # decided_by 없는 B (미기록)
         {},                                                                # 미판정
     ]
     llm, tg, un, tot = _calculate_progress(test_db)
     assert llm == 2, f"LLM 판정 수 틀림: {llm} != 2 (gemini만)"
     assert tg == 1, f"tier_gate 판정 수 틀림: {tg} != 1"
     assert un == 1, f"미판정 수 틀림: {un} != 1"
-    assert tot == 4, f"전체 수 틀림: {tot} != 4"
+    assert tot == 5, f"전체 수 틀림: {tot} != 5"
+
+    # 판정자별 감사표에서 미기록 항목이 보이는지 확인
+    # (decided_by가 없는 행이 "미기록"으로 집계되어야 함)
+    decider_table = {}
+    for q in test_db:
+        tier = q.get("tier")
+        if not tier:
+            continue
+        if tier == "discard" and not q.get("tier_meta", {}).get("decided_by"):
+            decided_by = "tier_gate"
+        else:
+            decided_by = (q.get("tier_meta") or {}).get("decided_by") or "미기록"
+        decider_table[decided_by] = decider_table.get(decided_by, 0) + 1
+
+    assert "미기록" in decider_table, "미기록 항목이 감사표에서 사라짐"
+    assert decider_table["미기록"] == 1, f"미기록 수 틀림: {decider_table.get('미기록')} != 1"
 
     print("tier_report self-test 통과")
 
@@ -96,7 +113,7 @@ def main():
     for k, v in Counter(q.get("tier") or "미판정" for q in db).most_common():
         print(f"  {k}: {v}")
 
-    # 판정자별 분리 집계 (discard 포함)
+    # 판정자별 분리 집계 (discard 포함, 미기록 감시)
     print("\n=== 판정자별 분포 ===")
     decided_by_counts = Counter()
     decided_by_tiers = {}
@@ -109,13 +126,12 @@ def main():
         if tier == "discard" and not q.get("tier_meta", {}).get("decided_by"):
             decided_by = "tier_gate"
         else:
-            decided_by = (q.get("tier_meta") or {}).get("decided_by")
+            decided_by = (q.get("tier_meta") or {}).get("decided_by") or "미기록"
 
-        if decided_by:  # 판정자가 명기된 경우만 집계
-            decided_by_counts[decided_by] += 1
-            if decided_by not in decided_by_tiers:
-                decided_by_tiers[decided_by] = Counter()
-            decided_by_tiers[decided_by][tier] += 1
+        decided_by_counts[decided_by] += 1
+        if decided_by not in decided_by_tiers:
+            decided_by_tiers[decided_by] = Counter()
+        decided_by_tiers[decided_by][tier] += 1
 
     for decider, count in decided_by_counts.most_common():
         tiers = decided_by_tiers.get(decider, {})
