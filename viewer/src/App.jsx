@@ -2549,7 +2549,7 @@ const App = () => {
   const [taxChapterFromHome, setTaxChapterFromHome] = useState(false);
   // 시험별/연도별 진입 시 적용되는 분류 스코프: null | {kind:'exam'|'year', value, label}
   const [taxScope, setTaxScope] = useState(bootNav?.taxScope || null);
-  // 문제 소스 필터 (단원 드릴): all(기출+연습) | official(기출만) | practice(연습만)
+  // 문제 소스 필터 (단원 드릴): all(전체) | official(C 기출만) | practice(A/B 연습만)
   const [tierFilter, setTierFilter] = useState('all');
 
   // 데이터 불러오기 — manifest → 시험별 chunk 병렬 fetch (E2 chunk loading)
@@ -2730,7 +2730,7 @@ const App = () => {
           tier = lowq ? 'discard' : 'A';   // 미판정 연습문제는 일단 A로 둔다
         }
       } else {
-        tier = 'C';                       // 기출은 저장하지 않고 여기서 파생한다
+        tier = isAigen ? 'A' : 'C';       // AI생성은 A로, 기출은 저장하지 않고 여기서 C로 파생
       }
       return {
         ...q,

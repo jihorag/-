@@ -88,6 +88,20 @@ def build_prompt(q, anchors):
 ANCHOR_LEVELS = ("item", "section", "chapter", "none")
 
 
+def anchor_taxonomy(q):
+    """pick_anchors 에 넘길 mapped_taxonomy 사본을 만든다.
+
+    fix_hq_taxonomy.py 가 키워드 매칭 실패로 "fallback"(그 절의 첫 관에 기계적
+    배정) 처리한 문항은 item 이 내용과 무관할 수 있으므로, 앵커 선택에서는
+    item 을 지워 절(section) 수준으로 내려가게 한다. 원본 mt 는 건드리지 않는다.
+    """
+    iv = q.get("indexing_v4") or {}
+    mt = dict(iv.get("mapped_taxonomy") or {})
+    if iv.get("item_assigned_by") == "fallback":
+        mt.pop("item", None)
+    return mt
+
+
 def stratified_sample(targets, index, n, seed=42):
     """판정 대상을 앵커 수준(item/section/chapter/none) 4무리로 나눠 고르게 n개를 뽑는다.
 
@@ -95,7 +109,7 @@ def stratified_sample(targets, index, n, seed=42):
     """
     groups = {lvl: [] for lvl in ANCHOR_LEVELS}
     for q in targets:
-        mt = (q.get("indexing_v4") or {}).get("mapped_taxonomy") or {}
+        mt = anchor_taxonomy(q)
         _, level = pick_anchors(index, mt)
         groups[level].append(q)
     rng = random.Random(seed)
@@ -193,7 +207,7 @@ def run_calibrate(db, index, call_fn, n, seed=42):
     sample = stratified_sample(pool, index, n, seed=seed)
     results = []
     for q in sample:
-        mt = (q.get("indexing_v4") or {}).get("mapped_taxonomy") or {}
+        mt = anchor_taxonomy(q)
         anchors, _level = pick_anchors(index, mt)
         text = _call_with_retry(call_fn, build_prompt(q, anchors))
         v = parse_verdict(text)
@@ -263,6 +277,22 @@ def _self_test():
     p = build_prompt(q, [{"question": "앵커본문", "options": ["a"], "answer": "1",
                           "exam": "감정평가사", "year": "2020"}])
     assert "대상문항본문" in p and "앵커본문" in p and "해설본문" in p
+
+    # fallback 배정된 관은 앵커 선택에서 신뢰하지 않는다 — item 을 지우고 절로 내려간다
+    index_fb = {"item::엉뚱한관": [{"id": "wrong"}], "section::제13절 완전경쟁시장": [{"id": "right"}]}
+    q_fb = {"indexing_v4": {"item_assigned_by": "fallback",
+            "mapped_taxonomy": {"item": "엉뚱한관", "section": "제13절 완전경쟁시장", "chapter": "장"}}}
+    mt_fb = anchor_taxonomy(q_fb)
+    assert "item" not in mt_fb
+    anchors_fb, level_fb = pick_anchors(index_fb, mt_fb)
+    assert level_fb == "section" and [a["id"] for a in anchors_fb] == ["right"]
+    # 원본 mapped_taxonomy 는 변형하지 않는다
+    assert q_fb["indexing_v4"]["mapped_taxonomy"]["item"] == "엉뚱한관"
+
+    # keyword 로 배정된 관은 그대로 신뢰한다
+    q_kw = {"indexing_v4": {"item_assigned_by": "keyword",
+            "mapped_taxonomy": {"item": "엉뚱한관", "section": "제13절 완전경쟁시장", "chapter": "장"}}}
+    assert anchor_taxonomy(q_kw).get("item") == "엉뚱한관"
 
     # 층화 표본 — 4무리(item/section/chapter/none)가 충분하면 고르게 5개씩
     def _q(id_, item, section, chapter):
@@ -404,7 +434,7 @@ def main():
     parse_err = 0
     consecutive_fail = 0
     for i, q in enumerate(targets, 1):
-        mt = (q.get("indexing_v4") or {}).get("mapped_taxonomy") or {}
+        mt = anchor_taxonomy(q)
         anchors, level = pick_anchors(index, mt)
         try:
             text = _call_with_retry(call_fn, build_prompt(q, anchors))

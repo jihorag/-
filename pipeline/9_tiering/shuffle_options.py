@@ -18,6 +18,9 @@ from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from tier_judge import _atomic_write_json  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent.parent
 DB = ROOT / "questions_db_econ.json"
 BACKUP_DIR = Path(__file__).resolve().parent / "backup"
@@ -105,7 +108,7 @@ def main():
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     shutil.copy2(DB, BACKUP_DIR / f"econ.pre_shuffle_{ts}.json")
-    DB.write_text(json.dumps(db, ensure_ascii=False, indent=2), encoding="utf-8")
+    _atomic_write_json(DB, db)
     print(f"저장 완료 (백업 econ.pre_shuffle_{ts}.json)")
 
 
