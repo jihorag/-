@@ -24,6 +24,8 @@ from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
+import requests
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_anchors import pick_anchors            # noqa: E402
 
@@ -36,6 +38,8 @@ MAX_RETRIES = 3
 CONSECUTIVE_FAIL_LIMIT = 20
 CALL_INTERVAL = 0.3
 VALID_TIERS = {"A", "B", "discard", "repair"}
+DEFAULT_MODELS = {"gemini": "gemini-2.5-flash", "openai": "gpt-4o-mini"}
+OPENAI_URL = "https://api.openai.com/v1/chat/completions"
 
 
 def _atomic_write_json(path, data):
@@ -134,20 +138,91 @@ def parse_verdict(text):
     return {"tier": v["tier"], "reason": v["reason"]}
 
 
-def _call_with_retry(model, prompt, max_retries=MAX_RETRIES):
-    """최대 max_retries 회, 지수 백오프(2s→4s→8s)로 재시도한다. 다 실패하면 마지막 예외를 던진다."""
+def _call_with_retry(call_fn, prompt, max_retries=MAX_RETRIES):
+    """최대 max_retries 회, 지수 백오프(2s→4s→8s)로 재시도한다. 다 실패하면 마지막 예외를 던진다.
+
+    call_fn(prompt) -> 응답 텍스트. provider 별 호출부는 call_fn 안에 숨기고
+    재시도·백오프·연속실패 판단은 여기 하나로 공유한다.
+    """
     delay = 2
     last_exc = None
     for attempt in range(max_retries):
         try:
-            r = model.generate_content(prompt, generation_config={"temperature": 0})
-            return r.text or ""
+            return call_fn(prompt)
         except Exception as e:
             last_exc = e
             if attempt < max_retries - 1:
                 time.sleep(delay)
                 delay *= 2
     raise last_exc
+
+
+def _extract_openai_text(resp_json):
+    """OpenAI chat/completions 응답 JSON에서 본문 텍스트를 꺼낸다. 네트워크 없이 단위테스트 가능."""
+    return resp_json["choices"][0]["message"]["content"]
+
+
+def _make_openai_call_fn(model_name, api_key):
+    def call_fn(prompt):
+        r = requests.post(
+            OPENAI_URL,
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+            json={"model": model_name, "temperature": 0,
+                  "messages": [{"role": "user", "content": prompt}]},
+            timeout=60,
+        )
+        r.raise_for_status()
+        return _extract_openai_text(r.json()) or ""
+    return call_fn
+
+
+def _make_gemini_call_fn(model):
+    def call_fn(prompt):
+        r = model.generate_content(prompt, generation_config={"temperature": 0})
+        return r.text or ""
+    return call_fn
+
+
+def run_calibrate(db, index, call_fn, n, seed=42):
+    """이미 gemini 로 판정된 문항 n건을 다른 provider(call_fn)로 재판정해 일치율만 잰다.
+
+    DB 는 읽기만 한다 — 여기서 db 딕셔너리를 바꿔도 호출자가 파일에 쓰지 않으면 그만이지만,
+    확실히 하기 위해 아예 db 를 수정하지 않는다.
+    """
+    pool = [q for q in db if str((q.get("tier_meta") or {}).get("decided_by", "")).startswith("gemini:")]
+    sample = stratified_sample(pool, index, n, seed=seed)
+    results = []
+    for q in sample:
+        mt = (q.get("indexing_v4") or {}).get("mapped_taxonomy") or {}
+        anchors, _level = pick_anchors(index, mt)
+        text = _call_with_retry(call_fn, build_prompt(q, anchors))
+        v = parse_verdict(text)
+        results.append({
+            "id": q.get("id"),
+            "old_tier": q.get("tier"),
+            "old_reason": (q.get("tier_meta") or {}).get("reason"),
+            "new_tier": v["tier"] if v else None,
+            "new_reason": v["reason"] if v else None,
+        })
+    return results
+
+
+def print_calibration_report(results):
+    n = len(results)
+    agree = sum(1 for r in results if r["new_tier"] is not None and r["new_tier"] == r["old_tier"])
+    scored = sum(1 for r in results if r["new_tier"] is not None)
+    print(f"\n교차검증 {n}건 · 일치 {agree}/{scored} ({(agree / scored * 100 if scored else 0):.1f}%) · 판정실패 {n - scored}")
+
+    confusion = Counter((r["old_tier"], r["new_tier"]) for r in results)
+    print("혼동 행렬 (gemini → openai):")
+    for (old, new), cnt in sorted(confusion.items(), key=lambda kv: -kv[1]):
+        print(f"  {old} → {new}: {cnt}")
+
+    mismatches = [r for r in results if r["new_tier"] is not None and r["new_tier"] != r["old_tier"]]
+    print(f"\n불일치 사례 (최대 5건, 전체 {len(mismatches)}건):")
+    for r in mismatches[:5]:
+        print(f"  [{r['id']}] gemini={r['old_tier']} ({r['old_reason']})")
+        print(f"           openai={r['new_tier']} ({r['new_reason']})")
 
 
 def _self_test():
@@ -225,6 +300,39 @@ def _self_test():
     assert len(sample2) == 20
     assert _level_counts(sample2)["item"] == 2
 
+    # OpenAI 응답 형태에서 텍스트를 제대로 꺼낸다
+    resp = {"choices": [{"message": {"content": '{"tier":"A","reason":"단일 개념"}'}}]}
+    assert _extract_openai_text(resp) == '{"tier":"A","reason":"단일 개념"}'
+
+    # _call_with_retry 는 call_fn 이 성공하면 그대로 반환한다
+    assert _call_with_retry(lambda p: "ok:" + p, "prompt") == "ok:prompt"
+
+    # --calibrate 는 DB 를 쓰지 않는다 — 파일 내용·mtime 이 호출 전후로 그대로다
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        db_path = Path(td) / "db.json"
+        idx_path = Path(td) / "anchors.json"
+        calib_db = [
+            {"id": "q1", "tier": "A", "tier_meta": {"decided_by": "gemini:x", "reason": "이유1"},
+             "indexing_v4": {"mapped_taxonomy": {"item": "관A", "section": "절A", "chapter": "장A"}}},
+            {"id": "q2", "tier": "B", "tier_meta": {"decided_by": "gemini:x", "reason": "이유2"},
+             "indexing_v4": {"mapped_taxonomy": {"item": "관B", "section": "절B", "chapter": "장B"}}},
+        ]
+        db_path.write_text(json.dumps(calib_db, ensure_ascii=False), encoding="utf-8")
+        idx_path.write_text("{}", encoding="utf-8")
+        before_bytes = db_path.read_bytes()
+        before_mtime = db_path.stat().st_mtime_ns
+
+        db_loaded = json.loads(db_path.read_text(encoding="utf-8"))
+        index_loaded = json.loads(idx_path.read_text(encoding="utf-8"))
+        fake_call_fn = lambda p: '{"tier":"B","reason":"재판정 이유"}'  # noqa: E731
+        results = run_calibrate(db_loaded, index_loaded, fake_call_fn, n=2, seed=42)
+        assert len(results) == 2
+        assert {r["new_tier"] for r in results} == {"B"}
+
+        assert db_path.read_bytes() == before_bytes
+        assert db_path.stat().st_mtime_ns == before_mtime
+
     print("tier_judge self-test 통과")
 
 
@@ -233,7 +341,14 @@ def main():
         _self_test()
         return
 
-    model_name = "gemini-2.5-flash"
+    provider = "gemini"
+    if "--provider" in sys.argv:
+        provider = sys.argv[sys.argv.index("--provider") + 1]
+    if provider not in DEFAULT_MODELS:
+        print(f"알 수 없는 provider: {provider} (gemini|openai)")
+        sys.exit(1)
+
+    model_name = DEFAULT_MODELS[provider]
     if "--model" in sys.argv:
         model_name = sys.argv[sys.argv.index("--model") + 1]
     limit = None
@@ -242,23 +357,42 @@ def main():
     sample = None
     if "--sample" in sys.argv:
         sample = int(sys.argv[sys.argv.index("--sample") + 1])
+    calibrate_n = None
+    if "--calibrate" in sys.argv:
+        calibrate_n = int(sys.argv[sys.argv.index("--calibrate") + 1])
 
-    key = os.environ.get("GEMINI_API_KEY")
-    if not key:
-        print("환경변수 GEMINI_API_KEY 미설정. .env 를 export 하고 재실행.")
-        sys.exit(1)
-    import google.generativeai as genai
-    genai.configure(api_key=key)
-    model = genai.GenerativeModel(model_name)
+    if provider == "gemini":
+        key = os.environ.get("GEMINI_API_KEY")
+        if not key:
+            print("환경변수 GEMINI_API_KEY 미설정. .env 를 export 하고 재실행.")
+            sys.exit(1)
+        import google.generativeai as genai
+        genai.configure(api_key=key)
+        model = genai.GenerativeModel(model_name)
+        call_fn = _make_gemini_call_fn(model)
+    else:
+        key = os.environ.get("OPENAI_API_KEY")
+        if not key:
+            print("환경변수 OPENAI_API_KEY 미설정. .env 를 export 하고 재실행.")
+            sys.exit(1)
+        call_fn = _make_openai_call_fn(model_name, key)
+
+    index = json.loads(ANCHORS.read_text(encoding="utf-8"))
+
+    if calibrate_n:
+        db = json.loads(DB.read_text(encoding="utf-8"))
+        print(f"교차검증: gemini 판정 문항 중 {calibrate_n}건을 {provider}:{model_name} 로 재판정 (DB 쓰기 없음)")
+        results = run_calibrate(db, index, call_fn, calibrate_n)
+        print_calibration_report(results)
+        return
 
     db = json.loads(DB.read_text(encoding="utf-8"))
-    index = json.loads(ANCHORS.read_text(encoding="utf-8"))
     targets = [q for q in db if not q.get("tier")]
     if sample:
         targets = stratified_sample(targets, index, sample)
     elif limit:
         targets = targets[:limit]
-    print(f"판정 대상 {len(targets)}문항 · 모델 {model_name}")
+    print(f"판정 대상 {len(targets)}문항 · {provider}:{model_name}")
 
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -273,7 +407,7 @@ def main():
         mt = (q.get("indexing_v4") or {}).get("mapped_taxonomy") or {}
         anchors, level = pick_anchors(index, mt)
         try:
-            text = _call_with_retry(model, build_prompt(q, anchors))
+            text = _call_with_retry(call_fn, build_prompt(q, anchors))
         except Exception as e:
             api_err += 1
             consecutive_fail += 1
@@ -295,7 +429,7 @@ def main():
         consecutive_fail = 0
         q["tier"] = v["tier"]
         tm = q.get("tier_meta") or {}
-        tm.update({"decided_by": f"gemini:{model_name}", "decided_at": now,
+        tm.update({"decided_by": f"{provider}:{model_name}", "decided_at": now,
                    "reason": v["reason"],
                    "anchors": [a["id"] for a in anchors],
                    "anchor_level": level,
