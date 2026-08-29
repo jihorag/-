@@ -28,7 +28,7 @@ from map_notes_to_leaves import extract_note_pages  # noqa: E402
 from generate_notes import (SUBJECT_RULES, call_gemini, load_leaf_sections,  # noqa: E402
                             MODEL, MAX_FRAMES)
 from track_core import (make_point_id, order_spans, chunk_lectures,  # noqa: E402
-                        parse_points, check_track, diff_ids)
+                        parse_points, parse_meta, parses_as_json, check_track, diff_ids)
 
 MAX_CHUNK_CHARS = 45000   # 한 번의 호출에 넣을 전사 글자수 상한
 
@@ -51,6 +51,22 @@ STYLE = """당신은 감정평가사 1차 수험 교재를 쓰는 사람입니�
 - 지금 쓰는 것은 **이 관 하나**입니다. 전사에는 같은 절에 속한 다른 관 이야기도
   섞여 있습니다 — [교재 본문] 슬라이스가 **이 관의 범위**입니다. 그 범위에
   해당하는 이야기만 골라 논점으로 쓰고, 나머지는 걸러내세요.
+- **자체 점검 — 출력하기 전에 반드시 거치세요.** [교재 본문]은 `####` 로 시작하는
+  소제목들로 나뉘어 있습니다. 지금 쓰려는 논점이 그 소제목 중 **어느 것**에
+  해당하는지 하나씩 짚어 보세요. 대응하는 소제목이 없다면, 그건 이 관 얘기가
+  아니라 배경 설명(희소성·경제주체 목적 같은 총론)이거나 형제 관 얘기입니다 —
+  **이미 다른 논점(또는 형제 관)이 다룬 배경 설명을 재탕하는 것은 이 관의
+  논점이 아닙니다.**
+- 이 소제목들 중 **전사에서 실제로 다뤄진 것이 하나도 없다면**, 배경 설명만으로
+  분량을 채우지 말고 `"covered": false` 로 판정하세요. 강의가 다루지 않은
+  것을 다룬 것처럼 만드는 것은, 아무것도 만들지 않는 것보다 나쁩니다.
+- **[관] 이름에 "A와 B"·"A·B" 처럼 핵심어가 여럿 나열돼 있으면, 그 핵심어 각각이
+  전사에서 실제로 설명됐는지 따로 확인하세요.** 예를 들어 관 이름이
+  "경제문제와 경제체제"인데 전사가 "경제문제"만 다루고 "경제체제"(자본주의·
+  계획경제·가격기구 등)는 전혀 언급하지 않는다면, "경제문제" 쪽 배경 설명
+  몇 개로 분량을 채우지 말고 **관 전체를 `"covered": false` 로 판정**하세요.
+  핵심어 하나를 통째로 빼먹은 채 나머지 핵심어의 배경 설명만으로 대신 채우는
+  것은 허용되지 않습니다.
 
 [문체]
 - **"강사", "강의", "선생님" 이라는 단어를 아예 쓰지 마세요.** "강사가 제시한",
@@ -130,9 +146,15 @@ supply-demand 예시 — "소득 증가로 수요가 늘어 균형이 이동하�
   것이지 누군가를 인용하는 게 아닙니다.
 - 과장된 감탄사나 이모티콘을 남발하지 마세요. 친근하되 유치하지 않게.
 
-[출력 형식 — JSON 배열만]
-설명·인사말·코드펜스 없이 JSON 배열 하나만 출력하세요.
-[
+[출력 형식 — JSON 객체 하나만]
+설명·인사말·코드펜스 없이 아래 형태의 JSON 객체 하나만 출력하세요.
+**"자체 점검"에서 이 관 고유 소제목이 전사에 하나도 없다고 판단되면 covered
+를 false 로, points 를 빈 배열로 두세요.** reason 에는 그렇게 판단한 근거를
+한 줄로 적으세요(예: "전사에 경제체제·자본주의·계획경제 언급 없음").
+{
+ "covered": true,
+ "reason": "이 관의 소제목 중 몇 개가 전사에서 실제로 다뤄졌는지 한 줄로",
+ "points": [
   {"title":"…","gist":"…",
    "turns":[
      {"who":"ask","text":"…"},
@@ -147,7 +169,8 @@ supply-demand 예시 — "소득 증가로 수요가 늘어 균형이 이동하�
    "example":{"q":"…","solution":"…"},
    "check":{"q":"…","a":"…"},
    "src":[{"lec":12,"t":1390}]}
-]
+ ]
+}
 example 은 계산·판단이 있는 논점에만 넣고, 없으면 생략하세요."""
 
 
@@ -344,8 +367,13 @@ def gen_leaf(key, sec, bundle, catalog, subject, siblings=None, prev_bodies=''):
         )
         raw, usage = call_gemini(key_holder['key'], prompt, frames)
         got = parse_points(raw)
+        covered, reason = parse_meta(raw)
+        if covered is False:
+            print('  ⚠ %s: 강의에 없다고 판정 (%d/%d) — %s' % (key, i, len(chunks), reason))
         chunk_holder['total'] += 1
-        if not got and raw:
+        # got 이 비어도 raw 가 문법적으로 유효한 JSON(빈 배열 포함)이면 실패가
+        # 아니다 — 이 관의 주제가 그 구간에 없다는 정당한 판정일 수 있다.
+        if not got and raw and not parses_as_json(raw):
             print('  ⚠ %s: 논점 파싱 실패 (%d/%d) — 응답 끝 100자: %r'
                   % (key, i, len(chunks), raw[-100:]))
         else:
@@ -353,7 +381,55 @@ def gen_leaf(key, sec, bundle, catalog, subject, siblings=None, prev_bodies=''):
         points.extend(got)
         usage_holder['in'] += usage.get('promptTokenCount', 0)
         usage_holder['out'] += usage.get('candidatesTokenCount', 0)
+    for p in points:
+        p['source'] = 'lecture'
     return points
+
+
+TEXTBOOK_ONLY_NOTE = """
+[중요 — 이 관은 강의 전사에 주제가 없다고 판정됐습니다]
+이 관은 강의가 다루지 않아 교재만으로 논점을 만듭니다.
+- **강의에서 나온 것처럼 쓰지 마세요.** "전사에서", "이 강의는" 같은 표현을 쓰지
+  마세요. turns 의 teach 대사도 교재 설명이지 강의를 옮긴 게 아닙니다.
+- src 는 빈 배열 `[]` 로 두세요. 근거로 삼을 강의 시각이 없습니다.
+- 그래도 turns·quiz·오답별 전용 반박은 똑같이 요구됩니다.
+- **STYLE 의 "자체 점검"·covered 판정은 이 호출에는 해당 없습니다** — 여기엔
+  [강의 전사] 자체가 없으니 "전사에 없다"는 이유로 다시 covered:false 를 내면
+  안 됩니다. covered 는 true 로 두고, 교재에 있는 내용으로 points 를 채우세요."""
+
+
+def gen_leaf_textbook(key, sec, catalog, subject, siblings=None):
+    """강의 전사에 주제가 없는 관을 위한 2차 호출. 전사를 아예 넣지 않는다 —
+    넣으면 gen_leaf 처럼 형제 관 내용을 다시 끌어온다. 반환하는 논점마다
+    source='textbook' 을 붙인다(앱은 이 값으로 「교재 기반」 배지를 보여준다,
+    viewer/src/ConceptScene.jsx, 수정 금지 파일 — 여기선 값만 채워 넘긴다).
+    """
+    sib_block = ''
+    if siblings:
+        sib_block = (
+            '[같은 절의 다른 관 — 이 내용은 쓰지 마세요]\n'
+            '아래는 이 관과 같은 절에 속한 다른 관들입니다.\n'
+            + '\n'.join('- ' + s for s in siblings) + '\n\n'
+        )
+    prompt = (
+        '%s\n%s\n\n%s\n\n'
+        '[관] %s\n\n'
+        '[교재 본문 — 이 관의 유일한 재료입니다]\n%s\n\n'
+        '%s%s'
+        % (STYLE, SUBJECT_RULES.get(subject, ''), catalog, ' / '.join(sec['path']),
+           sec['body'][:12000], sib_block, TEXTBOOK_ONLY_NOTE)
+    )
+    raw, usage = call_gemini(key_holder['key'], prompt, [])
+    got = parse_points(raw)
+    chunk_holder['total'] += 1
+    if got or parses_as_json(raw):
+        chunk_holder['ok'] += 1
+    usage_holder['in'] += usage.get('promptTokenCount', 0)
+    usage_holder['out'] += usage.get('candidatesTokenCount', 0)
+    for p in got:
+        p['source'] = 'textbook'
+        p.setdefault('src', [])
+    return got
 
 
 key_holder = {'key': None}
@@ -673,6 +749,23 @@ def save_orphans(base, subject, phase, orphans):
     dst.write_text(json.dumps(track, ensure_ascii=False, indent=1), encoding='utf-8')
 
 
+def anchors_by_section(sections, align):
+    """앵커 검사용으로 절 안의 모든 leaf 구간을 합친 align_by_leaf.
+
+    build_section_bundle 이 절 전체 구간을 재료로 주므로, 같은 절 형제 leaf 의
+    강의를 앵커로 삼는 것은 정당하다 — check_track 자체는 건드리지 않고, 여기서
+    "이 leaf 의 정당한 구간" 정의만 절 단위로 넓힌다. 절 밖 강의를 가리키는
+    앵커(진짜 오분류)는 여전히 고심각도로 잡힌다.
+    """
+    _, section_of = target_leaves(sections, align)
+    expanded = dict(align['by_leaf'])
+    for lids in section_of.values():
+        combined = [s for l in lids for s in align['by_leaf'].get(l, [])]
+        for l in lids:
+            expanded[l] = combined
+    return expanded
+
+
 def do_check(subject, phase):
     base = STUDY / subject / 'lectures'
     align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
@@ -681,11 +774,20 @@ def do_check(subject, phase):
     if not tdir.exists():
         sys.exit('트랙이 아직 없습니다: %s' % tdir)
     write_index(base, phase)
+
+    # F-3 후보 계산과 앵커 확장 둘 다 sections 가 필요하니 먼저 로드한다.
+    try:
+        sections = load_leaf_sections(subject)
+    except Exception as e:
+        sections = None
+        print('  ⚠ taxonomy 로드 실패로 F-3(관 누락)·절 단위 앵커 확장을 건너뜀: %s' % e)
+    anchors = anchors_by_section(sections, align) if sections is not None else align['by_leaf']
+
     total_issues, total_points, total_leaves = 0, 0, 0
     generated_leaf_ids = set()
     for f in sorted(tdir.glob('*.%s.json' % phase)):
         track = json.loads(f.read_text(encoding='utf-8'))
-        issues = check_track(track, align['by_leaf'], names)
+        issues = check_track(track, anchors, names)
         total_issues += len(issues)
         for lf in track.get('leaves', []):
             total_leaves += 1
@@ -699,11 +801,6 @@ def do_check(subject, phase):
     # F-3: align 에 있는데(=생성 대상이 될 수 있었는데) 트랙에 아예 없는 관.
     # 존재하는 트랙 파일만 순회하는 위 루프는 이걸 절대 못 잡는다 — 관 하나가
     # 통째로 건너뛰어져도 조용하다.
-    try:
-        sections = load_leaf_sections(subject)
-    except Exception as e:
-        sections = None
-        print('  ⚠ taxonomy 로드 실패로 F-3(관 누락) 검사를 건너뜀: %s' % e)
     if sections is not None:
         cand_list, _ = target_leaves(sections, align)
         cand_list = apply_scope(cand_list, sections, base)
@@ -833,6 +930,14 @@ def main():
         except Exception as e:
             print('  [%d/%d] ❌ 실패 %s' % (n, len(targets), e))
             continue
+        # 강의 전사가 이 관의 주제를 다루지 않는다고 판정되면(빈 배열) 형제 관
+        # 내용을 끌어오는 대신, 전사 없이 교재 슬라이스만으로 다시 시도한다.
+        if not pts and sec.get('body', '').strip():
+            print('  [%d/%d] 강의에 없음 — 교재 기반으로 재시도 %s' % (n, len(targets), title))
+            try:
+                pts = gen_leaf_textbook(lid, sec, catalog, args.subject, siblings=siblings)
+            except Exception as e:
+                print('  [%d/%d] ❌ 교재 기반 생성도 실패 %s' % (n, len(targets), e))
         if not pts:
             print('  [%d/%d] ❌ 논점 0개 %s' % (n, len(targets), title))
             continue

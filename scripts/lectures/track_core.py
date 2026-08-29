@@ -155,6 +155,37 @@ def _latex_broken(points):
     return False
 
 
+def parses_as_json(raw):
+    """raw 가 (배열이든 {"covered":false,"points":[]} 래퍼든) 문법적으로 유효한
+    JSON인지만 본다. 강의가 이 관을 다루지 않아 모델이 정당하게 빈 배열을 낸
+    경우도 유효한 JSON이므로, parse_points 가 돌려주는 빈 리스트만으로는
+    "파싱 실패"와 "정당한 빈 응답"을 구분할 수 없다 — 이 구분에 쓴다."""
+    if not raw:
+        return False
+    txt = re.sub(r'^```(?:json)?\s*|\s*```$', '', raw.strip())
+    if _try_json_loads(txt) is not None:
+        return True
+    m = re.search(r'[\[{].*[\]}]', txt, flags=re.S)
+    return bool(m and _try_json_loads(m.group(0)) is not None)
+
+
+def parse_meta(raw):
+    """모델 응답이 {"covered": bool, "reason": "...", "points": [...]} 래퍼면
+    covered/reason 을 읽는다. 배열만 온 옛 형식이면 (None, '') — 판정 근거가
+    없다는 뜻이지 커버 안 됐다는 뜻이 아니므로 호출부가 None 을 "판정 없음"으로
+    다뤄야 한다."""
+    if not raw:
+        return None, ''
+    txt = re.sub(r'^```(?:json)?\s*|\s*```$', '', raw.strip())
+    d = _try_json_loads(txt)
+    if d is None:
+        m = re.search(r'[\[{].*[\]}]', txt, flags=re.S)
+        d = _try_json_loads(m.group(0)) if m else None
+    if isinstance(d, dict):
+        return d.get('covered'), d.get('reason') or ''
+    return None, ''
+
+
 def parse_points(raw):
     """모델 응답에서 논점 배열을 꺼낸다. 실패하면 빈 리스트(호출부가 건너뛴다)."""
     if not raw:

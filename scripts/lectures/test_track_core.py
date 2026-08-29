@@ -1,7 +1,8 @@
 import unittest
 
 from track_core import (make_point_id, order_spans, chunk_lectures,
-                        parse_points, check_track, diff_ids, LOW_SEVERITY_PREFIX)
+                        parse_points, parses_as_json, check_track, diff_ids,
+                        LOW_SEVERITY_PREFIX)
 
 
 class TestPointId(unittest.TestCase):
@@ -125,6 +126,22 @@ class TestParsePoints(unittest.TestCase):
         pts = parse_points(raw)
         self.assertEqual(len(pts), 1)
         self.assertIn('\t', pts[0]['body'])
+
+
+class TestParsesAsJson(unittest.TestCase):
+    """빈 배열([])은 "강의가 이 관을 안 다뤘다"는 정당한 응답일 수 있다 —
+    파싱 실패와 구분해야 chunks_ok 가 거짓으로 깎이지 않는다."""
+    def test_empty_array_is_valid(self):
+        self.assertTrue(parses_as_json('[]'))
+
+    def test_covered_false_wrapper_is_valid(self):
+        self.assertTrue(parses_as_json('{"covered": false, "points": []}'))
+
+    def test_garbage_is_invalid(self):
+        self.assertFalse(parses_as_json('설명입니다. JSON 아님'))
+
+    def test_code_fenced_empty_array_is_valid(self):
+        self.assertTrue(parses_as_json('```json\n[]\n```'))
 
 
 class TestCheckTrack(unittest.TestCase):
