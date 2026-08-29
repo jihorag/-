@@ -34,11 +34,22 @@ def profile(qs):
     }
 
 
+MACHINE_DECIDERS = {"tier_gate", "gate_v2"}
+
+
+def _is_llm_seen(tm):
+    """LLM이 실제로 본 문항인지. gate_v2 가 나중에 덮어써도 prev_decided_by 에
+    LLM 판정자가 남아 있으면 LLM이 본 것으로 센다."""
+    db = tm.get("decided_by")
+    prev = tm.get("prev_decided_by")
+    return (bool(db) and db not in MACHINE_DECIDERS) or \
+           (bool(prev) and prev not in MACHINE_DECIDERS)
+
+
 def _calculate_progress(db):
-    """진행률 계산 (tier_gate 제외).
+    """진행률 계산 (기계 판정자 tier_gate/gate_v2 는 LLM으로 세지 않는다).
     반환: (llm_판정_count, tier_gate_판정_count, 미판정_count, 전체_count)"""
-    llm_count = sum(1 for q in db if q.get("tier_meta", {}).get("decided_by") and
-                    q.get("tier_meta", {}).get("decided_by") != "tier_gate")
+    llm_count = sum(1 for q in db if _is_llm_seen(q.get("tier_meta") or {}))
     tier_gate_count = sum(1 for q in db if q.get("tier_meta", {}).get("decided_by") == "tier_gate")
     undecided_count = sum(1 for q in db if not q.get("tier"))
     total_count = len(db)
@@ -72,6 +83,15 @@ def _self_test():
     assert tg == 1, f"tier_gate 판정 수 틀림: {tg} != 1"
     assert un == 1, f"미판정 수 틀림: {un} != 1"
     assert tot == 5, f"전체 수 틀림: {tot} != 5"
+
+    # gate_v2 는 기계 판정자다 — 통째 덮어써 근거를 잃은 것과 병합돼 prev_decided_by가
+    # 남은 것 둘 다 LLM으로 잘못 세면 안 되거나(전자), LLM으로 세야 한다(후자)
+    gate_v2_only = [{"tier": "discard", "tier_meta": {"decided_by": "gate_v2"}}]
+    assert _calculate_progress(gate_v2_only)[0] == 0, "gate_v2 단독은 LLM이 아니다"
+    gate_v2_after_llm = [{"tier": "discard",
+                          "tier_meta": {"decided_by": "gate_v2", "prev_decided_by": "gemini:x"}}]
+    assert _calculate_progress(gate_v2_after_llm)[0] == 1, \
+        "gate_v2가 덮어썼어도 prev_decided_by에 LLM이 남아 있으면 LLM 판정으로 센다"
 
     # 판정자별 감사표에서 미기록 항목이 보이는지 확인
     # (decided_by가 없는 행이 "미기록"으로 집계되어야 함)
