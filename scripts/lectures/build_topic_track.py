@@ -23,7 +23,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from _paths import REPO, STUDY, WORK, SRC_ROOT  # noqa: E402
-from build_note_bundle import build  # noqa: E402
+from build_note_bundle import merge_spans  # noqa: E402
 from map_notes_to_leaves import extract_note_pages  # noqa: E402
 from generate_notes import (SUBJECT_RULES, call_gemini, load_leaf_sections,  # noqa: E402
                             MODEL, MAX_FRAMES)
@@ -48,38 +48,38 @@ STYLE = """당신은 감정평가사 1차 수험 교재를 쓰는 사람입니�
   목록에 없으면 그 사람은 그걸 영영 모릅니다.
 - 반대로 강의에 없던 내용을 지어내 채우지 마세요. 교재에서 끌어와 부풀리는 것도 금지입니다.
 - 잡담·다음 강의 예고·수강 안내·시스템 공지는 논점이 아닙니다. 버리세요.
-- 지금 쓰는 것은 **이 관 하나**입니다. 전사에 다른 관 이야기가 섞여 있어도 걸러내세요.
+- 지금 쓰는 것은 **이 관 하나**입니다. 전사에는 같은 절에 속한 다른 관 이야기도
+  섞여 있습니다 — [교재 본문] 슬라이스가 **이 관의 범위**입니다. 그 범위에
+  해당하는 이야기만 골라 논점으로 쓰고, 나머지는 걸러내세요.
 
-[문체 — 교재와 구분이 안 되게]
+[문체]
 - **"강사", "강의", "선생님" 이라는 단어를 아예 쓰지 마세요.** "강사가 제시한",
-  "강의에서 강조한" 같은 표현도 금지입니다. 출처를 밝히지 말고 교재처럼 단정 서술하세요.
-- 큰따옴표로 말을 옮기지 마세요. 내용만 일반 서술로 바꾸세요.
+  "강의에서 강조한" 같은 표현도 금지입니다. 캐릭터 「선생」이 설명하는 것이지
+  누군가를 인용하는 게 아닙니다.
 - 전사 오류·음성 인식 같은 제작 뒷얘기는 절대 쓰지 마세요.
-- 문장은 '~이다/~한다' 체.
 
 [없는 결론을 채우지 말 것 — 가장 중요한 규칙]
 - 전사가 어떤 결론(숫자·등식·"~이다")에 **도달하기 전에 끊기면, 그 직전까지만
   논점으로 만들고 결론을 임의로 채우지 마세요.**
-- 교과서적으로 맞는 값이라도, 전사가 말하지 않았으면 쓰지 않습니다. 이 목록을 읽는
+- 교과서적으로 맞는 값이라도, 전사가 말하지 않았으면 쓰지 않습니다. 대화를 읽는
   사람은 그것을 강의 내용으로 오인하고 그대로 외웁니다. 틀린 채움보다 없는 편이 낫습니다.
-- 결론이 없으면 body에 그 사실을 적으세요 — 예: "이 관에서는 도출 과정까지 다루고,
-  최종 값은 이어지는 구간에서 정리된다."
-- **body에 쓰는 모든 수치·예시는 전사 원문에 실제로 나온 것만** 씁니다. 설명을
+- 결론이 없으면 그 사실을 대사로 적으세요 — 예: "여기까지는 도출 과정이고,
+  최종 값은 뒤에서 정리돼요."
+- **turns 안 모든 수치·예시는 전사 원문에 실제로 나온 것만** 씁니다. 설명을
   매끄럽게 하려고 새 예시 숫자를 지어내지 마세요.
 - 대칭 구조(정책 A vs 정책 B, 학파 X vs 학파 Y, 단기 vs 장기처럼 전사가 둘 이상을
   나란히 놓고 견주는 대목)는 **축마다 최소 하나씩 독립 논점을 배정**하세요. 한쪽만
-  논점으로 세우고 다른 쪽을 다른 논점 본문에 묻으면, 그 축을 묻는 문제 앞에서
+  논점으로 세우고 다른 쪽을 다른 논점 안에 묻으면, 그 축을 묻는 문제 앞에서
   목록이 빈 것처럼 보입니다.
-- 교재 본문은 이 관의 범위를 알기 위한 참고일 뿐입니다. 교재에 있고 전사에 없는
+- 교재 본문은 이 관의 범위를 알기 위한 기준입니다. 교재에 있고 전사에 없는
   내용을 논점으로 세우지 마세요. 이 목록은 "이 강의가 다룬 것"의 목록이지
   "이 관에서 알아야 할 것"의 목록이 아닙니다.
 
 [각 논점에 담을 것]
 - title: 논점 이름. 명사구가 아니라 **무엇을 알게 되는지**가 드러나게. 25자 이내.
 - gist: 한 줄 요약. 목록에서 이것만 보고도 무슨 얘긴지 알게. 60자 이내.
-- body: 본문 400~800자. 설명의 순서와 이유, 비유·예시, 무엇을 외우고 무엇은 넘길지,
-  판서에만 있는 수식·도식까지. 수식은 KaTeX 인라인 `$...$`.
-  둘 이상을 견주는 대목은 마크다운 표로 쓰세요(비교축 3개 이상).
+- turns: 아래 [출력 — 각 논점은 대화다] 를 따르세요.
+- example: 계산·판단이 있는 논점에만. 없으면 생략하세요.
 - check: 이 논점을 이해했는지 확인하는 질문 하나와, 정답 + 왜 그런지.
 - viz: 그림이 이해를 돕는 논점에만. 아래 [VIZ_CATALOG] 의 템플릿 중에서 고르세요.
   카탈로그에 없으면 viz 를 null 로 두세요. 억지로 붙이지 마세요.
@@ -108,14 +108,47 @@ supply-demand 예시 — "소득 증가로 수요가 늘어 균형이 이동하�
     "annotations":{"price_change":{"show_arrow":true},"quantity_change":{"show_arrow":true}}}
  ]}
 
+[출력 — 각 논점은 대화다]
+논점 하나를 캐릭터 넷이 주고받는 대화(turns)로 씁니다. turns 는 6~12개.
+
+캐릭터:
+- "ask"    묻는 이 — 학습자 대신 묻는다. 짧고 솔직하게. "이거 왜 배워요?" "아까 그거랑 뭐가 달라요?"
+- "teach"  선생 — 설명한다. **일상 언어로 먼저 풀고, 비유를 든 다음, 그제서야 교재 표현**을 말한다.
+- "gotcha" 깐깐이 — 찌른다. 반례·경계조건·시험 함정. "그럼 이 경우엔요?"
+- "mate"   복습 메이트 — 무엇을 외우고 무엇은 넘길지. **내용 설명은 하지 않는다. 학습 조언만.**
+
+[반드시 지킬 것]
+- **turns 에 "quiz" 턴이 최소 하나 있어야 합니다.** 없으면 학습자가 그냥 넘겨 버립니다.
+- quiz 는 정답 1개, 오답 2~3개입니다.
+- **오답은 그럴듯해야 합니다.** 실제로 헷갈리는 것 — 반대 개념(수요 vs 공급), 조건 하나만
+  바꾼 것, 방향만 뒤집은 것. 전사에서 함정이라고 경고한 대목이 있으면 그걸 오답으로 쓰세요.
+- **오답마다 그 오답 전용 reply 를 씁니다.** "틀렸습니다" 로 시작하지 마세요.
+  왜 그렇게 생각했는지 짚고 바로잡으세요. 예: "그건 사는 쪽 얘기예요. 파는 사람
+  입장에서 생각해봐요 — 값이 비싸지면 더 팔고 싶겠죠?"
+- 정답 choice 에도 reply 를 씁니다(짧게 확인해 주는 말).
+- "강사", "강의", "선생님" 이라는 **단어**는 여전히 쓰지 마세요. 캐릭터 「선생」이 말하는
+  것이지 누군가를 인용하는 게 아닙니다.
+- 과장된 감탄사나 이모티콘을 남발하지 마세요. 친근하되 유치하지 않게.
+
 [출력 형식 — JSON 배열만]
 설명·인사말·코드펜스 없이 JSON 배열 하나만 출력하세요.
 [
-  {"title":"…","gist":"…","body":"…",
-   "viz":{"template":"supply-demand","params":{…},"steps":[{"label":"…", …}]},
+  {"title":"…","gist":"…",
+   "turns":[
+     {"who":"ask","text":"…"},
+     {"who":"teach","text":"…","viz":{"template":"supply-demand","params":{},"steps":[]}},
+     {"who":"quiz","prompt":"…","choices":[
+        {"text":"…","ok":true,"reply":"…"},
+        {"text":"…","ok":false,"who":"gotcha","reply":"…"}
+     ]},
+     {"who":"gotcha","text":"…"},
+     {"who":"mate","text":"…"}
+   ],
+   "example":{"q":"…","solution":"…"},
    "check":{"q":"…","a":"…"},
    "src":[{"lec":12,"t":1390}]}
-]"""
+]
+example 은 계산·판단이 있는 논점에만 넣고, 없으면 생략하세요."""
 
 
 def load_viz_catalog(subject):
@@ -172,8 +205,85 @@ def lecture_meta(align):
             for lid, v in align.get('by_lecture', {}).items()}
 
 
-def gen_leaf(key, sec, bundle, catalog, subject):
+def section_key(sec):
+    """관을 절 단위로 묶는 키. path 의 앞 3개(과목/장/절)가 같으면 같은 절이다."""
+    return tuple((sec.get('path') or [])[:3])
+
+
+def _leaf_lecture_blocks(leaf_id, align, transcripts_dir, keyframes_dir):
+    """이 leaf_id 하나의 강의 구간 블록. build_note_bundle.build 의 조립 로직과
+    같지만, 그 함수는 leaf 하나만 받게 돼 있어(수정 금지 파일) 절 단위로 여러
+    leaf 를 합치려면 이 조립부만 별도로 둬야 한다."""
+    blocks = []
+    for sp in merge_spans(align['by_leaf'].get(leaf_id, [])):
+        tf = transcripts_dir / ('%s.json' % sp['lecture_id'])
+        if not tf.exists():
+            continue
+        tr = json.loads(tf.read_text(encoding='utf-8'))
+        text = ' '.join(s['text'] for s in tr['segments'] if sp['start'] <= s['start'] < sp['end'])
+        kf_idx = keyframes_dir / sp['lecture_id'] / 'index.json'
+        frames = []
+        if kf_idx.exists():
+            ki = json.loads(kf_idx.read_text(encoding='utf-8'))
+            frames = [{'ts': f['ts'], 'file': str(keyframes_dir / sp['lecture_id'] / f['file'])}
+                      for f in ki['frames'] if sp['start'] <= f['t'] < sp['end']]
+        blocks.append({
+            'lecture_id': sp['lecture_id'], 'no': sp['no'], 'start': sp['start'],
+            'ts': '%d:%02d~%d:%02d' % (int(sp['start']) // 60, int(sp['start']) % 60,
+                                       int(sp['end']) // 60, int(sp['end']) % 60),
+            'minutes': round((sp['end'] - sp['start']) / 60, 1),
+            'note_pages': sp['pages'],
+            'transcript': text,
+            'frames': frames,
+        })
+    return blocks
+
+
+def build_section_bundle(leaf_ids, pages_text, note_map, align, meta, transcripts_dir, keyframes_dir):
+    """절 하나에 속한 모든 관의 강의 구간을 모아 시각순으로 정렬한다.
+
+    관 경계로 구간을 재배정하는 시도가 세 번(TF-IDF 두 번, LLM 한 번) 다
+    실패해(표본으로 본 절은 고쳐지고 안 본 절은 틀림), 판단 시점을 절 단위
+    재료 + 프롬프트의 관 범위 지정으로 옮겼다. 이 함수가 그 재료 조립부다.
+    """
+    blocks = []
+    for lid in leaf_ids:
+        blocks.extend(_leaf_lecture_blocks(lid, align, transcripts_dir, keyframes_dir))
+    blocks = order_spans(blocks, meta)
+    leaf_pages = sorted({p for lid in leaf_ids
+                         for p in note_map['by_leaf'].get(lid, {}).get('pages', [])})
+    note_text = '\n\n'.join('[필기노트 %s쪽]\n%s' % (p, pages_text.get(p, '')) for p in leaf_pages)
+    return {'lectures': blocks, 'note_text': note_text,
+            'total_minutes': round(sum(b['minutes'] for b in blocks), 1)}
+
+
+def prev_bodies_for(base, unit, phase, lid, cache):
+    """이 관의 옛 트랙에서 body 텍스트를 모은다. 재생성 시 재료로 재사용한다.
+
+    cache 는 leaf_already_built 와 같은 형태({unit: track_dict|None}) 를 공유한다
+    — 유닛 파일 하나를 두 번 읽지 않는다.
+    """
+    if unit not in cache:
+        p = track_path(base, unit, phase)
+        cache[unit] = json.loads(p.read_text(encoding='utf-8')) if p.exists() else None
+    track = cache[unit]
+    for lf in (track or {}).get('leaves') or []:
+        if lf.get('leaf_id') != lid:
+            continue
+        return '\n\n'.join(pt.get('body') for pt in lf.get('points') or [] if pt.get('body'))
+    return ''
+
+
+def gen_leaf(key, sec, bundle, catalog, subject, siblings=None, prev_bodies=''):
     """관 하나의 논점 목록을 만든다. 긴 관은 나눠 호출해 이어 붙인다.
+
+    bundle 은 이 관 하나가 아니라 **이 관이 속한 절 전체**의 강의 구간이다 —
+    절 안에서 관별로 구간을 다시 나누는 시도(TF-IDF 두 번, LLM 한 번)가 세 번 다
+    실패해(안 본 절에서 오배정), 판단 시점을 "구간을 관에 배정"에서 "절 재료를
+    주고 그 관 범위만 쓰게 한다"로 옮겼다. sec['body']가 그 범위 기준이고,
+    siblings 는 같은 절의 다른 관 제목 목록 — 프롬프트가 그 내용을 걸러내라고
+    지시하는 데 쓴다. prev_bodies 는 이 관의 옛 트랙에서 모은 body 텍스트로,
+    재생성 시 검증된 내용을 재료로 재사용한다(처음부터 다시 읽는 것보다 싸다).
 
     청크 성공/전체는 chunk_holder(전역, usage_holder 와 같은 패턴)에 남긴다 — 이
     함수의 공개 시그니처(반환값 points 리스트)는 바꾸지 않는다. save_leaf 가
@@ -208,16 +318,28 @@ def gen_leaf(key, sec, bundle, catalog, subject):
             '억지로 쪼개거나 없는 내용을 지어내 채우지 마세요. 강의가 정말 그만큼 다뤘을 때만\n'
             '그만큼 쓰세요.\n' % (chunk_minutes, density_lo, density_hi)
         )
+        sib_block = ''
+        if siblings:
+            sib_block = (
+                '[같은 절의 다른 관 — 이 내용은 쓰지 마세요]\n'
+                '아래는 이 관과 같은 절에 속한 다른 관들입니다. 전사에 이 관들 얘기가\n'
+                '섞여 있어도 걸러내세요 — 그 관에서 따로 다룹니다.\n'
+                + '\n'.join('- ' + s for s in siblings) + '\n\n'
+            )
+        prev_block = (('[이 관의 이전 정리 — 내용 근거로만 쓰고 문장을 그대로 옮기지 마세요]\n%s\n\n'
+                       % prev_bodies[:6000]) if prev_bodies else '')
         prompt = (
             '%s\n%s\n\n%s\n\n'
             '[관] %s\n\n'
-            '[교재 본문 — 이 관의 범위를 알기 위한 참고. 여기 있는 내용을 그대로 옮기지 말고,\n'
-            ' 강의가 실제로 다룬 것만 쓰세요.]\n%s\n\n'
-            '%s%s'
-            '[강의 전사 (%d/%d)]\n%s%s\n\n'
+            '[교재 본문 — **이 관의 범위 기준**. 전사에는 절 전체 내용이 섞여 있으니,\n'
+            ' 이 슬라이스에 해당하는 이야기만 이 관의 논점으로 쓰세요. 그대로 옮기지\n'
+            ' 말고, 강의가 실제로 다룬 것만 쓰세요.]\n%s\n\n'
+            '%s%s%s%s'
+            '[강의 전사 — 이 관이 속한 절 전체 구간 (%d/%d)]\n%s%s\n\n'
             '첨부한 이미지는 그 구간의 판서 화면입니다. 수식·도식이 텍스트에 없으면 여기서 읽어 반영하세요.'
             % (STYLE, SUBJECT_RULES.get(subject, ''), catalog,
-               ' / '.join(sec['path']), sec['body'][:12000], note_block, density_note,
+               ' / '.join(sec['path']), sec['body'][:12000],
+               sib_block, prev_block, note_block, density_note,
                i, len(chunks), transcript, cont)
         )
         raw, usage = call_gemini(key_holder['key'], prompt, frames)
@@ -279,9 +401,18 @@ def save_leaf(base, subject, phase, unit, lid, title, pts, chunks_ok=None, chunk
     leaves = list((old or {}).get('leaves') or [])
     index = {lf.get('leaf_id'): i for i, lf in enumerate(leaves)}
     li = index.get(lid, len(leaves))
+    # 같은 자리(id)의 옛 논점에 body 가 있고 새 논점엔 없으면 옮겨 담는다 —
+    # turns 프롬프트는 더 이상 body 를 요구하지 않지만, 화면 폴백과 다음
+    # 재생성의 재료(prev_bodies_for)로 계속 쓰인다.
+    old_body_by_id = {}
+    if lid in index:
+        old_body_by_id = {op.get('id'): op.get('body')
+                          for op in leaves[index[lid]].get('points') or [] if op.get('body')}
     for seq, p in enumerate(pts, 1):
         p['seq'] = seq
         p['id'] = make_point_id(unit, li, seq)
+        if not p.get('body') and old_body_by_id.get(p['id']):
+            p['body'] = old_body_by_id[p['id']]
         p.setdefault('viz', None)
         p.setdefault('check', None)
         p.setdefault('src', [])
@@ -483,6 +614,53 @@ def compute_orphans(subject, align, sections, transcripts_dir):
     return orphans
 
 
+def target_leaves(sections, align):
+    """생성 대상 관 목록 + 절별 관 묶음.
+
+    관 경계가 아니라 절 단위로 판단을 옮겼으므로(build_section_bundle 참고),
+    그 절에 구간이 하나라도 있으면 그 절의 모든 관이 대상이다 — 구간이 몰린
+    관만 대상이 되고 나머지 관은 통째로 빈 채 넘어가던 문제(옛 97/160관)를
+    없앤다.
+    """
+    section_of = {}
+    for lid, sec in sections.items():
+        section_of.setdefault(section_key(sec), []).append(lid)
+    with_spans = {k for k, lids in section_of.items() if any(align['by_leaf'].get(l) for l in lids)}
+    targets = [lid for lid in sections if section_key(sections[lid]) in with_spans]
+    return targets, section_of
+
+
+def apply_scope(targets, sections, base):
+    """강의가 없는 세부과목은 생성 대상에서 뺀다. 화면(개념 완성)의 제외 규칙과
+    같은 파일을 쓴다."""
+    scope_f = base / 'scope.json'
+    if not scope_f.exists():
+        return targets
+    ex = set(json.loads(scope_f.read_text(encoding='utf-8')).get('exclude_divisions') or [])
+    if not ex:
+        return targets
+    before = len(targets)
+    targets = [t for t in targets if not ((sections[t].get('path') or [''])[0] in ex)]
+    print('  범위 제외(%s): %d → %d관' % (', '.join(sorted(ex)), before, len(targets)))
+    return targets
+
+
+def write_index(base, phase):
+    """목차 화면이 읽을 색인. 트랙 파일 여러 개를 전부 받지 않게 하려는 것이다."""
+    out = {}
+    for f in sorted((base / 'track').glob('*.%s.json' % phase)):
+        d = json.loads(f.read_text(encoding='utf-8'))
+        for lf in d.get('leaves') or []:
+            if not lf.get('leaf_id'):
+                continue
+            pts = lf.get('points') or []
+            src = (pts[0].get('source') if pts else None) or 'lecture'
+            out[lf['leaf_id']] = {'points': len(pts), 'source': src}
+    (base / 'track' / '_index.json').write_text(
+        json.dumps(out, ensure_ascii=False, indent=1), encoding='utf-8')
+    print('색인 %d관 저장' % len(out))
+
+
 def save_orphans(base, subject, phase, orphans):
     """orphans 는 과목 전체 기준이라 유닛 파일마다 중복 적지 않고 _subject 트랙
     파일 하나에만 적는다(과목 레벨 트랙과 이미 같은 파일을 공유한다).
@@ -502,6 +680,7 @@ def do_check(subject, phase):
     tdir = base / 'track'
     if not tdir.exists():
         sys.exit('트랙이 아직 없습니다: %s' % tdir)
+    write_index(base, phase)
     total_issues, total_points, total_leaves = 0, 0, 0
     generated_leaf_ids = set()
     for f in sorted(tdir.glob('*.%s.json' % phase)):
@@ -526,7 +705,9 @@ def do_check(subject, phase):
         sections = None
         print('  ⚠ taxonomy 로드 실패로 F-3(관 누락) 검사를 건너뜀: %s' % e)
     if sections is not None:
-        candidates = set(align['by_leaf'].keys()) & set(sections.keys())
+        cand_list, _ = target_leaves(sections, align)
+        cand_list = apply_scope(cand_list, sections, base)
+        candidates = set(cand_list)
         missing = sorted(candidates - generated_leaf_ids)
         if missing:
             print('\n트랙이 아예 생성되지 않은 관 %d개:' % len(missing))
@@ -606,7 +787,8 @@ def main():
         build_extra(args, base, tdir, catalog)
         return
 
-    targets = [lid for lid in align['by_leaf'] if lid in sections]
+    targets, section_of = target_leaves(sections, align)
+    targets = apply_scope(targets, sections, base)
     if args.only:
         targets = [t for t in targets if t == args.only]
 
@@ -629,21 +811,25 @@ def main():
     print('대상 관 %d개(건너뜀 %d개) · 모델 %s\n' % (len(targets), skipped, args.model))
 
     units_touched = set()
+    section_bundle_cache = {}
     t0 = time.time()
     for n, lid in enumerate(targets, 1):
         sec = sections[lid]
         title = sec['path'][-1] if sec['path'] else lid
-        bundle = build(args.subject, lid, pages_text, note_map, align, tdir, kdir)
-        # build() 가 내부에서 merge_spans() 로 (lecture_id, start) 재정렬을 해서
-        # 강좌별 순서가 무너진다. 여기서 bundle['lectures'] 를 다시 강좌 기준으로
-        # 정렬한다 — order_spans 는 'lecture_id'/'start' 키만 읽으므로 그대로 쓸 수 있다.
-        # sorted 는 안정 정렬이라 같은 강좌 안의 원래(시간) 순서는 유지된다.
-        bundle['lectures'] = order_spans(bundle['lectures'], meta)
+        skey = section_key(sec)
+        if skey not in section_bundle_cache:
+            section_bundle_cache[skey] = build_section_bundle(
+                section_of[skey], pages_text, note_map, align, meta, tdir, kdir)
+        bundle = section_bundle_cache[skey]
         if not bundle['lectures']:
             print('  [%d/%d] 건너뜀(강의 구간 없음) %s' % (n, len(targets), title))
             continue
+        siblings = [sections[s]['path'][-1] for s in section_of[skey]
+                   if s != lid and sections[s].get('path')]
+        prev_bodies = prev_bodies_for(base, sec['unit_code'], args.phase, lid, track_cache)
         try:
-            pts = gen_leaf(lid, sec, bundle, catalog, args.subject)
+            pts = gen_leaf(lid, sec, bundle, catalog, args.subject,
+                          siblings=siblings, prev_bodies=prev_bodies)
         except Exception as e:
             print('  [%d/%d] ❌ 실패 %s' % (n, len(targets), e))
             continue
@@ -662,6 +848,7 @@ def main():
                                               (time.time() - t0) / 60))
     print('토큰 in %s / out %s' % ('{:,}'.format(usage_holder['in']),
                                   '{:,}'.format(usage_holder['out'])))
+    write_index(base, args.phase)
 
 
 if __name__ == '__main__':
