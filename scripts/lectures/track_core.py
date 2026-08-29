@@ -14,6 +14,12 @@ MAX_POINTS = 40
 # 최대 1초 이르게 찍힌다. 경계 오차로 거짓 경고가 관마다 뜨면 진짜 누출 신호가 묻힌다.
 ANCHOR_TOL_SEC = 5
 
+WHO_VALUES = ('ask', 'teach', 'gotcha', 'mate', 'quiz')
+MIN_TURNS = 3
+MAX_TURNS = 14
+# 오답 반박이 이 문구로 시작하면 "그 오답 전용" 이 아니다. 규칙을 무의미하게 만드는 형태다.
+GENERIC_REPLIES = ('틀렸', '오답', '아닙니다', '아니에요', '다시 생각')
+
 
 def make_point_id(unit_code, leaf_idx, seq):
     """진도 저장의 키. 재생성해도 바뀌면 안 되므로 자리수를 고정한다."""
@@ -248,6 +254,47 @@ def check_track(track, align_by_leaf, template_names):
             if viz and viz.get('template') not in template_names:
                 issues.append('%s / %s / %s: 미등록 템플릿 "%s"'
                               % (unit, title, p.get('id'), viz.get('template')))
+
+        # 대화(turns) 검사 — quiz 유무, 정답/오답 구성, 오답별 전용 반박, who 값, 턴 수.
+        # turns 가 없는 논점은 turns 프롬프트 이전에 저장된 옛 논점이다 — 결함이
+        # 아니라 "미갱신"으로 구분해 보고하고 나머지 turns 검사는 건너뛴다.
+        for p in pts:
+            turns = p.get('turns')
+            if not turns:
+                issues.append('%s / %s / %s: 미갱신 (turns 없음 — body 폴백)'
+                              % (unit, title, p.get('id')))
+                continue
+
+            if not (MIN_TURNS <= len(turns) <= MAX_TURNS):
+                issues.append('%s / %s / %s: 턴 %d개 (%d~%d 범위 밖)'
+                              % (unit, title, p.get('id'), len(turns), MIN_TURNS, MAX_TURNS))
+
+            quizzes = [t for t in turns if t.get('who') == 'quiz']
+            if not quizzes:
+                issues.append('%s / %s / %s: quiz 턴 없음 — 그냥 넘겨 통과할 수 있다'
+                              % (unit, title, p.get('id')))
+
+            for t in turns:
+                if t.get('who') not in WHO_VALUES:
+                    issues.append('%s / %s / %s: 알 수 없는 who "%s"'
+                                  % (unit, title, p.get('id'), t.get('who')))
+
+            for qz in quizzes:
+                ch = qz.get('choices') or []
+                oks = [c for c in ch if c.get('ok')]
+                if len(oks) != 1:
+                    issues.append('%s / %s / %s: 정답 선택지가 %d개 (1개여야 함)'
+                                  % (unit, title, p.get('id'), len(oks)))
+                if len(ch) - len(oks) < 2:
+                    issues.append('%s / %s / %s: 오답 선택지가 %d개 (2개 이상이어야 함)'
+                                  % (unit, title, p.get('id'), len(ch) - len(oks)))
+                for c in ch:
+                    if c.get('ok'):
+                        continue
+                    r = (c.get('reply') or '').strip()
+                    if not r or r.startswith(GENERIC_REPLIES):
+                        issues.append('%s / %s / %s: 오답 "%s" 에 전용 반박이 없다'
+                                      % (unit, title, p.get('id'), (c.get('text') or '')[:14]))
     return issues
 
 

@@ -129,7 +129,11 @@ class TestParsePoints(unittest.TestCase):
 
 class TestCheckTrack(unittest.TestCase):
     def _track(self, **over):
+        # turns 를 채워 "갱신된 논점"으로 만든다 — 이 클래스의 다른 테스트(앵커·viz
+        # 템플릿·청크·논점 수)는 turns 유무와 무관한 것을 검사하므로, turns 를
+        # 비워 두면 신설된 미갱신 검사가 끼어들어 무관한 테스트를 깨뜨린다.
         pt = {'seq': 1, 'id': 'M01-L00-p01', 'title': 't', 'gist': 'g', 'body': 'b',
+              'turns': list(self.GOOD_TURNS),
               'viz': None, 'check': {'q': 'q', 'a': 'a'},
               'src': [{'lec': 2, 't': 100}]}
         pt.update(over.pop('point', {}))
@@ -225,6 +229,76 @@ class TestCheckTrack(unittest.TestCase):
         align = {}  # 아무 항목도 없음
         issues = check_track(t, align, {'supply-demand'})
         self.assertEqual(issues, [])  # 앵커 관련 문제 없음
+
+    def _dlg(self, turns):
+        pt = {'seq': 1, 'id': 'M01-L00-p01', 'title': 't', 'gist': 'g',
+              'turns': turns, 'viz': None, 'check': None, 'src': []}
+        return {'unit_code': 'M01', 'phase': 'basic',
+                'leaves': [{'leaf_id': None, 'title': 'T',
+                            'points': [pt, dict(pt), dict(pt)]}],
+                'orphans': []}
+
+    # 브리프의 STYLE 요구("quiz 는 정답 1개, 오답 2~3개")를 만족시키려 오답을 2개로
+    # 뒀다 — 브리프 예시 원문은 오답 1개였는데, check_track 의 "오답 2개 이상"
+    # 규칙과 그 예시가 서로 모순돼 그대로 두면 이 테스트 자체가 실패한다.
+    GOOD_TURNS = [
+        {'who': 'ask', 'text': 'a'},
+        {'who': 'quiz', 'prompt': 'q', 'choices': [
+            {'text': 'A', 'ok': True, 'reply': '맞아요'},
+            {'text': 'B', 'ok': False, 'reply': '그건 반대쪽 얘기예요'},
+            {'text': 'C', 'ok': False, 'reply': '그건 조건이 하나 달라요'},
+        ]},
+        {'who': 'mate', 'text': 'm'},
+    ]
+
+    def test_good_dialogue_has_no_issues(self):
+        self.assertEqual(check_track(self._dlg(self.GOOD_TURNS), {}, set()), [])
+
+    def test_missing_quiz_reported(self):
+        turns = [{'who': 'teach', 'text': 'a'}, {'who': 'mate', 'text': 'b'}]
+        issues = check_track(self._dlg(turns), {}, set())
+        self.assertTrue(any('quiz' in i for i in issues))
+
+    def test_no_correct_choice_reported(self):
+        turns = [{'who': 'quiz', 'prompt': 'q', 'choices': [
+            {'text': 'A', 'ok': False, 'reply': 'x'},
+            {'text': 'B', 'ok': False, 'reply': 'y'}]}]
+        self.assertTrue(any('정답' in i for i in check_track(self._dlg(turns), {}, set())))
+
+    def test_two_correct_choices_reported(self):
+        turns = [{'who': 'quiz', 'prompt': 'q', 'choices': [
+            {'text': 'A', 'ok': True, 'reply': 'x'},
+            {'text': 'B', 'ok': True, 'reply': 'y'}]}]
+        self.assertTrue(any('정답' in i for i in check_track(self._dlg(turns), {}, set())))
+
+    def test_wrong_choice_without_reply_reported(self):
+        turns = [{'who': 'quiz', 'prompt': 'q', 'choices': [
+            {'text': 'A', 'ok': True, 'reply': 'x'},
+            {'text': 'B', 'ok': False, 'reply': ''}]}]
+        self.assertTrue(any('반박' in i for i in check_track(self._dlg(turns), {}, set())))
+
+    def test_generic_reply_reported(self):
+        """'틀렸습니다' 류는 그 오답 전용 반박이 아니다 — 이걸 허용하면 규칙이 무의미해진다."""
+        turns = [{'who': 'quiz', 'prompt': 'q', 'choices': [
+            {'text': 'A', 'ok': True, 'reply': 'x'},
+            {'text': 'B', 'ok': False, 'reply': '틀렸습니다.'}]}]
+        self.assertTrue(any('반박' in i for i in check_track(self._dlg(turns), {}, set())))
+
+    def test_unknown_who_reported(self):
+        turns = [{'who': 'narrator', 'text': 'a'}] + self.GOOD_TURNS
+        self.assertTrue(any('who' in i for i in check_track(self._dlg(turns), {}, set())))
+
+    def test_turn_count_out_of_range_reported(self):
+        turns = [{'who': 'teach', 'text': 'a'}] * 20 + self.GOOD_TURNS
+        self.assertTrue(any('턴' in i for i in check_track(self._dlg(turns), {}, set())))
+
+    def test_legacy_body_only_point_reported_as_stale(self):
+        """turns 가 없는 옛 논점은 결함이 아니라 '미갱신' 으로 보고한다."""
+        pt = {'seq': 1, 'id': 'x', 'title': 't', 'gist': 'g', 'body': 'b', 'src': []}
+        t = {'unit_code': 'M01', 'phase': 'basic',
+             'leaves': [{'leaf_id': None, 'title': 'T', 'points': [pt, dict(pt), dict(pt)]}],
+             'orphans': []}
+        self.assertTrue(any('미갱신' in i for i in check_track(t, {}, set())))
 
 
 class TestDiffIds(unittest.TestCase):
