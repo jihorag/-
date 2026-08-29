@@ -2550,7 +2550,7 @@ const App = () => {
   // 시험별/연도별 진입 시 적용되는 분류 스코프: null | {kind:'exam'|'year', value, label}
   const [taxScope, setTaxScope] = useState(bootNav?.taxScope || null);
   // 문제 소스 필터 (단원 드릴): all(기출+연습) | official(기출만) | practice(연습만)
-  const [sourceFilter, setSourceFilter] = useState('all');
+  const [tierFilter, setTierFilter] = useState('all');
 
   // 데이터 불러오기 — manifest → 시험별 chunk 병렬 fetch (E2 chunk loading)
   // 단일 24MB 파일 대신 13개 chunk를 HTTP/2 병렬로 받아 첫 로드 체감 속도와
@@ -2715,12 +2715,20 @@ const App = () => {
       //    아니면 저품질(드릴 연습용). 기출·AI생성 문항은 대상 아님(그대로 문제풀이).
       const isAigen = q.exam === '[AI생성]' || (q.id && String(q.id).startsWith('aigen-'));
       const isPracticeQ = !isAigen && (q.source === 'practice' || q.exam === '[연습문제]' || (q.id && String(q.id).startsWith('practice-')));
+      // 🏅 등급 — 저장된 tier 가 있으면 그걸 쓰고, 없으면 기존 휴리스틱으로 폴백한다.
+      //    (경제학만 tier 가 채워져 있고 나머지 과목은 아직 없다)
+      let tier = q.tier || null;
       let lowq = false;
-      if (isPracticeQ) {
+      if (tier) {
+        lowq = tier === 'discard' || tier === 'repair'; // repair 는 A/B 어느 쪽도 아니므로 문제풀이 제외
+      } else if (isPracticeQ) {
         const stem = (q.question || '').slice(0, 60);
         const first = !seenStem.has(stem); seenStem.add(stem);
         const hasMeta = Array.isArray(q.option_meta) && q.option_meta.length > 0;
         lowq = !(hasMeta && first);
+        tier = lowq ? 'discard' : 'A';   // 미판정 연습문제는 일단 A로 둔다
+      } else {
+        tier = 'C';                       // 기출은 저장하지 않고 여기서 파생한다
       }
       return {
         ...q,
@@ -2740,6 +2748,7 @@ const App = () => {
         taxSectionName: isClassified ? (mt.section || null) : null,
         taxItemName: isClassified ? (mt.item || null) : null,
         lowq,
+        tier,
       };
     });
   }, [loading, questionsData, aigenList]);
@@ -2779,9 +2788,8 @@ const App = () => {
     if (item.lowq) return false; // 저품질 연습문제는 문제풀이에서 제외 → 드릴에서 연습용으로
     const isPractice = item.period === 'practice' || item.exam === '[연습문제]'
       || item.source === 'practice' || (item.id && (item.id.startsWith('practice-') || item.id.startsWith('aigen-')));
-    // 기출/연습 소스 토글
-    if (sourceFilter === 'official' && isPractice) return false;
-    if (sourceFilter === 'practice' && !isPractice) return false;
+    // 등급 탭 — A 연습 / B 실전 / C 기출
+    if (tierFilter !== 'all' && item.tier !== tierFilter) return false;
     // 연습문제는 기출 시험명(browseExam, taxScope.kind === 'exam') 필터를 받지 않고 단원 축에 항상 포함(소스 토글로만 제어).
     if (isPractice) return true;
     if (taxScope) {
@@ -2791,7 +2799,7 @@ const App = () => {
     }
     if (browseExam && item.exam !== browseExam) return false;
     return true;
-  }, [taxScope, browseExam, sourceFilter]);
+  }, [taxScope, browseExam, tierFilter]);
 
   const scopedClassified = useMemo(
     () => processedData.filter(baseFilter),
@@ -4953,11 +4961,11 @@ const App = () => {
       {['tax_chapters', 'tax_sections', 'tax_items'].includes(currentView) && (
         <div style={{ padding: '0 20px', display: 'flex', gap: 4, background: 'transparent' }}>
           <div style={{ display: 'inline-flex', gap: 4, background: 'var(--primary-light)', padding: 3, borderRadius: 10, border: '1px solid var(--border-color)' }}>
-            {[['all', '전체'], ['official', '기출'], ['practice', '연습문제']].map(([k, lab]) => (
-              <button key={k} onClick={() => setSourceFilter(k)}
+            {[['all', '전체'], ['A', 'A 연습'], ['B', 'B 실전'], ['C', 'C 기출']].map(([k, lab]) => (
+              <button key={k} onClick={() => setTierFilter(k)}
                 style={{ padding: '5px 12px', borderRadius: 7, border: 'none', cursor: 'pointer',
-                  background: sourceFilter === k ? 'var(--primary)' : 'transparent',
-                  color: sourceFilter === k ? '#fff' : 'var(--primary-dark)', fontWeight: 700, fontSize: '0.78rem' }}>
+                  background: tierFilter === k ? 'var(--primary)' : 'transparent',
+                  color: tierFilter === k ? '#fff' : 'var(--primary-dark)', fontWeight: 700, fontSize: '0.78rem' }}>
                 {lab}
               </button>
             ))}
