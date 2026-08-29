@@ -2717,16 +2717,18 @@ const App = () => {
       const isPracticeQ = !isAigen && (q.source === 'practice' || q.exam === '[연습문제]' || (q.id && String(q.id).startsWith('practice-')));
       // 🏅 등급 — 저장된 tier 가 있으면 그걸 쓰고, 없으면 기존 휴리스틱으로 폴백한다.
       //    (경제학만 tier 가 채워져 있고 나머지 과목은 아직 없다)
-      let tier = q.tier || null;
+      let tier = isPracticeQ ? (q.tier || null) : null; // 기출은 저장된 tier 무관하게 항상 C로 파생
       let lowq = false;
-      if (tier) {
-        lowq = tier === 'discard' || tier === 'repair'; // repair 는 A/B 어느 쪽도 아니므로 문제풀이 제외
-      } else if (isPracticeQ) {
+      if (isPracticeQ) {
         const stem = (q.question || '').slice(0, 60);
-        const first = !seenStem.has(stem); seenStem.add(stem);
-        const hasMeta = Array.isArray(q.option_meta) && q.option_meta.length > 0;
-        lowq = !(hasMeta && first);
-        tier = lowq ? 'discard' : 'A';   // 미판정 연습문제는 일단 A로 둔다
+        const first = !seenStem.has(stem); seenStem.add(stem); // tier 유무와 무관하게 항상 스템 추적 → 미판정 중복 검출 유지
+        if (tier) {
+          lowq = tier === 'discard' || tier === 'repair'; // repair 는 A/B 어느 쪽도 아니므로 문제풀이 제외
+        } else {
+          const hasMeta = Array.isArray(q.option_meta) && q.option_meta.length > 0;
+          lowq = !(hasMeta && first);
+          tier = lowq ? 'discard' : 'A';   // 미판정 연습문제는 일단 A로 둔다
+        }
       } else {
         tier = 'C';                       // 기출은 저장하지 않고 여기서 파생한다
       }
