@@ -24,8 +24,6 @@ from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
-import requests
-
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_anchors import pick_anchors            # noqa: E402
 
@@ -178,6 +176,7 @@ def _extract_openai_text(resp_json):
 
 def _make_openai_call_fn(model_name, api_key):
     def call_fn(prompt):
+        import requests
         r = requests.post(
             OPENAI_URL,
             headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
