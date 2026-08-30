@@ -20,6 +20,9 @@ import { elasticityZonesTemplate } from './templates/ElasticityZones';
 import { salesAdjustmentTemplate } from './templates/SalesAdjustment';
 import { answerTemplateChart } from './templates/AnswerTemplate';
 import { examPatternTemplate } from './templates/ExamPattern';
+import { classify2x2Template } from './templates/Classify2x2';
+import { calcStepsTemplate } from './templates/CalcSteps';
+import { flowStagesTemplate } from './templates/FlowStages';
 
 const _registry = new Map();
 
@@ -54,6 +57,10 @@ register(salesAdjustmentTemplate);
 // 2차 답안 양식 (2)
 register(answerTemplateChart);
 register(examPatternTemplate);
+// 비그래프 범용 (3) — 분류·계산단계·시점흐름
+register(classify2x2Template);
+register(calcStepsTemplate);
+register(flowStagesTemplate);
 
 export function getTemplate(name) {
   return _registry.get(name);
