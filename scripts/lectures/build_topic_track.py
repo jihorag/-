@@ -793,6 +793,31 @@ def save_manifest(subject, phase, manifest):
         json.dumps(manifest, ensure_ascii=False, indent=1), encoding='utf-8')
 
 
+# 결과 JSON 배열 원소 하나의 스키마 — 관 단위(output_instructions)·절 단위
+# (output_instructions_section) dump 가 공유한다.
+SCHEMA_BLOCK = (
+    '배열 원소 하나의 스키마:\n'
+    '```json\n'
+    '{"title": "…", "gist": "…",\n'
+    ' "turns": [\n'
+    '   {"who": "ask", "text": "…"},\n'
+    '   {"who": "teach", "text": "…", "viz": {"template": "…", "params": {}, "steps": []}},\n'
+    '   {"who": "quiz", "prompt": "…", "choices": [\n'
+    '      {"text": "…", "ok": true, "reply": "…"},\n'
+    '      {"text": "…", "ok": false, "who": "gotcha", "reply": "…"}\n'
+    '   ]},\n'
+    '   {"who": "gotcha", "text": "…"},\n'
+    '   {"who": "mate", "text": "…"}\n'
+    ' ],\n'
+    ' "example": {"q": "…", "solution": "…"},\n'
+    ' "check": {"q": "…", "a": "…"},\n'
+    ' "src": [{"lec": 12, "t": 1390}]}\n'
+    '```\n'
+    '`example` 은 계산·판단이 있는 논점에만 넣고, 없으면 생략하세요. 전사가 없는\n'
+    '(교재 전용) 관이면 `src` 는 빈 배열로 두세요.\n'
+)
+
+
 def output_instructions(leaf_id, has_lecture=True):
     empty_note = (
         '이 관의 소제목이 전사에서 하나도 다뤄지지 않았다고 판단되면(=STYLE 의 covered\n'
@@ -809,25 +834,7 @@ def output_instructions(leaf_id, has_lecture=True):
         '만 담은 **JSON 배열**입니다. 다음 경로에 저장하세요 (이 .md 파일과 같은 폴더):\n\n'
         '    %s.json\n\n'
         '%s'
-        '배열 원소 하나의 스키마:\n'
-        '```json\n'
-        '{"title": "…", "gist": "…",\n'
-        ' "turns": [\n'
-        '   {"who": "ask", "text": "…"},\n'
-        '   {"who": "teach", "text": "…", "viz": {"template": "…", "params": {}, "steps": []}},\n'
-        '   {"who": "quiz", "prompt": "…", "choices": [\n'
-        '      {"text": "…", "ok": true, "reply": "…"},\n'
-        '      {"text": "…", "ok": false, "who": "gotcha", "reply": "…"}\n'
-        '   ]},\n'
-        '   {"who": "gotcha", "text": "…"},\n'
-        '   {"who": "mate", "text": "…"}\n'
-        ' ],\n'
-        ' "example": {"q": "…", "solution": "…"},\n'
-        ' "check": {"q": "…", "a": "…"},\n'
-        ' "src": [{"lec": 12, "t": 1390}]}\n'
-        '```\n'
-        '`example` 은 계산·판단이 있는 논점에만 넣고, 없으면 생략하세요. 전사가 없는\n'
-        '(교재 전용) 관이면 `src` 는 빈 배열로 두세요.\n'
+        + SCHEMA_BLOCK
     ) % (leaf_id, empty_note)
 
 
@@ -978,6 +985,215 @@ def dump_extra(args):
     print('\ndump %d개 · 건너뜀 %d개 → %s' % (dumped, skipped, out_dir))
 
 
+# ---------------------------------------------------------------------------
+# --dump-section — 관 단위 dump 는 같은 절의 형제 관마다 절 전사가 통째로
+# 중복된다(관 5개짜리 절이면 전사가 5번). 그러면 파일이 커질 뿐 아니라, 형제
+# 관을 각각 따로 채우는 에이전트가 서로 뭘 썼는지 몰라 관문이 지적한 형제
+# 중복(같은 관 안·관 사이)이 재발한다. 절 하나를 파일 하나로 묶어 한 번에
+# 나눠 쓰게 하면 전사 중복도, 형제 중복도 함께 없어진다.
+#
+# 결과 JSON({leaf_id}.json)은 관 단위 dump 와 **같은 자리**
+# (dump_dir(subject, phase), sections/ 하위가 아니다)에 쓰라고 안내한다 —
+# do_ingest 를 전혀 건드리지 않고 그대로 재사용하기 위해서다. 대신 이 leaf_id
+# 들을 평평한 매니페스트(_manifest.json)에도 같이 등록해, --dump-section 으로만
+# 낸 관도 --ingest 가 찾을 수 있게 한다.
+# ---------------------------------------------------------------------------
+
+def section_slug(path):
+    """절 경로(대분류/장/절)를 파일명으로 쓸 수 있는 식별자로 만든다."""
+    return '__'.join(re.sub(r'[\s·]+', '_', p) for p in path)
+
+
+def gen_section_prompt(path, lids, sections, bundle, catalog, subject, base, phase, track_cache):
+    """절 하나의 논점 생성 프롬프트를 조립한다 — 전사는 절 전체에서 딱 한 번만
+    등장하고, 그 절에 속한 모든 관의 교재 본문을 나란히 늘어놓아 전사를 관별로
+    나눠 쓰게 한다. gen_leaf_prompt 와 달리 관 하나가 아니라 절 전체가 대상이라
+    '형제 관 배제' 대신 '형제 관과 나눠 쓰기' 프레이밍을 쓴다.
+    """
+    has_lecture = bool(bundle['lectures'])
+    frames = [f['file'] for b in bundle['lectures'] for f in b['frames']]
+    if has_lecture:
+        transcript_header = ('[강의 전사 — 이 절 전체, %d분 · %d개 강의 구간 전체]'
+                             % (bundle['total_minutes'], len(bundle['lectures'])))
+        transcript_block = '\n\n'.join('[%s강 %s]\n%s' % (b['no'], b['ts'], b['transcript'])
+                                       for b in bundle['lectures'])
+    else:
+        transcript_header = '[강의 전사]'
+        transcript_block = '이 절은 강의가 다루지 않습니다 — 교재만으로 쓰세요.'
+    note_block = ('[강사 필기노트 — 강의 중 화면에 띄운 문서]\n%s\n\n' % bundle['note_text'][:8000]
+                  if bundle.get('note_text', '').strip() else '')
+
+    leaves_parts = []
+    for lid in lids:
+        sec = sections[lid]
+        title = sec['path'][-1] if sec.get('path') else lid
+        heads = sec.get('heads') or []
+        body = sec.get('body') or ''
+        prev_bodies = prev_bodies_for(base, sec['unit_code'], phase, lid, track_cache)
+        part = '### 관: %s\n\nleaf_id: `%s`\n\n' % (title, lid)
+        if heads:
+            part += '교재 소제목: ' + ' / '.join(heads) + '\n\n'
+        part += '[교재 본문 — 이 관의 범위 기준]\n%s\n\n' % body
+        if prev_bodies:
+            part += '[이 관의 이전 정리 — 재료로만 사용, 문장을 그대로 옮기지 마세요]\n%s\n\n' % prev_bodies[:6000]
+        leaves_parts.append(part)
+
+    prompt = (
+        '%s\n%s\n\n%s\n\n'
+        '## 이 절에 속한 관 목록 (%d개) — 전사를 이 관들로 나눠 쓰세요\n\n%s'
+        '%s\n%s\n%s\n\n'
+        '판서 이미지가 있으면 이 파일 아래 "판서 이미지" 절에 경로가 있습니다. 수식·도식이\n'
+        '텍스트에 없으면 열어서 반영하세요.'
+        % (STYLE, SUBJECT_RULES.get(subject, ''), catalog,
+           len(lids), '\n'.join(leaves_parts),
+           note_block, transcript_header, transcript_block)
+    )
+    return prompt, frames, has_lecture
+
+
+SECTION_SPLIT_PARAGRAPH = (
+    '이 절의 관들을 **한 번에 나눠 쓰는 것**이 이 파일의 목적입니다. 전사를 읽고 각 내용이\n'
+    '어느 관에 속하는지 판단한 뒤, 그 관의 JSON 에만 쓰세요. **같은 내용을 두 관에 쓰지\n'
+    '마세요.** 어느 관에도 명확히 속하지 않는 내용은 버리세요.\n'
+    '강의가 어떤 관의 주제를 실제로 다루지 않았다면, 그 관의 JSON 은 **빈 배열 `[]`** 로\n'
+    '두세요. 형제 관 내용으로 채우지 마세요 — 강의가 다루지 않은 것을 다룬 것처럼 만드는\n'
+    '것은 아무것도 만들지 않는 것보다 나쁩니다. 그런 관은 나중에 교재만으로 따로 만듭니다.\n'
+)
+
+
+def output_instructions_section(leaf_titles, out_dir_abs, has_lecture):
+    """leaf_titles: [(leaf_id, title), ...]. 결과 JSON은 관 단위 dump 와 같은
+    자리(out_dir_abs, dump_dir(subject, phase))에 쓰라고 안내한다 — ingest 는
+    거기만 본다."""
+    paths = '\n'.join('    %s → %s/%s.json' % (title, out_dir_abs, lid)
+                      for lid, title in leaf_titles)
+    textbook_note = (
+        '\n이 절은 강의가 없어 교재만으로 씁니다 — 각 관의 논점마다 `"source": "textbook"`\n'
+        '을 넣고, `src` 는 빈 배열로 두세요. covered:false 판정은 여기 해당하지 않습니다.\n'
+        if not has_lecture else ''
+    )
+    return (
+        '\n\n---\n\n'
+        '## 무엇을 어디에 쓸지\n\n'
+        + SECTION_SPLIT_PARAGRAPH +
+        '\n각 관마다 covered/reason 래퍼 없이 points 만 담은 JSON 배열을 다음 경로에\n'
+        '저장하세요 (관마다 파일 하나, 이 절 안에서 관 이름이 아니라 leaf_id 로 구분):\n\n'
+        + paths + '\n\n' + textbook_note + '\n'
+        + SCHEMA_BLOCK
+    )
+
+
+def build_section_md(sid, path, lids, sections, bundle, catalog, subject, base, phase,
+                     track_cache, out_dir_abs):
+    prompt, frames, has_lecture = gen_section_prompt(
+        path, lids, sections, bundle, catalog, subject, base, phase, track_cache)
+    leaf_titles = [(lid, sections[lid]['path'][-1] if sections[lid].get('path') else lid)
+                  for lid in lids]
+    header = ('# 절: %s\n\n절 식별자: `%s`\n관 %d개: %s\n\n---\n\n'
+             % (' / '.join(path), sid, len(lids), ', '.join(t for _, t in leaf_titles)))
+    frame_block = ''
+    if frames:
+        frame_block = ('\n\n---\n\n## 판서 이미지 (참고용 — 필요하면 Read 로 열어보세요)\n'
+                       + '\n'.join('- %s' % f for f in frames))
+    footer = output_instructions_section(leaf_titles, out_dir_abs, has_lecture)
+    return header + prompt + frame_block + footer, has_lecture, leaf_titles
+
+
+def do_dump_section(args):
+    base = STUDY / args.subject / 'lectures'
+    align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
+    nm_path = base / 'note_map.json'
+    note_map = (json.loads(nm_path.read_text(encoding='utf-8'))
+                if nm_path.exists() else {'pages': [], 'by_leaf': {}})
+    rel = NOTE_PDF.get(args.subject)
+    pdf = str(SRC_ROOT / rel) if rel else None
+    pages_text = ({p['page']: p['text'] for p in extract_note_pages(pdf)}
+                  if pdf and Path(pdf).exists() else {})
+    sections = load_leaf_sections(args.subject)
+    tdir, kdir = WORK / 'transcripts' / args.subject, WORK / 'keyframes' / args.subject
+    catalog = load_viz_catalog(args.subject)
+    meta = lecture_meta(align)
+
+    orphans = compute_orphans(args.subject, align, sections, tdir)
+    save_orphans(base, args.subject, args.phase, orphans)
+    orphan_sec = sum(o.get('sec', 0) for o in orphans)
+    print('orphans 갱신: %d건 · %.1f분' % (len(orphans), orphan_sec / 60))
+
+    targets, section_of = target_leaves(sections, align)
+    targets = apply_scope(targets, sections, base)
+    # 절은 with_spans 판정에서 이미 전부-혹은-전무로 걸러졌으므로(target_leaves),
+    # apply_scope 뒤 남은 leaf 들의 section_key 를 모으면 그 절의 leaf 전체가
+    # section_of[skey] 에 그대로 남아 있다 — 부분적으로 잘린 절은 없다.
+    skeys = list(dict.fromkeys(section_key(sections[lid]) for lid in targets))
+
+    out_dir = dump_dir(args.subject, args.phase)      # 결과 JSON·평평한 매니페스트 자리
+    sections_dir = out_dir / 'sections'
+    sections_dir.mkdir(parents=True, exist_ok=True)
+    section_manifest_path = sections_dir / '_manifest.json'
+    section_manifest = (json.loads(section_manifest_path.read_text(encoding='utf-8'))
+                        if section_manifest_path.exists() else {})
+    flat_manifest = load_manifest(args.subject, args.phase)
+
+    track_cache = {}
+
+    def section_done(lids):
+        return all(
+            leaf_already_built(base, sections[lid]['unit_code'], args.phase, lid, track_cache)
+            or (out_dir / ('%s.json' % lid)).exists()
+            for lid in lids
+        )
+
+    kept = []
+    skipped = 0
+    for skey in skeys:
+        lids = section_of[skey]
+        sid = section_slug(list(skey))
+        if args.only and args.only != sid and args.only not in lids:
+            continue
+        if not args.force and section_done(lids):
+            print('  건너뜀(모든 관 완료/응답대기) %s' % sid)
+            skipped += 1
+            continue
+        kept.append((skey, sid, lids))
+
+    if args.limit:
+        kept = kept[:args.limit]
+    print('대상 절 %d개(건너뜀 %d개)\n' % (len(kept), skipped))
+
+    dumped = 0
+    for n, (skey, sid, lids) in enumerate(kept, 1):
+        bundle = build_section_bundle(lids, pages_text, note_map, align, meta, tdir, kdir)
+        md, has_lecture, leaf_titles = build_section_md(
+            sid, list(skey), lids, sections, bundle, catalog, args.subject,
+            base, args.phase, track_cache, str(out_dir))
+        (sections_dir / ('%s.md' % sid)).write_text(md, encoding='utf-8')
+        chars = sum(len(b['transcript']) for b in bundle['lectures'])
+        section_manifest[sid] = {
+            'path': list(skey),
+            'leaves': [{'leaf_id': lid, 'title': t} for lid, t in leaf_titles],
+            'has_lecture': has_lecture, 'transcript_chars': chars,
+            'file': 'sections/%s.md' % sid,
+        }
+        # 관 단위 --dump 와 같은 평평한 매니페스트에도 등록한다 — do_ingest 는
+        # 이 매니페스트만 읽으므로, 여기 등록하지 않으면 --dump-section 으로만
+        # 낸 관을 ingest 가 "매니페스트에 없음"으로 건너뛴다.
+        for lid, title in leaf_titles:
+            flat_manifest[lid] = {
+                'unit_code': sections[lid].get('unit_code'), 'title': title,
+                'path': sections[lid].get('path') or [],
+                'has_lecture': has_lecture, 'transcript_chars': chars,
+            }
+        dumped += 1
+        kind = 'lecture' if has_lecture else 'textbook'
+        print('  [%d/%d] dump-section %-30s 관 %d개 (%s)'
+             % (n, len(kept), sid[:30], len(lids), kind))
+
+    section_manifest_path.write_text(
+        json.dumps(section_manifest, ensure_ascii=False, indent=1), encoding='utf-8')
+    save_manifest(args.subject, args.phase, flat_manifest)
+    print('\ndump-section %d개 · 건너뜀 %d개 → %s' % (dumped, skipped, sections_dir))
+
+
 # 이 표현 중 하나라도 issue 문자열에 들어있으면 병합을 거부한다(과제 명세 §2 그대로).
 # 나머지 check_track 의 issue(논점 수 상식 범위, 미등록 viz 템플릿 등)는 경고만
 # 찍고 병합은 진행한다.
@@ -1084,7 +1300,10 @@ def main():
     ap.add_argument('--extra', action='store_true',
                     help='관에 안 붙은 강의를 과목 레벨 트랙(_subject)으로 처리')
     ap.add_argument('--dump', action='store_true',
-                    help='재료를 scripts/lectures/_work/ 에 마크다운으로 내보낸다(API 호출 없음)')
+                    help='재료를 관 단위로 scripts/lectures/_work/ 에 마크다운으로 내보낸다(API 호출 없음)')
+    ap.add_argument('--dump-section', action='store_true',
+                    help='재료를 절 단위로 _work/.../sections/ 에 내보낸다 — 전사 중복·형제 관 '
+                         '중복을 피하려면 이쪽을 쓰세요(API 호출 없음)')
     ap.add_argument('--ingest', action='store_true',
                     help='_work/ 의 결과 JSON 을 검증한 뒤 트랙에 병합한다(API 호출 없음)')
     args = ap.parse_args()
@@ -1093,13 +1312,19 @@ def main():
         do_check(args.subject, args.phase)
         return
 
+    if args.dump_section:
+        if args.dump or args.ingest:
+            sys.exit('--dump-section 은 --dump/--ingest 와 함께 쓸 수 없습니다.')
+        do_dump_section(args)
+        return
+
     if args.dump and args.ingest:
         sys.exit('--dump 와 --ingest 는 동시에 쓸 수 없습니다.')
     if not args.dump and not args.ingest:
         ap.print_help()
         sys.exit('\n외부 API 호출은 제거됐습니다(더 이상 이 스크립트가 직접 모델을 부르지\n'
-                 '않습니다). --dump (재료 내보내기) 또는 --ingest (결과 병합) 를 지정하세요.\n'
-                 '검증만 하려면 --check.')
+                 '않습니다). --dump (관 단위) 또는 --dump-section (절 단위, 권장) 로 재료를\n'
+                 '내보내거나, --ingest 로 결과를 병합하세요. 검증만 하려면 --check.')
 
     if args.dump:
         if args.extra:
