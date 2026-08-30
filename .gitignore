@@ -27,3 +27,6 @@ venv/
 _휴지통/
 
 pipeline/9_tiering/backup/
+
+# 강의 트랙 dump/ingest 중간 산출물(커밋 제외)
+scripts/lectures/_work/

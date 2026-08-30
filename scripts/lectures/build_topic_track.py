@@ -5,19 +5,23 @@
 다룬 것을 빠짐없이** 순서대로 세운다. 개념 완성 화면이 이 목록을 하나씩 소진하고,
 다 비우면 그 관의 강의를 끝까지 들은 것과 같다.
 
+**외부 API 호출은 없다.** 논점 생성은 Claude 에이전트가 파일을 읽고 써서 한다.
+  --dump   : 관 하나를 만드는 데 필요한 재료(전사·교재·규칙)를 마크다운 파일로 낸다.
+  --ingest : 에이전트가 채운 결과 JSON 을 검증한 뒤 트랙 파일에 병합한다.
+
 출력: viewer/public/data/study/{과목}/lectures/track/{unit}.{phase}.json
+중간 산출물(dump/ingest 왕복 파일): scripts/lectures/_work/{과목}/{phase}/
 
 사용:
-  python3 scripts/lectures/build_topic_track.py economics --phase basic --limit 2
-  python3 scripts/lectures/build_topic_track.py economics --phase basic
+  python3 scripts/lectures/build_topic_track.py economics --phase basic --dump --limit 3
+  # ... _work/economics/basic/{leaf_id}.md 를 읽고 {leaf_id}.json 을 채운다 ...
+  python3 scripts/lectures/build_topic_track.py economics --phase basic --ingest
   python3 scripts/lectures/build_topic_track.py economics --phase basic --check
 """
 import argparse
 import json
-import os
 import re
 import sys
-import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -25,12 +29,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _paths import REPO, STUDY, WORK, SRC_ROOT  # noqa: E402
 from build_note_bundle import merge_spans  # noqa: E402
 from map_notes_to_leaves import extract_note_pages  # noqa: E402
-from generate_notes import (SUBJECT_RULES, call_gemini, load_leaf_sections,  # noqa: E402
-                            MODEL, MAX_FRAMES)
-from track_core import (make_point_id, order_spans, chunk_lectures,  # noqa: E402
-                        parse_points, parse_meta, parses_as_json, check_track, diff_ids)
+from generate_notes import SUBJECT_RULES, load_leaf_sections  # noqa: E402
+from track_core import (make_point_id, order_spans, check_track, diff_ids)  # noqa: E402
 
-MAX_CHUNK_CHARS = 45000   # 한 번의 호출에 넣을 전사 글자수 상한
+# dump/ingest 왕복 파일 루트. _paths.WORK(외장 드라이브의 _ai_pipeline)와는 다르다 —
+# 이건 저장소 로컬(커밋 제외, .gitignore)이고 전사/키프레임 원본이 아니라 에이전트가
+# 주고받는 중간 파일이다.
+DUMP_ROOT = Path(__file__).resolve().parent / '_work'
 
 # 강사 필기노트 PDF — 드라이브 이름을 박지 않는다. _paths.SRC_ROOT 가 마운트된 볼륨을 찾아 준다.
 # (build_note_bundle.DEFAULT_PDF 에는 옛 드라이브 이름(WD_Black)이 박혀 있어 쓰지 않는다.)
@@ -130,21 +135,41 @@ supply-demand 예시 — "소득 증가로 수요가 늘어 균형이 이동하�
 캐릭터:
 - "ask"    묻는 이 — 학습자 대신 묻는다. 짧고 솔직하게. "이거 왜 배워요?" "아까 그거랑 뭐가 달라요?"
 - "teach"  선생 — 설명한다. **일상 언어로 먼저 풀고, 비유를 든 다음, 그제서야 교재 표현**을 말한다.
-- "gotcha" 깐깐이 — 찌른다. 반례·경계조건·시험 함정. "그럼 이 경우엔요?"
-- "mate"   복습 메이트 — 무엇을 외우고 무엇은 넘길지. **내용 설명은 하지 않는다. 학습 조언만.**
+- "gotcha" 깐깐이 — **묻기만 하지 말고 짚어 준다.** 반례·경계조건·시험 함정을 스스로 제시하고,
+  왜 그 경계가 시험에 나오는지까지 말한다. "그럼 이 경우엔요?" 로 끝내는 질문형은 turns 전체에서
+  절반 이하로 — 나머지는 "여기서 자주 틀리는 게 …" 처럼 짚어 주는 서술형으로 쓴다.
+- "mate"   복습 메이트 — 무엇을 외우고 무엇은 넘길지. **개념·수치·이론 내용은 한 글자도 설명하지
+  않는다.** ("콥더글러스는 ~이다", "1급 가격차별은 ~이다" 같은 설명 문장 금지.) 순수 학습 조언만
+  — "이건 외워라", "이건 시험에 잘 안 나오니 넘겨도 된다", "앞 논점이랑 헷갈리지 않게 정리해라".
 
 [반드시 지킬 것]
 - **turns 에 "quiz" 턴이 최소 하나 있어야 합니다.** 없으면 학습자가 그냥 넘겨 버립니다.
-- quiz 는 정답 1개, 오답 2~3개입니다.
+- **캐릭터 넷(ask/teach/gotcha/mate)이 논점마다 최소 한 번씩은 등장해야 합니다.** 다만 억지로
+  분량을 채우려고 내용 없는 대사를 넣지는 마세요 — 자연스럽게 넣을 자리가 정말 없으면 생략해도
+  됩니다.
+- **quiz 의 질문(prompt)은 긍정형으로만 쓰세요.** "틀린 것은?", "옳지 않은 것은?", "아닌 것은?"
+  같은 부정형은 절대 쓰지 마세요. choices 의 `ok: true` 는 언제나 **맞는 선택지**를 뜻하는데,
+  부정형 질문에서는 이 약속이 뒤집혀 채점이 반대로 됩니다.
+- **quiz 의 choices 는 정답 1개 + 오답 2~3개, 총 3~4개입니다. 2개(정답1·오답1)는 절대
+  만들지 마세요** — 찍어서 절반을 맞히는 문제가 됩니다.
 - **오답은 그럴듯해야 합니다.** 실제로 헷갈리는 것 — 반대 개념(수요 vs 공급), 조건 하나만
   바꾼 것, 방향만 뒤집은 것. 전사에서 함정이라고 경고한 대목이 있으면 그걸 오답으로 쓰세요.
 - **오답마다 그 오답 전용 reply 를 씁니다.** "틀렸습니다" 로 시작하지 마세요.
   왜 그렇게 생각했는지 짚고 바로잡으세요. 예: "그건 사는 쪽 얘기예요. 파는 사람
   입장에서 생각해봐요 — 값이 비싸지면 더 팔고 싶겠죠?"
+- **quiz 는 바로 앞 대사에 답이 그대로 적혀 있으면 안 됩니다.** 방금 말한 문장을 그대로
+  되묻는 것은 기억력 테스트일 뿐입니다. 앞에서 배운 것을 **적용**하거나 **구별**하게 하세요.
 - 정답 choice 에도 reply 를 씁니다(짧게 확인해 주는 말).
 - "강사", "강의", "선생님" 이라는 **단어**는 여전히 쓰지 마세요. 캐릭터 「선생」이 말하는
   것이지 누군가를 인용하는 게 아닙니다.
 - 과장된 감탄사나 이모티콘을 남발하지 마세요. 친근하되 유치하지 않게.
+
+[viz — 놓치지 말 것]
+곡선의 이동, 균형의 변화, 면적(잉여·후생손실), 수식의 구조를 **말로** 설명하고 있다면
+그림을 붙이세요. "왼쪽으로 이동한다"는 문장으로 끝내지 말고 [viz.steps — 상태가 변하는
+논점이면 반드시 쓸 것]을 따라 실제 이동을 보이는 편이 훨씬 낫습니다. 이 대화 형식으로
+바뀌었다고 viz 지시가 약해지는 것이 아닙니다 — 그림이 맞는 논점에 viz 를 빠뜨리는 것은
+이전과 똑같이 잘못입니다.
 
 [출력 형식 — JSON 객체 하나만]
 설명·인사말·코드펜스 없이 아래 형태의 JSON 객체 하나만 출력하세요.
@@ -297,93 +322,65 @@ def prev_bodies_for(base, unit, phase, lid, cache):
     return ''
 
 
-def gen_leaf(key, sec, bundle, catalog, subject, siblings=None, prev_bodies=''):
-    """관 하나의 논점 목록을 만든다. 긴 관은 나눠 호출해 이어 붙인다.
+def gen_leaf_prompt(key, sec, bundle, catalog, subject, siblings=None, prev_bodies=''):
+    """관 하나의 논점 생성 프롬프트를 조립한다.
 
-    bundle 은 이 관 하나가 아니라 **이 관이 속한 절 전체**의 강의 구간이다 —
-    절 안에서 관별로 구간을 다시 나누는 시도(TF-IDF 두 번, LLM 한 번)가 세 번 다
-    실패해(안 본 절에서 오배정), 판단 시점을 "구간을 관에 배정"에서 "절 재료를
-    주고 그 관 범위만 쓰게 한다"로 옮겼다. sec['body']가 그 범위 기준이고,
-    siblings 는 같은 절의 다른 관 제목 목록 — 프롬프트가 그 내용을 걸러내라고
-    지시하는 데 쓴다. prev_bodies 는 이 관의 옛 트랙에서 모은 body 텍스트로,
-    재생성 시 검증된 내용을 재료로 재사용한다(처음부터 다시 읽는 것보다 싸다).
-
-    청크 성공/전체는 chunk_holder(전역, usage_holder 와 같은 패턴)에 남긴다 — 이
-    함수의 공개 시그니처(반환값 points 리스트)는 바꾸지 않는다. save_leaf 가
-    chunk_holder 를 읽어 트랙에 chunks_ok/chunks_total 을 적으면, 청크 일부가
-    빈 배열로 실패해도 "성공"으로 저장되던 문제를 --check 가 잡을 수 있다.
+    예전에는 이 함수(gen_leaf)가 전사를 청크로 나눠(chunk_lectures) 청크마다
+    Gemini 를 호출했다 — 그 상한(MAX_CHUNK_CHARS)은 API 컨텍스트 한계 때문이었다.
+    이제 API 를 부르지 않으므로 그 제약이 없다: 절 전체 전사를 통째로 한 프롬프트에
+    담는다. 반환값은 (prompt, frames) — frames 는 참고용 판서 이미지 경로 목록이다
+    (예전엔 call_gemini 에 이미지로 직접 넘겼다; 이제 dump 파일에 경로만 적어 두면
+    필요할 때 Read 로 열어볼 수 있다).
     """
-    chunk_holder['ok'] = 0
-    chunk_holder['total'] = 0
-    points = []
-    chunks = chunk_lectures(bundle['lectures'], MAX_CHUNK_CHARS)
-    for i, blocks in enumerate(chunks, 1):
-        transcript = '\n\n'.join('[%s강 %s]\n%s' % (b['no'], b['ts'], b['transcript'])
-                                 for b in blocks)
-        frames = [f['file'] for b in blocks for f in b['frames']][:MAX_FRAMES]
-        cont = ('\n\n[이어서]\n앞 구간에서 이미 세운 논점입니다. 겹치지 말고 이어서 쓰세요.\n'
-                + '\n'.join('- ' + p['title'] for p in points)) if points else ''
-        note_block = ('[강사 필기노트 — 강의 중 화면에 띄운 문서]\n%s\n\n' % bundle['note_text'][:8000]
-                      if bundle.get('note_text', '').strip() else '')
-        # 밀도 지시 — 이 구간 분량에서 나와야 할 논점 개수를 프롬프트에 직접 숫자로 박는다.
-        # 목표: 강의 3~4분당 논점 1개. 상한 15개는 call_gemini 의 maxOutputTokens(8000,
-        # 수정 금지 파일)를 응답이 넘지 않게 하려는 안전판이지 할당량이 아니다.
-        chunk_minutes = round(sum(b.get('minutes', 0) for b in blocks), 1)
-        density_lo = min(15, max(3, int(chunk_minutes // 4)))
-        density_hi = min(15, max(density_lo, int(-(-chunk_minutes // 3))))  # ceil(minutes/3)
-        density_note = (
-            '\n[분량과 논점 개수]\n'
-            '이 구간은 %s분입니다. 논점 하나가 강의 3~4분치를 덮는 밀도를 목표로 하면\n'
-            '이 구간에서는 논점 %d~%d개가 나와야 합니다(상한 15개).\n'
-            '이 목록만 읽고 강의를 대체할 사람이 있으므로, 한 논점이 강의 10분치를\n'
-            '뭉뚱그리면 그 사람은 그 10분의 내용을 모릅니다.\n'
-            '다만 이 개수는 목표이지 할당량이 아닙니다 — 강의가 실제로 짧게 다룬 내용을\n'
-            '억지로 쪼개거나 없는 내용을 지어내 채우지 마세요. 강의가 정말 그만큼 다뤘을 때만\n'
-            '그만큼 쓰세요.\n' % (chunk_minutes, density_lo, density_hi)
+    blocks = bundle['lectures']
+    transcript = '\n\n'.join('[%s강 %s]\n%s' % (b['no'], b['ts'], b['transcript'])
+                             for b in blocks)
+    frames = [f['file'] for b in blocks for f in b['frames']]
+    note_block = ('[강사 필기노트 — 강의 중 화면에 띄운 문서]\n%s\n\n' % bundle['note_text'][:8000]
+                  if bundle.get('note_text', '').strip() else '')
+    # 밀도 지시 — 이 관 전체 분량에서 나와야 할 논점 개수를 프롬프트에 직접 숫자로 박는다.
+    # 목표: 강의 3~4분당 논점 1개. (예전엔 청크당 상한 15개를 뒀다 — call_gemini 의
+    # maxOutputTokens 를 안 넘기려는 안전판이었다. API 를 안 부르므로 그 상한은 더
+    # 이상 의미가 없어 없앴다.)
+    total_minutes = round(sum(b.get('minutes', 0) for b in blocks), 1)
+    density_lo = max(3, int(total_minutes // 4))
+    density_hi = max(density_lo, -(-int(total_minutes) // 3))  # ceil(minutes/3)
+    density_note = (
+        '\n[분량과 논점 개수]\n'
+        '이 관의 강의 구간은 총 %s분입니다. 논점 하나가 강의 3~4분치를 덮는 밀도를\n'
+        '목표로 하면 논점 %d~%d개가 나와야 합니다.\n'
+        '이 목록만 읽고 강의를 대체할 사람이 있으므로, 한 논점이 강의 10분치를\n'
+        '뭉뚱그리면 그 사람은 그 10분의 내용을 모릅니다.\n'
+        '다만 이 개수는 목표이지 할당량이 아닙니다 — 강의가 실제로 짧게 다룬 내용을\n'
+        '억지로 쪼개거나 없는 내용을 지어내 채우지 마세요. 강의가 정말 그만큼 다뤘을 때만\n'
+        '그만큼 쓰세요.\n' % (total_minutes, density_lo, density_hi)
+    )
+    sib_block = ''
+    if siblings:
+        sib_block = (
+            '[같은 절의 다른 관 — 이 내용은 쓰지 마세요]\n'
+            '아래는 이 관과 같은 절에 속한 다른 관들입니다. 전사에 이 관들 얘기가\n'
+            '섞여 있어도 걸러내세요 — 그 관에서 따로 다룹니다.\n'
+            + '\n'.join('- ' + s for s in siblings) + '\n\n'
         )
-        sib_block = ''
-        if siblings:
-            sib_block = (
-                '[같은 절의 다른 관 — 이 내용은 쓰지 마세요]\n'
-                '아래는 이 관과 같은 절에 속한 다른 관들입니다. 전사에 이 관들 얘기가\n'
-                '섞여 있어도 걸러내세요 — 그 관에서 따로 다룹니다.\n'
-                + '\n'.join('- ' + s for s in siblings) + '\n\n'
-            )
-        prev_block = (('[이 관의 이전 정리 — 내용 근거로만 쓰고 문장을 그대로 옮기지 마세요]\n%s\n\n'
-                       % prev_bodies[:6000]) if prev_bodies else '')
-        prompt = (
-            '%s\n%s\n\n%s\n\n'
-            '[관] %s\n\n'
-            '[교재 본문 — **이 관의 범위 기준**. 전사에는 절 전체 내용이 섞여 있으니,\n'
-            ' 이 슬라이스에 해당하는 이야기만 이 관의 논점으로 쓰세요. 그대로 옮기지\n'
-            ' 말고, 강의가 실제로 다룬 것만 쓰세요.]\n%s\n\n'
-            '%s%s%s%s'
-            '[강의 전사 — 이 관이 속한 절 전체 구간 (%d/%d)]\n%s%s\n\n'
-            '첨부한 이미지는 그 구간의 판서 화면입니다. 수식·도식이 텍스트에 없으면 여기서 읽어 반영하세요.'
-            % (STYLE, SUBJECT_RULES.get(subject, ''), catalog,
-               ' / '.join(sec['path']), sec['body'][:12000],
-               sib_block, prev_block, note_block, density_note,
-               i, len(chunks), transcript, cont)
-        )
-        raw, usage = call_gemini(key_holder['key'], prompt, frames)
-        got = parse_points(raw)
-        covered, reason = parse_meta(raw)
-        if covered is False:
-            print('  ⚠ %s: 강의에 없다고 판정 (%d/%d) — %s' % (key, i, len(chunks), reason))
-        chunk_holder['total'] += 1
-        # got 이 비어도 raw 가 문법적으로 유효한 JSON(빈 배열 포함)이면 실패가
-        # 아니다 — 이 관의 주제가 그 구간에 없다는 정당한 판정일 수 있다.
-        if not got and raw and not parses_as_json(raw):
-            print('  ⚠ %s: 논점 파싱 실패 (%d/%d) — 응답 끝 100자: %r'
-                  % (key, i, len(chunks), raw[-100:]))
-        else:
-            chunk_holder['ok'] += 1
-        points.extend(got)
-        usage_holder['in'] += usage.get('promptTokenCount', 0)
-        usage_holder['out'] += usage.get('candidatesTokenCount', 0)
-    for p in points:
-        p['source'] = 'lecture'
-    return points
+    prev_block = (('[이 관의 이전 정리 — 내용 근거로만 쓰고 문장을 그대로 옮기지 마세요]\n%s\n\n'
+                   % prev_bodies[:6000]) if prev_bodies else '')
+    prompt = (
+        '%s\n%s\n\n%s\n\n'
+        '[관] %s\n\n'
+        '[교재 본문 — **이 관의 범위 기준**. 전사에는 절 전체 내용이 섞여 있으니,\n'
+        ' 이 슬라이스에 해당하는 이야기만 이 관의 논점으로 쓰세요. 그대로 옮기지\n'
+        ' 말고, 강의가 실제로 다룬 것만 쓰세요.]\n%s\n\n'
+        '%s%s%s%s'
+        '[강의 전사 — 이 관이 속한 절 전체 구간, %d분 · %d개 강의 구간 전체]\n%s\n\n'
+        '판서 이미지가 있으면 이 파일 아래 "판서 이미지" 절에 경로가 있습니다. 수식·도식이\n'
+        '텍스트에 없으면 열어서 반영하세요.'
+        % (STYLE, SUBJECT_RULES.get(subject, ''), catalog,
+           ' / '.join(sec['path']), sec['body'][:12000],
+           sib_block, prev_block, note_block, density_note,
+           total_minutes, len(blocks), transcript)
+    )
+    return prompt, frames
 
 
 TEXTBOOK_ONLY_NOTE = """
@@ -398,11 +395,11 @@ TEXTBOOK_ONLY_NOTE = """
   안 됩니다. covered 는 true 로 두고, 교재에 있는 내용으로 points 를 채우세요."""
 
 
-def gen_leaf_textbook(key, sec, catalog, subject, siblings=None):
-    """강의 전사에 주제가 없는 관을 위한 2차 호출. 전사를 아예 넣지 않는다 —
-    넣으면 gen_leaf 처럼 형제 관 내용을 다시 끌어온다. 반환하는 논점마다
-    source='textbook' 을 붙인다(앱은 이 값으로 「교재 기반」 배지를 보여준다,
-    viewer/src/ConceptScene.jsx, 수정 금지 파일 — 여기선 값만 채워 넘긴다).
+def gen_leaf_textbook_prompt(key, sec, catalog, subject, siblings=None):
+    """강의 전사에 주제가 없는 관을 위한 프롬프트 조립. 전사를 아예 넣지 않는다 —
+    넣으면 gen_leaf_prompt 처럼 형제 관 내용을 다시 끌어온다. 결과 points 마다
+    source='textbook' 을 붙이는 것은 병합 단계(ingest)의 몫이다(앱은 이 값으로
+    「교재 기반」 배지를 보여준다, viewer/src/ConceptScene.jsx, 수정 금지 파일).
     """
     sib_block = ''
     if siblings:
@@ -419,22 +416,7 @@ def gen_leaf_textbook(key, sec, catalog, subject, siblings=None):
         % (STYLE, SUBJECT_RULES.get(subject, ''), catalog, ' / '.join(sec['path']),
            sec['body'][:12000], sib_block, TEXTBOOK_ONLY_NOTE)
     )
-    raw, usage = call_gemini(key_holder['key'], prompt, [])
-    got = parse_points(raw)
-    chunk_holder['total'] += 1
-    if got or parses_as_json(raw):
-        chunk_holder['ok'] += 1
-    usage_holder['in'] += usage.get('promptTokenCount', 0)
-    usage_holder['out'] += usage.get('candidatesTokenCount', 0)
-    for p in got:
-        p['source'] = 'textbook'
-        p.setdefault('src', [])
-    return got
-
-
-key_holder = {'key': None}
-usage_holder = {'in': 0, 'out': 0}
-chunk_holder = {'ok': 0, 'total': 0}
+    return prompt
 
 
 def track_path(base, unit, phase):
@@ -560,13 +542,10 @@ def save_extra_group(base, subject, phase, gi, kind, title, pts):
 
 
 # 관 빌드의 정상 경로는 align.json 의 span 이 강의를 몇 분 단위로 잘라 주므로 블록이
-# 자연히 여러 개다. 과목 레벨 트랙은 span 이 없어 강의 전체가 블록 하나가 되기 쉽고,
-# 긴 강의(50분 이상) 하나를 통째로 넣으면 밀도 지시(분당 논점 목표)가 커져 Gemini
-# 응답이 maxOutputTokens 를 넘어 파싱이 깨진다 — 미시경제학 총정리(58분)에서 실측.
-# 시간 창으로 블록을 잘게 쪼개고, 이 호출에서만 청크 글자수 상한도 낮춰
-# 자연히 여러 번 나눠 부르게 한다.
+# 자연히 여러 개다. 과목 레벨 트랙은 span 이 없어 강의 전체가 블록 하나가 되기 쉬워,
+# 시간 창으로 나눠 두면 파일 안에서도 훑어보기 쉽다(글자수 상한과는 무관 — 자르는
+# 것이 아니라 구획만 나누는 것이다. 전체 내용은 그대로 다 들어간다).
 EXTRA_WINDOW_SEC = 600     # 블록 하나당 시간 창(10분)
-EXTRA_MAX_CHUNK_CHARS = 12000
 
 
 def windowed_blocks(tr, no, window_sec=EXTRA_WINDOW_SEC):
@@ -588,44 +567,6 @@ def windowed_blocks(tr, no, window_sec=EXTRA_WINDOW_SEC):
         })
         i = j
     return blocks
-
-
-def build_extra(args, base, tdir, catalog):
-    groups = EXTRA_GROUPS.get(args.subject)
-    if not groups:
-        sys.exit('%s 는 과목 레벨 트랙 정의가 없습니다.' % args.subject)
-    global MAX_CHUNK_CHARS
-    for gi, g in enumerate(groups):
-        if not args.force and extra_group_built(base, args.phase, g['title']):
-            print('  건너뜀(이미 생성됨) %s' % g['title'])
-            continue
-        blocks = []
-        for lid in g['lectures']:
-            f = tdir / ('%s.json' % lid)
-            if not f.exists():
-                print('  ⚠ 전사 없음: %s' % lid)
-                continue
-            tr = json.loads(f.read_text(encoding='utf-8'))
-            no = tr.get('no')
-            if no is None:
-                no = int(re.search(r'(\d+)$', lid).group(1))
-            blocks.extend(windowed_blocks(tr, no))
-        if not blocks:
-            print('  ⚠ %s: 전사가 하나도 없어 건너뜀' % g['title'])
-            continue
-        sec = {'path': [g['title']], 'body': '', 'heads': [], 'unit_code': '_subject'}
-        orig_max = MAX_CHUNK_CHARS
-        MAX_CHUNK_CHARS = EXTRA_MAX_CHUNK_CHARS
-        try:
-            pts = gen_leaf(g['title'], sec, {'lectures': blocks}, catalog, args.subject)
-        finally:
-            MAX_CHUNK_CHARS = orig_max
-        if not pts:
-            print('  ❌ 논점 0개 %s' % g['title'])
-            continue
-        save_extra_group(base, args.subject, args.phase, gi, g['kind'], g['title'], pts)
-        print('  %-20s 논점 %d개' % (g['title'], len(pts)))
-    print('저장: %s' % track_path(base, '_subject', args.phase))
 
 
 ORPHAN_MIN_GAP_SEC = 2.0   # 라운딩 오차(관측상 <2초)를 구멍으로 오인하지 않는 하한
@@ -828,35 +769,97 @@ def do_check(subject, phase):
                 print('  ⚠ %s강 %.1f초 미매핑 — %s' % (o.get('lec'), o.get('sec', 0), o.get('gist', '')))
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('subject')
-    ap.add_argument('--phase', default='basic')
-    ap.add_argument('--limit', type=int)
-    ap.add_argument('--only', help='특정 leaf_id 하나만')
-    ap.add_argument('--check', action='store_true', help='생성하지 않고 검증만')
-    ap.add_argument('--force', action='store_true', help='이미 만든 관도 다시 생성')
-    ap.add_argument('--extra', action='store_true',
-                    help='관에 안 붙은 강의를 과목 레벨 트랙(_subject)으로 생성')
-    ap.add_argument('--model', default=MODEL)
-    args = ap.parse_args()
+# ---------------------------------------------------------------------------
+# --dump / --ingest — 재료 내보내기·결과 병합. API 호출은 하지 않는다.
+# ---------------------------------------------------------------------------
 
-    if args.check:
-        do_check(args.subject, args.phase)
-        return
+def dump_dir(subject, phase):
+    d = DUMP_ROOT / subject / phase
+    d.mkdir(parents=True, exist_ok=True)
+    return d
 
-    import generate_notes
-    generate_notes.MODEL = args.model
 
-    env = {}
-    for line in (REPO / '.env').read_text(encoding='utf-8').splitlines():
-        if '=' in line and not line.strip().startswith('#'):
-            k, v = line.split('=', 1)
-            env[k.strip()] = v.strip()
-    key_holder['key'] = env.get('GEMINI_API_KEY') or os.environ.get('GEMINI_API_KEY')
-    if not key_holder['key']:
-        sys.exit('GEMINI_API_KEY 없음')
+def manifest_path(subject, phase):
+    return dump_dir(subject, phase) / '_manifest.json'
 
+
+def load_manifest(subject, phase):
+    p = manifest_path(subject, phase)
+    return json.loads(p.read_text(encoding='utf-8')) if p.exists() else {}
+
+
+def save_manifest(subject, phase, manifest):
+    manifest_path(subject, phase).write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=1), encoding='utf-8')
+
+
+def output_instructions(leaf_id, has_lecture=True):
+    empty_note = (
+        '이 관의 소제목이 전사에서 하나도 다뤄지지 않았다고 판단되면(=STYLE 의 covered\n'
+        ':false 판정에 해당하면) 빈 배열 `[]` 을 저장하세요.\n\n'
+        if has_lecture else
+        '이 관은 강의 전사가 없어 교재만으로 씁니다 — [중요] 절이 설명하듯 covered:false\n'
+        '판정은 여기 해당하지 않습니다. 교재에 있는 내용으로 points 를 채우세요.\n\n'
+    )
+    return (
+        '\n\n---\n\n'
+        '## 무엇을 어디에 쓸지\n\n'
+        '위 내용을 바탕으로 이 관의 논점을 작성하세요. **STYLE 의 "[출력 형식]" 절이\n'
+        '설명하는 covered/reason 래퍼는 이 파일에는 쓰지 않습니다** — 결과는 points\n'
+        '만 담은 **JSON 배열**입니다. 다음 경로에 저장하세요 (이 .md 파일과 같은 폴더):\n\n'
+        '    %s.json\n\n'
+        '%s'
+        '배열 원소 하나의 스키마:\n'
+        '```json\n'
+        '{"title": "…", "gist": "…",\n'
+        ' "turns": [\n'
+        '   {"who": "ask", "text": "…"},\n'
+        '   {"who": "teach", "text": "…", "viz": {"template": "…", "params": {}, "steps": []}},\n'
+        '   {"who": "quiz", "prompt": "…", "choices": [\n'
+        '      {"text": "…", "ok": true, "reply": "…"},\n'
+        '      {"text": "…", "ok": false, "who": "gotcha", "reply": "…"}\n'
+        '   ]},\n'
+        '   {"who": "gotcha", "text": "…"},\n'
+        '   {"who": "mate", "text": "…"}\n'
+        ' ],\n'
+        ' "example": {"q": "…", "solution": "…"},\n'
+        ' "check": {"q": "…", "a": "…"},\n'
+        ' "src": [{"lec": 12, "t": 1390}]}\n'
+        '```\n'
+        '`example` 은 계산·판단이 있는 논점에만 넣고, 없으면 생략하세요. 전사가 없는\n'
+        '(교재 전용) 관이면 `src` 는 빈 배열로 두세요.\n'
+    ) % (leaf_id, empty_note)
+
+
+def build_md(lid, sec, prompt_text, frames, has_lecture=True):
+    header = ('# 관: %s\n\nleaf_id: `%s`\nunit_code: `%s`\n\n---\n\n'
+             % (' / '.join(sec.get('path') or [lid]), lid, sec.get('unit_code') or ''))
+    frame_block = ''
+    if frames:
+        frame_block = ('\n\n---\n\n## 판서 이미지 (참고용 — 필요하면 Read 로 열어보세요)\n'
+                       + '\n'.join('- %s' % f for f in frames))
+    return header + prompt_text + frame_block + output_instructions(lid, has_lecture=has_lecture)
+
+
+def dump_leaf(subject, phase, lid, sec, bundle, catalog, siblings, prev_bodies, manifest):
+    has_lecture = bool(bundle and bundle.get('lectures'))
+    if has_lecture:
+        prompt, frames = gen_leaf_prompt(lid, sec, bundle, catalog, subject,
+                                         siblings=siblings, prev_bodies=prev_bodies)
+    else:
+        prompt, frames = gen_leaf_textbook_prompt(lid, sec, catalog, subject, siblings=siblings), []
+    md = build_md(lid, sec, prompt, frames, has_lecture=has_lecture)
+    (dump_dir(subject, phase) / ('%s.md' % lid)).write_text(md, encoding='utf-8')
+    manifest[lid] = {
+        'unit_code': sec.get('unit_code'),
+        'title': sec['path'][-1] if sec.get('path') else lid,
+        'path': sec.get('path') or [],
+        'has_lecture': has_lecture,
+        'transcript_chars': sum(len(b['transcript']) for b in bundle['lectures']) if bundle else 0,
+    }
+
+
+def do_dump(args):
     base = STUDY / args.subject / 'lectures'
     align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
     nm_path = base / 'note_map.json'
@@ -864,8 +867,6 @@ def main():
                 if nm_path.exists() else {'pages': [], 'by_leaf': {}})
     rel = NOTE_PDF.get(args.subject)
     pdf = str(SRC_ROOT / rel) if rel else None
-    # 상대경로를 SRC_ROOT(마운트된 볼륨)에서 조립한다. 과목에 항목이 없거나 파일이
-    # 실제로 없으면 pages_text 를 빈 dict 로 둔 채 넘어간다(전사·판서만으로 진행).
     pages_text = ({p['page']: p['text'] for p in extract_note_pages(pdf)}
                   if pdf and Path(pdf).exists() else {})
     sections = load_leaf_sections(args.subject)
@@ -873,31 +874,30 @@ def main():
     catalog = load_viz_catalog(args.subject)
     meta = lecture_meta(align)
 
-    # orphans(F-1)는 과목 전체 기준이라 --limit/--only/--extra 와 무관하게, 이
-    # 실행에서 생성 대상 관을 정하기 전에 align 전체를 훑어 한 번만 갱신한다.
     orphans = compute_orphans(args.subject, align, sections, tdir)
     save_orphans(base, args.subject, args.phase, orphans)
     orphan_sec = sum(o.get('sec', 0) for o in orphans)
     print('orphans 갱신: %d건 · %.1f분' % (len(orphans), orphan_sec / 60))
-
-    if args.extra:
-        build_extra(args, base, tdir, catalog)
-        return
 
     targets, section_of = target_leaves(sections, align)
     targets = apply_scope(targets, sections, base)
     if args.only:
         targets = [t for t in targets if t == args.only]
 
+    out_dir = dump_dir(args.subject, args.phase)
+    manifest = load_manifest(args.subject, args.phase)
     track_cache = {}
     skipped = 0
     if not args.force:
         kept = []
         for lid in targets:
             unit = sections[lid]['unit_code']
+            title = sections[lid]['path'][-1] if sections[lid]['path'] else lid
             if leaf_already_built(base, unit, args.phase, lid, track_cache):
-                title = sections[lid]['path'][-1] if sections[lid]['path'] else lid
-                print('  건너뜀(이미 생성됨) %s' % title)
+                print('  건너뜀(트랙에 이미 있음) %s' % title)
+                skipped += 1
+            elif (out_dir / ('%s.json' % lid)).exists():
+                print('  건너뜀(응답 대기중 — ingest 하세요) %s' % title)
                 skipped += 1
             else:
                 kept.append(lid)
@@ -905,11 +905,10 @@ def main():
 
     if args.limit:
         targets = targets[:args.limit]
-    print('대상 관 %d개(건너뜀 %d개) · 모델 %s\n' % (len(targets), skipped, args.model))
+    print('대상 관 %d개(건너뜀 %d개)\n' % (len(targets), skipped))
 
-    units_touched = set()
     section_bundle_cache = {}
-    t0 = time.time()
+    dumped = 0
     for n, lid in enumerate(targets, 1):
         sec = sections[lid]
         title = sec['path'][-1] if sec['path'] else lid
@@ -918,42 +917,197 @@ def main():
             section_bundle_cache[skey] = build_section_bundle(
                 section_of[skey], pages_text, note_map, align, meta, tdir, kdir)
         bundle = section_bundle_cache[skey]
-        if not bundle['lectures']:
-            print('  [%d/%d] 건너뜀(강의 구간 없음) %s' % (n, len(targets), title))
-            continue
         siblings = [sections[s]['path'][-1] for s in section_of[skey]
                    if s != lid and sections[s].get('path')]
         prev_bodies = prev_bodies_for(base, sec['unit_code'], args.phase, lid, track_cache)
-        try:
-            pts = gen_leaf(lid, sec, bundle, catalog, args.subject,
-                          siblings=siblings, prev_bodies=prev_bodies)
-        except Exception as e:
-            print('  [%d/%d] ❌ 실패 %s' % (n, len(targets), e))
-            continue
-        # 강의 전사가 이 관의 주제를 다루지 않는다고 판정되면(빈 배열) 형제 관
-        # 내용을 끌어오는 대신, 전사 없이 교재 슬라이스만으로 다시 시도한다.
-        if not pts and sec.get('body', '').strip():
-            print('  [%d/%d] 강의에 없음 — 교재 기반으로 재시도 %s' % (n, len(targets), title))
-            try:
-                pts = gen_leaf_textbook(lid, sec, catalog, args.subject, siblings=siblings)
-            except Exception as e:
-                print('  [%d/%d] ❌ 교재 기반 생성도 실패 %s' % (n, len(targets), e))
-        if not pts:
-            print('  [%d/%d] ❌ 논점 0개 %s' % (n, len(targets), title))
-            continue
-        c_ok, c_total = chunk_holder['ok'], chunk_holder['total']
-        save_leaf(base, args.subject, args.phase, sec['unit_code'], lid, title, pts,
-                 chunks_ok=c_ok, chunks_total=c_total)
-        units_touched.add(sec['unit_code'])
-        chunk_note = ' (청크 %d/%d 실패 있음)' % (c_ok, c_total) if c_ok < c_total else ''
-        print('  [%d/%d] %-34s 논점 %d개 · %d분%s' % (n, len(targets), title[:34],
-                                                  len(pts), bundle['total_minutes'], chunk_note))
+        dump_leaf(args.subject, args.phase, lid, sec, bundle, catalog, siblings, prev_bodies, manifest)
+        dumped += 1
+        kind = 'lecture' if bundle['lectures'] else 'textbook'
+        print('  [%d/%d] dump %-34s (%s)' % (n, len(targets), title[:34], kind))
 
-    print('\n유닛 %d개 저장 · 건너뜀 %d개 · %.1f분' % (len(units_touched), skipped,
-                                              (time.time() - t0) / 60))
-    print('토큰 in %s / out %s' % ('{:,}'.format(usage_holder['in']),
-                                  '{:,}'.format(usage_holder['out'])))
-    write_index(base, args.phase)
+    save_manifest(args.subject, args.phase, manifest)
+    print('\ndump %d개 · 건너뜀 %d개 → %s' % (dumped, skipped, out_dir))
+
+
+def dump_extra(args):
+    groups = EXTRA_GROUPS.get(args.subject)
+    if not groups:
+        sys.exit('%s 는 과목 레벨 트랙 정의가 없습니다.' % args.subject)
+    base = STUDY / args.subject / 'lectures'
+    tdir = WORK / 'transcripts' / args.subject
+    catalog = load_viz_catalog(args.subject)
+    out_dir = dump_dir(args.subject, args.phase)
+    manifest = load_manifest(args.subject, args.phase)
+    dumped = skipped = 0
+    for gi, g in enumerate(groups):
+        lid = '_subject-%02d' % gi
+        if not args.force:
+            if extra_group_built(base, args.phase, g['title']):
+                print('  건너뜀(트랙에 이미 있음) %s' % g['title'])
+                skipped += 1
+                continue
+            if (out_dir / ('%s.json' % lid)).exists():
+                print('  건너뜀(응답 대기중 — ingest 하세요) %s' % g['title'])
+                skipped += 1
+                continue
+        blocks = []
+        for lecid in g['lectures']:
+            f = tdir / ('%s.json' % lecid)
+            if not f.exists():
+                print('  ⚠ 전사 없음: %s' % lecid)
+                continue
+            tr = json.loads(f.read_text(encoding='utf-8'))
+            no = tr.get('no')
+            if no is None:
+                no = int(re.search(r'(\d+)$', lecid).group(1))
+            blocks.extend(windowed_blocks(tr, no))
+        if not blocks:
+            print('  ⚠ %s: 전사가 하나도 없어 건너뜀' % g['title'])
+            continue
+        sec = {'path': [g['title']], 'body': '', 'heads': [], 'unit_code': '_subject'}
+        prompt, frames = gen_leaf_prompt(g['title'], sec, {'lectures': blocks, 'note_text': ''},
+                                         catalog, args.subject)
+        md = build_md(lid, sec, prompt, frames)
+        (out_dir / ('%s.md' % lid)).write_text(md, encoding='utf-8')
+        manifest[lid] = {'unit_code': '_subject', 'title': g['title'], 'path': [g['title']],
+                         'has_lecture': True, 'kind': g['kind'], 'gi': gi,
+                         'transcript_chars': sum(len(b['transcript']) for b in blocks)}
+        dumped += 1
+        print('  [%d/%d] dump %s' % (gi + 1, len(groups), g['title']))
+    save_manifest(args.subject, args.phase, manifest)
+    print('\ndump %d개 · 건너뜀 %d개 → %s' % (dumped, skipped, out_dir))
+
+
+# 이 표현 중 하나라도 issue 문자열에 들어있으면 병합을 거부한다(과제 명세 §2 그대로).
+# 나머지 check_track 의 issue(논점 수 상식 범위, 미등록 viz 템플릿 등)는 경고만
+# 찍고 병합은 진행한다.
+BLOCKING_MARKERS = ('turns 없음', 'quiz 턴 없음', '정답 선택지가', '오답 선택지가', '전용 반박이 없다')
+
+
+def validate_result(points_raw, lid, title, unit, names):
+    """dump 결과 JSON 을 병합 전에 검사한다. (issues, blocking) 을 돌려준다.
+
+    track_core.check_track 을 재사용한다 — 병합 전이라 트랙 형태가 아니므로
+    leaf 하나짜리 가짜 트랙으로 감싸는 어댑터만 둔다. align_by_leaf 를 빈 dict 로
+    주면 앵커(src) 검사는 자연히 건너뛴다(그 leaf 의 정당한 구간을 모르니 판정할
+    수 없다) — ingest 가 align.json/외장 드라이브 없이도 동작하게 하려는 의도다.
+    """
+    if not isinstance(points_raw, list):
+        return (['결과가 JSON 배열이 아닙니다'], True)
+    if not points_raw:
+        return (['논점이 0개입니다'], True)
+    if not all(isinstance(p, dict) for p in points_raw):
+        return (['배열 원소 중 논점 객체가 아닌 항목이 있습니다'], True)
+    fake_track = {'unit_code': unit, 'leaves': [{'leaf_id': lid, 'title': title, 'points': points_raw}]}
+    issues = check_track(fake_track, {}, names)
+    blocking = any(any(m in i for m in BLOCKING_MARKERS) for i in issues)
+    return (issues, blocking)
+
+
+def do_ingest(args):
+    base = STUDY / args.subject / 'lectures'
+    sections = load_leaf_sections(args.subject)
+    manifest = load_manifest(args.subject, args.phase)
+    out_dir = dump_dir(args.subject, args.phase)
+    names = template_names()
+
+    ids = [args.only] if args.only else sorted(manifest.keys())
+    if args.extra and not args.only:
+        ids = [i for i in ids if i.startswith('_subject-')]
+
+    merged, rejected, waiting = 0, 0, 0
+    for lid in ids:
+        info = manifest.get(lid)
+        if info is None:
+            print('  ⚠ %s: 매니페스트에 없음 — 먼저 --dump 를 실행하세요' % lid)
+            continue
+        rf = out_dir / ('%s.json' % lid)
+        if not rf.exists():
+            waiting += 1
+            continue
+        try:
+            raw = json.loads(rf.read_text(encoding='utf-8'))
+        except (ValueError, OSError) as e:
+            print('  ❌ %s: JSON 파싱 실패 — %s' % (lid, e))
+            rejected += 1
+            continue
+
+        title = info.get('title', lid)
+        unit = info.get('unit_code') or '?'
+        issues, blocking = validate_result(raw, lid, title, unit, names)
+        if blocking:
+            print('  ❌ %s: 병합 거부' % title)
+            for i in issues:
+                print('     - %s' % i)
+            rejected += 1
+            continue
+        for i in issues:
+            print('  ⚠ %s: %s' % (title, i))
+
+        has_lecture = info.get('has_lecture')
+        for p in raw:
+            if not p.get('source'):
+                p['source'] = 'lecture' if has_lecture else 'textbook'
+            if not has_lecture:
+                p.setdefault('src', [])
+
+        if unit == '_subject':
+            gi = info.get('gi')
+            if gi is None:
+                print('  ⚠ %s: _subject 그룹인데 매니페스트에 gi 없음 — 건너뜀' % lid)
+                rejected += 1
+                continue
+            save_extra_group(base, args.subject, args.phase, gi, info.get('kind', 'extra'), title, raw)
+        else:
+            if lid not in sections:
+                print('  ⚠ %s: taxonomy 에 없는 leaf_id — 건너뜀' % lid)
+                rejected += 1
+                continue
+            save_leaf(base, args.subject, args.phase, sections[lid]['unit_code'], lid, title, raw)
+        merged += 1
+        print('  [%d] 병합 %s — 논점 %d개' % (merged, title, len(raw)))
+
+    print('\n병합 %d개 · 거부 %d개 · 응답 대기 %d개' % (merged, rejected, waiting))
+    if merged:
+        write_index(base, args.phase)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('subject')
+    ap.add_argument('--phase', default='basic')
+    ap.add_argument('--limit', type=int)
+    ap.add_argument('--only', help='특정 leaf_id 하나만 (또는 _subject-NN)')
+    ap.add_argument('--check', action='store_true', help='생성하지 않고 검증만')
+    ap.add_argument('--force', action='store_true',
+                    help='이미 트랙에 있거나 이미 응답이 와 있는 관도 다시 처리')
+    ap.add_argument('--extra', action='store_true',
+                    help='관에 안 붙은 강의를 과목 레벨 트랙(_subject)으로 처리')
+    ap.add_argument('--dump', action='store_true',
+                    help='재료를 scripts/lectures/_work/ 에 마크다운으로 내보낸다(API 호출 없음)')
+    ap.add_argument('--ingest', action='store_true',
+                    help='_work/ 의 결과 JSON 을 검증한 뒤 트랙에 병합한다(API 호출 없음)')
+    args = ap.parse_args()
+
+    if args.check:
+        do_check(args.subject, args.phase)
+        return
+
+    if args.dump and args.ingest:
+        sys.exit('--dump 와 --ingest 는 동시에 쓸 수 없습니다.')
+    if not args.dump and not args.ingest:
+        ap.print_help()
+        sys.exit('\n외부 API 호출은 제거됐습니다(더 이상 이 스크립트가 직접 모델을 부르지\n'
+                 '않습니다). --dump (재료 내보내기) 또는 --ingest (결과 병합) 를 지정하세요.\n'
+                 '검증만 하려면 --check.')
+
+    if args.dump:
+        if args.extra:
+            dump_extra(args)
+        else:
+            do_dump(args)
+    else:
+        do_ingest(args)
 
 
 if __name__ == '__main__':
