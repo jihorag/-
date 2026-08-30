@@ -126,9 +126,15 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
 
   // 마지막 논점에서 「다음」을 누르면 곧장 되짚기로 넘어간다. 관의 끝이
   // 아무 마무리 없이 멈추면 마지막 문제가 곁다리처럼 느껴진다.
+  // 되짚기는 이 관의 quiz 턴을 다시 푸는 판이다. quiz 가 하나도 없는 관
+  // (문서형만 있는 관)에서는 판 자체가 성립하지 않으니 들르지 않는다.
+  const hasRecap = (track?.points || []).some(
+    (p) => (p.turns || []).some((t) => t.who === 'quiz'),
+  );
+
   const goNext = () => {
     const last = (track?.points?.length || 1) - 1;
-    if (idx >= last) { setRecap(true); return; }
+    if (idx >= last) { if (hasRecap) setRecap(true); else setLeafId(null); return; }
     setIdx(idx + 1);
   };
 
@@ -206,7 +212,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
           <span className="concept-head-passed">· 통과 {counts.passed}</span>
           {/* 완료 안내를 조작 줄 아래 배너로 두면 그 배너가 생기는 순간 조작 줄이
               위로 밀린다 — 이 화면이 지키려는 단 하나가 그거라 머리로 올렸다. */}
-          {!recap && done && (
+          {!recap && done && hasRecap && (
             <button type="button" className="concept-op" onClick={() => setRecap(true)}>
               <CheckCircle2 size={14} strokeWidth={1.75} />되짚기 한 판
             </button>

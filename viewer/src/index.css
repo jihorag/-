@@ -2151,6 +2151,7 @@ button.concept-seg:hover { opacity: .7; }
 /* ── 무대 — 항상 무언가를 든다 ────────────────────────────── */
 .concept-stage {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   justify-content: center;
   /* 남는 공간은 무대 위와 조작 줄 위로 반씩 나뉜다 — 높은 화면에서 아래만
@@ -2164,8 +2165,43 @@ button.concept-seg:hover { opacity: .7; }
   box-shadow: var(--shadow-sheet);
   overflow: auto;
 }
-.concept-viz { width: 100%; max-width: 760px; margin: 0 auto; }
-.concept-viz svg { max-width: 100%; height: auto; }
+/* 그림은 무대 안에서 끝난다 — 넘치면 잘리거나 무대 안 스크롤이 생긴다. */
+.concept-viz {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  min-height: 0;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  /* 넘치면 감추지 않고 무대 안에서 굴린다 — 범례 한 줄이 조용히 사라지는 편이
+     스크롤바 하나보다 나쁘다. */
+  overflow: auto;
+}
+.concept-viz svg {
+  max-width: 100%;
+  min-height: 0;
+  flex: 0 1 auto;
+  height: auto;
+}
+.concept-viz > * { min-width: 0; max-width: 100%; }
+.concept-stage--doc {
+  /* 문서형 논점은 아래에 본문이 통째로 있다. 무대가 340px 를 먹으면 읽기가
+     한 화면 아래에서 시작한다 — 여기서는 제목 띠로 줄인다. */
+  height: auto;
+  margin-top: 0;
+  padding: var(--space-3) var(--space-4);
+  box-shadow: none;
+}
+.concept-stage--doc .concept-gist {
+  max-width: none;
+  font-size: var(--text-lg);
+  text-align: left;
+}
+
 .concept-gist {
   margin: 0 auto;
   max-width: var(--read-measure);

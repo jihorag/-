@@ -135,9 +135,19 @@ export default function ConceptScene({ point, onPassed, onNext, onAsk }) {
   if (!hasTurns) {
     return (
       <>
-        <div className="concept-stage">
-          <div className="concept-gist">{point?.gist || point?.title || ''}</div>
-        </div>
+        {point?.viz
+          ? (
+            <div className="concept-stage">
+              <div className="concept-viz">
+                <VizRouter name={point.viz.template} rawJson={vizJson(point.viz)} />
+              </div>
+            </div>
+          )
+          : (
+            <div className="concept-stage concept-stage--doc">
+              <div className="concept-gist">{point?.gist || point?.title || ''}</div>
+            </div>
+          )}
         <div className="concept-say concept-say--doc">
           <ParsedText text={point?.body || ''} />
           {point?.check && (
