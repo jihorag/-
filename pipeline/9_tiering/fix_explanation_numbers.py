@@ -34,7 +34,7 @@ ANS_RE = re.compile(r"(정답은?\s*)([1-5①-⑤])")
 # "⑤는 옳지 않다" / "②가 정답" 처럼 선지를 원문자로 지목하는 서술.
 # 이런 해설은 보통 "①~④는 모두 옳다" 처럼 다른 번호도 함께 참조하므로
 # 번호 하나만 치환할 수 없다. 셔플 이전 순서로 되돌리는 것이 유일하게 안전하다.
-CLAIM_RE = re.compile(r"([①-⑤])\s*(?:은|는|가|이)\s*(?:옳지 않|틀|정답|해당)")
+CLAIM_RE = re.compile(r"([①-⑤])\s*(?:은|는|가|이)\s*(?:옳지 않|틀|정답|해당|거짓|맞|옳)")
 # 선지를 번호로 지목하는 모든 흔적 — 열거용 ①②③ 도 여기 걸리지만 보수적으로 본다
 REF_RE = re.compile(r"[①-⑤]|(?<![0-9)])[1-5]\s*번")
 
@@ -91,6 +91,7 @@ def _self_test():
     # 원문자로 선지를 지목하는 해설 인식
     assert claimed_option("⑤는 옳지 않다. ①~④는 모두 옳다.") == "5"
     assert claimed_option("②가 정답이다.") == "2"
+    assert claimed_option("따라서 ④가 거짓 설명입니다.") == "4"
     assert claimed_option("계산 결과만 있다.") is None
     print("fix_explanation_numbers self-test 통과")
 
