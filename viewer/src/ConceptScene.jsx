@@ -19,6 +19,8 @@ import {
   MessageCircle, History, FlaskConical, X, RotateCcw,
 } from 'lucide-react';
 import ParsedText from './ParsedText';
+import Avatar from './ConceptCast';
+import { markEmphasis } from './emphasis';
 import { SpeakButton } from './Speech';
 import VizRouter from './viz/VizRouter';
 import {
@@ -41,17 +43,20 @@ const vizJson = (viz) => JSON.stringify({ ...(viz.params || {}), steps: viz.step
 function quizSay(turn, ans) {
   const choices = turn.choices || [];
   const ok = choices.find((c) => c.ok);
-  if (ans.solved && !ans.assisted) return { who: WHO.teach, text: ok?.reply || '맞았습니다.' };
+  if (ans.solved && !ans.assisted) {
+    return { who: WHO.teach, text: ok?.reply || '맞았습니다.', mood: 'right' };
+  }
   if (ans.assisted) {
     return {
       who: WHO.teach,
       text: `정답은 「${ok?.text || ''}」예요. ${ok?.reply || ''}`,
+      mood: 'wrong',
     };
   }
   const wrong = ans.picked.filter((i) => !choices[i]?.ok);
   if (wrong.length) {
     const c = choices[wrong[wrong.length - 1]];
-    return { who: c.who || WHO.gotcha, text: c.reply || '' };
+    return { who: c.who || WHO.gotcha, text: c.reply || '', mood: 'wrong' };
   }
   return { who: WHO.teach, text: '생각한 답을 하나 골라 보세요.' };
 }
@@ -145,7 +150,7 @@ export default function ConceptScene({ point, onPassed, onNext, onAsk }) {
           )
           : (
             <div className="concept-stage concept-stage--doc">
-              <div className="concept-gist">{point?.gist || point?.title || ''}</div>
+              <div className="concept-gist"><ParsedText text={markEmphasis(point?.gist || point?.title || '')} /></div>
             </div>
           )}
         <div className="concept-say concept-say--doc">
@@ -191,11 +196,11 @@ export default function ConceptScene({ point, onPassed, onNext, onAsk }) {
                 <VizRouter name={stickyViz.template} rawJson={vizJson(stickyViz)} />
               </div>
             )
-            : <div className="concept-gist">{point?.gist || point?.title || ''}</div>}
+            : <div className="concept-gist"><ParsedText text={markEmphasis(point?.gist || point?.title || '')} /></div>}
       </div>
 
       <div className="concept-say">
-        <SayLine who={say.who} text={say.text} revealKey={sayKey}
+        <SayLine who={say.who} text={say.text} revealKey={sayKey} mood={say.mood}
           stale={peek > 0} staleNote={`지난 대사 ${dispIdx + 1}/${turns.length}`} />
       </div>
 
@@ -260,18 +265,22 @@ export default function ConceptScene({ point, onPassed, onNext, onAsk }) {
   );
 }
 
-function SayLine({ who, text, revealKey, stale, staleNote }) {
+// 말풍선 하나 + 그 옆의 화자. 풍선은 쌓이지 않고 교체된다 — 쌓으면 조작 줄이
+// 밀려 올라가고, 그게 이 화면을 다시 짜게 만든 원인이었다.
+function SayLine({ who, text, revealKey, stale, staleNote, mood = 'idle' }) {
   const c = castOf(who);
   const right = c.side === 'right';
   return (
-    <div className={`concept-sayline${right ? ' is-right' : ''}`}>
-      <div className="concept-who">
-        <c.Icon size={14} strokeWidth={1.75} />
-        <span>{c.name}</span>
-        {stale && <span className="concept-stale">{staleNote}</span>}
+    <div className={`concept-sayline${right ? ' is-right' : ''}`} key={revealKey}>
+      <div className="concept-speaker">
+        <Avatar who={who} mood={mood} size={44} />
+        <span className="concept-who-name">{c.name}</span>
       </div>
-      <div className="concept-saytext" key={revealKey}>
-        <ParsedText text={text || ''} />
+      <div className={`concept-bubble concept-bubble--${who}`}>
+        <div className="concept-saytext">
+          <ParsedText text={markEmphasis(text || '')} />
+        </div>
+        {stale && <span className="concept-stale">{staleNote}</span>}
       </div>
     </div>
   );
@@ -376,6 +385,7 @@ export function ConceptRecap({ track, onExit }) {
         </div>
         <div className="concept-say">
           <SayLine who={WHO.mate} revealKey="recap-done"
+            mood={score.right === score.total ? 'right' : 'idle'}
             text={score.right === score.total
               ? '전부 스스로 맞혔습니다. 이 관은 여기서 접어도 됩니다.'
               : '틀린 자리가 이 관에서 다시 볼 곳입니다. 해당 논점을 한 번 더 열어 보세요.'} />
@@ -400,7 +410,8 @@ export function ConceptRecap({ track, onExit }) {
           onPick={(n) => setPicked((p) => (p.includes(n) || solved ? p : p.concat(n)))} />
       </div>
       <div className="concept-say">
-        <SayLine who={say.who} text={say.text} revealKey={`${i}:${picked.length}:${solved}`} />
+        <SayLine who={say.who} text={say.text} mood={say.mood}
+          revealKey={`${i}:${picked.length}:${solved}`} />
       </div>
       <div className="concept-ops">
         <button type="button" className="concept-next" onClick={next} disabled={!solved}>

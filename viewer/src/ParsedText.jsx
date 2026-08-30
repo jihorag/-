@@ -48,12 +48,25 @@ const isPipeRow = (l) => {
 };
 const splitCells = (l) => l.trim().slice(1, -1).split('|').map(c => c.trim());
 
-// 형광펜(==텍스트==) — 실제 형광펜처럼 글자 아래쪽만 칠해지는 마커 효과.
-const HILITE = {
-  background: 'linear-gradient(transparent 58%, #f6e7a1 58%)',
+// 형광펜(==텍스트== / ==역할:텍스트==) — 글자 아래쪽만 칠해지는 마커 효과.
+// 역할별 색의 뜻은 emphasis.js 가 정의한다. 여기서는 색만 고른다.
+// 역할이 없으면 기본 노랑(=이름).
+const HILITE_TONE = {
+  이름:   'var(--hl-name)',
+  뒤집힘: 'var(--hl-flip)',
+  수치:   'var(--hl-num)',
+  결론:   'var(--hl-then)',
+};
+const hiliteStyle = (role) => ({
+  background: `linear-gradient(transparent 58%, ${HILITE_TONE[role] || HILITE_TONE['이름']} 58%)`,
   color: 'inherit',
   padding: '0 1px',
   borderRadius: 1,
+});
+// `==역할:본문==` 을 [역할, 본문] 로 가른다. 역할이 없으면 [null, 본문].
+const splitRole = (inner) => {
+  const m = /^(이름|뒤집힘|수치|결론):([\s\S]+)$/.exec(inner);
+  return m ? [m[1], m[2]] : [null, inner];
 };
 
 // 볼드 안에 형광펜이 들어간 경우(**…==핵심==…**)를 살려서 렌더한다.
@@ -63,7 +76,8 @@ const withHilite = (text, keyPrefix) => {
   if (parts.length === 1) return text;
   return parts.map((pt, i) =>
     pt.startsWith('==') && pt.endsWith('==') && pt.length > 4
-      ? <mark key={`${keyPrefix}-nh${i}`} style={HILITE}>{pt.slice(2, -2)}</mark>
+      ? (() => { const [role, body] = splitRole(pt.slice(2, -2));
+          return <mark key={`${keyPrefix}-nh${i}`} style={hiliteStyle(role)}>{body}</mark>; })()
       : <span key={`${keyPrefix}-nt${i}`}>{pt}</span>
   );
 };
@@ -90,7 +104,8 @@ const renderTableInlines = (cell) => {
         if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
           inner.push(<strong key={`${ci}-${i}-b${k}`}>{withHilite(bp.slice(2, -2), `${ci}-${i}-b${k}`)}</strong>);
         } else if (bp.startsWith('==') && bp.endsWith('==') && bp.length > 4) {
-          inner.push(<mark key={`${ci}-${i}-hl${k}`} style={HILITE}>{bp.slice(2, -2)}</mark>);
+          { const [role, body] = splitRole(bp.slice(2, -2));
+            inner.push(<mark key={`${ci}-${i}-hl${k}`} style={hiliteStyle(role)}>{body}</mark>); }
         } else if (bp) {
           inner.push(<span key={`${ci}-${i}-t${k}`}>{bp}</span>);
         }
@@ -223,7 +238,8 @@ const renderInlines = (text, keyPrefix) => {
         if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
           out.push(<strong key={`${base}-b`}>{renderMathish(bp.slice(2, -2), `${base}-b`)}</strong>);
         } else if (bp.startsWith('==') && bp.endsWith('==') && bp.length > 4) {
-          out.push(<mark key={`${base}-hl`} style={HILITE}>{renderMathish(bp.slice(2, -2), `${base}-hl`)}</mark>);
+          const [role, body] = splitRole(bp.slice(2, -2));
+          out.push(<mark key={`${base}-hl`} style={hiliteStyle(role)}>{renderMathish(body, `${base}-hl`)}</mark>);
         } else if (bp) {
           out.push(...renderMathish(bp, base, true));
         }

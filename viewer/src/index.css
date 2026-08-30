@@ -2262,7 +2262,7 @@ button.concept-seg:hover { opacity: .7; }
 
 /* ── 대사 — 한 번에 하나, 쌓지 않고 교체 ──────────────────── */
 .concept-say {
-  height: 132px;
+  height: 152px;
   overflow: auto;
   padding: var(--space-1) var(--space-1) 0;
 }
@@ -2274,8 +2274,94 @@ button.concept-seg:hover { opacity: .7; }
   line-height: var(--leading-read);
   max-width: var(--read-measure);
 }
-.concept-sayline { max-width: var(--read-measure); }
-.concept-sayline.is-right { margin-left: auto; text-align: right; }
+/* ── 말풍선 — 화자 옆에 하나. 쌓이지 않고 교체된다 ────────── */
+.concept-sayline {
+  display: flex;
+  align-items: flex-start;
+  /* 꼬리가 8px 짜리라 간격이 그보다 좁으면 아바타 뒤로 숨는다. */
+  gap: var(--space-4);
+  max-width: calc(var(--read-measure) + 60px);
+}
+.concept-sayline.is-right {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+.concept-speaker {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 52px;
+  color: var(--ink-2);
+}
+.cast-avatar {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--sheet);
+  color: var(--ink);
+}
+.cast-avatar svg { display: block; }
+.concept-who-name {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+.concept-bubble {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--sheet);
+  box-shadow: var(--shadow-sheet);
+  /* 이 화면에서 authored 한 모션은 이것 하나다. 풍선이 화자 쪽에서 열린다. */
+  animation: conceptPop 200ms cubic-bezier(.16, 1, .3, 1) both;
+  transform-origin: left center;
+}
+.concept-sayline.is-right .concept-bubble { transform-origin: right center; }
+/* 꼬리 — 두 겹으로 그려 테두리까지 이어 붙인다. */
+.concept-bubble::before,
+.concept-bubble::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+}
+.concept-bubble::before {
+  left: -20px;
+  border-right-color: var(--line);
+}
+.concept-bubble::after {
+  left: -18px;
+  border-right-color: var(--sheet);
+}
+.concept-sayline.is-right .concept-bubble::before {
+  left: auto; right: -20px;
+  border-right-color: transparent;
+  border-left-color: var(--line);
+}
+.concept-sayline.is-right .concept-bubble::after {
+  left: auto; right: -18px;
+  border-right-color: transparent;
+  border-left-color: var(--sheet);
+}
+/* 깐깐이는 지적하는 자리다 — 풍선 테두리를 한 톤 진하게. 색은 쓰지 않는다. */
+.concept-bubble--gotcha { border-color: var(--line-strong); }
+.concept-bubble--gotcha::before { border-right-color: var(--line-strong); }
+.concept-sayline.is-right .concept-bubble--gotcha::before { border-left-color: var(--line-strong); }
+@keyframes conceptPop {
+  from { opacity: 0; transform: translateY(4px) scale(.985); }
+  to   { opacity: 1; transform: none; }
+}
 .concept-who {
   display: flex;
   align-items: center;
@@ -2513,7 +2599,7 @@ button.concept-seg:hover { opacity: .7; }
   .concept-gist { font-size: var(--text-lg); }
   .concept-prompt { font-size: var(--text-base); margin-bottom: var(--space-3); }
   .concept-choices { grid-template-columns: minmax(0, 1fr); }
-  .concept-say { height: 140px; }
+  .concept-say { height: 168px; }
   .concept-next { flex: 1; justify-content: center; padding: 0 var(--space-3); }
   .concept-head-title { font-size: var(--text-sm); }
   .concept-segs--mini { display: none; }
