@@ -2699,6 +2699,14 @@ const App = () => {
   const processedData = useMemo(() => {
     if (loading || !questionsData) return [];
     const seenStem = new Set(); // [연습문제] 중복 판정 — 같은 문두는 첫 문항만 고품질 후보
+    // 등급 판정이 진행된 과목 목록. 판정을 시작한 과목은 미판정 문항을 A로 올려주지 않는다
+    // (경제학만 해당). 아직 손대지 않은 과목은 종전 휴리스틱을 그대로 쓴다.
+    const tieredSubjects = new Set();
+    for (const q of questionsData) {
+      if (!q.tier) continue;
+      const s = q.indexing_v4 && q.indexing_v4.mapped_taxonomy && q.indexing_v4.mapped_taxonomy.subject;
+      if (s) tieredSubjects.add(s);
+    }
     return [...questionsData, ...aigenList].map(q => {
       // V4 분류 정보: Gemini 또는 Claude로 분류되어 mapped_taxonomy가 있고
       // in_scope!==false 인 문제만 전 탭(시험/과목/단원/연도)에 노출.
@@ -2724,10 +2732,14 @@ const App = () => {
         const first = !seenStem.has(stem); seenStem.add(stem); // tier 유무와 무관하게 항상 스템 추적 → 미판정 중복 검출 유지
         if (tier) {
           lowq = tier === 'discard' || tier === 'repair'; // repair 는 A/B 어느 쪽도 아니므로 문제풀이 제외
+        } else if (mt && tieredSubjects.has(mt.subject)) {
+          // 판정 중인 과목의 미판정 문항 — 검증 전이므로 A/B 어느 탭에도 넣지 않는다(드릴에서는 계속 쓰인다)
+          lowq = true;
+          tier = null;
         } else {
           const hasMeta = Array.isArray(q.option_meta) && q.option_meta.length > 0;
           lowq = !(hasMeta && first);
-          tier = lowq ? 'discard' : 'A';   // 미판정 연습문제는 일단 A로 둔다
+          tier = lowq ? 'discard' : 'A';   // 판정 전 과목은 종전 휴리스틱으로 A 폴백
         }
       } else {
         tier = isAigen ? 'A' : 'C';       // AI생성은 A로, 기출은 저장하지 않고 여기서 C로 파생
