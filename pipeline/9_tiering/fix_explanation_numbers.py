@@ -31,6 +31,10 @@ BACKUP_DIR = Path(__file__).resolve().parent / "backup"
 CIRCLED = {"①": "1", "②": "2", "③": "3", "④": "4", "⑤": "5"}
 TO_CIRCLED = {v: k for k, v in CIRCLED.items()}
 ANS_RE = re.compile(r"(정답은?\s*)([1-5①-⑤])")
+# "⑤는 옳지 않다" / "②가 정답" 처럼 선지를 원문자로 지목하는 서술.
+# 이런 해설은 보통 "①~④는 모두 옳다" 처럼 다른 번호도 함께 참조하므로
+# 번호 하나만 치환할 수 없다. 셔플 이전 순서로 되돌리는 것이 유일하게 안전하다.
+CLAIM_RE = re.compile(r"([①-⑤])\s*(?:은|는|가|이)\s*(?:옳지 않|틀|정답|해당)")
 # 선지를 번호로 지목하는 모든 흔적 — 열거용 ①②③ 도 여기 걸리지만 보수적으로 본다
 REF_RE = re.compile(r"[①-⑤]|(?<![0-9)])[1-5]\s*번")
 
@@ -41,6 +45,12 @@ def stated_answer(explanation):
     if not m:
         return None
     return CIRCLED.get(m.group(2), m.group(2))
+
+
+def claimed_option(explanation):
+    """해설이 원문자로 지목한 선지 번호. 없으면 None."""
+    m = CLAIM_RE.search(explanation or "")
+    return CIRCLED.get(m.group(1)) if m else None
 
 
 def is_safe_to_patch(explanation):
@@ -77,6 +87,11 @@ def _self_test():
     assert patch("정답은 2번", "5") == "정답은 5번"
     # 정답 진술만 바뀌고 나머지는 그대로
     assert patch("계산상 정답은 ①. 끝.", "4") == "계산상 정답은 ④. 끝."
+
+    # 원문자로 선지를 지목하는 해설 인식
+    assert claimed_option("⑤는 옳지 않다. ①~④는 모두 옳다.") == "5"
+    assert claimed_option("②가 정답이다.") == "2"
+    assert claimed_option("계산 결과만 있다.") is None
     print("fix_explanation_numbers self-test 통과")
 
 
@@ -92,8 +107,28 @@ def main():
     tally = Counter()
     for q in db:
         exp = q.get("explanation") or ""
+        answer = str(q.get("answer")).strip()
+
+        # 원문자로 선지를 지목하는 해설은 번호 치환이 불가능하므로 무조건 되돌린다
+        claim = claimed_option(exp)
+        if claim and claim != answer:
+            orig = pre.get(q["id"]) or pre.get(re.sub(r"-dup\d+$", "", q["id"]))
+            if orig and (orig.get("question") or "").strip() == (q.get("question") or "").strip():
+                if not dry:
+                    q["options"] = orig["options"]
+                    q["answer"] = orig["answer"]
+                    if isinstance(orig.get("option_meta"), list):
+                        q["option_meta"] = orig["option_meta"]
+                    tm = q.setdefault("tier_meta", {})
+                    tm["shuffle_reverted"] = True
+                    tm.pop("shuffled", None)
+                tally["원문자 지목 → 셔플 되돌림"] += 1
+            else:
+                tally["원문자 지목 → 복원본 없음"] += 1
+            continue
+
         said = stated_answer(exp)
-        if not said or said == str(q.get("answer")).strip():
+        if not said or said == answer:
             continue
         if is_safe_to_patch(exp):
             if not dry:
