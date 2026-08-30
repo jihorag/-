@@ -16,8 +16,10 @@ export default function ConceptOutline({ leaves, scope, index, progress, onPick 
   const counts = (leafId) => {
     const total = index?.[leafId]?.points || 0;
     const rec = (progress || {})[leafId] || {};
-    const passed = Object.values(rec).filter((s) => s >= STATE.PASSED).length;
-    return { total, passed };
+    const vals = Object.values(rec);
+    const passed = vals.filter((s) => s >= STATE.PASSED).length;
+    const seen = vals.filter((s) => s >= STATE.SEEN).length;
+    return { total, passed, seen };
   };
 
   // 장·절 자체가 학습 단위인 leaf(chapter.leaf, section.leaf) — buildUnitTree 가
@@ -39,30 +41,25 @@ export default function ConceptOutline({ leaves, scope, index, progress, onPick 
       {divisions.map((div) => (
         <section key={div.name} style={{ marginBottom: 18 }}>
           {multiDiv && (
-            <h3 style={{ fontSize: '0.82rem', color: '#6b7280', fontWeight: 700, margin: '0 0 8px' }}>
-              {div.name}
-            </h3>
+            <h3 className="concept-out-div">{div.name}</h3>
           )}
           {div.chapters.map((ch) => {
             const key = div.name + '/' + ch.name;
             const isOpen = open[key] !== false;   // 기본은 펼침
             const chTotals = chapterLeaves(ch).reduce((acc, leaf) => {
               const c = counts(leaf.id);
-              return { total: acc.total + c.total, passed: acc.passed + c.passed };
-            }, { total: 0, passed: 0 });
+              return { total: acc.total + c.total, passed: acc.passed + c.passed, seen: acc.seen + c.seen };
+            }, { total: 0, passed: 0, seen: 0 });
             return (
               <div key={key} style={{ marginBottom: 10 }}>
-                <button onClick={() => setOpen((o) => ({ ...o, [key]: !isOpen }))}
-                  style={chapterBtn}>
-                  {isOpen ? <ChevronDown size={14} color="#9ca3af" /> : <ChevronRight size={14} color="#9ca3af" />}
-                  <span style={{ fontSize: '0.7rem', color: '#9ca3af', fontWeight: 700, minWidth: 26 }}>
-                    {ch.hier}
-                  </span>
-                  <span style={{ flex: 1, fontSize: '0.88rem', color: '#111827', textAlign: 'left' }}>
-                    {stripUnitPrefix(ch.name)}
-                  </span>
+                <button type="button" className="concept-out-ch"
+                  aria-expanded={isOpen}
+                  onClick={() => setOpen((o) => ({ ...o, [key]: !isOpen }))}>
+                  {isOpen ? <ChevronDown size={14} strokeWidth={1.75} /> : <ChevronRight size={14} strokeWidth={1.75} />}
+                  <span className="concept-out-hier">{ch.hier}</span>
+                  <span className="concept-out-name">{stripUnitPrefix(ch.name)}</span>
                   {chTotals.total > 0 && (
-                    <span style={countPill}>{chTotals.passed} / {chTotals.total}</span>
+                    <span className="concept-out-count">{chTotals.passed} / {chTotals.total}</span>
                   )}
                 </button>
 
@@ -76,9 +73,7 @@ export default function ConceptOutline({ leaves, scope, index, progress, onPick 
                         {sec.leaf
                           ? <ItemButton leaf={sec.leaf} name={sec.name} c={counts(sec.leaf.id)} onPick={onPick} />
                           : (
-                            <div style={{ fontSize: '0.76rem', color: '#6b7280', margin: '6px 0 2px' }}>
-                              {stripUnitPrefix(sec.name)}
-                            </div>
+                            <div className="concept-out-sec">{stripUnitPrefix(sec.name)}</div>
                           )}
                         {sec.items.map((it) => (
                           <ItemButton key={it.leaf.id} leaf={it.leaf} name={it.name}
@@ -100,29 +95,26 @@ export default function ConceptOutline({ leaves, scope, index, progress, onPick 
 function ItemButton({ leaf, name, c, onPick }) {
   const empty = c.total === 0;
   return (
-    <button onClick={() => !empty && onPick(leaf.id)}
-      disabled={empty} style={{ ...itemBtn, opacity: empty ? 0.45 : 1,
-        cursor: empty ? 'default' : 'pointer' }}>
-      <span style={{ flex: 1, fontSize: '0.84rem', color: '#111827', textAlign: 'left' }}>
-        {stripUnitPrefix(name)}
-      </span>
-      <span style={countPill}>
+    <button type="button" className="concept-out-item" disabled={empty}
+      onClick={() => !empty && onPick(leaf.id)}>
+      <span className="concept-out-name">{stripUnitPrefix(name)}</span>
+      {/* 관 안의 세그먼트 진행바와 같은 표현. 목차에는 논점 순서를 모르므로
+          통과·열어봄·미학습 개수만큼 칸을 채운다. */}
+      {!empty && <Segments total={c.total} passed={c.passed} seen={c.seen} />}
+      <span className="concept-out-count">
         {empty ? '준비 중' : `${c.passed} / ${c.total}`}
       </span>
     </button>
   );
 }
 
-const chapterBtn = {
-  width: '100%', display: 'flex', alignItems: 'center', gap: 6,
-  padding: '8px 10px', border: '1px solid #e5e7eb', borderRadius: 8,
-  background: '#fff', cursor: 'pointer',
-};
-const itemBtn = {
-  width: '100%', display: 'flex', alignItems: 'center', gap: 8,
-  padding: '7px 10px', border: 'none', borderRadius: 6,
-  background: 'transparent',
-};
-const countPill = {
-  fontSize: '0.72rem', color: '#6b7280', fontWeight: 700, whiteSpace: 'nowrap',
-};
+function Segments({ total, passed, seen }) {
+  return (
+    <span className="concept-segs concept-segs--mini" aria-hidden="true">
+      {Array.from({ length: total }, (_, i) => (
+        <span key={i}
+          className={`concept-seg${i < passed ? ' is-passed' : i < seen ? ' is-seen' : ''}`} />
+      ))}
+    </span>
+  );
+}

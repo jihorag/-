@@ -3,6 +3,7 @@
 // 마크다운·KaTeX·viz JSON 등 비-음성 토큰 자동 제거.
 
 import { useEffect, useRef, useState } from 'react';
+import { Volume2, Pause, Play, Square } from 'lucide-react';
 
 const SUPPORTED = typeof window !== 'undefined' && 'speechSynthesis' in window;
 
@@ -101,29 +102,35 @@ export function SpeakButton({ text, rate = 1.0, pitch = 1.0 }) {
     setState('idle');
   };
 
+  // 아이콘은 lucide 로 통일한다 — 이 앱의 다른 버튼이 전부 lucide 라 이모지만 튄다.
   if (state === 'idle') {
-    return <button onClick={start} title="음성으로 듣기" style={btnStyle()}>🔊</button>;
+    return (
+      <button type="button" onClick={start} title="음성으로 듣기"
+        aria-label="음성으로 듣기" className="speak-btn">
+        <Volume2 size={14} strokeWidth={1.75} />
+      </button>
+    );
   }
   if (state === 'speaking') {
     return (
-      <span style={{ display: 'inline-flex', gap: 2 }}>
-        <button onClick={pause} title="일시정지" style={btnStyle('#fbbf24')}>⏸</button>
-        <button onClick={stop} title="중지" style={btnStyle()}>⏹</button>
+      <span className="speak-group">
+        <button type="button" onClick={pause} title="일시정지" aria-label="일시정지" className="speak-btn">
+          <Pause size={14} strokeWidth={1.75} />
+        </button>
+        <button type="button" onClick={stop} title="중지" aria-label="중지" className="speak-btn">
+          <Square size={14} strokeWidth={1.75} />
+        </button>
       </span>
     );
   }
   return (
-    <span style={{ display: 'inline-flex', gap: 2 }}>
-      <button onClick={resume} title="재개" style={btnStyle('#10b981')}>▶</button>
-      <button onClick={stop} title="중지" style={btnStyle()}>⏹</button>
+    <span className="speak-group">
+      <button type="button" onClick={resume} title="재개" aria-label="재개" className="speak-btn">
+        <Play size={14} strokeWidth={1.75} />
+      </button>
+      <button type="button" onClick={stop} title="중지" aria-label="중지" className="speak-btn">
+        <Square size={14} strokeWidth={1.75} />
+      </button>
     </span>
   );
-}
-
-function btnStyle(bg = '#fff') {
-  return {
-    padding: '3px 8px', background: bg, color: '#374151',
-    border: '1px solid #e5e7eb', borderRadius: 4,
-    fontSize: '0.74rem', fontWeight: 700, cursor: 'pointer',
-  };
 }

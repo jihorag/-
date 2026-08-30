@@ -10,9 +10,9 @@
 // 목차·장면 렌더는 이 파일이 들지 않는다 — ConceptOutline(단일 목차 모델)과
 // ConceptScene(턴 진행)에 넘긴다. 이 파일은 트랙 fetch·진도 저장만 하는 셸이다.
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { ChevronRight, CheckCircle2 } from 'lucide-react';
+import { ChevronRight, ChevronLeft, CheckCircle2 } from 'lucide-react';
 import ConceptOutline from './ConceptOutline';
-import ConceptScene from './ConceptScene';
+import ConceptScene, { ConceptRecap } from './ConceptScene';
 import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
 } from './trackProgress';
@@ -26,6 +26,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
   const [progress, setProgress] = useState(() => getTrackProgress());
   const [idx, setIdx] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [recap, setRecap] = useState(false);   // 관을 마친 뒤의 되짚기 한 판
 
   const leaf = useMemo(() => leaves.find((l) => l.id === leafId) || null, [leaves, leafId]);
 
@@ -64,6 +65,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
       const i = np ? t.points.findIndex((p) => p.id === np.id) : -1;
       return i >= 0 ? i : 0;
     };
+    setRecap(false);
     if (leafId?.startsWith('_extra:')) {
       const title = leafId.slice('_extra:'.length);
       const found = extra.find((e) => e.title === title) || null;
@@ -103,13 +105,18 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
     updateChapterMastery(leafId, { coverage: cov }, 'basic');
   }, [track, leafId]);
 
+  // 이미 그 이상으로 기록돼 있으면 아무것도 하지 않는다. 이 가드가 없으면
+  // setProgress 가 매번 새 객체를 만들고 → ConceptTrack 이 다시 렌더되고 →
+  // onPassed 콜백의 identity 가 바뀌어 ConceptScene 의 effect 가 또 불린다.
+  // 실제로 "Maximum update depth exceeded" 가 콘솔을 채우고 있었다.
   const mark = useCallback((state) => {
     if (!point) return;
+    if (((progress[leafId] || {})[point.id] || 0) >= state) return;
     const next = setPointState(leafId, point.id, state);
     setProgress({ ...next });
     syncCoverage(next);
     markActiveToday();
-  }, [leafId, point, syncCoverage]);
+  }, [leafId, point, progress, syncCoverage]);
 
   // 논점을 열면 '설명 봄'
   useEffect(() => {
@@ -117,15 +124,19 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [point?.id]);
 
+  // 마지막 논점에서 「다음」을 누르면 곧장 되짚기로 넘어간다. 관의 끝이
+  // 아무 마무리 없이 멈추면 마지막 문제가 곁다리처럼 느껴진다.
   const goNext = () => {
-    setIdx((i) => Math.min((track?.points?.length || 1) - 1, i + 1));
+    const last = (track?.points?.length || 1) - 1;
+    if (idx >= last) { setRecap(true); return; }
+    setIdx(idx + 1);
   };
 
   if (!leafId) {
     return (
-      <div style={{ padding: 16 }}>
-        <h2 style={{ fontSize: '1.05rem', margin: '0 0 4px' }}>개념 완성</h2>
-        <p style={{ color: '#6b7280', fontSize: '0.84rem', margin: '0 0 14px' }}>
+      <div className="concept-index">
+        <h2 className="concept-index-title">개념 완성</h2>
+        <p className="concept-index-lede">
           강의가 다룬 논점을 순서대로 하나씩 익힙니다. 다 비우면 그 관을 마친 것입니다.
         </p>
         {extra.filter((e) => e.kind === 'prereq').map((e) => (
@@ -140,17 +151,19 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
     );
   }
 
-  if (loading) return <div style={{ padding: 24, color: '#6b7280' }}>불러오는 중…</div>;
+  if (loading) return <div className="concept-loading">불러오는 중…</div>;
 
   if (!track) {
     return (
-      <div style={{ padding: 16 }}>
-        <button onClick={() => setLeafId(null)} style={linkBtn()}>← 단원 목록</button>
-        <p style={{ color: '#6b7280', fontSize: '0.86rem', marginTop: 14 }}>
+      <div className="concept-index">
+        <button type="button" className="concept-back" onClick={() => setLeafId(null)}>
+          <ChevronLeft size={14} strokeWidth={1.75} />단원 목록
+        </button>
+        <p className="concept-index-lede" style={{ marginTop: 14 }}>
           이 단원은 아직 논점 트랙이 없습니다. 강의가 다루지 않은 범위이거나 아직 생성 전입니다.
         </p>
         {onOpenDeep && (
-          <button onClick={() => onOpenDeep(leafId)} style={linkBtn()}>
+          <button type="button" className="concept-op" onClick={() => onOpenDeep(leafId)}>
             AI 학습에서 대화로 배우기 →
           </button>
         )}
@@ -159,60 +172,71 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
   }
 
   const done = counts.passed >= counts.total && counts.total > 0;
+  const rec = progress[leafId] || {};
+
+  if (!track.points?.length) {
+    return (
+      <div className="concept-runner">
+        <header className="concept-head">
+          <button type="button" className="concept-back" onClick={() => setLeafId(null)}>
+            <ChevronLeft size={14} strokeWidth={1.75} />단원 목록
+          </button>
+          <h2 className="concept-head-title">{track.title}</h2>
+        </header>
+        <div className="concept-stage">
+          <div className="concept-gist">아직 논점이 없습니다.</div>
+        </div>
+        <div className="concept-say" />
+        <div className="concept-ops">
+          <button type="button" className="concept-next" onClick={() => setLeafId(null)}>목록으로</button>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div style={{ padding: 16, maxWidth: 760, margin: '0 auto' }}>
-      <button onClick={() => setLeafId(null)} style={linkBtn()}>← 단원 목록</button>
-
-      <div style={{ margin: '10px 0 4px', display: 'flex', alignItems: 'center', gap: 8 }}>
-        <div style={{ flex: 1, height: 6, background: '#e5e7eb', borderRadius: 3, overflow: 'hidden' }}>
-          <div style={{
-            width: '100%', height: '100%', background: '#374151',
-            transform: `scaleX(${counts.total ? counts.passed / counts.total : 0})`,
-            transformOrigin: 'left', transition: 'transform 0.3s ease-out',
-          }} />
-        </div>
-        <span style={{ fontSize: '0.76rem', color: '#6b7280', fontWeight: 700, whiteSpace: 'nowrap' }}>
-          {counts.passed} / {counts.total}
+    <div className="concept-runner">
+      <header className="concept-head">
+        <button type="button" className="concept-back" onClick={() => setLeafId(null)}>
+          <ChevronLeft size={14} strokeWidth={1.75} />단원 목록
+        </button>
+        <h2 className="concept-head-title">{track.title}</h2>
+        <span className="concept-head-count">
+          {recap ? '되짚기' : `논점 ${Math.min(idx + 1, counts.total)}/${counts.total}`}
+          <span className="concept-head-passed">· 통과 {counts.passed}</span>
+          {/* 완료 안내를 조작 줄 아래 배너로 두면 그 배너가 생기는 순간 조작 줄이
+              위로 밀린다 — 이 화면이 지키려는 단 하나가 그거라 머리로 올렸다. */}
+          {!recap && done && (
+            <button type="button" className="concept-op" onClick={() => setRecap(true)}>
+              <CheckCircle2 size={14} strokeWidth={1.75} />되짚기 한 판
+            </button>
+          )}
         </span>
-      </div>
-      <div style={{ fontSize: '0.78rem', color: '#9ca3af', marginBottom: 14 }}>{track.title}</div>
-
-      {done && (
-        <div style={{
-          padding: '10px 12px', marginBottom: 14, borderRadius: 8,
-          background: '#f3f4f6', fontSize: '0.84rem', color: '#374151', fontWeight: 700,
-        }}>
-          <CheckCircle2 size={15} style={{ verticalAlign: -2, marginRight: 6 }} />
-          이 관의 강의 논점을 모두 마쳤습니다.
+        <div className="concept-segs" role="list" aria-label={`논점 진행 ${counts.passed}/${counts.total}`}>
+          {track.points.map((p, i) => {
+            const s = rec[p.id] || 0;
+            const cls = s >= STATE.PASSED ? ' is-passed' : s >= STATE.SEEN ? ' is-seen' : '';
+            return (
+              <button type="button" key={p.id} role="listitem"
+                className={`concept-seg${cls}${!recap && i === idx ? ' is-current' : ''}`}
+                title={`${p.seq}. ${p.title || ''}`}
+                aria-label={`${p.seq}번 논점`}
+                onClick={() => { setRecap(false); setIdx(i); }} />
+            );
+          })}
         </div>
-      )}
+      </header>
 
-      {point && (
-        <ConceptScene
-          point={point}
-          onPassed={() => mark(STATE.PASSED)}
-          onNext={goNext}
-          onAsk={onOpenDeep ? () => onOpenDeep(leafId, point) : null}
-        />
-      )}
-
-      <nav style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginTop: 22 }}>
-        {track.points.map((p, i) => {
-          const s = (progress[leafId] || {})[p.id] || 0;
-          return (
-            <button key={p.id} onClick={() => setIdx(i)}
-              title={p.title}
-              style={{
-                width: 26, height: 26, borderRadius: 6, cursor: 'pointer',
-                border: i === idx ? '1.5px solid #374151' : '1px solid #e5e7eb',
-                background: s >= STATE.PASSED ? '#374151' : s >= STATE.SEEN ? '#d1d5db' : '#fff',
-                color: s >= STATE.PASSED ? '#fff' : '#6b7280',
-                fontSize: '0.7rem', fontWeight: 700,
-              }}>{p.seq}</button>
-          );
-        })}
-      </nav>
+      {recap
+        ? <ConceptRecap track={track} onExit={() => { setRecap(false); setLeafId(null); }} />
+        : point && (
+          <ConceptScene
+            point={point}
+            onPassed={() => mark(STATE.PASSED)}
+            onNext={goNext}
+            onAsk={onOpenDeep ? () => onOpenDeep(leafId, point) : null}
+          />
+        )}
     </div>
   );
 }
@@ -222,24 +246,11 @@ function ExtraCard({ entry, onPick }) {
   const rec = progress[`_extra:${entry.title}`] || {};
   const passed = Object.values(rec).filter((s) => s >= STATE.PASSED).length;
   return (
-    <button onClick={onPick} style={{
-      width: '100%', textAlign: 'left', padding: '10px 12px', marginBottom: 6,
-      border: '1px dashed #d1d5db', borderRadius: 8, background: '#fafafa',
-      cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8,
-    }}>
-      <span style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 700 }}>
-        {entry.kind === 'prereq' ? '선행' : '총정리'}
-      </span>
-      <span style={{ flex: 1, fontSize: '0.87rem', color: '#111827' }}>{entry.title}</span>
-      {passed > 0 && (
-        <span style={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 700 }}>{passed}개 완료</span>
-      )}
-      <ChevronRight size={14} color="#9ca3af" />
+    <button type="button" onClick={onPick} className="concept-extra">
+      <span className="concept-extra-kind">{entry.kind === 'prereq' ? '선행' : '총정리'}</span>
+      <span className="concept-extra-title">{entry.title}</span>
+      {passed > 0 && <span className="concept-extra-count">{passed}개 완료</span>}
+      <ChevronRight size={14} strokeWidth={1.75} />
     </button>
   );
 }
-
-const linkBtn = () => ({
-  background: 'none', border: 'none', padding: 0, cursor: 'pointer',
-  color: '#4b5563', fontSize: '0.8rem', fontWeight: 700,
-});

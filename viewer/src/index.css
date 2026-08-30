@@ -2014,3 +2014,471 @@ html, body {
   .home-quick { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 @keyframes vizStepIn { from { opacity: 0.25; } to { opacity: 1; } }
+
+/* ============================================================
+   개념 완성 — 「칠판이 주인공, 대사는 자막」
+   층 네 개(머리·무대·대사·조작 줄)가 세로로 쌓이고, 가운데 두 층은
+   높이가 고정이다. 그래서 「다음」 버튼이 누를 때마다 도망가지 않는다.
+   색은 tokens.css 에서만 가져온다.
+   ============================================================ */
+
+.concept-index {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--space-4);
+}
+.concept-index-title {
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
+  margin: 0 0 var(--space-1);
+}
+.concept-index-lede {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  margin: 0 0 var(--space-4);
+  max-width: var(--read-measure);
+}
+.concept-loading {
+  padding: var(--space-6) var(--space-4);
+  color: var(--ink-3);
+  font-size: var(--text-sm);
+}
+
+/* ── 러너 셸 ───────────────────────────────────────────────── */
+.concept-runner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4) 0;
+  /* 조작 줄이 화면 아래에 붙도록 뷰포트를 채운다. 60px 은 서브내비 몫. */
+  min-height: calc(100dvh - var(--tabbar-h) - 60px);
+}
+
+/* ── 머리 ─────────────────────────────────────────────────── */
+.concept-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+.concept-back,
+.concept-op {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 32px;
+  padding: 0 var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--ink-3);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.concept-back:hover,
+.concept-op:not(:disabled):not(.is-static):hover {
+  color: var(--ink);
+  background: var(--sheet-3);
+}
+.concept-op:disabled { color: var(--ink-4); cursor: default; }
+.concept-op.is-static { cursor: default; font-variant-numeric: tabular-nums; }
+.concept-op[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--line);
+  background: var(--sheet-3);
+}
+.concept-head-title {
+  min-width: 0;
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
+  line-height: var(--leading-tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.concept-head-count {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--ink-2);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.concept-head-passed { color: var(--ink-3); margin-left: var(--space-1); }
+.concept-head-count .concept-op {
+  margin-left: var(--space-2);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+/* ── 세그먼트 진행바 — 논점 하나가 칸 하나 ────────────────── */
+.concept-segs {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 2px;
+  align-items: stretch;
+}
+.concept-seg {
+  flex: 1 1 0;
+  min-width: 3px;
+  height: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 1px;
+  background: var(--sunken);
+  cursor: pointer;
+}
+.concept-seg.is-seen   { background: var(--ink-4); }
+.concept-seg.is-passed { background: var(--ink); }
+.concept-seg.is-current {
+  box-shadow: inset 0 0 0 1px var(--sheet), 0 0 0 1.5px var(--accent);
+  border-radius: 2px;
+}
+button.concept-seg:hover { opacity: .7; }
+.concept-segs--mini {
+  grid-column: auto;
+  flex: 0 1 96px;
+  gap: 1px;
+}
+.concept-segs--mini .concept-seg { height: 4px; min-width: 2px; cursor: default; }
+
+/* ── 무대 — 항상 무언가를 든다 ────────────────────────────── */
+.concept-stage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 남는 공간은 무대 위와 조작 줄 위로 반씩 나뉜다 — 높은 화면에서 아래만
+     텅 비어 보이지 않게. 무대 자체의 높이는 고정이다. */
+  margin-top: auto;
+  height: 340px;
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--sheet);
+  box-shadow: var(--shadow-sheet);
+  overflow: auto;
+}
+.concept-viz { width: 100%; max-width: 760px; margin: 0 auto; }
+.concept-viz svg { max-width: 100%; height: auto; }
+.concept-gist {
+  margin: 0 auto;
+  max-width: var(--read-measure);
+  font-size: var(--text-xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--weight-medium);
+  color: var(--ink);
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* 무대 위의 선택지 — 곁다리가 아니라 본론이다. */
+.concept-quiz { width: 100%; }
+.concept-prompt {
+  margin: 0 auto var(--space-4);
+  max-width: var(--read-measure);
+  font-size: var(--text-md);
+  line-height: var(--leading-tight);
+  font-weight: var(--weight-medium);
+  color: var(--ink);
+  text-align: center;
+  text-wrap: balance;
+}
+.concept-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+.concept-choice {
+  min-height: var(--touch-min);
+  padding: var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--sheet);
+  color: var(--ink);
+  font-size: var(--text-sm);
+  line-height: var(--leading-ui);
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+.concept-choice:not(:disabled):hover {
+  background: var(--sheet-3);
+  border-color: var(--ink-3);
+}
+.concept-choice:disabled { cursor: default; }
+.concept-choice.is-wrong {
+  color: var(--ink-4);
+  background: var(--sheet-2);
+  border-color: var(--line);
+  text-decoration: line-through;
+}
+.concept-choice.is-right {
+  color: var(--ink-invert);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+/* ── 대사 — 한 번에 하나, 쌓지 않고 교체 ──────────────────── */
+.concept-say {
+  height: 132px;
+  overflow: auto;
+  padding: var(--space-1) var(--space-1) 0;
+}
+.concept-say--doc {
+  height: auto;
+  min-height: 132px;
+  max-height: none;
+  font-size: var(--text-base);
+  line-height: var(--leading-read);
+  max-width: var(--read-measure);
+}
+.concept-sayline { max-width: var(--read-measure); }
+.concept-sayline.is-right { margin-left: auto; text-align: right; }
+.concept-who {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-1);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  color: var(--ink-3);
+  letter-spacing: .02em;
+}
+.concept-sayline.is-right .concept-who { justify-content: flex-end; }
+.concept-stale {
+  margin-left: var(--space-2);
+  font-weight: var(--weight-normal);
+  color: var(--ink-4);
+}
+.concept-saytext {
+  font-size: var(--text-base);
+  line-height: var(--leading-read);
+  color: var(--ink);
+  /* 이 화면에서 authored 한 모션은 이것 하나다. 아래에서 위로 드러난다. */
+  animation: conceptReveal 200ms cubic-bezier(.16, 1, .3, 1) both;
+}
+@keyframes conceptReveal {
+  from { clip-path: inset(100% 0 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0 0 0);    opacity: 1; }
+}
+
+/* ── 조작 줄 — 위치가 절대 변하지 않는다 ──────────────────── */
+.concept-ops {
+  position: sticky;
+  bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--z-nav);
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) 0 calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+.concept-ops-side {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.concept-next {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--touch-min);
+  padding: 0 var(--space-5);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-md);
+  background: var(--ink);
+  color: var(--ink-invert);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+.concept-next:not(:disabled):hover { opacity: .84; }
+.concept-next:disabled {
+  background: var(--sunken);
+  border-color: var(--line);
+  color: var(--ink-4);
+  cursor: not-allowed;
+}
+.speak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--sheet);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.speak-btn:hover { color: var(--ink); background: var(--sheet-3); }
+.speak-group { display: inline-flex; gap: 2px; }
+
+/* ── 지난 대사 · 예시 시트 ────────────────────────────────── */
+.concept-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--z-modal);
+  max-height: 62dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--sheet);
+  border-top: 1px solid var(--line);
+  box-shadow: var(--shadow-lift);
+}
+.concept-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--line-2);
+}
+.concept-panel-label {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  color: var(--ink-3);
+  letter-spacing: .04em;
+}
+.concept-panel-body {
+  overflow: auto;
+  padding: var(--space-3) var(--space-4) var(--space-5);
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: var(--text-sm);
+  line-height: var(--leading-read);
+  color: var(--ink);
+}
+.concept-logline {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--line-2);
+}
+.concept-logline:last-child { border-bottom: none; }
+.concept-details { margin-top: var(--space-3); }
+.concept-details > summary {
+  cursor: pointer;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--ink-2);
+}
+.concept-check {
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+}
+
+/* ── 목차 ─────────────────────────────────────────────────── */
+.concept-out-div {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--ink-3);
+}
+.concept-out-ch {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-min);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--sheet);
+  color: var(--ink-3);
+  cursor: pointer;
+}
+.concept-out-ch:hover { background: var(--sheet-2); }
+.concept-out-hier {
+  min-width: 26px;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  color: var(--ink-3);
+}
+.concept-out-name {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--text-sm);
+  color: var(--ink);
+  text-align: left;
+}
+.concept-out-count {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  color: var(--ink-3);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.concept-out-sec {
+  margin: var(--space-2) 0 var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+}
+.concept-out-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 36px;
+  padding: var(--space-1) var(--space-3);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+}
+.concept-out-item:hover { background: var(--sheet-3); }
+.concept-out-item:disabled { opacity: .45; cursor: default; }
+.concept-out-item:disabled:hover { background: transparent; }
+
+.concept-extra {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-min);
+  margin-bottom: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--sheet-2);
+  color: var(--ink-3);
+  text-align: left;
+  cursor: pointer;
+}
+.concept-extra:hover { background: var(--sheet-3); }
+.concept-extra-kind {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  color: var(--ink-3);
+}
+.concept-extra-title { flex: 1; font-size: var(--text-sm); color: var(--ink); }
+.concept-extra-count { font-size: var(--text-2xs); color: var(--ink-3); }
+
+/* ── 좁은 화면 ────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .concept-runner { padding: var(--space-2) var(--space-3) 0; gap: var(--space-2); }
+  .concept-stage { height: 330px; padding: var(--space-3); }
+  .concept-gist { font-size: var(--text-lg); }
+  .concept-prompt { font-size: var(--text-base); margin-bottom: var(--space-3); }
+  .concept-choices { grid-template-columns: minmax(0, 1fr); }
+  .concept-say { height: 140px; }
+  .concept-next { flex: 1; justify-content: center; padding: 0 var(--space-3); }
+  .concept-head-title { font-size: var(--text-sm); }
+  .concept-segs--mini { display: none; }
+}
