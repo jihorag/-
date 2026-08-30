@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "viewer/src/index.css"
+        ],
+        "createdAt": "2026-08-30T09:03:54.587Z",
+        "reason": "Claude 판단: 해당 7건은 전부 진행률 막대 채움(.progress-bar-fill/.card-progress-fill/.boot-fill/.coach-gauge-fill/.mem-summary-bar-fill/.mem-ch-bar-fill/.mem-progress-fill). 4개가 linear-gradient(90deg) 배경이라 transform:scaleX 로 바꾸면 그라디언트가 왜곡되고, 폭 값을 넣는 JSX 전부를 함께 고쳐야 함. 높이 4~8px 막대라 레이아웃 비용 무시 가능"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "viewer/src/index.css"
+        ],
+        "createdAt": "2026-08-30T09:03:54.622Z",
+        "reason": "Claude 판단: 유일 대상 .mem-source-p.is-quote 는 카드가 아니라 인용문 블록(border-left + font-style:italic + border-radius 0 8px 8px 0). 표준 blockquote 관용구라 규칙이 겨냥한 card side-tab 이 아님"
+      }
+    ]
+  }
+}
