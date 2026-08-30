@@ -26,6 +26,7 @@ DB = ROOT / "questions_db_econ.json"
 BACKUP_DIR = Path(__file__).resolve().parent / "backup"
 DECIDER = "claude-opus-5(직접판정)"
 VALID = {"A", "B", "discard"}
+REDECIDABLE = "repair"          # 이 등급만 새 판정으로 덮어쓴다
 
 
 def validate(verdicts):
@@ -54,6 +55,10 @@ def _self_test():
     assert validate([{"id": "a", "tier": "B", "reason": "x"},
                      {"id": "a", "tier": "A", "reason": "y"}])         # 중복 id
     assert validate([{"tier": "B", "reason": "x"}])                    # id 필수
+
+    # repair 만 덮어쓸 수 있고 확정 등급은 보호된다
+    assert REDECIDABLE == "repair"
+    assert REDECIDABLE not in VALID       # repair 를 새 판정값으로 줄 수는 없다
     print("apply_verdicts self-test 통과")
 
 
@@ -80,12 +85,17 @@ def main():
         q = byid.get(v["id"])
         if not q:
             missing.append(v["id"]); continue
-        if q.get("tier"):                       # 이미 판정된 문항은 덮지 않는다
+        # repair 는 "재판정이 필요하다"는 표시이므로 덮어쓴다.
+        # 그 외 확정 등급(A/B/C/discard)은 실수로 뒤집지 않도록 건너뛴다.
+        if q.get("tier") and q.get("tier") != REDECIDABLE:
             tally["이미 판정됨(건너뜀)"] += 1; continue
         tally[v["tier"]] += 1
         if dry:
             continue
         tm = q.get("tier_meta") or {}
+        if q.get("tier") == REDECIDABLE:      # 되돌릴 수 있게 이전 상태를 남긴다
+            tm["prev_tier"] = q.get("tier")
+            tm["prev_reason"] = tm.get("reason")
         tm.update({"decided_by": DECIDER, "decided_at": now, "reason": v["reason"]})
         q["tier_meta"] = tm
         q["tier"] = v["tier"]
