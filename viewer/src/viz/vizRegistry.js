@@ -10,6 +10,7 @@ import { incomeStatementTemplate } from './templates/IncomeStatement';
 import { claimFlowTemplate } from './templates/ClaimFlow';
 import { costCurvesTemplate } from './templates/CostCurves';
 import { isLmTemplate } from './templates/IsLm';
+import { adAsTemplate } from './templates/AdAs';
 import { caseComparisonTemplate } from './templates/CaseComparison';
 import { incomeCapitalizationTemplate } from './templates/IncomeCapitalization';
 import { dcfTimelineTemplate } from './templates/DcfTimeline';
@@ -38,6 +39,7 @@ function register(t) {
 register(supplyDemandTemplate);
 register(costCurvesTemplate);
 register(isLmTemplate);
+register(adAsTemplate);
 register(phillipsCurveTemplate);
 register(indifferenceBudgetTemplate);
 register(surplusAreasTemplate);

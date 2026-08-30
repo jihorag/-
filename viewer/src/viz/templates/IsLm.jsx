@@ -64,8 +64,8 @@ function IsLmChart({ params }) {
         {/* 축 */}
         <line x1={nx(0)} y1={ny(0)} x2={nx(1)} y2={ny(0)} stroke="#9ca3af" strokeWidth={1.5} />
         <line x1={nx(0)} y1={ny(0)} x2={nx(0)} y2={ny(1)} stroke="#9ca3af" strokeWidth={1.5} />
-        <text x={nx(1) + 2} y={ny(0) + 4} fontSize={12} fill="#374151">Y (소득)</text>
-        <text x={nx(0) - 6} y={ny(1) - 6} fontSize={12} fill="#374151" textAnchor="end">r (이자율)</text>
+        <text x={nx(1)} y={ny(0) + 17} fontSize={12} fill="#374151" textAnchor="end">Y (소득)</text>
+        <text x={nx(0) + 4} y={ny(1) - 6} fontSize={12} fill="#374151">r (이자율)</text>
 
         {/* 이전 곡선 (점선) */}
         {hasShift && (
