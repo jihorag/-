@@ -2,7 +2,7 @@ import unittest
 
 from track_core import (make_point_id, order_spans, chunk_lectures,
                         parse_points, parses_as_json, check_track, diff_ids,
-                        LOW_SEVERITY_PREFIX)
+                        parse_viz_schema, LOW_SEVERITY_PREFIX)
 
 
 class TestPointId(unittest.TestCase):
@@ -57,6 +57,39 @@ class TestChunkLectures(unittest.TestCase):
         blocks = [{'no': 1, 'transcript': 'x' * 90000}]
         chunks = chunk_lectures(blocks, max_chars=45000)
         self.assertEqual(chunks, [blocks])
+
+
+class TestParseVizSchema(unittest.TestCase):
+    """실제 템플릿 .jsx 가 쓰는 부분집합(주석·트레일링 콤마·중첩 배열)을 파싱한다."""
+
+    def test_parses_enum_and_required(self):
+        src = """
+        export const t = {
+          schema: {
+            type: 'object',
+            properties: {
+              shifts: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  required: ['curve', 'direction'],
+                  properties: {
+                    curve: { enum: ['D', 'S'] },
+                    direction: { enum: ['left', 'right'] },  // 코멘트
+                  },
+                },
+              },
+            },
+          },
+        };
+        """
+        schema = parse_viz_schema(src)
+        items = schema['properties']['shifts']['items']
+        self.assertEqual(items['required'], ['curve', 'direction'])
+        self.assertEqual(items['properties']['direction']['enum'], ['left', 'right'])
+
+    def test_no_schema_key_returns_none(self):
+        self.assertIsNone(parse_viz_schema('export const t = { name: "x" };'))
 
 
 class TestParsePoints(unittest.TestCase):
@@ -187,6 +220,61 @@ class TestCheckTrack(unittest.TestCase):
         issues = check_track(self._track(point={'viz': {'template': 'nope', 'params': {}}}),
                              align, {'supply-demand'})
         self.assertTrue(any('nope' in i for i in issues))
+
+    SD_SCHEMA = {
+        'type': 'object', 'properties': {
+            'shifts': {'type': 'array', 'items': {
+                'type': 'object', 'required': ['curve', 'direction'],
+                'properties': {
+                    'curve': {'enum': ['D', 'S']},
+                    'direction': {'enum': ['left', 'right']},
+                },
+            }},
+        },
+    }
+
+    def test_viz_param_enum_violation_reported(self):
+        """실측 결함: 외부성 논점이 supply-demand.shifts[].direction 에 'up' 을
+        썼다. 스키마 enum 은 left/right 뿐이라 잡혀야 한다."""
+        align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
+        viz = {'template': 'supply-demand', 'params': {'shifts': [{'curve': 'D', 'direction': 'up'}]}}
+        issues = check_track(self._track(point={'viz': viz}), align, {'supply-demand'},
+                             {'supply-demand': self.SD_SCHEMA})
+        self.assertTrue(any('direction' in i and 'up' in i for i in issues))
+
+    def test_viz_param_within_enum_not_reported(self):
+        align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
+        viz = {'template': 'supply-demand', 'params': {'shifts': [{'curve': 'D', 'direction': 'right'}]}}
+        issues = check_track(self._track(point={'viz': viz}), align, {'supply-demand'},
+                             {'supply-demand': self.SD_SCHEMA})
+        self.assertEqual(issues, [])
+
+    def test_viz_inside_turn_is_validated_too(self):
+        """실측 결함(subsidy)은 논점 최상위 viz 가 아니라 turns[].viz 에 있었다
+        — 실제 렌더 경로는 turn 쪽이라 거기를 빼먹으면 결함 대부분을 놓친다."""
+        align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
+        turns = [dict(t) for t in self.GOOD_TURNS]
+        turns[0] = dict(turns[0])
+        turns[0]['viz'] = {'template': 'supply-demand',
+                           'params': {'shifts': [{'curve': 'D', 'direction': 'up'}]}}
+        issues = check_track(self._track(point={'turns': turns}), align, {'supply-demand'},
+                             {'supply-demand': self.SD_SCHEMA})
+        self.assertTrue(any('direction' in i and 'up' in i for i in issues))
+
+    def test_missing_required_viz_field_reported(self):
+        align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
+        viz = {'template': 'supply-demand', 'params': {'shifts': [{'curve': 'D'}]}}
+        issues = check_track(self._track(point={'viz': viz}), align, {'supply-demand'},
+                             {'supply-demand': self.SD_SCHEMA})
+        self.assertTrue(any('direction' in i and '없음' in i for i in issues))
+
+    def test_no_schema_for_template_skips_param_check(self):
+        """viz_schemas 에 없는 템플릿(파싱 실패 등)은 조용히 건너뛴다 — 오검출보다
+        미검출이 안전하다는 parse_viz_schema 의 설계와 일관되게."""
+        align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}
+        viz = {'template': 'supply-demand', 'params': {'shifts': [{'curve': 'D', 'direction': 'up'}]}}
+        issues = check_track(self._track(point={'viz': viz}), align, {'supply-demand'}, {})
+        self.assertEqual(issues, [])
 
     def test_point_count_out_of_range_reported(self):
         align = {'L': [{'no': 2, 'start': 60.0, 'end': 180.0}]}

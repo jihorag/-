@@ -30,7 +30,8 @@ from _paths import REPO, STUDY, WORK, SRC_ROOT  # noqa: E402
 from build_note_bundle import merge_spans  # noqa: E402
 from map_notes_to_leaves import extract_note_pages  # noqa: E402
 from generate_notes import SUBJECT_RULES, load_leaf_sections  # noqa: E402
-from track_core import (make_point_id, order_spans, check_track, diff_ids)  # noqa: E402
+from track_core import (make_point_id, order_spans, check_track, diff_ids,  # noqa: E402
+                        parse_viz_schema)
 
 # dump/ingest 왕복 파일 루트. _paths.WORK(외장 드라이브의 _ai_pipeline)와는 다르다 —
 # 이건 저장소 로컬(커밋 제외, .gitignore)이고 전사/키프레임 원본이 아니라 에이전트가
@@ -245,6 +246,29 @@ def template_names():
             m = re.search(r"name:\s*'([^']+)'", f.read_text(encoding='utf-8'))
             if m:
                 out.add(m.group(1))
+    return out
+
+
+def template_viz_schemas():
+    """{템플릿 이름: parse_viz_schema() 결과} — --check 가 viz.params 를 검증하는 데 쓴다.
+
+    template_names() 와 같은 방식으로 vizRegistry.js 를 긁어 템플릿 파일을 찾는다.
+    스키마 파싱에 실패한 템플릿(부분집합 파서의 한계)은 그냥 빠진다 — check_track
+    이 스키마가 없는 템플릿은 검증을 건너뛰므로 조용한 후퇴이지 오검출이 아니다.
+    """
+    src = (REPO / 'viewer/src/viz/vizRegistry.js').read_text(encoding='utf-8')
+    out = {}
+    for n in re.findall(r"from './templates/(\w+)'", src):
+        f = REPO / 'viewer/src/viz/templates' / (n + '.jsx')
+        if not f.exists():
+            continue
+        text = f.read_text(encoding='utf-8')
+        m = re.search(r"name:\s*'([^']+)'", text)
+        if not m:
+            continue
+        schema = parse_viz_schema(text)
+        if schema is not None:
+            out[m.group(1)] = schema
     return out
 
 
@@ -711,6 +735,7 @@ def do_check(subject, phase):
     base = STUDY / subject / 'lectures'
     align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
     names = template_names()
+    schemas = template_viz_schemas()
     tdir = base / 'track'
     if not tdir.exists():
         sys.exit('트랙이 아직 없습니다: %s' % tdir)
@@ -728,7 +753,7 @@ def do_check(subject, phase):
     generated_leaf_ids = set()
     for f in sorted(tdir.glob('*.%s.json' % phase)):
         track = json.loads(f.read_text(encoding='utf-8'))
-        issues = check_track(track, anchors, names)
+        issues = check_track(track, anchors, names, schemas)
         total_issues += len(issues)
         for lf in track.get('leaves', []):
             total_leaves += 1

@@ -1,6 +1,6 @@
 // 소비자/생산자 잉여 + 사중손실(deadweight) 영역 시각화.
 // supply-demand 와 동일 D/S 기본 → 균형점 기준 잉여 삼각형.
-// 정책 옵션: price_ceiling, price_floor, tax (옵션 중 하나만)
+// 정책 옵션: price_ceiling, price_floor, tax, subsidy (옵션 중 하나만)
 
 const W = 480, H = 360, PADL = 50, PADB = 50, PADT = 24, PADR = 24;
 const PW = W - PADL - PADR;
@@ -50,6 +50,15 @@ function SurplusAreasChart({ params }) {
       pSeller = pFloor;
       dwArea = { qA: qActual, qB: qStar, pTop: pFloor, pBot: sP(qActual) };
     }
+  } else if (policy && policy.type === 'subsidy' && typeof policy.value === 'number') {
+    // 보조금 s: 조세의 반대 부호 — 판매자 수취가격이 구매자 지불가격보다 s 만큼 높다.
+    // 균형: sP(q) - dP(q) = s → 1.4q - 0.75 = s → q = (0.75 + s)/1.4
+    const s = policy.value;
+    qActual = (0.75 + s) / 1.4;
+    pBuyer = dP(qActual);
+    pSeller = sP(qActual);
+    // 사중손실: 과잉생산 구간(Q* ~ Q_actual)의 삼각형 — tax 와 반대로 qActual 이 더 크다.
+    dwArea = { qA: qActual, qB: qStar, pTop: pSeller, pBot: pBuyer };
   }
 
   // 잉여 폴리곤 좌표
@@ -134,7 +143,7 @@ function SurplusAreasChart({ params }) {
       <div style={{ marginTop: 6, fontSize: '0.78rem', color: '#374151', lineHeight: 1.55 }}>
         {csVisible && <div>• <span style={{ background: '#bfdbfe', padding: '0 4px' }}>소비자 잉여 (CS)</span> — D 곡선과 P 가격선 사이</div>}
         {psVisible && <div>• <span style={{ background: '#bbf7d0', padding: '0 4px' }}>생산자 잉여 (PS)</span> — P 가격선과 S 곡선 사이</div>}
-        {dwVisible && dwArea && <div>• <span style={{ background: '#fecaca', padding: '0 4px', color: '#7f1d1d' }}>사중손실 (DWL)</span> — 정책으로 거래 안 이뤄진 손실</div>}
+        {dwVisible && dwArea && <div>• <span style={{ background: '#fecaca', padding: '0 4px', color: '#7f1d1d' }}>사중손실 (DWL)</span> — {policy?.type === 'subsidy' ? '보조금으로 과잉생산된 구간의 손실' : '정책으로 거래 안 이뤄진 손실'}</div>}
       </div>
       {params.narration && (
         <p style={{ margin: '8px 0 0', fontSize: '0.82rem', color: '#475569', lineHeight: 1.55 }}>
@@ -161,7 +170,7 @@ export const surplusAreasTemplate = {
       policy: {
         type: 'object',
         properties: {
-          type: { enum: ['tax', 'ceiling', 'floor'] },
+          type: { enum: ['tax', 'ceiling', 'floor', 'subsidy'] },
           value: { type: 'number' },
         },
       },

@@ -222,11 +222,81 @@ def parse_points(raw):
 LOW_SEVERITY_PREFIX = '[시각추정]'
 
 
-def check_track(track, align_by_leaf, template_names):
+def _balanced_brace(text, start):
+    """text[start] 가 '{' 라고 가정하고 그와 짝이 맞는 '}' 까지 잘라 돌려준다."""
+    depth = 0
+    for i in range(start, len(text)):
+        if text[i] == '{':
+            depth += 1
+        elif text[i] == '}':
+            depth -= 1
+            if depth == 0:
+                return text[start:i + 1]
+    return None
+
+
+def parse_viz_schema(jsx_source):
+    """템플릿 .jsx 소스에서 `schema: { ... }` 객체를 JSON 스키마로 파싱한다.
+
+    완전한 JS 파서가 아니다 — 이 저장소의 템플릿들이 실제로 쓰는 부분집합
+    (따옴표 있는 키 없음, 값은 문자열·숫자·불리언·배열·중첩 객체, 줄 끝 `//` 주석,
+    트레일링 콤마)만 다룬다. 이 정도로 20개 템플릿 전부가 파싱된다 —
+    build_topic_track.load_viz_catalog 가 이미 정규식으로 템플릿을 긁는 것과
+    같은 타협이다. 실패하면 None 을 돌려주고, 호출부는 그 템플릿의 파라미터
+    검증을 건너뛴다(완벽한 파싱이 아니라 "이름 등록 여부"만 보던 예전 동작으로
+    조용히 후퇴 — 새 결함을 놓칠 순 있어도 오검출로 기존 데이터를 막지는 않는다).
+    """
+    m = re.search(r'schema:\s*(\{)', jsx_source)
+    if not m:
+        return None
+    sub = _balanced_brace(jsx_source, m.start(1))
+    if sub is None:
+        return None
+    sub = re.sub(r'//[^\n]*', '', sub)
+    j = re.sub(r'(\w+)\s*:', r'"\1":', sub)
+    j = j.replace("'", '"')
+    j = re.sub(r',(\s*[}\]])', r'\1', j)
+    return _try_json_loads(j)
+
+
+def _validate_against_schema(schema, instance, path, issues):
+    """JSON 스키마 부분집합(enum·required·properties·items)으로 instance 를 검사한다.
+
+    스키마·instance 형태가 기대와 다르면(예: 배열이어야 할 자리에 dict) 조용히
+    건너뛴다 — 이 함수의 목적은 enum 밖 값과 누락된 required 필드를 잡는 것이지
+    완전한 JSON 스키마 검증기를 구현하는 게 아니다.
+    """
+    if not isinstance(schema, dict):
+        return
+    enum = schema.get('enum')
+    if enum is not None and instance not in enum:
+        issues.append('%s: 값 "%s" 이 스키마 enum %s 밖' % (path, instance, enum))
+        return
+
+    props = schema.get('properties')
+    if isinstance(props, dict) and isinstance(instance, dict):
+        for req in schema.get('required') or []:
+            if instance.get(req) is None:
+                issues.append('%s: 필수 필드 "%s" 없음' % (path, req))
+        for key, sub in props.items():
+            if key in instance:
+                _validate_against_schema(sub, instance[key], '%s.%s' % (path, key), issues)
+
+    items = schema.get('items')
+    if items is not None and isinstance(instance, list):
+        for idx, item in enumerate(instance):
+            _validate_against_schema(items, item, '%s[%d]' % (path, idx), issues)
+
+
+def check_track(track, align_by_leaf, template_names, viz_schemas=None):
     """트랙 하나를 검사해 사람이 읽는 문제 목록을 돌려준다.
 
     반환값은 지금처럼 문자열 리스트다 (호출부인 build_topic_track.py 의
     do_check 가 이 형태를 그대로 출력·카운트한다).
+
+    viz_schemas: {template_name: parse_viz_schema() 결과} (선택). 주면 등록된
+    템플릿이라도 params 가 그 템플릿의 enum·required 를 어기는지까지 본다 —
+    이전에는 템플릿 "이름"만 레지스트리에 있으면 통과였다.
 
     앵커(`src`) 검사는 성격이 다른 두 가지를 구분해서 담는다:
       - 강 번호 자체가 그 관의 spans 에 없음 → 진짜 신호. 접두사 없이,
@@ -281,10 +351,26 @@ def check_track(track, align_by_leaf, template_names):
                     issues.append('%s %s / %s / %s: 앵커 %s강 %ss 가 이 관의 구간 밖(같은 강의, 시각 추정 오차 의심)'
                                   % (LOW_SEVERITY_PREFIX, unit, title, p.get('id'), a.get('lec'), a.get('t')))
 
-            viz = p.get('viz')
-            if viz and viz.get('template') not in template_names:
-                issues.append('%s / %s / %s: 미등록 템플릿 "%s"'
-                              % (unit, title, p.get('id'), viz.get('template')))
+            # viz 는 논점 최상위(구식 body 폴백)와 각 turn(실제 렌더 경로) 양쪽에
+            # 올 수 있다. turn 쪽이 훨씬 많다 — 여기를 빼먹으면 실제로 화면에
+            # 뜨는 viz 대부분이 검사망을 피해간다.
+            viz_sources = [p.get('viz')]
+            viz_sources += [t.get('viz') for t in (p.get('turns') or [])]
+            for viz in viz_sources:
+                if not viz:
+                    continue
+                if viz.get('template') not in template_names:
+                    issues.append('%s / %s / %s: 미등록 템플릿 "%s"'
+                                  % (unit, title, p.get('id'), viz.get('template')))
+                    continue
+                if viz_schemas:
+                    schema = viz_schemas.get(viz.get('template'))
+                    if schema is not None:
+                        param_issues = []
+                        _validate_against_schema(schema, viz.get('params') or {}, 'params', param_issues)
+                        for pi in param_issues:
+                            issues.append('%s / %s / %s: viz "%s" %s'
+                                          % (unit, title, p.get('id'), viz.get('template'), pi))
 
         # 대화(turns) 검사 — quiz 유무, 정답/오답 구성, 오답별 전용 반박, who 값, 턴 수.
         # turns 가 없는 논점은 turns 프롬프트 이전에 저장된 옛 논점이다 — 결함이

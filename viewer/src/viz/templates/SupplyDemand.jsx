@@ -19,9 +19,17 @@ function computeCurves(shifts) {
   let sIntercept = 0.15, sSlope = 0.7;   // S: P = 0.15 + 0.7Q
   for (const s of shifts || []) {
     const mag = MAG_TO_SHIFT[s.magnitude] || MAG_TO_SHIFT.moderate;
-    const sign = s.direction === 'right' ? +1 : -1;
-    if (s.curve === 'D') dIntercept += sign * mag;
-    else if (s.curve === 'S') sIntercept += sign * mag * -1;  // S 우측 이동 = intercept 감소(=동일가격 더 많이 공급)
+    if (s.direction === 'up' || s.direction === 'down') {
+      // 수직 이동(절편 자체를 이동) — 외부성(PMC→SMC)·AD-AS 충격처럼 "같은 수량에서
+      // 가격이 바뀌는" 경우다. D/S 구분 없이 부호가 같다: up=절편 증가.
+      const vsign = s.direction === 'up' ? +1 : -1;
+      if (s.curve === 'D') dIntercept += vsign * mag;
+      else if (s.curve === 'S') sIntercept += vsign * mag;
+    } else {
+      const sign = s.direction === 'right' ? +1 : -1;
+      if (s.curve === 'D') dIntercept += sign * mag;
+      else if (s.curve === 'S') sIntercept += sign * mag * -1;  // S 우측 이동 = intercept 감소(=동일가격 더 많이 공급)
+    }
   }
   // 교차점: dIntercept + dSlope*Q = sIntercept + sSlope*Q → Q = (dIntercept - sIntercept) / (sSlope - dSlope)
   const qStar = (dIntercept - sIntercept) / (sSlope - dSlope);
@@ -134,7 +142,9 @@ function SupplyDemandChart({ params }) {
         <ul style={{ margin: '6px 0 0', padding: '0 0 0 18px', fontSize: '0.78rem', color: '#374151', lineHeight: 1.5 }}>
           {params.shifts.map((s, i) => (
             <li key={i}>
-              <strong>{s.curve === 'D' ? '수요' : '공급'}</strong> {s.direction === 'right' ? '우측' : '좌측'} 이동
+              <strong>{s.curve === 'D' ? '수요' : '공급'}</strong> {
+                { left: '좌측', right: '우측', up: '상방', down: '하방' }[s.direction] || s.direction
+              } 이동
               {s.magnitude && s.magnitude !== 'moderate' && ` (${s.magnitude === 'small' ? '소폭' : '대폭'})`}
               {s.reason && ` — ${s.reason}`}
             </li>
@@ -197,7 +207,7 @@ export const supplyDemandTemplate = {
           required: ['curve', 'direction'],
           properties: {
             curve: { enum: ['D', 'S'] },
-            direction: { enum: ['left', 'right'] },
+            direction: { enum: ['left', 'right', 'up', 'down'] },
             magnitude: { enum: ['small', 'moderate', 'large'], default: 'moderate' },
             reason: { type: 'string' },
           },
