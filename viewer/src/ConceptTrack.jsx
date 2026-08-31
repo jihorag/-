@@ -20,6 +20,8 @@ import {
 } from './trackProgress';
 import { getChapterMastery, updateChapterMastery, markActiveToday } from './aiLearningStore';
 import { record, pathFromLeafId } from './measure/record.js';
+import DeepChat from './DeepChat';
+import { getAllItems } from './studyDrill';
 
 const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
@@ -241,6 +243,23 @@ export default function ConceptTrack({
       {inner}
     </div>
   );
+
+  // 심화는 트랙이 없다. 로딩·트랙 없음 분기보다 먼저 가로챈다.
+  if (leafId && tab === 'deep') {
+    return workspace(
+      <div className="concept-runner">
+        <ConceptTabs tab={tab} onPick={setTab} />
+        <DeepChat
+          leafTitle={leaf?.title || ''}
+          track={track ? { ...track, leaf_id: leafId } : null}
+          items={getAllItems()}
+          onAsk={null}
+          onOpenSettings={() => onOpenDeep?.(leafId, null, null, { openSettings: true })}
+          onGoPoint={null}
+        />
+      </div>,
+    );
+  }
 
   if (loading) return workspace(<div className="concept-loading">불러오는 중…</div>);
 
