@@ -12,7 +12,7 @@ import re
 import sys
 
 # 이보다 짧은 토막은 검색에 쓸 수 없다. 제목만 있고 본문이 없는 자리다.
-MIN_CHARS = 10
+MIN_CHARS = 80
 HEAD = re.compile(r'^(#{3,4})\s+(.+?)\s*$', re.M)
 
 
@@ -41,7 +41,11 @@ def split_chunks(md):
 
 
 def terms_of(text):
-    """어절 + 2-gram. 형태소 분석기 없이 한국어 용어를 잡는 최소 장치."""
+    """검색어 후보. 파일에는 담지 않는다 — 본문에서 그대로 유도되는 값이라 담으면 용량이
+    두 배가 된다(실측 본문 2.1MB / terms 4.0MB). 브라우저가 로드 때 같은 규칙으로 만든다.
+    이 함수는 그 규칙의 정본이다.
+
+    어절 + 2-gram. 형태소 분석기 없이 한국어 용어를 잡는 최소 장치."""
     words = [w for w in re.split(r'[^0-9A-Za-z가-힣]+', text) if len(w) >= 2]
     grams = set(words)
     for w in words:
@@ -59,7 +63,6 @@ def build(unit_path, out_path):
             'id': '%s#%d' % (unit, n),
             'path': c['path'],
             'text': c['text'],
-            'terms': terms_of(c['path'][-1] + ' ' + c['text']),
         })
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     json.dump({'unit': unit, 'chunks': chunks},
