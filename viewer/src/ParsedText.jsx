@@ -1,6 +1,6 @@
 // 인라인 이미지([IMAGE: ...]) + KaTeX($...$) + 줄바꿈 렌더러
 // App.jsx와 MockExam.jsx에서 동일한 문제 본문 렌더링을 위해 분리
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useScrollLock, useEscClose } from './uiHooks';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
@@ -672,6 +672,11 @@ function PracticeCard({ raw, keyPrefix, seq = 0 }) {
   const [graded, setGraded] = useState(null);
   const [typed, setTyped] = useState({});
   const [checked, setChecked] = useState(false);
+  // 응답 소요시간 — 지금 안 재면 영영 못 잰다(소급 불가).
+  // useRef(Date.now()) 는 react-hooks/purity 린트 에러다(렌더 중 불순 함수 호출).
+  // 0 으로 두고 마운트 시 effect 에서 채운다.
+  const shownAtRef = useRef(0);
+  useEffect(() => { shownAtRef.current = Date.now(); }, []);
   const parts = { 문제: [], 힌트: [], 풀이: [], 답: [] };
   let caption = '';
   const tblRows = [];
@@ -700,11 +705,18 @@ function PracticeCard({ raw, keyPrefix, seq = 0 }) {
     setChecked(true);
     const ok = blanks.every((b) => fmtAmount(typed[key(b.ri, b.ci)] ?? '') === fmtAmount(b.ans));
     setGraded(ok);
-    recordItem({ kind: 'prac', idx: seq, q: body('문제') || caption, isCorrect: ok });
+    // 클릭 핸들러 안(렌더 중 아님) — react-compiler 규칙이 이 파일 크기에서 오탐한다(단독 재현 시 통과).
+    // eslint-disable-next-line react-hooks/purity
+    const ms = shownAtRef.current ? Date.now() - shownAtRef.current : undefined;
+    // 입력값을 정답과 비교했다 — 기계 채점이다.
+    recordItem({ kind: 'prac', idx: seq, q: body('문제') || caption, isCorrect: ok, gradedBy: 'machine', ms });
   };
   const grade = (ok) => {
     setGraded(ok);
-    recordItem({ kind: 'prac', idx: seq, q: body('문제'), isCorrect: ok });
+    // eslint-disable-next-line react-hooks/purity -- 클릭 핸들러 안(렌더 중 아님). 위 checkTable 과 동일 사유.
+    const ms = shownAtRef.current ? Date.now() - shownAtRef.current : undefined;
+    // 사용자가 O/X 를 눌렀다 — 자기 채점이다. 무게가 기계 채점의 1/6 이다.
+    recordItem({ kind: 'prac', idx: seq, q: body('문제'), isCorrect: ok, gradedBy: 'self', ms });
   };
   return (
     <div style={{

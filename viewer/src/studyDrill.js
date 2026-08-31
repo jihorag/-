@@ -6,6 +6,12 @@
 // 여기서 문항 단위로 기록하고, 관(章) 단위 숙련도에도 흘려보낸다.
 
 import { recordGrade } from './aiLearningStore';
+import { record, pathFromLeafId } from './measure/record.js';
+
+// kind → 계약의 형식(f). 채점 주체(g)는 호출부가 gradedBy 로 넘긴다 —
+// 같은 kind:'prac' 이 표 채우기(기계)와 자기채점 버튼(자기) 둘 다에서 오기 때문이다.
+const KIND_F = { ox: 'recall', prac: 'produce', journal: 'produce' };
+const KIND_G_DEFAULT = { ox: 'self', prac: 'self', journal: 'ai' };
 
 const KEY = 'ailearn-items-v1';
 const DAY = 86400000;
@@ -55,7 +61,7 @@ export function getActiveLeaf() { return active; }
 export const itemKey = (leafId, kind, idx) => `${leafId}::${kind}::${idx}`;
 
 /** 한 문항의 정오를 기록한다. 관 단위 숙련도(recordGrade)에도 반영된다. */
-export function recordItem({ kind, idx, q, isCorrect, leaf }) {
+export function recordItem({ kind, idx, q, isCorrect, leaf, gradedBy, ms }) {
   const a = leaf || active;
   if (!a?.leafId) return null;
   const all = load();
@@ -74,6 +80,25 @@ export function recordItem({ kind, idx, q, isCorrect, leaf }) {
   };
   all[k] = next;
   save(all);
+
+  // 측정 계약 병행 기록. 기존 저장소는 그대로 둔다.
+  try {
+    record({
+      id: `drill:${k}`,
+      leaf: a.leafId,
+      path: pathFromLeafId(a.leafId),
+      subject: a.subject || pathFromLeafId(a.leafId)[0] || '',
+      stage: 1,
+      axis: 'knowledge',
+      f: KIND_F[kind] || 'recall',
+      g: gradedBy || KIND_G_DEFAULT[kind] || 'self',
+      src: 'internal',
+      correct: !!isCorrect,
+      ms,
+      ts: Date.now(),
+    });
+  } catch (e) { if (import.meta.env?.DEV) throw e; }
+
   try { recordGrade(a.leafId, !!isCorrect); } catch { /* 관 단위 반영 실패는 치명적이지 않다 */ }
   return next;
 }

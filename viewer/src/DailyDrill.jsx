@@ -3,7 +3,7 @@
 // 합격수기 공통 전술: "회계는 휘발성 1위 — 하루만 안 봐도 손이 굳는다. 매일 인출."
 // 지금까지는 관을 하나씩 찾아 들어가야만 문제를 만났다. 여기서는
 // ① 마지막에 틀린 문항 ② 복습 만기가 지난 문항 을 섞어 한 자리에서 다시 묻는다.
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef, useEffect } from 'react';
 import ParsedText from './ParsedText';
 import { getDrillQueue, getDrillCounts, recordItem } from './studyDrill';
 
@@ -16,6 +16,9 @@ export default function DailyDrill({ limit = 20, onGoLeaf }) {
   const [i, setI] = useState(0);
   const [reveal, setReveal] = useState(false);
   const [tally, setTally] = useState({ right: 0, wrong: 0 });
+  // useRef(Date.now()) 는 react-hooks/purity 린트 에러다. 0 으로 두고 effect 에서 채운다.
+  const shownAtRef = useRef(0);
+  useEffect(() => { shownAtRef.current = Date.now(); }, [i]);
 
   if (!queue.length) {
     return (
@@ -37,6 +40,8 @@ export default function DailyDrill({ limit = 20, onGoLeaf }) {
     recordItem({
       kind: cur.kind, idx: cur.idx, q: cur.q, isCorrect: ok,
       leaf: { subject: cur.subject, leafId: cur.leafId, leafTitle: cur.leafTitle },
+      gradedBy: 'self',
+      ms: Date.now() - shownAtRef.current,
     });
     setTally((t) => ({ right: t.right + (ok ? 1 : 0), wrong: t.wrong + (ok ? 0 : 1) }));
     setReveal(false);

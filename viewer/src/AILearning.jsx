@@ -2252,7 +2252,7 @@ export default function AILearning({ isTabRoot, browseExam, weakPaths, weakPaths
         // 같은 유형을 또 맞히면 졸업, 계속 틀리면 오늘의 인출에 재출제된다.
         if (b && b.journal === true && typeof b.correct === 'boolean') {
           const slug = (b.topic || '분개').replace(/\s+/g, '').slice(0, 40);
-          try { recordItem({ kind: 'journal', idx: slug, q: (b.topic || '분개 연습').slice(0, 200), isCorrect: b.correct }); } catch { /* noop */ }
+          try { recordItem({ kind: 'journal', idx: slug, q: (b.topic || '분개 연습').slice(0, 200), isCorrect: b.correct, gradedBy: 'ai' }); } catch { /* noop */ }
         }
         // 🔙 선행 결손 역추적 → 원클릭으로 그 단원 이동(pendingNext 재사용)
         if (b && b.prereq === true && b.unit) {
