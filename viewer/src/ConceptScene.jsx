@@ -570,7 +570,11 @@ export function ConceptRecap({ track, onExit, onFinish }) {
 
   const item = items[i];
   const choices = choicesOf(item?.turn);
-  const solved = picked.some((n) => choices[n]?.ok) || picked.length >= 2;
+  // 진행 규칙은 conceptTurns 의 choose() 와 같아야 한다. OX 는 선지가 둘뿐이라
+  // 한 번 틀리면 남는 것이 정답 하나다 — 두 번째 시도를 「스스로 맞힘」으로 세면
+  // 되짚기 점수가 실력이 아니라 찍기 횟수를 재게 된다.
+  const maxTries = item?.turn?.who === WHO.ox ? 1 : 2;
+  const solved = picked.some((n) => choices[n]?.ok) || picked.length >= maxTries;
   const assisted = solved && !picked.some((n) => choices[n]?.ok);
   const ans = { picked, solved, assisted, turn: item?.turn, index: 0 };
 
