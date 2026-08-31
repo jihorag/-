@@ -44,6 +44,12 @@ export default function ConceptTrack({
   const enteredAt = useRef(0);
   useEffect(() => { enteredAt.current = Date.now(); setFinished(null); }, [leafId]);
 
+  // 감춘 탭이 선택돼 있으면 개념으로 되돌린다.
+  // _extra: 리프를 exam 탭 상태에서 열면 아무 탭도 선택 안 된 화면이 된다.
+  useEffect(() => {
+    if (leafId?.startsWith('_extra:') && tab === 'exam') setTab('concept');
+  }, [leafId, tab]);
+
   // 과목 레벨 트랙 — 관 축에 안 붙는 선행·총정리 강의 묶음.
   const [extra, setExtra] = useState([]);
   useEffect(() => {
@@ -113,7 +119,10 @@ export default function ConceptTrack({
 
   // 진도 버킷을 트랙별로 가른다. basic 은 기존 키를 그대로 써서 이미 쌓인 진도를
   // 잃지 않고, exam 만 따로 담는다. 안 가르면 기출 학습이 개념 완성 진도로 섞인다.
-  const progressKey = tab === 'exam' ? `${leafId}#exam` : leafId;
+  // 선행·총정리는 과목 레벨 트랙이라 기출이 대응하지 않는다. 탭을 감추지만,
+  // 어떤 경로로든 exam 상태로 들어와도 진도 키는 튀지 않게 막아 둔다.
+  const isExtra = !!leafId?.startsWith('_extra:');
+  const progressKey = (tab === 'exam' && !isExtra) ? `${leafId}#exam` : leafId;
 
   const counts = track ? leafCounts(track, progress) : { total: 0, seen: 0, passed: 0 };
   const point = track?.points?.[idx] || null;
@@ -294,7 +303,8 @@ export default function ConceptTrack({
   return workspace(
     <div className="concept-runner">
       <ConceptTabs tab={tab} onPick={setTab}
-        right={tab === 'exam' && counts.total ? `기출 ${counts.passed} / ${counts.total}` : null} />
+        right={tab === 'exam' && counts.total ? `기출 ${counts.passed} / ${counts.total}` : null}
+        hide={leafId?.startsWith('_extra:') ? ['exam'] : []} />
       <header className="concept-head">
         <button type="button" className="concept-back" onClick={() => setLeafId(null)}>
           <ChevronLeft size={14} strokeWidth={1.75} />단원 목록

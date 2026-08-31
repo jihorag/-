@@ -6,10 +6,11 @@ export const TABS = [
   { key: 'deep', label: '심화' },
 ];
 
-export default function ConceptTabs({ tab, onPick, right }) {
+export default function ConceptTabs({ tab, onPick, right, hide = [] }) {
+  const shown = TABS.filter((t) => !hide.includes(t.key));
   return (
     <div className="ctabs" role="tablist" aria-label="학습 방식">
-      {TABS.map((t) => (
+      {shown.map((t) => (
         <button type="button" key={t.key} role="tab"
           aria-selected={tab === t.key}
           className={`ctab${tab === t.key ? ' is-on' : ''}`}
