@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개념 완성 — AI 학습에 추가된 것</title>
+<style>
+  :root{
+    --paper:#fafaf9; --sheet:#fff; --sunken:#f4f4f2;
+    --ink:#1c1c1a; --ink-2:#4a4a46; --ink-3:#7a7a74; --ink-4:#a8a8a2;
+    --line:#e4e4e2; --line-strong:#c9c9c5;
+    --hl-name:#f7e9a6; --hl-flip:#f6cfd2; --hl-num:#cfe8d3; --hl-then:#cfe0f5;
+    --measure:34rem;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font:400 16px/1.75 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    letter-spacing:-.003em;
+  }
+  .wrap{max-width:52rem;margin:0 auto;padding:0 24px 120px}
+
+  /* ── 표지 ───────────────────────────────── */
+  header{padding:96px 0 56px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;margin:0 0 20px}
+  h1{margin:0 0 20px;font-size:clamp(30px,5.4vw,46px);line-height:1.18;letter-spacing:-.025em;font-weight:700}
+  .lede{margin:0;max-width:var(--measure);font-size:18px;line-height:1.7;color:var(--ink-2)}
+  .stamp{margin-top:36px;font-size:13px;color:var(--ink-4)}
+
+  /* ── 숫자판 ─────────────────────────────── */
+  .figures{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:44px 0 0}
+  .fig{background:var(--sheet);padding:20px 18px}
+  .fig b{display:block;font-size:26px;line-height:1.2;font-weight:700;font-variant-numeric:tabular-nums}
+  .fig span{display:block;margin-top:5px;font-size:12.5px;color:var(--ink-3)}
+
+  /* ── 절 ─────────────────────────────────── */
+  section{padding:64px 0 0}
+  h2{margin:0 0 8px;font-size:13px;letter-spacing:.12em;color:var(--ink-3);text-transform:uppercase;font-weight:700}
+  h3{margin:0 0 18px;font-size:clamp(21px,3.2vw,27px);line-height:1.3;letter-spacing:-.02em;font-weight:700}
+  p{margin:0 0 16px;max-width:var(--measure)}
+  .muted{color:var(--ink-2)}
+  ul{margin:0 0 18px;padding-left:1.1em;max-width:var(--measure)}
+  li{margin:0 0 8px}
+
+  /* ── 화면 재현 ──────────────────────────── */
+  .demo{border:1px solid var(--line);border-radius:12px;background:var(--sheet);overflow:hidden;margin:26px 0 30px}
+  .demo-bar{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid var(--line);
+    font-size:12.5px;color:var(--ink-3)}
+  .demo-bar .t{color:var(--ink);font-weight:700}
+  .segs{display:flex;gap:2px;flex:1;margin-left:8px}
+  .segs i{flex:1;height:5px;border-radius:1px;background:var(--sunken)}
+  .segs i.on{background:var(--ink)}
+  .segs i.cur{background:var(--ink-4);box-shadow:0 0 0 1.5px var(--line-strong)}
+  .stage{padding:34px 22px;text-align:center;font-size:19px;font-weight:600;line-height:1.5;
+    border-bottom:1px solid var(--line);background:var(--sheet)}
+  .say{display:flex;gap:16px;align-items:flex-start;padding:20px 18px}
+  .say.right{flex-direction:row-reverse}
+  .who{flex:0 0 auto;width:52px;text-align:center}
+  .who svg{display:block;width:46px;height:46px;border:1px solid var(--line);border-radius:50%;background:var(--sheet)}
+  .who span{display:block;margin-top:3px;font-size:11px;font-weight:700;color:var(--ink-3)}
+  .bubble{position:relative;flex:1;padding:13px 17px;border:1px solid var(--line);border-radius:12px;
+    background:var(--sheet);font-size:15px;line-height:1.7}
+  .bubble::before,.bubble::after{content:"";position:absolute;top:14px;width:0;height:0;border:9px solid transparent}
+  .bubble::before{left:-18px;border-right-color:var(--line)}
+  .bubble::after{left:-16.5px;border-right-color:var(--sheet)}
+  .say.right .bubble::before{left:auto;right:-18px;border-right-color:transparent;border-left-color:var(--line)}
+  .say.right .bubble::after{left:auto;right:-16.5px;border-right-color:transparent;border-left-color:var(--sheet)}
+  .ops{display:flex;align-items:center;gap:10px;padding:14px 18px;border-top:1px solid var(--line);background:var(--sunken)}
+  .btn{padding:8px 18px;border-radius:8px;background:var(--ink);color:#fff;font-size:14px;font-weight:700}
+  .ops em{margin-left:auto;font-style:normal;font-size:12.5px;color:var(--ink-3)}
+  .choices{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:0 22px 26px}
+  .choices div{border:1px solid var(--line);border-radius:9px;padding:11px 14px;font-size:14px;background:var(--sheet)}
+  .choices div.no{color:var(--ink-4);text-decoration:line-through;background:var(--sunken)}
+  .prompt{padding:26px 22px 14px;text-align:center;font-weight:700;font-size:16px}
+
+  mark{padding:0 1px;border-radius:1px;background:none}
+  .m-name{background:linear-gradient(transparent 58%,var(--hl-name) 58%)}
+  .m-flip{background:linear-gradient(transparent 58%,var(--hl-flip) 58%)}
+  .m-num{background:linear-gradient(transparent 58%,var(--hl-num) 58%)}
+  .m-then{background:linear-gradient(transparent 58%,var(--hl-then) 58%)}
+
+  /* ── 표 ─────────────────────────────────── */
+  table{width:100%;border-collapse:collapse;margin:8px 0 22px;font-size:14.5px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase;font-weight:700;
+    border-bottom:1px solid var(--line-strong)}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .swatch{display:inline-block;width:26px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:8px;
+    border:1px solid rgba(0,0,0,.07)}
+
+  /* ── 인용/주석 ──────────────────────────── */
+  .note{margin:26px 0;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--sheet);
+    font-size:14.5px;color:var(--ink-2);max-width:var(--measure)}
+  .note b{color:var(--ink)}
+  .rule{height:1px;background:var(--line);margin:64px 0 0}
+  footer{padding:38px 0 0;font-size:13px;color:var(--ink-4)}
+  code{font:500 13.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--sunken);
+    padding:1px 5px;border-radius:4px;color:var(--ink-2)}
+  @media (max-width:640px){
+    header{padding:64px 0 40px}
+    .choices{grid-template-columns:1fr}
+    .stage{padding:26px 16px;font-size:17px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">AI 학습 · 개념 완성</p>
+  <h1>인강을 보지 않고도<br>그 강의가 다룬 것을 다 익힌다</h1>
+  <p class="lede">
+    335시간짜리 경제학 인강을 전사해, <b>관(關) 단위로 “그 강의가 실제로 다룬 논점”</b>을
+    뽑아 놓았습니다. 관을 고르면 논점이 강의 순서대로 나오고, 네 캐릭터의 대화로 배웁니다.
+    목록을 다 비우면 그 강의를 끝까지 들은 것과 같습니다.
+  </p>
+
+  <div class="figures">
+    <div class="fig"><b>160</b><span>관</span></div>
+    <div class="fig"><b>909</b><span>논점</span></div>
+    <div class="fig"><b>444</b><span>그림이 붙은 논점</span></div>
+    <div class="fig"><b>124</b><span>단계 애니메이션</span></div>
+    <div class="fig"><b>909</b><span>선택지 문제</span></div>
+  </div>
+  <p class="stamp">경제학원론 · 2026-08-30 기준</p>
+</header>
+
+<section>
+  <h2>화면</h2>
+  <h3>칠판이 주인공, 대사는 자막</h3>
+  <p class="muted">
+    층이 넷입니다 — 머리(관 제목·진행률), 그림 무대, 말풍선, 그리고 <b>위치가 변하지 않는 조작 줄</b>.
+    말풍선은 아래로 쌓이지 않고 한 번에 하나씩 교체됩니다. 그래서 「다음」 버튼이 누를 때마다 도망가지 않습니다.
+  </p>
+
+  <div class="demo">
+    <div class="demo-bar">
+      <span>‹ 단원 목록</span><span class="t">제2관 독점기업의 이윤극대화</span>
+      <span class="segs"><i class="on"></i><i class="on"></i><i class="cur"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span>논점 3/12</span>
+    </div>
+    <div class="stage">
+      <mark class="m-flip">가격이 아니라</mark> <mark class="m-name">‘수량’</mark>을 먼저 정하고,
+      그 수량을 수요곡선에 올려 가격을 읽는다
+    </div>
+    <div class="say right">
+      <span class="who">
+        <svg viewBox="0 0 44 44" fill="none" stroke="#1c1c1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="22" cy="23" r="12.4"/><circle cx="16.2" cy="20" r="1.5"/><circle cx="27.8" cy="20" r="1.5"/>
+          <path d="M18.6 27.2 h6.8"/><path d="M18.8 7.6 q0 -3.4 3.2 -3.4 q3.2 0 3.2 2.8 q0 2.2 -3.2 3.2"/><path d="M22 12.2 v.2"/>
+        </svg><span>묻는 이</span>
+      </span>
+      <div class="bubble">독점 계산 문제가 나오면 뭐부터 해야 해요?</div>
+    </div>
+    <div class="say">
+      <span class="who">
+        <svg viewBox="0 0 44 44" fill="none" stroke="#1c1c1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="22" cy="23" r="12.4"/><rect x="12.2" y="17.2" width="8" height="5.6" rx="1.2"/>
+          <rect x="23.8" y="17.2" width="8" height="5.6" rx="1.2"/><path d="M20.2 20 h3.6"/>
+          <path d="M9.4 19.4 l2.8 -.9"/><path d="M34.6 19.4 l-2.8 -.9"/><path d="M18.6 27.2 h6.8"/>
+        </svg><span>선생</span>
+      </span>
+      <div class="bubble">
+        순서를 외워 두면 됩니다. 하나, 수요곡선에서 절편은 같고 <mark class="m-num">기울기가 2배</mark>인
+        MR을 찾습니다. 둘, MR과 MC가 만나는 지점에서 <mark class="m-name">‘생산량’</mark>을 먼저 결정합니다.
+        <mark class="m-then">따라서 가격은 마지막에 수요곡선에서 읽습니다</mark>.
+      </div>
+    </div>
+    <div class="ops"><span class="btn">다음 ›</span><em>듣기 · 지난 대사 · 더 묻기</em></div>
+  </div>
+
+  <p class="muted">
+    문제가 나오면 선택지가 무대 위로 올라옵니다. <b>맞혀야 다음으로 넘어갑니다.</b>
+    틀리면 그 선지 전용 반박이 붙고, 두 번 틀리면 정답을 열어 주되
+    “스스로 맞힌 것”과 구분해 기록합니다.
+  </p>
+
+  <div class="demo">
+    <div class="prompt">P = 100 − 2Q, MC = 20 인 독점기업의 균형 가격은?</div>
+    <div class="choices">
+      <div>60</div><div>20</div>
+      <div class="no">40</div><div>80</div>
+    </div>
+    <div class="say">
+      <span class="who">
+        <svg viewBox="0 0 44 44" fill="none" stroke="#1c1c1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="22" cy="23" r="12.4"/><path d="M12.8 16.4 l5.6 1.8"/><path d="M31.2 16.4 l-5.6 1.8"/>
+          <path d="M13.6 20.4 h5.2"/><path d="M25.2 20.4 h5.2"/><path d="M17.8 27 q4.2 1.8 8.4 -.6"/>
+        </svg><span>깐깐이</span>
+      </span>
+      <div class="bubble">MR식에 Q=20을 넣으신 것 같습니다. <mark class="m-flip">가격은 MR이 아니라</mark> 수요곡선에서 읽어요.</div>
+    </div>
+    <div class="ops"><span class="btn" style="background:#e4e4e2;color:#a8a8a2">다음 ›</span><em>맞혀야 넘어갑니다</em></div>
+  </div>
+</section>
+
+<section>
+  <h2>등장인물</h2>
+  <h3>네 사람이 각자 다른 일을 합니다</h3>
+  <p class="muted">
+    이모지가 아니라 앱의 아이콘 체계에 맞춰 <b>선으로 직접 그렸습니다.</b>
+    정답을 맞히면 웃고, 틀리면 표정이 바뀝니다. 사람은 무채색으로 두었습니다 —
+    색이 뜻을 갖는 자리는 형광펜 한 곳뿐이어야 하기 때문입니다.
+  </p>
+  <table>
+    <tr><th style="width:110px">캐릭터</th><th>하는 일</th></tr>
+    <tr><td><b>묻는 이</b></td><td>수험생이 품는 질문을 대신 던집니다. 오른쪽에서 말합니다.</td></tr>
+    <tr><td><b>선생</b></td><td>설명하고 그림을 세웁니다.</td></tr>
+    <tr><td><b>깐깐이</b></td><td>함정과 틀리기 쉬운 자리를 지적합니다. 오답 반박도 맡습니다.</td></tr>
+    <tr><td><b>복습 메이트</b></td><td>무엇을 외우고 무엇을 버릴지, 다른 단원과 어떻게 이어지는지 말합니다.</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>형광펜</h2>
+  <h3>색 하나에 뜻 하나</h3>
+  <p class="muted">
+    강조는 취향이 아니라 규칙입니다. 네 가지 역할만 두었고, 규칙은 코드 한 곳에만 있습니다.
+    데이터를 고치지 않고 <b>렌더할 때 적용</b>되므로 909개 논점 전체에 고르게 걸립니다.
+  </p>
+  <table>
+    <tr><th style="width:150px">색</th><th>뜻</th><th>걸리는 자리</th></tr>
+    <tr><td><span class="swatch" style="background:var(--hl-name)"></span><b>이름</b></td>
+        <td>외울 용어</td><td>따옴표로 묶인 정의어</td></tr>
+    <tr><td><span class="swatch" style="background:var(--hl-flip)"></span><b>뒤집힘</b></td>
+        <td>시험이 뒤집는 자리</td><td>「~가 아니라」·「~와 달리」·「반대로」</td></tr>
+    <tr><td><span class="swatch" style="background:var(--hl-num)"></span><b>수치</b></td>
+        <td>조건이 걸린 값</td><td>숫자와 단위</td></tr>
+    <tr><td><span class="swatch" style="background:var(--hl-then)"></span><b>결론</b></td>
+        <td>그래서 어떻게 되는가</td><td>「따라서」·「결과적으로」 뒤의 한 마디</td></tr>
+  </table>
+  <div class="note">
+    한 대사에 그을 수 있는 개수에 상한을 두었습니다. 규칙이 있어도 화면이 알록달록해지면
+    강조가 아니라 소음이 되기 때문입니다.
+  </div>
+</section>
+
+<section>
+  <h2>그림</h2>
+  <h3>444개 논점에 도형이, 그중 124개는 단계로 재생됩니다</h3>
+  <p class="muted">
+    AI가 좌표를 그리지 않습니다. <b>이름 붙은 템플릿 22종</b> 중 하나를 고르고 의미 파라미터만 채우면
+    컴포넌트가 그립니다. 그래서 축이 어긋나거나 곡선이 뒤집히는 일이 없습니다.
+  </p>
+  <table>
+    <tr><th>템플릿</th><th class="num">논점</th><th>쓰이는 곳</th></tr>
+    <tr><td>calc-steps</td><td class="num">129</td><td>수식을 단계로 푸는 계산표</td></tr>
+    <tr><td>flow-stages</td><td class="num">122</td><td>순서 있는 국면·시점 흐름</td></tr>
+    <tr><td>supply-demand</td><td class="num">45</td><td>수요·공급 곡선과 이동</td></tr>
+    <tr><td>classify-2x2</td><td class="num">41</td><td>두 기준으로 나눈 4분면</td></tr>
+    <tr><td>is-lm</td><td class="num">26</td><td>IS-LM 모형</td></tr>
+    <tr><td>surplus-areas</td><td class="num">25</td><td>잉여와 사중손실 영역</td></tr>
+    <tr><td>indifference-budget</td><td class="num">21</td><td>무차별곡선과 예산선</td></tr>
+    <tr><td>cost-curves · phillips-curve</td><td class="num">28</td><td>비용곡선 · 필립스곡선</td></tr>
+    <tr><td>ad-as · elasticity-zones</td><td class="num">7</td><td>총수요·총공급 · 탄력성 구간</td></tr>
+  </table>
+  <p class="muted">
+    단계 애니메이션은 스크러버로 앞뒤로 돌려 볼 수 있습니다. 예를 들어 AD-AS 평면에서
+    「교차점 → 총수요 확대로 경기 과열 → 총수요 축소로 경기 침체」를 한 화면에서 오갑니다.
+  </p>
+</section>
+
+<section>
+  <h2>재료</h2>
+  <h3>강의가 다룬 것만 담습니다</h3>
+  <p class="muted">
+    교과서적으로 맞는 결론이라도 강의가 말하지 않았으면 쓰지 않습니다.
+    관마다 전사를 확인해, 강의가 건너뛴 관은 교재로 따로 만들고 <code>source: textbook</code>으로
+    표시해 두었습니다. 나중에 다른 회독 강의가 그 내용을 다루면 강의 기반으로 바꿀 수 있습니다.
+  </p>
+  <table>
+    <tr><th>회독</th><th class="num">강수</th><th class="num">분량</th><th>전사</th></tr>
+    <tr><td>1회독 기본이론</td><td class="num">53</td><td class="num">48.4h</td><td>완료 · 개념 완성의 재료</td></tr>
+    <tr><td>2회독 심화이론</td><td class="num">47</td><td class="num">40.0h</td><td>완료 · 정렬까지 마침</td></tr>
+    <tr><td>3회독 문제풀이</td><td class="num">56</td><td class="num">48.8h</td><td>진행 중</td></tr>
+    <tr><td>4회독 모의+핵심</td><td class="num">49</td><td class="num">20.8h</td><td>대기</td></tr>
+    <tr><td>마무리 특강</td><td class="num">13</td><td class="num">7.6h</td><td>대기</td></tr>
+  </table>
+  <div class="note">
+    <b>심화 보충이 시작됐습니다.</b> 심화 강의가 다룬 45개 절 · 115관 · 35.1시간을
+    같은 관에 이어 붙이고 있습니다. 각 논점에 <code>phase: "deep"</code>과 제목 앞
+    <b>[심화]</b> 표시가 붙어 회독별로 갈라 볼 수 있습니다. 현재 1개 절 완료.
+  </div>
+</section>
+
+<section>
+  <h2>원칙</h2>
+  <h3>이 기능이 지키는 다섯 가지</h3>
+  <ul class="muted">
+    <li><b>강의가 다룬 것만 담는다.</b> 틀리게 채우는 것은 비워 두는 것보다 나쁩니다.</li>
+    <li><b>조용한 유실을 가장 경계한다.</b> 내용이 오류 없이 사라지는 경로가 최악의 결함입니다. 건너뛰면 로그를 남깁니다.</li>
+    <li><b>진도는 실측한다.</b> AI가 추정한 커버리지가 아니라 통과한 논점 수로 셉니다.</li>
+    <li><b>읽기가 아니라 하기.</b> 「다음」만 눌러 통과할 수 있으면 그 화면은 존재 이유가 없습니다.</li>
+    <li><b>빈 것은 비었다고 보인다.</b> 강의가 안 다룬 관은 채우는 대신 그렇게 표시합니다.</li>
+  </ul>
+  <div class="note">
+    대화·선택지·그림은 모두 <b>사전 생성</b>이라 API 키 없이 즉시 뜨고 오프라인에서도 동작합니다.
+    논점 id는 학습 진도의 저장 키여서, 다시 만들어도 밀리지 않도록 고정합니다.
+  </div>
+</section>
+
+<div class="rule"></div>
+<footer>감정평가사 1차 학습 앱 · 개념 완성 · 경제학원론 기준</footer>
+
+</div>
+</body>
+</html>
