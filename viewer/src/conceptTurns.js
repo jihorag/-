@@ -25,7 +25,7 @@ export function initTurnState() {
 }
 
 function answerOf(state, i) {
-  return state.answers[i] || { picked: [], solved: false, assisted: false };
+  return state.answers[i] || { picked: [], solved: false, assisted: false, everAssisted: false };
 }
 
 /** 지금까지 열린 턴들. 각 항목에 그 턴의 응답 상태를 붙여 돌려준다. */
@@ -36,7 +36,11 @@ export function visibleTurns(point, state) {
   const out = [];
   for (let i = 0; i <= last; i += 1) {
     const a = answerOf(state, i);
-    out.push({ turn: turns[i], index: i, picked: a.picked, solved: a.solved, assisted: a.assisted });
+    out.push({
+      turn: turns[i], index: i,
+      picked: a.picked, solved: a.solved, assisted: a.assisted,
+      everAssisted: !!a.everAssisted,
+    });
   }
   return out;
 }
@@ -79,7 +83,37 @@ export function choose(point, state, turnIndex, choiceIndex) {
 
   return {
     ...state,
-    answers: { ...state.answers, [turnIndex]: { picked, solved, assisted } },
+    answers: {
+      ...state.answers,
+      // everAssisted 는 다시 풀어도 남는다 — retry 주석 참조.
+      [turnIndex]: { picked, solved, assisted, everAssisted: prev.everAssisted || assisted },
+    },
+  };
+}
+
+/**
+ * 그 quiz 를 다시 푼다 — 시안의 「다시 풀어보기」.
+ *
+ * 고른 것만 지우고 **도움받았다는 사실은 지우지 않는다**(everAssisted). 지우면
+ * 두 번 틀려 답을 본 사람이 곧바로 다시 눌러 「스스로 맞힘」으로 바꿀 수 있고,
+ * 그러면 통과율이 실력이 아니라 재시도 횟수를 재게 된다. 다시 보는 것은 자유롭게,
+ * 점수는 처음 것으로.
+ */
+export function retry(point, state, turnIndex) {
+  const turns = turnsOf(point);
+  const turn = turns[turnIndex];
+  if (!turn || turn.who !== WHO.quiz) return state;
+  const prev = answerOf(state, turnIndex);
+  if (!prev.solved) return state;
+  return {
+    ...state,
+    answers: {
+      ...state.answers,
+      [turnIndex]: {
+        picked: [], solved: false, assisted: false,
+        everAssisted: prev.everAssisted || prev.assisted,
+      },
+    },
   };
 }
 
@@ -91,7 +125,7 @@ export function isPassed(point, state) {
   if (!quizIdx.length) return atEnd(point, state);
   return quizIdx.every((i) => {
     const a = answerOf(state, i);
-    return a.solved && !a.assisted;
+    return a.solved && !a.assisted && !a.everAssisted;
   });
 }
 
@@ -115,7 +149,7 @@ export function passDetail(point, state) {
     tries += a.picked.length;
     if (a.solved) {
       solvedCount += 1;
-      if (a.assisted) assistedCount += 1; else selfCount += 1;
+      if (a.assisted || a.everAssisted) assistedCount += 1; else selfCount += 1;
     }
   }
   const done = quizCount > 0 && solvedCount === quizCount;

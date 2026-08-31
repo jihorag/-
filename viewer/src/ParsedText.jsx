@@ -48,9 +48,13 @@ const isPipeRow = (l) => {
 };
 const splitCells = (l) => l.trim().slice(1, -1).split('|').map(c => c.trim());
 
-// 형광펜(==텍스트== / ==역할:텍스트==) — 글자 아래쪽만 칠해지는 마커 효과.
+// 형광펜(==텍스트== / ==역할:텍스트==) — 면 전체를 칠한 칩.
 // 역할별 색의 뜻은 emphasis.js 가 정의한다. 여기서는 색만 고른다.
 // 역할이 없으면 기본 노랑(=이름).
+//
+// 2026-08-31: 밑줄형(아래 58% 만 칠하는 마커)에서 칩형으로 바꿨다. Figma 시안이
+// 강조를 라운드 칩으로 그리기 때문이다(DECISIONS.md 2026-08-31). 네 색 모두
+// 아주 옅어 글자색은 inherit 그대로 두어도 대비를 잃지 않는다.
 const HILITE_TONE = {
   이름:   'var(--hl-name)',
   뒤집힘: 'var(--hl-flip)',
@@ -58,10 +62,15 @@ const HILITE_TONE = {
   결론:   'var(--hl-then)',
 };
 const hiliteStyle = (role) => ({
-  background: `linear-gradient(transparent 58%, ${HILITE_TONE[role] || HILITE_TONE['이름']} 58%)`,
+  background: HILITE_TONE[role] || HILITE_TONE['이름'],
   color: 'inherit',
-  padding: '0 1px',
-  borderRadius: 1,
+  fontWeight: 'var(--weight-medium)',
+  padding: '3px 6px',
+  borderRadius: 'var(--radius-sm)',
+  // 줄바꿈이 걸려도 각 조각이 칩으로 보이게. 세로 여백이 줄 간격을 밀지 않도록
+  // box-decoration-break 를 함께 준다.
+  boxDecorationBreak: 'clone',
+  WebkitBoxDecorationBreak: 'clone',
 });
 // `==역할:본문==` 을 [역할, 본문] 로 가른다. 역할이 없으면 [null, 본문].
 const splitRole = (inner) => {
