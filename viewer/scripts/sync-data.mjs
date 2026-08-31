@@ -66,8 +66,10 @@ if (!existsSync(qSrc)) {
     if (!iv) return false;
     if (iv.in_scope === false) return false;
     const mt = iv.mapped_taxonomy;
+    // 분류 주체 화이트리스트 — App.jsx의 isClassified와 동일하게 유지할 것.
     return !!(mt && mt.subject &&
-      (iv.processed_by === 'gemini-2.5-flash' || iv.processed_by === 'claude-sonnet-4-6'));
+      (iv.processed_by === 'gemini-2.5-flash' || iv.processed_by === 'claude-sonnet-4-6'
+        || iv.processed_by === 'aigen' || String(iv.processed_by || '').startsWith('claude-opus-5')));
   };
 
   // 기존 chunk 정리(이번 빌드에 없는 시험은 삭제)
