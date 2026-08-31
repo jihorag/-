@@ -84,7 +84,9 @@ export default function ConceptScene({ point, onPassed, onDone, onNext, onAsk })
   // 논점 하나당 한 번만 부른다 — ConceptTrack 의 렌더 루프 주석 참조.
   const detail = passDetail(point, state);
   const doneRef = useRef(null);
-  const shownAtRef = useRef(Date.now());
+  // useRef(Date.now()) 는 렌더 중 불순 함수 호출이라 react-hooks/purity 에러다.
+  // 0 으로 두고 effect 에서 채운다.
+  const shownAtRef = useRef(0);
   useEffect(() => {
     shownAtRef.current = Date.now();
     // 논점이 바뀌면 발화 가드도 푼다. 안 풀면 A→B→A 로 돌아와 다시 푼 것이
@@ -95,7 +97,7 @@ export default function ConceptScene({ point, onPassed, onDone, onNext, onAsk })
     if (!detail.done) return;
     if (doneRef.current === point?.id) return;
     doneRef.current = point?.id;
-    if (onDone) onDone({ ...detail, ms: Date.now() - shownAtRef.current });
+    if (onDone) onDone({ ...detail, ms: shownAtRef.current ? Date.now() - shownAtRef.current : undefined });
   }, [detail.done, point?.id, onDone, detail]);
 
   const turns = visibleTurns(point, state);
