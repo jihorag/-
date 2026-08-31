@@ -3024,3 +3024,36 @@ html, body {
   color: var(--ink);
 }
 .ctree-subject-note { margin: 2px 0 0; font-size: var(--text-xs); color: var(--ink-meta); }
+
+/* ── 관 안의 상단 3탭 — 시안 316:3 ────────────────────────── */
+.ctabs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex: 0 0 auto;
+  padding: 0 var(--space-4);
+  background: var(--sheet);
+  border-bottom: 1px solid var(--line);
+}
+.ctab {
+  padding: 14px 2px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--ink-meta);
+  cursor: pointer;
+}
+.ctab:hover { color: var(--ink-2); }
+.ctab.is-on {
+  color: var(--ink);
+  font-weight: var(--weight-bold);
+  border-bottom-color: var(--accent);
+}
+.ctabs-right {
+  margin-left: auto;
+  font-size: var(--text-xs);
+  color: var(--ink-meta);
+  font-variant-numeric: tabular-nums;
+}

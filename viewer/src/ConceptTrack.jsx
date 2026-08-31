@@ -13,6 +13,7 @@ import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { ChevronRight, ChevronLeft, CheckCircle2, X } from 'lucide-react';
 import ConceptOutline from './ConceptOutline';
 import ConceptTree from './ConceptTree';
+import ConceptTabs from './ConceptTabs';
 import ConceptScene, { ConceptRecap, ConceptDone } from './ConceptScene';
 import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
@@ -32,6 +33,9 @@ export default function ConceptTrack({
   const [loading, setLoading] = useState(false);
   const [recap, setRecap] = useState(false);   // 관을 마친 뒤의 되짚기 한 판
   const [summary, setSummary] = useState(false);  // 「/정리」 — 이 관의 논점 요약
+  // 'concept' 개념 완성 · 'exam' 기출 분석 · 'deep' 심화.
+  // 관을 옮겨도 탭은 유지한다 — 기출을 보던 사람은 다음 관에서도 기출부터 본다.
+  const [tab, setTab] = useState('concept');
   const [finished, setFinished] = useState(null); // 관을 다 익힌 뒤의 마무리 화면 { right, total }
 
   const leaf = useMemo(() => leaves.find((l) => l.id === leafId) || null, [leaves, leafId]);
@@ -88,7 +92,9 @@ export default function ConceptTrack({
     if (!leaf?.unit_code) { setTrack(null); return undefined; }
     let dead = false;
     setLoading(true);
-    fetch(`${studyBase(subjectId)}lectures/track/${leaf.unit_code}.basic.json`)
+    // 개념은 basic, 기출은 exam. 심화는 트랙이 없다(DeepChat 이 맡는다).
+    const suffix = tab === 'exam' ? 'exam' : 'basic';
+    fetch(`${studyBase(subjectId)}lectures/track/${leaf.unit_code}.${suffix}.json`)
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => {
         if (dead) return;
@@ -99,7 +105,7 @@ export default function ConceptTrack({
       .catch(() => { if (!dead) setTrack(null); })
       .finally(() => { if (!dead) setLoading(false); });
     return () => { dead = true; };
-  }, [subjectId, leaf?.unit_code, leafId, extra]);
+  }, [subjectId, leaf?.unit_code, leafId, extra, tab]);
 
   const counts = track ? leafCounts(track, progress) : { total: 0, seen: 0, passed: 0 };
   const point = track?.points?.[idx] || null;
@@ -270,6 +276,8 @@ export default function ConceptTrack({
 
   return workspace(
     <div className="concept-runner">
+      <ConceptTabs tab={tab} onPick={setTab}
+        right={tab === 'exam' && counts.total ? `기출 ${counts.passed} / ${counts.total}` : null} />
       <header className="concept-head">
         <button type="button" className="concept-back" onClick={() => setLeafId(null)}>
           <ChevronLeft size={14} strokeWidth={1.75} />단원 목록
