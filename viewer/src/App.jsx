@@ -3477,6 +3477,49 @@ const App = () => {
     return out;
   }, [leavesBySubject, classifiedList, progress]);
 
+  // AI 학습·개념 완성이 함께 쓰는 점프. 인라인으로 두면 개념 완성 쪽에서 같은 것을
+  // 한 벌 더 쓰게 되므로 이름을 붙여 둔다.
+  const jumpToBrowseFromLeaf = (leaf) => {
+    const subjId = (leaf.id || '').split('__')[0];
+    // 2차 실무: AI 학습 토픽 → 해당 단원·토픽 연습문제(EssayMode)로 호응 점프
+    if (subjId === 'appraisal_practice') {
+      const topicId = leaf.leaf_type === 'topic' ? (leaf.id || '').split('__').pop() : null;
+      setEssayEntry((e) => ({ key: 'practice', nonce: (e.nonce || 0) + 1, chapter: leaf.unit_code, subchapter: topicId }));
+      setCurrentView('essay_questions');
+      window.scrollTo(0, 0);
+      return;
+    }
+    // leaf.path → tax 드릴 위치로 점프 (가장 구체적인 단계)
+    const subjName = AI_SUBJECT_TO_QUIZ[subjId];
+    if (!subjName || !taxonomyData) return;
+    const hasSubs = !!taxonomyData[subjName]?.has_subjects;
+    const p = leaf.path || [];
+    setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
+    setTaxSubject(subjName);
+    setTaxSubSubject(hasSubs ? p[0] : null);
+    setTaxChapter(hasSubs ? p[1] : p[0]);
+    setTaxSection(hasSubs ? (p[2] || null) : (p[1] || null));
+    // 가장 구체적인 단계로 currentView 결정
+    const sectionVal = hasSubs ? p[2] : p[1];
+    const chapterVal = hasSubs ? p[1] : p[0];
+    if (sectionVal) setCurrentView('tax_items');
+    else if (chapterVal) setCurrentView('tax_sections');
+    else setCurrentView(hasSubs ? 'tax_chapters' : 'tax_sub_subjects');
+    window.scrollTo(0, 0);
+  };
+
+  const quizCountForLeaf = (leaf) => {
+    if (!leaf) return 0;
+    const sid = (leaf.id || '').split('__')[0];
+    if (sid === 'appraisal_practice') {
+      const topics = practiceIndex?.topics || {};
+      if (leaf.leaf_type === 'topic') return topics[(leaf.id || '').split('__').pop()]?.total || 0;
+      return Object.values(topics).filter((t) => t.unitCode === leaf.unit_code).reduce((a, t) => a + (t.total || 0), 0);
+    }
+    if (!classifiedList?.length) return 0;
+    return questionsInLeaf(classifiedList, leaf).length;
+  };
+
   // AI 학습 탭 — 5과목 quiz 오답률 기반 취약 단원 path 집계.
   // 결과: { civil: [...], economics: [...], realestate: [...], law: [...], accounting: [...] }
   const aiWeakPathsBySubject = useMemo(() => {
@@ -4493,6 +4536,8 @@ const App = () => {
         subjectId={subj}
         leaves={leavesBySubject[subj] || []}
         onOpenDeep={() => setCurrentView('civil')}
+        onSolve={jumpToBrowseFromLeaf}
+        getQuizCountForLeaf={quizCountForLeaf}
       />
     );
   }
@@ -4504,45 +4549,8 @@ const App = () => {
         browseExam={browseExam}
         weakPathsBySubject={aiWeakPathsBySubject}
         leavesBySubject={leavesBySubject}
-        onJumpToBrowse={(leaf) => {
-          const subjId = (leaf.id || '').split('__')[0];
-          // 2차 실무: AI 학습 토픽 → 해당 단원·토픽 연습문제(EssayMode)로 호응 점프
-          if (subjId === 'appraisal_practice') {
-            const topicId = leaf.leaf_type === 'topic' ? (leaf.id || '').split('__').pop() : null;
-            setEssayEntry((e) => ({ key: 'practice', nonce: (e.nonce || 0) + 1, chapter: leaf.unit_code, subchapter: topicId }));
-            setCurrentView('essay_questions');
-            window.scrollTo(0, 0);
-            return;
-          }
-          // leaf.path → tax 드릴 위치로 점프 (가장 구체적인 단계)
-          const subjName = AI_SUBJECT_TO_QUIZ[subjId];
-          if (!subjName || !taxonomyData) return;
-          const hasSubs = !!taxonomyData[subjName]?.has_subjects;
-          const p = leaf.path || [];
-          setTaxScope({ key: PRIMARY_EXAM, label: PRIMARY_EXAM });
-          setTaxSubject(subjName);
-          setTaxSubSubject(hasSubs ? p[0] : null);
-          setTaxChapter(hasSubs ? p[1] : p[0]);
-          setTaxSection(hasSubs ? (p[2] || null) : (p[1] || null));
-          // 가장 구체적인 단계로 currentView 결정
-          const sectionVal = hasSubs ? p[2] : p[1];
-          const chapterVal = hasSubs ? p[1] : p[0];
-          if (sectionVal) setCurrentView('tax_items');
-          else if (chapterVal) setCurrentView('tax_sections');
-          else setCurrentView(hasSubs ? 'tax_chapters' : 'tax_sub_subjects');
-          window.scrollTo(0, 0);
-        }}
-        getQuizCountForLeaf={(leaf) => {
-          if (!leaf) return 0;
-          const sid = (leaf.id || '').split('__')[0];
-          if (sid === 'appraisal_practice') {
-            const topics = practiceIndex?.topics || {};
-            if (leaf.leaf_type === 'topic') return topics[(leaf.id || '').split('__').pop()]?.total || 0;
-            return Object.values(topics).filter((t) => t.unitCode === leaf.unit_code).reduce((a, t) => a + (t.total || 0), 0);
-          }
-          if (!classifiedList?.length) return 0;
-          return questionsInLeaf(classifiedList, leaf).length;
-        }}
+        onJumpToBrowse={jumpToBrowseFromLeaf}
+        getQuizCountForLeaf={quizCountForLeaf}
         quizStatsByLeaf={quizStatsByLeaf}
       />,
       'fullwidth'

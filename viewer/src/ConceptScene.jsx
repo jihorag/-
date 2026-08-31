@@ -459,7 +459,7 @@ function recapQuizzes(track) {
   return Array.from({ length: RECAP_MAX }, (_, i) => all[Math.floor(i * stride)]);
 }
 
-export function ConceptRecap({ track, onExit }) {
+export function ConceptRecap({ track, onExit, onFinish }) {
   const items = useMemo(() => recapQuizzes(track), [track]);
   const [i, setI] = useState(0);
   const [picked, setPicked] = useState([]);
@@ -474,9 +474,14 @@ export function ConceptRecap({ track, onExit }) {
 
   const next = () => {
     if (!solved) return;
-    setScore((s) => ({ right: s.right + (assisted ? 0 : 1), total: s.total + 1 }));
+    const s2 = { right: score.right + (assisted ? 0 : 1), total: score.total + 1 };
+    setScore(s2);
     setPicked([]);
-    if (i + 1 >= items.length) setDone(true); else setI(i + 1);
+    if (i + 1 >= items.length) {
+      // 완료 화면이 있으면 그쪽이 마무리를 맡는다 — 여기서 또 결과를 그리면 두 번 끝난다.
+      if (onFinish) { onFinish(s2); return; }
+      setDone(true);
+    } else setI(i + 1);
   };
 
   const restart = () => { setI(0); setPicked([]); setScore({ right: 0, total: 0 }); setDone(false); };
@@ -539,6 +544,78 @@ export function ConceptRecap({ track, onExit }) {
         <div className="cs-tools">
           <button type="button" className="cs-tool" onClick={onExit}>그만하기</button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ── 관을 다 익힌 뒤 ──────────────────────────────────────────────────────
+// 시안(250:365). 관의 끝이 「목록으로」 한 줄로 끝나면 방금 한 일이 무엇이었는지
+// 남지 않는다. 챙길 것 셋 · 확인 문제 성적 · 걸린 시간을 보여 주고, 다음 행동
+// 두 개(이 관 문제 풀기 · 다음 관으로)를 준다.
+
+/** 「챙길 것」 세 줄. 관 전체를 고르게 훑는다 — 앞 세 개만 뽑으면 뒤쪽이 안 보인다. */
+export function keyTakeaways(track, max = 3) {
+  const gists = (track?.points || []).map((p) => p.gist).filter(Boolean);
+  if (gists.length <= max) return gists;
+  const stride = gists.length / max;
+  return Array.from({ length: max }, (_, i) => gists[Math.floor(i * stride)]);
+}
+
+export function ConceptDone({
+  track, score, elapsedMs, quizCount, onSolve, onNextLeaf, onExit,
+}) {
+  const total = track?.points?.length || 0;
+  const takeaways = useMemo(() => keyTakeaways(track), [track]);
+  const minutes = elapsedMs ? Math.max(1, Math.round(elapsedMs / 60000)) : null;
+
+  return (
+    <div className="cs-room">
+      <div className="cs-stream">
+        <div className="cs-done-head">
+          <p className="cs-done-leaf">{track?.title || ''}</p>
+          <p className="cs-done-title">이 관을 다 익혔습니다</p>
+          <p className="cs-done-sub">논점 {total}개를 모두 마쳤어요</p>
+        </div>
+
+        {takeaways.length > 0 && (
+          <section className="cs-take">
+            <h3 className="cs-take-label">이 관에서 챙길 것</h3>
+            <ul className="cs-take-list">
+              {takeaways.map((g, i) => (
+                <li key={i}><ParsedText text={markEmphasis(g)} /></li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <div className="cs-done-stat">
+          <span>
+            {score && score.total > 0
+              ? `확인 문제 ${score.total}문제 중 ${score.right}개 정답`
+              : '확인 문제를 풀지 않았습니다'}
+          </span>
+          {minutes && <span className="cs-done-time">{minutes}분</span>}
+        </div>
+      </div>
+
+      <div className="cs-dock">
+        {onSolve && (
+          <button type="button" className="cs-primary" onClick={onSolve}>
+            이 관 문제 풀기{quizCount ? ` · 기출 ${quizCount}문제` : ''}
+          </button>
+        )}
+        {onNextLeaf
+          ? (
+            <button type="button" className="cs-secondary" onClick={onNextLeaf}>
+              다음 관으로 <ChevronRight size={16} strokeWidth={1.75} />
+            </button>
+          )
+          : (
+            <button type="button" className="cs-secondary" onClick={onExit}>
+              단원 목록으로
+            </button>
+          )}
       </div>
     </div>
   );

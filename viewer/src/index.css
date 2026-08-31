@@ -2765,3 +2765,63 @@ button.concept-seg:hover { opacity: .7; }
   color: var(--ink);
   font-weight: var(--weight-medium);
 }
+
+/* ── 관 완료 화면 — 시안 250:365 ──────────────────────────── */
+.cs-done-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: var(--space-6);
+  text-align: center;
+}
+.cs-done-leaf { margin: 0; font-size: var(--text-sm); color: var(--ink-meta); }
+.cs-done-title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
+}
+.cs-done-sub { margin: 0; font-size: var(--text-sm); color: var(--ink-2); }
+
+.cs-take {
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+.cs-take-label {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--ink-2);
+}
+.cs-take-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+.cs-take-list > li {
+  position: relative;
+  padding-left: 14px;
+  font-size: var(--text-sm);
+  line-height: var(--leading-read);
+  color: var(--ink);
+}
+.cs-take-list > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .72em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+.cs-take-list .parsed-text > div { margin: 0 !important; line-height: var(--leading-read) !important; }
+
+.cs-done-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--ink-2);
+}
+.cs-done-time { color: var(--ink-meta); }

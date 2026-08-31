@@ -9,10 +9,10 @@
 //
 // 목차·장면 렌더는 이 파일이 들지 않는다 — ConceptOutline(단일 목차 모델)과
 // ConceptScene(턴 진행)에 넘긴다. 이 파일은 트랙 fetch·진도 저장만 하는 셸이다.
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { ChevronRight, ChevronLeft, CheckCircle2, X } from 'lucide-react';
 import ConceptOutline from './ConceptOutline';
-import ConceptScene, { ConceptRecap } from './ConceptScene';
+import ConceptScene, { ConceptRecap, ConceptDone } from './ConceptScene';
 import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
 } from './trackProgress';
@@ -21,7 +21,7 @@ import { record, pathFromLeafId } from './measure/record.js';
 
 const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
-export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
+export default function ConceptTrack({ subjectId, leaves, onOpenDeep, onSolve, getQuizCountForLeaf }) {
   const [leafId, setLeafId] = useState(null);
   const [track, setTrack] = useState(null);      // 이 관의 { leaf_id, title, points }
   const [progress, setProgress] = useState(() => getTrackProgress());
@@ -29,8 +29,13 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
   const [loading, setLoading] = useState(false);
   const [recap, setRecap] = useState(false);   // 관을 마친 뒤의 되짚기 한 판
   const [summary, setSummary] = useState(false);  // 「/정리」 — 이 관의 논점 요약
+  const [finished, setFinished] = useState(null); // 관을 다 익힌 뒤의 마무리 화면 { right, total }
 
   const leaf = useMemo(() => leaves.find((l) => l.id === leafId) || null, [leaves, leafId]);
+
+  // 관에 들어온 시각. 완료 화면이 「N분」을 보여 준다.
+  const enteredAt = useRef(0);
+  useEffect(() => { enteredAt.current = Date.now(); setFinished(null); }, [leafId]);
 
   // 과목 레벨 트랙 — 관 축에 안 붙는 선행·총정리 강의 묶음.
   const [extra, setExtra] = useState([]);
@@ -136,7 +141,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
 
   const goNext = () => {
     const last = (track?.points?.length || 1) - 1;
-    if (idx >= last) { if (hasRecap) setRecap(true); else setLeafId(null); return; }
+    if (idx >= last) { if (hasRecap) setRecap(true); else setFinished({ right: 0, total: 0 }); return; }
     setIdx(idx + 1);
   };
 
@@ -239,6 +244,12 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
   }
 
   const pct = counts.total ? Math.round((counts.passed / counts.total) * 100) : 0;
+  // 「다음 관으로」 — 과목 레벨 트랙(_extra:)에는 다음이 없다.
+  const nextLeafId = (() => {
+    if (!leafId || leafId.startsWith('_extra:')) return null;
+    const i = leaves.findIndex((l) => l.id === leafId);
+    return i >= 0 && i + 1 < leaves.length ? leaves[i + 1].id : null;
+  })();
 
   return (
     <div className="concept-runner">
@@ -252,7 +263,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
           <span className="concept-head-passed">· {pct}%</span>
           {/* 완료 안내를 조작 줄 아래 배너로 두면 그 배너가 생기는 순간 조작 줄이
               위로 밀린다 — 이 화면이 지키려는 단 하나가 그거라 머리로 올렸다. */}
-          {!recap && done && hasRecap && (
+          {!recap && !finished && done && hasRecap && (
             <button type="button" className="concept-op" onClick={() => setRecap(true)}>
               <CheckCircle2 size={14} strokeWidth={1.75} />되짚기 한 판
             </button>
@@ -276,8 +287,24 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
         </div>
       </header>
 
-      {recap
-        ? <ConceptRecap track={track} onExit={() => { setRecap(false); setLeafId(null); }} />
+      {finished
+        ? (
+          <ConceptDone
+            track={track}
+            score={finished}
+            elapsedMs={enteredAt.current ? Date.now() - enteredAt.current : 0}
+            quizCount={getQuizCountForLeaf && leaf ? getQuizCountForLeaf(leaf) : 0}
+            onSolve={onSolve && leaf ? () => onSolve(leaf) : null}
+            onNextLeaf={nextLeafId ? () => { setFinished(null); setLeafId(nextLeafId); } : null}
+            onExit={() => { setFinished(null); setLeafId(null); }}
+          />
+        )
+        : recap
+        ? (
+          <ConceptRecap track={track}
+            onFinish={(sc) => { setRecap(false); setFinished(sc); }}
+            onExit={() => { setRecap(false); setLeafId(null); }} />
+        )
         : point && (
           <ConceptScene
             point={point}
