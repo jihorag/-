@@ -2825,3 +2825,120 @@ button.concept-seg:hover { opacity: .7; }
   color: var(--ink-2);
 }
 .cs-done-time { color: var(--ink-meta); }
+
+/* ── 학습 중 단원 트리 — 시안 250:380 ─────────────────────── */
+.concept-workspace {
+  display: flex;
+  align-items: stretch;
+  min-height: 0;
+  height: calc(100dvh - var(--tabbar-h) - 60px);
+}
+.concept-workspace > .concept-runner { flex: 1 1 auto; min-width: 0; height: auto; }
+
+.ctree {
+  display: none;
+  flex: 0 0 280px;
+  width: 280px;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-4) 0;
+  background: var(--sheet);
+  border-right: 1px solid var(--line);
+  min-height: 0;
+}
+/* 시안은 1280 폭 기준이다. 그보다 좁으면 본문이 먼저다 — 트리는 접는다. */
+@media (min-width: 1080px) {
+  .ctree { display: flex; }
+}
+.ctree-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 0 0 auto;
+  height: 40px;
+  padding: 0 var(--space-3);
+  background: var(--sunken);
+  border-radius: var(--radius-md);
+  color: var(--ink-meta);
+}
+.ctree-search input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--ink);
+}
+.ctree-search input:focus { outline: none; }
+.ctree-search input::placeholder { color: var(--ink-meta); }
+
+.ctree-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: var(--space-5);
+}
+.ctree-div {
+  margin: var(--space-3) 0 var(--space-1);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--ink-2);
+}
+.ctree-ch {
+  margin: var(--space-2) 0 2px;
+  padding-left: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--ink-meta);
+}
+.ctree-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: 52px;
+  padding: 6px var(--space-3) 6px 20px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.ctree-row:not(:disabled):hover { background: var(--sheet-3); }
+.ctree-row:disabled { cursor: default; opacity: .55; }
+.ctree-row.is-on { background: var(--accent-bg); }
+.ctree-row-t {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.ctree-name {
+  font-size: var(--text-sm);
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ctree-row.is-on .ctree-name { color: var(--accent-ink); font-weight: var(--weight-medium); }
+.ctree-sub { font-size: var(--text-2xs); color: var(--ink-meta); }
+.ctree-pct {
+  flex: 0 0 40px;
+  text-align: right;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.ctree-pct.is-low { color: var(--wrong); }
+.ctree-subject { flex: 0 0 auto; }
+.ctree-subject-name {
+  margin: 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
+}
+.ctree-subject-note { margin: 2px 0 0; font-size: var(--text-xs); color: var(--ink-meta); }

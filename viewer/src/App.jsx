@@ -4538,6 +4538,8 @@ const App = () => {
         onOpenDeep={() => setCurrentView('civil')}
         onSolve={jumpToBrowseFromLeaf}
         getQuizCountForLeaf={quizCountForLeaf}
+        quizStatsByLeaf={quizStatsByLeaf}
+        subjectName={(AI_SUBJECTS.find((x) => x.id === subj) || {}).title || ''}
       />
     );
   }

@@ -12,6 +12,7 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { ChevronRight, ChevronLeft, CheckCircle2, X } from 'lucide-react';
 import ConceptOutline from './ConceptOutline';
+import ConceptTree from './ConceptTree';
 import ConceptScene, { ConceptRecap, ConceptDone } from './ConceptScene';
 import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
@@ -21,7 +22,9 @@ import { record, pathFromLeafId } from './measure/record.js';
 
 const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
-export default function ConceptTrack({ subjectId, leaves, onOpenDeep, onSolve, getQuizCountForLeaf }) {
+export default function ConceptTrack({
+  subjectId, leaves, onOpenDeep, onSolve, getQuizCountForLeaf, quizStatsByLeaf, subjectName,
+}) {
   const [leafId, setLeafId] = useState(null);
   const [track, setTrack] = useState(null);      // 이 관의 { leaf_id, title, points }
   const [progress, setProgress] = useState(() => getTrackProgress());
@@ -200,10 +203,23 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep, onSolve, g
     );
   }
 
-  if (loading) return <div className="concept-loading">불러오는 중…</div>;
+  // 관을 연 뒤의 모든 화면은 이 셸을 쓴다. 한 갈래라도 빠뜨리면 그 상태에서만
+  // 트리가 사라져 본문이 옆으로 튄다.
+  const workspace = (inner) => (
+    <div className="concept-workspace">
+      <ConceptTree
+        leaves={leaves} scope={scope} index={index} progress={progress}
+        leafId={leafId} quizStatsByLeaf={quizStatsByLeaf}
+        subjectName={subjectName} subjectNote={scope?.label || ''}
+        onPick={(id) => { setFinished(null); setRecap(false); setLeafId(id); }} />
+      {inner}
+    </div>
+  );
+
+  if (loading) return workspace(<div className="concept-loading">불러오는 중…</div>);
 
   if (!track) {
-    return (
+    return workspace(
       <div className="concept-index">
         <button type="button" className="concept-back" onClick={() => setLeafId(null)}>
           <ChevronLeft size={14} strokeWidth={1.75} />단원 목록
@@ -216,7 +232,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep, onSolve, g
             AI 학습에서 대화로 배우기 →
           </button>
         )}
-      </div>
+      </div>,
     );
   }
 
@@ -224,7 +240,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep, onSolve, g
   const rec = progress[leafId] || {};
 
   if (!track.points?.length) {
-    return (
+    return workspace(
       <div className="concept-runner">
         <header className="concept-head">
           <button type="button" className="concept-back" onClick={() => setLeafId(null)}>
@@ -236,10 +252,10 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep, onSolve, g
           <div className="concept-gist">아직 논점이 없습니다.</div>
         </div>
         <div className="concept-say" />
-        <div className="concept-ops">
-          <button type="button" className="concept-next" onClick={() => setLeafId(null)}>목록으로</button>
+        <div className="cs-dock">
+          <button type="button" className="cs-primary" onClick={() => setLeafId(null)}>목록으로</button>
         </div>
-      </div>
+      </div>,
     );
   }
 
@@ -251,7 +267,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep, onSolve, g
     return i >= 0 && i + 1 < leaves.length ? leaves[i + 1].id : null;
   })();
 
-  return (
+  return workspace(
     <div className="concept-runner">
       <header className="concept-head">
         <button type="button" className="concept-back" onClick={() => setLeafId(null)}>
@@ -360,7 +376,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep, onSolve, g
           </div>
         </div>
       )}
-    </div>
+    </div>,
   );
 }
 
