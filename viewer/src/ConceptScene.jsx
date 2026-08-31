@@ -24,7 +24,7 @@ import { markEmphasis } from './emphasis';
 import { SpeakButton } from './Speech';
 import VizRouter from './viz/VizRouter';
 import {
-  WHO, initTurnState, visibleTurns, canAdvance, advance, choose, isPassed, atEnd,
+  WHO, initTurnState, visibleTurns, canAdvance, advance, choose, isPassed, atEnd, passDetail,
 } from './conceptTurns';
 
 // 색으로 구분하지 않는다. 이름·아이콘·좌우 위치로만 화자를 가른다.
@@ -61,7 +61,7 @@ function quizSay(turn, ans) {
   return { who: WHO.teach, text: '생각한 답을 하나 골라 보세요.' };
 }
 
-export default function ConceptScene({ point, onPassed, onNext, onAsk }) {
+export default function ConceptScene({ point, onPassed, onDone, onNext, onAsk }) {
   const [state, setState] = useState(initTurnState);
   const [peek, setPeek] = useState(0);        // 0 = 지금 대사, n = n칸 전 대사 다시 보기
   const [panel, setPanel] = useState(null);   // 'log' | 'example' | null
@@ -78,6 +78,20 @@ export default function ConceptScene({ point, onPassed, onNext, onAsk }) {
 
   const passed = isPassed(point, state);
   useEffect(() => { if (passed && onPassed) onPassed(); }, [passed, onPassed]);
+
+  // 측정 계약 기록 — 통과 여부와 무관하게 "quiz 를 다 끝냈는가"가 기준이다.
+  // 두 번 틀려 답을 연 경우(assisted)도 증거이므로 남긴다.
+  // 논점 하나당 한 번만 부른다 — ConceptTrack 의 렌더 루프 주석 참조.
+  const detail = passDetail(point, state);
+  const doneRef = useRef(null);
+  const shownAtRef = useRef(Date.now());
+  useEffect(() => { shownAtRef.current = Date.now(); }, [point?.id]);
+  useEffect(() => {
+    if (!detail.done) return;
+    if (doneRef.current === point?.id) return;
+    doneRef.current = point?.id;
+    if (onDone) onDone({ ...detail, ms: Date.now() - shownAtRef.current });
+  }, [detail.done, point?.id, onDone, detail]);
 
   const turns = visibleTurns(point, state);
   const hasTurns = turns.length > 0;

@@ -17,6 +17,7 @@ import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
 } from './trackProgress';
 import { getChapterMastery, updateChapterMastery, markActiveToday } from './aiLearningStore';
+import { record, pathFromLeafId } from './measure/record.js';
 
 const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
@@ -239,6 +240,23 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
           <ConceptScene
             point={point}
             onPassed={() => mark(STATE.PASSED)}
+            onDone={(d) => record({
+              id: `concept:${leafId}:${point.id}`,
+              leaf: leafId,
+              path: pathFromLeafId(leafId),
+              subject: pathFromLeafId(leafId)[0] || '',
+              stage: 1,
+              axis: 'knowledge',
+              // 선택지형이지만 2회 오답 시 통과를 박탈하므로 찍기 내성이 높다(§4-3 예외).
+              f: 'recog', g: 'machine', strict: true,
+              nopt: (point.turns || []).find((t) => t.who === 'quiz')?.choices?.length,
+              src: 'internal',
+              score: d.score,
+              assisted: d.assistedCount > 0,
+              tries: d.tries,
+              ms: d.ms,
+              ts: Date.now(),
+            })}
             onNext={goNext}
             onAsk={onOpenDeep ? () => onOpenDeep(leafId, point) : null}
           />
