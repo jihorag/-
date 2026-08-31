@@ -2597,8 +2597,16 @@ button.concept-seg:hover { opacity: .7; }
 
 @media (max-width: 640px) {
   .cs-stream { padding: var(--space-3) var(--space-3) var(--space-4); gap: 12px; }
-  .cs-dock { padding: 10px var(--space-3) calc(var(--space-3) + env(safe-area-inset-bottom, 0px)); }
+  .cs-dock { padding: 8px var(--space-3) calc(var(--space-2) + env(safe-area-inset-bottom, 0px)); gap: 6px; }
   .cs-bubble { font-size: var(--text-sm); }
+  .cs-choice { min-height: 44px; padding: 8px 12px; }
+  .cs-choice.is-right { padding: 7.5px 11.5px; }
+  .cs-choices { gap: 5px; }
+  .cs-choice-hint { padding: 9px; font-size: var(--text-xs); }
+  .cs-primary, .cs-secondary { min-height: 44px; }
+  .cs-input { min-height: 44px; }
+  /* 선택지가 깔린 동안에는 도구 줄까지 자리를 차지할 이유가 없다. */
+  .cs-choices ~ .cs-tools { display: none; }
 }
 
 .speak-btn {
@@ -2706,8 +2714,24 @@ button.concept-seg:hover { opacity: .7; }
 /* ── 좁은 화면 ────────────────────────────────────────────── */
 @media (max-width: 639px) {
   .concept-runner { padding: 0; gap: 0; }
-  .concept-head-title { font-size: var(--text-sm); }
   .concept-segs--mini { display: none; }
+
+  /* 시안의 모바일 머리(245:2)는 두 줄이다 — 제목, 그리고 「논점 N / M · 관」.
+     여기에 breadcrumb 까지 얹으면 그만큼 대화가 눌린다. 선택지가 깔린 상태에서
+     대화가 화면의 3분의 1도 안 되는 것이 실제로 재어 본 결과였다. */
+  .concept-head {
+    grid-template-columns: auto 1fr;
+    gap: 2px var(--space-2);
+    padding: var(--space-2) var(--space-3) 10px;
+  }
+  .concept-head-title { font-size: var(--text-sm); }
+  .concept-crumb { display: none; }
+  .concept-head-count {
+    grid-column: 2 / -1;
+    font-size: var(--text-2xs);
+    color: var(--ink-meta);
+  }
+  .concept-head-count .concept-op { display: none; }
 }
 
 /* ── 「/정리」 — 이 관의 논점 목록 ─────────────────────────── */

@@ -123,14 +123,23 @@ export default function ConceptScene({
   const finished = hasTurns && atEnd(point, state) && !stuck;
 
   // 새 턴이 열리면 그 턴이 보이도록 아래로. 사용자가 위를 읽는 중이면 방해하지 않는다.
+  //
+  // 「따라가는 중인가」는 **스크롤할 때** 재어 둔다. 렌더 뒤에 재면 안 된다 —
+  // 선택지가 바닥에 깔리는 순간 조작부가 커지고 스트림이 그만큼 줄어드는데,
+  // 그 뒤에 재면 방금까지 맨 아래에 있던 사람도 「위를 읽는 중」으로 잘못 읽힌다.
+  // 실제로 채점 직후의 반박 대사가 화면 밖에 남았다.
   const streamRef = useRef(null);
   const bottomRef = useRef(null);
+  const following = useRef(true);
+  const onStreamScroll = (e) => {
+    const el = e.currentTarget;
+    following.current = el.scrollHeight - el.scrollTop - el.clientHeight < 120;
+  };
   useEffect(() => {
-    const el = streamRef.current;
-    if (!el) return;
-    const nearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 220;
-    if (nearBottom) bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    if (following.current) bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }, [turns.length, openQuiz?.picked.length, openQuiz?.solved]);
+  // 논점이 바뀌면 다시 따라가기 시작한다.
+  useEffect(() => { following.current = true; }, [point?.id]);
 
   const goForward = () => {
     if (canAdvance(point, state)) { setState((s) => advance(point, s)); return; }
@@ -189,7 +198,7 @@ export default function ConceptScene({
   if (!hasTurns) {
     return (
       <div className="cs-room">
-        <div className="cs-stream" ref={streamRef}>
+        <div className="cs-stream" ref={streamRef} onScroll={onStreamScroll}>
           {head}
           {point?.viz && (
             <FigureCard caption={point.viz.caption || '그림'}>
@@ -226,7 +235,7 @@ export default function ConceptScene({
 
   return (
     <div className="cs-room">
-      <div className="cs-stream" ref={streamRef}>
+      <div className="cs-stream" ref={streamRef} onScroll={onStreamScroll}>
         {head}
         {turns.map((t) => <StreamTurn key={t.index} item={t} />)}
         <div ref={bottomRef} />
