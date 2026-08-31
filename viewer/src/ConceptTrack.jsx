@@ -192,7 +192,10 @@ export default function ConceptTrack({
   };
 
   // 심화·샛길이 함께 쓰는 튜터 호출. 키가 없으면 null 을 넘겨 화면이 안내를 띄우게 한다.
-  const hasKey = !!getApiKey(getPrefs().provider || 'anthropic');
+  // 키가 있는지는 **실제로 호출할 제공자** 기준으로 본다. getPrefs().provider 는
+  // 존재하지 않는 필드라 늘 anthropic 만 봤다(DEFAULT_PREFS 참조).
+  // getApiKey('local') 이 더미 키를 돌려주므로 로컬 모델은 자동으로 통과한다.
+  const hasKey = !!getApiKey(getProviderForModel(getPrefs().model));
   const askTutor = useCallback(async (question) => {
     const hits = searchChunks(chunks, question);
     const ctx = buildContext({
@@ -205,7 +208,7 @@ export default function ConceptTrack({
     const res = await sendMessagesUnified({
       model: prefs.model,
       apiKey: getApiKey(getProviderForModel(prefs.model)),
-      max_tokens: prefs.max_tokens || 1200,
+      maxTokens: prefs.max_tokens || 1200,
       system: [
         { type: 'text', text: '당신은 감정평가사 1차 시험 과외 선생님입니다. 학생이 지금 보고 있는 관에 대해 답합니다.' },
         { type: 'text', text: '답한 내용이 어느 대목에서 온 것인지 밝히고, 준 자료에 없는 내용은 「교재에 없습니다」라고 말하고 지어내지 마라.' },
