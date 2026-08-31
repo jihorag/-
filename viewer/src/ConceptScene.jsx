@@ -15,7 +15,9 @@
 // 진행 규칙(언제 넘어갈 수 있는가·무엇이 통과인가)은 conceptTurns.js 가 갖는다.
 // onPassed 와 onNext 는 책임이 다르다: onPassed 는 isPassed 가 참이 되는 순간
 // 진도만 기록한다(화면을 넘기지 않는다). onNext 는 끝까지 본 뒤 사용자가 직접 누른다.
-import { useState, useEffect, useRef, useMemo } from 'react';
+import {
+  useState, useEffect, useRef, useMemo, useImperativeHandle, forwardRef,
+} from 'react';
 import {
   ChevronRight, HelpCircle, BookOpen, AlertTriangle, Bookmark,
   FlaskConical, X, RotateCcw, SendHorizontal, CornerDownLeft,
@@ -76,10 +78,10 @@ function quizSay(turn, ans) {
   return null;   // 아직 아무것도 안 골랐으면 붙일 대사가 없다
 }
 
-export default function ConceptScene({
+const ConceptScene = forwardRef(function ConceptScene({
   point, seq, total, onPassed, onDone, onNext, onAsk, onCommand, leafId, onAskSide,
   onQueueItem,
-}) {
+}, ref) {
   const [state, setState] = useState(initTurnState);
   const [panel, setPanel] = useState(null);   // 'example' | null
   const [draft, setDraft] = useState('');
@@ -235,6 +237,9 @@ export default function ConceptScene({
     }
   };
 
+  // 「/쉽게」・교재의 「이 부분 물어보기」가 밖에서 샛길을 열 수 있게 한다.
+  useImperativeHandle(ref, () => ({ askSide }), [askSide]);
+
   const head = (
     <div className="cs-pointhead">
       <span className="cs-pointhead-label">
@@ -369,7 +374,9 @@ export default function ConceptScene({
       )}
     </div>
   );
-}
+});
+
+export default ConceptScene;
 
 // ── 스트림 ───────────────────────────────────────────────────────────────
 // 턴을 그대로 그리지 않고 「말풍선·그림」 목록으로 한 번 편다. 그래야 앞 항목의

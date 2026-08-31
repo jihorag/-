@@ -2639,6 +2639,51 @@ html, body {
   color: var(--ink);
 }
 
+/* ── 교재 패널 — 시안 334:229 ─────────────────────────────── */
+.tbook {
+  display: none;
+  flex: 0 0 380px;
+  width: 380px;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--sheet);
+  border-left: 1px solid var(--line);
+}
+@media (min-width: 1280px) { .tbook { display: flex; } }
+.tbook-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 0 auto;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+.tbook-label {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: .06em;
+  color: var(--ink-3);
+}
+.tbook-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: var(--space-4); }
+.tbook-chunk { padding-bottom: var(--space-5); }
+.tbook-h { margin: 0 0 var(--space-2); font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--ink); }
+.tbook-empty { font-size: var(--text-sm); color: var(--ink-meta); }
+.tbook-ask {
+  display: block;
+  width: 100%;
+  margin-top: var(--space-3);
+  padding: 10px;
+  background: var(--accent-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--accent-ink);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+}
+.tbook-ask:hover { filter: brightness(.97); }
+
 @media (max-width: 640px) {
   .cs-stream { padding: var(--space-3) var(--space-3) var(--space-4); gap: 12px; }
   .cs-dock { padding: 8px var(--space-3) calc(var(--space-2) + env(safe-area-inset-bottom, 0px)); gap: 6px; }

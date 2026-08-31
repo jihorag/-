@@ -15,6 +15,7 @@ import ConceptOutline from './ConceptOutline';
 import ConceptTree from './ConceptTree';
 import ConceptTabs from './ConceptTabs';
 import ConceptScene, { ConceptRecap, ConceptDone } from './ConceptScene';
+import TextbookPanel from './TextbookPanel';
 import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
 } from './trackProgress';
@@ -43,6 +44,11 @@ export default function ConceptTrack({
   // 관을 옮겨도 탭은 유지한다 — 기출을 보던 사람은 다음 관에서도 기출부터 본다.
   const [tab, setTab] = useState('concept');
   const [finished, setFinished] = useState(null); // 관을 다 익힌 뒤의 마무리 화면 { right, total }
+  const [book, setBook] = useState(false); // 「/교재」 — 4단째 교재 패널
+
+  // 교재의 「이 부분 물어보기」와 슬래시 명령이 ConceptScene 안의 샛길을 부른다.
+  const sceneRef = useRef(null);
+  const askSideFromTrack = (q) => sceneRef.current?.askSide?.(q);
 
   const leaf = useMemo(() => leaves.find((l) => l.id === leafId) || null, [leaves, leafId]);
 
@@ -243,8 +249,7 @@ export default function ConceptTrack({
         setSummary(true);
         break;
       case '/교재':
-        // 교재 패널은 AI 학습 화면이 갖는다. 이 관을 지목해 그쪽으로 넘긴다.
-        onOpenDeep?.(leafId, point, null, { openBook: true });
+        setBook((v) => !v);
         break;
       case '/쉽게':
         // 유일하게 생성이 필요한 명령. 사용자가 키를 넣어 둔 경우에만 실제로 답이 온다.
@@ -285,6 +290,15 @@ export default function ConceptTrack({
         subjectName={subjectName} subjectNote={scope?.label || ''}
         onPick={(id) => { setFinished(null); setRecap(false); setLeafId(id); }} />
       {inner}
+      {book && (
+        <TextbookPanel chunks={chunks} focusId={null}
+          onClose={() => setBook(false)}
+          onAskAbout={hasKey ? (c) => {
+            // 교재를 읽다 막히면 그 문단을 물고 대화로 돌아간다 — 샛길의 또 다른 입구다.
+            setBook(false);
+            askSideFromTrack(`교재의 「${(c.path || []).slice(-1)[0]}」 부분을 쉽게 풀어 설명해 주세요.`);
+          } : null} />
+      )}
     </div>
   );
 
@@ -417,6 +431,7 @@ export default function ConceptTrack({
         )
         : point && (
           <ConceptScene
+            ref={sceneRef}
             point={point}
             leafId={leafId}
             seq={idx + 1}
