@@ -13,6 +13,7 @@
     "dev": "vite",
     "prebuild": "node scripts/sync-data.mjs && node scripts/build_civil.mjs",
     "build": "vite build",
+    "test": "node --test \"src/**/*.test.js\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },
