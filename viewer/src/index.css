@@ -2411,7 +2411,7 @@ html, body {
 .cs-choice-ops > * { flex: 1 1 0; }
 
 /* OX 는 선지가 둘뿐이라 가로로 크게 — 시안 330:126 */
-.cs-choices.is-ox { flex-direction: row; gap: var(--space-2); }
+.cs-choices.is-ox { flex-direction: row; gap: var(--space-2); flex-wrap: wrap; }
 .cs-choices.is-ox .cs-choice {
   flex: 1 1 0;
   justify-content: center;
@@ -2420,7 +2420,6 @@ html, body {
   font-weight: var(--weight-medium);
 }
 .cs-choices.is-ox .cs-choice-text { flex: 0 0 auto; }
-.cs-choices.is-ox + .cs-choice-hint { margin-top: 6px; }
 .cs-choices.is-ox .cs-choice-hint,
 .cs-choices.is-ox .cs-choice-ops { flex: 1 0 100%; }
 

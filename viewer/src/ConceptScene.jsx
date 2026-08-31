@@ -552,7 +552,9 @@ const RECAP_MAX = 5;
 /** 관 전체 quiz 를 고르게 훑어 최대 다섯 문항. 순서는 논점 순서 그대로. */
 function recapQuizzes(track) {
   const all = (track?.points || []).flatMap((p) => (p.turns || [])
-    .filter((t) => t.who === WHO.quiz && (t.choices || []).length)
+    // OX 도 되짚기에 넣는다. 빼면 관에 OX 를 넣는 순간 그 문항들이 되짚기에서
+    // 조용히 사라지고, 관 완료 화면의 확인 문제 수도 실제보다 적게 센다.
+    .filter((t) => isChoiceTurn(t) && choicesOf(t).length)
     .map((t) => ({ turn: t, seq: p.seq, title: p.title })));
   if (all.length <= RECAP_MAX) return all;
   const stride = all.length / RECAP_MAX;
@@ -567,7 +569,7 @@ export function ConceptRecap({ track, onExit, onFinish }) {
   const [done, setDone] = useState(false);
 
   const item = items[i];
-  const choices = item?.turn?.choices || [];
+  const choices = choicesOf(item?.turn);
   const solved = picked.some((n) => choices[n]?.ok) || picked.length >= 2;
   const assisted = solved && !picked.some((n) => choices[n]?.ok);
   const ans = { picked, solved, assisted, turn: item?.turn, index: 0 };
