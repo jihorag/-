@@ -25,16 +25,21 @@ export function validate(entry) {
   if (!entry.id) bad.push('id 가 없다');
   if (!entry.leaf) bad.push('leaf 가 없다 — 어디의 실력인지 알 수 없다');
   if (!AXIS_VALUES.has(entry.axis)) bad.push(`axis 가 잘못됐다: ${entry.axis}`);
+  if (typeof entry.ts !== 'number') bad.push('ts 가 없다');
+
+  // 수행(performance) 축은 형식·채점 주체·정오가 없다. 완주율·선구안·시간관리처럼
+  // "얼마나/어떻게 했는가"를 재는 값이라 실력(knowledge) 축의 요구를 적용하지 않는다.
+  if (entry.axis === 'performance') return bad;
+
   if (!F_VALUES.has(entry.f)) bad.push(`f 가 잘못됐다: ${entry.f}`);
   if (!G_VALUES.has(entry.g)) bad.push(`g 가 잘못됐다: ${entry.g}`);
-  if (typeof entry.ts !== 'number') bad.push('ts 가 없다');
 
   const hasCorrect = entry.correct === true || entry.correct === false;
   const hasScore = typeof entry.score === 'number';
   if (entry.g !== 'none' && !hasCorrect && !hasScore) {
     bad.push('correct 도 score 도 없다 — 채점 결과가 없다');
   }
-  if (hasScore && (entry.score < 0 || entry.score > 1)) {
+  if (hasScore && (!Number.isFinite(entry.score) || entry.score < 0 || entry.score > 1)) {
     bad.push(`score 는 0~1 이다: ${entry.score}`);
   }
   return bad;
@@ -53,7 +58,10 @@ export function normalize(entry, prevList, rev) {
     ...entry,
     parent: entry.parent || entry.id,
     score,
-    rep: same.length + 1,
+    // prune 이 단위당 5개만 남기므로 same.length 는 6에서 포화한다. 호출부가 아는 실제
+    // 회차(앱의 reviewed 카운터)가 있으면 그것을 쓴다 — 안 그러면 8회독도 rep 6 으로 기록돼
+    // 반복 감쇠가 무력해지고 점수가 부풀어 오른다.
+    rep: Math.max(entry.rep || 0, same.length + 1),
     v: 1,
   };
   if (entry.rev === undefined && rev) out.rev = rev;
@@ -104,8 +112,22 @@ export function loadRecords() {
 }
 
 function save(list) {
-  try { localStorage.setItem(RECORD_KEY, JSON.stringify(list)); }
-  catch { /* 용량 초과 — 다음 가지치기에서 줄어든다 */ }
+  try {
+    localStorage.setItem(RECORD_KEY, JSON.stringify(list));
+    return true;
+  } catch {
+    // 용량 초과. prune 은 단위별로만 자르므로 전역 크기는 저절로 줄지 않는다 —
+    // 오래된 절반을 버리고 한 번 더 시도한다. 조용히 삼키면 그 뒤 모든 기록이 사라진다.
+    const half = list.slice(Math.floor(list.length / 2));
+    try {
+      localStorage.setItem(RECORD_KEY, JSON.stringify(half));
+      console.warn(`[measure] 용량 초과 — 오래된 ${list.length - half.length}건을 버렸다`);
+      return true;
+    } catch {
+      console.error('[measure] 저장 실패 — 이 응답은 기록되지 않았다');
+      return false;
+    }
+  }
 }
 
 export function recordsForLeaf(leaf) {
@@ -130,6 +152,6 @@ export function record(entry) {
   }
   const prev = loadRecords();
   const full = normalize(entry, prev, getContentRev());
-  save(prune([...prev, full]));
+  if (!save(prune([...prev, full]))) return null;
   return full;
 }

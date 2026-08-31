@@ -140,3 +140,27 @@ test('빈 값은 빈 경로', () => {
   assert.deepEqual(pathFromLeafId(''), []);
   assert.deepEqual(pathFromLeafId(undefined), []);
 });
+
+// ── rep 포화 보정
+test('회차를 넘겨주면 그것을 쓴다 — prune 상한(5)에 포화하지 않는다', () => {
+  const prev = Array.from({ length: 5 }, (_, i) => ({ ...ok, ts: i }));
+  assert.equal(normalize({ ...ok, rep: 8, ts: 99 }, prev).rep, 8);
+});
+
+test('회차를 안 넘기면 저장된 개수로 센다', () => {
+  const prev = Array.from({ length: 2 }, (_, i) => ({ ...ok, ts: i }));
+  assert.equal(normalize({ ...ok, ts: 99 }, prev).rep, 3);
+});
+
+// ── 수행 축 검증
+test('수행 축은 형식·채점 주체를 요구하지 않는다', () => {
+  assert.deepEqual(validate({ id: 'x', leaf: 'L1', axis: 'performance', ts: 1 }), []);
+});
+
+test('수행 축이어도 leaf 는 있어야 한다', () => {
+  assert.ok(validate({ id: 'x', leaf: '', axis: 'performance', ts: 1 }).length > 0);
+});
+
+test('NaN 점수를 잡는다', () => {
+  assert.ok(validate({ ...ok, correct: undefined, score: NaN }).length > 0);
+});

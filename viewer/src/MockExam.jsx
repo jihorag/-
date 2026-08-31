@@ -291,7 +291,7 @@ const MockExam = ({ mode, classifiedList, progress, recordAnswer, qidFn,
         if (correct) subjectScore[subj].correct++;
         else if (sel != null) wrongIds.push(id);
         // 기존 풀이 진척에도 반영 (정답 정보 있는 경우만)
-        if (sel != null && recordAnswer) recordAnswer(q, sel, correct);
+        if (sel != null && recordAnswer) recordAnswer(q, sel, correct, { mode: 'mock' });
       }
     }
     let totalCorrect = 0, totalGradable = 0;

@@ -81,6 +81,10 @@ export function recordItem({ kind, idx, q, isCorrect, leaf, gradedBy, ms, f, nop
   all[k] = next;
   save(all);
 
+  // 기존 앱 경로(관 단위 숙련도)를 먼저 완결시킨다 — 아래 계약 기록이 개발 빌드에서
+  // throw 해도 이 반영은 이미 끝나 있어야 한다.
+  try { recordGrade(a.leafId, !!isCorrect); } catch { /* 관 단위 반영 실패는 치명적이지 않다 */ }
+
   // 측정 계약 병행 기록. 기존 저장소는 그대로 둔다.
   try {
     record({
@@ -103,7 +107,6 @@ export function recordItem({ kind, idx, q, isCorrect, leaf, gradedBy, ms, f, nop
     });
   } catch (e) { if (import.meta.env?.DEV) throw e; }
 
-  try { recordGrade(a.leafId, !!isCorrect); } catch { /* 관 단위 반영 실패는 치명적이지 않다 */ }
   return next;
 }
 

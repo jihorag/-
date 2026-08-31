@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { TABLES_VERSION, RHO, HALFLIFE, SOURCE, baseWeight, capFor } from './tables.js';
+import { TABLES_VERSION, HALFLIFE, SOURCE, baseWeight, capFor } from './tables.js';
 
 test('표 버전은 1', () => {
   assert.equal(TABLES_VERSION, 1);

@@ -754,7 +754,7 @@ const saveProgress = (next) => {
 
 // 기출 응답을 측정 계약으로도 남긴다. 기존 quiz-progress-v1 은 그대로 둔다.
 // correct 가 null(공식 정답 미공개)이면 채점이 없는 것이므로 g:'none' 이다.
-function writeMeasure(q, sel, correct, extra) {
+function writeMeasure(q, sel, correct, extra, reviewed) {
   try {
     const graded = correct === true || correct === false;
     measureRecord({
@@ -769,10 +769,19 @@ function writeMeasure(q, sel, correct, extra) {
       nopt: Array.isArray(q.options) ? q.options.length : undefined,
       // source 는 22,342건의 연습문제에서 null 이라 못 믿는다.
       // exam 은 연습문제 35,217건 전부에 '[연습문제]' 로 들어 있어 깨끗이 갈린다.
-      src: q.exam === '[연습문제]' ? 'practice' : 'official',
+      // AI 생성분은 별도 갈래다 — 기출과 같은 무게로 세면 안 된다.
+      src: q.exam === '[AI생성]' || String(q.id || '').startsWith('aigen-') ? 'ai'
+         : q.exam === '[연습문제]' ? 'practice'
+         : 'official',
       correct: graded ? correct : undefined,
+      rep: (reviewed || 0) + 1,
       ms: extra.ms,
-      meta: { chosen: sel == null ? undefined : Number(sel) },
+      meta: {
+        chosen: sel == null ? undefined : Number(sel),
+        // 한 화면에 문항 수십 개를 늘어놓는 목록 뷰에서는 ms 가 "페이지를 연 뒤 경과 시간"이라
+        // 시간 지표로 쓸 수 없다. 표식이 없으면 나중에 걸러낼 방법도 없다 — 소급 불가다.
+        mode: extra.mode || 'list',
+      },
       ts: Date.now(),
     });
   } catch (e) { if (import.meta.env?.DEV) throw e; }
@@ -794,15 +803,9 @@ const useProgress = () => {
     const id = qid(q);
     // 부작용은 업데이터 밖에서 한다. StrictMode 는 함수형 업데이터를 두 번 호출하므로
     // 안에서 기록하면 한 번 답한 것이 두 건으로 남는다(실측 확인).
-    // rep 은 record.js 가 저장된 레코드에서 스스로 세므로 여기서 상태가 필요 없다.
-    //
-    // 남는 위험: 이 가드는 클로저의 progress(한 렌더 낡을 수 있음)를 보고, 아래 업데이터는
-    // 최신 prev 를 본다. 리렌더 전에 같은 id 로 두 번 불리면 레코드가 한 건 더 남을 수 있다.
-    // 그대로 둔다 — QuestionItem 이 isRevealed 후 재클릭을 막아 실사용 경로에서는 거의 닿지
-    // 않고, 닿더라도 rep 과다 계상이라 repeat 계수가 내려가 점수를 부풀리지 않는다.
-    // ref Set 으로 막으면 문항마다 초기화해야 하고 잘못하면 정당한 재응답을 유실한다 —
-    // 조용한 유실이 훨씬 나쁜 실패다.
-    if (!progress[id]) writeMeasure(q, sel, correct, extra);
+    // 계약은 재응답을 rep 으로 센다 — 레거시 저장소의 "첫 답 고정" 규칙을 여기 적용하면
+    // 모의고사(이미 푼 문항이 대부분)의 실전 조건 증거가 통째로 사라진다.
+    writeMeasure(q, sel, correct, extra, (progress[id] || {}).reviewed || 0);
     setProgress(prev => {
       if (prev[id]) return prev;
       const entry = { sel, correct, ts: Date.now() };
@@ -813,7 +816,7 @@ const useProgress = () => {
   // 복습 재채점: 기존 기록 덮어씀 + 기억곡선 재스케줄. reviewed 누적.
   const update = (q, sel, correct, extra = {}) => {
     const id = qid(q);
-    writeMeasure(q, sel, correct, extra);   // 복습은 항상 기록한다
+    writeMeasure(q, sel, correct, extra, (progress[id] || {}).reviewed || 0);   // 복습은 항상 기록한다
     setProgress(prev => {
       const p = prev[id] || {};
       const srs = (correct === null || correct === undefined)
@@ -4646,7 +4649,7 @@ const App = () => {
     const goNext = () => { clearAutoTimer(); setAutoPending(false); setStudyIdx(Math.min(total - 1, idx + 1)); window.scrollTo(0, 0); };
     const baseAnswer = selectedGroup.review ? updateAnswer : recordAnswer;
     const handleAnswer = (qq, sel, correct, extra) => {
-      baseAnswer(qq, sel, correct, extra);
+      baseAnswer(qq, sel, correct, { ...extra, mode: 'guided' });
       if (autoNext && idx < total - 1) {
         clearAutoTimer();
         setAutoPending(true);
