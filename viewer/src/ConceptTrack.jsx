@@ -355,6 +355,7 @@ export default function ConceptTrack({
         : point && (
           <ConceptScene
             point={point}
+            leafId={leafId}
             seq={idx + 1}
             total={counts.total}
             onCommand={runCommand}

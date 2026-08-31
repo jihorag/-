@@ -3057,3 +3057,51 @@ html, body {
   color: var(--ink-meta);
   font-variant-numeric: tabular-nums;
 }
+
+/* ── 샛길 — 학습 중 끼어들어 물은 대화 ─────────────────────
+   구분선이나 머리글을 두지 않는다. 색이 그 일을 한다.
+   파랑을 쓰는 이유는 남아서가 아니라 뜻이 맞아서다 — 파랑은 이미 「시스템이
+   개입한 자리」다(선택된 관·이어서 카드·현재 위치). 노랑·보라는 본문 강조
+   전용이라 말풍선 배경으로 쓰면 형광펜과 충돌하고, 빨강은 오답 전용이다. */
+.cs-side {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-bg);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.cs-side .cs-bubble { background: var(--sheet); }
+.cs-side .cs-line.is-right .cs-bubble { background: var(--sheet-3); }
+/* 색만으로는 부족하다 — 색각 이상이면 파란 면과 흰 면이 구분되지 않는데,
+   이 구분은 「어디까지가 검증된 내용인가」를 가르는 것이라 놓치면 안 된다. */
+.cs-side-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 5px;
+  margin-left: 4px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--ink-invert);
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  letter-spacing: .04em;
+}
+.cs-side-back {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--accent-ink);
+  font: inherit;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+}
+.cs-side-back:hover { background: var(--sheet); }
+.cs-side-note { font-size: var(--text-xs); color: var(--ink-3); }

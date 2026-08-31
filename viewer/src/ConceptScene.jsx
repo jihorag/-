@@ -18,7 +18,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import {
   ChevronRight, HelpCircle, BookOpen, AlertTriangle, Bookmark,
-  FlaskConical, X, RotateCcw, SendHorizontal,
+  FlaskConical, X, RotateCcw, SendHorizontal, CornerDownLeft,
 } from 'lucide-react';
 import ParsedText from './ParsedText';
 import Avatar from './ConceptCast';
@@ -29,6 +29,7 @@ import {
   WHO, initTurnState, visibleTurns, canAdvance, advance, choose, retry,
   isPassed, atEnd, passDetail,
 } from './conceptTurns';
+import { loadSide, appendSide, clearSide } from './sideThread';
 
 // 색으로 구분하지 않는다. 이름·아이콘·좌우 위치로만 화자를 가른다.
 // 이모지는 쓰지 않는다 — 이 앱은 lucide 아이콘 체계라 이모지만 튄다.
@@ -75,11 +76,17 @@ function quizSay(turn, ans) {
 }
 
 export default function ConceptScene({
-  point, seq, total, onPassed, onDone, onNext, onAsk, onCommand,
+  point, seq, total, onPassed, onDone, onNext, onAsk, onCommand, leafId, onAskSide,
 }) {
   const [state, setState] = useState(initTurnState);
   const [panel, setPanel] = useState(null);   // 'example' | null
   const [draft, setDraft] = useState('');
+  // 샛길 — 트랙의 cursor 를 건드리지 않는다. 그래야 돌아갈 자리가 정확하다.
+  const [side, setSide] = useState([]);
+  const [asking, setAsking] = useState(false);
+  useEffect(() => {
+    setSide(leafId && point?.id ? loadSide(leafId, point.id) : []);
+  }, [leafId, point?.id]);
 
   const [seenId, setSeenId] = useState(point?.id);
   // 논점이 바뀌면 처음부터. 렌더 도중 조정 — effect 로 하면 한 렌더를 더 써서
@@ -177,6 +184,32 @@ export default function ConceptScene({
     setState((s) => retry(point, s, openQuiz.index));
   };
 
+  // 끼어들어 묻기. 답이 오든 안 오든 트랙은 그대로다.
+  const askSide = async (text) => {
+    if (!leafId || !point?.id) return;
+    const mine = { who: 'me', text, ts: Date.now() };
+    setSide(appendSide(leafId, point.id, mine));
+    if (!onAskSide) {
+      setSide(appendSide(leafId, point.id, {
+        who: 'ai', ts: Date.now(),
+        text: '물어보려면 API 키가 필요합니다. 설정에서 키를 넣어 주세요. 키 없이도 논점 대화와 기출 풀이는 끝까지 진행됩니다.',
+      }));
+      return;
+    }
+    setAsking(true);
+    try {
+      const answer = await onAskSide(text, { point, turns });
+      setSide(appendSide(leafId, point.id, { who: 'ai', text: answer, ts: Date.now() }));
+    } catch (e) {
+      setSide(appendSide(leafId, point.id, {
+        who: 'ai', ts: Date.now(),
+        text: `답을 가져오지 못했습니다. ${e?.message || ''}`.trim(),
+      }));
+    } finally {
+      setAsking(false);
+    }
+  };
+
   const head = (
     <div className="cs-pointhead">
       <span className="cs-pointhead-label">
@@ -189,8 +222,8 @@ export default function ConceptScene({
     <SlashInput
       value={draft} onChange={setDraft}
       onRun={(cmd) => { setDraft(''); onCommand?.(cmd); }}
-      onSend={(text) => { setDraft(''); onAsk?.(text); }}
-      canAsk={!!onAsk}
+      onSend={(text) => { setDraft(''); askSide(text); }}
+      canAsk
     />
   );
 
@@ -238,6 +271,19 @@ export default function ConceptScene({
       <div className="cs-stream" ref={streamRef} onScroll={onStreamScroll}>
         {head}
         <Stream turns={turns} />
+        {side.length > 0 && (
+          <div className="cs-side">
+            {side.map((m, i) => (
+              <Bubble key={i} who={m.who === 'me' ? WHO.ask : WHO.teach}
+                text={m.text} sideTag={m.who === 'ai'} />
+            ))}
+            {asking && <p className="cs-side-note">답을 가져오는 중…</p>}
+            <button type="button" className="cs-side-back"
+              onClick={() => { clearSide(leafId, point.id); setSide([]); }}>
+              <CornerDownLeft size={14} strokeWidth={1.75} />돌아가기
+            </button>
+          </div>
+        )}
         <div ref={bottomRef} />
       </div>
 
@@ -340,7 +386,7 @@ function Stream({ turns }) {
  * **첫 말풍선에만** 준다 — 이어지는 말풍선까지 각지면 한 사람이 여러 번 말을 건
  * 것처럼 보인다. 이어지는 것은 네 모서리 모두 14px 이다.
  */
-function Bubble({ who, text, mood = 'idle', cont = false }) {
+function Bubble({ who, text, mood = 'idle', cont = false, sideTag = false }) {
   const c = castOf(who);
   const right = c.side === 'right';
   if (!text) return null;
@@ -357,7 +403,12 @@ function Bubble({ who, text, mood = 'idle', cont = false }) {
         </div>
       )}
       <div className="cs-linebody">
-        {!cont && <span className="cs-who">{c.name}</span>}
+        {!cont && (
+          <span className="cs-who">
+            {c.name}
+            {sideTag && <span className="cs-side-tag">AI</span>}
+          </span>
+        )}
         <div className={`cs-bubble cs-bubble--${who}${mood === 'wrong' ? ' is-wrong' : ''}`}>
           <ParsedText text={markEmphasis(text)} />
         </div>
