@@ -232,8 +232,15 @@ export default function ConceptTrack({
           <ChevronLeft size={14} strokeWidth={1.75} />단원 목록
         </button>
         <p className="concept-index-lede" style={{ marginTop: 14 }}>
-          이 단원은 아직 논점 트랙이 없습니다. 강의가 다루지 않은 범위이거나 아직 생성 전입니다.
+          {tab === 'exam'
+            ? '이 관의 기출 분석은 아직 준비되지 않았습니다. 개념 완성부터 익혀 두세요.'
+            : '이 단원은 아직 논점 트랙이 없습니다. 강의가 다루지 않은 범위이거나 아직 생성 전입니다.'}
         </p>
+        {tab === 'exam' && (
+          <button type="button" className="concept-op" onClick={() => setTab('concept')}>
+            개념 완성으로 →
+          </button>
+        )}
         {onOpenDeep && (
           <button type="button" className="concept-op" onClick={() => onOpenDeep(leafId)}>
             AI 학습에서 대화로 배우기 →
