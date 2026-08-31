@@ -84,6 +84,8 @@ export default function ConceptTrack({
       const title = leafId.slice('_extra:'.length);
       const found = extra.find((e) => e.title === title) || null;
       const withId = found ? { ...found, leaf_id: leafId } : null;
+      // progressKey 로 leaf_id 를 덮어씀
+      if (withId) withId.leaf_id = progressKey;
       setTrack(withId);
       setIdx(resumeIdx(withId));
       setLoading(false);
@@ -99,6 +101,8 @@ export default function ConceptTrack({
       .then((d) => {
         if (dead) return;
         const found = d?.leaves?.find((x) => x.leaf_id === leafId) || null;
+        // progressKey 로 leaf_id 를 덮어씀
+        if (found) found.leaf_id = progressKey;
         setTrack(found);
         setIdx(resumeIdx(found));
       })
@@ -106,6 +110,10 @@ export default function ConceptTrack({
       .finally(() => { if (!dead) setLoading(false); });
     return () => { dead = true; };
   }, [subjectId, leaf?.unit_code, leafId, extra, tab]);
+
+  // 진도 버킷을 트랙별로 가른다. basic 은 기존 키를 그대로 써서 이미 쌓인 진도를
+  // 잃지 않고, exam 만 따로 담는다. 안 가르면 기출 학습이 개념 완성 진도로 섞인다.
+  const progressKey = tab === 'exam' ? `${leafId}#exam` : leafId;
 
   const counts = track ? leafCounts(track, progress) : { total: 0, seen: 0, passed: 0 };
   const point = track?.points?.[idx] || null;
@@ -115,11 +123,13 @@ export default function ConceptTrack({
     // 과목 레벨 트랙(선행·총정리)은 taxonomy 의 관이 아니다. mastery 에 쓰면 존재하지 않는
     // 단원 코드로 기록이 생기고 실력 리포트 평균에 섞인다.
     if (!track || !leafId || leafId.startsWith('_extra:')) return;
+    // 기출 학습을 개념 완성 이해도로 기록하지 않는다 — 다른 종류의 실력이다.
+    if (tab !== 'concept') return;
     const cov = leafCoverage(track, next);
     const prev = getChapterMastery(leafId, 'basic');
     if (Math.abs((prev.coverage || 0) - cov) < 0.001) return;
     updateChapterMastery(leafId, { coverage: cov }, 'basic');
-  }, [track, leafId]);
+  }, [track, leafId, tab]);
 
   // 이미 그 이상으로 기록돼 있으면 아무것도 하지 않는다. 이 가드가 없으면
   // setProgress 가 매번 새 객체를 만들고 → ConceptTrack 이 다시 렌더되고 →
@@ -127,12 +137,12 @@ export default function ConceptTrack({
   // 실제로 "Maximum update depth exceeded" 가 콘솔을 채우고 있었다.
   const mark = useCallback((state) => {
     if (!point) return;
-    if (((progress[leafId] || {})[point.id] || 0) >= state) return;
-    const next = setPointState(leafId, point.id, state);
+    if (((progress[progressKey] || {})[point.id] || 0) >= state) return;
+    const next = setPointState(progressKey, point.id, state);
     setProgress({ ...next });
     syncCoverage(next);
     markActiveToday();
-  }, [leafId, point, progress, syncCoverage]);
+  }, [progressKey, point, progress, syncCoverage]);
 
   // 논점을 열면 '설명 봄'
   useEffect(() => {
@@ -251,7 +261,7 @@ export default function ConceptTrack({
   }
 
   const done = counts.passed >= counts.total && counts.total > 0;
-  const rec = progress[leafId] || {};
+  const rec = progress[progressKey] || {};
 
   if (!track.points?.length) {
     return workspace(
