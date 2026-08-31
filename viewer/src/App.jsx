@@ -795,6 +795,13 @@ const useProgress = () => {
     // 부작용은 업데이터 밖에서 한다. StrictMode 는 함수형 업데이터를 두 번 호출하므로
     // 안에서 기록하면 한 번 답한 것이 두 건으로 남는다(실측 확인).
     // rep 은 record.js 가 저장된 레코드에서 스스로 세므로 여기서 상태가 필요 없다.
+    //
+    // 남는 위험: 이 가드는 클로저의 progress(한 렌더 낡을 수 있음)를 보고, 아래 업데이터는
+    // 최신 prev 를 본다. 리렌더 전에 같은 id 로 두 번 불리면 레코드가 한 건 더 남을 수 있다.
+    // 그대로 둔다 — QuestionItem 이 isRevealed 후 재클릭을 막아 실사용 경로에서는 거의 닿지
+    // 않고, 닿더라도 rep 과다 계상이라 repeat 계수가 내려가 점수를 부풀리지 않는다.
+    // ref Set 으로 막으면 문항마다 초기화해야 하고 잘못하면 정당한 재응답을 유실한다 —
+    // 조용한 유실이 훨씬 나쁜 실패다.
     if (!progress[id]) writeMeasure(q, sel, correct, extra);
     setProgress(prev => {
       if (prev[id]) return prev;
