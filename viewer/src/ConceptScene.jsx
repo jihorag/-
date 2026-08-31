@@ -108,6 +108,9 @@ export default function ConceptScene({
   // 논점 하나당 한 번만 부른다.
   const detail = passDetail(point, state);
   const doneRef = useRef(null);
+  // 논점을 통과하는 순간 그 논점의 문항을 SRS 사다리에 올린다 — queuedRef 로 논점당 1회만.
+  // 관을 마칠 때까지 기다리면 20논점짜리 관에서 첫 논점의 복습 시점이 그만큼 밀린다.
+  const queuedRef = useRef(null);
   // useRef(Date.now()) 는 렌더 중 불순 함수 호출이라 react-hooks/purity 에러다.
   const shownAtRef = useRef(0);
   useEffect(() => {
@@ -115,6 +118,7 @@ export default function ConceptScene({
     // 논점이 바뀌면 발화 가드도 푼다. 안 풀면 A→B→A 로 돌아와 다시 푼 것이
     // 에러 없이 기록되지 않는다 — 조용한 유실이 이 제품의 최악 결함이다.
     doneRef.current = null;
+    queuedRef.current = null;
   }, [point?.id]);
   useEffect(() => {
     if (!detail.done) return;
@@ -123,9 +127,6 @@ export default function ConceptScene({
     if (onDone) onDone({ ...detail, ms: shownAtRef.current ? Date.now() - shownAtRef.current : undefined });
   }, [detail.done, point?.id, onDone, detail]);
 
-  // 논점을 통과하는 순간 그 논점의 문항을 SRS 사다리에 올린다.
-  // 관을 마칠 때까지 기다리면 20논점짜리 관에서 첫 논점의 복습 시점이 그만큼 밀린다.
-  const queuedRef = useRef(null);
   useEffect(() => {
     if (!detail.done || !leafId || !point?.id) return;
     if (queuedRef.current === point.id) return;
