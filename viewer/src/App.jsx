@@ -4538,6 +4538,7 @@ const App = () => {
         getQuizCountForLeaf={quizCountForLeaf}
         quizStatsByLeaf={quizStatsByLeaf}
         subjectName={(AI_SUBJECTS.find((x) => x.id === subj) || {}).title || ''}
+        onOpenSettings={() => openSettings('ai')}
       />
     );
   }

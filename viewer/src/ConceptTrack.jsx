@@ -27,6 +27,7 @@ const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
 export default function ConceptTrack({
   subjectId, leaves, onOpenDeep, onSolve, getQuizCountForLeaf, quizStatsByLeaf, subjectName,
+  onOpenSettings,
 }) {
   const [leafId, setLeafId] = useState(null);
   const [track, setTrack] = useState(null);      // 이 관의 { leaf_id, title, points }
@@ -254,7 +255,7 @@ export default function ConceptTrack({
           track={track ? { ...track, leaf_id: leafId } : null}
           items={getAllItems()}
           onAsk={null}
-          onOpenSettings={() => onOpenDeep?.(leafId, null, null, { openSettings: true })}
+          onOpenSettings={onOpenSettings}
           onGoPoint={null}
         />
       </div>,
