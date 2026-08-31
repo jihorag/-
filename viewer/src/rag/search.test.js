@@ -33,7 +33,9 @@ test('가장 관련 있는 청크가 맨 앞', () => {
 });
 
 test('limit 을 넘지 않는다', () => {
-  assert.equal(searchChunks(CHUNKS, '한계 구축 탄력', 2).length, 2);
+  // 질의어는 세 글자 이상이어야 한다 — 두 글자짜리는 1점밖에 못 얻어
+  // MIN_SCORE 문턱을 못 넘는다. 실제 시험 용어가 이 길이다.
+  assert.equal(searchChunks(CHUNKS, '한계대체율 구축효과 가격탄력성', 2).length, 2);
 });
 
 test('겹치는 말이 없으면 빈손으로 돌려준다 — 지어내지 않게', () => {

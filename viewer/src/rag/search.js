@@ -8,8 +8,8 @@
 // 용어가 안 겹치는 질문은 잘 못 찾는다. 못 찾으면 **빈손으로 돌려준다** —
 // 엉뚱한 청크를 주느니 튜터가 「교재에서 못 찾았습니다」라고 말하는 편이 낫다.
 
-/** 검색에 쓸 최소 점수. 이보다 낮으면 관계없는 것. */
-const MIN_SCORE = 1;
+/** 검색에 쓸 최소 점수. 이보다 낮으면 우연히 두 글자가 겹친 것이다. */
+const MIN_SCORE = 2;
 
 export function queryTerms(q) {
   const words = String(q || '').split(/[^0-9A-Za-z가-힣]+/).filter((w) => w.length >= 2);
