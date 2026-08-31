@@ -18,10 +18,13 @@ import ConceptScene, { ConceptRecap, ConceptDone } from './ConceptScene';
 import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
 } from './trackProgress';
-import { getChapterMastery, updateChapterMastery, markActiveToday } from './aiLearningStore';
+import { getChapterMastery, updateChapterMastery, markActiveToday, getApiKey, getPrefs } from './aiLearningStore';
 import { record, pathFromLeafId } from './measure/record.js';
 import DeepChat from './DeepChat';
-import { getAllItems } from './studyDrill';
+import { getAllItems, buildLearnerStatus } from './studyDrill';
+import { searchChunks, withTerms } from './rag/search';
+import { buildContext } from './rag/context';
+import { sendMessagesUnified, getProviderForModel } from './aiProviders';
 
 const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
@@ -66,6 +69,18 @@ export default function ConceptTrack({
 
   // 목차가 읽을 색인과 범위 규칙. 트랙 파일 전부를 받지 않고 이 둘만 받는다.
   const [index, setIndex] = useState(null);
+
+  // 교재 청크 — 심화·샛길의 검색 재료. 관이 아니라 단원 단위 파일이다.
+  const [chunks, setChunks] = useState([]);
+  useEffect(() => {
+    if (!leaf?.unit_code) { setChunks([]); return undefined; }
+    let dead = false;
+    fetch(`${studyBase(subjectId)}rag/${leaf.unit_code}.chunks.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (!dead) setChunks(withTerms(d?.chunks || [])); })
+      .catch(() => { if (!dead) setChunks([]); });
+    return () => { dead = true; };
+  }, [subjectId, leaf?.unit_code]);
   const [scope, setScope] = useState(null);
   useEffect(() => {
     let dead = false;
@@ -176,6 +191,31 @@ export default function ConceptTrack({
     setIdx(idx + 1);
   };
 
+  // 심화·샛길이 함께 쓰는 튜터 호출. 키가 없으면 null 을 넘겨 화면이 안내를 띄우게 한다.
+  const hasKey = !!getApiKey(getPrefs().provider || 'anthropic');
+  const askTutor = useCallback(async (question) => {
+    const hits = searchChunks(chunks, question);
+    const ctx = buildContext({
+      question,
+      chunks: hits,
+      points: (track?.points || []).map((p) => `- ${p.title}: ${p.gist || ''}`).join('\n'),
+      record: buildLearnerStatus(leafId, leaf?.title || ''),
+    });
+    const prefs = getPrefs();
+    const res = await sendMessagesUnified({
+      model: prefs.model,
+      apiKey: getApiKey(getProviderForModel(prefs.model)),
+      max_tokens: prefs.max_tokens || 1200,
+      system: [
+        { type: 'text', text: '당신은 감정평가사 1차 시험 과외 선생님입니다. 학생이 지금 보고 있는 관에 대해 답합니다.' },
+        { type: 'text', text: '답한 내용이 어느 대목에서 온 것인지 밝히고, 준 자료에 없는 내용은 「교재에 없습니다」라고 말하고 지어내지 마라.' },
+        { type: 'text', text: ctx.text },
+      ],
+      messages: [{ role: 'user', content: question }],
+    });
+    return { answer: res?.text || '', cited: ctx.cited };
+  }, [chunks, track, leafId, leaf?.title]);
+
   // ── 슬래시 명령 ────────────────────────────────────────────────────────
   // 여섯 중 다섯은 이미 가진 데이터로 처리한다 — API 키 없이, 오프라인에서 동작한다.
   // 생성이 필요한 것은 「/쉽게」 하나뿐이고, 그것만 대화 엔진으로 넘긴다.
@@ -254,7 +294,7 @@ export default function ConceptTrack({
           leafTitle={leaf?.title || ''}
           track={track ? { ...track, leaf_id: leafId } : null}
           items={getAllItems()}
-          onAsk={null}
+          onAsk={hasKey ? async (q) => askTutor(q) : null}
           onOpenSettings={onOpenSettings}
           onGoPoint={null}
         />
@@ -399,6 +439,7 @@ export default function ConceptTrack({
             })}
             onNext={goNext}
             onAsk={onOpenDeep ? (text) => onOpenDeep(leafId, point, text) : null}
+            onAskSide={hasKey ? async (q) => (await askTutor(q)).answer : null}
           />
         )}
 
