@@ -61,7 +61,7 @@ export function getActiveLeaf() { return active; }
 export const itemKey = (leafId, kind, idx) => `${leafId}::${kind}::${idx}`;
 
 /** 한 문항의 정오를 기록한다. 관 단위 숙련도(recordGrade)에도 반영된다. */
-export function recordItem({ kind, idx, q, isCorrect, leaf, gradedBy, ms }) {
+export function recordItem({ kind, idx, q, isCorrect, leaf, gradedBy, ms, f, nopt }) {
   const a = leaf || active;
   if (!a?.leafId) return null;
   const all = load();
@@ -90,8 +90,12 @@ export function recordItem({ kind, idx, q, isCorrect, leaf, gradedBy, ms }) {
       subject: a.subject || pathFromLeafId(a.leafId)[0] || '',
       stage: 1,
       axis: 'knowledge',
-      f: KIND_F[kind] || 'recall',
+      // kind 만으로는 f·g 가 정해지지 않는다 — 같은 kind 가 서로 다른 채점 경로에서 온다
+      // (교재 OX 는 기계 대조, 오늘의 인출 OX 는 자기 채점). 호출부가 명시하는 것이 원칙이고
+      // 아래 폴백은 하위 호환용이다.
+      f: f || KIND_F[kind] || 'recall',
       g: gradedBy || KIND_G_DEFAULT[kind] || 'self',
+      nopt,
       src: 'internal',
       correct: !!isCorrect,
       ms,

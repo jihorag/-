@@ -907,8 +907,9 @@ function FrameCard({ raw, keyPrefix, seq = 0 }) {
               return want !== '—' && got !== '' && fmtAmount(got) !== want;
             }).length;
             const blankN = rows.filter((r, k) => (typed[k] ?? '').trim() === '' && fmtAmount(r[1]) !== '—').length;
+            // 입력값을 정답과 비교한다 — 기계 채점이고, 값을 만들어 내므로 produce 다.
             recordItem({ kind: 'frame', idx: seq, q: `[와꾸] ${title || keyPrefix}`,
-              isCorrect: wrong === 0 && blankN === 0 });
+              isCorrect: wrong === 0 && blankN === 0, f: 'produce', gradedBy: 'machine' });
           }} style={{
             marginLeft: 'auto', fontSize: '0.95em', fontWeight: 800, padding: '3px 12px', borderRadius: 5,
             cursor: 'pointer', border: '1.5px solid #2563eb', background: '#fff', color: '#2563eb',
@@ -1005,7 +1006,8 @@ function AnswerSheet({ raw, keyPrefix, seq = 0 }) {
           background: hide ? '#faf8f2' : '#fff', color: hide ? '#a16207' : '#57534e',
         }}>{hide ? '👁 목차 보기' : '🧠 가리고 재현'}</button>
         {hide && (
-          <button onClick={() => { setHide(false); recordItem({ kind: 'outline', idx: seq, q: `[답안목차] ${rows[0] || keyPrefix}`, isCorrect: true }); }}
+          // '재현했다'만 있고 실패를 기록할 방법이 없다 — 채점이 아니므로 g:'none'(무게 0)이다. 진도로만 남는다.
+          <button onClick={() => { setHide(false); recordItem({ kind: 'outline', idx: seq, q: `[답안목차] ${rows[0] || keyPrefix}`, isCorrect: true, gradedBy: 'none' }); }}
             style={{
               fontSize: '0.71em', fontWeight: 800, padding: '3px 10px', borderRadius: 5, cursor: 'pointer',
               border: '1.5px solid #4d7c5f', background: '#fff', color: '#4d7c5f',

@@ -40,8 +40,9 @@ export default function DailyDrill({ limit = 20, onGoLeaf }) {
     recordItem({
       kind: cur.kind, idx: cur.idx, q: cur.q, isCorrect: ok,
       leaf: { subject: cur.subject, leafId: cur.leafId, leafTitle: cur.leafTitle },
-      gradedBy: 'self',
-      ms: Date.now() - shownAtRef.current,
+      // 답을 보고 스스로 O/X 를 누른다 — 원래 kind 가 무엇이든 이 화면의 형식은 recall·self 다.
+      f: 'recall', gradedBy: 'self',
+      ms: shownAtRef.current ? Date.now() - shownAtRef.current : undefined,
     });
     setTally((t) => ({ right: t.right + (ok ? 1 : 0), wrong: t.wrong + (ok ? 0 : 1) }));
     setReveal(false);

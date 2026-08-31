@@ -137,7 +137,8 @@ function OXQuiz({ md }) {
     const ans = oxAnswerOf(it.a);
     setPicked((s) => ({ ...s, [i]: v }));
     setShown((s) => ({ ...s, [i]: true }));      // 답하면 해설을 바로 연다
-    if (ans) recordItem({ kind: 'ox', idx: i, q: it.q, isCorrect: v === ans });
+    // v === ans 로 정답과 대조한다 — 기계 채점이고, O/X 는 2지선다(찍기 하한 50%)다.
+    if (ans) recordItem({ kind: 'ox', idx: i, q: it.q, isCorrect: v === ans, f: 'recog', nopt: 2, gradedBy: 'machine' });
   };
   const choiceBtn = (on, tone) => ({
     fontSize: '0.82rem', fontWeight: 800, width: 38, height: 30, borderRadius: 6, cursor: 'pointer',
