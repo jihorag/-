@@ -20,6 +20,15 @@
         ],
         "createdAt": "2026-08-30T09:03:54.622Z",
         "reason": "Claude 판단: 유일 대상 .mem-source-p.is-quote 는 카드가 아니라 인용문 블록(border-left + font-style:italic + border-radius 0 8px 8px 0). 표준 blockquote 관용구라 규칙이 겨냥한 card side-tab 이 아님"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "viewer/src/ParsedText.jsx"
+        ],
+        "createdAt": "2026-08-31T06:20:09.415Z",
+        "reason": "의도된 수험서 톤 콜아웃 — 코드에 '콜아웃 톤: 수험서 지면처럼 채도를 낮춘 종이·먹색 계열'로 명시된 오래된 프로젝트 스타일. 개념 완성 작업과 무관하게 4회 반복 지적됨. 사용자 확인 없이 에이전트 판단으로 등록."
       }
     ]
   }
