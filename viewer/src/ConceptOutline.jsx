@@ -189,8 +189,9 @@ function Row({ name, s, onPick }) {
           </span>
         </span>
       </span>
+      {/* 아직 안 푼 절은 비운다 — 「—」가 줄줄이 늘어서면 그 대시가 먼저 읽힌다. */}
       <span className={`cout-pct${s.weak ? ' is-low' : ''}`}>
-        {s.acc !== null ? `${Math.round(s.acc * 100)}%` : '—'}
+        {s.acc !== null ? `${Math.round(s.acc * 100)}%` : ''}
       </span>
       <span className="cout-tail">
         {s.done ? <span className="cout-donetag">완료</span> : <ChevronRight size={16} strokeWidth={1.75} />}

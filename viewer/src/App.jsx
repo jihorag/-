@@ -4398,24 +4398,24 @@ const App = () => {
   ) : null;
 
   // 모든 탭 헤더 우상단 공통 ⚙️ 버튼 — fixed로 떠 있음
+  // 아이콘은 선화이고 배경이 없다. 이것만 원형 배경을 두면 그것만 버튼처럼
+  // 떠 보여서, 화면에서 제일 먼저 눈에 들어오는 것이 설정이 된다.
   const globalSettingsFab = (
     <button
       onClick={openContextSettings}
       title="이 탭 설정"
+      aria-label="이 탭 설정"
       style={{
         position: 'fixed',
         top: 'calc(env(safe-area-inset-top, 0px) + 14px)',
         right: 14, zIndex: 'var(--z-nav)',
-        width: 38, height: 38, borderRadius: '50%',
-        background: 'rgba(255,255,255,0.85)',
-        border: '1px solid #d1d5db',
-        backdropFilter: 'blur(8px)',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-        cursor: 'pointer', fontSize: '1.1rem',
+        width: 32, height: 32, padding: 0,
+        background: 'none', border: 'none',
+        color: 'var(--ink-2)', cursor: 'pointer',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}
     >
-      ⚙️
+      <Settings size={20} strokeWidth={1.7} aria-hidden />
     </button>
   );
 

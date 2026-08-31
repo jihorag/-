@@ -91,10 +91,11 @@ export default function ConceptTree({
                             {stat?.total ? ` · 기출 ${stat.total}` : ''}
                           </span>
                         </span>
-                        {/* 시안은 낮은 정답률을 붉게 세운다. 눈에 띄어야 할 것은
-                            잘한 곳이 아니라 다시 볼 곳이라서다. */}
+                        {/* 아직 안 푼 절은 이 칸을 그냥 비운다. 「—」로 채우면
+                            스무 줄이 넘어갈 때 대시가 세로줄을 이뤄 먼저 눈에 들어온다.
+                            낮은 정답률만 붉게 세운다 — 다시 볼 곳이 보여야 한다. */}
                         <span className={`ctree-pct${pct !== null && pct < 60 ? ' is-low' : ''}`}>
-                          {pct !== null ? `${pct}%` : '—'}
+                          {pct !== null ? `${pct}%` : ''}
                         </span>
                       </button>
                     );

@@ -55,14 +55,17 @@ const splitCells = (l) => l.trim().slice(1, -1).split('|').map(c => c.trim());
 // 2026-08-31: 밑줄형(아래 58% 만 칠하는 마커)에서 칩형으로 바꿨다. Figma 시안이
 // 강조를 라운드 칩으로 그리기 때문이다(DECISIONS.md 2026-08-31). 네 색 모두
 // 아주 옅어 글자색은 inherit 그대로 두어도 대비를 잃지 않는다.
+// 색은 둘뿐이다(emphasis.js). 옛 역할 이름(이름·수치·결론)은 손으로 쓴 옛 원고가
+// 남아 있을 수 있어 노랑으로 받아만 두고, 새로 만들어 내지는 않는다.
 const HILITE_TONE = {
-  이름:   'var(--hl-name)',
+  공식:   'var(--hl-formula)',
   뒤집힘: 'var(--hl-flip)',
-  수치:   'var(--hl-num)',
-  결론:   'var(--hl-then)',
+  이름:   'var(--hl-formula)',
+  수치:   'var(--hl-formula)',
+  결론:   'var(--hl-formula)',
 };
 const hiliteStyle = (role) => ({
-  background: HILITE_TONE[role] || HILITE_TONE['이름'],
+  background: HILITE_TONE[role] || HILITE_TONE['공식'],
   color: 'inherit',
   fontWeight: 'var(--weight-medium)',
   // 세로 여백은 1px 까지만. 문장 한가운데서 줄이 바뀌면 조각마다 위아래 여백이
@@ -75,7 +78,7 @@ const hiliteStyle = (role) => ({
 });
 // `==역할:본문==` 을 [역할, 본문] 로 가른다. 역할이 없으면 [null, 본문].
 const splitRole = (inner) => {
-  const m = /^(이름|뒤집힘|수치|결론):([\s\S]+)$/.exec(inner);
+  const m = /^(공식|뒤집힘|이름|수치|결론):([\s\S]+)$/.exec(inner);
   return m ? [m[1], m[2]] : [null, inner];
 };
 

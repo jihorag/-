@@ -201,7 +201,7 @@ export default function ConceptScene({
         <div className="cs-stream" ref={streamRef} onScroll={onStreamScroll}>
           {head}
           {point?.viz && (
-            <FigureCard caption={point.viz.caption || '그림'}>
+            <FigureCard viz={point.viz}>
               <VizRouter name={point.viz.template} rawJson={vizJson(point.viz)} />
             </FigureCard>
           )}
@@ -237,7 +237,7 @@ export default function ConceptScene({
     <div className="cs-room">
       <div className="cs-stream" ref={streamRef} onScroll={onStreamScroll}>
         {head}
-        {turns.map((t) => <StreamTurn key={t.index} item={t} />)}
+        <Stream turns={turns} />
         <div ref={bottomRef} />
       </div>
 
@@ -293,54 +293,102 @@ export default function ConceptScene({
   );
 }
 
-// ── 스트림의 한 턴 ───────────────────────────────────────────────────────
+// ── 스트림 ───────────────────────────────────────────────────────────────
+// 턴을 그대로 그리지 않고 「말풍선·그림」 목록으로 한 번 편다. 그래야 앞 항목의
+// 화자를 알 수 있고, 같은 화자가 연달아 말할 때 아바타와 이름표를 첫 말풍선에만
+// 달 수 있다. 턴 안에서만 보면 그 판단이 안 선다.
+//
 // quiz 턴은 물음만 말풍선으로 올리고 선택지는 바닥으로 내려보낸다. 답한 뒤에는
 // 그 결과 대사가 바로 뒤에 이어 붙는다.
-function StreamTurn({ item }) {
-  const { turn } = item;
-  const isQuiz = turn.who === WHO.quiz;
-  const reply = isQuiz ? quizSay(turn, item) : null;
-  return (
-    <>
-      <Bubble who={isQuiz ? WHO.teach : turn.who} text={isQuiz ? turn.prompt : turn.text} />
-      {turn.viz && (
-        <FigureCard caption={turn.viz.caption || turn.viz.params?.caption || '그림'}>
-          <VizRouter name={turn.viz.template} rawJson={vizJson(turn.viz)} />
-        </FigureCard>
-      )}
-      {reply && <Bubble who={reply.who} text={reply.text} mood={reply.mood} />}
-    </>
-  );
+function streamItems(turns) {
+  const out = [];
+  turns.forEach((item) => {
+    const { turn } = item;
+    const isQuiz = turn.who === WHO.quiz;
+    const text = isQuiz ? turn.prompt : turn.text;
+    if (text) out.push({ kind: 'bubble', who: isQuiz ? WHO.teach : turn.who, text, mood: 'idle' });
+    if (turn.viz) out.push({ kind: 'figure', viz: turn.viz });
+    if (isQuiz) {
+      const reply = quizSay(turn, item);
+      if (reply?.text) out.push({ kind: 'bubble', who: reply.who, text: reply.text, mood: reply.mood });
+    }
+  });
+  return out;
 }
 
-/** 말풍선 하나. 꼬리는 삼각형이 아니라 화자 쪽 모서리만 각지게 하는 것으로 낸다. */
-function Bubble({ who, text, mood = 'idle' }) {
+function Stream({ turns }) {
+  const items = streamItems(turns);
+  return items.map((it, i) => {
+    if (it.kind === 'figure') {
+      return (
+        <FigureCard key={i} viz={it.viz}>
+          <VizRouter name={it.viz.template} rawJson={vizJson(it.viz)} />
+        </FigureCard>
+      );
+    }
+    // 바로 앞 항목이 같은 화자의 말풍선이면 이어지는 말풍선이다.
+    const prev = items[i - 1];
+    const cont = prev?.kind === 'bubble' && prev.who === it.who;
+    return <Bubble key={i} who={it.who} text={it.text} mood={it.mood} cont={cont} />;
+  });
+}
+
+/**
+ * 말풍선 하나.
+ *
+ * 꼬리는 삼각형이 아니라 화자 쪽 위 모서리를 4px 로 각지게 해서 낸다. 그 꼬리는
+ * **첫 말풍선에만** 준다 — 이어지는 말풍선까지 각지면 한 사람이 여러 번 말을 건
+ * 것처럼 보인다. 이어지는 것은 네 모서리 모두 14px 이다.
+ */
+function Bubble({ who, text, mood = 'idle', cont = false }) {
   const c = castOf(who);
   const right = c.side === 'right';
   if (!text) return null;
+  const cls = [
+    'cs-line',
+    right ? 'is-right' : '',
+    cont ? 'is-cont' : '',
+  ].filter(Boolean).join(' ');
   return (
-    <div className={`cs-line${right ? ' is-right' : ''}`}>
+    <div className={cls}>
       {!right && (
-        <div className="cs-avatar"><Avatar who={who} mood={mood} size={28} /></div>
+        <div className="cs-avatar">
+          {!cont && <Avatar who={who} mood={mood} size={28} />}
+        </div>
       )}
       <div className="cs-linebody">
-        <span className="cs-who">{c.name}</span>
+        {!cont && <span className="cs-who">{c.name}</span>}
         <div className={`cs-bubble cs-bubble--${who}${mood === 'wrong' ? ' is-wrong' : ''}`}>
           <ParsedText text={markEmphasis(text)} />
         </div>
       </div>
       {right && (
-        <div className="cs-avatar"><Avatar who={who} mood={mood} size={28} /></div>
+        <div className="cs-avatar">
+          {!cont && <Avatar who={who} mood={mood} size={28} />}
+        </div>
       )}
     </div>
   );
 }
 
+// 카드 라벨은 **내용의 형식**을 말한다. 표가 들어가면 「표」, 그래프면 「그림」,
+// 사례면 「예시」다. 표를 담고 「그림」이라 쓰지 않는다.
+const TABLE_TEMPLATES = /table|matrix|compare|classify|payoff|checklist|steps|flow|timeline/i;
+const CASE_TEMPLATES = /case|example|scenario/i;
+export function figureKind(template) {
+  if (CASE_TEMPLATES.test(template || '')) return '예시';
+  if (TABLE_TEMPLATES.test(template || '')) return '표';
+  return '그림';
+}
+
 /** 그림 카드 — 스트림 안에 흐름대로 놓인다. 단계 조작은 VizRouter 가 갖는다. */
-function FigureCard({ caption, children }) {
+function FigureCard({ viz, children }) {
+  const title = viz?.caption || viz?.params?.caption || '';
   return (
     <figure className="cs-figure">
-      <figcaption className="cs-figure-cap">{caption}</figcaption>
+      <figcaption className="cs-figure-cap">
+        {figureKind(viz?.template)}{title ? ` · ${title}` : ''}
+      </figcaption>
       <div className="cs-figure-body">{children}</div>
     </figure>
   );

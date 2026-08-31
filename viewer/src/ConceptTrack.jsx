@@ -289,18 +289,13 @@ export default function ConceptTrack({
         {leaf?.path?.length > 0 && (
           <p className="concept-crumb">{leaf.path.slice(1).join(' › ')}</p>
         )}
-        <div className="concept-segs" role="list" aria-label={`논점 진행 ${counts.passed}/${counts.total}`}>
-          {track.points.map((p, i) => {
-            const s = rec[p.id] || 0;
-            const cls = s >= STATE.PASSED ? ' is-passed' : s >= STATE.SEEN ? ' is-seen' : '';
-            return (
-              <button type="button" key={p.id} role="listitem"
-                className={`concept-seg${cls}${!recap && i === idx ? ' is-current' : ''}`}
-                title={`${p.seq || i + 1}. ${p.title || ''}`}
-                aria-label={`${p.seq || i + 1}번 논점`}
-                onClick={() => { setRecap(false); setIdx(i); }} />
-            );
-          })}
+        {/* 트랙 하나에 채움 하나. 논점마다 칸을 나누면 경계선이 보여서 진행률이
+            여러 개인 것처럼 읽힌다. 논점으로 건너뛰는 일은 「/정리」 시트가 맡는다. */}
+        <div className="concept-track" role="progressbar"
+          aria-valuenow={counts.passed} aria-valuemin={0} aria-valuemax={counts.total}
+          aria-label={`논점 진행 ${counts.passed} / ${counts.total}`}>
+          <div className="concept-track-fill"
+            style={{ width: counts.total ? `${(counts.passed / counts.total) * 100}%` : 0 }} />
         </div>
       </header>
 
