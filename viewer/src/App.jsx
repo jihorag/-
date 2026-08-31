@@ -28,6 +28,7 @@ import ExamAnalysis from './ExamAnalysis';
 import SubjectIcon from './SubjectIcon';
 import { buildSubjectState } from './learnState';
 import { addStudySeconds } from './studyTime';
+import { record as measureRecord, setContentRev } from './measure/record.js';
 import UsageDashboard from './UsageDashboard';
 import ToastContainer, { toast } from './Toast';
 import CmdK from './CmdK';
@@ -751,6 +752,30 @@ const saveProgress = (next) => {
   return next;
 };
 
+// 기출 응답을 측정 계약으로도 남긴다. 기존 quiz-progress-v1 은 그대로 둔다.
+// correct 가 null(공식 정답 미공개)이면 채점이 없는 것이므로 g:'none' 이다.
+function writeMeasure(q, sel, correct, extra) {
+  try {
+    const graded = correct === true || correct === false;
+    measureRecord({
+      id: `quiz:${qid(q)}`,
+      leaf: [q.taxItemName, q.taxSectionName, q.taxChapterName].find(Boolean) || '',
+      path: [q.taxSubjectName, q.taxSubSubjectName, q.taxChapterName, q.taxSectionName, q.taxItemName].filter(Boolean),
+      subject: q.taxSubjectName || q.subject || '',
+      stage: 1,
+      axis: 'knowledge',
+      f: 'recog',
+      g: graded ? 'machine' : 'none',
+      nopt: Array.isArray(q.options) ? q.options.length : undefined,
+      src: q.source === 'practice' ? 'practice' : 'official',
+      correct: graded ? correct : undefined,
+      ms: extra.ms,
+      meta: { chosen: sel == null ? undefined : Number(sel) },
+      ts: Date.now(),
+    });
+  } catch (e) { if (import.meta.env?.DEV) throw e; }
+}
+
 const useProgress = () => {
   const [progress, setProgress] = useState(loadProgress);
   const [srsMode, setSrsModeState] = useState(() => {
@@ -763,23 +788,25 @@ const useProgress = () => {
   };
   // 함수형 업데이트로 직전 상태 기준 병합 → 빠른 연속 응답에도 기록 유실 없음.
   // 최초 응답이 오답(채점됨)이면 즉시 복습 스케줄(srs) 부여.
-  const record = (q, sel, correct) => {
+  const record = (q, sel, correct, extra = {}) => {
     const id = qid(q);
     setProgress(prev => {
       if (prev[id]) return prev;
       const entry = { sel, correct, ts: Date.now() };
       if (correct === false) entry.srs = nextSrs(null, false, srsMode);
+      writeMeasure(q, sel, correct, extra);
       return saveProgress({ ...prev, [id]: entry });
     });
   };
   // 복습 재채점: 기존 기록 덮어씀 + 기억곡선 재스케줄. reviewed 누적.
-  const update = (q, sel, correct) => {
+  const update = (q, sel, correct, extra = {}) => {
     const id = qid(q);
     setProgress(prev => {
       const p = prev[id] || {};
       const srs = (correct === null || correct === undefined)
         ? p.srs                                   // 채점불가는 스케줄 변경 안 함
         : nextSrs(p.srs, correct === true, srsMode);
+      writeMeasure(q, sel, correct, extra);
       return saveProgress({
         ...prev,
         [id]: { sel, correct, ts: Date.now(), reviewed: (p.reviewed || 0) + 1, srs },
@@ -1577,6 +1604,10 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
   const [mtags, setMtags] = useState(() => getMistake(qid(q))?.t || []);
   const [note, setNoteVal] = useState(() => getNote(qid(q)));
   const resultRef = useRef(null); // 📍 응답 직후 해설 카드로 자동 스크롤
+  // 응답 소요시간 — 지금 안 재면 영영 못 잰다(소급 불가). 문항이 바뀌면 다시 센다.
+  // useRef(Date.now()) 는 react-hooks/purity 린트 에러다. 0 으로 두고 effect 에서 채운다.
+  const shownAtRef = useRef(0);
+  useEffect(() => { shownAtRef.current = Date.now(); }, [q]);
 
   const handleOptionClick = (optIdx) => {
     if (isRevealed) return; // 응답 후 변경 방지
@@ -1589,7 +1620,7 @@ const QuestionItem = ({ q, prior, onAnswer, bmReason, onToggleBookmark, keyboard
       else if (correct === false && navigator.vibrate) navigator.vibrate([35, 30, 35]);
     } catch { /* 미지원 */ }
     // correct: 정답 있으면 boolean, 없으면 null(채점 제외)
-    if (onAnswer) onAnswer(q, sel, correct);
+    if (onAnswer) onAnswer(q, sel, correct, { ms: shownAtRef.current ? Date.now() - shownAtRef.current : undefined });
     // 📍 보기 탭 직후 결과·해설이 시야 밖(아래)에 있으므로 부드럽게 데려간다.
     //    렌더 후 실행되도록 다음 프레임 + 여유 (autoNext 대기 중에도 해설을 보게 됨)
     setTimeout(() => {
@@ -2563,7 +2594,7 @@ const App = () => {
           fetch('/data/manifest.json').then(r => {
             if (!r.ok) throw new Error('manifest ' + r.status);
             return r.json();
-          }),
+          }).then(m => { setContentRev(m.built_at || null); return m; }),
           fetch('/data/taxonomy.json').then(r => r.json()),
           fetch('/data/essay/practice/manifest.json').then(r => r.ok ? r.json() : null).catch(() => null),
         ]);
