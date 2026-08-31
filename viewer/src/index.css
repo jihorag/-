@@ -2355,9 +2355,10 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  /* 스트림에 거터가 있으므로 도크에도 같은 폭을 잡아 둔다. 안 그러면 대화 열이
-     560px 보다 좁아졌을 때(교재 패널이 열렸을 때) 둘의 폭이 달라져 세로선이 어긋난다. */
-  scrollbar-gutter: stable both-edges;
+  /* 스트림의 스크롤바 거터만큼 안쪽으로 밀어 두 열의 내용 폭을 맞춘다.
+     --cs-gutter 는 ConceptTrack 이 런타임에 재어 심는다(scrollbar-gutter 는
+     스크롤 박스에만 걸려 도크에는 효과가 없다). */
+  padding-inline: calc(var(--space-4) + var(--cs-gutter, 0px));
 }
 .cs-dock > * { width: min(100%, 560px); margin-inline: auto; }
 
@@ -2689,7 +2690,11 @@ html, body {
 
 @media (max-width: 640px) {
   .cs-stream { padding: var(--space-3) var(--space-3) var(--space-4); gap: 12px; }
-  .cs-dock { padding: 8px var(--space-3) calc(var(--space-2) + env(safe-area-inset-bottom, 0px)); gap: 6px; }
+  .cs-dock {
+    padding: 8px var(--space-3) calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
+    padding-inline: calc(var(--space-3) + var(--cs-gutter, 0px));
+    gap: 6px;
+  }
   .cs-bubble { font-size: var(--text-sm); }
   .cs-choice { min-height: 44px; padding: 8px 12px; }
   .cs-choice.is-right { padding: 7.5px 11.5px; }

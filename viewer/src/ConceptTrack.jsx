@@ -51,6 +51,22 @@ export default function ConceptTrack({
   const sceneRef = useRef(null);
   const askSideFromTrack = (q) => sceneRef.current?.askSide?.(q);
 
+  // 스트림은 스크롤 박스라 거터가 내용 폭을 줄이는데 도크는 아니다. 순수 CSS 로는
+  // 그 폭을 알 수 없어(scrollbar-gutter 는 스크롤 박스에만 걸린다) 런타임에 재어
+  // 도크 안쪽 여백으로 되돌린다. 안 맞추면 교재 패널이 열렸을 때 말풍선과 입력줄이
+  // 서로 다른 세로선에 선다.
+  useEffect(() => {
+    const sync = () => {
+      const el = document.querySelector('.cs-stream');
+      if (!el) return;
+      const half = Math.max(0, (el.offsetWidth - el.clientWidth) / 2);
+      document.documentElement.style.setProperty('--cs-gutter', `${half}px`);
+    };
+    sync();
+    window.addEventListener('resize', sync);
+    return () => window.removeEventListener('resize', sync);
+  });
+
   const leaf = useMemo(() => leaves.find((l) => l.id === leafId) || null, [leaves, leafId]);
 
   // 관에 들어온 시각. 완료 화면이 「N분」을 보여 준다.
