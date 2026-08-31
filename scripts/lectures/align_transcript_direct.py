@@ -235,7 +235,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('subject')
     # 부동산은 기초이론(선행)+기본이론이 함께 1회독이다. 쉼표로 여러 단계를 한 번에 처리한다.
-    # 단계마다 따로 돌리면 align.json 을 덮어써서 앞 단계 결과가 사라진다.
+    # 한 회독을 이루는 단계는 반드시 함께 넘긴다 — 따로 돌리면 같은 파일을 덮어쓴다.
     ap.add_argument('--phase', default='basic', help='쉼표로 여러 개 가능 (예: found,basic)')
     ap.add_argument('--course', help='강좌 이름 일부로 거르기 (예: 도승하) — 주강사만 쓰고 싶을 때')
     args = ap.parse_args()
@@ -332,7 +332,11 @@ def main():
                                  'candidates': len(cand), 'window_sec': WINDOW_SEC, 'spans': spans}
         done += 1
 
-    dst = base / 'align.json'
+    # 회독마다 파일을 따로 쓴다. 예전에는 한 과목에 align.json 하나뿐이라
+    # 다른 회독을 정렬하면 앞 회독 결과가 통째로 사라졌다(실제로 겪었다).
+    # 1회독(basic 을 포함하는 조합)은 기존 이름을 그대로 써서 하위 호환을 지킨다.
+    dst = base / ('align.json' if 'basic' in phases
+                  else 'align.%s.json' % '_'.join(phases))
     dst.write_text(json.dumps({
         'subject': args.subject, 'phase': phases, 'window_sec': WINDOW_SEC,
         'method': '파일명 편·장으로 후보 축소 + 한글 2-gram TF-IDF + 단조 DP',

@@ -731,9 +731,21 @@ def anchors_by_section(sections, align):
     return expanded
 
 
+def load_align(base, phase):
+    """회독에 맞는 정렬 파일을 읽는다.
+
+    1회독(basic)은 align.json, 그 밖의 회독은 align.<phase>.json 을 쓴다.
+    회독별 파일이 없으면 align.json 으로 물러선다 — 예전 산출물 호환.
+    """
+    p = base / ('align.json' if phase == 'basic' else 'align.%s.json' % phase)
+    if not p.exists():
+        p = base / 'align.json'
+    return json.loads(p.read_text(encoding='utf-8'))
+
+
 def do_check(subject, phase):
     base = STUDY / subject / 'lectures'
-    align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
+    align = load_align(base, phase)
     names = template_names()
     schemas = template_viz_schemas()
     tdir = base / 'track'
@@ -893,7 +905,7 @@ def dump_leaf(subject, phase, lid, sec, bundle, catalog, siblings, prev_bodies, 
 
 def do_dump(args):
     base = STUDY / args.subject / 'lectures'
-    align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
+    align = load_align(base, args.phase)
     nm_path = base / 'note_map.json'
     note_map = (json.loads(nm_path.read_text(encoding='utf-8'))
                 if nm_path.exists() else {'pages': [], 'by_leaf': {}})
@@ -1126,7 +1138,7 @@ def build_section_md(sid, path, lids, sections, bundle, catalog, subject, base, 
 
 def do_dump_section(args):
     base = STUDY / args.subject / 'lectures'
-    align = json.loads((base / 'align.json').read_text(encoding='utf-8'))
+    align = load_align(base, args.phase)
     nm_path = base / 'note_map.json'
     note_map = (json.loads(nm_path.read_text(encoding='utf-8'))
                 if nm_path.exists() else {'pages': [], 'by_leaf': {}})
