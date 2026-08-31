@@ -297,7 +297,7 @@ export default function ConceptScene({
           )
           : openRecall
             ? (
-              <RecallDock item={openRecall}
+              <RecallDock key={openRecall.index} item={openRecall}
                 onSubmit={(t) => setState((s) => submitRecall(point, s, openRecall.index, t))}
                 onGrade={(v) => setState((s) => gradeRecall(point, s, openRecall.index, v))}
                 onNext={goForward} nextLabel={nextLabel} />
@@ -496,6 +496,9 @@ function ChoiceDock({ item, onPick, onAgain, onNext, nextLabel }) {
 
 // ── 서술 인출 도크 — 시안 330:309 ────────────────────────────────
 // 쓰기 전에는 정답을 보여 주지 않는다. 보고 쓰면 인출이 아니다.
+//
+// 도크의 초안은 턴마다 새로 시작해야 한다 — 호출부에서 key={턴 인덱스} 로 리마운트한다.
+// key 가 없으면 연속된 인출 턴에서 앞 답이 새 백지에 남아, 「백지에서 꺼내 쓰기」가 무너진다.
 function RecallDock({ item, onSubmit, onGrade, onNext, nextLabel }) {
   const [text, setText] = useState('');
   const written = item.written;
