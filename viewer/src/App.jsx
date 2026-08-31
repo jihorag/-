@@ -790,23 +790,26 @@ const useProgress = () => {
   // 최초 응답이 오답(채점됨)이면 즉시 복습 스케줄(srs) 부여.
   const record = (q, sel, correct, extra = {}) => {
     const id = qid(q);
+    // 부작용은 업데이터 밖에서 한다. StrictMode 는 함수형 업데이터를 두 번 호출하므로
+    // 안에서 기록하면 한 번 답한 것이 두 건으로 남는다(실측 확인).
+    // rep 은 record.js 가 저장된 레코드에서 스스로 세므로 여기서 상태가 필요 없다.
+    if (!progress[id]) writeMeasure(q, sel, correct, extra);
     setProgress(prev => {
       if (prev[id]) return prev;
       const entry = { sel, correct, ts: Date.now() };
       if (correct === false) entry.srs = nextSrs(null, false, srsMode);
-      writeMeasure(q, sel, correct, extra);
       return saveProgress({ ...prev, [id]: entry });
     });
   };
   // 복습 재채점: 기존 기록 덮어씀 + 기억곡선 재스케줄. reviewed 누적.
   const update = (q, sel, correct, extra = {}) => {
     const id = qid(q);
+    writeMeasure(q, sel, correct, extra);   // 복습은 항상 기록한다
     setProgress(prev => {
       const p = prev[id] || {};
       const srs = (correct === null || correct === undefined)
         ? p.srs                                   // 채점불가는 스케줄 변경 안 함
         : nextSrs(p.srs, correct === true, srsMode);
-      writeMeasure(q, sel, correct, extra);
       return saveProgress({
         ...prev,
         [id]: { sel, correct, ts: Date.now(), reviewed: (p.reviewed || 0) + 1, srs },
@@ -4633,8 +4636,8 @@ const App = () => {
     const goPrev = () => { clearAutoTimer(); setAutoPending(false); setStudyIdx(Math.max(0, idx - 1)); window.scrollTo(0, 0); };
     const goNext = () => { clearAutoTimer(); setAutoPending(false); setStudyIdx(Math.min(total - 1, idx + 1)); window.scrollTo(0, 0); };
     const baseAnswer = selectedGroup.review ? updateAnswer : recordAnswer;
-    const handleAnswer = (qq, sel, correct) => {
-      baseAnswer(qq, sel, correct);
+    const handleAnswer = (qq, sel, correct, extra) => {
+      baseAnswer(qq, sel, correct, extra);
       if (autoNext && idx < total - 1) {
         clearAutoTimer();
         setAutoPending(true);
