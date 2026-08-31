@@ -46,7 +46,9 @@ export function effectiveWeight(rec, nowMs) {
   if (!rec) return 0;
   const base = baseWeight(rec.f, rec.g, rec.strict);
   if (!base) return 0;                       // null(불가능 조합) · 0(무채점) 둘 다 여기서 걸린다
-  const dtPrev = rec.prevTs ? (rec.ts - rec.prevTs) / DAY : Infinity;
+  // 간격을 모른다고 페널티를 면제하면, 아는 반복이 공짜 만점 관측이 된다.
+  // 모르는 것은 간격뿐이고 반복이라는 사실은 알고 있으므로 최대 페널티(즉시 재응답)로 본다.
+  const dtPrev = rec.prevTs ? (rec.ts - rec.prevTs) / DAY : 0;
   const dtNow = (nowMs - rec.ts) / DAY;
   return base
     * guessAdj(rec.f, rec.nopt)

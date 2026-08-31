@@ -93,3 +93,16 @@ test('채점하지 않은 활동은 무게 0', () => {
   const now = 1_700_000_000_000;
   near(effectiveWeight({ f: 'recall', g: 'none', src: 'internal', rep: 1, ts: now }, now), 0);
 });
+
+test('간격을 모르는 반복은 페널티를 면제하지 않는다 — 즉시 재응답과 같게 본다', () => {
+  const now = 1_700_000_000_000;
+  const rec = { f: 'recog', g: 'machine', nopt: 5, src: 'official', rep: 3, ts: now };
+  const same = { ...rec, prevTs: now };
+  near(effectiveWeight(rec, now), effectiveWeight(same, now));
+});
+
+test('rep 이 1이면 prevTs 가 없어도 무게가 온전하다', () => {
+  const now = 1_700_000_000_000;
+  const rec = { f: 'recog', g: 'machine', nopt: 5, src: 'official', rep: 1, ts: now };
+  near(effectiveWeight(rec, now), 1.0);
+});
