@@ -10,7 +10,7 @@
 // 목차·장면 렌더는 이 파일이 들지 않는다 — ConceptOutline(단일 목차 모델)과
 // ConceptScene(턴 진행)에 넘긴다. 이 파일은 트랙 fetch·진도 저장만 하는 셸이다.
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { ChevronRight, ChevronLeft, CheckCircle2 } from 'lucide-react';
+import { ChevronRight, ChevronLeft, CheckCircle2, X } from 'lucide-react';
 import ConceptOutline from './ConceptOutline';
 import ConceptScene, { ConceptRecap } from './ConceptScene';
 import {
@@ -268,8 +268,8 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
             return (
               <button type="button" key={p.id} role="listitem"
                 className={`concept-seg${cls}${!recap && i === idx ? ' is-current' : ''}`}
-                title={`${p.seq}. ${p.title || ''}`}
-                aria-label={`${p.seq}번 논점`}
+                title={`${p.seq || i + 1}. ${p.title || ''}`}
+                aria-label={`${p.seq || i + 1}번 논점`}
                 onClick={() => { setRecap(false); setIdx(i); }} />
             );
           })}
@@ -306,6 +306,33 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
             onAsk={onOpenDeep ? (text) => onOpenDeep(leafId, point, text) : null}
           />
         )}
+
+      {summary && (
+        <div className="cs-panel" role="dialog" aria-label="이 관에서 배운 것">
+          <div className="cs-panel-head">
+            <span className="cs-panel-label">이 관에서 배운 것</span>
+            <button type="button" className="cs-tool" onClick={() => setSummary(false)} aria-label="닫기">
+              <X size={15} strokeWidth={1.75} />
+            </button>
+          </div>
+          <div className="cs-panel-body">
+            <ol className="cs-summary">
+              {(track.points || []).map((p, i) => {
+                const st = rec[p.id] || 0;
+                return (
+                  <li key={p.id} className={st >= STATE.PASSED ? 'is-passed' : st >= STATE.SEEN ? 'is-seen' : ''}>
+                    <button type="button" className="cs-summary-row"
+                      onClick={() => { setSummary(false); setRecap(false); setIdx(i); }}>
+                      <span className="cs-summary-title">{p.title}</span>
+                      {p.gist && <span className="cs-summary-gist">{p.gist}</span>}
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

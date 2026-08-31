@@ -65,10 +65,11 @@ const hiliteStyle = (role) => ({
   background: HILITE_TONE[role] || HILITE_TONE['이름'],
   color: 'inherit',
   fontWeight: 'var(--weight-medium)',
-  padding: '3px 6px',
+  // 세로 여백은 1px 까지만. 문장 한가운데서 줄이 바뀌면 조각마다 위아래 여백이
+  // 다시 붙는데, 그게 줄 높이보다 두꺼우면 윗줄과 겹친다. 시안의 칩은 제 줄을
+  // 통째로 쓰는 경우라 6px 를 줘도 되지만 여기는 본문 속이라 얇아야 한다.
+  padding: '1px 5px',
   borderRadius: 'var(--radius-sm)',
-  // 줄바꿈이 걸려도 각 조각이 칩으로 보이게. 세로 여백이 줄 간격을 밀지 않도록
-  // box-decoration-break 를 함께 준다.
   boxDecorationBreak: 'clone',
   WebkitBoxDecorationBreak: 'clone',
 });
@@ -152,7 +153,7 @@ function GlossaryTerm({ term, def }) {
       onMouseLeave={hide}
       onClick={(e) => { e.stopPropagation(); pos ? hide() : show(); }}
       style={{
-        borderBottom: '1px dotted #6366f1', cursor: 'help',
+        borderBottom: '1px dotted var(--accent)', cursor: 'help',
         textUnderlineOffset: 2, color: 'inherit',
       }}
     >

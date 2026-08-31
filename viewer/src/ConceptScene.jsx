@@ -239,7 +239,11 @@ export default function ConceptScene({
               onNext={goForward} nextLabel={nextLabel} />
           )
           : (
-            <button type="button" className="cs-primary" onClick={goForward}
+            // 시안은 파란 면 버튼을 「다시 풀어보기」·「이 관 문제 풀기」 같은 매듭에만
+            // 쓴다. 매 턴 넘기는 버튼까지 파랗게 하면 그 무게가 사라진다.
+            <button type="button"
+              className={finished ? 'cs-primary' : 'cs-secondary'}
+              onClick={goForward}
               disabled={stuck} aria-keyshortcuts="Space ArrowRight">
               {nextLabel} <ChevronRight size={16} strokeWidth={1.75} />
             </button>

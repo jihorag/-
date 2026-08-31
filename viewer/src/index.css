@@ -2183,7 +2183,7 @@ button.concept-seg:hover { opacity: .7; }
   gap: 14px;
   padding: var(--space-4) var(--space-4) var(--space-5);
 }
-.cs-stream > * { width: min(100%, 720px); margin-inline: auto; }
+.cs-stream > * { width: min(100%, 640px); margin-inline: auto; }
 
 /* 논점 머리 — 가운데 라벨 + 아래 실선 */
 .cs-pointhead {
@@ -2249,6 +2249,8 @@ button.concept-seg:hover { opacity: .7; }
   background: var(--wrong-bg);
   border-color: var(--wrong-line);
 }
+.cs-bubble .parsed-text > div { line-height: var(--leading-read) !important; margin: 0 !important; }
+.cs-bubble .parsed-text > div + div { margin-top: var(--space-2) !important; }
 .cs-bubble > :first-child { margin-top: 0; }
 .cs-bubble > :last-child { margin-bottom: 0; }
 @keyframes csPop {
@@ -2303,13 +2305,10 @@ button.concept-seg:hover { opacity: .7; }
   display: block;
 }
 .cs-figure-body figcaption { display: none; }
-/* 단계 스크러버는 시안에도 있다 — 숨기지 않고 카드 아래 줄로 쓴다. */
-.cs-figure-body .viz-toolbar {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid var(--line-2);
-  font-size: var(--text-xs);
-}
+/* .viz-toolbar 는 단계 스크러버가 아니라 SVG 내보내기 버튼들(⬇📋🖨)이다.
+   학습 흐름 한가운데 뜰 것이 아니라 숨긴다. 시안의 스크러버에 해당하는 것은
+   StepPlayer 이고, 그건 카드 안에 그대로 남는다. */
+.cs-figure-body .viz-toolbar { display: none !important; }
 
 /* ── 문서형 폴백 ───────────────────────────────────────────── */
 .cs-doc {
@@ -2358,7 +2357,7 @@ button.concept-seg:hover { opacity: .7; }
   flex-direction: column;
   gap: var(--space-2);
 }
-.cs-dock > * { width: min(100%, 720px); margin-inline: auto; }
+.cs-dock > * { width: min(100%, 640px); margin-inline: auto; }
 
 .cs-choices {
   display: flex;
@@ -2457,6 +2456,8 @@ button.concept-seg:hover { opacity: .7; }
   align-items: center;
   gap: var(--space-1);
   justify-content: flex-end;
+  margin-top: -2px;
+  margin-bottom: -2px;
 }
 .cs-tool {
   display: inline-flex;
@@ -2707,4 +2708,36 @@ button.concept-seg:hover { opacity: .7; }
   .concept-runner { padding: 0; gap: 0; }
   .concept-head-title { font-size: var(--text-sm); }
   .concept-segs--mini { display: none; }
+}
+
+/* ── 「/정리」 — 이 관의 논점 목록 ─────────────────────────── */
+.cs-summary { margin: 0; padding: 0; list-style: none; counter-reset: pt; }
+.cs-summary > li { border-bottom: 1px solid var(--line-2); }
+.cs-summary > li:last-child { border-bottom: none; }
+.cs-summary-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 10px var(--space-2);
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+}
+.cs-summary-row:hover { background: var(--sheet-3); }
+.cs-summary-row::before {
+  counter-increment: pt;
+  content: counter(pt);
+  font-size: var(--text-2xs);
+  color: var(--ink-meta);
+}
+.cs-summary-title { font-size: var(--text-sm); color: var(--ink-3); }
+.cs-summary-gist { font-size: var(--text-xs); color: var(--ink-meta); }
+.cs-summary > li.is-seen .cs-summary-title { color: var(--ink-2); }
+.cs-summary > li.is-passed .cs-summary-title {
+  color: var(--ink);
+  font-weight: var(--weight-medium);
 }

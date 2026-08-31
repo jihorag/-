@@ -35,7 +35,8 @@ export default function StepPlayer({ Comp, paramsList, labels }) {
       </div>
       <div style={{
         display: 'flex', alignItems: 'center', gap: 8,
-        padding: '6px 10px', borderTop: '1px solid #e5e7eb',
+        padding: '10px 0 0', marginTop: 10,
+        borderTop: '1px solid var(--line-2)',
       }}>
         <button onClick={() => go(i - 1)} disabled={i === 0}
           aria-label="이전 단계" style={ctrl(i === 0)}><ChevronLeft size={15} /></button>
@@ -45,7 +46,7 @@ export default function StepPlayer({ Comp, paramsList, labels }) {
         </button>
         <button onClick={() => go(i + 1)} disabled={i === last}
           aria-label="다음 단계" style={ctrl(i === last)}><ChevronRight size={15} /></button>
-        <span style={{ fontSize: '0.78rem', color: '#374151', fontWeight: 700 }}>
+        <span style={{ fontSize: 'var(--text-xs)', color: 'var(--ink-2)', fontWeight: 'var(--weight-medium)' }}>
           {labels[i] || `${i + 1}단계`}
         </span>
         <span style={{ marginLeft: 'auto', display: 'flex', gap: 4 }}>
@@ -53,7 +54,7 @@ export default function StepPlayer({ Comp, paramsList, labels }) {
             <button key={n} onClick={() => go(n)} aria-label={`${n + 1}단계로`}
               style={{
                 width: 7, height: 7, padding: 0, borderRadius: '50%', border: 'none',
-                cursor: 'pointer', background: n === i ? '#374151' : '#d1d5db',
+                cursor: 'pointer', background: n === i ? 'var(--accent)' : 'var(--line-strong)',
               }} />
           ))}
         </span>
@@ -64,9 +65,9 @@ export default function StepPlayer({ Comp, paramsList, labels }) {
 
 function ctrl(disabled) {
   return {
-    width: 26, height: 26, borderRadius: 6, border: '1px solid #d1d5db',
-    background: '#fff', cursor: disabled ? 'default' : 'pointer',
+    width: 26, height: 26, borderRadius: 'var(--radius-md)', border: '1px solid var(--line)',
+    background: 'var(--sheet)', cursor: disabled ? 'default' : 'pointer',
     opacity: disabled ? 0.35 : 1,
-    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#374151',
+    display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink-2)',
   };
 }
