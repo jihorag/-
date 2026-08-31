@@ -767,7 +767,9 @@ function writeMeasure(q, sel, correct, extra) {
       f: 'recog',
       g: graded ? 'machine' : 'none',
       nopt: Array.isArray(q.options) ? q.options.length : undefined,
-      src: q.source === 'practice' ? 'practice' : 'official',
+      // source 는 22,342건의 연습문제에서 null 이라 못 믿는다.
+      // exam 은 연습문제 35,217건 전부에 '[연습문제]' 로 들어 있어 깨끗이 갈린다.
+      src: q.exam === '[연습문제]' ? 'practice' : 'official',
       correct: graded ? correct : undefined,
       ms: extra.ms,
       meta: { chosen: sel == null ? undefined : Number(sel) },
