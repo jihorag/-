@@ -21,7 +21,7 @@ import {
 import { getChapterMastery, updateChapterMastery, markActiveToday, getApiKey, getPrefs } from './aiLearningStore';
 import { record, pathFromLeafId } from './measure/record.js';
 import DeepChat from './DeepChat';
-import { getAllItems, buildLearnerStatus } from './studyDrill';
+import { getAllItems, buildLearnerStatus, recordItem } from './studyDrill';
 import { searchChunks, withTerms } from './rag/search';
 import { buildContext } from './rag/context';
 import { sendMessagesUnified, getProviderForModel } from './aiProviders';
@@ -443,6 +443,15 @@ export default function ConceptTrack({
             onNext={goNext}
             onAsk={onOpenDeep ? (text) => onOpenDeep(leafId, point, text) : null}
             onAskSide={hasKey ? async (q) => (await askTutor(q)).answer : null}
+            onQueueItem={(it) => {
+              recordItem({
+                kind: it.kind, idx: it.idx, q: it.q, isCorrect: it.isCorrect,
+                leaf: { leafId, subject: subjectId, leafTitle: track?.title || '' },
+                gradedBy: it.kind === 'recall' ? 'self' : 'machine',
+                f: it.kind === 'recall' ? 'recall' : it.kind === 'ox' ? 'recall' : 'recog',
+                nopt: it.kind === 'ox' ? 2 : undefined,
+              });
+            }}
           />
         )}
 

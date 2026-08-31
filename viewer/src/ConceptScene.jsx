@@ -27,7 +27,7 @@ import { SpeakButton } from './Speech';
 import VizRouter from './viz/VizRouter';
 import {
   WHO, initTurnState, visibleTurns, canAdvance, advance, choose, retry,
-  isPassed, atEnd, passDetail, choicesOf, isChoiceTurn,
+  isPassed, atEnd, passDetail, choicesOf, isChoiceTurn, isAnswerTurn,
   submitRecall, gradeRecall,
 } from './conceptTurns';
 import { loadSide, appendSide, clearSide } from './sideThread';
@@ -78,6 +78,7 @@ function quizSay(turn, ans) {
 
 export default function ConceptScene({
   point, seq, total, onPassed, onDone, onNext, onAsk, onCommand, leafId, onAskSide,
+  onQueueItem,
 }) {
   const [state, setState] = useState(initTurnState);
   const [panel, setPanel] = useState(null);   // 'example' | null
@@ -121,6 +122,27 @@ export default function ConceptScene({
     doneRef.current = point?.id;
     if (onDone) onDone({ ...detail, ms: shownAtRef.current ? Date.now() - shownAtRef.current : undefined });
   }, [detail.done, point?.id, onDone, detail]);
+
+  // 논점을 통과하는 순간 그 논점의 문항을 SRS 사다리에 올린다.
+  // 관을 마칠 때까지 기다리면 20논점짜리 관에서 첫 논점의 복습 시점이 그만큼 밀린다.
+  const queuedRef = useRef(null);
+  useEffect(() => {
+    if (!detail.done || !leafId || !point?.id) return;
+    if (queuedRef.current === point.id) return;
+    queuedRef.current = point.id;
+    (point.turns || []).forEach((t, i) => {
+      if (!isAnswerTurn(t)) return;
+      const a = state.answers[i];
+      if (!a?.solved) return;
+      onQueueItem?.({
+        kind: t.who === WHO.recall ? 'recall' : t.who === WHO.ox ? 'ox' : 'quiz',
+        idx: `${point.id}:${i}`,
+        pointId: point.id,
+        q: t.prompt || '',
+        isCorrect: !a.assisted && !a.everAssisted,
+      });
+    });
+  }, [detail.done, point?.id, leafId, state.answers, onQueueItem, point?.turns]);
 
   const turns = visibleTurns(point, state);
   const hasTurns = turns.length > 0;
