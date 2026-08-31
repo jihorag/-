@@ -1,120 +1,200 @@
-// 개념 완성 목차 — AI 학습·드릴·문제풀이와 같은 트리를 쓴다.
+// 개념 완성 목차 — 시안 253:2(ai-chapter).
 //
 // buildUnitTree 는 세 탭이 공유하는 '단일 목차' 모델이다(unitTree.js 첫 줄).
-// 개념 완성만 이걸 안 쓰고 평면 목록을 그리고 있어서 목차가 어긋나 보였다.
+// 여기서 따로 만들면 네 탭의 목차가 갈라진다. 좁은 폭용 트리(ConceptTree)도
+// 같은 모델을 쓴다.
+//
+// 시안이 예전 목차에 더한 것 넷:
+//   1. 요약 한 줄 — 몇 관 중 몇 관, 정답률, 약한 곳 개수
+//   2. 이어서 카드 — 중단한 자리로 한 번에
+//   3. 목차순 / 약점순 — 무엇부터 볼지 고르게 한다
+//   4. 줄마다 약점 배지와 기출 정답률
+//
+// 「약점」은 기출 정답률이 WEAK_UNDER 미만인 관이다. 논점 진행률이 아니라
+// 정답률로 잡는다 — 논점을 다 봤는데 문제를 틀리는 관이 정확히 다시 볼 곳이다.
 import { useMemo, useState } from 'react';
-import { ChevronRight, ChevronDown } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { buildUnitTree, stripUnitPrefix } from './unitTree';
 import { applyScope } from './trackScope';
 import { STATE } from './trackProgress';
 
-export default function ConceptOutline({ leaves, scope, index, progress, onPick }) {
+const WEAK_UNDER = 0.6;
+
+export default function ConceptOutline({
+  leaves, scope, index, progress, onPick, quizStatsByLeaf, subjectName,
+}) {
+  const [sort, setSort] = useState('목차순');
   const scoped = useMemo(() => applyScope(leaves || [], scope), [leaves, scope]);
   const { divisions, multiDiv } = useMemo(() => buildUnitTree(scoped), [scoped]);
-  const [open, setOpen] = useState({});   // 장 단위 접기/펴기
 
-  const counts = (leafId) => {
-    const total = index?.[leafId]?.points || 0;
-    const rec = (progress || {})[leafId] || {};
-    const vals = Object.values(rec);
-    const passed = vals.filter((s) => s >= STATE.PASSED).length;
-    const seen = vals.filter((s) => s >= STATE.SEEN).length;
-    return { total, passed, seen };
-  };
-
-  // 장·절 자체가 학습 단위인 leaf(chapter.leaf, section.leaf) — buildUnitTree 가
-  // 이 두 자리에도 leaf 를 놓을 수 있다. UnitOutline.jsx 의 chapterLeaves() 와
-  // 같은 패턴으로 전부 모아 관 항목과 같은 모양으로 렌더한다. 안 하면 이 leaf 들이
-  // 목차에서 조용히 사라진다(경제학은 전부 관 레벨이라 증상이 안 보였을 뿐).
-  const chapterLeaves = (ch) => {
+  // 장·절 자체가 학습 단위인 leaf 도 관 항목과 같은 모양으로 편다. 안 하면
+  // 그 leaf 들이 목차에서 조용히 사라진다(경제학은 전부 관 레벨이라 증상이 없었다).
+  const rowsOf = (ch) => {
     const out = [];
-    if (ch.leaf) out.push(ch.leaf);
+    if (ch.leaf) out.push({ leaf: ch.leaf, name: ch.name });
     ch.sections.forEach((sec) => {
-      if (sec.leaf) out.push(sec.leaf);
-      sec.items.forEach((it) => out.push(it.leaf));
+      if (sec.leaf) out.push({ leaf: sec.leaf, name: sec.name });
+      sec.items.forEach((it) => out.push({ leaf: it.leaf, name: it.name }));
     });
     return out;
   };
 
-  return (
-    <div>
-      {divisions.map((div) => (
-        <section key={div.name} style={{ marginBottom: 18 }}>
-          {multiDiv && (
-            <h3 className="concept-out-div">{div.name}</h3>
-          )}
-          {div.chapters.map((ch) => {
-            const key = div.name + '/' + ch.name;
-            const isOpen = open[key] !== false;   // 기본은 펼침
-            const chTotals = chapterLeaves(ch).reduce((acc, leaf) => {
-              const c = counts(leaf.id);
-              return { total: acc.total + c.total, passed: acc.passed + c.passed, seen: acc.seen + c.seen };
-            }, { total: 0, passed: 0, seen: 0 });
-            return (
-              <div key={key} style={{ marginBottom: 10 }}>
-                <button type="button" className="concept-out-ch"
-                  aria-expanded={isOpen}
-                  onClick={() => setOpen((o) => ({ ...o, [key]: !isOpen }))}>
-                  {isOpen ? <ChevronDown size={14} strokeWidth={1.75} /> : <ChevronRight size={14} strokeWidth={1.75} />}
-                  <span className="concept-out-hier">{ch.hier}</span>
-                  <span className="concept-out-name">{stripUnitPrefix(ch.name)}</span>
-                  {chTotals.total > 0 && (
-                    <span className="concept-out-count">{chTotals.passed} / {chTotals.total}</span>
-                  )}
-                </button>
+  const stat = useMemo(() => {
+    const f = (id) => {
+      const total = index?.[id]?.points || 0;
+      const rec = (progress || {})[id] || {};
+      const passed = Object.values(rec).filter((s) => s >= STATE.PASSED).length;
+      const q = quizStatsByLeaf?.[id];
+      const acc = q && q.answered > 0 ? q.accuracy : null;
+      return {
+        total, passed,
+        done: total > 0 && passed >= total,
+        exam: q?.total || 0,
+        acc,
+        weak: acc !== null && acc < WEAK_UNDER,
+      };
+    };
+    return f;
+  }, [index, progress, quizStatsByLeaf]);
 
-                {isOpen && (
-                  <div style={{ marginLeft: 18, marginTop: 4 }}>
-                    {ch.leaf && (
-                      <ItemButton leaf={ch.leaf} name={ch.name} c={counts(ch.leaf.id)} onPick={onPick} />
-                    )}
-                    {ch.sections.map((sec) => (
-                      <div key={sec.name}>
-                        {sec.leaf
-                          ? <ItemButton leaf={sec.leaf} name={sec.name} c={counts(sec.leaf.id)} onPick={onPick} />
-                          : (
-                            <div className="concept-out-sec">{stripUnitPrefix(sec.name)}</div>
-                          )}
-                        {sec.items.map((it) => (
-                          <ItemButton key={it.leaf.id} leaf={it.leaf} name={it.name}
-                            c={counts(it.leaf.id)} onPick={onPick} />
-                        ))}
-                      </div>
+  // 화면 전체를 요약하는 한 줄. 관 수·완료 관 수·정답률·약한 곳.
+  const all = useMemo(
+    () => divisions.flatMap((d) => d.chapters.flatMap(rowsOf)),
+    // rowsOf 는 순수 함수라 의존성에 넣지 않는다.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [divisions],
+  );
+  const summary = useMemo(() => {
+    let total = 0, done = 0, weak = 0, answered = 0, correct = 0;
+    all.forEach(({ leaf }) => {
+      const s = stat(leaf.id);
+      if (s.total > 0) total += 1;
+      if (s.done) done += 1;
+      if (s.weak) weak += 1;
+      const q = quizStatsByLeaf?.[leaf.id];
+      if (q) { answered += q.answered; correct += q.correct; }
+    });
+    return { total, done, weak, acc: answered > 0 ? correct / answered : null };
+  }, [all, stat, quizStatsByLeaf]);
+
+  // 이어서 — 손을 댔지만 아직 안 끝난 첫 관. 없으면 아직 안 연 첫 관.
+  const resume = useMemo(() => {
+    let untouched = null;
+    for (const r of all) {
+      const s = stat(r.leaf.id);
+      if (s.total === 0) continue;
+      if (s.passed > 0 && !s.done) return { ...r, s };
+      if (!untouched && s.passed === 0) untouched = { ...r, s };
+    }
+    return untouched;
+  }, [all, stat]);
+
+  const weakFirst = useMemo(
+    () => all
+      .map((r) => ({ ...r, s: stat(r.leaf.id) }))
+      .filter((r) => r.s.total > 0 && r.s.acc !== null)
+      .sort((a, b) => a.s.acc - b.s.acc),
+    [all, stat],
+  );
+
+  return (
+    <div className="cout">
+      <section className="cout-summary">
+        <div className="cout-summary-row">
+          <span>
+            {summary.total}관 중 {summary.done}관
+            {summary.acc !== null && ` · 정답률 ${Math.round(summary.acc * 100)}%`}
+          </span>
+          {summary.weak > 0 && <span className="cout-weakn">약한 곳 {summary.weak}</span>}
+        </div>
+        <div className="cout-track">
+          <div className="cout-track-fill"
+            style={{ width: summary.total ? `${(summary.done / summary.total) * 100}%` : 0 }} />
+        </div>
+
+        {resume && (
+          <button type="button" className="cout-continue" onClick={() => onPick(resume.leaf.id)}>
+            <span className="cout-continue-t">
+              <span className="cout-continue-title">이어서 · {stripUnitPrefix(resume.name)}</span>
+              <span className="cout-continue-sub">논점 {resume.s.passed} / {resume.s.total}</span>
+            </span>
+            <ChevronRight size={16} strokeWidth={1.75} />
+          </button>
+        )}
+
+        {weakFirst.length > 0 && (
+          <div className="cout-sort" role="group" aria-label="정렬">
+            {['목차순', '약점순'].map((k) => (
+              <button type="button" key={k} className={`cout-chip${sort === k ? ' is-on' : ''}`}
+                aria-pressed={sort === k} onClick={() => setSort(k)}>{k}</button>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {sort === '약점순'
+        ? (
+          <div className="cout-group">
+            <div className="cout-ch">
+              <span>정답률이 낮은 순</span>
+              <span className="cout-ch-count">{weakFirst.length}관</span>
+            </div>
+            <div className="cout-items">
+              {weakFirst.map((r) => (
+                <Row key={r.leaf.id} name={r.name} s={r.s} onPick={() => onPick(r.leaf.id)} />
+              ))}
+            </div>
+          </div>
+        )
+        : divisions.map((div) => (
+          <div key={div.name}>
+            {multiDiv && <h3 className="cout-div">{div.name}</h3>}
+            {div.chapters.map((ch) => {
+              const rows = rowsOf(ch);
+              const chDone = rows.filter((r) => stat(r.leaf.id).done).length;
+              const chTotal = rows.filter((r) => stat(r.leaf.id).total > 0).length;
+              return (
+                <div className="cout-group" key={div.name + '/' + ch.name}>
+                  <div className="cout-ch">
+                    <span>{ch.hier} {stripUnitPrefix(ch.name)}</span>
+                    {chTotal > 0 && <span className="cout-ch-count">{chDone} / {chTotal}</span>}
+                  </div>
+                  <div className="cout-items">
+                    {rows.map((r) => (
+                      <Row key={r.leaf.id} name={r.name} s={stat(r.leaf.id)}
+                        onPick={() => onPick(r.leaf.id)} />
                     ))}
                   </div>
-                )}
-              </div>
-            );
-          })}
-        </section>
-      ))}
+                </div>
+              );
+            })}
+          </div>
+        ))}
     </div>
   );
 }
 
-function ItemButton({ leaf, name, c, onPick }) {
-  const empty = c.total === 0;
+function Row({ name, s, onPick }) {
+  const empty = s.total === 0;
   return (
-    <button type="button" className="concept-out-item" disabled={empty}
-      onClick={() => !empty && onPick(leaf.id)}>
-      <span className="concept-out-name">{stripUnitPrefix(name)}</span>
-      {/* 관 안의 세그먼트 진행바와 같은 표현. 목차에는 논점 순서를 모르므로
-          통과·열어봄·미학습 개수만큼 칸을 채운다. */}
-      {!empty && <Segments total={c.total} passed={c.passed} seen={c.seen} />}
-      <span className="concept-out-count">
-        {empty ? '준비 중' : `${c.passed} / ${c.total}`}
+    <button type="button" className={`cout-row${s.done ? ' is-done' : ''}`}
+      disabled={empty} onClick={() => !empty && onPick()}>
+      <span className="cout-row-t">
+        <span className="cout-row-name">{stripUnitPrefix(name)}</span>
+        <span className="cout-row-meta">
+          {s.weak && <span className="cout-weak">약점</span>}
+          <span>
+            {empty ? '준비 중' : `논점 ${s.passed} / ${s.total}`}
+            {s.exam ? ` · 기출 ${s.exam}` : ''}
+          </span>
+        </span>
+      </span>
+      <span className={`cout-pct${s.weak ? ' is-low' : ''}`}>
+        {s.acc !== null ? `${Math.round(s.acc * 100)}%` : '—'}
+      </span>
+      <span className="cout-tail">
+        {s.done ? <span className="cout-donetag">완료</span> : <ChevronRight size={16} strokeWidth={1.75} />}
       </span>
     </button>
-  );
-}
-
-function Segments({ total, passed, seen }) {
-  return (
-    <span className="concept-segs concept-segs--mini" aria-hidden="true">
-      {Array.from({ length: total }, (_, i) => (
-        <span key={i}
-          className={`concept-seg${i < passed ? ' is-passed' : i < seen ? ' is-seen' : ''}`} />
-      ))}
-    </span>
   );
 }

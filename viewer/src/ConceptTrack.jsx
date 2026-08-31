@@ -195,7 +195,8 @@ export default function ConceptTrack({
           <ExtraCard key={e.title} entry={e} onPick={() => setLeafId(`_extra:${e.title}`)} />
         ))}
         <ConceptOutline leaves={leaves} scope={scope} index={index}
-          progress={progress} onPick={setLeafId} />
+          progress={progress} onPick={setLeafId}
+          quizStatsByLeaf={quizStatsByLeaf} subjectName={subjectName} />
         {extra.filter((e) => e.kind === 'review').map((e) => (
           <ExtraCard key={e.title} entry={e} onPick={() => setLeafId(`_extra:${e.title}`)} />
         ))}

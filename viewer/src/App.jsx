@@ -2763,7 +2763,9 @@ const App = () => {
       const mt = iv && iv.mapped_taxonomy;
       const isClassified = !!(
         iv && mt && mt.subject &&
-        (iv.processed_by === 'gemini-2.5-flash' || iv.processed_by === 'claude-sonnet-4-6' || iv.processed_by === 'aigen') &&
+        // 분류 주체 화이트리스트 — 직접 출제/판정한 문항(claude-opus-5…)도 분류 완료로 인정한다.
+        (iv.processed_by === 'gemini-2.5-flash' || iv.processed_by === 'claude-sonnet-4-6'
+          || iv.processed_by === 'aigen' || String(iv.processed_by || '').startsWith('claude-opus-5')) &&
         iv.in_scope !== false
       );
 
