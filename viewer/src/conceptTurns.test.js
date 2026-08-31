@@ -200,3 +200,36 @@ test('retry — 아직 안 푼 턴이나 quiz 가 아닌 턴에는 아무 일도
   assert.equal(retry(POINT, s, 2), s);         // 아직 안 풂
   assert.equal(retry(POINT, s, 1), s);         // quiz 가 아님
 });
+
+// ── OX 턴 — 지문 하나를 O/X 로 묻는다 ──────────────────────────────
+const OX_POINT = {
+  id: 'ox1',
+  turns: [
+    { who: 'teach', text: '취득원가는 셋의 합입니다.' },
+    { who: 'ox', prompt: '「매입할인은 수익으로 잡는다」', answer: false, reply: '차감합니다.' },
+    { who: 'mate', text: '이 자리는 자주 뒤집힙니다.' },
+  ],
+};
+
+test('OX 도 quiz 처럼 풀어야 넘어간다', () => {
+  let s = advance(OX_POINT, initTurnState());     // ox 턴으로
+  assert.equal(canAdvance(OX_POINT, s), false);
+  s = choose(OX_POINT, s, 1, 1);                  // 1 = X (오답 아님: answer=false 니 X 가 정답)
+  assert.equal(canAdvance(OX_POINT, s), true);
+});
+
+test('OX 를 맞히면 통과다', () => {
+  let s = advance(OX_POINT, initTurnState());
+  s = choose(OX_POINT, s, 1, 1);
+  s = advance(OX_POINT, s);
+  assert.equal(isPassed(OX_POINT, s), true);
+});
+
+test('OX 를 틀리면 한 번에 답이 열리고 도움받은 것으로 남는다', () => {
+  let s = advance(OX_POINT, initTurnState());
+  s = choose(OX_POINT, s, 1, 0);                  // 0 = O (틀림)
+  const a = visibleTurns(OX_POINT, s)[1];
+  assert.equal(a.solved, true, 'OX 는 두 번 고를 것이 없다 — 한 번에 열린다');
+  assert.equal(a.assisted, true);
+  assert.equal(isPassed(OX_POINT, advance(OX_POINT, s)), false);
+});

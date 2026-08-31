@@ -12,7 +12,27 @@ export const WHO = {
   gotcha: 'gotcha', // 깐깐이 — 반례·함정
   mate: 'mate',     // 복습 메이트 — 학습 조언만
   quiz: 'quiz',     // 선택지 턴
+  ox: 'ox',         // OX 지문 — 선지가 둘뿐인 quiz
 };
+
+/**
+ * 답을 골라야 넘어갈 수 있는 턴인가.
+ * quiz(선지 여럿)와 ox(O/X 둘)를 같은 경로로 처리한다 — 진행 규칙이 같기 때문이다.
+ */
+export const isChoiceTurn = (t) => t && (t.who === WHO.quiz || t.who === WHO.ox);
+
+/** OX 를 quiz 모양으로 펴서 돌려준다. 화면과 상태 기계가 같은 모양을 본다. */
+export function choicesOf(turn) {
+  if (!turn) return [];
+  if (turn.who === WHO.quiz) return turn.choices || [];
+  if (turn.who === WHO.ox) {
+    return [
+      { text: 'O', ok: turn.answer === true, reply: turn.reply || '' },
+      { text: 'X', ok: turn.answer === false, reply: turn.reply || '' },
+    ];
+  }
+  return [];
+}
 
 // 두 번 틀리면 정답을 열어 준다. 막히면 학습이 거기서 멈추기 때문이다.
 // 대신 assisted 로 남겨 "스스로 맞힌 것"과 구분한다 — 통과 판정에 쓴다.
@@ -57,7 +77,7 @@ export function canAdvance(point, state) {
   if (!turns.length) return false;
   if (atEnd(point, state)) return false;
   const cur = turns[state.cursor];
-  if (cur && cur.who === WHO.quiz) return answerOf(state, state.cursor).solved;
+  if (isChoiceTurn(cur)) return answerOf(state, state.cursor).solved;
   return true;
 }
 
@@ -70,15 +90,17 @@ export function advance(point, state) {
 export function choose(point, state, turnIndex, choiceIndex) {
   const turns = turnsOf(point);
   const turn = turns[turnIndex];
-  if (!turn || turn.who !== WHO.quiz) return state;
+  if (!turn || !isChoiceTurn(turn)) return state;
   const prev = answerOf(state, turnIndex);
   if (prev.solved) return state;
   if (prev.picked.includes(choiceIndex)) return state;
 
   const picked = prev.picked.concat(choiceIndex);
-  const ok = !!(turn.choices || [])[choiceIndex]?.ok;
+  const ok = !!choicesOf(turn)[choiceIndex]?.ok;
   // 정답을 골랐으면 스스로 푼 것. 시도를 다 썼으면 열어 주되 도움받은 것으로 남긴다.
-  const solved = ok || picked.length >= MAX_TRIES;
+  // OX 는 고를 것이 둘뿐이라 한 번 틀리면 남는 선택이 정답 하나다. 두 번 시도가 의미 없다.
+  const maxTries = turn.who === WHO.ox ? 1 : MAX_TRIES;
+  const solved = ok || picked.length >= maxTries;
   const assisted = !ok && solved;
 
   return {
@@ -102,7 +124,7 @@ export function choose(point, state, turnIndex, choiceIndex) {
 export function retry(point, state, turnIndex) {
   const turns = turnsOf(point);
   const turn = turns[turnIndex];
-  if (!turn || turn.who !== WHO.quiz) return state;
+  if (!turn || !isChoiceTurn(turn)) return state;
   const prev = answerOf(state, turnIndex);
   if (!prev.solved) return state;
   return {
@@ -121,7 +143,7 @@ export function retry(point, state, turnIndex) {
 export function isPassed(point, state) {
   const turns = turnsOf(point);
   if (!turns.length) return false;
-  const quizIdx = turns.map((t, i) => (t.who === WHO.quiz ? i : -1)).filter((i) => i >= 0);
+  const quizIdx = turns.map((t, i) => (isChoiceTurn(t) ? i : -1)).filter((i) => i >= 0);
   if (!quizIdx.length) return atEnd(point, state);
   return quizIdx.every((i) => {
     const a = answerOf(state, i);
@@ -140,7 +162,7 @@ export function isPassed(point, state) {
  */
 export function passDetail(point, state) {
   const turns = turnsOf(point);
-  const quizIdx = turns.map((t, i) => (t.who === WHO.quiz ? i : -1)).filter((i) => i >= 0);
+  const quizIdx = turns.map((t, i) => (isChoiceTurn(t) ? i : -1)).filter((i) => i >= 0);
   const quizCount = quizIdx.length;
 
   let solvedCount = 0, selfCount = 0, assistedCount = 0, tries = 0;

@@ -27,7 +27,7 @@ import { SpeakButton } from './Speech';
 import VizRouter from './viz/VizRouter';
 import {
   WHO, initTurnState, visibleTurns, canAdvance, advance, choose, retry,
-  isPassed, atEnd, passDetail,
+  isPassed, atEnd, passDetail, choicesOf, isChoiceTurn,
 } from './conceptTurns';
 import { loadSide, appendSide, clearSide } from './sideThread';
 
@@ -55,7 +55,7 @@ export const SLASH = [
 
 /** quiz 턴의 응답 상태 → 그 뒤에 이어 붙일 대사 한 덩이. */
 function quizSay(turn, ans) {
-  const choices = turn.choices || [];
+  const choices = choicesOf(turn);
   const ok = choices.find((c) => c.ok);
   if (ans.solved && !ans.assisted) {
     return { who: WHO.teach, text: ok?.reply || '맞았습니다.', mood: 'right' };
@@ -124,7 +124,7 @@ export default function ConceptScene({
   const turns = visibleTurns(point, state);
   const hasTurns = turns.length > 0;
   const last = turns[turns.length - 1] || null;
-  const openQuiz = last && last.turn.who === WHO.quiz ? last : null;
+  const openQuiz = last && isChoiceTurn(last.turn) ? last : null;
 
   const stuck = hasTurns && !canAdvance(point, state) && !atEnd(point, state);
   const finished = hasTurns && atEnd(point, state) && !stuck;
@@ -350,7 +350,7 @@ function streamItems(turns) {
   const out = [];
   turns.forEach((item) => {
     const { turn } = item;
-    const isQuiz = turn.who === WHO.quiz;
+    const isQuiz = isChoiceTurn(turn);
     const text = isQuiz ? turn.prompt : turn.text;
     if (text) out.push({ kind: 'bubble', who: isQuiz ? WHO.teach : turn.who, text, mood: 'idle' });
     if (turn.viz) out.push({ kind: 'figure', viz: turn.viz });
@@ -448,10 +448,11 @@ function FigureCard({ viz, children }) {
 // ── 바닥의 선택지 ────────────────────────────────────────────────────────
 // 채점 전에는 고르는 자리, 채점 후에는 정답·내 답을 나란히 보여주는 자리.
 function ChoiceDock({ item, onPick, onAgain, onNext, nextLabel }) {
-  const choices = item.turn.choices || [];
+  const choices = choicesOf(item.turn);
+  const isOx = item.turn.who === WHO.ox;
   const solved = item.solved;
   return (
-    <div className="cs-choices" role="group" aria-label="선택지">
+    <div className={`cs-choices${isOx ? ' is-ox' : ''}`} role="group" aria-label="선택지">
       {choices.map((c, i) => {
         const mine = item.picked.includes(i);
         const right = solved && c.ok;
@@ -461,7 +462,7 @@ function ChoiceDock({ item, onPick, onAgain, onNext, nextLabel }) {
         return (
           <button type="button" key={i} className={`cs-choice${cls}`}
             onClick={() => onPick(i)} disabled={solved || mine}>
-            <span className="cs-choice-no">{'①②③④⑤⑥'[i] || i + 1}</span>
+            {!isOx && <span className="cs-choice-no">{'①②③④⑤⑥'[i] || i + 1}</span>}
             <span className="cs-choice-text">{c.text}</span>
             {right && <span className="cs-choice-tag">정답</span>}
             {wrong && <span className="cs-choice-tag is-mine">내 답</span>}
