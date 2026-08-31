@@ -2046,23 +2046,35 @@ html, body {
 }
 
 /* ── 러너 셸 ───────────────────────────────────────────────── */
+/* 대화방을 담는 통. 자식(.cs-room)이 남는 높이를 다 먹고, 그 안에서 스트림만
+   스크롤한다 — 그래야 바닥의 조작부가 화면 아래에 붙어 움직이지 않는다.
+   60px 은 서브내비 몫. */
 .concept-runner {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  max-width: 880px;
-  margin: 0 auto;
-  padding: var(--space-3) var(--space-4) 0;
-  /* 조작 줄이 화면 아래에 붙도록 뷰포트를 채운다. 60px 은 서브내비 몫. */
-  min-height: calc(100dvh - var(--tabbar-h) - 60px);
+  height: calc(100dvh - var(--tabbar-h) - 60px);
+  min-height: 0;
 }
 
-/* ── 머리 ─────────────────────────────────────────────────── */
+/* ── 머리 — 시안의 section-header(228:74) ──────────────────── */
 .concept-head {
+  flex: 0 0 auto;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: var(--space-2) var(--space-3);
+  gap: 6px var(--space-3);
+  padding: var(--space-3) var(--space-4) 14px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.concept-crumb {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--ink-meta);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .concept-back,
 .concept-op {
@@ -2121,24 +2133,27 @@ html, body {
 .concept-segs {
   grid-column: 1 / -1;
   display: flex;
-  gap: 2px;
+  gap: 1px;
+  margin-top: 2px;
   align-items: stretch;
 }
+/* 시안(228:80)은 이어진 4px 띠 하나다. 여기서는 칸을 유지한다 — 칸 하나가
+   논점 하나라 눌러서 그 논점으로 건너뛸 수 있고, 1px 틈이라 멀리서는 띠로 읽힌다.
+   시안과 다른 유일한 자리이고, 바꾼 대가로 얻는 것이 이동 기능이다. */
 .concept-seg {
   flex: 1 1 0;
   min-width: 3px;
-  height: 6px;
+  height: 4px;
   padding: 0;
   border: none;
-  border-radius: 1px;
-  background: var(--sunken);
+  border-radius: 2px;
+  background: var(--line);
   cursor: pointer;
 }
-.concept-seg.is-seen   { background: var(--ink-4); }
-.concept-seg.is-passed { background: var(--ink); }
+.concept-seg.is-seen   { background: var(--line-strong); }
+.concept-seg.is-passed { background: var(--accent); }
 .concept-seg.is-current {
-  box-shadow: inset 0 0 0 1px var(--sheet), 0 0 0 1.5px var(--accent);
-  border-radius: 2px;
+  box-shadow: 0 0 0 1.5px var(--accent-ink);
 }
 button.concept-seg:hover { opacity: .7; }
 .concept-segs--mini {
@@ -2148,336 +2163,443 @@ button.concept-seg:hover { opacity: .7; }
 }
 .concept-segs--mini .concept-seg { height: 4px; min-width: 2px; cursor: default; }
 
-/* ── 무대 — 항상 무언가를 든다 ────────────────────────────── */
-.concept-stage {
-  display: flex;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: center;
-  /* 남는 공간은 무대 위와 조작 줄 위로 반씩 나뉜다 — 높은 화면에서 아래만
-     텅 비어 보이지 않게. 무대 자체의 높이는 고정이다. */
-  margin-top: auto;
-  /* 화면이 높으면 그림도 크게 — 다만 위아래 한도를 둬 조작 줄이 밀리지 않는다. */
-  height: clamp(300px, 44vh, 420px);
-  padding: var(--space-4);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: var(--sheet);
-  box-shadow: var(--shadow-sheet);
-  overflow: auto;
-}
-/* 그림은 무대 안에서 끝난다 — 넘치면 잘리거나 무대 안 스크롤이 생긴다. */
-.concept-viz {
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-  min-height: 0;
-  max-height: 100%;
+/* ── 개념 완성 대화방 — Figma 시안(228:2) ─────────────────────
+   층은 둘이다. .cs-stream 만 스크롤하고 .cs-dock 은 바닥에 붙어 움직이지 않는다.
+   조작부가 도망가지 않는 것이 이 화면이 지키는 단 하나다(ConceptScene 머리말). */
+.cs-room {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  /* 넘치면 감추지 않고 무대 안에서 굴린다 — 범례 한 줄이 조용히 사라지는 편이
-     스크롤바 하나보다 나쁘다. */
-  overflow: auto;
-}
-.concept-viz svg {
-  /* 템플릿이 인라인으로 width:100% 를 준다. 무대에서는 높이가 한도라
-     높이에 맞추고 폭을 따라오게 뒤집는다(viewBox 가 있어 비율은 유지된다). */
-  max-width: 100% !important;
-  max-height: 100%;
-  width: auto !important;
-  height: 100%;
   min-height: 0;
   flex: 1 1 auto;
+  background: var(--paper);
 }
-.concept-viz > * { min-width: 0; max-width: 100%; }
-/* 템플릿은 저마다 흰 카드 안에 그려진다 — 무대가 이미 카드라 이중 액자가 된다.
-   무대 위에서는 액자를 벗기고, 제목도 관 제목과 겹치므로 감춘다. */
-.concept-viz .viz-frame {
-  /* VizFrame 이 figure 를 한 겹 더 감싼다. 이 겹에도 높이를 물려야
-     안쪽 figure 의 height:100% 가 auto 로 풀리지 않는다. */
-  width: 100%;
-  height: 100%;
+.cs-stream {
+  flex: 1 1 auto;
   min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+  padding: var(--space-4) var(--space-4) var(--space-5);
 }
-.concept-viz figure {
-  flex: 1 1 auto;
-  width: 100%;
-  margin: 0 !important;
-  border: 0 !important;
-  background: none !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-  /* figure 가 flex 아이템이라, 높이를 잡아 줘야 그 안의 svg 가 줄어든다. */
-  height: 100%;
-  min-height: 0;
+.cs-stream > * { width: min(100%, 720px); margin-inline: auto; }
+
+/* 논점 머리 — 가운데 라벨 + 아래 실선 */
+.cs-pointhead {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-1);
+  gap: 6px;
 }
-/* svg 는 viewBox 가 있으니 폭·높이를 둘 다 100% 로 주면 preserveAspectRatio 가
-   비율을 지킨 채 상자 안에 맞춰 넣는다. 잘리지도, 넘치지도 않는다. */
-.concept-viz figure > svg {
-  flex: 1 1 auto;
-  min-height: 0;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-}
-.concept-viz figcaption { display: none; }
-/* 내려받기·복사·인쇄 툴바는 무대 위에서 그림을 가린다. 심화 탭에는 그대로 있다. */
-.concept-viz .viz-toolbar { display: none !important; }
-.concept-stage--doc {
-  /* 문서형 논점은 아래에 본문이 통째로 있다. 무대가 340px 를 먹으면 읽기가
-     한 화면 아래에서 시작한다 — 여기서는 제목 띠로 줄인다. */
-  height: auto;
-  margin-top: 0;
-  padding: var(--space-3) var(--space-4);
-  box-shadow: none;
-}
-.concept-stage--doc .concept-gist {
-  max-width: none;
-  font-size: var(--text-lg);
-  text-align: left;
-}
-
-.concept-gist {
-  margin: 0 auto;
-  max-width: var(--read-measure);
-  font-size: var(--text-xl);
-  line-height: var(--leading-tight);
-  font-weight: var(--weight-medium);
-  color: var(--ink);
+.cs-pointhead-label {
+  font-size: var(--text-xs);
+  color: var(--ink-meta);
   text-align: center;
-  text-wrap: balance;
+}
+.cs-pointhead::after {
+  content: '';
+  align-self: stretch;
+  height: 1px;
+  background: var(--line);
 }
 
-/* 무대 위의 선택지 — 곁다리가 아니라 본론이다. */
-.concept-quiz { width: 100%; }
-.concept-prompt {
-  margin: 0 auto var(--space-4);
-  max-width: var(--read-measure);
-  font-size: var(--text-md);
-  line-height: var(--leading-tight);
-  font-weight: var(--weight-medium);
-  color: var(--ink);
-  text-align: center;
-  text-wrap: balance;
-}
-.concept-choices {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-2);
-}
-.concept-choice {
-  min-height: var(--touch-min);
-  padding: var(--space-3);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-md);
-  background: var(--sheet);
-  color: var(--ink);
-  font-size: var(--text-sm);
-  line-height: var(--leading-ui);
-  text-align: left;
-  cursor: pointer;
-  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
-}
-.concept-choice:not(:disabled):hover {
-  background: var(--sheet-3);
-  border-color: var(--ink-3);
-}
-.concept-choice:disabled { cursor: default; }
-.concept-choice.is-wrong {
-  color: var(--ink-4);
-  background: var(--sheet-2);
-  border-color: var(--line);
-  text-decoration: line-through;
-}
-.concept-choice.is-right {
-  color: var(--ink-invert);
-  background: var(--ink);
-  border-color: var(--ink);
-}
-
-/* ── 대사 — 한 번에 하나, 쌓지 않고 교체 ──────────────────── */
-.concept-say {
-  height: 152px;
-  overflow: auto;
-  padding: var(--space-1) var(--space-1) 0;
-}
-.concept-say--doc {
-  height: auto;
-  min-height: 132px;
-  max-height: none;
-  font-size: var(--text-base);
-  line-height: var(--leading-read);
-  max-width: var(--read-measure);
-}
-/* ── 말풍선 — 화자 옆에 하나. 쌓이지 않고 교체된다 ────────── */
-.concept-sayline {
+/* ── 말풍선 ────────────────────────────────────────────────
+   꼬리를 삼각형으로 붙이지 않는다. 화자 쪽 위 모서리만 4px 로 각지게 해서
+   방향을 낸다 — 시안이 그렇고, 경계선 두 겹을 겹치는 옛 방식보다 튼튼하다. */
+.cs-line {
   display: flex;
   align-items: flex-start;
-  /* 꼬리가 8px 짜리라 간격이 그보다 좁으면 아바타 뒤로 숨는다. */
-  gap: var(--space-4);
-  max-width: calc(var(--read-measure) + 60px);
+  gap: var(--space-2);
 }
-.concept-sayline.is-right {
-  margin-left: auto;
-  flex-direction: row-reverse;
-}
-.concept-speaker {
-  flex: 0 0 auto;
+.cs-line.is-right { justify-content: flex-end; }
+.cs-avatar { flex: 0 0 auto; }
+.cs-linebody {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  width: 52px;
-  color: var(--ink-2);
+  gap: var(--space-1);
+  min-width: 0;
+  flex: 1 1 auto;
 }
+.cs-line.is-right .cs-linebody { align-items: flex-end; flex: 0 1 auto; }
+.cs-who {
+  font-size: var(--text-2xs);
+  color: var(--ink-meta);
+}
+.cs-bubble {
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 14px 14px 14px 14px;
+  border-top-left-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: var(--text-base);
+  line-height: var(--leading-read);
+  color: var(--ink);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  animation: csPop .16s ease-out;
+}
+.cs-line.is-right .cs-bubble {
+  background: var(--sunken);
+  border-color: transparent;
+  border-top-left-radius: 14px;
+  border-top-right-radius: var(--radius-sm);
+}
+.cs-bubble.is-wrong {
+  background: var(--wrong-bg);
+  border-color: var(--wrong-line);
+}
+.cs-bubble > :first-child { margin-top: 0; }
+.cs-bubble > :last-child { margin-bottom: 0; }
+@keyframes csPop {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-bubble { animation: none; }
+}
+
+/* 화자 아바타 — 원형 테두리 안의 선화 */
 .cast-avatar {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
+  width: 28px;
+  height: 28px;
   border: 1px solid var(--line);
   border-radius: 50%;
   background: var(--sheet);
-  color: var(--ink);
+  color: var(--ink-2);
 }
 .cast-avatar svg { display: block; }
-.concept-who-name {
-  font-size: var(--text-2xs);
-  font-weight: var(--weight-bold);
-  color: var(--ink-3);
-  white-space: nowrap;
-}
-.concept-bubble {
-  position: relative;
-  flex: 1 1 auto;
-  min-width: 0;
-  padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
+
+/* ── 그림 카드 — 스트림 안에 흐름대로 ───────────────────────── */
+.cs-figure {
+  margin: 0;
   background: var(--sheet);
-  box-shadow: var(--shadow-sheet);
-  /* 이 화면에서 authored 한 모션은 이것 하나다. 풍선이 화자 쪽에서 열린다. */
-  animation: conceptPop 200ms cubic-bezier(.16, 1, .3, 1) both;
-  transform-origin: left center;
-}
-.concept-sayline.is-right .concept-bubble { transform-origin: right center; }
-/* 꼬리 — 두 겹으로 그려 테두리까지 이어 붙인다. */
-.concept-bubble::before,
-.concept-bubble::after {
-  content: '';
-  position: absolute;
-  top: 14px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-}
-.concept-bubble::before {
-  left: -20px;
-  border-right-color: var(--line);
-}
-.concept-bubble::after {
-  left: -18px;
-  border-right-color: var(--sheet);
-}
-.concept-sayline.is-right .concept-bubble::before {
-  left: auto; right: -20px;
-  border-right-color: transparent;
-  border-left-color: var(--line);
-}
-.concept-sayline.is-right .concept-bubble::after {
-  left: auto; right: -18px;
-  border-right-color: transparent;
-  border-left-color: var(--sheet);
-}
-/* 깐깐이는 지적하는 자리다 — 풍선 테두리를 한 톤 진하게. 색은 쓰지 않는다. */
-.concept-bubble--gotcha { border-color: var(--line-strong); }
-.concept-bubble--gotcha::before { border-right-color: var(--line-strong); }
-.concept-sayline.is-right .concept-bubble--gotcha::before { border-left-color: var(--line-strong); }
-@keyframes conceptPop {
-  from { opacity: 0; transform: translateY(4px) scale(.985); }
-  to   { opacity: 1; transform: none; }
-}
-.concept-who {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
   display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  margin-bottom: var(--space-1);
+  flex-direction: column;
+  gap: 10px;
+}
+.cs-figure-cap {
   font-size: var(--text-2xs);
-  font-weight: var(--weight-bold);
-  color: var(--ink-3);
-  letter-spacing: .02em;
+  color: var(--ink-meta);
 }
-.concept-sayline.is-right .concept-who { justify-content: flex-end; }
-.concept-stale {
-  margin-left: var(--space-2);
-  font-weight: var(--weight-normal);
-  color: var(--ink-4);
+.cs-figure-body { min-width: 0; }
+/* VizRouter 는 자기 액자(figure)를 또 두른다. 카드가 이미 액자라 안쪽은 벗긴다. */
+.cs-figure-body .viz-frame { width: 100%; }
+.cs-figure-body figure {
+  margin: 0;
+  border: none;
+  background: none;
+  padding: 0;
 }
-.concept-saytext {
+.cs-figure-body figure > svg {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 46vh;
+  display: block;
+}
+.cs-figure-body figcaption { display: none; }
+/* 단계 스크러버는 시안에도 있다 — 숨기지 않고 카드 아래 줄로 쓴다. */
+.cs-figure-body .viz-toolbar {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-2);
+  font-size: var(--text-xs);
+}
+
+/* ── 문서형 폴백 ───────────────────────────────────────────── */
+.cs-doc {
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: var(--space-4);
   font-size: var(--text-base);
   line-height: var(--leading-read);
   color: var(--ink);
-  /* 이 화면에서 authored 한 모션은 이것 하나다. 아래에서 위로 드러난다. */
-  animation: conceptReveal 200ms cubic-bezier(.16, 1, .3, 1) both;
 }
-@keyframes conceptReveal {
-  from { clip-path: inset(100% 0 0 0); opacity: 0; }
-  to   { clip-path: inset(0 0 0 0);    opacity: 1; }
+.cs-check {
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+}
+.cs-check-label {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  color: var(--ink-3);
+  letter-spacing: .06em;
+  margin-bottom: var(--space-2);
+}
+.cs-details { margin-top: var(--space-3); }
+.cs-details > summary {
+  cursor: pointer;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--ink-2);
+}
+.cs-verdict { text-align: center; padding: var(--space-5) 0 var(--space-3); }
+.cs-verdict-title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
 }
 
-/* ── 조작 줄 — 위치가 절대 변하지 않는다 ──────────────────── */
-.concept-ops {
-  position: sticky;
-  bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px));
-  z-index: var(--z-nav);
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-3) 0 calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+/* ── 바닥 조작부 ───────────────────────────────────────────── */
+.cs-dock {
+  flex: 0 0 auto;
+  background: var(--sheet);
   border-top: 1px solid var(--line);
-  background: var(--paper);
+  padding: 12px var(--space-4) calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
-.concept-ops-side {
-  margin-left: auto;
+.cs-dock > * { width: min(100%, 720px); margin-inline: auto; }
+
+.cs-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cs-choice {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: background .12s, border-color .12s;
 }
-.concept-next {
+.cs-choice:not(:disabled):hover { background: var(--sheet-2); border-color: var(--line-strong); }
+.cs-choice:disabled { cursor: default; }
+.cs-choice-no { flex: 0 0 auto; color: var(--ink-meta); }
+.cs-choice-text { flex: 1 1 auto; min-width: 0; }
+.cs-choice-tag {
+  flex: 0 0 auto;
+  font-size: var(--text-2xs);
+  color: var(--accent-ink);
+}
+.cs-choice-tag.is-mine { color: var(--ink-meta); }
+.cs-choice.is-right {
+  border-color: var(--accent);
+  border-width: 1.5px;
+  padding: 9.5px 13.5px;
+  font-weight: var(--weight-medium);
+}
+.cs-choice.is-wrong { border-color: var(--line-strong); }
+.cs-choice.is-dim { color: var(--ink-meta); }
+.cs-choice-hint {
+  margin: 0;
+  padding: 12px;
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--ink-meta);
+  background: var(--sunken);
+  border-radius: 10px;
+}
+.cs-choice-ops { display: flex; gap: var(--space-2); }
+.cs-choice-ops > * { flex: 1 1 0; }
+
+.cs-primary {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
-  min-height: var(--touch-min);
-  padding: 0 var(--space-5);
-  border: 1px solid var(--ink);
-  border-radius: var(--radius-md);
-  background: var(--ink);
+  justify-content: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 var(--space-4);
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
   color: var(--ink-invert);
+  font: inherit;
   font-size: var(--text-base);
   font-weight: var(--weight-bold);
   cursor: pointer;
-  transition: opacity var(--dur-fast) var(--ease);
 }
-.concept-next:not(:disabled):hover { opacity: .84; }
-.concept-next:disabled {
+.cs-primary:not(:disabled):hover { background: var(--accent-ink); }
+.cs-primary:disabled {
   background: var(--sunken);
-  border-color: var(--line);
   color: var(--ink-4);
   cursor: not-allowed;
 }
+.cs-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 var(--space-4);
+  background: var(--sheet);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+}
+.cs-secondary:hover { background: var(--sheet-2); }
+
+.cs-tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  justify-content: flex-end;
+}
+.cs-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--ink-3);
+  font: inherit;
+  font-size: var(--text-xs);
+  cursor: pointer;
+}
+.cs-tool:hover { background: var(--sheet-3); color: var(--ink); }
+
+/* ── 입력줄 + 슬래시 팔레트 ────────────────────────────────── */
+.cs-inputwrap { position: relative; }
+.cs-input {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 0 10px 0 var(--space-4);
+  background: var(--sheet);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+}
+.cs-input:focus-within { border-color: var(--accent); border-width: 1.5px; padding-left: 15.5px; }
+.cs-input input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: var(--text-base);
+  color: var(--ink);
+}
+.cs-input input:focus { outline: none; }
+.cs-input input::placeholder { color: var(--ink-meta); }
+.cs-send {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: none;
+  color: var(--ink-3);
+  cursor: pointer;
+}
+.cs-send:not(:disabled):hover { background: var(--accent-bg); color: var(--accent-ink); }
+.cs-send:disabled { color: var(--ink-4); cursor: default; }
+
+.cs-palette {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + var(--space-2));
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  background: var(--sheet);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lift);
+  z-index: var(--z-nav);
+  max-height: 46vh;
+  overflow-y: auto;
+}
+.cs-palette-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 9px 14px;
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.cs-palette-row.is-on { background: var(--accent-bg); }
+.cs-palette-row:hover { background: var(--sheet-3); }
+.cs-palette-cmd {
+  flex: 0 0 74px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
+}
+.cs-palette-row.is-on .cs-palette-cmd { color: var(--accent-ink); }
+.cs-palette-desc {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+.cs-palette-key {
+  flex: 0 0 auto;
+  font-size: var(--text-2xs);
+  color: var(--ink-meta);
+}
+
+/* ── 예시 시트 ─────────────────────────────────────────────── */
+.cs-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-modal);
+  max-height: 66vh;
+  overflow-y: auto;
+  background: var(--sheet);
+  border-top: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow-lift);
+  padding: var(--space-4) var(--space-4) calc(var(--space-5) + env(safe-area-inset-bottom, 0px));
+}
+.cs-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+.cs-panel-label {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: .06em;
+  color: var(--ink-3);
+}
+.cs-panel-body {
+  font-size: var(--text-sm);
+  line-height: var(--leading-read);
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .cs-stream { padding: var(--space-3) var(--space-3) var(--space-4); gap: 12px; }
+  .cs-dock { padding: 10px var(--space-3) calc(var(--space-3) + env(safe-area-inset-bottom, 0px)); }
+  .cs-bubble { font-size: var(--text-sm); }
+}
+
 .speak-btn {
   display: inline-flex;
   align-items: center;
@@ -2493,63 +2615,6 @@ button.concept-seg:hover { opacity: .7; }
 .speak-btn:hover { color: var(--ink); background: var(--sheet-3); }
 .speak-group { display: inline-flex; gap: 2px; }
 
-/* ── 지난 대사 · 예시 시트 ────────────────────────────────── */
-.concept-panel {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px));
-  z-index: var(--z-modal);
-  max-height: 62dvh;
-  display: flex;
-  flex-direction: column;
-  background: var(--sheet);
-  border-top: 1px solid var(--line);
-  box-shadow: var(--shadow-lift);
-}
-.concept-panel-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 880px;
-  margin: 0 auto;
-  padding: var(--space-2) var(--space-4);
-  border-bottom: 1px solid var(--line-2);
-}
-.concept-panel-label {
-  font-size: var(--text-2xs);
-  font-weight: var(--weight-bold);
-  color: var(--ink-3);
-  letter-spacing: .04em;
-}
-.concept-panel-body {
-  overflow: auto;
-  padding: var(--space-3) var(--space-4) var(--space-5);
-  max-width: 880px;
-  width: 100%;
-  margin: 0 auto;
-  font-size: var(--text-sm);
-  line-height: var(--leading-read);
-  color: var(--ink);
-}
-.concept-logline {
-  padding: var(--space-2) 0;
-  border-bottom: 1px solid var(--line-2);
-}
-.concept-logline:last-child { border-bottom: none; }
-.concept-details { margin-top: var(--space-3); }
-.concept-details > summary {
-  cursor: pointer;
-  font-size: var(--text-xs);
-  font-weight: var(--weight-bold);
-  color: var(--ink-2);
-}
-.concept-check {
-  margin-top: var(--space-4);
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--line);
-}
 
 /* ── 목차 ─────────────────────────────────────────────────── */
 .concept-out-div {
@@ -2639,15 +2704,7 @@ button.concept-seg:hover { opacity: .7; }
 
 /* ── 좁은 화면 ────────────────────────────────────────────── */
 @media (max-width: 639px) {
-  .concept-runner { padding: var(--space-2) var(--space-3) 0; gap: var(--space-2); }
-  .concept-stage { height: clamp(260px, 38vh, 340px); padding: var(--space-3); }
-  .concept-gist { font-size: var(--text-lg); }
-  .concept-prompt { font-size: var(--text-base); margin-bottom: var(--space-3); }
-  .concept-choices { grid-template-columns: minmax(0, 1fr); }
-    /* 좁은 화면일수록 같은 대사가 더 여러 줄이 된다 — 풍선 안에서 스크롤하게
-     두지 않도록 대사 자리를 화면 높이에 맞춰 늘린다. */
-  .concept-say { height: clamp(170px, 26vh, 240px); }
-  .concept-next { flex: 1; justify-content: center; padding: 0 var(--space-3); }
+  .concept-runner { padding: 0; gap: 0; }
   .concept-head-title { font-size: var(--text-sm); }
   .concept-segs--mini { display: none; }
 }

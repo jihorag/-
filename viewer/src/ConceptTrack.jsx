@@ -28,6 +28,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
   const [idx, setIdx] = useState(0);
   const [loading, setLoading] = useState(false);
   const [recap, setRecap] = useState(false);   // 관을 마친 뒤의 되짚기 한 판
+  const [summary, setSummary] = useState(false);  // 「/정리」 — 이 관의 논점 요약
 
   const leaf = useMemo(() => leaves.find((l) => l.id === leafId) || null, [leaves, leafId]);
 
@@ -139,6 +140,42 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
     setIdx(idx + 1);
   };
 
+  // ── 슬래시 명령 ────────────────────────────────────────────────────────
+  // 여섯 중 다섯은 이미 가진 데이터로 처리한다 — API 키 없이, 오프라인에서 동작한다.
+  // 생성이 필요한 것은 「/쉽게」 하나뿐이고, 그것만 대화 엔진으로 넘긴다.
+  const runCommand = useCallback((cmd) => {
+    switch (cmd) {
+      case '/시작':
+        setRecap(false);
+        setIdx(0);
+        break;
+      case '/이어서': {
+        // 아직 통과하지 못한 첫 논점. 다 끝냈으면 마지막에 머문다.
+        const np = track ? nextPoint(track, getTrackProgress()) : null;
+        const i = np ? track.points.findIndex((x) => x.id === np.id) : -1;
+        setRecap(false);
+        setIdx(i >= 0 ? i : Math.max(0, (track?.points?.length || 1) - 1));
+        break;
+      }
+      case '/진단':
+        if (hasRecap) setRecap(true);
+        break;
+      case '/정리':
+        setSummary(true);
+        break;
+      case '/교재':
+        // 교재 패널은 AI 학습 화면이 갖는다. 이 관을 지목해 그쪽으로 넘긴다.
+        onOpenDeep?.(leafId, point, null, { openBook: true });
+        break;
+      case '/쉽게':
+        // 유일하게 생성이 필요한 명령. 사용자가 키를 넣어 둔 경우에만 실제로 답이 온다.
+        onOpenDeep?.(leafId, point, '방금 설명을 더 쉬운 말로 다시 해 주세요.');
+        break;
+      default:
+        break;
+    }
+  }, [track, hasRecap, leafId, point, onOpenDeep]);
+
   if (!leafId) {
     return (
       <div className="concept-index">
@@ -201,6 +238,8 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
     );
   }
 
+  const pct = counts.total ? Math.round((counts.passed / counts.total) * 100) : 0;
+
   return (
     <div className="concept-runner">
       <header className="concept-head">
@@ -209,8 +248,8 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
         </button>
         <h2 className="concept-head-title">{track.title}</h2>
         <span className="concept-head-count">
-          {recap ? '되짚기' : `논점 ${Math.min(idx + 1, counts.total)}/${counts.total}`}
-          <span className="concept-head-passed">· 통과 {counts.passed}</span>
+          {recap ? '되짚기' : `논점 ${Math.min(idx + 1, counts.total)} / ${counts.total}`}
+          <span className="concept-head-passed">· {pct}%</span>
           {/* 완료 안내를 조작 줄 아래 배너로 두면 그 배너가 생기는 순간 조작 줄이
               위로 밀린다 — 이 화면이 지키려는 단 하나가 그거라 머리로 올렸다. */}
           {!recap && done && hasRecap && (
@@ -219,6 +258,9 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
             </button>
           )}
         </span>
+        {leaf?.path?.length > 0 && (
+          <p className="concept-crumb">{leaf.path.slice(1).join(' › ')}</p>
+        )}
         <div className="concept-segs" role="list" aria-label={`논점 진행 ${counts.passed}/${counts.total}`}>
           {track.points.map((p, i) => {
             const s = rec[p.id] || 0;
@@ -239,6 +281,9 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
         : point && (
           <ConceptScene
             point={point}
+            seq={idx + 1}
+            total={counts.total}
+            onCommand={runCommand}
             onPassed={() => mark(STATE.PASSED)}
             onDone={(d) => record({
               id: `concept:${leafId}:${point.id}`,
@@ -258,7 +303,7 @@ export default function ConceptTrack({ subjectId, leaves, onOpenDeep }) {
               ts: Date.now(),
             })}
             onNext={goNext}
-            onAsk={onOpenDeep ? () => onOpenDeep(leafId, point) : null}
+            onAsk={onOpenDeep ? (text) => onOpenDeep(leafId, point, text) : null}
           />
         )}
     </div>
