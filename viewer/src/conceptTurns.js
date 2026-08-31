@@ -94,3 +94,34 @@ export function isPassed(point, state) {
     return a.solved && !a.assisted;
   });
 }
+
+/**
+ * 측정 계약에 넘길 상세. isPassed 가 버리는 것을 살린다.
+ *
+ * isPassed 는 "스스로 다 맞혔는가"만 답하므로, 두 번 틀려 답을 연 경우(assisted)에는
+ * false 가 되어 그 시도가 통째로 기록되지 않는다. 여기서는 통과 여부와 별개로
+ * "모든 quiz 를 끝냈는가(done)"와 "그중 몇 개를 스스로 맞혔는가(score)"를 돌려준다.
+ *
+ * quiz 가 없는 옛 논점은 채점 근거가 없다 — score 는 null 이고, 계약에서는 g:'none' 이다.
+ */
+export function passDetail(point, state) {
+  const turns = turnsOf(point);
+  const quizIdx = turns.map((t, i) => (t.who === WHO.quiz ? i : -1)).filter((i) => i >= 0);
+  const quizCount = quizIdx.length;
+
+  let solvedCount = 0, selfCount = 0, assistedCount = 0, tries = 0;
+  for (const i of quizIdx) {
+    const a = answerOf(state, i);
+    tries += a.picked.length;
+    if (a.solved) {
+      solvedCount += 1;
+      if (a.assisted) assistedCount += 1; else selfCount += 1;
+    }
+  }
+  const done = quizCount > 0 && solvedCount === quizCount;
+  return {
+    quizCount, solvedCount, selfCount, assistedCount, tries,
+    done,
+    score: quizCount ? selfCount / quizCount : null,
+  };
+}

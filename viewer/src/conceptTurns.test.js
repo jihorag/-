@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  WHO, initTurnState, visibleTurns, canAdvance, advance, choose, isPassed, atEnd,
+  WHO, initTurnState, visibleTurns, canAdvance, advance, choose, isPassed, atEnd, passDetail,
 } from './conceptTurns.js';
 
 // 대사 5턴 중 3번째가 quiz — 정답은 0번 선택지.
@@ -117,4 +117,44 @@ test('turns 가 없는 옛 논점은 빈 배열을 돌려주고 터지지 않는
   assert.deepEqual(visibleTurns(legacy, s), []);
   assert.equal(atEnd(legacy, s), true);
   assert.equal(canAdvance(legacy, s), false);
+});
+
+// ── passDetail — 측정 계약에 넘길 상세 (스펙 §1-2)
+
+test('passDetail — 아직 안 풀었으면 done 이 아니다', () => {
+  const s = initTurnState();
+  const d = passDetail(POINT, s);
+  assert.equal(d.quizCount, 1);
+  assert.equal(d.done, false);
+});
+
+test('passDetail — 스스로 맞히면 score 1, 도움 없음', () => {
+  let s = initTurnState();
+  s = advance(POINT, s); s = advance(POINT, s);   // quiz 턴까지
+  s = choose(POINT, s, 2, 0);                      // 정답
+  const d = passDetail(POINT, s);
+  assert.equal(d.done, true);
+  assert.equal(d.score, 1);
+  assert.equal(d.assistedCount, 0);
+  assert.equal(d.tries, 1);
+});
+
+test('passDetail — 두 번 틀려 답을 연 경우도 done 이다. 지금은 이 시도가 통째로 사라진다', () => {
+  let s = initTurnState();
+  s = advance(POINT, s); s = advance(POINT, s);
+  s = choose(POINT, s, 2, 1);                      // 오답
+  s = choose(POINT, s, 2, 2);                      // 오답 → 열어 줌(assisted)
+  const d = passDetail(POINT, s);
+  assert.equal(d.done, true);
+  assert.equal(d.score, 0);                        // 스스로 맞힌 게 없다
+  assert.equal(d.assistedCount, 1);
+  assert.equal(d.tries, 2);
+});
+
+test('passDetail — quiz 가 없는 옛 논점은 채점 결과가 없다', () => {
+  const bare = { id: 'p0', turns: [{ who: 'teach', text: '설명만' }] };
+  const d = passDetail(bare, initTurnState());
+  assert.equal(d.quizCount, 0);
+  assert.equal(d.done, false);
+  assert.equal(d.score, null);
 });
