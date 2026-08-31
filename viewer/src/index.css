@@ -2410,6 +2410,38 @@ html, body {
 .cs-choice-ops { display: flex; gap: var(--space-2); }
 .cs-choice-ops > * { flex: 1 1 0; }
 
+/* ── 서술 인출 — 시안 330:309 ─────────────────────────────── */
+.cs-recall { display: flex; flex-direction: column; gap: var(--space-2); }
+.cs-recall-input {
+  width: 100%;
+  padding: 12px var(--space-4);
+  background: var(--sheet);
+  border: 1.5px solid var(--accent);
+  border-radius: 10px;
+  font: inherit;
+  font-size: var(--text-base);
+  line-height: var(--leading-read);
+  color: var(--ink);
+  resize: vertical;
+}
+.cs-recall-input:focus { outline: none; }
+.cs-recall-answer {
+  padding: 12px var(--space-4);
+  background: var(--sunken);
+  border-radius: 10px;
+  font-size: var(--text-sm);
+  color: var(--ink);
+}
+.cs-recall-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  color: var(--ink-3);
+}
+.cs-recall-grade { display: flex; gap: var(--space-2); }
+.cs-recall-grade > * { flex: 1 1 0; }
+
 /* OX 는 선지가 둘뿐이라 가로로 크게 — 시안 330:126 */
 .cs-choices.is-ox { flex-direction: row; gap: var(--space-2); flex-wrap: wrap; }
 .cs-choices.is-ox .cs-choice {

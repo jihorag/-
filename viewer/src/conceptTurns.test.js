@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   WHO, initTurnState, visibleTurns, canAdvance, advance, choose, isPassed, atEnd, passDetail, retry,
+  submitRecall, gradeRecall,
 } from './conceptTurns.js';
 
 // 대사 5턴 중 3번째가 quiz — 정답은 0번 선택지.
@@ -232,4 +233,52 @@ test('OX 를 틀리면 한 번에 답이 열리고 도움받은 것으로 남는
   assert.equal(a.solved, true, 'OX 는 두 번 고를 것이 없다 — 한 번에 열린다');
   assert.equal(a.assisted, true);
   assert.equal(isPassed(OX_POINT, advance(OX_POINT, s)), false);
+});
+
+// ── 서술 인출 — 백지에서 꺼내 쓰기 ────────────────────────────────
+// 고르기는 알아보기(recog)고 쓰기는 꺼내기(recall)다. 시험장에서 필요한 것은 뒤쪽이다.
+const RC_POINT = {
+  id: 'rc1',
+  turns: [
+    { who: 'teach', text: '취득원가는 셋의 합입니다.' },
+    { who: 'recall', prompt: '취득원가에 들어가는 세 가지를 써보세요.', answer: '매입원가·전환원가·기타 원가' },
+    { who: 'mate', text: '백지에 써 봐야 압니다.' },
+  ],
+};
+
+test('쓰기 전에는 넘어갈 수 없다', () => {
+  const s = advance(RC_POINT, initTurnState());
+  assert.equal(canAdvance(RC_POINT, s), false);
+});
+
+test('제출하면 답이 열리지만 아직 채점 전이다', () => {
+  let s = advance(RC_POINT, initTurnState());
+  s = submitRecall(RC_POINT, s, 1, '매입원가, 전환원가');
+  const a = visibleTurns(RC_POINT, s)[1];
+  assert.equal(a.written, '매입원가, 전환원가');
+  assert.equal(a.solved, false, '자기 채점을 해야 끝난다');
+  assert.equal(canAdvance(RC_POINT, s), false);
+});
+
+test('스스로 맞았다고 하면 통과', () => {
+  let s = advance(RC_POINT, initTurnState());
+  s = submitRecall(RC_POINT, s, 1, '매입원가, 전환원가, 기타 원가');
+  s = gradeRecall(RC_POINT, s, 1, 'right');
+  assert.equal(canAdvance(RC_POINT, s), true);
+  assert.equal(isPassed(RC_POINT, advance(RC_POINT, s)), true);
+});
+
+test('부분·틀림은 도움받은 것으로 남아 통과가 아니다', () => {
+  let s = advance(RC_POINT, initTurnState());
+  s = submitRecall(RC_POINT, s, 1, '매입원가');
+  s = gradeRecall(RC_POINT, s, 1, 'partial');
+  assert.equal(canAdvance(RC_POINT, s), true, '넘어갈 수는 있어야 한다');
+  assert.equal(isPassed(RC_POINT, advance(RC_POINT, s)), false);
+});
+
+test('빈 답은 제출되지 않는다', () => {
+  let s = advance(RC_POINT, initTurnState());
+  const before = s;
+  s = submitRecall(RC_POINT, s, 1, '   ');
+  assert.equal(s, before);
 });

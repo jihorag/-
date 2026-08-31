@@ -13,6 +13,7 @@ export const WHO = {
   mate: 'mate',     // 복습 메이트 — 학습 조언만
   quiz: 'quiz',     // 선택지 턴
   ox: 'ox',         // OX 지문 — 선지가 둘뿐인 quiz
+  recall: 'recall', // 서술 인출 — 백지에 써서 제출하고 스스로 채점한다
 };
 
 /**
@@ -20,6 +21,9 @@ export const WHO = {
  * quiz(선지 여럿)와 ox(O/X 둘)를 같은 경로로 처리한다 — 진행 규칙이 같기 때문이다.
  */
 export const isChoiceTurn = (t) => t && (t.who === WHO.quiz || t.who === WHO.ox);
+
+/** 답을 내야 넘어갈 수 있는 턴 — 고르기와 쓰기를 함께 본다. */
+export const isAnswerTurn = (t) => isChoiceTurn(t) || (t && t.who === WHO.recall);
 
 /** OX 를 quiz 모양으로 펴서 돌려준다. 화면과 상태 기계가 같은 모양을 본다. */
 export function choicesOf(turn) {
@@ -45,7 +49,7 @@ export function initTurnState() {
 }
 
 function answerOf(state, i) {
-  return state.answers[i] || { picked: [], solved: false, assisted: false, everAssisted: false };
+  return state.answers[i] || { picked: [], solved: false, assisted: false, everAssisted: false, written: '' };
 }
 
 /** 지금까지 열린 턴들. 각 항목에 그 턴의 응답 상태를 붙여 돌려준다. */
@@ -59,6 +63,7 @@ export function visibleTurns(point, state) {
     out.push({
       turn: turns[i], index: i,
       picked: a.picked, solved: a.solved, assisted: a.assisted,
+      written: a.written || '', verdict: a.verdict || null,
       everAssisted: !!a.everAssisted,
     });
   }
@@ -77,7 +82,7 @@ export function canAdvance(point, state) {
   if (!turns.length) return false;
   if (atEnd(point, state)) return false;
   const cur = turns[state.cursor];
-  if (isChoiceTurn(cur)) return answerOf(state, state.cursor).solved;
+  if (isAnswerTurn(cur)) return answerOf(state, state.cursor).solved;
   return true;
 }
 
@@ -139,11 +144,44 @@ export function retry(point, state, turnIndex) {
   };
 }
 
+/** 백지에 쓴 답을 제출한다. 채점은 아직이다 — 정답을 펴 보인 뒤 스스로 매긴다. */
+export function submitRecall(point, state, turnIndex, text) {
+  const turn = turnsOf(point)[turnIndex];
+  if (!turn || turn.who !== WHO.recall) return state;
+  const body = String(text || '').trim();
+  if (!body) return state;
+  const prev = answerOf(state, turnIndex);
+  if (prev.written) return state;
+  return {
+    ...state,
+    answers: { ...state.answers, [turnIndex]: { ...prev, picked: [], written: body, solved: false } },
+  };
+}
+
+/** 자기 채점. right 만 통과로 친다 — partial·wrong 은 넘어가되 도움받은 것으로 남는다. */
+export function gradeRecall(point, state, turnIndex, verdict) {
+  const turn = turnsOf(point)[turnIndex];
+  if (!turn || turn.who !== WHO.recall) return state;
+  const prev = answerOf(state, turnIndex);
+  if (!prev.written || prev.solved) return state;
+  const assisted = verdict !== 'right';
+  return {
+    ...state,
+    answers: {
+      ...state.answers,
+      [turnIndex]: {
+        ...prev, solved: true, assisted, verdict,
+        everAssisted: prev.everAssisted || assisted,
+      },
+    },
+  };
+}
+
 /** 통과 = 모든 quiz 를 스스로 맞혔다. quiz 가 없는 옛 논점은 끝까지 간 것으로 갈음한다. */
 export function isPassed(point, state) {
   const turns = turnsOf(point);
   if (!turns.length) return false;
-  const quizIdx = turns.map((t, i) => (isChoiceTurn(t) ? i : -1)).filter((i) => i >= 0);
+  const quizIdx = turns.map((t, i) => (isAnswerTurn(t) ? i : -1)).filter((i) => i >= 0);
   if (!quizIdx.length) return atEnd(point, state);
   return quizIdx.every((i) => {
     const a = answerOf(state, i);
@@ -162,7 +200,7 @@ export function isPassed(point, state) {
  */
 export function passDetail(point, state) {
   const turns = turnsOf(point);
-  const quizIdx = turns.map((t, i) => (isChoiceTurn(t) ? i : -1)).filter((i) => i >= 0);
+  const quizIdx = turns.map((t, i) => (isAnswerTurn(t) ? i : -1)).filter((i) => i >= 0);
   const quizCount = quizIdx.length;
 
   let solvedCount = 0, selfCount = 0, assistedCount = 0, tries = 0;

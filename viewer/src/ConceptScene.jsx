@@ -28,6 +28,7 @@ import VizRouter from './viz/VizRouter';
 import {
   WHO, initTurnState, visibleTurns, canAdvance, advance, choose, retry,
   isPassed, atEnd, passDetail, choicesOf, isChoiceTurn,
+  submitRecall, gradeRecall,
 } from './conceptTurns';
 import { loadSide, appendSide, clearSide } from './sideThread';
 
@@ -125,6 +126,7 @@ export default function ConceptScene({
   const hasTurns = turns.length > 0;
   const last = turns[turns.length - 1] || null;
   const openQuiz = last && isChoiceTurn(last.turn) ? last : null;
+  const openRecall = last && last.turn.who === WHO.recall ? last : null;
 
   const stuck = hasTurns && !canAdvance(point, state) && !atEnd(point, state);
   const finished = hasTurns && atEnd(point, state) && !stuck;
@@ -293,16 +295,23 @@ export default function ConceptScene({
             <ChoiceDock item={openQuiz} onPick={pick} onAgain={again}
               onNext={goForward} nextLabel={nextLabel} />
           )
-          : (
-            // 시안은 파란 면 버튼을 「다시 풀어보기」·「이 관 문제 풀기」 같은 매듭에만
-            // 쓴다. 매 턴 넘기는 버튼까지 파랗게 하면 그 무게가 사라진다.
-            <button type="button"
-              className={finished ? 'cs-primary' : 'cs-secondary'}
-              onClick={goForward}
-              disabled={stuck} aria-keyshortcuts="Space ArrowRight">
-              {nextLabel} <ChevronRight size={16} strokeWidth={1.75} />
-            </button>
-          )}
+          : openRecall
+            ? (
+              <RecallDock item={openRecall}
+                onSubmit={(t) => setState((s) => submitRecall(point, s, openRecall.index, t))}
+                onGrade={(v) => setState((s) => gradeRecall(point, s, openRecall.index, v))}
+                onNext={goForward} nextLabel={nextLabel} />
+            )
+            : (
+              // 시안은 파란 면 버튼을 「다시 풀어보기」·「이 관 문제 풀기」 같은 매듭에만
+              // 쓴다. 매 턴 넘기는 버튼까지 파랗게 하면 그 무게가 사라진다.
+              <button type="button"
+                className={finished ? 'cs-primary' : 'cs-secondary'}
+                onClick={goForward}
+                disabled={stuck} aria-keyshortcuts="Space ArrowRight">
+                {nextLabel} <ChevronRight size={16} strokeWidth={1.75} />
+              </button>
+            )}
 
         <div className="cs-tools">
           <SpeakButton text={last?.turn?.text || point?.gist || ''} />
@@ -351,7 +360,7 @@ function streamItems(turns) {
   turns.forEach((item) => {
     const { turn } = item;
     const isQuiz = isChoiceTurn(turn);
-    const text = isQuiz ? turn.prompt : turn.text;
+    const text = (isQuiz || turn.who === WHO.recall) ? turn.prompt : turn.text;
     if (text) out.push({ kind: 'bubble', who: isQuiz ? WHO.teach : turn.who, text, mood: 'idle' });
     if (turn.viz) out.push({ kind: 'figure', viz: turn.viz });
     if (isQuiz) {
@@ -482,6 +491,44 @@ function ChoiceDock({ item, onPick, onAgain, onNext, nextLabel }) {
         )
         : <p className="cs-choice-hint">답을 고르면 넘어갈 수 있어요</p>}
     </div>
+  );
+}
+
+// ── 서술 인출 도크 — 시안 330:309 ────────────────────────────────
+// 쓰기 전에는 정답을 보여 주지 않는다. 보고 쓰면 인출이 아니다.
+function RecallDock({ item, onSubmit, onGrade, onNext, nextLabel }) {
+  const [text, setText] = useState('');
+  const written = item.written;
+  if (!written) {
+    return (
+      <div className="cs-recall">
+        <textarea className="cs-recall-input" rows={3} value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="여기에 써보세요" aria-label="인출 답안" />
+        <button type="button" className="cs-primary"
+          onClick={() => onSubmit(text)} disabled={!text.trim()}>답 제출</button>
+      </div>
+    );
+  }
+  if (!item.solved) {
+    return (
+      <div className="cs-recall">
+        <div className="cs-recall-answer">
+          <span className="cs-recall-label">정답</span>
+          <ParsedText text={markEmphasis(item.turn.answer || '')} />
+        </div>
+        <div className="cs-recall-grade">
+          <button type="button" className="cs-secondary" onClick={() => onGrade('wrong')}>못 썼음</button>
+          <button type="button" className="cs-secondary" onClick={() => onGrade('partial')}>일부만</button>
+          <button type="button" className="cs-primary" onClick={() => onGrade('right')}>다 썼음</button>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <button type="button" className="cs-primary" onClick={onNext}>
+      {nextLabel} <ChevronRight size={16} strokeWidth={1.75} />
+    </button>
   );
 }
 
