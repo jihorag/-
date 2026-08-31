@@ -2355,6 +2355,9 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  /* 스트림에 거터가 있으므로 도크에도 같은 폭을 잡아 둔다. 안 그러면 대화 열이
+     560px 보다 좁아졌을 때(교재 패널이 열렸을 때) 둘의 폭이 달라져 세로선이 어긋난다. */
+  scrollbar-gutter: stable both-edges;
 }
 .cs-dock > * { width: min(100%, 560px); margin-inline: auto; }
 

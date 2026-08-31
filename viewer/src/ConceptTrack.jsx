@@ -16,6 +16,7 @@ import ConceptTree from './ConceptTree';
 import ConceptTabs from './ConceptTabs';
 import ConceptScene, { ConceptRecap, ConceptDone } from './ConceptScene';
 import TextbookPanel from './TextbookPanel';
+import { stripUnitPrefix } from './unitTree';
 import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
 } from './trackProgress';
@@ -87,6 +88,16 @@ export default function ConceptTrack({
       .catch(() => { if (!dead) setChunks([]); });
     return () => { dead = true; };
   }, [subjectId, leaf?.unit_code]);
+
+  // 「/교재」는 근거를 확인하러 여는 것이다. 단원 맨 앞에 떨어뜨리면 확인이 안 된다.
+  // 관 제목과 겹치는 첫 청크로 보낸다. 못 찾으면 맨 앞(null).
+  const bookFocusId = useMemo(() => {
+    const name = stripUnitPrefix(leaf?.title || track?.title || '');
+    if (!name || !chunks.length) return null;
+    const hit = chunks.find((c) => (c.path || []).some((p) => p.includes(name) || name.includes(p)));
+    return hit?.id || null;
+  }, [chunks, leaf?.title, track?.title]);
+
   const [scope, setScope] = useState(null);
   useEffect(() => {
     let dead = false;
@@ -291,7 +302,7 @@ export default function ConceptTrack({
         onPick={(id) => { setFinished(null); setRecap(false); setLeafId(id); }} />
       {inner}
       {book && (
-        <TextbookPanel chunks={chunks} focusId={null}
+        <TextbookPanel chunks={chunks} focusId={bookFocusId}
           onClose={() => setBook(false)}
           onAskAbout={hasKey ? (c) => {
             // 교재를 읽다 막히면 그 문단을 물고 대화로 돌아간다 — 샛길의 또 다른 입구다.
