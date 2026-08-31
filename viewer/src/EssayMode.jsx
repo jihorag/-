@@ -9,6 +9,11 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { ParsedText } from './ParsedText';
+import { record as measureRecord } from './measure/record.js';
+
+// 문항 데이터의 source 값 → 계약의 출처 코드(§4-5).
+// 자체제작은 계획서 스스로 "기출과 구조·난이도 괴리, 폐기 대상"으로 진단했다.
+const ESSAY_SRC = { official: 'official', gs: 'gs', 'practice-set': 'practice', 'ai-generated': 'ai' };
 
 const PROGRESS_KEY = 'quiz-essay-progress';
 const DRAFT_PREFIX = 'quiz-essay-draft:';
@@ -400,6 +405,29 @@ const EssayMode = ({ mode, chapter, questionId, onNavigate, setChapter, setQuest
       durationMs: submittedDurationMs,
       keywordHit,
     };
+    // 측정 계약 — 2차 자기채점. 지금까지 실력 엔진에 전혀 흐르지 않았다.
+    try {
+      measureRecord({
+        id: `essay:${currentQuestion.id}`,
+        parent: currentQuestion.id,
+        leaf: currentQuestion.topicId || currentQuestion.unitCode || currentQuestion.id,
+        path: [currentQuestion.subject, currentQuestion.chapter, currentQuestion.subchapter].filter(Boolean),
+        subject: currentQuestion.subject || '',
+        stage: 2,
+        axis: 'knowledge',
+        f: 'write',
+        g: 'self',
+        src: ESSAY_SRC[currentQuestion.source] || 'practice',
+        score: Math.max(0, Math.min(1, selfScore / 100)),   // 0~100 → 0~1
+        pts: currentQuestion.points || undefined,
+        ms: submittedDurationMs || undefined,
+        meta: {
+          alsoLeaves: (currentQuestion.logicalPoints || []).slice(1),
+          keywordHit: keywordHit ? `${keywordHit.hit}/${keywordHit.total}` : undefined,
+        },
+        ts: Date.now(),
+      });
+    } catch (e) { if (import.meta.env?.DEV) throw e; }
     setProgressState(prev => {
       const cur = prev[currentQuestion.id] || { attempts: [] };
       const next = {
