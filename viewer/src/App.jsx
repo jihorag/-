@@ -59,6 +59,9 @@ const CONF_META = {
 };
 const CONF_CYCLE = [null, 'know', 'fuzzy', 'unknown'];
 const CALC_SUBJECTS = ['경제학원론', '회계학']; // 검산 리마인더 대상(계산 과목)
+// 기존 v1 연습문제를 드릴 전용으로 돌리는 과목. 이 과목들의 문제풀이 탭은
+// 기출과 기출 기반 변형문항으로만 채운다(변형문항은 exam='[기출변형]'으로 들어온다).
+const DRILL_ONLY_SUBJECTS = new Set(['민법', '감정평가관계법규', '부동산학원론']);
 
 // ===== 사용자 데이터 관리 (백업/복원/초기화) =====
 // 모든 학습 상태는 localStorage 의 quiz-* 키에 저장됨. 계정 동기화의 단일 레이어.
@@ -2768,7 +2771,9 @@ const App = () => {
       // 🏅 연습문제 품질 — [연습문제] 중 선지근거(option_meta) 있고 중복 아니면 고품질(문제풀이),
       //    아니면 저품질(드릴 연습용). 기출·AI생성 문항은 대상 아님(그대로 문제풀이).
       const isAigen = q.exam === '[AI생성]' || (q.id && String(q.id).startsWith('aigen-'));
-      const isPracticeQ = !isAigen && (q.source === 'practice' || q.exam === '[연습문제]' || (q.id && String(q.id).startsWith('practice-')));
+      // 기출 기반 변형문항 — 연습문제가 아니라 기출과 같은 자격으로 문제풀이 탭에 노출한다.
+      const isVariant = q.exam === '[기출변형]' || (q.id && String(q.id).startsWith('variant-'));
+      const isPracticeQ = !isAigen && !isVariant && (q.source === 'practice' || q.exam === '[연습문제]' || (q.id && String(q.id).startsWith('practice-')));
       // 🏅 등급 — 저장된 tier 가 있으면 그걸 쓰고, 없으면 기존 휴리스틱으로 폴백한다.
       //    (경제학만 tier 가 채워져 있고 나머지 과목은 아직 없다)
       let tier = isPracticeQ ? (q.tier || null) : null; // 기출은 저장된 tier 무관하게 항상 C로 파생
@@ -2776,7 +2781,11 @@ const App = () => {
       if (isPracticeQ) {
         const stem = (q.question || '').slice(0, 60);
         const first = !seenStem.has(stem); seenStem.add(stem); // tier 유무와 무관하게 항상 스템 추적 → 미판정 중복 검출 유지
-        if (tier) {
+        if (DRILL_ONLY_SUBJECTS.has(mt && mt.subject)) {
+          // 기존 v1 연습문제는 드릴 전용. 이 과목의 문제풀이 탭은 기출 + 기출변형으로만 채운다.
+          lowq = true;
+          tier = 'discard';
+        } else if (tier) {
           lowq = tier === 'discard' || tier === 'repair'; // repair 는 A/B 어느 쪽도 아니므로 문제풀이 제외
         } else if (mt && tieredSubjects.has(mt.subject)) {
           // 판정 중인 과목의 미판정 문항 — 검증 전이므로 A/B 어느 탭에도 넣지 않는다(드릴에서는 계속 쓰인다)
@@ -2788,7 +2797,8 @@ const App = () => {
           tier = lowq ? 'discard' : 'A';   // 판정 전 과목은 종전 휴리스틱으로 A 폴백
         }
       } else {
-        tier = isAigen ? 'A' : 'C';       // AI생성은 A로, 기출은 저장하지 않고 여기서 C로 파생
+        // AI생성은 A, 기출변형은 실전 난도이므로 B, 기출은 저장하지 않고 여기서 C로 파생
+        tier = isAigen ? 'A' : (isVariant ? 'B' : 'C');
       }
       return {
         ...q,
