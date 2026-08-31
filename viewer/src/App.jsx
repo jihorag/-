@@ -2757,17 +2757,13 @@ const App = () => {
       if (s) tieredSubjects.add(s);
     }
     return [...questionsData, ...aigenList].map(q => {
-      // V4 분류 정보: Gemini 또는 Claude로 분류되어 mapped_taxonomy가 있고
-      // in_scope!==false 인 문제만 전 탭(시험/과목/단원/연도)에 노출.
+      // V4 분류 정보: mapped_taxonomy.subject가 있고 in_scope!==false 인 문제만
+      // 전 탭(시험/과목/단원/연도)에 노출. 분류 주체(processed_by)는 따지지 않는다 —
+      // 기록용 메타일 뿐이고, 주체를 화이트리스트로 걸면 새 출제자를 쓸 때마다
+      // 문항이 조용히 사라진다. 같은 규칙이 scripts/sync-data.mjs에도 있다.
       const iv = q.indexing_v4;
       const mt = iv && iv.mapped_taxonomy;
-      const isClassified = !!(
-        iv && mt && mt.subject &&
-        // 분류 주체 화이트리스트 — 직접 출제/판정한 문항(claude-opus-5…)도 분류 완료로 인정한다.
-        (iv.processed_by === 'gemini-2.5-flash' || iv.processed_by === 'claude-sonnet-4-6'
-          || iv.processed_by === 'aigen' || String(iv.processed_by || '').startsWith('claude-opus-5')) &&
-        iv.in_scope !== false
-      );
+      const isClassified = !!(iv && mt && mt.subject && iv.in_scope !== false);
 
       const opts = q.options || q.choices || [];
       // 🏅 연습문제 품질 — [연습문제] 중 선지근거(option_meta) 있고 중복 아니면 고품질(문제풀이),

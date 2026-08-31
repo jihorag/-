@@ -79,7 +79,7 @@ IRT/Rasch 난이도 보정(기출 난이도 79%가 값 3이라 정보 없음) ·
 | 날짜 | 결정 | 문서 |
 |---|---|---|
 | 2026-08-31 | AI 학습 화면의 기준을 Figma 시안으로 | 위 항목 |
-| 2026-08-31 | 분류 주체(`processed_by`) 화이트리스트는 **두 곳**에 있다 — `viewer/src/App.jsx`의 `isClassified`와 `viewer/scripts/sync-data.mjs`의 `isClassified`. 새 출제·분류 주체를 쓰면 **둘 다** 고칠 것. 한쪽만 고치면 문항이 앱에서 사라지거나 manifest 통계만 틀어진다. 현재 허용: `gemini-2.5-flash`, `claude-sonnet-4-6`, `aigen`, `claude-opus-5*` | — |
+| 2026-09-01 | 분류 완료 판정(`isClassified`)은 `mapped_taxonomy.subject` 유무와 `in_scope`만 본다. 분류 주체(`processed_by`) 화이트리스트는 폐지 — 걸러내는 문항이 0건이면서 새 출제자를 쓸 때마다 문항을 조용히 사라지게 만들었다(기출변형 380건이 그렇게 전 탭에서 빠져 있었다). 같은 규칙이 `viewer/src/App.jsx`와 `viewer/scripts/sync-data.mjs` 두 곳에 있으니 바꿀 때 양쪽 같이 | — |
 | 2026-08-29 | 개념 완성을 캐릭터 대화형으로. 통과는 "스스로 맞힘"만 인정하고 도움받은 것과 구분 | [`specs/2026-08-29-concept-dialogue-design.md`](specs/2026-08-29-concept-dialogue-design.md) |
 | 2026-08-28 | 강의가 다룬 논점을 관 단위 트랙으로. 진도는 AI 추정이 아니라 통과 논점 수로 실측 | [`specs/2026-08-28-lecture-concept-track-design.md`](specs/2026-08-28-lecture-concept-track-design.md) |
 | 2026-08-28 | 문항 A/B/C 등급 파이프라인 | [`specs/2026-08-28-question-tier-abc-design.md`](specs/2026-08-28-question-tier-abc-design.md) |
