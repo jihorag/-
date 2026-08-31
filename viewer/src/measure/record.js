@@ -40,8 +40,9 @@ export function validate(entry) {
   return bad;
 }
 
-/** rep · prevTs · score · v · parent 를 채운 완성 레코드를 만든다. */
-export function normalize(entry, prevList) {
+/** rep · prevTs · score · v · parent 를 채운 완성 레코드를 만든다.
+ *  rev(콘텐츠 판)는 전역을 읽지 않고 인자로 받는다 — 순수해야 테스트할 수 있다. */
+export function normalize(entry, prevList, rev) {
   const same = (prevList || []).filter((r) => r.id === entry.id);
   const last = same.length ? same[same.length - 1] : null;
   const score = typeof entry.score === 'number'
@@ -49,13 +50,13 @@ export function normalize(entry, prevList) {
     : (entry.correct === true ? 1 : entry.correct === false ? 0 : null);
 
   const out = {
-    v: 1,
     ...entry,
     parent: entry.parent || entry.id,
     score,
     rep: same.length + 1,
+    v: 1,
   };
-  if (entry.rev === undefined && contentRev) out.rev = contentRev;
+  if (entry.rev === undefined && rev) out.rev = rev;
   if (last) out.prevTs = last.ts;
   // 값이 없는 필드는 저장하지 않는다 — localStorage 를 아낀다.
   for (const k of Object.keys(out)) if (out[k] === undefined) delete out[k];
@@ -128,7 +129,7 @@ export function record(entry) {
     console.warn('[measure] recog 인데 nopt 가 없다 — 찍기 하한을 모른다', entry.id);
   }
   const prev = loadRecords();
-  const full = normalize(entry, prev);
+  const full = normalize(entry, prev, getContentRev());
   save(prune([...prev, full]));
   return full;
 }

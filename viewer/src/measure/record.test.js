@@ -87,6 +87,18 @@ test('계약 버전을 찍는다', () => {
   assert.equal(normalize(ok, []).v, 1);
 });
 
+test('rev 를 주면 레코드에 붙는다', () => {
+  assert.equal(normalize(ok, [], 'build-2026-08-31').rev, 'build-2026-08-31');
+});
+
+test('rev 를 안 주면 붙이지 않는다 — 판을 모르는 기록이라는 뜻이다', () => {
+  assert.equal('rev' in normalize(ok, []), false);
+});
+
+test('레코드가 자기 rev 를 들고 오면 그것을 쓴다', () => {
+  assert.equal(normalize({ ...ok, rev: '내가정한판' }, [], 'build-2026-08-31').rev, '내가정한판');
+});
+
 // ── 가지치기
 test('채점 단위마다 최신 N개만 남긴다', () => {
   const many = Array.from({ length: 12 }, (_, i) => ({ ...ok, ts: i, rep: i + 1 }));
