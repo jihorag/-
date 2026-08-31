@@ -1,5 +1,22 @@
 # 감정평가사 기출문제 — AI 에이전트 작업 지침
 
+## 0. 먼저 읽을 것 — 결정 로그
+
+**작업을 시작하기 전에 [`docs/superpowers/DECISIONS.md`](docs/superpowers/DECISIONS.md)를 읽는다.**
+이 저장소는 여러 에이전트가 나눠 작업한다. 방향이 거기 적혀 있고, 방향을 바꿨으면 거기에 한 줄 추가한다.
+
+지금 구속력이 있는 것 하나 — **학습 측정 계약**:
+
+- 학습 활동을 기록하는 새 기능은 **반드시** `viewer/src/measure/record.js`의 `record()`를 거친다.
+  자기만의 `localStorage` 키를 새로 만들지 않는다.
+- `f`(형식: recog/recall/produce/write) · `g`(채점: machine/ai/human/self/none) ·
+  `axis`(knowledge/performance) 셋은 필수다. 빠뜨리면 개발 빌드에서 throw 한다.
+- 무게·상한·반감기 같은 튜닝 값은 `viewer/src/measure/tables.js`에만 둔다.
+- 아직 안 만든 기능의 계약도 스펙에 **미리 예약돼 있다** — 만들 때 그 줄을 보고 구현한다.
+  스펙: `docs/superpowers/specs/2026-08-30-학습측정계약-design.md`
+
+---
+
 ## 1. 데이터 파일 구조 (중요)
 
 각 AI 에이전트는 **자기 과목 파일만** 읽고 씁니다. 절대 다른 과목 파일을 건드리지 않습니다.
