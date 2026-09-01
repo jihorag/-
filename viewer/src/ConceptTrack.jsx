@@ -469,23 +469,32 @@ export default function ConceptTrack({
             total={counts.total}
             onCommand={runCommand}
             onPassed={() => mark(STATE.PASSED)}
-            onDone={(d) => record({
-              id: `concept:${leafId}:${point.id}`,
-              leaf: leafId,
-              path: pathFromLeafId(leafId),
-              subject: pathFromLeafId(leafId)[0] || '',
-              stage: 1,
-              axis: 'knowledge',
-              // 선택지형이지만 2회 오답 시 통과를 박탈하므로 찍기 내성이 높다(§4-3 예외).
-              f: 'recog', g: 'machine', strict: true,
-              nopt: (point.turns || []).find((t) => t.who === 'quiz')?.choices?.length,
-              src: 'internal',
-              score: d.score,
-              assisted: d.assistedCount > 0,
-              tries: d.tries,
-              ms: d.ms,
-              ts: Date.now(),
-            })}
+            onDone={(d) => {
+              // 논점 안의 턴 구성으로 형식·채점 주체를 정한다. 상수로 박으면 서술 인출이
+              // 「알아보기·기계채점」으로 기록되고, 기출이 지식 축에 섞인다(스펙 §9).
+              const turns = point.turns || [];
+              const onlyRecall = turns.some((t) => t.who === 'recall')
+                && !turns.some(isChoiceTurn);
+              return record({
+                id: `concept:${leafId}:${point.id}`,
+                leaf: tab === 'exam' ? progressKey : leafId,
+                path: pathFromLeafId(leafId),
+                subject: pathFromLeafId(leafId)[0] || '',
+                stage: 1,
+                axis: tab === 'exam' ? 'performance' : 'knowledge',
+                // 선택지형이지만 2회 오답 시 통과를 박탈하므로 찍기 내성이 높다(§4-3 예외).
+                f: onlyRecall ? 'recall' : 'recog',
+                g: onlyRecall ? 'self' : 'machine',
+                strict: true,
+                nopt: turns.find(isChoiceTurn)?.choices?.length,
+                src: 'internal',
+                score: d.score,
+                assisted: d.assistedCount > 0,
+                tries: d.tries,
+                ms: d.ms,
+                ts: Date.now(),
+              });
+            }}
             onNext={goNext}
             onAskSide={hasKey ? async (q) => (await askTutor(q)).answer : null}
             onQueueItem={(it) => {
