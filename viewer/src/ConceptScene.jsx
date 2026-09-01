@@ -641,28 +641,30 @@ function recapQuizzes(track) {
   return Array.from({ length: RECAP_MAX }, (_, i) => all[Math.floor(i * stride)]);
 }
 
+const BLANK_ANS = { picked: [], solved: false, assisted: false, everAssisted: false };
+
 export function ConceptRecap({ track, onExit, onFinish }) {
   const items = useMemo(() => recapQuizzes(track), [track]);
   const [i, setI] = useState(0);
-  const [picked, setPicked] = useState([]);
+  const [ans, setAns] = useState(BLANK_ANS);
   const [score, setScore] = useState({ right: 0, total: 0 });
   const [done, setDone] = useState(false);
 
   const item = items[i];
-  const choices = choicesOf(item?.turn);
-  // 진행 규칙은 conceptTurns 의 choose() 와 같아야 한다. OX 는 선지가 둘뿐이라
-  // 한 번 틀리면 남는 것이 정답 하나다 — 두 번째 시도를 「스스로 맞힘」으로 세면
-  // 되짚기 점수가 실력이 아니라 찍기 횟수를 재게 된다.
-  const maxTries = item?.turn?.who === WHO.ox ? 1 : 2;
-  const solved = picked.some((n) => choices[n]?.ok) || picked.length >= maxTries;
-  const assisted = solved && !picked.some((n) => choices[n]?.ok);
-  const ans = { picked, solved, assisted, turn: item?.turn, index: 0 };
+  // 진행 규칙을 복제하지 않는다 — 한 문항짜리 point 를 만들어 상태 기계를 그대로 쓴다.
+  // 복제하면 maxTries·everAssisted 같은 규칙이 두 곳에서 갈린다(실제로 두 번 갈렸다).
+  const onePoint = useMemo(() => ({ id: 'recap', turns: item ? [item.turn] : [] }), [item]);
+  const st = { cursor: 0, answers: { 0: ans } };
+  const solved = ans.solved;
+  const assisted = ans.assisted || ans.everAssisted;
+
+  // 문항을 넘길 때 초기화한다.
+  useEffect(() => { setAns(BLANK_ANS); }, [i]);
 
   const next = () => {
     if (!solved) return;
     const s2 = { right: score.right + (assisted ? 0 : 1), total: score.total + 1 };
     setScore(s2);
-    setPicked([]);
     if (i + 1 >= items.length) {
       // 완료 화면이 있으면 그쪽이 마무리를 맡는다 — 여기서 또 결과를 그리면 두 번 끝난다.
       if (onFinish) { onFinish(s2); return; }
@@ -670,7 +672,7 @@ export function ConceptRecap({ track, onExit, onFinish }) {
     } else setI(i + 1);
   };
 
-  const restart = () => { setI(0); setPicked([]); setScore({ right: 0, total: 0 }); setDone(false); };
+  const restart = () => { setI(0); setAns(BLANK_ANS); setScore({ right: 0, total: 0 }); setDone(false); };
 
   if (!items.length) {
     return (
@@ -722,9 +724,9 @@ export function ConceptRecap({ track, onExit, onFinish }) {
         {say && <Bubble who={say.who} text={say.text} mood={say.mood} />}
       </div>
       <div className="cs-dock">
-        <ChoiceDock item={ans}
-          onPick={(n) => setPicked((p) => (p.includes(n) || solved ? p : p.concat(n)))}
-          onAgain={() => setPicked([])}
+        <ChoiceDock item={{ ...ans, turn: item?.turn, index: 0 }}
+          onPick={(n) => setAns(choose(onePoint, st, 0, n).answers[0] || ans)}
+          onAgain={() => setAns(retry(onePoint, st, 0).answers[0] || ans)}
           onNext={next}
           nextLabel={i + 1 >= items.length ? '되짚기 마치기' : '다음'} />
         <div className="cs-tools">
