@@ -89,6 +89,10 @@ const ConceptScene = forwardRef(function ConceptScene({
   const [side, setSide] = useState([]);
   const [asking, setAsking] = useState(false);
   const [sideOpen, setSideOpen] = useState(true);
+  // 지금 화면에 떠 있는 논점. async 가 끝났을 때 「아직 그 논점인가」를 이걸로 본다.
+  // 지역 변수 point 와 비교하면 같은 클로저 안이라 언제나 참이 되어 가드가 죽는다.
+  const pointIdRef = useRef(null);
+  useEffect(() => { pointIdRef.current = point?.id || null; }, [point?.id]);
   useEffect(() => {
     setSide(leafId && point?.id ? loadSide(leafId, point.id) : []);
   }, [leafId, point?.id]);
@@ -218,7 +222,7 @@ const ConceptScene = forwardRef(function ConceptScene({
   const askSide = async (text) => {
     if (!leafId || !point?.id) return;
     const pid = point.id;                     // 이 대화가 속한 논점
-    const alive = () => pid === point?.id;    // 그 사이 논점이 바뀌었으면 화면은 건드리지 않는다
+    const alive = () => pid === pointIdRef.current; // 그 사이 논점이 바뀌었으면 화면은 건드리지 않는다
     const mine = { who: 'me', text, ts: Date.now() };
     const afterMine = appendSide(leafId, pid, mine);
     if (alive()) setSide(afterMine);

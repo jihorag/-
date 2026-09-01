@@ -20,7 +20,7 @@ import { stripUnitPrefix } from './unitTree';
 import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
 } from './trackProgress';
-import { isChoiceTurn } from './conceptTurns';
+import { isChoiceTurn, choicesOf } from './conceptTurns';
 import { getChapterMastery, updateChapterMastery, markActiveToday, getApiKey, getPrefs } from './aiLearningStore';
 import { record, pathFromLeafId } from './measure/record.js';
 import DeepChat from './DeepChat';
@@ -486,7 +486,7 @@ export default function ConceptTrack({
                 f: onlyRecall ? 'recall' : 'recog',
                 g: onlyRecall ? 'self' : 'machine',
                 strict: true,
-                nopt: turns.find(isChoiceTurn)?.choices?.length,
+                nopt: choicesOf(turns.find(isChoiceTurn))?.length || undefined,
                 src: 'internal',
                 score: d.score,
                 assisted: d.assistedCount > 0,
