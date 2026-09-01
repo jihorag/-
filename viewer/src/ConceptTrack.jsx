@@ -20,6 +20,7 @@ import { stripUnitPrefix } from './unitTree';
 import {
   STATE, getTrackProgress, setPointState, leafCounts, nextPoint, leafCoverage,
 } from './trackProgress';
+import { isChoiceTurn } from './conceptTurns';
 import { getChapterMastery, updateChapterMastery, markActiveToday, getApiKey, getPrefs } from './aiLearningStore';
 import { record, pathFromLeafId } from './measure/record.js';
 import DeepChat from './DeepChat';
@@ -138,6 +139,8 @@ export default function ConceptTrack({
       return i >= 0 ? i : 0;
     };
     setRecap(false);
+    setFinished(null);
+    enteredAt.current = Date.now();
     if (leafId?.startsWith('_extra:')) {
       const title = leafId.slice('_extra:'.length);
       const found = extra.find((e) => e.title === title) || null;
@@ -216,7 +219,7 @@ export default function ConceptTrack({
   // 되짚기는 이 관의 quiz 턴을 다시 푸는 판이다. quiz 가 하나도 없는 관
   // (문서형만 있는 관)에서는 판 자체가 성립하지 않으니 들르지 않는다.
   const hasRecap = (track?.points || []).some(
-    (p) => (p.turns || []).some((t) => t.who === 'quiz'),
+    (p) => (p.turns || []).some(isChoiceTurn),
   );
 
   const goNext = () => {
