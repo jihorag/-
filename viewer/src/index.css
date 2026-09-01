@@ -3202,7 +3202,7 @@ html, body {
   cursor: pointer;
 }
 .cs-side-back:hover { background: var(--sheet); }
-.cs-side-note { font-size: var(--text-xs); color: var(--ink-3); }
+.cs-side-note { font-size: var(--text-xs); color: var(--ink-3); background: none; border: none; cursor: pointer; }
 
 /* ── 심화 탭 — 시안 316:506 ───────────────────────────────── */
 .deep-cards { display: flex; flex-direction: column; gap: var(--space-2); }

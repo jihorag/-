@@ -32,7 +32,7 @@ import {
   isPassed, atEnd, passDetail, choicesOf, isChoiceTurn, isAnswerTurn,
   submitRecall, gradeRecall,
 } from './conceptTurns';
-import { loadSide, appendSide, clearSide } from './sideThread';
+import { loadSide, appendSide } from './sideThread';
 
 // 색으로 구분하지 않는다. 이름·아이콘·좌우 위치로만 화자를 가른다.
 // 이모지는 쓰지 않는다 — 이 앱은 lucide 아이콘 체계라 이모지만 튄다.
@@ -88,6 +88,7 @@ const ConceptScene = forwardRef(function ConceptScene({
   // 샛길 — 트랙의 cursor 를 건드리지 않는다. 그래야 돌아갈 자리가 정확하다.
   const [side, setSide] = useState([]);
   const [asking, setAsking] = useState(false);
+  const [sideOpen, setSideOpen] = useState(true);
   useEffect(() => {
     setSide(leafId && point?.id ? loadSide(leafId, point.id) : []);
   }, [leafId, point?.id]);
@@ -121,6 +122,8 @@ const ConceptScene = forwardRef(function ConceptScene({
     // 에러 없이 기록되지 않는다 — 조용한 유실이 이 제품의 최악 결함이다.
     doneRef.current = null;
     queuedRef.current = null;
+    setAsking(false);
+    setSideOpen(true);
   }, [point?.id]);
   useEffect(() => {
     if (!detail.done) return;
@@ -214,26 +217,32 @@ const ConceptScene = forwardRef(function ConceptScene({
   // 끼어들어 묻기. 답이 오든 안 오든 트랙은 그대로다.
   const askSide = async (text) => {
     if (!leafId || !point?.id) return;
+    const pid = point.id;                     // 이 대화가 속한 논점
+    const alive = () => pid === point?.id;    // 그 사이 논점이 바뀌었으면 화면은 건드리지 않는다
     const mine = { who: 'me', text, ts: Date.now() };
-    setSide(appendSide(leafId, point.id, mine));
+    const afterMine = appendSide(leafId, pid, mine);
+    if (alive()) setSide(afterMine);
     if (!onAskSide) {
-      setSide(appendSide(leafId, point.id, {
+      const after = appendSide(leafId, pid, {
         who: 'ai', ts: Date.now(),
         text: '물어보려면 API 키가 필요합니다. 설정에서 키를 넣어 주세요. 키 없이도 논점 대화와 기출 풀이는 끝까지 진행됩니다.',
-      }));
+      });
+      if (alive()) setSide(after);
       return;
     }
-    setAsking(true);
+    if (alive()) setAsking(true);
     try {
       const answer = await onAskSide(text, { point, turns });
-      setSide(appendSide(leafId, point.id, { who: 'ai', text: answer, ts: Date.now() }));
+      const after = appendSide(leafId, pid, { who: 'ai', text: answer, ts: Date.now() });
+      if (alive()) setSide(after);
     } catch (e) {
-      setSide(appendSide(leafId, point.id, {
+      const after = appendSide(leafId, pid, {
         who: 'ai', ts: Date.now(),
         text: `답을 가져오지 못했습니다. ${e?.message || ''}`.trim(),
-      }));
+      });
+      if (alive()) setSide(after);
     } finally {
-      setAsking(false);
+      if (alive()) setAsking(false);
     }
   };
 
@@ -301,7 +310,7 @@ const ConceptScene = forwardRef(function ConceptScene({
       <div className="cs-stream" ref={streamRef} onScroll={onStreamScroll}>
         {head}
         <Stream turns={turns} />
-        {side.length > 0 && (
+        {side.length > 0 && sideOpen && (
           <div className="cs-side">
             {side.map((m, i) => (
               <Bubble key={i} who={m.who === 'me' ? WHO.ask : WHO.teach}
@@ -309,10 +318,15 @@ const ConceptScene = forwardRef(function ConceptScene({
             ))}
             {asking && <p className="cs-side-note">답을 가져오는 중…</p>}
             <button type="button" className="cs-side-back"
-              onClick={() => { clearSide(leafId, point.id); setSide([]); }}>
+              onClick={() => setSideOpen(false)}>
               <CornerDownLeft size={14} strokeWidth={1.75} />돌아가기
             </button>
           </div>
+        )}
+        {side.length > 0 && !sideOpen && (
+          <button type="button" className="cs-side-note" onClick={() => setSideOpen(true)}>
+            이 논점에서 {side.filter((m) => m.who === 'me').length}번 물었습니다 · 펴 보기
+          </button>
         )}
         <div ref={bottomRef} />
       </div>
