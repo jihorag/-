@@ -37,6 +37,11 @@ class ExtractTest(unittest.TestCase):
     def test_암기법이_없으면_빈_목록(self):
         self.assertEqual(extract_mnemonics('### 관\n\n본문\n'), [])
 
+    def test_앞머리_이모지를_뗀다(self):
+        got = dict(extract_mnemonics(MD))
+        for tip in got.values():
+            self.assertNotIn('🔑', tip)
+
 
 class IdempotentTest(unittest.TestCase):
     def test_이미_있으면_다시_넣지_않는다(self):

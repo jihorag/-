@@ -11,6 +11,8 @@ import sys
 
 MEM_HEAD = re.compile(r'^#{4}\s*🧠\s*암기법\s*$', re.M)
 ANY_HEAD = re.compile(r'^(#{1,4})\s+(.+?)\s*$', re.M)
+# 교재는 암기법을 「🔑」로 시작하지만 대화 말풍선에는 이모지를 쓰지 않는다.
+LEAD_ICON = re.compile(r'^[^\w가-힣(\[]+')
 
 
 def extract_mnemonics(md):
@@ -49,7 +51,7 @@ def first_block(body):
         line = raw.strip()
         if line.startswith('>'):
             started = True
-            lines.append(line.lstrip('>').strip())
+            lines.append(LEAD_ICON.sub('', line.lstrip('>').strip()).strip())
         elif started:
             break
     lines = [x for x in lines if x]
@@ -80,10 +82,13 @@ def merge(track_path, unit_md_path):
             continue                          # 짝이 없으면 넣지 않는다
         last = pts[-1]
         text = '외우는 법 — ' + tip
-        if already_has(last, text):
-            continue
+        had_same = already_has(last, text)
+        # 옛 대사를 먼저 걷어낸다 — 안 그러면 형식을 바꿀 때마다 두 벌이 된다.
+        last['turns'] = [t for t in last.get('turns', [])
+                         if not (t.get('who') == 'mate' and t.get('text', '').startswith('외우는 법 — '))]
         last.setdefault('turns', []).append({'who': 'mate', 'text': text})
-        added += 1
+        if not had_same:
+            added += 1
     if added:
         json.dump(d, open(track_path, 'w', encoding='utf-8'), ensure_ascii=False)
     return added
