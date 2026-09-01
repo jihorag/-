@@ -2128,12 +2128,11 @@ function GyeomsanWidget() {
   );
 }
 
-// 1차 과목은 새 3탭(개념 완성·기출 분석·심화)만 쓴다. AILearning 은 2차 전용이다.
-// 깎지 않고 남겨 둔다 — 답안·양식·논점·실전은 2차에 아직 필요하다(스펙 §6-1·§12).
-// 과목을 모르거나 아직 stage 를 못 찾으면 1차 기본값('concept')으로 보낸다 — 파일럿이 경제학(1차).
-const aiViewFor = (subjectId) => (
-  (AI_SUBJECTS.find((x) => x.id === subjectId) || {}).stage === 2 ? 'civil' : 'concept'
-);
+// 개념 완성 트랙이 있는 과목만 새 3탭으로 보낸다. 나머지는 AILearning 이 맡는다.
+// 지금은 경제학만 논점 트랙이 있다(public/data/study/{과목}/lectures/track/).
+// 다른 과목 전사·저작이 끝나면 여기 더한다 — 안 더하면 그 과목은 옛 화면에 머문다.
+const CONCEPT_SUBJECTS = new Set(['economics']);
+const aiViewFor = (subjectId) => (CONCEPT_SUBJECTS.has(subjectId) ? 'concept' : 'civil');
 
 const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
@@ -4546,6 +4545,7 @@ const App = () => {
         quizStatsByLeaf={quizStatsByLeaf}
         subjectName={(AI_SUBJECTS.find((x) => x.id === subj) || {}).title || ''}
         onOpenSettings={() => openSettings('ai')}
+        initialLeafId={(getAiCurrent?.() || {}).leaf_id || null}
       />
     );
   }

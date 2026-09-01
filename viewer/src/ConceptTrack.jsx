@@ -32,9 +32,10 @@ const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
 export default function ConceptTrack({
   subjectId, leaves, onSolve, getQuizCountForLeaf, quizStatsByLeaf, subjectName,
-  onOpenSettings,
+  onOpenSettings, initialLeafId,
 }) {
-  const [leafId, setLeafId] = useState(null);
+  // 다른 화면이 「이 관 배우기」로 보낼 때 그 관에서 시작한다. 안 읽으면 목록에 떨어진다.
+  const [leafId, setLeafId] = useState(initialLeafId || null);
   const [track, setTrack] = useState(null);      // 이 관의 { leaf_id, title, points }
   const [progress, setProgress] = useState(() => getTrackProgress());
   const [idx, setIdx] = useState(0);
