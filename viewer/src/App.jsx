@@ -4541,7 +4541,6 @@ const App = () => {
       <ConceptTrack
         subjectId={subj}
         leaves={leavesBySubject[subj] || []}
-        onOpenDeep={() => setCurrentView(aiViewFor(subj))}
         onSolve={jumpToBrowseFromLeaf}
         getQuizCountForLeaf={quizCountForLeaf}
         quizStatsByLeaf={quizStatsByLeaf}

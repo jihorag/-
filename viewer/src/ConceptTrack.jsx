@@ -31,7 +31,7 @@ import { sendMessagesUnified, getProviderForModel } from './aiProviders';
 const studyBase = (subjectId) => `/data/study/${subjectId}/`;
 
 export default function ConceptTrack({
-  subjectId, leaves, onOpenDeep, onSolve, getQuizCountForLeaf, quizStatsByLeaf, subjectName,
+  subjectId, leaves, onSolve, getQuizCountForLeaf, quizStatsByLeaf, subjectName,
   onOpenSettings,
 }) {
   const [leafId, setLeafId] = useState(null);
@@ -254,7 +254,7 @@ export default function ConceptTrack({
 
   // ── 슬래시 명령 ────────────────────────────────────────────────────────
   // 여섯 중 다섯은 이미 가진 데이터로 처리한다 — API 키 없이, 오프라인에서 동작한다.
-  // 생성이 필요한 것은 「/쉽게」 하나뿐이고, 그것만 대화 엔진으로 넘긴다.
+  // 「/쉽게」만 생성이 필요한데, 화면을 떠나지 않고 그 자리에서 샛길을 연다.
   const runCommand = useCallback((cmd) => {
     switch (cmd) {
       case '/시작':
@@ -364,11 +364,11 @@ export default function ConceptTrack({
             개념 완성으로 →
           </button>
         )}
-        {onOpenDeep && (
-          <button type="button" className="concept-op" onClick={() => onOpenDeep(leafId)}>
-            AI 학습에서 대화로 배우기 →
-          </button>
-        )}
+        {/* 트랙이 없는 관에서도 대화로 배울 수 있다 — 심화 탭이 그 자리다.
+            예전에는 옛 AI 학습 화면으로 나갔는데, 이제 같은 화면 안에서 해결된다. */}
+        <button type="button" className="concept-op" onClick={() => setTab('deep')}>
+          심화에서 대화로 배우기 →
+        </button>
       </div>,
     );
   }
