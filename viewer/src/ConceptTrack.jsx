@@ -279,13 +279,13 @@ export default function ConceptTrack({
         setBook((v) => !v);
         break;
       case '/쉽게':
-        // 유일하게 생성이 필요한 명령. 사용자가 키를 넣어 둔 경우에만 실제로 답이 온다.
-        onOpenDeep?.(leafId, point, '방금 설명을 더 쉬운 말로 다시 해 주세요.');
+        // 「더 쉽게」는 지금 논점을 벗어날 이유가 없다. 샛길로 그 자리에서 묻는다.
+        askSideFromTrack('방금 설명을 더 쉬운 말로 다시 해 주세요.');
         break;
       default:
         break;
     }
-  }, [track, hasRecap, leafId, point, onOpenDeep]);
+  }, [track, hasRecap, leafId, point]);
 
   if (!leafId) {
     return (
@@ -483,7 +483,6 @@ export default function ConceptTrack({
               ts: Date.now(),
             })}
             onNext={goNext}
-            onAsk={onOpenDeep ? (text) => onOpenDeep(leafId, point, text) : null}
             onAskSide={hasKey ? async (q) => (await askTutor(q)).answer : null}
             onQueueItem={(it) => {
               recordItem({

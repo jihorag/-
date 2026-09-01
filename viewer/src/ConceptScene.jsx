@@ -79,7 +79,7 @@ function quizSay(turn, ans) {
 }
 
 const ConceptScene = forwardRef(function ConceptScene({
-  point, seq, total, onPassed, onDone, onNext, onAsk, onCommand, leafId, onAskSide,
+  point, seq, total, onPassed, onDone, onNext, onCommand, leafId, onAskSide,
   onQueueItem,
 }, ref) {
   const [state, setState] = useState(initTurnState);

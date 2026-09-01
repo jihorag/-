@@ -33,7 +33,7 @@ import UsageDashboard from './UsageDashboard';
 import ToastContainer, { toast } from './Toast';
 import CmdK from './CmdK';
 import { findLeafByPath, questionsInLeaf, leafQuizStats, QUIZ_SUBJECT_TO_AI, AI_SUBJECT_TO_QUIZ } from './leafStats';
-import { setCurrent as setAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS, getPrefs as getAiPrefs, setPrefs as setAiPrefs, getApiKey as getProviderKey, setApiKey as setProviderKey, getBaseUrls, setBaseUrl, getPendingChecks, clearPendingCheck } from './aiLearningStore';
+import { setCurrent as setAiCurrent, getCurrent as getAiCurrent, getMastery as getAiMastery, getDueChapters as getAiDue, SUBJECTS as AI_SUBJECTS, getPrefs as getAiPrefs, setPrefs as setAiPrefs, getApiKey as getProviderKey, setApiKey as setProviderKey, getBaseUrls, setBaseUrl, getPendingChecks, clearPendingCheck } from './aiLearningStore';
 import { MODELS as AI_MODELS } from './aiClaudeClient';
 import { getProviderForModel, ALL_MODELS, sendMessagesUnified, modelRequiresProxy } from './aiProviders';
 import MockExam from './MockExam';
@@ -2128,6 +2128,13 @@ function GyeomsanWidget() {
   );
 }
 
+// 1차 과목은 새 3탭(개념 완성·기출 분석·심화)만 쓴다. AILearning 은 2차 전용이다.
+// 깎지 않고 남겨 둔다 — 답안·양식·논점·실전은 2차에 아직 필요하다(스펙 §6-1·§12).
+// 과목을 모르거나 아직 stage 를 못 찾으면 1차 기본값('concept')으로 보낸다 — 파일럿이 경제학(1차).
+const aiViewFor = (subjectId) => (
+  (AI_SUBJECTS.find((x) => x.id === subjectId) || {}).stage === 2 ? 'civil' : 'concept'
+);
+
 const App = () => {
   const [questionsData, setQuestionsData] = useState([]);
   const [aigenList, setAigenList] = useState(loadAigen); // ✨ AI 생성 문제 (localStorage)
@@ -2211,8 +2218,9 @@ const App = () => {
   }, [leavesBySubject]);
   // AI 학습 탭으로 점프 (특정 leaf 지정 가능)
   const jumpToAILearn = useCallback((leaf, mode, docTab) => {
+    let sid = null;
     if (leaf) {
-      const sid = (leaf.id || '').split('__')[0];
+      sid = (leaf.id || '').split('__')[0];
       try { setAiCurrent({ subject: sid, leaf_id: leaf.id }); } catch { /* SSR */ }
     }
     // 커리큘럼 스텝이 특정 AI 모드·문서탭으로 진입하도록 딥링크 힌트 저장(AILearning이 mount 시 소비).
@@ -2220,7 +2228,7 @@ const App = () => {
       if (mode || docTab) localStorage.setItem('ailearn-jump', JSON.stringify({ mode: mode || null, docTab: docTab || null, ts: Date.now() }));
       else localStorage.removeItem('ailearn-jump');
     } catch { /* SSR */ }
-    setCurrentView('civil');
+    setCurrentView(aiViewFor(sid || getAiCurrent()?.subject));
     window.scrollTo(0, 0);
   }, []);
   // 문항의 분류 경로(과목/세부과목/장/절/관)로 AI 학습 leaf 찾기 — 풀이 화면용
@@ -3673,7 +3681,7 @@ const App = () => {
       case 'study': {
         const target = leaf || (task.subjectId ? (leavesBySubject[task.subjectId] || [])[0] : null);
         if (target) jumpToAILearn(target, task.mode, task.docTab);
-        else { setCurrentView('civil'); window.scrollTo(0, 0); }
+        else { setCurrentView(is2 ? 'civil' : 'concept'); window.scrollTo(0, 0); }
         break;
       }
       case 'solve': {
@@ -4464,13 +4472,13 @@ const App = () => {
             window.scrollTo(0, 0);
           } else if (action.type === 'subject') {
             try { setAiCurrent({ subject: action.id, leaf_id: null }); } catch { /* noop */ }
-            setCurrentView('civil');
+            setCurrentView(aiViewFor(action.id));
             window.scrollTo(0, 0);
           } else if (action.type === 'leaf') {
             if (!action.leaf) return;
             const sid = (action.leaf.id || '').split('__')[0];
             try { setAiCurrent({ subject: sid, leaf_id: action.leaf.id }); } catch { /* noop */ }
-            setCurrentView('civil');
+            setCurrentView(aiViewFor(sid));
             window.scrollTo(0, 0);
           } else if (action.type === 'settings') {
             openSettings(action.ctx);
@@ -4533,7 +4541,7 @@ const App = () => {
       <ConceptTrack
         subjectId={subj}
         leaves={leavesBySubject[subj] || []}
-        onOpenDeep={() => setCurrentView('civil')}
+        onOpenDeep={() => setCurrentView(aiViewFor(subj))}
         onSolve={jumpToBrowseFromLeaf}
         getQuizCountForLeaf={quizCountForLeaf}
         quizStatsByLeaf={quizStatsByLeaf}
@@ -4610,7 +4618,7 @@ const App = () => {
         if (subjId) {
           try { localStorage.setItem('ailearn-current', JSON.stringify({ subject: subjId, leaf_id: leaf.id })); } catch { /* noop */ }
         }
-        setCurrentView('civil');
+        setCurrentView(aiViewFor(subjId));
       }} />);
   }
 
@@ -6239,7 +6247,7 @@ const App = () => {
                 if (subjId) {
                   try { localStorage.setItem('ailearn-current', JSON.stringify({ subject: subjId, leaf_id: leaf.id })); } catch { /* noop */ }
                 }
-                setCurrentView('civil');
+                setCurrentView(aiViewFor(subjId));
               }}
               onDrill={(leaf) => jumpToDrill(leaf)}
             />
@@ -6271,7 +6279,7 @@ const App = () => {
                 if (subjId) {
                   try { localStorage.setItem('ailearn-current', JSON.stringify({ subject: subjId, leaf_id: leafId })); } catch { /* noop */ }
                 }
-                setCurrentView('civil');
+                setCurrentView(aiViewFor(subjId));
               }}
             />
           </div>
@@ -6468,7 +6476,7 @@ const App = () => {
       nowTask = { label: '지금 할 일', title: `AI 학습 복습 ${aiDueLocal.length}단원`,
         desc: '배운 단원의 복습 시점이 됐어요',
         cta: '복습 시작', minutes: Math.max(5, aiDueLocal.length * 6),
-        onGo: () => setCurrentView('civil') };
+        onGo: () => setCurrentView(aiViewFor(getAiCurrent()?.subject)) };
     } else if (weak0) {
       nowTask = { label: '지금 할 일', title: `약점 보강 · ${weak0.label || weak0.name || '취약 단원'}`,
         desc: '정답률이 낮은 단원부터 끌어올리는 게 가장 빠릅니다',
@@ -6476,7 +6484,7 @@ const App = () => {
     } else {
       nowTask = { label: '지금 할 일', title: '오늘 학습 시작하기',
         desc: '복습 대기가 없어요 — 새 단원을 진행할 차례입니다',
-        cta: '이어서 학습', minutes: 25, onGo: () => setCurrentView('civil') };
+        cta: '이어서 학습', minutes: 25, onGo: () => setCurrentView(aiViewFor(getAiCurrent()?.subject)) };
     }
 
     // 과목 현황 — 실력 점수(0~100, 합격선 60). 아직 못 구했으면 정답률로 대신한다.
@@ -6511,7 +6519,7 @@ const App = () => {
     // 부제는 실제 값이 있을 때만. 자리채움 문구를 넣지 않는다.
     const quick = [
       { key: 'tutor', title: 'AI 학습', desc: aiDueLocal.length ? `복습 ${aiDueLocal.length}단원 도래` : null,
-        onGo: () => setCurrentView('civil') },
+        onGo: () => setCurrentView(aiViewFor(getAiCurrent()?.subject)) },
       { key: 'drill', title: '드릴', desc: dueDrillCount ? `주제 ${dueDrillCount}개 도래` : null,
         onGo: () => setCurrentView('quizHome') },
       { key: 'quiz', title: '문제풀이', desc: srs.due.length ? `복습 ${srs.due.length}문항 대기` : null,
@@ -6564,7 +6572,7 @@ const App = () => {
         onJumpConsumed={() => setDrillJump(null)}
         onGoAI={(sid, leaf) => {
           try { setAiCurrent({ subject: sid, leaf_id: leaf.id }); } catch { /* noop */ }
-          setCurrentView('civil');
+          setCurrentView(aiViewFor(sid));
           window.scrollTo(0, 0);
         }}
         onGoSolve={(leaf) => {
